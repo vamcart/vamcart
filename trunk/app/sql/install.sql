@@ -16,6 +16,9 @@ CREATE TABLE languages (
     modified DATETIME DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;
 
+INSERT INTO `languages` VALUES (1, 'English', 'eng', now(), now());
+INSERT INTO `languages` VALUES (2, 'Русский', 'rus', now(), now());
+
 DROP TABLE IF EXISTS configurations;
 CREATE TABLE configurations (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
