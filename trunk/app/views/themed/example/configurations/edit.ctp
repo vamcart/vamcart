@@ -1,8 +1,8 @@
-<h1><?php __('Edit Post') ?></h1>
+<h1><?php __('Edit Configuration') ?></h1>
 <?php
-	echo $form->create('Post', array('action' => 'edit'));
-	echo $form->input('title');
-	echo $form->input('body', array('rows' => '3'));
+	echo $form->create('Configuration', array('action' => 'edit'));
+	echo $form->input('configuration_key');
+	echo $form->input('configuration_value');
 	echo $form->input('id', array('type'=>'hidden')); 
-	echo $form->end(__('Save Post',true));
+	echo $form->end(__('Save',true));
 ?>

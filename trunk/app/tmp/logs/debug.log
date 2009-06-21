@@ -172,3 +172,5 @@
 2009-06-21 17:50:04 Notice: Notice (8): Undefined property:  Language::$enabled in [CORE/cake/libs/controller/component.php, line 127]
 2009-06-21 17:50:04 Notice: Notice (8): Undefined property:  Language::$enabled in [CORE/cake/libs/controller/component.php, line 111]
 2009-06-21 17:50:04 Notice: Notice (8): Undefined property:  Language::$enabled in [CORE/cake/libs/controller/component.php, line 127]
+2009-06-21 18:37:50 Notice: Notice (8): Undefined property:  Configuration::$enabled in [CORE/cake/libs/controller/component.php, line 111]
+2009-06-21 18:37:50 Notice: Notice (8): Undefined property:  Configuration::$enabled in [CORE/cake/libs/controller/component.php, line 127]

@@ -1,20 +1,9 @@
-<!-- File: /app/views/posts/add.ctp -->	
 <?php echo $html->css('forms', '', '', false); ?>
 <?php echo $javascript->link('forms.js', false); ?>
-<h1><?php __('Add Post') ?></h1>
+<h1><?php __('Add Configuration') ?></h1>
 <?php
-echo $form->create('Post');
-?>
-
-<?php for ($i=0; $i<sizeof($language); $i++) { ?>
-<h3><?php echo $language[$i]['Language']['name']; ?></h3>
-<?php
-echo $form->input('title.'.$language[$i]['Language']['code'], array('label' => __('Title',true)));
-echo $form->input('body.'.$language[$i]['Language']['code'], array('label' => __('Body',true),'rows' => '3'));
-?>
-
-<?php } ?>
-
-<?php
-echo $form->end(__('Save Post',true));
+echo $form->create('Configuration');
+echo $form->input('configuration_key', array('label' => __('Configuration Key',true)));
+echo $form->input('configuration_value', array('label' => __('Configuration Value',true)));
+echo $form->end(__('Save Configuration',true));
 ?>
