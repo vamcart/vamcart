@@ -1,0 +1,72 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# No version information was available in the source files.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2009-06-18 20:58+0400\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: /controllers/posts_controller.php:8
+#: /views/themed/example/posts/index.ctp:6
+msgid "Title"
+msgstr ""
+
+#: /controllers/posts_controller.php:20
+msgid "Your post has been saved."
+msgstr ""
+
+#: /views/themed/example/posts/add.ctp:4
+#: /views/themed/example/posts/index.ctp:2
+msgid "Add Post"
+msgstr ""
+
+#: /views/themed/example/posts/add.ctp:9
+#: /views/themed/example/posts/edit.ctp:7
+msgid "Save Post"
+msgstr ""
+
+#: /views/themed/example/posts/edit.ctp:1
+msgid "Edit Post"
+msgstr ""
+
+#: /views/themed/example/posts/index.ctp:1
+msgid "Blog posts"
+msgstr ""
+
+#: /views/themed/example/posts/index.ctp:5
+msgid "Id"
+msgstr ""
+
+#: /views/themed/example/posts/index.ctp:7
+msgid "Action"
+msgstr ""
+
+#: /views/themed/example/posts/index.ctp:8
+msgid "Created"
+msgstr ""
+
+#: /views/themed/example/posts/index.ctp:21
+msgid "Delete"
+msgstr ""
+
+#: /views/themed/example/posts/index.ctp:24
+msgid "Are you sure?"
+msgstr ""
+
+#: /views/themed/example/posts/index.ctp:26
+msgid "Edit"
+msgstr ""
+
+#: /views/themed/example/posts/view.ctp:3
+msgid "Created:"
+msgstr ""
+
