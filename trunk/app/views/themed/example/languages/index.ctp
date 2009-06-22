@@ -8,7 +8,12 @@
 		<th><?php __('Created') ?></th>
 	</tr>
 
-<!-- Here's where we loop through our $languages array, printing out language info -->
+<?php echo Configure::read('Config.store.name'); ?>
+
+<p>
+<?php echo $html->link($html->image('eng.gif'), '/lang/eng', null, null, false); ?>
+<?php echo $html->link($html->image('rus.gif'), '/lang/rus', null, null, false); ?>
+</p>
 
 <?php foreach ($languages as $language): ?>
 	<tr>
