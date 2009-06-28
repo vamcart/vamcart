@@ -1,7 +1,7 @@
 <?php
-class Categorie extends AppModel
+class Cat extends AppModel
 {
-	var $name = 'Categorie';
+	var $name = 'Cat';
 
 	var $actsAs = array(
 		'Translate' => array(
@@ -10,10 +10,10 @@ class Categorie extends AppModel
 	);
 
 	// Use a different model
-	var $translateModel = 'CategorieTranslation';
+	var $translateModel = 'CatTranslation';
 	
 	// Use a different table for translateModel
-	var $translateTable = 'categorie_translations';
+	var $translateTable = 'cat_translations';
 		
 	var $validate = array(
 		'name' => array(

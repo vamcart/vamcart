@@ -1,5 +1,5 @@
 <h1><?php __('Categories') ?></h1>
-<p><?php echo $html->link(__('Add Categorie',true), array('action'=>'add')); ?>
+<p><?php echo $html->link(__('Add Category',true), array('action'=>'add')); ?>
 <table>
 	<tr>
 		<th><?php echo $paginator->sort(__('Id',true), 'id'); ?></th>
@@ -8,26 +8,26 @@
 		<th><?php echo $paginator->sort(__('Created',true), 'created'); ?></th>
 	</tr>
 
-<!-- Here's where we loop through our $categories array, printing out categorie info -->
+<!-- Here's where we loop through our $cats array, printing out cat info -->
 
 <?php echo Configure::read('Config.store.name'); ?>
 
-<?php foreach ($categories as $categorie): ?>
+<?php foreach ($cats as $cat): ?>
 	<tr>
-		<td><?php echo $categorie['Categorie']['id']; ?></td>
+		<td><?php echo $cat['Cat']['id']; ?></td>
 		<td>
-			<?php echo $html->link($categorie['Categorie']['name'],array('action'=>'view', 'id'=>$categorie['Categorie']['id']));?>
+			<?php echo $html->link($cat['Cat']['name'],array('action'=>'view', 'id'=>$cat['Cat']['id']));?>
                 </td>
                 <td>
 			<?php echo $html->link(
 				__('Delete',true), 
-				array('action'=>'delete', 'id'=>$categorie['Categorie']['id']), 
+				array('action'=>'delete', 'id'=>$cat['Cat']['id']), 
 				null, 
 				__('Are you sure?',true)
 			)?>
-			<?php echo $html->link(__('Edit',true), array('action'=>'edit', 'id'=>$categorie['Categorie']['id']));?>
+			<?php echo $html->link(__('Edit',true), array('action'=>'edit', 'id'=>$cat['Cat']['id']));?>
 		</td>
-		<td><?php echo $categorie['Categorie']['created']; ?></td>
+		<td><?php echo $cat['Cat']['created']; ?></td>
 	</tr>
 <?php endforeach; ?>
 

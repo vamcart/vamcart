@@ -1,9 +1,9 @@
-<!-- File: /app/views/categories/add.ctp -->	
+<!-- File: /app/views/cats/add.ctp -->	
 <?php echo $html->css('forms', '', '', false); ?>
 <?php echo $javascript->link('forms.js', false); ?>
-<h1><?php __('Add Categorie') ?></h1>
+<h1><?php __('Add Category') ?></h1>
 <?php
-echo $form->create('Categorie');
+echo $form->create('Cat');
 ?>
 
 <?php for ($i=0; $i<sizeof($language); $i++) { ?>
@@ -16,5 +16,5 @@ echo $form->input('description.'.$language[$i]['Language']['code'], array('label
 <?php } ?>
 
 <?php
-echo $form->end(__('Save Categorie',true));
+echo $form->end(__('Save Category',true));
 ?>

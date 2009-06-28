@@ -1,6 +1,6 @@
 <?php
-class CategorieTranslation extends AppModel { 
+class CatTranslation extends AppModel { 
 	var $displayField = 'field'; // important
 }
-// filename: categorie_translation.php
+// filename: cat_translation.php
 ?>
