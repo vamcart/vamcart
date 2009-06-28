@@ -22,8 +22,8 @@ CREATE TABLE `page_translations` (
   KEY `field` (`field`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_general_ci AUTO_INCREMENT=1;
 
-DROP TABLE IF EXISTS categories;
-CREATE TABLE categories (
+DROP TABLE IF EXISTS cats;
+CREATE TABLE cats (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50),
     description TEXT,
@@ -31,8 +31,8 @@ CREATE TABLE categories (
     modified DATETIME DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;
 
-DROP TABLE IF EXISTS categorie_translations;
-CREATE TABLE `categorie_translations` (
+DROP TABLE IF EXISTS cat_translations;
+CREATE TABLE `cat_translations` (
   `id` int(10) NOT NULL auto_increment,
   `locale` varchar(6) NOT NULL default '',
   `model` varchar(255) NOT NULL default '',
