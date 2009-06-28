@@ -10,11 +10,6 @@
 
 <?php echo Configure::read('Config.store.name'); ?>
 
-<p>
-<?php echo $html->link($html->image('eng.gif'), '/lang/eng', null, null, false); ?>
-<?php echo $html->link($html->image('rus.gif'), '/lang/rus', null, null, false); ?>
-</p>
-
 <?php foreach ($languages as $language): ?>
 	<tr>
 		<td><?php echo $language['Language']['id']; ?></td>

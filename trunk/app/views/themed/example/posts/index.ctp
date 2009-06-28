@@ -12,16 +12,6 @@
 
 <?php echo Configure::read('Config.store.name'); ?>
 
-<p>
-<?php echo $html->link($html->image('eng.gif'), '/lang/eng', null, null, false); ?>
-<?php echo $html->link($html->image('rus.gif'), '/lang/rus', null, null, false); ?>
-</p>
-
-<p>
-<?php echo $html->link($html->image('eng.gif'), '/lang/eng/posts', null, null, false); ?>
-<?php echo $html->link($html->image('rus.gif'), '/lang/rus/posts', null, null, false); ?>
-</p>
-
 <?php foreach ($posts as $post): ?>
 	<tr>
 		<td><?php echo $post['Post']['id']; ?></td>

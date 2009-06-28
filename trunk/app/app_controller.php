@@ -3,6 +3,5 @@ class AppController extends Controller {
    var $view = 'Theme';
    var $theme = 'example';
    var $persistModel = true;
-   var $components = array('ChangeLang'); 
 }
 ?>
