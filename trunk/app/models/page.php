@@ -10,7 +10,7 @@ class Page extends AppModel
 	);
 
 	// Use a different model
-	var $translateModel = 'PageI18n';
+	var $translateModel = 'PageTranslation';
 	
 	// Use a different table for translateModel
 	var $translateTable = 'page_translations';
