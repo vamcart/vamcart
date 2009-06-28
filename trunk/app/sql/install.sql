@@ -20,7 +20,55 @@ CREATE TABLE `page_translations` (
   KEY `model` (`model`),
   KEY `row_id` (`foreign_key`),
   KEY `field` (`field`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_general_ci AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_general_ci AUTO_INCREMENT=1;
+
+DROP TABLE IF EXISTS categories;
+CREATE TABLE categories (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50),
+    description TEXT,
+    created DATETIME DEFAULT NULL,
+    modified DATETIME DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;
+
+DROP TABLE IF EXISTS categorie_translations;
+CREATE TABLE `categorie_translations` (
+  `id` int(10) NOT NULL auto_increment,
+  `locale` varchar(6) NOT NULL default '',
+  `model` varchar(255) NOT NULL default '',
+  `foreign_key` int(10) NOT NULL default '0',
+  `field` varchar(255) NOT NULL default '',
+  `content` text,
+  PRIMARY KEY  (`id`),
+  KEY `locale` (`locale`),
+  KEY `model` (`model`),
+  KEY `row_id` (`foreign_key`),
+  KEY `field` (`field`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_general_ci AUTO_INCREMENT=1;
+
+DROP TABLE IF EXISTS products;
+CREATE TABLE products (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50),
+    description TEXT,
+    created DATETIME DEFAULT NULL,
+    modified DATETIME DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;
+
+DROP TABLE IF EXISTS product_translations;
+CREATE TABLE `product_translations` (
+  `id` int(10) NOT NULL auto_increment,
+  `locale` varchar(6) NOT NULL default '',
+  `model` varchar(255) NOT NULL default '',
+  `foreign_key` int(10) NOT NULL default '0',
+  `field` varchar(255) NOT NULL default '',
+  `content` text,
+  PRIMARY KEY  (`id`),
+  KEY `locale` (`locale`),
+  KEY `model` (`model`),
+  KEY `row_id` (`foreign_key`),
+  KEY `field` (`field`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_general_ci AUTO_INCREMENT=1;
 
 DROP TABLE IF EXISTS languages;
 CREATE TABLE languages (
