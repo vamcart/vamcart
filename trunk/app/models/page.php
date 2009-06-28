@@ -1,7 +1,7 @@
 <?php
-class Post extends AppModel
+class Page extends AppModel
 {
-	var $name = 'Post';
+	var $name = 'Page';
 
 	var $actsAs = array(
 		'Translate' => array(
@@ -10,10 +10,10 @@ class Post extends AppModel
 	);
 
 	// Use a different model
-	var $translateModel = 'PostI18n';
+	var $translateModel = 'PageI18n';
 	
 	// Use a different table for translateModel
-	var $translateTable = 'post_translations';
+	var $translateTable = 'page_translations';
 		
 	var $validate = array(
 		'title' => array(

@@ -1,9 +1,9 @@
-<!-- File: /app/views/posts/add.ctp -->	
+<!-- File: /app/views/pages/add.ctp -->	
 <?php echo $html->css('forms', '', '', false); ?>
 <?php echo $javascript->link('forms.js', false); ?>
-<h1><?php __('Add Post') ?></h1>
+<h1><?php __('Add Page') ?></h1>
 <?php
-echo $form->create('Post');
+echo $form->create('Page');
 ?>
 
 <?php for ($i=0; $i<sizeof($language); $i++) { ?>
@@ -16,5 +16,5 @@ echo $form->input('body.'.$language[$i]['Language']['code'], array('label' => __
 <?php } ?>
 
 <?php
-echo $form->end(__('Save Post',true));
+echo $form->end(__('Save Page',true));
 ?>

@@ -1,5 +1,5 @@
-<h1><?php __('Blog posts') ?></h1>
-<p><?php echo $html->link(__('Add Post',true), array('action'=>'add')); ?>
+<h1><?php __('Pages') ?></h1>
+<p><?php echo $html->link(__('Add Page',true), array('action'=>'add')); ?>
 <table>
 	<tr>
 		<th><?php echo $paginator->sort(__('Id',true), 'id'); ?></th>
@@ -8,26 +8,26 @@
 		<th><?php echo $paginator->sort(__('Created',true), 'created'); ?></th>
 	</tr>
 
-<!-- Here's where we loop through our $posts array, printing out post info -->
+<!-- Here's where we loop through our $pages array, printing out page info -->
 
 <?php echo Configure::read('Config.store.name'); ?>
 
-<?php foreach ($posts as $post): ?>
+<?php foreach ($pages as $page): ?>
 	<tr>
-		<td><?php echo $post['Post']['id']; ?></td>
+		<td><?php echo $page['Page']['id']; ?></td>
 		<td>
-			<?php echo $html->link($post['Post']['title'],array('action'=>'view', 'id'=>$post['Post']['id']));?>
+			<?php echo $html->link($page['Page']['title'],array('action'=>'view', 'id'=>$page['Page']['id']));?>
                 </td>
                 <td>
 			<?php echo $html->link(
 				__('Delete',true), 
-				array('action'=>'delete', 'id'=>$post['Post']['id']), 
+				array('action'=>'delete', 'id'=>$page['Page']['id']), 
 				null, 
 				__('Are you sure?',true)
 			)?>
-			<?php echo $html->link(__('Edit',true), array('action'=>'edit', 'id'=>$post['Post']['id']));?>
+			<?php echo $html->link(__('Edit',true), array('action'=>'edit', 'id'=>$page['Page']['id']));?>
 		</td>
-		<td><?php echo $post['Post']['created']; ?></td>
+		<td><?php echo $page['Page']['created']; ?></td>
 	</tr>
 <?php endforeach; ?>
 

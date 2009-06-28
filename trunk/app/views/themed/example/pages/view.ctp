@@ -1,5 +1,5 @@
-<h1><?php echo $post['Post']['title']?></h1>
+<h1><?php echo $page['Page']['title']?></h1>
 
-<p><small><?php __('Created:') ?> <?php echo $post['Post']['created']?></small></p>
+<p><small><?php __('Created:') ?> <?php echo $page['Page']['created']?></small></p>
 
-<p><?php echo $post['Post']['body']?></p>
+<p><?php echo $page['Page']['body']?></p>

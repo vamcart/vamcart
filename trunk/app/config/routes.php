@@ -37,22 +37,6 @@
  */
 //	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
-Router::connect ('/', array('controller'=>'posts', 'action'=>'index'));
-
-//route to switch locale
-Router::connect('/lang/*', array('controller' => 'changelang', 'action' => 'change'));
-
-//forgiving routes that allow users to change the lang of any page
-Router::connect('/eng?/*', array(
-    'controller' => "ChangeLang",
-    'action' => "shuntRequest",
-    'lang' => 'eng'
-));
-
-Router::connect('/rus?/*', array(
-    'controller' => "ChangeLang",
-    'action' => "shuntRequest",
-    'lang' => 'rus'
-));
+Router::connect ('/', array('controller'=>'pages', 'action'=>'index'));
 
 ?>
