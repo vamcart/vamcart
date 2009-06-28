@@ -33,8 +33,8 @@ INSERT INTO `configurations` (configuration_key, configuration_value, created, m
 INSERT INTO `configurations` (configuration_key, configuration_value, created, modified) VALUES ('layout.theme', 'example', now(), now());
 INSERT INTO `configurations` (configuration_key, configuration_value, created, modified) VALUES ('layout.template', 'example', now(), now());
 
-DROP TABLE IF EXISTS i18n;
-CREATE TABLE `i18n` (
+DROP TABLE IF EXISTS post_translations;
+CREATE TABLE `post_translations` (
   `id` int(10) NOT NULL auto_increment,
   `locale` varchar(6) NOT NULL default '',
   `model` varchar(255) NOT NULL default '',

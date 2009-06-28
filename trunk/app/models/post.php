@@ -8,7 +8,13 @@ class Post extends AppModel
 			'title', 'body'
 		)
 	);
+
+	// Use a different model
+	var $translateModel = 'PostI18n';
 	
+	// Use a different table for translateModel
+	var $translateTable = 'post_translations';
+		
 	var $validate = array(
 		'title' => array(
 			'rule' => 'notEmpty'
