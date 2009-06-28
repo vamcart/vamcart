@@ -1,5 +1,5 @@
-<h1><?php echo $page['Page']['title']?></h1>
+<h1><?php echo $product['Product']['name']?></h1>
 
-<p><small><?php __('Created:') ?> <?php echo $page['Page']['created']?></small></p>
+<p><small><?php __('Created:') ?> <?php echo $product['Product']['created']?></small></p>
 
-<p><?php echo $page['Page']['body']?></p>
+<p><?php echo $product['Product']['description']?></p>

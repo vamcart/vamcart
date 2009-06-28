@@ -1,33 +1,33 @@
-<h1><?php __('Pages') ?></h1>
-<p><?php echo $html->link(__('Add Page',true), array('action'=>'add')); ?>
+<h1><?php __('Categories') ?></h1>
+<p><?php echo $html->link(__('Add Categorie',true), array('action'=>'add')); ?>
 <table>
 	<tr>
 		<th><?php echo $paginator->sort(__('Id',true), 'id'); ?></th>
-		<th><?php echo $paginator->sort(__('Title',true), 'title'); ?></th>
+		<th><?php echo $paginator->sort(__('Name',true), 'name'); ?></th>
       <th><?php __('Action') ?></th>
 		<th><?php echo $paginator->sort(__('Created',true), 'created'); ?></th>
 	</tr>
 
-<!-- Here's where we loop through our $pages array, printing out page info -->
+<!-- Here's where we loop through our $categories array, printing out categorie info -->
 
 <?php echo Configure::read('Config.store.name'); ?>
 
-<?php foreach ($pages as $page): ?>
+<?php foreach ($categories as $categorie): ?>
 	<tr>
-		<td><?php echo $page['Page']['id']; ?></td>
+		<td><?php echo $categorie['Categorie']['id']; ?></td>
 		<td>
-			<?php echo $html->link($page['Page']['title'],array('action'=>'view', 'id'=>$page['Page']['id']));?>
+			<?php echo $html->link($categorie['Categorie']['name'],array('action'=>'view', 'id'=>$categorie['Categorie']['id']));?>
                 </td>
                 <td>
 			<?php echo $html->link(
 				__('Delete',true), 
-				array('action'=>'delete', 'id'=>$page['Page']['id']), 
+				array('action'=>'delete', 'id'=>$categorie['Categorie']['id']), 
 				null, 
 				__('Are you sure?',true)
 			)?>
-			<?php echo $html->link(__('Edit',true), array('action'=>'edit', 'id'=>$page['Page']['id']));?>
+			<?php echo $html->link(__('Edit',true), array('action'=>'edit', 'id'=>$categorie['Categorie']['id']));?>
 		</td>
-		<td><?php echo $page['Page']['created']; ?></td>
+		<td><?php echo $categorie['Categorie']['created']; ?></td>
 	</tr>
 <?php endforeach; ?>
 

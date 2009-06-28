@@ -1,5 +1,5 @@
-<h1><?php echo $page['Page']['title']?></h1>
+<h1><?php echo $categorie['Categorie']['name']?></h1>
 
-<p><small><?php __('Created:') ?> <?php echo $page['Page']['created']?></small></p>
+<p><small><?php __('Created:') ?> <?php echo $categorie['Categorie']['created']?></small></p>
 
-<p><?php echo $page['Page']['body']?></p>
+<p><?php echo $categorie['Categorie']['description']?></p>

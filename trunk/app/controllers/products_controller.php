@@ -1,50 +1,50 @@
 <?php
-class PagesController extends AppController {
-	var $name = 'Pages';
+class ProductsController extends AppController {
+	var $name = 'Products';
    var $helpers = array('Html', 'Javascript');
    var $components = array('Lang','Config');
 
     var $paginate = array(
         'limit' => 5,
         'order' => array(
-            'Page.id' => 'desc'
+            'Product.id' => 'desc'
         )
     );
 
 	function index() {
-//		$this->set('pages', $this->Page->find('all'));
-	   $data = $this->paginate('Page');
-      $this->set('pages', $data);
+//		$this->set('products', $this->Product->find('all'));
+	   $data = $this->paginate('Product');
+      $this->set('products', $data);
 		$this->pageTitle = __('Title',true);
 	}
 
 	function view($id) {
-		$this->Page->id = $id;
-		$this->set('page', $this->Page->read());
+		$this->Product->id = $id;
+		$this->set('product', $this->Product->read());
 
 	}
 
 	function add() {
 			$this->set('language',$this->Lang->load_language());	
 		if (!empty($this->data)) {
-			if ($this->Page->save($this->data)) {
-				$this->Session->setFlash(__('Your page has been saved.',true));
+			if ($this->Product->save($this->data)) {
+				$this->Session->setFlash(__('Your product has been saved.',true));
 				$this->redirect(array('action' => 'index'));
 			}
 		}
 	}
 function delete($id) {
-	$this->Page->del($id);
-	$this->Session->setFlash(__('The page with id: '.$id.' has been deleted.',true));
+	$this->Product->del($id);
+	$this->Session->setFlash(__('The product with id: '.$id.' has been deleted.',true));
 	$this->redirect(array('action'=>'index'));
 }
 function edit($id = null) {
-	$this->Page->id = $id;
+	$this->Product->id = $id;
 	if (empty($this->data)) {
-		$this->data = $this->Page->read();
+		$this->data = $this->Product->read();
 	} else {
-		if ($this->Page->save($this->data)) {
-			$this->Session->setFlash(__('Your page id: '.$id.' has been updated.',true));
+		if ($this->Product->save($this->data)) {
+			$this->Session->setFlash(__('Your product id: '.$id.' has been updated.',true));
 			$this->redirect(array('action' => 'index'));
 		}
 	}

@@ -1,25 +1,25 @@
 <?php
-class Page extends AppModel
+class Product extends AppModel
 {
-	var $name = 'Page';
+	var $name = 'Product';
 
 	var $actsAs = array(
 		'Translate' => array(
-			'title', 'body'
+			'name', 'description'
 		)
 	);
 
 	// Use a different model
-	var $translateModel = 'PageTranslation';
+	var $translateModel = 'ProductTranslation';
 	
 	// Use a different table for translateModel
-	var $translateTable = 'page_translations';
+	var $translateTable = 'product_translations';
 		
 	var $validate = array(
-		'title' => array(
+		'name' => array(
 			'rule' => 'notEmpty'
 		),
-		'body' => array(
+		'description' => array(
 			'rule' => 'notEmpty'
 		)
 	);

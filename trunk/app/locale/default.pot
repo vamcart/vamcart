@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2009-06-28 15:32+0400\n"
+"POT-Creation-Date: 2009-06-28 16:13+0400\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -15,151 +15,224 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: /controllers/configurations_controller.php:9
-msgid "Configuration"
-msgstr ""
-
-#: /controllers/configurations_controller.php:15
-msgid "Your Configuration has been saved."
-msgstr ""
-
+#: /controllers/categories_controller.php:18
 #: /controllers/languages_controller.php:9
 #: /controllers/pages_controller.php:18
+#: /controllers/products_controller.php:18
 #: /views/themed/example/pages/add.ctp:12
 #: /views/themed/example/pages/index.ctp:6
 msgid "Title"
-msgstr ""
+msgstr "Заголовок"
+
+#: /controllers/categories_controller.php:31
+msgid "Your categorie has been saved."
+msgstr "Категория сохранена"
+
+#: /controllers/configurations_controller.php:9
+msgid "Configuration"
+msgstr "Настройки"
+
+#: /controllers/configurations_controller.php:15
+msgid "Your Configuration has been saved."
+msgstr "Настройки сохранены."
 
 #: /controllers/languages_controller.php:21
 msgid "Your Language has been saved."
-msgstr ""
+msgstr "Язык сохранён."
 
 #: /controllers/pages_controller.php:31
 msgid "Your page has been saved."
-msgstr ""
+msgstr "Страница сохранена."
+
+#: /controllers/products_controller.php:31
+msgid "Your product has been saved."
+msgstr "Товар сохранён"
+
+#: /views/themed/example/categories/add.ctp:4
+#: /views/themed/example/categories/index.ctp:2
+msgid "Add Categorie"
+msgstr "Добавить категорию"
+
+#: /views/themed/example/categories/add.ctp:12
+#: /views/themed/example/categories/index.ctp:6
+#: /views/themed/example/languages/add.ctp:7
+#: /views/themed/example/languages/index.ctp:6
+#: /views/themed/example/products/add.ctp:12
+#: /views/themed/example/products/index.ctp:6
+msgid "Name"
+msgstr "Название"
+
+#: /views/themed/example/categories/add.ctp:13
+#: /views/themed/example/products/add.ctp:13
+msgid "Description"
+msgstr "Описание"
+
+#: /views/themed/example/categories/add.ctp:19
+#: /views/themed/example/categories/edit.ctp:7
+msgid "Save Categorie"
+msgstr "Сохранить категорию"
+
+#: /views/themed/example/categories/edit.ctp:1
+msgid "Edit Categorie"
+msgstr "Редактировать категорию"
+
+#: /views/themed/example/categories/index.ctp:1
+msgid "Categories"
+msgstr "Категории"
+
+#: /views/themed/example/categories/index.ctp:5
+#: /views/themed/example/languages/index.ctp:5
+#: /views/themed/example/pages/index.ctp:5
+#: /views/themed/example/products/index.ctp:5
+msgid "Id"
+msgstr "Номер"
+
+#: /views/themed/example/categories/index.ctp:7
+#: /views/themed/example/pages/index.ctp:7
+#: /views/themed/example/products/index.ctp:7
+msgid "Action"
+msgstr "Действие"
+
+#: /views/themed/example/categories/index.ctp:8
+#: /views/themed/example/configurations/index.ctp:7
+#: /views/themed/example/languages/index.ctp:8
+#: /views/themed/example/pages/index.ctp:8
+#: /views/themed/example/products/index.ctp:8
+msgid "Created"
+msgstr "Создано"
+
+#: /views/themed/example/categories/index.ctp:23
+#: /views/themed/example/languages/index.ctp:21
+#: /views/themed/example/pages/index.ctp:23
+#: /views/themed/example/products/index.ctp:23
+msgid "Delete"
+msgstr "Удалить"
+
+#: /views/themed/example/categories/index.ctp:26
+#: /views/themed/example/languages/index.ctp:24
+#: /views/themed/example/pages/index.ctp:26
+#: /views/themed/example/products/index.ctp:26
+msgid "Are you sure?"
+msgstr "Вы уверены?"
+
+#: /views/themed/example/categories/index.ctp:28
+#: /views/themed/example/configurations/index.ctp:18
+#: /views/themed/example/languages/index.ctp:26
+#: /views/themed/example/pages/index.ctp:28
+#: /views/themed/example/products/index.ctp:28
+msgid "Edit"
+msgstr "Изменить"
+
+#: /views/themed/example/categories/index.ctp:41
+#: /views/themed/example/pages/index.ctp:41
+#: /views/themed/example/products/index.ctp:41
+msgid "« Previous "
+msgstr "« Назад"
+
+#: /views/themed/example/categories/index.ctp:42
+#: /views/themed/example/pages/index.ctp:42
+#: /views/themed/example/products/index.ctp:42
+msgid " Next »"
+msgstr "Вперёд »"
+
+#: /views/themed/example/categories/view.ctp:3
+#: /views/themed/example/languages/view.ctp:3
+#: /views/themed/example/pages/view.ctp:3
+#: /views/themed/example/products/view.ctp:3
+msgid "Created:"
+msgstr "Создано:"
 
 #: /views/themed/example/configurations/add.ctp:3
 #: /views/themed/example/configurations/index.ctp:2
 msgid "Add Configuration"
-msgstr ""
+msgstr "Добавить"
 
 #: /views/themed/example/configurations/add.ctp:6
 #: /views/themed/example/configurations/index.ctp:5
 msgid "Configuration Key"
-msgstr ""
+msgstr "Опция"
 
 #: /views/themed/example/configurations/add.ctp:7
 #: /views/themed/example/configurations/index.ctp:6
 msgid "Configuration Value"
-msgstr ""
+msgstr "Значение"
 
 #: /views/themed/example/configurations/add.ctp:8
 msgid "Save Configuration"
-msgstr ""
+msgstr "Сохранить"
 
 #: /views/themed/example/configurations/edit.ctp:1
 msgid "Edit Configuration"
-msgstr ""
+msgstr "Редактирование настроек"
 
 #: /views/themed/example/configurations/edit.ctp:7
 msgid "Save"
-msgstr ""
+msgstr "Сохранить"
 
 #: /views/themed/example/configurations/index.ctp:1
 msgid "Configurations"
-msgstr ""
-
-#: /views/themed/example/configurations/index.ctp:7
-#: /views/themed/example/languages/index.ctp:8
-#: /views/themed/example/pages/index.ctp:8
-msgid "Created"
-msgstr ""
-
-#: /views/themed/example/configurations/index.ctp:18
-#: /views/themed/example/languages/index.ctp:26
-#: /views/themed/example/pages/index.ctp:28
-msgid "Edit"
-msgstr ""
+msgstr "Настройки"
 
 #: /views/themed/example/languages/add.ctp:4
 #: /views/themed/example/languages/index.ctp:2
 msgid "Add Language"
-msgstr ""
-
-#: /views/themed/example/languages/add.ctp:7
-#: /views/themed/example/languages/index.ctp:6
-msgid "Name"
-msgstr ""
+msgstr "Добавить язык"
 
 #: /views/themed/example/languages/add.ctp:8
 #: /views/themed/example/languages/index.ctp:7
 msgid "Code"
-msgstr ""
+msgstr "Код"
 
 #: /views/themed/example/languages/add.ctp:9
 #: /views/themed/example/languages/edit.ctp:7
 msgid "Save Language"
-msgstr ""
+msgstr "Сохранить язык"
 
 #: /views/themed/example/languages/edit.ctp:1
 msgid "Edit Language"
-msgstr ""
+msgstr "Изменить язык"
 
 #: /views/themed/example/languages/index.ctp:1
 msgid "Languages"
-msgstr ""
-
-#: /views/themed/example/languages/index.ctp:5
-#: /views/themed/example/pages/index.ctp:5
-msgid "Id"
-msgstr ""
-
-#: /views/themed/example/languages/index.ctp:21
-#: /views/themed/example/pages/index.ctp:23
-msgid "Delete"
-msgstr ""
-
-#: /views/themed/example/languages/index.ctp:24
-#: /views/themed/example/pages/index.ctp:26
-msgid "Are you sure?"
-msgstr ""
-
-#: /views/themed/example/languages/view.ctp:3
-#: /views/themed/example/pages/view.ctp:3
-msgid "Created:"
-msgstr ""
+msgstr "Языки"
 
 #: /views/themed/example/pages/add.ctp:4
 #: /views/themed/example/pages/index.ctp:2
 msgid "Add Page"
-msgstr ""
+msgstr "Добавить страницу"
 
 #: /views/themed/example/pages/add.ctp:13
 msgid "Body"
-msgstr ""
+msgstr "Содержимое"
 
 #: /views/themed/example/pages/add.ctp:19
 #: /views/themed/example/pages/edit.ctp:7
 msgid "Save Page"
-msgstr ""
+msgstr "Сохранить страницу"
 
 #: /views/themed/example/pages/edit.ctp:1
 msgid "Edit Page"
-msgstr ""
+msgstr "Изменить страницу"
 
 #: /views/themed/example/pages/index.ctp:1
 msgid "Pages"
-msgstr ""
+msgstr "Страницы"
 
-#: /views/themed/example/pages/index.ctp:7
-msgid "Action"
-msgstr ""
+#: /views/themed/example/products/add.ctp:4
+#: /views/themed/example/products/index.ctp:2
+msgid "Add Product"
+msgstr "Добавить товар"
 
-#: /views/themed/example/pages/index.ctp:41
-msgid "« Previous "
-msgstr ""
+#: /views/themed/example/products/add.ctp:19
+#: /views/themed/example/products/edit.ctp:7
+msgid "Save Product"
+msgstr "Сохранить товар"
 
-#: /views/themed/example/pages/index.ctp:42
-msgid " Next »"
-msgstr ""
+#: /views/themed/example/products/edit.ctp:1
+msgid "Edit Product"
+msgstr "Изменить товар"
+
+#: /views/themed/example/products/index.ctp:1
+msgid "Products"
+msgstr "Товары"
 
