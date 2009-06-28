@@ -2,6 +2,7 @@
 class ConfigurationsController extends AppController {
 	var $name = 'Configurations';
    var $helpers = array('Html', 'Javascript');
+   var $components = array('Config');
 
 	function index() {
 		$this->set('configurations', $this->Configuration->find('all'));

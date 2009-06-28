@@ -2,7 +2,7 @@
 class LanguagesController extends AppController {
 	var $name = 'Languages';
    var $helpers = array('Html', 'Javascript');
-   var $components = array('Configuration');
+   var $components = array('Config');
 
 	function index() {
 		$this->set('languages', $this->Language->find('all'));

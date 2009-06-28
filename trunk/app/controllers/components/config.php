@@ -1,6 +1,6 @@
 <?php
-class ConfigurationComponent extends Object {
-  var $name = 'Configuration';
+class ConfigComponent extends Object {
+  var $name = 'Config';
 	//called before Controller::beforeFilter()
 	function initialize(&$controller, $settings = array()) {
 		// saving the controller reference for later use

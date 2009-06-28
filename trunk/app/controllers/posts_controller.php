@@ -2,7 +2,7 @@
 class PostsController extends AppController {
 	var $name = 'Posts';
    var $helpers = array('Html', 'Javascript');
-   var $components = array('Language','Configuration');
+   var $components = array('Language','Config');
 
 	function index() {
 		$this->set('posts', $this->Post->find('all'));
