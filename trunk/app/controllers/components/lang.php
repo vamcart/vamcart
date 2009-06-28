@@ -1,6 +1,6 @@
 <?php
-class LanguageComponent extends Object {
-  var $name = 'Language';
+class LangComponent extends Object {
+  var $name = 'Lang';
 	//called before Controller::beforeFilter()
 	function initialize(&$controller, $settings = array()) {
 		// saving the controller reference for later use
