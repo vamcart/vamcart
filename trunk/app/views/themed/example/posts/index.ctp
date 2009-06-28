@@ -2,10 +2,10 @@
 <p><?php echo $html->link(__('Add Post',true), array('action'=>'add')); ?>
 <table>
 	<tr>
-		<th><?php __('Id') ?></th>
-		<th><?php __('Title') ?></th>
+		<th><?php echo $paginator->sort(__('Id',true), 'id'); ?></th>
+		<th><?php echo $paginator->sort(__('Title',true), 'title'); ?></th>
       <th><?php __('Action') ?></th>
-		<th><?php __('Created') ?></th>
+		<th><?php echo $paginator->sort(__('Created',true), 'created'); ?></th>
 	</tr>
 
 <!-- Here's where we loop through our $posts array, printing out post info -->
@@ -30,5 +30,21 @@
 		<td><?php echo $post['Post']['created']; ?></td>
 	</tr>
 <?php endforeach; ?>
+
+<p>
+<!-- Shows the page numbers -->
+<?php echo $paginator->numbers(); ?>
+<!-- Shows the next and previous links -->
+</p>
+<p>
+<?php
+	echo $paginator->prev(__('« Previous ',true), null, null, array('class' => 'disabled'));
+	echo $paginator->next(__(' Next »',true), null, null, array('class' => 'disabled'));
+?> 
+</p>
+<p>
+<!-- prints X of Y, where X is current page and Y is number of pages -->
+<?php echo $paginator->counter(); ?>
+</p>
 
 </table>

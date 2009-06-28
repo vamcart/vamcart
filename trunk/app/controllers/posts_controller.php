@@ -4,8 +4,17 @@ class PostsController extends AppController {
    var $helpers = array('Html', 'Javascript');
    var $components = array('Lang','Config');
 
+    var $paginate = array(
+        'limit' => 5,
+        'order' => array(
+            'Post.id' => 'desc'
+        )
+    );
+
 	function index() {
-		$this->set('posts', $this->Post->find('all'));
+//		$this->set('posts', $this->Post->find('all'));
+	   $data = $this->paginate('Post');
+      $this->set('posts', $data);
 		$this->pageTitle = __('Title',true);
 	}
 
