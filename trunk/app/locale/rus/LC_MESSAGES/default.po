@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2009-06-21 19:14+0400\n"
+"POT-Creation-Date: 2009-06-28 15:32+0400\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -15,28 +15,28 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: /controllers/configurations_controller.php:8
+#: /controllers/configurations_controller.php:9
 msgid "Configuration"
 msgstr "Настройки"
 
-#: /controllers/configurations_controller.php:14
+#: /controllers/configurations_controller.php:15
 msgid "Your Configuration has been saved."
 msgstr "Настройки сохранены."
 
 #: /controllers/languages_controller.php:9
-#: /controllers/posts_controller.php:9
-#: /views/themed/example/posts/add.ctp:12
-#: /views/themed/example/posts/index.ctp:6
+#: /controllers/pages_controller.php:18
+#: /views/themed/example/pages/add.ctp:12
+#: /views/themed/example/pages/index.ctp:6
 msgid "Title"
-msgstr "Название"
+msgstr "Заголовок"
 
 #: /controllers/languages_controller.php:21
 msgid "Your Language has been saved."
-msgstr "Язык сохранён"
+msgstr "Язык сохранён."
 
-#: /controllers/posts_controller.php:22
-msgid "Your post has been saved."
-msgstr "Сообщение сохранено"
+#: /controllers/pages_controller.php:31
+msgid "Your page has been saved."
+msgstr "Страница сохранена."
 
 #: /views/themed/example/configurations/add.ctp:3
 #: /views/themed/example/configurations/index.ctp:2
@@ -71,13 +71,13 @@ msgstr "Настройки"
 
 #: /views/themed/example/configurations/index.ctp:7
 #: /views/themed/example/languages/index.ctp:8
-#: /views/themed/example/posts/index.ctp:8
+#: /views/themed/example/pages/index.ctp:8
 msgid "Created"
 msgstr "Создано"
 
 #: /views/themed/example/configurations/index.ctp:18
 #: /views/themed/example/languages/index.ctp:26
-#: /views/themed/example/posts/index.ctp:28
+#: /views/themed/example/pages/index.ctp:28
 msgid "Edit"
 msgstr "Изменить"
 
@@ -110,48 +110,56 @@ msgid "Languages"
 msgstr "Языки"
 
 #: /views/themed/example/languages/index.ctp:5
-#: /views/themed/example/posts/index.ctp:5
+#: /views/themed/example/pages/index.ctp:5
 msgid "Id"
 msgstr "Номер"
 
 #: /views/themed/example/languages/index.ctp:21
-#: /views/themed/example/posts/index.ctp:23
+#: /views/themed/example/pages/index.ctp:23
 msgid "Delete"
 msgstr "Удалить"
 
 #: /views/themed/example/languages/index.ctp:24
-#: /views/themed/example/posts/index.ctp:26
+#: /views/themed/example/pages/index.ctp:26
 msgid "Are you sure?"
 msgstr "Вы уверены?"
 
 #: /views/themed/example/languages/view.ctp:3
-#: /views/themed/example/posts/view.ctp:3
+#: /views/themed/example/pages/view.ctp:3
 msgid "Created:"
 msgstr "Создано:"
 
-#: /views/themed/example/posts/add.ctp:4
-#: /views/themed/example/posts/index.ctp:2
-msgid "Add Post"
-msgstr "Добавить сообщение"
+#: /views/themed/example/pages/add.ctp:4
+#: /views/themed/example/pages/index.ctp:2
+msgid "Add Page"
+msgstr "Добавить страницу"
 
-#: /views/themed/example/posts/add.ctp:13
+#: /views/themed/example/pages/add.ctp:13
 msgid "Body"
-msgstr "Текст сообщения"
+msgstr "Содержимое"
 
-#: /views/themed/example/posts/add.ctp:19
-#: /views/themed/example/posts/edit.ctp:7
-msgid "Save Post"
-msgstr "Сохранить сообщение"
+#: /views/themed/example/pages/add.ctp:19
+#: /views/themed/example/pages/edit.ctp:7
+msgid "Save Page"
+msgstr "Сохранить страницу"
 
-#: /views/themed/example/posts/edit.ctp:1
-msgid "Edit Post"
-msgstr "Изменить сообщение"
+#: /views/themed/example/pages/edit.ctp:1
+msgid "Edit Page"
+msgstr "Изменить страницу"
 
-#: /views/themed/example/posts/index.ctp:1
-msgid "Blog posts"
-msgstr "Сообщения"
+#: /views/themed/example/pages/index.ctp:1
+msgid "Pages"
+msgstr "Страницы"
 
-#: /views/themed/example/posts/index.ctp:7
+#: /views/themed/example/pages/index.ctp:7
 msgid "Action"
 msgstr "Действие"
+
+#: /views/themed/example/pages/index.ctp:41
+msgid "« Previous "
+msgstr "« Назад"
+
+#: /views/themed/example/pages/index.ctp:42
+msgid " Next »"
+msgstr "Вперёд »"
 
