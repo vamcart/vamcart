@@ -7,8 +7,8 @@ CREATE TABLE pages (
     modified DATETIME DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE utf8_general_ci;
 
-DROP TABLE IF EXISTS pages_translations;
-CREATE TABLE `pages_translations` (
+DROP TABLE IF EXISTS page_translations;
+CREATE TABLE `page_translations` (
   `id` int(10) NOT NULL auto_increment,
   `locale` varchar(6) NOT NULL default '',
   `model` varchar(255) NOT NULL default '',
