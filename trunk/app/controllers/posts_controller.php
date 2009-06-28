@@ -16,7 +16,7 @@ class PostsController extends AppController {
 	}
 
 	function add() {
-			$this->set('language',$this->Language->load_language());	
+			$this->set('language',$this->Lang->load_language());	
 		if (!empty($this->data)) {
 			if ($this->Post->save($this->data)) {
 				$this->Session->setFlash(__('Your post has been saved.',true));
