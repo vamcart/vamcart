@@ -40,7 +40,7 @@ class InstallComponent extends Object
 	
     function begin_install ()
     {
-		echo 'bbq sauce!';die();
+
     }
 	
 	
