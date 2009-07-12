@@ -184,62 +184,62 @@ class AppController extends Controller {
 	{
 		// Navigation Menu Array
 		$navigation = array(
-			1 => array('text' => 'home', 'path' => '/admin/admin_top/1'
+			1 => array('text' => 'Home', 'path' => '/admin/admin_top/1'
 			),	
-			2 => array('text' => 'orders', 'path' => '/orders/admin/', 
+			2 => array('text' => 'Orders', 'path' => '/orders/admin/', 
 				'children' => array(
-					1 => array('text' => 'all_orders', 'path' => '/orders/admin/')
+					1 => array('text' => 'All Orders', 'path' => '/orders/admin/')
 				)			
 			),				
-			3 => array('text' => 'contents', 'path' => '/admin/admin_top/3',
+			3 => array('text' => 'Contents', 'path' => '/admin/admin_top/3',
 				'children' => array(
-					1 => array('text' => 'categories_and_products', 'path' => '/contents/admin/'),
-					2 => array('text' => 'core_pages', 'path' => '/contents/admin_core_pages/'),
-					3 => array('text' => 'global_content_blocks', 'path' => '/global_content_blocks/admin/')
+					1 => array('text' => 'Categories & Products', 'path' => '/contents/admin/'),
+					2 => array('text' => 'Pages', 'path' => '/contents/admin_core_pages/'),
+					3 => array('text' => 'Content Blocks', 'path' => '/global_content_blocks/admin/')
 				)
 			),
-			4 => array('text' => 'layout', 'path' => '/admin/admin_top/4',
+			4 => array('text' => 'Layout', 'path' => '/admin/admin_top/4',
 				'children' => array(
-					1 => array('text' => 'templates', 'path' => '/templates/admin/'),
-					2 => array('text' => 'stylesheets', 'path' => '/stylesheets/admin/'),
-					3 => array('text' => 'micro_templates', 'path' => '/micro_templates/admin/')									
+					1 => array('text' => 'Templates', 'path' => '/templates/admin/'),
+					2 => array('text' => 'Stylesheets', 'path' => '/stylesheets/admin/'),
+					3 => array('text' => 'Micro Templates', 'path' => '/micro_templates/admin/')									
 				)
 			),
-			5 => array('text' => 'configurations', 'path' => '/admin/admin_top/5',
+			5 => array('text' => 'Configurations', 'path' => '/admin/admin_top/5',
 				'children' => array(
-					1 => array('text' => 'store_settings', 'path' => '/configuration/admin_edit/'),
-					2 => array('text' => 'order_status', 'path' => '/order_status/admin/'),
-					3 => array('text' => 'payment_methods', 'path' => '/payment_methods/admin/'),
-					4 => array('text' => 'shipping_methods', 'path' => '/shipping_methods/admin/'),
-					5 => array('text' => 'taxes', 'path' => '/taxes/admin/'),
-					6 => array('text' => 'tax_country_zone_rates', 'path' => '/tax_country_zone_rates/admin/0')
+					1 => array('text' => 'Store Settings', 'path' => '/configuration/admin_edit/'),
+					2 => array('text' => 'Order status', 'path' => '/order_status/admin/'),
+					3 => array('text' => 'Payment Methods', 'path' => '/payment_methods/admin/'),
+					4 => array('text' => 'Shipping Methods', 'path' => '/shipping_methods/admin/'),
+					5 => array('text' => 'Tax Classes', 'path' => '/taxes/admin/'),
+					6 => array('text' => 'Tax Rates', 'path' => '/tax_country_zone_rates/admin/0')
 				)
 			),	
-			6 => array('text' => 'locale', 'path' => '/admin/admin_top/6',
+			6 => array('text' => 'Locale', 'path' => '/admin/admin_top/6',
 				'children' => array(
-					1 => array('text' => 'currencies', 'path' => '/currencies/admin/'),
-					2 => array('text' => 'languages', 'path' => '/languages/admin/'),
-					3 => array('text' => 'countries', 'path' => '/countries/admin/'),
-					4 => array('text' => 'defined_languages', 'path' => '/defined_languages/admin/')															
+					1 => array('text' => 'Currencies', 'path' => '/currencies/admin/'),
+					2 => array('text' => 'Languages', 'path' => '/languages/admin/'),
+					3 => array('text' => 'Countries', 'path' => '/countries/admin/'),
+					4 => array('text' => 'Defined Languages', 'path' => '/defined_languages/admin/')															
 				)
 			),					
-			7 => array('text' => 'extensions', 'path' => '/admin/admin_top/7',
+			7 => array('text' => 'Extensions', 'path' => '/admin/admin_top/7',
 				'children' => array(
-					1 => array('text' => 'modules', 'path' => '/modules/admin/'),
-					2 => array('text' => 'tags', 'path' => '/tags/admin/'),
-					3 => array('text' => 'user_tags', 'path' => '/user_tags/admin/'),
-					4 => array('text' => 'events', 'path' => '/events/admin/')
+					1 => array('text' => 'Modules', 'path' => '/modules/admin/'),
+					2 => array('text' => 'Tags', 'path' => '/tags/admin/'),
+					3 => array('text' => 'User Tags', 'path' => '/user_tags/admin/'),
+					4 => array('text' => 'Events', 'path' => '/events/admin/')
 				)
 			),									
-			8 => array('text' => 'account', 'path' => '/admin/admin_top/8',
+			8 => array('text' => 'Account', 'path' => '/admin/admin_top/8',
 				'children' => array(
-					1 => array('text' => 'manage_accounts', 'path' => '/users/admin/'),
-					2 => array('text' => 'my_account', 'path' => '/users/admin_user_account/'),
-					3 => array('text' => 'preferences', 'path' => '/users/admin_user_preferences/'),					
-					4 => array('text' => 'logout', 'path' => '/users/admin_logout/')					
+					1 => array('text' => 'Manage Accounts', 'path' => '/users/admin/'),
+					2 => array('text' => 'My Account', 'path' => '/users/admin_user_account/'),
+					3 => array('text' => 'Prefences', 'path' => '/users/admin_user_preferences/'),					
+					4 => array('text' => 'Logout', 'path' => '/users/admin_logout/')					
 				)
 			),						
-			9 => array('text' => 'launch_site', 'path' => '/', 'attributes' => array('target' => 'blank')
+			9 => array('text' => 'Launch Site', 'path' => '/', 'attributes' => array('target' => 'blank')
 				
 			)
 		);
@@ -291,7 +291,7 @@ class AppController extends Controller {
 			// TODO: Make this more secure, possibly change to a requestaction in users controller
 			if((!$this->Session->check('User.username'))&& (($this->action != 'admin_login') || ($this->action == 'index')))
 			{
-				$this->Session->setFlash('Sorry, you must be logged in to do that.');			
+				$this->Session->setFlash(__('Sorry, you must be logged in to do that.',true));			
 				$this->redirect('/users/admin_login/');
 			}
 			else
