@@ -20,6 +20,6 @@
 
 ?>
 
-Database successfully imported.
+<?php __('Database successfully imported.') ?>
 <br /><br />
-<?php echo $html->link('Click here to visit your live store.','/'); ?>
+<?php echo $html->link(__('Click here to visit your live store.',true),'/'); ?>

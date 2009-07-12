@@ -18,18 +18,19 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 **/
 
-echo '<h2>Step 1 - Checking System Requirements</h2>';
-echo '<fieldset>';
+?>
+
+<h2><?php __('Step 1 - Checking System Requirements') ?></h2>
+<fieldset>
+<?php
 foreach($install_checks AS $check)
 {
-	echo $html->image('admin/'.($check['passed']=='passed'?'true.gif':'false.gif')) . 'Can write to: ' . $check['dir'] . '<br />';
+	echo $html->image('admin/'.($check['passed']=='passed'?'true.gif':'false.gif')) . __('Can write to: ',true) . $check['dir'] . '<br />';
 }
 
 if(isset($fatal_error))
 {
-	echo '<p>An error has occured.  Please correct the error and refresh the page.</p>';	
+	echo '<p>' . __('An error has occured.  Please correct the error and refresh the page.') . '</p>';	
 }
-
-echo '</fieldset>';
-
 ?>
+</fieldset>

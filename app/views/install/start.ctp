@@ -19,35 +19,35 @@
 **/
 
 ?>
-<div class="pageheader">Welcome to the Selling Made Simple installation.</div>
-<p>Installing version: <?php echo $version; ?></p>
+<div class="pageheader"><?php __('Welcome to the Selling Made Simple installation.') ?></div>
+<p><?php __('Installing version:') ?> <?php echo $version; ?></p>
 
 <?php
 echo $this->requestAction('/install/check_permissions/',array('return'=>true));
+?>
+<br /><br />
+<h2><?php __('Step 2 - Enter Database Information') ?></h2>
 
-
-echo '<br /><br />';
-echo '<h2>Step 2 - Enter Database Information</h2>';
-
+<?php
 echo $form->create('Install', array('action' => '/install/create/', 'url' => '/install/create/'));
 
 
 echo $form->inputs(array(
 				'fieldset' => __('install', true),
                 'Install/db_host' => array(
-			   		'label' => __('db_host', true),
+			   		'label' => __('Host', true),
 					'value' => $values['Install']['db_host']
                 ),
                 'Install/db_name' => array(
-			   		'label' => __('db_name', true),
+			   		'label' => __('Database Name', true),
 					'value' => $values['Install']['db_name']
                 ),
                 'Install/db_username' => array(
-			   		'label' => __('db_username', true),
+			   		'label' => __('Database Username', true),
 					'value' => $values['Install']['db_username']
                 ),
                 'Install/db_password' => array(
-			   		'label' => __('db_password', true),
+			   		'label' => __('Database Password', true),
 					'type' => 'password',
 					'value' => $values['Install']['db_password']
                 ))
@@ -55,7 +55,7 @@ echo $form->inputs(array(
 		
 echo '<br />';		
 		
-echo $form->submit( __('form_submit', true)) ;
+echo $form->submit( __('Submit', true)) ;
 
 
 echo '<div style="clear:both;"></div>';
