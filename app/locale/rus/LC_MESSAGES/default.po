@@ -1,3 +1,10 @@
+##################################################### /app/views/layout/admin.ctp# /app/views/layout/default.ctp####################################################
+msgid  "VaM Shop Admin"
+msgstr "Админка"
+
+msgid  "Powered by VaM Shop."
+msgstr "Powered by VaM Shop."
+
 ####################################################
 # Install
 ####################################################

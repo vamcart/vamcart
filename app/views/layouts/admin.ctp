@@ -25,7 +25,7 @@ header('Content-Type: text/html; charset=utf-8');
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title><?php __('admin_title') ?></title>
+	<title><?php __('VaM Shop Admin') ?></title>
 	<?php echo $javascript->link('scriptaculous/prototype');  ?>	
 	<?php echo $javascript->link('scriptaculous/scriptaculous');  ?>
 	<?php echo $html->css('admin');  ?>
@@ -121,7 +121,7 @@ header('Content-Type: text/html; charset=utf-8');
 		</div><!-- End #content -->
 	</div><!-- End #content_body -->
 	<div id="footer">
-		<a id="footer_text" href="http://vamshop.ru/" target="blank"><?php __('copyright') ?></a>
+		<a id="footer_text" href="http://vamshop.ru/" target="blank"><?php __('Powered by VaM Shop') ?></a>
 	</div>
 </body>
 </html>
