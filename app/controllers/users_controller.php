@@ -103,7 +103,7 @@ class UsersController extends AppController {
 
 		$language_options = array();
 		$language_options['eng'] = 'English';
-		$language_options['spa'] = 'Espanol';			
+		$language_options['rus'] = 'Русский';			
 
 		$this->set('available_languages', $language_options);	
 
