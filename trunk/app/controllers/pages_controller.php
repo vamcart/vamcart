@@ -129,7 +129,7 @@ class PagesController extends AppController {
 		
 		$this->Smarty->display($template['Template']['template'],$template_vars);
 		echo '
-			<!-- Powered by: Selling Made Simple (www.sellingmadesimple.org) -->	
+			<!-- Powered by: VaM Shop (vamshop.ru) -->	
 		';
 		die();
 	}
