@@ -1,0 +1,13 @@
+Requirements
+--------------------------------------------------------------
+php
+mysql
+mod_rewrite
+
+Installation procedure:
+--------------------------------------------------------------
+1 - Copy all files inside of the SellingMadeSimple folder to your webserver.  We recommend you upload the entire contents of the SellingMadeSimple folder to the root directory, eg: http://mysite.com/, and not http://mysite.com/SellingMadeSimple/
+2 - Create a database for SMS to utilize, and grant a database user all privilages.
+3 - Navigate to your root directory followed by install/.  For example, if you installed your site at: http://mysite.com, navigate to: http://mysite.com/install/
+4 - Make sure that config.php is writeable!
+5 - Follow the directions of the install script.
