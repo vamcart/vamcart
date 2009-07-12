@@ -5072,7 +5072,7 @@ CREATE TABLE `global_content_blocks` (
 -- 
 
 INSERT INTO `global_content_blocks` (`id`, `name`, `content`, `alias`, `active`, `created`, `modified`) VALUES 
-(38, 'Footer', '<a href="http://vamshop.ru/" target="blank">Скрипты интернет-магазина</a> VaM Shop', 'footer', 1, '2007-07-17 10:00:06', '2007-09-12 17:05:49');
+(38, 'Footer', '<a href="http://vamshop.ru/" target="blank">Создание интернет-магазина</a>, <a href="http://vamshop.ru/" target="blank">скрипт интернет-магазина</a> VaM Shop', 'footer', 1, '2007-07-17 10:00:06', '2007-09-12 17:05:49');
 
 -- --------------------------------------------------------
 
