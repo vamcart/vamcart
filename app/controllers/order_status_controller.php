@@ -124,10 +124,10 @@ class OrderStatusController extends AppController {
 				$order_status_id = $this->OrderStatus->getLastInsertid();
 			
 			// Lets just delete all of the description associations and remake them
-			$descriptions = $this->OrderStatusDescription->findAll(array('order_status_id' => $order_status_id));
+			$descriptions = $this->OrderStatus->OrderStatusDescription->findAll(array('order_status_id' => $order_status_id));
 			foreach($descriptions AS $description)
 			{
-				$this->OrderStatusDescription->del($description['OrderStatusDescription']['id']);
+				$this->OrderStatus->OrderStatusDescription->del($description['OrderStatusDescription']['id']);
 			}
 
 		
@@ -138,8 +138,8 @@ class OrderStatusController extends AppController {
 				$new_description['OrderStatusDescription']['language_id'] = $id;
 				$new_description['OrderStatusDescription']['name'] = $value;				
 				
-				$this->OrderStatusDescription->create();
-				$this->OrderStatusDescription->save($new_description);
+				$this->OrderStatus->OrderStatusDescription->create();
+				$this->OrderStatus->OrderStatusDescription->save($new_description);
 			}
 			
 			$this->redirect('/order_status/admin');
