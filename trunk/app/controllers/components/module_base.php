@@ -52,7 +52,7 @@ class ModuleBaseComponent extends Object
 		$installed_version = $installed_module['Module']['version'];
 		if($installed_version >= $current_version)
 		{
-			$this->Session->setFlash('Could not install module.');
+			$this->Session->setFlash(__('Could not install module.',true));
 			$this->controller->redirect('/modules/admin/');
 			exit;
 		}
