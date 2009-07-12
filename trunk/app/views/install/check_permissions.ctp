@@ -30,7 +30,7 @@ foreach($install_checks AS $check)
 
 if(isset($fatal_error))
 {
-	echo '<p>' . __('An error has occured.  Please correct the error and refresh the page.') . '</p>';	
+	echo '<p>' . __('An error has occured. Please correct the error and refresh the page.') . '</p>';	
 }
 ?>
 </fieldset>
