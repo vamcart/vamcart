@@ -49,3 +49,112 @@ msgstr "Пароль"
 
 msgid  "Submit"
 msgstr "Продолжить"
+
+##################################################### Admin Menu####################################################
+msgid  "Home"
+msgstr "Главная"
+
+msgid  "Orders"
+msgstr "Заказы"
+
+msgid  "All Orders"
+msgstr "Все заказы"
+
+msgid  "Contents"
+msgstr "Содержание"
+
+msgid  "Categories & Products"
+msgstr "Категории и товары"
+
+msgid  "Pages"
+msgstr "Страницы"
+
+msgid  "Content Blocks"
+msgstr "Блоки"
+
+msgid  "Layout"
+msgstr "Оформление"
+
+msgid  "Templates"
+msgstr "Шаблоны"
+
+msgid  "Stylesheets"
+msgstr "Стили"
+
+msgid  "Micro Templates"
+msgstr "Микро шаблоны"
+
+msgid  "Configurations"
+msgstr "Настройки"
+
+msgid  "Store Settings"
+msgstr "Магазин"
+
+msgid  "Order status"
+msgstr "Статусы заказа"
+
+msgid  "Payment Methods"
+msgstr "Способы оплаты"
+
+msgid  "Shipping Methods"
+msgstr "Способы доставки"
+
+msgid  "Tax Classes"
+msgstr "Налоги"
+
+msgid  "Tax Rates"
+msgstr "Ставки налогов"
+
+msgid  "Locale"
+msgstr "Локализация"
+
+msgid  "Currencies"
+msgstr "Валюты"
+
+msgid  "Languages"
+msgstr "Языки"
+
+msgid  "Countries"
+msgstr "Страны"
+
+msgid  "Defined Languages"
+msgstr "Языковые строки"
+
+msgid  "Extensions"
+msgstr "Расширения"
+
+msgid  "Modules"
+msgstr "Модули"
+
+msgid  "Tags"
+msgstr "Тэги"
+
+msgid  "User Tags"
+msgstr "Тэги пользователя"
+
+msgid  "Events"
+msgstr "События"
+
+msgid  "Account"
+msgstr "Администраторы"
+
+msgid  "Manage Accounts"
+msgstr "Управление"
+
+msgid  "My Account"
+msgstr "Мои данные"
+
+msgid  "Prefences"
+msgstr "Настройки"
+
+msgid  "Logout"
+msgstr "Выход"
+
+msgid  "Launch Site"
+msgstr "Каталог"
+
+##################################################### /app/app_controller.php####################################################
+
+msgid  "Sorry, you must be logged in to do that."
+msgstr "Вы должны войти в магазин."
+
