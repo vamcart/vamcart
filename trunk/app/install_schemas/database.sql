@@ -8,7 +8,7 @@
 -- PHP Version: 5.2.3
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-
+SET NAMES 'utf8';
 -- 
 -- Database: `store`
 -- 
