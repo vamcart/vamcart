@@ -2,7 +2,7 @@
 # Admin Area Title & Copyright
 ####################################################
 msgid  "admin_title" 
-msgstr "VaM Shop Admin"
+msgstr "VaM Shop"
 
 msgid  "copyright" 
 msgstr "Copyright &copy; 2009 VaM Shop"
