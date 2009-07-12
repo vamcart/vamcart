@@ -19,6 +19,7 @@ SET NAMES 'utf8';
 -- Table structure for table `configurations`
 -- 
 
+DROP TABLE IF EXISTS configurations;
 CREATE TABLE `configurations` (
   `id` int(10) NOT NULL auto_increment,
   `key` varchar(50) collate utf8_unicode_ci NOT NULL,
@@ -44,6 +45,7 @@ INSERT INTO `configurations` (`id`, `key`, `value`) VALUES
 -- Table structure for table `contents`
 -- 
 
+DROP TABLE IF EXISTS contents;
 CREATE TABLE `contents` (
   `id` int(10) NOT NULL auto_increment,
   `parent_id` int(10) NOT NULL,
@@ -94,6 +96,7 @@ INSERT INTO `contents` (`id`, `parent_id`, `order`, `hierarchy`, `content_type_i
 -- Table structure for table `content_categories`
 -- 
 
+DROP TABLE IF EXISTS content_categories;
 CREATE TABLE `content_categories` (
   `id` int(10) NOT NULL auto_increment,
   `content_id` int(10) NOT NULL,
@@ -118,6 +121,7 @@ INSERT INTO `content_categories` (`id`, `content_id`, `extra`) VALUES
 -- Table structure for table `content_descriptions`
 -- 
 
+DROP TABLE IF EXISTS content_descriptions;
 CREATE TABLE `content_descriptions` (
   `id` int(10) NOT NULL auto_increment,
   `content_id` int(10) NOT NULL,
@@ -181,6 +185,7 @@ INSERT INTO `content_descriptions` (`id`, `content_id`, `language_id`, `name`, `
 -- Table structure for table `content_images`
 -- 
 
+DROP TABLE IF EXISTS content_images;
 CREATE TABLE `content_images` (
   `id` int(10) NOT NULL auto_increment,
   `content_id` int(10) NOT NULL,
@@ -205,6 +210,7 @@ INSERT INTO `content_images` (`id`, `content_id`, `order`, `image`, `created`, `
 -- Table structure for table `content_links`
 -- 
 
+DROP TABLE IF EXISTS content_links;
 CREATE TABLE `content_links` (
   `id` int(10) NOT NULL auto_increment,
   `content_id` int(10) NOT NULL,
@@ -225,6 +231,7 @@ INSERT INTO `content_links` (`id`, `content_id`, `url`) VALUES
 -- Table structure for table `content_pages`
 -- 
 
+DROP TABLE IF EXISTS content_pages;
 CREATE TABLE `content_pages` (
   `id` int(10) NOT NULL auto_increment,
   `content_id` int(10) NOT NULL,
@@ -255,6 +262,7 @@ INSERT INTO `content_pages` (`id`, `content_id`, `extra`) VALUES
 -- Table structure for table `content_products`
 -- 
 
+DROP TABLE IF EXISTS content_products;
 CREATE TABLE `content_products` (
   `id` int(10) NOT NULL auto_increment,
   `content_id` int(10) NOT NULL,
@@ -281,6 +289,7 @@ INSERT INTO `content_products` (`id`, `content_id`, `stock`, `model`, `price`, `
 -- Table structure for table `content_selflinks`
 -- 
 
+DROP TABLE IF EXISTS content_selflinks;
 CREATE TABLE `content_selflinks` (
   `id` int(10) NOT NULL auto_increment,
   `content_id` int(1) NOT NULL,
@@ -301,6 +310,7 @@ INSERT INTO `content_selflinks` (`id`, `content_id`, `url`) VALUES
 -- Table structure for table `content_types`
 -- 
 
+DROP TABLE IF EXISTS content_types;
 CREATE TABLE `content_types` (
   `id` int(10) NOT NULL auto_increment,
   `template_type_id` tinyint(4) NOT NULL,
@@ -326,6 +336,7 @@ INSERT INTO `content_types` (`id`, `template_type_id`, `name`, `type`) VALUES
 -- Table structure for table `countries`
 -- 
 
+DROP TABLE IF EXISTS countries;
 CREATE TABLE `countries` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(64) collate utf8_unicode_ci NOT NULL,
@@ -587,6 +598,7 @@ INSERT INTO `countries` (`id`, `name`, `iso_code_2`, `iso_code_3`, `address_form
 -- Table structure for table `country_zones`
 -- 
 
+DROP TABLE IF EXISTS country_zones;
 CREATE TABLE `country_zones` (
   `id` int(10) NOT NULL auto_increment,
   `country_id` int(10) NOT NULL,
@@ -895,6 +907,7 @@ INSERT INTO `country_zones` (`id`, `country_id`, `code`, `name`) VALUES
 -- Table structure for table `currencies`
 -- 
 
+DROP TABLE IF EXISTS currencies;
 CREATE TABLE `currencies` (
   `id` int(10) NOT NULL auto_increment,
   `active` tinyint(4) NOT NULL default '1',
@@ -927,6 +940,7 @@ INSERT INTO `currencies` (`id`, `active`, `default`, `name`, `code`, `symbol_lef
 -- Table structure for table `defined_languages`
 -- 
 
+DROP TABLE IF EXISTS defined_languages;
 CREATE TABLE `defined_languages` (
   `id` int(10) NOT NULL auto_increment,
   `language_id` int(10) NOT NULL,
@@ -1025,6 +1039,7 @@ INSERT INTO `defined_languages` (`id`, `language_id`, `key`, `value`, `created`,
 -- Table structure for table `events`
 -- 
 
+DROP TABLE IF EXISTS events;
 CREATE TABLE `events` (
   `id` int(10) NOT NULL auto_increment,
   `alias` varchar(50) collate utf8_unicode_ci NOT NULL,
@@ -1059,6 +1074,7 @@ INSERT INTO `events` (`id`, `alias`, `originator`, `description`, `created`, `mo
 -- Table structure for table `event_handlers`
 -- 
 
+DROP TABLE IF EXISTS event_handlers;
 CREATE TABLE `event_handlers` (
   `id` int(10) NOT NULL auto_increment,
   `event_id` int(10) NOT NULL,
@@ -1082,6 +1098,7 @@ INSERT INTO `event_handlers` (`id`, `event_id`, `originator`, `action`, `created
 -- Table structure for table `global_content_blocks`
 -- 
 
+DROP TABLE IF EXISTS global_content_blocks;
 CREATE TABLE `global_content_blocks` (
   `id` int(10) NOT NULL auto_increment,
   `name` varchar(100) collate utf8_unicode_ci NOT NULL,
@@ -1106,6 +1123,7 @@ INSERT INTO `global_content_blocks` (`id`, `name`, `content`, `alias`, `active`,
 -- Table structure for table `languages`
 -- 
 
+DROP TABLE IF EXISTS languages;
 CREATE TABLE `languages` (
   `id` int(10) NOT NULL auto_increment,
   `default` tinyint(4) NOT NULL,
@@ -1131,6 +1149,7 @@ INSERT INTO `languages` (`id`, `default`, `name`, `code`, `iso_code_2`, `active`
 -- Table structure for table `micro_templates`
 -- 
 
+DROP TABLE IF EXISTS micro_templates;
 CREATE TABLE `micro_templates` (
   `id` int(10) NOT NULL auto_increment,
   `alias` varchar(50) collate utf8_unicode_ci NOT NULL,
@@ -1159,6 +1178,7 @@ INSERT INTO `micro_templates` (`id`, `alias`, `template`, `created`, `modified`,
 -- Table structure for table `modules`
 -- 
 
+DROP TABLE IF EXISTS modules;
 CREATE TABLE `modules` (
   `id` int(10) NOT NULL auto_increment,
   `name` varchar(50) collate utf8_unicode_ci NOT NULL,
@@ -1182,6 +1202,7 @@ INSERT INTO `modules` (`id`, `name`, `alias`, `version`, `nav_level`) VALUES
 -- Table structure for table `module_coupons`
 -- 
 
+DROP TABLE IF EXISTS module_coupons;
 CREATE TABLE `module_coupons` (
   `id` int(10) NOT NULL auto_increment,
   `name` varchar(50) collate utf8_unicode_ci NOT NULL,
@@ -1212,6 +1233,7 @@ CREATE TABLE `module_coupons` (
 -- Table structure for table `module_reviews`
 -- 
 
+DROP TABLE IF EXISTS module_reviews;
 CREATE TABLE `module_reviews` (
   `id` int(10) NOT NULL auto_increment,
   `content_id` int(10) NOT NULL,
@@ -1233,6 +1255,7 @@ CREATE TABLE `module_reviews` (
 -- Table structure for table `orders`
 -- 
 
+DROP TABLE IF EXISTS orders;
 CREATE TABLE `orders` (
   `id` int(10) NOT NULL auto_increment,
   `order_status_id` int(10) NOT NULL,
@@ -1282,6 +1305,7 @@ INSERT INTO `orders` (`id`, `order_status_id`, `shipping_method_id`, `payment_me
 -- Table structure for table `order_comments`
 -- 
 
+DROP TABLE IF EXISTS order_comments;
 CREATE TABLE `order_comments` (
   `id` int(10) NOT NULL auto_increment,
   `user_id` int(10) NOT NULL,
@@ -1307,6 +1331,7 @@ INSERT INTO `order_comments` (`id`, `user_id`, `order_id`, `sent_to_customer`, `
 -- Table structure for table `order_products`
 -- 
 
+DROP TABLE IF EXISTS order_products;
 CREATE TABLE `order_products` (
   `id` int(10) NOT NULL auto_increment,
   `order_id` int(10) NOT NULL,
@@ -1373,6 +1398,7 @@ INSERT INTO `order_products` (`id`, `order_id`, `content_id`, `name`, `quantity`
 -- Table structure for table `order_statuses`
 -- 
 
+DROP TABLE IF EXISTS order_statuses;
 CREATE TABLE `order_statuses` (
   `id` int(10) NOT NULL auto_increment,
   `default` tinyint(4) NOT NULL,
@@ -1395,6 +1421,7 @@ INSERT INTO `order_statuses` (`id`, `default`, `order`) VALUES
 -- Table structure for table `order_status_descriptions`
 -- 
 
+DROP TABLE IF EXISTS order_status_descriptions;
 CREATE TABLE `order_status_descriptions` (
   `id` int(10) NOT NULL auto_increment,
   `order_status_id` int(10) NOT NULL,
@@ -1422,6 +1449,7 @@ INSERT INTO `order_status_descriptions` (`id`, `order_status_id`, `language_id`,
 -- Table structure for table `payment_methods`
 -- 
 
+DROP TABLE IF EXISTS payment_methods;
 CREATE TABLE `payment_methods` (
   `id` int(10) NOT NULL auto_increment,
   `active` tinyint(4) NOT NULL,
@@ -1449,6 +1477,7 @@ INSERT INTO `payment_methods` (`id`, `active`, `default`, `name`, `alias`) VALUE
 -- Table structure for table `payment_method_values`
 -- 
 
+DROP TABLE IF EXISTS payment_method_values;
 CREATE TABLE `payment_method_values` (
   `id` int(10) NOT NULL auto_increment,
   `payment_method_id` int(10) NOT NULL,
@@ -1472,6 +1501,7 @@ INSERT INTO `payment_method_values` (`id`, `payment_method_id`, `key`, `value`) 
 -- Table structure for table `search_tables`
 -- 
 
+DROP TABLE IF EXISTS search_tables;
 CREATE TABLE `search_tables` (
   `id` int(10) NOT NULL auto_increment,
   `model` varchar(50) collate utf8_unicode_ci NOT NULL,
@@ -1506,6 +1536,7 @@ INSERT INTO `search_tables` (`id`, `model`, `field`, `url`, `edit_field`, `alter
 -- Table structure for table `shipping_methods`
 -- 
 
+DROP TABLE IF EXISTS shipping_methods;
 CREATE TABLE `shipping_methods` (
   `id` int(10) NOT NULL auto_increment,
   `name` varchar(100) collate utf8_unicode_ci NOT NULL,
@@ -1531,6 +1562,7 @@ INSERT INTO `shipping_methods` (`id`, `name`, `code`, `default`, `active`) VALUE
 -- Table structure for table `shipping_method_values`
 -- 
 
+DROP TABLE IF EXISTS shipping_method_values;
 CREATE TABLE `shipping_method_values` (
   `id` int(10) NOT NULL auto_increment,
   `shipping_method_id` int(10) NOT NULL,
@@ -1557,6 +1589,7 @@ INSERT INTO `shipping_method_values` (`id`, `shipping_method_id`, `key`, `value`
 -- Table structure for table `stylesheets`
 -- 
 
+DROP TABLE IF EXISTS stylesheets;
 CREATE TABLE `stylesheets` (
   `id` int(10) NOT NULL auto_increment,
   `active` tinyint(4) NOT NULL,
@@ -1585,6 +1618,7 @@ INSERT INTO `stylesheets` (`id`, `active`, `name`, `alias`, `stylesheet`, `style
 -- Table structure for table `stylesheet_media_types`
 -- 
 
+DROP TABLE IF EXISTS stylesheet_media_types;
 CREATE TABLE `stylesheet_media_types` (
   `id` int(10) NOT NULL auto_increment,
   `name` varchar(50) collate utf8_unicode_ci NOT NULL,
@@ -1615,6 +1649,7 @@ INSERT INTO `stylesheet_media_types` (`id`, `name`, `type`) VALUES
 -- Table structure for table `taxes`
 -- 
 
+DROP TABLE IF EXISTS taxes;
 CREATE TABLE `taxes` (
   `id` int(10) NOT NULL auto_increment,
   `default` tinyint(4) NOT NULL,
@@ -1638,6 +1673,7 @@ INSERT INTO `taxes` (`id`, `default`, `name`, `created`, `modified`) VALUES
 -- Table structure for table `tax_country_zone_rates`
 -- 
 
+DROP TABLE IF EXISTS tax_country_zone_rates;
 CREATE TABLE `tax_country_zone_rates` (
   `id` int(10) NOT NULL auto_increment,
   `tax_id` int(10) NOT NULL,
@@ -1659,6 +1695,7 @@ INSERT INTO `tax_country_zone_rates` (`id`, `tax_id`, `country_zone_id`, `rate`)
 -- Table structure for table `templates`
 -- 
 
+DROP TABLE IF EXISTS templates;
 CREATE TABLE `templates` (
   `id` int(10) NOT NULL auto_increment,
   `parent_id` int(10) NOT NULL,
@@ -1688,6 +1725,7 @@ INSERT INTO `templates` (`id`, `parent_id`, `template_type_id`, `default`, `name
 -- Table structure for table `templates_stylesheets`
 -- 
 
+DROP TABLE IF EXISTS templates_stylesheets;
 CREATE TABLE `templates_stylesheets` (
   `template_id` int(10) unsigned NOT NULL default '0',
   `stylesheet_id` int(10) unsigned NOT NULL default '0',
@@ -1710,6 +1748,7 @@ INSERT INTO `templates_stylesheets` (`template_id`, `stylesheet_id`) VALUES
 -- Table structure for table `template_types`
 -- 
 
+DROP TABLE IF EXISTS template_types;
 CREATE TABLE `template_types` (
   `id` int(10) NOT NULL auto_increment,
   `name` varchar(50) collate utf8_unicode_ci NOT NULL,
@@ -1733,6 +1772,7 @@ INSERT INTO `template_types` (`id`, `name`, `default_template`) VALUES
 -- Table structure for table `users`
 -- 
 
+DROP TABLE IF EXISTS users;
 CREATE TABLE `users` (
   `id` int(10) NOT NULL auto_increment,
   `username` varchar(50) collate utf8_unicode_ci NOT NULL,
@@ -1756,6 +1796,7 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `created`, `modified
 -- Table structure for table `user_prefs`
 -- 
 
+DROP TABLE IF EXISTS user_prefs;
 CREATE TABLE `user_prefs` (
   `id` int(10) NOT NULL auto_increment,
   `user_id` int(10) NOT NULL,
@@ -1779,6 +1820,7 @@ INSERT INTO `user_prefs` (`id`, `user_id`, `name`, `value`) VALUES
 -- Table structure for table `user_tags`
 -- 
 
+DROP TABLE IF EXISTS user_tags;
 CREATE TABLE `user_tags` (
   `id` int(10) NOT NULL auto_increment,
   `name` varchar(50) collate utf8_unicode_ci NOT NULL,
