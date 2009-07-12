@@ -24,12 +24,12 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<?php echo $html->css('admin'); ?>
-	<title><?php __('admin_title') ?></title>
+	<title><?php __('VaM Shop Admin') ?></title>
 </head>
 
 <body>
 	<div id="header">
-		<h1><?php __('admin_title') ?></h1>
+		<h1><?php __('VaM Shop Admin') ?></h1>
 	</div>
 	<div id="under_header_bar"></div>
 	<div id="menu_container">
@@ -62,7 +62,7 @@
 		</div><!-- End #content -->
 	</div><!-- End #content_body -->
 	<div id="footer">
-		<a id="footer_text" href="http://vamshop.ru/" target="blank"><?php __('copyright') ?></a>
+		<a id="footer_text" href="http://vamshop.ru/" target="blank"><?php __('Powered by VaM Shop') ?></a>
 	</div>
 </body>
 </html>
