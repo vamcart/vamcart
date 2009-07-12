@@ -171,7 +171,7 @@ INSERT INTO `content_descriptions` (`id`, `content_id`, `language_id`, `name`, `
 (385, 38, 1, 'Mozilla Firefox', 'Should soon surpass Internet Explorer 6.0 as the leading browser.  '),
 (386, 38, 3, '', ''),
 (391, 35, 1, 'Home', '<p>Welcome to your new online catalog!</p>\r\n<hr />\r\n<p> </p>\r\n<p><a href=''admin/''>Click here to go to the admin area.</a><br />\r\nLogin credentials: admin/password.</p>\r\n<p>To edit this content log into the administration area and edit the page named ''Home''</p>\r\n<hr />'),
-(392, 35, 3, 'Home', 'This description is in Spanish.  I don''t speak Spanish, so you''re out of luck pal.'),
+(392, 35, 3, 'Home', 'This description is in Russian.'),
 (393, 68, 1, 'Voucher Details', '{module alias=''coupons'' action=''show_info''}'),
 (394, 68, 3, 'Voucher Details', '{module alias=''coupons'' action=''show_info''}');
 
@@ -5097,7 +5097,7 @@ CREATE TABLE `languages` (
 
 INSERT INTO `languages` (`id`, `default`, `name`, `code`, `iso_code_2`, `active`, `sort_order`) VALUES 
 (1, 1, 'English', 'en_US', 'us', 1, 1),
-(3, 0, 'Español', 'es_ES', 'es', 1, 0);
+(3, 0, 'Русский', 'ru_ru', 'ru', 1, 0);
 
 -- --------------------------------------------------------
 
