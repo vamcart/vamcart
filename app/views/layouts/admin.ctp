@@ -80,11 +80,11 @@ header('Content-Type: text/html; charset=utf-8');
 
 <body>
 	<div id="header">
-		<h1><?php __('admin_title') ?></h1>
+		<h1><img src="/img/logo.gif" alt="<?php __('VaM Shop Admin') ?>" /></h1>
 		<div id="global_search">
 		<?php 
 			echo $form->create('Search', array('action' => '/search/admin_global_search/', 'url' => '/search/admin_global_search/'));
-			echo $form->input('Search/term',array('value' => __('global_record_search',true),"onblur" => "if(this.value=='') this.value=this.defaultValue;","onfocus" => "if(this.value==this.defaultValue) this.value='';"));
+			echo $form->input('Search/term',array('value' => __('Global Record Search',true),"onblur" => "if(this.value=='') this.value=this.defaultValue;","onfocus" => "if(this.value==this.defaultValue) this.value='';"));
 			echo $form->submit();
 			echo $form->end();
 		?>

@@ -24,12 +24,12 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<?php echo $html->css('admin'); ?>
-	<title><?php __('VaM Shop Admin') ?></title>
+	<title><?php __('VaM Shop') ?></title>
 </head>
 
 <body>
 	<div id="header">
-		<h1><?php __('VaM Shop Admin') ?></h1>
+		<h1><img src="/img/logo.gif" alt="<?php __('VaM Shop') ?>" /></h1>
 	</div>
 	<div id="under_header_bar"></div>
 	<div id="menu_container">
