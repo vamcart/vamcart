@@ -62,7 +62,7 @@
 		</div><!-- End #content -->
 	</div><!-- End #content_body -->
 	<div id="footer">
-		<a id="footer_text" href="http://sellingmadesimple.org/" target="blank"><?php __('sms_copyright') ?></a>
+		<a id="footer_text" href="http://vamshop.ru/" target="blank"><?php __('copyright') ?></a>
 	</div>
 </body>
 </html>

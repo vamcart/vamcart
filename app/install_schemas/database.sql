@@ -31,8 +31,8 @@ CREATE TABLE `configurations` (
 -- 
 
 INSERT INTO `configurations` (`id`, `key`, `value`) VALUES 
-(1, 'METADATA', '<meta name="Generator" content="Selling Made Simple - www.sellingmadesimple.org" />'),
-(2, 'SITE_NAME', 'SMS Cart'),
+(1, 'METADATA', '<meta name="Generator" content="VaM Shop - vamshop.ru" />'),
+(2, 'SITE_NAME', 'VaM Shop'),
 (3, 'URL_EXTENSION', '.html'),
 (4, 'GD_LIBRARY', '0'),
 (5, 'THUMBNAIL_SIZE', '125'),
@@ -5072,7 +5072,7 @@ CREATE TABLE `global_content_blocks` (
 -- 
 
 INSERT INTO `global_content_blocks` (`id`, `name`, `content`, `alias`, `active`, `created`, `modified`) VALUES 
-(38, 'Footer', '<a href="http://sellingmadesimple.org/" target="blank">Powered by Selling Made Simple</a>', 'footer', 1, '2007-07-17 10:00:06', '2007-09-12 17:05:49');
+(38, 'Footer', '<a href="http://vamshop.ru/" target="blank">Скрипты интернет-магазина</a> VaM Shop', 'footer', 1, '2007-07-17 10:00:06', '2007-09-12 17:05:49');
 
 -- --------------------------------------------------------
 
@@ -5727,7 +5727,7 @@ CREATE TABLE `users` (
 -- 
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `created`, `modified`) VALUES 
-(1, 'admin', 'admin@sellingmadesimple.org', '5f4dcc3b5aa765d61d8327deb882cf99', '0000-00-00 00:00:00', '2007-07-23 15:34:53');
+(1, 'admin', 'vam@test.com', '5f4dcc3b5aa765d61d8327deb882cf99', '0000-00-00 00:00:00', '2007-07-23 15:34:53');
 
 -- --------------------------------------------------------
 
