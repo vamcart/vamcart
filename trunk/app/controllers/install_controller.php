@@ -96,7 +96,7 @@ class InstallController extends AppController {
 			$values['Install']['db_host'] = 'localhost';
 			$values['Install']['db_username'] = 'root';
 			$values['Install']['db_password']  = '';
-			$values['Install']['db_name'] = 'store';
+			$values['Install']['db_name'] = 'vamshop';
 		}	
 		$this->set('values',$values);
 	}
@@ -112,21 +112,21 @@ class InstallController extends AppController {
 		// Attempt to connect to the database
 		if(!$dbh = mysql_connect($hostname, $username, $password) )
 		{
-			$this->Session->setFlash('Unable to connect to database.');
+			$this->Session->setFlash(__('Unable to connect to database.',true));
 			$error = 1;
 		}
 
 		// Attempt to select the database
 		if(!$selected = mysql_select_db($this->data['Install']['db_name'],$dbh))
 		{
-			$this->Session->setFlash('Could not select database.  Are you sure you created it?');
+			$this->Session->setFlash(__('Could not select database.  Are you sure you created it?',true));
 			$error = 1;
 		}
 			
 		// Attempt to open the config file
 		if(!$fh = fopen(ROOT . '/config.php', 'w'))
 		{
-			$this->Session->setFlash('Can\'t open config.php.  Please check you have proper permissions to write to that file.');
+			$this->Session->setFlash(__('Can\'t open config.php.  Please check you have proper permissions to write to that file.',true));
 			$error = 1;
 		}
 
