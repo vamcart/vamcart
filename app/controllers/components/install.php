@@ -34,7 +34,7 @@ class InstallComponent extends Object
 
 	function getVersion ()
 	{
-		$version = 1;
+		$version = '0.1alpha';
 		return $version;
 	}
 	
