@@ -1,0 +1,85 @@
+<?php
+class DefinedLanguagesController extends AppController {
+	var $name = 'DefinedLanguages';
+	
+	/*
+	* Delets all language definitions with key = $key 
+	*
+	*/
+	function admin_delete ($key)
+	{
+		$definitions = $this->DefinedLanguage->findAll(array('key' => $key));
+		foreach($definitions AS $definition)
+		{
+			$this->DefinedLanguage->del($definition['DefinedLanguage']['id']);
+		}
+		$this->Session->setFlash(__('delete_defined_language',true));
+		$this->redirect('/defined_languages/admin/');
+	}
+	
+	
+	function admin_edit ($defined_language_key = "")
+	{
+		if(empty($this->data))
+		{
+			$data = $this->DefinedLanguage->findAll(array('key' => $defined_language_key));
+
+			// Loop through the language definftions and set a new array with the key as the language_id
+			$keyed_definitions = array();
+			foreach($data AS $key => $value)
+			{
+				$array_key = $value['DefinedLanguage']['language_id'];
+				$keyed_definitions[$array_key] = $data[$key];
+			}
+			
+			$this->set('data', $keyed_definitions);
+			$this->set('defined_key',$defined_language_key);
+			$this->set('languages', $this->DefinedLanguage->Language->findAll(array('active' => '1'), null, 'Language.id ASC'));
+			$this->render('','admin');
+		}
+		else
+		{
+			// Check if we pressed the cancel button
+			if(isset($this->params['form']['cancel']))
+			{
+				$this->redirect('/defined_languages/admin/');
+				die();
+			}
+			
+			// Lets just delete all of the defined languages and remake them
+			$language_descriptions = $this->DefinedLanguage->findAll(array('key' => $defined_language_key));
+			foreach($language_descriptions AS $language_description)
+			{
+				$this->DefinedLanguage->del($language_description['DefinedLanguage']['id']);
+			}
+
+			foreach($this->data['DefinedLanguage']['DefinedLanguage'] AS $id => $value)
+			{
+				$new_definition = array();
+				$new_definition['DefinedLanguage']['language_id'] = $id;
+				$new_definition['DefinedLanguage']['key'] = $this->data['DefinedLanguage']['key'];
+				$new_definition['DefinedLanguage']['value'] = $value['value'];				
+
+				$this->DefinedLanguage->create();
+				$this->DefinedLanguage->save($new_definition);
+			}
+				
+
+			$this->redirect('/defined_languages/admin/');
+			
+		
+		}
+	}
+	
+	function admin_new()
+	{
+		$this->redirect('/defined_languages/admin_edit/');	
+	}
+	
+	function admin()
+	{
+		$this->set('defined_languages', $this->DefinedLanguage->findAll("GROUP BY DefinedLanguage.key"));
+		$this->render('','admin');
+	}
+}
+?>

@@ -1,0 +1,52 @@
+This is a file where I will keep track to changes to Core code of applications included with Selling Made Simple.  Generally changes to the core code are a bad idea, but if I have made any, it is because I did not know how to properly extend the code, or I was too lazy.
+
+================================
+CakePHP - v.1.2.0.5427
+================================
+
+
+
+MODIFICATION DETAILS
+--------------------------------
+File: /cake/libs/cache.php
+Line(s): 137
+Description: Changes default Cache function to Cache with the lifetime stored in the global $config['CACHE_TIME'], instead of CACHE_DEFAULT_DURATION
+
+ORIGINAL CODE:
+--------------------------------
+	function write($key, $value, $duration = CACHE_DEFAULT_DURATION) {
+
+
+NEW CODE:
+--------------------------------
+	function write($key, $value, $duration = null) {
+		if($duration == null)
+		{
+			global $config;
+			$duration = intval($config['CACHE_TIME']);
+		}
+		
+		
+		
+		
+		
+MODIFICATION DETAILS
+--------------------------------
+File: /cake/libs/session.php
+Line(s): 475-478
+Description: Session was getting lost in Internet Explorer after a file upload from SWFupload.  This is the fix.
+		
+ORIGINAL CODE:
+--------------------------------
+	function __checkValid() {
+		if ($this->read('Config')) {
+			if ($this->_userAgent == $this->read("Config.userAgent") && $this->time <= $this->read("Config.time")) {	
+
+NEW CODE:
+--------------------------------					
+	function __checkValid() {
+		if ($this->read('Config')) {
+			if ($this->time <= $this->read("Config.time")) { 
+			//if ($this->_userAgent == $this->read("Config.userAgent") && $this->time <= $this->read("Config.time")) {	
+		
+		

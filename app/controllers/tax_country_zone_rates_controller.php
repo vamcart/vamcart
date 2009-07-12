@@ -1,0 +1,124 @@
+<?php
+class TaxCountryZoneRatesController extends AppController {
+	var $name = 'TaxCountryZoneRates';
+	
+	function list_zones_by_country($country_id) 
+	{
+		$zones = $this->TaxCountryZoneRate->CountryZone->generateList(array('country_id' => $country_id));
+		$zones['ALL'] = __('all_country_zones',true);
+		
+		$this->set('zones', $zones);
+		$this->render('','ajax');
+	}	
+
+	function admin_delete ($tax_id, $zone_rate_id)
+	{
+		$this->TaxCountryZoneRate->del($zone_rate_id);
+		$this->Session->setFlash(__('record_deleted',true));
+		$this->redirect('/tax_country_zone_rates/admin/' . $tax_id);
+	}	
+
+	function admin_edit ($tax_id,$rate_id)
+	{
+		if(empty($this->data))
+		{	
+			$data = $this->TaxCountryZoneRate->find(array('TaxCountryZoneRate.id' => $rate_id),null,null,2);
+			$this->set('current_crumb_info',$data['CountryZone']['Country']['name'] . ' - ' . $data['CountryZone']['name']);			
+			$this->set('data',$data);
+			$this->render('','admin');		
+		}
+		else
+		{
+			if(isset($this->params['form']['cancel']))
+			{
+				$this->redirect('/tax_country_zone_rates/admin/' . $tax_id);
+				die();
+			}		
+	
+			$this->TaxCountryZoneRate->save($this->data);
+			$this->Session->setFlash(__('record_saved',true));
+			$this->redirect('/tax_country_zone_rates/admin/' . $tax_id);
+		}
+	}
+
+	function admin_new ($tax_id)
+	{
+		$tax = $this->TaxCountryZoneRate->Tax->read(null,$tax_id);
+		if(empty($this->data))
+		{
+			$this->set('tax',$tax);
+			
+			$this->set('country_list',$this->TaxCountryZoneRate->CountryZone->Country->generateList());
+			$this->render('','admin');
+		}
+		else
+		{
+			if(isset($this->params['form']['cancel']))
+			{
+				$this->redirect('/tax_country_zone_rates/admin/' . $tax_id);
+				die();
+			}
+			
+			if($this->data['TaxCountryZoneRate']['country_zone_id'] == 'ALL')
+			{
+				$country_zones = $this->TaxCountryZoneRate->CountryZone->findAll(array('country_id' => $this->data['TaxCountryZoneRate']['country_id']));
+					
+				foreach($country_zones AS $zone)
+				{
+					$new_zone = array();
+					$new_zone['TaxCountryZoneRate']['tax_id'] = $tax_id;
+					$new_zone['TaxCountryZoneRate']['country_zone_id'] = $zone['CountryZone']['id'];
+					$new_zone['TaxCountryZoneRate']['rate'] = $this->data['TaxCountryZoneRate']['rate'];
+					
+					$this->TaxCountryZoneRate->create();
+					$this->TaxCountryZoneRate->save($new_zone);
+				}
+			}
+			else 
+			{
+				$this->TaxCountryZoneRate->save($this->data);
+			}
+			
+			$this->Session->setFlash(__('record_saved',true));
+			$this->redirect('/tax_country_zone_rates/admin/' . $tax_id);
+		}
+	}
+
+	function admin_modify_selected($tax_id) 
+	{
+		foreach($this->params['data']['TaxCountryZoneRate']['modify'] AS $value)
+		{
+			if($value > 0)
+			{
+				$this->TaxCountryZoneRate->id = $value;
+				$tax_rate = $this->TaxCountryZoneRate->read();
+			
+				switch ($this->params['form']['multiaction']) 
+				{
+					case "delete":
+					    $this->TaxCountryZoneRate->del($value, true);
+					    break;
+				}
+			}
+		}
+		$this->Session->setFlash( __('record_deleted',true));	
+		$this->redirect('/tax_country_zone_rates/admin/' . $tax_id);
+	}	
+	
+	function admin ($tax_id)
+	{
+		if($tax_id == 0)
+		{
+			$this->Session->setFlash(__('flash_select_tax_class',true));
+			$this->redirect('/taxes/admin/');
+			die();
+		}
+		$tax = $this->TaxCountryZoneRate->Tax->read(null,$tax_id);
+		$this->set('current_crumb_info',$tax['Tax']['name']);
+		$this->set('tax',$tax);
+		$this->set('data',$this->TaxCountryZoneRate->findAll(array('tax_id' => $tax_id)));	
+
+		$this->render('','admin');
+	}	
+}
+?>

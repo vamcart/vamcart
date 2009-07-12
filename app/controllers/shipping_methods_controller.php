@@ -1,0 +1,63 @@
+<?php
+class ShippingMethodsController extends AppController {
+	var $name = 'ShippingMethods';
+
+	function admin_change_active_status ($id) 
+	{
+		$this->changeActiveStatus($id);	
+	}
+	
+	function admin_set_as_default ($id)
+	{
+		$this->setDefaultItem($id);
+	}
+	
+	function admin_edit ($shipping_method_id)
+	{
+		if(isset($this->params['form']['cancel']))
+		{
+			$this->redirect('/shipping_methods/admin/');
+			die();
+		}
+		
+		if(empty($this->data))
+		{
+			$this->set('data', $this->ShippingMethod->find(array('id' =>$shipping_method_id,null,null,2)));
+			$this->render('','admin');
+		}
+		else
+		{
+			$this->ShippingMethod->save($this->data);
+			
+			if((isset($this->data['key_values'])) && (!empty($this->data['key_values'])))
+			{
+			foreach($this->data['key_values'] AS $key => $value)
+			{
+				$attribute = $this->ShippingMethod->ShippingMethodValue->findByKey($key);			
+				if(empty($attribute))
+				{
+					$this->ShippingMethod->ShippingMethodValue->create();
+					$attribute['ShippingMethodValue']['shipping_method_id'] = $this->data['ShippingMethod']['id'];
+					$attribute['ShippingMethodValue']['key'] = $key;					
+				}
+				$attribute['ShippingMethodValue']['value'] = $value;
+				$this->ShippingMethod->ShippingMethodValue->save($attribute);
+			}
+			}
+			
+			$this->Session->setFlash(__('record_saved',true));
+			$this->redirect('/shipping_methods/admin/');
+		}
+	}
+	
+	function admin ($ajax = false)
+	{
+		$this->set('shipping_method_data',$this->ShippingMethod->findAll(null,null,'ShippingMethod.name ASC'));	
+
+		if($ajax == true)
+			$this->render('','ajax');
+		else
+			$this->render('','admin');
+	}	
+}
+?>
