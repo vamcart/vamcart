@@ -19,7 +19,7 @@
 **/
 
 ?>
-<div class="pageheader"><?php __('Welcome to the Selling Made Simple installation.') ?></div>
+<div class="pageheader"><?php __('Welcome to the VaM Shop installation.') ?></div>
 <p><?php __('Installing version:') ?> <?php echo $version; ?></p>
 
 <?php
