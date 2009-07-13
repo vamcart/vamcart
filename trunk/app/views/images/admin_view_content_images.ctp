@@ -17,21 +17,21 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 **/
-	echo '<h4>' . __('current_images', true) . '</h4>';
-	echo '<p>' . __('current_images_info', true) . '</p>';	
+	echo '<h4>' . __('Current Images For This Content Item', true) . '</h4>';
+	echo '<p>' . __('Uploaded new images? Press apply to view them.', true) . '</p>';	
 	echo '<ul id="content_images">';
 	foreach($content_images AS $image)
 	{
 		$image_path = BASE . '/images/thumb?src=/content/' . $content_id . '/' . $image['ContentImage']['image'];
 		echo '<li class="thumb">
-				<a href="' . BASE . '/img/content/' . $content_id . '/' . $image['ContentImage']['image'] . '" target="blank"><img src="' . $image_path . '"  alt="' . __('click_to_enlarge', true) . '"  title="' . __('click_to_enlarge', true) . '"/></a><br />' . 
-				$ajax->link($html->image('admin/cancel.png', array('alt' => __('delete', true),'title' => __('delete', true))),'null', $options = array('url' => 'admin_delete_content_image/' . $image['ContentImage']['id'], 'update' => 'content_images_holder'),null,false) 
+				<a href="' . BASE . '/img/content/' . $content_id . '/' . $image['ContentImage']['image'] . '" target="blank"><img src="' . $image_path . '"  alt="' . __('click_to_enlarge', true) . '"  title="' . __('Click to Enlarge', true) . '"/></a><br />' . 
+				$ajax->link($html->image('admin/cancel.png', array('alt' => __('Delete', true),'title' => __('Delete', true))),'null', $options = array('url' => 'admin_delete_content_image/' . $image['ContentImage']['id'], 'update' => 'content_images_holder'),null,false) 
 		   . '</li>';
 	}
 	echo '</ul><div style="clear:both;">';
 	
 	if(empty($content_images))	
 	{
-		echo '<div class="no_data">' . __('no_data',true) . '</div>';
+		echo '<div class="no_data">' . __('No Data',true) . '</div>';
 	}
 ?>
