@@ -23,13 +23,16 @@ echo $form->create('Order', array('action' => '/orders/admin_modify_selected/', 
 
 echo '<table class="pagetable" cellspacing="0">';
 
-echo $html->tableHeaders(array(__('Name', true), __('Status', true), __('Action', true)));
+echo $html->tableHeaders(array(__('Customer', true),__('Order Number', true),__('Total', true), __('Date', true), __('Status', true), __('Action', true)));
 
 foreach ($data AS $order)
 {
 	echo $admin->TableCells(
 		  array(
-				$html->link($time->niceShort($order['Order']['created']) . ' - ' . $order['Order']['bill_name'],'/orders/admin_view/' . $order['Order']['id']),
+				$html->link($order['Order']['bill_name'],'/orders/admin_view/' . $order['Order']['id']),
+				$order['Order']['id'],
+				$order['Order']['total'],
+				$time->niceShort($order['Order']['created']),
 				$order['OrderStatus']['OrderStatusDescription']['name'],
 				$admin->ActionButton('edit','/orders/admin_view/' . $order['Order']['id']) . $admin->ActionButton('delete','/orders/admin_delete/' . $order['Order']['id'])
 		   ));
