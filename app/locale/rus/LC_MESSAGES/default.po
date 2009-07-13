@@ -1120,6 +1120,11 @@ msgstr "Новый пароль"
 msgid  "Confirm Password"
 msgstr "Подтвердите пароль"
 
+##################################################### /app/views/users/admin_user_prefences.ctp####################################################
+
+msgid  "User Prefences"
+msgstr "Настройки"
+
 ##################################################### /app/views/user_tags/admin_edit.ctp####################################################
 
 msgid  "User Tag Details"
