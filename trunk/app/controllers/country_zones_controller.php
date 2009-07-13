@@ -26,7 +26,7 @@ class CountryZonesController extends AppController {
 	function admin_delete ($country_id, $zone_id)
 	{
 		$this->CountryZone->del($zone_id);
-		$this->Session->setFlash(__('record_deleted', true));
+		$this->Session->setFlash(__('Record deleted.', true));
 		$this->redirect('/country_zones/admin/' . $country_id);
 	}
 	
@@ -48,9 +48,9 @@ class CountryZonesController extends AppController {
 		{
 			$this->CountryZone->save($this->data);	
 			if($zone_id == null)	
-				$this->Session->setFlash(__('record_created', true));
+				$this->Session->setFlash(__('Record created.', true));
 			else
-				$this->Session->setFlash(__('record_saved', true));			
+				$this->Session->setFlash(__('Record saved.', true));			
 			$this->redirect('/country_zones/admin/' . $country_id);
 			die();
 		}		

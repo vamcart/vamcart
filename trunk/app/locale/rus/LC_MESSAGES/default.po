@@ -227,3 +227,13 @@ msgstr "Запись сохранена."
 
 msgid  "Record deleted."
 msgstr "Запись удалена."
+
+##################################################### /app/controllers/country_zones_controller.php####################################################
+msgid  "Record deleted."
+msgstr "Запись удалена."
+
+msgid  "Record created."
+msgstr "Запись создана."
+
+msgid  "Record saved."
+msgstr "Запись сохранена."
