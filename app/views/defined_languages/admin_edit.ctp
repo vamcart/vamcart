@@ -21,9 +21,9 @@
 	echo $form->create('DefinedLanguage', array('action' => '/defined_languages/admin_edit/'.$defined_key, 'url' => '/defined_languages/admin_edit/'.$defined_key));	echo '<fieldset>';
 	
 		echo $form->inputs(array(
-					'fieldset' => __('defined_language_details', true),
+					'fieldset' => __('Defined Language Details', true),
 	               'DefinedLanguage/key' => array(
-   				   		'label' => __('alias', true),				   
+   				   		'label' => __('Alias', true),				   
    						'value' => $defined_key
 	               )
 				));
@@ -38,7 +38,7 @@
 			$data[$language_key]['DefinedLanguage']['value'] = "";
 			
 		echo $form->inputs(array('DefinedLanguage]['.$language['Language']['id'].'][value' => array(
-			   		'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . $language['Language']['name'] . ' ' . __('value', true),
+			   		'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . sprintf(__('Value (%s) ', true),__($language['Language']['name'], true)),
 					'type' => 'textarea',
 					'class' => 'pagesmalltextarea',											
 					'value' => $data[$language_key]['DefinedLanguage']['value']
@@ -46,7 +46,7 @@
 	}
 
 	echo '</fieldset>';		
-	echo $form->submit('Submit', array('name' => 'submit')) . $form->submit('Cancel', array('name' => 'cancel'));
+	echo $form->submit(__('Submit', true), array('name' => 'submit')) . $form->submit(__('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clearb"></div>';
 	echo $form->end();
 	?>

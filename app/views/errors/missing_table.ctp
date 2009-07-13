@@ -21,4 +21,4 @@
 
 ?>
 
-<p>Missing database table.</p>
+<p><?php __('Missing database table.'); ?></p>
