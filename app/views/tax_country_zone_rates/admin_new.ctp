@@ -60,9 +60,8 @@ echo $form->create('TaxCountryZoneRate', array('action' => '/tax_country_zone_ra
 	echo '</fieldset>';
 	
 echo $form->submit( __('Submit', true), array('name' => 'submit', 'id' => 'submitbutton')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
-echo '<div class="clearb"></div>';
+echo '<div class="clear"></div>';
 	
 echo $form->end();
 	
-
 ?>

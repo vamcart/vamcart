@@ -61,7 +61,7 @@
 				  ));	
 		echo $admin->EndTabContent();
 	echo $form->submit( __('Submit', true), array('name' => 'submit')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
-	echo '<div class="clearb"></div>';
+	echo '<div class="clear"></div>';
 	echo $form->end();
 	?>
 </div>

@@ -139,7 +139,7 @@ echo $form->create('OrderComment', array('action' => '/orders/admin_new_comment/
 		));
 
 echo $form->submit( __('Submit', true), array('name' => 'submit', 'id' => 'submit'));
-echo '<div class="clearb"></div>';
+echo '<div class="clear"></div>';
 echo $form->end();
 	
 ?>

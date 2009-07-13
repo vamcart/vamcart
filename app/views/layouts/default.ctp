@@ -59,8 +59,8 @@
 			<div id="inner-content">
 				<?php echo $content_for_layout ?>
 			</div>
-		</div><!-- End #content -->
-	</div><!-- End #content_body -->
+		</div>
+	</div>
 	<div id="footer">
 		<a id="footer_text" href="http://vamshop.ru/" target="blank"><?php __('Powered by VaM Shop') ?></a>
 	</div>
