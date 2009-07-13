@@ -41,9 +41,9 @@ class CountriesController extends AppController {
 		{
 			$this->Country->save($this->data);	
 			if($country_id == null)	
-				$this->Session->setFlash(__('record_created', true));
+				$this->Session->setFlash(__('Record created.', true));
 			else
-				$this->Session->setFlash(__('record_saved', true));			
+				$this->Session->setFlash(__('Record saved.', true));			
 			$this->redirect('/countries/admin/');
 			die();
 		}		
@@ -65,7 +65,7 @@ class CountriesController extends AppController {
 				{
 					case "delete":
 						$this->Country->del($value);
-						$build_flash .= __('record_deleted', true) . ': ' . $country['Country']['name'] . '<br />';									
+						$build_flash .= __('Record deleted.', true) . ': ' . $country['Country']['name'] . '<br />';									
 					break;								
 				}
 			}
@@ -77,7 +77,7 @@ class CountriesController extends AppController {
 	function admin_delete ($country_id)
 	{
 		$this->Country->del($country_id);
-		$this->Session->setFlash( __('record_deleted', true));
+		$this->Session->setFlash( __('Record deleted.', true));
 		$this->redirect('/countries/admin');
 	}
 	
