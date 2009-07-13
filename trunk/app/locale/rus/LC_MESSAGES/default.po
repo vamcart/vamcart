@@ -287,14 +287,6 @@ msgstr "Запись активирована."
 msgid  "Record deactivated."
 msgstr "Запись деактивирована."
 
-##################################################### /app/controllers/images_controller.php####################################################
-
-msgid  "Failed: "
-msgstr "Ошибка: "
-
-msgid  "Couldn't read source image "
-msgstr "Не могу прочитать картинку "
-
 ##################################################### /app/controllers/languages_controller.php####################################################
 
 msgid  "Error: Could not delete default record."
