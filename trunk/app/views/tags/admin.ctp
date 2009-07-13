@@ -20,7 +20,7 @@
 
 echo '<table class="pagetable" cellspacing="0">';
 
-echo $html->tableHeaders(array( __('title', true),'&nbsp;'));
+echo $html->tableHeaders(array( __('Title', true),'&nbsp;'));
 
 foreach($files AS $tag)
 {
@@ -40,8 +40,6 @@ foreach($files AS $tag)
 	}
 }
 
-
 echo '</table>';
-
 
 ?>

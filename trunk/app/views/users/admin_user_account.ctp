@@ -20,26 +20,26 @@
 
 	echo $form->create('User', array('action' => '/users/admin_user_account/', 'url' => '/users/admin_user_account/'));
 	echo $form->inputs(array(
-					'fieldset' => __('account_details', true),
+					'fieldset' => __('Account Details', true),
 				   'User/id' => array(
 				   		'type' => 'hidden'
 	               ),
 	               'User/username' => array(
-				   		'label' => __('username', true)
+				   		'label' => __('Username', true)
 	               ),
 				   'User/email' => array(
-   				   		'label' => __('email', true)
+   				   		'label' => __('Email', true)
 	               ),
 				   'User/password' => array(
 				   		'type' => 'password',
-   				   		'label' => __('change_password', true)
+   				   		'label' => __('New Password', true)
 	               ),
 				   'User/confirm_password' => array(
 				   		'type' => 'password',				   
-   				   		'label' => __('confirm_password', true)
+   				   		'label' => __('Confirm Password', true)
 	               )				   				   
 			));
-	echo $form->submit( __('form_submit', true), array('name' => 'submit')) . $form->submit( __('form_cancel', true), array('name' => 'cancel'));
+	echo $form->submit( __('Submit', true), array('name' => 'submit')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clearb"></div>';
 	echo $form->end();
 ?>

@@ -20,19 +20,19 @@
 
 	echo $form->create('User', array('action' => '/users/admin_new/', 'url' => '/users/admin_new/'));
 	echo $form->inputs(array(
-					'fieldset' => __('account_details', true),
+					'fieldset' => __('New Admin', true),
 	               'User/username' => array(
-				   		'label' => __('username', true)
+				   		'label' => __('Username', true)
 	               ),
 				   'User/email' => array(
-   				   		'label' => __('email', true)
+   				   		'label' => __('Email', true)
 	               ),
 				   'User/password' => array(
 				   		'type' => 'text',
-   				   		'label' => __('password', true)
+   				   		'label' => __('Password', true)
 	               )	   				   
 			));
-	echo $form->submit( __('form_submit', true), array('name' => 'submit')) . $form->submit( __('form_cancel', true), array('name' => 'cancel'));
+	echo $form->submit( __('Submit', true), array('name' => 'submit')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clearb"></div>';
 	echo $form->end();
 ?>

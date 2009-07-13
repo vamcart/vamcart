@@ -28,30 +28,30 @@
 	
 	echo $admin->StartTabContent('main');
 		echo $form->inputs(array(
-					'fieldset' => __('UserTag_details', true),
+					'fieldset' => __('User Tag Details', true),
 				   'UserTag/id' => array(
 				   		'type' => 'hidden'
 	               ),
 	               'UserTag/name' => array(
-   				   		'label' => __('name', true)
+   				   		'label' => __('Name', true)
 	               ),
 				   'UserTag/content' => array(
-   				   		'label' => __('content', true)
+   				   		'label' => __('Content', true)
 	               )																										
 			));
 	echo $admin->EndTabContent();
 
 	echo $admin->StartTabContent('options');
 		echo $form->inputs(array(
-					'fieldset' => __('UserTag_details', true),
+					'fieldset' => __('User Tag Details', true),
 	                'UserTag/alias' => array(
-   				   		'label' => __('alias', true)
+   				   		'label' => __('Alias', true)
 	                )																								
 			));
 	echo $admin->EndTabContent();
 	
 	
-	echo $form->submit('Submit', array('name' => 'submit')) . $form->submit('Apply', array('name' => 'apply')) . $form->submit('Cancel', array('name' => 'cancel'));
+	echo $form->submit(__('Submit', true), array('name' => 'submit')) . $form->submit(__('Apply', true), array('name' => 'apply')) . $form->submit(__('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clearb"></div>';
 	echo $form->end();
 	?>

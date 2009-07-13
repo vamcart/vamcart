@@ -41,7 +41,7 @@ echo $form->create('TaxCountryZoneRate', array('action' => '/tax_country_zone_ra
 					'value' => $tax['Tax']['id']
 	              ),
 				'TaxCountryZoneRate/country_id' => array(
-			   		'label' => __('country', true),
+			   		'label' => __('Country', true),
 					'type' => 'select',
 					'options' => $country_list,
 					'selected' => '223',
@@ -53,13 +53,13 @@ echo $form->create('TaxCountryZoneRate', array('action' => '/tax_country_zone_ra
 	echo '</div>';
 
 	echo $form->inputs(array('TaxCountryZoneRate/rate' => array(
-			   		'label' => __('tax_rate', true),
+			   		'label' => __('Tax Rate', true),
 					'type' => 'text'
 				)));
 	
 	echo '</fieldset>';
 	
-echo $form->submit( __('form_submit', true), array('name' => 'submit', 'id' => 'submitbutton')) . $form->submit( __('form_cancel', true), array('name' => 'cancel'));
+echo $form->submit( __('Submit', true), array('name' => 'submit', 'id' => 'submitbutton')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
 echo '<div class="clearb"></div>';
 	
 echo $form->end();
