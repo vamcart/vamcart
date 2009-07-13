@@ -23,7 +23,7 @@ echo $form->create('TaxCountryZoneRate', array('action' => '/tax_country_zone_ra
 
 echo '<table class="pagetable" cellspacing="0">';
 
-echo $html->tableHeaders(array( __('name', true), __('tax_rate', true), __('action', true), '&nbsp;'));
+echo $html->tableHeaders(array( __('Name', true), __('Tax Rate', true), __('Action', true), '&nbsp;'));
 
 foreach ($data AS $tax_rate_zone)
 {

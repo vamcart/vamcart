@@ -21,15 +21,15 @@
 
 	echo $form->create('Tax', array('action' => '/taxes/admin_edit/', 'url' => '/taxes/admin_edit/'));
 	echo $form->inputs(array(
-					'fieldset' => __('tax_details', true),
+					'fieldset' => __('Tax Details', true),
 				   'Tax/id' => array(
 				   		'type' => 'hidden'
 	               ),
 	               'Tax/name' => array(
-				   		'label' => __('name', true)
+				   		'label' => __('Name', true)
 	               )					     				   	   																									
 			));
-	echo $form->submit( __('form_submit', true), array('name' => 'submit')) . $form->submit( __('form_cancel', true), array('name' => 'cancel'));
+	echo $form->submit( __('Submit', true), array('name' => 'submit')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clearb"></div>';
 	echo $form->end();
 	?>

@@ -20,12 +20,12 @@
 
 	echo $form->create('Template', array('action' => '/templates/admin_new/', 'url' => '/templates/admin_new/'));
 	echo $form->inputs(array(
-					'fieldset' => __('template_details', true),				   
+					'fieldset' => __('Template Details', true),				   
 	               'Template/name' => array(
-				   		'label' => __('name', true)
+				   		'label' => __('Name', true)
 	               )																										
 			));
-	echo $form->submit( __('Create Template Set', true), array('name' => 'submit')) . $form->submit( __('form_cancel', true), array('name' => 'cancel'));
+	echo $form->submit( __('Create Template Set', true), array('name' => 'submit')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clearb"></div>';
 	echo $form->end();
 	?>

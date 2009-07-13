@@ -361,7 +361,7 @@ msgid  "You have deleted a template association."
 msgstr "Удалена привязка стиля к шаблону."
 
 msgid  "Attach Template"
-msgstr "Присоединение к шаблону"
+msgstr "Присоединить к шаблону"
 
 msgid  "Copy Stylesheet"
 msgstr "Копирование стиля"
@@ -464,7 +464,7 @@ msgstr "Запись создана."
 msgid  "You have logged out."
 msgstr "Вы успешно вышли из магазина."
 
-msgid  "Your login credentials are invalid."
+msgid  "No match for Username and/or Password."
 msgstr "Данные для входа указаны неправильно."
 
 msgid  "Could not create user account. User exists."
@@ -1008,7 +1008,7 @@ msgstr "Медиа тип"
 msgid  "Stylesheet"
 msgstr "Стиль"
 
-msgid  "Current Associations"
+msgid  "Current Template Associations"
 msgstr "Связан с шаблонами"
 
 ##################################################### /app/views/stylesheets/admin_copy.ctp####################################################
@@ -1023,3 +1023,107 @@ msgstr "Информация о стиле"
 
 msgid  "Stylesheets"
 msgstr "Стили"
+
+##################################################### /app/views/tags/admin_view.ctp####################################################
+
+msgid  "About"
+msgstr "Информация"
+
+msgid  "Default Template"
+msgstr "Шаблон тэга"
+
+msgid  "Template Details"
+msgstr "Шаблон"
+
+msgid  "Create Micro Template From Tag"
+msgstr "Создать микро шаблон из тэга"
+
+##################################################### /app/views/tax_country_zone_rates/admin.ctp####################################################
+
+msgid  "Tax Rate"
+msgstr "Ставка налога"
+
+##################################################### /app/views/tax_country_zone_rates/admin_edit.ctp####################################################
+
+msgid  "Tax Zone Rates Details"
+msgstr "Информация о налоге"
+
+##################################################### /app/views/tax_country_zone_rates/admin_new.ctp####################################################
+
+msgid  "Country"
+msgstr "Страна"
+
+msgid  "Country Zones"
+msgstr "Регионы"
+
+##################################################### /app/views/taxes/admin.ctp####################################################
+
+msgid  "Are you sure you want to set all products to this tax class?"
+msgstr "Вы действительно хотите добавить всем товарам данный налог?"
+
+msgid  "Set All Products"
+msgstr "Добавить всем товарам данный налог"
+
+##################################################### /app/views/taxes/admin_edit.ctp####################################################
+
+msgid  "Tax Details"
+msgstr "Информация о налоге"
+
+##################################################### /app/views/templates/admin_attach_stylesheets.ctp####################################################
+
+msgid  "Stylesheet"
+msgstr "Стиль"
+
+msgid  "Current Stylesheet Associations"
+msgstr "Связан со стилями"
+
+msgid  "Attach Stylesheet"
+msgstr "Присоединить стиль"
+
+##################################################### /app/views/templates/admin_copy.ctp####################################################
+
+msgid  "Template Copy Name"
+msgstr "Название копируемого шаблона"
+
+##################################################### /app/views/templates/admin_new.ctp####################################################
+
+msgid  "Create Template Set"
+msgstr "Создать шаблон"
+
+##################################################### /app/views/users/admin_login.ctp####################################################
+
+msgid  "Admin Login"
+msgstr "Вход"
+
+msgid  "Username"
+msgstr "Логин"
+
+msgid  "Password"
+msgstr "Пароль"
+
+msgid  "Login"
+msgstr "Войти"
+
+##################################################### /app/views/users/admin_new.ctp####################################################
+
+msgid  "New Admin"
+msgstr "Новый администратор"
+
+##################################################### /app/views/users/admin_user_account.ctp####################################################
+
+msgid  "Account Details"
+msgstr "Мои данные"
+
+msgid  "New Password"
+msgstr "Новый пароль"
+
+msgid  "Confirm Password"
+msgstr "Подтвердите пароль"
+
+##################################################### /app/views/user_tags/admin_edit.ctp####################################################
+
+msgid  "User Tag Details"
+msgstr "Тэги пользователя"
+
+msgid  "Content"
+msgstr "Содержимое"

@@ -27,7 +27,7 @@
 //pr($stylesheet['Template']);die();
 $attached_template = $stylesheet['Template'];
 
-echo $html->tableHeaders(array( __('Current Associations', true), __('Action', true)));
+echo $html->tableHeaders(array( __('Current Template Associations', true), __('Action', true)));
 
 foreach ($attached_template AS $template)
 {

@@ -21,15 +21,15 @@
 	$template_id = $this->data['Template']['id'];
 	echo $form->create('Template', array('action' => '/templates/admin_edit/'.$template_id, 'url' => '/templates/admin_edit/'.$template_id));
 	echo $form->inputs(array(
-					'fieldset' => __('template_details', true),
+					'fieldset' => __('Template Details', true),
 				   'Template/id' => array(
 				   		'type' => 'hidden'
 	               ),
 				   'Template/template' => array(
-   				   		'label' => __('templates', true)
+   				   		'label' => __('Template', true)
 	               )																										
 			));
-	echo $form->submit( __('form_submit', true), array('name' => 'submit')) . $form->submit( __('form_apply', true), array('name' => 'apply')) . $form->submit( __('form_cancel', true), array('name' => 'cancel'));
+	echo $form->submit(__('Submit', true), array('name' => 'submit')) . $form->submit(__('Apply', true), array('name' => 'apply')) . $form->submit(__('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clearb"></div>';
 	echo $form->end();
 	?>

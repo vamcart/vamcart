@@ -19,7 +19,7 @@
 **/
 
 	echo $form->inputs(array('TaxCountryZoneRate/country_zone_id' => array(
-			   		'label' => __('country_zones', true),
+			   		'label' => __('Country Zones', true),
 					'type' => 'select',
 					'options' => $zones,
 					'selected' => 'ALL'

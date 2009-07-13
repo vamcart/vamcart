@@ -19,14 +19,14 @@
 **/
 
 
- __('table_heading_template');  echo ': ' . $html->link($template['Template']['name'],'/templates/admin_edit/' . $template['Template']['id']); ?>
+ __('Template');  echo ': ' . $html->link($template['Template']['name'],'/templates/admin_edit/' . $template['Template']['id']); ?>
 
 <table class="pagetable" cellspacing="0">
 
 <?php
 $attached_stylesheet = $template['Stylesheet'];
 
-echo $html->tableHeaders(array( __('table_heading_current_associations', true), __('table_heading_action', true)));
+echo $html->tableHeaders(array( __('Current Stylesheet Associations', true), __('Action', true)));
 
 foreach ($attached_stylesheet AS $stylesheet)
 {
@@ -46,7 +46,7 @@ if(!empty( $available_stylesheets))
 	echo '<div class="attach_select">';
 	echo $form->create('Template/Stylesheet', array('action' => '/templates/admin_attach_stylesheets/'.$template['Template']['id'], 'url' => '/templates/admin_attach_stylesheets/'.$template['Template']['id']));
 	echo $form->select('Stylesheet/Stylesheet][', $available_stylesheets, null, null, false);
-	echo $form->submit( __('attach_stylesheet', true), array('name' => 'attach_stylesheet'));
+	echo $form->submit( __('Attach Stylesheet', true), array('name' => 'attach_stylesheet'));
 	echo '<div class="clearb"></div>';
 	echo $form->end();
 	echo '</div>';

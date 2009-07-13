@@ -21,17 +21,17 @@
 
 	echo $form->create('TaxCountryZoneRate', array('action' => '/tax_country_zone_rates/admin_edit/' . $data['Tax']['id'] . '/' . $data['TaxCountryZoneRate']['id'], 'url' => '/tax_country_zone_rates/admin_edit/' . $data['Tax']['id'] . '/' . $data['TaxCountryZoneRate']['id']));
 	echo $form->inputs(array(
-					'fieldset' => __('currency_details', true),
+					'fieldset' => __('Tax Zone Rates Details', true),
 				   'TaxCountryZoneRate/id' => array(
 				   		'type' => 'hidden',
 						'value' => $data['TaxCountryZoneRate']['id']
 	               ),
 	               'TaxCountryZoneRate/rate' => array(
-				   		'label' => __('tax_rate', true),
+				   		'label' => __('Tax Rate', true),
    						'value' => $data['TaxCountryZoneRate']['rate']
 	               )		     				   	   																									
 			));
-	echo $form->submit( __('form_submit', true), array('name' => 'submit')) . $form->submit( __('form_cancel', true), array('name' => 'cancel'));
+	echo $form->submit( __('Submit', true), array('name' => 'submit')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clearb"></div>';
 	echo $form->end();
 	?>

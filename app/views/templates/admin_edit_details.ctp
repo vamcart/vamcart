@@ -20,17 +20,17 @@
 
 	echo $form->create('Template', array('action' => '/templates/admin_edit_details/'.$data['Template']['id'], 'url' => '/templates/admin_edit_details/'.$data['Template']['id']));
 	echo $form->inputs(array(
-					'fieldset' => __('template_details', true),
+					'fieldset' => __('Template Details', true),
 				   'Template/id' => array(
 				   		'type' => 'hidden',
 						'value' => $data['Template']['id']
 	               ),
 	               'Template/name' => array(
-				   		'label' => __('name', true),
+				   		'label' => __('Name', true),
    						'value' => $data['Template']['name']
 	               )																										
 			));
-	echo $form->submit( __('form_submit', true), array('name' => 'submit')) . $form->submit( __('form_cancel', true), array('name' => 'cancel'));
+	echo $form->submit( __('Submit', true), array('name' => 'submit')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clearb"></div>';
 	echo $form->end();
 	?>

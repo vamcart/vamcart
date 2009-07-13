@@ -23,14 +23,14 @@ echo $form->create('UserPref', array('action' => '/users/admin_user_preferences/
 echo $form->inputs(array(
 		'fieldset' => 'user_prefs',
 		'UserPref/language' => array(
-			'label' => __('language', true),
+			'label' => __('Language', true),
 			'type' => 'select',
 			'options' => $available_languages,
 			'selected' => $_SESSION['UserPref']['language']
               )		 			  			  
 	   ));
 	   
-	echo $form->submit( __('form_apply', true), array('name' => 'applybutton')) . $form->submit( __('form_cancel', true), array('name' => 'cancelbutton'));
+	echo $form->submit( __('Apply', true), array('name' => 'applybutton')) . $form->submit( __('Cancel', true), array('name' => 'cancelbutton'));
 	echo '<div class="clearb"></div>';
 	echo $form->end();	   
 ?>

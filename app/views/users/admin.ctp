@@ -21,7 +21,7 @@
 
 echo '<table class="pagetable" cellspacing="0">';
 
-echo $html->tableHeaders(array( __('title', true), __('action', true)));
+echo $html->tableHeaders(array( __('Title', true), __('Action', true)));
 
 foreach ($users AS $user)
 {

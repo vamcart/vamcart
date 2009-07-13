@@ -21,15 +21,15 @@
 
 	echo $form->create('User', array('action' => '/users/admin_login/', 'url' => '/users/admin_login/'));
 	echo $form->inputs(array(
-					'fieldset' => 'Enter User Credentials',
+					'fieldset' => __('Admin Login', true),
 	               'User/username' => array(
-						'label' => __('username', true)
+						'label' => __('Username', true)
 	               ),
 				   'User/password' => array(
-   						'label' => __('password', true)
+   						'label' => __('Password', true)
 	               )																										
 			));
-	echo $form->submit(__('login',true));
+	echo $form->submit(__('Login',true));
 	echo '<div class="clearb" />';
 	echo $form->end();
 ?>

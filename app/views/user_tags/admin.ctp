@@ -22,7 +22,7 @@
 echo $form->create('UserTag', array('action' => '/UserTags/admin_modify_selected/', 'url' => '/UserTags/admin_modify_selected/'));
 
 echo '<table class="pagetable" cellspacing="0">';
-echo $html->tableHeaders(array( __('title', true), __('call', true), __('action', true), '&nbsp;'));
+echo $html->tableHeaders(array( __('Title', true), __('Call', true), __('Action', true), '&nbsp;'));
 
 foreach ($user_tags AS $UserTag)
 {
