@@ -137,7 +137,7 @@ class UsersController extends AppController {
 			if(empty($admin_user))
 			{
 				// If there was an error set the flash and render
-				$this->Session->setFlash(__('Your login credentials are invalid.', true));
+				$this->Session->setFlash(__('No match for Username and/or Password.', true));
 			}
 			// Write to the session and redirect
 			$this->Session->write('User', $admin_user['User']);
