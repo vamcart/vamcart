@@ -237,3 +237,22 @@ msgstr "Запись создана."
 
 msgid  "Record saved."
 msgstr "Запись сохранена."
+
+##################################################### /app/controllers/currencies_controller.php####################################################
+msgid  "Error: Could not delete default record."
+msgstr "Ошибка: Нельзя удалять запись по умолчанию."
+
+msgid  "Record deleted."
+msgstr "Запись удалена."
+
+msgid  "Record saved."
+msgstr "Запись сохранена."
+
+msgid  "Record activated."
+msgstr "Запись активирована."
+
+msgid  "Record deactivated."
+msgstr "Запись деактивирована."
+
+msgid  "Error: Could not deactivate default record."
+msgstr "Ошибка: Нельзя деактивировать запись по умолчанию."

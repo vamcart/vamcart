@@ -54,13 +54,13 @@ class CurrenciesController extends AppController {
 		
 		if($currency['Currency']['default'] == 1)
 		{
-			$this->Session->setFlash( __('record_delete_default', true));		
+			$this->Session->setFlash( __('Error: Could not delete default record.', true));		
 		}
 		else
 		{
 			// Ok, delete the currency
 			$this->Currency->del($currency_id);	
-			$this->Session->setFlash( __('record_deleted', true));		
+			$this->Session->setFlash( __('Record deleted.', true));		
 		}
 		$this->redirect('/currencies/admin/');
 	}
@@ -82,7 +82,7 @@ class CurrenciesController extends AppController {
 		else
 		{
 			$this->Currency->save($this->data);		
-			$this->Session->setFlash(__('record_created', true));
+			$this->Session->setFlash(__('Record saved.', true));
 			$this->redirect('/currencies/admin');
 		}		
 		$this->render('','admin');
@@ -111,29 +111,29 @@ class CurrenciesController extends AppController {
 						if($currency['Currency']['default'] == 0)
 						{
 						    $this->Currency->del($value);
-							$build_flash .= __('record_deleted', true) . ' (' . $currency['Currency']['name'] . ')<br />';									
+							$build_flash .= __('Record deleted.', true) . ' (' . $currency['Currency']['name'] . ')<br />';									
 						}
 						else
 						{	
-							$build_flash .= __('record_delete_default', true) . ' (' . $currency['Currency']['name'] . ')<br />';								
+							$build_flash .= __('Error: Could not delete default record.', true) . ' (' . $currency['Currency']['name'] . ')<br />';								
 						}
 					break;
 					case "activate":
 						$currency['Currency']['active'] = 1;
 						$this->Currency->save($currency);
-						$build_flash .= __('record_activated', true) . ' (' . $currency['Currency']['name'] . ')<br />';								
+						$build_flash .= __('Record activated.', true) . ' (' . $currency['Currency']['name'] . ')<br />';								
 					break;					
 					case "deactivate":
 						// Don't let them deactivate the default currency
 						if($currency['Currency']['default'] == 1)
 						{
-							$build_flash .=  __('record_deactivate_default', true) .' (' . $currency['Currency']['name'] . ')<br />';								
+							$build_flash .=  __('Error: Could not deactivate default record.', true) .' (' . $currency['Currency']['name'] . ')<br />';								
 						}
 						else
 						{
 							$currency['Currency']['active'] = 0;
 							$this->Currency->save($currency);
-							$build_flash .= __('record_deactivated', true) . ' (' . $currency['Currency']['name'] . ')<br />';								
+							$build_flash .= __('Record deactivated.', true) . ' (' . $currency['Currency']['name'] . ')<br />';								
 						}
 					break;										
 				}
