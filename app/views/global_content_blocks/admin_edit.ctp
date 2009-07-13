@@ -22,8 +22,8 @@
 	echo $form->create('GlobalContentBlock', array('action' => '/global_content_blocks/admin_edit/'.$id, 'url' => '/global_content_blocks/admin_edit/'.$id));
 	
 	echo $admin->StartTabs();
-			echo $admin->CreateTab('main');
-			echo $admin->CreateTab('options');			
+			echo $admin->CreateTab('main',__('Main',true));
+			echo $admin->CreateTab('options',__('Options',true));			
 	echo $admin->EndTabs();
 
 	

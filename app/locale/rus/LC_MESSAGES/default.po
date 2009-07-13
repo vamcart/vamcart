@@ -702,3 +702,43 @@ msgstr "Ссылка на"
 
 msgid  "Select Internal Page"
 msgstr "Выберите страницу"
+
+##################################################### /app/views/countries/admin.ctp####################################################
+
+msgid  "Title"
+msgstr "Название"
+
+msgid  "Code"
+msgstr "Код"
+
+msgid  "Action"
+msgstr "Действие"
+
+msgid  "<< Previous"
+msgstr "<< Назад"
+
+msgid  "Page "
+msgstr "Страница "
+
+msgid  "Next >>"
+msgstr "Вперёд >>"
+
+msgid  "Page %page% of %pages%, showing %current% records out of %count% total."
+msgstr "Страница %page% из %pages%, показано %current% записей, всего: %count%."
+
+##################################################### /app/views/countries/admin_edit.ctp####################################################
+
+msgid  "Country Details"
+msgstr "Информация о стране"
+
+msgid  "Name"
+msgstr "Название"
+
+msgid  "ISO Code 2"
+msgstr "ISO Код 2"
+
+msgid  "ISO Code 3"
+msgstr "ISO Код 2"
+
+msgid  "Address Format"
+msgstr "Формат адреса"
