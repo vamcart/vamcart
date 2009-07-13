@@ -13,7 +13,7 @@ class DefinedLanguagesController extends AppController {
 		{
 			$this->DefinedLanguage->del($definition['DefinedLanguage']['id']);
 		}
-		$this->Session->setFlash(__('delete_defined_language',true));
+		$this->Session->setFlash(__('Record deleted.',true));
 		$this->redirect('/defined_languages/admin/');
 	}
 	

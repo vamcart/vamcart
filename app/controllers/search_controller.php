@@ -23,7 +23,7 @@ class SearchController extends AppController {
 	
 	function admin_global_search ()
 	{
-		$this->set('current_crumb',__('search_results',true));
+		$this->set('current_crumb',__('Search Results',true));
 		
 		$search_tables = $this->Search->findAll();
 		$search_results = array();

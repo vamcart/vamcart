@@ -128,9 +128,7 @@ class PagesController extends AppController {
 		}
 		
 		$this->Smarty->display($template['Template']['template'],$template_vars);
-		echo '
-			<!-- Powered by: VaM Shop (vamshop.ru) -->	
-		';
+		echo '<!-- Powered by: VaM Shop (vamshop.com) -->';
 		die();
 	}
 }

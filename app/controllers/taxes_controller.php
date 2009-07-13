@@ -12,7 +12,7 @@ class TaxesController extends AppController {
 			$this->Tax->ContentProduct->save($product);
 		}
 	
-		$this->Session->setFlash(__('record_multiple_saved',true));				
+		$this->Session->setFlash(__('You have updated multiple records.',true));				
 		$this->redirect('/taxes/admin/');
 	}
 	
@@ -24,7 +24,7 @@ class TaxesController extends AppController {
 	
 	function admin_delete ($id)	
 	{
-		$this->Session->setFlash(__('record_deleted',true));	
+		$this->Session->setFlash(__('Record deleted.',true));	
 		$this->Tax->del($id);
 	}
 		
@@ -45,7 +45,7 @@ class TaxesController extends AppController {
 			}
 			
 			$this->Tax->save($this->data);
-			$this->Session->setFlash(__('record_created',true));				
+			$this->Session->setFlash(__('Record created.',true));				
 			$this->redirect('/taxes/admin/');
 		}
 	}

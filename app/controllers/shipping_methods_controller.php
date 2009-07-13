@@ -45,7 +45,7 @@ class ShippingMethodsController extends AppController {
 			}
 			}
 			
-			$this->Session->setFlash(__('record_saved',true));
+			$this->Session->setFlash(__('Record saved.',true));
 			$this->redirect('/shipping_methods/admin/');
 		}
 	}

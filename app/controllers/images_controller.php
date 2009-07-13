@@ -66,7 +66,7 @@ class ImagesController extends AppController {
 					{
                         $phpThumb->RenderToFile($phpThumb->cache_filename);
                     } else {
-                        die('Failed: '.$phpThumb->error);
+                        die(__('Failed: ',true).$phpThumb->error);
                     }
                 }
             
@@ -79,7 +79,7 @@ class ImagesController extends AppController {
             
             
             } else { // Can't read source
-                die("Couldn't read source image ".$sourceFilename);
+                die(__('Couldn't read source image ',true).$sourceFilename);
             }
 	}
 

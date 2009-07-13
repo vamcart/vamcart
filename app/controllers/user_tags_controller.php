@@ -5,7 +5,7 @@ class UserTagsController extends AppController {
 	function admin_delete ($UserTag_id)
 	{
 		$this->UserTag->del($UserTag_id);	
-		$this->Session->setFlash(__('record_deleted', true));		
+		$this->Session->setFlash(__('Record deleted.', true));		
 		$this->redirect('/user_tags/admin/');
 	}
 	
@@ -46,7 +46,7 @@ class UserTagsController extends AppController {
 				$error = array();
                 $buffer = ob_get_clean();
 				
-				$error = __('flash_invalid_code',true) . ':<br />' . $buffer;
+				$error = __('Invalid Tag Code',true) . ':<br />' . $buffer;
 				$this->Session->setFlash($error);
 
 				if($user_tag_id == null)
@@ -62,12 +62,12 @@ class UserTagsController extends AppController {
 			// Set the flash whether a new user tag or not
 			if($user_tag_id == null)
 			{
-				$this->Session->setFlash(__('flash_created_user_tag', true));		
+				$this->Session->setFlash(__('User tag created.', true));		
 				$user_tag_id = $this->UserTag->getLastInsertId();					
 			}
 			else
 			{
-				$this->Session->setFlash(__('flash_updated_user_tag', true));
+				$this->Session->setFlash(__('User tag updated.', true));
 			}
 		
 		
@@ -104,7 +104,7 @@ class UserTagsController extends AppController {
 				{
 					case "delete":
 					    $this->UserTag->del($value);
-						$build_flash .= __('flash_deleted_user_tag', true) . ': ' . $gcb['UserTag']['name'] . '<br />';		
+						$build_flash .= __('User tag deleted.', true) . ': ' . $gcb['UserTag']['name'] . '<br />';		
 					    break;
 				}
 			}
