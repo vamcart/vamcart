@@ -24,7 +24,7 @@
 
 
 		echo $form->inputs(array(
-					'fieldset' => __('country_zone_details', true),
+					'fieldset' => __('Country Zone Details', true),
 				   'CountryZone/country_id' => array(
 				   		'type' => 'hidden',
 						'value' => $country_id
@@ -33,13 +33,13 @@
 				   		'type' => 'hidden'
 	               ),
 	               'CountryZone/name' => array(
-				   		'label' => __('name', true)
+				   		'label' => __('Name', true)
 	               ),
 	               'CountryZone/code' => array(
-				   		'label' => __('code', true)
+				   		'label' => __('Code', true)
 	               )	     		
 				   ));		   	   																									
-	echo $form->submit( __('form_submit', true), array('name' => 'submit')) . $form->submit( __('form_cancel', true), array('name' => 'cancel'));
+	echo $form->submit( __('Submit', true), array('name' => 'submit')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clearb"></div>';
 	echo $form->end();
 	?>

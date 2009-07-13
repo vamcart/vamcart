@@ -23,7 +23,7 @@ echo $form->create('Currency', array('action' => '/currencies/admin_modify_selec
 
 echo '<table class="pagetable" cellspacing="0">';
 
-echo $html->tableHeaders(array( __('currency', true), __('code', true), __('active', true), __('default', true), __('action', true), '&nbsp;'));
+echo $html->tableHeaders(array( __('Currency', true), __('Code', true), __('Active', true), __('Default', true), __('Action', true), '&nbsp;'));
 
 foreach ($currency_data AS $currency)
 {

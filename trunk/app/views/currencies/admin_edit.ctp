@@ -21,36 +21,36 @@
 
 	echo $form->create('Currency', array('action' => '/currencies/admin_edit/', 'url' => '/currencies/admin_edit/'));
 	echo $form->inputs(array(
-					'fieldset' => __('currency_details', true),
+					'fieldset' => __('Currency Details', true),
 				   'Currency/id' => array(
 				   		'type' => 'hidden'
 	               ),
 	               'Currency/name' => array(
-				   		'label' => __('name', true)
+				   		'label' => __('Name', true)
 	               ),
 				   'Currency/code' => array(
-   				   		'label' => __('code', true)
+   				   		'label' => __('Code', true)
 	               ),	
 				   'Currency/symbol_left' => array(
-   				   		'label' => __('symbol_left', true)
+   				   		'label' => __('Symbol Left', true)
 	               ),	
 				   'Currency/symbol_right' => array(
-   				   		'label' => __('symbol_right', true)
+   				   		'label' => __('Symbol Right', true)
 	               ),	
 				   'Currency/decimal_point' => array(
-   				   		'label' => __('decimal_point', true)
+   				   		'label' => __('Decimal Point', true)
 	               ),					   				   			
 				   'Currency/thousands_point' => array(
-   				   		'label' => __('thousands_point', true)
+   				   		'label' => __('Thousands Point', true)
 	               ),	
 				   'Currency/decimal_places' => array(
-   				   		'label' => __('decimal_places', true)
+   				   		'label' => __('Decimal Places', true)
 	               ),				 
 				   'Currency/value' => array(
-   				   		'label' => __('value', true)
+   				   		'label' => __('Value', true)
 	               )					     				   	   																									
 			));
-	echo $form->submit( __('form_submit', true), array('name' => 'submit')) . $form->submit( __('form_cancel', true), array('name' => 'cancel'));
+	echo $form->submit( __('Submit', true), array('name' => 'submit')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clearb"></div>';
 	echo $form->end();
 	?>

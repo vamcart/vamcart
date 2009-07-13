@@ -742,3 +742,40 @@ msgstr "ISO Код 2"
 
 msgid  "Address Format"
 msgstr "Формат адреса"
+
+##################################################### /app/views/country_zones/admin_edit.ctp####################################################
+
+msgid  "Country Zone Details"
+msgstr "Информация о регионах страны"
+
+##################################################### /app/views/currencies/admin.ctp####################################################
+
+msgid  "Currency"
+msgstr "Валюта"
+
+msgid  "Default"
+msgstr "По умолчанию"
+
+##################################################### /app/views/currencies/admin_edit.ctp####################################################
+
+msgid  "Currency Details"
+msgstr "Информация о валюте"
+
+msgid  "Symbol Left"
+msgstr "Символ слева"
+
+msgid  "Symbol Right"
+msgstr "Символ справа"
+
+msgid  "Decimal Point"
+msgstr "Разделитель десятичных"
+
+msgid  "Thousands Point"
+msgstr "Разделитель тысячных"
+
+msgid  "Decimal Places"
+msgstr "Десятичные порядки"
+
+msgid  "Value"
+msgstr "Значение"
+
