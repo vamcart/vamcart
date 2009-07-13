@@ -82,7 +82,7 @@ class AdminHelper extends Helper {
 	{
 		return('
 			</div>
-			<div class="clearb"></div>
+			<div class="clear"></div>
 			<script language="javascript" type="text/javascript">
 			var oldhandler = window.onload;
 			window.onload = (typeof oldhandler == "function")
@@ -138,7 +138,7 @@ class AdminHelper extends Helper {
 							</span>';
 
 		}
-		$content .= '</div><div class="clearb"></div>';		
+		$content .= '</div><div class="clear"></div>';		
 		return($content);
 	}
 	
@@ -225,7 +225,7 @@ class AdminHelper extends Helper {
 			}
 			$navigation .= '</li>';
 		}
-		$navigation .= '</ul><div class="clearb"></div>';
+		$navigation .= '</ul><div class="clear"></div>';
 		
 		return($navigation);
 	}
