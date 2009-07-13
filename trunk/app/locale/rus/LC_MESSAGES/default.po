@@ -181,3 +181,39 @@ msgstr "Кэш очищен."
 
 msgid  "Record saved."
 msgstr "Запись сохранена."
+
+##################################################### /app/controllers/contents_controller.php####################################################
+msgid  "Error: Could not delete default record."
+msgstr "Ошибка: Нельзя удалять запись по умолчанию."
+
+msgid  "You have deleted a record."
+msgstr "Запись удалена."
+
+msgid  "Edit %s"
+msgstr "Редактировать %s"
+
+msgid "core page"
+msgid_plural "core pages"
+msgstr[0] "страницу"
+msgstr[1] "страницу"
+
+msgid  "Unable to delete content item with children."
+msgstr "Не могу удалить, есть вложенные записи."
+
+msgid  "Deleted a content item."
+msgstr "Запись удалена."
+
+msgid  "Now showing in menu."
+msgstr "Показывать в меню."
+
+msgid  "Now hiding from menu."
+msgstr "Не показывать в меню."
+
+msgid  "Activated content item."
+msgstr "Активная запись."
+
+msgid  "Inactivated content item."
+msgstr "Неактивная запись."
+
+msgid  "%s Listing."
+msgstr "%s показана."
