@@ -131,12 +131,12 @@ class ContentsController extends AppController {
 		// Make sure we're not deleting the default content item
 		if($content['Content']['default'] == 1)
 		{
-			$this->Session->setFlash(__('record_delete_default', true));			
+			$this->Session->setFlash(__('Error: Could not delete default record.', true));			
 		}
 		else
 		{
 			$this->Content->del($content_id, true);
-			$this->Session->setFlash(__('record_deleted', true));		
+			$this->Session->setFlash(__('You have deleted a record.', true));		
 		}
 		$this->redirect('/contents/admin/');
 	}
@@ -193,7 +193,7 @@ class ContentsController extends AppController {
 
 	function admin_core_pages_edit($content_id) 
 	{
-			$this->set('current_crumb', sprintf(__('% admin_edit',true), __n('core_pages','core_pages', 1, true)));
+			$this->set('current_crumb', sprintf(__('Edit %s',true), __n('core page','core pages', 1, true)));
 			$this->Content->id = $content_id;			
 			$data = $this->Content->read();
 		
@@ -343,7 +343,7 @@ class ContentsController extends AppController {
 			$this->Content->$model->save($special_content);
 			
 			
-			$this->Session->setFlash(__('record_saved', true));
+			$this->Session->setFlash(__('Record saved.', true));
 		
 			// Check if we pressed 'apply' otherwise just render
 			if(isset($this->params['form']['applybutton']))
@@ -455,33 +455,33 @@ class ContentsController extends AppController {
 						$count_children = $this->Content->findCount(array('Content.parent_id' => $content['Content']['id']));
 					if($count_children > 0)
 					{
-							$build_flash .= 'Unable to delete content item with children.<br />';
+							$build_flash .= __('Unable to delete content item with children.', true);
 					}
 					else
 					{
 						    $this->Content->del($value, true);
-							$build_flash .= 'Deleted a content item.<br />';
+							$build_flash .= __('Deleted a content item.', true);
 					}
 				    break;
 					case "show_in_menu":
 					    $content['Content']['show_in_menu'] = 1;
 						$this->Content->save($content);
-						$build_flash .= 'Now showing in menu.<br />';
+						$build_flash .= __('Now showing in menu.', true);
 					break;
 					case "hide_from_menu":
 					    $content['Content']['show_in_menu'] = 0;
 						$this->Content->save($content);
-						$build_flash .= 'Now hiding from menu.<br />';
+						$build_flash .= __('Now hiding from menu.', true);
 					break;					
 					case "activate":
 					    $content['Content']['active'] = 1;
 						$this->Content->save($content);
-						$build_flash .= 'Activated content item.<br />';
+						$build_flash .= __('Activated content item.', true);
 			    	break;
 					case "deactivate":
 					    $content['Content']['active'] = 0;
 						$this->Content->save($content);
-						$build_flash .= 'Inactivated content item.<br />';						
+						$build_flash .= __('Inactivated content item.', true);						
 				    break;
 				}
 			}
@@ -497,7 +497,7 @@ class ContentsController extends AppController {
 	*/		
 	function admin_core_pages ()
 	{
-		$this->set('current_crumb', sprintf(__('% admin',true), __n('core_pages','core_pages', 1, true)));
+		$this->set('current_crumb', sprintf(__('%s Listing',true), __n('core page','core pages', 1, true)));
 		// Lets remove the hasMany association for now and associate it with our language of choice
 		$this->Content->unbindModel(array('hasMany' => array('ContentDescription')));
 		$this->Content->bindModel(
