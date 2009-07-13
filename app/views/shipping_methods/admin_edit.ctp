@@ -21,7 +21,7 @@
 	echo $form->create('ShippingMethod', array('id' => 'shipping', 'name' => 'contentform', 'action' => '/shipping_methods/admin_edit/'.$data['ShippingMethod']['id'], 'url' => '/shipping_methods/admin_edit/'.$data['ShippingMethod']['id']));
 		echo '<fieldset>';
 		echo $form->inputs(array(
-				'fieldset' => 'shipping_method_infp',
+				'fieldset' => __('Shipping Method Details', true),
 				'ShippingMethod/id' => array(
 					'type' => 'hidden',
 					'value' => $data['ShippingMethod']['id']
@@ -34,7 +34,7 @@
 				  
 	echo $this->requestAction( '/shipping/admin/edit/' . $data['ShippingMethod']['code'], array('return'=>true));	
 	
-	echo $form->submit( __('form_submit', true), array('name' => 'submit', 'id' => 'submit')) . $form->submit( __('form_cancel', true), array('name' => 'cancel'));
+	echo $form->submit( __('Submit', true), array('name' => 'submit', 'id' => 'submit')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clearb"></div>';
 	echo $form->end();
 	?>

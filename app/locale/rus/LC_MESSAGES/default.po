@@ -659,7 +659,7 @@ msgid  "Description (%s) "
 msgstr "Описание (%s) "
 
 msgid  "Press \'Upload Images\' and choose images from your computer to upload. Select as many files as you would like. Images will upload right after you select them."
-msgstr "Нажмите \'Загрузить картинки\' и выберите картинки для загрузки на своём компьютере. Можно загружать сразу нескольк картинок. Картинки загрузятся после Вашего выбора."
+msgstr "Нажмите \'Загрузить картинки\' и выберите картинки для загрузки на своём компьютере. Можно загружать сразу несколько картинок. Картинки загрузятся после Вашего выбора."
 
 msgid  "TIP: Hold the \'control\' button to select more than one image."
 msgstr "ПОДСКАЗКА: Удерживайте кнопку \'control\', если хотите загрузить больше одной картинки."
@@ -722,9 +722,6 @@ msgstr "Страница "
 
 msgid  "Next >>"
 msgstr "Вперёд >>"
-
-msgid  "Page %page% of %pages%, showing %current% records out of %count% total."
-msgstr "Страница %page% из %pages%, показано %current% записей, всего: %count%."
 
 ##################################################### /app/views/countries/admin_edit.ctp####################################################
 
@@ -820,3 +817,209 @@ msgstr "Инициатор"
 
 msgid  "Global Content Block Details"
 msgstr "Информация о блоках"
+
+##################################################### /app/views/helpers/admin.php####################################################
+
+msgid  "Confirm delete action?"
+msgstr "Вы действительно хотите удалить данный элемент?"
+
+msgid  "No Data"
+msgstr "Нет данных"
+
+##################################################### /app/views/images/admin_view_content_images.ctp####################################################
+
+msgid  "Current Images For This Content Item"
+msgstr "Текущие картинки"
+
+msgid  "Uploaded new images? Press apply to view them."
+msgstr "Загрузили новые картинки? Нажмите кнопку сохранить чтобы увидеть их."
+
+msgid  "Click to Enlarge"
+msgstr "Увеличить"
+
+msgid  "Delete"
+msgstr "Удалить"
+
+##################################################### /app/views/languages/admin.ctp####################################################
+
+msgid  "Language"
+msgstr "Язык"
+
+msgid  "Default"
+msgstr "По умолчанию"
+
+##################################################### /app/views/languages/admin_edit.ctp####################################################
+
+msgid  "Language Details"
+msgstr "Информация о языке"
+
+msgid  "Flag Code"
+msgstr "Код флага"
+
+##################################################### /app/views/micro_templates/admin_create_from_tag.ctp####################################################
+
+msgid  "Micro Template Details"
+msgstr "Информация о микро шаблонах"
+
+msgid  "Tag Name"
+msgstr "Название тэга"
+
+##################################################### /app/views/modules/admin.ctp####################################################
+
+msgid  "Installed"
+msgstr "Установлен"
+
+msgid  "Version"
+msgstr "Версия"
+
+msgid  "Are you sure?"
+msgstr "Вы уверены?"
+
+msgid  "Install"
+msgstr "Установить"
+
+msgid  "Upgrade"
+msgstr "Обновить"
+
+msgid  "Uninstall"
+msgstr "Удалить"
+
+##################################################### /app/views/orders/admin_view.ctp####################################################
+
+msgid  "Customer Details"
+msgstr "Информация о покупателе"
+
+msgid  "Billing Information"
+msgstr "Адрес покупателя"
+
+msgid  "Shipping Information"
+msgstr "Адрес доставки"
+
+msgid  "Customer Name"
+msgstr "Имя"
+
+msgid  "Address Line 1"
+msgstr "Адрес"
+
+msgid  "Address Line 2"
+msgstr "Дополнительная информация"
+
+msgid  "City"
+msgstr "Город"
+
+msgid  "State"
+msgstr "Регион"
+
+msgid  "Zip"
+msgstr "Индекс"
+
+msgid  "Contact Information"
+msgstr "Контактная информация"
+
+msgid  "Email"
+msgstr "Email"
+
+msgid  "Phone"
+msgstr "Телефон"
+
+msgid  "Payment Information"
+msgstr "Оплата"
+
+msgid  "Credit Card"
+msgstr "Карточка"
+
+msgid  "Expiration"
+msgstr "Активна до"
+
+msgid  "Order Details"
+msgstr "Информация о заказе"
+
+msgid  "Product Name"
+msgstr "Наименование товара"
+
+msgid  "Price"
+msgstr "Цена"
+
+msgid  "Quantity"
+msgstr "Количество"
+
+msgid  "Total"
+msgstr "Сумма"
+
+msgid  "Order Total"
+msgstr "Всего"
+
+msgid  "Order Comments"
+msgstr "Комментарии к заказу"
+
+msgid  "Date"
+msgstr "Дата"
+
+msgid  "User"
+msgstr "Пользователь"
+
+msgid  "Sent To Customer"
+msgstr "Покупатель уведомлён"
+
+msgid  "Comment"
+msgstr "Комментарий"
+
+msgid  "New Comment"
+msgstr "Добавить комментарий"
+
+msgid  "Update Status"
+msgstr "Статус заказа"
+
+msgid  "Send To Customer"
+msgstr "Уведомить покупателя"
+
+##################################################### /app/views/order_status/admin.ctp####################################################
+
+msgid  "Order"
+msgstr "Сортировка"
+
+##################################################### /app/views/order_status/admin_edit.ctp####################################################
+
+msgid  "Order Status Details"
+msgstr "Статусы заказа"
+
+##################################################### /app/views/payment_methods/admin_edit.ctp####################################################
+
+msgid  "Payment Method Details"
+msgstr "Способы оплаты"
+
+##################################################### /app/views/search/admin_global_serch.ctp####################################################
+
+msgid  "Results: "
+msgstr "Найдено: "
+
+##################################################### /app/views/shipping_methods/admin_edit.ctp####################################################
+
+msgid  "Shipping Method Details"
+msgstr "Способы доставки"
+
+##################################################### /app/views/stylesheets/admin.ctp####################################################
+
+msgid  "Media Type"
+msgstr "Медиа тип"
+
+##################################################### /app/views/stylesheets/admin_attach_templates.ctp####################################################
+
+msgid  "Stylesheet"
+msgstr "Стиль"
+
+msgid  "Current Associations"
+msgstr "Связан с шаблонами"
+
+##################################################### /app/views/stylesheets/admin_copy.ctp####################################################
+
+msgid  "Name the copy:"
+msgstr "Название копии"
+
+##################################################### /app/views/stylesheets/admin_edit.ctp####################################################
+
+msgid  "Stylesheet Details"
+msgstr "Информация о стиле"
+
+msgid  "Stylesheets"
+msgstr "Стили"

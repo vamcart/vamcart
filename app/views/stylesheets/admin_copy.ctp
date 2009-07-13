@@ -20,17 +20,17 @@
 
 	echo $form->create('Stylesheet', array('action' => '/stylesheets/admin_copy/' . $stylesheet['Stylesheet']['id'], 'url' => '/stylesheets/admin_copy/' . $stylesheet['Stylesheet']['id']));
 	echo $form->inputs(array(
-					'fieldset' => 'Copy Stylesheet',
+					'fieldset' =>  __('Copy Stylesheet', true),
 					'Stylesheet/name' => array(
 						'type' => 'text',
-						'label' => 'Name the copy:'
+						'label' => __('Name the copy:', true),
 	               ),								
 					'Stylesheet/stylesheet' => array(
 						'type' => 'hidden',
 						'value' => $stylesheet['Stylesheet']['stylesheet']
 	               ),												   																
 			));
-	echo $form->submit('Submit', array('name' => 'submit')) . $form->submit('Cancel', array('name' => 'cancel'));
+	echo $form->submit(__('Submit', true), array('name' => 'submit')) . $form->submit(__('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clearb"></div>';
 	echo $form->end();
 	?>

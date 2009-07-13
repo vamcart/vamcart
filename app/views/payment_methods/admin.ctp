@@ -21,7 +21,7 @@
 
 echo '<table class="pagetable" cellspacing="0">';
 
-echo $html->tableHeaders(array( __('name', true), __('active', true), __('default', true), __('action', true)));
+echo $html->tableHeaders(array( __('Name', true), __('Active', true), __('Default', true), __('Action', true)));
 
 foreach ($payment_method_data AS $payment_method)
 {

@@ -21,20 +21,20 @@
 
 	echo $form->create('PaymentMethod', array('action' => '/payment_methods/admin_edit/' . $data['PaymentMethod']['id'], 'url' => '/payment_methods/admin_edit/' . $data['PaymentMethod']['id']));
 	echo $form->inputs(array(
-					'fieldset' => __('payment_method_details', true),
+					'fieldset' => __('Payment Method Details', true),
 				   'PaymentMethod/id' => array(
 				   		'type' => 'hidden',
 						'value' => $data['PaymentMethod']['id']
 	               ),
 	               'PaymentMethod/name' => array(
-				   		'label' => __('name', true),
+				   		'label' => __('Name', true),
    						'value' => $data['PaymentMethod']['name']
 	               )				     				   	   																									
 			));
 	
 	echo $this->requestAction( '/payment/admin/edit/' . $data['PaymentMethod']['id'], array('return'=>true));	
 	
-	echo $form->submit( __('form_submit', true), array('name' => 'submit')) . $form->submit( __('form_cancel', true), array('name' => 'cancel'));
+	echo $form->submit( __('Submit', true), array('name' => 'submit')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clearb"></div>';
 	echo $form->end();
 	?>
