@@ -56,13 +56,13 @@ class LanguagesController extends AppController {
 		
 		if($language['Language']['default'] == 1)
 		{
-			$this->Session->setFlash( __('record_delete_default', true));		
+			$this->Session->setFlash( __('Error: Could not delete default record.', true));		
 		}
 		else
 		{
 			// Ok, delete the language
 			$this->Language->del($language_id);	
-			$this->Session->setFlash( __('record_delete', true));		
+			$this->Session->setFlash( __('Record deleted.', true));		
 		}
 		$this->redirect('/languages/admin/');
 	}
@@ -84,7 +84,7 @@ class LanguagesController extends AppController {
 		else
 		{
 			$this->Language->save($this->data);		
-			$this->Session->setFlash(__('record_created', true));
+			$this->Session->setFlash(__('Record created.', true));
 			$this->redirect('/languages/admin');
 		}		
 		$this->render('','admin');
@@ -113,29 +113,29 @@ class LanguagesController extends AppController {
 						if($language['Language']['default'] == 0)
 						{
 						    $this->Language->del($value);
-							$build_flash .= __('record_deleted', true) . ': ' . $language['Language']['name'] . '<br />';									
+							$build_flash .= __('Record deleted.', true) . ': ' . $language['Language']['name'] . '<br />';									
 						}
 						else
 						{	
-							$build_flash .= __('record_delete_default', true) . ': ' . $language['Language']['name'] . '<br />';								
+							$build_flash .= __('Error: Could not delete default record.', true) . ': ' . $language['Language']['name'] . '<br />';								
 						}
 					break;
 					case "activate":
 						$language['Language']['active'] = 1;
 						$this->Language->save($language);
-						$build_flash .= __('record_activated', true) . ' (' . $language['Language']['name'] . ')<br />';								
+						$build_flash .= __('Record activated.', true) . ' (' . $language['Language']['name'] . ')<br />';								
 					break;					
 					case "deactivate":
 						// Don't let them deactivate the default language
 						if($language['Language']['default'] == 1)
 						{
-							$build_flash .=  __('record_deactivate_default', true) .': ' . $language['Language']['name'] . '<br />';								
+							$build_flash .=  __('Error: Could not deactivate default record.', true) .': ' . $language['Language']['name'] . '<br />';								
 						}
 						else
 						{
 							$language['Language']['active'] = 0;
 							$this->Language->save($language);
-							$build_flash .= __('record_deactivated', true) . ': ' . $language['Language']['name'] . '<br />';								
+							$build_flash .= __('Record deactivated.', true) . ': ' . $language['Language']['name'] . '<br />';								
 						}
 					break;										
 				}

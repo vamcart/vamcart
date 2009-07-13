@@ -256,3 +256,217 @@ msgstr "Запись деактивирована."
 
 msgid  "Error: Could not deactivate default record."
 msgstr "Ошибка: Нельзя деактивировать запись по умолчанию."
+
+##################################################### /app/controllers/defined_languages_controller.php####################################################
+msgid  "Record deleted."
+msgstr "Запись удалена."
+
+##################################################### /app/controllers/global_content_blocks_controller.php####################################################
+msgid  "Record deleted."
+msgstr "Запись удалена."
+
+msgid  "Record created."
+msgstr "Запись создана."
+
+msgid  "Record saved."
+msgstr "Запись сохранена."
+
+msgid  "Record activated."
+msgstr "Запись активирована."
+
+msgid  "Record deactivated."
+msgstr "Запись деактивирована."
+
+##################################################### /app/controllers/images_controller.php####################################################
+msgid  "Failed: "
+msgstr "Ошибка: "
+
+msgid  "Couldn't read source image "
+msgstr "Не могу прочитать картинку "
+
+##################################################### /app/controllers/languages_controller.php####################################################
+msgid  "Error: Could not delete default record."
+msgstr "Ошибка: Нельзя удалять запись по умолчанию."
+
+msgid  "Record deleted."
+msgstr "Запись удалена."
+
+msgid  "Record created."
+msgstr "Запись создана."
+
+msgid  "Record saved."
+msgstr "Запись сохранена."
+
+msgid  "Record activated."
+msgstr "Запись активирована."
+
+msgid  "Record deactivated."
+msgstr "Запись деактивирована."
+
+msgid  "Error: Could not deactivate default record."
+msgstr "Ошибка: Нельзя деактивировать запись по умолчанию."
+
+##################################################### /app/controllers/micro_templates_controller.php####################################################
+msgid  "Enter an alias to use"
+msgstr "Укажите псевдоним"
+
+msgid  "Record deleted."
+msgstr "Запись удалена."
+
+msgid  "Micro Template Saved."
+msgstr "Микро шаблон сохранён."
+
+##################################################### /app/controllers/orders_controller.php####################################################
+msgid  "Record deleted."
+msgstr "Запись удалена."
+
+##################################################### /app/controllers/orders_status_controller.php####################################################
+msgid  "Error: Could not delete default record."
+msgstr "Ошибка: Нельзя удалять запись по умолчанию."
+
+msgid  "Record deleted."
+msgstr "Запись удалена."
+
+msgid  "Record created."
+msgstr "Запись создана."
+
+msgid  "Record saved."
+msgstr "Запись сохранена."
+
+##################################################### /app/controllers/payment_methods_controller.php####################################################
+msgid  "Record saved."
+msgstr "Запись сохранена."
+
+##################################################### /app/controllers/shipping_methods_controller.php####################################################
+msgid  "Record saved."
+msgstr "Запись сохранена."
+
+##################################################### /app/controllers/search_controller.php####################################################
+msgid  "Search Results"
+msgstr "Результаты поиска"
+
+##################################################### /app/controllers/stylesheets_controller.php####################################################
+msgid  "You have deleted a template association."
+msgstr "Удалена привязка стиля к шаблону."
+
+msgid  "Attach Template"
+msgstr "Присоединение к шаблону"
+
+msgid  "Copy Stylesheet"
+msgstr "Копирование стиля"
+
+msgid  "Could not delete stylesheet. Stylesheet is in use."
+msgstr "Не могу удалить стиль. Данный стиль сейчас используется."
+
+msgid  "You deleted a stylesheet."
+msgstr "Стиль удалён."
+
+msgid  "You have created a new stylesheet."
+msgstr "Стиль создан."
+
+msgid  "You have updated a stylesheet."
+msgstr "Стиль обновлён."
+
+msgid  "You have deleted multiple stylesheets."
+msgstr "Стили удалены."
+
+msgid  "You have activated multiple stylesheets."
+msgstr "Стили активированы."
+
+msgid  "You have inactivated multiple stylesheets."
+msgstr "Стили деактивированы."
+
+##################################################### /app/controllers/tax_country_zone_rates_controller.php####################################################
+msgid  "All Country Zones"
+msgstr "Все регионы страны"
+
+msgid  "Record deleted."
+msgstr "Запись удалена."
+
+msgid  "Record saved."
+msgstr "Запись сохранена."
+
+msgid  "Please select a tax class."
+msgstr "Выберите налог."
+
+##################################################### /app/controllers/taxs_controller.php####################################################
+msgid  "You have updated multiple records."
+msgstr "Записи обновлены."
+
+msgid  "Record deleted."
+msgstr "Запись удалена."
+
+msgid  "Record created."
+msgstr "Запись создана."
+
+##################################################### /app/controllers/templates_controller.php####################################################
+msgid  "You have deleted a stylesheet association."
+msgstr "Удалена привязка шаблона к стилю."
+
+msgid  "Copy Template"
+msgstr "Копирование шаблона"
+
+msgid  "Record copied."
+msgstr "Запись скопирована."
+
+msgid  "Could not delete template. Template is in use."
+msgstr "Не могу удалить шаблон. Данный шаблон сейчас используется."
+
+msgid  "You deleted a template."
+msgstr "Шаблон удалён."
+
+msgid  "Record saved."
+msgstr "Запись сохранена."
+
+msgid  "Record created."
+msgstr "Запись создана."
+
+##################################################### /app/controllers/users_controller.php####################################################
+msgid  "Could not delete that account."
+msgstr "Не могу удалить данный аккаунт."
+
+msgid  "Record deleted."
+msgstr "Запись удалена."
+
+msgid  "My Account"
+msgstr "Мои данные"
+
+msgid  "Sorry, passwords did not match."
+msgstr "Извините, пароли не совпадают."
+
+msgid  "Your account settings have been updated."
+msgstr "Ваши данные изменены."
+
+msgid  "Prefences"
+msgstr "Настройки"
+
+msgid  "Record saved."
+msgstr "Запись сохранена."
+
+msgid  "Record created."
+msgstr "Запись создана."
+
+msgid  "You have logged out."
+msgstr "Вы успешно вышли из магазина."
+
+msgid  "Your login credentials are invalid."
+msgstr "Данные для входа указаны неправильно."
+
+msgid  "Could not create user account. User exists."
+msgstr "Не могу создать пользователя. Данный пользователь уже существует."
+
+##################################################### /app/controllers/user_tags_controller.php####################################################
+msgid  "Record deleted."
+msgstr "Запись удалена."
+
+msgid  "Invalid Tag Code"
+msgstr "Неправильный код тэга"
+
+msgid  "User tag created."
+msgstr "Тэг пользователя создан."
+
+msgid  "User tag updated."
+msgstr "Тэг пользователя обновлён."
+
+msgid  "User tag deleted."
+msgstr "Тэг пользователя удалён."

@@ -73,7 +73,7 @@ class TemplatesController extends AppController {
 	function admin_delete_stylesheet_association($template_id, $stylesheet_id)
 	{
 		$this->Template->delete_single_association($template_id, $stylesheet_id);	
-		$this->Session->setFlash('You have deleted a stylesheet association.');
+		$this->Session->setFlash(__('You have deleted a stylesheet association.', true));
 		
 		$this->redirect('/templates/admin_attach_stylesheets/' . $template_id);
 	}
@@ -125,7 +125,7 @@ class TemplatesController extends AppController {
 	{
 		if(empty($this->data))
 		{
-			$this->set('current_crumb', 'copy_template');
+			$this->set('current_crumb', __('Copy Template', true));
 			$this->Template->id = $template_id;
 			$this->set('template', $this->Template->read());
 			$this->render('', 'admin');
@@ -154,7 +154,7 @@ class TemplatesController extends AppController {
 				$this->Template->save($new_child);
 			}
 			
-			$this->Session->setFlash(__('record_copied', true));
+			$this->Session->setFlash(__('Record copied.', true));
 			$this->redirect('/templates/admin/');
 		}
 		
@@ -170,7 +170,7 @@ class TemplatesController extends AppController {
 		// Don't allow the delete if something is utilizing this template
 		if(($check_content) > 0)
 		{
-			$this->Session->setFlash('Could not delete template.  Template is in use.');		
+			$this->Session->setFlash(__('Could not delete template. Template is in use.', true));		
 		}
 		else
 		{
@@ -183,7 +183,7 @@ class TemplatesController extends AppController {
 			
 			// Ok, delete the template
 			$this->Template->del($template_id);	
-			$this->Session->setFlash('You deleted a template.');		
+			$this->Session->setFlash(__('You deleted a template.', true));		
 		}
 		$this->redirect('/templates/admin/');
 	}
@@ -219,7 +219,7 @@ class TemplatesController extends AppController {
 			}
 		
 			$this->Template->save($this->data);		
-			$this->Session->setFlash(__('record_saved', true));
+			$this->Session->setFlash(__('Record saved.', true));
 				
 			if(isset($this->params['form']['apply']))
 			{
@@ -245,7 +245,7 @@ class TemplatesController extends AppController {
 		else
 		{
 			$this->Template->save($this->data);
-			$this->Session->setFlash(__('record_saved', true));
+			$this->Session->setFlash(__('Record saved.', true));
 			$this->redirect('/templates/admin/');
 		}
 	}
@@ -282,7 +282,7 @@ class TemplatesController extends AppController {
 			}
 			
 
-			$this->Session->setFlash(__('record_created', true));
+			$this->Session->setFlash(__('Record created.', true));
 			$this->redirect('/templates/admin/');
 		}
 		$this->render('','admin');

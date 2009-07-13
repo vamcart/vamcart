@@ -4,7 +4,7 @@ class MicroTemplatesController extends AppController {
 	
 	function admin_create_from_tag ()
 	{
-		$this->set('current_crumb','Enter an alias to use');
+		$this->set('current_crumb',__('Enter an alias to use',true));
 		$this->render(null,'admin');		
 	}
 	
@@ -12,7 +12,7 @@ class MicroTemplatesController extends AppController {
 	function admin_delete ($id)
 	{
 		$this->MicroTemplate->del($id);
-		$this->Session->setFlash( __('record_deleted',true));
+		$this->Session->setFlash( __('Record deleted.',true));
 		$this->redirect('/micro_templates/admin');
 	}
 	
@@ -38,7 +38,7 @@ class MicroTemplatesController extends AppController {
 		
 			$this->MicroTemplate->save($this->data);
 
-			$this->Session->setFlash( __('micro_template_saved',true));
+			$this->Session->setFlash( __('Micro Template Saved.',true));
 			
 			if(isset($this->params['form']['apply']))
 			{

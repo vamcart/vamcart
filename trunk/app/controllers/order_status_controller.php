@@ -41,11 +41,11 @@ class OrderStatusController extends AppController {
 
 		if($order_status['OrderStatus']['default'] == 1)
 		{
-			$this->Session->setFlash( __('record_delete_default', true));		
+			$this->Session->setFlash( __('Error: Could not delete default record.', true));		
 		}
 		elseif($this->OrderStatus->Order->findCount(array('Order.order_status_id' => $order_status_id)) > 0)
 		{
-			$this->Session->setFlash( __('record_deleted', true));				
+			$this->Session->setFlash( __('Record deleted.', true));				
 		}
 		else
 		{
@@ -61,7 +61,7 @@ class OrderStatusController extends AppController {
 				$this->OrderStatus->save($position);
 			}
 			
-			$this->Session->setFlash( __('record_delete', true));		
+			$this->Session->setFlash( __('Record deleted.', true));		
 		}
 		$this->redirect('/order_status/admin/');
 
@@ -109,11 +109,11 @@ class OrderStatusController extends AppController {
 				$this->data['OrderStatus']['order'] = $order;
 				
 				// Also set the flash
-				$this->Session->setFlash(__('record_created', true));
+				$this->Session->setFlash(__('Record created.', true));
 			}
 			else
 			{
-				$this->Session->setFlash(__('record_saved', true));
+				$this->Session->setFlash(__('Record saved.', true));
 			}
 			
 			// Save the order status

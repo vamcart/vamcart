@@ -35,7 +35,6 @@ class StylesheetsController extends AppController {
 		time() + $offset) . " GMT";
 		header($ExpStr); 
 
-		echo '/* Selling Made Simple Stylesheet */';
 		echo '/* Begin Stylesheet: ' . $stylesheet['Stylesheet']['name'] . ' */';		
 		echo $stylesheet['Stylesheet']['stylesheet'];
 		echo '/* End Stylesheet: ' . $stylesheet['Stylesheet']['name'] . ' */';				
@@ -47,7 +46,7 @@ class StylesheetsController extends AppController {
 	function admin_delete_template_association($template_id, $stylesheet_id)
 	{
 		$this->Stylesheet->Template->delete_single_association($template_id, $stylesheet_id);	
-		$this->Session->setFlash('You have deleted a template association.');
+		$this->Session->setFlash(__('You have deleted a template association.',true));
 		
 		$this->redirect('/stylesheets/admin_attach_templates/' . $stylesheet_id);
 	}
@@ -70,7 +69,7 @@ class StylesheetsController extends AppController {
 			$stylesheet = $this->Stylesheet->read();
 		
 		}
-		$this->set('current_crumb','attach_templates');
+		$this->set('current_crumb',__('Attach Template',true));
 		$this->set('stylesheet', $stylesheet);
 		
 		// First get a list of all stylesheets
@@ -101,7 +100,7 @@ class StylesheetsController extends AppController {
 	
 	function admin_copy ($stylesheet_id)
 	{
-		$this->set('current_crumb','copy_stylesheet');
+		$this->set('current_crumb',__('Copy Stylesheet',true));
 		if(empty($this->data))
 		{
 			$this->Stylesheet->id = $stylesheet_id;
@@ -137,13 +136,13 @@ class StylesheetsController extends AppController {
 		// Don't allow the delete if a template is utilizing this stylesheet
 		if(count($stylesheet_find['Template']) > 0)
 		{
-			$this->Session->setFlash('Could not delete stylesheet.  stylesheet is in use.');		
+			$this->Session->setFlash(__('Could not delete stylesheet. Stylesheet is in use.',true));		
 		}
 		else
 		{
 			// Ok, delete the stylesheet
 			$this->Stylesheet->del($stylesheet_id);	
-			$this->Session->setFlash('You deleted a stylesheet.');		
+			$this->Session->setFlash(__('You deleted a stylesheet.',true));		
 		}
 		$this->redirect('/stylesheets/admin/');
 	}
@@ -192,11 +191,11 @@ class StylesheetsController extends AppController {
 				if($this->data['Stylesheet']['id'] == "")	
 				{
 					$stylesheet_id = $this->Stylesheet->getLastInsertId();
-					$this->Session->setFlash('You have created a new stylesheet.');
+					$this->Session->setFlash(__('You have created a new stylesheet.',true));
 				}
 				else
 				{
-					$this->Session->setFlash('You have updated a stylesheet.');
+					$this->Session->setFlash(__('You have updated a stylesheet.',true));
 				}
 			}
 			
@@ -228,17 +227,17 @@ class StylesheetsController extends AppController {
 				{
 					case "delete":
 					    $this->Stylesheet->del($value);
-						$this->Session->setFlash('You have deleted multiple stylesheets.');		
+						$this->Session->setFlash(__('You have deleted multiple stylesheets.',true));		
 					    break;
 					case "activate":
 					    $stylesheet['Stylesheet']['active'] = 1;
 						$this->Stylesheet->save($stylesheet);
-						$this->Session->setFlash('You have activated multiple stylesheets.');		
+						$this->Session->setFlash(__('You have activated multiple stylesheets.',true));		
 				    	break;
 					case "deactivate":
 					    $stylesheet['Stylesheet']['active'] = 0;
 						$this->Stylesheet->save($stylesheet);
-						$this->Session->setFlash('You have inactivated multiple stylesheets.');		
+						$this->Session->setFlash(__('You have inactivated multiple stylesheets.',true));		
 					    break;
 				}
 			}

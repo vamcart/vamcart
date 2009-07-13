@@ -28,19 +28,19 @@ class UsersController extends AppController {
 	{
 		if($user_id == $this->Session->read('User.id'))
 		{
-			$this->Session->setFlash(__('flash_user_delete_failure', true));
+			$this->Session->setFlash(__('Could not delete that account.', true));
 		}
 		else	
 		{
 			$this->User->del($user_id);
-			$this->Session->setFlash(__('record_deleted', true));
+			$this->Session->setFlash(__('Record deleted.', true));
 		}
 		$this->redirect('/users/admin/');
 	}
 	
 	function admin_user_account () 
 	{
-		$this->Locale->custom_crumb('admin_view','my_account');		
+		$this->set('current_crumb', __('My Account', true));
 				
 		if(!empty($this->data))
 		{
@@ -55,7 +55,7 @@ class UsersController extends AppController {
 			{
 				if($this->data['User']['password'] != $this->data['User']['confirm_password'])
 				{
-					$this->Session->setFlash('Sorry, passwords did not match.');
+					$this->Session->setFlash(__('Sorry, passwords did not match.', true));
 					$this->redirect('/users/admin_user_account/');
 					die();
 				}
@@ -65,7 +65,7 @@ class UsersController extends AppController {
 			}
 				$this->User->save($this->data);
 				
-				$this->Session->setFlash('Your account settings have been updated.');
+				$this->Session->setFlash(__('Your account settings have been updated.', true));
 				$this->redirect('/admin/admin_top/8/');
 	
 		}
@@ -79,7 +79,7 @@ class UsersController extends AppController {
 	
 	function admin_user_preferences () 
 	{
-		$this->Locale->custom_crumb('admin_view','preferences');	
+		$this->set('current_crumb', __('Prefences', true));
 
 		if(!empty($this->data))
 		{
@@ -95,7 +95,7 @@ class UsersController extends AppController {
 			$user_prefs = $this->User->UserPref->find(array('user_id' => $_SESSION['User']['id'], 'name' => 'language'));
 			$user_prefs['UserPref']['language'] = $this->data['UserPref']['language'];
 			$this->User->UserPref->save($user_prefs);
-			$this->Session->setFlash(__('record_saved', true));
+			$this->Session->setFlash(__('Record saved.', true));
 			
 			$this->redirect('/users/admin_user_preferences/');
 			die();
@@ -117,7 +117,7 @@ class UsersController extends AppController {
 	{
 	
 		$this->Session->del('User');
-		$this->Session->setFlash('You have logged out.');
+		$this->Session->setFlash(__('You have logged out.', true));
 		$this->redirect('/users/admin_login');
 	
 	}
@@ -137,7 +137,7 @@ class UsersController extends AppController {
 			if(empty($admin_user))
 			{
 				// If there was an error set the flash and render
-				$this->Session->setFlash('Your login credentials are invalid.');
+				$this->Session->setFlash(__('Your login credentials are invalid.', true));
 			}
 			// Write to the session and redirect
 			$this->Session->write('User', $admin_user['User']);
@@ -166,7 +166,7 @@ class UsersController extends AppController {
 			
 			if($check_username > 0)
 			{
-				$this->Session->setFlash( __('flash_user_exists', true));
+				$this->Session->setFlash( __('Could not create user account. User exists.', true));
 				$this->redirect('/users/admin/');
 				die();
 			}
@@ -192,7 +192,7 @@ class UsersController extends AppController {
 			
 			}
 			
-			$this->Session->setFlash( __('record_created', true));
+			$this->Session->setFlash( __('Record created.', true));
 			$this->redirect('/users/admin/');
 		}
 	}

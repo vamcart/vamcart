@@ -65,7 +65,7 @@ class PaymentMethodsController extends AppController {
 				$this->PaymentMethod->PaymentMethodValue->save($original_value);
 			}
 			
-			$this->Session->setFlash(__('record_saved',true));
+			$this->Session->setFlash(__('Record saved.',true));
 			$this->redirect('/payment_methods/admin/');
 		}
 	

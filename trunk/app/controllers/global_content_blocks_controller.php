@@ -29,7 +29,7 @@ class GlobalContentBlocksController extends AppController {
 	function admin_delete ($global_content_block_id)
 	{
 		$this->GlobalContentBlock->del($global_content_block_id);	
-		$this->Session->setFlash(__('record_deleted', true));		
+		$this->Session->setFlash(__('Record deleted.', true));		
 		$this->redirect('/global_content_blocks/admin/');
 	}
 	
@@ -66,9 +66,9 @@ class GlobalContentBlocksController extends AppController {
 			
 			// Set the flash whether a new GCB or not
 			if($global_content_block_id == null)
-				$this->Session->setFlash(__('record_created', true));		
+				$this->Session->setFlash(__('Record created.', true));		
 			else
-				$this->Session->setFlash(__('record_saved', true));
+				$this->Session->setFlash(__('Record saved.', true));
 		
 		
 			if(isset($this->params['form']['apply']))
@@ -106,17 +106,17 @@ class GlobalContentBlocksController extends AppController {
 				{
 					case "delete":
 					    $this->GlobalContentBlock->del($value);
-						$build_flash .= __('record_deleted', true) . ': ' . $gcb['GlobalContentBlock']['name'] . '<br />';		
+						$build_flash .= __('Record deleted.', true) . ': ' . $gcb['GlobalContentBlock']['name'] . '<br />';		
 					    break;
 					case "activate":
 					    $gcb['GlobalContentBlock']['active'] = 1;
 						$this->GlobalContentBlock->save($gcb);
-						$build_flash .= __('record_activated', true) . ': ' . $gcb['GlobalContentBlock']['name'] . '<br />';		
+						$build_flash .= __('Record activated.', true) . ': ' . $gcb['GlobalContentBlock']['name'] . '<br />';		
 				    	break;
 					case "deactivate":
 					    $gcb['GlobalContentBlock']['active'] = 0;
 						$this->GlobalContentBlock->save($gcb);
-						$build_flash .= __('record_deactivated', true) . ': ' . $gcb['GlobalContentBlock']['name'] . '<br />';		
+						$build_flash .= __('Record deactivated.', true) . ': ' . $gcb['GlobalContentBlock']['name'] . '<br />';		
 					    break;
 				}
 			}

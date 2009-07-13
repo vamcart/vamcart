@@ -5,7 +5,7 @@ class TaxCountryZoneRatesController extends AppController {
 	function list_zones_by_country($country_id) 
 	{
 		$zones = $this->TaxCountryZoneRate->CountryZone->generateList(array('country_id' => $country_id));
-		$zones['ALL'] = __('all_country_zones',true);
+		$zones['ALL'] = __('All Country Zones',true);
 		
 		$this->set('zones', $zones);
 		$this->render('','ajax');
@@ -14,7 +14,7 @@ class TaxCountryZoneRatesController extends AppController {
 	function admin_delete ($tax_id, $zone_rate_id)
 	{
 		$this->TaxCountryZoneRate->del($zone_rate_id);
-		$this->Session->setFlash(__('record_deleted',true));
+		$this->Session->setFlash(__('Record deleted.',true));
 		$this->redirect('/tax_country_zone_rates/admin/' . $tax_id);
 	}	
 
@@ -36,7 +36,7 @@ class TaxCountryZoneRatesController extends AppController {
 			}		
 	
 			$this->TaxCountryZoneRate->save($this->data);
-			$this->Session->setFlash(__('record_saved',true));
+			$this->Session->setFlash(__('Record saved.',true));
 			$this->redirect('/tax_country_zone_rates/admin/' . $tax_id);
 		}
 	}
@@ -79,7 +79,7 @@ class TaxCountryZoneRatesController extends AppController {
 				$this->TaxCountryZoneRate->save($this->data);
 			}
 			
-			$this->Session->setFlash(__('record_saved',true));
+			$this->Session->setFlash(__('Record saved.',true));
 			$this->redirect('/tax_country_zone_rates/admin/' . $tax_id);
 		}
 	}
@@ -101,7 +101,7 @@ class TaxCountryZoneRatesController extends AppController {
 				}
 			}
 		}
-		$this->Session->setFlash( __('record_deleted',true));	
+		$this->Session->setFlash( __('Record deleted.',true));	
 		$this->redirect('/tax_country_zone_rates/admin/' . $tax_id);
 	}	
 	
@@ -109,7 +109,7 @@ class TaxCountryZoneRatesController extends AppController {
 	{
 		if($tax_id == 0)
 		{
-			$this->Session->setFlash(__('flash_select_tax_class',true));
+			$this->Session->setFlash(__('Please select a tax class.',true));
 			$this->redirect('/taxes/admin/');
 			die();
 		}
