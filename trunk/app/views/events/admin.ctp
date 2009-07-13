@@ -20,8 +20,7 @@
 
 echo '<table class="pagetable" cellspacing="0">';
 
-echo $html->tableHeaders(array(	__('Originator', true), __('name', true)));
-
+echo $html->tableHeaders(array(	__('Originator', true), __('Name', true)));
 
 foreach ($event_data AS $event)
 {
@@ -34,6 +33,5 @@ foreach ($event_data AS $event)
 }
 
 echo '</table>';
-
 
 ?>

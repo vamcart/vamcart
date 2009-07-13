@@ -779,3 +779,44 @@ msgstr "Десятичные порядки"
 msgid  "Value"
 msgstr "Значение"
 
+##################################################### /app/views/defined_languages/admin.ctp####################################################
+
+msgid  "Call"
+msgstr "Вызов (метка для шаблона)"
+
+##################################################### /app/views/defined_languages/admin_edit.ctp####################################################
+
+msgid  "Defined Language Details"
+msgstr "Языковые строки"
+
+msgid  "Value (%s) "
+msgstr "Значение (%s)"
+
+msgid  "Defined Language Details"
+msgstr "Языковые строки"
+
+msgid  "Defined Language Details"
+msgstr "Языковые строки"
+
+##################################################### /app/views/errors/missing_connection.ctp####################################################
+
+msgid  "Either you are missing a database table, or you have not yet installed the software."
+msgstr "Нет подключения к базе данных, либо скрипт не был установлен."
+
+msgid  "Click here to install the software."
+msgstr "Начать установку."
+
+##################################################### /app/views/errors/missing_table.ctp####################################################
+
+msgid  "Missing database table."
+msgstr "Отсутствует таблица базы данных."
+
+##################################################### /app/views/events/admin.ctp####################################################
+
+msgid  "Originator"
+msgstr "Инициатор"
+
+##################################################### /app/views/global_content_blocks/admin_edit.ctp####################################################
+
+msgid  "Global Content Block Details"
+msgstr "Информация о блоках"
