@@ -180,7 +180,7 @@ class AdminHelper extends Helper {
 	function ActionButton ($action, $path)
 	{
 		if($action == 'delete')
-			$confirm_text = 'Confirm delete action?';
+			$confirm_text = __('Confirm delete action?',true);
 		else
 			$confirm_text = null;
 			
@@ -191,7 +191,7 @@ class AdminHelper extends Helper {
 	function EmptyResults ($data)
 	{
 		if(empty($data))
-			return '<div class="no_data">' . __('no_data',true) . '</div>';
+			return '<div class="no_data">' . __('No Data',true) . '</div>';
 	}
 	########################################################
 	# Functions for menu & breadcrumbs
