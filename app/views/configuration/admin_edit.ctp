@@ -22,12 +22,12 @@
 echo $form->create('Configuration', array('action' => '/configuration/admin_edit/', 'url' => '/configuration/admin_edit/'));
 
 $yes_no_options = array();
-$yes_no_options[0] = 'no';
-$yes_no_options[1] = 'yes';
+$yes_no_options[0] = __('no', true);
+$yes_no_options[1] = __('yes', true);
 
 	echo $admin->StartTabs();
-			echo $admin->CreateTab('main');
-			echo $admin->CreateTab('caching');	
+			echo $admin->CreateTab('main',__('Main',true));
+			echo $admin->CreateTab('caching',__('Caching',true));	
 	echo $admin->EndTabs();
 
 
@@ -37,18 +37,18 @@ $yes_no_options[1] = 'yes';
 echo $form->inputs(array(
 		'fieldset' => 'store_settings',
 		'Configuration/SITE_NAME' => array(
-			'label' => __('configuration_site_name', true),
+			'label' => __('Site Name', true),
 			'type' => 'text',
 			'value' => $configuration_values['SITE_NAME']['value']
               ),
 		'Configuration/METADATA' => array(
-			'label' => __('configuration_metadata', true),
+			'label' => __('Metadata', true),
 			'type' => 'textarea',
 			'class' => 'pagesmalltextarea',
 			'value' => $configuration_values['METADATA']['value']
              ),
 		'Configuration/URL_EXTENSION' => array(
-			'label' => __('configuration_url_ext', true),
+			'label' => __('URL Extension', true),
 			'type' => 'text',
 			'value' => $configuration_values['URL_EXTENSION']['value']
               ),			 
@@ -76,12 +76,12 @@ echo $form->inputs(array(
 			'value' => $configuration_values['CACHE_TIME']['value']
               ))
 			);
-	echo 'Reset Cache &nbsp;&nbsp;&nbsp;' . $html->link(__('Click here to clear cache',true),'/configuration/admin_clear_cache/',array('class' => 'button'));
+	echo __('Reset Cache', true) . '&nbsp;&nbsp;&nbsp;' . $html->link(__('Click here to clear cache',true),'/configuration/admin_clear_cache/',array('class' => 'button'));
 	echo '</fieldset>';			
 	echo $admin->EndTabContent();
 	
 	
-	echo $form->submit( __('form_apply', true), array('name' => 'applybutton')) . $form->submit( __('form_cancel', true), array('name' => 'cancelbutton'));
+	echo $form->submit( __('Apply', true), array('name' => 'applybutton')) . $form->submit( __('Cancel', true), array('name' => 'cancelbutton'));
 	echo '<div class="clearb"></div>';
 	echo $form->end();
 ?>

@@ -22,7 +22,7 @@ echo $form->create('Content', array('action' => '/contents/admin_modify_selected
 
 echo '<table class="pagetable" cellspacing="0">';
 
-echo $html->tableHeaders(array(	 __('title', true), __('type', true), __('template', true), __('active', true), __('show_in_menu', true), __('default', true), __('move', true), __('action', true), '&nbsp;'));
+echo $html->tableHeaders(array(	 __('Title', true), __('Type', true), __('Template', true), __('Active', true), __('Show in menu', true), __('Default', true), __('Sort Order', true), __('Action', true), '&nbsp;'));
 //pr($content_data);
 foreach ($content_data AS $content)
 {
@@ -57,7 +57,7 @@ foreach ($content_data AS $content)
 // Display a link letting the user to go up one level
 if(isset($parent_content))
 {
-	$parent_link = $html->link(__('up_one_level', true),'/contents/admin/' . $parent_content['Content']['parent_id']);
+	$parent_link = $html->link(__('Up One Level', true),'/contents/admin/' . $parent_content['Content']['parent_id']);
 	echo '<tr><td colspan="9">' . $parent_link . '</td></tr>';	
 }
 echo '</table>';

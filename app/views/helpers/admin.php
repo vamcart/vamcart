@@ -68,9 +68,9 @@ class AdminHelper extends Helper {
 	* @param  string  $tab_alias Alias of the tab.
 	* @return string	A <div> element to be used as a tab.
 	*/	
-	function CreateTab ($tab_alias)
+	function CreateTab ($tab_alias, $tab_name = null)
 	{
-		return('<div id="tab_' . $tab_alias . '" onclick="set_active_tab(\'' . $tab_alias . '\');" class="tab">' . __($tab_alias, true) . '</div>');
+		return('<div id="tab_' . $tab_alias . '" onclick="set_active_tab(\'' . $tab_alias . '\');" class="tab">' . $tab_name . '</div>');
 	}	
 
 	/**
@@ -105,7 +105,7 @@ class AdminHelper extends Helper {
 	########################################################	
 	function CreateNewLink ($extra_path = null)
 	{
-		$title = sprintf(__('% add', true), __(Inflector::underscore($this->params['controller']), true));
+		$title = sprintf(__('Create New', true), __(Inflector::underscore($this->params['controller']), true));
 		//$title = __($this->params['controller'] . '_create_link', true);
 		$path =  '/' . $this->params['controller'] . '/admin_new/' . $extra_path;
 
@@ -125,16 +125,16 @@ class AdminHelper extends Helper {
 		
 		if(!empty($options))
 		{
-			$content .=  __('with_selected', true) . '<select name="multiaction">';
+			$content .=  __('With Selected: ', true) . '<select name="multiaction">';
 			foreach($options AS $option)
 			{
 				$content .= '<option value="' . $option . '">' . __($option, true) . '</option>';
 			}
 			
 			$content .= '</select>
-							<input onclick="return confirm(\'' . __('confirm_multiaction', true) . '\');" type="submit" value="' . __('form_submit', true) . '"/>
+							<input onclick="return confirm(\'' . __('Are you sure? You may not be able to undo this action.', true) . '\');" type="submit" value="' . __('Submit', true) . '"/>
 							<span style="margin-left: 10px;">
-								<a href="javascript:selectall();">' . __('select_all', true) . '</a>
+								<a href="javascript:selectall();">' . __('Select All', true) . '</a>
 							</span>';
 
 		}
