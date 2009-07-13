@@ -59,7 +59,7 @@ msgid  "Database Password"
 msgstr "Пароль"
 
 msgid  "Submit"
-msgstr "Применить"
+msgstr "Продолжить"
 
 ##################################################### Admin Menu####################################################
 
@@ -539,7 +539,7 @@ msgid  "Options"
 msgstr "Настройки"
 
 msgid  "View Images"
-msgstr "Смотреть картинки"
+msgstr "Картинки"
 
 msgid  "Upload Images"
 msgstr "Загрузить картинки"
@@ -583,7 +583,7 @@ msgid  "Are you sure? You may not be able to undo this action."
 msgstr "Вы уверены? Вы не сможете отменить данное действие."
 
 msgid  "Submit"
-msgstr "Применить"
+msgstr "Продолжить"
 
 msgid  "Select All"
 msgstr "Выделить все"
@@ -605,3 +605,100 @@ msgstr "Не показывать в меню"
 
 msgid  "delete"
 msgstr "Удалить"
+
+##################################################### /app/views/contents/admin_core_pages_edit.ctp####################################################
+
+msgid  "Content Type"
+msgstr "Тип содержания"
+
+msgid  "Template"
+msgstr "Шаблон"
+
+msgid  "Title"
+msgstr "Название"
+
+msgid  "Description"
+msgstr "Описание"
+
+msgid  "Content Details"
+msgstr "Содержание"
+
+msgid  "Head Data"
+msgstr "Заголовок"
+
+msgid  "Sort Order"
+msgstr "Сортировка"
+
+msgid  "Action"
+msgstr "Действие"
+
+msgid  "Up One Level"
+msgstr "На уровень выше"
+
+msgid  "With Selected: "
+msgstr "Выделенные: "
+
+msgid  "Are you sure? You may not be able to undo this action."
+msgstr "Вы уверены? Вы не сможете отменить данное действие."
+
+msgid  "Submit"
+msgstr "Продолжить"
+
+##################################################### /app/views/contents/admin_edit.ctp####################################################
+
+msgid  "Parent"
+msgstr "Родитель"
+
+msgid  "Top Level"
+msgstr "Начало"
+
+msgid  "Title (%s) "
+msgstr "Название (%s) "
+
+msgid  "Description (%s) "
+msgstr "Описание (%s) "
+
+msgid  "Press \'Upload Images\' and choose images from your computer to upload. Select as many files as you would like. Images will upload right after you select them."
+msgstr "Нажмите \'Загрузить картинки\' и выберите картинки для загрузки на своём компьютере. Можно загружать сразу нескольк картинок. Картинки загрузятся после Вашего выбора."
+
+msgid  "TIP: Hold the \'control\' button to select more than one image."
+msgstr "ПОДСКАЗКА: Удерживайте кнопку \'control\', если хотите загрузить больше одной картинки."
+
+msgid  "This is a new product. Please press apply before uploading images."
+msgstr "Новый товар. Нажмите кнопку сохранить до загрузки картинок."
+
+msgid  "Alias"
+msgstr "Псевдоним"
+
+##################################################### /app/views/contents/admin_edit__contentlink.ctp####################################################
+
+msgid  "URL"
+msgstr "Адрес ссылки (URL)"
+
+##################################################### /app/views/contents/admin_edit__contentproduct.ctp####################################################
+
+msgid  "Price"
+msgstr "Цена"
+
+msgid  "Tax Class"
+msgstr "Налог"
+
+msgid  "Stock"
+msgstr "Склад"
+
+msgid  "Model"
+msgstr "Артикул"
+
+msgid  "Weight"
+msgstr "Вес"
+
+##################################################### /app/views/contents/admin_edit__contentselflink.ctp####################################################
+
+msgid  "There are no available content records. Please select a different content type."
+msgstr "Доступных записей не найдено. Выберите другой тип содержания."
+
+msgid  "Link To"
+msgstr "Ссылка на"
+
+msgid  "Select Internal Page"
+msgstr "Выберите страницу"

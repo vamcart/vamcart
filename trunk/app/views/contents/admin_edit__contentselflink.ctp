@@ -23,19 +23,18 @@ $options = $this->requestAction('/contents/content_selflink_list/' . $data['Cont
 
 if(empty($options))
 {
-	echo '<p>' . __('no_content_records_selflink', true) . '</p>';
+	echo '<p>' . __('There are no available content records. Please select a different content type.', true) . '</p>';
 }
 else
 {
 
 
 	echo '<div class="input">';
-	echo '<label for="ContentSelflinkUrl">' . __('selflink_url', true) . '</label>';
+	echo '<label for="ContentSelflinkUrl">' . __('Link To', true) . '</label>';
 	
-	echo $form->select('ContentSelflink/url', $options, $data['ContentSelflink']['url'], null, $showEmpty = __('select_internal_page', true));
+	echo $form->select('ContentSelflink/url', $options, $data['ContentSelflink']['url'], null, $showEmpty = __('Select Internal Page', true));
 	
 	echo '</div>';
 }
 
 ?>
-

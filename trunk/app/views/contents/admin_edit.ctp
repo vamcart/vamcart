@@ -77,10 +77,10 @@
 	echo $form->create('Content', array('id' => 'contentform', 'name' => 'contentform','enctype' => 'multipart/form-data', 'action' => '/contents/admin_edit/'.$data['Content']['id'], 'url' => '/contents/admin_edit/'.$data['Content']['id']));
 	
 	echo $admin->StartTabs();
-			echo $admin->CreateTab('main');
-			echo $admin->CreateTab('view_images');	
-			echo $admin->CreateTab('upload_images');			
-			echo $admin->CreateTab('options');			
+			echo $admin->CreateTab('main',__('Main', true));
+			echo $admin->CreateTab('view_images',__('View Images', true));	
+			echo $admin->CreateTab('upload_images',__('Upload Images', true));			
+			echo $admin->CreateTab('options',__('Options', true));			
 	echo $admin->EndTabs();
 	
 	echo $admin->StartTabContent('main');
@@ -96,12 +96,12 @@
 					'value' => $data['Content']['order']
 	               )
 				   ));
-	$parent_language_bug_fix = __('parent', true);
+	$parent_language_bug_fix = __('Parent', true);
 	
-	echo '<div class="input"><label>' . $parent_language_bug_fix . '</label>' . $form->select('Content/parent_id', $parents, $data['Content']['parent_id'], $attributes = array('label' => $parent_language_bug_fix), $showEmpty = 'Top Level') . '</div>';
+	echo '<div class="input"><label>' . $parent_language_bug_fix . '</label>' . $form->select('Content/parent_id', $parents, $data['Content']['parent_id'], $attributes = array('label' => $parent_language_bug_fix), $showEmpty = __('Top Level', true)) . '</div>';
 
    		echo $form->inputs(array('Content/content_type_id' => array(
-				   		'label' => __('content_type', true),
+				   		'label' => __('Content Type', true),
 						'type' => 'select',
 						'options' => $content_types,
 						'selected' => (!isset($data['Content']['content_type_id'])? 2 : $data['Content']['content_type_id']),
@@ -120,7 +120,7 @@
 	
 	  	echo $form->inputs(array('Content/template_id' => array(
 						'type' => 'select',
-				   		'label' => __('layout_theme', true),
+				   		'label' => __('Template', true),
 						'options' => $templates,
 						'selected' => $data['Content']['template_id']
 	            	  )));
@@ -132,13 +132,13 @@
 		$language_key = $language['Language']['id'];
 		
 		echo $form->inputs(array('ContentDescription]['.$language['Language']['id'].'][name/' . $language['Language']['id'] => array(
-				   		'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . sprintf(__('% title', true),__($language['Language']['name'], true)),
+				   		'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . sprintf(__('Title (%s) ', true),__($language['Language']['name'], true)),
 						'value' => $data['ContentDescription'][$language_key]['name']
 	            	  )));																								
 	
 		echo '<div id="template_required_' . $language['Language']['id'] . '" class="template_required" style="display:' . $tpl_req_style . ';">';
 			echo $form->inputs(array('ContentDescription]['.$language['Language']['id'].'][description/' . $language['Language']['id'] => array(
-				   		'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . sprintf(__('% description', true),__($language['Language']['name'], true)),
+				   		'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . sprintf(__('Description (%s) ', true),__($language['Language']['name'], true)),
 						'type' => 'textarea',
 						'class' => 'pagesmalltextarea',						
 						'value' => $data['ContentDescription'][$language_key]['description']
@@ -166,8 +166,8 @@
 	
 	if((isset($data['Content']['id'])) && ($data['Content']['id'] > 0))
 	{
-		echo '<p>' . __('content_upload_images', true) . '</p>';
-		echo '<div class="help tip"><p>' . __('content_upload_images_tip', true) . '</p></div>';		
+		echo '<p>' . __('Press \'Upload Images\' and choose images from your computer to upload. Select as many files as you would like. Images will upload right after you select them.', true) . '</p>';
+		echo '<div class="help tip"><p>' . __('TIP: Hold the \'control\' button to select more than one image.', true) . '</p></div>';		
 		?>
 		<script type="text/javascript" language="javascript" src="/js/swfupload/SWFUpload.js"></script>
 		<script type="text/javascript" language="javascript" src="/js/swfupload/callbacks.js"></script>
@@ -212,7 +212,7 @@
 	}
 	else
 	{
-		echo '<p>' . __('new_content_no_image', true)	 . '</p>';
+		echo '<p>' . __('This is a new product. Please press apply before uploading images.', true)	 . '</p>';
 	}
 			
 	echo '</fieldset>';
@@ -223,25 +223,25 @@
 			echo $form->inputs(array(
 				'fieldset' => __('content_details', true),
                 'Content/alias' => array(
-			   		'label' => __('alias', true),				   
+			   		'label' => __('Alias', true),				   
 					'value' => $data['Content']['alias']
                 ),
 				'Content/head_data' => array(
-					'label' => __('content_head_data', true),
+					'label' => __('Head Data', true),
 					'type' => 'textarea',
 					'class' => 'pagesmalltextarea',
 					'value' => $data['Content']['head_data']
 	             ),				
 			    'Content/active' => array(
 					'type' => 'checkbox',
-			   		'label' => __('active', true),
+			   		'label' => __('Active', true),
 					'value' => '1',
 					'class' => 'checkbox_group',
 					'checked' => $active_checked
                 ),
 			    'Content/show_in_menu' => array(
 					'type' => 'checkbox',
-			   		'label' => __('show_in_menu', true),
+			   		'label' => __('Show in menu', true),
 					'value' => '1',
 					'class' => 'checkbox_group',
 					'checked' => $menu_checked
@@ -249,7 +249,7 @@
 		));
 	echo $admin->EndTabContent();
 	
-	echo $form->submit( __('form_submit', true), array('name' => 'submitbutton', 'id' => 'submitbutton')) . $form->submit( __('form_apply', true), array('name' => 'applybutton')) . $form->submit( __('form_cancel', true), array('name' => 'cancelbutton'));
+	echo $form->submit( __('Submit', true), array('name' => 'submitbutton', 'id' => 'submitbutton')) . $form->submit( __('Apply', true), array('name' => 'applybutton')) . $form->submit( __('Cancel', true), array('name' => 'cancelbutton'));
 	echo '<div class="clearb"></div>';
 	echo $form->end();
 	?>

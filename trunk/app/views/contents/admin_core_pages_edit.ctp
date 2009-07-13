@@ -44,7 +44,7 @@
 					'value' => '-1'
 	               ),				   
 				'Content/content_type_id' => array(
-					'label' => __('content_type', true),
+					'label' => __('Content Type', true),
 					'type' => 'hidden',
 					'value' => $data['Content']['content_type_id']
 	              )
@@ -56,7 +56,7 @@
 	
 	  	echo $form->inputs(array('Content/template_id' => array(
 						'type' => 'select',
-				   		'label' => __('layout_theme', true),
+				   		'label' => __('Template', true),
 						'options' => $templates,
 						'selected' => $data['Content']['template_id']
 	            	  )));
@@ -68,13 +68,13 @@
 		$language_key = $language['Language']['id'];
 		
 		echo $form->inputs(array('ContentDescription]['.$language['Language']['id'].'][name/' . $language['Language']['id'] => array(
-				   		'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . $language['Language']['name'] . ' ' . __('title', true),
+				   		'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . $language['Language']['name'] . ' ' . __('Title', true),
 						'value' => $data['ContentDescription'][$language_key]['name']
 	            	  )));																								
 	
 		echo '<div id="template_required_' . $language['Language']['id'] . '" class="template_required">';
 			echo $form->inputs(array('ContentDescription]['.$language['Language']['id'].'][description/' . $language['Language']['id'] => array(
-				   		'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . $language['Language']['name'] . ' ' . __('description', true),
+				   		'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . $language['Language']['name'] . ' ' . __('Description', true),
 						'type' => 'textarea',
 						'value' => $data['ContentDescription'][$language_key]['description']
 	            	  )));
@@ -87,13 +87,13 @@
 
 	echo $admin->StartTabContent('options');
 			echo $form->inputs(array(
-				'fieldset' => __('content_details', true),
+				'fieldset' => __('Content Details', true),
                 'Content/alias' => array(
 			   		'type' => 'hidden',
 					'value' => $data['Content']['alias']
                 ),
 				'Content/head_data' => array(
-					'label' => __('content_head_data', true),
+					'label' => __('Head Data', true),
 					'type' => 'textarea',
 					'class' => 'pagesmalltextarea',
 					'value' => $data['Content']['head_data']
@@ -105,7 +105,7 @@
 		));
 	echo $admin->EndTabContent();
 	
-	echo $form->submit( __('form_submit', true), array('name' => 'submitbutton', 'id' => 'submitbutton')) . $form->submit( __('form_apply', true), array('name' => 'applybutton')) . $form->submit( __('form_cancel', true), array('name' => 'cancelbutton'));
+	echo $form->submit( __('Submit', true), array('name' => 'submitbutton', 'id' => 'submitbutton')) . $form->submit( __('Apply', true), array('name' => 'applybutton')) . $form->submit( __('Cancel', true), array('name' => 'cancelbutton'));
 	echo '<div class="clearb"></div>';
 	echo $form->end();
 	?>
