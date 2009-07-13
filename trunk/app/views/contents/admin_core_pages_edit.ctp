@@ -23,8 +23,8 @@
 	echo $form->create('Content', array('id' => 'contentform', 'name' => 'contentform','enctype' => 'multipart/form-data', 'action' => '/contents/admin_edit/'.$data['Content']['id'], 'url' => '/contents/admin_edit/'.$data['Content']['id']));
 	
 	echo $admin->StartTabs();
-			echo $admin->CreateTab('main');
-			echo $admin->CreateTab('options');			
+			echo $admin->CreateTab('main',__('Main',true));
+			echo $admin->CreateTab('options',__('Options',true));			
 	echo $admin->EndTabs();
 	
 	echo $admin->StartTabContent('main');

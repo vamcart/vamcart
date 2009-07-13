@@ -20,7 +20,7 @@
 
 echo '<table class="pagetable" cellspacing="0">';
 
-echo $html->tableHeaders(array(	 __('title', true), __('template', true), __('action', true)));
+echo $html->tableHeaders(array(	 __('Title', true), __('Template', true), __('Action', true)));
 //pr($content_data);
 foreach ($content_data AS $content)
 {

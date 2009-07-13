@@ -1,4 +1,5 @@
 ##################################################### /app/views/layout/admin.ctp# /app/views/layout/default.ctp####################################################
+
 msgid  "VaM Shop Admin"
 msgstr "Админка"
 
@@ -58,9 +59,10 @@ msgid  "Database Password"
 msgstr "Пароль"
 
 msgid  "Submit"
-msgstr "Продолжить"
+msgstr "Применить"
 
 ##################################################### Admin Menu####################################################
+
 msgid  "Home"
 msgstr "Главная"
 
@@ -169,6 +171,7 @@ msgid  "Sorry, you must be logged in to do that."
 msgstr "Вы должны войти в магазин."
 
 ##################################################### /app/controllers/components/module_base.php####################################################
+
 msgid  "Could not install module."
 msgstr "Не могу установить модуль."
 
@@ -176,6 +179,7 @@ msgid  "module exists"
 msgstr "уже установлен"
 
 ##################################################### /app/controllers/configuration_controller.php####################################################
+
 msgid  "Cache cleared."
 msgstr "Кэш очищен."
 
@@ -183,6 +187,7 @@ msgid  "Record saved."
 msgstr "Запись сохранена."
 
 ##################################################### /app/controllers/contents_controller.php####################################################
+
 msgid  "Error: Could not delete default record."
 msgstr "Ошибка: Нельзя удалять запись по умолчанию."
 
@@ -210,15 +215,16 @@ msgid  "Now hiding from menu."
 msgstr "Не показывать в меню."
 
 msgid  "Activated content item."
-msgstr "Активная запись."
+msgstr "Элемент активирован."
 
 msgid  "Inactivated content item."
-msgstr "Неактивная запись."
+msgstr "Элемент деактивирован."
 
 msgid  "%s Listing."
 msgstr "%s показана."
 
 ##################################################### /app/controllers/countries_controller.php####################################################
+
 msgid  "Record created."
 msgstr "Запись создана."
 
@@ -229,6 +235,7 @@ msgid  "Record deleted."
 msgstr "Запись удалена."
 
 ##################################################### /app/controllers/country_zones_controller.php####################################################
+
 msgid  "Record deleted."
 msgstr "Запись удалена."
 
@@ -239,6 +246,7 @@ msgid  "Record saved."
 msgstr "Запись сохранена."
 
 ##################################################### /app/controllers/currencies_controller.php####################################################
+
 msgid  "Error: Could not delete default record."
 msgstr "Ошибка: Нельзя удалять запись по умолчанию."
 
@@ -258,10 +266,12 @@ msgid  "Error: Could not deactivate default record."
 msgstr "Ошибка: Нельзя деактивировать запись по умолчанию."
 
 ##################################################### /app/controllers/defined_languages_controller.php####################################################
+
 msgid  "Record deleted."
 msgstr "Запись удалена."
 
 ##################################################### /app/controllers/global_content_blocks_controller.php####################################################
+
 msgid  "Record deleted."
 msgstr "Запись удалена."
 
@@ -278,6 +288,7 @@ msgid  "Record deactivated."
 msgstr "Запись деактивирована."
 
 ##################################################### /app/controllers/images_controller.php####################################################
+
 msgid  "Failed: "
 msgstr "Ошибка: "
 
@@ -285,6 +296,7 @@ msgid  "Couldn't read source image "
 msgstr "Не могу прочитать картинку "
 
 ##################################################### /app/controllers/languages_controller.php####################################################
+
 msgid  "Error: Could not delete default record."
 msgstr "Ошибка: Нельзя удалять запись по умолчанию."
 
@@ -307,6 +319,7 @@ msgid  "Error: Could not deactivate default record."
 msgstr "Ошибка: Нельзя деактивировать запись по умолчанию."
 
 ##################################################### /app/controllers/micro_templates_controller.php####################################################
+
 msgid  "Enter an alias to use"
 msgstr "Укажите псевдоним"
 
@@ -317,10 +330,12 @@ msgid  "Micro Template Saved."
 msgstr "Микро шаблон сохранён."
 
 ##################################################### /app/controllers/orders_controller.php####################################################
+
 msgid  "Record deleted."
 msgstr "Запись удалена."
 
 ##################################################### /app/controllers/orders_status_controller.php####################################################
+
 msgid  "Error: Could not delete default record."
 msgstr "Ошибка: Нельзя удалять запись по умолчанию."
 
@@ -334,18 +349,22 @@ msgid  "Record saved."
 msgstr "Запись сохранена."
 
 ##################################################### /app/controllers/payment_methods_controller.php####################################################
+
 msgid  "Record saved."
 msgstr "Запись сохранена."
 
 ##################################################### /app/controllers/shipping_methods_controller.php####################################################
+
 msgid  "Record saved."
 msgstr "Запись сохранена."
 
 ##################################################### /app/controllers/search_controller.php####################################################
+
 msgid  "Search Results"
 msgstr "Результаты поиска"
 
 ##################################################### /app/controllers/stylesheets_controller.php####################################################
+
 msgid  "You have deleted a template association."
 msgstr "Удалена привязка стиля к шаблону."
 
@@ -377,6 +396,7 @@ msgid  "You have inactivated multiple stylesheets."
 msgstr "Стили деактивированы."
 
 ##################################################### /app/controllers/tax_country_zone_rates_controller.php####################################################
+
 msgid  "All Country Zones"
 msgstr "Все регионы страны"
 
@@ -390,6 +410,7 @@ msgid  "Please select a tax class."
 msgstr "Выберите налог."
 
 ##################################################### /app/controllers/taxs_controller.php####################################################
+
 msgid  "You have updated multiple records."
 msgstr "Записи обновлены."
 
@@ -400,6 +421,7 @@ msgid  "Record created."
 msgstr "Запись создана."
 
 ##################################################### /app/controllers/templates_controller.php####################################################
+
 msgid  "You have deleted a stylesheet association."
 msgstr "Удалена привязка шаблона к стилю."
 
@@ -422,6 +444,7 @@ msgid  "Record created."
 msgstr "Запись создана."
 
 ##################################################### /app/controllers/users_controller.php####################################################
+
 msgid  "Could not delete that account."
 msgstr "Не могу удалить данный аккаунт."
 
@@ -456,6 +479,7 @@ msgid  "Could not create user account. User exists."
 msgstr "Не могу создать пользователя. Данный пользователь уже существует."
 
 ##################################################### /app/controllers/user_tags_controller.php####################################################
+
 msgid  "Record deleted."
 msgstr "Запись удалена."
 
@@ -470,3 +494,122 @@ msgstr "Тэг пользователя обновлён."
 
 msgid  "User tag deleted."
 msgstr "Тэг пользователя удалён."
+
+##################################################### /app/views/admin/admin_top.ctp####################################################
+msgid  "Options"
+msgstr "Разделы"
+
+##################################################### /app/views/configuration/admin_edit.ctp####################################################
+
+msgid  "no"
+msgstr "нет"
+
+msgid  "yes"
+msgstr "да"
+
+msgid  "Main"
+msgstr "Основные"
+
+msgid  "Caching"
+msgstr "Кэширование"
+
+msgid  "Site Name"
+msgstr "Название магазина"
+
+msgid  "Metadata"
+msgstr "Мета тэги"
+
+msgid  "URL Extension"
+msgstr "Расширение URL"
+
+msgid  "GD Library Enabled"
+msgstr "Разрешить нарезку картинок"
+
+msgid  "Image Thumbnail Size"
+msgstr "Размер картинки"
+
+msgid  "Cache Time in Seconds"
+msgstr "Время кэширования (в секундах)"
+
+msgid  "Reset Cache"
+msgstr "Очистить кэш"
+
+msgid  "Click here to clear cache"
+msgstr "Нажмите для очистки кэша"
+
+msgid  "Apply"
+msgstr "Сохранить"
+
+msgid  "Cancel"
+msgstr "Отменить"
+
+msgid  "Options"
+msgstr "Настройки"
+
+msgid  "View Images"
+msgstr "Смотреть картинки"
+
+msgid  "Upload Images"
+msgstr "Загрузить картинки"
+
+msgid  "Restrictions"
+msgstr "Ограничения"
+
+##################################################### /app/views/contents/admin.ctp####################################################
+
+msgid  "Title"
+msgstr "Название"
+
+msgid  "Type"
+msgstr "Тип"
+
+msgid  "Template"
+msgstr "Шаблон"
+
+msgid  "Active"
+msgstr "Статус"
+
+msgid  "Show in menu"
+msgstr "Показывать в меню"
+
+msgid  "Default"
+msgstr "По умолчанию"
+
+msgid  "Sort Order"
+msgstr "Сортировка"
+
+msgid  "Action"
+msgstr "Действие"
+
+msgid  "Up One Level"
+msgstr "На уровень выше"
+
+msgid  "With Selected: "
+msgstr "Выделенные: "
+
+msgid  "Are you sure? You may not be able to undo this action."
+msgstr "Вы уверены? Вы не сможете отменить данное действие."
+
+msgid  "Submit"
+msgstr "Применить"
+
+msgid  "Select All"
+msgstr "Выделить все"
+
+msgid  "Create New"
+msgstr "Добавить"
+
+msgid  "activate"
+msgstr "Активировать"
+
+msgid  "deactivate"
+msgstr "Деактивировать"
+
+msgid  "show_in_menu"
+msgstr "Показывать в меню"
+
+msgid  "hide_from_menu"
+msgstr "Не показывать в меню"
+
+msgid  "delete"
+msgstr "Удалить"

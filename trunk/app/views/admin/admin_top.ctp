@@ -40,11 +40,11 @@ if(!empty($navigation[$level]['children']))
 	foreach($level_navigation AS $nav)
 	{
 		echo '<div class="page_menu_item" class="">
-				<p class="heading">' . $admin->MenuLink($nav) . '</p>
-				<p>' . __($nav['text'].'_description', true) . '</p>';
+				<p class="heading">' . $admin->MenuLink($nav) . '</p>';
+//		echo '<p>' . __($nav['text'].'_description', true) . '</p>';
 		if(!empty($nav['children']))
 		{
-			$sub_items = __('options', true) . ': ';
+			$sub_items = __('Options', true) . ': ';
 			foreach($nav['children'] AS $child)
 			{
 				$sub_items .= $admin->MenuLink($child) . ', ';
