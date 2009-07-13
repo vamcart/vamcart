@@ -21,21 +21,21 @@
 
 	echo $form->create('Language', array('action' => '/languages/admin_edit/', 'url' => '/languages/admin_edit/'));
 	echo $form->inputs(array(
-					'fieldset' => __('language_details', true),
+					'fieldset' => __('Language Details', true),
 				   'Language/id' => array(
 				   		'type' => 'hidden'
 	               ),
 	               'Language/name' => array(
-				   		'label' => __('name', true)
+				   		'label' => __('Name', true)
 	               ),
 				   'Language/code' => array(
-   				   		'label' => __('code', true)
+   				   		'label' => __('Code', true)
 	               ),
 				   'Language/iso_code_2' => array(
-   				   		'label' => __('flag_code', true)
+   				   		'label' => __('Flag Code', true)
 	               )						   		     				   	   																									
 			));
-	echo $form->submit( __('form_submit', true), array('name' => 'submit')) . $form->submit( __('form_cancel', true), array('name' => 'cancel'));
+	echo $form->submit( __('Submit', true), array('name' => 'submit')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clearb"></div>';
 	echo $form->end();
 	?>

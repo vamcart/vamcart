@@ -23,7 +23,7 @@ echo $form->create('Language', array('action' => '/languages/admin_modify_select
 
 echo '<table class="pagetable" cellspacing="0">';
 
-echo $html->tableHeaders(array( __('language', true), __('code', true), '&nbsp;', __('active', true), __('default', true), __('action', true), '&nbsp;'));
+echo $html->tableHeaders(array( __('Language', true), __('Code', true), '&nbsp;', __('Active', true), __('Default', true), __('Action', true), '&nbsp;'));
 
 foreach ($language_data AS $language)
 {
