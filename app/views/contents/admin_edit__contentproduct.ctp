@@ -23,23 +23,23 @@ $tax_options = $this->requestAction('/contents/generate_tax_list/');
 
 	echo $form->inputs(array(
 	   'ContentProduct/price' => array(
-   		'label' => __('price', true),
+   		'label' => __('Price', true),
 		'type' => 'text',
 		'value' => $data['ContentProduct']['price']
 	   ),
 	   'ContentProduct/tax_id' => array(
-   		'label' => __('tax_class', true),
+   		'label' => __('Tax Class', true),
 		'type' => 'select',
 		'options' => $tax_options,
 		'selected' => $data['ContentProduct']['tax_id']
 	   ),
 	   'ContentProduct/stock' => array(
-   		'label' => __('stock', true),
+   		'label' => __('Stock', true),
 		'type' => 'text',
 		'value' => $data['ContentProduct']['stock']
 	   ),
 	   'ContentProduct/model' => array(
-   		'label' => __('model', true),
+   		'label' => __('Model', true),
 		'type' => 'text',
 		'value' => $data['ContentProduct']['model']
 	   ),
