@@ -48,7 +48,7 @@ if(!empty( $available_templates))
 	echo $form->create('Stylesheet/Template', array('action' => '/stylesheets/admin_attach_templates/'.$stylesheet['Stylesheet']['id'], 'url' => '/stylesheets/admin_attach_templates/'.$stylesheet['Stylesheet']['id']));
 	echo $form->select('Template/Template][', $available_templates, null, null, false);
 	echo $form->submit( __('Attach Template', true), array('name' => 'attach_template'));
-	echo '<div class="clearb"></div>';
+	echo '<div class="clear"></div>';
 	echo $form->end();
 	echo '</div>';
 }

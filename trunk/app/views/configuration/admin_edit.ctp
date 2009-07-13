@@ -82,6 +82,6 @@ echo $form->inputs(array(
 	
 	
 	echo $form->submit( __('Apply', true), array('name' => 'applybutton')) . $form->submit( __('Cancel', true), array('name' => 'cancelbutton'));
-	echo '<div class="clearb"></div>';
+	echo '<div class="clear"></div>';
 	echo $form->end();
 ?>

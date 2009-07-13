@@ -21,7 +21,7 @@
 echo $form->create('UserPref', array('action' => '/users/admin_user_preferences/', 'url' => '/users/admin_user_preferences/'));
 
 echo $form->inputs(array(
-		'fieldset' => 'user_prefs',
+		'fieldset' => __('User Prefences', true),
 		'UserPref/language' => array(
 			'label' => __('Language', true),
 			'type' => 'select',
@@ -31,7 +31,6 @@ echo $form->inputs(array(
 	   ));
 	   
 	echo $form->submit( __('Apply', true), array('name' => 'applybutton')) . $form->submit( __('Cancel', true), array('name' => 'cancelbutton'));
-	echo '<div class="clearb"></div>';
+	echo '<div class="clear"></div>';
 	echo $form->end();	   
 ?>
-

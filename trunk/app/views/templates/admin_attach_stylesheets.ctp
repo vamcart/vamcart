@@ -47,7 +47,7 @@ if(!empty( $available_stylesheets))
 	echo $form->create('Template/Stylesheet', array('action' => '/templates/admin_attach_stylesheets/'.$template['Template']['id'], 'url' => '/templates/admin_attach_stylesheets/'.$template['Template']['id']));
 	echo $form->select('Stylesheet/Stylesheet][', $available_stylesheets, null, null, false);
 	echo $form->submit( __('Attach Stylesheet', true), array('name' => 'attach_stylesheet'));
-	echo '<div class="clearb"></div>';
+	echo '<div class="clear"></div>';
 	echo $form->end();
 	echo '</div>';
 }

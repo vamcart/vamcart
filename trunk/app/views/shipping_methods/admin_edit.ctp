@@ -35,7 +35,7 @@
 	echo $this->requestAction( '/shipping/admin/edit/' . $data['ShippingMethod']['code'], array('return'=>true));	
 	
 	echo $form->submit( __('Submit', true), array('name' => 'submit', 'id' => 'submit')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
-	echo '<div class="clearb"></div>';
+	echo '<div class="clear"></div>';
 	echo $form->end();
 	?>
 </div>

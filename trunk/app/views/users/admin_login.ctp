@@ -30,6 +30,6 @@
 	               )																										
 			));
 	echo $form->submit(__('Login',true));
-	echo '<div class="clearb" />';
+	echo '<div class="clear"></div>';
 	echo $form->end();
 ?>
