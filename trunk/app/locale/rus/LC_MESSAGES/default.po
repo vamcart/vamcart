@@ -217,3 +217,13 @@ msgstr "Неактивная запись."
 
 msgid  "%s Listing."
 msgstr "%s показана."
+
+##################################################### /app/controllers/countries_controller.php####################################################
+msgid  "Record created."
+msgstr "Запись создана."
+
+msgid  "Record saved."
+msgstr "Запись сохранена."
+
+msgid  "Record deleted."
+msgstr "Запись удалена."
