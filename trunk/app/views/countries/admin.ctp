@@ -45,13 +45,10 @@ echo $admin->ActionBar(array('delete'));
 echo $form->end();
 
 ?>
-
 <table class="pagination_table">
-   <tr>
-		<td colspan="2"><?php echo $paginator->counter(array('format' => __('Page %page% of %pages%, showing %current% records out of %count% total.', true))); ?></td>   
-   </tr>
 	<tr>
-		<td><?php echo $paginator->prev(__('<< Previous', true), null, null, array('class' => 'disabled')); ?></td>
-		<td><?php echo $paginator->next(__('Next >>', true), null, null, array('class' => 'disabled')); ?></td>
+		<td><?php echo $paginator->prev(__('<< Previous', true)); ?></td>
+		<td>&nbsp;<?php echo $paginator->numbers(array('separator'=>' - ')); ?>&nbsp;</td>
+		<td><?php echo $paginator->next(__('Next >>', true)); ?></td>
 	</tr>
-</table>				 
+</table>

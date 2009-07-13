@@ -23,7 +23,7 @@ echo $form->create('Order', array('action' => '/orders/admin_modify_selected/', 
 
 echo '<table class="pagetable" cellspacing="0">';
 
-echo $html->tableHeaders(array(__('name', true), __('status', true), __('action', true)));
+echo $html->tableHeaders(array(__('Name', true), __('Status', true), __('Action', true)));
 
 foreach ($data AS $order)
 {
@@ -38,10 +38,13 @@ foreach ($data AS $order)
 echo '</table>';
 echo $admin->EmptyResults($data);
 
-echo $paginator->prev();
-echo $paginator->numbers(array('separator'=>' - '));
-echo $paginator->next('Next Page'); 
-
 echo $form->end();
 
 ?>
+<table class="pagination_table">
+	<tr>
+		<td><?php echo $paginator->prev(__('<< Previous', true)); ?></td>
+		<td>&nbsp;<?php echo $paginator->numbers(array('separator'=>' - ')); ?>&nbsp;</td>
+		<td><?php echo $paginator->next(__('Next >>', true)); ?></td>
+	</tr>
+</table>

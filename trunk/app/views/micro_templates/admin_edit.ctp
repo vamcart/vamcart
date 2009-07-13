@@ -22,23 +22,23 @@
 	echo $form->create('MicroTemplate', array('action' => '/micro_templates/admin_edit/'.$id, 'url' => '/micro_templates/admin_edit/'.$id));
 		
 		echo $form->inputs(array(
-					'fieldset' => __('micro_template_details', true),
+					'fieldset' => __('Micro Template Details', true),
 					'MicroTemplate/id' => array(
    				   		'type' => 'hidden'
 	                ),  
 					'MicroTemplate/alias' => array(
-   				   		'label' => __('alias', true)
+   				   		'label' => __('Alias', true)
 	                ),
 	                'MicroTemplate/tag_name' => array(
-   				   		'label' => __('tag_name', true)
+   				   		'label' => __('Tag Name', true)
 	                ),
 					'MicroTemplate/template' => array(
 						'type' => 'textarea',
-   				   		'label' => __('template', true)
+   				   		'label' => __('Template', true)
 	                ),
 				));
 
-	echo $form->submit('Submit', array('name' => 'submit')) . $form->submit('Apply', array('name' => 'apply')) . $form->submit('Cancel', array('name' => 'cancel'));
+	echo $form->submit( __('Submit', true), array('name' => 'submit')) . $form->submit( __('Apply', true), array('name' => 'apply')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clearb"></div>';
 	echo $form->end();
 	?>
