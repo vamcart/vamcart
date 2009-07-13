@@ -21,8 +21,8 @@
 	echo $form->create('Stylesheet', array('action' => '/stylesheets/admin_edit/'.$data['Stylesheet']['id'], 'url' => '/stylesheets/admin_edit/'.$data['Stylesheet']['id']));
 
 	echo $admin->StartTabs();
-			echo $admin->CreateTab('main');
-			echo $admin->CreateTab('options');			
+			echo $admin->CreateTab('main',__('Main',true));
+			echo $admin->CreateTab('options',__('Options',true));			
 	echo $admin->EndTabs();
 	
 	echo $admin->StartTabContent('main');

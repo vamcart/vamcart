@@ -21,8 +21,8 @@
 	echo $form->create('UserTag', array('action' => '/user_tags/admin_edit/'.$user_tag_id, 'url' => '/user_tags/admin_edit/'.$user_tag_id));
 	
 	echo $admin->StartTabs();
-			echo $admin->CreateTab('main');
-			echo $admin->CreateTab('options');			
+			echo $admin->CreateTab('main',__('Main',true));
+			echo $admin->CreateTab('options',__('Options',true));			
 	echo $admin->EndTabs();
 
 	

@@ -25,7 +25,7 @@ echo $form->create('Country', array('action' => '/countries/admin_modify_selecte
 
 echo '<table class="pagetable" cellspacing="0">';
 
-echo $html->tableHeaders(array( __('title', true), '&nbsp;', __('code', true) . ' 2', __('code', true) . ' 3', __('action', true), '&nbsp;'));
+echo $html->tableHeaders(array( __('Title', true), '&nbsp;', __('Code', true) . ' 2', __('Code', true) . ' 3', __('Action', true), '&nbsp;'));
 
 foreach ($data AS $country)
 {
@@ -45,11 +45,13 @@ echo $admin->ActionBar(array('delete'));
 echo $form->end();
 
 ?>
-				 
+
 <table class="pagination_table">
+   <tr>
+		<td colspan="2"><?php echo $paginator->counter(array('format' => __('Page %page% of %pages%, showing %current% records out of %count% total.', true))); ?></td>   
+   </tr>
 	<tr>
-		<td><?php echo $paginator->prev('<< Previous', null, null, array('class' => 'disabled')); ?></td>
-		<td> Page <?php echo $paginator->counter(); ?> </td>
-		<td><?php echo $paginator->next('Next >>', null, null, array('class' => 'disabled')); ?></td>
+		<td><?php echo $paginator->prev(__('<< Previous', true), null, null, array('class' => 'disabled')); ?></td>
+		<td><?php echo $paginator->next(__('Next >>', true), null, null, array('class' => 'disabled')); ?></td>
 	</tr>
 </table>				 
