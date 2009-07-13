@@ -22,7 +22,7 @@
 	echo $form->create('OrderStatus', array('action' => '/order_status/admin_edit/' . $data['OrderStatus']['id'], 'url' => '/order_status/admin_edit/' . $data['OrderStatus']['id']));
 	echo '<fieldset>';
 	echo $form->inputs(array(
-					'fieldset' => __('order_status_details', true),
+					'fieldset' => __('Order Status Details', true),
 				   'OrderStatus/id' => array(
 				   		'type' => 'hidden',
 						'value' => $data['OrderStatus']['id']
@@ -41,7 +41,7 @@
 	}
 	
 	echo '</fieldset>';
-	echo $form->submit( __('form_submit', true), array('name' => 'submit')) . $form->submit( __('form_cancel', true), array('name' => 'cancel'));
+	echo $form->submit( __('Submit', true), array('name' => 'submit')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clearb"></div>';
 	echo $form->end();
 	?>

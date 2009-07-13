@@ -22,7 +22,7 @@
 
 echo '<table class="pagetable" cellspacing="0">';
 
-echo $html->tableHeaders(array( __('name', true), __('default', true),  __('order', true), __('action', true)));
+echo $html->tableHeaders(array( __('Name', true), __('Default', true),  __('Order', true), __('Action', true)));
 
 foreach ($order_status_data AS $order_status)
 {

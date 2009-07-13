@@ -23,7 +23,7 @@ echo $form->create('Stylesheet', array('action' => '/stylesheets/admin_modify_se
 
 echo '<table class="pagetable" cellspacing="0">';
 
-echo $html->tableHeaders(array( __('title', true), __('active', true), __('media_type', true), __('action', true), '&nbsp;'));
+echo $html->tableHeaders(array( __('Title', true), __('Active', true), __('Media Type', true), __('Action', true), '&nbsp;'));
 
 foreach ($stylesheets AS $stylesheet)
 {

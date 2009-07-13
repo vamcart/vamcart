@@ -26,7 +26,7 @@ foreach($tables AS $key => $table)
 	if($model_results > 0)
 	{
 		echo '<table class="pagetable" cellspacing="0">';
-		echo $html->tableHeaders(array($table['Search']['model'] . ' by ' . $table['Search']['field']));
+		echo $html->tableHeaders(array($table['Search']['model'] . ' - ' . $table['Search']['field']));
 		
 		$model = $table['Search']['model'];
 		$field = $table['Search']['field'];
@@ -51,6 +51,6 @@ foreach($tables AS $key => $table)
 }
 
 echo $admin->EmptyResults($total_results);
-echo 'Displaying: <strong>' . $total_results . '</strong> search results.';
+echo __('Results: ', true) . '<strong>' . $total_results . '</strong>';
 
 ?>

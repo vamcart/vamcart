@@ -27,17 +27,17 @@
 	
 	echo $admin->StartTabContent('main');
 	echo $form->inputs(array(
-					'fieldset' => __('stylesheet_details', true),
+					'fieldset' => __('Stylesheet Details', true),
 				   'Stylesheet/id' => array(
 				   		'type' => 'hidden',
 						'value' => $data['Stylesheet']['id']
 	               ),
 	               'Stylesheet/name' => array(
-   				   		'label' => __('name', true),				   
+   				   		'label' => __('Name', true),				   
    						'value' => $data['Stylesheet']['name']
 	               ),
 				   'Stylesheet/stylesheet' => array(
-   				   		'label' => __('stylesheets', true),				   
+   				   		'label' => __('Stylesheets', true),				   
    						'value' => $data['Stylesheet']['stylesheet']
 	               )																										
 			));
@@ -45,13 +45,13 @@
 
 	echo $admin->StartTabContent('options');			
 		echo $form->inputs(array(
-					'fieldset' => __('stylesheet_details', true),
+					'fieldset' => __('Stylesheet Details', true),
 					'Stylesheet/alias' => array(
-			   		'label' => __('alias', true),				   
+			   		'label' => __('Alias', true),				   
 					'value' => $data['Stylesheet']['alias']
                 	),
 				   'Stylesheet/active' => array(
-				   		'label' => __('active', true),
+				   		'label' => __('Active', true),
 				   		'type' => 'checkbox',
 						'class' => 'checkbox_group',						
    						'checked' => $active_checked
@@ -60,7 +60,7 @@
 			
 	echo $admin->EndTabContent();			
 			
-	echo $form->submit('Submit', array('name' => 'submit')) . $form->submit('Apply', array('name' => 'apply')) . $form->submit('Cancel', array('name' => 'cancel'));
+	echo $form->submit(__('Submit', true), array('name' => 'submit')) . $form->submit(__('Apply', true), array('name' => 'apply')) . $form->submit(__('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clearb"></div>';
 	echo $form->end();
 	?>

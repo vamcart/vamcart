@@ -18,43 +18,43 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 **/
 
-echo '<h3>' . __('customer_details', true) . '</h3>';
+echo '<h3>' . __('Customer Details', true) . '</h3>';
 echo '
 <table class="ordertable">
 	<tr><td>
-		<strong>' . __('billing_information',true) . '</strong><br />	
-		' . __('name',true) . ': ' . $data['Order']['bill_name'] . '<br />
-		' . __('address_line1',true) . ': ' . $data['Order']['bill_line_1'] . '<br />
-		' . __('address_line2',true) . ': ' . $data['Order']['bill_line_2'] . '<br />
-		' . __('city',true) . ': ' . $data['Order']['bill_city'] . '<br />
-		' . __('state',true) . ': ' . $data['Order']['bill_state'] . '<br />
-		' . __('zip',true) . ': ' . $data['Order']['bill_zip'] . '
+		<strong>' . __('Billing Information',true) . '</strong><br />	
+		' . __('Customer Name',true) . ': ' . $data['Order']['bill_name'] . '<br />
+		' . __('Address Line 1',true) . ': ' . $data['Order']['bill_line_1'] . '<br />
+		' . __('Address Line 2',true) . ': ' . $data['Order']['bill_line_2'] . '<br />
+		' . __('City',true) . ': ' . $data['Order']['bill_city'] . '<br />
+		' . __('State',true) . ': ' . $data['Order']['bill_state'] . '<br />
+		' . __('Zip',true) . ': ' . $data['Order']['bill_zip'] . '
 	</td><td>
-		<strong>' . __('shipping_information',true) . '</strong><br />			
-		' . __('name',true) . ': ' . $data['Order']['ship_name'] . '<br />
-		' . __('address_line1',true) . ': ' . $data['Order']['ship_line_1'] . '<br />
-		' . __('address_line2',true) . ': ' . $data['Order']['ship_line_2'] . '<br />
-		' . __('city',true) . ': ' . $data['Order']['ship_city'] . '<br />
-		' . __('state',true) . ': ' . $data['Order']['ship_state'] . '<br />
-		' . __('zip',true) . ': ' . $data['Order']['ship_zip'] . '
+		<strong>' . __('Shipping Information',true) . '</strong><br />			
+		' . __('Customer Name',true) . ': ' . $data['Order']['ship_name'] . '<br />
+		' . __('Address Line 1',true) . ': ' . $data['Order']['ship_line_1'] . '<br />
+		' . __('Address Line 2',true) . ': ' . $data['Order']['ship_line_2'] . '<br />
+		' . __('City',true) . ': ' . $data['Order']['ship_city'] . '<br />
+		' . __('State',true) . ': ' . $data['Order']['ship_state'] . '<br />
+		' . __('Zip',true) . ': ' . $data['Order']['ship_zip'] . '
 	</td></tr>
 	<tr><td colspan="2">
-		<strong>' . __('contact_information',true) . '</strong><br />				
-		' . __('email',true) . ': ' . $data['Order']['email'] . '<br />
-		' . __('phone',true) . ': ' . $data['Order']['phone'] . '		
+		<strong>' . __('Contact Information',true) . '</strong><br />				
+		' . __('Email',true) . ': ' . $data['Order']['email'] . '<br />
+		' . __('Phone',true) . ': ' . $data['Order']['phone'] . '		
 	</td></tr>
 	<tr><td colspan="2">
-		<strong>' . __('payment_information',true) . '</strong><br />				
-		' . __('credit_card',true) . ': ' . $data['Order']['cc_number'] . '<br />
-		' . __('expiration',true) . ': ' . $data['Order']['cc_expiration_month'] . '-' . $data['Order']['cc_expiration_year'] . '
+		<strong>' . __('Payment Information',true) . '</strong><br />				
+		' . __('Credit Card',true) . ': ' . $data['Order']['cc_number'] . '<br />
+		' . __('Expiration',true) . ': ' . $data['Order']['cc_expiration_month'] . '-' . $data['Order']['cc_expiration_year'] . '
 	</td></tr>
 	
 </table>';
 
-echo '<h3>' . __('order_details', true) . '</h3>';
+echo '<h3>' . __('Order Details', true) . '</h3>';
 
 echo '<table class="pagetable" cellspacing="0">';
-echo $html->tableHeaders(array( __('table_heading_name', true), __('price', true), __('quantity', true), __('total', true)));
+echo $html->tableHeaders(array( __('Product Name', true), __('Price', true), __('Quantity', true), __('Total', true)));
 foreach($data['OrderProduct'] AS $product) 
 {
 	echo $admin->TableCells(
@@ -68,14 +68,14 @@ foreach($data['OrderProduct'] AS $product)
 
 	echo $admin->TableCells(
 		  array(
-		  		'<strong>' . $data['ShippingMethod']['name'] . ' ' . __('shipping',true) . '</strong>',
+		  		'<strong>' . $data['ShippingMethod']['name'] . ' ' . '</strong>',
 				$data['Order']['shipping'],
 				'1',
 				$data['Order']['shipping']					
 		  ));
 	echo $admin->TableCells(
 		  array(
-		  		'<strong>' . __('total',true) . '</strong>',
+		  		'<strong>' . __('Order Total',true) . '</strong>',
 				'&nbsp;',
 				'&nbsp;',
 				'<strong>' . $data['Order']['total'] .'</strong>'
@@ -86,10 +86,10 @@ echo '</table>';
 
 
 
-echo '<h3>' . __('order_comments', true) . '</h3>';
+echo '<h3>' . __('Order Comments', true) . '</h3>';
 echo '<table class="pagetable" cellspacing="0">';
 
-echo $html->tableHeaders(array( __('date', true), __('user', true), __('sent_to_customer', true), __('comment', true)));
+echo $html->tableHeaders(array( __('Date', true), __('User', true), __('Sent To Customer', true), __('Comment', true)));
 
 foreach($data['OrderComment'] AS $comment) 
 {
@@ -103,13 +103,7 @@ foreach($data['OrderComment'] AS $comment)
 }
 echo '</table>';
 
-
-
-
-
-
-
-echo '<h3>' . __('new_comment', true) . '</h3>';
+echo '<h3>' . __('New Comment', true) . '</h3>';
 
 echo $form->create('OrderComment', array('action' => '/orders/admin_new_comment/', 'url' => '/orders/admin_new_comment/'));
 
@@ -122,7 +116,7 @@ echo $form->create('OrderComment', array('action' => '/orders/admin_new_comment/
 				'type' => 'select',
 				'options' => $order_status_list,
 				'selected' => $data['Order']['order_status_id'],
-				'label' => __('update_status',true)
+				'label' => __('Update Status',true)
 			),
 			'OrderComment/order_id' => array(
 				'type' => 'hidden',
@@ -134,20 +128,18 @@ echo $form->create('OrderComment', array('action' => '/orders/admin_new_comment/
 			),	
 			'OrderComment/sent_to_customer' => array(
 				'type' => 'checkbox',
-				'label' => __('send_to_customer',true),
+				'label' => __('Send To Customer',true),
 				'class' => 'checkbox_group'
 			)									,
 			'OrderComment/comment' => array(
 				'type' => 'textarea',
+				'label' => __('Comment',true),
 				'class' => 'pagesmallesttextarea'
 			)
 		));
 
-
-
-echo $form->submit( __('form_submit', true), array('name' => 'submit', 'id' => 'submit'));
+echo $form->submit( __('Submit', true), array('name' => 'submit', 'id' => 'submit'));
 echo '<div class="clearb"></div>';
 echo $form->end();
 	
-
 ?>
