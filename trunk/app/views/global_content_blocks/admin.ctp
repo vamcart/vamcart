@@ -22,7 +22,7 @@
 echo $form->create('GlobalContentBlock', array('action' => '/global_content_blocks/admin_modify_selected/', 'url' => '/global_content_blocks/admin_modify_selected/'));
 
 echo '<table class="pagetable" cellspacing="0">';
-echo $html->tableHeaders(array( __('Title', true), __('Call', true), __('Active', true), __('Action', true), '&nbsp;'));
+echo $html->tableHeaders(array( __('Title', true), __('Call (Template Placeholder)', true), __('Active', true), __('Action', true), '&nbsp;'));
 
 foreach ($global_content_blocks AS $global_content_block)
 {
