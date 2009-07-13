@@ -174,3 +174,10 @@ msgstr "Не могу установить модуль."
 
 msgid  "module exists"
 msgstr "уже установлен"
+
+##################################################### /app/controllers/configuration_controller.php####################################################
+msgid  "Cache cleared."
+msgstr "Кэш очищен."
+
+msgid  "Record saved."
+msgstr "Запись сохранена."

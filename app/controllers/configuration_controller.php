@@ -44,7 +44,7 @@ class ConfigurationController extends AppController {
 				$current_config['Configuration']['value'] = $value;
 				$this->Configuration->save($current_config);
 			}
-			$this->Session->setFlash(__('record_saved', true));
+			$this->Session->setFlash(__('Record saved.', true));
 		}
 		
 		// Grab all configration values then loop through and set the array key to the database key
