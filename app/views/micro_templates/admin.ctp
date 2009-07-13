@@ -19,7 +19,7 @@
 **/
 
 echo '<table class="pagetable" cellspacing="0">';
-echo $html->tableHeaders(array( __('title', true), __('call', true),  __('action', true)));
+echo $html->tableHeaders(array( __('Title', true), __('Call', true),  __('Action', true)));
 
 foreach ($micro_templates AS $micro_template)
 {

@@ -21,7 +21,7 @@
 
 echo '<table class="pagetable" cellspacing="0">';
 
-echo $html->tableHeaders(array( __('name', true), __('installed', true), __('Version', true), __('action', true)));
+echo $html->tableHeaders(array( __('Name', true), __('Installed', true), __('Version', true), __('Action', true)));
 
 foreach ($modules AS $module)
 {
@@ -32,11 +32,11 @@ foreach ($modules AS $module)
 	}
 	elseif((isset($module['installed_version']))&&($module['installed_version'] < $module['version']))
 	{
-		$action_button = $html->link(__('Upgrade',true),'/module_' . $module['alias'] . '/setup/upgrade/',null,'Are you sure?');
+		$action_button = $html->link(__('Upgrade',true),'/module_' . $module['alias'] . '/setup/upgrade/',null,__('Are you sure?', true));
 	}
 	else
 	{
-		$action_button = $html->link(__('Uninstall',true),'/module_' . $module['alias'] . '/setup/uninstall/',null,'Are you sure?');
+		$action_button = $html->link(__('Uninstall',true),'/module_' . $module['alias'] . '/setup/uninstall/',null,__('Are you sure?', true));
 	}
 
 	echo $admin->TableCells(
@@ -50,6 +50,5 @@ foreach ($modules AS $module)
 }
 
 echo '</table>';
-
 
 ?>
