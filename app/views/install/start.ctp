@@ -33,7 +33,7 @@ echo $form->create('Install', array('action' => '/install/create/', 'url' => '/i
 
 
 echo $form->inputs(array(
-				'fieldset' => __('install', true),
+				'fieldset' => __('Database', true),
                 'Install/db_host' => array(
 			   		'label' => __('Host', true),
 					'value' => $values['Install']['db_host']
