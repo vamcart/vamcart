@@ -34,7 +34,7 @@ class InstallComponent extends Object
 
 	function getVersion ()
 	{
-		$version = '0.1alpha';
+		$version = file_get_contents(APP . 'version.txt');
 		return $version;
 	}
 	
