@@ -97,11 +97,13 @@ div#menu
      background: #91afba;
      padding: .5em;
    }
+   
 /* /Menu */
 
 /* Navigation */
 div#navigation
    {
+     padding: .5em;
    }
 /* /Navigation */
    

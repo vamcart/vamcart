@@ -38,6 +38,7 @@
 <!-- /Header -->
 
 <div id="menu">
+&nbsp;
 </div>
 
 <!-- Navigation -->
