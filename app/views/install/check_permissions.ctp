@@ -22,6 +22,7 @@
 
 <h2><?php __('Step 1 - Checking System Requirements') ?></h2>
 <fieldset>
+<legend><?php __('Permissions') ?></legend>
 <?php
 foreach($install_checks AS $check)
 {
