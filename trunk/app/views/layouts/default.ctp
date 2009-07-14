@@ -22,47 +22,60 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<?php echo $html->css('admin'); ?>
-	<title><?php __('VaM Shop') ?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<?php echo $html->css('admin'); ?>
+<title><?php __('VaM Shop') ?></title>
 </head>
 
 <body>
-	<div id="header">
-		<h1><img src="/img/logo.gif" alt="<?php __('VaM Shop') ?>" /></h1>
-	</div>
-	<div id="under_header_bar"></div>
-	<div id="menu_container">
-		&nbsp;
-	</div>
-	<div id="content_body">
-		<div id="breadcrumbs">
-			<?php
-			if(isset($current_crumb))
-				echo $admin->GenerateBreadcrumbs($navigation, $current_crumb);
-			?>
-		</div>
-		<div id="content">
-			<?php if($session->check('Message.flash')) $session->flash(); ?> 
-			<div class="pageheader">
-				<?php 
-				if(isset($current_crumb)) 
-				{
-					__($current_crumb);
-					if(isset($current_crumb_info)) 
-					{
-						echo ': ' . $current_crumb_info;
-					}
-				}
-				?>
-			</div>
-			<div id="inner-content">
-				<?php echo $content_for_layout ?>
-			</div>
-		</div>
-	</div>
-	<div id="footer">
-		<a id="footer_text" href="http://vamshop.ru/" target="blank"><?php __('Powered by VaM Shop') ?></a>
-	</div>
+<!-- Container -->
+<div id="container">
+
+<!-- Header -->
+<div id="header">
+<img src="/img/logo.gif" alt="<?php __('VaM Shop') ?>" />
+</div>
+<!-- /Header -->
+
+<div id="menu">
+</div>
+
+<!-- Navigation -->
+<div id="navigation">
+</div>
+<!-- /Navigation -->
+
+<!-- Content -->
+<div id="wrapper">
+<div id="content">
+
+<?php if($session->check('Message.flash')) $session->flash(); ?>
+
+<?php echo $content_for_layout ?>
+
+</div>
+</div>
+<!-- /Content -->
+
+<!-- Left column -->
+<div id="left">
+</div>
+<!-- /Left column -->
+
+<!-- Right column -->
+<div id="right">
+</div>
+<!-- /Right column -->
+
+<!-- Footer -->
+<div id="footer">
+<p>
+<a href="http://vamshop.ru/" target="blank"><?php __('Powered by VaM Shop') ?></a>
+</p>
+</div>
+<!-- /Footer -->
+
+</div>
+<!-- /Container -->
 </body>
 </html>

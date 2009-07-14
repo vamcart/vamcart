@@ -13,12 +13,6 @@ msgstr "Powered by VaM Shop."
 # Install
 ####################################################
 
-msgid  "Database"
-msgstr "База данных"
-
-msgid  "Permissions"
-msgstr "Права доступа"
-
 msgid  "Unable to connect to database."
 msgstr "Не могу подключиться к базе данных. Неправильно указан доступ к базе данных."
 
