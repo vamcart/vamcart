@@ -19,21 +19,17 @@
 **/
 
 ?>
-<div class="pageheader"><?php __('Welcome to the VaM Shop installation.') ?></div>
+<p><?php __('Welcome to the VaM Shop installation.') ?></p>
 <p><?php __('Installing version:') ?> <?php echo $version; ?></p>
 
 <?php
 echo $this->requestAction('/install/check_permissions/',array('return'=>true));
 ?>
-<br /><br />
-<h2><?php __('Step 2 - Enter Database Information') ?></h2>
-
+<br />
 <?php
 echo $form->create('Install', array('action' => '/install/create/', 'url' => '/install/create/'));
-
-
 echo $form->inputs(array(
-				'fieldset' => __('Database', true),
+				'fieldset' => __('Step 2 - Enter Database Information', true),
                 'Install/db_host' => array(
 			   		'label' => __('Host', true),
 					'value' => $values['Install']['db_host']
@@ -58,7 +54,7 @@ echo '<br />';
 echo $form->submit( __('Submit', true)) ;
 
 
-echo '<div style="clear:both;"></div>';
+echo '<div class="clear"></div>';
 echo $form->end();
 
 ?>

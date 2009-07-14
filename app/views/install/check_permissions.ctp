@@ -20,13 +20,12 @@
 
 ?>
 
-<h2><?php __('Step 1 - Checking System Requirements') ?></h2>
 <fieldset>
-<legend><?php __('Permissions') ?></legend>
+<legend><?php __('Step 1 - Checking System Requirements') ?></legend>
 <?php
 foreach($install_checks AS $check)
 {
-	echo $html->image('admin/'.($check['passed']=='passed'?'true.gif':'false.gif')) . __('Can write to: ',true) . $check['dir'] . '<br />';
+	echo $html->image('admin/'.($check['passed']=='passed'?'true.gif':'false.gif')) . '   ' . __('Can write to: ',true) . $check['dir'] . '<br />';
 }
 
 if(isset($fatal_error))
