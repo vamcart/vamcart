@@ -209,23 +209,27 @@ class AdminHelper extends Helper {
 	function DrawMenu ($navigation_walk)
 	{
 		$navigation = "";
-		$navigation .= '<ul id="admin_nav">';
+		$navigation .= '<ul id="menu">' . "\n";
 		foreach($navigation_walk AS $nav)
 		{
-			$navigation .= '<li>' . $this->MenuLink($nav);
+			$navigation .= '<li><span>' . $this->MenuLink($nav) . '</span>' . "\n";
 					
 			if(!empty($nav['children']))	
 			{
-				$navigation .= '<ul>';	
+				$navigation .= '<!--[if lte IE 6]><a href="#nogo"><table><tr><td><![endif]-->' . "\n";	
+				$navigation .= '<dl>' . "\n";	
+				$navigation .= '<dt>' . $this->MenuLink($nav) . '</dt>' . "\n";	
 				foreach($nav['children'] AS $navchild)
 				{
-					$navigation .= '<li>' . $this->MenuLink($navchild) . '</li>';
+					$navigation .= '<dd>' . $this->MenuLink($navchild) . '</dd>' . "\n";
 				}
-				$navigation .= '</ul>';
+				$navigation .= '</dl>' . "\n";
+				$navigation .= '<!--[if lte IE 6]></td></tr></table></a><![endif]-->' . "\n";
 			}
-			$navigation .= '</li>';
+			$navigation .= '</li>' . "\n";
 		}
-		$navigation .= '</ul><div class="clear"></div>';
+		$navigation .= '</ul>' . "\n";
+		$navigation .= '<div class="clear"></div>' . "\n";
 		
 		return($navigation);
 	}
