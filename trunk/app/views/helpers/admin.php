@@ -212,19 +212,19 @@ class AdminHelper extends Helper {
 		$navigation .= '<ul id="menu">' . "\n";
 		foreach($navigation_walk AS $nav)
 		{
-			$navigation .= '<li><span>' . $this->MenuLink($nav) . '</span>' . "\n";
+			$navigation .= '	<li><span>' . $this->MenuLink($nav) . '</span>';
 					
 			if(!empty($nav['children']))	
 			{
-				$navigation .= '<!--[if lte IE 6]><a href="#nogo"><table><tr><td><![endif]-->' . "\n";	
-				$navigation .= '<dl>' . "\n";	
-				$navigation .= '<dt>' . $this->MenuLink($nav) . '</dt>' . "\n";	
+				$navigation .= '	<!--[if lte IE 6]><a href="#nogo"><table><tr><td><![endif]-->' . "\n";	
+				$navigation .= '		<dl>' . "\n";	
+				$navigation .= '		<dt>' . $this->MenuLink($nav) . '</dt>' . "\n";	
 				foreach($nav['children'] AS $navchild)
 				{
-					$navigation .= '<dd>' . $this->MenuLink($navchild) . '</dd>' . "\n";
+					$navigation .= '			<dd>' . $this->MenuLink($navchild) . '</dd>' . "\n";
 				}
-				$navigation .= '</dl>' . "\n";
-				$navigation .= '<!--[if lte IE 6]></td></tr></table></a><![endif]-->' . "\n";
+				$navigation .= '		</dl>' . "\n";
+				$navigation .= '		<!--[if lte IE 6]></td></tr></table></a><![endif]-->' . "\n";
 			}
 			$navigation .= '</li>' . "\n";
 		}
