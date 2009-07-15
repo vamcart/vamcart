@@ -284,31 +284,50 @@ legend
 		font-size: 1.4em;
 		font-weight: bold;
 		color: #ff9c0f;
-		padding: 0 0 .5em 0;
+		margin-bottom: .5em;
+		padding: 0;
 	}
 
-label
+div.input label 
 	{
-		padding: .5em;
+		display: block; 
+		clear: left; 
+		float: left; 
+		color: #545452; 
+		text-align: right; 
+		width: 100px; 
+		padding-right: 10px; 
+		margin-bottom: .5em;
 	}
 
-div.input
+div.input input 
 	{
-		padding: .3em;
+		border: 1px solid; 
+		border-color: #666 #ccc #ccc #666; 
+		padding: .3em; 
+		margin-bottom: .6em;
 	}
-   
-div.input input, div.input textarea 
+	
+div.input select 
 	{
-		font-size: 1em;
-		border: 1px solid;
-		border-color: #666 #ccc #ccc #666;
-		padding: .3em;
+		margin-left: .5em;
 	}
-   
+
+div.input textarea 
+	{
+		overflow: auto; 
+		width: 400px; 
+		height: 16em; 
+		border: 1px solid; 
+		border-color: #666 #ccc #ccc #666; 
+		padding: .3em; 
+	}
+
 div.input textarea:focus, div.input input:focus, .sffocus, .sffocus 
 	{
 		background-color: #ffc;
 	}
+	
 /* /Forms */
 
 /* Messages */
