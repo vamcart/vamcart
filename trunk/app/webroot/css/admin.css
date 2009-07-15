@@ -74,6 +74,7 @@ div#right
 /* Header */
 #header 
 	{
+		background: url(/img/header-bg.png) repeat-x left top;
 	}
 
 #header div.header-left 
