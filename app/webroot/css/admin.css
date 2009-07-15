@@ -89,7 +89,7 @@ div#right
 	{
 		float: right;
 		margin: 0; 
-		padding: 0;
+		padding: .3em;
 	}
 
 /* Search */
@@ -131,7 +131,7 @@ div#footer p
 div#menu
 	{
 		border-top: 3px solid #ff9c0f;
-		background: #91afba;
+		background: #85A6B6;
 		padding: 0;
 		margin: 0;
 	}
@@ -145,28 +145,39 @@ Copyright (c) 2005-2007 Stu Nicholls. All rights reserved.
 This stylesheet and the assocaited (x)html may be modified in any 
 way to fit your requirements.
 =================================================================== */
+#menu li, 
+#menu ul 
+	{
+		list-style-type: none; 
+		margin: 0;
+		padding: 0;
+	}
+
 #menu li 
 	{
 		display: block; 
 		float: left; 
 		position: relative; 
 		z-index: 100; 
-		margin-right: 1px;
+		margin: 0;
+		padding: 0;
 	}
 	
 #menu li span 
 	{
 		display: block; 
 		z-index: 100; 
-		background: #b2ab9b; 
 		padding: 5px 10px;
+		border-right: 1px solid #91afba;
 	}
 
 #menu li a, 
 #menu li a:visited 
 	{
 		display: block; 
-		padding: 0;
+		color: #fff;
+		text-decoration: none;
+		margin: 0 0 0 0;
 	}
 
 #menu dl 
@@ -176,23 +187,23 @@ way to fit your requirements.
 		left: 0; 
 		margin: 0; 
 		padding: 0; 
-		background: url(transparency.gif);
+		background: #85A6B6 url(transparency.gif);
 	}
 
 #menu dt 
 	{
-		background: #b2ab9b; 
 		margin: 0; 
-		border-bottom: 1px solid #fff; 
+		padding: 0;
+		border-bottom: 0px solid #fff; 
 		float: left; 
-		border-right: 1px solid #fff;
+		border-right: 1px solid #91afba;
 	}
 
 #menu dd 
 	{
 		display: none; 
 		background: transparent; 
-		border-bottom: 1px solid #cce; 
+		border-bottom: 1px solid #91afba; 
 		clear:left; 
 		margin: 0; 
 		padding: 0; 
@@ -204,7 +215,7 @@ way to fit your requirements.
 #menu dt a:visited 
 	{
 		display: block; 
-		color: #ff8; 
+		color: #fff;
 		padding: 5px 10px; 
 		text-decoration: none;
 	}
@@ -212,8 +223,8 @@ way to fit your requirements.
 #menu dd a, 
 #menu dd a:visited 
 	{
-		background: #b2ab9b;
-		color: #ff8; 
+		background: #85A6B6;
+		color: #fff; 
 		text-decoration: none; 
 		display: block; 
 		padding: 5px 10px;
@@ -228,7 +239,7 @@ way to fit your requirements.
 #menu li a:hover dd 
 	{
 		display: block;
-		width: 160px;
+		width: 170px;
 	}
 
 #menu li:hover dl, 
@@ -241,8 +252,8 @@ way to fit your requirements.
 #menu li a:hover dt a, 
 #menu dd a:hover 
 	{
-		background: #e2dfa8; 
-		color: #534;
+		background: #91afba; 
+		color: #fff;
 	}
    
 /* /Menu */
@@ -305,7 +316,7 @@ div.input input
 		border: 1px solid; 
 		border-color: #666 #ccc #ccc #666; 
 		padding: .3em; 
-		margin-bottom: .6em;
+		margin: 0 0 .6em 0;
 	}
 	
 div.input select 
