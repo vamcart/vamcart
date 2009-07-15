@@ -10,115 +10,152 @@
 /*<![CDATA[*/
 
 html,body
-   {
-     margin: 0;
-     padding: 0;
-     background: #fff;
-   }
+	{
+		margin: 0;
+		padding: 0;
+		background: #fff;
+	}
 
 body
-   {
-     font: 1em arial,sans-serif;
-     line-height: 1;
-   }
+	{
+		font: 1em arial,sans-serif;
+		line-height: 1;
+	}
 
 img
-   {
-	  border: 0;
-   }
+	{
+		border: 0;
+	}
 
 h1, h2, h3
-   {
-     margin: 0;
-     padding: 0;
-   }
+	{
+		margin: 0;
+		padding: 0;
+	}
    
 /* Links color */
 a, 
 a:hover, 
 a:visited 
-   {
-     color: #494A4E;
-     text-decoration: underline;
-   }
+	{
+		color: #494A4E;
+		text-decoration: underline;
+	}
 /* /Links color */
 
 /* Content */
 div#container
-   {
-   }
+	{
+	}
 
 div#wrapper
-   {
-   }
+	{
+	}
 
 div#content
-   {
-     padding: .5em;
-   }
+	{
+		padding: .5em;
+	}
 
 /* /Content */
 
 /* Left column */
 div#left
-   {
-   }
+	{
+	}
 /* /Left column */
 
 /* Right column */
 div#right
-   {
-   }
+	{
+	}
 /* /Right column */
+
+/* Header */
+#header 
+	{
+	}
+
+#header div.header-left 
+	{
+		float: left;
+		margin: 0; 
+		padding: 0; 
+	}
+
+#header div.header-right 
+	{
+		float: right;
+		margin: 0; 
+		padding: 0;
+	}
+
+/* Search */
+   
+#header div.header-right label 
+	{
+		display: none;
+	}	
+
+#header div.header-right .submit 
+	{
+		display: none;
+	}	
+
+/* /Search */
+
+/* /Header */
 
 /* Footer */
 div#footer
-   {
-     clear: left;
-     width: 100%;
-     background: #f1f1f6;
-     border-top: 3px solid #67748B;
-     text-align: center;
-     color: #000;
-   }
+	{
+		clear: left;
+		width: 100%;
+		background: #f1f1f6;
+		border-top: 3px solid #67748B;
+		text-align: center;
+		color: #000;
+	}
    
 div#footer p
-   {
-     margin: 0;
-     padding: 5px 10px;
-   }
+	{
+		margin: 0;
+		padding: 5px 10px;
+	}
    
 /* /Footer */
 
 /* Menu */
 div#menu
-   {
-     border-top: 3px solid #ff9c0f;
-     background: #91afba;
-     padding: .5em;
-   }
+	{
+		border-top: 3px solid #ff9c0f;
+		background: #91afba;
+		padding: 0;
+		margin: 0;
+	}
    
 /* /Menu */
 
 /* Navigation */
 div#navigation
-   {
-     padding: .5em;
-   }
+	{
+		padding: 0;
+		margin: 0;
+	}
 /* /Navigation */
    
 /* Page header */
 #content h1,
 #content h2
-   {
-     color: #ff9c0f;
-	  font-weight: bold;
-     font-size: 1.4em;
-   }
+	{
+		color: #ff9c0f;
+		font-weight: bold;
+		font-size: 1.4em;
+	}
 
 #content h1 a 
-   {
-   }
+	{
+	}
 /* /Page header */
 
 /* Page content */
@@ -127,55 +164,55 @@ div#navigation
 
 /* Forms */
 fieldset 
-   {
-	  border: 0px;
-   }
+	{
+		border: 0px;
+	}
 
 legend 
-   {
-	  font-size: 1.4em;
-	  font-weight: bold;
-	  color: #ff9c0f;
-	  padding: 0 0 .5em 0;
-   }
+	{
+		font-size: 1.4em;
+		font-weight: bold;
+		color: #ff9c0f;
+		padding: 0 0 .5em 0;
+	}
 
 label
-   {
-	  padding: .5em;
-   }
+	{
+		padding: .5em;
+	}
 
 div.input
-   {
-	  padding: .3em;
-   }
+	{
+		padding: .3em;
+	}
    
 div.input input, div.input textarea 
-   {
-	  font-size: 1em;
-	  border: 1px solid;
-	  border-color: #666 #ccc #ccc #666;
-	  padding: .3em;
-   }
+	{
+		font-size: 1em;
+		border: 1px solid;
+		border-color: #666 #ccc #ccc #666;
+		padding: .3em;
+	}
    
 div.input textarea:focus, div.input input:focus, .sffocus, .sffocus 
-   {
-	  background-color: #ffc;
-   }
+	{
+		background-color: #ffc;
+	}
 /* /Forms */
 
 /* Messages */
 div#flashMessage
-   {
-     border: 1px solid #ff0000;
-     background: #fcc;
-     padding: .5em;
-     margin: 0 0 .5em 0;
-   }
+	{
+		border: 1px solid #ff0000;
+		background: #fcc;
+		padding: .5em;
+		margin: 0 0 .5em 0;
+	}
 /* /Messages */
 
 div.clear
-   {
-     clear: both;
-   }
-      
+	{
+		clear: both;
+	}
+		 
 /*]]>*/

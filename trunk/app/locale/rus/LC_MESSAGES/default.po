@@ -3,8 +3,11 @@
 msgid  "VaM Shop Admin"
 msgstr "Админка"
 
-msgid  "Global Record Search"
+msgid  "Search"
 msgstr "Поиск"
+
+msgid  "Global Record Search"
+msgstr "Поиск по магазину"
 
 msgid  "Powered by VaM Shop."
 msgstr "Powered by VaM Shop."
