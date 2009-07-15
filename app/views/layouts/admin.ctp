@@ -38,15 +38,18 @@ header('Content-Type: text/html; charset=utf-8');
 
 <!-- Header -->
 <div id="header">
+<div class="header-left">
 <img src="/img/logo.gif" alt="<?php __('VaM Shop') ?>" />
-<div id="global_search">
+</div>
+<div class="header-right">
 <?php 
 echo $form->create('Search', array('action' => '/search/admin_global_search/', 'url' => '/search/admin_global_search/'));
-echo $form->input('Search/term',array('label' => '','value' => __('Global Record Search',true),"onblur" => "if(this.value=='') this.value=this.defaultValue;","onfocus" => "if(this.value==this.defaultValue) this.value='';"));
-echo $form->submit();
+echo $form->input('Search/term',array('label' => __('Search',true),'value' => __('Global Record Search',true),"onblur" => "if(this.value=='') this.value=this.defaultValue;","onfocus" => "if(this.value==this.defaultValue) this.value='';"));
+echo $form->submit( __('Submit', true));
 echo $form->end();
 ?>
 </div>
+<div class="clear"></div>
 </div>
 <!-- /Header -->
 
