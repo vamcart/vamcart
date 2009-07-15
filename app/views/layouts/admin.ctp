@@ -39,7 +39,7 @@ header('Content-Type: text/html; charset=utf-8');
 <!-- Header -->
 <div id="header">
 <div class="header-left">
-<img src="/img/logo.gif" alt="<?php __('VaM Shop') ?>" />
+<?php echo $html->image('logo.png', array('alt' => __('VaM Shop',true)))?>
 </div>
 <div class="header-right">
 <?php 
