@@ -135,6 +135,115 @@ div#menu
 		padding: 0;
 		margin: 0;
 	}
+
+/* ================================================================ 
+This copyright notice must be untouched at all times.
+
+The original version of this stylesheet and the associated (x)html
+is available at http://www.cssplay.co.uk/menus/variable_dl.html
+Copyright (c) 2005-2007 Stu Nicholls. All rights reserved.
+This stylesheet and the assocaited (x)html may be modified in any 
+way to fit your requirements.
+=================================================================== */
+#menu li 
+	{
+		display: block; 
+		float: left; 
+		position: relative; 
+		z-index: 100; 
+		margin-right: 1px;
+	}
+	
+#menu li span 
+	{
+		display: block; 
+		z-index: 100; 
+		background: #b2ab9b; 
+		padding: 5px 10px;
+	}
+
+#menu li a, 
+#menu li a:visited 
+	{
+		display: block; 
+		padding: 0;
+	}
+
+#menu dl 
+	{
+		position: absolute; 
+		top: 0; 
+		left: 0; 
+		margin: 0; 
+		padding: 0; 
+		background: url(transparency.gif);
+	}
+
+#menu dt 
+	{
+		background: #b2ab9b; 
+		margin: 0; 
+		border-bottom: 1px solid #fff; 
+		float: left; 
+		border-right: 1px solid #fff;
+	}
+
+#menu dd 
+	{
+		display: none; 
+		background: transparent; 
+		border-bottom: 1px solid #cce; 
+		clear:left; 
+		margin: 0; 
+		padding: 0; 
+		color: #fff; 
+		text-align: left;
+	}
+
+#menu dt a, 
+#menu dt a:visited 
+	{
+		display: block; 
+		color: #ff8; 
+		padding: 5px 10px; 
+		text-decoration: none;
+	}
+
+#menu dd a, 
+#menu dd a:visited 
+	{
+		background: #b2ab9b;
+		color: #ff8; 
+		text-decoration: none; 
+		display: block; 
+		padding: 5px 10px;
+	}
+
+#menu li a:hover 
+	{
+		border: 0;
+	}
+
+#menu li:hover dd, 
+#menu li a:hover dd 
+	{
+		display: block;
+		width: 160px;
+	}
+
+#menu li:hover dl, 
+#menu li a:hover dl 
+	{
+		border-bottom: 0px solid #e2dfa8;
+	}
+
+#menu li:hover dt a, 
+#menu li a:hover dt a, 
+#menu dd a:hover 
+	{
+		background: #e2dfa8; 
+		color: #534;
+	}
    
 /* /Menu */
 
