@@ -661,6 +661,12 @@ msgstr "Название (%s) "
 msgid  "Description (%s) "
 msgstr "Описание (%s) "
 
+msgid  "Browse Images"
+msgstr "Смотреть картинки"
+
+msgid  "Upload Images"
+msgstr "Загрузить картинки"
+
 msgid  "Press \'Upload Images\' and choose images from your computer to upload. Select as many files as you would like. Images will upload right after you select them."
 msgstr "Нажмите \'Загрузить картинки\' и выберите картинки для загрузки на своём компьютере. Можно загружать сразу несколько картинок. Картинки загрузятся после Вашего выбора."
 
