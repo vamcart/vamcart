@@ -21,7 +21,7 @@
 
 echo $form->create('Language', array('action' => '/languages/admin_modify_selected/', 'url' => '/languages/admin_modify_selected/'));
 
-echo '<table class="pagetable" cellspacing="0">';
+echo '<table class="contentTable">';
 
 echo $html->tableHeaders(array( __('Language', true), __('Code', true), '&nbsp;', __('Active', true), __('Default', true), __('Action', true), '&nbsp;'));
 

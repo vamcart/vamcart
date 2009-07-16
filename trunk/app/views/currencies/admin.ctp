@@ -21,7 +21,7 @@
 
 echo $form->create('Currency', array('action' => '/currencies/admin_modify_selected/', 'url' => '/currencies/admin_modify_selected/'));
 
-echo '<table class="pagetable" cellspacing="0">';
+echo '<table class="contentTable">';
 
 echo $html->tableHeaders(array( __('Currency', true), __('Code', true), __('Active', true), __('Default', true), __('Action', true), '&nbsp;'));
 

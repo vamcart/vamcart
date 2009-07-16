@@ -21,7 +21,7 @@
 
  __('Template');  echo ': ' . $html->link($template['Template']['name'],'/templates/admin_edit/' . $template['Template']['id']); ?>
 
-<table class="pagetable" cellspacing="0">
+<table class="contentTable">
 
 <?php
 $attached_stylesheet = $template['Stylesheet'];

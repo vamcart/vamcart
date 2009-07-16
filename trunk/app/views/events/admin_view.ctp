@@ -19,7 +19,7 @@
 **/
 
 
-echo '<table class="pagetable" cellspacing="0">';
+echo '<table class="contentTable">';
 
 echo $html->tableHeaders(array(	__('Originator', true),__('Action', true)));
 

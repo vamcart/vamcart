@@ -53,7 +53,7 @@ echo '
 
 echo '<h3>' . __('Order Details', true) . '</h3>';
 
-echo '<table class="pagetable" cellspacing="0">';
+echo '<table class="contentTable">';
 echo $html->tableHeaders(array( __('Product Name', true), __('Price', true), __('Quantity', true), __('Total', true)));
 foreach($data['OrderProduct'] AS $product) 
 {
@@ -87,7 +87,7 @@ echo '</table>';
 
 
 echo '<h3>' . __('Order Comments', true) . '</h3>';
-echo '<table class="pagetable" cellspacing="0">';
+echo '<table class="contentTable">';
 
 echo $html->tableHeaders(array( __('Date', true), __('User', true), __('Sent To Customer', true), __('Comment', true)));
 
