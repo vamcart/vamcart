@@ -132,7 +132,7 @@ class AdminHelper extends Helper {
 			}
 			
 			$content .= '</select>
-							<input onclick="return confirm(\'' . __('Are you sure? You may not be able to undo this action.', true) . '\');" type="submit" value="' . __('Submit', true) . '"/>
+							<span class="button"><button onclick="return confirm(\'' . __('Are you sure? You may not be able to undo this action.', true) . '\');" type="submit" value="' . __('Submit', true) . '"/>' . __('Submit', true) . '</button></span>
 							<span style="margin-left: 10px;">
 								<a href="javascript:selectall();">' . __('Select All', true) . '</a>
 							</span>';
