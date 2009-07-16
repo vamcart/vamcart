@@ -86,7 +86,7 @@
 	echo $admin->StartTabContent('main');
 		echo '<fieldset>';
 		echo $form->inputs(array(
-				'fieldset' => 'adfsdf',
+				'fieldset' => __('Categories & Products',true),
 				'Content/id' => array(
 					'type' => 'hidden',
 					'value' => $data['Content']['id']
@@ -100,9 +100,10 @@
 	
 	echo '<div class="input"><label>' . $parent_language_bug_fix . '</label>' . $form->select('Content/parent_id', $parents, $data['Content']['parent_id'], $attributes = array('label' => $parent_language_bug_fix), $showEmpty = __('Top Level', true)) . '</div>';
 
-   		echo $form->inputs(array('Content/content_type_id' => array(
-				   		'label' => __('Content Type', true),
+   		echo $form->inputs(array(
+   					'Content/content_type_id' => array(
 						'type' => 'select',
+				   	'label' => __('Content Type', true),
 						'options' => $content_types,
 						'selected' => (!isset($data['Content']['content_type_id'])? 2 : $data['Content']['content_type_id']),
 						'onchange' => 'change_content_type();'
@@ -120,7 +121,7 @@
 	
 	  	echo $form->inputs(array('Content/template_id' => array(
 						'type' => 'select',
-				   		'label' => __('Template', true),
+				   	'label' => __('Template', true),
 						'options' => $templates,
 						'selected' => $data['Content']['template_id']
 	            	  )));
