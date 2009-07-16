@@ -42,7 +42,7 @@ foreach ($modules AS $module)
 	echo $admin->TableCells(
 		  array(
 		  	$html->link($module['name'],'/module_' . $module['alias'] . '/admin/admin_help'),
-			($module['installed'] == 1?$html->image('admin/true.gif'):$html->image('admin/false.gif')),
+			($module['installed'] == 1?$html->image('admin/icons/true.png'):$html->image('admin/icons/false.png')),
 			$module['version'],
 			$action_button	
 		   ));

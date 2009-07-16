@@ -29,7 +29,7 @@ foreach($files AS $tag)
 	{
 		if((isset($tag['template']))&&($tag['template'] == 1))
 			$import_link = "";
-			//$import_link = $html->image('admin/import.gif');
+			//$import_link = $html->image('admin/icons/import.png');
 		else
 			$import_link = "";
 		

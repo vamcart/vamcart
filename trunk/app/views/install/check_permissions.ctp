@@ -25,7 +25,7 @@
 <?php
 foreach($install_checks AS $check)
 {
-	echo $html->image('admin/'.($check['passed']=='passed'?'true.gif':'false.gif')) . '   ' . __('Can write to: ',true) . $check['dir'] . '<br />';
+	echo $html->image('admin/icons/'.($check['passed']=='passed'?'true.png':'false.png')) . '   ' . __('Can write to: ',true) . $check['dir'] . '<br />';
 }
 
 if(isset($fatal_error))

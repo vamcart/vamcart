@@ -30,7 +30,7 @@ foreach ($stylesheets AS $stylesheet)
 	echo $admin->TableCells(
 		  array(
 			$html->link($stylesheet['Stylesheet']['name'],'/stylesheets/admin_edit/' . $stylesheet['Stylesheet']['id']),
-			$ajax->link(($stylesheet['Stylesheet']['active'] == 1?$html->image('admin/true.gif'):$html->image('admin/false.gif')), 'null', $options = array('url' => '/stylesheets/admin_change_active_status/' . $stylesheet['Stylesheet']['id'], 'update' => 'inner-content'), null, false),
+			$ajax->link(($stylesheet['Stylesheet']['active'] == 1?$html->image('admin/icons/true.png'):$html->image('admin/icons/false.png')), 'null', $options = array('url' => '/stylesheets/admin_change_active_status/' . $stylesheet['Stylesheet']['id'], 'update' => 'inner-content'), null, false),
 			$stylesheet['StylesheetMediaType']['name'],
 			$admin->ActionButton('stylesheet','/stylesheets/admin_attach_templates/' . $stylesheet['Stylesheet']['id']) . $admin->ActionButton('copy','/stylesheets/admin_copy/' . $stylesheet['Stylesheet']['id']) . $admin->ActionButton('edit','/stylesheets/admin_edit/' . $stylesheet['Stylesheet']['id']) . $admin->ActionButton('delete','/stylesheets/admin_delete/' . $stylesheet['Stylesheet']['id']), 
 			$form->checkbox('modify][', array('value' => $stylesheet['Stylesheet']['id']))

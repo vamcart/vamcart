@@ -29,7 +29,7 @@ foreach ($shipping_method_data AS $ShippingMethod)
 		  array(
 				$html->link($ShippingMethod['ShippingMethod']['name'], '/shipping_methods/admin_edit/' . $ShippingMethod['ShippingMethod']['id']),
 				$ShippingMethod['ShippingMethod']['code'],
-				$ajax->link(($ShippingMethod['ShippingMethod']['active'] == 1?$html->image('admin/true.gif'):$html->image('admin/false.gif')), 'null', $options = array('url' => '/shipping_methods/admin_change_active_status/' . $ShippingMethod['ShippingMethod']['id'], 'update' => 'inner-content'), null, false),
+				$ajax->link(($ShippingMethod['ShippingMethod']['active'] == 1?$html->image('admin/icons/true.png'):$html->image('admin/icons/false.png')), 'null', $options = array('url' => '/shipping_methods/admin_change_active_status/' . $ShippingMethod['ShippingMethod']['id'], 'update' => 'inner-content'), null, false),
 				$admin->DefaultButton($ShippingMethod['ShippingMethod']),
 				$admin->ActionButton('edit','/shipping_methods/admin_edit/' . $ShippingMethod['ShippingMethod']['id'])
 		   ));

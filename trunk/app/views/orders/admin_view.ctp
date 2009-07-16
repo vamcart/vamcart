@@ -97,7 +97,7 @@ foreach($data['OrderComment'] AS $comment)
 		  array(
 				$time->niceShort($comment['created']),
 				$comment['User']['username'],
-				($comment['sent_to_customer'] == 1?$html->image('admin/true.gif'):$html->image('admin/false.gif')),
+				($comment['sent_to_customer'] == 1?$html->image('admin/icons/true.png'):$html->image('admin/icons/false.png')),
 				$comment['comment']
 		   ));
 }
