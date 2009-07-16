@@ -20,7 +20,7 @@
 
 echo '<h3>' . __('Customer Details', true) . '</h3>';
 echo '
-<table class="ordertable">
+<table class="orderTable">
 	<tr><td>
 		<strong>' . __('Billing Information',true) . '</strong><br />	
 		' . __('Customer Name',true) . ': ' . $data['Order']['bill_name'] . '<br />
