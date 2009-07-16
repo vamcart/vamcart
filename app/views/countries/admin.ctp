@@ -41,7 +41,7 @@ foreach ($data AS $country)
 }
 echo '</table>';
 
-echo $admin->ActionBar(array('delete'));
+echo $admin->ActionBar(array('delete'=>__('Delete',true)));
 echo $form->end();
 
 ?>

@@ -41,6 +41,6 @@ foreach ($currency_data AS $currency)
 
 echo '</table>';
 
-echo $admin->ActionBar(array('activate','deactivate','delete'));
+echo $admin->ActionBar(array('activate'=>__('Activate',true),'deactivate'=>__('Deactivate',true),'delete'=>__('Delete',true)));
 
 ?>

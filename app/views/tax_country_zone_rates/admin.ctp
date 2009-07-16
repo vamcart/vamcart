@@ -39,7 +39,7 @@ foreach ($data AS $tax_rate_zone)
 echo '</table>';
 echo $admin->EmptyResults($data);
 
-echo $admin->ActionBar(array('delete'),true,$tax['Tax']['id']);
+echo $admin->ActionBar(array('delete'=>__('Delete',true)),true,$tax['Tax']['id']);
 echo $form->end();
 
 ?>
