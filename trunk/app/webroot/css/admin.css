@@ -169,14 +169,14 @@ way to fit your requirements.
 		z-index: 100; 
 		margin: 0;
 		padding: 0;
+		border-right: 1px solid #91afba;
 	}
 	
-#menu li span 
+#menu li span a
 	{
 		display: block; 
 		z-index: 100; 
 		padding: 5px 10px;
-		border-right: 1px solid #91afba;
 	}
 
 #menu li a, 
