@@ -639,6 +639,118 @@ del.button:hover span
 
 /* /Buttons */
 
+/* /SWF Upload */
+
+.swfuploadbtn 
+	{
+		display: block;
+		width: 100px;
+		padding: 0 0 0 20px;
+	}
+		
+.browsebtn 
+	{ 
+		white-space: nowrap;
+		font-size: 14px;
+		background: url(../img/admin/swfupload/add.png) no-repeat 0 0; 
+	}
+
+.uploadbtn 
+	{ 
+		font-size: 14px;
+		display: none;
+		background: url(../img/admin/swfupload/accept.png) no-repeat 0 0; 
+		white-space: nowrap;
+	}
+		
+.cancelbtn 
+	{ 
+		display: block;
+		width: 16px;
+		height: 16px;
+		float: right;
+		background: url(../img/admin/swfupload/cancel.png) no-repeat; 
+	}
+		
+#cancelqueuebtn 
+	{
+		display: block;
+		display: none;
+		background: url(../img/admin/swfupload/cancel.png) no-repeat 0 4px;
+		margin: 10px 0;
+	}
+		
+#SWFUploadFileListingFiles ul 
+	{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+.SWFUploadFileItem 
+	{
+		display: block;
+		width: 230px;
+		height: 70px;
+		float: left;
+		background: #eaefea;
+		margin: 0 10px 10px 0;
+		padding: 5px;
+	}
+
+.fileUploading 
+	{ 
+		background: #fee727; 
+	}
+
+.uploadCompleted 
+	{ 
+		background: #d2fa7c; 
+	}
+
+.uploadCancelled 
+	{ 
+		background: #f77c7c; 
+	}
+		
+.uploadCompleted .cancelbtn, 
+.uploadCancelled .cancelbtn 
+	{
+		display: none;
+	}
+		
+span.progressBar 
+	{
+		width: 200px;
+		display: block;
+		font-size: 10px;
+		height: 4px;
+		margin-top: 2px;
+		margin-bottom: 10px;
+		background-color: #CCC;
+	}
+
+#content_images 
+	{
+		list-style-image: none;
+		list-style-position: outside;
+		list-style-type: none;
+		margin: 0pt;
+		padding: 0pt;
+	}
+
+#content_images li 
+	{
+		display: block;
+		float: left;
+		padding: 4px;
+		border: 1px solid #999999;
+		background-color: #FFFFFF;
+		margin: 5px;
+	}
+
+/* /SWF Upload */
+
 div.clear
 	{
 		clear: both;
