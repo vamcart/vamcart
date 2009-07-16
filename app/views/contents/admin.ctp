@@ -62,6 +62,6 @@ if(isset($parent_content))
 }
 echo '</table>';
 
-echo $admin->ActionBar(array('activate','deactivate','show_in_menu','hide_from_menu','delete'));
+echo $admin->ActionBar(array('activate'=>__('Activate',true),'deactivate'=>__('Deactivate',true),'show_in_menu'=>__('Show In Menu',true),'hide_from_menu'=>__('Hide From Menu',true),'delete'=>__('Delete',true)));
 echo $form->end();
 ?>

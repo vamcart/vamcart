@@ -126,9 +126,9 @@ class AdminHelper extends Helper {
 		if(!empty($options))
 		{
 			$content .=  __('With Selected: ', true) . '<select name="multiaction">';
-			foreach($options AS $option)
+			foreach($options AS $key => $value)
 			{
-				$content .= '<option value="' . $option . '">' . __($option, true) . '</option>';
+				$content .= '<option value="' . $key . '">' . $value . '</option>';
 			}
 			
 			$content .= '</select>

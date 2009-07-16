@@ -594,19 +594,19 @@ msgstr "Выделить все"
 msgid  "Create New"
 msgstr "Добавить"
 
-msgid  "activate"
+msgid  "Activate"
 msgstr "Активировать"
 
-msgid  "deactivate"
+msgid  "Deactivate"
 msgstr "Деактивировать"
 
-msgid  "show_in_menu"
+msgid  "Show In Menu"
 msgstr "Показывать в меню"
 
-msgid  "hide_from_menu"
+msgid  "Hide From Menu"
 msgstr "Не показывать в меню"
 
-msgid  "delete"
+msgid  "Delete"
 msgstr "Удалить"
 
 ##################################################### /app/views/contents/admin_core_pages_edit.ctp####################################################
