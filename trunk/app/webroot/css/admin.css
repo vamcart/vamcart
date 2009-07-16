@@ -383,7 +383,7 @@ div#content table.contentTable tr.contentRowOddHover
 	{
 		padding: 0;
 		margin: 0;
-		background: #e6e6e6;
+		background: #ffc;
 	}
 
 div#content table.contentTable th
@@ -420,10 +420,33 @@ div#content table.contentPagination td
 	{
 		padding: 0;
 		margin: 0;
-		border: 1px solid #bdbdbd;
 	}
 
 /* /Pagination */
+
+/* Orders */
+	
+div#content table.orderTable
+	{
+		width: 100%;
+		padding: 0;
+		margin: .5em 0 .5em 0;
+		border: 1px solid #bdbdbd;
+	}
+
+div#content table.orderTable tr
+	{
+		padding: 0;
+		margin: 0;
+	}
+
+div#content table.orderTable td
+	{
+		padding: .3em .3em .3em .3em;
+		margin: 0;
+	}
+
+/* /Orders */
 	
 /* /Tables */
 
