@@ -34,7 +34,7 @@ foreach ($zones AS $zone)
 }
 echo '</table>';
 
-//echo $admin->ActionBar(array('delete'));
+//echo $admin->ActionBar(array('delete'=>__('Delete',true)));
 echo $form->end();
 echo $admin->CreateNewLink($country['Country']['id']);
 ?>

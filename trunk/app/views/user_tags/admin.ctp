@@ -36,6 +36,6 @@ foreach ($user_tags AS $UserTag)
 }
 echo '</table>';
 
-echo $admin->ActionBar(array('delete'));
+echo $admin->ActionBar(array('delete'=>__('Delete',true)));
 echo $form->end(); 
 ?>
