@@ -112,16 +112,16 @@ class AdminHelper extends Helper {
 		if($this->params['plugin'] != "")
 			$path = '/' . $this->params['plugin'] . $path;
 			
-		return($this->Html->link($title, $path, array('class' => 'create_link')));
+		return($this->Html->link($title, $path, array('class' => 'button')));
 	}
 	
 	function ActionBar($options = null, $new = true, $extra_path = null) 
 	{
 		$content = '
-		<div class="newlink">
+		<div class="addContent">
 			' . (($new == true) ? $this->CreateNewLink($extra_path) : '') . '
 		</div>
-		<div class="multiaction">';
+		<div class="multiAction">';
 		
 		if(!empty($options))
 		{
