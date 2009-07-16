@@ -33,7 +33,7 @@
 
 <!-- Header -->
 <div id="header">
-<?php echo $html->image('logo.png', array('alt' => __('VaM Shop',true)))?>
+<?php echo $html->image('admin/logo.png', array('alt' => __('VaM Shop',true)))?>
 </div>
 <!-- /Header -->
 
