@@ -151,15 +151,15 @@ class AdminHelper extends Helper {
 
 		if($data['order'] < $count)
 		{
-			$button .= $this->Ajax->link($this->Html->image('admin/arrow-d.gif'),'null', $options = array('url' => 'admin_move/' . $data['id'] . '/down', 'update' => 'inner-content'),null,false);		
+			$button .= $this->Ajax->link($this->Html->image('admin/icons/down.png'),'null', $options = array('url' => 'admin_move/' . $data['id'] . '/down', 'update' => 'inner-content'),null,false);		
 		}
 		else
 		{
-			$button .= $this->Html->link($this->Html->image('blank.gif', array('width' => '16')), 'javascript:void(0);', null, null, false);
+			$button .= $this->Html->link($this->Html->image('admin/transparency.gif', array('width' => '16')), 'javascript:void(0);', null, null, false);
 		}
 		if($data['order'] > 1)
 		{
-			$button .= $this->Ajax->link($this->Html->image('admin/arrow-u.gif'),'null', $options = array('url' => 'admin_move/' . $data['id'] . '/up', 'update' => 'inner-content'),null,false);		
+			$button .= $this->Ajax->link($this->Html->image('admin/icons/up.png'),'null', $options = array('url' => 'admin_move/' . $data['id'] . '/up', 'update' => 'inner-content'),null,false);		
 		}
 		return($button);
 	}
@@ -168,11 +168,11 @@ class AdminHelper extends Helper {
 	{
 		if($data['default'] == 1)
 		{
-			$button = $this->Html->image('admin/true.gif');
+			$button = $this->Html->image('admin/icons/true.png');
 		}
 		else
 		{
-			$button = $this->Ajax->link($this->Html->image('admin/false.gif'),'null', $options = array('url' => 'admin_set_as_default/' . $data['id'], 'update' => 'inner-content'),null,false);		
+			$button = $this->Ajax->link($this->Html->image('admin/icons/false.png'),'null', $options = array('url' => 'admin_set_as_default/' . $data['id'], 'update' => 'inner-content'),null,false);		
 		}
 		return($button);
 	}
@@ -184,7 +184,7 @@ class AdminHelper extends Helper {
 		else
 			$confirm_text = null;
 			
-		$button = $this->Html->link($this->Html->image('admin/' . $action . '.gif'),$path,null,$confirm_text,false);
+		$button = $this->Html->link($this->Html->image('admin/icons/' . $action . '.png'),$path,null,$confirm_text,false);
 		return($button);		
 	}
 	
