@@ -184,8 +184,8 @@
 				allowed_filesize : 3072,	// 30 MB
 				allowed_filetypes : "*.*",
 				allowed_filetypes_description : "All files...",
-				browse_link_innerhtml : "<?php __('browse_images') ?>",
-				upload_link_innerhtml : "<?php __('upload_images') ?>",
+				browse_link_innerhtml : "<?php __('Browse Images') ?>",
+				upload_link_innerhtml : "<?php __('Upload Images') ?>",
 				browse_link_class : "swfuploadbtn browsebtn",
 				upload_link_class : "swfuploadbtn uploadbtn",
 				flash_loaded_callback : 'swfu.flashLoaded',
