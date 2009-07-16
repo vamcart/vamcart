@@ -20,7 +20,7 @@
 
 
 echo $form->inputs(array(
-		'fieldset' => 'link_details',
+		'fieldset' => __('Link Details', true),
 		   'ContentLink/url' => array(
 		   		'type' => 'text',
 				'label' => __('URL', true),

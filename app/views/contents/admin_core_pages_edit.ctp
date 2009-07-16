@@ -30,7 +30,7 @@
 	echo $admin->StartTabContent('main');
 		echo '<fieldset>';
 		echo $form->inputs(array(
-				'fieldset' => 'adfsdf',
+				'fieldset' => __('Edit Page', true),
 				'Content/id' => array(
 					'type' => 'hidden',
 					'value' => $data['Content']['id']

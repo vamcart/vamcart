@@ -611,6 +611,9 @@ msgstr "Удалить"
 
 ##################################################### /app/views/contents/admin_core_pages_edit.ctp####################################################
 
+msgid  "Edit Page"
+msgstr "Редактировать страницу"
+
 msgid  "Content Type"
 msgstr "Тип содержания"
 
@@ -683,6 +686,9 @@ msgstr "Псевдоним"
 
 msgid  "URL"
 msgstr "Адрес ссылки (URL)"
+
+msgid  "Link Details"
+msgstr "Ссылка"
 
 ##################################################### /app/views/contents/admin_edit__contentproduct.ctp####################################################
 
