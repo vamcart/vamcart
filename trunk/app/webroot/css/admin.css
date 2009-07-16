@@ -447,6 +447,13 @@ div#content table.orderTable td
 	}
 
 /* /Orders */
+
+div#content .noData
+	{
+		padding: .5em;
+		margin: 0;
+		background: #f7f7f7;
+	}
 	
 /* /Tables */
 

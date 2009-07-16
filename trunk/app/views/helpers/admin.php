@@ -191,7 +191,7 @@ class AdminHelper extends Helper {
 	function EmptyResults ($data)
 	{
 		if(empty($data))
-			return '<div class="no_data">' . __('No Data',true) . '</div>';
+			return '<div class="noData">' . __('No Data',true) . '</div>';
 	}
 	########################################################
 	# Functions for menu & breadcrumbs
