@@ -31,7 +31,7 @@ foreach ($content_data AS $content)
 	if($content['Content']['count'] > 0)
 	{
 		// Link to child view
-		$name_link = $html->link($html->image('admin/folder.gif') . ' ' . $content['ContentDescription']['name'], '/contents/admin/0/' . $content['Content']['id'], null, null, false);
+		$name_link = $html->link($html->image('admin/icons/folder.png') . ' ' . $content['ContentDescription']['name'], '/contents/admin/0/' . $content['Content']['id'], null, null, false);
 	}
 	else
 	{
@@ -44,8 +44,8 @@ foreach ($content_data AS $content)
 				$name_link,
 				$content['ContentType']['name'],
 				$content['Template']['name'],
-				$ajax->link(($content['Content']['active'] == 1?$html->image('admin/true.gif'):$html->image('admin/false.gif')), 'null', $options = array('url' => '/contents/admin_change_active_status/' . $content['Content']['id'], 'update' => 'inner-content'), null, false),
-				$ajax->link(($content['Content']['show_in_menu'] == 1?$html->image('admin/true.gif'):$html->image('admin/false.gif')), 'null', $options = array('url' => '/contents/admin_change_show_in_menu_status/' . $content['Content']['id'], 'update' => 'inner-content'), null, false),
+				$ajax->link(($content['Content']['active'] == 1?$html->image('admin/icons/true.png'):$html->image('admin/icons/false.png')), 'null', $options = array('url' => '/contents/admin_change_active_status/' . $content['Content']['id'], 'update' => 'inner-content'), null, false),
+				$ajax->link(($content['Content']['show_in_menu'] == 1?$html->image('admin/icons/true.png'):$html->image('admin/icons/false.png')), 'null', $options = array('url' => '/contents/admin_change_show_in_menu_status/' . $content['Content']['id'], 'update' => 'inner-content'), null, false),
 				$admin->DefaultButton($content['Content']),
 				$admin->MoveButtons($content['Content'], $content_count),				
 				$admin->ActionButton('edit','/contents/admin_edit/' . $content['Content']['id']) . $admin->ActionButton('delete','/contents/admin_delete/' . $content['Content']['id']),
