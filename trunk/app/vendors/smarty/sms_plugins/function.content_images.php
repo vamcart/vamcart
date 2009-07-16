@@ -85,8 +85,8 @@ function smarty_function_content_images($params, &$smarty)
 	
 	$assignments = array('images' => $keyed_images,
 						 'thumbnail' => $params['thumbnail'],
-						 'noimg_thumb' => BASE . '/images/thumb?src=/noimage.jpg&w=' . $params['width'],
-						 'noimg_path' => BASE . '/img/noimage.jpg',
+						 'noimg_thumb' => BASE . '/images/thumb?src=/noimage.gif&w=' . $params['width'],
+						 'noimg_path' => BASE . '/img/noimage.gif',
 						 'thumbnail_size' => $config['THUMBNAIL_SIZE']);
 
 	$display_template = $Smarty->load_template($params,'content_images');
