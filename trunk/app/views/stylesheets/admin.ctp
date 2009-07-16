@@ -39,7 +39,7 @@ foreach ($stylesheets AS $stylesheet)
 }
 echo '</table>';
 
-echo $admin->ActionBar('activate'=>__('Activate',true),'deactivate'=>__('Deactivate',true),'delete'=>__('Delete',true)));
+echo $admin->ActionBar(array('activate'=>__('Activate',true),'deactivate'=>__('Deactivate',true),'delete'=>__('Delete',true)));
 echo $form->end(); 
 
 ?>
