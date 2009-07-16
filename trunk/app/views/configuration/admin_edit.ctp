@@ -35,7 +35,7 @@ $yes_no_options[1] = __('yes', true);
 	
 	
 echo $form->inputs(array(
-		'fieldset' => 'store_settings',
+		'fieldset' => __('Store Settings', true),
 		'Configuration/SITE_NAME' => array(
 			'label' => __('Site Name', true),
 			'type' => 'text',
@@ -69,7 +69,7 @@ echo $form->inputs(array(
 	echo $admin->StartTabContent('caching');
 	echo '<fieldset>';
 	echo $form->inputs(array(
-		'fieldset' => 'store_settings',
+		'fieldset' => __('Store Settings', true),
 		'Configuration/CACHE_TIME' => array(
 			'label' => __('Cache Time in Seconds', true),
 			'type' => 'text',
