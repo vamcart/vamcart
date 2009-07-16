@@ -21,7 +21,7 @@
 
 echo $form->create('UserTag', array('action' => '/UserTags/admin_modify_selected/', 'url' => '/UserTags/admin_modify_selected/'));
 
-echo '<table class="pagetable" cellspacing="0">';
+echo '<table class="contentTable">';
 echo $html->tableHeaders(array( __('Title', true), __('Call (Template Placeholder)', true), __('Action', true), '&nbsp;'));
 
 foreach ($user_tags AS $UserTag)

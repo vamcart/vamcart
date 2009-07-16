@@ -21,7 +21,7 @@
 
 echo $form->create('TaxCountryZoneRate', array('action' => '/tax_country_zone_rates/admin_modify_selected/' . $tax['Tax']['id'], 'url' => '/tax_country_zone_rates/admin_modify_selected/' . $tax['Tax']['id']));
 
-echo '<table class="pagetable" cellspacing="0">';
+echo '<table class="contentTable">';
 
 echo $html->tableHeaders(array( __('Name', true), __('Tax Rate', true), __('Action', true), '&nbsp;'));
 

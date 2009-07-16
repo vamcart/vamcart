@@ -25,7 +25,7 @@ foreach($tables AS $key => $table)
 	$model_results = count($results[$key]);
 	if($model_results > 0)
 	{
-		echo '<table class="pagetable" cellspacing="0">';
+		echo '<table class="contentTable">';
 		echo $html->tableHeaders(array($table['Search']['model'] . ' - ' . $table['Search']['field']));
 		
 		$model = $table['Search']['model'];

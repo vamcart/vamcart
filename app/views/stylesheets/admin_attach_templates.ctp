@@ -21,7 +21,7 @@
 
  __('Stylesheet');  echo ': ' . $html->link($stylesheet['Stylesheet']['name'],'/stylesheets/admin_edit/' . $stylesheet['Stylesheet']['id']); ?>
 
-<table class="pagetable" cellspacing="0">
+<table class="contentTable">
 
 <?php
 //pr($stylesheet['Template']);die();

@@ -94,8 +94,8 @@ class AdminHelper extends Helper {
 	{
 		return($this->Html->TableCells(
 				   $cell_array,
-				   array("class" => "row1","onmouseout" =>"this.className='row1';", "onmouseover" => "this.className='row1hover';"),
-				   array("class" => "row2","onmouseout" =>"this.className='row2';", "onmouseover" => "this.className='row2hover';")
+				   array("class" => "contentRowEven","onmouseout" =>"this.className='contentRowEven';", "onmouseover" => "this.className='contentRowEvenHover';"),
+				   array("class" => "contentRowOdd","onmouseout" =>"this.className='contentRowOdd';", "onmouseover" => "this.className='contentRowOddHover';")
 					)
 				);
 	}
@@ -209,26 +209,26 @@ class AdminHelper extends Helper {
 	function DrawMenu ($navigation_walk)
 	{
 		$navigation = "";
-		$navigation .= '<ul id="menu">' . "\n";
+		$navigation .= '<ul id="menu">';
 		foreach($navigation_walk AS $nav)
 		{
-			$navigation .= '	<li><span>' . $this->MenuLink($nav) . '</span>';
+			$navigation .= '<li><span>' . $this->MenuLink($nav) . '</span>';
 					
 			if(!empty($nav['children']))	
 			{
-				$navigation .= '	<!--[if lte IE 6]><a href="#nogo"><table><tr><td><![endif]-->' . "\n";	
-				$navigation .= '		<dl>' . "\n";	
-				$navigation .= '		<dt>' . $this->MenuLink($nav) . '</dt>' . "\n";	
+				$navigation .= '<!--[if lte IE 6]><a href="#nogo"><table><tr><td><![endif]-->';	
+				$navigation .= '<dl>';	
+				$navigation .= '<dt>' . $this->MenuLink($nav) . '</dt>';	
 				foreach($nav['children'] AS $navchild)
 				{
-					$navigation .= '			<dd>' . $this->MenuLink($navchild) . '</dd>' . "\n";
+					$navigation .= '<dd>' . $this->MenuLink($navchild) . '</dd>';
 				}
-				$navigation .= '		</dl>' . "\n";
-				$navigation .= '		<!--[if lte IE 6]></td></tr></table></a><![endif]-->' . "\n";
+				$navigation .= '</dl>';
+				$navigation .= '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
 			}
-			$navigation .= '</li>' . "\n";
+			$navigation .= '</li>';
 		}
-		$navigation .= '</ul>' . "\n";
+		$navigation .= '</ul>';
 		$navigation .= '<div class="clear"></div>' . "\n";
 		
 		return($navigation);

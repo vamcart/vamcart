@@ -23,7 +23,7 @@ $paginator->options(array('update' => 'inner-content', 'url' => '/countries/admi
 
 echo $form->create('Country', array('action' => '/countries/admin_modify_selected/', 'url' => '/countries/admin_modify_selected/'));
 
-echo '<table class="pagetable" cellspacing="0">';
+echo '<table class="contentTable">';
 
 echo $html->tableHeaders(array( __('Title', true), '&nbsp;', __('Code', true) . ' 2', __('Code', true) . ' 3', __('Action', true), '&nbsp;'));
 
@@ -45,7 +45,7 @@ echo $admin->ActionBar(array('delete'=>__('Delete',true)));
 echo $form->end();
 
 ?>
-<table class="pagination_table">
+<table class="contentPagination">
 	<tr>
 		<td><?php echo $paginator->prev(__('<< Previous', true)); ?></td>
 		<td>&nbsp;<?php echo $paginator->numbers(array('separator'=>' - ')); ?>&nbsp;</td>

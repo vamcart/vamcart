@@ -21,7 +21,7 @@
 
 echo $form->create('Order', array('action' => '/orders/admin_modify_selected/', 'url' => '/orders/admin_modify_selected/'));
 
-echo '<table class="pagetable" cellspacing="0">';
+echo '<table class="contentTable">';
 
 echo $html->tableHeaders(array(__('Customer', true),__('Order Number', true),__('Total', true), __('Date', true), __('Status', true), __('Action', true)));
 
@@ -44,7 +44,7 @@ echo $admin->EmptyResults($data);
 echo $form->end();
 
 ?>
-<table class="pagination_table">
+<table class="contentPagination">
 	<tr>
 		<td><?php echo $paginator->prev(__('<< Previous', true)); ?></td>
 		<td>&nbsp;<?php echo $paginator->numbers(array('separator'=>' - ')); ?>&nbsp;</td>

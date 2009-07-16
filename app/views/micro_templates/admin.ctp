@@ -18,7 +18,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 **/
 
-echo '<table class="pagetable" cellspacing="0">';
+echo '<table class="contentTable">';
 echo $html->tableHeaders(array( __('Title', true), __('Call (Template Placeholder)', true),  __('Action', true)));
 
 foreach ($micro_templates AS $micro_template)
