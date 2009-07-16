@@ -34,13 +34,20 @@ h1, h2, h3
 	}
    
 /* Links color */
+
 a, 
-a:hover, 
 a:visited 
 	{
-		color: #494A4E;
+		color: #494a4e;
+		text-decoration: none;
+	}
+
+a:hover 
+	{
+		color: #494a4e;
 		text-decoration: underline;
 	}
+
 /* /Links color */
 
 /* Content */
@@ -262,7 +269,7 @@ way to fit your requirements.
 /* Navigation */
 div#navigation
 	{
-		padding: 0;
+		padding: .8em .3em .3em .8em;
 		margin: 0;
 	}
 /* /Navigation */
@@ -341,6 +348,84 @@ div.input textarea:focus, div.input input:focus, .sffocus, .sffocus
 	}
 	
 /* /Forms */
+
+/* Tables */
+div#content table.contentTable
+	{
+		width: 100%;
+		padding: 0;
+		margin: .5em 0 .5em 0;
+		border: 1px solid #bdbdbd;
+	}
+
+div#content table.contentTable tr
+	{
+		padding: 0;
+		margin: 0;
+	}
+
+div#content table.contentTable tr.contentRowEven
+	{
+		padding: 0;
+		margin: 0;
+		background: #f7f7f7;
+	}
+
+div#content table.contentTable tr.contentRowOdd
+	{
+		padding: 0;
+		margin: 0;
+		background: #fff;
+	}
+
+div#content table.contentTable tr.contentRowEvenHover,
+div#content table.contentTable tr.contentRowOddHover
+	{
+		padding: 0;
+		margin: 0;
+		background: #e6e6e6;
+	}
+
+div#content table.contentTable th
+	{
+		color: #000;
+		font-weight: normal;
+		padding: 1em;
+		margin: 0;
+		background: #e6e6e6;
+		border: 1px solid #bdbdbd;
+	}
+
+div#content table.contentTable td
+	{
+		padding: .3em .3em .3em .3em;
+		margin: 0;
+	}
+
+/* Pagination */
+	
+div#content table.contentPagination
+	{
+		padding: 0;
+		margin: .5em 0 .5em 0;
+	}
+
+div#content table.contentPagination tr
+	{
+		padding: 0;
+		margin: 0;
+	}
+
+div#content table.contentPagination td
+	{
+		padding: 0;
+		margin: 0;
+		border: 1px solid #bdbdbd;
+	}
+
+/* /Pagination */
+	
+/* /Tables */
 
 /* Messages */
 div#flashMessage
