@@ -312,7 +312,7 @@ fieldset
 		border: 0px;
 	}
 
-div.tab_content fieldset legend
+form#contentform fieldset legend
 	{
 		display: none;
 	}
