@@ -105,7 +105,7 @@ echo '</table>';
 
 echo '<h3>' . __('New Comment', true) . '</h3>';
 
-echo $form->create('OrderComment', array('action' => '/orders/admin_new_comment/', 'url' => '/orders/admin_new_comment/'));
+echo $form->create('OrderComment', array('id' => 'contentform', 'action' => '/orders/admin_new_comment/', 'url' => '/orders/admin_new_comment/'));
 
 	echo $form->inputs(array(
 			'Order/id' => array(

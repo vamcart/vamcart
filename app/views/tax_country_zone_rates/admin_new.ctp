@@ -32,10 +32,9 @@
 	
 <?php
 
-echo $form->create('TaxCountryZoneRate', array('action' => '/tax_country_zone_rates/admin_new/' . $tax['Tax']['id'], 'url' => '/tax_country_zone_rates/admin_new/' . $tax['Tax']['id']));
+echo $form->create('TaxCountryZoneRate', array('id' => 'contentform', 'action' => '/tax_country_zone_rates/admin_new/' . $tax['Tax']['id'], 'url' => '/tax_country_zone_rates/admin_new/' . $tax['Tax']['id']));
 	
-	echo '<fieldset>';
-	echo $form->inputs(array(
+	echo $form->inputs(array('fieldset' => __('Tax Zone Rates Details', true),
 				'TaxCountryZoneRate/tax_id' => array(
 					'type' => 'hidden',
 					'value' => $tax['Tax']['id']
@@ -57,7 +56,6 @@ echo $form->create('TaxCountryZoneRate', array('action' => '/tax_country_zone_ra
 					'type' => 'text'
 				)));
 	
-	echo '</fieldset>';
 	
 echo $form->submit( __('Submit', true), array('name' => 'submit', 'id' => 'submitbutton')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
 echo '<div class="clear"></div>';

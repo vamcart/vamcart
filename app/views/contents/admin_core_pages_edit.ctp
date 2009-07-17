@@ -29,7 +29,6 @@
 			echo '</ul>';
 	
 	echo $admin->StartTabContent('main');
-		echo '<fieldset>';
 		echo $form->inputs(array(
 				'fieldset' => __('Edit Page', true),
 				'Content/id' => array(
@@ -83,7 +82,6 @@
 	}
 		
 		
-	echo '</fieldset>';
 	echo $admin->EndTabContent();
 
 	echo $admin->StartTabContent('options');

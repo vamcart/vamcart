@@ -19,7 +19,7 @@
 **/
 
 //pr($configuration_values);
-echo $form->create('Configuration', array('action' => '/configuration/admin_edit/', 'url' => '/configuration/admin_edit/'));
+echo $form->create('Configuration', array('id' => 'contentform', 'action' => '/configuration/admin_edit/', 'url' => '/configuration/admin_edit/'));
 
 $yes_no_options = array();
 $yes_no_options[0] = __('no', true);
