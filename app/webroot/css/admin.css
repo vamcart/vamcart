@@ -372,7 +372,7 @@ div#content table.contentTable
 	{
 		width: 100%;
 		padding: 0 0 0 0;
-		margin: 0 0 .5em 0;
+		margin: 0 0 0 0;
 		border: 1px solid #bdbdbd;
 	}
 
@@ -773,6 +773,7 @@ div.addContent
 	{
 	   width: 20%;
 		float: left;
+		margin: .5em 0 0 0;
 	}
 
 div.multiAction
@@ -780,6 +781,7 @@ div.multiAction
 	   width: 80%;
 		float: left;
 		text-align: right;
+		margin: .5em 0 0 0;
 	}
 
 div.clear
