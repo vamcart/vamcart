@@ -131,7 +131,7 @@ function smarty_function_content_listing($params, &$smarty)
 			if($raw_data['ContentImage']['image'] != "")
 				$image_url = 'content/' . $raw_data['Content']['id'] . '/' . $raw_data['ContentImage']['image'];
 			else 
-				$image_url = 'noimage.gif';
+				$image_url = 'noimage.png';
 				
 			if($config['GD_LIBRARY'] == 0)
 				$content_list[$count]['image'] =  BASE . '/img/' . $image_url;
