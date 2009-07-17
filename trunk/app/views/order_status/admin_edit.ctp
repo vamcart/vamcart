@@ -19,7 +19,7 @@
 **/
 
 
-	echo $form->create('OrderStatus', array('action' => '/order_status/admin_edit/' . $data['OrderStatus']['id'], 'url' => '/order_status/admin_edit/' . $data['OrderStatus']['id']));
+	echo $form->create('OrderStatus', array('id' => 'contentform', 'action' => '/order_status/admin_edit/' . $data['OrderStatus']['id'], 'url' => '/order_status/admin_edit/' . $data['OrderStatus']['id']));
 	echo '<fieldset>';
 	echo $form->inputs(array(
 					'fieldset' => __('Order Status Details', true),
