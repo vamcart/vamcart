@@ -769,6 +769,8 @@ span.progressBar
 
 /* /SWF Upload */
 
+/* Content Action */
+
 div.addContent
 	{
 	   width: 20%;
@@ -783,6 +785,40 @@ div.multiAction
 		text-align: right;
 		margin: .5em 0 0 0;
 	}
+
+/* /Content Action */
+
+/* Tabs */
+
+#page_tabs
+	{
+		border: 1px solid #91afba;
+	}
+
+#page_tabs div.tab
+	{
+		float: left;
+		padding: .3em;
+		margin: .3em;
+		color: #fff;
+		background: #85A6B6;
+		border-bottom: 1px solid red;
+		border: 1px solid #91afba;
+	}
+
+#page_tabs div.tab:hover
+	{
+		color: #fff;
+		background: #91afba;
+	}
+
+#page_tabs div.tab:active
+	{
+		color: #fff;
+		background: #91afba;
+	}
+
+/* /Tabs */
 
 div.clear
 	{

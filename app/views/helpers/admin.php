@@ -37,7 +37,7 @@ class AdminHelper extends Helper {
 	*/
 	function StartTabContent ($tab_alias)
 	{
-		return('<div id="tab_content_' . $tab_alias . '" class="tab_content" style="display:block">');		
+		return('<div id="tab_content_' . $tab_alias . '" class="tab_content">');		
 	}
 	
 	
@@ -59,7 +59,7 @@ class AdminHelper extends Helper {
 	
 	function StartTabs ()
 	{
-		return('<div id="page_tabs" style="width: 100%;">');	
+		return('<div id="page_tabs">');	
 	}
 	
 	/**
@@ -133,7 +133,7 @@ class AdminHelper extends Helper {
 			
 			$content .= '</select>
 							<span class="button"><button onclick="return confirm(\'' . __('Are you sure? You may not be able to undo this action.', true) . '\');" type="submit" value="' . __('Submit', true) . '"/>' . __('Submit', true) . '</button></span>
-							<span style="margin-left: 10px;">
+							<span>
 								<a class="button" href="javascript:selectall();"><span>' . __('Select All', true) . '</span></a>
 							</span>';
 
