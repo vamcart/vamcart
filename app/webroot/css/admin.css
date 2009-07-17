@@ -419,7 +419,7 @@ div#content table.contentTable th
 		font-weight: normal;
 		padding: .9em;
 		margin: 0;
-		background: #e6e6e6;
+		background: #e6e6e6 url(../img/admin/table-bg.png) repeat-x left top;
 		border: 1px solid #aaaaaa;
 		-moz-border-radius-topleft: 4px;
 		-webkit-border-top-left-radius: 4px;
