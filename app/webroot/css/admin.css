@@ -771,6 +771,12 @@ span.progressBar
 
 /* Content Action */
 
+div.submit
+	{
+		float: left;
+		margin: .5em .5em 0 0;
+	}
+	
 div.addContent
 	{
 	   width: 20%;
