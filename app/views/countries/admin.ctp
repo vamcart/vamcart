@@ -19,7 +19,7 @@
 **/
 
 
-$paginator->options(array('update' => 'inner-content', 'url' => '/countries/admin/', 'indicator' => 'spinner')); 
+$paginator->options(array('update' => 'content', 'url' => '/countries/admin/', 'indicator' => 'spinner')); 
 
 echo $form->create('Country', array('action' => '/countries/admin_modify_selected/', 'url' => '/countries/admin_modify_selected/'));
 

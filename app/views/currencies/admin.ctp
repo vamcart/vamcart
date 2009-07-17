@@ -31,7 +31,7 @@ foreach ($currency_data AS $currency)
 		  array(
 				$html->link($currency['Currency']['name'], '/currencies/admin_edit/' . $currency['Currency']['id']),
 				$currency['Currency']['code'],
-				$ajax->link(($currency['Currency']['active'] == 1?$html->image('admin/icons/true.png'):$html->image('admin/icons/false.png')), 'null', $options = array('url' => '/currencies/admin_change_active_status/' . $currency['Currency']['id'], 'update' => 'inner-content'), null, false),
+				$ajax->link(($currency['Currency']['active'] == 1?$html->image('admin/icons/true.png'):$html->image('admin/icons/false.png')), 'null', $options = array('url' => '/currencies/admin_change_active_status/' . $currency['Currency']['id'], 'update' => 'content'), null, false),
 				$admin->DefaultButton($currency['Currency']),
 				$admin->ActionButton('edit','/currencies/admin_edit/' . $currency['Currency']['id']) . $admin->ActionButton('delete','/currencies/admin_delete/' . $currency['Currency']['id']),
 				$form->checkbox('modify][', array('value' => $currency['Currency']['id']))
