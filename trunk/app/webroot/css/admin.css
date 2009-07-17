@@ -643,7 +643,6 @@ span.button-behavior-hover
 	}
 
 a.button:hover span, 
-span.button:hover button, 
 a.button:focus span, 
 span.button-behavior-hover button, 
 span.button-behavior-hover input
