@@ -19,9 +19,10 @@
 **/
 
 echo $admin->StartTabs();
-		echo $admin->CreateTab('main');
-		echo $admin->CreateTab('options');			
-echo $admin->EndTabs();
+			echo '<ul>';
+			echo $admin->CreateTab('main',__('Main',true));
+			echo $admin->CreateTab('options',__('Options',true));			
+			echo '</ul>';
 
 echo $admin->StartTabContent('main');
 echo '<table class="pagetable" cellspacing="0">';
@@ -49,5 +50,7 @@ echo $admin->StartTabContent('options');
 	echo '</fieldset>';
 	
 echo $admin->EndTabContent();
+
+echo $admin->EndTabs();
 
 ?>
