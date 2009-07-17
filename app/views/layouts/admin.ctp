@@ -60,8 +60,15 @@ echo $form->end();
 <!-- Navigation -->
 <div id="navigation">
 <?php
-if(isset($current_crumb))
+if(isset($current_crumb)) { 
+?>
+<div class="breadCrumbs">
+<?php
 echo $admin->GenerateBreadcrumbs($navigation, $current_crumb);
+?>
+</div>
+<?php
+} 
 ?>
 </div>
 <!-- /Navigation -->

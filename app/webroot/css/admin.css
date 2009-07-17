@@ -195,7 +195,7 @@ way to fit your requirements.
 		left: 0; 
 		margin: 0; 
 		padding: 0; 
-		background: #85A6B6 url(../img/admin/transparency.gif);
+		background: #85A6B6 url(../img/admin/transparency.png);
 	}
 
 #menu dt 
@@ -269,9 +269,16 @@ way to fit your requirements.
 /* Navigation */
 div#navigation
 	{
-		padding: .8em .3em .3em .8em;
+		padding: 0;
 		margin: 0;
 	}
+
+div#navigation div.breadCrumbs
+	{
+		padding: 0;
+		margin: .5em .5em .5em 10px;
+	}
+	
 /* /Navigation */
    
 /* Page header */
@@ -293,6 +300,12 @@ div#navigation
 /* /Page content */
 
 /* Forms */
+form
+	{
+		padding: 0;
+		margin: 0;
+	}
+
 fieldset 
 	{
 		border: 0px;
@@ -358,8 +371,8 @@ div.input textarea:focus, div.input input:focus, .sffocus, .sffocus
 div#content table.contentTable
 	{
 		width: 100%;
-		padding: 0;
-		margin: .5em 0 .5em 0;
+		padding: 0 0 0 0;
+		margin: 0 0 .5em 0;
 		border: 1px solid #bdbdbd;
 	}
 
@@ -755,6 +768,19 @@ span.progressBar
 	}
 
 /* /SWF Upload */
+
+div.addContent
+	{
+	   width: 20%;
+		float: left;
+	}
+
+div.multiAction
+	{
+	   width: 80%;
+		float: left;
+		text-align: right;
+	}
 
 div.clear
 	{
