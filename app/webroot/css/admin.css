@@ -298,6 +298,11 @@ fieldset
 		border: 0px;
 	}
 
+div.tab_content fieldset legend
+	{
+		display: none;
+	}
+	
 legend 
 	{
 		font-size: 1.4em;

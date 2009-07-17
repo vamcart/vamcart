@@ -109,13 +109,9 @@
 						'onchange' => 'change_content_type();'
 	               )));
 
-		echo '<hr class="form_divider" />';
-	
 		echo '<div id="content_type_fields">';
 			echo $this->requestAction( '/contents/admin_edit_type/' . $data['Content']['content_type_id'] . '/' . $data['Content']['id'], array('return'=>true));	
 		echo '</div>';
-	
-		echo '<hr class="form_divider" />';
 	
 	echo '<div class="template_required" id="template_required_template_picker" style="display:' . $tpl_req_style . ';">';
 	
