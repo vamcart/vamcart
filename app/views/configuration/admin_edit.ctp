@@ -26,10 +26,10 @@ $yes_no_options[0] = __('no', true);
 $yes_no_options[1] = __('yes', true);
 
 	echo $admin->StartTabs();
+			echo '<ul>';
 			echo $admin->CreateTab('main',__('Main',true));
 			echo $admin->CreateTab('caching',__('Caching',true));	
-	echo $admin->EndTabs();
-
+			echo '</ul>';
 
 	echo $admin->StartTabContent('main');
 	
@@ -80,6 +80,7 @@ echo $form->inputs(array(
 	echo '</fieldset>';			
 	echo $admin->EndTabContent();
 	
+	echo $admin->EndTabs();
 	
 	echo $form->submit( __('Apply', true), array('name' => 'applybutton')) . $form->submit( __('Cancel', true), array('name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';

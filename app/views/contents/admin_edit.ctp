@@ -77,11 +77,12 @@
 	echo $form->create('Content', array('id' => 'contentform', 'name' => 'contentform','enctype' => 'multipart/form-data', 'action' => '/contents/admin_edit/'.$data['Content']['id'], 'url' => '/contents/admin_edit/'.$data['Content']['id']));
 	
 	echo $admin->StartTabs();
+			echo '<ul>';
 			echo $admin->CreateTab('main',__('Main', true));
 			echo $admin->CreateTab('view_images',__('View Images', true));	
 			echo $admin->CreateTab('upload_images',__('Upload Images', true));			
 			echo $admin->CreateTab('options',__('Options', true));			
-	echo $admin->EndTabs();
+			echo '</ul>';
 	
 	echo $admin->StartTabContent('main');
 		echo '<fieldset>';
@@ -245,6 +246,8 @@
                 )
 		));
 	echo $admin->EndTabContent();
+
+	echo $admin->EndTabs();
 	
 	echo $form->submit( __('Submit', true), array('name' => 'submitbutton', 'id' => 'submitbutton')) . $form->submit( __('Apply', true), array('name' => 'applybutton')) . $form->submit( __('Cancel', true), array('name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';

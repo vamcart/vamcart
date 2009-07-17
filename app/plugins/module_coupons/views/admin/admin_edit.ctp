@@ -22,9 +22,10 @@
 	echo $form->create('ModuleCoupon', array('action' => '/module_coupons/admin/admin_edit/'.$coupon_id, 'url' => '/module_coupons/admin/admin_edit/'.$coupon_id));
 
 	echo $admin->StartTabs();
-		echo $admin->CreateTab('main');
-		echo $admin->CreateTab('restrictions');			
-	echo $admin->EndTabs();
+			echo '<ul>';
+			echo $admin->CreateTab('main',__('Main',true));
+			echo $admin->CreateTab('restrictions',__('Restrictions',true));			
+			echo '</ul>';
 	
 echo $admin->StartTabContent('main');
 	echo $form->inputs(array(
@@ -73,6 +74,7 @@ echo $admin->StartTabContent('restrictions');
 	));
 echo $admin->EndTabContent();   
 
+	echo $admin->EndTabs();
 
 	echo $form->submit( __('form_submit', true), array('name' => 'submitbutton', 'id' => 'submitbutton')) . $form->submit( __('form_apply', true), array('name' => 'applybutton')) . $form->submit( __('form_cancel', true), array('name' => 'cancelbutton'));
 	echo '<div class="clearb"></div>';

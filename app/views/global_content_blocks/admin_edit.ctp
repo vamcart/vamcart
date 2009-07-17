@@ -22,10 +22,10 @@
 	echo $form->create('GlobalContentBlock', array('action' => '/global_content_blocks/admin_edit/'.$id, 'url' => '/global_content_blocks/admin_edit/'.$id));
 	
 	echo $admin->StartTabs();
+			echo '<ul>';
 			echo $admin->CreateTab('main',__('Main',true));
 			echo $admin->CreateTab('options',__('Options',true));			
-	echo $admin->EndTabs();
-
+			echo '</ul>';
 	
 	echo $admin->StartTabContent('main');
 		echo $form->inputs(array(
@@ -57,6 +57,7 @@
 			));
 	echo $admin->EndTabContent();
 	
+	echo $admin->EndTabs();
 	
 	echo $form->submit( __('Submit', true), array('name' => 'submit')) . $form->submit( __('Apply', true), array('name' => 'apply')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clear"></div>';

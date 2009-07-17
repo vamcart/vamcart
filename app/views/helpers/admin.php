@@ -37,7 +37,7 @@ class AdminHelper extends Helper {
 	*/
 	function StartTabContent ($tab_alias)
 	{
-		return('<div id="tab_content_' . $tab_alias . '" class="tab_content">');		
+		return('<div id="' . $tab_alias . '">');		
 	}
 	
 	
@@ -59,7 +59,7 @@ class AdminHelper extends Helper {
 	
 	function StartTabs ()
 	{
-		return('<div id="page_tabs">');	
+		return('<div id="tabs">');	
 	}
 	
 	/**
@@ -70,7 +70,7 @@ class AdminHelper extends Helper {
 	*/	
 	function CreateTab ($tab_alias, $tab_name = null)
 	{
-		return('<div id="tab_' . $tab_alias . '" onclick="set_active_tab(\'' . $tab_alias . '\');" class="tab">' . $tab_name . '</div>');
+		return('<li><a href ="#' . $tab_alias . '">' . $tab_name . '</a></li>');
 	}	
 
 	/**
@@ -80,14 +80,7 @@ class AdminHelper extends Helper {
 	*/	
 	function EndTabs ()
 	{
-		return('
-			</div>
-			<div class="clear"></div>
-			<script language="javascript" type="text/javascript">
-			var oldhandler = window.onload;
-			window.onload = (typeof oldhandler == "function")
-			    ? function() { oldhandler();  hide_tabs();
-				} :  hide_tabs;</script>');
+		return('</div>');
 	}
 	
 	function TableCells ($cell_array)

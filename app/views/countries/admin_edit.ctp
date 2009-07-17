@@ -22,9 +22,10 @@
 	echo $form->create('Country', array('action' => '/countries/admin_edit/' . $data['Country']['id'], 'url' => '/countries/admin_edit/' . $data['Country']['id']));
 	
 	echo $admin->StartTabs();
+			echo '<ul>';
 			echo $admin->CreateTab('main',__('Main',true));
 			echo $admin->CreateTab('options',__('Options',true));			
-	echo $admin->EndTabs();
+			echo '</ul>';
 	
 	echo $admin->StartTabContent('main');
 		echo '<fieldset>';
@@ -60,6 +61,9 @@
 	               )		
 				  ));	
 		echo $admin->EndTabContent();
+
+	echo $admin->EndTabs();
+
 	echo $form->submit( __('Submit', true), array('name' => 'submit')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clear"></div>';
 	echo $form->end();

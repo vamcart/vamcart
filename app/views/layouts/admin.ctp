@@ -28,8 +28,11 @@ header('Content-Type: text/html; charset=utf-8');
 <title><?php __('VaM Shop Admin') ?></title>
 <?php echo $javascript->link('scriptaculous/prototype');  ?>	
 <?php echo $javascript->link('scriptaculous/scriptaculous');  ?>
+<?php echo $javascript->link('jquery/jquery.min');  ?>
+<?php echo $javascript->link('jquery/plugins/ui/jquery-ui.min');  ?>
 <?php echo $javascript->link('admin');  ?>	
 <?php echo $html->css('admin');  ?>
+<?php echo $html->css('jquery/plugins/ui/css/smoothness/jquery-ui');  ?>
 </head>
 
 <body>
