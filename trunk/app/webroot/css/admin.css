@@ -633,7 +633,6 @@ a.button:visited
 /*Hover Style*/
 
 a.button:hover, 
-span.button:hover,
 a.button:focus, 
 a.dom-button-focus, 
 span.button-behavior-hover
