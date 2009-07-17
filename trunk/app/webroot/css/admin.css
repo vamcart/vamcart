@@ -374,7 +374,15 @@ div#content table.contentTable
 		width: 100%;
 		padding: 0 0 0 0;
 		margin: 0 0 0 0;
-		border: 1px solid #bdbdbd;
+		border: 1px solid #aaaaaa;
+		-moz-border-radius-topleft: 4px;
+		-webkit-border-top-left-radius: 4px;
+		-moz-border-radius-topright: 4px;
+		-webkit-border-top-right-radius: 4px;
+		-moz-border-radius-bottomleft: 4px;
+		-webkit-border-bottom-left-radius: 4px;
+		-moz-border-radius-bottomright: 4px;
+		-webkit-border-bottom-right-radius: 4px;
 	}
 
 div#content table.contentTable tr
@@ -409,10 +417,18 @@ div#content table.contentTable th
 	{
 		color: #000;
 		font-weight: normal;
-		padding: 1em;
+		padding: .9em;
 		margin: 0;
 		background: #e6e6e6;
-		border: 1px solid #bdbdbd;
+		border: 1px solid #aaaaaa;
+		-moz-border-radius-topleft: 4px;
+		-webkit-border-top-left-radius: 4px;
+		-moz-border-radius-topright: 4px;
+		-webkit-border-top-right-radius: 4px;
+		-moz-border-radius-bottomleft: 4px;
+		-webkit-border-bottom-left-radius: 4px;
+		-moz-border-radius-bottomright: 4px;
+		-webkit-border-bottom-right-radius: 4px;
 	}
 
 div#content table.contentTable td
@@ -450,7 +466,7 @@ div#content table.orderTable
 		width: 100%;
 		padding: 0;
 		margin: .5em 0 .5em 0;
-		border: 1px solid #bdbdbd;
+		border: 1px solid #aaaaaa;
 	}
 
 div#content table.orderTable tr
