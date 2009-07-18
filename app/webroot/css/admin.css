@@ -169,7 +169,7 @@ way to fit your requirements.
 		z-index: 100; 
 		margin: 0;
 		padding: 0;
-		border-right: 1px solid #91afba;
+		border-right: 0px solid #91afba;
 	}
 	
 #menu li span a
@@ -204,7 +204,7 @@ way to fit your requirements.
 		padding: 0;
 		border-bottom: 0px solid #fff; 
 		float: left; 
-		border-right: 1px solid #91afba;
+		border-right: 0px solid #91afba;
 		background: #85A6B6;
 	}
 
