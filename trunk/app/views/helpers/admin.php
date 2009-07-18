@@ -148,7 +148,7 @@ class AdminHelper extends Helper {
 		}
 		else
 		{
-			$button .= $this->Html->link($this->Html->image('admin/transparency.gif', array('width' => '16')), 'javascript:void(0);', null, null, false);
+			$button .= $this->Html->link($this->Html->image('admin/transparency.png', array('width' => '16')), 'javascript:void(0);', null, null, false);
 		}
 		if($data['order'] > 1)
 		{
