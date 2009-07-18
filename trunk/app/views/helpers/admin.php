@@ -209,7 +209,7 @@ class AdminHelper extends Helper {
 					
 			if(!empty($nav['children']))	
 			{
-				$navigation .= '<!--[if lte IE 6]><a href="#nogo"><table><tr><td><![endif]-->';	
+				$navigation .= '<!--[if lte IE 6]><a href="#nogo"><table class="ie6"><tr><td><![endif]-->';	
 				$navigation .= '<dl>';	
 				$navigation .= '<dt>' . $this->MenuLink($nav) . '</dt>';	
 				foreach($nav['children'] AS $navchild)
