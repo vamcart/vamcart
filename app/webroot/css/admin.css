@@ -198,6 +198,13 @@ way to fit your requirements.
 		margin: 0 0 0 0;
 	}
 
+#menu table.ie6 
+	{
+		margin: 0;
+		padding: 0;
+		border-collapse: collapse;
+	}
+
 #menu dl 
 	{
 		position: absolute; 
