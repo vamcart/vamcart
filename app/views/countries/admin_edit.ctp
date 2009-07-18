@@ -28,8 +28,6 @@
 			echo '</ul>';
 	
 	echo $admin->StartTabContent('main');
-		echo '<fieldset>';
-
 		echo $form->inputs(array(
 					'fieldset' => __('Country Details', true),
 				   'Country/id' => array(
