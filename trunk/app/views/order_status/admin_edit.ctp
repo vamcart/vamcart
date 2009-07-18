@@ -20,7 +20,6 @@
 
 
 	echo $form->create('OrderStatus', array('id' => 'contentform', 'action' => '/order_status/admin_edit/' . $data['OrderStatus']['id'], 'url' => '/order_status/admin_edit/' . $data['OrderStatus']['id']));
-	echo '<fieldset>';
 	echo $form->inputs(array(
 					'fieldset' => __('Order Status Details', true),
 				   'OrderStatus/id' => array(
@@ -40,7 +39,6 @@
 				));
 	}
 	
-	echo '</fieldset>';
 	echo $form->submit( __('Submit', true), array('name' => 'submit')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clear"></div>';
 	echo $form->end();
