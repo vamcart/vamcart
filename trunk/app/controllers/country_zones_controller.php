@@ -32,6 +32,7 @@ class CountryZonesController extends AppController {
 	
 	function admin_edit ($country_id, $zone_id = null)
 	{
+		$this->set('current_crumb', __('Country Zone Details', true));
 		$this->set('country_id', $country_id);
 
 		if(isset($this->params['form']['cancel']))
@@ -64,6 +65,7 @@ class CountryZonesController extends AppController {
 	
 	function admin ($country_id)
 	{
+		$this->set('current_crumb', __('Country Zones Listing', true));
 		$this->Country->id = $country_id;
 		$country = $this->Country->read();
 		$this->set('current_crumb_info', $country['Country']['name']);

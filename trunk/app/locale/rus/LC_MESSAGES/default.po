@@ -200,11 +200,6 @@ msgstr "Запись удалена."
 msgid  "Edit %s"
 msgstr "Редактировать %s"
 
-msgid "core page"
-msgid_plural "core pages"
-msgstr[0] "страницу"
-msgstr[1] "страницу"
-
 msgid  "Unable to delete content item with children."
 msgstr "Не могу удалить, есть вложенные записи."
 
@@ -1156,3 +1151,124 @@ msgstr "Тэги пользователя"
 
 msgid  "Content"
 msgstr "Содержимое"
+
+##################################################### Breadcrumbs####################################################
+msgid  "Listing"
+msgstr "Список"
+
+msgid  "Pages Listing"
+msgstr "Список страниц"
+
+msgid  "Edit"
+msgstr "Редактировать"
+
+msgid  "User Tags Listing"
+msgstr "Список тэгов пользователя"
+
+msgid  "User Tag"
+msgstr "Тэг пользователя"
+
+msgid  "Admins Listing"
+msgstr "Список администраторов"
+
+msgid  "My Account Details"
+msgstr "Информация"
+
+msgid  "My Prefences"
+msgstr "Мои настройки"
+
+msgid  "Store Configuration"
+msgstr "Настройки магзаина"
+
+msgid  "Templates Listing"
+msgstr "Список шаблонов"
+
+msgid  "Edit Template"
+msgstr "Редактирование шаблона"
+
+msgid  "Template Content"
+msgstr "Содержание шаблона"
+
+msgid  "Attach Stylesheets"
+msgstr "Добавление стилей"
+
+msgid  "New Template"
+msgstr "Новый шаблон"
+
+msgid  "Taxes Listing"
+msgstr "Список налогов"
+
+msgid  "Tax"
+msgstr "Налог"
+
+msgid  "Tax Zones"
+msgstr "Налоговые зоны"
+
+msgid  "New Tax Zone"
+msgstr "Новая зона"
+
+msgid  "Tax Edit"
+msgstr "Редактирование налога"
+
+msgid  "Tags Listing"
+msgstr "Список тэгов"
+
+msgid  "Stylesheets Listing"
+msgstr "Список стилей"
+
+msgid  "Shipping Methods Listing"
+msgstr "Список способов доставки"
+
+msgid  "Edit Shipping Method"
+msgstr "Редактирование способа доставки"
+
+msgid  "Payment Methods Listing"
+msgstr "Список способов оплаты"
+
+msgid  "Edit Payment Method"
+msgstr "Редактирование способа оплаты"
+
+msgid  "Order Status Listing"
+msgstr "Список статусов заказа"
+
+msgid  "Order Status"
+msgstr "Cтатус заказа"
+
+msgid  "Orders Listing"
+msgstr "Список заказов"
+
+msgid  "Order View"
+msgstr "Информация о заказе"
+
+msgid  "Modules Listing"
+msgstr "Список модулей"
+
+msgid  "Micro Templates Listing"
+msgstr "Список микро шаблонов"
+
+msgid  "Micro Template"
+msgstr "Микро шаблон"
+
+msgid  "Languages Listing"
+msgstr "Список языков"
+
+msgid  "Global Content Blocks Listing"
+msgstr "Список блоков"
+
+msgid  "Events Listing"
+msgstr "Список событий"
+
+msgid  "Event Details"
+msgstr "Информация о событии"
+
+msgid  "Defined Language Listing"
+msgstr "Список языковых строк"
+
+msgid  "Currencies Listing"
+msgstr "Список валют"
+
+msgid  "Countries Listing"
+msgstr "Список стран"
+
+msgid  "Country Zones Listing"
+msgstr "Список регионов страны"

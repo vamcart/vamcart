@@ -149,6 +149,7 @@ class StylesheetsController extends AppController {
 	
 	function admin_edit ($stylesheet_id = null)
 	{
+		$this->set('current_crumb', __('Stylesheet', true));
 		if(($stylesheet_id == null) && (empty($this->data)))
 		{	// We're creating a stylesheet
 			$this->set('new_stylesheet', true);
@@ -247,6 +248,7 @@ class StylesheetsController extends AppController {
 	
 	function admin($ajax_request = false)
 	{
+		$this->set('current_crumb', __('Stylesheets Listing', true));
 		$this->set('stylesheets',$this->Stylesheet->findAll(null,null,'Stylesheet.name ASC'));
 		
 		if($ajax_request == true)

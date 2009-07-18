@@ -80,6 +80,7 @@ class TemplatesController extends AppController {
 	
 	function admin_attach_stylesheets ($template_id)
 	{
+		$this->set('current_crumb', __('Attach Stylesheets', true));
 		// Get the template
 		$this->Template->id = $template_id;
 		$template = $this->Template->read();
@@ -190,6 +191,7 @@ class TemplatesController extends AppController {
 	
 	function admin_edit ($template_id)
 	{
+		$this->set('current_crumb', __('Template Content', true));
 		if(empty($this->data))	
 		{
 			$template = $this->Template->read(null, $template_id);
@@ -206,7 +208,6 @@ class TemplatesController extends AppController {
 
 			$this->Template->id = $template['Template']['parent_id'];
 			$parent = $this->Template->read();
-			$this->set('current_crumb_info', $parent['Template']['name'] . ' - ' . $template['TemplateType']['name']);	
 			
 			$this->render('','admin');
 		}
@@ -235,6 +236,7 @@ class TemplatesController extends AppController {
 	
 	function admin_edit_details ($template_id)
 	{
+		$this->set('current_crumb', __('Edit Template', true));
 		if(empty($this->data))
 		{
 			$this->Template->id = $template_id;
@@ -252,7 +254,7 @@ class TemplatesController extends AppController {
 	
 	function admin_new() 
 	{
-		
+		$this->set('current_crumb', __('New Template', true));
 		if(empty($this->data))
 		{
 		
@@ -290,6 +292,7 @@ class TemplatesController extends AppController {
 	
 	function admin($ajax = false)
 	{
+		$this->set('current_crumb', __('Templates Listing', true));
 		$this->set('templates',$this->Template->findAllThreaded(null,null,'Template.name ASC'));
 	
 		$user_prefs = $this->UserPref->find(array('name' => 'template_collpase','user_id' => $this->Session->read('User.id')));	

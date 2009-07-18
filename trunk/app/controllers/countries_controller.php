@@ -87,6 +87,7 @@ class CountriesController extends AppController {
 	}
 	function admin($ajax_request = false)
 	{
+		$this->set('current_crumb', __('Countries Listing', true));
 		$this->paginate['Model'] = array('limit' => 25, 'order' => 'Country.name ASC'); 
 		$data = $this->paginate('Country');
 		$this->set(compact('data'));

@@ -193,7 +193,7 @@ class ContentsController extends AppController {
 
 	function admin_core_pages_edit($content_id) 
 	{
-			$this->set('current_crumb', sprintf(__('Edit %s',true), __n('core page','core pages', 1, true)));
+			$this->set('current_crumb', __('Edit',true));
 			$this->Content->id = $content_id;			
 			$data = $this->Content->read();
 		
@@ -238,6 +238,7 @@ class ContentsController extends AppController {
 	*/		
 	function admin_edit ($content_id = null)
 	{
+		$this->set('current_crumb', __('Content Details', true));
 		// IF we submitted the form
 		if(!empty($this->data))
 		{
@@ -497,7 +498,7 @@ class ContentsController extends AppController {
 	*/		
 	function admin_core_pages ()
 	{
-		$this->set('current_crumb', sprintf(__('%s Listing',true), __n('core page','core pages', 1, true)));
+		$this->set('current_crumb', __('Pages Listing',true));
 		// Lets remove the hasMany association for now and associate it with our language of choice
 		$this->Content->unbindModel(array('hasMany' => array('ContentDescription')));
 		$this->Content->bindModel(
@@ -529,6 +530,7 @@ class ContentsController extends AppController {
 	*/		
 	function admin ($ajax = false, $parent_id = 0)
 	{
+		$this->set('current_crumb', __('Listing', true));
 		// Lets remove the hasMany association for now and associate it with our language of choice
 		$this->Content->unbindModel(array('hasMany' => array('ContentDescription')));
 		$this->Content->bindModel(
