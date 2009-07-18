@@ -30,6 +30,7 @@ class TaxesController extends AppController {
 		
 	function admin_edit ($id = null)
 	{
+		$this->set('current_crumb', __('Tax', true));
 		if(empty($this->data))
 		{
 			$this->data = $this->Tax->read(null,$id);
@@ -57,7 +58,7 @@ class TaxesController extends AppController {
 	
 	function admin ($ajax = false)
 	{
-			
+		$this->set('current_crumb', __('Taxes Listing', true));
 		$this->set('tax_data',$this->Tax->findAll(null,null,'Tax.name ASC'));	
 
 		if($ajax == true)

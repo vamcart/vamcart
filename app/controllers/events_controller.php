@@ -24,6 +24,7 @@ class EventsController extends AppController {
    
    	function admin_view($id)
 	{
+		$this->set('current_crumb', __('Event Details', true));
 		$event = $this->Event->read(null,$id);
 		$this->set('current_crumb_info',$event['Event']['alias']);		
 			
@@ -35,6 +36,7 @@ class EventsController extends AppController {
    
 	function admin()
 	{
+		$this->set('current_crumb', __('Events Listing', true));
 		$this->set('event_data',$this->Event->findAll(null,null,'Event.alias ASC'));
   		$this->render('','admin');
 	}

@@ -14,6 +14,7 @@ class ShippingMethodsController extends AppController {
 	
 	function admin_edit ($shipping_method_id)
 	{
+		$this->set('current_crumb', __('Edit Shipping Method', true));
 		if(isset($this->params['form']['cancel']))
 		{
 			$this->redirect('/shipping_methods/admin/');
@@ -52,6 +53,7 @@ class ShippingMethodsController extends AppController {
 	
 	function admin ($ajax = false)
 	{
+		$this->set('current_crumb', __('Shipping Methods Listing', true));
 		$this->set('shipping_method_data',$this->ShippingMethod->findAll(null,null,'ShippingMethod.name ASC'));	
 
 		if($ajax == true)
