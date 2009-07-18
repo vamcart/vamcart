@@ -51,6 +51,7 @@ a:hover
 /* /Links color */
 
 /* Content */
+
 div#container
 	{
 	}
@@ -67,18 +68,23 @@ div#content
 /* /Content */
 
 /* Left column */
+
 div#left
 	{
 	}
+	
 /* /Left column */
 
 /* Right column */
+
 div#right
 	{
 	}
+	
 /* /Right column */
 
 /* Header */
+
 #header 
 	{
 		background: url(../img/admin/header-bg.png) repeat-x left top;
@@ -116,6 +122,7 @@ div#right
 /* /Header */
 
 /* Footer */
+
 div#footer
 	{
 		clear: left;
@@ -135,6 +142,7 @@ div#footer p
 /* /Footer */
 
 /* Menu */
+
 div#menu
 	{
 		border-top: 3px solid #ff9c0f;
@@ -153,6 +161,7 @@ Copyright (c) 2005-2007 Stu Nicholls. All rights reserved.
 This stylesheet and the assocaited (x)html may be modified in any 
 way to fit your requirements.
 =================================================================== */
+
 #menu li, 
 #menu ul 
 	{
@@ -268,6 +277,7 @@ way to fit your requirements.
 /* /Menu */
 
 /* Navigation */
+
 div#navigation
 	{
 		padding: 0;
@@ -283,6 +293,7 @@ div#navigation div.breadCrumbs
 /* /Navigation */
    
 /* Page header */
+
 #content h1,
 #content h2
 	{
@@ -294,6 +305,7 @@ div#navigation div.breadCrumbs
 #content h1 a 
 	{
 	}
+	
 /* /Page header */
 
 /* Page content */
@@ -301,6 +313,7 @@ div#navigation div.breadCrumbs
 /* /Page content */
 
 /* Forms */
+
 form
 	{
 		padding: 0;
@@ -369,6 +382,7 @@ div.input textarea:focus, div.input input:focus, .sffocus, .sffocus
 /* /Forms */
 
 /* Tables */
+
 div#content table.contentTable
 	{
 		width: 100%;
@@ -493,6 +507,7 @@ div#content .noData
 /* /Tables */
 
 /* Messages */
+
 div#flashMessage
 	{
 		border: 1px solid #ff0000;
@@ -500,6 +515,7 @@ div#flashMessage
 		padding: .5em;
 		margin: 0 0 .5em 0;
 	}
+	
 /* /Messages */
 
 /* Buttons */
@@ -519,6 +535,7 @@ del.button
 	for Safari, read this first
 	http://creativebits.org/webdev/safari_background_repeat_bug_fix
 	*/
+	
 		background-position: 0 0;
 		background-repeat: no-repeat;
 		height: 30px;
@@ -581,7 +598,7 @@ del.button span
 
 span.button button
 	{
-		line-height: 2.5;/*Opera need this*/
+		line-height: 2.5; /*Opera need this*/
 	}
 
 html.safari a.button span, 
@@ -618,7 +635,7 @@ span.button button,
 span.button input
 	{
 		padding-top: 0px;
-		line-height: 2.5;/*Opera need this*/
+		line-height: 2.5; /*Opera need this*/
 	}
 
 /** optional **/
@@ -628,7 +645,6 @@ a.button:visited
 		color: #aaa;
 	}
 */
-
 
 /*Hover Style*/
 
@@ -672,7 +688,7 @@ del.button:hover span
 
 /* /Buttons */
 
-/* /SWF Upload */
+/* SWF Upload */
 
 .swfuploadbtn 
 	{
