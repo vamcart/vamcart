@@ -295,7 +295,7 @@ div#navigation
 div#navigation div.breadCrumbs
 	{
 		padding: 0;
-		margin: .5em .5em .5em 10px;
+		margin: .5em .5em 0 10px;
 	}
 	
 /* /Navigation */
