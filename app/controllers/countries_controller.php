@@ -25,6 +25,7 @@ class CountriesController extends AppController {
 	
 	function admin_edit ($country_id = null)
 	{
+		$this->set('current_crumb', __('Country Details', true));
 		// If they pressed cancel
 		if(isset($this->params['form']['cancel']))
 		{
