@@ -19,8 +19,8 @@
 **/
 
 
-echo '<table class="pagetable" cellspacing="0">';
-echo $html->tableHeaders(array( __('Author', true), __('date', true), __('content', true), __('action', true)));
+echo '<table class="contentTable">';
+echo $html->tableHeaders(array( __('Author', true), __('Date', true), __('Content', true), __('Action', true)));
 
 
 foreach ($reviews AS $review)
