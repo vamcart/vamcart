@@ -1433,3 +1433,37 @@ msgstr "Вернуться в меню"
 
 msgid  "Product"
 msgstr "Товар"
+
+msgid  "Authorize.Net ID"
+msgstr "Ваш ID номер на Authorize.Net"
+
+msgid  "Merchant ID"
+msgstr "ID номер продавца"
+
+msgid  "Paypal Email"
+msgstr "Ваш Email в Paypal"
+
+msgid  "Shipping Cost"
+msgstr "Стоимость доставки"
+
+msgid  "Free shipping is just that, FREE! No configuration is needed."
+msgstr "Настройка данного модуля не требуются."
+
+msgid  "Per Item Amount"
+msgstr "Стоимость доставки одной единицы товара"
+
+msgid  "Handling"
+msgstr "Стоимость"
+
+msgid  "Table based shipping can be set to work off of number of products in cart, weight of products, or total price of products. In the textarea below specify value to cost pairs with a colon followed by a comma. Example: 0:1.00,1:2.50,2:3.00. Units of measure must be integers."
+msgstr "Расчёт доставки может производиться в зависимости от веса товаров, суммы заказа, либо количества товаров в корзине. Ниже можно выбрать способ расчёта и указать таблицу расчёта парами (значение:стоимость), разделёнными запятой. Например: 0:1.00,1:2.50,2:3.00."
+
+msgid  "Based Off"
+msgstr "Способ расчёта"
+
+msgid  "Rates"
+msgstr "Таблица тарифов"
+
+msgid  "Products"
+msgstr "Товары"
+

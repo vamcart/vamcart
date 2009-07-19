@@ -20,7 +20,7 @@
 
 	
 echo $form->inputs(array('authorize/authorize_login' => array(
-	'label' => 'Authorize.Net Login',
+	'label' => __('Authorize.Net ID', true),
 	'value' => $data['authorize_login']['value']
 )));
 

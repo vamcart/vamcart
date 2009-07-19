@@ -20,7 +20,7 @@
 
 	
 echo $form->inputs(array('google_html/google_html_merchant_id' => array(
-	'label' => 'Merchant ID',
+	'label' => __('Merchant ID', true),
 	'value' => $data['google_html_merchant_id']['value']
 )));
 

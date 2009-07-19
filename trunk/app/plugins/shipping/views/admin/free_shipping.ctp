@@ -18,6 +18,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 **/
 
-echo '<p>' . __('free_shipping_notice', true) .'</p>';
+echo '<p>' . __('Free shipping is just that, FREE! No configuration is needed.', true) .'</p>';
 
 ?>
