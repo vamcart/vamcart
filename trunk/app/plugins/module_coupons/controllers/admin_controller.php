@@ -25,7 +25,7 @@ class AdminController extends ModuleCouponsAppController {
 	function admin_delete($id)
 	{
 		$this->ModuleCoupon->del($id);
-		$this->Session->setFlash('You have deleted a coupon.');
+		$this->Session->setFlash(__('You have deleted a coupon.', true));
 		$this->redirect('/module_coupons/admin/admin_index/');
 	}
 	
@@ -33,9 +33,9 @@ class AdminController extends ModuleCouponsAppController {
 	{
 		if(empty($this->data))
 		{
-			$this->set('current_crumb','Edit Coupon');
+			$this->set('current_crumb',__('Edit Coupon', true));
 
-			$this->set('free_shipping_options',array('no' => 'no', 'yes' => 'yes'));
+			$this->set('free_shipping_options',array('no' => __('no' ,true), 'yes' => __('yes',true)));
 			$this->data = $this->ModuleCoupon->read(null,$id);
 
 			$this->render('','admin');
@@ -49,7 +49,7 @@ class AdminController extends ModuleCouponsAppController {
 			}
 			
 			$this->ModuleCoupon->save($this->data);
-			$this->Session->setFlash('You have updated a coupon.');
+			$this->Session->setFlash(__('You have updated a coupon.', true));
 			
 			if($id == null)
 				$id = $this->ModuleCoupon->getLastInsertId();
@@ -69,7 +69,7 @@ class AdminController extends ModuleCouponsAppController {
 	
 	function admin_index()
 	{
-		$this->set('current_crumb','Manage Coupons');
+		$this->set('current_crumb',__('Manage Coupons', true));
 		$this->set('coupons',$this->ModuleCoupon->findAll());
 		$this->render('','admin');
 	}

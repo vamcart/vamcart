@@ -25,20 +25,20 @@ class AdminController extends ModuleReviewsAppController {
 	function admin_delete ($id)
 	{
 		$this->ModuleReview->del($id);
-		$this->Session->setFlash(__('record_deleted',true));
+		$this->Session->setFlash(__('Record Deleted.',true));
 		$this->redirect('/module_reviews/admin/admin_index/');
 	}
 	
 	function admin_edit ($id)
 	{
-		$this->set('current_crumb','Read Review');
+		$this->set('current_crumb',__('Read Review',true));
 		$this->set('data',$this->ModuleReview->read(null,$id));
 		$this->render('','admin');		
 	}
 	
 	function admin_index()
 	{
-		$this->set('current_crumb','Manage Reviews');
+		$this->set('current_crumb',__('Manage Reviews',true));
 		$this->set('reviews',$this->ModuleReview->findAll());
 		$this->render('','admin');
 	}

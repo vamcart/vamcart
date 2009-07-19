@@ -34,13 +34,13 @@ class EventController extends ModuleCouponsAppController {
 		$coupon = $this->ModuleCoupon->find(array('code' => $_POST['module_coupon_code']));
 		// Check restrictions
 		if(count($order['OrderProduct']) < $coupon['ModuleCoupon']['min_product_count'])
-			$invalid_msg = 'Not enough products in cart for coupon.  Requires: ' . $coupon['ModuleCoupon']['min_product_count'] . ' products.';
+			$invalid_msg = __('Not enough products in cart for coupon. Requires: ', true) . $coupon['ModuleCoupon']['min_product_count'] . __(' products.', true);
 		elseif(count($order['OrderProduct']) > $coupon['ModuleCoupon']['max_product_count'])
-			$invalid_msg = 'Too many products in cart for coupon.  Requires less than: ' . $coupon['ModuleCoupon']['min_product_count'] . ' products.';	
+			$invalid_msg = __('Too many products in cart for coupon. Requires less than: ', true) . $coupon['ModuleCoupon']['min_product_count'] . __(' products.', true);
 		elseif($order['Order']['total'] < $coupon['ModuleCoupon']['min_order_total'])
-			$invalid_msg = 'Order total not enough.  Requires at least: ' . $coupon['ModuleCoupon']['min_order_total'] . '.';	
+			$invalid_msg = __('Order total not enough. Requires at least: ', true) . $coupon['ModuleCoupon']['min_order_total'] . '.';	
 		elseif($order['Order']['total'] > $coupon['ModuleCoupon']['max_order_total'])
-			$invalid_msg = 'Order total too high.  Requires less than: ' . $coupon['ModuleCoupon']['min_order_total'] . '.';				
+			$invalid_msg = __('Order total too high. Requires less than: ', true) . $coupon['ModuleCoupon']['min_order_total'] . '.';				
 	
 		if(isset($invalid_msg))
 		{
@@ -78,7 +78,7 @@ class EventController extends ModuleCouponsAppController {
 		$coupon_count = $this->OrderProduct->findCount(array('order_id' => $order['Order']['id'], 'name' => $coupon_product['OrderProduct']['name']));
 		if($coupon_count > 0)
 		{
-			echo '<div class="error">Error: Coupon already used.</div>';
+			echo '<div class="error">'.__('Error: Coupon already used.', true).'</div>';
 			return;
 		}
 		
@@ -95,8 +95,6 @@ class EventController extends ModuleCouponsAppController {
 		$this->Order->save($order);
 	}
 	
-
-
 }
 
 ?>

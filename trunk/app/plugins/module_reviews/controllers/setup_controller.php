@@ -25,7 +25,7 @@ class SetupController extends ModuleReviewsAppController {
 	function upgrade ()
 	{
 		$this->ModuleBase->upgrade();
-		$this->Session->setFlash('Module Upgraded');
+		$this->Session->setFlash(__('Module Upgraded', true));
 		$this->redirect('/modules/admin/');		
 	}
 		
@@ -68,7 +68,7 @@ class SetupController extends ModuleReviewsAppController {
 		
 		$this->Module->execute($install_query);
 		
-		$this->Session->setFlash('Module Installed');
+		$this->Session->setFlash(__('Module Installed', true));
 		$this->redirect('/modules/admin/');
 	}
 	
@@ -95,7 +95,7 @@ class SetupController extends ModuleReviewsAppController {
 		$uninstall_query = "DROP TABLE `module_reviews`;";
 		$this->Module->execute($uninstall_query);
 		
-		$this->Session->setFlash('Module Uninstalled');	
+		$this->Session->setFlash(__('Module Uninstalled', true)); 
 		$this->redirect('/modules/admin/');
 	}
 

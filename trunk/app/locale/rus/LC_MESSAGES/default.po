@@ -1298,3 +1298,54 @@ msgstr "Очистить все незавершённые заказы."
 
 msgid  "Author"
 msgstr "Автор"
+
+msgid  "Abandoned carts have been purged."
+msgstr "Незавершённые заказы очищены."
+
+msgid  "Abandoned Carts"
+msgstr "Незавершённые заказы"
+
+msgid  "Module Upgraded"
+msgstr "Модуль обновлён"
+
+msgid  "Module Installed"
+msgstr "Модуль установлен"
+
+msgid  "Module Uninstalled"
+msgstr "Модуль удалён"
+
+msgid  "You have deleted a coupon."
+msgstr "Купон удалён."
+
+msgid  "Edit Coupon"
+msgstr "Редактирование купона"
+
+msgid  "You have updated a coupon."
+msgstr "Купон обновлён."
+
+msgid  "Manage Coupons"
+msgstr "Управление купонами"
+
+msgid  "Not enough products in cart for coupon. Requires: "
+msgstr "Недостаточно товара в корзине для использования купона. Необходимо: "
+
+msgid  " products."
+msgstr " единиц товара."
+
+msgid  "Too many products in cart for coupon. Requires less than: "
+msgstr "Слишком много товаров в корзине для использования купона. Необходимо менее: "
+
+msgid  "Order total not enough. Requires at least: "
+msgstr "Недостаточная сумма заказа. Необходимый минимум: "
+
+msgid  "Order total too high. Requires less than: "
+msgstr "Сумма заказа слишком высока. Необходимо менее: "
+
+msgid  "Error: Coupon already used."
+msgstr "Ошибка: Купон уже был использован."
+
+msgid  "Read Review"
+msgstr "Просмотр отзыва"
+
+msgid  "Manage Reviews"
+msgstr "Управление отзывами"

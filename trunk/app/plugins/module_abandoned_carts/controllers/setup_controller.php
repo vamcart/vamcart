@@ -25,7 +25,7 @@ class SetupController extends ModuleAbandonedCartsAppController {
 	function upgrade ()
 	{
 		$this->ModuleBase->upgrade();
-		$this->Session->setFlash('Module Upgraded');
+		$this->Session->setFlash(__('Module Upgraded', true));
 		$this->redirect('/modules/admin/');		
 	}
 		
@@ -46,7 +46,7 @@ class SetupController extends ModuleAbandonedCartsAppController {
 		
 		
 			
-		$this->Session->setFlash('Module Installed');
+		$this->Session->setFlash(__('Module Installed', true));
 		$this->redirect('/modules/admin/');
 	}
 	
@@ -60,7 +60,7 @@ class SetupController extends ModuleAbandonedCartsAppController {
 		$this->Module->del($module['Module']['id']);
 		
 			
-		$this->Session->setFlash('Module Uninstalled');
+		$this->Session->setFlash(__('Module Uninstalled', true));
 		$this->redirect('/modules/admin/');	
 	}
 
