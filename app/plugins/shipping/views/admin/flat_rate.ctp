@@ -20,7 +20,7 @@
 
 echo $form->inputs(array(
 	'key_values/cost' => array(
-		'label' => __('shipping_cost',true), 
+		'label' => __('Shipping Cost',true), 
 		'value' => $data['rate']
 	)
 ));

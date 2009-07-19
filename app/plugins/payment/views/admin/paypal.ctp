@@ -19,7 +19,7 @@
 **/
 
 echo $form->inputs(array('paypal/paypal_email' => array(
-	'label' => 'Paypal Email',
+	'label' => __('Paypal Email', true),
 	'value' => $data['paypal_email']['value']
 )));
 
