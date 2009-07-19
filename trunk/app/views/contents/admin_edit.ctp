@@ -211,7 +211,7 @@
 
 	echo $admin->StartTabContent('options');
 			echo $form->inputs(array(
-				'fieldset' => __('content_details', true),
+				'fieldset' => __('Content Details', true),
                 'Content/alias' => array(
 			   		'label' => __('Alias', true),				   
 					'value' => $data['Content']['alias']
