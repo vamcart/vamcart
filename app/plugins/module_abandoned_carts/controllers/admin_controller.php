@@ -32,7 +32,7 @@ class AdminController extends ModuleAbandonedCartsAppController {
 		{
 			$this->Order->del($cart, true);
 		}
-		$this->Session->setFlash(__('Abandoned carts have been purged.',true));
+		$this->Session->setFlash(__('Abandoned carts have been purged.', true));
 		$this->redirect('/module_abandoned_carts/admin/admin_index/');
 	}
 
@@ -41,7 +41,7 @@ class AdminController extends ModuleAbandonedCartsAppController {
 		loadModel('Order');
 		$this->Order =& new Order();
 			
-		$this->set('current_crumb','Abandoned Carts');
+		$this->set('current_crumb',__('Abandoned Carts', true));
 		$this->set('data',$this->Order->findAll(array('Order.order_status_id' => '0')));
 		
 		$this->render('','admin');

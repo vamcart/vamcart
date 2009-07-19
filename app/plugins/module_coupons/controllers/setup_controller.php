@@ -25,7 +25,7 @@ class SetupController extends ModuleCouponsAppController {
 	function upgrade ()
 	{
 		$this->ModuleBase->upgrade();
-		$this->Session->setFlash('Module Upgraded');
+		$this->Session->setFlash(__('Module Upgraded', true));
 		$this->redirect('/modules/admin/');		
 	}
 	
@@ -95,7 +95,7 @@ class SetupController extends ModuleCouponsAppController {
 		
 
 		
-		$this->Session->setFlash('Module Installed');
+		$this->Session->setFlash(__('Module Installed', true));
 		$this->redirect('/modules/admin/');
 	}
 	
@@ -129,7 +129,7 @@ class SetupController extends ModuleCouponsAppController {
 		$core_page = $this->Content->find(array('Content.parent_id' => '-1','alias' => 'coupon-details'));
 		$this->Content->del($core_page['Content']['id'],true);
 		
-		$this->Session->setFlash('Module Uninstalled');
+		$this->Session->setFlash(__('Module Uninstalled', true));
 		$this->redirect('/modules/admin/');	
 	}
 
