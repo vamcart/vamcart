@@ -20,7 +20,7 @@
 
 
 echo '<table class="contentTable">';
-echo $html->tableHeaders(array( __('Author', true), __('Date', true), __('Content', true), __('Action', true)));
+echo $html->tableHeaders(array( __('Author', true), __('Date', true), __('Product', true), __('Action', true)));
 
 
 foreach ($reviews AS $review)
