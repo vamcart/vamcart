@@ -18,13 +18,13 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 **/
 
-echo 'Date: ' . $time->niceShort($data['ModuleReview']['created']);
+echo __('Date: ', true) . $time->niceShort($data['ModuleReview']['created']);
 echo '<br /><br />';
-echo 'Author: ' . $data['ModuleReview']['name'];
+echo __('Author: ', true) . $data['ModuleReview']['name'];
 echo '<br /><br />';
-echo 'Review: ' . $data['ModuleReview']['content'];
+echo __('Review: ', true) . $data['ModuleReview']['content'];
 echo '<br /><br />';
-echo $html->link('<= Return to menu','/module_reviews/admin/admin_index/');
+echo $html->link(__('Return to menu', true),'/module_reviews/admin/admin_index/',array('class' => 'button'));
 
 
 ?>

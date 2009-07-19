@@ -1349,3 +1349,87 @@ msgstr "Просмотр отзыва"
 
 msgid  "Manage Reviews"
 msgstr "Управление отзывами"
+
+msgid  "What does this do?"
+msgstr "Что делает данный модуль?"
+
+msgid  "The Abandoned Carts module allows you to view the contents of customer\'s carts who did not complete checkout."
+msgstr "Модуль незавершённые заказы позволяет просматривать корзины покупателей, которые начали оформлять заказ, но не оформили заказ до конца."
+
+msgid  "How do I use this?"
+msgstr "Как использовать данный модуль?"
+
+msgid  "Simply navigate to Orders -> Abandoned Carts to use this module."
+msgstr "Модуль находится в разделе Заказы - Незавершённые заказы."
+
+msgid  "Coupon Details"
+msgstr "Информация о купоне"
+
+msgid  "Coupon Code"
+msgstr "Код купона"
+
+msgid  "Free Shipping"
+msgstr "Бесплатная доставка"
+
+msgid  "Percent Off Total"
+msgstr "Процент вычета"
+
+msgid  "Amount Off Total"
+msgstr "Сумма вычета"
+
+msgid  "Max Uses"
+msgstr "Максимум использований"
+
+msgid  "Min Product Count"
+msgstr "Минимум единиц товара"
+
+msgid  "Max Product Count"
+msgstr "Максимум единиц товара"
+
+msgid  "Min Order Total"
+msgstr "Минимальная сумма заказа"
+
+msgid  "Max Order Total"
+msgstr "Максимальная сумма заказа"
+
+msgid  "The coupons module allows you to create promotional discounts and coupons for your customers to use."
+msgstr "Модуль позволяет Вам создавать купоны для получения скидок покупателями."
+
+msgid  "Once installed there will be a new menu item under Content called Coupons. Here you can create coupons for your customers to use. They will be presented with a box during checkout to enter any promotional coupons they have."
+msgstr "После установки модуль будет доступен в разделе Содержание - Купоны. В данном разделе Вы можете создавать купоны для своих покупателей. Купон можно будет использовать при оформлении заказа в магазине."
+
+msgid  "To use during checkout:"
+msgstr "Метка купонов для шаблона:"
+
+msgid  "The reviews module will allow customers to publish reviews and rate your products."
+msgstr "Модуль отзывов позволяет покупателям оставлять отзывы и выставлять рейтинг товарам."
+
+msgid  "Upon installation the Reviews Module will create a new Core Page for your store called Product Reviews."
+msgstr "После установки модуля можно будет читать и оставлять отзывы в магазине, не странице карточки товара."
+
+msgid  "To create a link to a products reviews:"
+msgstr "Метка ссылки отзывов для шаблона:"
+
+msgid  "This call will create two links in your page/template. One to read reviews of the current content, and the other to publish your own review."
+msgstr "Модуль создаёт две ссылки на странице карточки товара. Первая - страница текущих отзывов товара, вторая - страница добавления отзыва."
+
+msgid  "To create a listing of reviews:"
+msgstr "Метка для вывода отзывов:"
+
+msgid  "Generally called from the core page. If called from a template will display a listing of reviews for that content item."
+msgstr "Для вывода отзывов в шаблон вставляется метка."
+
+msgid  "Date: "
+msgstr "Дата: "
+
+msgid  "Author: "
+msgstr "Автор: "
+
+msgid  "Review: "
+msgstr "Отзыв: "
+
+msgid  "Return to menu"
+msgstr "Вернуться в меню"
+
+msgid  "Product"
+msgstr "Товар"
