@@ -18,38 +18,102 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 **/
 
+		   		   
 echo '<h3>' . __('Customer Details', true) . '</h3>';
 echo '
 <table class="orderTable">
-	<tr><td>
-		<strong>' . __('Billing Information',true) . '</strong><br />	
-		' . __('Customer Name',true) . ': ' . $data['Order']['bill_name'] . '<br />
-		' . __('Address Line 1',true) . ': ' . $data['Order']['bill_line_1'] . '<br />
-		' . __('Address Line 2',true) . ': ' . $data['Order']['bill_line_2'] . '<br />
-		' . __('City',true) . ': ' . $data['Order']['bill_city'] . '<br />
-		' . __('State',true) . ': ' . $data['Order']['bill_state'] . '<br />
-		' . __('Zip',true) . ': ' . $data['Order']['bill_zip'] . '
-	</td><td>
-		<strong>' . __('Shipping Information',true) . '</strong><br />			
-		' . __('Customer Name',true) . ': ' . $data['Order']['ship_name'] . '<br />
-		' . __('Address Line 1',true) . ': ' . $data['Order']['ship_line_1'] . '<br />
-		' . __('Address Line 2',true) . ': ' . $data['Order']['ship_line_2'] . '<br />
-		' . __('City',true) . ': ' . $data['Order']['ship_city'] . '<br />
-		' . __('State',true) . ': ' . $data['Order']['ship_state'] . '<br />
-		' . __('Zip',true) . ': ' . $data['Order']['ship_zip'] . '
-	</td></tr>
-	<tr><td colspan="2">
-		<strong>' . __('Contact Information',true) . '</strong><br />				
-		' . __('Email',true) . ': ' . $data['Order']['email'] . '<br />
-		' . __('Phone',true) . ': ' . $data['Order']['phone'] . '		
-	</td></tr>
-	<tr><td colspan="2">
-		<strong>' . __('Payment Information',true) . '</strong><br />				
-		' . __('Credit Card',true) . ': ' . $data['Order']['cc_number'] . '<br />
-		' . __('Expiration',true) . ': ' . $data['Order']['cc_expiration_month'] . '-' . $data['Order']['cc_expiration_year'] . '
-	</td></tr>
-	
-</table>';
+	<tr><td>';
+
+echo '<table class="contentTable">';
+echo $html->tableHeaders(array(__('Billing Information',true)));
+	echo $admin->TableCells(
+		  array(
+				__('Customer Name',true) . ': ' . $data['Order']['bill_name']
+		   ));
+	echo $admin->TableCells(
+		  array(
+				__('Address Line 1',true) . ': ' . $data['Order']['bill_line_1']
+		   ));
+	echo $admin->TableCells(
+		  array(
+				__('Address Line 2',true) . ': ' . $data['Order']['bill_line_2']
+		   ));
+	echo $admin->TableCells(
+		  array(
+				__('City',true) . ': ' . $data['Order']['bill_city']
+		   ));
+	echo $admin->TableCells(
+		  array(
+				__('State',true) . ': ' . $data['Order']['bill_state']
+		   ));
+	echo $admin->TableCells(
+		  array(
+				__('Zip',true) . ': ' . $data['Order']['bill_zip']
+		   ));
+echo '</table>';
+
+echo '</td><td>';
+
+echo '<table class="contentTable">';
+echo $html->tableHeaders(array(__('Shipping Information',true)));
+	echo $admin->TableCells(
+		  array(
+				__('Customer Name',true) . ': ' . $data['Order']['ship_name']
+		   ));
+	echo $admin->TableCells(
+		  array(
+				__('Address Line 1',true) . ': ' . $data['Order']['ship_line_1']
+		   ));
+	echo $admin->TableCells(
+		  array(
+				__('Address Line 2',true) . ': ' . $data['Order']['ship_line_2']
+		   ));
+	echo $admin->TableCells(
+		  array(
+				__('City',true) . ': ' . $data['Order']['ship_city']
+		   ));
+	echo $admin->TableCells(
+		  array(
+				__('State',true) . ': ' . $data['Order']['ship_state']
+		   ));
+	echo $admin->TableCells(
+		  array(
+				__('Zip',true) . ': ' . $data['Order']['ship_zip']
+		   ));
+echo '</table>';
+
+echo '</td></tr>';
+echo '<tr><td colspan="2">';
+
+echo '<table class="contentTable">';
+echo $html->tableHeaders(array(__('Contact Information',true)));
+	echo $admin->TableCells(
+		  array(
+				__('Email',true) . ': ' . $data['Order']['email']
+		   ));
+	echo $admin->TableCells(
+		  array(
+				__('Phone',true) . ': ' . $data['Order']['phone']
+		   ));
+echo '</table>';
+
+echo '</td></tr>';
+echo '<tr><td colspan="2">';
+
+echo '<table class="contentTable">';
+echo $html->tableHeaders(array(__('Payment Information',true)));
+	echo $admin->TableCells(
+		  array(
+				__('Credit Card',true) . ': ' . $data['Order']['cc_number']
+		   ));
+	echo $admin->TableCells(
+		  array(
+				__('Expiration',true) . ': ' . $data['Order']['cc_expiration_month'] . '-' . $data['Order']['cc_expiration_year']
+		   ));
+echo '</table>';
+
+echo '</td></tr>';
+echo '</table>';
 
 echo '<h3>' . __('Order Details', true) . '</h3>';
 
