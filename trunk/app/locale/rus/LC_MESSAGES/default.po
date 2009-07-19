@@ -854,6 +854,12 @@ msgstr "Копировать"
 msgid  "View"
 msgstr "Смотреть"
 
+msgid  "Collapse"
+msgstr "Свернуть"
+
+msgid  "Expand"
+msgstr "Развернуть"
+
 ##################################################### /app/views/images/admin_view_content_images.ctp####################################################
 
 msgid  "Current Images For This Content Item"
