@@ -18,8 +18,17 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 **/
 
+	echo $admin->StartTabs();
+			echo '<ul>';
+			echo $admin->CreateTab('customer',__('Customer', true));
+			echo $admin->CreateTab('order',__('Products', true));	
+			echo $admin->CreateTab('comments',__('Order Comments', true));
+			echo $admin->CreateTab('status',__('New Comment', true));	
+			echo '</ul>';
+
 		   		   
-echo '<h3>' . __('Customer Details', true) . '</h3>';
+	echo $admin->StartTabContent('customer');
+
 echo '
 <table class="orderTable">
 	<tr><td>';
@@ -115,7 +124,9 @@ echo '</table>';
 echo '</td></tr>';
 echo '</table>';
 
-echo '<h3>' . __('Order Details', true) . '</h3>';
+	echo $admin->EndTabContent();
+
+	echo $admin->StartTabContent('order');
 
 echo '<table class="contentTable">';
 echo $html->tableHeaders(array( __('Product Name', true), __('Price', true), __('Quantity', true), __('Total', true)));
@@ -147,10 +158,10 @@ foreach($data['OrderProduct'] AS $product)
 echo '</table>';
 
 
+	echo $admin->EndTabContent();
 
+	echo $admin->StartTabContent('comments');
 
-
-echo '<h3>' . __('Order Comments', true) . '</h3>';
 echo '<table class="contentTable">';
 
 echo $html->tableHeaders(array( __('Date', true), __('User', true), __('Sent To Customer', true), __('Comment', true)));
@@ -167,7 +178,9 @@ foreach($data['OrderComment'] AS $comment)
 }
 echo '</table>';
 
-echo '<h3>' . __('New Comment', true) . '</h3>';
+	echo $admin->EndTabContent();
+
+	echo $admin->StartTabContent('status');
 
 echo $form->create('OrderComment', array('id' => 'contentform', 'action' => '/orders/admin_new_comment/', 'url' => '/orders/admin_new_comment/'));
 
@@ -205,5 +218,7 @@ echo $form->create('OrderComment', array('id' => 'contentform', 'action' => '/or
 echo $form->submit( __('Submit', true), array('name' => 'submit', 'id' => 'submit'));
 echo '<div class="clear"></div>';
 echo $form->end();
+
+	echo $admin->EndTabs();
 	
 ?>
