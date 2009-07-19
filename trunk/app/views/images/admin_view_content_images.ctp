@@ -28,10 +28,10 @@
 				$ajax->link($html->image('admin/cancel.png', array('alt' => __('Delete', true),'title' => __('Delete', true))),'null', $options = array('url' => 'admin_delete_content_image/' . $image['ContentImage']['id'], 'update' => 'content_images_holder'),null,false) 
 		   . '</li>';
 	}
-	echo '</ul><div style="clear:both;">';
+	echo '</ul><div class="clear"></div>';
 	
 	if(empty($content_images))	
 	{
-		echo '<div class="no_data">' . __('No Data',true) . '</div>';
+		echo '<div class="noData">' . __('No Data',true) . '</div>';
 	}
 ?>
