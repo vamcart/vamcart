@@ -85,7 +85,6 @@
 			echo '</ul>';
 	
 	echo $admin->StartTabContent('main');
-		echo '<fieldset>';
 		echo $form->inputs(array(
 				'fieldset' => __('Categories & Products',true),
 				'Content/id' => array(
@@ -145,22 +144,17 @@
 	}
 		
 		
-	echo '</fieldset>';
 	echo $admin->EndTabContent();
 
 	echo $admin->StartTabContent('view_images');
-	echo '<fieldset>';
-
 		echo '<div id="content_images_holder">';		
 		echo $this->requestAction('/images/admin_view_content_images/' . $data['Content']['id'], array('return'=>true));	
 		echo '</div>';
 		
-	echo '</fieldset>';
 	echo $admin->EndTabContent();
 
 
 	echo $admin->StartTabContent('upload_images');
-	echo '<fieldset>';
 	
 	if((isset($data['Content']['id'])) && ($data['Content']['id'] > 0))
 	{
@@ -213,8 +207,6 @@
 		echo '<p>' . __('This is a new product. Please press apply before uploading images.', true)	 . '</p>';
 	}
 			
-	echo '</fieldset>';
-		
 	echo $admin->EndTabContent();
 
 	echo $admin->StartTabContent('options');

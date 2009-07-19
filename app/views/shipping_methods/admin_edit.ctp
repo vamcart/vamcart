@@ -19,7 +19,6 @@
 **/
 //pr($data);
 	echo $form->create('ShippingMethod', array('id' => 'contentform', 'name' => 'contentform', 'action' => '/shipping_methods/admin_edit/'.$data['ShippingMethod']['id'], 'url' => '/shipping_methods/admin_edit/'.$data['ShippingMethod']['id']));
-		echo '<fieldset>';
 		echo $form->inputs(array(
 				'fieldset' => __('Shipping Method Details', true),
 				'ShippingMethod/id' => array(
