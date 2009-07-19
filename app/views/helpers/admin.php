@@ -144,7 +144,7 @@ class AdminHelper extends Helper {
 
 		if($data['order'] < $count)
 		{
-			$button .= $this->Ajax->link($this->Html->image('admin/icons/down.png'),'null', $options = array('url' => 'admin_move/' . $data['id'] . '/down', 'update' => 'content'),null,false);		
+			$button .= $this->Ajax->link($this->Html->image('admin/icons/down.png', array('alt' => __('Down', true))),'null', $options = array('url' => 'admin_move/' . $data['id'] . '/down', 'update' => 'content'),null,false);		
 		}
 		else
 		{
@@ -152,7 +152,7 @@ class AdminHelper extends Helper {
 		}
 		if($data['order'] > 1)
 		{
-			$button .= $this->Ajax->link($this->Html->image('admin/icons/up.png'),'null', $options = array('url' => 'admin_move/' . $data['id'] . '/up', 'update' => 'content'),null,false);		
+			$button .= $this->Ajax->link($this->Html->image('admin/icons/up.png', array('alt' => __('Up', true))),'null', $options = array('url' => 'admin_move/' . $data['id'] . '/up', 'update' => 'content'),null,false);		
 		}
 		return($button);
 	}
@@ -161,11 +161,11 @@ class AdminHelper extends Helper {
 	{
 		if($data['default'] == 1)
 		{
-			$button = $this->Html->image('admin/icons/true.png');
+			$button = $this->Html->image('admin/icons/true.png', array('alt' => __('True', true)));
 		}
 		else
 		{
-			$button = $this->Ajax->link($this->Html->image('admin/icons/false.png'),'null', $options = array('url' => 'admin_set_as_default/' . $data['id'], 'update' => 'content'),null,false);		
+			$button = $this->Ajax->link($this->Html->image('admin/icons/false.png', array('alt' => __('False', true))),'null', $options = array('url' => 'admin_set_as_default/' . $data['id'], 'update' => 'content'),null,false);		
 		}
 		return($button);
 	}

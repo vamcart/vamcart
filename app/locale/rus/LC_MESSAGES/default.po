@@ -836,6 +836,18 @@ msgstr "Вы действительно хотите удалить данный
 msgid  "No Data"
 msgstr "Нет данных"
 
+msgid  "Up"
+msgstr "Вверх"
+
+msgid  "Down"
+msgstr "Вниз"
+
+msgid  "True"
+msgstr "Активен"
+
+msgid  "False"
+msgstr "Неактивен"
+
 ##################################################### /app/views/images/admin_view_content_images.ctp####################################################
 
 msgid  "Current Images For This Content Item"
