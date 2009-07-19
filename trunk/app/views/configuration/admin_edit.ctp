@@ -67,7 +67,6 @@ echo $form->inputs(array(
 	echo $admin->EndTabContent();
 
 	echo $admin->StartTabContent('caching');
-	echo '<fieldset>';
 	echo $form->inputs(array(
 		'fieldset' => __('Store Settings', true),
 		'Configuration/CACHE_TIME' => array(
@@ -77,7 +76,6 @@ echo $form->inputs(array(
               ))
 			);
 	echo __('Reset Cache', true) . '&nbsp;&nbsp;&nbsp;' . $html->link(__('Click here to clear cache',true),'/configuration/admin_clear_cache/',array('class' => 'button'));
-	echo '</fieldset>';			
 	echo $admin->EndTabContent();
 	
 	echo $admin->EndTabs();
