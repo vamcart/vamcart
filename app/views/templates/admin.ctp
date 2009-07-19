@@ -45,7 +45,7 @@ foreach ($templates AS $template)
 			$admin->ActionButton('stylesheet','/templates/admin_attach_stylesheets/' . $template['Template']['id']) . $admin->ActionButton('copy','/templates/admin_copy/' . $template['Template']['id']) . $admin->ActionButton('edit','/templates/admin_edit_details/' . $template['Template']['id']) . $admin->ActionButton('delete','/templates/admin_delete/' . $template['Template']['id'])
 		   ));
 	echo '<tr id=collapse_"' . $template['Template']['id'] . '" style="' . $collapse_style . '"><td colspan="3">';
-	echo '<table style="width:100%;border:2px solid #eee;">';
+	echo '<table class="contentTable">';
 	
 		foreach($template['children'] AS $micro)
 		{
