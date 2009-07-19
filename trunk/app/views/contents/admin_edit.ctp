@@ -196,7 +196,7 @@
 		</script>
 		
 		<div id="SWFUploadFileListingFiles"></div>
-		<div style="clear:both;"></div>
+		<div class="clear"></div>
 		<h4 id="queueinfo"></h4>		
 		<div id="SWFUploadTarget"></div>		
 		<?php
