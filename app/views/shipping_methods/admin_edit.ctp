@@ -27,6 +27,7 @@
 					),
 				'ShippingMethod/name' => array(
 					'type' => 'text',
+					'label' => __('Name', true),
 					'value' => $data['ShippingMethod']['name']
 					),					
 	               ));
