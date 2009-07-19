@@ -303,22 +303,14 @@ div#navigation div.breadCrumbs
 /* Page header */
 
 #content h1,
-#content h2
+#content h2,
+#content h3
 	{
 		color: #ff9c0f;
 		font-weight: bold;
-		font-size: 1.4em;
+		font-size: 12pt;
 	}
 
-#content h3 
-	{
-		font-size: 1.4em;
-		font-weight: bold;
-		color: #ff9c0f;
-		margin: .3em 0 .3em 0;
-		padding: 0;
-	}
-	
 /* /Page header */
 
 /* Page content */
@@ -345,7 +337,7 @@ form#contentform fieldset legend
 	
 legend 
 	{
-		font-size: 1.4em;
+		font-size: 12pt;
 		font-weight: bold;
 		color: #ff9c0f;
 		margin-bottom: .5em;
