@@ -26,13 +26,13 @@ foreach ($templates AS $template)
 
 	if(in_array($template['Template']['id'], $user_prefs))
 	{
-		$arrow_link = $ajax->link($html->image('admin/icons/expand.png'), 'null', $options = array('url' => '/templates/expand_section/' . $template['Template']['id'], 'update' => 'content'), null, false);
+		$arrow_link = $ajax->link($html->image('admin/icons/expand.png', array('alt' => __('Expand', true))), 'null', $options = array('url' => '/templates/expand_section/' . $template['Template']['id'], 'update' => 'content'), null, false);
 		$collapse_style = "display:none;";
 	}
 	else
 	{
 		$collapse_style = " ";
-		$arrow_link = $ajax->link($html->image('admin/icons/collapse.png'), 'null', $options = array('url' => '/templates/contract_section/' . $template['Template']['id'], 'update' => 'content'), null, false);
+		$arrow_link = $ajax->link($html->image('admin/icons/collapse.png', array('alt' => __('Collapse', true))), 'null', $options = array('url' => '/templates/contract_section/' . $template['Template']['id'], 'update' => 'content'), null, false);
 	}
 
 
