@@ -45,9 +45,7 @@ echo $admin->EmptyResults($data);
 echo $admin->EndTabContent();
 echo $admin->StartTabContent('options');
 
-	echo '<fieldset>';
 		echo $html->link('Click here to purge all Abandoned Carts','/module_abandoned_carts/admin/purge_old_carts/',null,'Are you sure?');
-	echo '</fieldset>';
 	
 echo $admin->EndTabContent();
 
