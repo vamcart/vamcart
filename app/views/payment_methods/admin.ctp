@@ -30,7 +30,7 @@ foreach ($payment_method_data AS $payment_method)
 				$html->link($payment_method['PaymentMethod']['name'], '/payment_methods/admin_edit/' . $payment_method['PaymentMethod']['id']),
 				$ajax->link(($payment_method['PaymentMethod']['active'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))), 'null', $options = array('url' => '/payment_methods/admin_change_active_status/' . $payment_method['PaymentMethod']['id'], 'update' => 'content'), null, false),				
 				$admin->DefaultButton($payment_method['PaymentMethod']),
-				$admin->ActionButton('edit','/payment_methods/admin_edit/' . $payment_method['PaymentMethod']['id'])
+				$admin->ActionButton('edit','/payment_methods/admin_edit/' . $payment_method['PaymentMethod']['id'],__('Edit', true))
 		   ));
 		   	
 }

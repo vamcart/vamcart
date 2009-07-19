@@ -33,7 +33,7 @@ foreach ($currency_data AS $currency)
 				$currency['Currency']['code'],
 				$ajax->link(($currency['Currency']['active'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))), 'null', $options = array('url' => '/currencies/admin_change_active_status/' . $currency['Currency']['id'], 'update' => 'content'), null, false),
 				$admin->DefaultButton($currency['Currency']),
-				$admin->ActionButton('edit','/currencies/admin_edit/' . $currency['Currency']['id']) . $admin->ActionButton('delete','/currencies/admin_delete/' . $currency['Currency']['id']),
+				$admin->ActionButton('edit','/currencies/admin_edit/' . $currency['Currency']['id'],__('Edit', true)) . $admin->ActionButton('delete','/currencies/admin_delete/' . $currency['Currency']['id'],__('Delete', true)),
 				$form->checkbox('modify][', array('value' => $currency['Currency']['id']))
 		   ));
 		   	

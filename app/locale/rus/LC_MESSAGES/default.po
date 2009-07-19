@@ -848,6 +848,12 @@ msgstr "Активен"
 msgid  "False"
 msgstr "Неактивен"
 
+msgid  "Copy"
+msgstr "Копировать"
+
+msgid  "View"
+msgstr "Смотреть"
+
 ##################################################### /app/views/images/admin_view_content_images.ctp####################################################
 
 msgid  "Current Images For This Content Item"

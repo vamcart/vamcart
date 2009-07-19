@@ -28,7 +28,7 @@ foreach ($users AS $user)
 	echo $admin->TableCells(
 		  array(
 			$user['User']['username'],
-			$admin->ActionButton('delete','/users/admin_delete/' . $user['User']['id'])
+			$admin->ActionButton('delete','/users/admin_delete/' . $user['User']['id'],__('Delete', true))
 		   ));
 }
 echo '</table>';

@@ -170,14 +170,14 @@ class AdminHelper extends Helper {
 		return($button);
 	}
 
-	function ActionButton ($action, $path)
+	function ActionButton ($action, $path, $alt)
 	{
 		if($action == 'delete')
 			$confirm_text = __('Confirm delete action?',true);
 		else
 			$confirm_text = null;
 			
-		$button = $this->Html->link($this->Html->image('admin/icons/' . $action . '.png'),$path,null,$confirm_text,false);
+		$button = $this->Html->link($this->Html->image('admin/icons/' . $action . '.png', array('alt' => $alt)),$path,null,$confirm_text,false);
 		return($button);		
 	}
 	
