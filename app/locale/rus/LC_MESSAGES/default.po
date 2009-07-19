@@ -1169,6 +1169,9 @@ msgstr "Список тэгов пользователя"
 msgid  "User Tag"
 msgstr "Тэг пользователя"
 
+msgid  "Tag Details"
+msgstr "Информация о тэге"
+
 msgid  "Admins Listing"
 msgstr "Список администраторов"
 
