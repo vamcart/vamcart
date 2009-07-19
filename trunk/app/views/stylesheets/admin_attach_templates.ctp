@@ -35,7 +35,7 @@ foreach ($attached_template AS $template)
 	echo $admin->TableCells(
 		  array(
 			$html->link($template['name'],'/templates/admin_edit/' . $template['id']),
-			$admin->ActionButton('delete','/stylesheets/admin_delete_template_association/' . $template['id'] . '/' . $stylesheet['Stylesheet']['id'])
+			$admin->ActionButton('delete','/stylesheets/admin_delete_template_association/' . $template['id'] . '/' . $stylesheet['Stylesheet']['id'],__('Delete', true))
 		   ));
 }
 ?>

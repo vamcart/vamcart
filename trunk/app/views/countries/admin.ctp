@@ -35,7 +35,7 @@ foreach ($data AS $country)
 			$html->link($html->image('flags/' . strtolower($country['Country']['iso_code_2']) . '.png', array('alt' => $country['Country']['name'])), '/countries/admin_edit/' . $country['Country']['id'],null,null,false),
 			$country['Country']['iso_code_2'],
 			$country['Country']['iso_code_3'],
-			$admin->ActionButton('edit','/countries/admin_edit/' . $country['Country']['id']) . $admin->ActionButton('delete','/countries/admin_delete/' . $country['Country']['id']),
+			$admin->ActionButton('edit','/countries/admin_edit/' . $country['Country']['id'],__('Edit', true)) . $admin->ActionButton('delete','/countries/admin_delete/' . $country['Country']['id'],__('Delete', true)),
 			$form->checkbox('modify][', array('value' => $country['Country']['id']))
 		   ));
 }

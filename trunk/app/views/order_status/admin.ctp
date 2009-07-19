@@ -31,7 +31,7 @@ foreach ($order_status_data AS $order_status)
 				$html->link($order_status['OrderStatusDescription']['name'], '/order_status/admin_edit/' . $order_status['OrderStatus']['id']),
 				$admin->DefaultButton($order_status['OrderStatus']),
 				$admin->MoveButtons($order_status['OrderStatus'], $order_status_count),
-				$admin->ActionButton('edit','/order_status/admin_edit/' . $order_status['OrderStatus']['id']) . $admin->ActionButton('delete','/order_status/admin_delete/' . $order_status['OrderStatus']['id'])
+				$admin->ActionButton('edit','/order_status/admin_edit/' . $order_status['OrderStatus']['id'],__('Edit', true)) . $admin->ActionButton('delete','/order_status/admin_delete/' . $order_status['OrderStatus']['id'],__('Delete', true))
 		   ));
 		   	
 }
