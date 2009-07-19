@@ -25,9 +25,9 @@ echo $admin->StartTabs();
 			echo '</ul>';
 
 echo $admin->StartTabContent('main');
-echo '<table class="pagetable" cellspacing="0">';
+echo '<table class="contentTable">';
 
-echo $html->tableHeaders(array(  __('Order Id', true), __('# of Products', true), __('Date Placed', true)));
+echo $html->tableHeaders(array(  __('Order Id', true), __('Number of Products', true), __('Date Placed', true)));
 
 foreach($data AS $order)
 {
@@ -45,7 +45,7 @@ echo $admin->EmptyResults($data);
 echo $admin->EndTabContent();
 echo $admin->StartTabContent('options');
 
-		echo $html->link('Click here to purge all Abandoned Carts','/module_abandoned_carts/admin/purge_old_carts/',null,'Are you sure?');
+		echo $html->link(__('Click here to purge all Abandoned Carts.', true),'/module_abandoned_carts/admin/purge_old_carts/',null,__('Are you sure?', true));
 	
 echo $admin->EndTabContent();
 

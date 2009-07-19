@@ -1153,6 +1153,7 @@ msgid  "Content"
 msgstr "Содержимое"
 
 ##################################################### Breadcrumbs####################################################
+
 msgid  "Listing"
 msgstr "Список"
 
@@ -1272,3 +1273,28 @@ msgstr "Список стран"
 
 msgid  "Country Zones Listing"
 msgstr "Список регионов страны"
+
+##################################################### Breadcrumbs####################################################
+msgid  "Reviews"
+msgstr "Отзывы"
+
+msgid  "Coupons"
+msgstr "Купоны"
+
+msgid  "Abandoned Carts"
+msgstr "Незавершённые заказы"
+
+msgid  "Order Id"
+msgstr "Номер заказа"
+
+msgid  "Number of Products"
+msgstr "Количество товара"
+
+msgid  "Date Placed"
+msgstr "Дата заказа"
+
+msgid  "Click here to purge all Abandoned Carts."
+msgstr "Очистить все незавершённые заказы."
+
+msgid  "Author"
+msgstr "Автор"

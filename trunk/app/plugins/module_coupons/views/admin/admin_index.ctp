@@ -20,8 +20,8 @@
 
 
 
-echo '<table class="pagetable" cellspacing="0">';
-echo $html->tableHeaders(array( __('name', true), __('code', true), __('action', true)));
+echo '<table class="contentTable">';
+echo $html->tableHeaders(array( __('Name', true), __('Code', true), __('Action', true)));
 
 
 foreach ($coupons AS $coupon)

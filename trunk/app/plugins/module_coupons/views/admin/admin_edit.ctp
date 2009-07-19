@@ -19,7 +19,7 @@
 **/
 
 	$coupon_id = $this->data['ModuleCoupon']['id'];
-	echo $form->create('ModuleCoupon', array('action' => '/module_coupons/admin/admin_edit/'.$coupon_id, 'url' => '/module_coupons/admin/admin_edit/'.$coupon_id));
+	echo $form->create('ModuleCoupon', array('id' => 'contentform', 'action' => '/module_coupons/admin/admin_edit/'.$coupon_id, 'url' => '/module_coupons/admin/admin_edit/'.$coupon_id));
 
 	echo $admin->StartTabs();
 			echo '<ul>';
@@ -76,7 +76,7 @@ echo $admin->EndTabContent();
 
 	echo $admin->EndTabs();
 
-	echo $form->submit( __('form_submit', true), array('name' => 'submitbutton', 'id' => 'submitbutton')) . $form->submit( __('form_apply', true), array('name' => 'applybutton')) . $form->submit( __('form_cancel', true), array('name' => 'cancelbutton'));
+	echo $form->submit( __('Submit', true), array('name' => 'submitbutton', 'id' => 'submitbutton')) . $form->submit( __('Apply', true), array('name' => 'applybutton')) . $form->submit( __('Cancel', true), array('name' => 'cancelbutton'));
 	echo '<div class="clearb"></div>';
 	echo $form->end();
 ?>
