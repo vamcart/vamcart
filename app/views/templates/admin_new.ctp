@@ -18,7 +18,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 **/
 
-	echo $form->create('Template', array('action' => '/templates/admin_new/', 'url' => '/templates/admin_new/'));
+	echo $form->create('Template', array('id' => 'contentform', 'action' => '/templates/admin_new/', 'url' => '/templates/admin_new/'));
 	echo $form->inputs(array(
 					'fieldset' => __('Template Details', true),				   
 	               'Template/name' => array(

@@ -19,7 +19,7 @@
 **/
 
 	$id = $this->data['MicroTemplate']['id'];
-	echo $form->create('MicroTemplate', array('action' => '/micro_templates/admin_edit/'.$id, 'url' => '/micro_templates/admin_edit/'.$id));
+	echo $form->create('MicroTemplate', array('id' => 'contentform', 'action' => '/micro_templates/admin_edit/'.$id, 'url' => '/micro_templates/admin_edit/'.$id));
 		
 		echo $form->inputs(array(
 					'fieldset' => __('Micro Template Details', true),

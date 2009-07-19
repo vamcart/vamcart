@@ -19,7 +19,7 @@
 **/
 
 
-	echo $form->create('Tax', array('action' => '/taxes/admin_edit/', 'url' => '/taxes/admin_edit/'));
+	echo $form->create('Tax', array('id' => 'contentform', 'action' => '/taxes/admin_edit/', 'url' => '/taxes/admin_edit/'));
 	echo $form->inputs(array(
 					'fieldset' => __('Tax Details', true),
 				   'Tax/id' => array(

@@ -19,10 +19,7 @@
 **/
 
 
-	echo $form->create('CountryZone', array('action' => '/country_zones/admin_edit/' . $country_id, 'url' => '/country_zones/admin_edit/' . $country_id));
-
-
-
+	echo $form->create('CountryZone', array('id' => 'contentform', 'action' => '/country_zones/admin_edit/' . $country_id, 'url' => '/country_zones/admin_edit/' . $country_id));
 		echo $form->inputs(array(
 					'fieldset' => __('Country Zone Details', true),
 				   'CountryZone/country_id' => array(
