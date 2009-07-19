@@ -19,7 +19,7 @@
 **/
 
 
-	echo $form->create('Currency', array('action' => '/currencies/admin_edit/', 'url' => '/currencies/admin_edit/'));
+	echo $form->create('Currency', array('id' => 'contentform', 'action' => '/currencies/admin_edit/', 'url' => '/currencies/admin_edit/'));
 	echo $form->inputs(array(
 					'fieldset' => __('Currency Details', true),
 				   'Currency/id' => array(

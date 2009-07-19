@@ -19,7 +19,7 @@
 **/
 
 
-	echo $form->create('Country', array('action' => '/countries/admin_edit/' . $data['Country']['id'], 'url' => '/countries/admin_edit/' . $data['Country']['id']));
+	echo $form->create('Country', array('id' => 'contentform', 'action' => '/countries/admin_edit/' . $data['Country']['id'], 'url' => '/countries/admin_edit/' . $data['Country']['id']));
 	
 	echo $admin->StartTabs();
 			echo '<ul>';

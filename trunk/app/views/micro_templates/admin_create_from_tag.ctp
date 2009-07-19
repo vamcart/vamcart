@@ -18,7 +18,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 **/
 
-	echo $form->create('MicroTemplate', array('action' => '/micro_templates/admin_edit/', 'url' => '/micro_templates/admin_edit/'));
+	echo $form->create('MicroTemplate', array('id' => 'contentform', 'action' => '/micro_templates/admin_edit/', 'url' => '/micro_templates/admin_edit/'));
 		
 		echo $form->inputs(array(
 					'fieldset' => __('Micro Template Details', true),

@@ -18,7 +18,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 **/
 
-echo $form->create('UserPref', array('action' => '/users/admin_user_preferences/', 'url' => '/users/admin_user_preferences/'));
+echo $form->create('UserPref', array('id' => 'contentform', 'action' => '/users/admin_user_preferences/', 'url' => '/users/admin_user_preferences/'));
 
 echo $form->inputs(array(
 		'fieldset' => __('User Prefences', true),

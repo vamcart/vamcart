@@ -18,7 +18,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 **/
 
-	echo $form->create('User', array('action' => '/users/admin_new/', 'url' => '/users/admin_new/'));
+	echo $form->create('User', array('id' => 'contentform', 'action' => '/users/admin_new/', 'url' => '/users/admin_new/'));
 	echo $form->inputs(array(
 					'fieldset' => __('New Admin', true),
 	               'User/username' => array(

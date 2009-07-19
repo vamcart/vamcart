@@ -19,7 +19,7 @@
 **/
 
 	$id = $this->data['GlobalContentBlock']['id'];
-	echo $form->create('GlobalContentBlock', array('action' => '/global_content_blocks/admin_edit/'.$id, 'url' => '/global_content_blocks/admin_edit/'.$id));
+	echo $form->create('GlobalContentBlock', array('id' => 'contentform', 'action' => '/global_content_blocks/admin_edit/'.$id, 'url' => '/global_content_blocks/admin_edit/'.$id));
 	
 	echo $admin->StartTabs();
 			echo '<ul>';
