@@ -172,7 +172,7 @@ foreach($data['OrderComment'] AS $comment)
 		  array(
 				$time->niceShort($comment['created']),
 				$comment['User']['username'],
-				($comment['sent_to_customer'] == 1?$html->image('admin/icons/true.png'):$html->image('admin/icons/false.png')),
+				($comment['sent_to_customer'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))),
 				$comment['comment']
 		   ));
 }

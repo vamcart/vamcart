@@ -32,7 +32,7 @@ foreach ($language_data AS $language)
 				$html->link($language['Language']['name'], '/languages/admin_edit/' . $language['Language']['id']),
 				$language['Language']['iso_code_2'],				
 				$admin->ShowFlag($language['Language']),
-				$ajax->link(($language['Language']['active'] == 1?$html->image('admin/icons/true.png'):$html->image('admin/icons/false.png')), 'null', $options = array('url' => '/languages/admin_change_active_status/' . $language['Language']['id'], 'update' => 'content'), null, false),
+				$ajax->link(($language['Language']['active'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))), 'null', $options = array('url' => '/languages/admin_change_active_status/' . $language['Language']['id'], 'update' => 'content'), null, false),
 				$admin->DefaultButton($language['Language']),
 				$admin->ActionButton('edit','/languages/admin_edit/' . $language['Language']['id']) . $admin->ActionButton('delete','/languages/admin_delete/' . $language['Language']['id']),
 				$form->checkbox('modify][', array('value' => $language['Language']['id']))
