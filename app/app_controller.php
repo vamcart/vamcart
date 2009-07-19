@@ -291,7 +291,7 @@ class AppController extends Controller {
 			// TODO: Make this more secure, possibly change to a requestaction in users controller
 			if((!$this->Session->check('User.username'))&& (($this->action != 'admin_login') || ($this->action == 'index')))
 			{
-				$this->Session->setFlash(__('Sorry, you must be logged in to do that.',true));			
+				$this->Session->setFlash(__('Login Error.',true));			
 				$this->redirect('/users/admin_login/');
 			}
 			else
