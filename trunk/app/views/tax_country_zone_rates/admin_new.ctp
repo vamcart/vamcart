@@ -19,17 +19,6 @@
 **/
 
 ?>
-<script language="javascript" type="text/javascript">
-	function update_zone_list ()
-	{
-		var select_box = $('TaxCountryZoneRateCountryId');
-		var country_id = select_box.options[select_box.selectedIndex].value;
-		
-		new Ajax.Updater('zones_by_country', '/tax_country_zone_rates/list_zones_by_country/' + country_id, {asynchronous:true});
-		
-	}
-</script>
-	
 <?php
 
 echo $form->create('TaxCountryZoneRate', array('id' => 'contentform', 'action' => '/tax_country_zone_rates/admin_new/' . $tax['Tax']['id'], 'url' => '/tax_country_zone_rates/admin_new/' . $tax['Tax']['id']));
@@ -44,7 +33,6 @@ echo $form->create('TaxCountryZoneRate', array('id' => 'contentform', 'action' =
 					'type' => 'select',
 					'options' => $country_list,
 					'selected' => '223',
-					'onchange' => 'update_zone_list()'
 	              )));
 				  
 	echo '<div id="zones_by_country">';

@@ -5,6 +5,12 @@
 		})
 	});
 
+	$(document).ready(function(){
+		$("select#TaxCountryZoneRateCountryId").change(function () {
+			$("div#zones_by_country").load("/tax_country_zone_rates/list_zones_by_country/"+$("select#TaxCountryZoneRateCountryId").val());
+		})
+	});
+
 	$(function(){
 		$('#tabs').tabs();
 	});
