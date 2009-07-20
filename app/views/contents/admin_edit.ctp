@@ -68,7 +68,7 @@ function update_content_images ()
 						'type' => 'select',
 				   	'label' => __('Content Type', true),
 						'options' => $content_types,
-						'selected' => (!isset($data['Content']['content_type_id'])? 2 : $data['Content']['content_type_id']),
+						'selected' => (!isset($data['Content']['content_type_id'])? 2 : $data['Content']['content_type_id'])
 	               )));
 
 		echo '<div id="content_type_fields">';

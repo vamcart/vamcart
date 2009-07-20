@@ -32,7 +32,7 @@ echo $form->create('TaxCountryZoneRate', array('id' => 'contentform', 'action' =
 			   		'label' => __('Country', true),
 					'type' => 'select',
 					'options' => $country_list,
-					'selected' => '223',
+					'selected' => '223'
 	              )));
 				  
 	echo '<div id="zones_by_country">';
