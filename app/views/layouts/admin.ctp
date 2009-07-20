@@ -27,7 +27,7 @@ header('Content-Type: text/html; charset=utf-8');
 <?php echo $html->charset(); ?>
 <title><?php __('VaM Shop Admin') ?></title>
 <?php echo $javascript->link('jquery/jquery.min');  ?>
-<?php echo $javascript->link('jquery/plugins/ui/jquery-ui.min');  ?>
+<?php echo $javascript->link('jquery/plugins/jquery-ui.min');  ?>
 <!--
 <?php echo $javascript->link('jquery/plugins/jquery.form');  ?>
 <?php echo $javascript->link('jquery/plugins/jquery.jeditable');  ?>
