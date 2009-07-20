@@ -19,6 +19,15 @@
 **/
 
 ?>
+<script language="javascript" type="text/javascript">
+	$(document).ready(function(){
+
+		$("select#TaxCountryZoneRateCountryId").change(function () {
+			$("div#zones_by_country").load("<?php echo BASE; ?>/tax_country_zone_rates/list_zones_by_country/"+$("select#TaxCountryZoneRateCountryId").val());
+		})
+
+	});
+</script>
 <?php
 
 echo $form->create('TaxCountryZoneRate', array('id' => 'contentform', 'action' => '/tax_country_zone_rates/admin_new/' . $tax['Tax']['id'], 'url' => '/tax_country_zone_rates/admin_new/' . $tax['Tax']['id']));
