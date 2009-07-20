@@ -19,16 +19,6 @@
 **/
 //pr($data);
 ?>
-<script language="javascript" type="text/javascript">
-		
-function update_content_images ()
-	{
-		// This isn't working for some reason.
-		//new Ajax.Updater('content_images_holder', '/images/admin_view_content_images/<?php echo $data['Content']['id']; ?>', {asynchronous:false});
-	}
-
-</script>
-
 <?php
 	
 	// Set default div styling for template_requured container divs
