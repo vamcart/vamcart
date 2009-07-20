@@ -26,8 +26,6 @@ header('Content-Type: text/html; charset=utf-8');
 <head>
 <?php echo $html->charset(); ?>
 <title><?php __('VaM Shop Admin') ?></title>
-<?php echo $javascript->link('scriptaculous/prototype');  ?>	
-<?php echo $javascript->link('scriptaculous/scriptaculous');  ?>
 <?php echo $javascript->link('jquery/jquery.min');  ?>
 <?php echo $javascript->link('jquery/plugins/ui/jquery-ui.min');  ?>
 <!--

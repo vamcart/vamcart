@@ -20,45 +20,8 @@
 //pr($data);
 ?>
 <script language="javascript" type="text/javascript">
-	function show_required_template_divs ()
-	{
-		// Hide all sections
-		var sections = document.getElementsByClassName('template_required');
-		for(var j=0; j<sections.length; j++)
-		{
-			$(sections[j].id).style.display = 'block';
-		}
-	}
-
-	function hide_required_template_divs ()
-	{
-		// Hide all sections
-		var sections = document.getElementsByClassName('template_required');
-		for(var j=0; j<sections.length; j++)
-		{
-			$(sections[j].id).style.display = 'none';
-		}
-	}	
-
-	function change_content_type ()
-	{
-		var select_box = $('ContentContentTypeId');
-		var content_type_id = select_box.options[select_box.selectedIndex].value;
 		
-		new Ajax.Updater('content_type_fields', '/contents/admin_edit_type/' + content_type_id + '/<?php echo $data['Content']['id']; ?>', {asynchronous:true});
-		
-		// TODO: make this better
-		if(content_type_id > 3)
-		{
-			 hide_required_template_divs();
-		}
-		else
-		{
-			show_required_template_divs();
-		}
-	}
-	
-	function update_content_images ()
+function update_content_images ()
 	{
 		// This isn't working for some reason.
 		//new Ajax.Updater('content_images_holder', '/images/admin_view_content_images/<?php echo $data['Content']['id']; ?>', {asynchronous:false});
@@ -106,7 +69,6 @@
 				   	'label' => __('Content Type', true),
 						'options' => $content_types,
 						'selected' => (!isset($data['Content']['content_type_id'])? 2 : $data['Content']['content_type_id']),
-						'onchange' => 'change_content_type();'
 	               )));
 
 		echo '<div id="content_type_fields">';
