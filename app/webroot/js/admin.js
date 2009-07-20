@@ -1,6 +1,13 @@
-			$(function(){
-				$('#tabs').tabs();
-			});
+
+	$(document).ready(function(){
+		$("select#ContentContentTypeId").change(function () {
+			$("div#content_type_fields").load("/contents/admin_edit_type/"+$("select#ContentContentTypeId").val());
+		})
+	});
+
+	$(function(){
+		$('#tabs').tabs();
+	});
 
 		function selectall()
 		{
