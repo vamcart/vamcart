@@ -19,6 +19,15 @@
 **/
 //pr($data);
 ?>
+<script language="javascript" type="text/javascript">
+	$(document).ready(function(){
+
+		$("select#ContentContentTypeId").change(function () {
+			$("div#content_type_fields").load("<?php echo BASE; ?>/contents/admin_edit_type/"+$("select#ContentContentTypeId").val());
+		})
+
+	});
+</script>
 <?php
 	
 	// Set default div styling for template_requured container divs
