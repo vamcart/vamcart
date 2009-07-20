@@ -26,12 +26,14 @@ header('Content-Type: text/html; charset=utf-8');
 <head>
 <?php echo $html->charset(); ?>
 <title><?php __('VaM Shop Admin') ?></title>
-<!--
 <?php echo $javascript->link('scriptaculous/prototype');  ?>	
 <?php echo $javascript->link('scriptaculous/scriptaculous');  ?>
--->
 <?php echo $javascript->link('jquery/jquery.min');  ?>
 <?php echo $javascript->link('jquery/plugins/ui/jquery-ui.min');  ?>
+<!--
+<?php echo $javascript->link('jquery/plugins/jquery.form');  ?>
+<?php echo $javascript->link('jquery/plugins/jquery.jeditable');  ?>
+-->
 <?php echo $javascript->link('admin');  ?>	
 <?php echo $html->css('admin');  ?>
 <?php echo $html->css('jquery/plugins/ui/css/smoothness/jquery-ui');  ?>
