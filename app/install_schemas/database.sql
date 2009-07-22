@@ -639,7 +639,9 @@ INSERT INTO `defined_languages` (`id`, `language_id`, `key`, `value`, `created`,
 (115, 1, 'google_html-details', '<p>Click the button below to be taken to Google Checkout.</p>', '2007-08-13 16:57:39', '2007-08-13 16:57:39'),
 (116, 2, 'google_html-details', '<p>Нажмите кнопку ниже для перехода к оплате.</p>', '2007-08-13 16:57:39', '2007-08-13 16:57:39'),
 (117, 1, 'Main Page', 'Main Page', '2007-08-13 09:28:49', '2007-08-13 09:28:49'),
-(118, 2, 'Main Page', 'Главная', '2007-08-13 09:28:49', '2007-08-13 09:28:49');
+(118, 2, 'Main Page', 'Главная', '2007-08-13 09:28:49', '2007-08-13 09:28:49'),
+(119, 1, 'Categories', 'Categories', '2007-08-13 09:28:49', '2007-08-13 09:28:49'),
+(120, 2, 'Categories', 'Разделы', '2007-08-13 09:28:49', '2007-08-13 09:28:49');
 
 DROP TABLE IF EXISTS events;
 CREATE TABLE `events` (
