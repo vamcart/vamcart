@@ -1,23 +1,5 @@
--- phpMyAdmin SQL Dump
--- version 2.10.1
--- http://www.phpmyadmin.net
--- 
--- Host: localhost:3307
--- Generation Time: Sep 14, 2007 at 02:19 PM
--- Server version: 5.0.41
--- PHP Version: 5.2.3
-
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET NAMES 'utf8';
--- 
--- Database: `store`
--- 
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `configurations`
--- 
 
 DROP TABLE IF EXISTS configurations;
 CREATE TABLE `configurations` (
@@ -25,11 +7,7 @@ CREATE TABLE `configurations` (
   `key` varchar(50) collate utf8_unicode_ci NOT NULL,
   `value` varchar(100) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
-
--- 
--- Dumping data for table `configurations`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `configurations` (`id`, `key`, `value`) VALUES 
 (1, 'METADATA', '<meta name="Generator" content="VaM Shop - vamshop.ru" />'),
@@ -38,12 +16,6 @@ INSERT INTO `configurations` (`id`, `key`, `value`) VALUES
 (4, 'GD_LIBRARY', '0'),
 (5, 'THUMBNAIL_SIZE', '125'),
 (6, 'CACHE_TIME', '3600');
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `contents`
--- 
 
 DROP TABLE IF EXISTS contents;
 CREATE TABLE `contents` (
@@ -61,11 +33,7 @@ CREATE TABLE `contents` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=69 ;
-
--- 
--- Dumping data for table `contents`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `contents` (`id`, `parent_id`, `order`, `hierarchy`, `content_type_id`, `template_id`, `default`, `alias`, `head_data`, `active`, `show_in_menu`, `created`, `modified`) VALUES 
 (35, 0, 1, 0, 3, 89, 1, 'home-page', '', 1, 1, '2007-07-28 21:11:18', '2007-09-12 12:30:17'),
@@ -90,23 +58,13 @@ INSERT INTO `contents` (`id`, `parent_id`, `order`, `hierarchy`, `content_type_i
 (59, -1, 0, 0, 3, 89, 0, 'create-review', '', 1, 0, '2007-08-20 09:37:04', '2007-08-20 09:37:04'),
 (68, -1, 0, 0, 3, 89, 0, 'coupon-details', '', 1, 0, '2007-09-13 11:11:08', '2007-09-13 11:11:08');
 
--- --------------------------------------------------------
-
--- 
--- Table structure for table `content_categories`
--- 
-
 DROP TABLE IF EXISTS content_categories;
 CREATE TABLE `content_categories` (
   `id` int(10) NOT NULL auto_increment,
   `content_id` int(10) NOT NULL,
   `extra` varchar(1) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
-
--- 
--- Dumping data for table `content_categories`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `content_categories` (`id`, `content_id`, `extra`) VALUES 
 (8, 36, '1'),
@@ -114,12 +72,6 @@ INSERT INTO `content_categories` (`id`, `content_id`, `extra`) VALUES
 (10, 40, '1'),
 (11, 41, '1'),
 (12, 51, '1');
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `content_descriptions`
--- 
 
 DROP TABLE IF EXISTS content_descriptions;
 CREATE TABLE `content_descriptions` (
@@ -129,11 +81,7 @@ CREATE TABLE `content_descriptions` (
   `name` varchar(50) collate utf8_unicode_ci NOT NULL,
   `description` text collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=395 ;
-
--- 
--- Dumping data for table `content_descriptions`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `content_descriptions` (`id`, `content_id`, `language_id`, `name`, `description`) VALUES 
 (159, 40, 1, 'Shopping Carts', 'Shopping Carts'),
@@ -179,12 +127,6 @@ INSERT INTO `content_descriptions` (`id`, `content_id`, `language_id`, `name`, `
 (393, 68, 1, 'Voucher Details', '{module alias=''coupons'' action=''show_info''}'),
 (394, 68, 3, 'Voucher Details', '{module alias=''coupons'' action=''show_info''}');
 
--- --------------------------------------------------------
-
--- 
--- Table structure for table `content_images`
--- 
-
 DROP TABLE IF EXISTS content_images;
 CREATE TABLE `content_images` (
   `id` int(10) NOT NULL auto_increment,
@@ -194,21 +136,11 @@ CREATE TABLE `content_images` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
-
--- 
--- Dumping data for table `content_images`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `content_images` (`id`, `content_id`, `order`, `image`, `created`, `modified`) VALUES 
 (1, 37, 1, 'ie72.jpg', '2007-07-31 09:45:11', '2007-07-31 09:45:11'),
 (2, 38, 1, 'firefox.jpg', '2007-08-09 21:03:49', '2007-08-09 21:03:49');
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `content_links`
--- 
 
 DROP TABLE IF EXISTS content_links;
 CREATE TABLE `content_links` (
@@ -216,20 +148,10 @@ CREATE TABLE `content_links` (
   `content_id` int(10) NOT NULL,
   `url` varchar(255) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
-
--- 
--- Dumping data for table `content_links`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `content_links` (`id`, `content_id`, `url`) VALUES 
 (1, 54, 'http://cnn.com');
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `content_pages`
--- 
 
 DROP TABLE IF EXISTS content_pages;
 CREATE TABLE `content_pages` (
@@ -237,11 +159,7 @@ CREATE TABLE `content_pages` (
   `content_id` int(10) NOT NULL,
   `extra` varchar(1) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=35 ;
-
--- 
--- Dumping data for table `content_pages`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `content_pages` (`id`, `content_id`, `extra`) VALUES 
 (23, 35, '1'),
@@ -256,12 +174,6 @@ INSERT INTO `content_pages` (`id`, `content_id`, `extra`) VALUES
 (32, 51, '1'),
 (33, 53, '1');
 
--- --------------------------------------------------------
-
--- 
--- Table structure for table `content_products`
--- 
-
 DROP TABLE IF EXISTS content_products;
 CREATE TABLE `content_products` (
   `id` int(10) NOT NULL auto_increment,
@@ -272,22 +184,12 @@ CREATE TABLE `content_products` (
   `tax_id` int(10) NOT NULL,
   `weight` double NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=20 ;
-
--- 
--- Dumping data for table `content_products`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `content_products` (`id`, `content_id`, `stock`, `model`, `price`, `tax_id`, `weight`) VALUES 
 (16, 37, 12, '123456', 10.99, 2, 0),
 (17, 38, 22, '', 4.95, 2, 3),
 (18, 55, 0, '', 0.01, 2, 0);
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `content_selflinks`
--- 
 
 DROP TABLE IF EXISTS content_selflinks;
 CREATE TABLE `content_selflinks` (
@@ -295,20 +197,10 @@ CREATE TABLE `content_selflinks` (
   `content_id` int(1) NOT NULL,
   `url` varchar(50) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
-
--- 
--- Dumping data for table `content_selflinks`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `content_selflinks` (`id`, `content_id`, `url`) VALUES 
 (1, 54, '38');
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `content_types`
--- 
 
 DROP TABLE IF EXISTS content_types;
 CREATE TABLE `content_types` (
@@ -317,11 +209,7 @@ CREATE TABLE `content_types` (
   `name` varchar(50) collate utf8_unicode_ci NOT NULL,
   `type` varchar(50) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
-
--- 
--- Dumping data for table `content_types`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `content_types` (`id`, `template_type_id`, `name`, `type`) VALUES 
 (1, 4, 'Category', 'ContentCategory'),
@@ -329,12 +217,6 @@ INSERT INTO `content_types` (`id`, `template_type_id`, `name`, `type`) VALUES
 (3, 2, 'Page', 'ContentPage'),
 (4, 0, 'Link', 'ContentLink'),
 (5, 0, 'Selflink', 'ContentSelflink');
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `countries`
--- 
 
 DROP TABLE IF EXISTS countries;
 CREATE TABLE `countries` (
@@ -345,11 +227,7 @@ CREATE TABLE `countries` (
   `address_format` varchar(255) collate utf8_unicode_ci default NULL,
   PRIMARY KEY  (`id`),
   KEY `IDX_NAME` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=245 ;
-
--- 
--- Dumping data for table `countries`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `countries` (`id`, `name`, `iso_code_2`, `iso_code_3`, `address_format`) VALUES 
 (1, 'Afghanistan', 'Af', 'AFG', ''),
@@ -592,12 +470,6 @@ INSERT INTO `countries` (`id`, `name`, `iso_code_2`, `iso_code_3`, `address_form
 (238, 'Zambia', 'ZM', 'ZMB', ''),
 (239, 'Zimbabwe', 'ZW', 'ZWE', '');
 
--- --------------------------------------------------------
-
--- 
--- Table structure for table `country_zones`
--- 
-
 DROP TABLE IF EXISTS country_zones;
 CREATE TABLE `country_zones` (
   `id` int(10) NOT NULL auto_increment,
@@ -606,10 +478,6 @@ CREATE TABLE `country_zones` (
   `name` varchar(64) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- 
--- Dumping data for table `country_zones`
--- 
 
 INSERT INTO `country_zones` (`id`, `country_id`, `code`, `name`) VALUES 
 (3790, 222, 'ABD', 'Aberdeenshire'),
@@ -901,12 +769,6 @@ INSERT INTO `country_zones` (`id`, `country_id`, `code`, `name`) VALUES
 (4076, 223, 'WV', 'West Virginia'),
 (4077, 223, 'WY', 'Wyoming');
 
--- --------------------------------------------------------
-
--- 
--- Table structure for table `currencies`
--- 
-
 DROP TABLE IF EXISTS currencies;
 CREATE TABLE `currencies` (
   `id` int(10) NOT NULL auto_increment,
@@ -925,20 +787,10 @@ CREATE TABLE `currencies` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- 
--- Dumping data for table `currencies`
--- 
-
 INSERT INTO `currencies` (`id`, `active`, `default`, `name`, `code`, `symbol_left`, `symbol_right`, `decimal_point`, `thousands_point`, `decimal_places`, `value`, `created`, `modified`) VALUES 
 (1, 1, 1, 'US Dollar', 'USD', '$', '', '.', ',', '2', 1, '2007-07-15 11:39:15', '2007-07-15 13:08:23'),
 (2, 1, 0, 'Рубль', 'RUR', '', 'руб.', '.', ',', '0.0312', 1, '2007-07-15 11:39:15', '2007-07-15 13:08:23'),
 (3, 1, 0, 'Euro', 'EUR', '&euro;', '', '.', ',', '2', 0.7811, '2007-07-15 13:09:23', '2007-07-15 13:09:23');
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `defined_languages`
--- 
 
 DROP TABLE IF EXISTS defined_languages;
 CREATE TABLE `defined_languages` (
@@ -949,11 +801,7 @@ CREATE TABLE `defined_languages` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=117 ;
-
--- 
--- Dumping data for table `defined_languages`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `defined_languages` (`id`, `language_id`, `key`, `value`, `created`, `modified`) VALUES 
 (25, 1, 'welcome-message', 'Welcome to the online store yo! 2 ', '2007-07-27 20:35:49', '2007-07-27 20:35:49'),
@@ -1033,12 +881,6 @@ INSERT INTO `defined_languages` (`id`, `language_id`, `key`, `value`, `created`,
 (115, 1, 'google_html-details', '<p>Ready to checkout? Click the button below to be taken to Google Checkout.</p>', '2007-08-13 16:57:39', '2007-08-13 16:57:39'),
 (116, 3, 'google_html-details', '', '2007-08-13 16:57:39', '2007-08-13 16:57:39');
 
--- --------------------------------------------------------
-
--- 
--- Table structure for table `events`
--- 
-
 DROP TABLE IF EXISTS events;
 CREATE TABLE `events` (
   `id` int(10) NOT NULL auto_increment,
@@ -1048,11 +890,7 @@ CREATE TABLE `events` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
-
--- 
--- Dumping data for table `events`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `events` (`id`, `alias`, `originator`, `description`, `created`, `modified`) VALUES 
 (1, 'UpdateOrderTotalsBeforeSave', 'Core', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -1068,12 +906,6 @@ INSERT INTO `events` (`id`, `alias`, `originator`, `description`, `created`, `mo
 (11, 'SwitchLanguage', 'Core', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (12, 'SwitchCurrency', 'Core', '', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
--- --------------------------------------------------------
-
--- 
--- Table structure for table `event_handlers`
--- 
-
 DROP TABLE IF EXISTS event_handlers;
 CREATE TABLE `event_handlers` (
   `id` int(10) NOT NULL auto_increment,
@@ -1083,20 +915,10 @@ CREATE TABLE `event_handlers` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
-
--- 
--- Dumping data for table `event_handlers`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `event_handlers` (`id`, `event_id`, `originator`, `action`, `created`, `modified`) VALUES 
 (8, 2, 'CouponsModule', '/module_coupons/event/utilize_coupon/', '2007-09-13 11:11:08', '2007-09-13 11:11:08');
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `global_content_blocks`
--- 
 
 DROP TABLE IF EXISTS global_content_blocks;
 CREATE TABLE `global_content_blocks` (
@@ -1108,20 +930,10 @@ CREATE TABLE `global_content_blocks` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=39 ;
-
--- 
--- Dumping data for table `global_content_blocks`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `global_content_blocks` (`id`, `name`, `content`, `alias`, `active`, `created`, `modified`) VALUES 
-(38, 'Footer', '<a href="http://vamshop.ru/" target="blank">Создание интернет-магазина</a>, <a href="http://vamshop.ru/" target="blank">скрипт интернет-магазина</a> VaM Shop', 'footer', 1, '2007-07-17 10:00:06', '2007-09-12 17:05:49');
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `languages`
--- 
+(38, 'Footer', '<a href="http://vamshop.ru/" target="blank">VaM Shop</a>', 'footer', 1, '2007-07-17 10:00:06', '2007-09-12 17:05:49');
 
 DROP TABLE IF EXISTS languages;
 CREATE TABLE `languages` (
@@ -1133,21 +945,11 @@ CREATE TABLE `languages` (
   `active` tinyint(4) NOT NULL default '1',
   `sort_order` int(3) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
-
--- 
--- Dumping data for table `languages`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `languages` (`id`, `default`, `name`, `code`, `iso_code_2`, `active`, `sort_order`) VALUES 
 (1, 1, 'English', 'en_US', 'us', 1, 1),
 (3, 0, 'Русский', 'ru_ru', 'ru', 1, 0);
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `micro_templates`
--- 
 
 DROP TABLE IF EXISTS micro_templates;
 CREATE TABLE `micro_templates` (
@@ -1158,11 +960,7 @@ CREATE TABLE `micro_templates` (
   `modified` datetime NOT NULL,
   `tag_name` varchar(20) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
-
--- 
--- Dumping data for table `micro_templates`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `micro_templates` (`id`, `alias`, `template`, `created`, `modified`, `tag_name`) VALUES 
 (1, 'vertical-menu', '<!-- Categories box -->\r\n<div class="box">\r\n<h5>{lang}Categories{/lang}</h5>\r\n<div class="boxContent">\r\n<ul id="CatNavi">\r\n{foreach from=$content_list item=node}\r\n<li{if $node.alias == $content_alias} class="active"{/if}><a href="{$node.url}">{$node.name}</a></li>\r\n{/foreach}\r\n</ul>\r\n</div>\r\n</div>\r\n<!-- /Categories box -->', '2007-07-28 17:08:06', '2009-07-12 18:59:10', 'content_listing'),
@@ -1172,12 +970,6 @@ INSERT INTO `micro_templates` (`id`, `alias`, `template`, `created`, `modified`,
 (9, 'payment-view-cart', '<div class="cart">\r\n	<table style="width:100%;">\r\n		<tr>	\r\n			<th> </th>\r\n			<th>{lang}product{/lang}</th>\r\n			<th>{lang}price-ea{/lang}</th>\r\n			<th>{lang}qty{/lang}</th>\r\n			<th>{lang}total{/lang}</th>\r\n		</tr>\r\n				\r\n		{foreach from=$order_items item=product}			\r\n			<tr>\r\n				<td><a href="/cart/remove_product/{$product.id}" class="remove">x</a></td>\r\n				<td><a href="{$product.link}">{$product.name}</a></td>\r\n				<td>{$product.price}</td>\r\n				<td>{$product.qty}</td>\r\n				<td>{$product.line_total}</td>\r\n			</tr>				\r\n		{foreachelse}	\r\n			<tr>\r\n				<td colspan="5">{lang}no-cart-items{/lang}</td>\r\n			</tr>\r\n		{/foreach}				\r\n				\r\n		<tr class="cart_total">\r\n			<td colspan="5">\r\n				{lang}shipping{/lang}: {$shipping_total}<br />\r\n				<strong>{lang}total{/lang}:</strong> {$order_total}\r\n			</td>\r\n		</tr>\r\n	</table>\r\n</div>', '2007-08-10 13:09:25', '2007-09-02 22:25:57', 'shopping_cart'),
 (10, 'language-box', '<!-- Box -->\r\n<div class="box">\r\n<h5>{lang}Language{/lang}</h5>\r\n<div class="boxContent">\r\n\r\n{foreach from=$languages item=language}\r\n<a href="{$language.url}"><img src="{$language.image}" alt="{$language.name}" title="{$language.name}"/></a>\r\n{/foreach}\r\n\r\n</div>\r\n</div>\r\n<!-- /Box -->', '2009-07-12 18:52:23', '2009-07-12 18:57:08', 'language_box');
 
--- --------------------------------------------------------
-
--- 
--- Table structure for table `modules`
--- 
-
 DROP TABLE IF EXISTS modules;
 CREATE TABLE `modules` (
   `id` int(10) NOT NULL auto_increment,
@@ -1186,21 +978,11 @@ CREATE TABLE `modules` (
   `version` varchar(10) collate utf8_unicode_ci NOT NULL,
   `nav_level` int(4) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=30 ;
-
--- 
--- Dumping data for table `modules`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `modules` (`id`, `name`, `alias`, `version`, `nav_level`) VALUES 
 (16, 'Reviews', 'reviews', '1.0', 3),
 (29, 'Coupons', 'coupons', '2', 3);
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `module_coupons`
--- 
 
 DROP TABLE IF EXISTS module_coupons;
 CREATE TABLE `module_coupons` (
@@ -1220,18 +1002,7 @@ CREATE TABLE `module_coupons` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
--- 
--- Dumping data for table `module_coupons`
--- 
-
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `module_reviews`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS module_reviews;
 CREATE TABLE `module_reviews` (
@@ -1242,18 +1013,7 @@ CREATE TABLE `module_reviews` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
-
--- 
--- Dumping data for table `module_reviews`
--- 
-
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `orders`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS orders;
 CREATE TABLE `orders` (
@@ -1283,11 +1043,7 @@ CREATE TABLE `orders` (
   `cc_expiration_year` int(4) NOT NULL,
   `created` datetime NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=74 ;
-
--- 
--- Dumping data for table `orders`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `orders` (`id`, `order_status_id`, `shipping_method_id`, `payment_method_id`, `shipping`, `tax`, `total`, `bill_name`, `bill_line_1`, `bill_line_2`, `bill_city`, `bill_state`, `bill_zip`, `ship_name`, `ship_line_1`, `ship_line_2`, `ship_city`, `ship_state`, `ship_zip`, `email`, `phone`, `cc_number`, `cc_expiration_month`, `cc_expiration_year`, `created`) VALUES 
 (14, 3, 2, 2, 5.99, 0, 25.79, 'Test Order', 'asdfasf', 'asdfasdf', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, '0000-00-00 00:00:00'),
@@ -1299,12 +1055,6 @@ INSERT INTO `orders` (`id`, `order_status_id`, `shipping_method_id`, `payment_me
 (72, 0, 2, 2, 5.99, 0, 16.98, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, '2007-09-10 12:46:43'),
 (73, 0, 2, 2, 5.99, 0, 16.98, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, '2007-09-12 11:59:00');
 
--- --------------------------------------------------------
-
--- 
--- Table structure for table `order_comments`
--- 
-
 DROP TABLE IF EXISTS order_comments;
 CREATE TABLE `order_comments` (
   `id` int(10) NOT NULL auto_increment,
@@ -1315,21 +1065,11 @@ CREATE TABLE `order_comments` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
-
--- 
--- Dumping data for table `order_comments`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `order_comments` (`id`, `user_id`, `order_id`, `sent_to_customer`, `comment`, `created`, `modified`) VALUES 
 (1, 1, 14, 0, 'asdf', '2007-08-28 11:06:18', '2007-08-28 11:06:18'),
 (2, 1, 14, 0, '', '2007-08-28 11:06:34', '2007-08-28 11:06:34');
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `order_products`
--- 
 
 DROP TABLE IF EXISTS order_products;
 CREATE TABLE `order_products` (
@@ -1342,11 +1082,7 @@ CREATE TABLE `order_products` (
   `weight` varchar(10) collate utf8_unicode_ci NOT NULL,
   `tax` double NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=215 ;
-
--- 
--- Dumping data for table `order_products`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `order_products` (`id`, `order_id`, `content_id`, `name`, `quantity`, `price`, `weight`, `tax`) VALUES 
 (1, 1, 37, 'Internet Explorer', 0, 10.99, '', 0),
@@ -1392,34 +1128,18 @@ INSERT INTO `order_products` (`id`, `order_id`, `content_id`, `name`, `quantity`
 (213, 72, 37, 'Internet Explorer', 1, 10.99, '0', 0),
 (214, 73, 37, 'Internet Explorer', 1, 10.99, '0', 0);
 
--- --------------------------------------------------------
-
--- 
--- Table structure for table `order_statuses`
--- 
-
 DROP TABLE IF EXISTS order_statuses;
 CREATE TABLE `order_statuses` (
   `id` int(10) NOT NULL auto_increment,
   `default` tinyint(4) NOT NULL,
   `order` int(4) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
-
--- 
--- Dumping data for table `order_statuses`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `order_statuses` (`id`, `default`, `order`) VALUES 
 (3, 0, 2),
 (4, 1, 1),
 (5, 0, 3);
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `order_status_descriptions`
--- 
 
 DROP TABLE IF EXISTS order_status_descriptions;
 CREATE TABLE `order_status_descriptions` (
@@ -1429,11 +1149,7 @@ CREATE TABLE `order_status_descriptions` (
   `name` varchar(50) collate utf8_unicode_ci NOT NULL,
   `description` text collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=37 ;
-
--- 
--- Dumping data for table `order_status_descriptions`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `order_status_descriptions` (`id`, `order_status_id`, `language_id`, `name`, `description`) VALUES 
 (31, 3, 1, 'Shipped', ''),
@@ -1443,12 +1159,6 @@ INSERT INTO `order_status_descriptions` (`id`, `order_status_id`, `language_id`,
 (35, 5, 1, 'Processing', ''),
 (36, 5, 3, 'asdf', '');
 
--- --------------------------------------------------------
-
--- 
--- Table structure for table `payment_methods`
--- 
-
 DROP TABLE IF EXISTS payment_methods;
 CREATE TABLE `payment_methods` (
   `id` int(10) NOT NULL auto_increment,
@@ -1457,11 +1167,7 @@ CREATE TABLE `payment_methods` (
   `name` varchar(100) collate utf8_unicode_ci NOT NULL,
   `alias` varchar(100) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
-
--- 
--- Dumping data for table `payment_methods`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `payment_methods` (`id`, `active`, `default`, `name`, `alias`) VALUES 
 (1, 1, 0, 'In-store Pickup', 'store_pickup'),
@@ -1471,12 +1177,6 @@ INSERT INTO `payment_methods` (`id`, `active`, `default`, `name`, `alias`) VALUE
 (5, 1, 0, 'Authorize.Net', 'authorize'),
 (6, 1, 0, 'Google Checkout', 'google_html');
 
--- --------------------------------------------------------
-
--- 
--- Table structure for table `payment_method_values`
--- 
-
 DROP TABLE IF EXISTS payment_method_values;
 CREATE TABLE `payment_method_values` (
   `id` int(10) NOT NULL auto_increment,
@@ -1484,22 +1184,12 @@ CREATE TABLE `payment_method_values` (
   `key` varchar(50) collate utf8_unicode_ci NOT NULL,
   `value` varchar(100) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
-
--- 
--- Dumping data for table `payment_method_values`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `payment_method_values` (`id`, `payment_method_id`, `key`, `value`) VALUES 
 (3, 3, 'paypal_email', 'kevingraasdfndon@hotmail.com'),
 (4, 5, 'authorize_login', '888888888'),
 (5, 6, 'google_html_merchant_id', '1234567890');
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `search_tables`
--- 
 
 DROP TABLE IF EXISTS search_tables;
 CREATE TABLE `search_tables` (
@@ -1510,11 +1200,7 @@ CREATE TABLE `search_tables` (
   `edit_field` varchar(50) collate utf8_unicode_ci NOT NULL,
   `alternate_anchor` varchar(50) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
-
--- 
--- Dumping data for table `search_tables`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `search_tables` (`id`, `model`, `field`, `url`, `edit_field`, `alternate_anchor`) VALUES 
 (1, 'Content', 'alias', '/contents/admin_edit/', 'id', ''),
@@ -1530,12 +1216,6 @@ INSERT INTO `search_tables` (`id`, `model`, `field`, `url`, `edit_field`, `alter
 (11, 'Stylesheet', 'name', '/stylesheets/admin_edit/', 'id', ''),
 (12, 'Stylesheet', 'stylesheet', '/stylesheets/admin_edit/', 'id', 'name');
 
--- --------------------------------------------------------
-
--- 
--- Table structure for table `shipping_methods`
--- 
-
 DROP TABLE IF EXISTS shipping_methods;
 CREATE TABLE `shipping_methods` (
   `id` int(10) NOT NULL auto_increment,
@@ -1544,23 +1224,13 @@ CREATE TABLE `shipping_methods` (
   `default` tinyint(4) NOT NULL default '0',
   `active` tinyint(4) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
-
--- 
--- Dumping data for table `shipping_methods`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `shipping_methods` (`id`, `name`, `code`, `default`, `active`) VALUES 
 (1, 'Free Shipping', 'free_shipping', 0, 1),
 (2, 'Flat Rate', 'flat_rate', 1, 1),
 (3, 'Per Item', 'per_item', 0, 1),
 (4, 'Table Based', 'table_based', 0, 1);
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `shipping_method_values`
--- 
 
 DROP TABLE IF EXISTS shipping_method_values;
 CREATE TABLE `shipping_method_values` (
@@ -1569,11 +1239,7 @@ CREATE TABLE `shipping_method_values` (
   `key` varchar(50) collate utf8_unicode_ci NOT NULL,
   `value` varchar(100) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
-
--- 
--- Dumping data for table `shipping_method_values`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `shipping_method_values` (`id`, `shipping_method_id`, `key`, `value`) VALUES 
 (4, 2, 'rate', '5.99'),
@@ -1582,12 +1248,6 @@ INSERT INTO `shipping_method_values` (`id`, `shipping_method_id`, `key`, `value`
 (8, 4, 'table_based_type', 'weight'),
 (9, 4, 'table_based_rates', '0:0.50,\r\n1:1.50,\r\n2:2.25,\r\n3:3.00,\r\n4:5.75'),
 (10, 2, 'cost', '5.99');
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `stylesheets`
--- 
 
 DROP TABLE IF EXISTS stylesheets;
 CREATE TABLE `stylesheets` (
@@ -1600,23 +1260,13 @@ CREATE TABLE `stylesheets` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=22 ;
-
--- 
--- Dumping data for table `stylesheets`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `stylesheets` (`id`, `active`, `name`, `alias`, `stylesheet`, `stylesheet_media_type_id`, `created`, `modified`) VALUES 
-(15, 1, 'Default Layout', 'default-home-page-layout', '/* -----------------------------------------------------------------------------------------\r\n   VaM Shop - open source ecommerce solution\r\n   http://vamshop.ru\r\n\r\n   Copyright (c) 2005-2008 VaM Shop \r\n   -----------------------------------------------------------------------------------------\r\n   Released under the GNU General Public License \r\n   ---------------------------------------------------------------------------------------*/\r\n\r\n/*<![CDATA[*/\r\n\r\nhtml,body\r\n   {\r\n     margin: 0;\r\n     padding: 0;\r\n   }\r\n\r\nbody\r\n   {\r\n     font: 76% arial,sans-serif;\r\n   }\r\n\r\nimg\r\n   {\r\n	  border: 0;\r\n   }\r\n\r\nh2, h3\r\n   {\r\n     margin: 0 0 0 0;\r\n     padding: 0 0 0 0;\r\n   }\r\n   \r\n/* Links color */\r\na \r\n   {\r\n     color: #000;\r\n     text-decoration: underline;\r\n   }\r\n\r\na:hover \r\n   {\r\n     color: #990000;\r\n     text-decoration: none;\r\n   }\r\n/* /Links color */\r\n\r\n/* Content */\r\ndiv#wrapper\r\n   {\r\n     float: left;\r\n     width: 100%;\r\n   }\r\n\r\ndiv#content\r\n   {\r\n     margin: 0 19%;\r\n   }\r\n\r\n/* /Content */\r\n\r\n/* Left column */\r\ndiv#left\r\n   {\r\n     float: left;\r\n     width: 18%;\r\n     margin-left: -100%;\r\n     background: #fff;\r\n   }\r\n/* /Left column */\r\n\r\n/* Right column */\r\ndiv#right\r\n   {\r\n     float: left;\r\n     overflow: auto;\r\n     width: 18%;\r\n     margin-left: -18%;\r\n     background: #fff;\r\n   }\r\n/* /Right column */\r\n\r\n/* Footer */\r\ndiv#footer\r\n   {\r\n     clear: left;\r\n     height: 50px;\r\n     width: 100%;\r\n     background: #f1f1f6;\r\n     border-top: 3px solid #67748B;\r\n     text-align: center;\r\n     color: #000;\r\n   }\r\n   \r\ndiv#footer p\r\n   {\r\n     margin: 0;\r\n     padding: 5px 10px;\r\n   }\r\n   \r\n/* /Footer */\r\n\r\n/* Navigation */\r\ndiv#navigation \r\n   {\r\n     padding-top: 0.5em;\r\n     padding-bottom: 0.5em;\r\n     padding-left: 10px;\r\n     border-bottom: 1px solid #000;\r\n     background: #990000;\r\n     color: #ffffff;\r\n   }\r\n\r\n#navigation span \r\n   {\r\n     display: block;\r\n     font: 11px Tahoma, Verdana, Arial, sans-serif;\r\n     font-weight: bold;\r\n     color: #ffffff;\r\n     border-bottom: 2px #990000 solid;\r\n     background: url(/img/navigation.gif) no-repeat left center;\r\n     padding: 0 0 0 20px; \r\n   }\r\n   \r\n#navigation a\r\n   {\r\n     font: 11px Tahoma, Verdana, Arial, sans-serif;\r\n     font-weight: bold;\r\n     color: #ffffff;\r\n     text-decoration: none;\r\n   }\r\n\r\n#navigation a:hover\r\n   {\r\n     font: 11px Tahoma, Verdana, Arial, sans-serif;\r\n     font-weight: bold;\r\n     color: #ffffff;\r\n     text-decoration: none;\r\n   }\r\n\r\n#navigation a:visited\r\n   {\r\n     font: 11px Tahoma, Verdana, Arial, sans-serif;\r\n     font-weight: bold;\r\n     color: #ffffff;\r\n     text-decoration: none;\r\n   }\r\n   \r\n/* /Navigation */\r\n   \r\n/* Page header */\r\n#content h1 \r\n   {\r\n     display: block;\r\n     font: 16px Tahoma, Verdana, Arial, sans-serif;\r\n     font-weight: bold;\r\n     color: #990000;\r\n     border-bottom: 2px #990000 solid;\r\n     background: url(/img/heading1.gif) no-repeat left center;\r\n     padding: 0 0 0 20px; \r\n     margin: 0.2em 0 0.2em 0; \r\n   }\r\n\r\n#content h1 a \r\n   {\r\n     color: #990000;\r\n     text-decoration: none;\r\n   }\r\n/* /Page header */\r\n\r\n/* Page content */\r\n.page \r\n   {\r\n     background: transparent;\r\n     width: 100%;\r\n     margin-top: 0.5em;\r\n     margin-bottom: 0.5em;\r\n   }\r\n\r\n.pageItem \r\n   {\r\n     background: #f1f1f6;\r\n     width: 100%;\r\n   }\r\n\r\n.page h1, .page p \r\n   {\r\n     margin: 0 10px;\r\n   }\r\n\r\n.page h1 \r\n   {\r\n     font-size: 2em;\r\n     color: #fff;\r\n   }\r\n\r\n.page p \r\n   {\r\n     padding-bottom: 0.5em;\r\n     padding-top: 0.5em;\r\n   }\r\n\r\n.page .b1, .page .b2, .page .b3, .page .b4, .page .b1b, .page .b2b, .page .b3b, .page .b4b \r\n   {\r\n     display: block;\r\n     overflow: hidden;\r\n     font-size: 1px;\r\n   }\r\n\r\n.page .b1, .page .b2, .page .b3, .page .b1b, .page .b2b, .page .b3b \r\n   {\r\n     height: 1px;\r\n   }\r\n\r\n.page .b2 \r\n   {\r\n     background: #f1f1f6;\r\n     border-left: 1px solid #fff;\r\n     border-right: 1px solid #f1f1f6;\r\n   }\r\n\r\n.page .b3 \r\n   {\r\n     background: #f1f1f6;\r\n     border-left: 1px solid #fff;\r\n     border-right: 1px solid #f1f1f6;\r\n   }\r\n\r\n.page .b4 \r\n   {\r\n     background: #f1f1f6;\r\n     border-left: 1px solid #fff;\r\n     border-right: 1px solid #f1f1f6;\r\n   }\r\n\r\n.page .b4b \r\n   {\r\n     background: #f1f1f6;\r\n     border-left: 1px solid #f1f1f6;\r\n     border-right: 1px solid #f1f1f6;\r\n   }\r\n\r\n.page .b3b \r\n   {\r\n     background: #f1f1f6;\r\n     border-left: 1px solid #f1f1f6;\r\n     border-right: 1px solid #f1f1f6;\r\n   }\r\n\r\n.page .b2b \r\n   {\r\n     background: #f1f1f6;\r\n     border-left: 1px solid #f1f1f6;\r\n     border-right: 1px solid #f1f1f6;\r\n   }\r\n\r\n.page .b1 \r\n   {\r\n     margin: 0 5px;\r\n     background: #fff;\r\n   }\r\n\r\n.page .b2, .page .b2b \r\n   {\r\n     margin: 0 3px;\r\n     border-width: 0 2px;\r\n   }\r\n\r\n.page .b3, .page .b3b \r\n   {\r\n     margin: 0 2px;\r\n   }\r\n\r\n.page .b4, .page .b4b \r\n   {\r\n     height: 2px;\r\n     margin: 0 1px;\r\n   }\r\n\r\n.page .b1b \r\n   {\r\n     margin: 0 5px;\r\n     background: #f1f1f6;\r\n   }\r\n\r\n.pagecontent \r\n   {\r\n     display: block;\r\n     padding-left: 0.5em;\r\n     padding-right: 0.5em;\r\n     background: #f1f1f6;\r\n   }\r\n\r\n.pagecontentfooter \r\n   {\r\n     display: block;\r\n     text-align: right;\r\n     background:#ffffff;\r\n     margin-top: 0.5em;\r\n     margin-bottom: 0.5em;\r\n   }\r\n/* /Page content */\r\n\r\n/*- Bookmarks */\r\n\r\n#menu \r\n   {\r\n	  background: #fff;\r\n	  border-bottom: 1px solid #000;\r\n	  border-width: 1px;\r\n	  margin-top: 1em;\r\n	  padding-top: .6em;\r\n   }\r\n\r\n#menu ul, #navigation ul li \r\n   {\r\n	  list-style: none;\r\n	  margin: 0;\r\n	  padding: 0;\r\n   }\r\n\r\n#menu ul \r\n   {\r\n	  padding: 5px 0 0px;\r\n	  text-align: center;\r\n   }\r\n\r\n#menu ul li \r\n   {\r\n	  display: inline;\r\n	  margin:0 .375em;\r\n   }\r\n\r\n#menu ul li.last \r\n   {\r\n	  margin-right: 0;\r\n   }\r\n\r\n#menu ul li a \r\n   {\r\n	  background: url("/img/tab-right.gif") no-repeat 100% 0;\r\n	  background-color: #67748b;\r\n	  color: #fff;\r\n	  padding: 0px 0 0px;\r\n     font-weight: bold;\r\n	  text-decoration: none;\r\n   }\r\n\r\n#menu ul li.current a \r\n   {\r\n	  background: url("/img/tab-right-active.gif") no-repeat 100% 0;\r\n	  background-color: #990000;\r\n	  color: #fff;\r\n	  padding: 0px 0 1px;\r\n     font-weight: bold;\r\n	  text-decoration: none;\r\n   }\r\n\r\n#menu ul li a span \r\n   {\r\n	  background: url("/img/tab-left.gif") no-repeat;\r\n	  padding: 0px 1em;\r\n     border-bottom:1px solid #000;\r\n   }\r\n\r\n#menu ul li.current a span \r\n   {\r\n	  background: url("/img/tab-left-active.gif") no-repeat;\r\n	  padding: 0px 1em 1px;\r\n     border-bottom:0;\r\n   }\r\n\r\n#menu ul li a:hover span \r\n   {\r\n	  color: #fff;\r\n     font-weight: bold;\r\n	  text-decoration: none;\r\n   }\r\n\r\n/*\\*//*/\r\n#menu ul li a \r\n   {\r\n	  display: inline-block;\r\n	  white-space: nowrap;\r\n	  width: 1px;\r\n   }\r\n\r\n#menu ul \r\n   {\r\n	  padding-bottom: 0;\r\n	  margin-bottom: -1px;\r\n   }\r\n/**/\r\n\r\n/*\\*/\r\n* html #menu ul li a \r\n   {\r\n	  padding: 0;\r\n   }\r\n/**/\r\n\r\n/*- /Bookmarks */\r\n\r\n/*- Boxes */\r\n\r\n/*- Box */\r\n.box\r\n   {\r\n     text-align: left;\r\n     margin-bottom: 0.2em;\r\n     margin-top: 0.2em;\r\n     margin-right: 0.2em;\r\n     padding-top: 0.2em;\r\n     padding-bottom: 0.4em;\r\n  	  border-bottom-width: 1px;\r\n	  border-bottom-style: dashed;\r\n     border-bottom-color: #67748B;\r\n   }\r\n\r\n/*- Box Header */\r\n.box h5 \r\n   {\r\n     display: block;\r\n     font: 12px Tahoma, Verdana, Arial, sans-serif;\r\n     font-weight: bold;\r\n     color: #990000;\r\n     border-bottom: 2px #e5e5e5 solid;\r\n     background: url(/img/box.gif) no-repeat left center;\r\n     margin: 0 0 .4em .3em;\r\n     padding: .1em 0 0 16px;\r\n  }\r\n\r\n.box h5 a\r\n   {\r\n     color: #990000;\r\n     text-decoration: none;\r\n   }\r\n/*- /Box Header */\r\n\r\n/*- Box Content */\r\n.boxContent \r\n   {\r\n     padding-left: 0;\r\n     text-align: left;\r\n  }\r\n\r\n#boxContent p \r\n   {\r\n     margin: 0 0 0 0;\r\n     padding-bottom: 0.2em;\r\n  }\r\n\r\n/*- /Box Content */\r\n\r\n/*- /Box */\r\n\r\n/*- /Boxes */\r\n    \r\n/*]]>*/', 0, '2007-07-14 18:44:00', '2009-07-12 18:49:57'),
+(15, 1, 'Default Layout', 'default-home-page-layout', '/* -----------------------------------------------------------------------------------------\r\n   VaM Shop - open source ecommerce solution\r\n   http://vamshop.ru\r\n\r\n   Copyright (c) 2005-2008 VaM Shop \r\n   -----------------------------------------------------------------------------------------\r\n   Released under the GNU General Public License \r\n   ---------------------------------------------------------------------------------------*/\r\n\r\n/*<![CDATA[*/\r\n\r\nhtml,body\r\n   {\r\n     margin: 0;\r\n     padding: 0;\r\n   }\r\n\r\nbody\r\n   {\r\n     font: 76% arial,sans-serif;\r\n   }\r\n\r\nimg\r\n   {\r\n	  border: 0;\r\n   }\r\n\r\nh2, h3\r\n   {\r\n     margin: 0 0 0 0;\r\n     padding: 0 0 0 0;\r\n   }\r\n   \r\n/* Links color */\r\na \r\n   {\r\n     color: #000;\r\n     text-decoration: underline;\r\n   }\r\n\r\na:hover \r\n   {\r\n     color: #990000;\r\n     text-decoration: none;\r\n   }\r\n/* /Links color */\r\n\r\n/* Content */\r\ndiv#wrapper\r\n   {\r\n     float: left;\r\n     width: 100%;\r\n   }\r\n\r\ndiv#content\r\n   {\r\n     margin: 0 19%;\r\n   }\r\n\r\n/* /Content */\r\n\r\n/* Left column */\r\ndiv#left\r\n   {\r\n     float: left;\r\n     width: 18%;\r\n     margin-left: -100%;\r\n     background: #fff;\r\n   }\r\n/* /Left column */\r\n\r\n/* Right column */\r\ndiv#right\r\n   {\r\n     float: left;\r\n     overflow: auto;\r\n     width: 18%;\r\n     margin-left: -18%;\r\n     background: #fff;\r\n   }\r\n/* /Right column */\r\n\r\n/* Footer */\r\ndiv#footer\r\n   {\r\n     clear: left;\r\n     height: 50px;\r\n     width: 100%;\r\n     background: #f1f1f6;\r\n     border-top: 3px solid #67748B;\r\n     text-align: center;\r\n     color: #000;\r\n   }\r\n   \r\ndiv#footer p\r\n   {\r\n     margin: 0;\r\n     padding: 5px 10px;\r\n   }\r\n   \r\n/* /Footer */\r\n\r\n/* Navigation */\r\ndiv#navigation \r\n   {\r\n     padding-top: 0.5em;\r\n     padding-bottom: 0.5em;\r\n     padding-left: 10px;\r\n     border-bottom: 1px solid #000;\r\n     background: #990000;\r\n     color: #ffffff;\r\n   }\r\n\r\n#navigation span \r\n   {\r\n     display: block;\r\n     font: 11px Tahoma, Verdana, Arial, sans-serif;\r\n     font-weight: bold;\r\n     color: #ffffff;\r\n     border-bottom: 2px #990000 solid;\r\n     padding: 0 0 0 20px; \r\n   }\r\n   \r\n#navigation a\r\n   {\r\n     font: 11px Tahoma, Verdana, Arial, sans-serif;\r\n     font-weight: bold;\r\n     color: #ffffff;\r\n     text-decoration: none;\r\n   }\r\n\r\n#navigation a:hover\r\n   {\r\n     font: 11px Tahoma, Verdana, Arial, sans-serif;\r\n     font-weight: bold;\r\n     color: #ffffff;\r\n     text-decoration: none;\r\n   }\r\n\r\n#navigation a:visited\r\n   {\r\n     font: 11px Tahoma, Verdana, Arial, sans-serif;\r\n     font-weight: bold;\r\n     color: #ffffff;\r\n     text-decoration: none;\r\n   }\r\n   \r\n/* /Navigation */\r\n   \r\n/* Page header */\r\n#content h1 \r\n   {\r\n     display: block;\r\n     font: 16px Tahoma, Verdana, Arial, sans-serif;\r\n     font-weight: bold;\r\n     color: #990000;\r\n     border-bottom: 2px #990000 solid;\r\n     padding: 0 0 0 20px; \r\n     margin: 0.2em 0 0.2em 0; \r\n   }\r\n\r\n#content h1 a \r\n   {\r\n     color: #990000;\r\n     text-decoration: none;\r\n   }\r\n/* /Page header */\r\n\r\n/* Page content */\r\n.page \r\n   {\r\n     background: transparent;\r\n     width: 100%;\r\n     margin-top: 0.5em;\r\n     margin-bottom: 0.5em;\r\n   }\r\n\r\n.pageItem \r\n   {\r\n     background: #f1f1f6;\r\n     width: 100%;\r\n   }\r\n\r\n.page h1, .page p \r\n   {\r\n     margin: 0 10px;\r\n   }\r\n\r\n.page h1 \r\n   {\r\n     font-size: 2em;\r\n     color: #fff;\r\n   }\r\n\r\n.page p \r\n   {\r\n     padding-bottom: 0.5em;\r\n     padding-top: 0.5em;\r\n   }\r\n\r\n.page .b1, .page .b2, .page .b3, .page .b4, .page .b1b, .page .b2b, .page .b3b, .page .b4b \r\n   {\r\n     display: block;\r\n     overflow: hidden;\r\n     font-size: 1px;\r\n   }\r\n\r\n.page .b1, .page .b2, .page .b3, .page .b1b, .page .b2b, .page .b3b \r\n   {\r\n     height: 1px;\r\n   }\r\n\r\n.page .b2 \r\n   {\r\n     background: #f1f1f6;\r\n     border-left: 1px solid #fff;\r\n     border-right: 1px solid #f1f1f6;\r\n   }\r\n\r\n.page .b3 \r\n   {\r\n     background: #f1f1f6;\r\n     border-left: 1px solid #fff;\r\n     border-right: 1px solid #f1f1f6;\r\n   }\r\n\r\n.page .b4 \r\n   {\r\n     background: #f1f1f6;\r\n     border-left: 1px solid #fff;\r\n     border-right: 1px solid #f1f1f6;\r\n   }\r\n\r\n.page .b4b \r\n   {\r\n     background: #f1f1f6;\r\n     border-left: 1px solid #f1f1f6;\r\n     border-right: 1px solid #f1f1f6;\r\n   }\r\n\r\n.page .b3b \r\n   {\r\n     background: #f1f1f6;\r\n     border-left: 1px solid #f1f1f6;\r\n     border-right: 1px solid #f1f1f6;\r\n   }\r\n\r\n.page .b2b \r\n   {\r\n     background: #f1f1f6;\r\n     border-left: 1px solid #f1f1f6;\r\n     border-right: 1px solid #f1f1f6;\r\n   }\r\n\r\n.page .b1 \r\n   {\r\n     margin: 0 5px;\r\n     background: #fff;\r\n   }\r\n\r\n.page .b2, .page .b2b \r\n   {\r\n     margin: 0 3px;\r\n     border-width: 0 2px;\r\n   }\r\n\r\n.page .b3, .page .b3b \r\n   {\r\n     margin: 0 2px;\r\n   }\r\n\r\n.page .b4, .page .b4b \r\n   {\r\n     height: 2px;\r\n     margin: 0 1px;\r\n   }\r\n\r\n.page .b1b \r\n   {\r\n     margin: 0 5px;\r\n     background: #f1f1f6;\r\n   }\r\n\r\n.pagecontent \r\n   {\r\n     display: block;\r\n     padding-left: 0.5em;\r\n     padding-right: 0.5em;\r\n     background: #f1f1f6;\r\n   }\r\n\r\n.pagecontentfooter \r\n   {\r\n     display: block;\r\n     text-align: right;\r\n     background:#ffffff;\r\n     margin-top: 0.5em;\r\n     margin-bottom: 0.5em;\r\n   }\r\n/* /Page content */\r\n\r\n/*- Bookmarks */\r\n\r\n#menu \r\n   {\r\n	  background: #fff;\r\n	  border-bottom: 1px solid #000;\r\n	  border-width: 1px;\r\n	  margin-top: 1em;\r\n	  padding-top: .6em;\r\n   }\r\n\r\n#menu ul, #navigation ul li \r\n   {\r\n	  list-style: none;\r\n	  margin: 0;\r\n	  padding: 0;\r\n   }\r\n\r\n#menu ul \r\n   {\r\n	  padding: 5px 0 0px;\r\n	  text-align: center;\r\n   }\r\n\r\n#menu ul li \r\n   {\r\n	  display: inline;\r\n	  margin:0 .375em;\r\n   }\r\n\r\n#menu ul li.last \r\n   {\r\n	  margin-right: 0;\r\n   }\r\n\r\n#menu ul li a \r\n   {\r\n	  background: url("/img/tab-right.png") no-repeat 100% 0;\r\n	  background-color: #67748b;\r\n	  color: #fff;\r\n	  padding: 0px 0 0px;\r\n     font-weight: bold;\r\n	  text-decoration: none;\r\n   }\r\n\r\n#menu ul li.current a \r\n   {\r\n	  background: url("/img/tab-right-active.png") no-repeat 100% 0;\r\n	  background-color: #990000;\r\n	  color: #fff;\r\n	  padding: 0px 0 1px;\r\n     font-weight: bold;\r\n	  text-decoration: none;\r\n   }\r\n\r\n#menu ul li a span \r\n   {\r\n	  background: url("/img/tab-left.png") no-repeat;\r\n	  padding: 0px 1em;\r\n     border-bottom:1px solid #000;\r\n   }\r\n\r\n#menu ul li.current a span \r\n   {\r\n	  background: url("/img/tab-left-active.png") no-repeat;\r\n	  padding: 0px 1em 1px;\r\n     border-bottom:0;\r\n   }\r\n\r\n#menu ul li a:hover span \r\n   {\r\n	  color: #fff;\r\n     font-weight: bold;\r\n	  text-decoration: none;\r\n   }\r\n\r\n/*\\*//*/\r\n#menu ul li a \r\n   {\r\n	  display: inline-block;\r\n	  white-space: nowrap;\r\n	  width: 1px;\r\n   }\r\n\r\n#menu ul \r\n   {\r\n	  padding-bottom: 0;\r\n	  margin-bottom: -1px;\r\n   }\r\n/**/\r\n\r\n/*\\*/\r\n* html #menu ul li a \r\n   {\r\n	  padding: 0;\r\n   }\r\n/**/\r\n\r\n/*- /Bookmarks */\r\n\r\n/*- Boxes */\r\n\r\n/*- Box */\r\n.box\r\n   {\r\n     text-align: left;\r\n     margin-bottom: 0.2em;\r\n     margin-top: 0.2em;\r\n     margin-right: 0.2em;\r\n     padding-top: 0.2em;\r\n     padding-bottom: 0.4em;\r\n  	  border-bottom-width: 1px;\r\n	  border-bottom-style: dashed;\r\n     border-bottom-color: #67748B;\r\n   }\r\n\r\n/*- Box Header */\r\n.box h5 \r\n   {\r\n     display: block;\r\n     font: 12px Tahoma, Verdana, Arial, sans-serif;\r\n     font-weight: bold;\r\n     color: #990000;\r\n     border-bottom: 2px #e5e5e5 solid;\r\n     background: url(/img/box.png) no-repeat left center;\r\n     margin: 0 0 .4em .3em;\r\n     padding: .1em 0 0 16px;\r\n  }\r\n\r\n.box h5 a\r\n   {\r\n     color: #990000;\r\n     text-decoration: none;\r\n   }\r\n/*- /Box Header */\r\n\r\n/*- Box Content */\r\n.boxContent \r\n   {\r\n     padding-left: 0;\r\n     text-align: left;\r\n  }\r\n\r\n#boxContent p \r\n   {\r\n     margin: 0 0 0 0;\r\n     padding-bottom: 0.2em;\r\n  }\r\n\r\n/*- /Box Content */\r\n\r\n/*- /Box */\r\n\r\n/*- /Boxes */\r\n    \r\n/*]]>*/', 0, '2007-07-14 18:44:00', '2009-07-12 18:49:57'),
 (18, 1, 'Default Typography', 'default-typography', '* {\r\n    font-size:12px;\r\n    font-family: Arial, Helvetica, sans-serif;\r\n}\r\na {\r\ntext-decoration:none;\r\n}\r\nh1 a {\r\ncolor:#000000;\r\nfont-size:24px;\r\n}\r\nh2 {\r\nfont-size:16px;\r\n}\r\np {\r\nfont-size:12px;\r\nline-height:15px;\r\nmargin-bottom:20px;\r\n}\r\n#footer a {\r\nfont-size:11px;\r\n}\r\na.remove {\r\nfont-weight:bold;\r\ncolor:FF0000;\r\n}', 0, '2007-07-24 14:15:32', '2007-08-02 13:47:12'),
 (20, 1, 'Default Product Details', 'default-product-details', '#product_details_left {\r\n	float:left;\r\n	width:70%;\r\n}\r\n#product_details_right {\r\n	float:right;\r\n	width:30%;\r\n}\r\n.product_price {\r\n	text-align:center;\r\n	font-weight:bold;\r\n	font-size:16px;\r\n	margin:10px auto;\r\n}\r\n.content_images {\r\n	text-align:center;\r\n	list-style-type:none;\r\n}\r\n.product_quantity {\r\n	width:25px;\r\n	font-weight:bold;\r\n	text-align:center;\r\n}', 0, '2007-07-30 16:28:26', '2007-08-15 15:09:34'),
 (21, 1, 'Default Checkout', 'default-checkout', '/* Element Styling */\r\n.css_form hr,\r\n#checkout hr {\r\n	margin:10px 0;\r\n	display:none;\r\n}\r\n.css_form div,\r\n#checkout div {\r\n	padding:15px;\r\n	background:#E5ECF2;\r\n	margin-bottom:25px;	\r\n}\r\n.css_form div div,\r\n#checkout div div {\r\n	padding:0;\r\n	margin-bottom:10px;\r\n	background-color:transparent;\r\n}\r\n/* End Element Styling */\r\n\r\n\r\n/* Form Styling */\r\n.css_form label,\r\n#checkout label {\r\n	display:block;\r\n	float:left;\r\n	width:150px;\r\n}\r\n.css_form input,\r\n#checkout input,\r\n.css_form textarea,\r\n#checkout textarea {\r\n	width:180px;\r\n}	\r\n#checkout #payment_method label,\r\n#checkout #shipping_method label {\r\n	display:inline;\r\n	float:none;\r\n	width:auto;\r\n}\r\n#checkout #payment_method input,\r\n#checkout #shipping_method input {\r\n	width:auto;\r\n}\r\noption {\r\n	padding:0pt 1em 0pt 4px;\r\n}\r\n/* End Form Styling */', 0, '2007-08-10 11:07:11', '2007-08-13 15:35:53');
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `stylesheet_media_types`
--- 
 
 DROP TABLE IF EXISTS stylesheet_media_types;
 CREATE TABLE `stylesheet_media_types` (
@@ -1624,11 +1274,7 @@ CREATE TABLE `stylesheet_media_types` (
   `name` varchar(50) collate utf8_unicode_ci NOT NULL,
   `type` varchar(50) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=12 ;
-
--- 
--- Dumping data for table `stylesheet_media_types`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `stylesheet_media_types` (`id`, `name`, `type`) VALUES 
 (1, 'all : Suitable for all devices.', 'all'),
@@ -1643,12 +1289,6 @@ INSERT INTO `stylesheet_media_types` (`id`, `name`, `type`) VALUES
 (10, 'tv : Intended for television-type devices.', 'tv'),
 (11, 'iPhone specific', 'only screen and (max-device-width: 480px)');
 
--- --------------------------------------------------------
-
--- 
--- Table structure for table `taxes`
--- 
-
 DROP TABLE IF EXISTS taxes;
 CREATE TABLE `taxes` (
   `id` int(10) NOT NULL auto_increment,
@@ -1657,21 +1297,11 @@ CREATE TABLE `taxes` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
-
--- 
--- Dumping data for table `taxes`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `taxes` (`id`, `default`, `name`, `created`, `modified`) VALUES 
 (1, 1, 'Non-Taxable', '2007-08-03 20:39:02', '2007-08-06 10:03:37'),
 (2, 0, 'United States - VA Sales Tax', '2007-08-05 20:18:46', '2007-08-06 10:03:52');
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `tax_country_zone_rates`
--- 
 
 DROP TABLE IF EXISTS tax_country_zone_rates;
 CREATE TABLE `tax_country_zone_rates` (
@@ -1680,20 +1310,10 @@ CREATE TABLE `tax_country_zone_rates` (
   `country_zone_id` int(10) NOT NULL,
   `rate` double NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=117 ;
-
--- 
--- Dumping data for table `tax_country_zone_rates`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `tax_country_zone_rates` (`id`, `tax_id`, `country_zone_id`, `rate`) VALUES 
 (116, 2, 4071, 5);
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `templates`
--- 
 
 DROP TABLE IF EXISTS templates;
 CREATE TABLE `templates` (
@@ -1706,11 +1326,7 @@ CREATE TABLE `templates` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=104 ;
-
--- 
--- Dumping data for table `templates`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `templates` (`id`, `parent_id`, `template_type_id`, `default`, `name`, `template`, `created`, `modified`) VALUES 
 (89, 0, 0, 1, 'Default Theme', '', '2007-07-26 16:02:41', '2007-09-12 17:46:19'),
@@ -1719,12 +1335,6 @@ INSERT INTO `templates` (`id`, `parent_id`, `template_type_id`, `default`, `name
 (92, 89, 3, 0, 'Product Info', '<div id="product_details_left">\r\n	{description}\r\n</div>\r\n<div id="product_details_right">\r\n	<div class="product_images">{content_images number=''1''}</div>\r\n	{product_form}\r\n		<div class="product_price">{product_quantity} @ {product_price}</div>\r\n		<div class="add_to_cart">{purchase_button id=$content_id}</div>\r\n	{/product_form}\r\n	{module alias=''reviews'' action=''link''}\r\n</div>\r\n<div style="clear:both;"></div>', '2007-07-26 16:02:41', '2007-08-20 09:29:00'),
 (93, 89, 4, 0, 'Category Info', '{description}\r\n\r\n{if $sub_count.categories > 0}\r\n	<h3>{lang}sub-category-list{/lang}</h3>\r\n	<div class="content_listing">\r\n		{content_listing  parent=$content_id type=''category''}\r\n	</div>\r\n{/if}\r\n\r\n{if $sub_count.products > 0}\r\n	<h3>{lang}sub-product-list{/lang}</h3>\r\n	<div class="content_listing">\r\n		{content_listing parent=$content_id type=''product''}\r\n	</div>\r\n{/if}', '2007-07-26 16:02:41', '2007-08-30 14:49:18');
 
--- --------------------------------------------------------
-
--- 
--- Table structure for table `templates_stylesheets`
--- 
-
 DROP TABLE IF EXISTS templates_stylesheets;
 CREATE TABLE `templates_stylesheets` (
   `template_id` int(10) unsigned NOT NULL default '0',
@@ -1732,21 +1342,11 @@ CREATE TABLE `templates_stylesheets` (
   PRIMARY KEY  (`template_id`,`stylesheet_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- 
--- Dumping data for table `templates_stylesheets`
--- 
-
 INSERT INTO `templates_stylesheets` (`template_id`, `stylesheet_id`) VALUES 
 (89, 15),
 (89, 18),
 (89, 20),
 (89, 21);
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `template_types`
--- 
 
 DROP TABLE IF EXISTS template_types;
 CREATE TABLE `template_types` (
@@ -1754,23 +1354,13 @@ CREATE TABLE `template_types` (
   `name` varchar(50) collate utf8_unicode_ci NOT NULL,
   `default_template` text collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
-
--- 
--- Dumping data for table `template_types`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `template_types` (`id`, `name`, `default_template`) VALUES 
 (1, 'Layout', '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\r\n<html xmlns="http://www.w3.org/1999/xhtml">\r\n<head>\r\n	{stylesheet}\r\n	{metadata}\r\n<title>\r\n	{site_name} - {page_name}\r\n</title>\r\n<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />\r\n</head>\r\n<body>\r\n	<div id="layout">\r\n		<div id="header">\r\n			<h1><a href="/">{site_name}</a></h1>\r\n		</div>\r\n		<div id="navigation"> </div>\r\n		<div id="left_sidebar">\r\n			 {content_listing template=''vertical-menu'' parent=''0'' type=''product,category''}\r\n		</div>\r\n		<div id="content">\r\n			{admin_edit_link}\r\n			<div id="inner-content">\r\n				<h2>{page_name}</h2>\r\n				{content}\r\n			</div>\r\n			{admin_edit_link}\r\n		</div>\r\n		<div id="right_sidebar">\r\n			{shopping_cart template=''cart-content-box''}\r\n			{language_box}\r\n			{currency_box}\r\n		</div>\r\n		<div class="clearb"></div>	\r\n		<div id="footer">\r\n			{content_listing template=''information-links'' parent=''44''}\r\n		</div>\r\n		<div id="powered_by">\r\n			{global_content alias=''footer''}\r\n		</div>\r\n	</div>\r\n</body>\r\n</html>'),
 (2, 'Content Page', '{description}'),
 (3, 'Product Info', '<div id="product_details_left">\r\n	{description}\r\n</div>\r\n<div id="product_details_right">\r\n	<div class="product_images">{content_images number=''1''}</div>\r\n	{product_form}\r\n		<div class="product_price">{product_quantity} @ {product_price}</div>\r\n		<div class="add_to_cart">{purchase_button id=$content_id}</div>\r\n	{/product_form}\r\n</div>\r\n<div style="clear:both;"></div>'),
 (4, 'Category Info', '{description}');
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `users`
--- 
 
 DROP TABLE IF EXISTS users;
 CREATE TABLE `users` (
@@ -1781,20 +1371,10 @@ CREATE TABLE `users` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
-
--- 
--- Dumping data for table `users`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `created`, `modified`) VALUES 
 (1, 'admin', 'vam@test.com', '5f4dcc3b5aa765d61d8327deb882cf99', '0000-00-00 00:00:00', '2007-07-23 15:34:53');
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `user_prefs`
--- 
 
 DROP TABLE IF EXISTS user_prefs;
 CREATE TABLE `user_prefs` (
@@ -1803,22 +1383,12 @@ CREATE TABLE `user_prefs` (
   `name` varchar(50) collate utf8_unicode_ci NOT NULL,
   `value` text collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
-
--- 
--- Dumping data for table `user_prefs`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `user_prefs` (`id`, `user_id`, `name`, `value`) VALUES 
 (1, 1, 'content_collapse', ''),
 (2, 1, 'template_collpase', ',,,,,,,97,,,,,,,,,,94,,,'),
 (4, 1, 'language', 'eng');
-
--- --------------------------------------------------------
-
--- 
--- Table structure for table `user_tags`
--- 
 
 DROP TABLE IF EXISTS user_tags;
 CREATE TABLE `user_tags` (
@@ -1829,11 +1399,7 @@ CREATE TABLE `user_tags` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
-
--- 
--- Dumping data for table `user_tags`
--- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `user_tags` (`id`, `name`, `alias`, `content`, `created`, `modified`) VALUES 
 (10, 'User Agent', 'user-agent', 'echo $_SERVER[''HTTP_USER_AGENT''];', '2007-07-25 09:50:24', '2007-07-27 18:08:55');
