@@ -24,7 +24,7 @@ function smarty_function_admin_area_link($params, &$smarty)
 	{
 		echo '
 		<div class="admin_link admin_area">
-			<a href="' . BASE . '/admin/">Administration</a>
+			<a href="' . BASE . '/admin/">'.__('Administration', true).'</a>
 		</div>';
 	}
 
