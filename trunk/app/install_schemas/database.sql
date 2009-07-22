@@ -85,47 +85,47 @@ CREATE TABLE `content_descriptions` (
 
 INSERT INTO `content_descriptions` (`id`, `content_id`, `language_id`, `name`, `description`) VALUES 
 (159, 40, 1, 'Shopping Carts', 'Shopping Carts'),
-(160, 40, 3, '', ''),
+(160, 40, 2, '', ''),
 (179, 44, 1, 'Information', 'Information about our site can be found by visiting the following links:'),
-(180, 44, 3, '', ''),
+(180, 44, 2, '', ''),
 (185, 46, 1, 'Privacy Policy', '<p>Enter your Privacy information on this page.</p>'),
-(186, 46, 3, '', ''),
+(186, 46, 2, '', ''),
 (187, 47, 1, 'Conditions of Use', '<p>Enter your Conditions of Use on this page.</p>'),
-(188, 47, 3, '', ''),
+(188, 47, 2, '', ''),
 (189, 48, 1, 'Contact Us', '<p>Enter your contact information on this page.</p>'),
-(190, 48, 3, '', ''),
+(190, 48, 2, '', ''),
 (209, 37, 1, 'Internet Explorer', 'Internet Explorer is a buggy evil little browser.'),
-(210, 37, 3, 'Internet Explorer', 'Internet Explorer is a buggy evil little browser.'),
+(210, 37, 2, 'Internet Explorer', 'Internet Explorer is a buggy evil little browser.'),
 (225, 39, 1, 'Open Source', ''),
-(226, 39, 3, 'Open Source', ''),
+(226, 39, 2, 'Open Source', ''),
 (227, 36, 1, 'Web Browsers', '<p>There are many different types of web browsers.  </p>'),
-(228, 36, 3, 'Web Browsers', ''),
+(228, 36, 2, 'Web Browsers', ''),
 (241, 50, 1, 'Checkout', '{checkout}'),
-(242, 50, 3, 'Checkout', '{checkout}'),
+(242, 50, 2, 'Checkout', '{checkout}'),
 (245, 45, 1, 'Shipping and Returns', '<p>Enter your Shipping & Return information on this page.</p>'),
-(246, 45, 3, '', ''),
+(246, 45, 2, '', ''),
 (269, 49, 1, 'Cart Contents', '{shopping_cart}'),
-(270, 49, 3, 'Cart Contents', '{view_shopping_cart}'),
+(270, 49, 2, 'Cart Contents', '{view_shopping_cart}'),
 (293, 55, 1, 'Linux Rocks', ''),
-(294, 55, 3, 'Linux Rocks', ''),
+(294, 55, 2, 'Linux Rocks', ''),
 (313, 53, 1, 'Thank You', 'Thanks for shopping!'),
-(314, 53, 3, 'Thank You', 'Thanks for shopping!'),
+(314, 53, 2, 'Thank You', 'Thanks for shopping!'),
 (317, 41, 1, 'Operating Systems', 'Operating Systems'),
-(318, 41, 3, '', ''),
+(318, 41, 2, '', ''),
 (323, 58, 1, 'Read Reviews', '{module alias=''reviews'' action=''display''}'),
-(324, 58, 3, 'Read Reviews', '{module alias=''reviews'' action=''display''}'),
+(324, 58, 2, 'Read Reviews', '{module alias=''reviews'' action=''display''}'),
 (325, 59, 1, 'Write Review', '{module alias=''reviews'' action=''create''}'),
-(326, 59, 3, 'Write Review', '{module alias=''reviews'' action=''create''}'),
+(326, 59, 2, 'Write Review', '{module alias=''reviews'' action=''create''}'),
 (359, 51, 1, 'Payment', '{payment}\r\n\r\n<h2 style="margin-top:75px;">{lang}cart-contents{/lang}<h2>\r\n{shopping_cart template=''payment-view-cart''}'),
-(360, 51, 3, 'Payment', '{payment}'),
+(360, 51, 2, 'Payment', '{payment}'),
 (369, 54, 1, 'News', ''),
-(370, 54, 3, 'News', ''),
+(370, 54, 2, 'News', ''),
 (385, 38, 1, 'Mozilla Firefox', 'Should soon surpass Internet Explorer 6.0 as the leading browser.  '),
-(386, 38, 3, '', ''),
+(386, 38, 2, '', ''),
 (391, 35, 1, 'Home', '<p>Welcome to your new online catalog!</p>\r\n<hr />\r\n<p> </p>\r\n<p><a href=''admin/''>Click here to go to the admin area.</a><br />\r\nLogin credentials: admin/password.</p>\r\n<p>To edit this content log into the administration area and edit the page named ''Home''</p>\r\n<hr />'),
-(392, 35, 3, 'Home', 'This description is in Russian.'),
+(392, 35, 2, 'Home', 'This description is in Russian.'),
 (393, 68, 1, 'Voucher Details', '{module alias=''coupons'' action=''show_info''}'),
-(394, 68, 3, 'Voucher Details', '{module alias=''coupons'' action=''show_info''}');
+(394, 68, 2, 'Voucher Details', '{module alias=''coupons'' action=''show_info''}');
 
 DROP TABLE IF EXISTS content_images;
 CREATE TABLE `content_images` (
@@ -805,81 +805,81 @@ CREATE TABLE `defined_languages` (
 
 INSERT INTO `defined_languages` (`id`, `language_id`, `key`, `value`, `created`, `modified`) VALUES 
 (25, 1, 'welcome-message', 'Welcome to the online store yo! 2 ', '2007-07-27 20:35:49', '2007-07-27 20:35:49'),
-(26, 3, 'welcome-message', 'bbq2 22', '2007-07-27 20:35:49', '2007-07-27 20:35:49'),
+(26, 2, 'welcome-message', 'bbq2 22', '2007-07-27 20:35:49', '2007-07-27 20:35:49'),
 (27, 1, 'product', 'Product', '2007-07-31 15:09:46', '2007-07-31 15:09:46'),
-(28, 3, 'product', '', '2007-07-31 15:09:46', '2007-07-31 15:09:46'),
+(28, 2, 'product', '', '2007-07-31 15:09:46', '2007-07-31 15:09:46'),
 (29, 1, 'price-ea', 'Price Ea.', '2007-07-31 15:09:57', '2007-07-31 15:09:57'),
-(30, 3, 'price-ea', '', '2007-07-31 15:09:57', '2007-07-31 15:09:57'),
+(30, 2, 'price-ea', '', '2007-07-31 15:09:57', '2007-07-31 15:09:57'),
 (31, 1, 'qty', 'Qty.', '2007-07-31 15:10:08', '2007-07-31 15:10:08'),
-(32, 3, 'qty', '', '2007-07-31 15:10:08', '2007-07-31 15:10:08'),
+(32, 2, 'qty', '', '2007-07-31 15:10:08', '2007-07-31 15:10:08'),
 (33, 1, 'total', 'Total', '2007-07-31 15:10:18', '2007-07-31 15:10:18'),
-(34, 3, 'total', '', '2007-07-31 15:10:18', '2007-07-31 15:10:18'),
+(34, 2, 'total', '', '2007-07-31 15:10:18', '2007-07-31 15:10:18'),
 (35, 1, 'checkout', 'Checkout', '2007-07-31 15:13:50', '2007-07-31 15:13:50'),
-(36, 3, 'checkout', '', '2007-07-31 15:13:50', '2007-07-31 15:13:50'),
+(36, 2, 'checkout', '', '2007-07-31 15:13:50', '2007-07-31 15:13:50'),
 (37, 1, 'shopping-cart', 'Shopping Cart', '2007-07-31 15:13:59', '2007-07-31 15:13:59'),
-(38, 3, 'shopping-cart', '', '2007-07-31 15:13:59', '2007-07-31 15:13:59'),
+(38, 2, 'shopping-cart', '', '2007-07-31 15:13:59', '2007-07-31 15:13:59'),
 (39, 1, 'currency', 'Currency', '2007-07-31 15:50:10', '2007-07-31 15:50:10'),
-(40, 3, 'currency', '', '2007-07-31 15:50:10', '2007-07-31 15:50:10'),
+(40, 2, 'currency', '', '2007-07-31 15:50:10', '2007-07-31 15:50:10'),
 (41, 1, 'language', 'Language', '2007-08-01 14:53:11', '2007-08-01 14:53:11'),
-(42, 3, 'language', 'Language', '2007-08-01 14:53:11', '2007-08-01 14:53:11'),
+(42, 2, 'language', 'Language', '2007-08-01 14:53:11', '2007-08-01 14:53:11'),
 (43, 1, 'no-cart-items', 'There are no items in your cart.', '2007-08-01 15:17:08', '2007-08-01 15:17:08'),
-(44, 3, 'no-cart-items', 'There are no items in your cart.', '2007-08-01 15:17:08', '2007-08-01 15:17:08'),
+(44, 2, 'no-cart-items', 'There are no items in your cart.', '2007-08-01 15:17:08', '2007-08-01 15:17:08'),
 (45, 1, 'sub-category-list', 'Sub Categories', '2007-08-02 09:32:33', '2007-08-02 09:32:33'),
-(46, 3, 'sub-category-list', 'Sub Categories', '2007-08-02 09:32:33', '2007-08-02 09:32:33'),
+(46, 2, 'sub-category-list', 'Sub Categories', '2007-08-02 09:32:33', '2007-08-02 09:32:33'),
 (47, 1, 'sub-product-list', 'Products in this Category', '2007-08-02 09:32:50', '2007-08-02 09:32:50'),
-(48, 3, 'sub-product-list', 'Products in this Category', '2007-08-02 09:32:50', '2007-08-02 09:32:50'),
+(48, 2, 'sub-product-list', 'Products in this Category', '2007-08-02 09:32:50', '2007-08-02 09:32:50'),
 (49, 1, 'no-sub-categories', 'No child categories.', '2007-08-02 09:36:10', '2007-08-02 09:36:10'),
-(50, 3, 'no-sub-categories', '', '2007-08-02 09:36:10', '2007-08-02 09:36:10'),
+(50, 2, 'no-sub-categories', '', '2007-08-02 09:36:10', '2007-08-02 09:36:10'),
 (53, 1, 'no-sub-products', 'No Child Products.', '2007-08-02 09:36:38', '2007-08-02 09:36:38'),
-(54, 3, 'no-sub-products', '', '2007-08-02 09:36:38', '2007-08-02 09:36:38'),
+(54, 2, 'no-sub-products', '', '2007-08-02 09:36:38', '2007-08-02 09:36:38'),
 (55, 1, 'name', 'Name', '2007-08-02 13:56:04', '2007-08-02 13:56:04'),
-(56, 3, 'name', '', '2007-08-02 13:56:04', '2007-08-02 13:56:04'),
+(56, 2, 'name', '', '2007-08-02 13:56:04', '2007-08-02 13:56:04'),
 (57, 1, 'Billing Information', 'Billing Information', '2007-08-02 13:56:47', '2007-08-02 13:56:47'),
-(58, 3, 'Billing Information', 'Billing Information', '2007-08-02 13:56:47', '2007-08-02 13:56:47'),
+(58, 2, 'Billing Information', 'Billing Information', '2007-08-02 13:56:47', '2007-08-02 13:56:47'),
 (59, 1, 'address_line_1', 'Address Line 1', '2007-08-02 13:57:04', '2007-08-02 13:57:04'),
-(60, 3, 'address_line_1', 'Address Line 1', '2007-08-02 13:57:04', '2007-08-02 13:57:04'),
+(60, 2, 'address_line_1', 'Address Line 1', '2007-08-02 13:57:04', '2007-08-02 13:57:04'),
 (61, 1, 'address_line_2', 'Address Line 2', '2007-08-02 13:57:34', '2007-08-02 13:57:34'),
-(62, 3, 'address_line_2', 'Address Line 2', '2007-08-02 13:57:34', '2007-08-02 13:57:34'),
+(62, 2, 'address_line_2', 'Address Line 2', '2007-08-02 13:57:34', '2007-08-02 13:57:34'),
 (65, 1, 'city', 'City', '2007-08-06 17:43:04', '2007-08-06 17:43:04'),
-(66, 3, 'city', '', '2007-08-06 17:43:04', '2007-08-06 17:43:04'),
+(66, 2, 'city', '', '2007-08-06 17:43:04', '2007-08-06 17:43:04'),
 (67, 1, 'state', 'State', '2007-08-06 17:43:57', '2007-08-06 17:43:57'),
-(68, 3, 'state', '', '2007-08-06 17:43:57', '2007-08-06 17:43:57'),
+(68, 2, 'state', '', '2007-08-06 17:43:57', '2007-08-06 17:43:57'),
 (71, 1, 'zipcode', 'Zipcode ', '2007-08-06 17:44:17', '2007-08-06 17:44:17'),
-(72, 3, 'zipcode', '', '2007-08-06 17:44:17', '2007-08-06 17:44:17'),
+(72, 2, 'zipcode', '', '2007-08-06 17:44:17', '2007-08-06 17:44:17'),
 (73, 1, 'Shipping Information', 'Shipping Information (if different from billing address)', '2007-08-06 17:44:44', '2007-08-06 17:44:44'),
-(74, 3, 'Shipping Information', 'Shipping Information', '2007-08-06 17:44:44', '2007-08-06 17:44:44'),
+(74, 2, 'Shipping Information', 'Shipping Information', '2007-08-06 17:44:44', '2007-08-06 17:44:44'),
 (75, 1, 'continue to payment', 'Continue to Payment =>', '2007-08-06 17:58:54', '2007-08-06 17:58:54'),
-(76, 3, 'continue to payment', '', '2007-08-06 17:58:54', '2007-08-06 17:58:54'),
+(76, 2, 'continue to payment', '', '2007-08-06 17:58:54', '2007-08-06 17:58:54'),
 (77, 1, 'Shipping Method', 'Shipping Method', '2007-08-06 18:00:49', '2007-08-06 18:00:49'),
-(78, 3, 'Shipping Method', '', '2007-08-06 18:00:49', '2007-08-06 18:00:49'),
+(78, 2, 'Shipping Method', '', '2007-08-06 18:00:49', '2007-08-06 18:00:49'),
 (79, 1, 'Payment Method', 'Payment Method', '2007-08-06 18:00:59', '2007-08-06 18:00:59'),
-(80, 3, 'Payment Method', '', '2007-08-06 18:00:59', '2007-08-06 18:00:59'),
+(80, 2, 'Payment Method', '', '2007-08-06 18:00:59', '2007-08-06 18:00:59'),
 (81, 1, 'Confirm Order', 'Confirm Order', '2007-08-07 11:24:48', '2007-08-07 11:24:48'),
-(82, 3, 'Confirm Order', 'Confirm Order', '2007-08-07 11:24:48', '2007-08-07 11:24:48'),
+(82, 2, 'Confirm Order', 'Confirm Order', '2007-08-07 11:24:48', '2007-08-07 11:24:48'),
 (83, 1, 'Make payment with money order/check.', 'You are about to make a payment using a money order or check.  Please note that this form of payment will take an additional 5-7 days to clear before your order is shipped.', '2007-08-07 11:45:43', '2007-08-07 11:45:43'),
-(84, 3, 'Make payment with money order/check.', 'You are about to make a payment using a money order or check.  Please note that this form of payment will take an additional 5-7 days to clear before your order is shipped.', '2007-08-07 11:45:44', '2007-08-07 11:45:44'),
+(84, 2, 'Make payment with money order/check.', 'You are about to make a payment using a money order or check.  Please note that this form of payment will take an additional 5-7 days to clear before your order is shipped.', '2007-08-07 11:45:44', '2007-08-07 11:45:44'),
 (87, 1, 'Contact Information', 'Contact Information', '2007-08-09 09:24:12', '2007-08-09 09:24:12'),
-(88, 3, 'Contact Information', 'Contact Information', '2007-08-09 09:24:12', '2007-08-09 09:24:12'),
+(88, 2, 'Contact Information', 'Contact Information', '2007-08-09 09:24:12', '2007-08-09 09:24:12'),
 (93, 1, 'email', 'Email', '2007-08-10 10:59:57', '2007-08-10 10:59:57'),
-(94, 3, 'email', 'Email', '2007-08-10 10:59:57', '2007-08-10 10:59:57'),
+(94, 2, 'email', 'Email', '2007-08-10 10:59:57', '2007-08-10 10:59:57'),
 (95, 1, 'phone', 'Phone', '2007-08-10 11:34:27', '2007-08-10 11:34:27'),
-(96, 3, 'phone', '', '2007-08-10 11:34:27', '2007-08-10 11:34:27'),
+(96, 2, 'phone', '', '2007-08-10 11:34:27', '2007-08-10 11:34:27'),
 (97, 1, 'shipping', 'Shipping', '2007-08-10 13:04:09', '2007-08-10 13:04:09'),
-(98, 3, 'shipping', '', '2007-08-10 13:04:09', '2007-08-10 13:04:09'),
+(98, 2, 'shipping', '', '2007-08-10 13:04:09', '2007-08-10 13:04:09'),
 (99, 1, 'cart-contents', 'Cart Contents', '2007-08-10 13:08:48', '2007-08-10 13:08:48'),
-(100, 3, 'cart-contents', 'Cart Contents', '2007-08-10 13:08:48', '2007-08-10 13:08:48'),
+(100, 2, 'cart-contents', 'Cart Contents', '2007-08-10 13:08:48', '2007-08-10 13:08:48'),
 (103, 1, 'money_order_check-details', 'Your order will ship out after your payment clears.', '2007-08-11 15:34:09', '2007-08-11 15:34:09'),
-(104, 3, 'money_order_check-details', '', '2007-08-11 15:34:09', '2007-08-11 15:34:09'),
+(104, 2, 'money_order_check-details', '', '2007-08-11 15:34:09', '2007-08-11 15:34:09'),
 (105, 1, 'store_pickup-details', 'Enter any in-store pickup details here.  You can find this content in the admin area, Locale -> Defined Language Values -> store-pickup-details', '2007-08-11 15:34:18', '2007-08-11 15:34:18'),
-(106, 3, 'store_pickup-details', '', '2007-08-11 15:34:18', '2007-08-11 15:34:18'),
+(106, 2, 'store_pickup-details', '', '2007-08-11 15:34:18', '2007-08-11 15:34:18'),
 (107, 1, 'paypal-details', 'Checkout with paypal.', '2007-08-11 15:35:57', '2007-08-11 15:35:57'),
-(108, 3, 'paypal-details', '', '2007-08-11 15:35:57', '2007-08-11 15:35:57'),
+(108, 2, 'paypal-details', '', '2007-08-11 15:35:57', '2007-08-11 15:35:57'),
 (109, 1, 'credit_card-details', 'Enter your credit card details.', '2007-08-12 16:08:57', '2007-08-12 16:08:57'),
-(110, 3, 'credit_card-details', '', '2007-08-12 16:08:57', '2007-08-12 16:08:57'),
+(110, 2, 'credit_card-details', '', '2007-08-12 16:08:57', '2007-08-12 16:08:57'),
 (111, 1, 'Read Reviews', 'Read Reviews', '2007-08-13 09:28:49', '2007-08-13 09:28:49'),
-(112, 3, 'Read Reviews', 'Read Reviews', '2007-08-13 09:28:49', '2007-08-13 09:28:49'),
+(112, 2, 'Read Reviews', 'Read Reviews', '2007-08-13 09:28:49', '2007-08-13 09:28:49'),
 (115, 1, 'google_html-details', '<p>Ready to checkout? Click the button below to be taken to Google Checkout.</p>', '2007-08-13 16:57:39', '2007-08-13 16:57:39'),
-(116, 3, 'google_html-details', '', '2007-08-13 16:57:39', '2007-08-13 16:57:39');
+(116, 2, 'google_html-details', '', '2007-08-13 16:57:39', '2007-08-13 16:57:39');
 
 DROP TABLE IF EXISTS events;
 CREATE TABLE `events` (
@@ -949,7 +949,7 @@ CREATE TABLE `languages` (
 
 INSERT INTO `languages` (`id`, `default`, `name`, `code`, `iso_code_2`, `active`, `sort_order`) VALUES 
 (1, 1, 'English', 'en_US', 'us', 1, 1),
-(3, 0, 'Русский', 'ru_ru', 'ru', 1, 0);
+(2, 0, 'Русский', 'ru_ru', 'ru', 1, 0);
 
 DROP TABLE IF EXISTS micro_templates;
 CREATE TABLE `micro_templates` (
@@ -1046,14 +1046,7 @@ CREATE TABLE `orders` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `orders` (`id`, `order_status_id`, `shipping_method_id`, `payment_method_id`, `shipping`, `tax`, `total`, `bill_name`, `bill_line_1`, `bill_line_2`, `bill_city`, `bill_state`, `bill_zip`, `ship_name`, `ship_line_1`, `ship_line_2`, `ship_city`, `ship_state`, `ship_zip`, `email`, `phone`, `cc_number`, `cc_expiration_month`, `cc_expiration_year`, `created`) VALUES 
-(14, 3, 2, 2, 5.99, 0, 25.79, 'Test Order', 'asdfasf', 'asdfasdf', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, '0000-00-00 00:00:00'),
-(39, 4, 2, 4, 5.99, 0, 16.98, 'asdfasfdbbq', '', '', '', '', '', '', '', '', '', '', '', '', '', 1234325345, 8, 2005, '0000-00-00 00:00:00'),
-(68, 4, 2, 2, 5.99, 0, 115.89, 'Bob Johnson', 'asdf', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, '2007-08-30 15:38:18'),
-(69, 0, 2, 2, 5.99, 0, 5.99, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, '2007-08-31 17:55:50'),
-(70, 0, 2, 2, 5.99, 0, 16.98, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, '2007-09-02 22:06:59'),
-(71, 0, 2, 2, 5.99, 0, 16.98, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, '2007-09-06 16:46:13'),
-(72, 0, 2, 2, 5.99, 0, 16.98, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, '2007-09-10 12:46:43'),
-(73, 0, 2, 2, 5.99, 0, 16.98, '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, '2007-09-12 11:59:00');
+(1, 1, 2, 2, 5.99, 0, 25.79, 'Test Order', 'asdfasf', 'asdfasdf', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, '0000-00-00 00:00:00');
 
 DROP TABLE IF EXISTS order_comments;
 CREATE TABLE `order_comments` (
@@ -1068,8 +1061,7 @@ CREATE TABLE `order_comments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `order_comments` (`id`, `user_id`, `order_id`, `sent_to_customer`, `comment`, `created`, `modified`) VALUES 
-(1, 1, 14, 0, 'asdf', '2007-08-28 11:06:18', '2007-08-28 11:06:18'),
-(2, 1, 14, 0, '', '2007-08-28 11:06:34', '2007-08-28 11:06:34');
+(1, 1, 1, 0, 'asdf', '2007-08-28 11:06:18', '2007-08-28 11:06:18');
 
 DROP TABLE IF EXISTS order_products;
 CREATE TABLE `order_products` (
@@ -1085,48 +1077,8 @@ CREATE TABLE `order_products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `order_products` (`id`, `order_id`, `content_id`, `name`, `quantity`, `price`, `weight`, `tax`) VALUES 
-(1, 1, 37, 'Internet Explorer', 0, 10.99, '', 0),
-(2, 1, 37, 'Internet Explorer', 0, 10.99, '', 0),
-(13, 10, 38, 'Mozilla Firefox', 3, 4.95, '', 0),
-(18, 10, 37, 'Internet Explorer', 2, 10.99, '', 0),
-(19, 11, 37, 'Internet Explorer', 3, 10.99, '', 0),
-(20, 11, 38, 'Mozilla Firefox', 2, 4.95, '', 0),
-(21, 12, 37, 'Internet Explorer', 3, 10.99, '', 0),
-(23, 14, 38, 'Mozilla Firefoxtest', 4, 4.95, '', 0),
-(28, 18, 55, 'Linux Rocks', 3, 0.01, '', 0),
-(30, 20, 38, 'Mozilla Firefoxtest', 1, 4.95, '', 0),
-(31, 20, 37, 'Internet Explorer', 1, 10.99, '', 0),
-(32, 21, 37, 'Internet Explorer', 1, 10.99, '', 0),
-(33, 21, 38, 'Mozilla Firefoxtest', 1, 4.95, '', 0),
-(37, 39, 37, 'Internet Explorer', 1, 10.99, '', 0),
-(41, 42, 38, 'Mozilla Firefoxtest', 1, 4.95, '', 0),
-(44, 44, 37, 'Internet Explorer', 1, 10.99, '0', 0),
-(45, 44, 38, 'Mozilla Firefoxtest', 1, 4.95, '10', 0),
-(47, 45, 37, 'Internet Explorer', 1, 10.99, '0', 0),
-(48, 45, 38, 'Mozilla Firefoxtest', 1, 4.95, '10', 0),
-(49, 46, 38, 'Mozilla Firefoxtest', 4, 4.95, '10', 0),
-(50, 47, 37, 'Internet Explorer', 1, 10.99, '0', 0),
-(51, 48, 37, 'Internet Explorer', 2, 10.99, '0', 0),
-(52, 50, 37, 'Internet Explorer', 2, 10.99, '0', 0),
-(55, 52, 38, 'Mozilla Firefoxtest', 1, 4.95, '3', 0),
-(58, 53, 37, 'Internet Explorer', 1, 10.99, '0', 0),
-(60, 54, 37, 'Internet Explorer', 1, 10.99, '0', 0),
-(61, 55, 37, 'Internet Explorer', 1, 10.99, '0', 0),
-(62, 56, 37, 'Internet Explorer', 5, 10.99, '0', 0),
-(64, 57, 37, 'Internet Explorer', 1, 10.99, '0', 0),
-(65, 59, 37, 'Internet Explorer', 1, 10.99, '0', 0),
-(66, 61, 37, 'Internet Explorer', 2, 10.99, '0', 0),
-(67, 63, 37, 'Internet Explorer', 3, 10.99, '0', 0),
-(68, 63, 38, 'Mozilla Firefoxtest', 1, 4.95, '3', 0),
-(198, 65, 37, 'Internet Explorer', 3, 10.99, '0', 0),
-(207, 65, 61, 'Coupon: Amount Off Order - asdfasdf', 1, -22, '', 0),
-(208, 66, 38, 'Mozilla Firefoxtest', 1, 4.95, '3', 0),
-(209, 67, 37, 'Internet Explorer', 13, 10.99, '0', 0),
-(210, 68, 37, 'Internet Explorer', 10, 10.99, '0', 0),
-(211, 70, 37, 'Internet Explorer', 1, 10.99, '0', 0),
-(212, 71, 37, 'Internet Explorer', 1, 10.99, '0', 0),
-(213, 72, 37, 'Internet Explorer', 1, 10.99, '0', 0),
-(214, 73, 37, 'Internet Explorer', 1, 10.99, '0', 0);
+(1, 1, 38, 'Mozilla Firefox', 3, 4.95, '', 0),
+(2, 1, 37, 'Internet Explorer', 2, 10.99, '', 0);
 
 DROP TABLE IF EXISTS order_statuses;
 CREATE TABLE `order_statuses` (
@@ -1137,9 +1089,10 @@ CREATE TABLE `order_statuses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `order_statuses` (`id`, `default`, `order`) VALUES 
-(3, 0, 2),
-(4, 1, 1),
-(5, 0, 3);
+(1, 1, 1),
+(2, 0, 2),
+(3, 0, 3),
+(4, 0, 4);
 
 DROP TABLE IF EXISTS order_status_descriptions;
 CREATE TABLE `order_status_descriptions` (
@@ -1152,12 +1105,14 @@ CREATE TABLE `order_status_descriptions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `order_status_descriptions` (`id`, `order_status_id`, `language_id`, `name`, `description`) VALUES 
-(31, 3, 1, 'Shipped', ''),
-(32, 3, 3, 'Shipped', ''),
-(33, 4, 1, 'Pending', ''),
-(34, 4, 3, 'asdf', ''),
-(35, 5, 1, 'Processing', ''),
-(36, 5, 3, 'asdf', '');
+(1, 1, 1, 'Pending', ''),
+(2, 1, 2, 'Ожидает проверки', ''),
+(3, 2, 1, 'Processing', ''),
+(4, 2, 2, 'Обрабатывается', ''),
+(5, 3, 1, 'Delivering', ''),
+(6, 3, 2, 'Доставляется', ''),
+(7, 4, 1, 'Delivered', ''),
+(8, 4, 2, 'Доставлен', '');
 
 DROP TABLE IF EXISTS payment_methods;
 CREATE TABLE `payment_methods` (
@@ -1187,9 +1142,9 @@ CREATE TABLE `payment_method_values` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `payment_method_values` (`id`, `payment_method_id`, `key`, `value`) VALUES 
-(3, 3, 'paypal_email', 'kevingraasdfndon@hotmail.com'),
-(4, 5, 'authorize_login', '888888888'),
-(5, 6, 'google_html_merchant_id', '1234567890');
+(1, 3, 'paypal_email', 'kevingraasdfndon@hotmail.com'),
+(2, 5, 'authorize_login', '888888888'),
+(3, 6, 'google_html_merchant_id', '1234567890');
 
 DROP TABLE IF EXISTS search_tables;
 CREATE TABLE `search_tables` (
@@ -1242,12 +1197,12 @@ CREATE TABLE `shipping_method_values` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `shipping_method_values` (`id`, `shipping_method_id`, `key`, `value`) VALUES 
-(4, 2, 'rate', '5.99'),
-(6, 3, 'per_item_amount', '1'),
-(7, 3, 'per_item_handling', '5.00'),
-(8, 4, 'table_based_type', 'weight'),
-(9, 4, 'table_based_rates', '0:0.50,\r\n1:1.50,\r\n2:2.25,\r\n3:3.00,\r\n4:5.75'),
-(10, 2, 'cost', '5.99');
+(1, 2, 'rate', '5.99'),
+(2, 3, 'per_item_amount', '1'),
+(3, 3, 'per_item_handling', '5.00'),
+(4, 4, 'table_based_type', 'weight'),
+(5, 4, 'table_based_rates', '0:0.50,\r\n1:1.50,\r\n2:2.25,\r\n3:3.00,\r\n4:5.75'),
+(6, 2, 'cost', '5.99');
 
 DROP TABLE IF EXISTS stylesheets;
 CREATE TABLE `stylesheets` (
@@ -1386,9 +1341,7 @@ CREATE TABLE `user_prefs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `user_prefs` (`id`, `user_id`, `name`, `value`) VALUES 
-(1, 1, 'content_collapse', ''),
-(2, 1, 'template_collpase', ',,,,,,,97,,,,,,,,,,94,,,'),
-(4, 1, 'language', 'eng');
+(1, 1, 'language', 'eng');
 
 DROP TABLE IF EXISTS user_tags;
 CREATE TABLE `user_tags` (
@@ -1402,4 +1355,4 @@ CREATE TABLE `user_tags` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `user_tags` (`id`, `name`, `alias`, `content`, `created`, `modified`) VALUES 
-(10, 'User Agent', 'user-agent', 'echo $_SERVER[''HTTP_USER_AGENT''];', '2007-07-25 09:50:24', '2007-07-27 18:08:55');
+(1, 'User Agent', 'user-agent', 'echo $_SERVER[''HTTP_USER_AGENT''];', '2007-07-25 09:50:24', '2007-07-27 18:08:55');
