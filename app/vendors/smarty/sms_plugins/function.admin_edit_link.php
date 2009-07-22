@@ -26,7 +26,7 @@ function smarty_function_admin_edit_link($params, &$smarty)
 
 		echo '
 		<div class="admin_link admin_edit">
-			<a href="' . BASE . '/contents/admin_edit/' . $content['Content']['id'] . '">Edit Content</a>
+			<a href="' . BASE . '/contents/admin_edit/' . $content['Content']['id'] . '">'.__('Edit Content', true).'</a>
 		</div>';
 	}
 
