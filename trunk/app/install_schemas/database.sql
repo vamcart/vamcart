@@ -10,7 +10,7 @@ CREATE TABLE `configurations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `configurations` (`id`, `key`, `value`) VALUES 
-(1, 'METADATA', '<meta name="Generator" content="VaM Shop - vamshop.ru" />'),
+(1, 'METADATA', '<meta name="Generator" content="VaM Shop - vamshop.com" />'),
 (2, 'SITE_NAME', 'VaM Shop'),
 (3, 'URL_EXTENSION', '.html'),
 (4, 'GD_LIBRARY', '0'),
@@ -37,11 +37,9 @@ CREATE TABLE `contents` (
 
 INSERT INTO `contents` (`id`, `parent_id`, `order`, `hierarchy`, `content_type_id`, `template_id`, `default`, `alias`, `head_data`, `active`, `show_in_menu`, `created`, `modified`) VALUES 
 (35, 0, 1, 0, 3, 1, 1, 'home-page', '', 1, 1, '2007-07-28 21:11:18', '2007-09-12 12:30:17'),
-(36, 0, 3, 0, 1, 1, 0, 'test-category-1', '', 1, 1, '2007-07-28 21:11:49', '2007-08-01 14:56:05'),
-(38, 36, 2, 0, 2, 1, 0, 'mozilla-firefox', '', 1, 1, '2007-07-29 18:54:37', '2007-09-11 11:20:29'),
-(39, 0, 2, 0, 1, 1, 0, 'open-source-software', '', 1, 1, '2007-07-29 22:02:10', '2007-08-01 14:55:54'),
-(40, 39, 0, 0, 1, 1, 0, 'shopping-carts', '', 1, 1, '2007-07-29 22:02:24', '2007-07-29 22:02:33'),
-(41, 39, 1, 0, 1, 1, 0, 'operating-systems', '', 1, 1, '2007-07-29 22:02:47', '2007-08-15 16:00:55'),
+(36, 0, 3, 0, 1, 1, 0, 'horns', '', 1, 1, '2007-07-28 21:11:49', '2007-08-01 14:56:05'),
+(38, 36, 2, 0, 2, 1, 0, 'elk-horns', '', 1, 1, '2007-07-29 18:54:37', '2007-09-11 11:20:29'),
+(39, 0, 2, 0, 1, 1, 0, 'hoofs', '', 1, 1, '2007-07-29 22:02:10', '2007-08-01 14:55:54'),
 (44, 0, 4, 0, 3, 1, 0, 'information', '', 1, 0, '2007-07-30 15:34:48', '2007-07-30 15:35:02'),
 (45, 44, 1, 0, 3, 1, 0, 'shipping--returns', '', 1, 1, '2007-07-30 15:36:30', '2007-08-06 14:53:16'),
 (46, 44, 1, 0, 3, 1, 0, 'privacy-policy', '', 1, 1, '2007-07-30 15:36:54', '2007-07-30 15:37:09'),
@@ -51,7 +49,6 @@ INSERT INTO `contents` (`id`, `parent_id`, `order`, `hierarchy`, `content_type_i
 (50, -1, 6, 0, 3, 1, 0, 'checkout', '', 1, 1, '2007-07-30 20:52:36', '2007-08-01 16:54:56'),
 (51, -1, 5, 0, 3, 1, 0, 'payment', '', 1, 1, '2007-08-07 11:16:28', '2007-09-01 16:22:10'),
 (53, -1, 5, 0, 3, 1, 0, 'thank-you', '', 1, 1, '2007-08-07 11:58:21', '2007-08-15 16:00:40'),
-(55, 40, 1, 0, 2, 1, 0, 'linux-rocks', '', 1, 1, '2007-08-10 16:14:33', '2007-08-10 16:14:33'),
 (58, -1, 0, 0, 3, 1, 0, 'read-reviews', '', 1, 0, '2007-08-20 09:37:04', '2007-08-20 09:37:04'),
 (59, -1, 0, 0, 3, 1, 0, 'create-review', '', 1, 0, '2007-08-20 09:37:04', '2007-08-20 09:37:04'),
 (68, -1, 0, 0, 3, 1, 0, 'coupon-details', '', 1, 0, '2007-09-13 11:11:08', '2007-09-13 11:11:08');
@@ -67,8 +64,6 @@ CREATE TABLE `content_categories` (
 INSERT INTO `content_categories` (`id`, `content_id`, `extra`) VALUES 
 (8, 36, '1'),
 (9, 39, '1'),
-(10, 40, '1'),
-(11, 41, '1'),
 (12, 51, '1');
 
 DROP TABLE IF EXISTS content_descriptions;
@@ -82,8 +77,6 @@ CREATE TABLE `content_descriptions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `content_descriptions` (`id`, `content_id`, `language_id`, `name`, `description`) VALUES 
-(159, 40, 1, 'Shopping Carts', 'Shopping Carts'),
-(160, 40, 2, 'Скрипты магазинов', 'Скрипты магазинов'),
 (179, 44, 1, 'Information', 'Information about our site can be found by visiting the following links:'),
 (180, 44, 2, 'Информация', 'Информация о магазине доступна по следующим ссылкам:'),
 (185, 46, 1, 'Payment methods', '<p>Enter your payment methods on this page.</p>'),
@@ -92,30 +85,26 @@ INSERT INTO `content_descriptions` (`id`, `content_id`, `language_id`, `name`, `
 (188, 47, 2, 'О магазине', '<p>Информация о магазине.</p>'),
 (189, 48, 1, 'Contact Us', '<p>Enter your contact information on this page.</p>'),
 (190, 48, 2, 'Контакты', '<p>Контактная информация.</p>'),
-(225, 39, 1, 'Open Source', 'Description'),
-(226, 39, 2, 'Скрипты', 'Описание'),
-(227, 36, 1, 'Web Browsers', '<p>There are many different types of web browsers.</p>'),
-(228, 36, 2, 'Браузеры', '<p>Разные браузеры.</p>'),
+(225, 39, 1, 'Hoofs', 'Description'),
+(226, 39, 2, 'Копыта', 'Описание категории!'),
+(227, 36, 1, 'Horns', 'Description'),
+(228, 36, 2, 'Рога', 'Рога оленей, лосей и других животных!'),
 (241, 50, 1, 'Checkout', '{checkout}'),
 (242, 50, 2, 'Оформление', '{checkout}'),
 (245, 45, 1, 'Shipping and Returns', '<p>Enter your Shipping & Return information on this page.</p>'),
 (246, 45, 2, 'Доставка', '<p>Укажите информацию о способах доставки товара на данной странице.</p>'),
 (269, 49, 1, 'Cart Contents', '{shopping_cart}'),
 (270, 49, 2, 'Корзина', '{shopping_cart}'),
-(293, 55, 1, 'Linux Rocks', ''),
-(294, 55, 2, 'Линукс', ''),
 (313, 53, 1, 'Thank You', 'Thanks for shopping!'),
 (314, 53, 2, 'Спасибо', 'Спасибо за покупки!'),
-(317, 41, 1, 'Operating Systems', 'Operating Systems'),
-(318, 41, 2, 'Операционные системы', 'Операционные системы'),
 (323, 58, 1, 'Read Reviews', '{module alias=''reviews'' action=''display''}'),
 (324, 58, 2, 'Читать отзывы', '{module alias=''reviews'' action=''display''}'),
 (325, 59, 1, 'Write Review', '{module alias=''reviews'' action=''create''}'),
 (326, 59, 2, 'Добавить отзыв', '{module alias=''reviews'' action=''create''}'),
 (359, 51, 1, 'Payment', '{payment}\r\n\r\n<h2 style="margin-top:75px;">{lang}cart-contents{/lang}<h2>\r\n{shopping_cart template=''payment-view-cart''}'),
 (360, 51, 2, 'Оплата', '{payment}\r\n\r\n<h2 style="margin-top:75px;">{lang}cart-contents{/lang}<h2>\r\n{shopping_cart template=''payment-view-cart''}'),
-(385, 38, 1, 'Mozilla Firefox', 'Should soon surpass Internet Explorer 6.0 as the leading browser.  '),
-(386, 38, 2, 'Mozilla Firefox', 'Просто хороший браузер.'),
+(385, 38, 1, 'Elk Horns', 'Product description.'),
+(386, 38, 2, 'Рога лося', 'Дешевле не найдёте, отличные лосиные рога.'),
 (391, 35, 1, 'Home', '<p>Welcome to your new online catalog!</p>\r\n<p><a href=''admin/''>Click here to go to the admin area.</a><br />\r\nLogin credentials: admin/password</p>'),
 (392, 35, 2, 'Главная страница', '<p>Добро пожаловать!</p>\r\n<p><a href=''admin/''>Вход в админку.</a><br />\r\nЛогин/пароль: admin/password</p>'),
 (393, 68, 1, 'Voucher Details', '{module alias=''coupons'' action=''show_info''}'),
@@ -131,9 +120,6 @@ CREATE TABLE `content_images` (
   `modified` datetime NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-INSERT INTO `content_images` (`id`, `content_id`, `order`, `image`, `created`, `modified`) VALUES 
-(1, 38, 1, 'firefox.jpg', '2007-08-09 21:03:49', '2007-08-09 21:03:49');
 
 DROP TABLE IF EXISTS content_links;
 CREATE TABLE `content_links` (
@@ -178,8 +164,7 @@ CREATE TABLE `content_products` (
 
 INSERT INTO `content_products` (`id`, `content_id`, `stock`, `model`, `price`, `tax_id`, `weight`) VALUES 
 (16, 37, 12, '123456', 10.99, 2, 0),
-(17, 38, 22, '', 4.95, 2, 3),
-(18, 55, 0, '', 0.01, 2, 0);
+(17, 38, 22, '', 4.95, 2, 3);
 
 DROP TABLE IF EXISTS content_selflinks;
 CREATE TABLE `content_selflinks` (
