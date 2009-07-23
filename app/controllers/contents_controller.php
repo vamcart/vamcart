@@ -266,7 +266,7 @@ class ContentsController extends AppController {
 			{	
 				// If we're generating the alias by the name we first have to get the name from the default language
 				// TODO: Change the way this gets the default language id for now its jsut set on english
-				$default_language_id = 1;
+				$default_language_id = $_SESSION['Customer']['language_id'];
 				$content_name = $this->data['ContentDescription'][$default_language_id]['name'][1];
 				$this->data['Content']['alias'] = $this->generateAlias($content_name);
 			}
@@ -505,7 +505,7 @@ class ContentsController extends AppController {
 	        array('hasOne' => array(
 				'ContentDescription' => array(
                     'className' => 'ContentDescription',
-					'conditions'   => 'language_id = 1'
+					'conditions'   => 'language_id = ' . $_SESSION['Customer']['language_id']
                 )
             )
            	)
@@ -537,7 +537,7 @@ class ContentsController extends AppController {
 	        array('hasOne' => array(
 				'ContentDescription' => array(
                     'className' => 'ContentDescription',
-					'conditions'   => 'language_id = 1'
+					'conditions'   => 'language_id = ' . $_SESSION['Customer']['language_id']
                 )
             )
            	)
@@ -557,7 +557,7 @@ class ContentsController extends AppController {
 			$this->Content->bindModel(array('hasOne' => array(
 												'ContentDescription' => array(
 								                    'className' => 'ContentDescription',
-													'conditions'   => 'language_id = 1'
+													'conditions'   => 'language_id = ' . $_SESSION['Customer']['language_id']
 								                )
 								            )
 								           	)
