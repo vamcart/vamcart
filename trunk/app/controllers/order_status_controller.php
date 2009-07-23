@@ -165,7 +165,7 @@ class OrderStatusController extends AppController {
 	        array('hasOne' => array(
 				'OrderStatusDescription' => array(
                     'className' => 'OrderStatusDescription',
-					'conditions'   => 'language_id = 1'
+					'conditions'   => 'language_id = ' . $_SESSION['Customer']['language_id']
                 )
             )
            	)
