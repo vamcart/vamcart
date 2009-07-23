@@ -305,7 +305,13 @@ class AppController extends Controller {
 			{
 				// Set the default language
 				$new_customer = array();
-				$new_customer['language_id'] = '1'; // Change this later
+
+				// Get the default language
+				loadModel('Language');
+				$this->Language =& new Language();		
+				$default_language = $this->Language->find(array('default' => '1'));
+
+				$new_customer['language_id'] = $default_language['Language']['id'];
 
 				// Get the default currency
 				loadModel('Currency');
