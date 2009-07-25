@@ -313,6 +313,8 @@ class AppController extends Controller {
 
 				$new_customer['language_id'] = $default_language['Language']['id'];
 
+				$this->Session->write('Config.language_id', $default_language['Language']['id']);
+
 				// Get the default currency
 				loadModel('Currency');
 				$this->Currency =& new Currency();		
