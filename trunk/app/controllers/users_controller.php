@@ -20,7 +20,7 @@
 
 class UsersController extends AppController {
 	var $name = 'Users';
-	var $uses = array('User', 'UserPref');
+	var $uses = array('User', 'UserPref', 'Language');
 	var $helpers = array('Html','Javascript','Admin','Form');
 	var $components = array('Locale');
 	
@@ -99,11 +99,16 @@ class UsersController extends AppController {
 			die();
 		}		
 
-		$language_options = array();
-		$language_options['eng'] = 'English';
-		$language_options['rus'] = 'Русский';			
-
-		$this->set('available_languages', $language_options);	
+		$languages = $this->Language->findAll(null,null,'Language.id ASC');
+		$languages_list = array();
+		
+		foreach($languages AS $language)
+		{
+			$language_key = $language['Language']['iso_code_2'];
+			$languages_list[$language_key] = $language['Language']['name'];
+		}
+		
+		$this->set('available_languages', $languages_list);	
 
 		$this->render('','admin');
 
