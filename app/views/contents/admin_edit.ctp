@@ -122,8 +122,8 @@
 		echo '<p>' . __('Press \'Upload Images\' and choose images from your computer to upload. Select as many files as you would like. Images will upload right after you select them.', true) . '</p>';
 		echo '<div class="help tip"><p>' . __('TIP: Hold the \'control\' button to select more than one image.', true) . '</p></div>';		
 		?>
-		<script type="text/javascript" language="javascript" src="/js/swfupload/swfupload.js"></script>
-		<script type="text/javascript" language="javascript" src="/js/swfupload/callbacks.js"></script>
+		<script type="text/javascript" language="javascript" src="<?php echo BASE; ?>/js/swfupload/swfupload.js"></script>
+		<script type="text/javascript" language="javascript" src="<?php echo BASE; ?>/js/swfupload/callbacks.js"></script>
 	
 		<script language="javascript" type="text/javascript">
 			var swfu;
@@ -131,9 +131,9 @@
 			window.onload = function() {
 
 				swfu = new SWFUpload({
-				upload_script : "/contents/admin_upload_images/<?php echo $data['Content']['id']; ?>",
+				upload_script : "<?php echo BASE; ?>/contents/admin_upload_images/<?php echo $data['Content']['id']; ?>",
 				target : "SWFUploadTarget",
-				flash_path : "/js/swfupload/swfupload.swf?session_name()=<?php echo session_id(); ?>&"+Math.random(),
+				flash_path : "<?php echo BASE; ?>/js/swfupload/swfupload.swf?session_name()=<?php echo session_id(); ?>&"+Math.random(),
 				allowed_filesize : 3072,	// 30 MB
 				allowed_filetypes : "*.*",
 				allowed_filetypes_description : "All files...",
