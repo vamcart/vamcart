@@ -669,7 +669,7 @@ msgid  "Press \'Upload Images\' and choose images from your computer to upload. 
 msgstr "Нажмите \'Загрузить картинки\' и выберите картинки для загрузки на своём компьютере. Можно загружать сразу несколько картинок. Картинки загрузятся после Вашего выбора."
 
 msgid  "TIP: Hold the \'control\' button to select more than one image."
-msgstr "ПОДСКАЗКА: Удерживайте кнопку \'control\', если хотите загрузить больше одной картинки."
+msgstr "ПОДСКАЗКА: При выборе картинок на своём компьютере, удерживайте кнопку \'control\', если хотите загрузить сразу несколько картинок."
 
 msgid  "This is a new product. Please press apply before uploading images."
 msgstr "Новый товар. Нажмите кнопку сохранить до загрузки картинок."
