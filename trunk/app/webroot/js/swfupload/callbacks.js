@@ -4,7 +4,7 @@ function fileQueued(file, queuelength) {
 	if(!listingfiles.getElementsByTagName("ul")[0]) {
 		
 		var info = document.createElement("h4");
-		info.appendChild(document.createTextNode("File queue"));
+//		info.appendChild(document.createTextNode("File queue"));
 		
 		listingfiles.appendChild(info);
 		
@@ -22,22 +22,22 @@ function fileQueued(file, queuelength) {
 	listingfiles.appendChild(li);
 	
 	var queueinfo = document.getElementById("queueinfo");
-	queueinfo.innerHTML = queuelength + " files queued";
+//	queueinfo.innerHTML = queuelength + " files queued";
 	document.getElementById(swfu.movieName + "UploadBtn").style.display = "block";
 	document.getElementById("cancelqueuebtn").style.display = "block";
 }
 
 function uploadFileCancelled(file, queuelength) {
 	var li = document.getElementById(file.id);
-	li.innerHTML = file.name + " - cancelled";
+//	li.innerHTML = file.name + " - cancelled";
 	li.className = "SWFUploadFileItem uploadCancelled";
 	var queueinfo = document.getElementById("queueinfo");
-	queueinfo.innerHTML = queuelength + " files queued";
+//	queueinfo.innerHTML = queuelength + " files queued";
 }
 
 function uploadFileStart(file, position, queuelength) {
 	var div = document.getElementById("queueinfo");
-	div.innerHTML = "Uploading file " + position + " of " + queuelength;
+//	div.innerHTML = "Uploading file " + position + " of " + queuelength;
 
 	var li = document.getElementById(file.id);
 	li.className += " fileUploading";
@@ -68,6 +68,6 @@ function cancelQueue() {
 function uploadQueueComplete(file) {
 	//update_content_images();
 	var div = document.getElementById("queueinfo");
-	div.innerHTML = "All files uploaded..."
+//	div.innerHTML = "All files uploaded..."
 	document.getElementById("cancelqueuebtn").style.display = "none";
 }
