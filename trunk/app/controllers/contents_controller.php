@@ -575,5 +575,12 @@ class ContentsController extends AppController {
 		else
 			$this->render('','admin');
 	}
+
+	// SWFUpload 302 error fix
+	function beforeFilter()
+	{
+		Configure::write('Session.checkAgent', false);
+	} 
+
 }
 ?>
