@@ -1,0 +1,24 @@
+<?php
+/* -----------------------------------------------------------------------------------------
+   VaM Shop
+   http://vamshop.com
+   http://vamshop.ru
+   Copyright 2009 VaM Shop
+   -----------------------------------------------------------------------------------------
+   Portions Copyright:
+   Copyright 2007 by Kevin Grandon (kevingrandon@hotmail.com)
+   -----------------------------------------------------------------------------------------
+   Released under the GNU General Public License
+   ---------------------------------------------------------------------------------------*/
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<?php echo $html->charset(); ?>
+<title>VaM Shop</title>
+</head>
+
+<body>
+	<?php echo $content_for_layout ?>
+</body>
+</html>
