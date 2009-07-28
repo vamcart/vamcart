@@ -20,15 +20,8 @@
 
 
 	echo $form->create('User', array('action' => '/users/admin_login/', 'url' => '/users/admin_login/'));
-	echo $form->inputs(array(
-					'fieldset' => __('Admin Login', true),
-	               'User/username' => array(
-						'label' => __('Username', true)
-	               ),
-				   'User/password' => array(
-   						'label' => __('Password', true)
-	               )																										
-			));
+	echo $form->input('username', array('label' => __('Username', true)));
+	echo $form->input('password', array('label' => __('Password', true)));
 	echo $form->submit(__('Login',true));
 	echo '<div class="clear"></div>';
 	echo $form->end();
