@@ -15,6 +15,9 @@ class CountriesController extends AppController {
 	var $name = 'Countries';
 	var $components = array('RequestHandler');
 	var $paginate = array();
+	var $view = 'Theme';
+	var $layout = 'admin';
+	var $theme = 'vamshop';
 	
 	function admin_edit ($country_id = null)
 	{
@@ -41,7 +44,6 @@ class CountriesController extends AppController {
 			$this->redirect('/countries/admin/');
 			die();
 		}		
-		$this->render('admin_edit','admin');
 	}
 	
 	function admin_modify_selected() 	
@@ -86,10 +88,6 @@ class CountriesController extends AppController {
 		$data = $this->paginate('Country');
 		$this->set(compact('data'));
 		
-		if($ajax_request == true)
-			$this->render('admin','ajax');	
-		else
-			$this->render('admin','admin');
 	}
 }
 ?>
