@@ -14,6 +14,9 @@
 class ImagesController extends AppController {
 	var $name = 'Images';
 	var $uses = array('ContentImage');
+	var $view = 'Theme';
+	var $layout = 'admin';
+	var $theme = 'vamshop';
 	
 	function thumb ()
 	{
@@ -94,7 +97,6 @@ class ImagesController extends AppController {
 	{
 		$this->set('content_id',$content_id);
 		$this->set('content_images',$this->ContentImage->findAll(array('content_id' => $content_id)));
-		$this->render('','ajax');
 	}
 		
 }

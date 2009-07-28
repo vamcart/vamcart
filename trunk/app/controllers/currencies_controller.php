@@ -14,6 +14,9 @@
 class CurrenciesController extends AppController {
 	var $name = 'Currencies';
 	var $components = array('EventBase');
+	var $view = 'Theme';
+	var $layout = 'admin';
+	var $theme = 'vamshop';
 
 	function pick_currency ()
 	{
@@ -79,7 +82,6 @@ class CurrenciesController extends AppController {
 			$this->Session->setFlash(__('Record saved.', true));
 			$this->redirect('/currencies/admin');
 		}		
-		$this->render('admin_edit','admin');
 	}
 	
 	function admin_new() 
@@ -141,11 +143,6 @@ class CurrenciesController extends AppController {
 	{
 		$this->set('current_crumb', __('Currencies Listing', true));
 		$this->set('currency_data',$this->Currency->findAll(null,null,'Currency.name ASC'));	
-
-		if($ajax == true)
-			$this->render('admin','ajax');
-		else
-			$this->render('admin','admin');
 	}	
 	
 }

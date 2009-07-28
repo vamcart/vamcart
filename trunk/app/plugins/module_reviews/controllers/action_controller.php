@@ -14,6 +14,9 @@
 class ActionController extends ModuleReviewsAppController {
 	var $uses = array('ModuleReview');
 	var $components = array('ContentBase');
+	var $view = 'Theme';
+	var $layout = 'admin';
+	var $theme = 'vamshop';
 	
 	function link ()
 	{
@@ -99,7 +102,6 @@ class ActionController extends ModuleReviewsAppController {
 	*/
 	function template ($action)
 	{
-		$this->render($action,'');
 	}
 
 }

@@ -13,6 +13,9 @@
 
 class AdminController extends PaymentAppController {
 	var $uses = null;
+	var $view = 'Theme';
+	var $layout = 'admin';
+	var $theme = 'vamshop';
 	
 	function edit($id)
 	{
@@ -29,7 +32,6 @@ class AdminController extends PaymentAppController {
 							 		 Set::extract($data, '{n}.PaymentMethodValue'));		
 				
 		$this->set('data',$keyed_array);
-		$this->render($method['PaymentMethod']['alias']);
 	}
 	
 }

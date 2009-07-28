@@ -13,6 +13,9 @@
 
 class AdminController extends ShippingAppController {
 	var $uses = null;
+	var $view = 'Theme';
+	var $layout = 'admin';
+	var $theme = 'vamshop';
 	
 	function edit($code)
 	{
@@ -27,7 +30,6 @@ class AdminController extends ShippingAppController {
 							  Set::extract($data, 'ShippingMethodValue.{n}.value'));		
 				
 		$this->set('data',$keys);
-		$this->render($code);
 	}
 	
 }

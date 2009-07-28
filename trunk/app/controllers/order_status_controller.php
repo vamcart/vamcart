@@ -15,6 +15,9 @@ class OrderStatusController extends AppController {
 
 	var $name = 'OrderStatus';
 	var $uses = array('OrderStatus','Language');
+	var $view = 'Theme';
+	var $layout = 'admin';
+	var $theme = 'vamshop';
 
 	function admin_set_as_default ($order_status_id)
 	{
@@ -138,7 +141,6 @@ class OrderStatusController extends AppController {
 			
 			$this->redirect('/order_status/admin');
 		}		
-		$this->render('admin_edit','admin');
 	}
 
 	
@@ -167,10 +169,6 @@ class OrderStatusController extends AppController {
 		$this->set('order_status_data',$this->OrderStatus->findAll(null,null,'OrderStatus.order ASC'));			
 		$this->set('order_status_count', $this->OrderStatus->findCount());
 
-		if($ajax == true)
-			$this->render('admin','ajax');
-		else
-			$this->render('admin','admin');
 	}	
 }
 

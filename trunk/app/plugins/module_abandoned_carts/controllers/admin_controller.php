@@ -14,6 +14,9 @@
 class AdminController extends ModuleAbandonedCartsAppController {
 	var $helpers = array('Time','Admin');
 	var $uses = null;
+	var $view = 'Theme';
+	var $layout = 'admin';
+	var $theme = 'vamshop';
 
 	function purge_old_carts()
 	{
@@ -37,12 +40,10 @@ class AdminController extends ModuleAbandonedCartsAppController {
 		$this->set('current_crumb',__('Abandoned Carts', true));
 		$this->set('data',$this->Order->findAll(array('Order.order_status_id' => '0')));
 		
-		$this->render('','admin');
 	}
 
 	function admin_help()
 	{
-		$this->render('','admin');
 	}
 
 }

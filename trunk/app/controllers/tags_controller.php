@@ -14,6 +14,9 @@
 class TagsController extends AppController {
 	var $name = 'Tags';
 	var $uses = null;
+	var $view = 'Theme';
+	var $layout = 'admin';
+	var $theme = 'vamshop';
 	
 	function admin_view ($type, $tag)
 	{
@@ -48,7 +51,6 @@ class TagsController extends AppController {
 		$this->set('help_content',$help_content);
 		$this->set('about_content',$about_content);		
 		
-		$this->render('admin_view','admin');
 	}
 	
 	function admin ()
@@ -76,7 +78,6 @@ class TagsController extends AppController {
 		}
 		$this->set('files',$files);
 		
-		$this->render('admin','admin');
 	}
 }
 ?>

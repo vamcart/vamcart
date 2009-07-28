@@ -13,6 +13,9 @@
 
 class EventsController extends AppController {
 	var $name = 'Events';
+	var $view = 'Theme';
+	var $layout = 'admin';
+	var $theme = 'vamshop';
    
    
    	function admin_view($id)
@@ -24,14 +27,12 @@ class EventsController extends AppController {
 		$this->set('event',$event);
 		$this->set('event_handlers',$this->Event->EventHandler->findAll(array('EventHandler.event_id' => $id)));
 		
-		$this->render('admin_view','admin');
 	}
    
 	function admin()
 	{
 		$this->set('current_crumb', __('Events Listing', true));
 		$this->set('event_data',$this->Event->findAll(null,null,'Event.alias ASC'));
-  		$this->render('admin','admin');
 	}
 }
 ?>

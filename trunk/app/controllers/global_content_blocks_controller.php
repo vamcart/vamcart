@@ -13,6 +13,9 @@
 
 class GlobalContentBlocksController extends AppController {
 	var $name = 'GlobalContentBlocks';
+	var $view = 'Theme';
+	var $layout = 'admin';
+	var $theme = 'vamshop';
 
 	function admin_change_active_status ($id) 
 	{
@@ -45,7 +48,6 @@ class GlobalContentBlocksController extends AppController {
 				$this->data['GlobalContentBlock']['active'] = 1;
 			}
 				
-			$this->render('admin_edit','admin');
 		}
 		else
 		{
@@ -123,11 +125,6 @@ class GlobalContentBlocksController extends AppController {
 	{
 		$this->set('current_crumb', __('Global Content Blocks Listing', true));
 		$this->set('global_content_blocks', $this->GlobalContentBlock->findAll());
-		
-		if($ajax_request == true)
-			$this->render('admin','ajax');	
-		else
-			$this->render('admin','admin');
 	}
 }
 ?>

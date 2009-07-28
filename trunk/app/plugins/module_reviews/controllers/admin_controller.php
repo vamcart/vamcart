@@ -14,6 +14,9 @@
 class AdminController extends ModuleReviewsAppController {
 	var $uses = array('ModuleReview');
 	var $helpers = array('Time','Admin');
+	var $view = 'Theme';
+	var $layout = 'admin';
+	var $theme = 'vamshop';
 	
 	function admin_delete ($id)
 	{
@@ -26,19 +29,16 @@ class AdminController extends ModuleReviewsAppController {
 	{
 		$this->set('current_crumb',__('Read Review',true));
 		$this->set('data',$this->ModuleReview->read(null,$id));
-		$this->render('','admin');		
 	}
 	
 	function admin_index()
 	{
 		$this->set('current_crumb',__('Manage Reviews',true));
 		$this->set('reviews',$this->ModuleReview->findAll());
-		$this->render('','admin');
 	}
 	
 	function admin_help()
 	{
-		$this->render('','admin');
 	}
 
 }

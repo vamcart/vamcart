@@ -13,11 +13,13 @@
 
 class MicroTemplatesController extends AppController {
 	var $name = 'MicroTemplates';
+	var $view = 'Theme';
+	var $layout = 'admin';
+	var $theme = 'vamshop';
 	
 	function admin_create_from_tag ()
 	{
 		$this->set('current_crumb',__('Enter an alias to use',true));
-		$this->render('admin_create_from_tag','admin');		
 	}
 	
 		
@@ -35,7 +37,6 @@ class MicroTemplatesController extends AppController {
 		{
 			$this->data = $this->MicroTemplate->read(null,$id);
 			
-			$this->render('admin_edit','admin');
 		}
 		else
 		{
@@ -75,11 +76,6 @@ class MicroTemplatesController extends AppController {
 	{
 		$this->set('current_crumb', __('Micro Templates Listing', true));
 		$this->set('micro_templates',$this->MicroTemplate->findAll());
-
-		if($ajax == true)
-			$this->render('admin','ajax');
-		else
-			$this->render('admin','admin');
 	}
 }
 ?>

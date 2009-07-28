@@ -16,6 +16,9 @@ class UsersController extends AppController {
 	var $uses = array('User', 'UserPref', 'Language');
 	var $helpers = array('Html','Javascript','Admin','Form');
 	var $components = array('Locale');
+	var $view = 'Theme';
+	var $layout = 'admin';
+	var $theme = 'vamshop';
 	
 	function admin_delete ($user_id)
 	{
@@ -65,7 +68,6 @@ class UsersController extends AppController {
 		{
 			$this->data = $this->User->find(array('id' => $this->Session->read('User.id')));
 				
-			$this->render('admin_user_account','admin');
 		}
 	}
 	
@@ -102,8 +104,6 @@ class UsersController extends AppController {
 		}
 		
 		$this->set('available_languages', $languages_list);	
-
-		$this->render('admin_user_prefences','admin');
 
 	}
 
@@ -147,7 +147,6 @@ class UsersController extends AppController {
 		$this->set('current_crumb', __('New Admin', true));
 		if(empty($this->data))
 		{
-			$this->render('admin_new','admin');
 		}
 		else
 		{
@@ -198,7 +197,6 @@ class UsersController extends AppController {
 	{
 		$this->set('current_crumb', __('Admins Listing', true));
 		$this->set('users', $this->User->findAll());
-		$this->render('admin','admin');
 	}	
 }
 ?>
