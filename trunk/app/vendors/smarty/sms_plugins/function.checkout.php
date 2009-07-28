@@ -147,19 +147,19 @@ function smarty_function_checkout($params, &$smarty)
 	/*
 	 *  Load some necessary models
 	 **/	
-	loadComponent('Smarty');
+	App::import('Component', 'Smarty');
 		$Smarty =& new SmartyComponent();
 
-	loadComponent('CurrencyBase');
+	App::import('Component', 'CurrencyBase');
 		$CurrencyBase =& new CurrencyBaseComponent();		
 	
-	loadModel('Order');
+	App::import('Model', 'Order');
 		$Order =& new Order();
 		
-	loadModel('ShippingMethod');
+	App::import('Model', 'ShippingMethod');
 		$ShippingMethod =& new ShippingMethod();
 
-	loadModel('PaymentMethod');
+	App::import('Model', 'PaymentMethod');
 		$PaymentMethod =& new PaymentMethod();
 
 	// Assign the shipping methods

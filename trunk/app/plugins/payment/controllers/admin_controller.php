@@ -24,7 +24,7 @@ class AdminController extends PaymentAppController {
 	
 	function edit($id)
 	{
-		loadModel('PaymentMethod');
+		App::import('Model', 'PaymentMethod');
 		$this->PaymentMethod =& new PaymentMethod();
 		
 		$method = $this->PaymentMethod->read(null,$id);

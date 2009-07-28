@@ -29,7 +29,7 @@ function smarty_function_payment_content($params, &$smarty)
 	 **/	
 	global $config;
 	
-	loadComponent('Smarty');
+	App::import('Component', 'Smarty');
 		$Smarty =& new SmartyComponent();
 
 	$payment_content = $Smarty->requestAction( '/payment/' . $params['alias'] . '/before_process/', array('return'=>true));	

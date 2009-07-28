@@ -40,7 +40,7 @@ class SmartyComponent extends Object
 				{
 					ob_start();
 		
-			loadModel('MicroTemplate');
+			App::import('Model', 'MicroTemplate');
 				$MicroTemplate =& new MicroTemplate();
 			
 			$template = $MicroTemplate->find(array('alias' => $params['template']));
@@ -66,7 +66,7 @@ class SmartyComponent extends Object
 	
  	function load_smarty ()
 	{
-		vendor('smarty/Smarty.class');
+		App::import('Vendor', 'Smarty', array('file' => 'smarty'.DS.'Smarty.class.php'));
 		$smarty = new Smarty();
 		
 		$smarty->plugins_dir = array('plugins','sms_plugins');

@@ -24,7 +24,7 @@ class AdminController extends ShippingAppController {
 	
 	function edit($code)
 	{
-		loadModel('ShippingMethod');
+		App::import('Model', 'ShippingMethod');
 		$this->ShippingMethod =& new ShippingMethod();
 		
 		$data = $this->ShippingMethod->findByCode($code);

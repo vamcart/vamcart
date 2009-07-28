@@ -33,7 +33,7 @@ class EventBaseComponent extends Object
 
 	function ProcessEvent ($event_alias)
 	{
-		loadModel('Event');
+		App::import('Model', 'Event');
 		$this->Event =& new Event();
 		
 		$events = $this->Event->EventHandler->findAll(array('Event.alias' => $event_alias));

@@ -4,7 +4,7 @@ class TaxCountryZoneRatesController extends AppController {
 	
 	function list_zones_by_country($country_id) 
 	{
-		$zones = $this->TaxCountryZoneRate->CountryZone->generateList(array('country_id' => $country_id));
+		$zones = $this->TaxCountryZoneRate->CountryZone->find('list', array('country_id' => $country_id));
 		$zones['ALL'] = __('All Country Zones',true);
 		
 		$this->set('zones', $zones);
@@ -50,7 +50,7 @@ class TaxCountryZoneRatesController extends AppController {
 		{
 			$this->set('tax',$tax);
 			
-			$this->set('country_list',$this->TaxCountryZoneRate->CountryZone->Country->generateList());
+			$this->set('country_list',$this->TaxCountryZoneRate->CountryZone->Country->find('list'));
 			$this->render('','admin');
 		}
 		else

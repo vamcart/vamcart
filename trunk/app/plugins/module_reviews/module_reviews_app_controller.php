@@ -22,12 +22,12 @@ class ModuleReviewsAppController extends AppController
 {
 	function loadModels()
 	{
-		loadModel('Module');
+		App::import('Model', 'Module');
 			$this->Module =& new Module();
 		
 		if($this->Module->findCount(array('alias' => 'reviews')) == 1)
 		{
-			loadModel('ModuleReview');
+			App::import('Model', 'ModuleReview');
 				$this->ModuleReview =& new Module();
 		}
 

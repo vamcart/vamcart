@@ -32,7 +32,7 @@ class SearchController extends AppController {
 		{
 			$search_results[$key] = array();
 
-			loadModel($table['Search']['model']);
+			App::import('Model', $table['Search']['model']);
 			$this->SearchModel =& new $table['Search']['model']();
 			
 			$search_conditions = $table['Search']['model'] . '.' . $table['Search']['field'] . ' LIKE \'%' . $this->data['Search']['term'] . '%\'';

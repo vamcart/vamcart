@@ -144,7 +144,7 @@ class UsersController extends AppController {
 			}
 			// Write to the session and redirect
 			$this->Session->write('User', $admin_user['User']);
-			$this->Session->write('UserPref', $this->UserPref->generateList(array('user_id' => $admin_user['User']['id']), null, null, '{n}.UserPref.name', '{n}.UserPref.value'));
+			$this->Session->write('UserPref', $this->UserPref->find('list', array('user_id' => $admin_user['User']['id']), null, null, '{n}.UserPref.name', '{n}.UserPref.value'));
 			$this->redirect('/admin/admin_top/');		
 		}
 	}	

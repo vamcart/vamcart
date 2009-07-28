@@ -33,7 +33,7 @@ class SetupController extends ModuleCouponsAppController {
 	{
 		$this->ModuleBase->check_if_installed('coupons');
 		
-		loadModel('Module');
+		App::import('Model', 'Module');
 		$this->Module =& new Module();
 		
 		// Create the new module record		
@@ -54,7 +54,7 @@ class SetupController extends ModuleCouponsAppController {
 
 		
 		// Create a new event
-		loadModel('Event');
+		App::import('Model', 'Event');
 		$this->Event =& new Event();
 		$event = $this->Event->findByAlias('UpdateOrderTotalsAfterSave');
 		
@@ -101,7 +101,7 @@ class SetupController extends ModuleCouponsAppController {
 	
 	function uninstall()
 	{
-		loadModel('Module');
+		App::import('Model', 'Module');
 		$this->Module =& new Module();
 			
 		// Delete the module record
@@ -113,7 +113,7 @@ class SetupController extends ModuleCouponsAppController {
 		$this->Module->execute($uninstall_query);
 		
 		// Delete any associated events.
-		loadModel('Event');	
+		App::import('Model', 'Event');	
 		$this->Event =& new Event();
 		
 		$handlers = $this->Event->EventHandler->findAll(array('EventHandler.originator' => 'CouponsModule'));
@@ -123,7 +123,7 @@ class SetupController extends ModuleCouponsAppController {
 		}
 		
 		// Delete the core page
-		loadModel('Content');
+		App::import('Model', 'Content');
 			$this->Content =& new Content();		
 
 		$core_page = $this->Content->find(array('Content.parent_id' => '-1','alias' => 'coupon-details'));

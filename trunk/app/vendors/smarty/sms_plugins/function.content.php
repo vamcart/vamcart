@@ -30,11 +30,11 @@ function smarty_function_content($params, &$smarty)
 	 		ob_start();
 		
 		// Load the smarty component because we're coming from a plugin
-		loadComponent('Smarty');
+		App::import('Component', 'Smarty');
 			$Smarty =& new SmartyComponent();
 		
 		// Load the template model and get the sub-template from the databse
-		loadModel('Template');
+		App::import('Model', 'Template');
 			$Template =& new Template();
 			
 		$template = $Template->find(array('parent_id' => $content['Template']['id'], 'template_type_id' => $content['ContentType']['template_type_id']));

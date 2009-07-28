@@ -32,7 +32,7 @@ class PerItemComponent extends Object
 
 	function calculate ()
 	{
-		loadModel('ShippingMethod');
+		App::import('Model', 'ShippingMethod');
 		$this->ShippingMethod =& new ShippingMethod();
 		$key_values = $this->ShippingMethod->findByCode('per_item');
 	

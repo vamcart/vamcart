@@ -24,7 +24,7 @@ class AdminController extends ModuleAbandonedCartsAppController {
 
 	function purge_old_carts()
 	{
-		loadModel('Order');
+		App::import('Model', 'Order');
 		$this->Order =& new Order();
 		
 		$old_carts = $this->Order->findAll(array('Order.order_status_id' => '0'));
@@ -38,7 +38,7 @@ class AdminController extends ModuleAbandonedCartsAppController {
 
 	function admin_index ()
 	{
-		loadModel('Order');
+		App::import('Model', 'Order');
 		$this->Order =& new Order();
 			
 		$this->set('current_crumb',__('Abandoned Carts', true));

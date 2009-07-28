@@ -28,7 +28,7 @@ class EventController extends ModuleCouponsAppController {
 		if(empty($_POST['module_coupon_code']))
 			return;
 		
-		loadModel('ModuleCoupon');
+		App::import('Model', 'ModuleCoupon');
 		$this->ModuleCoupon =& new ModuleCoupon();			
 		
 		$coupon = $this->ModuleCoupon->find(array('code' => $_POST['module_coupon_code']));
@@ -65,13 +65,13 @@ class EventController extends ModuleCouponsAppController {
 		$coupon_product['OrderProduct']['price'] = $discount;	
 
 		// Get the content_id for the new product
-		loadModel('Content');
+		App::import('Model', 'Content');
 		$this->Content =& new Content();
 		$content_page = $this->Content->findByAlias('coupon-details');
 		$coupon_product['OrderProduct']['content_id'] = $content_page['Content']['id'];
 	
 		// Load the OrderProduct model for saving and error checking
-		loadModel('OrderProduct');
+		App::import('Model', 'OrderProduct');
 		$this->OrderProduct =& new OrderProduct();
 		
 		// Make sure this coupon isn't already in our 'cart'	
@@ -86,7 +86,7 @@ class EventController extends ModuleCouponsAppController {
 		$this->OrderProduct->save($coupon_product);
 		
 		// Save the new order totals
-		loadComponent('Order');
+		App::import('Component', 'Order');
 		$this->Order =& new Order();
 		
 		$order = $this->Order->read(null,$_SESSION['Customer']['order_id']);

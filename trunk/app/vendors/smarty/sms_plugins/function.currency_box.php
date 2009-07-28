@@ -48,10 +48,10 @@ function smarty_function_currency_box($params, &$smarty)
     	{
     		ob_start();
 			
-	loadComponent('Smarty');
+	App::import('Component', 'Smarty');
 		$Smarty =& new SmartyComponent();
 
-	loadModel('Currency');
+	App::import('Model', 'Currency');
 		$Currency =& new Currency();
 	
 	$currencies = $Currency->findAll(array('active' => '1'));

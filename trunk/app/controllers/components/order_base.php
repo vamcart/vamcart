@@ -28,16 +28,16 @@ class OrderBaseComponent extends Object
 
 	function load_models()
 	{
-		loadComponent('ContentBase');
+		App::import('Component', 'ContentBase');
 			$this->ContentBase =& new ContentBaseComponent();
 		
-		loadModel('Content');
+		App::import('Model', 'Content');
 			$this->Content =& new Content();
 		
-		loadModel('ContentDescription');
+		App::import('Model', 'ContentDescription');
 			$this->ContentDescription =& new ContentDescription();		
 		
-		loadModel('Order');
+		App::import('Model', 'Order');
 			$this->Order =& new Order();
 					
 	}
@@ -115,7 +115,7 @@ class OrderBaseComponent extends Object
 		$order['Order']['tax'] = $this->get_order_tax($order);
 		$order['Order']['total'] = $this->get_order_total($order) + $order['Order']['tax'] + $order['Order']['shipping'] ;
 		
-		loadComponent('EventBase');
+		App::import('Component', 'EventBase');
 		$this->EventBase =& new EventBaseComponent();
 		
 		$this->EventBase->ProcessEvent('UpdateOrderTotalsBeforeSave');
@@ -129,7 +129,7 @@ class OrderBaseComponent extends Object
 		
 		$order_product = $this->Order->OrderProduct->find(array('content_id' => $product_id,'order_id' => $_SESSION['Customer']['order_id']));	
 		
-		loadComponent('EventBase');
+		App::import('Component', 'EventBase');
 		$this->EventBase =& new EventBaseComponent();
 		
 		$this->EventBase->ProcessEvent('RemoveFromCartBeforeSave');		
@@ -175,7 +175,7 @@ class OrderBaseComponent extends Object
 			$order_product['OrderProduct']['quantity'] += abs($qty);
 		}
 
-		loadComponent('EventBase');
+		App::import('Component', 'EventBase');
 		$this->EventBase =& new EventBaseComponent();
 		
 		$this->EventBase->ProcessEvent('AddToCartBeforeSave');

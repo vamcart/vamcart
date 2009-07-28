@@ -175,7 +175,7 @@ class ContentsController extends AppController {
 	
 	function generate_tax_list ()
 	{
-		return $this->Content->ContentProduct->Tax->generateList(null,"Tax.default DESC");
+		return $this->Content->ContentProduct->Tax->find('list', array('order' => array('Tax.default DESC')));
 	}
 	
 	/**
@@ -223,9 +223,9 @@ class ContentsController extends AppController {
 					$this->set('menu_checked',' ');					
 		
 			$this->set('data',$data);
-			$this->set('content_types',$this->Content->ContentType->generateList());
+			$this->set('content_types',$this->Content->ContentType->find('list'));
 			$this->set('parents', $this->ContentBase->generate_content_list());
-			$this->set('templates', $this->Content->Template->generateList(array('parent_id' => '0')));
+			$this->set('templates', $this->Content->Template->find('list', array('parent_id' => '0')));
 			$this->set('languages', $this->Content->ContentDescription->Language->findAll(array('active' => '1'), null, 'Language.id ASC'));
 			
 			$this->render('','admin');
@@ -413,9 +413,9 @@ class ContentsController extends AppController {
 			}
 		
 			$this->set('data',$data);
-			$this->set('content_types',$this->Content->ContentType->generateList());
+			$this->set('content_types',$this->Content->ContentType->find('list'));
 			$this->set('parents', $this->ContentBase->generate_content_list());
-			$this->set('templates', $this->Content->Template->generateList(array('parent_id' => '0')));
+			$this->set('templates', $this->Content->Template->find('list', array('parent_id' => '0')));
 			$this->set('languages', $this->Content->ContentDescription->Language->findAll(array('active' => '1'), null, 'Language.id ASC'));
 			
 			$this->render('','admin');

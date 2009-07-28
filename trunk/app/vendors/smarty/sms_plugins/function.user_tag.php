@@ -21,7 +21,7 @@
 function smarty_function_user_tag($params, &$smarty)
 {
 
-	loadComponent('UserTagBase');
+	App::import('Component', 'UserTagBase');
 	$UserTagBase =& new UserTagBaseComponent();
 
 	$UserTagBase->call_user_tag($params);

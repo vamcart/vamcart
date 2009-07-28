@@ -73,7 +73,7 @@ class StylesheetsController extends AppController {
 		$this->set('stylesheet', $stylesheet);
 		
 		// First get a list of all stylesheets
-		$all_templates = $this->Stylesheet->Template->generateList(array('parent_id' => '0'));
+		$all_templates = $this->Stylesheet->Template->find('list', array('parent_id' => '0'));
 		
 		
 		// Loop through the template stylesheets, removing any that are already associatied

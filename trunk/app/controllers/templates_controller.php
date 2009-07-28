@@ -103,7 +103,7 @@ class TemplatesController extends AppController {
 		$this->set('template', $template);
 		
 		// First get a list of all stylesheets
-		$all_stylesheets = $this->Template->Stylesheet->generateList();
+		$all_stylesheets = $this->Template->Stylesheet->find('list');
 		
 		
 		// Loop through the template stylesheets, removing any that are already associatied

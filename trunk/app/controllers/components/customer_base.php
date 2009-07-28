@@ -34,10 +34,10 @@ class CustomerBaseComponent extends Object
 	function save_customer_details ($customer_details)
 	{
 
-		loadComponent('EventBase');
+		App::import('Component', 'EventBase');
 		$this->EventBase =& new EventBaseComponent();
 		
-		loadModel('Order');
+		App::import('Model', 'Order');
 		$this->Order =& new Order();
 		
 		$order = $this->Order->read(null,$_SESSION['Customer']['order_id']);

@@ -71,7 +71,7 @@ class PagesController extends AppController {
 		global $content;
 		global $config;
 		
-		loadModel('Content');
+		App::import('Model', 'Content');
 		$this->Content =& new Content();
 		
 		$alias = $this->getAliasFromParams($this->params);

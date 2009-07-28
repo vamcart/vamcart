@@ -22,7 +22,7 @@ function smarty_function_product_price($params, &$smarty)
 {
 	global $content;
 	
-	loadComponent('CurrencyBase');
+	App::import('Component', 'CurrencyBase');
 		$CurrencyBase =& new CurrencyBaseComponent();
 	
 	$price = $CurrencyBase->display_price($content['ContentProduct']['price']);
