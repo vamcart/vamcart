@@ -34,7 +34,7 @@ function smarty_block_lang($params, $content, &$smarty)
 			ob_start();	
 	
 	
-	loadModel('DefinedLanguage');
+	App::import('Model', 'DefinedLanguage');
 	$DefinedLanguage =& new DefinedLanguage();
 
 	$language_content = $DefinedLanguage->find(array('language_id' => $_SESSION['Customer']['language_id'], 'key' => $content));

@@ -38,7 +38,7 @@ class CurrencyBaseComponent extends Object
 		if($currency === false)
 		{
 		
-			loadModel('Currency');
+			App::import('Model', 'Currency');
 				$this->Currency =& new Currency();
 	
 			$currency = $this->Currency->read(null, $_SESSION['Customer']['currency_id']);

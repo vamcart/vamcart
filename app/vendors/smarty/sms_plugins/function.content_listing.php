@@ -59,12 +59,12 @@ function smarty_function_content_listing($params, &$smarty)
 	global $config;
 		
 	// Load some necessary components & models
-	loadComponent('Smarty');
+	App::import('Component', 'Smarty');
 		$Smarty =& new SmartyComponent();
-	loadComponent('Session');
+	App::import('Component', 'Session');
 		$Session =& new SessionComponent();		
 
-	loadModel('Content');
+	App::import('Model', 'Content');
 		$Content =& new Content();		
 		$Content->unbindAll();	
 		$Content->bindModel(array('hasOne' => array(

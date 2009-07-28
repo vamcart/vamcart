@@ -39,7 +39,7 @@ class ImagesController extends AppController {
 
 	
             if(is_readable($sourceFilename)){
-                vendor("phpthumb".DS."phpthumb.class");
+                App::import('Vendor', 'Phpthumb', array('file' => 'phpthumb'.DS.'phpthumb.class.php'));
                 $phpThumb = new phpThumb();
 
                 $phpThumb->src = $sourceFilename;

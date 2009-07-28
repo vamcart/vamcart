@@ -34,7 +34,7 @@ class UserTagBaseComponent extends Object
 	function call_user_tag ($params)
 	{
 		// Load the model
-		loadModel('UserTag');
+		App::import('Model', 'UserTag');
 			$this->UserTag =& new UserTag();
 	
 		$tag = $this->UserTag->findByAlias($params['alias']);

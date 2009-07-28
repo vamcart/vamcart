@@ -23,7 +23,7 @@ function smarty_function_description($params, &$smarty)
 		
 	global $content;
 		
-	loadComponent('Smarty');
+	App::import('Component', 'Smarty');
 		$Smarty =& new SmartyComponent();
 
 	$Smarty->display($content['ContentDescription']['description']);

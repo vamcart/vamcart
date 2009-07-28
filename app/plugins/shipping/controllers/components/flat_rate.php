@@ -32,7 +32,7 @@ class FlatRateComponent extends Object
 
 	function calculate ()
 	{
-		loadModel('ShippingMethod');
+		App::import('Model', 'ShippingMethod');
 		$this->ShippingMethod =& new ShippingMethod();
 		
 		$method = $this->ShippingMethod->find(array('code' => 'flat_rate'));

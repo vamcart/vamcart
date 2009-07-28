@@ -24,7 +24,7 @@ function smarty_function_module($params, &$smarty)
 		return;
 		
 	// Make sure the module is still installed, if not exit
-	loadModel('Module');
+	App::import('Model', 'Module');
 	$Module =& new Module();
 	
 	$this_module = $Module->find(array('alias' => $params['alias']));
@@ -40,7 +40,7 @@ function smarty_function_module($params, &$smarty)
 	
 
 	
-	loadComponent('Smarty');
+	App::import('Component', 'Smarty');
 	$Smarty =& new SmartyComponent();
 	
 	
@@ -50,7 +50,7 @@ function smarty_function_module($params, &$smarty)
 	
 	if(isset($params['template']))
 	{
-		loadModel('MicroTemplate');
+		App::import('Model', 'MicroTemplate');
 			$MicroTemplate =& new MicroTemplate();
 		
 		$template = $MicroTemplate->find(array('alias' => $params['template']));

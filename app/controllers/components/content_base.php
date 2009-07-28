@@ -35,13 +35,13 @@ class ContentBaseComponent extends Object
 	function load_models ()
 	{
 		// We're loading the Session component here because the smarty plugin can't yet
-		loadComponent('Session');
+		App::import('Component', 'Session');
 			$this->Session =& new SessionComponent();
 		
-		loadModel('Content');
+		App::import('Model', 'Content');
 			$this->Content =& new Content();
 		
-		loadModel('ContentDescription');
+		App::import('Model', 'ContentDescription');
 			$this->ContentDescription =& new ContentDescription();	
 	}
 

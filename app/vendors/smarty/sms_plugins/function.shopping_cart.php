@@ -62,13 +62,13 @@ return $template;
 
 function smarty_function_shopping_cart($params, &$smarty)
 {
-	loadComponent('Smarty');
+	App::import('Component', 'Smarty');
 		$Smarty =& new SmartyComponent();
 	
-	loadComponent('OrderBase');
+	App::import('Component', 'OrderBase');
 		$OrderBase =& new OrderBaseComponent();		
 	
-	loadComponent('CurrencyBase');
+	App::import('Component', 'CurrencyBase');
 		$CurrencyBase =& new CurrencyBaseComponent();		
 		
 	global $order;		

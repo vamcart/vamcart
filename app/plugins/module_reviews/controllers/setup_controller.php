@@ -82,7 +82,7 @@ class SetupController extends ModuleReviewsAppController {
 		$this->Module->del($module['Module']['id']);
 		
 		// Delete the core page
-		loadModel('Content');
+		App::import('Model', 'Content');
 			$this->Content =& new Content();		
 
 		$core_page = $this->Content->find(array('Content.parent_id' => '-1','alias' => 'read-reviews'));

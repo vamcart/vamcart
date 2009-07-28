@@ -45,10 +45,10 @@ function smarty_function_language_box($params, &$smarty)
 
 	global $content;
 	
-	loadComponent('Smarty');
+	App::import('Component', 'Smarty');
 		$Smarty =& new SmartyComponent();
 
-	loadModel('Language');
+	App::import('Model', 'Language');
 		$Language =& new Language();
 	
 	$languages = $Language->findAll(array('active' => '1'));

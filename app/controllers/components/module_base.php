@@ -42,7 +42,7 @@ class ModuleBaseComponent extends Object
 	{
 		$current_version = $this->get_version();
 
-		loadModel('Module');
+		App::import('Model', 'Module');
 		$this->Module =& new Module();
 		
 		$module_alias = substr($this->controller->params['plugin'],7,strlen($this->controller->params['plugin']));
@@ -87,7 +87,7 @@ class ModuleBaseComponent extends Object
 	
 	function create_core_page ($alias,$name,$description)
 	{
-		loadModel('Content');
+		App::import('Model', 'Content');
 			$this->Content =& new Content();		
 
 		$new_page = array();
@@ -97,7 +97,7 @@ class ModuleBaseComponent extends Object
 		$new_page['Content']['content_type_id'] = '3';		
 
 		// Get the default template
-		loadModel('Template');
+		App::import('Model', 'Template');
 			$this->Template =& new Template();		
 		
 		$default_template = $this->Template->find(array('default' => '1'));
@@ -125,7 +125,7 @@ class ModuleBaseComponent extends Object
 	
 	function check_if_installed ($module_alias,$redirect = true)
 	{
-		loadModel('Module');
+		App::import('Model', 'Module');
 		$this->Module =& new Module();
 		
 		$check_count = $this->Module->findCount(array('Module.alias' => $module_alias));

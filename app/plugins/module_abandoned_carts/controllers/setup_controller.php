@@ -33,7 +33,7 @@ class SetupController extends ModuleAbandonedCartsAppController {
 	{
 		$this->ModuleBase->check_if_installed('abandoned_carts');
 		
-		loadModel('Module');
+		App::import('Model', 'Module');
 		$this->Module =& new Module();
 		
 		// Create the new module record		
@@ -52,7 +52,7 @@ class SetupController extends ModuleAbandonedCartsAppController {
 	
 	function uninstall()
 	{
-		loadModel('Module');
+		App::import('Model', 'Module');
 		$this->Module =& new Module();
 			
 		// Delete the module record

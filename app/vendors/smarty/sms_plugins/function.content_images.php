@@ -50,10 +50,10 @@ function smarty_function_content_images($params, &$smarty)
 	global $content;
 	global $config;
 	
-	loadComponent('Smarty');
+	App::import('Component', 'Smarty');
 		$Smarty =& new SmartyComponent();
 		
-	loadModel('ContentImage');
+	App::import('Model', 'ContentImage');
 		$ContentImage =& new ContentImage();
 	
 	if(!isset($params['width']))

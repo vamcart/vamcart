@@ -25,7 +25,7 @@ class AuthorizeController extends PaymentAppController {
 	
 	function process_payment ()
 	{
-		loadModel('PaymentMethod');
+		App::import('Model', 'PaymentMethod');
 		$this->PaymentMethod =& new PaymentMethod();
 		
 		$authorize_login = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'authorize_login'));
