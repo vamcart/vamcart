@@ -1,0 +1,30 @@
+<?php
+/* -----------------------------------------------------------------------------------------
+   VaM Shop
+   http://vamshop.com
+   http://vamshop.ru
+   Copyright 2009 VaM Shop
+   -----------------------------------------------------------------------------------------
+   Portions Copyright:
+   Copyright 2007 by Kevin Grandon (kevingrandon@hotmail.com)
+   -----------------------------------------------------------------------------------------
+   Released under the GNU General Public License
+   ---------------------------------------------------------------------------------------*/
+
+	echo $form->create('Stylesheet', array('id' => 'contentform', 'action' => '/stylesheets/admin_copy/' . $stylesheet['Stylesheet']['id'], 'url' => '/stylesheets/admin_copy/' . $stylesheet['Stylesheet']['id']));
+	echo $form->inputs(array(
+					'fieldset' =>  __('Copy Stylesheet', true),
+					'Stylesheet/name' => array(
+						'type' => 'text',
+						'label' => __('Name the copy:', true),
+	               ),								
+					'Stylesheet/stylesheet' => array(
+						'type' => 'hidden',
+						'value' => $stylesheet['Stylesheet']['stylesheet']
+	               ),												   																
+			));
+	echo $form->submit(__('Submit', true), array('name' => 'submit')) . $form->submit(__('Cancel', true), array('name' => 'cancel'));
+	echo '<div class="clear"></div>';
+	echo $form->end();
+	?>
+</div>
