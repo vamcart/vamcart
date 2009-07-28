@@ -15,6 +15,9 @@ class AdminController extends AppController {
 	var $name = 'Admin';
 	var $uses = array('User');
 	var $helpers = array('Html','Javascript','Admin','Form');
+	var $view = 'Theme';
+	var $layout = 'admin';
+	var $theme = 'vamshop';
 
 	function index() 
 	{
@@ -24,7 +27,6 @@ class AdminController extends AppController {
 	function admin_top($level = 1)
 	{
 		$this->set('level',$level);
-		$this->render('admin_top','admin');
 	}
 }
 ?>

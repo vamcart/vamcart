@@ -13,6 +13,9 @@
 
 class ShippingMethodsController extends AppController {
 	var $name = 'ShippingMethods';
+	var $view = 'Theme';
+	var $layout = 'admin';
+	var $theme = 'vamshop';
 
 	function admin_change_active_status ($id) 
 	{
@@ -36,7 +39,6 @@ class ShippingMethodsController extends AppController {
 		if(empty($this->data))
 		{
 			$this->set('data', $this->ShippingMethod->find(array('id' =>$shipping_method_id,null,null,2)));
-			$this->render('admin_edit','admin');
 		}
 		else
 		{
@@ -68,10 +70,6 @@ class ShippingMethodsController extends AppController {
 		$this->set('current_crumb', __('Shipping Methods Listing', true));
 		$this->set('shipping_method_data',$this->ShippingMethod->findAll(null,null,'ShippingMethod.name ASC'));	
 
-		if($ajax == true)
-			$this->render('admin','ajax');
-		else
-			$this->render('admin','admin');
 	}	
 }
 ?>

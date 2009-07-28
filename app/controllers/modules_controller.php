@@ -13,6 +13,9 @@
 
 class ModulesController extends AppController {
 	var $name = 'Modules';
+	var $view = 'Theme';
+	var $layout = 'admin';
+	var $theme = 'vamshop';
    
 	function admin ()
 	{
@@ -46,7 +49,6 @@ class ModulesController extends AppController {
 		
 		$this->set('modules',$modules);
 				
-		$this->render('admin','admin');
 	}
 }
 ?>

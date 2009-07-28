@@ -13,6 +13,9 @@
 
 class TaxesController extends AppController {
 	var $name = 'Taxes';
+	var $view = 'Theme';
+	var $layout = 'admin';
+	var $theme = 'vamshop';
 	
 	function admin_set_all_products ($tax_id) 
 	{
@@ -46,7 +49,6 @@ class TaxesController extends AppController {
 		if(empty($this->data))
 		{
 			$this->data = $this->Tax->read(null,$id);
-			$this->render('admin_delete','admin');		
 		}
 		else
 		{
@@ -73,10 +75,6 @@ class TaxesController extends AppController {
 		$this->set('current_crumb', __('Taxes Listing', true));
 		$this->set('tax_data',$this->Tax->findAll(null,null,'Tax.name ASC'));	
 
-		if($ajax == true)
-			$this->render('admin','ajax');
-		else
-			$this->render('admin','admin');
 	}	
 }
 ?>

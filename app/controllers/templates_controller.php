@@ -14,6 +14,9 @@
 class TemplatesController extends AppController {
 	var $name = 'Templates';
 	var $uses = array('Template','Content','UserPref');
+	var $view = 'Theme';
+	var $layout = 'admin';
+	var $theme = 'vamshop';
 	
 	function admin_set_as_default ($template_id)
 	{
@@ -112,7 +115,6 @@ class TemplatesController extends AppController {
 		
 		$this->set('available_stylesheets', $all_stylesheets);
 		
-		$this->render('admin_attach_stylesheets','admin');
 	}
 
 	function admin_copy ($template_id)
@@ -122,7 +124,6 @@ class TemplatesController extends AppController {
 			$this->set('current_crumb', __('Copy Template', true));
 			$this->Template->id = $template_id;
 			$this->set('template', $this->Template->read());
-			$this->render('admin_copy', 'admin');
 		}
 		else
 		{
@@ -202,7 +203,6 @@ class TemplatesController extends AppController {
 			$this->Template->id = $template['Template']['parent_id'];
 			$parent = $this->Template->read();
 			
-			$this->render('admin_edit','admin');
 		}
 		else
 		{
@@ -235,7 +235,6 @@ class TemplatesController extends AppController {
 			$this->Template->id = $template_id;
 			$data = $this->Template->read();
 			$this->set('data', $data);
-			$this->render('admin_edit_details','admin');		
 		}
 		else
 		{
@@ -280,7 +279,6 @@ class TemplatesController extends AppController {
 			$this->Session->setFlash(__('Record created.', true));
 			$this->redirect('/templates/admin/');
 		}
-		$this->render('admin_new','admin');
 	}
 	
 	function admin($ajax = false)
@@ -292,10 +290,6 @@ class TemplatesController extends AppController {
 		$exploded_prefs = explode(',', $user_prefs['UserPref']['value']);
 	
 		$this->set('user_prefs', $exploded_prefs);	
-		if($ajax == true)
-			$this->render('admin','ajax');
-		else
-			$this->render('admin','admin');
 	}
 	
 }

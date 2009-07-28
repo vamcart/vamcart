@@ -14,6 +14,9 @@
 class CountryZonesController extends AppController {
 	var $name = 'CountryZones';
 	var $uses = array('Country','CountryZone');
+	var $view = 'Theme';
+	var $layout = 'admin';
+	var $theme = 'vamshop';
 	
 
 	function admin_delete ($country_id, $zone_id)
@@ -48,7 +51,6 @@ class CountryZonesController extends AppController {
 			$this->redirect('/country_zones/admin/' . $country_id);
 			die();
 		}		
-		$this->render('admin_edit','admin');			
 	}
 	
 	function admin_new ($country_id)
@@ -65,7 +67,6 @@ class CountryZonesController extends AppController {
 		
 		$this->set('country', $country);
 		$this->set('zones', $this->CountryZone->findAll(array('country_id' => $country_id)));
-		$this->render('admin','admin');
 	}
 }
 ?>

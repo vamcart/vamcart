@@ -14,6 +14,9 @@
 class AdminController extends ModuleCouponsAppController {
 	var $helpers = array('Time','Admin');
 	var $uses = array('ModuleCoupon');
+	var $view = 'Theme';
+	var $layout = 'admin';
+	var $theme = 'vamshop';
 	
 	function admin_delete($id)
 	{
@@ -31,7 +34,6 @@ class AdminController extends ModuleCouponsAppController {
 			$this->set('free_shipping_options',array('no' => __('no' ,true), 'yes' => __('yes',true)));
 			$this->data = $this->ModuleCoupon->read(null,$id);
 
-			$this->render('','admin');
 		}
 		else
 		{
@@ -64,12 +66,10 @@ class AdminController extends ModuleCouponsAppController {
 	{
 		$this->set('current_crumb',__('Manage Coupons', true));
 		$this->set('coupons',$this->ModuleCoupon->findAll());
-		$this->render('','admin');
 	}
 	
 	function admin_help()
 	{
-		$this->render('','admin');
 	}
 
 }

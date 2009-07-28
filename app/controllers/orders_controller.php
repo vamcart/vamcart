@@ -16,6 +16,9 @@ class OrdersController extends AppController {
 	var $helpers = array('Time');
 	var $components = array('EventBase');
 	var $paginate = array('limit' => 25, 'order' => array('Order.created' => 'desc'));
+	var $view = 'Theme';
+	var $layout = 'admin';
+	var $theme = 'vamshop';
 
 		
 	function place_order ()
@@ -93,7 +96,6 @@ class OrdersController extends AppController {
 		}
 		
 		$this->set('order_status_list',$order_status_list);
-		$this->render('admin_view','admin');
 	}
 	
 	function admin_modify_selected ()
@@ -121,11 +123,6 @@ class OrdersController extends AppController {
 
 		$this->set('data',$data);
 
-
-		if($ajax == true)
-			$this->render('admin','ajax');
-		else
-			$this->render('admin','admin');
 	}	
 }
 ?>

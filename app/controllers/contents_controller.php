@@ -14,6 +14,9 @@
 class ContentsController extends AppController {
 	var $components = array('ContentBase');
 	var $name = 'Contents';
+	var $view = 'Theme';
+	var $layout = 'admin';
+	var $theme = 'vamshop';
 
 	/**
 	* Uploads all images, and saves records to content_images
@@ -162,7 +165,6 @@ class ContentsController extends AppController {
 
 		$data = $this->Content->$model->find(array('content_id' => $content_id));
 		$this->set('data', $data);
-		$this->render('admin_edit__' . strtolower($view), 'ajax');
 	}
 	
 	
@@ -221,7 +223,6 @@ class ContentsController extends AppController {
 			$this->set('templates', $this->Content->Template->find('list', array('parent_id' => '0')));
 			$this->set('languages', $this->Content->ContentDescription->Language->findAll(array('active' => '1'), null, 'Language.id ASC'));
 			
-			$this->render('admin_core_pages_edit','admin');
 	}
 	
 	/**
@@ -348,7 +349,6 @@ class ContentsController extends AppController {
 					$this->redirect('/contents/admin_edit/' . $content_id);
 			}
 			
-			if(isset($this->params['form']['submitbutton']))
 				if($content_id != null)
 				{
 					$content = $this->Content->read(null, $content_id);
@@ -362,9 +362,6 @@ class ContentsController extends AppController {
 					$this->redirect('/contents/admin/'); die();
 				}
 						
-			else
-				$this->render('admin_edit','admin');		
-		
 		}
 		else	// The form has not been submitted
 		{
@@ -411,7 +408,6 @@ class ContentsController extends AppController {
 			$this->set('templates', $this->Content->Template->find('list', array('parent_id' => '0')));
 			$this->set('languages', $this->Content->ContentDescription->Language->findAll(array('active' => '1'), null, 'Language.id ASC'));
 			
-			$this->render('admin_edit','admin');
 		}
 	}
 
@@ -512,7 +508,6 @@ class ContentsController extends AppController {
 		}
 		
 		$this->set('content_data', $content_data);
-			$this->render('admin_core_pages','admin');
 	}
 
 
@@ -563,10 +558,6 @@ class ContentsController extends AppController {
 		
 		$this->set('content_data', $content_data);
 		$this->set('content_count', $this->Content->findCount(array('Content.parent_id' => $parent_id)));
-		if($ajax == true)
-			$this->render('admin','ajax');
-		else
-			$this->render('admin','admin');
 	}
 
 	// SWFUpload 302 error fix

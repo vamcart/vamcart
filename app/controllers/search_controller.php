@@ -13,6 +13,9 @@
 
 class SearchController extends AppController {
 	var $name = 'Search';
+	var $view = 'Theme';
+	var $layout = 'admin';
+	var $theme = 'vamshop';
 	
 	function admin_global_search ()
 	{
@@ -36,7 +39,6 @@ class SearchController extends AppController {
 		$this->set('tables',$search_tables);
 		$this->set('results',$search_results);
 		
-		$this->render('admin_global_search','admin');
 	}
 }
 ?>

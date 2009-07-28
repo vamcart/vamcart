@@ -14,6 +14,9 @@
 class LanguagesController extends AppController {
 	var $name = 'Languages';
 	var $components = array('EventBase');	
+	var $view = 'Theme';
+	var $layout = 'admin';
+	var $theme = 'vamshop';
 	
 	function pick_language($language_id,$redirect = null) 
 	{
@@ -81,7 +84,6 @@ class LanguagesController extends AppController {
 			$this->Session->setFlash(__('Record created.', true));
 			$this->redirect('/languages/admin');
 		}		
-		$this->render('admin_edit','admin');
 	}
 	
 	function admin_new() 
@@ -143,11 +145,6 @@ class LanguagesController extends AppController {
 	{
 		$this->set('current_crumb', __('Languages Listing', true));
 		$this->set('language_data',$this->Language->findAll(null,null,'Language.name ASC'));	
-
-		if($ajax == true)
-			$this->render('admin','ajax');
-		else
-			$this->render('admin','admin');
 	}	
 	
 }

@@ -13,6 +13,9 @@
 
 class UserTagsController extends AppController {
    var $name = 'UserTags';
+	var $view = 'Theme';
+	var $layout = 'admin';
+	var $theme = 'vamshop';
    
 	function admin_delete ($UserTag_id)
 	{
@@ -37,7 +40,6 @@ class UserTagsController extends AppController {
 			
 			$this->data = $data;
 			$this->set('data',$data);
-			$this->render('admin_edit','admin');
 		}
 		else
 		{
@@ -130,7 +132,6 @@ class UserTagsController extends AppController {
 	{
 		$this->set('current_crumb', __('User Tags Listing', true));
 		$this->set('user_tags', $this->UserTag->findAll());
-		$this->render('admin','admin');
 	}
 	
 }
