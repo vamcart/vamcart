@@ -23,32 +23,17 @@
 <p><?php __('Installing version:') ?> <?php echo $version; ?></p>
 
 <?php
-echo $this->requestAction('/install/check_permissions/',array('return'));
+echo $this->requestAction(array('controller' => 'install', 'action' => 'check_permissions'), array('return'));
+
 ?>
 <br />
 <?php
 echo $form->create('Install', array('action' => '/install/create/', 'url' => '/install/create/'));
-echo $form->inputs(array(
-				'fieldset' => __('Step 2 - Enter Database Information', true),
-                'Install/db_host' => array(
-			   		'label' => __('Host', true),
-					'value' => $values['Install']['db_host']
-                ),
-                'Install/db_name' => array(
-			   		'label' => __('Database Name', true),
-					'value' => $values['Install']['db_name']
-                ),
-                'Install/db_username' => array(
-			   		'label' => __('Database Username', true),
-					'value' => $values['Install']['db_username']
-                ),
-                'Install/db_password' => array(
-			   		'label' => __('Database Password', true),
-					'type' => 'password',
-					'value' => $values['Install']['db_password']
-                ))
-				);
-		
+echo $form->input('db_host', array('label' => __('Host',true), 'value' => $values['Install']['db_host']));
+echo $form->input('db_name', array('label' => __('Database Name',true), 'value' => $values['Install']['db_name']));
+echo $form->input('db_username', array('label' => __('Database Username',true), 'value' => $values['Install']['db_username']));
+echo $form->input('db_password', array('label' => __('Database Password',true), 'value' => $values['Install']['db_password']));
+
 echo '<br />';		
 		
 echo $form->submit( __('Submit', true)) ;
