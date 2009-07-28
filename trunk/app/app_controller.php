@@ -245,7 +245,7 @@ class AppController extends Controller {
 		);
 		
 		// Add module navigation elements
-		loadModel('Module');
+		App::import('Model', 'Module');
 		$this->Module =& new Module();
 		
 		$modules = $this->Module->findAll();
@@ -281,7 +281,7 @@ class AppController extends Controller {
 			$this->set('navigation',$this->getAdminNavigation());	
 
 			// We load the locale component here so it doesn't get loaded for the front end
-			loadComponent('Locale');
+			App::import('Component', 'Locale');
 			$this->Locale =& new LocaleComponent();
 			
 			// Set a current breadcrumb from the locale based on the current controller/action		
@@ -307,7 +307,7 @@ class AppController extends Controller {
 				$new_customer = array();
 
 				// Get the default language
-				loadModel('Language');
+				App::import('Model', 'Language');
 				$this->Language =& new Language();		
 				$default_language = $this->Language->find(array('default' => '1'));
 
@@ -316,7 +316,7 @@ class AppController extends Controller {
 				$this->Session->write('Config.language_id', $default_language['Language']['id']);
 
 				// Get the default currency
-				loadModel('Currency');
+				App::import('Model', 'Currency');
 				$this->Currency =& new Currency();		
 				$default_currency = $this->Currency->find(array('default' => '1'));
 		
