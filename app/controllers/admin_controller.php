@@ -24,7 +24,7 @@ class AdminController extends AppController {
 	function admin_top($level = 1)
 	{
 		$this->set('level',$level);
-		$this->render('','admin');
+		$this->render('admin_top','admin');
 	}
 }
 ?>
