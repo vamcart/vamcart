@@ -48,7 +48,7 @@ class TagsController extends AppController {
 		$this->set('help_content',$help_content);
 		$this->set('about_content',$about_content);		
 		
-		$this->render('','admin');
+		$this->render('admin_view','admin');
 	}
 	
 	function admin ()
@@ -76,7 +76,7 @@ class TagsController extends AppController {
 		}
 		$this->set('files',$files);
 		
-		$this->render('','admin');
+		$this->render('admin','admin');
 	}
 }
 ?>

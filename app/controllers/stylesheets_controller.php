@@ -83,7 +83,7 @@ class StylesheetsController extends AppController {
 		$this->set('available_templates', $all_templates);
 		
 		
-		$this->render('','admin');
+		$this->render('admin_attach_templates','admin');
 	}
 	
 	function admin_change_active_status ($id) 
@@ -98,7 +98,7 @@ class StylesheetsController extends AppController {
 		{
 			$this->Stylesheet->id = $stylesheet_id;
 			$this->set('stylesheet',$this->Stylesheet->read());
-			$this->render('','admin');
+			$this->render('admin_change_active_status','admin');
 		}
 		else
 		{
@@ -148,7 +148,7 @@ class StylesheetsController extends AppController {
 			$this->set('new_stylesheet', true);
 			$this->set('data', null);
 			$this->set('active_checked', 'checked'); // For the active checkbox
-			$this->render('','admin');
+			$this->render('admin_edit','admin');
 		}
 		elseif(empty($this->data))	
 		{	// Otherwise we're editing a stylesheet
@@ -157,7 +157,7 @@ class StylesheetsController extends AppController {
 			if($data['Stylesheet']['active'] = 1)
 				$this->set('active_checked', 'checked');
 			$this->set('data',$data);
-			$this->render('','admin');
+			$this->render('admin_edit','admin');
 		}
 		else
 		{	// We submitted data
@@ -245,9 +245,9 @@ class StylesheetsController extends AppController {
 		$this->set('stylesheets',$this->Stylesheet->findAll(null,null,'Stylesheet.name ASC'));
 		
 		if($ajax_request == true)
-			$this->render('','ajax');	
+			$this->render('admin','ajax');	
 		else
-			$this->render('','admin');
+			$this->render('admin','admin');
 	}
 	
 }

@@ -36,7 +36,7 @@ class ShippingMethodsController extends AppController {
 		if(empty($this->data))
 		{
 			$this->set('data', $this->ShippingMethod->find(array('id' =>$shipping_method_id,null,null,2)));
-			$this->render('','admin');
+			$this->render('admin_edit','admin');
 		}
 		else
 		{
@@ -69,9 +69,9 @@ class ShippingMethodsController extends AppController {
 		$this->set('shipping_method_data',$this->ShippingMethod->findAll(null,null,'ShippingMethod.name ASC'));	
 
 		if($ajax == true)
-			$this->render('','ajax');
+			$this->render('admin','ajax');
 		else
-			$this->render('','admin');
+			$this->render('admin','admin');
 	}	
 }
 ?>

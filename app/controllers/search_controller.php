@@ -36,7 +36,7 @@ class SearchController extends AppController {
 		$this->set('tables',$search_tables);
 		$this->set('results',$search_results);
 		
-		$this->render('','admin');
+		$this->render('admin_global_search','admin');
 	}
 }
 ?>

@@ -221,7 +221,7 @@ class ContentsController extends AppController {
 			$this->set('templates', $this->Content->Template->find('list', array('parent_id' => '0')));
 			$this->set('languages', $this->Content->ContentDescription->Language->findAll(array('active' => '1'), null, 'Language.id ASC'));
 			
-			$this->render('','admin');
+			$this->render('admin_core_pages_edit','admin');
 	}
 	
 	/**
@@ -363,7 +363,7 @@ class ContentsController extends AppController {
 				}
 						
 			else
-				$this->render('','admin');		
+				$this->render('admin_edit','admin');		
 		
 		}
 		else	// The form has not been submitted
@@ -411,7 +411,7 @@ class ContentsController extends AppController {
 			$this->set('templates', $this->Content->Template->find('list', array('parent_id' => '0')));
 			$this->set('languages', $this->Content->ContentDescription->Language->findAll(array('active' => '1'), null, 'Language.id ASC'));
 			
-			$this->render('','admin');
+			$this->render('admin_edit','admin');
 		}
 	}
 
@@ -512,7 +512,7 @@ class ContentsController extends AppController {
 		}
 		
 		$this->set('content_data', $content_data);
-			$this->render('','admin');
+			$this->render('admin_core_pages','admin');
 	}
 
 
@@ -564,9 +564,9 @@ class ContentsController extends AppController {
 		$this->set('content_data', $content_data);
 		$this->set('content_count', $this->Content->findCount(array('Content.parent_id' => $parent_id)));
 		if($ajax == true)
-			$this->render('','ajax');
+			$this->render('admin','ajax');
 		else
-			$this->render('','admin');
+			$this->render('admin','admin');
 	}
 
 	// SWFUpload 302 error fix
