@@ -14,9 +14,6 @@
 class AdminController extends ModuleReviewsAppController {
 	var $uses = array('ModuleReview');
 	var $helpers = array('Time','Admin');
-	var $view = 'Theme';
-	var $layout = 'admin';
-	var $theme = 'vamshop';
 	
 	function admin_delete ($id)
 	{

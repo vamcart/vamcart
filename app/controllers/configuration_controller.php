@@ -13,9 +13,6 @@
 
 class ConfigurationController extends AppController {
 	var $name = 'Configuration';
-	var $view = 'Theme';
-	var $layout = 'admin';
-	var $theme = 'vamshop';
 	
 	function admin_clear_cache ()
 	{

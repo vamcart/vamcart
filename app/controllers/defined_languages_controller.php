@@ -13,9 +13,6 @@
 
 class DefinedLanguagesController extends AppController {
 	var $name = 'DefinedLanguages';
-	var $view = 'Theme';
-	var $layout = 'admin';
-	var $theme = 'vamshop';
 	
 	/*
 	* Delets all language definitions with key = $key 

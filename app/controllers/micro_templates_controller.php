@@ -13,9 +13,6 @@
 
 class MicroTemplatesController extends AppController {
 	var $name = 'MicroTemplates';
-	var $view = 'Theme';
-	var $layout = 'admin';
-	var $theme = 'vamshop';
 	
 	function admin_create_from_tag ()
 	{

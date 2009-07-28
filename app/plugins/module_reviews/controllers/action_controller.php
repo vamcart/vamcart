@@ -14,9 +14,6 @@
 class ActionController extends ModuleReviewsAppController {
 	var $uses = array('ModuleReview');
 	var $components = array('ContentBase');
-	var $view = 'Theme';
-	var $layout = 'admin';
-	var $theme = 'vamshop';
 	
 	function link ()
 	{

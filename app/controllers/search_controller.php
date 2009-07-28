@@ -13,9 +13,6 @@
 
 class SearchController extends AppController {
 	var $name = 'Search';
-	var $view = 'Theme';
-	var $layout = 'admin';
-	var $theme = 'vamshop';
 	
 	function admin_global_search ()
 	{

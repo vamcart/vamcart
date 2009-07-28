@@ -13,9 +13,6 @@
 
 class PaymentMethodsController extends AppController {
 	var $name = 'PaymentMethods';
-	var $view = 'Theme';
-	var $layout = 'admin';
-	var $theme = 'vamshop';
 
 	function admin_set_as_default ($id)
 	{

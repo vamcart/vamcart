@@ -13,9 +13,6 @@
 
 class TaxCountryZoneRatesController extends AppController {
 	var $name = 'TaxCountryZoneRates';
-	var $view = 'Theme';
-	var $layout = 'admin';
-	var $theme = 'vamshop';
 	
 	function list_zones_by_country($country_id) 
 	{

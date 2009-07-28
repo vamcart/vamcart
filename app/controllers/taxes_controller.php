@@ -13,9 +13,6 @@
 
 class TaxesController extends AppController {
 	var $name = 'Taxes';
-	var $view = 'Theme';
-	var $layout = 'admin';
-	var $theme = 'vamshop';
 	
 	function admin_set_all_products ($tax_id) 
 	{
