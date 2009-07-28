@@ -93,7 +93,7 @@ class OrdersController extends AppController {
 		}
 		
 		$this->set('order_status_list',$order_status_list);
-		$this->render('','admin');
+		$this->render('admin_view','admin');
 	}
 	
 	function admin_modify_selected ()
@@ -123,9 +123,9 @@ class OrdersController extends AppController {
 
 
 		if($ajax == true)
-			$this->render('','ajax');
+			$this->render('admin','ajax');
 		else
-			$this->render('','admin');
+			$this->render('admin','admin');
 	}	
 }
 ?>

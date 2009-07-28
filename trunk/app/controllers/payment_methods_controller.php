@@ -31,7 +31,7 @@ class PaymentMethodsController extends AppController {
 		if(empty($this->data))
 		{
 			$this->set('data',$this->PaymentMethod->read(null,$id));
-			$this->render('','admin');
+			$this->render('admin_edit','admin');
 		}
 		else
 		{
@@ -70,9 +70,9 @@ class PaymentMethodsController extends AppController {
 		$this->set('payment_method_data',$this->PaymentMethod->findAll(null,null,'PaymentMethod.name ASC'));	
 
 		if($ajax == true)
-			$this->render('','ajax');
+			$this->render('admin','ajax');
 		else
-			$this->render('','admin');
+			$this->render('admin','admin');
 	}	
 
 

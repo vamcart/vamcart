@@ -48,7 +48,7 @@ class DefinedLanguagesController extends AppController {
 			$this->set('data', $keyed_definitions);
 			$this->set('defined_key',$defined_language_key);
 			$this->set('languages', $this->DefinedLanguage->Language->findAll(array('active' => '1'), null, 'Language.id ASC'));
-			$this->render('','admin');
+			$this->render('admin_edit','admin');
 		}
 		else
 		{
@@ -93,7 +93,7 @@ class DefinedLanguagesController extends AppController {
 	{
 		$this->set('current_crumb', __('Defined Language Listing', true));
 		$this->set('defined_languages', $this->DefinedLanguage->findAll("GROUP BY DefinedLanguage.key"));
-		$this->render('','admin');
+		$this->render('admin','admin');
 	}
 }
 ?>

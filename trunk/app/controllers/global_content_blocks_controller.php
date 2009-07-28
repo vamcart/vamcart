@@ -45,7 +45,7 @@ class GlobalContentBlocksController extends AppController {
 				$this->data['GlobalContentBlock']['active'] = 1;
 			}
 				
-			$this->render('','admin');
+			$this->render('admin_edit','admin');
 		}
 		else
 		{
@@ -125,9 +125,9 @@ class GlobalContentBlocksController extends AppController {
 		$this->set('global_content_blocks', $this->GlobalContentBlock->findAll());
 		
 		if($ajax_request == true)
-			$this->render('','ajax');	
+			$this->render('admin','ajax');	
 		else
-			$this->render('','admin');
+			$this->render('admin','admin');
 	}
 }
 ?>

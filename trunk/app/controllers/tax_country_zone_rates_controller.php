@@ -20,7 +20,7 @@ class TaxCountryZoneRatesController extends AppController {
 		$zones['ALL'] = __('All Country Zones',true);
 		
 		$this->set('zones', $zones);
-		$this->render('','ajax');
+		$this->render('list_zones_by_country','ajax');
 	}	
 
 	function admin_delete ($tax_id, $zone_rate_id)
@@ -38,7 +38,7 @@ class TaxCountryZoneRatesController extends AppController {
 			$data = $this->TaxCountryZoneRate->find(array('TaxCountryZoneRate.id' => $rate_id),null,null,2);
 			$this->set('current_crumb_info',$data['CountryZone']['Country']['name'] . ' - ' . $data['CountryZone']['name']);			
 			$this->set('data',$data);
-			$this->render('','admin');		
+			$this->render('admin_edit','admin');		
 		}
 		else
 		{
@@ -63,7 +63,7 @@ class TaxCountryZoneRatesController extends AppController {
 			$this->set('tax',$tax);
 			
 			$this->set('country_list',$this->TaxCountryZoneRate->CountryZone->Country->find('list'));
-			$this->render('','admin');
+			$this->render('admin_new','admin');
 		}
 		else
 		{
@@ -133,7 +133,7 @@ class TaxCountryZoneRatesController extends AppController {
 		$this->set('tax',$tax);
 		$this->set('data',$this->TaxCountryZoneRate->findAll(array('tax_id' => $tax_id)));	
 
-		$this->render('','admin');
+		$this->render('admin','admin');
 	}	
 }
 ?>

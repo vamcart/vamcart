@@ -138,7 +138,7 @@ class OrderStatusController extends AppController {
 			
 			$this->redirect('/order_status/admin');
 		}		
-		$this->render('','admin');
+		$this->render('admin_edit','admin');
 	}
 
 	
@@ -168,9 +168,9 @@ class OrderStatusController extends AppController {
 		$this->set('order_status_count', $this->OrderStatus->findCount());
 
 		if($ajax == true)
-			$this->render('','ajax');
+			$this->render('admin','ajax');
 		else
-			$this->render('','admin');
+			$this->render('admin','admin');
 	}	
 }
 

@@ -81,7 +81,7 @@ class LanguagesController extends AppController {
 			$this->Session->setFlash(__('Record created.', true));
 			$this->redirect('/languages/admin');
 		}		
-		$this->render('','admin');
+		$this->render('admin_edit','admin');
 	}
 	
 	function admin_new() 
@@ -145,9 +145,9 @@ class LanguagesController extends AppController {
 		$this->set('language_data',$this->Language->findAll(null,null,'Language.name ASC'));	
 
 		if($ajax == true)
-			$this->render('','ajax');
+			$this->render('admin','ajax');
 		else
-			$this->render('','admin');
+			$this->render('admin','admin');
 	}	
 	
 }

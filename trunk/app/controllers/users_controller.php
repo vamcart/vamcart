@@ -65,7 +65,7 @@ class UsersController extends AppController {
 		{
 			$this->data = $this->User->find(array('id' => $this->Session->read('User.id')));
 				
-			$this->render('','admin');
+			$this->render('admin_user_account','admin');
 		}
 	}
 	
@@ -103,7 +103,7 @@ class UsersController extends AppController {
 		
 		$this->set('available_languages', $languages_list);	
 
-		$this->render('','admin');
+		$this->render('admin_user_prefences','admin');
 
 	}
 
@@ -147,7 +147,7 @@ class UsersController extends AppController {
 		$this->set('current_crumb', __('New Admin', true));
 		if(empty($this->data))
 		{
-			$this->render('','admin');
+			$this->render('admin_new','admin');
 		}
 		else
 		{
@@ -198,7 +198,7 @@ class UsersController extends AppController {
 	{
 		$this->set('current_crumb', __('Admins Listing', true));
 		$this->set('users', $this->User->findAll());
-		$this->render('','admin');
+		$this->render('admin','admin');
 	}	
 }
 ?>

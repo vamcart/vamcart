@@ -79,7 +79,7 @@ class CurrenciesController extends AppController {
 			$this->Session->setFlash(__('Record saved.', true));
 			$this->redirect('/currencies/admin');
 		}		
-		$this->render('','admin');
+		$this->render('admin_edit','admin');
 	}
 	
 	function admin_new() 
@@ -143,9 +143,9 @@ class CurrenciesController extends AppController {
 		$this->set('currency_data',$this->Currency->findAll(null,null,'Currency.name ASC'));	
 
 		if($ajax == true)
-			$this->render('','ajax');
+			$this->render('admin','ajax');
 		else
-			$this->render('','admin');
+			$this->render('admin','admin');
 	}	
 	
 }

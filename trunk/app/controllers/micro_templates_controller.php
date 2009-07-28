@@ -17,7 +17,7 @@ class MicroTemplatesController extends AppController {
 	function admin_create_from_tag ()
 	{
 		$this->set('current_crumb',__('Enter an alias to use',true));
-		$this->render(null,'admin');		
+		$this->render('admin_create_from_tag','admin');		
 	}
 	
 		
@@ -35,7 +35,7 @@ class MicroTemplatesController extends AppController {
 		{
 			$this->data = $this->MicroTemplate->read(null,$id);
 			
-			$this->render('','admin');
+			$this->render('admin_edit','admin');
 		}
 		else
 		{
@@ -77,9 +77,9 @@ class MicroTemplatesController extends AppController {
 		$this->set('micro_templates',$this->MicroTemplate->findAll());
 
 		if($ajax == true)
-			$this->render('','ajax');
+			$this->render('admin','ajax');
 		else
-			$this->render('','admin');
+			$this->render('admin','admin');
 	}
 }
 ?>

@@ -37,7 +37,7 @@ class UserTagsController extends AppController {
 			
 			$this->data = $data;
 			$this->set('data',$data);
-			$this->render('','admin');
+			$this->render('admin_edit','admin');
 		}
 		else
 		{
@@ -130,7 +130,7 @@ class UserTagsController extends AppController {
 	{
 		$this->set('current_crumb', __('User Tags Listing', true));
 		$this->set('user_tags', $this->UserTag->findAll());
-		$this->render('','admin');
+		$this->render('admin','admin');
 	}
 	
 }

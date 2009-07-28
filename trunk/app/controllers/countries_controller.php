@@ -41,7 +41,7 @@ class CountriesController extends AppController {
 			$this->redirect('/countries/admin/');
 			die();
 		}		
-		$this->render('','admin');
+		$this->render('admin_edit','admin');
 	}
 	
 	function admin_modify_selected() 	
@@ -87,9 +87,9 @@ class CountriesController extends AppController {
 		$this->set(compact('data'));
 		
 		if($ajax_request == true)
-			$this->render('','ajax');	
+			$this->render('admin','ajax');	
 		else
-			$this->render('','admin');
+			$this->render('admin','admin');
 	}
 }
 ?>

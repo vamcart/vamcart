@@ -46,7 +46,7 @@ class TaxesController extends AppController {
 		if(empty($this->data))
 		{
 			$this->data = $this->Tax->read(null,$id);
-			$this->render('','admin');		
+			$this->render('admin_delete','admin');		
 		}
 		else
 		{
@@ -74,9 +74,9 @@ class TaxesController extends AppController {
 		$this->set('tax_data',$this->Tax->findAll(null,null,'Tax.name ASC'));	
 
 		if($ajax == true)
-			$this->render('','ajax');
+			$this->render('admin','ajax');
 		else
-			$this->render('','admin');
+			$this->render('admin','admin');
 	}	
 }
 ?>

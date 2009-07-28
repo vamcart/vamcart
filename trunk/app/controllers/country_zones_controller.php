@@ -48,7 +48,7 @@ class CountryZonesController extends AppController {
 			$this->redirect('/country_zones/admin/' . $country_id);
 			die();
 		}		
-		$this->render('','admin');			
+		$this->render('admin_edit','admin');			
 	}
 	
 	function admin_new ($country_id)
@@ -65,7 +65,7 @@ class CountryZonesController extends AppController {
 		
 		$this->set('country', $country);
 		$this->set('zones', $this->CountryZone->findAll(array('country_id' => $country_id)));
-		$this->render('','admin');
+		$this->render('admin','admin');
 	}
 }
 ?>

@@ -46,7 +46,7 @@ class ModulesController extends AppController {
 		
 		$this->set('modules',$modules);
 				
-		$this->render('','admin');
+		$this->render('admin','admin');
 	}
 }
 ?>
