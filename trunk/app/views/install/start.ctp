@@ -23,7 +23,7 @@
 <p><?php __('Installing version:') ?> <?php echo $version; ?></p>
 
 <?php
-echo $this->requestAction('/install/check_permissions/',array('return'=>true));
+echo $this->requestAction('/install/check_permissions/',array('return'));
 ?>
 <br />
 <?php
