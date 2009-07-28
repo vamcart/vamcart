@@ -51,7 +51,7 @@ class ConfigurationController extends AppController {
 		}
 
 		$this->set('configuration_values',$keyed_config_values);
-		$this->render('/configuration/admin_edit/','admin');
+		$this->render('admin_edit','admin');
 	}
 }
 ?>
