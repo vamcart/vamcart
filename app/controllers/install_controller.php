@@ -75,7 +75,6 @@ class InstallController extends AppController {
 		}
 		
 		$this->set('install_checks',$install_checks);	
-		$this->render('','empty');
 	}
 	
 	function start ()
