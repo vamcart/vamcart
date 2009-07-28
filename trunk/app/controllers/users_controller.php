@@ -111,6 +111,7 @@ class UsersController extends AppController {
 	   
 	function admin_logout ()
 	{
+		$this->layout = 'default';
 	
 		$this->Session->del('User');
 		$this->Session->setFlash(__('You have logged out.', true));
@@ -120,6 +121,7 @@ class UsersController extends AppController {
 
 	function admin_login ()
 	{
+		$this->layout = 'default';
 		if(empty($this->data))
 		{
 			// Redirect the user if we're logged in
