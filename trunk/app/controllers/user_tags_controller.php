@@ -13,9 +13,6 @@
 
 class UserTagsController extends AppController {
    var $name = 'UserTags';
-	var $view = 'Theme';
-	var $layout = 'admin';
-	var $theme = 'vamshop';
    
 	function admin_delete ($UserTag_id)
 	{

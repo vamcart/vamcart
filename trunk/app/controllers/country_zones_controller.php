@@ -14,9 +14,6 @@
 class CountryZonesController extends AppController {
 	var $name = 'CountryZones';
 	var $uses = array('Country','CountryZone');
-	var $view = 'Theme';
-	var $layout = 'admin';
-	var $theme = 'vamshop';
 	
 
 	function admin_delete ($country_id, $zone_id)

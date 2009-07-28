@@ -14,9 +14,6 @@
 class TagsController extends AppController {
 	var $name = 'Tags';
 	var $uses = null;
-	var $view = 'Theme';
-	var $layout = 'admin';
-	var $theme = 'vamshop';
 	
 	function admin_view ($type, $tag)
 	{

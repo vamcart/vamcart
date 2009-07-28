@@ -14,9 +14,6 @@
 class TemplatesController extends AppController {
 	var $name = 'Templates';
 	var $uses = array('Template','Content','UserPref');
-	var $view = 'Theme';
-	var $layout = 'admin';
-	var $theme = 'vamshop';
 	
 	function admin_set_as_default ($template_id)
 	{

@@ -15,9 +15,6 @@ class OrderStatusController extends AppController {
 
 	var $name = 'OrderStatus';
 	var $uses = array('OrderStatus','Language');
-	var $view = 'Theme';
-	var $layout = 'admin';
-	var $theme = 'vamshop';
 
 	function admin_set_as_default ($order_status_id)
 	{

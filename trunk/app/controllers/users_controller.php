@@ -16,9 +16,6 @@ class UsersController extends AppController {
 	var $uses = array('User', 'UserPref', 'Language');
 	var $helpers = array('Html','Javascript','Admin','Form');
 	var $components = array('Locale');
-	var $view = 'Theme';
-	var $layout = 'admin';
-	var $theme = 'vamshop';
 	
 	function admin_delete ($user_id)
 	{

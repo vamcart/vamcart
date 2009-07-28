@@ -14,9 +14,6 @@
 class ContentsController extends AppController {
 	var $components = array('ContentBase');
 	var $name = 'Contents';
-	var $view = 'Theme';
-	var $layout = 'admin';
-	var $theme = 'vamshop';
 
 	/**
 	* Uploads all images, and saves records to content_images

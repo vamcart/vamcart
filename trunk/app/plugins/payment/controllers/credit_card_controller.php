@@ -13,9 +13,6 @@
 
 class CreditCardController extends PaymentAppController {
 	var $uses = null;
-	var $view = 'Theme';
-	var $layout = 'admin';
-	var $theme = 'vamshop';
 
 	function display_fields ()
 	{

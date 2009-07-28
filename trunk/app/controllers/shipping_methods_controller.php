@@ -13,9 +13,6 @@
 
 class ShippingMethodsController extends AppController {
 	var $name = 'ShippingMethods';
-	var $view = 'Theme';
-	var $layout = 'admin';
-	var $theme = 'vamshop';
 
 	function admin_change_active_status ($id) 
 	{

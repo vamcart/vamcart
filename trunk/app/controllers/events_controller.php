@@ -13,9 +13,6 @@
 
 class EventsController extends AppController {
 	var $name = 'Events';
-	var $view = 'Theme';
-	var $layout = 'admin';
-	var $theme = 'vamshop';
    
    
    	function admin_view($id)

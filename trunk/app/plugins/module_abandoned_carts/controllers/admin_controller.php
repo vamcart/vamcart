@@ -14,9 +14,6 @@
 class AdminController extends ModuleAbandonedCartsAppController {
 	var $helpers = array('Time','Admin');
 	var $uses = null;
-	var $view = 'Theme';
-	var $layout = 'admin';
-	var $theme = 'vamshop';
 
 	function purge_old_carts()
 	{

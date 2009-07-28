@@ -14,9 +14,6 @@
 class LanguagesController extends AppController {
 	var $name = 'Languages';
 	var $components = array('EventBase');	
-	var $view = 'Theme';
-	var $layout = 'admin';
-	var $theme = 'vamshop';
 	
 	function pick_language($language_id,$redirect = null) 
 	{

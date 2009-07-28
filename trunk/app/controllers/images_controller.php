@@ -14,9 +14,6 @@
 class ImagesController extends AppController {
 	var $name = 'Images';
 	var $uses = array('ContentImage');
-	var $view = 'Theme';
-	var $layout = 'admin';
-	var $theme = 'vamshop';
 	
 	function thumb ()
 	{

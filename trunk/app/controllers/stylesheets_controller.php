@@ -13,9 +13,6 @@
 
 class StylesheetsController extends AppController {
 	var $name = 'Stylesheets';
-	var $view = 'Theme';
-	var $layout = 'admin';
-	var $theme = 'vamshop';
 	
 	function load($alias)
 	{

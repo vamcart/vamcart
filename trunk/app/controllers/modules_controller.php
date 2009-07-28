@@ -13,9 +13,6 @@
 
 class ModulesController extends AppController {
 	var $name = 'Modules';
-	var $view = 'Theme';
-	var $layout = 'admin';
-	var $theme = 'vamshop';
    
 	function admin ()
 	{

@@ -14,9 +14,6 @@
 class CurrenciesController extends AppController {
 	var $name = 'Currencies';
 	var $components = array('EventBase');
-	var $view = 'Theme';
-	var $layout = 'admin';
-	var $theme = 'vamshop';
 
 	function pick_currency ()
 	{

@@ -14,6 +14,9 @@
 class AppController extends Controller {
 	var $helpers = array('Html','Javascript','Ajax','Form','Admin');
 	var $components = array('RequestHandler','ConfigurationBase','CurrencyBase','OrderBase');
+	var $view = 'Theme';
+	var $layout = 'admin';
+	var $theme = 'vamshop';
 
 	/**
 	* Changes the value of the sort field of a database record.

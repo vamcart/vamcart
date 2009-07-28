@@ -14,9 +14,6 @@
 class AdminController extends ModuleCouponsAppController {
 	var $helpers = array('Time','Admin');
 	var $uses = array('ModuleCoupon');
-	var $view = 'Theme';
-	var $layout = 'admin';
-	var $theme = 'vamshop';
 	
 	function admin_delete($id)
 	{

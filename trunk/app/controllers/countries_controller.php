@@ -15,9 +15,6 @@ class CountriesController extends AppController {
 	var $name = 'Countries';
 	var $components = array('RequestHandler');
 	var $paginate = array();
-	var $view = 'Theme';
-	var $layout = 'admin';
-	var $theme = 'vamshop';
 	
 	function admin_edit ($country_id = null)
 	{
