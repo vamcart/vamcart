@@ -24,15 +24,15 @@ if(isset($default_template))
 		
 		echo $form->inputs(array(
 					'fieldset' => __('Template Details', true),
-					'MicroTemplate/tag_name' => array(
+					'MicroTemplate.tag_name' => array(
 						'value' => $tag_name,
    				   		'type' => 'hidden'
 	                ),
-					'MicroTemplate/tag_type' => array(
+					'MicroTemplate.tag_type' => array(
 						'value' => $tag_type,
    				   		'type' => 'hidden'
 	                ),
-					'MicroTemplate/template' => array(
+					'MicroTemplate.template' => array(
 						'type' => 'textarea',
 				   	'label' => __('Template', true),
 						'value' => $default_template,

@@ -14,11 +14,11 @@
 	echo $form->create('Template', array('id' => 'contentform', 'action' => '/templates/admin_copy/' . $template['Template']['id'], 'url' => '/templates/admin_copy/' . $template['Template']['id']));
 	echo $form->inputs(array(
 					'fieldset' => __('Copy Template', true),
-					'Template/id' => array(
+					'Template.id' => array(
 						'type' => 'hidden',
 						'value' =>  $template['Template']['id']
 	               ),
-					'Template/name' => array(
+					'Template.name' => array(
 						'type' => 'text',
 						'label' => __('Template Copy Name', true) . ': '
 	               )										   																

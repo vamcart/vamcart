@@ -12,7 +12,7 @@
    ---------------------------------------------------------------------------------------*/
 
 echo $form->inputs(array(
-	'key_values/cost' => array(
+	'key_values.cost' => array(
 		'label' => __('Shipping Cost',true), 
 		'value' => $data['rate']
 	)

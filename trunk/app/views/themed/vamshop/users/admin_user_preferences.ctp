@@ -15,7 +15,7 @@ echo $form->create('UserPref', array('id' => 'contentform', 'action' => '/users/
 
 echo $form->inputs(array(
 		'fieldset' => __('User Prefences', true),
-		'UserPref/language' => array(
+		'UserPref.language' => array(
 			'label' => __('Language', true),
 			'type' => 'select',
 			'options' => $available_languages,

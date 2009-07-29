@@ -14,11 +14,11 @@
 	echo $form->create('Stylesheet', array('id' => 'contentform', 'action' => '/stylesheets/admin_copy/' . $stylesheet['Stylesheet']['id'], 'url' => '/stylesheets/admin_copy/' . $stylesheet['Stylesheet']['id']));
 	echo $form->inputs(array(
 					'fieldset' =>  __('Copy Stylesheet', true),
-					'Stylesheet/name' => array(
+					'Stylesheet.name' => array(
 						'type' => 'text',
 						'label' => __('Name the copy:', true),
 	               ),								
-					'Stylesheet/stylesheet' => array(
+					'Stylesheet.stylesheet' => array(
 						'type' => 'hidden',
 						'value' => $stylesheet['Stylesheet']['stylesheet']
 	               ),												   																

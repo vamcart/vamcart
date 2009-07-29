@@ -14,11 +14,11 @@
 	echo $form->create('PaymentMethod', array('id' => 'contentform', 'action' => '/payment_methods/admin_edit/' . $data['PaymentMethod']['id'], 'url' => '/payment_methods/admin_edit/' . $data['PaymentMethod']['id']));
 	echo $form->inputs(array(
 					'fieldset' => __('Payment Method Details', true),
-				   'PaymentMethod/id' => array(
+				   'PaymentMethod.id' => array(
 				   		'type' => 'hidden',
 						'value' => $data['PaymentMethod']['id']
 	               ),
-	               'PaymentMethod/name' => array(
+	               'PaymentMethod.name' => array(
 				   		'label' => __('Name', true),
    						'value' => $data['PaymentMethod']['name']
 	               )				     				   	   																									

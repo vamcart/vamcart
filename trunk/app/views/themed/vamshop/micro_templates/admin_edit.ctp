@@ -16,16 +16,16 @@
 		
 		echo $form->inputs(array(
 					'fieldset' => __('Micro Template Details', true),
-					'MicroTemplate/id' => array(
+					'MicroTemplate.id' => array(
    				   		'type' => 'hidden'
 	                ),  
-					'MicroTemplate/alias' => array(
+					'MicroTemplate.alias' => array(
    				   		'label' => __('Alias', true)
 	                ),
-	                'MicroTemplate/tag_name' => array(
+	                'MicroTemplate.tag_name' => array(
    				   		'label' => __('Tag Name', true)
 	                ),
-					'MicroTemplate/template' => array(
+					'MicroTemplate.template' => array(
 						'type' => 'textarea',
    				   		'label' => __('Template', true)
 	                ),

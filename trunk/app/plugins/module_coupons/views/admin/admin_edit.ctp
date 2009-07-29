@@ -23,23 +23,23 @@
 echo $admin->StartTabContent('main');
 	echo $form->inputs(array(
 		'fieldset' => __('Coupon Details', true),
-			'ModuleCoupon/id' => array(
+			'ModuleCoupon.id' => array(
 				'type' => 'hidden'
              ),
-			'ModuleCoupon/name' => array(
+			'ModuleCoupon.name' => array(
 				'label' => __('Name', true)
              ),			 
-			'ModuleCoupon/code' => array(
+			'ModuleCoupon.code' => array(
 				'label' => __('Coupon Code', true)
              ),
-			'ModuleCoupon/free_shipping' => array(
+			'ModuleCoupon.free_shipping' => array(
 				'label' => __('Free Shipping', true),
 				'options' => $free_shipping_options
              ),
-			'ModuleCoupon/percent_off_total' => array(
+			'ModuleCoupon.percent_off_total' => array(
 				'label' => __('Percent Off Total', true)
              ),
-			'ModuleCoupon/amount_off_total' => array(
+			'ModuleCoupon.amount_off_total' => array(
 				'label' => __('Amount Off Total', true)
              )
    ));
@@ -48,20 +48,20 @@ echo $admin->EndTabContent();
 echo $admin->StartTabContent('restrictions');
 	echo $form->inputs(array(
 			'fieldset' => __('Coupon Details', true),
-			'ModuleCoupon/max_uses' => array(
+			'ModuleCoupon.max_uses' => array(
 				'label' => __('Max Uses', true),
 				'value' => (empty($this->data)?1000:$this->data['ModuleCoupon']['max_uses'])
              ),
-			'ModuleCoupon/min_product_count' => array(
+			'ModuleCoupon.min_product_count' => array(
 				'label' => __('Min Product Count', true)
              ),
-			'ModuleCoupon/max_product_count' => array(
+			'ModuleCoupon.max_product_count' => array(
 				'label' => __('Max Product Count', true)
              ),
-			'ModuleCoupon/min_order_total' => array(
+			'ModuleCoupon.min_order_total' => array(
 				'label' => __('Min Order Total', true)
              ),
-			'ModuleCoupon/max_order_total' => array(
+			'ModuleCoupon.max_order_total' => array(
 				'label' => __('Max Order Total', true)
              )
 	));

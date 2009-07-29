@@ -25,11 +25,11 @@
 echo $form->create('TaxCountryZoneRate', array('id' => 'contentform', 'action' => '/tax_country_zone_rates/admin_new/' . $tax['Tax']['id'], 'url' => '/tax_country_zone_rates/admin_new/' . $tax['Tax']['id']));
 	
 	echo $form->inputs(array('fieldset' => __('Tax Zone Rates Details', true),
-				'TaxCountryZoneRate/tax_id' => array(
+				'TaxCountryZoneRate.tax_id' => array(
 					'type' => 'hidden',
 					'value' => $tax['Tax']['id']
 	              ),
-				'TaxCountryZoneRate/country_id' => array(
+				'TaxCountryZoneRate.country_id' => array(
 			   		'label' => __('Country', true),
 					'type' => 'select',
 					'options' => $country_list,
@@ -40,7 +40,7 @@ echo $form->create('TaxCountryZoneRate', array('id' => 'contentform', 'action' =
 		echo $this->requestAction('/tax_country_zone_rates/list_zones_by_country/223', array('return'=>true));	
 	echo '</div>';
 
-	echo $form->inputs(array('TaxCountryZoneRate/rate' => array(
+	echo $form->inputs(array('TaxCountryZoneRate.rate' => array(
 			   		'label' => __('Tax Rate', true),
 					'type' => 'text'
 				)));

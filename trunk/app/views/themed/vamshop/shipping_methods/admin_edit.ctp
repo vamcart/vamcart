@@ -14,11 +14,11 @@
 	echo $form->create('ShippingMethod', array('id' => 'contentform', 'name' => 'contentform', 'action' => '/shipping_methods/admin_edit/'.$data['ShippingMethod']['id'], 'url' => '/shipping_methods/admin_edit/'.$data['ShippingMethod']['id']));
 		echo $form->inputs(array(
 				'fieldset' => __('Shipping Method Details', true),
-				'ShippingMethod/id' => array(
+				'ShippingMethod.id' => array(
 					'type' => 'hidden',
 					'value' => $data['ShippingMethod']['id']
 					),
-				'ShippingMethod/name' => array(
+				'ShippingMethod.name' => array(
 					'type' => 'text',
 					'label' => __('Name', true),
 					'value' => $data['ShippingMethod']['name']

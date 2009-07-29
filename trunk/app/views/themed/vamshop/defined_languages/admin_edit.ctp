@@ -15,7 +15,7 @@
 	
 		echo $form->inputs(array(
 					'fieldset' => __('Defined Language Details', true),
-	               'DefinedLanguage/key' => array(
+	               'DefinedLanguage.key' => array(
    				   		'label' => __('Alias', true),				   
    						'value' => $defined_key
 	               )

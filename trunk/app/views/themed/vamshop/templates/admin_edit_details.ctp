@@ -14,11 +14,11 @@
 	echo $form->create('Template', array('id' => 'contentform', 'action' => '/templates/admin_edit_details/'.$data['Template']['id'], 'url' => '/templates/admin_edit_details/'.$data['Template']['id']));
 	echo $form->inputs(array(
 					'fieldset' => __('Template Details', true),
-				   'Template/id' => array(
+				   'Template.id' => array(
 				   		'type' => 'hidden',
 						'value' => $data['Template']['id']
 	               ),
-	               'Template/name' => array(
+	               'Template.name' => array(
 				   		'label' => __('Name', true),
    						'value' => $data['Template']['name']
 	               )																										

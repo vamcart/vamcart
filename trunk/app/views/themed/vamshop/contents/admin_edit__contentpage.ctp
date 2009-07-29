@@ -13,7 +13,7 @@
 
 /* TEMP SOLUTION TO POPULATE THE MODEL WITH A DUMMY VALUE */
 echo $form->inputs(array(
-		   'ContentPage/extra' => array(
+		   'ContentPage.extra' => array(
 		   		'type' => 'hidden',
 				'value' => 1
               )

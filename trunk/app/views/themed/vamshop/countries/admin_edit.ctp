@@ -22,19 +22,19 @@
 	echo $admin->StartTabContent('main');
 		echo $form->inputs(array(
 					'fieldset' => __('Country Details', true),
-				   'Country/id' => array(
+				   'Country.id' => array(
 				   		'type' => 'hidden',
 						'value' => $data['Country']['id']
 	               ),
-	               'Country/name' => array(
+	               'Country.name' => array(
 				   		'label' => __('Name', true),
    						'value' => $data['Country']['name']
 	               ),
-	               'Country/iso_code_2' => array(
+	               'Country.iso_code_2' => array(
 				   		'label' => __('ISO Code 2', true),
    						'value' => $data['Country']['name']
 	               ),
-	               'Country/iso_code_3' => array(
+	               'Country.iso_code_3' => array(
 				   		'label' => __('ISO Code 3', true),
    						'value' => $data['Country']['iso_code_3']
 	               )		     				   	   																									
@@ -44,7 +44,7 @@
 		echo $admin->StartTabContent('options');
 						echo $form->inputs(array(
 					'fieldset' => __('Country Details', true),
-	               'Country/address_format' => array(
+	               'Country.address_format' => array(
 				   		'type' => 'textarea',
 				   		'label' => __('Address Format', true),
    						'value' => $data['Country']['address_format']

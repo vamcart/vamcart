@@ -23,13 +23,13 @@
 	echo $admin->StartTabContent('main');
 		echo $form->inputs(array(
 					'fieldset' => __('User Tag Details', true),
-				   'UserTag/id' => array(
+				   'UserTag.id' => array(
 				   		'type' => 'hidden'
 	               ),
-	               'UserTag/name' => array(
+	               'UserTag.name' => array(
    				   		'label' => __('Name', true)
 	               ),
-				   'UserTag/content' => array(
+				   'UserTag.content' => array(
    				   		'label' => __('Content', true)
 	               )																										
 			));
@@ -38,7 +38,7 @@
 	echo $admin->StartTabContent('options');
 		echo $form->inputs(array(
 					'fieldset' => __('User Tag Details', true),
-	                'UserTag/alias' => array(
+	                'UserTag.alias' => array(
    				   		'label' => __('Alias', true)
 	                )																								
 			));

@@ -14,20 +14,20 @@
 	echo $form->create('User', array('id' => 'contentform', 'action' => '/users/admin_user_account/', 'url' => '/users/admin_user_account/'));
 	echo $form->inputs(array(
 					'fieldset' => __('Account Details', true),
-				   'User/id' => array(
+				   'User.id' => array(
 				   		'type' => 'hidden'
 	               ),
-	               'User/username' => array(
+	               'User.username' => array(
 				   		'label' => __('Username', true)
 	               ),
-				   'User/email' => array(
+				   'User.email' => array(
    				   		'label' => __('Email', true)
 	               ),
-				   'User/password' => array(
+				   'User.password' => array(
 				   		'type' => 'password',
    				   		'label' => __('New Password', true)
 	               ),
-				   'User/confirm_password' => array(
+				   'User.confirm_password' => array(
 				   		'type' => 'password',				   
    				   		'label' => __('Confirm Password', true)
 	               )				   				   
