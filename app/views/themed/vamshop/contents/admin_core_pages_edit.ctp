@@ -40,7 +40,7 @@
 					'value' => $data['Content']['content_type_id']
 	              )
 				));
-		echo $this->requestAction( '/contents/admin_edit_type/' . $data['Content']['content_type_id'] . '/' . $data['Content']['id'], array('return'=>true));	
+		echo $this->requestAction( '/contents/admin_edit_type/' . $data['Content']['content_type_id'] . '/' . $data['Content']['id'], array('return'));	
 				  
 	
 	echo '<div class="template_required" id="template_required_template_picker">';
