@@ -557,11 +557,5 @@ class ContentsController extends AppController {
 		$this->set('content_count', $this->Content->findCount(array('Content.parent_id' => $parent_id)));
 	}
 
-	// SWFUpload 302 error fix
-	function beforeFilter()
-	{
-		Configure::write('Session.checkAgent', false);
-	} 
-
 }
 ?>
