@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2009-07-29 20:59+0400\n"
+"POT-Creation-Date: 2009-07-29 21:16+0400\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -637,6 +637,7 @@ msgid "Abandoned carts have been purged."
 msgstr "Незавершённые заказы очищены."
 
 #: /plugins/module_abandoned_carts/controllers/admin_controller.php:37
+#: /plugins/module_abandoned_carts/controllers/setup_controller.php:34
 msgid "Abandoned Carts"
 msgstr "Незавершённые заказы"
 
@@ -771,6 +772,10 @@ msgstr "Сумма заказа слишком высока. Необходим�
 #: /plugins/module_coupons/controllers/event_controller.php:74
 msgid "Error: Coupon already used."
 msgstr "Ошибка: Купон уже был использован."
+
+#: /plugins/module_coupons/controllers/setup_controller.php:34
+msgid "Coupons"
+msgstr "Купоны"
 
 #: /plugins/module_coupons/views/admin/admin_edit.ctp:20
 msgid "Restrictions"
@@ -980,6 +985,10 @@ msgstr "Просмотр отзыва"
 #: /plugins/module_reviews/controllers/admin_controller.php:33
 msgid "Manage Reviews"
 msgstr "Управление отзывами"
+
+#: /plugins/module_reviews/controllers/setup_controller.php:32
+msgid "Reviews"
+msgstr "Отзывы"
 
 #: /plugins/module_reviews/views/admin/admin_edit.ctp:14
 msgid "Date: "
