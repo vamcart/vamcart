@@ -11,8 +11,6 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-$tax_options = $this->requestAction('/contents/generate_tax_list/');
-
   switch($content_type_id) {
     case '1':
 
