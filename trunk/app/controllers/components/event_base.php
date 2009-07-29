@@ -35,7 +35,7 @@ class EventBaseComponent extends Object
 		{
 			foreach($events AS $event)
 			{
-				$this->requestAction($event['EventHandler']['action'],array('return' => 'true'));
+				$this->requestAction($event['EventHandler']['action'],array('return'));
 			}
 		}
 	

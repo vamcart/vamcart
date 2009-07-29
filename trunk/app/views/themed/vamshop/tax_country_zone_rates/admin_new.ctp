@@ -37,7 +37,7 @@ echo $form->create('TaxCountryZoneRate', array('id' => 'contentform', 'action' =
 	              )));
 				  
 	echo '<div id="zones_by_country">';
-		echo $this->requestAction('/tax_country_zone_rates/list_zones_by_country/223', array('return'=>true));	
+		echo $this->requestAction('/tax_country_zone_rates/list_zones_by_country/223', array('return'));	
 	echo '</div>';
 
 	echo $form->inputs(array('TaxCountryZoneRate.rate' => array(

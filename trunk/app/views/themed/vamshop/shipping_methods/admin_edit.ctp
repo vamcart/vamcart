@@ -25,7 +25,7 @@
 					),					
 	               ));
 				  
-	echo $this->requestAction( '/shipping/admin/edit/' . $data['ShippingMethod']['code'], array('return'=>true));	
+	echo $this->requestAction( '/shipping/admin/edit/' . $data['ShippingMethod']['code'], array('return'));	
 	
 	echo $form->submit( __('Submit', true), array('name' => 'submit', 'id' => 'submit')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clear"></div>';

@@ -24,7 +24,7 @@
 	               )				     				   	   																									
 			));
 	
-	echo $this->requestAction( '/payment/admin/edit/' . $data['PaymentMethod']['id'], array('return'=>true));	
+	echo $this->requestAction( '/payment/admin/edit/' . $data['PaymentMethod']['id'], array('return'));	
 	
 	echo $form->submit( __('Submit', true), array('name' => 'submit')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clear"></div>';
