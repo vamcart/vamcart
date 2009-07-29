@@ -187,7 +187,7 @@ class AdminHelper extends Helper {
 		if(!isset($menuitem['attributes']))
 			$menuitem['attributes'] = "";
 			
-		return($this->Html->link(__n($menuitem['text'],$menuitem['text'],2, true),$menuitem['path'],$menuitem['attributes'],null,false));
+		return($this->Html->link($menuitem['text'],$menuitem['path'],$menuitem['attributes'],null,false));
 	}
 	
 	
