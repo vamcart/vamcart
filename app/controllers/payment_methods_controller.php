@@ -66,7 +66,7 @@ class PaymentMethodsController extends AppController {
 	function admin ($ajax = false)
 	{
 		$this->set('current_crumb', __('Payment Methods Listing', true));
-		$this->set('payment_method_data',$this->PaymentMethod->findAll(null,null,'PaymentMethod.name ASC'));	
+		$this->set('payment_method_data',$this->PaymentMethod->find('all', array('order' => array('PaymentMethod.name ASC'))));	
 
 	}	
 

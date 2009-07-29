@@ -70,7 +70,7 @@ function smarty_function_content_images($params, &$smarty)
 	if($config['GD_LIBRARY'] == '0')
 		$params['thumbnail'] = 'false';
 	
-	$images = $ContentImage->findAll(array('content_id' => $content['Content']['id']));
+	$images = $ContentImage->find('all', array('conditions' => array('content_id' => $content['Content']['id'])));
 	
 	$keyed_images = array();
 	foreach($images AS $image)

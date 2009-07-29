@@ -109,7 +109,7 @@ class SetupController extends ModuleCouponsAppController {
 		App::import('Model', 'Event');	
 		$this->Event =& new Event();
 		
-		$handlers = $this->Event->EventHandler->findAll(array('EventHandler.originator' => 'CouponsModule'));
+		$handlers = $this->Event->EventHandler->find('all', array('conditions' => array('EventHandler.originator' => 'CouponsModule')));
 		foreach($handlers AS $value)
 		{
 			$this->Event->EventHandler->del($value['EventHandler']['id']);

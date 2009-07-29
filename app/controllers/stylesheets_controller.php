@@ -237,7 +237,7 @@ class StylesheetsController extends AppController {
 	function admin($ajax_request = false)
 	{
 		$this->set('current_crumb', __('Stylesheets Listing', true));
-		$this->set('stylesheets',$this->Stylesheet->findAll(null,null,'Stylesheet.name ASC'));
+		$this->set('stylesheets',$this->Stylesheet->find('all', array('order' => array('Stylesheet.name ASC'))));
 		
 	}
 	

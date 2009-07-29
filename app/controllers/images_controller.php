@@ -93,7 +93,7 @@ class ImagesController extends AppController {
 	function admin_view_content_images ($content_id)
 	{
 		$this->set('content_id',$content_id);
-		$this->set('content_images',$this->ContentImage->findAll(array('content_id' => $content_id)));
+		$this->set('content_images',$this->ContentImage->find('all', array('conditions' => array('content_id' => $content_id))));
 	}
 		
 }

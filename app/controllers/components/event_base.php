@@ -29,7 +29,7 @@ class EventBaseComponent extends Object
 		App::import('Model', 'Event');
 		$this->Event =& new Event();
 		
-		$events = $this->Event->EventHandler->findAll(array('Event.alias' => $event_alias));
+		$events = $this->Event->EventHandler->find('all', array('conditions' => array('Event.alias' => $event_alias)));
 		
 		if(!empty($events))
 		{

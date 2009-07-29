@@ -68,7 +68,7 @@ class OrdersController extends AppController {
 	function admin_view ($id)
 	{
 		$this->set('current_crumb', __('Order View', true));
-		$order = $this->Order->findAll(array('Order.id' => $id),null,null,null,null,2);
+		$order = $this->Order->find('all', array('conditions' => array('Order.id' => $id)));
 		$this->set('data',$order[0]);
 
 		// Bind and set the order status select list
@@ -83,7 +83,7 @@ class OrdersController extends AppController {
            	)
 	    );		
 		
-		$status_list = $this->Order->OrderStatus->findAll(null,null,'OrderStatus.order ASC');
+		$status_list = $this->Order->OrderStatus->find('all', array('order' => array('OrderStatus.order ASC')));
 		$order_status_list = array();
 		
 		foreach($status_list AS $status)

@@ -134,7 +134,7 @@ class TemplatesController extends AppController {
 			$this->Template->save($new_template);
 			$new_template_id = $this->Template->getLastInsertId();
 			
-			$old_children = $this->Template->findAll(array('parent_id' => $template_id));
+			$old_children = $this->Template->find('all', array('conditions' => array('parent_id' => $template_id)));
 			foreach($old_children AS $old_child)
 			{
 				$this->Template->create();
@@ -167,7 +167,7 @@ class TemplatesController extends AppController {
 		else
 		{
 			// Get all templates that have this template as a parent
-			$child_templates = $this->Template->findAll(array('parent_id' => $template_id));
+			$child_templates = $this->Template->find('all', array('conditions' => array('parent_id' => $template_id)));
 			foreach($child_templates AS $child)
 			{
 				$this->Template->del($child['Template']['id']);
@@ -259,7 +259,7 @@ class TemplatesController extends AppController {
 			$this->Template->save($this->data);
 			$template_id = $this->Template->getLastInsertId();
 						
-			$default_templates = $this->Template->TemplateType->findAll();
+			$default_templates = $this->Template->TemplateType->find('all');
 			foreach($default_templates AS $default)
 			{
 				$this->Template->create();
@@ -281,7 +281,7 @@ class TemplatesController extends AppController {
 	function admin($ajax = false)
 	{
 		$this->set('current_crumb', __('Templates Listing', true));
-		$this->set('templates',$this->Template->findAllThreaded(null,null,'Template.name ASC'));
+		$this->set('templates',$this->Template->find('threaded', array('order' => array('Template.name ASC'))));
 	
 		$user_prefs = $this->UserPref->find(array('name' => 'template_collpase','user_id' => $this->Session->read('User.id')));	
 		$exploded_prefs = explode(',', $user_prefs['UserPref']['value']);

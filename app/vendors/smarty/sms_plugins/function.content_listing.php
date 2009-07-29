@@ -114,7 +114,7 @@ function smarty_function_content_listing($params, &$smarty)
 	
 	$content_list_data_conditions = array('Content.parent_id' => $params['parent'],'Content.show_in_menu' => '1');
 	$Content->recursive = 2;
-	$content_list_data = $Content->findAll($content_list_data_conditions,null,'Content.order ASC');
+	$content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'order' => array('Content.order ASC')));
 	
 
 	// Loop through the content list and create a new array with only what the template needs

@@ -63,7 +63,7 @@ class CountryZonesController extends AppController {
 		$this->set('current_crumb_info', $country['Country']['name']);
 		
 		$this->set('country', $country);
-		$this->set('zones', $this->CountryZone->findAll(array('country_id' => $country_id)));
+		$this->set('zones', $this->CountryZone->find('all', array('conditions' => array('country_id' => $country_id))));
 	}
 }
 ?>

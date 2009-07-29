@@ -91,7 +91,7 @@ class UsersController extends AppController {
 			die();
 		}		
 
-		$languages = $this->Language->findAll(null,null,'Language.id ASC');
+		$languages = $this->Language->find('all', array('order' => array('Language.id ASC')));
 		$languages_list = array();
 		
 		foreach($languages AS $language)
@@ -195,7 +195,7 @@ class UsersController extends AppController {
 	function admin () 
 	{
 		$this->set('current_crumb', __('Admins Listing', true));
-		$this->set('users', $this->User->findAll());
+		$this->set('users', $this->User->find('all'));
 	}	
 }
 ?>

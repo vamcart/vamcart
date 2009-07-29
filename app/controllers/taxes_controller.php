@@ -17,7 +17,7 @@ class TaxesController extends AppController {
 	
 	function admin_set_all_products ($tax_id) 
 	{
-		$products = $this->Tax->ContentProduct->findAll();
+		$products = $this->Tax->ContentProduct->find('all');
 		
 		foreach($products AS $product)
 		{

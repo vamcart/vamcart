@@ -72,7 +72,7 @@ class TaxCountryZoneRatesController extends AppController {
 			
 			if($this->data['TaxCountryZoneRate']['country_zone_id'] == 'ALL')
 			{
-				$country_zones = $this->TaxCountryZoneRate->CountryZone->findAll(array('country_id' => $this->data['TaxCountryZoneRate']['country_id']));
+				$country_zones = $this->TaxCountryZoneRate->CountryZone->find('all', array('conditions' => array('country_id' => $this->data['TaxCountryZoneRate']['country_id'])));
 					
 				foreach($country_zones AS $zone)
 				{
@@ -128,7 +128,7 @@ class TaxCountryZoneRatesController extends AppController {
 		$tax = $this->TaxCountryZoneRate->Tax->read(null,$tax_id);
 		$this->set('current_crumb_info',$tax['Tax']['name']);
 		$this->set('tax',$tax);
-		$this->set('data',$this->TaxCountryZoneRate->findAll(array('tax_id' => $tax_id)));	
+		$this->set('data',$this->TaxCountryZoneRate->find('all', array('conditions' => array('tax_id' => $tax_id))));
 
 	}	
 }
