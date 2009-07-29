@@ -63,7 +63,7 @@
 	               )));
 
 		echo '<div id="content_type_fields">';
-			echo $this->requestAction( '/contents/admin_edit_type/' . $data['Content']['content_type_id'] . '/' . $data['Content']['id'], array('return'=>true));	
+			echo $this->requestAction( '/contents/admin_edit_type/' . $data['Content']['content_type_id'] . '/' . $data['Content']['id'], array('return'));	
 		echo '</div>';
 	
 	echo '<div class="template_required" id="template_required_template_picker" style="display:' . $tpl_req_style . ';">';
@@ -81,13 +81,13 @@
 	{
 		$language_key = $language['Language']['id'];
 		
-		echo $form->inputs(array('ContentDescription]['.$language['Language']['id'].'][name/' . $language['Language']['id'] => array(
+		echo $form->inputs(array('ContentDescription]['.$language['Language']['id'].'][name.' . $language['Language']['id'] => array(
 				   		'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . sprintf(__('Title (%s) ', true),__($language['Language']['name'], true)),
 						'value' => $data['ContentDescription'][$language_key]['name']
 	            	  )));																								
 	
 		echo '<div id="template_required_' . $language['Language']['id'] . '" class="template_required" style="display:' . $tpl_req_style . ';">';
-			echo $form->inputs(array('ContentDescription]['.$language['Language']['id'].'][description/' . $language['Language']['id'] => array(
+			echo $form->inputs(array('ContentDescription]['.$language['Language']['id'].'][description.' . $language['Language']['id'] => array(
 				   		'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . sprintf(__('Description (%s) ', true),__($language['Language']['name'], true)),
 						'type' => 'textarea',
 						'class' => 'pagesmalltextarea',						

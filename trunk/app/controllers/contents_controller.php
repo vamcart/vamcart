@@ -162,6 +162,7 @@ class ContentsController extends AppController {
 
 		$data = $this->Content->$model->find(array('content_id' => $content_id));
 		$this->set('data', $data);
+		$this->set('content_type_id', $content_type_id);
 	}
 	
 	

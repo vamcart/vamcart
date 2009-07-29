@@ -69,7 +69,7 @@ class AppController extends Controller {
 
 		$current_model = $this->modelClass;
 		$current_controller = $this->params['controller'];
-		$grab_info = $this->$current_model->findAll();
+		$grab_info = $this->$current_model->find('all');
 
 		foreach ($grab_info AS $info)
 		{
@@ -159,7 +159,7 @@ class AppController extends Controller {
 		
 		// Get the model we're in and make sure that alias isn't taken
 		$current_model = $this->modelClass;
-		$check_records = $this->$current_model->findAll($current_model . ".id != '" . $this->data[$current_model]['id'] . "' AND " . $current_model . ".alias = '" . $alias . "'");
+		$check_records = $this->$current_model->find('all', array('conditions' => array($current_model . '.id !=' => $this->data[$current_model]['id'], $current_model . '.alias =' => $alias)));
 
 		if(count($check_records) > 0)
 		{
@@ -244,7 +244,7 @@ class AppController extends Controller {
 		App::import('Model', 'Module');
 		$this->Module =& new Module();
 		
-		$modules = $this->Module->findAll();
+		$modules = $this->Module->find('all');
 		
 		foreach($modules AS $module)
 		{
