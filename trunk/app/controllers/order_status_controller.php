@@ -47,7 +47,7 @@ class OrderStatusController extends AppController {
 			$this->OrderStatus->del($order_status_id, true);	
 			
 			// Move all order status that have a higher sort order 1 slot down
-			$higher_positions = $this->OrderStatus->findAll(array("OrderStatus.order > '". $status['OrderStatus']['order'] ."'"));
+			$higher_positions = $this->OrderStatus->find('all', array('conditions' => array('OrderStatus.order >' => $status['OrderStatus']['order'])));
 			foreach($higher_positions AS $position)
 			{
 				$position['OrderStatus']['order'] -= 1; 
@@ -91,14 +91,14 @@ class OrderStatusController extends AppController {
 			}
 			}
 			$this->set('data', $data);
-			$this->set('languages', $this->OrderStatus->OrderStatusDescription->Language->findAll(array('active' => '1'), null, 'Language.id ASC'));
+			$this->set('languages', $this->OrderStatus->OrderStatusDescription->Language->find('all', array('conditions' => array('active' => '1'), 'order' => array('Language.id ASC'))));
 		}
 		else
 		{
 			// If it's a new order status set the sort order to the highest + 1
 			if($order_status_id == null)
 			{
-				$highest = $this->OrderStatus->find(null,null,'OrderStatus.order DESC');
+				$highest = $this->OrderStatus->find('all', array('order' => array('OrderStatus.order DESC')));
 				$order = $highest['OrderStatus']['order'] + 1;
 				$this->data['OrderStatus']['order'] = $order;
 				
@@ -118,7 +118,7 @@ class OrderStatusController extends AppController {
 				$order_status_id = $this->OrderStatus->getLastInsertid();
 			
 			// Lets just delete all of the description associations and remake them
-			$descriptions = $this->OrderStatus->OrderStatusDescription->findAll(array('order_status_id' => $order_status_id));
+			$descriptions = $this->OrderStatus->OrderStatusDescription->find('all', array('conditions' => array('order_status_id' => $order_status_id)));
 			foreach($descriptions AS $description)
 			{
 				$this->OrderStatus->OrderStatusDescription->del($description['OrderStatusDescription']['id']);
@@ -163,7 +163,7 @@ class OrderStatusController extends AppController {
            	)
 	    );
 		
-		$this->set('order_status_data',$this->OrderStatus->findAll(null,null,'OrderStatus.order ASC'));			
+		$this->set('order_status_data',$this->OrderStatus->find('all', array('order' => array('OrderStatus.order ASC'))));			
 		$this->set('order_status_count', $this->OrderStatus->findCount());
 
 	}	

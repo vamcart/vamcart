@@ -139,7 +139,7 @@ class CurrenciesController extends AppController {
 	function admin ($ajax = false)
 	{
 		$this->set('current_crumb', __('Currencies Listing', true));
-		$this->set('currency_data',$this->Currency->findAll(null,null,'Currency.name ASC'));	
+		$this->set('currency_data',$this->Currency->find('all', array('order' => array('Currency.name ASC'))));
 	}	
 	
 }

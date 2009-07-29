@@ -218,7 +218,7 @@ class ContentsController extends AppController {
 			$this->set('content_types',$this->Content->ContentType->find('list'));
 			$this->set('parents', $this->ContentBase->generate_content_list());
 			$this->set('templates', $this->Content->Template->find('list', array('parent_id' => '0')));
-			$this->set('languages', $this->Content->ContentDescription->Language->findAll(array('active' => '1'), null, 'Language.id ASC'));
+			$this->set('languages', $this->Content->ContentDescription->Language->find('all', array('conditions' => array('active' => '1'), 'order' => array('Language.id ASC'))));
 			
 	}
 	
@@ -294,7 +294,7 @@ class ContentsController extends AppController {
 					
 			
 			// Lets just delete all of the description associations and remake them
-			$descriptions = $this->Content->ContentDescription->findAll(array('content_id' => $content_id));
+			$descriptions = $this->Content->ContentDescription->find('all', array('conditions' => array('content_id' => $content_id)));
 			foreach($descriptions AS $description)
 			{
 				$this->Content->ContentDescription->del($description['ContentDescription']['id']);
@@ -313,7 +313,7 @@ class ContentsController extends AppController {
 			}
 			
 			// Now get all content types and loop through them.  Saving the necessary data.
-			$content_types = $this->Content->ContentType->findAll();
+			$content_types = $this->Content->ContentType->find('all');
 			foreach($content_types AS $type)
 			{
 				$test_model = $type['ContentType']['type'];
@@ -403,7 +403,7 @@ class ContentsController extends AppController {
 			$this->set('content_types',$this->Content->ContentType->find('list'));
 			$this->set('parents', $this->ContentBase->generate_content_list());
 			$this->set('templates', $this->Content->Template->find('list', array('parent_id' => '0')));
-			$this->set('languages', $this->Content->ContentDescription->Language->findAll(array('active' => '1'), null, 'Language.id ASC'));
+			$this->set('languages', $this->Content->ContentDescription->Language->find('all', array('conditions' => array('active' => '1'), 'order' => array('Language.id ASC'))));
 			
 		}
 	}
@@ -497,7 +497,7 @@ class ContentsController extends AppController {
            	)
 	    );
 			
-		$content_data = $this->Content->findAll(array('Content.parent_id' => '-1'),null,'Content.order ASC');
+		$content_data = $this->Content->find('all', array('conditions' => array('Content.parent_id' => '-1'), 'order' => array('Content.order ASC')));
 		// Loop through and assign the counts
 		foreach($content_data AS $key => $value)
 		{
@@ -528,7 +528,7 @@ class ContentsController extends AppController {
            	)
 	    );
 			
-		$content_data = $this->Content->findAll(array('Content.parent_id' => $parent_id),null,'Content.order ASC');
+		$content_data = $this->Content->find('all', array('conditions' => array('Content.parent_id' => $parent_id), 'order' => array('Content.order ASC')));
 		// Loop through and assign the counts
 		foreach($content_data AS $key => $value)
 		{

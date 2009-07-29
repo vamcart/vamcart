@@ -22,14 +22,14 @@ class EventsController extends AppController {
 		$this->set('current_crumb_info',$event['Event']['alias']);		
 			
 		$this->set('event',$event);
-		$this->set('event_handlers',$this->Event->EventHandler->findAll(array('EventHandler.event_id' => $id)));
+		$this->set('event_handlers',$this->Event->EventHandler->find('all', array('conditions' => array('EventHandler.event_id' => $id))));
 		
 	}
    
 	function admin()
 	{
 		$this->set('current_crumb', __('Events Listing', true));
-		$this->set('event_data',$this->Event->findAll(null,null,'Event.alias ASC'));
+		$this->set('event_data',$this->Event->find('all', array('order' => array('Event.alias ASC'))));
 	}
 }
 ?>

@@ -128,7 +128,7 @@ class UserTagsController extends AppController {
    function admin ()
 	{
 		$this->set('current_crumb', __('User Tags Listing', true));
-		$this->set('user_tags', $this->UserTag->findAll());
+		$this->set('user_tags', $this->UserTag->find('all'));
 	}
 	
 }

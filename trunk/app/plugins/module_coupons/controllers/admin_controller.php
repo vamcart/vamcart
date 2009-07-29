@@ -62,7 +62,7 @@ class AdminController extends ModuleCouponsAppController {
 	function admin_index()
 	{
 		$this->set('current_crumb',__('Manage Coupons', true));
-		$this->set('coupons',$this->ModuleCoupon->findAll());
+		$this->set('coupons',$this->ModuleCoupon->findl('all'));
 	}
 	
 	function admin_help()

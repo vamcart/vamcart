@@ -51,7 +51,7 @@ function smarty_function_language_box($params, &$smarty)
 	App::import('Model', 'Language');
 		$Language =& new Language();
 	
-	$languages = $Language->findAll(array('active' => '1'));
+	$languages = $Language->find('all', array('conditions' => array('active' => '1')));
 	
 	if(count($languages) == 1)
 		return;

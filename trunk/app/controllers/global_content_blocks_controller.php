@@ -121,7 +121,7 @@ class GlobalContentBlocksController extends AppController {
 	function admin($ajax_request = false)
 	{
 		$this->set('current_crumb', __('Global Content Blocks Listing', true));
-		$this->set('global_content_blocks', $this->GlobalContentBlock->findAll());
+		$this->set('global_content_blocks', $this->GlobalContentBlock->find('all'));
 	}
 }
 ?>

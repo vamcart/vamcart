@@ -42,7 +42,7 @@ class ConfigurationController extends AppController {
 		}
 		
 		// Grab all configration values then loop through and set the array key to the database key
-		$configuration_values = $this->Configuration->findAll();
+		$configuration_values = $this->Configuration->find('all');
 		$keyed_config_values = array();
 		foreach($configuration_values AS $key => $value)
 		{

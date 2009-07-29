@@ -33,7 +33,7 @@ class ConfigurationBaseComponent extends Object
 			App::import('Model', 'Configuration');
 				$this->Configuration =& new Configuration();
 	
-			$configuration_values = $this->Configuration->findAll();
+			$configuration_values = $this->Configuration->find('all');
 
 			$config_values = array_combine(Set::extract($configuration_values, '{n}.Configuration.key'),
 						 		 Set::extract($configuration_values, '{n}.Configuration.value'));		

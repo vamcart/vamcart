@@ -72,7 +72,7 @@ class MicroTemplatesController extends AppController {
 	function admin ($ajax = false)
 	{
 		$this->set('current_crumb', __('Micro Templates Listing', true));
-		$this->set('micro_templates',$this->MicroTemplate->findAll());
+		$this->set('micro_templates',$this->MicroTemplate->find('all'));
 	}
 }
 ?>

@@ -21,7 +21,7 @@ class AdminController extends PaymentAppController {
 		
 		$method = $this->PaymentMethod->read(null,$id);
 		
-		$data = $this->PaymentMethod->PaymentMethodValue->findAll(array('payment_method_id' => $id));
+		$data = $this->PaymentMethod->PaymentMethodValue->find('all', array('conditions' => array('payment_method_id' => $id)));
 		
 		$keyed_array = array();
 		if(!empty($data))

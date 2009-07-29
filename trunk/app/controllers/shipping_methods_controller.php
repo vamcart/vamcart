@@ -65,7 +65,7 @@ class ShippingMethodsController extends AppController {
 	function admin ($ajax = false)
 	{
 		$this->set('current_crumb', __('Shipping Methods Listing', true));
-		$this->set('shipping_method_data',$this->ShippingMethod->findAll(null,null,'ShippingMethod.name ASC'));	
+		$this->set('shipping_method_data',$this->ShippingMethod->find('all', array('order' => array('ShippingMethod.name ASC'))));	
 
 	}	
 }

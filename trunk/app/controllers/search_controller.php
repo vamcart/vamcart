@@ -18,7 +18,7 @@ class SearchController extends AppController {
 	{
 		$this->set('current_crumb',__('Search Results',true));
 		
-		$search_tables = $this->Search->findAll();
+		$search_tables = $this->Search->find('all');
 		$search_results = array();
 		
 		foreach($search_tables AS $key => $table)

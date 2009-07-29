@@ -100,7 +100,7 @@ class ModuleBaseComponent extends Object
 		$new_page_id = $this->Content->getLastInsertId();			
 		
 		// Get all of the active languages
-		$languages = $this->Content->ContentDescription->Language->findAll(array('active' => '1'));
+		$languages = $this->Content->ContentDescription->Language->find('all', array('conditions' => array('active' => '1')));
 		
 		// Loop through the languages, saving each one.
 		foreach($languages AS $language)

@@ -20,7 +20,7 @@ class DefinedLanguagesController extends AppController {
 	*/
 	function admin_delete ($key)
 	{
-		$definitions = $this->DefinedLanguage->findAll(array('key' => $key));
+		$definitions = $this->DefinedLanguage->find('all', array('conditions' => array('key' => $key)));
 		foreach($definitions AS $definition)
 		{
 			$this->DefinedLanguage->del($definition['DefinedLanguage']['id']);
@@ -35,7 +35,7 @@ class DefinedLanguagesController extends AppController {
 		$this->set('current_crumb', __('Defined Language Details', true));
 		if(empty($this->data))
 		{
-			$data = $this->DefinedLanguage->findAll(array('key' => $defined_language_key));
+			$data = $this->DefinedLanguage->find('all', array('conditions' => array('key' => $defined_language_key)));
 
 			// Loop through the language definftions and set a new array with the key as the language_id
 			$keyed_definitions = array();
@@ -47,7 +47,7 @@ class DefinedLanguagesController extends AppController {
 			
 			$this->set('data', $keyed_definitions);
 			$this->set('defined_key',$defined_language_key);
-			$this->set('languages', $this->DefinedLanguage->Language->findAll(array('active' => '1'), null, 'Language.id ASC'));
+			$this->set('languages', $this->DefinedLanguage->Language->find('all', array('conditions' => array('active' => '1'), 'order' => array('Language.id ASC'))));
 		}
 		else
 		{
@@ -59,7 +59,7 @@ class DefinedLanguagesController extends AppController {
 			}
 			
 			// Lets just delete all of the defined languages and remake them
-			$language_descriptions = $this->DefinedLanguage->findAll(array('key' => $defined_language_key));
+			$language_descriptions = $this->DefinedLanguage->find('all', array('conditions' => array('key' => $defined_language_key)));
 			foreach($language_descriptions AS $language_description)
 			{
 				$this->DefinedLanguage->del($language_description['DefinedLanguage']['id']);
@@ -91,7 +91,7 @@ class DefinedLanguagesController extends AppController {
 	function admin()
 	{
 		$this->set('current_crumb', __('Defined Language Listing', true));
-		$this->set('defined_languages', $this->DefinedLanguage->findAll("GROUP BY DefinedLanguage.key"));
+		$this->set('defined_languages', $this->DefinedLanguage->find('all', array('group' => array('DefinedLanguage.key'))));
 	}
 }
 ?>

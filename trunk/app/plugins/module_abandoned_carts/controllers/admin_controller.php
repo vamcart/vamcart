@@ -20,7 +20,7 @@ class AdminController extends ModuleAbandonedCartsAppController {
 		App::import('Model', 'Order');
 		$this->Order =& new Order();
 		
-		$old_carts = $this->Order->findAll(array('Order.order_status_id' => '0'));
+		$old_carts = $this->Order->find('all', array('conditions' => array('Order.order_status_id' => '0')));
 		foreach($old_carts AS $cart)
 		{
 			$this->Order->del($cart, true);
@@ -35,7 +35,7 @@ class AdminController extends ModuleAbandonedCartsAppController {
 		$this->Order =& new Order();
 			
 		$this->set('current_crumb',__('Abandoned Carts', true));
-		$this->set('data',$this->Order->findAll(array('Order.order_status_id' => '0')));
+		$this->set('data',$this->Order->find('all', array('conditions' => array('Order.order_status_id' => '0'))));
 		
 	}
 

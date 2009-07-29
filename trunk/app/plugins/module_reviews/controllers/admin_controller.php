@@ -31,7 +31,7 @@ class AdminController extends ModuleReviewsAppController {
 	function admin_index()
 	{
 		$this->set('current_crumb',__('Manage Reviews',true));
-		$this->set('reviews',$this->ModuleReview->findAll());
+		$this->set('reviews',$this->ModuleReview->find('all'));
 	}
 	
 	function admin_help()
