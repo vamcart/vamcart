@@ -180,62 +180,62 @@ class AppController extends Controller {
 	{
 		// Navigation Menu Array
 		$navigation = array(
-			1 => array('text' => 'Home', 'path' => '/admin/admin_top/1'
+			1 => array('text' => __('Home', true), 'path' => '/admin/admin_top/1'
 			),	
-			2 => array('text' => 'Orders', 'path' => '/orders/admin/', 
+			2 => array('text' => __('Orders', true), 'path' => '/orders/admin/', 
 				'children' => array(
-					1 => array('text' => 'All Orders', 'path' => '/orders/admin/')
+					1 => array('text' => __('All Orders', true), 'path' => '/orders/admin/')
 				)			
 			),				
-			3 => array('text' => 'Contents', 'path' => '/admin/admin_top/3',
+			3 => array('text' => __('Contents', true), 'path' => '/admin/admin_top/3',
 				'children' => array(
-					1 => array('text' => 'Categories & Products', 'path' => '/contents/admin/'),
-					2 => array('text' => 'Pages', 'path' => '/contents/admin_core_pages/'),
-					3 => array('text' => 'Content Blocks', 'path' => '/global_content_blocks/admin/')
+					1 => array('text' => __('Categories & Products', true), 'path' => '/contents/admin/'),
+					2 => array('text' => __('Pages', true), 'path' => '/contents/admin_core_pages/'),
+					3 => array('text' => __('Content Blocks', true), 'path' => '/global_content_blocks/admin/')
 				)
 			),
-			4 => array('text' => 'Layout', 'path' => '/admin/admin_top/4',
+			4 => array('text' => __('Layout', true), 'path' => '/admin/admin_top/4',
 				'children' => array(
-					1 => array('text' => 'Templates', 'path' => '/templates/admin/'),
-					2 => array('text' => 'Stylesheets', 'path' => '/stylesheets/admin/'),
-					3 => array('text' => 'Micro Templates', 'path' => '/micro_templates/admin/')									
+					1 => array('text' => __('Templates', true), 'path' => '/templates/admin/'),
+					2 => array('text' => __('Stylesheets', true), 'path' => '/stylesheets/admin/'),
+					3 => array('text' => __('Micro Templates', true), 'path' => '/micro_templates/admin/')									
 				)
 			),
-			5 => array('text' => 'Configurations', 'path' => '/admin/admin_top/5',
+			5 => array('text' => __('Configurations', true), 'path' => '/admin/admin_top/5',
 				'children' => array(
-					1 => array('text' => 'Store Settings', 'path' => '/configuration/admin_edit/'),
-					2 => array('text' => 'Order status', 'path' => '/order_status/admin/'),
-					3 => array('text' => 'Payment Methods', 'path' => '/payment_methods/admin/'),
-					4 => array('text' => 'Shipping Methods', 'path' => '/shipping_methods/admin/'),
-					5 => array('text' => 'Tax Classes', 'path' => '/taxes/admin/'),
-					6 => array('text' => 'Tax Rates', 'path' => '/tax_country_zone_rates/admin/0')
+					1 => array('text' => __('Store Settings', true), 'path' => '/configuration/admin_edit/'),
+					2 => array('text' => __('Order status', true), 'path' => '/order_status/admin/'),
+					3 => array('text' => __('Payment Methods', true), 'path' => '/payment_methods/admin/'),
+					4 => array('text' => __('Shipping Methods', true), 'path' => '/shipping_methods/admin/'),
+					5 => array('text' => __('Tax Classes', true), 'path' => '/taxes/admin/'),
+					6 => array('text' => __('Tax Rates', true), 'path' => '/tax_country_zone_rates/admin/0')
 				)
 			),	
-			6 => array('text' => 'Locale', 'path' => '/admin/admin_top/6',
+			6 => array('text' => __('Locale', true), 'path' => '/admin/admin_top/6',
 				'children' => array(
-					1 => array('text' => 'Currencies', 'path' => '/currencies/admin/'),
-					2 => array('text' => 'Languages', 'path' => '/languages/admin/'),
-					3 => array('text' => 'Countries', 'path' => '/countries/admin/'),
-					4 => array('text' => 'Defined Languages', 'path' => '/defined_languages/admin/')															
+					1 => array('text' => __('Currencies', true), 'path' => '/currencies/admin/'),
+					2 => array('text' => __('Languages', true), 'path' => '/languages/admin/'),
+					3 => array('text' => __('Countries', true), 'path' => '/countries/admin/'),
+					4 => array('text' => __('Defined Languages', true), 'path' => '/defined_languages/admin/')															
 				)
 			),					
-			7 => array('text' => 'Extensions', 'path' => '/admin/admin_top/7',
+			7 => array('text' => __('Extensions', true), 'path' => '/admin/admin_top/7',
 				'children' => array(
-					1 => array('text' => 'Modules', 'path' => '/modules/admin/'),
-					2 => array('text' => 'Tags', 'path' => '/tags/admin/'),
-					3 => array('text' => 'User Tags', 'path' => '/user_tags/admin/'),
-					4 => array('text' => 'Events', 'path' => '/events/admin/')
+					1 => array('text' => __('Modules', true), 'path' => '/modules/admin/'),
+					2 => array('text' => __('Tags', true), 'path' => '/tags/admin/'),
+					3 => array('text' => __('User Tags', true), 'path' => '/user_tags/admin/'),
+					4 => array('text' => __('Events', true), 'path' => '/events/admin/')
 				)
 			),									
-			8 => array('text' => 'Account', 'path' => '/admin/admin_top/8',
+			8 => array('text' => __('Account', true), 'path' => '/admin/admin_top/8',
 				'children' => array(
-					1 => array('text' => 'Manage Accounts', 'path' => '/users/admin/'),
-					2 => array('text' => 'My Account', 'path' => '/users/admin_user_account/'),
-					3 => array('text' => 'Prefences', 'path' => '/users/admin_user_preferences/'),					
-					4 => array('text' => 'Logout', 'path' => '/users/admin_logout/')					
+					1 => array('text' => __('Manage Accounts', true), 'path' => '/users/admin/'),
+					2 => array('text' => __('My Account', true), 'path' => '/users/admin_user_account/'),
+					3 => array('text' => __('Prefences', true), 'path' => '/users/admin_user_preferences/'),					
+					4 => array('text' => __('Logout', true), 'path' => '/users/admin_logout/')					
 				)
 			),						
-			9 => array('text' => 'Launch Site', 'path' => '/', 'attributes' => array('target' => 'blank')
+			9 => array('text' => __('Launch Site', true), 'path' => '/', 'attributes' => array('target' => 'blank')
 				
 			)
 		);
