@@ -171,7 +171,7 @@ function smarty_function_checkout($params, &$smarty)
 	{
 		$shipping_component = Inflector::classify($method['ShippingMethod']['code']);
 		$shipping_component2 =  Inflector::classify($method['ShippingMethod']['code']) . 'Component';
-		loadPluginComponent('shipping',$shipping_component);
+		App::import('Component', 'shipping.'.$shipping_component);
 		$MethodBase =& new $shipping_component2();
 		
 		$ship_method_id = $method['ShippingMethod']['id'];
