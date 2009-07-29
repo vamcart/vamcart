@@ -40,7 +40,7 @@ header('Content-Type: text/html; charset=utf-8');
 <div class="header-right">
 <?php 
 echo $form->create('Search', array('action' => '/search/admin_global_search/', 'url' => '/search/admin_global_search/'));
-echo $form->input('Search/term',array('label' => __('Search',true),'value' => __('Global Record Search',true),"onblur" => "if(this.value=='') this.value=this.defaultValue;","onfocus" => "if(this.value==this.defaultValue) this.value='';"));
+echo $form->input('Search.term',array('label' => __('Search',true),'value' => __('Global Record Search',true),"onblur" => "if(this.value=='') this.value=this.defaultValue;","onfocus" => "if(this.value==this.defaultValue) this.value='';"));
 echo $form->submit( __('Submit', true));
 echo $form->end();
 ?>
