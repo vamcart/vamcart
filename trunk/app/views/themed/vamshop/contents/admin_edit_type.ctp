@@ -25,6 +25,7 @@ echo $form->inputs(array(
 
       break;
     case '2':
+    default:
 
 $tax_options = $this->requestAction('/contents/generate_tax_list/');
 
@@ -102,8 +103,6 @@ else
 	echo '</div>';
 }
 
-      break;
-    default:
       break;
 }
       
