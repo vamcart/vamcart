@@ -15,10 +15,10 @@
 	echo $form->create('Template', array('id' => 'contentform', 'action' => '/templates/admin_edit/'.$template_id, 'url' => '/templates/admin_edit/'.$template_id));
 	echo $form->inputs(array(
 					'fieldset' => __('Template Details', true),
-				   'Template/id' => array(
+				   'Template.id' => array(
 				   		'type' => 'hidden'
 	               ),
-				   'Template/template' => array(
+				   'Template.template' => array(
    				   		'label' => __('Template', true)
 	               )																										
 			));

@@ -178,30 +178,30 @@ echo '</table>';
 echo $form->create('OrderComment', array('id' => 'contentform', 'action' => '/orders/admin_new_comment/', 'url' => '/orders/admin_new_comment/'));
 
 	echo $form->inputs(array(
-			'Order/id' => array(
+			'Order.id' => array(
 				'type' => 'hidden',
 				'value' => $data['Order']['id']
 			),	
-			'Order/order_status_id' => array(
+			'Order.order_status_id' => array(
 				'type' => 'select',
 				'options' => $order_status_list,
 				'selected' => $data['Order']['order_status_id'],
 				'label' => __('Update Status',true)
 			),
-			'OrderComment/order_id' => array(
+			'OrderComment.order_id' => array(
 				'type' => 'hidden',
 				'value' => $data['Order']['id']
 			),				
-			'OrderComment/user_id' => array(
+			'OrderComment.user_id' => array(
 				'type' => 'hidden',
 				'value' => $_SESSION['User']['id']
 			),	
-			'OrderComment/sent_to_customer' => array(
+			'OrderComment.sent_to_customer' => array(
 				'type' => 'checkbox',
 				'label' => __('Send To Customer',true),
 				'class' => 'checkbox_group'
 			)									,
-			'OrderComment/comment' => array(
+			'OrderComment.comment' => array(
 				'type' => 'textarea',
 				'label' => __('Comment',true),
 				'class' => 'pagesmallesttextarea'

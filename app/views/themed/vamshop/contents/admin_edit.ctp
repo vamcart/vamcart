@@ -41,21 +41,21 @@
 	echo $admin->StartTabContent('main');
 		echo $form->inputs(array(
 				'fieldset' => __('Categories & Products',true),
-				'Content/id' => array(
+				'Content.id' => array(
 					'type' => 'hidden',
 					'value' => $data['Content']['id']
 	               ),
-				'Content/order' => array(
+				'Content.order' => array(
 					'type' => 'hidden',
 					'value' => $data['Content']['order']
 	               )
 				   ));
 	$parent_language_bug_fix = __('Parent', true);
 	
-	echo '<div class="input"><label>' . $parent_language_bug_fix . '</label>' . $form->select('Content/parent_id', $parents, $data['Content']['parent_id'], $attributes = array('label' => $parent_language_bug_fix), $showEmpty = __('Top Level', true)) . '</div>';
+	echo '<div class="input"><label>' . $parent_language_bug_fix . '</label>' . $form->select('Content.parent_id', $parents, $data['Content']['parent_id'], $attributes = array('label' => $parent_language_bug_fix), $showEmpty = __('Top Level', true)) . '</div>';
 
    		echo $form->inputs(array(
-   					'Content/content_type_id' => array(
+   					'Content.content_type_id' => array(
 						'type' => 'select',
 				   	'label' => __('Content Type', true),
 						'options' => $content_types,
@@ -68,7 +68,7 @@
 	
 	echo '<div class="template_required" id="template_required_template_picker" style="display:' . $tpl_req_style . ';">';
 	
-	  	echo $form->inputs(array('Content/template_id' => array(
+	  	echo $form->inputs(array('Content.template_id' => array(
 						'type' => 'select',
 				   	'label' => __('Template', true),
 						'options' => $templates,
@@ -164,24 +164,24 @@
 	echo $admin->StartTabContent('options');
 			echo $form->inputs(array(
 				'fieldset' => __('Content Details', true),
-                'Content/alias' => array(
+                'Content.alias' => array(
 			   		'label' => __('Alias', true),				   
 					'value' => $data['Content']['alias']
                 ),
-				'Content/head_data' => array(
+				'Content.head_data' => array(
 					'label' => __('Head Data', true),
 					'type' => 'textarea',
 					'class' => 'pagesmalltextarea',
 					'value' => $data['Content']['head_data']
 	             ),				
-			    'Content/active' => array(
+			    'Content.active' => array(
 					'type' => 'checkbox',
 			   		'label' => __('Active', true),
 					'value' => '1',
 					'class' => 'checkbox_group',
 					'checked' => $active_checked
                 ),
-			    'Content/show_in_menu' => array(
+			    'Content.show_in_menu' => array(
 					'type' => 'checkbox',
 			   		'label' => __('Show in menu', true),
 					'value' => '1',

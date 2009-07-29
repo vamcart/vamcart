@@ -14,13 +14,13 @@
 	echo $form->create('User', array('id' => 'contentform', 'action' => '/users/admin_new/', 'url' => '/users/admin_new/'));
 	echo $form->inputs(array(
 					'fieldset' => __('New Admin', true),
-	               'User/username' => array(
+	               'User.username' => array(
 				   		'label' => __('Username', true)
 	               ),
-				   'User/email' => array(
+				   'User.email' => array(
    				   		'label' => __('Email', true)
 	               ),
-				   'User/password' => array(
+				   'User.password' => array(
 				   		'type' => 'text',
    				   		'label' => __('Password', true)
 	               )	   				   

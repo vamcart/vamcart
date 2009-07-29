@@ -14,17 +14,17 @@
 	echo $form->create('CountryZone', array('id' => 'contentform', 'action' => '/country_zones/admin_edit/' . $country_id, 'url' => '/country_zones/admin_edit/' . $country_id));
 		echo $form->inputs(array(
 					'fieldset' => __('Country Zone Details', true),
-				   'CountryZone/country_id' => array(
+				   'CountryZone.country_id' => array(
 				   		'type' => 'hidden',
 						'value' => $country_id
 	               ),
-				   'CountryZone/id' => array(
+				   'CountryZone.id' => array(
 				   		'type' => 'hidden'
 	               ),
-	               'CountryZone/name' => array(
+	               'CountryZone.name' => array(
 				   		'label' => __('Name', true)
 	               ),
-	               'CountryZone/code' => array(
+	               'CountryZone.code' => array(
 				   		'label' => __('Code', true)
 	               )	     		
 				   ));		   	   																									

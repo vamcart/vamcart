@@ -23,13 +23,13 @@
 	echo $admin->StartTabContent('main');
 		echo $form->inputs(array(
 					'fieldset' => __('Global Content Block Details', true),
-				   'GlobalContentBlock/id' => array(
+				   'GlobalContentBlock.id' => array(
 				   		'type' => 'hidden'
 	               ),
-	               'GlobalContentBlock/name' => array(
+	               'GlobalContentBlock.name' => array(
    				   		'label' => __('Name', true)
 	               ),
-				   'GlobalContentBlock/content' => array(
+				   'GlobalContentBlock.content' => array(
    				   		'label' => __('Contents', true)
 	               )																										
 			));
@@ -38,10 +38,10 @@
 	echo $admin->StartTabContent('options');
 		echo $form->inputs(array(
 					'fieldset' => __('Global Content Block Details', true),
-	                'GlobalContentBlock/alias' => array(
+	                'GlobalContentBlock.alias' => array(
    				   		'label' => __('Alias', true)
 	                ),
-				    'GlobalContentBlock/active' => array(
+				    'GlobalContentBlock.active' => array(
 						'type' => 'checkbox',
    				   		'label' => __('Active', true),
 						'value' => '1',

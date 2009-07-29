@@ -14,16 +14,16 @@
 	echo $form->create('Language', array('id' => 'contentform', 'action' => '/languages/admin_edit/', 'url' => '/languages/admin_edit/'));
 	echo $form->inputs(array(
 					'fieldset' => __('Language Details', true),
-				   'Language/id' => array(
+				   'Language.id' => array(
 				   		'type' => 'hidden'
 	               ),
-	               'Language/name' => array(
+	               'Language.name' => array(
 				   		'label' => __('Name', true)
 	               ),
-				   'Language/code' => array(
+				   'Language.code' => array(
    				   		'label' => __('Code', true)
 	               ),
-				   'Language/iso_code_2' => array(
+				   'Language.iso_code_2' => array(
    				   		'label' => __('Flag Code', true)
 	               )						   		     				   	   																									
 			));

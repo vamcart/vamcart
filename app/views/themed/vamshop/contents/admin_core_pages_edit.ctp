@@ -22,19 +22,19 @@
 	echo $admin->StartTabContent('main');
 		echo $form->inputs(array(
 				'fieldset' => __('Edit Page', true),
-				'Content/id' => array(
+				'Content.id' => array(
 					'type' => 'hidden',
 					'value' => $data['Content']['id']
 	               ),
-				'Content/order' => array(
+				'Content.order' => array(
 					'type' => 'hidden',
 					'value' => $data['Content']['order']
 	               ),
-				'Content/parent_id' => array(
+				'Content.parent_id' => array(
 					'type' => 'hidden',
 					'value' => '-1'
 	               ),				   
-				'Content/content_type_id' => array(
+				'Content.content_type_id' => array(
 					'label' => __('Content Type', true),
 					'type' => 'hidden',
 					'value' => $data['Content']['content_type_id']
@@ -45,7 +45,7 @@
 	
 	echo '<div class="template_required" id="template_required_template_picker">';
 	
-	  	echo $form->inputs(array('Content/template_id' => array(
+	  	echo $form->inputs(array('Content.template_id' => array(
 						'type' => 'select',
 				   		'label' => __('Template', true),
 						'options' => $templates,
@@ -78,17 +78,17 @@
 	echo $admin->StartTabContent('options');
 			echo $form->inputs(array(
 				'fieldset' => __('Content Details', true),
-                'Content/alias' => array(
+                'Content.alias' => array(
 			   		'type' => 'hidden',
 					'value' => $data['Content']['alias']
                 ),
-				'Content/head_data' => array(
+				'Content.head_data' => array(
 					'label' => __('Head Data', true),
 					'type' => 'textarea',
 					'class' => 'pagesmalltextarea',
 					'value' => $data['Content']['head_data']
 	             ),				
-			    'Content/active' => array(
+			    'Content.active' => array(
 					'type' => 'hidden',
 					'value' => '1'
                 )

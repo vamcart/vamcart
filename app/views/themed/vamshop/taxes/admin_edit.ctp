@@ -14,10 +14,10 @@
 	echo $form->create('Tax', array('id' => 'contentform', 'action' => '/taxes/admin_edit/', 'url' => '/taxes/admin_edit/'));
 	echo $form->inputs(array(
 					'fieldset' => __('Tax Details', true),
-				   'Tax/id' => array(
+				   'Tax.id' => array(
 				   		'type' => 'hidden'
 	               ),
-	               'Tax/name' => array(
+	               'Tax.name' => array(
 				   		'label' => __('Name', true)
 	               )					     				   	   																									
 			));

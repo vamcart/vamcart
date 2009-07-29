@@ -11,7 +11,7 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 	
-echo $form->inputs(array('authorize/authorize_login' => array(
+echo $form->inputs(array('authorize.authorize_login' => array(
 	'label' => __('Authorize.Net ID', true),
 	'value' => $data['authorize_login']['value']
 )));

@@ -14,11 +14,11 @@
 	echo $form->create('TaxCountryZoneRate', array('id' => 'contentform', 'action' => '/tax_country_zone_rates/admin_edit/' . $data['Tax']['id'] . '/' . $data['TaxCountryZoneRate']['id'], 'url' => '/tax_country_zone_rates/admin_edit/' . $data['Tax']['id'] . '/' . $data['TaxCountryZoneRate']['id']));
 	echo $form->inputs(array(
 					'fieldset' => __('Tax Zone Rates Details', true),
-				   'TaxCountryZoneRate/id' => array(
+				   'TaxCountryZoneRate.id' => array(
 				   		'type' => 'hidden',
 						'value' => $data['TaxCountryZoneRate']['id']
 	               ),
-	               'TaxCountryZoneRate/rate' => array(
+	               'TaxCountryZoneRate.rate' => array(
 				   		'label' => __('Tax Rate', true),
    						'value' => $data['TaxCountryZoneRate']['rate']
 	               )		     				   	   																									

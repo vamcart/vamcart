@@ -25,7 +25,7 @@ else
 	echo '<div class="input">';
 	echo '<label for="ContentSelflinkUrl">' . __('Link To', true) . '</label>';
 	
-	echo $form->select('ContentSelflink/url', $options, $data['ContentSelflink']['url'], null, $showEmpty = __('Select Internal Page', true));
+	echo $form->select('ContentSelflink.url', $options, $data['ContentSelflink']['url'], null, $showEmpty = __('Select Internal Page', true));
 	
 	echo '</div>';
 }

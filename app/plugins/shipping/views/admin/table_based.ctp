@@ -18,13 +18,13 @@ $types = array('weight' => __('Weight', true),
 			   'products' => __('Products', true));
 
 echo $form->inputs(array(
-	'key_values/table_based_type' => array(
+	'key_values.table_based_type' => array(
 		'type' => 'select',
 		'selected' => $data['table_based_type'],
 		'label' => __('Based Off',true),
 		'options' => $types
 	),
-	'key_values/table_based_rates' => array(
+	'key_values.table_based_rates' => array(
 		'type' => 'textarea',
 		'class' => 'pagesmalltextarea',
 		'label' => __('Rates',true),

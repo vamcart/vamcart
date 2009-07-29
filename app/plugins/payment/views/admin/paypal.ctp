@@ -11,7 +11,7 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-echo $form->inputs(array('paypal/paypal_email' => array(
+echo $form->inputs(array('paypal.paypal_email' => array(
 	'label' => __('Paypal Email', true),
 	'value' => $data['paypal_email']['value']
 )));

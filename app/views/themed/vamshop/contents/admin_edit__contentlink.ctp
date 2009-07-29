@@ -13,7 +13,7 @@
 
 echo $form->inputs(array(
 		'fieldset' => __('Link Details', true),
-		   'ContentLink/url' => array(
+		   'ContentLink.url' => array(
 		   		'type' => 'text',
 				'label' => __('URL', true),
 				'value' => $data['ContentLink']['url']

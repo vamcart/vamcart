@@ -22,15 +22,15 @@
 	echo $admin->StartTabContent('main');
 	echo $form->inputs(array(
 					'fieldset' => __('Stylesheet Details', true),
-				   'Stylesheet/id' => array(
+				   'Stylesheet.id' => array(
 				   		'type' => 'hidden',
 						'value' => $data['Stylesheet']['id']
 	               ),
-	               'Stylesheet/name' => array(
+	               'Stylesheet.name' => array(
    				   		'label' => __('Name', true),				   
    						'value' => $data['Stylesheet']['name']
 	               ),
-				   'Stylesheet/stylesheet' => array(
+				   'Stylesheet.stylesheet' => array(
    				   		'label' => __('Stylesheets', true),				   
    						'value' => $data['Stylesheet']['stylesheet']
 	               )																										
@@ -40,11 +40,11 @@
 	echo $admin->StartTabContent('options');			
 		echo $form->inputs(array(
 					'fieldset' => __('Stylesheet Details', true),
-					'Stylesheet/alias' => array(
+					'Stylesheet.alias' => array(
 			   		'label' => __('Alias', true),				   
 					'value' => $data['Stylesheet']['alias']
                 	),
-				   'Stylesheet/active' => array(
+				   'Stylesheet.active' => array(
 				   		'label' => __('Active', true),
 				   		'type' => 'checkbox',
 						'class' => 'checkbox_group',						

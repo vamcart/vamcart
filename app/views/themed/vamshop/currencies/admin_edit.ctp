@@ -14,31 +14,31 @@
 	echo $form->create('Currency', array('id' => 'contentform', 'action' => '/currencies/admin_edit/', 'url' => '/currencies/admin_edit/'));
 	echo $form->inputs(array(
 					'fieldset' => __('Currency Details', true),
-				   'Currency/id' => array(
+				   'Currency.id' => array(
 				   		'type' => 'hidden'
 	               ),
-	               'Currency/name' => array(
+	               'Currency.name' => array(
 				   		'label' => __('Name', true)
 	               ),
-				   'Currency/code' => array(
+				   'Currency.code' => array(
    				   		'label' => __('Code', true)
 	               ),	
-				   'Currency/symbol_left' => array(
+				   'Currency.symbol_left' => array(
    				   		'label' => __('Symbol Left', true)
 	               ),	
-				   'Currency/symbol_right' => array(
+				   'Currency.symbol_right' => array(
    				   		'label' => __('Symbol Right', true)
 	               ),	
-				   'Currency/decimal_point' => array(
+				   'Currency.decimal_point' => array(
    				   		'label' => __('Decimal Point', true)
 	               ),					   				   			
-				   'Currency/thousands_point' => array(
+				   'Currency.thousands_point' => array(
    				   		'label' => __('Thousands Point', true)
 	               ),	
-				   'Currency/decimal_places' => array(
+				   'Currency.decimal_places' => array(
    				   		'label' => __('Decimal Places', true)
 	               ),				 
-				   'Currency/value' => array(
+				   'Currency.value' => array(
    				   		'label' => __('Value', true)
 	               )					     				   	   																									
 			));

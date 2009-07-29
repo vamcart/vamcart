@@ -13,7 +13,7 @@
 
 /* TEMP SOLUTION TO POPULATE THE MODEL WITH A DUMMY VALUE */
 echo $form->inputs(array(
-		   'ContentCategory/extra' => array(
+		   'ContentCategory.extra' => array(
 		   		'type' => 'hidden',
 				'value' => 1
               )
