@@ -13,6 +13,21 @@
 
 $tax_options = $this->requestAction('/contents/generate_tax_list/');
 
+  switch($content_type_id) {
+    case '1':
+
+echo $form->inputs(array(
+		   'ContentCategory.extra' => array(
+		   		'type' => 'hidden',
+				'value' => 1
+              )
+		  ));
+
+      break;
+    case '2':
+
+$tax_options = $this->requestAction('/contents/generate_tax_list/');
+
 
 	echo $form->inputs(array(
 	   'ContentProduct.price' => array(
@@ -42,4 +57,54 @@ $tax_options = $this->requestAction('/contents/generate_tax_list/');
 		'value' => $data['ContentProduct']['weight']
 	   )
 	));
+
+      break;
+    case '3':
+
+echo $form->inputs(array(
+		   'ContentPage.extra' => array(
+		   		'type' => 'hidden',
+				'value' => 1
+              )
+		  ));
+
+      break;
+    case '4':
+
+echo $form->inputs(array(
+		'fieldset' => __('Link Details', true),
+		   'ContentLink.url' => array(
+		   		'type' => 'text',
+				'label' => __('URL', true),
+				'value' => $data['ContentLink']['url']
+              )
+		  ));
+
+      break;
+    case '5':
+
+$options = $this->requestAction('/contents/content_selflink_list/' . $data['ContentSelflink']['content_id']);
+
+
+if(empty($options))
+{
+	echo '<p>' . __('There are no available content records. Please select a different content type.', true) . '</p>';
+}
+else
+{
+
+
+	echo '<div class="input">';
+	echo '<label for="ContentSelflinkUrl">' . __('Link To', true) . '</label>';
+	
+	echo $form->select('ContentSelflink.url', $options, $data['ContentSelflink']['url'], null, $showEmpty = __('Select Internal Page', true));
+	
+	echo '</div>';
+}
+
+      break;
+    default:
+      break;
+}
+      
 ?>
