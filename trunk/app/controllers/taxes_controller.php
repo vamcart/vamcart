@@ -13,6 +13,7 @@
 
 class TaxesController extends AppController {
 	var $name = 'Taxes';
+	var $uses = 'Tax';
 	
 	function admin_set_all_products ($tax_id) 
 	{
@@ -70,7 +71,7 @@ class TaxesController extends AppController {
 	function admin ($ajax = false)
 	{
 		$this->set('current_crumb', __('Taxes Listing', true));
-		$this->set('tax_data',$this->Tax->findAll(null,null,'Tax.name ASC'));	
+		$this->set('tax_data',$this->Tax->find('all', array('order' => array('Tax.name ASC'))));
 
 	}	
 }
