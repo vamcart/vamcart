@@ -40,24 +40,24 @@ function smarty_function_payment_content($params, &$smarty)
 
 function smarty_help_function_payment_content() {
 	?>
-	<h3>What does this do?</h3>
-	<p>Displays any necessary payment fields before sending the user off to process the order.</p>
-	<h3>How do I use it?</h3>
-	<p>This tag is called from the payment page like: <code>{payment_content}</code></p>
-	<h3>What parameters does it take?</h3>
+	<h3><?php echo __('What does this tag do?') ?></h3>
+	<p><?php echo __('Displays any necessary payment fields before sending the user off to process the order.') ?></p>
+	<h3><?php echo __('How do I use it?') ?></h3>
+	<p><?php echo __('This tag is called from the payment page like:') ?> <code>{payment_content}</code></p>
+	<h3><?php echo __('What parameters does it take?') ?></h3>
 	<ul>
-		<li><em>(none)</em></li>
+		<li><em>(<?php echo __('None') ?>)</em></li>
 	</ul>
 	<?php
 }
 
 function smarty_about_function_payment_content() {
 	?>
-	<p>Author: Kevin Grandon&lt;kevingrandon@hotmail.com&gt;</p>
-	<p>Version: 0.1</p>
+	<p><?php echo __('Author: Kevin Grandon&lt;kevingrandon@hotmail.com&gt;</p>') ?>
+	<p><?php echo __('Version:') ?> 0.1</p>
 	<p>
-	Change History:<br/>
-	None
+	<?php echo __('Change History:') ?><br/>
+	<?php echo __('None') ?>
 	</p>
 	<?php
 }

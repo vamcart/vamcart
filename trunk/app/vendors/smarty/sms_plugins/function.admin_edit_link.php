@@ -34,25 +34,25 @@ function smarty_function_admin_edit_link($params, &$smarty)
 
 function smarty_help_function_admin_edit_link() {
 	?>
-	<h3>What does this do?</h3>
-	<p>Creates a link to edit the current content page.</p>
-	<p>Links are only shown if you have an active admin session and the page is not a core page.</p>
-	<h3>How do I use it?</h3>
-	<p>Just insert the tag into your template like: <code>{admin_login_link}</code></p>
-	<h3>What parameters does it take?</h3>
+	<h3><?php echo __('What does this tag do?') ?></h3>
+	<p><?php echo __('Creates a link to edit the current content page.') ?></p>
+	<p><?php echo __('Links are only shown if you have an active admin session and the page is not a core page.') ?></p>
+	<h3><?php echo __('How do I use it?') ?></h3>
+	<p><?php echo __('Just insert the tag into your template like:') ?> <code>{admin_login_link}</code></p>
+	<h3><?php echo __('What parameters does it take?') ?></h3>
 	<ul>
-		<li><em>(none)</em></li>		
+		<li><em>(<?php echo __('None') ?>)</em></li>		
 	</ul>
 	<?php
 }
 
 function smarty_about_function_admin_edit_link() {
 	?>
-	<p>Author: Kevin Grandon&lt;kevingrandon@hotmail.com&gt;</p>
-	<p>Version: 0.1</p>
+	<p><?php echo __('Author: Kevin Grandon&lt;kevingrandon@hotmail.com&gt;</p>') ?>
+	<p><?php echo __('Version:') ?> 0.1</p>
 	<p>
-	Change History:<br/>
-	None
+	<?php echo __('Change History:') ?><br/>
+	<?php echo __('None') ?>
 	</p>
 	<?php
 }

@@ -170,26 +170,26 @@ function smarty_function_content_listing($params, &$smarty)
 
 function smarty_help_function_content_listing() {
 	?>
-	<h3>What does this do?</h3>
-	<p>Displays a list of content items depending on the parent of those items.</p>
-	<h3>How do I use it?</h3>
-	<p>Just insert the tag into your template like: <code>{content_listing}</code></p>
-	<h3>What parameters does it take?</h3>
+	<h3><?php echo __('What does this tag do?') ?></h3>
+	<p><?php echo __('Displays a list of content items depending on the parent of those items.') ?></p>
+	<h3><?php echo __('How do I use it?') ?></h3>
+	<p><?php echo __('Just insert the tag into your template like:') ?> <code>{content_listing}</code></p>
+	<h3><?php echo __('What parameters does it take?') ?></h3>
 	<ul>
-		<li><em>(type)</em> - Type of content to display in the menu.  Can be any of: category, product, page, link, selflink, or all.  Seperate multiple values with commas, example: {content_listing type='category,page'}.  Defaults to 'all'.</li>
-		<li><em>(parent)</em> - The parent of the content items to be shown.  Accepts an alias or id, defaults to 0.</li>
-		<li><em>(template)</em> - Useful if you want to override the default content listing template.  Setting this will utilize the template that matches this alias.</li>
+		<li><em><?php echo __('(type)') ?></em> - <?php echo __('Type of content to display in the menu. Can be any of: category, product, page, link, selflink, or all. Seperate multiple values with commas, example:') ?> {content_listing type='category,page'}. <?php echo __('Defaults to') ?> 'all'.</li>
+		<li><em><?php echo __('(parent)') ?></em> - <?php echo __('The parent of the content items to be shown. Accepts an alias or id, defaults to 0.') ?></li>
+		<li><em><?php echo __('(template)') ?></em> - <?php echo __('Useful if you want to override the default content listing template. Setting this will utilize the template that matches this alias.') ?></li>
 	</ul>
 	<?php
 }
 
 function smarty_about_function_content_listing() {
 	?>
-	<p>Author: Kevin Grandon&lt;kevingrandon@hotmail.com&gt;</p>
-	<p>Version: 0.1</p>
+	<p><?php echo __('Author: Kevin Grandon&lt;kevingrandon@hotmail.com&gt;</p>') ?>
+	<p><?php echo __('Version:') ?> 0.1</p>
 	<p>
-	Change History:<br/>
-	None
+	<?php echo __('Change History:') ?><br/>
+	<?php echo __('None') ?>
 	</p>
 	<?php
 }

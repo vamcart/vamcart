@@ -74,25 +74,25 @@ function smarty_function_module($params, &$smarty)
 
 function smarty_help_function_module() {
 	?>
-	<h3>What does this do?</h3>
-	<p>Makes a call to the installed module.  If the module is not found, this does nothing.</p>
-	<p>See the specific module documentation for more information.</p>
-	<h3>What parameters does it take?</h3>
+	<h3><?php echo __('What does this tag do?') ?></h3>
+	<p><?php echo __('Makes a call to the installed module.  If the module is not found, this does nothing.') ?></p>
+	<p><?php echo __('See the specific module documentation for more information.') ?></p>
+	<h3><?php echo __('What parameters does it take?') ?></h3>
 	<ul>
-		<li><em>(controller)</em> - Controller to call.  Defaults to "action".</li>
-		<li><em>(action)</em> - Method to call of the action controller.</li>
-		<li><em>(template)</em> - Overrides the module's default template for the action specified.</li>
+		<li><em><?php echo __('(controller)') ?></em> - <?php echo __('Controller to call.  Defaults to action') ?>.</li>
+		<li><em><?php echo __('(action)') ?></em> - <?php echo __('Method to call of the action controller.') ?></li>
+		<li><em><?php echo __('(template)') ?></em> - <?php echo __('Overrides the module\'s default template for the action specified.') ?></li>
 	</ul>	
 	<?php
 }
 
 function smarty_about_function_module() {
 	?>
-	<p>Author: Kevin Grandon&lt;kevingrandon@hotmail.com&gt;</p>
-	<p>Version: 0.1</p>
+	<p><?php echo __('Author: Kevin Grandon&lt;kevingrandon@hotmail.com&gt;</p>') ?>
+	<p><?php echo __('Version:') ?> 0.1</p>
 	<p>
-	Change History:<br/>
-	None
+	<?php echo __('Change History:') ?><br/>
+	<?php echo __('None') ?>
 	</p>
 	<?php
 }

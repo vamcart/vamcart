@@ -53,24 +53,24 @@ function smarty_function_global_content($params, &$smarty)
 
 function smarty_help_function_global_content() {
 	?>
-	<h3>What does this do?</h3>
-	<p>Outputs the global_content of the current page, product, or category depending on the user's default selected language.</p>
-	<h3>How do I use it?</h3>
-	<p>Just insert the tag into your template like: <code>{global_content alias='footer'}</code></p>
-	<h3>What parameters does it take?</h3>
+	<h3><?php echo __('What does this tag do?') ?></h3>
+	<p><?php echo __('Outputs the global_content of the current page, product, or category depending on the user\'s default selected language.') ?></p>
+	<h3><?php echo __('How do I use it?') ?></h3>
+	<p><?php echo __('Just insert the tag into your template like:') ?> <code>{global_content alias='footer'}</code></p>
+	<h3><?php echo __('What parameters does it take?') ?></h3>
 	<ul>
-		<li><em>(alias)</em> - Alias of the global content block to display</li>
+		<li><em><?php echo __('(alias)') ?></em> - <?php echo __('Alias of the global content block to display.') ?></li>
 	</ul>
 	<?php
 }
 
 function smarty_about_function_global_content() {
 	?>
-	<p>Author: Kevin Grandon&lt;kevingrandon@hotmail.com&gt;</p>
-	<p>Version: 0.1</p>
+	<p><?php echo __('Author: Kevin Grandon&lt;kevingrandon@hotmail.com&gt;</p>') ?>
+	<p><?php echo __('Version:') ?> 0.1</p>
 	<p>
-	Change History:<br/>
-	None
+	<?php echo __('Change History:') ?><br/>
+	<?php echo __('None') ?>
 	</p>
 	<?php
 }
