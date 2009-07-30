@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2009-07-29 21:16+0400\n"
+"POT-Creation-Date: 2009-07-30 13:29+0400\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -1480,6 +1480,18 @@ msgstr "Вызов (метка для шаблона)"
 #: /views/themed/vamshop/defined_languages/admin_edit.ctp:34
 msgid "Value (%s) "
 msgstr "Значение (%s)"
+
+#: /views/themed/vamshop/errors/missing_connection.ctp:15
+msgid "Either you are missing a database table, or you have not yet installed the software."
+msgstr "Нет подключения к базе данных, либо скрипт не был установлен."
+
+#: /views/themed/vamshop/errors/missing_connection.ctp:16
+msgid "Click here to install the software."
+msgstr "Начать установку."
+
+#: /views/themed/vamshop/errors/missing_table.ctp:16
+msgid "Database table %1$s for model %2$s was not found."
+msgstr "Отсутствует таблица базы данных %1$s для модели %2$s."
 
 #: /views/themed/vamshop/events/admin.ctp:16
 #: /views/themed/vamshop/events/admin_view.ctp:16
