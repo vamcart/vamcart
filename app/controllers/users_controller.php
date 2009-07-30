@@ -101,6 +101,7 @@ class UsersController extends AppController {
 		}
 		
 		$this->set('available_languages', $languages_list);	
+		$this->set('current_language', $this->Session->read('UserPref.language'));	
 
 	}
 
