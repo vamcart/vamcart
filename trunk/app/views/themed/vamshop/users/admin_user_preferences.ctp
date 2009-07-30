@@ -19,7 +19,7 @@ echo $form->inputs(array(
 			'label' => __('Language', true),
 			'type' => 'select',
 			'options' => $available_languages,
-			'selected' => $_SESSION['UserPref']['language']
+			'selected' => $current_language
               )		 			  			  
 	   ));
 	   
