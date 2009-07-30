@@ -71,7 +71,7 @@ class PagesController extends AppController {
 		
 		// Pull the content out of cache or generate it if it doesn't exist
 		// Cache is based on language_id and alias of the page.
-		$cache_name = 'sms_content_' . $_SESSION['Customer']['language_id'] . '_' . $alias;
+		$cache_name = 'sms_content_' . $this->Session->read('Customer.language_id') . '_' . $alias;
 		$content = Cache::read($cache_name);
 		if($content === false)
 		{					

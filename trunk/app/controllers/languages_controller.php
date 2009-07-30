@@ -17,7 +17,7 @@ class LanguagesController extends AppController {
 	
 	function pick_language($language_id,$redirect = null) 
 	{
-		$_SESSION['Customer']['language_id'] = $language_id;
+		$this->Session->write('Customer.language_id', $language_id);
 
 		$this->EventBase->ProcessEvent('SwitchLanguage');
 		
