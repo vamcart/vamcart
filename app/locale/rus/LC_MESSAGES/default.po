@@ -1313,15 +1313,15 @@ msgstr "Нет"
 
 #: /vendors/smarty/sms_plugins/block.product_form.php:42
 msgid "Wraps the product purchase button with a form."
-msgstr ""
+msgstr "Вставляет форму с кнопкой купить."
 
 #: /vendors/smarty/sms_plugins/block.product_form.php:44
 msgid "Just wrap your product purchase with:"
-msgstr ""
+msgstr "Используйте в шаблоне:"
 
 #: /vendors/smarty/sms_plugins/block.product_form.php:44
 msgid "stuff"
-msgstr ""
+msgstr "данные"
 
 #: /vendors/smarty/sms_plugins/function.admin_area_link.php:27
 msgid "Administration"
@@ -1329,11 +1329,11 @@ msgstr "Админка"
 
 #: /vendors/smarty/sms_plugins/function.admin_area_link.php:36
 msgid "Creates a link to the admin area inside of the front end template."
-msgstr ""
+msgstr "Создаёт ссылку на админку в каталоге."
 
 #: /vendors/smarty/sms_plugins/function.admin_area_link.php:37
 msgid "The link will only be displayed if the user has an active admin session."
-msgstr ""
+msgstr "Ссылка будет видна только если Вы вошли в админку со своим паролем."
 
 #: /vendors/smarty/sms_plugins/function.admin_area_link.php:40
 #: /vendors/smarty/sms_plugins/function.admin_edit_link.php:42
@@ -1361,7 +1361,7 @@ msgstr ""
 #: /vendors/smarty/sms_plugins/function.stylesheet.php:56
 #: /vendors/smarty/sms_plugins/function.user_tag.php:37
 msgid "What parameters does it take?"
-msgstr ""
+msgstr "Какие параметры использует тэг?"
 
 #: /vendors/smarty/sms_plugins/function.admin_edit_link.php:29
 msgid "Edit Content"
@@ -1369,85 +1369,85 @@ msgstr "Редактировать"
 
 #: /vendors/smarty/sms_plugins/function.admin_edit_link.php:38
 msgid "Creates a link to edit the current content page."
-msgstr ""
+msgstr "Создаёт ссылку на редактирование текущей страницы."
 
 #: /vendors/smarty/sms_plugins/function.admin_edit_link.php:39
 msgid "Links are only shown if you have an active admin session and the page is not a core page."
-msgstr ""
+msgstr "Ссылка будет видна только если Вы вошли в админку со своим паролем и если страница не является системной."
 
 #: /vendors/smarty/sms_plugins/function.checkout.php:219
 msgid "This plugin handles the entire checkout process."
-msgstr ""
+msgstr "Данный тэг содержит форму оформления заказа."
 
 #: /vendors/smarty/sms_plugins/function.checkout.php:221
 #: /vendors/smarty/sms_plugins/function.content_images.php:102
 #: /vendors/smarty/sms_plugins/function.shopping_cart.php:119
 msgid "Just insert the tag into your template/page like:"
-msgstr ""
+msgstr "Просто вставьте тэг в шаблон, к примеру:"
 
 #: /vendors/smarty/sms_plugins/function.content.php:54
 msgid "This is where the content for your page will be displayed. It's inserted into the template and changed based on the current page being displayed. This tag will call any sub-templates that are required to display the page."
-msgstr ""
+msgstr "Этот тэг выводит содержимое страницы. Тэг вставляется в шаблон. Данный тэг может использовать разные шаблоны для вывода страницы."
 
 #: /vendors/smarty/sms_plugins/function.content_images.php:100
 msgid "Displays an unordered list of images for the current content page."
-msgstr ""
+msgstr "Выводит список картинок текущего содержания страницы."
 
 #: /vendors/smarty/sms_plugins/function.content_images.php:105
 msgid "(number)"
-msgstr ""
+msgstr "(number)"
 
 #: /vendors/smarty/sms_plugins/function.content_images.php:105
 msgid "Number of images to display."
-msgstr ""
+msgstr "Количество выводимых картинок."
 
 #: /vendors/smarty/sms_plugins/function.content_images.php:106
 msgid "(height)"
-msgstr ""
+msgstr "(height)"
 
 #: /vendors/smarty/sms_plugins/function.content_images.php:106
 msgid "Maximum height of thumbnails."
-msgstr ""
+msgstr "Максимальная высота картинки."
 
 #: /vendors/smarty/sms_plugins/function.content_images.php:107
 msgid "(width)"
-msgstr ""
+msgstr "(width)"
 
 #: /vendors/smarty/sms_plugins/function.content_images.php:107
 msgid "Maximum width of thumbnails."
-msgstr ""
+msgstr "Максимальная ширина картинки."
 
 #: /vendors/smarty/sms_plugins/function.content_images.php:108
 msgid "(thumbnail)"
-msgstr ""
+msgstr "(thumbnail)"
 
 #: /vendors/smarty/sms_plugins/function.content_images.php:108
 msgid "Set to false to disable thumbnailing of images. Defaults to true."
-msgstr ""
+msgstr "Установите в false что б не уменьшать картинку. Значение по умолчанию: true"
 
 #: /vendors/smarty/sms_plugins/function.content_listing.php:174
 msgid "Displays a list of content items depending on the parent of those items."
-msgstr ""
+msgstr "Выводит список содержимого."
 
 #: /vendors/smarty/sms_plugins/function.content_listing.php:179
 msgid "(type)"
-msgstr ""
+msgstr "(type)"
 
 #: /vendors/smarty/sms_plugins/function.content_listing.php:179
 msgid "Type of content to display in the menu. Can be any of: category, product, page, link, selflink, or all. Seperate multiple values with commas, example:"
-msgstr ""
+msgstr "Тип содержимого, отображаемого в меню. Параметр может иметь следующие значения: category, product, page, link, selflink, или all. Несколько значений разделяются запятой, к примеру: "
 
 #: /vendors/smarty/sms_plugins/function.content_listing.php:179
 msgid "Defaults to"
-msgstr ""
+msgstr "Значение по умолчанию:"
 
 #: /vendors/smarty/sms_plugins/function.content_listing.php:180
 msgid "(parent)"
-msgstr ""
+msgstr "(parent)"
 
 #: /vendors/smarty/sms_plugins/function.content_listing.php:180
 msgid "The parent of the content items to be shown. Accepts an alias or id, defaults to 0."
-msgstr ""
+msgstr "Родитель содержимого. Можно указывать в качестве значения псевдоним или id номер, значение по умолчанию: 0."
 
 #: /vendors/smarty/sms_plugins/function.content_listing.php:181
 #: /vendors/smarty/sms_plugins/function.currency_box.php:92
@@ -1456,217 +1456,217 @@ msgstr ""
 #: /vendors/smarty/sms_plugins/function.payment.php:69
 #: /vendors/smarty/sms_plugins/function.shopping_cart.php:122
 msgid "(template)"
-msgstr ""
+msgstr "(template)"
 
 #: /vendors/smarty/sms_plugins/function.content_listing.php:181
 msgid "Useful if you want to override the default content listing template. Setting this will utilize the template that matches this alias."
-msgstr ""
+msgstr "Данный параметр полезен если Вы хотите поменять шаблон отображения по умолчанию."
 
 #: /vendors/smarty/sms_plugins/function.currency_box.php:87
 msgid "Allows the user to select a currency."
-msgstr ""
+msgstr "Позволяет пользователю выбирать валюту магазина."
 
 #: /vendors/smarty/sms_plugins/function.currency_box.php:92
 msgid "Overrides the default template for the currency_box plugin."
-msgstr ""
+msgstr "Перезаписывает шаблон по умолчанию для микро шаблона currency_box."
 
 #: /vendors/smarty/sms_plugins/function.description.php:36
 msgid "Outputs the description of the current page, product, or category depending on the user's default selected language."
-msgstr ""
+msgstr "Выводит описание текущей страницы, товара или категории в зависимости от выбранного пользователем языка."
 
 #: /vendors/smarty/sms_plugins/function.get_template_vars.php:45
 msgid "Dumps all available smarty template variables onto the page. If you wanted to use one you would use it like:"
-msgstr ""
+msgstr "Выводит все доступные метки шаблона на страницу. Если Вы хотите использовать какую-либо метку, вставляйте в шаблон что-то вроде:"
 
 #: /vendors/smarty/sms_plugins/function.global_content.php:57
 msgid "Outputs the global_content of the current page, product, or category depending on the user's default selected language."
-msgstr ""
+msgstr "Выводит блоки на текущую страницу, товар или категорию в зависимости от выбранного пользователем языка."
 
 #: /vendors/smarty/sms_plugins/function.global_content.php:62
 #: /vendors/smarty/sms_plugins/function.user_tag.php:39
 msgid "(alias)"
-msgstr ""
+msgstr "(alias)"
 
 #: /vendors/smarty/sms_plugins/function.global_content.php:62
 msgid "Alias of the global content block to display."
-msgstr ""
+msgstr "Псевдоним блока."
 
 #: /vendors/smarty/sms_plugins/function.headdata.php:33
 msgid "Displays the head data for this content. Edit the head data for each content item under the options tab."
-msgstr ""
+msgstr "Показывает заголовок текущего содержимого. Заголовки можно задавать в Админке - Категории и товары, при создании/редактировании содержимого."
 
 #: /vendors/smarty/sms_plugins/function.language_box.php:84
 msgid "Allows the user to select a language."
-msgstr ""
+msgstr "Позволяет пользователю выбирать язык."
 
 #: /vendors/smarty/sms_plugins/function.language_box.php:89
 msgid "Overrides the default template for the language_box plugin."
-msgstr ""
+msgstr "Перезаписывает шаблон по умолчанию для микро шаблона language_box."
 
 #: /vendors/smarty/sms_plugins/function.metadata.php:36
 msgid "Displays the metadata for this content. Edit the metadata under the options tab."
-msgstr ""
+msgstr "Показывает мета данные для текущего содержания. Мета данные указываются в админке."
 
 #: /vendors/smarty/sms_plugins/function.module.php:78
 msgid "Makes a call to the installed module.  If the module is not found, this does nothing."
-msgstr ""
+msgstr "Вызывает установленный модуль. Если модуль не найден, тэг ничего не делает."
 
 #: /vendors/smarty/sms_plugins/function.module.php:79
 msgid "See the specific module documentation for more information."
-msgstr ""
+msgstr "Смотрите документацию к модулям для подробной информации."
 
 #: /vendors/smarty/sms_plugins/function.module.php:82
 msgid "(controller)"
-msgstr ""
+msgstr "(controller)"
 
 #: /vendors/smarty/sms_plugins/function.module.php:82
 msgid "Controller to call.  Defaults to action"
-msgstr ""
+msgstr "Вызываемый контроллер"
 
 #: /vendors/smarty/sms_plugins/function.module.php:83
 msgid "(action)"
-msgstr ""
+msgstr "(action)"
 
 #: /vendors/smarty/sms_plugins/function.module.php:83
 msgid "Method to call of the action controller."
-msgstr ""
+msgstr "Вызываемое действие (action) контроллера."
 
 #: /vendors/smarty/sms_plugins/function.module.php:84
 msgid "Overrides the module's default template for the action specified."
-msgstr ""
+msgstr "Перезаписывает шаблон модуля по умолчанию."
 
 #: /vendors/smarty/sms_plugins/function.page_name.php:33
 msgid "Displays the current page name."
-msgstr ""
+msgstr "Показывает название текущей страницы."
 
 #: /vendors/smarty/sms_plugins/function.payment.php:64
 msgid "This plugin handles the payment process."
-msgstr ""
+msgstr "Данный тэг управляет процессом оплаты."
 
 #: /vendors/smarty/sms_plugins/function.payment.php:66
 msgid "You should only use this tag in the payment core page. Just insert the tag into your page like:"
-msgstr ""
+msgstr "Вы должны использовать данный тэг на странице оплаты (payment) в Админке - Содержание - Страницы. Просто вставьте следующую метку в шаблон страницы оплаты:"
 
 #: /vendors/smarty/sms_plugins/function.payment.php:69
 msgid "overrides the default payment template."
-msgstr ""
+msgstr "перезаписывает текущий шаблон оплаты."
 
 #: /vendors/smarty/sms_plugins/function.payment_content.php:44
 msgid "Displays any necessary payment fields before sending the user off to process the order."
-msgstr ""
+msgstr "Показывать необходимые поля оплаты до отправки пользователя к процессу оформления заказа."
 
 #: /vendors/smarty/sms_plugins/function.payment_content.php:46
 msgid "This tag is called from the payment page like:"
-msgstr ""
+msgstr "Вы должны использовать данный тэг на странице оплаты (payment) в Админке - Содержание - Страницы. Просто вставьте следующую метку в шаблон страницы оплаты:"
 
 #: /vendors/smarty/sms_plugins/function.product_price.php:36
 msgid "Displays the product price for the current content."
-msgstr ""
+msgstr "Показывает стоимость товара в текущей странице."
 
 #: /vendors/smarty/sms_plugins/function.product_quantity.php:58
 msgid "Creates a product quantity box."
-msgstr ""
+msgstr "Создаёт поле количество."
 
 #: /vendors/smarty/sms_plugins/function.product_quantity.php:60
 #: /vendors/smarty/sms_plugins/function.purchase_button.php:32
 msgid "Just insert the tag into your product_info template like:"
-msgstr ""
+msgstr "Просто вставляйте данный тэг в шаблон страницы карточки товара, например: "
 
 #: /vendors/smarty/sms_plugins/function.purchase_button.php:30
 msgid "Creates a purchase button for the product."
-msgstr ""
+msgstr "Создаёт кнопку купить."
 
 #: /vendors/smarty/sms_plugins/function.purchase_button.php:35
 msgid "(product_id)"
-msgstr ""
+msgstr "(product_id)"
 
 #: /vendors/smarty/sms_plugins/function.purchase_button.php:35
 msgid "Overrides the current global content_id. Useful if you want to place a purchase button in product listing pages."
-msgstr ""
+msgstr "Перезаписывает текущее значение content_id. Полезно в случае если Вы хотите вставить кнопку купить на страницу списка товара."
 
 #: /vendors/smarty/sms_plugins/function.repeat.php:30
 msgid "Repeats a given string a certain number of times."
-msgstr ""
+msgstr "Повторяет строку указанное количество раз."
 
 #: /vendors/smarty/sms_plugins/function.repeat.php:32
 msgid "Hello!"
-msgstr ""
+msgstr "Привет!"
 
 #: /vendors/smarty/sms_plugins/function.repeat.php:35
 msgid "(string)"
-msgstr ""
+msgstr "(string)"
 
 #: /vendors/smarty/sms_plugins/function.repeat.php:35
 msgid "String to repeat."
-msgstr ""
+msgstr "Строка для повтора"
 
 #: /vendors/smarty/sms_plugins/function.repeat.php:36
 msgid "(times)"
-msgstr ""
+msgstr "(times)"
 
 #: /vendors/smarty/sms_plugins/function.repeat.php:36
 msgid "Number of times to repeat the specified string."
-msgstr ""
+msgstr "Количество раз повторений."
 
 #: /vendors/smarty/sms_plugins/function.shopping_cart.php:117
 msgid "Displays a more detailed version of the user's cart."
-msgstr ""
+msgstr "Показывает подробную информацию о корзине покупателя."
 
 #: /vendors/smarty/sms_plugins/function.shopping_cart.php:122
 msgid "Overrides the default template."
-msgstr ""
+msgstr "Перезаписывает шаблон по умолчанию."
 
 #: /vendors/smarty/sms_plugins/function.shopping_cart.php:123
 msgid "(showempty)"
-msgstr ""
+msgstr "(showempty)"
 
 #: /vendors/smarty/sms_plugins/function.shopping_cart.php:123
 msgid "(true or false) If set to false does not display the cart if the user has not added any items.  Defaults to false."
-msgstr ""
+msgstr "(true или false) Если установлено в false, то корзина не будет показываться до тех пор пока не будет добавлен в корзину хотя бы один товар. Значение по умолчанию: false."
 
 #: /vendors/smarty/sms_plugins/function.site_name.php:33
 msgid "Displays the site name."
-msgstr ""
+msgstr "Показывает название магазина."
 
 #: /vendors/smarty/sms_plugins/function.stylesheet.php:53
 msgid "Gets stylesheet information from the system. By default, it grabs all of the stylesheets attached to the current template."
-msgstr ""
+msgstr "Получает информацию о стиле. По умолчанию, получает список стилей, присоединённых к текущему шаблону."
 
 #: /vendors/smarty/sms_plugins/function.stylesheet.php:55
 msgid "Just insert the tag into your template/page's head section like:"
-msgstr ""
+msgstr "Просто вставляйте тэг в шаблон, в раздел head, например:"
 
 #: /vendors/smarty/sms_plugins/function.stylesheet.php:58;59
 msgid "(optional)"
-msgstr ""
+msgstr "(необязательно)"
 
 #: /vendors/smarty/sms_plugins/function.stylesheet.php:58
 msgid "Instead of getting all stylesheets for the given page, it will only get one spefically named one, whether it's attached to the current template or not. Set the alias to be the ID or alias of the stylesheet."
-msgstr ""
+msgstr "Получает не все стили данной страницы, а только один стиль, присоединённый к текущему шаблону. Значением alias может быть id номер или псевдоним стиля."
 
 #: /vendors/smarty/sms_plugins/function.stylesheet.php:59
 msgid "If name is defined, this allows you set a different media type for that stylesheet."
-msgstr ""
+msgstr "Если указано значение, это позволит устанавливать разные медиа типы (media type) для стиля."
 
 #: /vendors/smarty/sms_plugins/function.user_tag.php:34
 msgid "Calls the user tag specified by alias"
-msgstr ""
+msgstr "Вызывает тэг пользователя по всевдониму."
 
 #: /vendors/smarty/sms_plugins/function.user_tag.php:39
 msgid "Alias of the user tag to call."
-msgstr ""
+msgstr "Псевдоним тэга пользователя, устанавливается в Админке - Расширения - Тэги пользователя."
 
 #: /vendors/smarty/sms_plugins/function.user_tag.php:40
 msgid "(var)"
-msgstr ""
+msgstr "(var)"
 
 #: /vendors/smarty/sms_plugins/function.user_tag.php:40
 msgid "Pass any other smarty variables or information to the user tag like:"
-msgstr ""
+msgstr "Указываются любые смарти переменные или информация, к примеру:"
 
 #: /vendors/smarty/sms_plugins/function.user_tag.php:40
 msgid "These will be available for the user tag to use in the $params array."
-msgstr ""
+msgstr "Будет доступно для тэга пользователя через массив $params."
 
 #: /views/helpers/admin.php:93
 msgid "Create New"

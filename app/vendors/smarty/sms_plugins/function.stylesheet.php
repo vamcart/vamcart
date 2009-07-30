@@ -55,8 +55,8 @@ function smarty_help_function_stylesheet() {
 	<p><?php echo __('Just insert the tag into your template/page\'s head section like:') ?> <code>{stylesheet}</code></p>
 	<h3><?php echo __('What parameters does it take?') ?></h3>
 	<ul>
-		<li><em><?php echo __('(optional)') ?></em>alias - <?php echo __('Instead of getting all stylesheets for the given page, it will only get one spefically named one, whether it\'s attached to the current template or not. Set the alias to be the ID or alias of the stylesheet.') ?></li>
-		<li><em><?php echo __('(optional)') ?></em>media - <?php echo __('If name is defined, this allows you set a different media type for that stylesheet.') ?></li>
+		<li><em><?php echo __('(optional)') ?></em> alias - <?php echo __('Instead of getting all stylesheets for the given page, it will only get one spefically named one, whether it\'s attached to the current template or not. Set the alias to be the ID or alias of the stylesheet.') ?></li>
+		<li><em><?php echo __('(optional)') ?></em> media - <?php echo __('If name is defined, this allows you set a different media type for that stylesheet.') ?></li>
 	</ul>
 	</p>
 	<?php
