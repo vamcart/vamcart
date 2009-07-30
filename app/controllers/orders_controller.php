@@ -77,7 +77,7 @@ class OrdersController extends AppController {
 	        array('hasOne' => array(
 				'OrderStatusDescription' => array(
                     'className' => 'OrderStatusDescription',
-					'conditions'   => 'language_id = ' . $_SESSION['Customer']['language_id']
+					'conditions'   => 'language_id = ' . $this->Session->read('Customer.language_id')
                 )
             )
            	)
@@ -108,7 +108,7 @@ class OrdersController extends AppController {
 	        array('hasOne' => array(
 				'OrderStatusDescription' => array(
                     'className' => 'OrderStatusDescription',
-					'conditions'   => 'language_id = ' . $_SESSION['Customer']['language_id']
+					'conditions'   => 'language_id = ' . $this->Session->read('Customer.language_id')
                 )
             )
            	)
