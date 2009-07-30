@@ -70,7 +70,7 @@ function smarty_function_content_listing($params, &$smarty)
 		$Content->bindModel(array('hasOne' => array(
 				'ContentDescription' => array(
                     'className' => 'ContentDescription',
-					'conditions'   => 'language_id = '.$Session->read('Customer.language_id')
+					'conditions'   => 'language_id = '.$_SESSION['Customer']['language_id']
                 ))));
 		$Content->bindModel(array('belongsTo' => array(
 				'ContentType' => array(
