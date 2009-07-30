@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2009-07-30 13:29+0400\n"
+"POT-Creation-Date: 2009-07-30 14:22+0400\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -1100,13 +1100,573 @@ msgstr "Способ расчёта"
 msgid "Rates"
 msgstr "Таблица тарифов"
 
+#: /vendors/smarty/sms_plugins/block.lang.php:60
+#: /vendors/smarty/sms_plugins/block.product_form.php:41
+#: /vendors/smarty/sms_plugins/function.admin_area_link.php:35
+#: /vendors/smarty/sms_plugins/function.admin_edit_link.php:37
+#: /vendors/smarty/sms_plugins/function.checkout.php:218
+#: /vendors/smarty/sms_plugins/function.content.php:53
+#: /vendors/smarty/sms_plugins/function.content_images.php:99
+#: /vendors/smarty/sms_plugins/function.content_listing.php:173
+#: /vendors/smarty/sms_plugins/function.currency_box.php:86
+#: /vendors/smarty/sms_plugins/function.description.php:35
+#: /vendors/smarty/sms_plugins/function.get_template_vars.php:44
+#: /vendors/smarty/sms_plugins/function.global_content.php:56
+#: /vendors/smarty/sms_plugins/function.headdata.php:32
+#: /vendors/smarty/sms_plugins/function.language_box.php:83
+#: /vendors/smarty/sms_plugins/function.metadata.php:35
+#: /vendors/smarty/sms_plugins/function.module.php:77
+#: /vendors/smarty/sms_plugins/function.page_name.php:32
+#: /vendors/smarty/sms_plugins/function.payment.php:63
+#: /vendors/smarty/sms_plugins/function.payment_content.php:43
+#: /vendors/smarty/sms_plugins/function.product_price.php:35
+#: /vendors/smarty/sms_plugins/function.product_quantity.php:57
+#: /vendors/smarty/sms_plugins/function.purchase_button.php:29
+#: /vendors/smarty/sms_plugins/function.repeat.php:29
+#: /vendors/smarty/sms_plugins/function.shopping_cart.php:116
+#: /vendors/smarty/sms_plugins/function.site_name.php:32
+#: /vendors/smarty/sms_plugins/function.stylesheet.php:52
+#: /vendors/smarty/sms_plugins/function.user_tag.php:33
+msgid "What does this tag do?"
+msgstr "Что делает данный тэг?"
+
+#: /vendors/smarty/sms_plugins/block.lang.php:61
+msgid "Outputs the correct language value specified by the key between the brackets."
+msgstr "Выводит значение строки между тэгами на текущем языке магазина."
+
+#: /vendors/smarty/sms_plugins/block.lang.php:62
+#: /vendors/smarty/sms_plugins/block.product_form.php:43
+#: /vendors/smarty/sms_plugins/function.admin_area_link.php:38
+#: /vendors/smarty/sms_plugins/function.admin_edit_link.php:40
+#: /vendors/smarty/sms_plugins/function.checkout.php:220
+#: /vendors/smarty/sms_plugins/function.content.php:55
+#: /vendors/smarty/sms_plugins/function.content_images.php:101
+#: /vendors/smarty/sms_plugins/function.content_listing.php:175
+#: /vendors/smarty/sms_plugins/function.currency_box.php:88
+#: /vendors/smarty/sms_plugins/function.description.php:37
+#: /vendors/smarty/sms_plugins/function.get_template_vars.php:46
+#: /vendors/smarty/sms_plugins/function.global_content.php:58
+#: /vendors/smarty/sms_plugins/function.headdata.php:34
+#: /vendors/smarty/sms_plugins/function.language_box.php:85
+#: /vendors/smarty/sms_plugins/function.metadata.php:37
+#: /vendors/smarty/sms_plugins/function.page_name.php:34
+#: /vendors/smarty/sms_plugins/function.payment.php:65
+#: /vendors/smarty/sms_plugins/function.payment_content.php:45
+#: /vendors/smarty/sms_plugins/function.product_price.php:37
+#: /vendors/smarty/sms_plugins/function.product_quantity.php:59
+#: /vendors/smarty/sms_plugins/function.purchase_button.php:31
+#: /vendors/smarty/sms_plugins/function.repeat.php:31
+#: /vendors/smarty/sms_plugins/function.shopping_cart.php:118
+#: /vendors/smarty/sms_plugins/function.site_name.php:34
+#: /vendors/smarty/sms_plugins/function.stylesheet.php:54
+#: /vendors/smarty/sms_plugins/function.user_tag.php:35
+msgid "How do I use it?"
+msgstr "Как использовать данный тэг?"
+
+#: /vendors/smarty/sms_plugins/block.lang.php:63
+#: /vendors/smarty/sms_plugins/function.admin_area_link.php:39
+#: /vendors/smarty/sms_plugins/function.admin_edit_link.php:41
+#: /vendors/smarty/sms_plugins/function.content.php:56
+#: /vendors/smarty/sms_plugins/function.content_listing.php:176
+#: /vendors/smarty/sms_plugins/function.currency_box.php:89
+#: /vendors/smarty/sms_plugins/function.description.php:38
+#: /vendors/smarty/sms_plugins/function.get_template_vars.php:47
+#: /vendors/smarty/sms_plugins/function.global_content.php:59
+#: /vendors/smarty/sms_plugins/function.headdata.php:35
+#: /vendors/smarty/sms_plugins/function.language_box.php:86
+#: /vendors/smarty/sms_plugins/function.metadata.php:38
+#: /vendors/smarty/sms_plugins/function.page_name.php:35
+#: /vendors/smarty/sms_plugins/function.product_price.php:38
+#: /vendors/smarty/sms_plugins/function.repeat.php:32
+#: /vendors/smarty/sms_plugins/function.site_name.php:35
+#: /vendors/smarty/sms_plugins/function.user_tag.php:36
+msgid "Just insert the tag into your template like:"
+msgstr "Просто вставьте тэг в шаблон, к примеру:"
+
+#: /vendors/smarty/sms_plugins/block.lang.php:63
+msgid "Language Text"
+msgstr "Текст для перевода"
+
+#: /vendors/smarty/sms_plugins/block.lang.php:64
+msgid "Make sure you define the language key in the admin area."
+msgstr "Не забудьте добавить перевод для строки в Админке - Локализация - Языковые строки."
+
+#: /vendors/smarty/sms_plugins/block.lang.php:70
+#: /vendors/smarty/sms_plugins/block.product_form.php:50
+#: /vendors/smarty/sms_plugins/function.admin_area_link.php:49
+#: /vendors/smarty/sms_plugins/function.admin_edit_link.php:51
+#: /vendors/smarty/sms_plugins/function.checkout.php:231
+#: /vendors/smarty/sms_plugins/function.content.php:66
+#: /vendors/smarty/sms_plugins/function.content_images.php:115
+#: /vendors/smarty/sms_plugins/function.content_listing.php:188
+#: /vendors/smarty/sms_plugins/function.currency_box.php:99
+#: /vendors/smarty/sms_plugins/function.description.php:48
+#: /vendors/smarty/sms_plugins/function.get_template_vars.php:57
+#: /vendors/smarty/sms_plugins/function.global_content.php:69
+#: /vendors/smarty/sms_plugins/function.headdata.php:45
+#: /vendors/smarty/sms_plugins/function.language_box.php:96
+#: /vendors/smarty/sms_plugins/function.metadata.php:48
+#: /vendors/smarty/sms_plugins/function.module.php:91
+#: /vendors/smarty/sms_plugins/function.page_name.php:45
+#: /vendors/smarty/sms_plugins/function.payment.php:76
+#: /vendors/smarty/sms_plugins/function.payment_content.php:56
+#: /vendors/smarty/sms_plugins/function.product_price.php:48
+#: /vendors/smarty/sms_plugins/function.product_quantity.php:70
+#: /vendors/smarty/sms_plugins/function.purchase_button.php:42
+#: /vendors/smarty/sms_plugins/function.repeat.php:43
+#: /vendors/smarty/sms_plugins/function.shopping_cart.php:130
+#: /vendors/smarty/sms_plugins/function.site_name.php:45
+#: /vendors/smarty/sms_plugins/function.stylesheet.php:67
+#: /vendors/smarty/sms_plugins/function.user_tag.php:47
+msgid "Author: Kevin Grandon &lt;kevingrandon@hotmail.com&gt;"
+msgstr "Автор: Кевин Грэндон &lt;kevingrandon@hotmail.com&gt;"
+
+#: /vendors/smarty/sms_plugins/block.lang.php:71
+#: /vendors/smarty/sms_plugins/block.product_form.php:51
+#: /vendors/smarty/sms_plugins/function.admin_area_link.php:50
+#: /vendors/smarty/sms_plugins/function.admin_edit_link.php:52
+#: /vendors/smarty/sms_plugins/function.checkout.php:232
+#: /vendors/smarty/sms_plugins/function.content.php:67
+#: /vendors/smarty/sms_plugins/function.content_images.php:116
+#: /vendors/smarty/sms_plugins/function.content_listing.php:189
+#: /vendors/smarty/sms_plugins/function.currency_box.php:100
+#: /vendors/smarty/sms_plugins/function.description.php:49
+#: /vendors/smarty/sms_plugins/function.get_template_vars.php:58
+#: /vendors/smarty/sms_plugins/function.global_content.php:70
+#: /vendors/smarty/sms_plugins/function.headdata.php:46
+#: /vendors/smarty/sms_plugins/function.language_box.php:97
+#: /vendors/smarty/sms_plugins/function.metadata.php:49
+#: /vendors/smarty/sms_plugins/function.module.php:92
+#: /vendors/smarty/sms_plugins/function.page_name.php:46
+#: /vendors/smarty/sms_plugins/function.payment.php:77
+#: /vendors/smarty/sms_plugins/function.payment_content.php:57
+#: /vendors/smarty/sms_plugins/function.product_price.php:49
+#: /vendors/smarty/sms_plugins/function.product_quantity.php:71
+#: /vendors/smarty/sms_plugins/function.purchase_button.php:43
+#: /vendors/smarty/sms_plugins/function.repeat.php:44
+#: /vendors/smarty/sms_plugins/function.shopping_cart.php:131
+#: /vendors/smarty/sms_plugins/function.site_name.php:46
+#: /vendors/smarty/sms_plugins/function.stylesheet.php:68
+#: /vendors/smarty/sms_plugins/function.user_tag.php:48
+msgid "Version:"
+msgstr "Версия"
+
+#: /vendors/smarty/sms_plugins/block.lang.php:73
+#: /vendors/smarty/sms_plugins/block.product_form.php:53
+#: /vendors/smarty/sms_plugins/function.admin_area_link.php:52
+#: /vendors/smarty/sms_plugins/function.admin_edit_link.php:54
+#: /vendors/smarty/sms_plugins/function.checkout.php:234
+#: /vendors/smarty/sms_plugins/function.content.php:69
+#: /vendors/smarty/sms_plugins/function.content_images.php:118
+#: /vendors/smarty/sms_plugins/function.content_listing.php:191
+#: /vendors/smarty/sms_plugins/function.currency_box.php:102
+#: /vendors/smarty/sms_plugins/function.description.php:51
+#: /vendors/smarty/sms_plugins/function.get_template_vars.php:60
+#: /vendors/smarty/sms_plugins/function.global_content.php:72
+#: /vendors/smarty/sms_plugins/function.headdata.php:48
+#: /vendors/smarty/sms_plugins/function.language_box.php:99
+#: /vendors/smarty/sms_plugins/function.metadata.php:51
+#: /vendors/smarty/sms_plugins/function.module.php:94
+#: /vendors/smarty/sms_plugins/function.page_name.php:48
+#: /vendors/smarty/sms_plugins/function.payment.php:79
+#: /vendors/smarty/sms_plugins/function.payment_content.php:59
+#: /vendors/smarty/sms_plugins/function.product_price.php:51
+#: /vendors/smarty/sms_plugins/function.product_quantity.php:73
+#: /vendors/smarty/sms_plugins/function.purchase_button.php:45
+#: /vendors/smarty/sms_plugins/function.repeat.php:46
+#: /vendors/smarty/sms_plugins/function.shopping_cart.php:133
+#: /vendors/smarty/sms_plugins/function.site_name.php:48
+#: /vendors/smarty/sms_plugins/function.stylesheet.php:70
+#: /vendors/smarty/sms_plugins/function.user_tag.php:50
+msgid "Change History:"
+msgstr "История изменений:"
+
+#: /vendors/smarty/sms_plugins/block.lang.php:74
+#: /vendors/smarty/sms_plugins/block.product_form.php:54
+#: /vendors/smarty/sms_plugins/function.admin_area_link.php:42;53
+#: /vendors/smarty/sms_plugins/function.admin_edit_link.php:44;55
+#: /vendors/smarty/sms_plugins/function.checkout.php:224;235
+#: /vendors/smarty/sms_plugins/function.content.php:59;70
+#: /vendors/smarty/sms_plugins/function.content_images.php:119
+#: /vendors/smarty/sms_plugins/function.content_listing.php:192
+#: /vendors/smarty/sms_plugins/function.currency_box.php:103
+#: /vendors/smarty/sms_plugins/function.description.php:41;52
+#: /vendors/smarty/sms_plugins/function.get_template_vars.php:50;61
+#: /vendors/smarty/sms_plugins/function.global_content.php:73
+#: /vendors/smarty/sms_plugins/function.headdata.php:38;49
+#: /vendors/smarty/sms_plugins/function.language_box.php:100
+#: /vendors/smarty/sms_plugins/function.metadata.php:41;52
+#: /vendors/smarty/sms_plugins/function.module.php:95
+#: /vendors/smarty/sms_plugins/function.page_name.php:38;49
+#: /vendors/smarty/sms_plugins/function.payment.php:80
+#: /vendors/smarty/sms_plugins/function.payment_content.php:49;60
+#: /vendors/smarty/sms_plugins/function.product_price.php:41;52
+#: /vendors/smarty/sms_plugins/function.product_quantity.php:63;74
+#: /vendors/smarty/sms_plugins/function.purchase_button.php:46
+#: /vendors/smarty/sms_plugins/function.repeat.php:47
+#: /vendors/smarty/sms_plugins/function.shopping_cart.php:134
+#: /vendors/smarty/sms_plugins/function.site_name.php:38;49
+#: /vendors/smarty/sms_plugins/function.stylesheet.php:71
+#: /vendors/smarty/sms_plugins/function.user_tag.php:51
+msgid "None"
+msgstr "Нет"
+
+#: /vendors/smarty/sms_plugins/block.product_form.php:42
+msgid "Wraps the product purchase button with a form."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/block.product_form.php:44
+msgid "Just wrap your product purchase with:"
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/block.product_form.php:44
+msgid "stuff"
+msgstr ""
+
 #: /vendors/smarty/sms_plugins/function.admin_area_link.php:27
 msgid "Administration"
 msgstr "Админка"
 
+#: /vendors/smarty/sms_plugins/function.admin_area_link.php:36
+msgid "Creates a link to the admin area inside of the front end template."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.admin_area_link.php:37
+msgid "The link will only be displayed if the user has an active admin session."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.admin_area_link.php:40
+#: /vendors/smarty/sms_plugins/function.admin_edit_link.php:42
+#: /vendors/smarty/sms_plugins/function.checkout.php:222
+#: /vendors/smarty/sms_plugins/function.content.php:57
+#: /vendors/smarty/sms_plugins/function.content_images.php:103
+#: /vendors/smarty/sms_plugins/function.content_listing.php:177
+#: /vendors/smarty/sms_plugins/function.currency_box.php:90
+#: /vendors/smarty/sms_plugins/function.description.php:39
+#: /vendors/smarty/sms_plugins/function.get_template_vars.php:48
+#: /vendors/smarty/sms_plugins/function.global_content.php:60
+#: /vendors/smarty/sms_plugins/function.headdata.php:36
+#: /vendors/smarty/sms_plugins/function.language_box.php:87
+#: /vendors/smarty/sms_plugins/function.metadata.php:39
+#: /vendors/smarty/sms_plugins/function.module.php:80
+#: /vendors/smarty/sms_plugins/function.page_name.php:36
+#: /vendors/smarty/sms_plugins/function.payment.php:67
+#: /vendors/smarty/sms_plugins/function.payment_content.php:47
+#: /vendors/smarty/sms_plugins/function.product_price.php:39
+#: /vendors/smarty/sms_plugins/function.product_quantity.php:61
+#: /vendors/smarty/sms_plugins/function.purchase_button.php:33
+#: /vendors/smarty/sms_plugins/function.repeat.php:33
+#: /vendors/smarty/sms_plugins/function.shopping_cart.php:120
+#: /vendors/smarty/sms_plugins/function.site_name.php:36
+#: /vendors/smarty/sms_plugins/function.stylesheet.php:56
+#: /vendors/smarty/sms_plugins/function.user_tag.php:37
+msgid "What parameters does it take?"
+msgstr ""
+
 #: /vendors/smarty/sms_plugins/function.admin_edit_link.php:29
 msgid "Edit Content"
 msgstr "Редактировать"
+
+#: /vendors/smarty/sms_plugins/function.admin_edit_link.php:38
+msgid "Creates a link to edit the current content page."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.admin_edit_link.php:39
+msgid "Links are only shown if you have an active admin session and the page is not a core page."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.checkout.php:219
+msgid "This plugin handles the entire checkout process."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.checkout.php:221
+#: /vendors/smarty/sms_plugins/function.content_images.php:102
+#: /vendors/smarty/sms_plugins/function.shopping_cart.php:119
+msgid "Just insert the tag into your template/page like:"
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.content.php:54
+msgid "This is where the content for your page will be displayed. It's inserted into the template and changed based on the current page being displayed. This tag will call any sub-templates that are required to display the page."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.content_images.php:100
+msgid "Displays an unordered list of images for the current content page."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.content_images.php:105
+msgid "(number)"
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.content_images.php:105
+msgid "Number of images to display."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.content_images.php:106
+msgid "(height)"
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.content_images.php:106
+msgid "Maximum height of thumbnails."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.content_images.php:107
+msgid "(width)"
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.content_images.php:107
+msgid "Maximum width of thumbnails."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.content_images.php:108
+msgid "(thumbnail)"
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.content_images.php:108
+msgid "Set to false to disable thumbnailing of images. Defaults to true."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.content_listing.php:174
+msgid "Displays a list of content items depending on the parent of those items."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.content_listing.php:179
+msgid "(type)"
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.content_listing.php:179
+msgid "Type of content to display in the menu. Can be any of: category, product, page, link, selflink, or all. Seperate multiple values with commas, example:"
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.content_listing.php:179
+msgid "Defaults to"
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.content_listing.php:180
+msgid "(parent)"
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.content_listing.php:180
+msgid "The parent of the content items to be shown. Accepts an alias or id, defaults to 0."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.content_listing.php:181
+#: /vendors/smarty/sms_plugins/function.currency_box.php:92
+#: /vendors/smarty/sms_plugins/function.language_box.php:89
+#: /vendors/smarty/sms_plugins/function.module.php:84
+#: /vendors/smarty/sms_plugins/function.payment.php:69
+#: /vendors/smarty/sms_plugins/function.shopping_cart.php:122
+msgid "(template)"
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.content_listing.php:181
+msgid "Useful if you want to override the default content listing template. Setting this will utilize the template that matches this alias."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.currency_box.php:87
+msgid "Allows the user to select a currency."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.currency_box.php:92
+msgid "Overrides the default template for the currency_box plugin."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.description.php:36
+msgid "Outputs the description of the current page, product, or category depending on the user's default selected language."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.get_template_vars.php:45
+msgid "Dumps all available smarty template variables onto the page. If you wanted to use one you would use it like:"
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.global_content.php:57
+msgid "Outputs the global_content of the current page, product, or category depending on the user's default selected language."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.global_content.php:62
+#: /vendors/smarty/sms_plugins/function.user_tag.php:39
+msgid "(alias)"
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.global_content.php:62
+msgid "Alias of the global content block to display."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.headdata.php:33
+msgid "Displays the head data for this content. Edit the head data for each content item under the options tab."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.language_box.php:84
+msgid "Allows the user to select a language."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.language_box.php:89
+msgid "Overrides the default template for the language_box plugin."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.metadata.php:36
+msgid "Displays the metadata for this content. Edit the metadata under the options tab."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.module.php:78
+msgid "Makes a call to the installed module.  If the module is not found, this does nothing."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.module.php:79
+msgid "See the specific module documentation for more information."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.module.php:82
+msgid "(controller)"
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.module.php:82
+msgid "Controller to call.  Defaults to action"
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.module.php:83
+msgid "(action)"
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.module.php:83
+msgid "Method to call of the action controller."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.module.php:84
+msgid "Overrides the module's default template for the action specified."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.page_name.php:33
+msgid "Displays the current page name."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.payment.php:64
+msgid "This plugin handles the payment process."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.payment.php:66
+msgid "You should only use this tag in the payment core page. Just insert the tag into your page like:"
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.payment.php:69
+msgid "overrides the default payment template."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.payment_content.php:44
+msgid "Displays any necessary payment fields before sending the user off to process the order."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.payment_content.php:46
+msgid "This tag is called from the payment page like:"
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.product_price.php:36
+msgid "Displays the product price for the current content."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.product_quantity.php:58
+msgid "Creates a product quantity box."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.product_quantity.php:60
+#: /vendors/smarty/sms_plugins/function.purchase_button.php:32
+msgid "Just insert the tag into your product_info template like:"
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.purchase_button.php:30
+msgid "Creates a purchase button for the product."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.purchase_button.php:35
+msgid "(product_id)"
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.purchase_button.php:35
+msgid "Overrides the current global content_id. Useful if you want to place a purchase button in product listing pages."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.repeat.php:30
+msgid "Repeats a given string a certain number of times."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.repeat.php:32
+msgid "Hello!"
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.repeat.php:35
+msgid "(string)"
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.repeat.php:35
+msgid "String to repeat."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.repeat.php:36
+msgid "(times)"
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.repeat.php:36
+msgid "Number of times to repeat the specified string."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.shopping_cart.php:117
+msgid "Displays a more detailed version of the user's cart."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.shopping_cart.php:122
+msgid "Overrides the default template."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.shopping_cart.php:123
+msgid "(showempty)"
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.shopping_cart.php:123
+msgid "(true or false) If set to false does not display the cart if the user has not added any items.  Defaults to false."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.site_name.php:33
+msgid "Displays the site name."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.stylesheet.php:53
+msgid "Gets stylesheet information from the system. By default, it grabs all of the stylesheets attached to the current template."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.stylesheet.php:55
+msgid "Just insert the tag into your template/page's head section like:"
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.stylesheet.php:58;59
+msgid "(optional)"
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.stylesheet.php:58
+msgid "Instead of getting all stylesheets for the given page, it will only get one spefically named one, whether it's attached to the current template or not. Set the alias to be the ID or alias of the stylesheet."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.stylesheet.php:59
+msgid "If name is defined, this allows you set a different media type for that stylesheet."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.user_tag.php:34
+msgid "Calls the user tag specified by alias"
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.user_tag.php:39
+msgid "Alias of the user tag to call."
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.user_tag.php:40
+msgid "(var)"
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.user_tag.php:40
+msgid "Pass any other smarty variables or information to the user tag like:"
+msgstr ""
+
+#: /vendors/smarty/sms_plugins/function.user_tag.php:40
+msgid "These will be available for the user tag to use in the $params array."
+msgstr ""
 
 #: /views/helpers/admin.php:93
 msgid "Create New"
