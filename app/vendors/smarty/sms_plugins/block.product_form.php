@@ -38,20 +38,20 @@ function smarty_block_product_form($params, $product_form, &$smarty)
 
 function smarty_help_function_product_form() {
 	?>
-	<h3>What does this do?</h3>
-	<p>Wraps the product purchase button with a form.</p>
-	<h3>How do I use it?</h3>
-	<p>Just wrap your product purchase with: <code>{product_form}stuff{/product_form}</code></p>
+	<h3><?php echo __('What does this tag do?') ?></h3>
+	<p><?php echo __('Wraps the product purchase button with a form.') ?></p>
+	<h3><?php echo __('How do I use it?') ?></h3>
+	<p><?php echo __('Just wrap your product purchase with:') ?> <code>{product_form}<?php echo __('stuff') ?>{/product_form}</code></p>
 	<?php
 }
 
 function smarty_about_function_product_form() {
 	?>
-	<p>Author: Kevin Grandon&lt;kevingrandon@hotmail.com&gt;</p>
-	<p>Version: 0.1</p>
+	<p><?php echo __('Author: Kevin Grandon&lt;kevingrandon@hotmail.com&gt;</p>') ?>
+	<p><?php echo __('Version:') ?> 0.1</p>
 	<p>
-	Change History:<br/>
-	None
+	<?php echo __('Change History:') ?><br/>
+	<?php echo __('None') ?>
 	</p>
 	<?php
 }

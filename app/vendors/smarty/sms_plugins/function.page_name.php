@@ -29,24 +29,24 @@ function smarty_function_page_name($params, &$smarty)
 
 function smarty_help_function_page_name() {
 	?>
-	<h3>What does this do?</h3>
-	<p>Displays the current page name.</p>
-	<h3>How do I use it?</h3>
-	<p>Just insert the tag into your template like: <code>{page_name}</code></p>
-	<h3>What parameters does it take?</h3>
+	<h3><?php echo __('What does this tag do?') ?></h3>
+	<p><?php echo __('Displays the current page name.') ?></p>
+	<h3><?php echo __('How do I use it?') ?></h3>
+	<p><?php echo __('Just insert the tag into your template like:') ?> <code>{page_name}</code></p>
+	<h3><?php echo __('What parameters does it take?') ?></h3>
 	<ul>
-		<li><em>(none)</em></li>
+		<li><em>(<?php echo __('None') ?>)</em></li>
 	</ul>
 	<?php
 }
 
 function smarty_about_function_page_name() {
 	?>
-	<p>Author: Kevin Grandon&lt;kevingrandon@hotmail.com&gt;</p>
-	<p>Version: 0.1</p>
+	<p><?php echo __('Author: Kevin Grandon&lt;kevingrandon@hotmail.com&gt;</p>') ?>
+	<p><?php echo __('Version:') ?> 0.1</p>
 	<p>
-	Change History:<br/>
-	None
+	<?php echo __('Change History:') ?><br/>
+	<?php echo __('None') ?>
 	</p>
 	<?php
 }

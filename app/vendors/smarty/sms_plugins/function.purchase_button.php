@@ -26,24 +26,24 @@ function smarty_function_purchase_button($params, &$smarty)
 
 function smarty_help_function_purchase_button() {
 	?>
-	<h3>What does this do?</h3>
-	<p>Creates a purchase button for the product.</p>
-	<h3>How do I use it?</h3>
-	<p>Just insert the tag into your product_info template like: <code>{purchase_button}</code></p>
-	<h3>What parameters does it take?</h3>
+	<h3><?php echo __('What does this tag do?') ?></h3>
+	<p><?php echo __('Creates a purchase button for the product.') ?></p>
+	<h3><?php echo __('How do I use it?') ?></h3>
+	<p><?php echo __('Just insert the tag into your product_info template like:') ?> <code>{purchase_button}</code></p>
+	<h3><?php echo __('What parameters does it take?') ?></h3>
 	<ul>
-		<li><em>(product_id)</em> - Overrides the current global content_id.  Useful if you want to place a purchase button in product listing pages.</li>
+		<li><em><?php echo __('(product_id)') ?></em> - <?php echo __('Overrides the current global content_id. Useful if you want to place a purchase button in product listing pages.') ?></li>
 	</ul>
 	<?php
 }
 
 function smarty_about_function_purchase_button() {
 	?>
-	<p>Author: Kevin Grandon&lt;kevingrandon@hotmail.com&gt;</p>
-	<p>Version: 0.1</p>
+	<p><?php echo __('Author: Kevin Grandon&lt;kevingrandon@hotmail.com&gt;</p>') ?>
+	<p><?php echo __('Version:') ?> 0.1</p>
 	<p>
-	Change History:<br/>
-	None
+	<?php echo __('Change History:') ?><br/>
+	<?php echo __('None') ?>
 	</p>
 	<?php
 }
