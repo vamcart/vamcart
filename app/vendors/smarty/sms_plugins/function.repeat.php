@@ -40,7 +40,7 @@ function smarty_help_function_repeat() {
 
 function smarty_about_function_repeat() {
 	?>
-	<p><?php echo __('Author: Kevin Grandon&lt;kevingrandon@hotmail.com&gt;</p>') ?>
+	<p><?php echo __('Author: Kevin Grandon &lt;kevingrandon@hotmail.com&gt;') ?></p>
 	<p><?php echo __('Version:') ?> 0.1</p>
 	<p>
 	<?php echo __('Change History:') ?><br/>
