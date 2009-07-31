@@ -19,6 +19,13 @@ class LanguagesController extends AppController {
 	{
 		$this->Session->write('Customer.language_id', $language_id);
 
+				// Set Config.language
+				App::import('Model', 'Language');
+				$this->Language =& new Language();		
+				$default_language = $this->Language->find(array('id' => $language_id));
+
+				$this->Session->write('Config.language', $default_language['Language']['code']);
+
 		$this->EventBase->ProcessEvent('SwitchLanguage');
 		
 		if($redirect != null)
