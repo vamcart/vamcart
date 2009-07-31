@@ -695,8 +695,8 @@ CREATE TABLE `languages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `languages` (`id`, `default`, `name`, `code`, `iso_code_2`, `active`, `sort_order`) VALUES 
-(1, 1, 'English', 'en_US', 'us', 1, 1),
-(2, 0, 'Русский', 'ru_ru', 'ru', 1, 0);
+(1, 1, 'English', 'eng', 'us', 1, 1),
+(2, 0, 'Русский', 'rus', 'ru', 1, 0);
 
 DROP TABLE IF EXISTS micro_templates;
 CREATE TABLE `micro_templates` (
