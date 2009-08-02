@@ -31,6 +31,8 @@ class SearchController extends AppController {
 			$search_conditions = $table['Search']['model'] . '.' . $table['Search']['field'] . ' LIKE \'%' . $this->data['Search']['term'] . '%\'';
 			
 			$search_results[$key] = $this->SearchModel->findAll($search_conditions,null,null,20);
+
+//			$search_results[$key] = $this->SearchModel->find('all', array('conditions' => array($table['Search']['model'] . '.' . $table['Search']['field'].' LIKE' => $this->data['Search']['term'])));
 		}
 		
 		$this->set('tables',$search_tables);
