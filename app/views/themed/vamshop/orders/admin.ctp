@@ -31,7 +31,6 @@ foreach ($data AS $order)
 		   	
 }
 echo '</table>';
-echo 'test -' . debug($order['OrderStatus']);
 echo $admin->EmptyResults($data);
 
 echo $form->end();
