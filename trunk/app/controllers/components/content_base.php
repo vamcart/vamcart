@@ -113,7 +113,7 @@ class ContentBaseComponent extends Object
 	        array('hasOne' => array(
 				'ContentDescription' => array(
                     'className' => 'ContentDescription',
-					'conditions'   => 'language_id = 1'
+					'conditions'   => 'language_id = '.$this->Session->read('Customer.language_id')
                 )
             )
            	)
