@@ -108,16 +108,12 @@ class OrdersController extends AppController {
 	        array('hasOne' => array(
 				'OrderStatusDescription' => array(
                     'className' => 'OrderStatusDescription',
-					'conditions'   => 'language_id = ' . $this->Session->read('Customer.language_id')
+					'conditions'   => 'OrderStatusDescription.language_id = ' . $this->Session->read('Customer.language_id')
                 )
             )
            	)
 	    );			
 	
-
-		$order_status = $this->Order->OrderStatus->find('first', array('conditions'   => 'language_id = ' . $this->Session->read('Customer.language_id')));
-
-		$this->set('order_status', $order_status['OrderStatusDescription']['name']);
 
 		$this->Order->recursive = 2;
 		$data = $this->paginate('Order',"Order.order_status_id > 0");
