@@ -157,14 +157,13 @@ echo '</table>';
 
 echo '<table class="contentTable">';
 
-echo $html->tableHeaders(array( __('Date', true), __('User', true), __('Sent To Customer', true), __('Comment', true)));
+echo $html->tableHeaders(array( __('Date', true), __('Sent To Customer', true), __('Comment', true)));
 
 foreach($data['OrderComment'] AS $comment) 
 {
 	echo $admin->TableCells(
 		  array(
 				$time->niceShort($comment['created']),
-				$comment['User']['username'],
 				($comment['sent_to_customer'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))),
 				$comment['comment']
 		   ));
