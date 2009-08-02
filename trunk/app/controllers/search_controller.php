@@ -28,9 +28,9 @@ class SearchController extends AppController {
 			App::import('Model', $table['Search']['model']);
 			$this->SearchModel =& new $table['Search']['model']();
 			
-			$search_conditions = $table['Search']['model'] . '.' . $table['Search']['field'] . ' LIKE => \'%' . $this->data['Search']['term'] . '%\'';
+			$search_conditions = $table['Search']['model'] . '.' . $table['Search']['field'] . ' LIKE \'%' . $this->data['Search']['term'] . '%\'';
 			
-			$search_results[$key] = $this->SearchModel->find('first', array('conditions' => array($search_conditions)));
+			$search_results[$key] = $this->SearchModel->findAll($search_conditions,null,null,20);
 		}
 		
 		$this->set('tables',$search_tables);

@@ -13,6 +13,6 @@
 
 class Search extends AppModel {
 	var $name = 'Search';
-	var $useTable = false;
+	var $useTable = 'search_tables';
 }
 ?>
