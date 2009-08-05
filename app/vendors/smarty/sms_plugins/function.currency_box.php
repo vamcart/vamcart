@@ -22,7 +22,7 @@ function default_template_currency_box()
 {
 $template = '
 <div class="info_box">
-	<div class="box_heading">{lang}currency{/lang}</div>
+	<div class="box_heading">{lang}Currency{/lang}</div>
 	<div class="box_content">
 		<form action="{$currency_form_action}" method="post">
 		<select name="currency_picker">
@@ -42,7 +42,7 @@ return $template;
 function smarty_function_currency_box($params, &$smarty)
 {
 		// Cache the output.
-   		$cache_name = 'sms_currency_output' . (isset($params['template'])?'_'.$params['template']:'');
+   		$cache_name = 'sms_currency_output' . (isset($params['template'])?'_'.$params['template']:'') . '_' . $_SESSION['Customer']['language_id'];
     	$currency_output = Cache::read($cache_name);
    		if($currency_output === false)
     	{
