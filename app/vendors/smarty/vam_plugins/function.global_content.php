@@ -21,7 +21,7 @@
 function smarty_function_global_content($params, &$smarty)
 {
 	// Cache the output.
-	$cache_name = 'sms_gcb_output_' .  $params['alias'];
+	$cache_name = 'vam_gcb_output_' .  $params['alias'];
 	$output = Cache::read($cache_name);
 	if($output === false)
 	{

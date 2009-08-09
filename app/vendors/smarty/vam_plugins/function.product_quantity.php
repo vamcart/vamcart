@@ -36,7 +36,7 @@ return $template;
 
 function smarty_function_product_quantity($params, &$smarty)
 {
-	$cache_name = 'sms_product_quantity' . (isset($params['template'])?'_'.$params['template']:'');
+	$cache_name = 'vam_product_quantity' . (isset($params['template'])?'_'.$params['template']:'');
 	$results = Cache::read($cache_name);
 	if($results === false)
 	{	

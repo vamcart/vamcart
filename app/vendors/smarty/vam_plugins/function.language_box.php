@@ -35,7 +35,7 @@ return $template;
 function smarty_function_language_box($params, &$smarty)
 {
 	// Cache the output.
-	$cache_name = 'sms_language_box_output' . (isset($params['template'])?'_'.$params['template']:'') . '_' . $_SESSION['Customer']['language_id'];
+	$cache_name = 'vam_language_box_output' . (isset($params['template'])?'_'.$params['template']:'') . '_' . $_SESSION['Customer']['language_id'];
 	$language_box_output = Cache::read($cache_name);
 	if($language_box_output === false)
 	{
