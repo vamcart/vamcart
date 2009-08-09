@@ -50,7 +50,7 @@ function smarty_function_content_listing($params, &$smarty)
 	global $content;
 	
 	// Cache the output.
-	$cache_name = 'sms_content_listing_output_' . $content['Content']['id'] .  (isset($params['template'])?'_'.$params['template']:'') .  (isset($params['parent'])?'_'.$params['parent']:'') . '_' . $_SESSION['Customer']['language_id'];
+	$cache_name = 'vam_content_listing_output_' . $content['Content']['id'] .  (isset($params['template'])?'_'.$params['template']:'') .  (isset($params['parent'])?'_'.$params['parent']:'') . '_' . $_SESSION['Customer']['language_id'];
 	$output = Cache::read($cache_name);
 	if($output === false)
 	{

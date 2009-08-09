@@ -27,7 +27,7 @@ function smarty_block_lang($params, $content, &$smarty)
     }
 	
 		// Start caching
-		$cache_name = 'sms_lang_' .  $_SESSION['Customer']['language_id'] . '_' . $content;
+		$cache_name = 'vam_lang_' .  $_SESSION['Customer']['language_id'] . '_' . $content;
 		$output = Cache::read($cache_name);
 		if($output === false)
 		{
