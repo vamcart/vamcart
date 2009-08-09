@@ -101,7 +101,7 @@
 
 	echo $admin->StartTabContent('view_images');
 		echo '<div id="content_images_holder">';		
-		echo $this->requestAction('/images/admin_view_content_images/' . $data['Content']['id'], array('return'));	
+		echo $this->requestAction('/images/admin_view_content_images/' . (!isset($data['Content']['id'])? 0 : $data['Content']['id']), array('return'));	
 		echo '</div>';
 		
 	echo $admin->EndTabContent();
