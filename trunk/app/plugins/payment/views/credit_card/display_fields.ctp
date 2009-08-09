@@ -18,4 +18,4 @@
 	</div>
 </div>
 </div>
-<button id="sms_checkout_button" type="submit">{lang}Confirm Order{/lang}</button>
+<button id="vam_checkout_button" type="submit">{lang}Confirm Order{/lang}</button>
