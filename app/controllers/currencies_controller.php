@@ -22,9 +22,9 @@ class CurrenciesController extends AppController {
 		$this->EventBase->ProcessEvent('SwitchCurrency');
 
 		// Delete the cache.
-		if(file_exists(CACHE . 'cake_sms_currency_output'))
+		if(file_exists(CACHE . 'cake_vam_currency_output'))
 		{
-			Cache::delete('sms_currency_output');
+			Cache::delete('vam_currency_output');
 		}
 		$this->redirect($_SERVER['HTTP_REFERER']);
 	}

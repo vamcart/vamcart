@@ -27,7 +27,7 @@ class SmartyComponent extends Object
 		{
 			
 				// Cache the output.
-				$cache_name = 'sms_plugin_template_' .  $params['template'];
+				$cache_name = 'vam_plugin_template_' .  $params['template'];
 				$output = Cache::read($cache_name);
 				if($output === false)
 				{
@@ -62,7 +62,7 @@ class SmartyComponent extends Object
 		App::import('Vendor', 'Smarty', array('file' => 'smarty'.DS.'Smarty.class.php'));
 		$smarty = new Smarty();
 		
-		$smarty->plugins_dir = array('plugins','sms_plugins');
+		$smarty->plugins_dir = array('plugins','vam_plugins');
 	    require_once $smarty->_get_plugin_filepath('function', 'eval');
 		
 		return $smarty;

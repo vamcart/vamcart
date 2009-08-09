@@ -26,7 +26,7 @@ class ConfigurationBaseComponent extends Object
 
 	function load_configuration ()
 	{
-		$config_values = Cache::read('sms_config');
+		$config_values = Cache::read('vam_config');
 		
 		if($config_values === false)
 		{
@@ -38,7 +38,7 @@ class ConfigurationBaseComponent extends Object
 			$config_values = array_combine(Set::extract($configuration_values, '{n}.Configuration.key'),
 						 		 Set::extract($configuration_values, '{n}.Configuration.value'));		
 
-			Cache::write('sms_config', $config_values, intval($config_values['CACHE_TIME']));
+			Cache::write('vam_config', $config_values, intval($config_values['CACHE_TIME']));
 		}
 		
 		return $config_values;

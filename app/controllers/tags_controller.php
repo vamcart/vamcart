@@ -18,7 +18,7 @@ class TagsController extends AppController {
 	function admin_view ($type, $tag)
 	{
 		$this->set('current_crumb', __('Tag Details', true));
-		require_once("../vendors/smarty/sms_plugins/" . $type . "." . $tag . ".php");
+		require_once("../vendors/smarty/vam_plugins/" . $type . "." . $tag . ".php");
 		
 		// Get information for the help content
 		ob_start();
@@ -54,14 +54,14 @@ class TagsController extends AppController {
 	{
 		$this->set('current_crumb', __('Tags Listing', true));
 		$files = array();
-		if ($handle = opendir('../vendors/smarty/sms_plugins/')) {
+		if ($handle = opendir('../vendors/smarty/vam_plugins/')) {
 	    	while (false !== ($file = readdir($handle))) 
 			{
 				$smarty_plugin = explode('.',$file);
 
 				if(($smarty_plugin[0] == 'function') || ($smarty_plugin[0] == 'block'))
 				{
-					require_once("../vendors/smarty/sms_plugins/".$file);
+					require_once("../vendors/smarty/vam_plugins/".$file);
 					$default_template_function = 'default_template_' . $smarty_plugin[1];
 		
 					if(function_exists($default_template_function))
