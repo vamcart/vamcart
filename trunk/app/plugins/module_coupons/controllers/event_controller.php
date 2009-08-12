@@ -21,7 +21,7 @@ class EventController extends ModuleCouponsAppController {
 		if(empty($_POST['module_coupon_code']))
 			return;
 		
-		App::import('Model', 'ModuleCoupon');
+		App::import('Model', 'ModuleCoupons.ModuleCoupon');
 		$this->ModuleCoupon =& new ModuleCoupon();			
 		
 		$coupon = $this->ModuleCoupon->find(array('code' => $_POST['module_coupon_code']));
