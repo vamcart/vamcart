@@ -51,10 +51,7 @@ function smarty_function_module($params, &$smarty)
 	}
 	else
 	{	
-		ob_start();
-		$Smarty->requestAction('/module_' . $params['alias'] . '/action/template/' . $params['action'],array('return' => true));	
-		$display_template = @ob_get_contents();
-		ob_end_clean();
+		$display_template = $Smarty->requestAction('/module_' . $params['alias'] . '/action/' . $params['action'],array('return'));
 	}
 			
 	
