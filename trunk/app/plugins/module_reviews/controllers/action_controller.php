@@ -68,7 +68,7 @@ class ActionController extends ModuleReviewsAppController {
 		$this->ModuleReview->unbindAll();		
 		$reviews = $this->ModuleReview->find('all', array('conditions' => array('content_id' => $content_id)));
 		
-		loadHelper('Time');
+		App::import('Helper', 'Time');
 		$time = new TimeHelper();
 		
 		$assigned_reviews = array();
