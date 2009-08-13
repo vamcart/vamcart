@@ -17,7 +17,7 @@ class CurrenciesController extends AppController {
 
 	function pick_currency ()
 	{
-		$_SESSION['Customer']['currency_id'] = $_POST['currency_picker'];
+		$this->Session->write('Customer.currency_id', $_POST['currency_picker']);
 
 		$this->EventBase->ProcessEvent('SwitchCurrency');
 
