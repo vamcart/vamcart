@@ -37,7 +37,7 @@ function smarty_function_module($params, &$smarty)
 	$Smarty =& new SmartyComponent();
 	
 	
-	$assignments = $Smarty->requestAction('/module_' . $params['alias'] . '/' . $params['controller'] . '/' . $params['action'] .'/',array('return'));
+	$assignments = $Smarty->requestAction('/module_' . $params['alias'] . '/' . $params['controller'] . '/' . $params['action'] .'/');
 
 	
 	
