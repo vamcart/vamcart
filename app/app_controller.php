@@ -13,8 +13,7 @@
 
 class AppController extends Controller {
 	var $helpers = array('Html','Javascript','Ajax','Form','Admin');
-//	var $components = array('RequestHandler','ConfigurationBase','CurrencyBase','OrderBase');
-	var $components = array('RequestHandler','ConfigurationBase','CurrencyBase','OrderBase', 'DebugKit.Toolbar');
+	var $components = array('RequestHandler','ConfigurationBase','CurrencyBase','OrderBase');
 	var $view = 'Theme';
 	var $layout = 'admin';
 	var $theme = 'vamshop';
