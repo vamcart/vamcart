@@ -1572,6 +1572,10 @@ msgstr "Создаёт поле количество."
 msgid "Just insert the tag into your product_info template like:"
 msgstr "Просто вставляйте данный тэг в шаблон страницы карточки товара, например: "
 
+#: /vendors/smarty/vam_plugins/function.purchase_button.php:16
+msgid "Add To Cart"
+msgstr "Добавить в корзину"
+
 #: /vendors/smarty/vam_plugins/function.purchase_button.php:30
 msgid "Creates a purchase button for the product."
 msgstr "Создаёт кнопку купить."
