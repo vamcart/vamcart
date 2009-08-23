@@ -16,7 +16,7 @@ function smarty_function_content($params, &$smarty)
 	global $content;
 
 	 	// Cache the output... Don't cache core pages.
-	 	$cache_name = 'vam_page_content_' . $content['Content']['id'] . '_' . $_SESSION['Customer']['language_id'];
+	 	$cache_name = 'vam_page_content_' . $content['Content']['id'] . '_' . $_SESSION['Customer']['language_id']. '_' . $_SESSION['Customer']['currency_id'];
 	 	$output = Cache::read($cache_name);
 	 	if(($output === false)||($content['Content']['parent_id'] == '-1'))
 	 	{
