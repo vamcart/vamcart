@@ -23,7 +23,6 @@ class MoneyOrderCheckController extends PaymentAppController {
 
 		$new_module = array();
 		$new_module['PaymentMethod']['active'] = '1';
-		$new_module['PaymentMethod']['default'] = '0';
 		$new_module['PaymentMethod']['name'] = 'Money Order Check';
 		$new_module['PaymentMethod']['alias'] = 'money_order_check';
 		$this->PaymentMethod->save($new_module);
