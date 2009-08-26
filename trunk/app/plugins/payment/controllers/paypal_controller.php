@@ -12,7 +12,7 @@
    ---------------------------------------------------------------------------------------*/
 
 class PaypalController extends PaymentAppController {
-	var $uses = array('PaymentMethod','PaymentMethodValue');
+	var $uses = array('PaymentMethod');
 	var $components = array('OrderBase');
 
 	function settings ()
@@ -32,7 +32,6 @@ class PaypalController extends PaymentAppController {
 
 		$new_module_values = array();
 		$new_module_values['PaymentMethodValue']['payment_method_id'] = $this->PaymentMethod->id;
-		$new_module_values['PaymentMethodValue']['alias'] = 'paypal';
 		$new_module_values['PaymentMethodValue']['key'] = 'paypal_email';
 		$new_module_values['PaymentMethodValue']['value'] = 'your@paypal-email-address';
 

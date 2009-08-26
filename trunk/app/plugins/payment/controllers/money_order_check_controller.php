@@ -18,6 +18,31 @@ var $uses = null;
 	{
 	}
 
+	function install()
+	{
+
+		$new_module = array();
+		$new_module['PaymentMethod']['active'] = '1';
+		$new_module['PaymentMethod']['default'] = '0';
+		$new_module['PaymentMethod']['name'] = 'Money Order Check';
+		$new_module['PaymentMethod']['alias'] = 'money_order_check';
+		$this->PaymentMethod->save($new_module);
+
+		$this->Session->setFlash(__('Module Installed', true));
+		$this->redirect('/payment_methods/admin/');
+	}
+
+	function uninstall()
+	{
+
+		$module_id = $this->PaymentMethod->findByAlias('money_order_check');
+
+		$this->PaymentMethod->del($module_id['PaymentMethod']['id'], true);
+			
+		$this->Session->setFlash(__('Module Uninstalled', true));
+		$this->redirect('/payment_methods/admin/');
+	}
+
 	function before_process () 
 	{
 		$content = '	
