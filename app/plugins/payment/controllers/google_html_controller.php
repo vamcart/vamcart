@@ -15,6 +15,10 @@ class GoogleHtmlController extends PaymentAppController {
 	var $uses = null;
 	var $components = array('OrderBase');
 
+	function settings ()
+	{
+	}
+
 	function before_process () 
 	{
 		global $order;

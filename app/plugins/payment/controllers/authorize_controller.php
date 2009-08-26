@@ -14,6 +14,10 @@
 class AuthorizeController extends PaymentAppController {
 	var $components = array('OrderBase');
 	var $uses = null;
+
+	function settings ()
+	{
+	}
 	
 	function process_payment ()
 	{

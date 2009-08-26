@@ -14,6 +14,10 @@
 class MoneyOrderCheckController extends PaymentAppController {
 var $uses = null;
 
+	function settings ()
+	{
+	}
+
 	function before_process () 
 	{
 		$content = '	
