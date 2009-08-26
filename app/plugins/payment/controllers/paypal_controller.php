@@ -15,6 +15,11 @@ class PaypalController extends PaymentAppController {
 	var $uses = array('PaymentMethod');
 	var $components = array('OrderBase');
 
+	function settings ()
+	{
+			$this->set('data',$this->PaymentMethod->PaymentMethodValue->find(array('payment_method_id' => '3')));
+	}
+	
 	function before_process () 
 	{
 		$order = $this->OrderBase->get_order();
