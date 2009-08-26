@@ -13,19 +13,28 @@
 
 echo '<table class="contentTable">';
 
-echo $html->tableHeaders(array( __('Name', true), __('Code', true), __('Active', true), __('Default', true), __('Action', true)));
+echo $html->tableHeaders(array( __('Name', true), __('Active', true), __('Version', true), __('Action', true)));
 
-foreach ($shipping_method_data AS $ShippingMethod)
+foreach ($modules AS $module)
 {
+
+	if($module['installed'] == 0)
+	{
+		$action_button = $html->link(__('Install',true),'/payment/' . $module['alias'] . '/install/');
+	}
+	else
+	{
+		$action_button = $html->link(__('Uninstall',true),'/payment/' . $module['alias'] . '/uninstall/',null,__('Are you sure?', true));
+	}
+
 	echo $admin->TableCells(
 		  array(
-				$html->link($ShippingMethod['ShippingMethod']['name'], '/shipping_methods/admin_edit/' . $ShippingMethod['ShippingMethod']['id']),
-				$ShippingMethod['ShippingMethod']['code'],
-				$ajax->link(($ShippingMethod['ShippingMethod']['active'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))), 'null', $options = array('url' => '/shipping_methods/admin_change_active_status/' . $ShippingMethod['ShippingMethod']['id'], 'update' => 'content'), null, false),
-				$admin->DefaultButton($ShippingMethod['ShippingMethod']),
-				$admin->ActionButton('edit','/shipping_methods/admin_edit/' . $ShippingMethod['ShippingMethod']['id'],__('Edit', true))
+		  	$html->link($module['name'],'/payment_methods/admin_edit/' . $module['alias']),
+			($module['installed'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))),
+			$module['version'],
+			$action_button	
 		   ));
-		   	
+	
 }
 
 echo '</table>';
