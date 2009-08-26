@@ -17,6 +17,7 @@ class PaypalController extends PaymentAppController {
 
 	function settings ()
 	{
+		$this->set('data', $this->PaymentMethod->find(array('alias' => 'paypal')));
 	}
 	
 	function before_process () 

@@ -13,7 +13,7 @@
 
 echo $form->inputs(array('paypal.paypal_email' => array(
 	'label' => __('Paypal Email', true),
-	'value' => $data['paypal_email']['value']
+	'value' => $data['PaymentMethodValue'][0]['value']
 )));
 
 ?>
