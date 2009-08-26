@@ -13,6 +13,7 @@
 
 class CreditCardController extends PaymentAppController {
 	var $uses = array('PaymentMethod');
+	var $module_name = 'credit_card';
 
 	function settings ()
 	{
@@ -27,8 +28,8 @@ class CreditCardController extends PaymentAppController {
 
 		$new_module = array();
 		$new_module['PaymentMethod']['active'] = '1';
-		$new_module['PaymentMethod']['name'] = 'Credit Card';
-		$new_module['PaymentMethod']['alias'] = 'credit_card';
+		$new_module['PaymentMethod']['name'] = Inflector::humanize($this->module_name);
+		$new_module['PaymentMethod']['alias'] = $this->module_name;
 		$this->PaymentMethod->save($new_module);
 
 		$this->Session->setFlash(__('Module Installed', true));
@@ -38,7 +39,7 @@ class CreditCardController extends PaymentAppController {
 	function uninstall()
 	{
 
-		$module_id = $this->PaymentMethod->findByAlias('credit_card');
+		$module_id = $this->PaymentMethod->findByAlias($this->module_name);
 
 		$this->PaymentMethod->del($module_id['PaymentMethod']['id'], true);
 			

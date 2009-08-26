@@ -14,10 +14,11 @@
 class PaypalController extends PaymentAppController {
 	var $uses = array('PaymentMethod');
 	var $components = array('OrderBase');
+	var $module_name = 'paypal';
 
 	function settings ()
 	{
-		$this->set('data', $this->PaymentMethod->find(array('alias' => 'paypal')));
+		$this->set('data', $this->PaymentMethod->findByAlias($this->module_name));
 	}
 
 	function install()
@@ -25,8 +26,8 @@ class PaypalController extends PaymentAppController {
 
 		$new_module = array();
 		$new_module['PaymentMethod']['active'] = '1';
-		$new_module['PaymentMethod']['name'] = 'PayPal';
-		$new_module['PaymentMethod']['alias'] = 'paypal';
+		$new_module['PaymentMethod']['name'] = Inflector::humanize($this->module_name);
+		$new_module['PaymentMethod']['alias'] = $this->module_name;
 		$this->PaymentMethod->save($new_module);
 
 		$new_module_values = array();
@@ -43,7 +44,7 @@ class PaypalController extends PaymentAppController {
 	function uninstall()
 	{
 
-		$module_id = $this->PaymentMethod->findByAlias('paypal');
+		$module_id = $this->PaymentMethod->findByAlias($this->module_name);
 
 		$this->PaymentMethod->del($module_id['PaymentMethod']['id'], true);
 			

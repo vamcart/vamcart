@@ -13,6 +13,7 @@
 
 class MoneyOrderCheckController extends PaymentAppController {
 	var $uses = array('PaymentMethod');
+	var $module_name = 'money_order_check';
 
 	function settings ()
 	{
@@ -23,8 +24,8 @@ class MoneyOrderCheckController extends PaymentAppController {
 
 		$new_module = array();
 		$new_module['PaymentMethod']['active'] = '1';
-		$new_module['PaymentMethod']['name'] = 'Money Order Check';
-		$new_module['PaymentMethod']['alias'] = 'money_order_check';
+		$new_module['PaymentMethod']['name'] = Inflector::humanize($this->module_name);
+		$new_module['PaymentMethod']['alias'] = $this->module_name;
 		$this->PaymentMethod->save($new_module);
 
 		$this->Session->setFlash(__('Module Installed', true));
@@ -34,7 +35,7 @@ class MoneyOrderCheckController extends PaymentAppController {
 	function uninstall()
 	{
 
-		$module_id = $this->PaymentMethod->findByAlias('money_order_check');
+		$module_id = $this->PaymentMethod->findByAlias($this->module_name);
 
 		$this->PaymentMethod->del($module_id['PaymentMethod']['id'], true);
 			
