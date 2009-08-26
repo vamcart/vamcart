@@ -20,15 +20,15 @@ foreach ($modules AS $module)
 
 	if($module['installed'] == 0)
 	{
-		$action_button = $html->link(__('Install',true),'/payment_methods/install/' . $module['alias']);
+		$action_button = $html->link(__('Install',true),'/payment/' . $module['alias'] . '/install/');
 	}
 	elseif((isset($module['installed_version']))&&($module['installed_version'] < $module['version']))
 	{
-		$action_button = $html->link(__('Upgrade',true),'/payment_methods/upgrade/' . $module['alias'],null,__('Are you sure?', true));
+		$action_button = $html->link(__('Upgrade',true),'/payment/' . $module['alias'] . '/upgrade/',null,__('Are you sure?', true));
 	}
 	else
 	{
-		$action_button = $html->link(__('Uninstall',true),'/payment_methods/uninstall/' . $module['alias'],null,__('Are you sure?', true));
+		$action_button = $html->link(__('Uninstall',true),'/payment/' . $module['alias'] . '/uninstall/',null,__('Are you sure?', true));
 	}
 
 	echo $admin->TableCells(

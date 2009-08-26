@@ -12,12 +12,45 @@
    ---------------------------------------------------------------------------------------*/
 
 class PaypalController extends PaymentAppController {
-	var $uses = array('PaymentMethod');
+	var $uses = array('PaymentMethod','PaymentMethodValue');
 	var $components = array('OrderBase');
 
 	function settings ()
 	{
 		$this->set('data', $this->PaymentMethod->find(array('alias' => 'paypal')));
+	}
+
+	function install()
+	{
+
+		$new_module = array();
+		$new_module['PaymentMethod']['active'] = '1';
+		$new_module['PaymentMethod']['default'] = '0';
+		$new_module['PaymentMethod']['name'] = 'PayPal';
+		$new_module['PaymentMethod']['alias'] = 'paypal';
+		$this->PaymentMethod->save($new_module);
+
+		$new_module_values = array();
+		$new_module_values['PaymentMethodValue']['payment_method_id'] = $this->PaymentMethod->id;
+		$new_module_values['PaymentMethodValue']['alias'] = 'paypal';
+		$new_module_values['PaymentMethodValue']['key'] = 'paypal_email';
+		$new_module_values['PaymentMethodValue']['value'] = 'your@paypal-email-address';
+
+		$this->PaymentMethod->PaymentMethodValue->save($new_module_values);
+			
+		$this->Session->setFlash(__('Module Installed', true));
+		$this->redirect('/payment_methods/admin/');
+	}
+
+	function uninstall()
+	{
+
+		$module_id = $this->PaymentMethod->findByAlias('paypal');
+
+		$this->PaymentMethod->del($module_id['PaymentMethod']['id'], true);
+			
+		$this->Session->setFlash(__('Module Uninstalled', true));
+		$this->redirect('/payment_methods/admin/');
 	}
 	
 	function before_process () 

@@ -13,6 +13,6 @@
 
 class PaymentMethod extends AppModel {
 	var $name = 'PaymentMethod';
-	var $hasMany = array('PaymentMethodValue');
+	var $hasMany = array('PaymentMethodValue' => array('dependent' => true));
 }
 ?>
