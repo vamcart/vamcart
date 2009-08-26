@@ -74,14 +74,14 @@ class PaymentMethodsController extends AppController {
 	function admin ()
 	{
 		$this->set('current_crumb', __('Modules Listing', true));
-		$path = APP . 'plugins' . DS . 'payment' . DS . 'controllers';
+		$path = APP . 'plugins' . DS . 'payment' . DS . 'views';
 		$module_path = new Folder($path);
 		$dirs = $module_path->read();
 		$modules = array();
-		foreach($dirs[1] AS $dir)
+		foreach($dirs[0] AS $dir)
 		{
 				$module = array();
-				$module['alias'] = substr($dir, 0, (strlen ($dir)) - (strlen (strrchr($dir,'_controller')))); 
+				$module['alias'] = $dir; 
 				$module['name'] = Inflector::humanize($module['alias']);
 				$module['installed'] = $this->PaymentMethod->findCount(array('alias' => $module['alias'], 'active' => '1'));
 				$module['version'] = '1';
