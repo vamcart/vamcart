@@ -77,6 +77,7 @@ class PaymentMethodsController extends AppController {
 				$db_module = $this->PaymentMethod->findByAlias($module['alias']);
 				$module['id'] = $db_module['PaymentMethod']['id'];
 				$module['name'] = (isset($db_module['PaymentMethod']['name'])?$db_module['PaymentMethod']['name']:Inflector::humanize($module['alias']));
+				$module['default'] = (isset($db_module['PaymentMethod']['default'])?$db_module['PaymentMethod']['default']:0);
 				$module['installed'] = $this->PaymentMethod->findCount(array('alias' => $module['alias'], 'active' => '1'));
 				$module['version'] = '1';
 				
