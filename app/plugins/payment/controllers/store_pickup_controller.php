@@ -23,7 +23,6 @@ class StorePickupController extends PaymentAppController {
 
 		$new_module = array();
 		$new_module['PaymentMethod']['active'] = '1';
-		$new_module['PaymentMethod']['default'] = '1';
 		$new_module['PaymentMethod']['name'] = 'Store Pickup';
 		$new_module['PaymentMethod']['alias'] = 'store_pickup';
 		$this->PaymentMethod->save($new_module);

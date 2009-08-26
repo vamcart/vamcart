@@ -27,7 +27,6 @@ class CreditCardController extends PaymentAppController {
 
 		$new_module = array();
 		$new_module['PaymentMethod']['active'] = '1';
-		$new_module['PaymentMethod']['default'] = '0';
 		$new_module['PaymentMethod']['name'] = 'Credit Card';
 		$new_module['PaymentMethod']['alias'] = 'credit_card';
 		$this->PaymentMethod->save($new_module);
