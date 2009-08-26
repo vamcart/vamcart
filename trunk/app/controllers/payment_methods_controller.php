@@ -64,13 +64,6 @@ class PaymentMethodsController extends AppController {
 	
 	}	
 		
-//	function admin ($ajax = false)
-//	{
-//		$this->set('current_crumb', __('Payment Methods Listing', true));
-//		$this->set('payment_method_data',$this->PaymentMethod->find('all', array('order' => array('PaymentMethod.name ASC'))));	
-
-//	}	
-
 	function admin ()
 	{
 		$this->set('current_crumb', __('Modules Listing', true));
@@ -99,30 +92,5 @@ class PaymentMethodsController extends AppController {
 				
 	}
 
-	function install($payment_method)
-	{
-
-		$new_module = array();
-		$new_module['PaymentMethod']['active'] = '1';
-		$new_module['PaymentMethod']['default'] = '1';
-		$new_module['PaymentMethod']['name'] = $payment_method;
-		$new_module['PaymentMethod']['alias'] = $payment_method;
-		$this->PaymentMethod->save($new_module);
-			
-		$this->Session->setFlash(__('Module Installed', true));
-		$this->redirect('/payment_methods/admin/');
-	}
-
-	function uninstall($payment_method)
-	{
-
-		$module_id = $this->PaymentMethod->find(array('alias' => $payment_method));
-
-		$this->PaymentMethod->del($module_id);
-			
-		$this->Session->setFlash(__('Module Uninstalled', true));
-		$this->redirect(array('action'=>'admin'));
-	}
-	
 }
 ?>
