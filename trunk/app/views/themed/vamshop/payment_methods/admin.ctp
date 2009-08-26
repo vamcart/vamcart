@@ -13,7 +13,7 @@
 
 echo '<table class="contentTable">';
 
-echo $html->tableHeaders(array( __('Name', true), __('Active', true), __('Default', true), __('Action', true)));
+echo $html->tableHeaders(array( __('Name', true), __('Active', true), __('Version', true), __('Action', true)));
 
 foreach ($modules AS $module)
 {
