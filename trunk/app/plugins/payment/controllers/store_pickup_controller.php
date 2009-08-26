@@ -13,6 +13,7 @@
 
 class StorePickupController extends PaymentAppController {
 	var $uses = array('PaymentMethod');
+	var $module_name = 'store_pickup';
 
 	function settings ()
 	{
@@ -23,8 +24,8 @@ class StorePickupController extends PaymentAppController {
 
 		$new_module = array();
 		$new_module['PaymentMethod']['active'] = '1';
-		$new_module['PaymentMethod']['name'] = 'Store Pickup';
-		$new_module['PaymentMethod']['alias'] = 'store_pickup';
+		$new_module['PaymentMethod']['name'] = Inflector::humanize($this->module_name);
+		$new_module['PaymentMethod']['alias'] = $this->module_name;
 		$this->PaymentMethod->save($new_module);
 
 		$this->Session->setFlash(__('Module Installed', true));
@@ -34,7 +35,7 @@ class StorePickupController extends PaymentAppController {
 	function uninstall()
 	{
 
-		$module_id = $this->PaymentMethod->findByAlias('store_pickup');
+		$module_id = $this->PaymentMethod->findByAlias($this->module_name);
 
 		$this->PaymentMethod->del($module_id['PaymentMethod']['id'], true);
 			
