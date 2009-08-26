@@ -22,10 +22,6 @@ foreach ($modules AS $module)
 	{
 		$action_button = $html->link(__('Install',true),'/payment/' . $module['alias'] . '/install/');
 	}
-	elseif((isset($module['installed_version']))&&($module['installed_version'] < $module['version']))
-	{
-		$action_button = $html->link(__('Upgrade',true),'/payment/' . $module['alias'] . '/upgrade/',null,__('Are you sure?', true));
-	}
 	else
 	{
 		$action_button = $html->link(__('Uninstall',true),'/payment/' . $module['alias'] . '/uninstall/',null,__('Are you sure?', true));
@@ -33,7 +29,7 @@ foreach ($modules AS $module)
 
 	echo $admin->TableCells(
 		  array(
-		  	$html->link($module['name'],'/payment_methods/admin_edit/' . $module['alias']),
+		  	(isset($module['id'])?$html->link($module['name'],'/payment_methods/admin_edit/' . $module['id']):$module['name']),
 			($module['installed'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))),
 			$module['version'],
 			$action_button	

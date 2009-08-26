@@ -12,7 +12,7 @@
    ---------------------------------------------------------------------------------------*/
 
 class CreditCardController extends PaymentAppController {
-	var $uses = null;
+	var $uses = array('PaymentMethod');
 
 	function settings ()
 	{

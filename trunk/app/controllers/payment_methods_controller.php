@@ -27,7 +27,6 @@ class PaymentMethodsController extends AppController {
 
 	function admin_edit ($id)
 	{
-//		$id = $this->PaymentMethod->find(array('alias' => $payment_method));
 		$this->set('current_crumb', __('Edit Payment Method', true));
 		if(empty($this->data))
 		{
@@ -75,16 +74,12 @@ class PaymentMethodsController extends AppController {
 		{
 				$module = array();
 				$module['alias'] = $dir; 
-				$module['name'] = Inflector::humanize($module['alias']);
+				$db_module = $this->PaymentMethod->findByAlias($module['alias']);
+				$module['id'] = $db_module['PaymentMethod']['id'];
+				$module['name'] = (isset($db_module['PaymentMethod']['name'])?$db_module['PaymentMethod']['name']:Inflector::humanize($module['alias']));
 				$module['installed'] = $this->PaymentMethod->findCount(array('alias' => $module['alias'], 'active' => '1'));
 				$module['version'] = '1';
 				
-				if($module['installed'] > 0)
-				{
-					$db_module = $this->Module->find(array('alias' => $module['alias']));
-					$module['installed_version'] = $db_module['Module']['version'];
-				}
-					
 				$modules[] = $module;
 		}
 		
