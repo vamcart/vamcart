@@ -13,7 +13,7 @@
 	
 echo $form->inputs(array('google_html.google_html_merchant_id' => array(
 	'label' => __('Merchant ID', true),
-	'value' => $data['google_html_merchant_id']['value']
+	'value' => $data['PaymentMethodValue'][0]['value']
 )));
 
 ?>

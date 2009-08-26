@@ -12,11 +12,12 @@
    ---------------------------------------------------------------------------------------*/
 
 class GoogleHtmlController extends PaymentAppController {
-	var $uses = null;
+	var $uses = array('PaymentMethod');
 	var $components = array('OrderBase');
 
 	function settings ()
 	{
+		$this->set('data', $this->PaymentMethod->find(array('alias' => 'google_html')));
 	}
 
 	function before_process () 

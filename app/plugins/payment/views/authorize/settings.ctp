@@ -13,7 +13,7 @@
 	
 echo $form->inputs(array('authorize.authorize_login' => array(
 	'label' => __('Authorize.Net ID', true),
-	'value' => $data['authorize_login']['value']
+	'value' => $data['PaymentMethodValue'][0]['value']
 )));
 
 ?>

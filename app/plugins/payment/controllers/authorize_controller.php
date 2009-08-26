@@ -13,10 +13,11 @@
 
 class AuthorizeController extends PaymentAppController {
 	var $components = array('OrderBase');
-	var $uses = null;
+	var $uses = array('PaymentMethod');
 
 	function settings ()
 	{
+		$this->set('data', $this->PaymentMethod->find(array('alias' => 'authorize')));
 	}
 	
 	function process_payment ()
