@@ -27,6 +27,7 @@ class PaymentMethodsController extends AppController {
 
 	function admin_edit ($id)
 	{
+//		$id = $this->PaymentMethod->find(array('alias' => $payment_method));
 		$this->set('current_crumb', __('Edit Payment Method', true));
 		if(empty($this->data))
 		{
@@ -63,13 +64,65 @@ class PaymentMethodsController extends AppController {
 	
 	}	
 		
-	function admin ($ajax = false)
+//	function admin ($ajax = false)
+//	{
+//		$this->set('current_crumb', __('Payment Methods Listing', true));
+//		$this->set('payment_method_data',$this->PaymentMethod->find('all', array('order' => array('PaymentMethod.name ASC'))));	
+
+//	}	
+
+	function admin ()
 	{
-		$this->set('current_crumb', __('Payment Methods Listing', true));
-		$this->set('payment_method_data',$this->PaymentMethod->find('all', array('order' => array('PaymentMethod.name ASC'))));	
+		$this->set('current_crumb', __('Modules Listing', true));
+		$path = APP . 'plugins' . DS . 'payment' . DS . 'controllers';
+		$module_path = new Folder($path);
+		$dirs = $module_path->read();
+		$modules = array();
+		foreach($dirs[1] AS $dir)
+		{
+				$module = array();
+				$module['alias'] = substr($dir, 0, (strlen ($dir)) - (strlen (strrchr($dir,'_controller')))); 
+				$module['name'] = Inflector::humanize($module['alias']);
+				$module['installed'] = $this->PaymentMethod->findCount(array('alias' => $module['alias'], 'active' => '1'));
+				$module['version'] = '1';
+				
+				if($module['installed'] > 0)
+				{
+					$db_module = $this->Module->find(array('alias' => $module['alias']));
+					$module['installed_version'] = $db_module['Module']['version'];
+				}
+					
+				$modules[] = $module;
+		}
+		
+		$this->set('modules',$modules);
+				
+	}
 
-	}	
+	function install($payment_method)
+	{
 
+		$new_module = array();
+		$new_module['PaymentMethod']['active'] = '1';
+		$new_module['PaymentMethod']['default'] = '1';
+		$new_module['PaymentMethod']['name'] = $payment_method;
+		$new_module['PaymentMethod']['alias'] = $payment_method;
+		$this->PaymentMethod->save($new_module);
+			
+		$this->Session->setFlash(__('Module Installed', true));
+		$this->redirect('/payment_methods/admin/');
+	}
 
+	function uninstall($payment_method)
+	{
+
+		$module_id = $this->PaymentMethod->find(array('alias' => $payment_method));
+
+		$this->PaymentMethod->del($module_id);
+			
+		$this->Session->setFlash(__('Module Uninstalled', true));
+		$this->redirect(array('action'=>'admin'));
+	}
+	
 }
 ?>
