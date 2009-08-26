@@ -14,6 +14,10 @@
 class CreditCardController extends PaymentAppController {
 	var $uses = null;
 
+	function settings ()
+	{
+	}
+
 	function display_fields ()
 	{
 	}

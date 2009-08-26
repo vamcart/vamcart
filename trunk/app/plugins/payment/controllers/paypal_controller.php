@@ -17,7 +17,6 @@ class PaypalController extends PaymentAppController {
 
 	function settings ()
 	{
-			$this->set('data',$this->PaymentMethod->PaymentMethodValue->find(array('payment_method_id' => '3')));
 	}
 	
 	function before_process () 
