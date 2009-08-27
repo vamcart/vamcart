@@ -28,14 +28,12 @@ class AuthorizeController extends PaymentAppController {
 		$new_module['PaymentMethod']['active'] = '1';
 		$new_module['PaymentMethod']['name'] = Inflector::humanize($this->module_name);
 		$new_module['PaymentMethod']['alias'] = $this->module_name;
-		$this->PaymentMethod->save($new_module);
 
-		$new_module_values = array();
-		$new_module_values['PaymentMethodValue']['payment_method_id'] = $this->PaymentMethod->id;
-		$new_module_values['PaymentMethodValue']['key'] = 'authorize_login';
-		$new_module_values['PaymentMethodValue']['value'] = 'your-authorize-id';
+		$new_module['PaymentMethodValue'][0]['payment_method_id'] = $this->PaymentMethod->id;
+		$new_module['PaymentMethodValue'][0]['key'] = 'authorize_login';
+		$new_module['PaymentMethodValue'][0]['value'] = 'your-authorize-id';
 
-		$this->PaymentMethod->PaymentMethodValue->save($new_module_values);
+		$this->PaymentMethod->saveAll($new_module);
 			
 		$this->Session->setFlash(__('Module Installed', true));
 		$this->redirect('/payment_methods/admin/');
