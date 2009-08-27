@@ -14,11 +14,11 @@
 echo $form->inputs(array(
 	'key_values.per_item_amount' => array(
 		'label' => __('Per Item Amount',true), 
-		'value' => $data['per_item_amount']
+		'value' => $data['ShippingMethodValue'][0]['value']
 		),
 	'key_values.per_item_handling' => array(
 		'label' => __('Handling',true), 
-		'value' => $data['per_item_handling']
+		'value' => $data['ShippingMethodValue'][1]['value']
 		)
 		
 	));
