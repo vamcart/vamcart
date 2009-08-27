@@ -13,7 +13,7 @@
 
 echo '<table class="contentTable">';
 
-echo $html->tableHeaders(array( __('Name', true), __('Active', true), __('Default', true), __('Action', true)));
+echo $html->tableHeaders(array( __('Name', true), __('Code', true), __('Active', true), __('Default', true), __('Action', true)));
 
 foreach ($modules AS $module)
 {
@@ -30,6 +30,7 @@ foreach ($modules AS $module)
 	echo $admin->TableCells(
 		  array(
 		  	(isset($module['id'])?$html->link($module['name'],'/payment_methods/admin_edit/' . $module['id']):$module['name']),
+		  	$module['alias'],
 			($module['installed'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))),
 			(isset($module['id'])?$admin->DefaultButton($module):''),
 			$action_button	
