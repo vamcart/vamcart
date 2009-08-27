@@ -27,7 +27,8 @@ class FreeShippingController extends ShippingAppController {
 		$new_module['ShippingMethod']['active'] = '1';
 		$new_module['ShippingMethod']['name'] = Inflector::humanize($this->module_name);
 		$new_module['ShippingMethod']['code'] = $this->module_name;
-		$this->ShippingMethod->save($new_module);
+
+		$this->ShippingMethod->saveAll($new_module);
 
 		$this->Session->setFlash(__('Module Installed', true));
 		$this->redirect('/shipping_methods/admin/');
