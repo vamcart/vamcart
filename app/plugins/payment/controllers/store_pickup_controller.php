@@ -27,7 +27,8 @@ class StorePickupController extends PaymentAppController {
 		$new_module['PaymentMethod']['default'] = '1';
 		$new_module['PaymentMethod']['name'] = Inflector::humanize($this->module_name);
 		$new_module['PaymentMethod']['alias'] = $this->module_name;
-		$this->PaymentMethod->save($new_module);
+
+		$this->PaymentMethod->saveAll($new_module);
 
 		$this->Session->setFlash(__('Module Installed', true));
 		$this->redirect('/payment_methods/admin/');
