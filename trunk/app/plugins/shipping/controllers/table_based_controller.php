@@ -17,6 +17,7 @@ class TableBasedController extends ShippingAppController {
 
 	function settings ()
 	{
+		$this->set('data', $this->ShippingMethod->findByCode($this->module_name));
 	}
 
 	function install()
