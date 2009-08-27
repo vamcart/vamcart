@@ -63,8 +63,8 @@ class OrderBaseComponent extends Object
 			return 0;
 		
 		$shipping_component = Inflector::classify($order['ShippingMethod']['code']);
-		$shipping_component2 =  Inflector::classify($order['ShippingMethod']['code']) . 'Component';
-		 App::import('Component', 'shipping.'.$shipping_component);
+		$shipping_component2 =  Inflector::classify($order['ShippingMethod']['code']) . 'Controller';
+		 App::import('Controller', 'shipping.'.$shipping_component);
 		$this->MethodBase =& new $shipping_component2();
 		
 		$shipping_total = $this->MethodBase->calculate();
