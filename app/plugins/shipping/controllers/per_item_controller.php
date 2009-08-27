@@ -28,6 +28,20 @@ class PerItemController extends ShippingAppController {
 		$new_module['ShippingMethod']['code'] = $this->module_name;
 		$this->ShippingMethod->save($new_module);
 
+		$new_module_values = array();
+		$new_module_values['ShippingMethodValue']['shipping_method_id'] = $this->ShippingMethod->id;
+		$new_module_values['ShippingMethodValue']['key'] = 'per_item_amount';
+		$new_module_values['ShippingMethodValue']['value'] = '1';
+
+		$this->ShippingMethod->ShippingMethodValue->save($new_module_values);
+
+		$new_module_values = array();
+		$new_module_values['ShippingMethodValue']['shipping_method_id'] = $this->ShippingMethod->id;
+		$new_module_values['ShippingMethodValue']['key'] = 'per_item_handling';
+		$new_module_values['ShippingMethodValue']['value'] = '5.00';
+
+		$this->ShippingMethod->ShippingMethodValue->save($new_module_values);
+
 		$this->Session->setFlash(__('Module Installed', true));
 		$this->redirect('/shipping_methods/admin/');
 	}
