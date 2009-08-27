@@ -13,6 +13,6 @@
 
 class ShippingMethod extends AppModel {
 	var $name = 'ShippingMethod';
-	var $hasMany = array('ShippingMethodValue');
+	var $hasMany = array('ShippingMethodValue' => array('dependent' => true));
 }
 ?>
