@@ -28,6 +28,20 @@ class TableBasedController extends ShippingAppController {
 		$new_module['ShippingMethod']['code'] = $this->module_name;
 		$this->ShippingMethod->save($new_module);
 
+		$new_module_values = array();
+		$new_module_values['ShippingMethodValue']['shipping_method_id'] = $this->ShippingMethod->id;
+		$new_module_values['ShippingMethodValue']['key'] = 'table_based_type';
+		$new_module_values['ShippingMethodValue']['value'] = 'weight';
+
+		$this->ShippingMethod->ShippingMethodValue->save($new_module_values);
+
+		$new_module_values = array();
+		$new_module_values['ShippingMethodValue']['shipping_method_id'] = $this->ShippingMethod->id;
+		$new_module_values['ShippingMethodValue']['key'] = 'table_based_rates';
+		$new_module_values['ShippingMethodValue']['value'] = '0:0.50,\r\n1:1.50,\r\n2:2.25,\r\n3:3.00,\r\n4:5.75';
+
+		$this->ShippingMethod->ShippingMethodValue->save($new_module_values);
+
 		$this->Session->setFlash(__('Module Installed', true));
 		$this->redirect('/shipping_methods/admin/');
 	}
