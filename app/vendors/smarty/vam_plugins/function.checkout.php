@@ -162,10 +162,10 @@ function smarty_function_checkout($params, &$smarty)
 	$keyed_ship_methods = array();
 	foreach($active_ship_methods AS $method)
 	{
-		$shipping_component = Inflector::classify($method['ShippingMethod']['code']);
-		$shipping_component2 =  Inflector::classify($method['ShippingMethod']['code']) . 'Controller';
-		App::import('Controller', 'shipping.'.$shipping_component);
-		$MethodBase =& new $shipping_component2();
+		$shipping = Inflector::classify($method['ShippingMethod']['code']);
+		$shipping_controller =  Inflector::classify($method['ShippingMethod']['code']) . 'Controller';
+		App::import('Controller', 'shipping.'.$shipping);
+		$MethodBase =& new $shipping_controller();
 		
 		$ship_method_id = $method['ShippingMethod']['id'];
 		$keyed_ship_methods[$ship_method_id] = array(
