@@ -20,7 +20,7 @@ $types = array('weight' => __('Weight', true),
 echo $form->inputs(array(
 	'key_values.table_based_type' => array(
 		'type' => 'select',
-		'selected' => $data['table_based_type'],
+		'selected' => $data['ShippingMethodValue'][0]['value'],
 		'label' => __('Based Off',true),
 		'options' => $types
 	),
@@ -28,7 +28,7 @@ echo $form->inputs(array(
 		'type' => 'textarea',
 		'class' => 'pagesmalltextarea',
 		'label' => __('Rates',true),
-		'value' => $data['table_based_rates']
+		'value' => $data['ShippingMethodValue'][1]['value']
 	)
 	
 ));

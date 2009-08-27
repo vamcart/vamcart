@@ -39,7 +39,7 @@ class TableBasedController extends ShippingAppController {
 		$new_module_values = array();
 		$new_module_values['ShippingMethodValue']['shipping_method_id'] = $this->ShippingMethod->id;
 		$new_module_values['ShippingMethodValue']['key'] = 'table_based_rates';
-		$new_module_values['ShippingMethodValue']['value'] = '0:0.50,\r\n1:1.50,\r\n2:2.25,\r\n3:3.00,\r\n4:5.75';
+		$new_module_values['ShippingMethodValue']['value'] = '0:0.50,1:1.50,2:2.25,3:3.00,4:5.75';
 
 		$this->ShippingMethod->ShippingMethodValue->save($new_module_values);
 
