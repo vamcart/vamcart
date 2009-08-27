@@ -25,6 +25,7 @@ class FlatRateController extends ShippingAppController {
 
 		$new_module = array();
 		$new_module['ShippingMethod']['active'] = '1';
+		$new_module['ShippingMethod']['default'] = '1';
 		$new_module['ShippingMethod']['name'] = Inflector::humanize($this->module_name);
 		$new_module['ShippingMethod']['code'] = $this->module_name;
 		$this->ShippingMethod->save($new_module);
