@@ -13,25 +13,26 @@
 
 echo '<table class="contentTable">';
 
-echo $html->tableHeaders(array( __('Name', true), __('Active', true), __('Version', true), __('Action', true)));
+echo $html->tableHeaders(array( __('Name', true), __('Code', true), __('Active', true), __('Default', true), __('Action', true)));
 
 foreach ($modules AS $module)
 {
 
 	if($module['installed'] == 0)
 	{
-		$action_button = $html->link(__('Install',true),'/payment/' . $module['alias'] . '/install/');
+		$action_button = $html->link(__('Install',true),'/shipping/' . $module['code'] . '/install/');
 	}
 	else
 	{
-		$action_button = $html->link(__('Uninstall',true),'/payment/' . $module['alias'] . '/uninstall/',null,__('Are you sure?', true));
+		$action_button = $html->link(__('Uninstall',true),'/shipping/' . $module['code'] . '/uninstall/',null,__('Are you sure?', true));
 	}
 
 	echo $admin->TableCells(
 		  array(
-		  	$html->link($module['name'],'/payment_methods/admin_edit/' . $module['alias']),
+		  	(isset($module['id'])?$html->link($module['name'],'/shipping_methods/admin_edit/' . $module['id']):$module['name']),
+		  	$module['code'],
 			($module['installed'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))),
-			$module['version'],
+			(isset($module['id'])?$admin->DefaultButton($module):''),
 			$action_button	
 		   ));
 	
