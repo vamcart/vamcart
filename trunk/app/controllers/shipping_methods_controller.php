@@ -62,11 +62,30 @@ class ShippingMethodsController extends AppController {
 		}
 	}
 	
-	function admin ($ajax = false)
+	function admin ()
 	{
-		$this->set('current_crumb', __('Shipping Methods Listing', true));
-		$this->set('shipping_method_data',$this->ShippingMethod->find('all', array('order' => array('ShippingMethod.name ASC'))));	
+		$this->set('current_crumb', __('Modules Listing', true));
+		$path = APP . 'plugins' . DS . 'shipping' . DS . 'views';
+		$module_path = new Folder($path);
+		$dirs = $module_path->read();
+		$modules = array();
+		foreach($dirs[0] AS $dir)
+		{
+				$module = array();
+				$module['code'] = $dir; 
+				$db_module = $this->ShippingMethod->findByCode($module['code']);
+				$module['id'] = $db_module['ShippingMethod']['id'];
+				$module['name'] = (isset($db_module['ShippingMethod']['name'])?$db_module['ShippingMethod']['name']:Inflector::humanize($module['code']));
+				$module['default'] = (isset($db_module['ShippingMethod']['default'])?$db_module['ShippingMethod']['default']:0);
+				$module['installed'] = $this->ShippingMethod->findCount(array('code' => $module['code'], 'active' => '1'));
+				$module['version'] = '1';
+				
+				$modules[] = $module;
+		}
+		
+		$this->set('modules',$modules);
+				
+	}
 
-	}	
 }
 ?>
