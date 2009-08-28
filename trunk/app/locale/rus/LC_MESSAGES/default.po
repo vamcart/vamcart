@@ -1829,7 +1829,7 @@ msgstr "По умолчанию"
 
 #: /views/themed/vamshop/contents/admin.ctp:18
 msgid "Sort Order"
-msgstr "Сортировка"
+msgstr "Порядок сортировки"
 
 #: /views/themed/vamshop/contents/admin.ctp:44;58
 #: /views/themed/vamshop/countries/admin.ctp:30;36
