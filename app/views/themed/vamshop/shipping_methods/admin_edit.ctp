@@ -23,6 +23,11 @@
 					'label' => __('Name', true),
 					'value' => $data['ShippingMethod']['name']
 					),					
+				'ShippingMethod.order' => array(
+					'type' => 'text',
+					'label' => __('Sort Order', true),
+					'value' => $data['ShippingMethod']['order']
+					)					
 	               ));
 				  
 	echo $this->requestAction( '/shipping/'.$data['ShippingMethod']['code'].'/settings/', array('return'));	

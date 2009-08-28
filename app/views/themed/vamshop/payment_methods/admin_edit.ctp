@@ -21,6 +21,10 @@
 	               'PaymentMethod.name' => array(
 				   		'label' => __('Name', true),
    						'value' => $data['PaymentMethod']['name']
+	               ),				     				   	   																									
+	               'PaymentMethod.order' => array(
+				   		'label' => __('Sort Order', true),
+   						'value' => $data['PaymentMethod']['order']
 	               )				     				   	   																									
 			));
 	

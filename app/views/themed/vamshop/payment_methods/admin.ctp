@@ -13,7 +13,7 @@
 
 echo '<table class="contentTable">';
 
-echo $html->tableHeaders(array( __('Name', true), __('Code', true), __('Active', true), __('Default', true), __('Action', true)));
+echo $html->tableHeaders(array( __('Name', true), __('Code', true), __('Active', true), __('Default', true), __('Sort Order', true), __('Action', true)));
 
 foreach ($modules AS $module)
 {
@@ -33,6 +33,7 @@ foreach ($modules AS $module)
 		  	$module['alias'],
 			($module['installed'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))),
 			(isset($module['id'])?$admin->DefaultButton($module):''),
+		  	(isset($module['order'])?$module['order']:''),
 			$action_button	
 		   ));
 	
