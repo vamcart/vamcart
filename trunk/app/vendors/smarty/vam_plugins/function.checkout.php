@@ -157,7 +157,7 @@ function smarty_function_checkout($params, &$smarty)
 
 	// Assign the shipping methods
 	$assignments = array();
-	$active_ship_methods = $ShippingMethod->find('all', array('conditions' => array('active' => '1')));
+	$active_ship_methods = $ShippingMethod->find('all', array('conditions' => array('active' => '1'),'order' => array('order')));
 
 	$keyed_ship_methods = array();
 	foreach($active_ship_methods AS $method)
@@ -177,7 +177,7 @@ function smarty_function_checkout($params, &$smarty)
 	}	
 	
 	// Assign the payment methods
-	$active_payment_methods = $PaymentMethod->find('all', array('conditions' => array('active' => '1')));
+	$active_payment_methods = $PaymentMethod->find('all', array('conditions' => array('active' => '1'),'order' => array('order')));
 
 	$keyed_payment_methods = array();
 	foreach($active_payment_methods AS $method)
