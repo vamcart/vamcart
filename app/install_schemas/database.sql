@@ -870,16 +870,17 @@ CREATE TABLE `payment_methods` (
   `default` tinyint(4) NOT NULL,
   `name` varchar(100) collate utf8_unicode_ci NOT NULL,
   `alias` varchar(100) collate utf8_unicode_ci NOT NULL,
+  `order` int(10) NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `payment_methods` (`id`, `active`, `default`, `name`, `alias`) VALUES 
-(1, 1, 0, 'In-store Pickup', 'store_pickup'),
-(2, 1, 1, 'Money Order/Check', 'money_order_check'),
-(3, 1, 0, 'Paypal', 'paypal'),
-(4, 1, 0, 'Credit Card', 'credit_card'),
-(5, 1, 0, 'Authorize.Net', 'authorize'),
-(6, 1, 0, 'Google Checkout', 'google_html');
+INSERT INTO `payment_methods` (`id`, `active`, `default`, `name`, `alias`, `order`) VALUES 
+(1, 1, 0, 'In-store Pickup', 'store_pickup', 0),
+(2, 1, 1, 'Money Order/Check', 'money_order_check', 0),
+(3, 1, 0, 'Paypal', 'paypal', 0),
+(4, 1, 0, 'Credit Card', 'credit_card', 0),
+(5, 1, 0, 'Authorize.Net', 'authorize', 0),
+(6, 1, 0, 'Google Checkout', 'google_html', 0);
 
 DROP TABLE IF EXISTS payment_method_values;
 CREATE TABLE `payment_method_values` (
@@ -927,14 +928,15 @@ CREATE TABLE `shipping_methods` (
   `code` varchar(100) collate utf8_unicode_ci NOT NULL,
   `default` tinyint(4) NOT NULL default '0',
   `active` tinyint(4) NOT NULL,
+  `order` int(10) NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `shipping_methods` (`id`, `name`, `code`, `default`, `active`) VALUES 
-(1, 'Free Shipping', 'free_shipping', 0, 1),
-(2, 'Flat Rate', 'flat_rate', 1, 1),
-(3, 'Per Item', 'per_item', 0, 1),
-(4, 'Table Based', 'table_based', 0, 1);
+INSERT INTO `shipping_methods` (`id`, `name`, `code`, `default`, `active`, `order`) VALUES 
+(1, 'Free Shipping', 'free_shipping', 0, 1, 0),
+(2, 'Flat Rate', 'flat_rate', 1, 1, 0),
+(3, 'Per Item', 'per_item', 0, 1, 0),
+(4, 'Table Based', 'table_based', 0, 1, 0);
 
 DROP TABLE IF EXISTS shipping_method_values;
 CREATE TABLE `shipping_method_values` (
