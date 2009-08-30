@@ -26,20 +26,12 @@ echo $form->inputs(array(
     default:
 
 $tax_options = $this->requestAction('/contents/generate_tax_list/');
-$currency_options = $this->requestAction('/contents/generate_currency_list/');
-
 
 	echo $form->inputs(array(
 	   'ContentProduct.price' => array(
    		'label' => __('Price', true),
 		'type' => 'text',
 		'value' => $data['ContentProduct']['price']
-	   ),
-	   'ContentProduct.currency_id' => array(
-   		'label' => __('Currency', true),
-		'type' => 'select',
-		'options' => $currency_options,
-		'selected' => $data['ContentProduct']['currency_id']
 	   ),
 	   'ContentProduct.tax_id' => array(
    		'label' => __('Tax Class', true),
