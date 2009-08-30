@@ -170,6 +170,22 @@ class ContentsController extends AppController {
 	{
 		return $this->Content->ContentProduct->Tax->find('list', array('order' => array('Tax.default DESC')));
 	}
+
+	function generate_currency_list ()
+	{
+
+		App::import('Model', 'Currency');
+		$Currency =& new Currency();
+		$currencies = $Currency->find('all', array('order' => array('Currency.id')));
+		$currencies_list = array();
+		foreach($currencies AS $currency)
+		{
+			$currency_key = $currency['Currency']['id'];
+			$currencies_list[$currency_key] = $currency['Currency']['name'];
+		}
+			
+		return $currencies_list;
+	}
 	
 	/**
 	* Calls the ContentBase component
