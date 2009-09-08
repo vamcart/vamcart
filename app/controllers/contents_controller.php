@@ -19,7 +19,7 @@ class ContentsController extends AppController {
 	* Uploads all images, and saves records to content_images
 	*
 	*/
-	function admin_upload_images ($content_id)
+	function upload_images ($content_id)
 	{
 
 		

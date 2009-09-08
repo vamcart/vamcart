@@ -123,7 +123,7 @@
 			window.onload = function() {
 
 				swfu = new SWFUpload({
-				upload_script : "<?php echo BASE; ?>/contents/admin_upload_images/<?php echo $data['Content']['id']; ?>",
+				upload_script : "<?php echo BASE; ?>/contents/upload_images/<?php echo $data['Content']['id']; ?>",
 				target : "SWFUploadTarget",
 				flash_path : "<?php echo BASE; ?>/themed/vamshop/js/swfupload/swfupload.swf?session_name()=<?php echo session_id(); ?>&"+Math.random(),
 				allowed_filesize : 3072,	// 30 MB
