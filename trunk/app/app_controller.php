@@ -266,6 +266,12 @@ class AppController extends Controller {
 		if(!defined('BASE'))
 			define('BASE', $this->base);
 
+		if(!$this->Session->check('Customer.language_id'))
+			$this->Session->write('Customer.language_id',1);;
+			
+		if(!$this->Session->check('Customer.currency_id'))
+			$this->Session->write('Customer.currency_id',1);;
+
 		if(strstr($_SERVER['REQUEST_URI'],'/install'))
 		{
 			$install = 1;
