@@ -1,4 +1,4 @@
-	<a href="/Product/{$content_alias}.html">{$content_name}</a>
+	<a href="/product/{$content_alias}.html">{$content_name}</a>
 	<br />
 	<hr />
 	<div class="css_form">
