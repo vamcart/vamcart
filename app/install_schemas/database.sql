@@ -36,22 +36,22 @@ CREATE TABLE `contents` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `contents` (`id`, `parent_id`, `order`, `hierarchy`, `content_type_id`, `template_id`, `default`, `alias`, `head_data`, `active`, `show_in_menu`, `created`, `modified`) VALUES 
-(35, 0, 1, 0, 3, 1, 1, 'home-page', '', 1, 1, '2008-07-28 21:11:18', '2008-09-12 12:30:17'),
-(36, 0, 3, 0, 1, 1, 0, 'horns', '', 1, 1, '2008-07-28 21:11:49', '2008-08-01 14:56:05'),
-(38, 36, 2, 0, 2, 1, 0, 'elk-horns', '', 1, 1, '2008-07-29 18:54:37', '2008-09-11 11:20:29'),
-(39, 0, 2, 0, 1, 1, 0, 'hoofs', '', 1, 1, '2008-07-29 22:02:10', '2008-08-01 14:55:54'),
-(44, 0, 4, 0, 3, 1, 0, 'information', '', 1, 0, '2008-07-30 15:34:48', '2008-07-30 15:35:02'),
-(45, 44, 1, 0, 3, 1, 0, 'shipping--returns', '', 1, 1, '2008-07-30 15:36:30', '2008-08-06 14:53:16'),
-(46, 44, 1, 0, 3, 1, 0, 'privacy-policy', '', 1, 1, '2008-07-30 15:36:54', '2008-07-30 15:37:09'),
-(47, 44, 2, 0, 3, 1, 0, 'conditions-of-use', '', 1, 1, '2008-07-30 15:37:33', '2008-07-30 15:37:33'),
-(48, 44, 3, 0, 3, 1, 0, 'contact-us', '', 1, 1, '2008-07-30 15:38:03', '2008-07-30 15:38:03'),
-(49, -1, 5, 0, 3, 1, 0, 'cart-contents', '', 1, 1, '2008-07-30 20:40:14', '2008-08-09 16:23:47'),
-(50, -1, 6, 0, 3, 1, 0, 'checkout', '', 1, 1, '2008-07-30 20:52:36', '2008-08-01 16:54:56'),
-(51, -1, 5, 0, 3, 1, 0, 'payment', '', 1, 1, '2008-08-07 11:16:28', '2008-09-01 16:22:10'),
-(53, -1, 5, 0, 3, 1, 0, 'thank-you', '', 1, 1, '2008-08-07 11:58:21', '2008-08-15 16:00:40'),
-(58, -1, 0, 0, 3, 1, 0, 'read-reviews', '', 1, 0, '2008-08-20 09:37:04', '2008-08-20 09:37:04'),
-(59, -1, 0, 0, 3, 1, 0, 'create-review', '', 1, 0, '2008-08-20 09:37:04', '2008-08-20 09:37:04'),
-(68, -1, 0, 0, 3, 1, 0, 'coupon-details', '', 1, 0, '2008-09-13 11:11:08', '2008-09-13 11:11:08');
+(35, 0, 1, 0, 3, 1, 1, 'home-page', '', 1, 1, '2009-07-28 21:11:18', '2009-09-12 12:30:17'),
+(36, 0, 3, 0, 1, 1, 0, 'horns', '', 1, 1, '2009-07-28 21:11:49', '2009-08-01 14:56:05'),
+(38, 36, 2, 0, 2, 1, 0, 'elk-horns', '', 1, 1, '2009-07-29 18:54:37', '2009-09-11 11:20:29'),
+(39, 0, 2, 0, 1, 1, 0, 'hoofs', '', 1, 1, '2009-07-29 22:02:10', '2009-08-01 14:55:54'),
+(44, 0, 4, 0, 3, 1, 0, 'information', '', 1, 0, '2009-07-30 15:34:48', '2009-07-30 15:35:02'),
+(45, 44, 1, 0, 3, 1, 0, 'shipping--returns', '', 1, 1, '2009-07-30 15:36:30', '2009-08-06 14:53:16'),
+(46, 44, 1, 0, 3, 1, 0, 'privacy-policy', '', 1, 1, '2009-07-30 15:36:54', '2009-07-30 15:37:09'),
+(47, 44, 2, 0, 3, 1, 0, 'conditions-of-use', '', 1, 1, '2009-07-30 15:37:33', '2009-07-30 15:37:33'),
+(48, 44, 3, 0, 3, 1, 0, 'contact-us', '', 1, 1, '2009-07-30 15:38:03', '2009-07-30 15:38:03'),
+(49, -1, 5, 0, 3, 1, 0, 'cart-contents', '', 1, 1, '2009-07-30 20:40:14', '2009-08-09 16:23:47'),
+(50, -1, 6, 0, 3, 1, 0, 'checkout', '', 1, 1, '2009-07-30 20:52:36', '2009-08-01 16:54:56'),
+(51, -1, 5, 0, 3, 1, 0, 'payment', '', 1, 1, '2009-08-07 11:16:28', '2009-09-01 16:22:10'),
+(53, -1, 5, 0, 3, 1, 0, 'thank-you', '', 1, 1, '2009-08-07 11:58:21', '2009-08-15 16:00:40'),
+(58, -1, 0, 0, 3, 1, 0, 'read-reviews', '', 1, 0, '2009-08-20 09:37:04', '2009-08-20 09:37:04'),
+(59, -1, 0, 0, 3, 1, 0, 'create-review', '', 1, 0, '2009-08-20 09:37:04', '2009-08-20 09:37:04'),
+(68, -1, 0, 0, 3, 1, 0, 'coupon-details', '', 1, 0, '2009-09-13 11:11:08', '2009-09-13 11:11:08');
 
 DROP TABLE IF EXISTS content_categories;
 CREATE TABLE `content_categories` (
@@ -529,9 +529,9 @@ CREATE TABLE `currencies` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `currencies` (`id`, `active`, `default`, `name`, `code`, `symbol_left`, `symbol_right`, `decimal_point`, `thousands_point`, `decimal_places`, `value`, `created`, `modified`) VALUES 
-(1, 1, 1, 'US Dollar', 'USD', '$', '', '.', ',', '2', 1, '2008-07-15 11:39:15', '2008-07-15 13:08:23'),
-(2, 1, 0, 'Рубль', 'RUR', '', 'руб.', '.', ',', '0.0312', 1, '2008-07-15 11:39:15', '2008-07-15 13:08:23'),
-(3, 1, 0, 'Euro', 'EUR', '&euro;', '', '.', ',', '2', 0.7811, '2008-07-15 13:09:23', '2008-07-15 13:09:23');
+(1, 1, 1, 'US Dollar', 'USD', '$', '', '.', ',', '2', 1, '2009-07-15 11:39:15', '2009-07-15 13:08:23'),
+(2, 1, 0, 'Рубль', 'RUR', '', 'руб.', '.', ',', '0.0312', 1, '2009-07-15 11:39:15', '2009-07-15 13:08:23'),
+(3, 1, 0, 'Euro', 'EUR', '&euro;', '', '.', ',', '2', 0.7811, '2009-07-15 13:09:23', '2009-07-15 13:09:23');
 
 DROP TABLE IF EXISTS defined_languages;
 CREATE TABLE `defined_languages` (
@@ -545,90 +545,90 @@ CREATE TABLE `defined_languages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `defined_languages` (`id`, `language_id`, `key`, `value`, `created`, `modified`) VALUES 
-(25, 1, 'welcome-message', 'Welcome to the online store yo! 2 ', '2008-07-27 20:35:49', '2008-07-27 20:35:49'),
-(26, 2, 'welcome-message', 'Добро пожаловать!', '2008-07-27 20:35:49', '2008-07-27 20:35:49'),
-(27, 1, 'product', 'Product', '2008-07-31 15:09:46', '2008-07-31 15:09:46'),
-(28, 2, 'product', 'Товар', '2008-07-31 15:09:46', '2008-07-31 15:09:46'),
-(29, 1, 'price-ea', 'Price Ea.', '2008-07-31 15:09:57', '2008-07-31 15:09:57'),
-(30, 2, 'price-ea', 'Цена / шт.', '2008-07-31 15:09:57', '2008-07-31 15:09:57'),
-(31, 1, 'qty', 'Qty.', '2008-07-31 15:10:08', '2008-07-31 15:10:08'),
-(32, 2, 'qty', 'Количество', '2008-07-31 15:10:08', '2008-07-31 15:10:08'),
-(33, 1, 'total', 'Total', '2008-07-31 15:10:18', '2008-07-31 15:10:18'),
-(34, 2, 'total', 'Всего', '2008-07-31 15:10:18', '2008-07-31 15:10:18'),
-(35, 1, 'checkout', 'Checkout', '2008-07-31 15:13:50', '2008-07-31 15:13:50'),
-(36, 2, 'checkout', 'Оформить', '2008-07-31 15:13:50', '2008-07-31 15:13:50'),
-(37, 1, 'shopping-cart', 'Shopping Cart', '2008-07-31 15:13:59', '2008-07-31 15:13:59'),
-(38, 2, 'shopping-cart', 'Корзина', '2008-07-31 15:13:59', '2008-07-31 15:13:59'),
-(39, 1, 'Currency', 'Currency', '2008-07-31 15:50:10', '2008-07-31 15:50:10'),
-(40, 2, 'Currency', 'Валюта', '2008-07-31 15:50:10', '2008-07-31 15:50:10'),
-(41, 1, 'Language', 'Language', '2008-08-01 14:53:11', '2008-08-01 14:53:11'),
-(42, 2, 'Language', 'Язык', '2008-08-01 14:53:11', '2008-08-01 14:53:11'),
-(43, 1, 'no-cart-items', 'There are no items in your cart.', '2008-08-01 15:17:08', '2008-08-01 15:17:08'),
-(44, 2, 'no-cart-items', 'Корзина пуста.', '2008-08-01 15:17:08', '2008-08-01 15:17:08'),
-(45, 1, 'sub-category-list', 'Sub Categories', '2008-08-02 09:32:33', '2008-08-02 09:32:33'),
-(46, 2, 'sub-category-list', 'Подкатегории', '2008-08-02 09:32:33', '2008-08-02 09:32:33'),
-(47, 1, 'sub-product-list', 'Products in this Category', '2008-08-02 09:32:50', '2008-08-02 09:32:50'),
-(48, 2, 'sub-product-list', 'Товары в данной категории', '2008-08-02 09:32:50', '2008-08-02 09:32:50'),
-(49, 1, 'no-sub-categories', 'No child categories.', '2008-08-02 09:36:10', '2008-08-02 09:36:10'),
-(50, 2, 'no-sub-categories', 'Нет подкатегорий.', '2008-08-02 09:36:10', '2008-08-02 09:36:10'),
-(53, 1, 'no-sub-products', 'No Child Products.', '2008-08-02 09:36:38', '2008-08-02 09:36:38'),
-(54, 2, 'no-sub-products', 'Нет товаров.', '2008-08-02 09:36:38', '2008-08-02 09:36:38'),
-(55, 1, 'name', 'Name', '2008-08-02 13:56:04', '2008-08-02 13:56:04'),
-(56, 2, 'name', 'Имя', '2008-08-02 13:56:04', '2008-08-02 13:56:04'),
-(57, 1, 'Billing Information', 'Billing Information', '2008-08-02 13:56:47', '2008-08-02 13:56:47'),
-(58, 2, 'Billing Information', 'Информация о покупателе', '2008-08-02 13:56:47', '2008-08-02 13:56:47'),
-(59, 1, 'address_line_1', 'Address Line 1', '2008-08-02 13:57:04', '2008-08-02 13:57:04'),
-(60, 2, 'address_line_1', 'Адрес', '2008-08-02 13:57:04', '2008-08-02 13:57:04'),
-(61, 1, 'address_line_2', 'Address Line 2', '2008-08-02 13:57:34', '2008-08-02 13:57:34'),
-(62, 2, 'address_line_2', 'Доп. информация', '2008-08-02 13:57:34', '2008-08-02 13:57:34'),
-(65, 1, 'city', 'City', '2008-08-06 17:43:04', '2008-08-06 17:43:04'),
-(66, 2, 'city', 'Город', '2008-08-06 17:43:04', '2008-08-06 17:43:04'),
-(67, 1, 'state', 'State', '2008-08-06 17:43:57', '2008-08-06 17:43:57'),
-(68, 2, 'state', 'Регион', '2008-08-06 17:43:57', '2008-08-06 17:43:57'),
-(71, 1, 'zipcode', 'Zipcode ', '2008-08-06 17:44:17', '2008-08-06 17:44:17'),
-(72, 2, 'zipcode', 'Почтовый индекс', '2008-08-06 17:44:17', '2008-08-06 17:44:17'),
-(73, 1, 'Shipping Information', 'Shipping Information (if different from billing address)', '2008-08-06 17:44:44', '2008-08-06 17:44:44'),
-(74, 2, 'Shipping Information', 'Информация о доставке', '2008-08-06 17:44:44', '2008-08-06 17:44:44'),
-(75, 1, 'continue to payment', 'Continue to Payment', '2008-08-06 17:58:54', '2008-08-06 17:58:54'),
-(76, 2, 'continue to payment', 'Продолжить', '2008-08-06 17:58:54', '2008-08-06 17:58:54'),
-(77, 1, 'Shipping Method', 'Shipping Method', '2008-08-06 18:00:49', '2008-08-06 18:00:49'),
-(78, 2, 'Shipping Method', 'Способы доставки', '2008-08-06 18:00:49', '2008-08-06 18:00:49'),
-(79, 1, 'Payment Method', 'Payment Method', '2008-08-06 18:00:59', '2008-08-06 18:00:59'),
-(80, 2, 'Payment Method', 'Способы оплаты', '2008-08-06 18:00:59', '2008-08-06 18:00:59'),
-(81, 1, 'Confirm Order', 'Confirm Order', '2008-08-07 11:24:48', '2008-08-07 11:24:48'),
-(82, 2, 'Confirm Order', 'Подтвердить заказ', '2008-08-07 11:24:48', '2008-08-07 11:24:48'),
-(83, 1, 'Make payment with money order/check.', 'You are about to make a payment using a money order or check. Please note that this form of payment will take an additional 5-7 days to clear before your order is shipped.', '2008-08-07 11:45:43', '2008-08-07 11:45:43'),
-(84, 2, 'Make payment with money order/check.', 'Доставка будет осуществлена в течение 5-7 дней после оплаты.', '2008-08-07 11:45:44', '2008-08-07 11:45:44'),
-(87, 1, 'Contact Information', 'Contact Information', '2008-08-09 09:24:12', '2008-08-09 09:24:12'),
-(88, 2, 'Contact Information', 'Контактная информация', '2008-08-09 09:24:12', '2008-08-09 09:24:12'),
-(93, 1, 'email', 'Email', '2008-08-10 10:59:57', '2008-08-10 10:59:57'),
-(94, 2, 'email', 'Email', '2008-08-10 10:59:57', '2008-08-10 10:59:57'),
-(95, 1, 'phone', 'Phone', '2008-08-10 11:34:27', '2008-08-10 11:34:27'),
-(96, 2, 'phone', 'Телефон', '2008-08-10 11:34:27', '2008-08-10 11:34:27'),
-(97, 1, 'shipping', 'Shipping', '2008-08-10 13:04:09', '2008-08-10 13:04:09'),
-(98, 2, 'shipping', 'Доставка', '2008-08-10 13:04:09', '2008-08-10 13:04:09'),
-(99, 1, 'cart-contents', 'Cart Contents', '2008-08-10 13:08:48', '2008-08-10 13:08:48'),
-(100, 2, 'cart-contents', 'Содержание корзины', '2008-08-10 13:08:48', '2008-08-10 13:08:48'),
-(103, 1, 'money_order_check-details', 'Your order will ship out after your payment clears.', '2008-08-11 15:34:09', '2008-08-11 15:34:09'),
-(104, 2, 'money_order_check-details', 'Заказ будет выполнен после получения оплаты.', '2008-08-11 15:34:09', '2008-08-11 15:34:09'),
-(105, 1, 'store_pickup-details', 'Enter any in-store pickup details here.  You can find this content in the admin area, Locale -> Defined Language Values -> store-pickup-details', '2008-08-11 15:34:18', '2008-08-11 15:34:18'),
-(106, 2, 'store_pickup-details', 'Укажите свою информацию о получении заказа в Админке -> Локализация -> Языковые строки -> store-pickup-details', '2008-08-11 15:34:18', '2008-08-11 15:34:18'),
-(107, 1, 'paypal-details', 'Checkout with paypal.', '2008-08-11 15:35:57', '2008-08-11 15:35:57'),
-(108, 2, 'paypal-details', 'Оформление через paypal.', '2008-08-11 15:35:57', '2008-08-11 15:35:57'),
-(109, 1, 'credit_card-details', 'Enter your credit card details.', '2008-08-12 16:08:57', '2008-08-12 16:08:57'),
-(110, 2, 'credit_card-details', 'Укажите данные Вашей кредитной карты.', '2008-08-12 16:08:57', '2008-08-12 16:08:57'),
-(111, 1, 'Read Reviews', 'Read Reviews', '2008-08-13 09:28:49', '2008-08-13 09:28:49'),
-(112, 2, 'Read Reviews', 'Читать отзывы', '2008-08-13 09:28:49', '2008-08-13 09:28:49'),
-(113, 1, 'Write a Review', 'Write a Review', '2008-08-13 09:28:49', '2008-08-13 09:28:49'),
-(114, 2, 'Write a Review', 'Добавить отзыв', '2008-08-13 09:28:49', '2008-08-13 09:28:49'),
-(115, 1, 'google_html-details', '<p>Click the button below to be taken to Google Checkout.</p>', '2008-08-13 16:57:39', '2008-08-13 16:57:39'),
-(116, 2, 'google_html-details', '<p>Нажмите кнопку ниже для перехода к оплате.</p>', '2008-08-13 16:57:39', '2008-08-13 16:57:39'),
-(117, 1, 'Main Page', 'Main Page', '2008-08-13 09:28:49', '2008-08-13 09:28:49'),
-(118, 2, 'Main Page', 'Главная', '2008-08-13 09:28:49', '2008-08-13 09:28:49'),
-(119, 1, 'Categories', 'Categories', '2008-08-13 09:28:49', '2008-08-13 09:28:49'),
-(120, 2, 'Categories', 'Разделы', '2008-08-13 09:28:49', '2008-08-13 09:28:49'),
-(121, 1, 'Coupon Code', 'Coupon Code', '2008-08-07 11:24:48', '2008-08-07 11:24:48'),
-(122, 2, 'Coupon Code', 'Код купона', '2008-08-07 11:24:48', '2008-08-07 11:24:48');
+(25, 1, 'welcome-message', 'Welcome to the online store yo! 2 ', '2009-07-27 20:35:49', '2009-07-27 20:35:49'),
+(26, 2, 'welcome-message', 'Добро пожаловать!', '2009-07-27 20:35:49', '2009-07-27 20:35:49'),
+(27, 1, 'product', 'Product', '2009-07-31 15:09:46', '2009-07-31 15:09:46'),
+(28, 2, 'product', 'Товар', '2009-07-31 15:09:46', '2009-07-31 15:09:46'),
+(29, 1, 'price-ea', 'Price Ea.', '2009-07-31 15:09:57', '2009-07-31 15:09:57'),
+(30, 2, 'price-ea', 'Цена / шт.', '2009-07-31 15:09:57', '2009-07-31 15:09:57'),
+(31, 1, 'qty', 'Qty.', '2009-07-31 15:10:08', '2009-07-31 15:10:08'),
+(32, 2, 'qty', 'Количество', '2009-07-31 15:10:08', '2009-07-31 15:10:08'),
+(33, 1, 'total', 'Total', '2009-07-31 15:10:18', '2009-07-31 15:10:18'),
+(34, 2, 'total', 'Всего', '2009-07-31 15:10:18', '2009-07-31 15:10:18'),
+(35, 1, 'checkout', 'Checkout', '2009-07-31 15:13:50', '2009-07-31 15:13:50'),
+(36, 2, 'checkout', 'Оформить', '2009-07-31 15:13:50', '2009-07-31 15:13:50'),
+(37, 1, 'shopping-cart', 'Shopping Cart', '2009-07-31 15:13:59', '2009-07-31 15:13:59'),
+(38, 2, 'shopping-cart', 'Корзина', '2009-07-31 15:13:59', '2009-07-31 15:13:59'),
+(39, 1, 'Currency', 'Currency', '2009-07-31 15:50:10', '2009-07-31 15:50:10'),
+(40, 2, 'Currency', 'Валюта', '2009-07-31 15:50:10', '2009-07-31 15:50:10'),
+(41, 1, 'Language', 'Language', '2009-08-01 14:53:11', '2009-08-01 14:53:11'),
+(42, 2, 'Language', 'Язык', '2009-08-01 14:53:11', '2009-08-01 14:53:11'),
+(43, 1, 'no-cart-items', 'There are no items in your cart.', '2009-08-01 15:17:08', '2009-08-01 15:17:08'),
+(44, 2, 'no-cart-items', 'Корзина пуста.', '2009-08-01 15:17:08', '2009-08-01 15:17:08'),
+(45, 1, 'sub-category-list', 'Sub Categories', '2009-08-02 09:32:33', '2009-08-02 09:32:33'),
+(46, 2, 'sub-category-list', 'Подкатегории', '2009-08-02 09:32:33', '2009-08-02 09:32:33'),
+(47, 1, 'sub-product-list', 'Products in this Category', '2009-08-02 09:32:50', '2009-08-02 09:32:50'),
+(48, 2, 'sub-product-list', 'Товары в данной категории', '2009-08-02 09:32:50', '2009-08-02 09:32:50'),
+(49, 1, 'no-sub-categories', 'No child categories.', '2009-08-02 09:36:10', '2009-08-02 09:36:10'),
+(50, 2, 'no-sub-categories', 'Нет подкатегорий.', '2009-08-02 09:36:10', '2009-08-02 09:36:10'),
+(53, 1, 'no-sub-products', 'No Child Products.', '2009-08-02 09:36:38', '2009-08-02 09:36:38'),
+(54, 2, 'no-sub-products', 'Нет товаров.', '2009-08-02 09:36:38', '2009-08-02 09:36:38'),
+(55, 1, 'name', 'Name', '2009-08-02 13:56:04', '2009-08-02 13:56:04'),
+(56, 2, 'name', 'Имя', '2009-08-02 13:56:04', '2009-08-02 13:56:04'),
+(57, 1, 'Billing Information', 'Billing Information', '2009-08-02 13:56:47', '2009-08-02 13:56:47'),
+(58, 2, 'Billing Information', 'Информация о покупателе', '2009-08-02 13:56:47', '2009-08-02 13:56:47'),
+(59, 1, 'address_line_1', 'Address Line 1', '2009-08-02 13:57:04', '2009-08-02 13:57:04'),
+(60, 2, 'address_line_1', 'Адрес', '2009-08-02 13:57:04', '2009-08-02 13:57:04'),
+(61, 1, 'address_line_2', 'Address Line 2', '2009-08-02 13:57:34', '2009-08-02 13:57:34'),
+(62, 2, 'address_line_2', 'Доп. информация', '2009-08-02 13:57:34', '2009-08-02 13:57:34'),
+(65, 1, 'city', 'City', '2009-08-06 17:43:04', '2009-08-06 17:43:04'),
+(66, 2, 'city', 'Город', '2009-08-06 17:43:04', '2009-08-06 17:43:04'),
+(67, 1, 'state', 'State', '2009-08-06 17:43:57', '2009-08-06 17:43:57'),
+(68, 2, 'state', 'Регион', '2009-08-06 17:43:57', '2009-08-06 17:43:57'),
+(71, 1, 'zipcode', 'Zipcode ', '2009-08-06 17:44:17', '2009-08-06 17:44:17'),
+(72, 2, 'zipcode', 'Почтовый индекс', '2009-08-06 17:44:17', '2009-08-06 17:44:17'),
+(73, 1, 'Shipping Information', 'Shipping Information (if different from billing address)', '2009-08-06 17:44:44', '2009-08-06 17:44:44'),
+(74, 2, 'Shipping Information', 'Информация о доставке', '2009-08-06 17:44:44', '2009-08-06 17:44:44'),
+(75, 1, 'continue to payment', 'Continue to Payment', '2009-08-06 17:58:54', '2009-08-06 17:58:54'),
+(76, 2, 'continue to payment', 'Продолжить', '2009-08-06 17:58:54', '2009-08-06 17:58:54'),
+(77, 1, 'Shipping Method', 'Shipping Method', '2009-08-06 18:00:49', '2009-08-06 18:00:49'),
+(78, 2, 'Shipping Method', 'Способы доставки', '2009-08-06 18:00:49', '2009-08-06 18:00:49'),
+(79, 1, 'Payment Method', 'Payment Method', '2009-08-06 18:00:59', '2009-08-06 18:00:59'),
+(80, 2, 'Payment Method', 'Способы оплаты', '2009-08-06 18:00:59', '2009-08-06 18:00:59'),
+(81, 1, 'Confirm Order', 'Confirm Order', '2009-08-07 11:24:48', '2009-08-07 11:24:48'),
+(82, 2, 'Confirm Order', 'Подтвердить заказ', '2009-08-07 11:24:48', '2009-08-07 11:24:48'),
+(83, 1, 'Make payment with money order/check.', 'You are about to make a payment using a money order or check. Please note that this form of payment will take an additional 5-7 days to clear before your order is shipped.', '2009-08-07 11:45:43', '2009-08-07 11:45:43'),
+(84, 2, 'Make payment with money order/check.', 'Доставка будет осуществлена в течение 5-7 дней после оплаты.', '2009-08-07 11:45:44', '2009-08-07 11:45:44'),
+(87, 1, 'Contact Information', 'Contact Information', '2009-08-09 09:24:12', '2009-08-09 09:24:12'),
+(88, 2, 'Contact Information', 'Контактная информация', '2009-08-09 09:24:12', '2009-08-09 09:24:12'),
+(93, 1, 'email', 'Email', '2009-08-10 10:59:57', '2009-08-10 10:59:57'),
+(94, 2, 'email', 'Email', '2009-08-10 10:59:57', '2009-08-10 10:59:57'),
+(95, 1, 'phone', 'Phone', '2009-08-10 11:34:27', '2009-08-10 11:34:27'),
+(96, 2, 'phone', 'Телефон', '2009-08-10 11:34:27', '2009-08-10 11:34:27'),
+(97, 1, 'shipping', 'Shipping', '2009-08-10 13:04:09', '2009-08-10 13:04:09'),
+(98, 2, 'shipping', 'Доставка', '2009-08-10 13:04:09', '2009-08-10 13:04:09'),
+(99, 1, 'cart-contents', 'Cart Contents', '2009-08-10 13:08:48', '2009-08-10 13:08:48'),
+(100, 2, 'cart-contents', 'Содержание корзины', '2009-08-10 13:08:48', '2009-08-10 13:08:48'),
+(103, 1, 'money_order_check-details', 'Your order will ship out after your payment clears.', '2009-08-11 15:34:09', '2009-08-11 15:34:09'),
+(104, 2, 'money_order_check-details', 'Заказ будет выполнен после получения оплаты.', '2009-08-11 15:34:09', '2009-08-11 15:34:09'),
+(105, 1, 'store_pickup-details', 'Enter any in-store pickup details here.  You can find this content in the admin area, Locale -> Defined Language Values -> store-pickup-details', '2009-08-11 15:34:18', '2009-08-11 15:34:18'),
+(106, 2, 'store_pickup-details', 'Укажите свою информацию о получении заказа в Админке -> Локализация -> Языковые строки -> store-pickup-details', '2009-08-11 15:34:18', '2009-08-11 15:34:18'),
+(107, 1, 'paypal-details', 'Checkout with paypal.', '2009-08-11 15:35:57', '2009-08-11 15:35:57'),
+(108, 2, 'paypal-details', 'Оформление через paypal.', '2009-08-11 15:35:57', '2009-08-11 15:35:57'),
+(109, 1, 'credit_card-details', 'Enter your credit card details.', '2009-08-12 16:08:57', '2009-08-12 16:08:57'),
+(110, 2, 'credit_card-details', 'Укажите данные Вашей кредитной карты.', '2009-08-12 16:08:57', '2009-08-12 16:08:57'),
+(111, 1, 'Read Reviews', 'Read Reviews', '2009-08-13 09:28:49', '2009-08-13 09:28:49'),
+(112, 2, 'Read Reviews', 'Читать отзывы', '2009-08-13 09:28:49', '2009-08-13 09:28:49'),
+(113, 1, 'Write a Review', 'Write a Review', '2009-08-13 09:28:49', '2009-08-13 09:28:49'),
+(114, 2, 'Write a Review', 'Добавить отзыв', '2009-08-13 09:28:49', '2009-08-13 09:28:49'),
+(115, 1, 'google_html-details', '<p>Click the button below to be taken to Google Checkout.</p>', '2009-08-13 16:57:39', '2009-08-13 16:57:39'),
+(116, 2, 'google_html-details', '<p>Нажмите кнопку ниже для перехода к оплате.</p>', '2009-08-13 16:57:39', '2009-08-13 16:57:39'),
+(117, 1, 'Main Page', 'Main Page', '2009-08-13 09:28:49', '2009-08-13 09:28:49'),
+(118, 2, 'Main Page', 'Главная', '2009-08-13 09:28:49', '2009-08-13 09:28:49'),
+(119, 1, 'Categories', 'Categories', '2009-08-13 09:28:49', '2009-08-13 09:28:49'),
+(120, 2, 'Categories', 'Разделы', '2009-08-13 09:28:49', '2009-08-13 09:28:49'),
+(121, 1, 'Coupon Code', 'Coupon Code', '2009-08-07 11:24:48', '2009-08-07 11:24:48'),
+(122, 2, 'Coupon Code', 'Код купона', '2009-08-07 11:24:48', '2009-08-07 11:24:48');
 
 DROP TABLE IF EXISTS events;
 CREATE TABLE `events` (
@@ -667,7 +667,7 @@ CREATE TABLE `event_handlers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `event_handlers` (`id`, `event_id`, `originator`, `action`, `created`, `modified`) VALUES 
-(1, 2, 'CouponsModule', '/module_coupons/event/utilize_coupon/', '2008-09-13 11:11:08', '2008-09-13 11:11:08');
+(1, 2, 'CouponsModule', '/module_coupons/event/utilize_coupon/', '2009-09-13 11:11:08', '2009-09-13 11:11:08');
 
 DROP TABLE IF EXISTS global_content_blocks;
 CREATE TABLE `global_content_blocks` (
@@ -682,7 +682,7 @@ CREATE TABLE `global_content_blocks` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `global_content_blocks` (`id`, `name`, `content`, `alias`, `active`, `created`, `modified`) VALUES 
-(1, 'Footer', '<a href="http://vamshop.ru/" target="blank">VaM Shop</a>', 'footer', 1, '2008-07-17 10:00:06', '2008-09-12 17:05:49');
+(1, 'Footer', '<a href="http://vamshop.ru/" target="blank">VaM Shop</a>', 'footer', 1, '2009-07-17 10:00:06', '2009-09-12 17:05:49');
 
 DROP TABLE IF EXISTS languages;
 CREATE TABLE `languages` (
@@ -712,11 +712,11 @@ CREATE TABLE `micro_templates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `micro_templates` (`id`, `alias`, `template`, `created`, `modified`, `tag_name`) VALUES 
-(1, 'vertical-menu', '<!-- Categories box -->\r\n<div class="box">\r\n<h5>{lang}Categories{/lang}</h5>\r\n<div class="boxContent">\r\n<ul id="CatNavi">\r\n{foreach from=$content_list item=node}\r\n<li{if $node.alias == $content_alias} class="active"{/if}><a href="{$node.url}">{$node.name}</a></li>\r\n{/foreach}\r\n</ul>\r\n</div>\r\n</div>\r\n<!-- /Categories box -->', '2008-07-28 17:08:06', '2009-07-12 18:59:10', 'content_listing'),
-(3, 'information-links', '<ul>\r\n<li{if  $smarty.server.REQUEST_URI == \'/\'} class="current"{/if}><a href="/"><span>{lang}Main Page{/lang}</span></a></li>\r\n{foreach from=$content_list item=node}\r\n<li{if $node.alias == $content_alias} class="current"{/if}><a href="{$node.url}"><span>{$node.name}</span></a></li>\r\n{/foreach}\r\n</ul>', '2008-07-30 15:42:21', '2009-07-12 15:41:54', 'content_listing'),(5, 'shopping-cart', '<div class="cart">\r\n	<table style="width:100%;">\r\n		<tr>	\r\n			<th> </th>\r\n			<th>{lang}product{/lang}</th>\r\n			<th>{lang}price-ea{/lang}</th>\r\n			<th>{lang}qty{/lang}</th>\r\n			<th>{lang}total{/lang}</th>\r\n		</tr>\r\n				\r\n		{foreach from=$order_items item=product}			\r\n			<tr>\r\n				<td><a href="/cart/remove_product/{$product.id}" class="remove">x</a></td>\r\n				<td><a href="{$product.link}">{$product.name}</a></td>\r\n				<td>{$product.price}</td>\r\n				<td>{$product.qty}</td>\r\n				<td>{$product.line_total}</td>\r\n			</tr>				\r\n		{foreachelse}	\r\n			<tr>\r\n				<td colspan="5">{lang}no-cart-items{/lang}</td>\r\n			</tr>\r\n		{/foreach}				\r\n				\r\n		<tr class="cart_total">\r\n			<td colspan="5">{lang}total{/lang} {$order_total}</td>\r\n		</tr>\r\n	</table>\r\n	<a class="checkout" href="{$checkout_link}">{lang}checkout{/lang}</a>\r\n</div>', '2008-07-31 14:56:59', '2008-09-02 22:26:49', 'shopping_cart'),
-(6, 'currency-box', '<!-- Box -->\r\n<div class="box">\r\n<h5>{lang}Currency{/lang}</h5>\r\n<div class="boxContent">\r\n\r\n<form action="/currencies/pick_currency/" method="post">\r\n<select name="currency_picker">\r\n{foreach from=$currencies item=currency}\r\n<option value="{$currency.id}" {if $currency.id == $smarty.session.Customer.currency_id}selected="selected"{/if}>{$currency.name}</option>\r\n{/foreach}\r\n</select>\r\n<input type="submit" value="{lang}Go{/lang}" />\r\n</form>\r\n		\r\n</p>\r\n</div>\r\n</div>\r\n<!-- /Box -->', '2008-08-01 14:42:02', '2009-07-12 18:57:01', 'currency_box'),
-(8, 'cart-content-box', '<!-- Box -->\r\n<div class="box">\r\n<h5><a href="{$cart_link}" class="shopping_cart_link">{lang}shopping-cart{/lang}</a></h5>\r\n<div class="boxContent">\r\n\r\n	<ul class="cart_contents">\r\n		{foreach from=$order_items item=product}\r\n			<li>{$product.qty} x <a href="{$product.url}">{$product.name}</a></li>\r\n		{/foreach}\r\n	</ul>\r\n	<ul class="cart_total">\r\n		<li>{lang}total{/lang}: {$order_total}</li>\r\n	</ul>\r\n	<a class="checkout" href="{$checkout_link}">{lang}checkout{/lang}</a>\r\n		\r\n</p>\r\n</div>\r\n</div>\r\n<!-- /Box -->', '2008-08-09 16:27:09', '2009-07-12 19:24:29', 'shopping_cart'),
-(9, 'payment-view-cart', '<div class="cart">\r\n	<table style="width:100%;">\r\n		<tr>	\r\n			<th> </th>\r\n			<th>{lang}product{/lang}</th>\r\n			<th>{lang}price-ea{/lang}</th>\r\n			<th>{lang}qty{/lang}</th>\r\n			<th>{lang}total{/lang}</th>\r\n		</tr>\r\n				\r\n		{foreach from=$order_items item=product}			\r\n			<tr>\r\n				<td><a href="/cart/remove_product/{$product.id}" class="remove">x</a></td>\r\n				<td><a href="{$product.link}">{$product.name}</a></td>\r\n				<td>{$product.price}</td>\r\n				<td>{$product.qty}</td>\r\n				<td>{$product.line_total}</td>\r\n			</tr>				\r\n		{foreachelse}	\r\n			<tr>\r\n				<td colspan="5">{lang}no-cart-items{/lang}</td>\r\n			</tr>\r\n		{/foreach}				\r\n				\r\n		<tr class="cart_total">\r\n			<td colspan="5">\r\n				{lang}shipping{/lang}: {$shipping_total}<br />\r\n				<strong>{lang}total{/lang}:</strong> {$order_total}\r\n			</td>\r\n		</tr>\r\n	</table>\r\n</div>', '2008-08-10 13:09:25', '2008-09-02 22:25:57', 'shopping_cart'),
+(1, 'vertical-menu', '<!-- Categories box -->\r\n<div class="box">\r\n<h5>{lang}Categories{/lang}</h5>\r\n<div class="boxContent">\r\n<ul id="CatNavi">\r\n{foreach from=$content_list item=node}\r\n<li{if $node.alias == $content_alias} class="active"{/if}><a href="{$node.url}">{$node.name}</a></li>\r\n{/foreach}\r\n</ul>\r\n</div>\r\n</div>\r\n<!-- /Categories box -->', '2009-07-28 17:08:06', '2009-07-12 18:59:10', 'content_listing'),
+(3, 'information-links', '<ul>\r\n<li{if  $smarty.server.REQUEST_URI == \'/\'} class="current"{/if}><a href="/"><span>{lang}Main Page{/lang}</span></a></li>\r\n{foreach from=$content_list item=node}\r\n<li{if $node.alias == $content_alias} class="current"{/if}><a href="{$node.url}"><span>{$node.name}</span></a></li>\r\n{/foreach}\r\n</ul>', '2009-07-30 15:42:21', '2009-07-12 15:41:54', 'content_listing'),(5, 'shopping-cart', '<div class="cart">\r\n	<table style="width:100%;">\r\n		<tr>	\r\n			<th> </th>\r\n			<th>{lang}product{/lang}</th>\r\n			<th>{lang}price-ea{/lang}</th>\r\n			<th>{lang}qty{/lang}</th>\r\n			<th>{lang}total{/lang}</th>\r\n		</tr>\r\n				\r\n		{foreach from=$order_items item=product}			\r\n			<tr>\r\n				<td><a href="/cart/remove_product/{$product.id}" class="remove">x</a></td>\r\n				<td><a href="{$product.link}">{$product.name}</a></td>\r\n				<td>{$product.price}</td>\r\n				<td>{$product.qty}</td>\r\n				<td>{$product.line_total}</td>\r\n			</tr>				\r\n		{foreachelse}	\r\n			<tr>\r\n				<td colspan="5">{lang}no-cart-items{/lang}</td>\r\n			</tr>\r\n		{/foreach}				\r\n				\r\n		<tr class="cart_total">\r\n			<td colspan="5">{lang}total{/lang} {$order_total}</td>\r\n		</tr>\r\n	</table>\r\n	<a class="checkout" href="{$checkout_link}">{lang}checkout{/lang}</a>\r\n</div>', '2009-07-31 14:56:59', '2009-09-02 22:26:49', 'shopping_cart'),
+(6, 'currency-box', '<!-- Box -->\r\n<div class="box">\r\n<h5>{lang}Currency{/lang}</h5>\r\n<div class="boxContent">\r\n\r\n<form action="/currencies/pick_currency/" method="post">\r\n<select name="currency_picker">\r\n{foreach from=$currencies item=currency}\r\n<option value="{$currency.id}" {if $currency.id == $smarty.session.Customer.currency_id}selected="selected"{/if}>{$currency.name}</option>\r\n{/foreach}\r\n</select>\r\n<input type="submit" value="{lang}Go{/lang}" />\r\n</form>\r\n		\r\n</p>\r\n</div>\r\n</div>\r\n<!-- /Box -->', '2009-08-01 14:42:02', '2009-07-12 18:57:01', 'currency_box'),
+(8, 'cart-content-box', '<!-- Box -->\r\n<div class="box">\r\n<h5><a href="{$cart_link}" class="shopping_cart_link">{lang}shopping-cart{/lang}</a></h5>\r\n<div class="boxContent">\r\n\r\n	<ul class="cart_contents">\r\n		{foreach from=$order_items item=product}\r\n			<li>{$product.qty} x <a href="{$product.url}">{$product.name}</a></li>\r\n		{/foreach}\r\n	</ul>\r\n	<ul class="cart_total">\r\n		<li>{lang}total{/lang}: {$order_total}</li>\r\n	</ul>\r\n	<a class="checkout" href="{$checkout_link}">{lang}checkout{/lang}</a>\r\n		\r\n</p>\r\n</div>\r\n</div>\r\n<!-- /Box -->', '2009-08-09 16:27:09', '2009-07-12 19:24:29', 'shopping_cart'),
+(9, 'payment-view-cart', '<div class="cart">\r\n	<table style="width:100%;">\r\n		<tr>	\r\n			<th> </th>\r\n			<th>{lang}product{/lang}</th>\r\n			<th>{lang}price-ea{/lang}</th>\r\n			<th>{lang}qty{/lang}</th>\r\n			<th>{lang}total{/lang}</th>\r\n		</tr>\r\n				\r\n		{foreach from=$order_items item=product}			\r\n			<tr>\r\n				<td><a href="/cart/remove_product/{$product.id}" class="remove">x</a></td>\r\n				<td><a href="{$product.link}">{$product.name}</a></td>\r\n				<td>{$product.price}</td>\r\n				<td>{$product.qty}</td>\r\n				<td>{$product.line_total}</td>\r\n			</tr>				\r\n		{foreachelse}	\r\n			<tr>\r\n				<td colspan="5">{lang}no-cart-items{/lang}</td>\r\n			</tr>\r\n		{/foreach}				\r\n				\r\n		<tr class="cart_total">\r\n			<td colspan="5">\r\n				{lang}shipping{/lang}: {$shipping_total}<br />\r\n				<strong>{lang}total{/lang}:</strong> {$order_total}\r\n			</td>\r\n		</tr>\r\n	</table>\r\n</div>', '2009-08-10 13:09:25', '2009-09-02 22:25:57', 'shopping_cart'),
 (10, 'language-box', '<!-- Box -->\r\n<div class="box">\r\n<h5>{lang}Language{/lang}</h5>\r\n<div class="boxContent">\r\n\r\n{foreach from=$languages item=language}\r\n<a href="{$language.url}"><img src="{$language.image}" alt="{$language.name}" title="{$language.name}"/></a>\r\n{/foreach}\r\n\r\n</div>\r\n</div>\r\n<!-- /Box -->', '2009-07-12 18:52:23', '2009-07-12 18:57:08', 'language_box');
 
 DROP TABLE IF EXISTS modules;
@@ -810,7 +810,7 @@ CREATE TABLE `order_comments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `order_comments` (`id`, `user_id`, `order_id`, `sent_to_customer`, `comment`, `created`, `modified`) VALUES 
-(1, 1, 1, 0, 'asdf', '2008-08-28 11:06:18', '2008-08-28 11:06:18');
+(1, 1, 1, 0, 'asdf', '2009-08-28 11:06:18', '2009-08-28 11:06:18');
 
 DROP TABLE IF EXISTS order_products;
 CREATE TABLE `order_products` (
@@ -969,10 +969,10 @@ CREATE TABLE `stylesheets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `stylesheets` (`id`, `active`, `name`, `alias`, `stylesheet`, `stylesheet_media_type_id`, `created`, `modified`) VALUES 
-(1, 1, 'Default Layout', 'default-home-page-layout', '/* -----------------------------------------------------------------------------------------\r\n   VaM Shop - open source ecommerce solution\r\n   http://vamshop.ru\r\n\r\n   Copyright (c) 2005-2008 VaM Shop \r\n   -----------------------------------------------------------------------------------------\r\n   Released under the GNU General Public License \r\n   ---------------------------------------------------------------------------------------*/\r\n\r\n/*<![CDATA[*/\r\n\r\nhtml,body\r\n   {\r\n     margin: 0;\r\n     padding: 0;\r\n   }\r\n\r\nbody\r\n   {\r\n     font: 76% arial,sans-serif;\r\n   }\r\n\r\nimg\r\n   {\r\n	  border: 0;\r\n   }\r\n\r\nh2, h3\r\n   {\r\n     margin: 0 0 0 0;\r\n     padding: 0 0 0 0;\r\n   }\r\n   \r\n/* Links color */\r\na \r\n   {\r\n     color: #000;\r\n     text-decoration: underline;\r\n   }\r\n\r\na:hover \r\n   {\r\n     color: #990000;\r\n     text-decoration: none;\r\n   }\r\n/* /Links color */\r\n\r\n/* Content */\r\ndiv#wrapper\r\n   {\r\n     float: left;\r\n     width: 100%;\r\n   }\r\n\r\ndiv#content\r\n   {\r\n     margin: 0 19%;\r\n   }\r\n\r\n/* /Content */\r\n\r\n/* Left column */\r\ndiv#left\r\n   {\r\n     float: left;\r\n     width: 18%;\r\n     margin-left: -100%;\r\n     background: #fff;\r\n   }\r\n/* /Left column */\r\n\r\n/* Right column */\r\ndiv#right\r\n   {\r\n     float: left;\r\n     overflow: auto;\r\n     width: 18%;\r\n     margin-left: -18%;\r\n     background: #fff;\r\n   }\r\n/* /Right column */\r\n\r\n/* Footer */\r\ndiv#footer\r\n   {\r\n     clear: left;\r\n     height: 50px;\r\n     width: 100%;\r\n     background: #f1f1f6;\r\n     border-top: 3px solid #67748B;\r\n     text-align: center;\r\n     color: #000;\r\n   }\r\n   \r\ndiv#footer p\r\n   {\r\n     margin: 0;\r\n     padding: 5px 10px;\r\n   }\r\n   \r\n/* /Footer */\r\n\r\n/* Navigation */\r\ndiv#navigation \r\n   {\r\n     padding-top: 0.5em;\r\n     padding-bottom: 0.5em;\r\n     padding-left: 10px;\r\n     border-bottom: 1px solid #000;\r\n     background: #990000;\r\n     color: #ffffff;\r\n   }\r\n\r\n#navigation span \r\n   {\r\n     display: block;\r\n     font: 11px Tahoma, Verdana, Arial, sans-serif;\r\n     font-weight: bold;\r\n     color: #ffffff;\r\n     border-bottom: 2px #990000 solid;\r\n     padding: 0 0 0 20px; \r\n   }\r\n   \r\n#navigation a\r\n   {\r\n     font: 11px Tahoma, Verdana, Arial, sans-serif;\r\n     font-weight: bold;\r\n     color: #ffffff;\r\n     text-decoration: none;\r\n   }\r\n\r\n#navigation a:hover\r\n   {\r\n     font: 11px Tahoma, Verdana, Arial, sans-serif;\r\n     font-weight: bold;\r\n     color: #ffffff;\r\n     text-decoration: none;\r\n   }\r\n\r\n#navigation a:visited\r\n   {\r\n     font: 11px Tahoma, Verdana, Arial, sans-serif;\r\n     font-weight: bold;\r\n     color: #ffffff;\r\n     text-decoration: none;\r\n   }\r\n   \r\n/* /Navigation */\r\n   \r\n/* Page header */\r\n#content h1 \r\n   {\r\n     display: block;\r\n     font: 16px Tahoma, Verdana, Arial, sans-serif;\r\n     font-weight: bold;\r\n     color: #990000;\r\n     border-bottom: 2px #990000 solid;\r\n     padding: 0 0 0 20px; \r\n     margin: 0.2em 0 0.2em 0; \r\n   }\r\n\r\n#content h1 a \r\n   {\r\n     color: #990000;\r\n     text-decoration: none;\r\n   }\r\n/* /Page header */\r\n\r\n/* Page content */\r\n.page \r\n   {\r\n     background: transparent;\r\n     width: 100%;\r\n     margin-top: 0.5em;\r\n     margin-bottom: 0.5em;\r\n   }\r\n\r\n.pageItem \r\n   {\r\n     background: #f1f1f6;\r\n     width: 100%;\r\n   }\r\n\r\n.page h1, .page p \r\n   {\r\n     margin: 0 10px;\r\n   }\r\n\r\n.page h1 \r\n   {\r\n     font-size: 2em;\r\n     color: #fff;\r\n   }\r\n\r\n.page p \r\n   {\r\n     padding-bottom: 0.5em;\r\n     padding-top: 0.5em;\r\n   }\r\n\r\n.page .b1, .page .b2, .page .b3, .page .b4, .page .b1b, .page .b2b, .page .b3b, .page .b4b \r\n   {\r\n     display: block;\r\n     overflow: hidden;\r\n     font-size: 1px;\r\n   }\r\n\r\n.page .b1, .page .b2, .page .b3, .page .b1b, .page .b2b, .page .b3b \r\n   {\r\n     height: 1px;\r\n   }\r\n\r\n.page .b2 \r\n   {\r\n     background: #f1f1f6;\r\n     border-left: 1px solid #fff;\r\n     border-right: 1px solid #f1f1f6;\r\n   }\r\n\r\n.page .b3 \r\n   {\r\n     background: #f1f1f6;\r\n     border-left: 1px solid #fff;\r\n     border-right: 1px solid #f1f1f6;\r\n   }\r\n\r\n.page .b4 \r\n   {\r\n     background: #f1f1f6;\r\n     border-left: 1px solid #fff;\r\n     border-right: 1px solid #f1f1f6;\r\n   }\r\n\r\n.page .b4b \r\n   {\r\n     background: #f1f1f6;\r\n     border-left: 1px solid #f1f1f6;\r\n     border-right: 1px solid #f1f1f6;\r\n   }\r\n\r\n.page .b3b \r\n   {\r\n     background: #f1f1f6;\r\n     border-left: 1px solid #f1f1f6;\r\n     border-right: 1px solid #f1f1f6;\r\n   }\r\n\r\n.page .b2b \r\n   {\r\n     background: #f1f1f6;\r\n     border-left: 1px solid #f1f1f6;\r\n     border-right: 1px solid #f1f1f6;\r\n   }\r\n\r\n.page .b1 \r\n   {\r\n     margin: 0 5px;\r\n     background: #fff;\r\n   }\r\n\r\n.page .b2, .page .b2b \r\n   {\r\n     margin: 0 3px;\r\n     border-width: 0 2px;\r\n   }\r\n\r\n.page .b3, .page .b3b \r\n   {\r\n     margin: 0 2px;\r\n   }\r\n\r\n.page .b4, .page .b4b \r\n   {\r\n     height: 2px;\r\n     margin: 0 1px;\r\n   }\r\n\r\n.page .b1b \r\n   {\r\n     margin: 0 5px;\r\n     background: #f1f1f6;\r\n   }\r\n\r\n.pagecontent \r\n   {\r\n     display: block;\r\n     padding-left: 0.5em;\r\n     padding-right: 0.5em;\r\n     background: #f1f1f6;\r\n   }\r\n\r\n.pagecontentfooter \r\n   {\r\n     display: block;\r\n     text-align: right;\r\n     background:#ffffff;\r\n     margin-top: 0.5em;\r\n     margin-bottom: 0.5em;\r\n   }\r\n/* /Page content */\r\n\r\n/*- Bookmarks */\r\n\r\n#menu \r\n   {\r\n	  background: #fff;\r\n	  border-bottom: 1px solid #000;\r\n	  border-width: 1px;\r\n	  margin-top: 1em;\r\n	  padding-top: .6em;\r\n   }\r\n\r\n#menu ul, #navigation ul li \r\n   {\r\n	  list-style: none;\r\n	  margin: 0;\r\n	  padding: 0;\r\n   }\r\n\r\n#menu ul \r\n   {\r\n	  padding: 5px 0 0px;\r\n	  text-align: center;\r\n   }\r\n\r\n#menu ul li \r\n   {\r\n	  display: inline;\r\n	  margin:0 .375em;\r\n   }\r\n\r\n#menu ul li.last \r\n   {\r\n	  margin-right: 0;\r\n   }\r\n\r\n#menu ul li a \r\n   {\r\n	  background: url("/img/tab-right.png") no-repeat 100% 0;\r\n	  background-color: #67748b;\r\n	  color: #fff;\r\n	  padding: 0px 0 0px;\r\n     font-weight: bold;\r\n	  text-decoration: none;\r\n   }\r\n\r\n#menu ul li.current a \r\n   {\r\n	  background: url("/img/tab-right-active.png") no-repeat 100% 0;\r\n	  background-color: #990000;\r\n	  color: #fff;\r\n	  padding: 0px 0 1px;\r\n     font-weight: bold;\r\n	  text-decoration: none;\r\n   }\r\n\r\n#menu ul li a span \r\n   {\r\n	  background: url("/img/tab-left.png") no-repeat;\r\n	  padding: 0px 1em;\r\n     border-bottom:1px solid #000;\r\n   }\r\n\r\n#menu ul li.current a span \r\n   {\r\n	  background: url("/img/tab-left-active.png") no-repeat;\r\n	  padding: 0px 1em 1px;\r\n     border-bottom:0;\r\n   }\r\n\r\n#menu ul li a:hover span \r\n   {\r\n	  color: #fff;\r\n     font-weight: bold;\r\n	  text-decoration: none;\r\n   }\r\n\r\n/*\\*//*/\r\n#menu ul li a \r\n   {\r\n	  display: inline-block;\r\n	  white-space: nowrap;\r\n	  width: 1px;\r\n   }\r\n\r\n#menu ul \r\n   {\r\n	  padding-bottom: 0;\r\n	  margin-bottom: -1px;\r\n   }\r\n/**/\r\n\r\n/*\\*/\r\n* html #menu ul li a \r\n   {\r\n	  padding: 0;\r\n   }\r\n/**/\r\n\r\n/*- /Bookmarks */\r\n\r\n/*- Boxes */\r\n\r\n/*- Box */\r\n.box\r\n   {\r\n     text-align: left;\r\n     margin-bottom: 0.2em;\r\n     margin-top: 0.2em;\r\n     margin-right: 0.2em;\r\n     padding-top: 0.2em;\r\n     padding-bottom: 0.4em;\r\n  	  border-bottom-width: 1px;\r\n	  border-bottom-style: dashed;\r\n     border-bottom-color: #67748B;\r\n   }\r\n\r\n/*- Box Header */\r\n.box h5 \r\n   {\r\n     display: block;\r\n     font: 12px Tahoma, Verdana, Arial, sans-serif;\r\n     font-weight: bold;\r\n     color: #990000;\r\n     border-bottom: 2px #e5e5e5 solid;\r\n     background: url(/img/box.png) no-repeat left center;\r\n     margin: 0 0 .4em .3em;\r\n     padding: .1em 0 0 16px;\r\n  }\r\n\r\n.box h5 a\r\n   {\r\n     color: #990000;\r\n     text-decoration: none;\r\n   }\r\n/*- /Box Header */\r\n\r\n/*- Box Content */\r\n.boxContent \r\n   {\r\n     padding-left: 0;\r\n     text-align: left;\r\n  }\r\n\r\n#boxContent p \r\n   {\r\n     margin: 0 0 0 0;\r\n     padding-bottom: 0.2em;\r\n  }\r\n\r\n/*- /Box Content */\r\n\r\n/*- /Box */\r\n\r\n/*- /Boxes */\r\n    \r\n/*]]>*/', 0, '2008-07-14 18:44:00', '2009-07-12 18:49:57'),
-(2, 1, 'Default Typography', 'default-typography', '* {\r\n    font-size:12px;\r\n    font-family: Arial, Helvetica, sans-serif;\r\n}\r\na {\r\ntext-decoration:none;\r\n}\r\nh1 a {\r\ncolor:#000000;\r\nfont-size:24px;\r\n}\r\nh2 {\r\nfont-size:16px;\r\n}\r\np {\r\nfont-size:12px;\r\nline-height:15px;\r\nmargin-bottom:20px;\r\n}\r\n#footer a {\r\nfont-size:11px;\r\n}\r\na.remove {\r\nfont-weight:bold;\r\ncolor:FF0000;\r\n}', 0, '2008-07-24 14:15:32', '2008-08-02 13:47:12'),
-(3, 1, 'Default Product Details', 'default-product-details', '#product_details_left {\r\n	float:left;\r\n	width:70%;\r\n}\r\n#product_details_right {\r\n	float:right;\r\n	width:30%;\r\n}\r\n.product_price {\r\n	text-align:center;\r\n	font-weight:bold;\r\n	font-size:16px;\r\n	margin:10px auto;\r\n}\r\n.content_images {\r\n	text-align:center;\r\n	list-style-type:none;\r\n}\r\n.product_quantity {\r\n	width:25px;\r\n	font-weight:bold;\r\n	text-align:center;\r\n}', 0, '2008-07-30 16:28:26', '2008-08-15 15:09:34'),
-(4, 1, 'Default Checkout', 'default-checkout', '/* Element Styling */\r\n.css_form hr,\r\n#checkout hr {\r\n	margin:10px 0;\r\n	display:none;\r\n}\r\n.css_form div,\r\n#checkout div {\r\n	padding:15px;\r\n	background:#E5ECF2;\r\n	margin-bottom:25px;	\r\n}\r\n.css_form div div,\r\n#checkout div div {\r\n	padding:0;\r\n	margin-bottom:10px;\r\n	background-color:transparent;\r\n}\r\n/* End Element Styling */\r\n\r\n\r\n/* Form Styling */\r\n.css_form label,\r\n#checkout label {\r\n	display:block;\r\n	float:left;\r\n	width:150px;\r\n}\r\n.css_form input,\r\n#checkout input,\r\n.css_form textarea,\r\n#checkout textarea {\r\n	width:180px;\r\n}	\r\n#checkout #payment_method label,\r\n#checkout #shipping_method label {\r\n	display:inline;\r\n	float:none;\r\n	width:auto;\r\n}\r\n#checkout #payment_method input,\r\n#checkout #shipping_method input {\r\n	width:auto;\r\n}\r\noption {\r\n	padding:0pt 1em 0pt 4px;\r\n}\r\n/* End Form Styling */', 0, '2008-08-10 11:07:11', '2008-08-13 15:35:53');
+(1, 1, 'Default Layout', 'default-home-page-layout', '/* -----------------------------------------------------------------------------------------\r\n   VaM Shop - open source ecommerce solution\r\n   http://vamshop.ru\r\n\r\n   Copyright (c) 2005-2009 VaM Shop \r\n   -----------------------------------------------------------------------------------------\r\n   Released under the GNU General Public License \r\n   ---------------------------------------------------------------------------------------*/\r\n\r\n/*<![CDATA[*/\r\n\r\nhtml,body\r\n   {\r\n     margin: 0;\r\n     padding: 0;\r\n   }\r\n\r\nbody\r\n   {\r\n     font: 76% arial,sans-serif;\r\n   }\r\n\r\nimg\r\n   {\r\n	  border: 0;\r\n   }\r\n\r\nh2, h3\r\n   {\r\n     margin: 0 0 0 0;\r\n     padding: 0 0 0 0;\r\n   }\r\n   \r\n/* Links color */\r\na \r\n   {\r\n     color: #000;\r\n     text-decoration: underline;\r\n   }\r\n\r\na:hover \r\n   {\r\n     color: #990000;\r\n     text-decoration: none;\r\n   }\r\n/* /Links color */\r\n\r\n/* Content */\r\ndiv#wrapper\r\n   {\r\n     float: left;\r\n     width: 100%;\r\n   }\r\n\r\ndiv#content\r\n   {\r\n     margin: 0 19%;\r\n   }\r\n\r\n/* /Content */\r\n\r\n/* Left column */\r\ndiv#left\r\n   {\r\n     float: left;\r\n     width: 18%;\r\n     margin-left: -100%;\r\n     background: #fff;\r\n   }\r\n/* /Left column */\r\n\r\n/* Right column */\r\ndiv#right\r\n   {\r\n     float: left;\r\n     overflow: auto;\r\n     width: 18%;\r\n     margin-left: -18%;\r\n     background: #fff;\r\n   }\r\n/* /Right column */\r\n\r\n/* Footer */\r\ndiv#footer\r\n   {\r\n     clear: left;\r\n     height: 50px;\r\n     width: 100%;\r\n     background: #f1f1f6;\r\n     border-top: 3px solid #67748B;\r\n     text-align: center;\r\n     color: #000;\r\n   }\r\n   \r\ndiv#footer p\r\n   {\r\n     margin: 0;\r\n     padding: 5px 10px;\r\n   }\r\n   \r\n/* /Footer */\r\n\r\n/* Navigation */\r\ndiv#navigation \r\n   {\r\n     padding-top: 0.5em;\r\n     padding-bottom: 0.5em;\r\n     padding-left: 10px;\r\n     border-bottom: 1px solid #000;\r\n     background: #990000;\r\n     color: #ffffff;\r\n   }\r\n\r\n#navigation span \r\n   {\r\n     display: block;\r\n     font: 11px Tahoma, Verdana, Arial, sans-serif;\r\n     font-weight: bold;\r\n     color: #ffffff;\r\n     border-bottom: 2px #990000 solid;\r\n     padding: 0 0 0 20px; \r\n   }\r\n   \r\n#navigation a\r\n   {\r\n     font: 11px Tahoma, Verdana, Arial, sans-serif;\r\n     font-weight: bold;\r\n     color: #ffffff;\r\n     text-decoration: none;\r\n   }\r\n\r\n#navigation a:hover\r\n   {\r\n     font: 11px Tahoma, Verdana, Arial, sans-serif;\r\n     font-weight: bold;\r\n     color: #ffffff;\r\n     text-decoration: none;\r\n   }\r\n\r\n#navigation a:visited\r\n   {\r\n     font: 11px Tahoma, Verdana, Arial, sans-serif;\r\n     font-weight: bold;\r\n     color: #ffffff;\r\n     text-decoration: none;\r\n   }\r\n   \r\n/* /Navigation */\r\n   \r\n/* Page header */\r\n#content h1 \r\n   {\r\n     display: block;\r\n     font: 16px Tahoma, Verdana, Arial, sans-serif;\r\n     font-weight: bold;\r\n     color: #990000;\r\n     border-bottom: 2px #990000 solid;\r\n     padding: 0 0 0 20px; \r\n     margin: 0.2em 0 0.2em 0; \r\n   }\r\n\r\n#content h1 a \r\n   {\r\n     color: #990000;\r\n     text-decoration: none;\r\n   }\r\n/* /Page header */\r\n\r\n/* Page content */\r\n.page \r\n   {\r\n     background: transparent;\r\n     width: 100%;\r\n     margin-top: 0.5em;\r\n     margin-bottom: 0.5em;\r\n   }\r\n\r\n.pageItem \r\n   {\r\n     background: #f1f1f6;\r\n     width: 100%;\r\n   }\r\n\r\n.page h1, .page p \r\n   {\r\n     margin: 0 10px;\r\n   }\r\n\r\n.page h1 \r\n   {\r\n     font-size: 2em;\r\n     color: #fff;\r\n   }\r\n\r\n.page p \r\n   {\r\n     padding-bottom: 0.5em;\r\n     padding-top: 0.5em;\r\n   }\r\n\r\n.page .b1, .page .b2, .page .b3, .page .b4, .page .b1b, .page .b2b, .page .b3b, .page .b4b \r\n   {\r\n     display: block;\r\n     overflow: hidden;\r\n     font-size: 1px;\r\n   }\r\n\r\n.page .b1, .page .b2, .page .b3, .page .b1b, .page .b2b, .page .b3b \r\n   {\r\n     height: 1px;\r\n   }\r\n\r\n.page .b2 \r\n   {\r\n     background: #f1f1f6;\r\n     border-left: 1px solid #fff;\r\n     border-right: 1px solid #f1f1f6;\r\n   }\r\n\r\n.page .b3 \r\n   {\r\n     background: #f1f1f6;\r\n     border-left: 1px solid #fff;\r\n     border-right: 1px solid #f1f1f6;\r\n   }\r\n\r\n.page .b4 \r\n   {\r\n     background: #f1f1f6;\r\n     border-left: 1px solid #fff;\r\n     border-right: 1px solid #f1f1f6;\r\n   }\r\n\r\n.page .b4b \r\n   {\r\n     background: #f1f1f6;\r\n     border-left: 1px solid #f1f1f6;\r\n     border-right: 1px solid #f1f1f6;\r\n   }\r\n\r\n.page .b3b \r\n   {\r\n     background: #f1f1f6;\r\n     border-left: 1px solid #f1f1f6;\r\n     border-right: 1px solid #f1f1f6;\r\n   }\r\n\r\n.page .b2b \r\n   {\r\n     background: #f1f1f6;\r\n     border-left: 1px solid #f1f1f6;\r\n     border-right: 1px solid #f1f1f6;\r\n   }\r\n\r\n.page .b1 \r\n   {\r\n     margin: 0 5px;\r\n     background: #fff;\r\n   }\r\n\r\n.page .b2, .page .b2b \r\n   {\r\n     margin: 0 3px;\r\n     border-width: 0 2px;\r\n   }\r\n\r\n.page .b3, .page .b3b \r\n   {\r\n     margin: 0 2px;\r\n   }\r\n\r\n.page .b4, .page .b4b \r\n   {\r\n     height: 2px;\r\n     margin: 0 1px;\r\n   }\r\n\r\n.page .b1b \r\n   {\r\n     margin: 0 5px;\r\n     background: #f1f1f6;\r\n   }\r\n\r\n.pagecontent \r\n   {\r\n     display: block;\r\n     padding-left: 0.5em;\r\n     padding-right: 0.5em;\r\n     background: #f1f1f6;\r\n   }\r\n\r\n.pagecontentfooter \r\n   {\r\n     display: block;\r\n     text-align: right;\r\n     background:#ffffff;\r\n     margin-top: 0.5em;\r\n     margin-bottom: 0.5em;\r\n   }\r\n/* /Page content */\r\n\r\n/*- Bookmarks */\r\n\r\n#menu \r\n   {\r\n	  background: #fff;\r\n	  border-bottom: 1px solid #000;\r\n	  border-width: 1px;\r\n	  margin-top: 1em;\r\n	  padding-top: .6em;\r\n   }\r\n\r\n#menu ul, #navigation ul li \r\n   {\r\n	  list-style: none;\r\n	  margin: 0;\r\n	  padding: 0;\r\n   }\r\n\r\n#menu ul \r\n   {\r\n	  padding: 5px 0 0px;\r\n	  text-align: center;\r\n   }\r\n\r\n#menu ul li \r\n   {\r\n	  display: inline;\r\n	  margin:0 .375em;\r\n   }\r\n\r\n#menu ul li.last \r\n   {\r\n	  margin-right: 0;\r\n   }\r\n\r\n#menu ul li a \r\n   {\r\n	  background: url("/img/tab-right.png") no-repeat 100% 0;\r\n	  background-color: #67748b;\r\n	  color: #fff;\r\n	  padding: 0px 0 0px;\r\n     font-weight: bold;\r\n	  text-decoration: none;\r\n   }\r\n\r\n#menu ul li.current a \r\n   {\r\n	  background: url("/img/tab-right-active.png") no-repeat 100% 0;\r\n	  background-color: #990000;\r\n	  color: #fff;\r\n	  padding: 0px 0 1px;\r\n     font-weight: bold;\r\n	  text-decoration: none;\r\n   }\r\n\r\n#menu ul li a span \r\n   {\r\n	  background: url("/img/tab-left.png") no-repeat;\r\n	  padding: 0px 1em;\r\n     border-bottom:1px solid #000;\r\n   }\r\n\r\n#menu ul li.current a span \r\n   {\r\n	  background: url("/img/tab-left-active.png") no-repeat;\r\n	  padding: 0px 1em 1px;\r\n     border-bottom:0;\r\n   }\r\n\r\n#menu ul li a:hover span \r\n   {\r\n	  color: #fff;\r\n     font-weight: bold;\r\n	  text-decoration: none;\r\n   }\r\n\r\n/*\\*//*/\r\n#menu ul li a \r\n   {\r\n	  display: inline-block;\r\n	  white-space: nowrap;\r\n	  width: 1px;\r\n   }\r\n\r\n#menu ul \r\n   {\r\n	  padding-bottom: 0;\r\n	  margin-bottom: -1px;\r\n   }\r\n/**/\r\n\r\n/*\\*/\r\n* html #menu ul li a \r\n   {\r\n	  padding: 0;\r\n   }\r\n/**/\r\n\r\n/*- /Bookmarks */\r\n\r\n/*- Boxes */\r\n\r\n/*- Box */\r\n.box\r\n   {\r\n     text-align: left;\r\n     margin-bottom: 0.2em;\r\n     margin-top: 0.2em;\r\n     margin-right: 0.2em;\r\n     padding-top: 0.2em;\r\n     padding-bottom: 0.4em;\r\n  	  border-bottom-width: 1px;\r\n	  border-bottom-style: dashed;\r\n     border-bottom-color: #67748B;\r\n   }\r\n\r\n/*- Box Header */\r\n.box h5 \r\n   {\r\n     display: block;\r\n     font: 12px Tahoma, Verdana, Arial, sans-serif;\r\n     font-weight: bold;\r\n     color: #990000;\r\n     border-bottom: 2px #e5e5e5 solid;\r\n     background: url(/img/box.png) no-repeat left center;\r\n     margin: 0 0 .4em .3em;\r\n     padding: .1em 0 0 16px;\r\n  }\r\n\r\n.box h5 a\r\n   {\r\n     color: #990000;\r\n     text-decoration: none;\r\n   }\r\n/*- /Box Header */\r\n\r\n/*- Box Content */\r\n.boxContent \r\n   {\r\n     padding-left: 0;\r\n     text-align: left;\r\n  }\r\n\r\n#boxContent p \r\n   {\r\n     margin: 0 0 0 0;\r\n     padding-bottom: 0.2em;\r\n  }\r\n\r\n/*- /Box Content */\r\n\r\n/*- /Box */\r\n\r\n/*- /Boxes */\r\n    \r\n/*]]>*/', 0, '2009-07-14 18:44:00', '2009-07-12 18:49:57'),
+(2, 1, 'Default Typography', 'default-typography', '* {\r\n    font-size:12px;\r\n    font-family: Arial, Helvetica, sans-serif;\r\n}\r\na {\r\ntext-decoration:none;\r\n}\r\nh1 a {\r\ncolor:#000000;\r\nfont-size:24px;\r\n}\r\nh2 {\r\nfont-size:16px;\r\n}\r\np {\r\nfont-size:12px;\r\nline-height:15px;\r\nmargin-bottom:20px;\r\n}\r\n#footer a {\r\nfont-size:11px;\r\n}\r\na.remove {\r\nfont-weight:bold;\r\ncolor:FF0000;\r\n}', 0, '2009-07-24 14:15:32', '2009-08-02 13:47:12'),
+(3, 1, 'Default Product Details', 'default-product-details', '#product_details_left {\r\n	float:left;\r\n	width:70%;\r\n}\r\n#product_details_right {\r\n	float:right;\r\n	width:30%;\r\n}\r\n.product_price {\r\n	text-align:center;\r\n	font-weight:bold;\r\n	font-size:16px;\r\n	margin:10px auto;\r\n}\r\n.content_images {\r\n	text-align:center;\r\n	list-style-type:none;\r\n}\r\n.product_quantity {\r\n	width:25px;\r\n	font-weight:bold;\r\n	text-align:center;\r\n}', 0, '2009-07-30 16:28:26', '2009-08-15 15:09:34'),
+(4, 1, 'Default Checkout', 'default-checkout', '/* Element Styling */\r\n.css_form hr,\r\n#checkout hr {\r\n	margin:10px 0;\r\n	display:none;\r\n}\r\n.css_form div,\r\n#checkout div {\r\n	padding:15px;\r\n	background:#E5ECF2;\r\n	margin-bottom:25px;	\r\n}\r\n.css_form div div,\r\n#checkout div div {\r\n	padding:0;\r\n	margin-bottom:10px;\r\n	background-color:transparent;\r\n}\r\n/* End Element Styling */\r\n\r\n\r\n/* Form Styling */\r\n.css_form label,\r\n#checkout label {\r\n	display:block;\r\n	float:left;\r\n	width:150px;\r\n}\r\n.css_form input,\r\n#checkout input,\r\n.css_form textarea,\r\n#checkout textarea {\r\n	width:180px;\r\n}	\r\n#checkout #payment_method label,\r\n#checkout #shipping_method label {\r\n	display:inline;\r\n	float:none;\r\n	width:auto;\r\n}\r\n#checkout #payment_method input,\r\n#checkout #shipping_method input {\r\n	width:auto;\r\n}\r\noption {\r\n	padding:0pt 1em 0pt 4px;\r\n}\r\n/* End Form Styling */', 0, '2009-08-10 11:07:11', '2009-08-13 15:35:53');
 
 DROP TABLE IF EXISTS stylesheet_media_types;
 CREATE TABLE `stylesheet_media_types` (
@@ -1006,8 +1006,8 @@ CREATE TABLE `taxes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `taxes` (`id`, `default`, `name`, `created`, `modified`) VALUES 
-(1, 1, 'Non-Taxable', '2008-08-03 20:39:02', '2008-08-06 10:03:37'),
-(2, 0, 'United States - VA Sales Tax', '2008-08-05 20:18:46', '2008-08-06 10:03:52');
+(1, 1, 'Non-Taxable', '2009-08-03 20:39:02', '2009-08-06 10:03:37'),
+(2, 0, 'United States - VA Sales Tax', '2009-08-05 20:18:46', '2009-08-06 10:03:52');
 
 DROP TABLE IF EXISTS tax_country_zone_rates;
 CREATE TABLE `tax_country_zone_rates` (
@@ -1035,11 +1035,11 @@ CREATE TABLE `templates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `templates` (`id`, `parent_id`, `template_type_id`, `default`, `name`, `template`, `created`, `modified`) VALUES 
-(1, 0, 0, 1, 'Default Theme', '', '2008-07-26 16:02:41', '2008-09-12 17:46:19'),
-(2, 1, 1, 0, 'Layout', '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\r\n<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">\r\n<head>\r\n<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />\r\n<meta http-equiv="Content-Style-Type" content="text/css" />\r\n<meta name="robots" content="index,follow" />\r\n	{* This tag links all attached stylesheets to the current template *}\r\n	{* You can link more stylesheets to this theme by clicking on the small css icon. *}\r\n	{stylesheet}\r\n\r\n	{* Outputs the global metadata found in Configuration => Store Settings *}\r\n	{metadata}\r\n<title>\r\n	{* site_name: Outputs the site name found in Configuration => Store Settings *}\r\n	{* content_name: Outputs the name of the current content page *}\r\n	{site_name} - {page_name}\r\n</title>\r\n</head>\r\n<body>\r\n\r\n<!-- Container -->\r\n<div id="container">\r\n\r\n\r\n<!-- Header -->\r\n<div id="header">\r\n<a href="/"><img src="/img/logo.png" alt="{site_name}" /></a>\r\n</div>\r\n\r\n<!-- /Header -->\r\n\r\n<div id="menu">\r\n{content_listing template=\'information-links\' parent=\'44\'}\r\n</div>\r\n\r\n<!-- Navigation -->\r\n<div id="navigation">\r\n{admin_area_link}\r\n</div>\r\n\r\n<!-- /Navigation -->\r\n\r\n<!-- Main Content -->\r\n<div id="wrapper">\r\n\r\n<div id="content">\r\n\r\n{admin_edit_link}\r\n<h2>{page_name}</h2>\r\n{content}\r\n{admin_edit_link}\r\n\r\n</div>\r\n\r\n</div>\r\n\r\n<!-- /Main Content -->\r\n\r\n<!-- Left Column -->\r\n<div id="left">\r\n\r\n\r\n{content_listing template=\'vertical-menu\' parent=\'0\' type=\'product,category\'}\r\n\r\n</div>\r\n\r\n<!-- /Left Column -->\r\n\r\n<!-- Right Column -->\r\n<div id="right">\r\n\r\n\r\n{shopping_cart template=\'cart-content-box\'}\r\n{language_box template=\'language-box\'}\r\n{currency_box template=\'currency-box\'}\r\n\r\n</div>\r\n\r\n<!-- /Right Column -->\r\n\r\n<!-- Footer -->\r\n<div id="footer">\r\n<p>{global_content alias=\'footer\'}</p>\r\n</div>\r\n\r\n<!-- /Footer -->\r\n\r\n</div>\r\n<!-- /Container -->\r\n\r\n</body>\r\n</html>', '2008-07-26 16:02:41', '2009-07-12 18:50:45'),
-(3, 1, 2, 0, 'Content Page', '{description}\r\n', '2008-07-26 16:02:41', '2008-07-29 21:37:54'),
-(4, 1, 3, 0, 'Product Info', '<div id="product_details_left">\r\n	{description}\r\n</div>\r\n<div id="product_details_right">\r\n	<div class="product_images">{content_images number=''1''}</div>\r\n	{product_form}\r\n		<div class="product_price">{product_quantity} @ {product_price}</div>\r\n		<div class="add_to_cart">{purchase_button id=$content_id}</div>\r\n	{/product_form}\r\n	{module alias=''reviews'' action=''link''}\r\n</div>\r\n<div style="clear:both;"></div>', '2008-07-26 16:02:41', '2008-08-20 09:29:00'),
-(5, 1, 4, 0, 'Category Info', '{description}\r\n\r\n{if $sub_count.categories > 0}\r\n	<h3>{lang}sub-category-list{/lang}</h3>\r\n	<div class="content_listing">\r\n		{content_listing  parent=$content_id type=''category''}\r\n	</div>\r\n{/if}\r\n\r\n{if $sub_count.products > 0}\r\n	<h3>{lang}sub-product-list{/lang}</h3>\r\n	<div class="content_listing">\r\n		{content_listing parent=$content_id type=''product''}\r\n	</div>\r\n{/if}', '2008-07-26 16:02:41', '2008-08-30 14:49:18');
+(1, 0, 0, 1, 'Default Theme', '', '2009-07-26 16:02:41', '2009-09-12 17:46:19'),
+(2, 1, 1, 0, 'Layout', '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\r\n<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">\r\n<head>\r\n<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />\r\n<meta http-equiv="Content-Style-Type" content="text/css" />\r\n<meta name="robots" content="index,follow" />\r\n	{* This tag links all attached stylesheets to the current template *}\r\n	{* You can link more stylesheets to this theme by clicking on the small css icon. *}\r\n	{stylesheet}\r\n\r\n	{* Outputs the global metadata found in Configuration => Store Settings *}\r\n	{metadata}\r\n<title>\r\n	{* site_name: Outputs the site name found in Configuration => Store Settings *}\r\n	{* content_name: Outputs the name of the current content page *}\r\n	{site_name} - {page_name}\r\n</title>\r\n</head>\r\n<body>\r\n\r\n<!-- Container -->\r\n<div id="container">\r\n\r\n\r\n<!-- Header -->\r\n<div id="header">\r\n<a href="/"><img src="/img/logo.png" alt="{site_name}" /></a>\r\n</div>\r\n\r\n<!-- /Header -->\r\n\r\n<div id="menu">\r\n{content_listing template=\'information-links\' parent=\'44\'}\r\n</div>\r\n\r\n<!-- Navigation -->\r\n<div id="navigation">\r\n{admin_area_link}\r\n</div>\r\n\r\n<!-- /Navigation -->\r\n\r\n<!-- Main Content -->\r\n<div id="wrapper">\r\n\r\n<div id="content">\r\n\r\n{admin_edit_link}\r\n<h2>{page_name}</h2>\r\n{content}\r\n{admin_edit_link}\r\n\r\n</div>\r\n\r\n</div>\r\n\r\n<!-- /Main Content -->\r\n\r\n<!-- Left Column -->\r\n<div id="left">\r\n\r\n\r\n{content_listing template=\'vertical-menu\' parent=\'0\' type=\'product,category\'}\r\n\r\n</div>\r\n\r\n<!-- /Left Column -->\r\n\r\n<!-- Right Column -->\r\n<div id="right">\r\n\r\n\r\n{shopping_cart template=\'cart-content-box\'}\r\n{language_box template=\'language-box\'}\r\n{currency_box template=\'currency-box\'}\r\n\r\n</div>\r\n\r\n<!-- /Right Column -->\r\n\r\n<!-- Footer -->\r\n<div id="footer">\r\n<p>{global_content alias=\'footer\'}</p>\r\n</div>\r\n\r\n<!-- /Footer -->\r\n\r\n</div>\r\n<!-- /Container -->\r\n\r\n</body>\r\n</html>', '2009-07-26 16:02:41', '2009-07-12 18:50:45'),
+(3, 1, 2, 0, 'Content Page', '{description}\r\n', '2009-07-26 16:02:41', '2009-07-29 21:37:54'),
+(4, 1, 3, 0, 'Product Info', '<div id="product_details_left">\r\n	{description}\r\n</div>\r\n<div id="product_details_right">\r\n	<div class="product_images">{content_images number=''1''}</div>\r\n	{product_form}\r\n		<div class="product_price">{product_quantity} @ {product_price}</div>\r\n		<div class="add_to_cart">{purchase_button id=$content_id}</div>\r\n	{/product_form}\r\n	{module alias=''reviews'' action=''link''}\r\n</div>\r\n<div style="clear:both;"></div>', '2009-07-26 16:02:41', '2009-08-20 09:29:00'),
+(5, 1, 4, 0, 'Category Info', '{description}\r\n\r\n{if $sub_count.categories > 0}\r\n	<h3>{lang}sub-category-list{/lang}</h3>\r\n	<div class="content_listing">\r\n		{content_listing  parent=$content_id type=''category''}\r\n	</div>\r\n{/if}\r\n\r\n{if $sub_count.products > 0}\r\n	<h3>{lang}sub-product-list{/lang}</h3>\r\n	<div class="content_listing">\r\n		{content_listing parent=$content_id type=''product''}\r\n	</div>\r\n{/if}', '2009-07-26 16:02:41', '2009-08-30 14:49:18');
 
 DROP TABLE IF EXISTS templates_stylesheets;
 CREATE TABLE `templates_stylesheets` (
@@ -1080,7 +1080,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `created`, `modified`) VALUES 
-(1, 'admin', 'vam@test.com', '5f4dcc3b5aa765d61d8327deb882cf99', '0000-00-00 00:00:00', '2008-07-23 15:34:53');
+(1, 'admin', 'vam@test.com', '5f4dcc3b5aa765d61d8327deb882cf99', '0000-00-00 00:00:00', '2009-07-23 15:34:53');
 
 DROP TABLE IF EXISTS user_prefs;
 CREATE TABLE `user_prefs` (
@@ -1106,4 +1106,4 @@ CREATE TABLE `user_tags` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `user_tags` (`id`, `name`, `alias`, `content`, `created`, `modified`) VALUES 
-(1, 'User Agent', 'user-agent', 'echo $_SERVER[''HTTP_USER_AGENT''];', '2008-07-25 09:50:24', '2008-07-27 18:08:55');
+(1, 'User Agent', 'user-agent', 'echo $_SERVER[''HTTP_USER_AGENT''];', '2009-07-25 09:50:24', '2009-07-27 18:08:55');
