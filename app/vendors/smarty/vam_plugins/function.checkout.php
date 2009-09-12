@@ -198,7 +198,7 @@ function smarty_function_checkout($params, &$smarty)
 		'ship_methods' => $keyed_ship_methods,
 		'payment_methods' => $keyed_payment_methods,
 		'order' => $order['Order'],
-		'checkout_form_action' => BASE . '/Page/payment.html'
+		'checkout_form_action' => BASE . '/page/payment.html'
 	);
 	
 	$display_template = $Smarty->load_template($params,'checkout');
