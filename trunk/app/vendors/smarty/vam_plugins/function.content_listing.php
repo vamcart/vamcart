@@ -28,7 +28,7 @@ $template = '<div>
 	/></a></div>
 	<div><a href="{$node.url}">{$node.name}</a></div></li>
 {foreachelse}
-	<li class="no_items">{lang}no-sub-items{/lang}</li>
+	<li class="no_items">{lang}No Items Found{/lang}</li>
 {/foreach}
 </ul>
 <div class="clearb"></div>

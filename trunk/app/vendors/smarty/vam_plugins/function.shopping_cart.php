@@ -18,10 +18,10 @@ $template = '
 	<table style="width:100%;">
 		<tr>	
 			<th> </th>
-			<th>{lang}product{/lang}</th>
-			<th>{lang}price-ea{/lang}</th>
-			<th>{lang}qty{/lang}</th>
-			<th>{lang}total{/lang}</th>
+			<th>{lang}Product{/lang}</th>
+			<th>{lang}Price Ea.{/lang}</th>
+			<th>{lang}Qty{/lang}</th>
+			<th>{lang}Total{/lang}</th>
 		</tr>
 				
 		{foreach from=$order_items item=product}			
@@ -34,18 +34,18 @@ $template = '
 			</tr>				
 		{foreachelse}	
 			<tr>
-				<td colspan="5">{lang}no-cart-items{/lang}</td>
+				<td colspan="5">{lang}No Cart Items{/lang}</td>
 			</tr>
 		{/foreach}				
 				
 		<tr class="cart_total">
 			<td colspan="5">
-				{lang}shipping{/lang}: {$shipping_total}<br />
-				<strong>{lang}total{/lang}:</strong> {$order_total}
+				{lang}Shipping{/lang}: {$shipping_total}<br />
+				<strong>{lang}Total{/lang}:</strong> {$order_total}
 			</td>
 		</tr>
 	</table>
-	<a class="checkout" href="{$checkout_link}">{lang}checkout{/lang}</a>
+	<a class="checkout" href="{$checkout_link}">{lang}Checkout{/lang}</a>
 </div>
 ';		
 
