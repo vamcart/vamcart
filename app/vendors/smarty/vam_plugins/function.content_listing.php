@@ -131,7 +131,7 @@ function smarty_function_content_listing($params, &$smarty)
 			else
 				$content_list[$count]['image'] = BASE . '/images/thumb?src=/' . $image_url . '&w=' . $config['THUMBNAIL_SIZE'];
 			
-			if($raw_data['ContentType']['name'] == 'Link')
+			if($raw_data['ContentType']['name'] == 'link')
 			{
 				$content_list[$count]['url'] = $raw_data['ContentLink']['url'];
 			}
