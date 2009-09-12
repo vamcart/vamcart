@@ -92,11 +92,11 @@ function smarty_function_shopping_cart($params, &$smarty)
 
 	}	
 	
-	$assignments = array('checkout_link' => BASE . '/Page/checkout' . $config['URL_EXTENSION'],
+	$assignments = array('checkout_link' => BASE . '/page/checkout' . $config['URL_EXTENSION'],
 						 'order_total' => $CurrencyBase->display_price($order['Order']['total']),
 						 'shipping_total' => $CurrencyBase->display_price($order['Order']['shipping']),
 						 'order_items' => $order_items,
-						 'cart_link' => BASE . '/Page/cart-contents' . $config['URL_EXTENSION']
+						 'cart_link' => BASE . '/page/cart-contents' . $config['URL_EXTENSION']
 						 );								 
 
 	$display_template = $Smarty->load_template($params,'shopping_cart');

@@ -42,7 +42,7 @@
 
 	Router::connect('/Product/:content_alias', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/Category/:content_alias', array('controller' => 'pages', 'action' => 'index'));	
-	Router::connect('/Page/:content_alias', array('controller' => 'pages', 'action' => 'index'));	
+	Router::connect('/page/:content_alias', array('controller' => 'pages', 'action' => 'index'));	
 	Router::connect('/Selflink/:content_alias', array('controller' => 'pages', 'action' => 'content_selflink'));			
 	
 	Router::connect('/tests', array('controller' => 'tests', 'action' => 'index'));

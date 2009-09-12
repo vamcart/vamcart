@@ -40,7 +40,7 @@ class OrdersController extends AppController {
 		$this->EventBase->ProcessEvent('PlaceOrderAfterSave');
 		
 		// Get the configuration values to redirect
-		$this->redirect('/Page/thank-you' . $config['URL_EXTENSION']);
+		$this->redirect('/page/thank-you' . $config['URL_EXTENSION']);
 	}
 	
 	function admin_delete ($id)
