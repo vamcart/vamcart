@@ -83,11 +83,11 @@ function smarty_function_shopping_cart($params, &$smarty)
 	{
 		$content_id = $cart_item['content_id'];
 		$order_items[$content_id] = array('id' => $cart_item['content_id'],
-										  'link' => BASE . '/Product/' . $content_id . $config['URL_EXTENSION'],
+										  'link' => BASE . '/product/' . $content_id . $config['URL_EXTENSION'],
 										  'name' => $cart_item['name'],
 										  'price' => $CurrencyBase->display_price($cart_item['price']),
 										  'qty' => $cart_item['quantity'],
-										  'url' => BASE . '/Product/' . $cart_item['content_id'] . $config['URL_EXTENSION'],										  
+										  'url' => BASE . '/product/' . $cart_item['content_id'] . $config['URL_EXTENSION'],										  
 										  'line_total' => $CurrencyBase->display_price($cart_item['quantity']*$cart_item['price']));
 
 	}	

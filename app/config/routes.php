@@ -40,7 +40,7 @@
 	Router::connect('/', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/pages/*', array('controller' => 'pages'));
 
-	Router::connect('/Product/:content_alias', array('controller' => 'pages', 'action' => 'index'));
+	Router::connect('/product/:content_alias', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/Category/:content_alias', array('controller' => 'pages', 'action' => 'index'));	
 	Router::connect('/page/:content_alias', array('controller' => 'pages', 'action' => 'index'));	
 	Router::connect('/Selflink/:content_alias', array('controller' => 'pages', 'action' => 'content_selflink'));			

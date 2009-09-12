@@ -57,7 +57,7 @@ class CartController extends AppController {
 		global $config;
 		$content = $this->Content->read(null,$_POST['product_id']);
 		
-		$this->redirect('/Product/' . $content['Content']['alias'] . $config['URL_EXTENSION']);
+		$this->redirect('/product/' . $content['Content']['alias'] . $config['URL_EXTENSION']);
 	}
 	
 
