@@ -17,9 +17,9 @@ class ActionController extends ModuleReviewsAppController {
 	
 	function link ()
 	{
-		global $content;
-		$assignments = array('review_display_link' => '/page/read-reviews.html?content_id=' . $content['Content']['id'],
-							 'review_create_link' => '/page/create-review.html?content_id=' . $content['Content']['id']);
+		global $content, $config;
+		$assignments = array('review_display_link' => '/page/read-reviews'.$config['URL_EXTENSION'].'?content_id=' . $content['Content']['id'],
+							 'review_create_link' => '/page/create-review'.$config['URL_EXTENSION'].'?content_id=' . $content['Content']['id']);
 		return $assignments;
 	}
 	
@@ -39,7 +39,9 @@ class ActionController extends ModuleReviewsAppController {
 			
 			$this->ModuleReview->save($new_review);
 			
-			$this->redirect('/page/read-reviews.html?content_id=' . $_POST['content_id']);
+			global $config;
+			
+			$this->redirect('/page/read-reviews'.$config['URL_EXTENSION'].'?content_id=' . $_POST['content_id']);
 		}
 		else
 		{
