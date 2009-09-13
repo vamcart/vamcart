@@ -194,11 +194,14 @@ function smarty_function_checkout($params, &$smarty)
 	$Order->unbindAll();
 	$order = $Order->find(array('Order.id' => $_SESSION['Customer']['order_id']));
 		
+
+	global $config;
+
 	$assignments = array(
 		'ship_methods' => $keyed_ship_methods,
 		'payment_methods' => $keyed_payment_methods,
 		'order' => $order['Order'],
-		'checkout_form_action' => BASE . '/page/payment.html'
+		'checkout_form_action' => BASE . '/page/payment' . $config['URL_EXTENSION']
 	);
 	
 	$display_template = $Smarty->load_template($params,'checkout');
