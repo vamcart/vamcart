@@ -862,16 +862,17 @@ CREATE TABLE `payment_methods` (
   `name` varchar(100) collate utf8_unicode_ci NOT NULL,
   `alias` varchar(100) collate utf8_unicode_ci NOT NULL,
   `order` int(10) NOT NULL,
+  `order_status_id` int(10) NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `payment_methods` (`id`, `active`, `default`, `name`, `alias`, `order`) VALUES 
-(1, 1, 0, 'In-store Pickup', 'store_pickup', 0),
-(2, 1, 1, 'Money Order/Check', 'money_order_check', 0),
-(3, 1, 0, 'Paypal', 'paypal', 0),
-(4, 1, 0, 'Credit Card', 'credit_card', 0),
-(5, 1, 0, 'Authorize.Net', 'authorize', 0),
-(6, 1, 0, 'Google Checkout', 'google_html', 0);
+INSERT INTO `payment_methods` (`id`, `active`, `default`, `name`, `alias`, `order`, `order_status_id`) VALUES 
+(1, 1, 0, 'In-store Pickup', 'store_pickup', 0, 0),
+(2, 1, 1, 'Money Order/Check', 'money_order_check', 0, 0),
+(3, 1, 0, 'Paypal', 'paypal', 0, 0),
+(4, 1, 0, 'Credit Card', 'credit_card', 0, 0),
+(5, 1, 0, 'Authorize.Net', 'authorize', 0, 0),
+(6, 1, 0, 'Google Checkout', 'google_html', 0, 0);
 
 DROP TABLE IF EXISTS payment_method_values;
 CREATE TABLE `payment_method_values` (
