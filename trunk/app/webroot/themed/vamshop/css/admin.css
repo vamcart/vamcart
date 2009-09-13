@@ -814,14 +814,14 @@ div.submit
 	
 div.addContent
 	{
-	   width: 20%;
+		width: 20%;
 		float: left;
 		margin: .5em 0 0 0;
 	}
 
 div.multiAction
 	{
-	   width: 80%;
+		width: 80%;
 		float: left;
 		text-align: right;
 		margin: .5em 0 0 0;
