@@ -1503,6 +1503,19 @@ msgstr "Позволяет пользователю выбирать язык."
 msgid "Overrides the default template for the language_box plugin."
 msgstr "Перезаписывает шаблон по умолчанию для микро шаблона language_box."
 
+#: /vendors/smarty/vam_plugins/function.meta_description.php:30
+msgid "Displays the current meta description."
+msgstr "Показывает meta description для текущего содержания."
+
+#: /vendors/smarty/vam_plugins/function.meta_description.php:42
+#: /vendors/smarty/vam_plugins/function.meta_keywords.php:42
+msgid "Author: Alexandr Menovchicov &lt;vam@kypi.ru&gt;"
+msgstr "Автор: Александр Меновщиков &lt;vam@kypi.ru&gt;"
+
+#: /vendors/smarty/vam_plugins/function.meta_keywords.php:30
+msgid "Displays the current meta keywords."
+msgstr "Показывает meta keywords для текущего содержания."
+
 #: /vendors/smarty/vam_plugins/function.metadata.php:36
 msgid "Displays the metadata for this content. Edit the metadata under the options tab."
 msgstr "Показывает мета данные для текущего содержания. Мета данные указываются в админке."
