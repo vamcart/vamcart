@@ -94,6 +94,22 @@
 						'value' => $data['ContentDescription'][$language_key]['description']
 	            	  )));
 		echo '</div>';						  
+
+		echo $form->inputs(array('ContentDescription]['.$language['Language']['id'].'][meta_title.' . $language['Language']['id'] => array(
+				   		'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . sprintf(__('Meta Title (%s) ', true),__($language['Language']['name'], true)),
+						'value' => $data['ContentDescription'][$language_key]['meta_title']
+	            	  )));																								
+
+		echo $form->inputs(array('ContentDescription]['.$language['Language']['id'].'][meta_description.' . $language['Language']['id'] => array(
+				   		'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . sprintf(__('Meta Description (%s) ', true),__($language['Language']['name'], true)),
+						'value' => $data['ContentDescription'][$language_key]['meta_description']
+	            	  )));																								
+
+		echo $form->inputs(array('ContentDescription]['.$language['Language']['id'].'][meta_keywords.' . $language['Language']['id'] => array(
+				   		'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . sprintf(__('Meta Keywords (%s) ', true),__($language['Language']['name'], true)),
+						'value' => $data['ContentDescription'][$language_key]['meta_keywords']
+	            	  )));																								
+
 	}
 		
 		
