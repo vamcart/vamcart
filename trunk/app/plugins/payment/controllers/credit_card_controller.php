@@ -70,6 +70,11 @@ class CreditCardController extends PaymentAppController {
 		</form>';
 		return $content;	
 	}
+
+	function after_process()
+	{
+	}
+
 }
 
 ?>

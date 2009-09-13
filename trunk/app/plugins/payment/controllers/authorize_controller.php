@@ -77,6 +77,10 @@ class AuthorizeController extends PaymentAppController {
 		return $content;		
 		
 	}
+
+	function after_process()
+	{
+	}
 	
 }
 ?>
