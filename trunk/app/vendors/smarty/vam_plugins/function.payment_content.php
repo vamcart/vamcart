@@ -25,7 +25,7 @@ function smarty_function_payment_content($params, &$smarty)
 	App::import('Component', 'Smarty');
 		$Smarty =& new SmartyComponent();
 
-	$payment_content = $Smarty->requestAction( '/payment/' . $params['alias'] . '/before_process/', array('return'=>true));	
+	$payment_content = $Smarty->requestAction( '/payment/' . $params['alias'] . '/before_process/');	
 
 	$Smarty->display($payment_content);
 	
