@@ -25,6 +25,12 @@
 	               'PaymentMethod.order' => array(
 				   		'label' => __('Sort Order', true),
    						'value' => $data['PaymentMethod']['order']
+	               ),				     				   	   																									
+	               'PaymentMethod.order_status_id' => array(
+							'type' => 'select',
+							'label' => __('Order Status', true),
+							'options' => $order_status_list,
+							'selected' => $current_order_status
 	               )				     				   	   																									
 			));
 	
