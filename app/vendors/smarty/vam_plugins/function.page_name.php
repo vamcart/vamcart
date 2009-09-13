@@ -15,7 +15,11 @@ function smarty_function_page_name($params, &$smarty)
 {
 	global $content;
 	
+	if ($content['ContentDescription']['meta_title']) { 
+	$result = $content['ContentDescription']['meta_title'];
+	} else {
 	$result = $content['ContentDescription']['name'];
+	}
 
 	return $result;
 }
