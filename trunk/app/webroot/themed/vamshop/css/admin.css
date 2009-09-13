@@ -358,6 +358,7 @@ div.input label
 
 div.input input 
 	{
+		width: 300px; 
 		border: 1px solid; 
 		border-color: #666 #ccc #ccc #666; 
 		padding: .3em; 
