@@ -372,8 +372,8 @@ div.input select
 div.input textarea 
 	{
 		overflow: auto; 
-		width: 800px; 
-		height: 28em; 
+		width: 700px; 
+		height: 25em; 
 		border: 1px solid; 
 		border-color: #666 #ccc #ccc #666; 
 		padding: .3em; 
