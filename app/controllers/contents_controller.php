@@ -308,6 +308,9 @@ class ContentsController extends AppController {
 				$new_description['ContentDescription']['language_id'] = $id;
 				$new_description['ContentDescription']['name'] = $value['name'][$id];
 				$new_description['ContentDescription']['description'] = $value['description'][$id];				
+				$new_description['ContentDescription']['meta_title'] = $value['meta_title'][$id];				
+				$new_description['ContentDescription']['meta_description'] = $value['meta_description'][$id];				
+				$new_description['ContentDescription']['meta_keywords'] = $value['meta_keywords'][$id];				
 
 				$this->Content->ContentDescription->create();
 				$this->Content->ContentDescription->save($new_description);
