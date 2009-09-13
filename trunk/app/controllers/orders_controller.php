@@ -33,6 +33,9 @@ class OrdersController extends AppController {
 		$default_status = $this->Order->OrderStatus->find(array('default' => '1'));
 		$order['Order']['order_status_id'] = $default_status['OrderStatus']['id'];
 
+		// Load the after_process function from the payment modules
+		$this->requestAction( '/payment/'.$order['PaymentMethod']['alias'].'/after_process/');
+
 		// Save the order and empty the cart
 		$this->Order->save($order);
 		$_SESSION['Customer']['order_id'] = null;
