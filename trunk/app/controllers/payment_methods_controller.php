@@ -28,6 +28,27 @@ class PaymentMethodsController extends AppController {
 	function admin_edit ($id)
 	{
 		$this->set('current_crumb', __('Edit Payment Method', true));
+
+		// Load Order Statuses
+		App::import('Model', 'OrderStatusDescription');
+		$OrderStatusDescription =& new OrderStatusDescription();
+
+		$statutes = $OrderStatusDescription->find('all', array('order' => array('OrderStatusDescription.id ASC'), 'conditions'   => 'language_id = ' . $this->Session->read('Customer.language_id')));
+		$statutes_list = array();
+
+		foreach($statutes AS $status)
+		{
+			$status_key = $status['OrderStatusDescription']['order_status_id'];
+			$statutes_list[$status_key] = $status['OrderStatusDescription']['name'];
+		}
+
+		$this->set('order_status_list',$statutes_list);
+
+		// Get Current Order Statuses
+		$order_status_id = $this->PaymentMethod->findById($id);
+
+		$this->set('current_order_status', $order_status_id['PaymentMethod']['order_status_id']);	
+
 		if(empty($this->data))
 		{
 			$this->set('data',$this->PaymentMethod->read(null,$id));
