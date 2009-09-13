@@ -87,6 +87,11 @@ class GoogleHtmlController extends PaymentAppController {
 			</form>';
 		return $content;
 	}
+	
+	function after_process()
+	{
+	}
+	
 }
 
 ?>
