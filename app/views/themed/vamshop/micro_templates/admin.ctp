@@ -12,7 +12,7 @@
    ---------------------------------------------------------------------------------------*/
 
 echo '<table class="contentTable">';
-echo $html->tableHeaders(array( __('Title', true), __('Call (Template Placeholder)', true),  __('Action', true)));
+echo $html->tableHeaders(array( __('Alias', true), __('Call (Template Placeholder)', true),  __('Action', true)));
 
 foreach ($micro_templates AS $micro_template)
 {
