@@ -71,7 +71,8 @@ function smarty_function_content_listing($params, &$smarty)
 					))));			
 		$Content->bindModel(array('hasOne' => array(
 				'ContentImage' => array(
-                    'className' => 'ContentImage'
+                    'className' => 'ContentImage',
+                    'conditions'=>array('ContentImage.order' => '1')
 					))));						
 		$Content->bindModel(array('hasOne' => array(
 				'ContentLink' => array(
