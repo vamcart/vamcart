@@ -99,6 +99,7 @@ function smarty_help_function_content_images() {
 		<li><em><?php echo __('(height)') ?></em> - <?php echo __('Maximum height of thumbnails.') ?></li>
 		<li><em><?php echo __('(width)') ?></em> - <?php echo __('Maximum width of thumbnails.') ?></li>
 		<li><em><?php echo __('(thumbnail)') ?></em> - <?php echo __('Set to false to disable thumbnailing of images. Defaults to true.') ?></li>		
+		<li><em><?php echo __('(template)') ?></em> - <?php echo __('Useful if you want to override the default content listing template. Setting this will utilize the template that matches this alias.') ?></li>
 	</ul>
 	<?php
 }
