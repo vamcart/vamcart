@@ -99,17 +99,17 @@ class GlobalContentBlocksController extends AppController {
 				{
 					case "delete":
 					    $this->GlobalContentBlock->del($value);
-						$build_flash .= __('Record deleted.', true) . ': ' . $gcb['GlobalContentBlock']['name'] . '<br />';		
+						$build_flash .= __('Record deleted.', true) . ' ' . $gcb['GlobalContentBlock']['name'] . '<br />';		
 					    break;
 					case "activate":
 					    $gcb['GlobalContentBlock']['active'] = 1;
 						$this->GlobalContentBlock->save($gcb);
-						$build_flash .= __('Record activated.', true) . ': ' . $gcb['GlobalContentBlock']['name'] . '<br />';		
+						$build_flash .= __('Record activated.', true) . ' ' . $gcb['GlobalContentBlock']['name'] . '<br />';		
 				    	break;
 					case "deactivate":
 					    $gcb['GlobalContentBlock']['active'] = 0;
 						$this->GlobalContentBlock->save($gcb);
-						$build_flash .= __('Record deactivated.', true) . ': ' . $gcb['GlobalContentBlock']['name'] . '<br />';		
+						$build_flash .= __('Record deactivated.', true) . ' ' . $gcb['GlobalContentBlock']['name'] . '<br />';		
 					    break;
 				}
 			}
