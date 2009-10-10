@@ -220,7 +220,7 @@ class AdminHelper extends Helper {
 	function GenerateBreadcrumbs ($navigation_walk, $current_crumb)
 	{
 		// Get the breadcrumb divider
-		$divider = '<span class="separator"> >> </span>';
+		$divider = '<span class="separator"> > </span>';
 		
 		$breadcrumbs = '';
 
