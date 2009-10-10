@@ -110,7 +110,7 @@ class AdminHelper extends Helper {
 		
 		if(!empty($options))
 		{
-			$content .=  '<select name="multiaction" onchange="this.form.submit();">';
+				$content .= '<select name="multiaction" onchange="this.form.submit();">';
 				$content .= '<option value="">'.__('With Selected:', true).'</option>';
 			foreach($options AS $key => $value)
 			{
@@ -118,10 +118,7 @@ class AdminHelper extends Helper {
 			}
 			
 			$content .= '</select>
-							<noscript><span class="button"><input onclick="return confirm(\'' . __('Are you sure? You may not be able to undo this action.', true) . '\');" type="submit" value="' . __('Submit', true) . '"/></span></noscript>
-							<span>
-								<a class="button" href="javascript:selectall();"><span>' . __('Select All', true) . '</span></a>
-							</span>';
+							<noscript><span class="button"><input onclick="return confirm(\'' . __('Are you sure? You may not be able to undo this action.', true) . '\');" type="submit" value="' . __('Submit', true) . '"/></span></noscript>';
 
 		}
 		$content .= '</div><div class="clear"></div>';		
