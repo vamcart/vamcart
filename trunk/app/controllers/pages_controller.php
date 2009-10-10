@@ -14,6 +14,9 @@
 class PagesController extends AppController {
 	var $components = array('ConfigurationBase','ContentBase','Smarty');
 	var $uses = null;
+	var $autoLayout = false;
+	var $helpers = null;
+	var $layout = null;
 	
 	function beforeFilter()
 	{	
