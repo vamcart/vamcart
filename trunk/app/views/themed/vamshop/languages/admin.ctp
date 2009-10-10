@@ -15,7 +15,7 @@ echo $form->create('Language', array('action' => '/languages/admin_modify_select
 
 echo '<table class="contentTable">';
 
-echo $html->tableHeaders(array( __('Language', true), __('Code', true), '&nbsp;', __('Active', true), __('Default', true), __('Action', true), '&nbsp;'));
+echo $html->tableHeaders(array( __('Language', true), __('Code', true), '&nbsp;', __('Active', true), __('Default', true), __('Action', true), '<input type="checkbox" onclick="checkAll(this)" />'));
 
 foreach ($language_data AS $language)
 {
@@ -27,7 +27,7 @@ foreach ($language_data AS $language)
 				$ajax->link(($language['Language']['active'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))), 'null', $options = array('url' => '/languages/admin_change_active_status/' . $language['Language']['id'], 'update' => 'content'), null, false),
 				$admin->DefaultButton($language['Language']),
 				$admin->ActionButton('edit','/languages/admin_edit/' . $language['Language']['id'],__('Edit', true)) . $admin->ActionButton('delete','/languages/admin_delete/' . $language['Language']['id'],__('Delete', true)),
-				$form->checkbox('modify][', array('value' => $language['Language']['id']))
+				array($form->checkbox('modify][', array('value' => $language['Language']['id'])), array('align'=>'center'))
 		   ));
 		   	
 }

@@ -17,7 +17,7 @@ echo $form->create('Country', array('action' => '/countries/admin_modify_selecte
 
 echo '<table class="contentTable">';
 
-echo $html->tableHeaders(array( __('Title', true), '&nbsp;', __('Code', true) . ' 2', __('Code', true) . ' 3', __('Action', true), '&nbsp;'));
+echo $html->tableHeaders(array( __('Title', true), '&nbsp;', __('Code', true) . ' 2', __('Code', true) . ' 3', __('Action', true), '<input type="checkbox" onclick="checkAll(this)" />'));
 
 foreach ($data AS $country)
 {
@@ -28,7 +28,7 @@ foreach ($data AS $country)
 			$country['Country']['iso_code_2'],
 			$country['Country']['iso_code_3'],
 			$admin->ActionButton('edit','/countries/admin_edit/' . $country['Country']['id'],__('Edit', true)) . $admin->ActionButton('delete','/countries/admin_delete/' . $country['Country']['id'],__('Delete', true)),
-			$form->checkbox('modify][', array('value' => $country['Country']['id']))
+			array($form->checkbox('modify][', array('value' => $country['Country']['id'])), array('align'=>'center'))
 		   ));
 }
 echo '</table>';

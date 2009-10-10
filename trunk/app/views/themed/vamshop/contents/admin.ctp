@@ -15,7 +15,7 @@ echo $form->create('Content', array('action' => '/contents/admin_modify_selected
 
 echo '<table class="contentTable">';
 
-echo $html->tableHeaders(array(	 __('Title', true), __('Type', true), __('Template', true), __('Active', true), __('Show in menu', true), __('Default', true), __('Sort Order', true), __('Action', true), '&nbsp;'));
+echo $html->tableHeaders(array(	 __('Title', true), __('Type', true), __('Template', true), __('Active', true), __('Show in menu', true), __('Default', true), __('Sort Order', true), __('Action', true), '<input type="checkbox" onclick="checkAll(this)" />'));
 
 foreach ($content_data AS $content)
 {
@@ -42,7 +42,7 @@ foreach ($content_data AS $content)
 				$admin->DefaultButton($content['Content']),
 				$admin->MoveButtons($content['Content'], $content_count),				
 				$admin->ActionButton('edit','/contents/admin_edit/' . $content['Content']['id'],__('Edit', true)) . $admin->ActionButton('delete','/contents/admin_delete/' . $content['Content']['id'],__('Delete', true)),
-				$form->checkbox('modify][', array('value' => $content['Content']['id']))
+				array($form->checkbox('modify][', array('value' => $content['Content']['id'])), array('align'=>'center'))
 		   ));
 		   	
 }

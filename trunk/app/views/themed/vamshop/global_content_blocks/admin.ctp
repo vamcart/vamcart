@@ -14,7 +14,7 @@
 echo $form->create('GlobalContentBlock', array('action' => '/global_content_blocks/admin_modify_selected/', 'url' => '/global_content_blocks/admin_modify_selected/'));
 
 echo '<table class="contentTable">';
-echo $html->tableHeaders(array( __('Title', true), __('Call (Template Placeholder)', true), __('Active', true), __('Action', true), '&nbsp;'));
+echo $html->tableHeaders(array( __('Title', true), __('Call (Template Placeholder)', true), __('Active', true), __('Action', true), '<input type="checkbox" onclick="checkAll(this)" />'));
 
 foreach ($global_content_blocks AS $global_content_block)
 {
@@ -24,7 +24,7 @@ foreach ($global_content_blocks AS $global_content_block)
 			'{global_content alias="' . $global_content_block['GlobalContentBlock']['alias'] . '"}',
 			$ajax->link(($global_content_block['GlobalContentBlock']['active'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))), 'null', $options = array('url' => '/global_content_blocks/admin_change_active_status/' . $global_content_block['GlobalContentBlock']['id'], 'update' => 'content'), null, false),
 			$admin->ActionButton('edit','/global_content_blocks/admin_edit/' . $global_content_block['GlobalContentBlock']['id'],__('Edit', true)) . $admin->ActionButton('delete','/global_content_blocks/admin_delete/' . $global_content_block['GlobalContentBlock']['id'],__('Delete', true)),
-			$form->checkbox('modify][', array('value' => $global_content_block['GlobalContentBlock']['id']))
+			array($form->checkbox('modify][', array('value' => $global_content_block['GlobalContentBlock']['id'])), array('align'=>'center'))
 		   ));
 }
 echo '</table>';
