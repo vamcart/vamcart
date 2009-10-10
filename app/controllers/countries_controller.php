@@ -58,7 +58,7 @@ class CountriesController extends AppController {
 				{
 					case "delete":
 						$this->Country->del($value);
-						$build_flash .= __('Record deleted.', true) . ': ' . $country['Country']['name'] . '<br />';									
+						$build_flash .= __('Record deleted.', true) . ' ' . $country['Country']['name'] . '<br />';									
 					break;								
 				}
 			}
