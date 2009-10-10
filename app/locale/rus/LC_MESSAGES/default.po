@@ -1690,16 +1690,12 @@ msgid "Create New"
 msgstr "Добавить"
 
 #: /views/helpers/admin.php:113
-msgid "With Selected: "
-msgstr "Выделенные: "
+msgid "With Selected:"
+msgstr "Выделенные:"
 
 #: /views/helpers/admin.php:120
 msgid "Are you sure? You may not be able to undo this action."
 msgstr "Вы уверены? Вы не сможете отменить данное действие."
-
-#: /views/helpers/admin.php:122
-msgid "Select All"
-msgstr "Выделить все"
 
 #: /views/helpers/admin.php:139
 msgid "Down"
