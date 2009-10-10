@@ -26,7 +26,7 @@ foreach ($data AS $order)
 				$order['Order']['total'],
 				$time->niceShort($order['Order']['created']),
 				$order['OrderStatus']['OrderStatusDescription']['name'],
-				$admin->ActionButton('view','/orders/admin_view/' . $order['Order']['id'],__('View', true)) . $admin->ActionButton('delete','/orders/admin_delete/' . $order['Order']['id'],__('Delete', true))
+				array($admin->ActionButton('view','/orders/admin_view/' . $order['Order']['id'],__('View', true)) . $admin->ActionButton('delete','/orders/admin_delete/' . $order['Order']['id'],__('Delete', true)), array('align'=>'center'))
 		   ));
 		   	
 }

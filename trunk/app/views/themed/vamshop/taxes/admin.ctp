@@ -22,9 +22,9 @@ foreach ($tax_data AS $tax)
 	echo $admin->TableCells(
 		  array(
 				$html->link($tax['Tax']['name'], '/tax_country_zone_rates/admin/' . $tax['Tax']['id']),
-				$admin->DefaultButton($tax['Tax']),
-				$admin->ActionButton('edit','/taxes/admin_edit/' . $tax['Tax']['id'],__('Edit', true)) . $admin->ActionButton('delete','/taxes/admin_delete/' . $tax['Tax']['id'],__('Delete', true)),
-				$html->link(__('Set All Products',true), '/taxes/admin_set_all_products/' . $tax['Tax']['id'], null,$set_all_bug_fix)
+				array($admin->DefaultButton($tax['Tax']), array('align'=>'center')),
+				array($admin->ActionButton('edit','/taxes/admin_edit/' . $tax['Tax']['id'],__('Edit', true)) . $admin->ActionButton('delete','/taxes/admin_delete/' . $tax['Tax']['id'],__('Delete', true)), array('align'=>'center')),
+				array($html->link(__('Set All Products',true), '/taxes/admin_set_all_products/' . $tax['Tax']['id'], null,$set_all_bug_fix), array('align'=>'center'))
 		   ));
 		   	
 }

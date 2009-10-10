@@ -20,7 +20,7 @@ foreach ($micro_templates AS $micro_template)
 		  array(
 			$html->link($micro_template['MicroTemplate']['alias'],'/micro_templates/admin_edit/' . $micro_template['MicroTemplate']['id']),
 			'{' . $micro_template['MicroTemplate']['tag_name'] . ' template=\'' . $micro_template['MicroTemplate']['alias'] . '\'}',
-			$admin->ActionButton('edit','/micro_templates/admin_edit/' . $micro_template['MicroTemplate']['id'],__('Edit', true)) . $admin->ActionButton('delete','/micro_templates/admin_delete/' . $micro_template['MicroTemplate']['id'],__('Delete', true))
+			array($admin->ActionButton('edit','/micro_templates/admin_edit/' . $micro_template['MicroTemplate']['id'],__('Edit', true)) . $admin->ActionButton('delete','/micro_templates/admin_delete/' . $micro_template['MicroTemplate']['id'],__('Delete', true)), array('align'=>'center'))
 		   ));
 }
 echo '</table>';

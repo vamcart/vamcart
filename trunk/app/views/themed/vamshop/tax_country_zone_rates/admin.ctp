@@ -23,7 +23,7 @@ foreach ($data AS $tax_rate_zone)
 		  array(
 				$html->link($tax_rate_zone['CountryZone']['name'], '/tax_country_zone_rates/admin_edit/' . $tax['Tax']['id'] . '/' . $tax_rate_zone['TaxCountryZoneRate']['id']),
 				$tax_rate_zone['TaxCountryZoneRate']['rate'],
-				$admin->ActionButton('edit','/tax_country_zone_rates/admin_edit/' . $tax_rate_zone['Tax']['id'] . '/' . $tax_rate_zone['TaxCountryZoneRate']['id'],__('Edit', true)) . $admin->ActionButton('delete','/tax_country_zone_rates/admin_delete/' .  $tax_rate_zone['Tax']['id'] . '/' . $tax_rate_zone['TaxCountryZoneRate']['id'],__('Delete', true)),
+				array($admin->ActionButton('edit','/tax_country_zone_rates/admin_edit/' . $tax_rate_zone['Tax']['id'] . '/' . $tax_rate_zone['TaxCountryZoneRate']['id'],__('Edit', true)) . $admin->ActionButton('delete','/tax_country_zone_rates/admin_delete/' .  $tax_rate_zone['Tax']['id'] . '/' . $tax_rate_zone['TaxCountryZoneRate']['id'],__('Delete', true)), array('align'=>'center')),
 				array($form->checkbox('modify][', array('value' => $tax_rate_zone['TaxCountryZoneRate']['id'])), array('align'=>'center'))
 		   ));
 		   	

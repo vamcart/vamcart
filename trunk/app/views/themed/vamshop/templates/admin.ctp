@@ -34,8 +34,8 @@ foreach ($templates AS $template)
 		  array(
 			$arrow_link . '&nbsp;' .
 			$html->link($template['Template']['name'],'/templates/admin_edit/' . $template['Template']['id'], array('style' => 'font-weight:bold;')),
-			$admin->DefaultButton($template['Template']),
-			$admin->ActionButton('stylesheet','/templates/admin_attach_stylesheets/' . $template['Template']['id'],__('Attach Stylesheets', true)) . $admin->ActionButton('copy','/templates/admin_copy/' . $template['Template']['id'],__('Copy', true)) . $admin->ActionButton('edit','/templates/admin_edit_details/' . $template['Template']['id'],__('Edit', true)) . $admin->ActionButton('delete','/templates/admin_delete/' . $template['Template']['id'],__('Delete', true))
+			array($admin->DefaultButton($template['Template']), array('align'=>'center')),
+			array($admin->ActionButton('stylesheet','/templates/admin_attach_stylesheets/' . $template['Template']['id'],__('Attach Stylesheets', true)) . $admin->ActionButton('copy','/templates/admin_copy/' . $template['Template']['id'],__('Copy', true)) . $admin->ActionButton('edit','/templates/admin_edit_details/' . $template['Template']['id'],__('Edit', true)) . $admin->ActionButton('delete','/templates/admin_delete/' . $template['Template']['id'],__('Delete', true)), array('align'=>'center'))
 		   ));
 	echo '<tr id=collapse_"' . $template['Template']['id'] . '" style="' . $collapse_style . '"><td colspan="3">';
 	echo '<table class="contentTable">';

@@ -20,7 +20,7 @@ foreach ($users AS $user)
 	echo $admin->TableCells(
 		  array(
 			$user['User']['username'],
-			$admin->ActionButton('delete','/users/admin_delete/' . $user['User']['id'],__('Delete', true))
+			array($admin->ActionButton('delete','/users/admin_delete/' . $user['User']['id'],__('Delete', true)), array('align'=>'center'))
 		   ));
 }
 echo '</table>';

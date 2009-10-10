@@ -21,7 +21,7 @@ foreach ($event_handlers AS $handle)
 	echo $admin->TableCells(
 		  array(
 				$handle['EventHandler']['originator'],
-				$handle['EventHandler']['action']
+				array($handle['EventHandler']['action'], array('align'=>'center'))
 		   ));
 		   	
 }

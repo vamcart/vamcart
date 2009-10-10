@@ -31,10 +31,10 @@ foreach ($modules AS $module)
 		  array(
 		  	(isset($module['id'])?$html->link($module['name'],'/shipping_methods/admin_edit/' . $module['id']):$module['name']),
 		  	$module['code'],
-			($module['installed'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))),
-			(isset($module['id'])?$admin->DefaultButton($module):''),
-		  	(isset($module['order'])?$module['order']:''),
-			$action_button	
+			array(($module['installed'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))), array('align'=>'center')),
+			array((isset($module['id'])?$admin->DefaultButton($module):''), array('align'=>'center')),
+		  	array((isset($module['order'])?$module['order']:''), array('align'=>'center')),
+			array($action_button, array('align'=>'center'))	
 		   ));
 	
 }
