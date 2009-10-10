@@ -37,11 +37,11 @@ foreach ($content_data AS $content)
 				$name_link,
 				$content['ContentType']['name'],
 				$content['Template']['name'],
-				$ajax->link(($content['Content']['active'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))), 'null', $options = array('url' => '/contents/admin_change_active_status/' . $content['Content']['id'], 'update' => 'content'), null, false),
-				$ajax->link(($content['Content']['show_in_menu'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))), 'null', $options = array('url' => '/contents/admin_change_show_in_menu_status/' . $content['Content']['id'], 'update' => 'content'), null, false),
-				$admin->DefaultButton($content['Content']),
-				$admin->MoveButtons($content['Content'], $content_count),				
-				$admin->ActionButton('edit','/contents/admin_edit/' . $content['Content']['id'],__('Edit', true)) . $admin->ActionButton('delete','/contents/admin_delete/' . $content['Content']['id'],__('Delete', true)),
+				array($ajax->link(($content['Content']['active'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))), 'null', $options = array('url' => '/contents/admin_change_active_status/' . $content['Content']['id'], 'update' => 'content'), null, false), array('align'=>'center')),
+				array($ajax->link(($content['Content']['show_in_menu'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))), 'null', $options = array('url' => '/contents/admin_change_show_in_menu_status/' . $content['Content']['id'], 'update' => 'content'), null, false), array('align'=>'center')),
+				array($admin->DefaultButton($content['Content']), array('align'=>'center')),
+				array($admin->MoveButtons($content['Content'], $content_count), array('align'=>'center')),				
+				array($admin->ActionButton('edit','/contents/admin_edit/' . $content['Content']['id'],__('Edit', true)) . $admin->ActionButton('delete','/contents/admin_delete/' . $content['Content']['id'],__('Delete', true)), array('align'=>'center')),
 				array($form->checkbox('modify][', array('value' => $content['Content']['id'])), array('align'=>'center'))
 		   ));
 		   	

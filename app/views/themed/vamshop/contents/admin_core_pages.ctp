@@ -24,7 +24,7 @@ foreach ($content_data AS $content)
 		  array(
 				$name_link,
 				$content['Template']['name'],
-				$admin->ActionButton('edit','/contents/admin_core_pages_edit/' . $content['Content']['id'],__('Edit', true))
+				array($admin->ActionButton('edit','/contents/admin_core_pages_edit/' . $content['Content']['id'],__('Edit', true)), array('align'=>'center'))
 		   ));
 		   	
 }

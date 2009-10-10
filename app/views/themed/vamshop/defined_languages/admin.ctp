@@ -20,7 +20,7 @@ foreach ($defined_languages AS $defined_language)
 		  array(
 			$html->link($defined_language['DefinedLanguage']['key'],'/defined_languages/admin_edit/' . $defined_language['DefinedLanguage']['key']),
 			'{lang}' . $defined_language['DefinedLanguage']['key'] . '{/lang}',
-			$admin->ActionButton('edit','/defined_languages/admin_edit/' . $defined_language['DefinedLanguage']['key'],__('Edit', true)) . $admin->ActionButton('delete','/defined_languages/admin_delete/' . $defined_language['DefinedLanguage']['key'],__('Delete', true))
+			array($admin->ActionButton('edit','/defined_languages/admin_edit/' . $defined_language['DefinedLanguage']['key'],__('Edit', true)) . $admin->ActionButton('delete','/defined_languages/admin_delete/' . $defined_language['DefinedLanguage']['key'],__('Delete', true)), array('align'=>'center'))
 		   ));
 }
 echo '</table>';

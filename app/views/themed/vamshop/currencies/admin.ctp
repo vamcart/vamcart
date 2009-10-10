@@ -22,10 +22,10 @@ foreach ($currency_data AS $currency)
 	echo $admin->TableCells(
 		  array(
 				$html->link($currency['Currency']['name'], '/currencies/admin_edit/' . $currency['Currency']['id']),
-				$currency['Currency']['code'],
-				$ajax->link(($currency['Currency']['active'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))), 'null', $options = array('url' => '/currencies/admin_change_active_status/' . $currency['Currency']['id'], 'update' => 'content'), null, false),
-				$admin->DefaultButton($currency['Currency']),
-				$admin->ActionButton('edit','/currencies/admin_edit/' . $currency['Currency']['id'],__('Edit', true)) . $admin->ActionButton('delete','/currencies/admin_delete/' . $currency['Currency']['id'],__('Delete', true)),
+				array($currency['Currency']['code'], array('align'=>'center')),
+				array($ajax->link(($currency['Currency']['active'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))), 'null', $options = array('url' => '/currencies/admin_change_active_status/' . $currency['Currency']['id'], 'update' => 'content'), null, false), array('align'=>'center')),
+				array($admin->DefaultButton($currency['Currency']), array('align'=>'center')),
+				array($admin->ActionButton('edit','/currencies/admin_edit/' . $currency['Currency']['id'],__('Edit', true)) . $admin->ActionButton('delete','/currencies/admin_delete/' . $currency['Currency']['id'],__('Delete', true)), array('align'=>'center')),
 				array($form->checkbox('modify][', array('value' => $currency['Currency']['id'])), array('align'=>'center'))
 		   ));
 		   	
