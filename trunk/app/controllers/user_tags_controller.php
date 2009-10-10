@@ -116,7 +116,7 @@ class UserTagsController extends AppController {
 				{
 					case "delete":
 					    $this->UserTag->del($value);
-						$build_flash .= __('User tag deleted.', true) . ': ' . $gcb['UserTag']['name'] . '<br />';		
+						$build_flash .= __('User tag deleted.', true) . ' ' . $gcb['UserTag']['name'] . '<br />';		
 					    break;
 				}
 			}
