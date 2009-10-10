@@ -2132,6 +2132,7 @@ msgstr "Пароль"
 msgid "Language"
 msgstr "Язык"
 
+#: /views/themed/vamshop/countries/admin.ctp:20
 #: /views/themed/vamshop/languages/admin.ctp:18
 msgid "Flag"
 msgstr "Флаг"
