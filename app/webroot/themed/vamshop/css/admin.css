@@ -127,8 +127,8 @@ div#footer
 	{
 		clear: left;
 		width: 100%;
-		background: #f1f1f6;
-		border-top: 3px solid #67748B;
+		background: transparent;
+		border-top: 0px solid #67748B;
 		text-align: center;
 		color: #000;
 	}
