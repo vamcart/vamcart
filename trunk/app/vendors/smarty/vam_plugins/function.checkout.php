@@ -16,80 +16,6 @@ function default_template_checkout ()
 $template = '
 <div id="checkout">
 <form action="{$checkout_form_action}" method="post">
-	<div id="bill_information">
-		<div>
-			<h3>{lang}Billing Information{/lang}</h3>
-		</div>
-		<div>	
-			<label>{lang}Name{/lang}</label>
-			<input type="text" name="bill_name" value="{$order.bill_name}"/>
-		</div>
-		<div>	
-			<label>{lang}Address Line 1{/lang}</label>
-			<input type="text" name="bill_line_1" value="{$order.bill_line_1}" />
-		</div>		
-		<div>	
-			<label>{lang}Address Line 2{/lang}</label>
-			<input type="text" name="bill_line_2" value="{$order.bill_line_2}" />
-		</div>		
-		<div>	
-			<label>{lang}City{/lang}</label>
-			<input type="text" name="bill_city" value="{$order.bill_city}" />
-		</div>		
-		<div>	
-			<label>{lang}State{/lang}</label>
-			<input type="text" name="bill_state" value="{$order.bill_state}" />
-		</div>		
-		<div>	
-			<label>{lang}Zipcode{/lang}</label>
-			<input type="text" name="bill_zip" value="{$order.bill_zip}" />
-		</div>	
-	</div>		
-	<hr />
-	<div id="ship_information">
-		<div>
-			<h3>{lang}Shipping Information{/lang}</h3>
-		</div>
-		<div>	
-			<label>{lang}Name{/lang}</label>
-			<input type="text" name="ship_name" value="{$order.ship_name}" />
-		</div>
-		<div>	
-			<label>{lang}Address Line 1{/lang}</label>
-			<input type="text" name="ship_line_1" value="{$order.ship_line_1}" />
-		</div>		
-		<div>	
-			<label>{lang}Address Line 1{/lang}</label>
-			<input type="text" name="ship_line_2" value="{$order.ship_line_2}" />
-		</div>		
-		<div>	
-			<label>{lang}City{/lang}</label>
-			<input type="text" name="ship_city" value="{$order.ship_city}" />
-		</div>		
-		<div>	
-			<label>{lang}State{/lang}</label>
-			<input type="text" name="ship_state" value="{$order.ship_state}" />
-		</div>		
-		<div>	
-			<label>{lang}Zipcode{/lang}</label>
-			<input type="text" name="ship_zip" value="{$order.ship_zip}" />
-		</div>								
-	</div>
-	<hr />
-	<div id="contact_information">
-		<div>
-			<h3>{lang}Contact Information{/lang}</h3>
-		</div>
-		<div>	
-			<label>{lang}Email{/lang}</label>
-			<input type="text" name="email" value="{$order.email}" />
-		</div>
-		<div>	
-			<label>{lang}Phone{/lang}</label>
-			<input type="text" name="phone" value="{$order.phone}" />
-		</div>		
-	</div>
-	<hr />	
 	<div id="shipping_method">
 		<div>
 			<h3>{lang}Shipping Method{/lang}</h3>
@@ -119,6 +45,77 @@ $template = '
 				<label for="payment_{$payment_method.id}">{$payment_method.name}</label>
 			</div>
 		{/foreach}		
+	</div>
+	<div id="bill_information">
+		<div>
+			<h3>{lang}Billing Information{/lang}</h3>
+		</div>
+		<div>	
+			<label>{lang}Name{/lang}</label>
+			<input type="text" name="bill_name" value="{$order.bill_name}"/>
+		</div>
+		<div>	
+			<label>{lang}Address Line 1{/lang}</label>
+			<input type="text" name="bill_line_1" value="{$order.bill_line_1}" />
+		</div>		
+		<div>	
+			<label>{lang}Address Line 2{/lang}</label>
+			<input type="text" name="bill_line_2" value="{$order.bill_line_2}" />
+		</div>		
+		<div>	
+			<label>{lang}City{/lang}</label>
+			<input type="text" name="bill_city" value="{$order.bill_city}" />
+		</div>		
+		<div>	
+			<label>{lang}State{/lang}</label>
+			<input type="text" name="bill_state" value="{$order.bill_state}" />
+		</div>		
+		<div>	
+			<label>{lang}Zipcode{/lang}</label>
+			<input type="text" name="bill_zip" value="{$order.bill_zip}" />
+		</div>	
+	</div>		
+	<div id="ship_information">
+		<div>
+			<h3>{lang}Shipping Information{/lang}</h3>
+		</div>
+		<div>	
+			<label>{lang}Name{/lang}</label>
+			<input type="text" name="ship_name" value="{$order.ship_name}" />
+		</div>
+		<div>	
+			<label>{lang}Address Line 1{/lang}</label>
+			<input type="text" name="ship_line_1" value="{$order.ship_line_1}" />
+		</div>		
+		<div>	
+			<label>{lang}Address Line 1{/lang}</label>
+			<input type="text" name="ship_line_2" value="{$order.ship_line_2}" />
+		</div>		
+		<div>	
+			<label>{lang}City{/lang}</label>
+			<input type="text" name="ship_city" value="{$order.ship_city}" />
+		</div>		
+		<div>	
+			<label>{lang}State{/lang}</label>
+			<input type="text" name="ship_state" value="{$order.ship_state}" />
+		</div>		
+		<div>	
+			<label>{lang}Zipcode{/lang}</label>
+			<input type="text" name="ship_zip" value="{$order.ship_zip}" />
+		</div>								
+	</div>
+	<div id="contact_information">
+		<div>
+			<h3>{lang}Contact Information{/lang}</h3>
+		</div>
+		<div>	
+			<label>{lang}Email{/lang}</label>
+			<input type="text" name="email" value="{$order.email}" />
+		</div>
+		<div>	
+			<label>{lang}Phone{/lang}</label>
+			<input type="text" name="phone" value="{$order.phone}" />
+		</div>		
 	</div>
 	<div>
 	{module alias="coupons" action="checkout_box"}
