@@ -16,7 +16,7 @@
 <head>
 <?php echo $html->meta('icon'); ?> 
 <?php echo $html->charset(); ?>
-<title>VaM Shop</title>
+<title><?php __('VaM Shop') ?></title>
 </head>
 
 <body>
