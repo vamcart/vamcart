@@ -13,10 +13,10 @@ class EmailComponent extends Object
 var $from = 'from@test.com';
 var $fromName = "Отправитель";
 var $sitePrefix = 'Сайт';
-//var $useSMTPAuth = false;
-//var $smtpUserName = '';
-//var $smtpPassword = '';
-//var $smtpHostNames = "localhost:25";
+var $useSMTPAuth = false;
+var $smtpUserName = '';
+var $smtpPassword = '';
+var $smtpHostNames = "localhost:25";
 var $text_body = null;
 var $html_body = null;
 var $to = null;
@@ -89,11 +89,13 @@ function send()
 
    $mail = new PHPMailer();
 
-//   $mail->IsSMTP();
-//   $mail->SMTPAuth = $this->useSMTPAuth;
-//   $mail->Host = $this->smtpHostNames;
-//   $mail->Username = $this->smtpUserName;
-//   $mail->Password = $this->smtpPassword;
+	if ($this->useSMTPAuth == true) {
+   $mail->IsSMTP();
+   $mail->SMTPAuth = $this->useSMTPAuth;
+   $mail->Host = $this->smtpHostNames;
+   $mail->Username = $this->smtpUserName;
+   $mail->Password = $this->smtpPassword;
+   }
 
    $mail->From = $this->from;
    $mail->FromName = $this->fromName;
