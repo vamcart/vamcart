@@ -14,11 +14,15 @@
 class OrdersController extends AppController {
 	var $name = 'Orders';
 	var $helpers = array('Time');
-	var $components = array('EventBase', 'Mailer', 'Email');
+	var $components = array('EventBase', 'Email');
 	var $paginate = array('limit' => 25, 'order' => array('Order.created' => 'desc'));
 
-	function send1()
+	function send()
 	{
+
+echo 'test';
+
+	$this->set('test', 'переменная');
 
      $this->Email->template = 'email/default';
   
@@ -32,30 +36,6 @@ class OrdersController extends AppController {
      
 	}
  
-	function send()
-	{
-
-    // Inside your method:
-
-    // Set up mail
-    $this->Mailer->init();
-    $this->Mailer->From('vam1@test.com');
-    $this->Mailer->FromName('тест');
-    $this->Mailer->AddAddress('vam@test.com');
-    $this->Mailer->Subject = 'Тест';
-    // Set PHPMailer vars and call PHPMailer methods (see PHPMailer API for more info)
-    
-    $this->Mailer->Body = 'Тест';
-
-    // Send mail                            
-    if ($this->Mailer->send()) {
-//        echo 'Mail was sent successfully.';
-     } else {
-//        echo 'There was a problem sending mail: '.$this->Mailer->ErrorInfo;
-    } 
-	
-	}
-
 		
 	function place_order ()
 	{
