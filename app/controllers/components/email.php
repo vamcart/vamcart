@@ -12,7 +12,7 @@ class EmailComponent extends Object
 */
 var $from = 'vam@test.com';
 var $fromName = "Магазин VaM Shop";
-var $sitePrefix = 'Магазин VaM Shop: ';
+var $sitePrefix = 'Магазин VaM Shop:';
 var $useSMTPAuth = false;
 var $smtpUserName = '';
 var $smtpPassword = '';
