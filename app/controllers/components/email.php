@@ -10,9 +10,9 @@ class EmailComponent extends Object
 /**
 * Send email using SMTP Auth by default.
 */
-var $from = 'from@test.com';
-var $fromName = "Отправитель";
-var $sitePrefix = 'Сайт';
+var $from = 'vam@test.com';
+var $fromName = "Магазин VaM Shop";
+var $sitePrefix = 'Магазин VaM Shop: ';
 var $useSMTPAuth = false;
 var $smtpUserName = '';
 var $smtpPassword = '';

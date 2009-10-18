@@ -20,14 +20,12 @@ class OrdersController extends AppController {
 	function send()
 	{
 
-echo 'test';
-
 	$this->set('test', 'переменная');
 
      $this->Email->template = 'email/default';
   
      $this->Email->to = 'vam@test.com';
-     $this->Email->subject = 'Your new account';
+     $this->Email->subject = 'Тема сообщения';
 
      //$this->Email->attach($fully_qualified_filename, optionally $new_name_when_attached);
      // You can attach as many files as you like.
