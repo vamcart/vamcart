@@ -14,9 +14,24 @@
 class OrdersController extends AppController {
 	var $name = 'Orders';
 	var $helpers = array('Time');
-	var $components = array('EventBase', 'Mailer');
+	var $components = array('EventBase', 'Mailer', 'Email');
 	var $paginate = array('limit' => 25, 'order' => array('Order.created' => 'desc'));
 
+	function send1()
+	{
+
+     $this->Email->template = 'email/default';
+  
+     $this->Email->to = 'vam@test.com';
+     $this->Email->subject = 'Your new account';
+
+     //$this->Email->attach($fully_qualified_filename, optionally $new_name_when_attached);
+     // You can attach as many files as you like.
+
+     $this->Email->send();
+     
+	}
+ 
 	function send()
 	{
 
