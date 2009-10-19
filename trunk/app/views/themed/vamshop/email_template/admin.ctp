@@ -13,16 +13,15 @@
 
 echo '<table class="contentTable">';
 
-echo $html->tableHeaders(array( __('Name', true), __('Default', true),  __('Order', true), __('Action', true)));
+echo $html->tableHeaders(array( __('Subject', true), __('Alias', true),  __('Action', true)));
 
-foreach ($order_status_data AS $order_status)
+foreach ($email_template_data AS $email_template)
 {
 	echo $admin->TableCells(
 		  array(
-				$html->link($order_status['OrderStatusDescription']['name'], '/order_status/admin_edit/' . $order_status['OrderStatus']['id']),
-				array($admin->DefaultButton($order_status['OrderStatus']), array('align'=>'center')),
-				array($admin->MoveButtons($order_status['OrderStatus'], $order_status_count), array('align'=>'center')),
-				array($admin->ActionButton('edit','/order_status/admin_edit/' . $order_status['OrderStatus']['id'],__('Edit', true)) . $admin->ActionButton('delete','/order_status/admin_delete/' . $order_status['OrderStatus']['id'],__('Delete', true)), array('align'=>'center'))
+				$html->link($email_template['EmailTemplateDescription']['subject'], '/email_template/admin_edit/' . $email_template['EmailTemplate']['id']),
+				$email_template['EmailTemplate']['alias'],
+				array($admin->ActionButton('edit','/email_template/admin_edit/' . $email_template['EmailTemplate']['id'],__('Edit', true)) . $admin->ActionButton('delete','/email_template/admin_delete/' . $email_template['EmailTemplate']['id'],__('Delete', true)), array('align'=>'center'))
 		   ));
 		   	
 }
