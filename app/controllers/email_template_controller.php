@@ -93,8 +93,8 @@ class EmailTemplateController extends AppController {
 				$new_description = array();
 				$new_description['EmailTemplateDescription']['email_template_id'] = $email_template_id;
 				$new_description['EmailTemplateDescription']['language_id'] = $id;
-				$new_description['EmailTemplateDescription']['subject'] = $value;				
-				$new_description['EmailTemplateDescription']['content'] = $value;				
+				$new_description['EmailTemplateDescription']['subject'] = $value['subject'];				
+				$new_description['EmailTemplateDescription']['content'] = $value['content'];				
 				
 				$this->EmailTemplate->EmailTemplateDescription->create();
 				$this->EmailTemplate->EmailTemplateDescription->save($new_description);
