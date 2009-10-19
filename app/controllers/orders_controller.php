@@ -14,18 +14,35 @@
 class OrdersController extends AppController {
 	var $name = 'Orders';
 	var $helpers = array('Time');
-	var $components = array('EventBase', 'Email');
+	var $components = array('EventBase', 'Email', 'Smarty');
 	var $paginate = array('limit' => 25, 'order' => array('Order.created' => 'desc'));
 
 	function send()
 	{
 
+		App::import('Model', 'EmailTemplate');
+		
+		$this->EmailTemplate =& new EmailTemplate();
+		
+		$this->EmailTemplate->unbindModel(array('hasMany' => array('EmailTemplateDescription')));
+		$this->EmailTemplate->bindModel(
+	        array('hasOne' => array(
+				'EmailTemplateDescription' => array(
+                    'className' => 'EmailTemplateDescription',
+					'conditions'   => 'language_id = ' . $this->Session->read('Customer.language_id')
+                )
+            )
+           	)
+	    );
+			
+		$email_template = $this->EmailTemplate->findByAlias('new-order');
+		
 	$this->set('test', 'переменная');
 
-     $this->Email->template = 'email/default';
-  
      $this->Email->to = 'vam@test.com';
      $this->Email->subject = 'Тема сообщения';
+
+     $this->Email->text_body = $email_template['EmailTemplateDescription']['content'];
 
      //$this->Email->attach($fully_qualified_filename, optionally $new_name_when_attached);
      // You can attach as many files as you like.
