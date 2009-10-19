@@ -14,7 +14,7 @@
 class EmailTemplate extends AppModel {
 
 	var $name = 'EmailTemplate';
-	var $hasMany = array('EmailTemplateDescription' => array('dependent'     => true),'Order');
+	var $hasMany = array('EmailTemplateDescription' => array('dependent'     => true));
 
 }
 ?>
