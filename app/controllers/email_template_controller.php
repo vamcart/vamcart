@@ -16,64 +16,27 @@ class EmailTemplateController extends AppController {
 	var $name = 'EmailTemplate';
 	var $uses = array('EmailTemplate','Language');
 
-	function admin_set_as_default ($order_status_id)
+	function admin_delete ($email_template_id)
 	{
-		$this->setDefaultItem($order_status_id);
+		$this->EmailTemplate->del($email_template_id,true);
+		$this->Session->setFlash(__('Record deleted.',true));
+		$this->redirect('/email_template/admin/');
 	}
 
-	function admin_move ($id, $direction)
+	function admin_edit ($email_template_id = null)
 	{
-		$this->moveItem($id, $direction);		
-	}
-	
-	function admin_delete ($order_status_id)
-	{
-		// Get the order_status and make sure it's not the default
-		$this->EmailTemplate->id = $order_status_id;
-		$order_status = $this->EmailTemplate->read();
-
-		if($order_status['EmailTemplate']['default'] == 1)
-		{
-			$this->Session->setFlash( __('Error: Could not delete default record.', true));		
-		}
-		elseif($this->EmailTemplate->Order->findCount(array('Order.order_status_id' => $order_status_id)) > 0)
-		{
-			$this->Session->setFlash( __('Record deleted.', true));				
-		}
-		else
-		{
-			// Ok, delete the order_status and cascade for the description
-			$status = $this->EmailTemplate->read(null,$order_status_id);
-			$this->EmailTemplate->del($order_status_id, true);	
-			
-			// Move all order status that have a higher sort order 1 slot down
-			$higher_positions = $this->EmailTemplate->find('all', array('conditions' => array('EmailTemplate.order >' => $status['EmailTemplate']['order'])));
-			foreach($higher_positions AS $position)
-			{
-				$position['EmailTemplate']['order'] -= 1; 
-				$this->EmailTemplate->save($position);
-			}
-			
-			$this->Session->setFlash( __('Record deleted.', true));		
-		}
-		$this->redirect('/order_status/admin/');
-
-	}
-
-	function admin_edit ($order_status_id = null)
-	{
-		$this->set('current_crumb', __('Order Status', true));
+		$this->set('current_crumb', __('Email Templates', true));
 		// If they pressed cancel
 		if(isset($this->params['form']['cancel']))
 		{
-			$this->redirect('/order_status/admin/');
+			$this->redirect('/email_template/admin/');
 			die();
 		}
 
 		if(empty($this->data))
 		{
 			
-			$this->EmailTemplate->id = $order_status_id;
+			$this->EmailTemplate->id = $email_template_id;
 			$data = $this->EmailTemplate->read();
 		
 			// Loop through the description results and assign the key as the language ID
@@ -96,7 +59,7 @@ class EmailTemplateController extends AppController {
 		else
 		{
 			// If it's a new order status set the sort order to the highest + 1
-			if($order_status_id == null)
+			if($email_template_id == null)
 			{
 				$highest = $this->EmailTemplate->find('all', array('order' => array('EmailTemplate.order DESC')));
 				$order = $highest['EmailTemplate']['order'] + 1;
@@ -114,11 +77,11 @@ class EmailTemplateController extends AppController {
 			$this->EmailTemplate->save($this->data);		
 			
 			// Get the id if it's new
-			if($order_status_id == null)
-				$order_status_id = $this->EmailTemplate->getLastInsertid();
+			if($email_template_id == null)
+				$email_template_id = $this->EmailTemplate->getLastInsertid();
 			
 			// Lets just delete all of the description associations and remake them
-			$descriptions = $this->EmailTemplate->EmailTemplateDescription->find('all', array('conditions' => array('order_status_id' => $order_status_id)));
+			$descriptions = $this->EmailTemplate->EmailTemplateDescription->find('all', array('conditions' => array('email_template_id' => $email_template_id)));
 			foreach($descriptions AS $description)
 			{
 				$this->EmailTemplate->EmailTemplateDescription->del($description['EmailTemplateDescription']['id']);
@@ -128,15 +91,16 @@ class EmailTemplateController extends AppController {
 			foreach($this->data['EmailTemplateDescription'] AS $id => $value)
 			{
 				$new_description = array();
-				$new_description['EmailTemplateDescription']['order_status_id'] = $order_status_id;
+				$new_description['EmailTemplateDescription']['email_template_id'] = $email_template_id;
 				$new_description['EmailTemplateDescription']['language_id'] = $id;
-				$new_description['EmailTemplateDescription']['name'] = $value;				
+				$new_description['EmailTemplateDescription']['subject'] = $value;				
+				$new_description['EmailTemplateDescription']['content'] = $value;				
 				
 				$this->EmailTemplate->EmailTemplateDescription->create();
 				$this->EmailTemplate->EmailTemplateDescription->save($new_description);
 			}
 			
-			$this->redirect('/order_status/admin');
+			$this->redirect('/email_template/admin');
 		}		
 	}
 
@@ -144,13 +108,13 @@ class EmailTemplateController extends AppController {
 
 	function admin_new() 
 	{
-		$this->redirect('/order_status/admin_edit/');
+		$this->redirect('/email_template/admin_edit/');
 	}
 
 
 	function admin ($ajax = false)
 	{
-		$this->set('current_crumb', __('Order Status Listing', true));
+		$this->set('current_crumb', __('Email Templates Listing', true));
 		// Lets remove the hasMany association for now and associate it with our language of choice
 		$this->EmailTemplate->unbindModel(array('hasMany' => array('EmailTemplateDescription')));
 		$this->EmailTemplate->bindModel(
@@ -163,8 +127,7 @@ class EmailTemplateController extends AppController {
            	)
 	    );
 		
-		$this->set('order_status_data',$this->EmailTemplate->find('all', array('order' => array('EmailTemplate.order ASC'))));			
-		$this->set('order_status_count', $this->EmailTemplate->findCount());
+		$this->set('email_template_data',$this->EmailTemplate->find('all', array('order' => array('EmailTemplate.order ASC'))));			
 
 	}	
 }
