@@ -103,7 +103,7 @@ function send()
    $mail->AddReplyTo($this->from, $this->fromName);
 
    $mail->CharSet = 'UTF-8';
-   $mail->WordWrap = 80; // set word wrap to 50 characters
+   $mail->WordWrap = 80; // set word wrap to 80 characters
 
    if (! empty($this->attachments))
    {
@@ -119,11 +119,11 @@ function send()
        }
    }
 
-   $mail->IsHTML(true); // set email format to HTML
+//   $mail->IsHTML(true); // set email format to HTML
 
    $mail->Subject = $this->sitePrefix.' '.$this->subject;
-   $mail->Body = $this->bodyContent('html');
-   $mail->AltBody = $this->bodyContent('text');
+   $mail->Body = $this->text_body;
+   $mail->AltBody = $this->html_body;
 
    $result = $mail->Send();
 
