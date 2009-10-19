@@ -14,7 +14,7 @@
 class OrderStatus extends AppModel {
 
 	var $name = 'OrderStatus';
-	var $hasOne = array('OrderStatusDescription' => array('dependent'     => true),'Order');
+	var $hasMany = array('OrderStatusDescription' => array('dependent'     => true),'Order');
 
 }
 ?>
