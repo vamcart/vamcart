@@ -621,6 +621,24 @@ INSERT INTO `defined_languages` (`id`, `language_id`, `key`, `value`, `created`,
 (71, 1, 'No Items Found', 'No Items Found', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
 (72, 2, 'No Items Found', 'Товары не найдены.', '2009-09-12 20:08:49', '2009-09-12 20:08:49');
 
+DROP TABLE IF EXISTS email_templates;
+CREATE TABLE `email_templates` (
+  `id` int(10) NOT NULL auto_increment,
+  `alias` varchar(50) collate utf8_unicode_ci NOT NULL,
+  `order` int(4) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+DROP TABLE IF EXISTS email_template_descriptions;
+CREATE TABLE `email_template_descriptions` (
+  `id` int(10) NOT NULL auto_increment,
+  `email_template_id` int(10) NOT NULL,
+  `language_id` int(10) NOT NULL,
+  `subject` varchar(50) collate utf8_unicode_ci NOT NULL,
+  `content` text collate utf8_unicode_ci NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 DROP TABLE IF EXISTS events;
 CREATE TABLE `events` (
   `id` int(10) NOT NULL auto_increment,
