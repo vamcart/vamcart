@@ -91,6 +91,7 @@ msgid "Tax Rates"
 msgstr "Ставки налогов"
 
 #: /app_controller.php:212
+#: /controllers/email_template_controller.php:28
 msgid "Email Templates"
 msgstr "Шаблоны писем"
 
@@ -334,6 +335,10 @@ msgstr "Языковые строки"
 #: /controllers/defined_languages_controller.php:93
 msgid "Defined Language Listing"
 msgstr "Список языковых строк"
+
+#: /controllers/email_template_controller.php:117
+msgid "Email Templates Listing"
+msgstr "Список шаблонов писем"
 
 #: /controllers/events_controller.php:20
 msgid "Event Details"
@@ -2057,6 +2062,22 @@ msgstr "Вызов (метка для шаблона)"
 #: /views/themed/vamshop/defined_languages/admin_edit.ctp:34
 msgid "Value (%s) "
 msgstr "Значение (%s)"
+
+#: /views/themed/vamshop/email_template/admin.ctp:16
+msgid "Subject"
+msgstr "Тема письма"
+
+#: /views/themed/vamshop/email_template/admin_edit.ctp:16
+msgid "Email Templates Details"
+msgstr "Шаблоны писем"
+
+#: /views/themed/vamshop/email_template/admin_edit.ctp:35
+msgid "Subject (%s) "
+msgstr "Тема письма (%s) "
+
+#: /views/themed/vamshop/email_template/admin_edit.ctp:40
+msgid "Content (%s) "
+msgstr "Содержание (%s) "
 
 #: /views/themed/vamshop/errors/missing_connection.ctp:15
 msgid "Either you are missing a database table, or you have not yet installed the software."
