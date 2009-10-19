@@ -90,6 +90,10 @@ msgstr "Налоги"
 msgid "Tax Rates"
 msgstr "Ставки налогов"
 
+#: /app_controller.php:212
+msgid "Email Templates"
+msgstr "Шаблоны писем"
+
 #: /app_controller.php:214
 msgid "Locale"
 msgstr "Локализация"
