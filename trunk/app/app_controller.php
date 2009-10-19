@@ -208,7 +208,8 @@ class AppController extends Controller {
 					3 => array('text' => __('Payment Methods', true), 'path' => '/payment_methods/admin/'),
 					4 => array('text' => __('Shipping Methods', true), 'path' => '/shipping_methods/admin/'),
 					5 => array('text' => __('Tax Classes', true), 'path' => '/taxes/admin/'),
-					6 => array('text' => __('Tax Rates', true), 'path' => '/tax_country_zone_rates/admin/0')
+					6 => array('text' => __('Tax Rates', true), 'path' => '/tax_country_zone_rates/admin/0'),
+					7 => array('text' => __('Email Templates', true), 'path' => '/email_template/admin/')
 				)
 			),	
 			6 => array('text' => __('Locale', true), 'path' => '/admin/admin_top/6',
