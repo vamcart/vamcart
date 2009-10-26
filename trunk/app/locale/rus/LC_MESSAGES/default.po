@@ -1753,6 +1753,10 @@ msgstr "Нет данных"
 msgid "Caching"
 msgstr "Кэширование"
 
+#: /views/themed/vamshop/configuration/admin_edit.ctp:23
+msgid "Email Settings"
+msgstr "Настройка email"
+
 #: /views/themed/vamshop/configuration/admin_edit.ctp:28
 msgid "Site Name"
 msgstr "Название магазина"
@@ -1784,6 +1788,14 @@ msgstr "Очистить кэш"
 #: /views/themed/vamshop/configuration/admin_edit.ctp:40
 msgid "Click here to clear cache"
 msgstr "Нажмите для очистки кэша"
+
+#: /views/themed/vamshop/configuration/admin_edit.ctp:40
+msgid "New Order Status: From"
+msgstr "Смена статуса заказа: Email отправителя"
+
+#: /views/themed/vamshop/configuration/admin_edit.ctp:40
+msgid "New Order Status: From Name"
+msgstr "Смена статуса заказа: Имя отправителя"
 
 #: /views/themed/vamshop/contents/admin.ctp:18
 #: /views/themed/vamshop/contents/admin_core_pages.ctp:16
@@ -2488,4 +2500,3 @@ msgstr "Подтвердите пароль"
 #: /views/themed/vamshop/users/admin_user_preferences.ctp:17
 msgid "User Prefences"
 msgstr "Настройки"
-
