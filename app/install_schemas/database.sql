@@ -15,7 +15,9 @@ INSERT INTO `configurations` (`id`, `key`, `value`) VALUES
 (3, 'URL_EXTENSION', '.html'),
 (4, 'GD_LIBRARY', '0'),
 (5, 'THUMBNAIL_SIZE', '125'),
-(6, 'CACHE_TIME', '3600');
+(6, 'CACHE_TIME', '3600'),
+(7, 'NEW_ORDER_STATUS_FROM_EMAIL', 'vam@test.com'),
+(8, 'NEW_ORDER_STATUS_FROM_NAME', 'Служба обработки заказов');
 
 DROP TABLE IF EXISTS contents;
 CREATE TABLE `contents` (
