@@ -88,10 +88,12 @@ class OrdersController extends AppController {
 		$body = str_replace('{$order_status}', $this->data['Order']['order_status_id'], $body);
 		$body = str_replace('{$comments}', $this->data['OrderComment']['3'], $body);
 		
+		global $config;
+		
 		// Set up mail
 		$this->Email->init();
-		$this->Email->From('vam1@test.com');
-		$this->Email->FromName('Магазин');
+		$this->Email->From($config['NEW_ORDER_STATUS_FROM_EMAIL']);
+		$this->Email->FromName(__($config['NEW_ORDER_STATUS_FROM_NAME'],true));
 		$this->Email->AddAddress('vam@test.com');
 		$this->Email->Subject = $subject;
     
