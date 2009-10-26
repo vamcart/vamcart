@@ -21,6 +21,7 @@ $yes_no_options[1] = __('yes', true);
 			echo '<ul>';
 			echo $admin->CreateTab('main',__('Main',true));
 			echo $admin->CreateTab('caching',__('Caching',true));	
+			echo $admin->CreateTab('email',__('Email Settings',true));	
 			echo '</ul>';
 
 	echo $admin->StartTabContent('main');
@@ -39,6 +40,13 @@ $yes_no_options[1] = __('yes', true);
 
 	echo __('Reset Cache', true) . '&nbsp;&nbsp;&nbsp;' . $html->link(__('Click here to clear cache',true),'/configuration/admin_clear_cache/',array('class' => 'button'));
 	echo $admin->EndTabContent();
+	
+	echo $admin->StartTabContent('email');
+	
+	echo $form->input('NEW_ORDER_STATUS_FROM_EMAIL', array('label' => __('New Order Status: From', true), 'type' => 'text', 'value' => $configuration_values['NEW_ORDER_STATUS_FROM_EMAIL']['value']));
+	echo $form->input('NEW_ORDER_STATUS_FROM_NAME', array('label' => __('New Order Status: From Name', true), 'type' => 'text', 'value' => $configuration_values['NEW_ORDER_STATUS_FROM_NAME']['value']));
+	
+	echo $admin->EndTabContent();	
 	
 	echo $admin->EndTabs();
 	
