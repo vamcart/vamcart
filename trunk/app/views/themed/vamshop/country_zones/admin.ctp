@@ -19,7 +19,7 @@ foreach ($zones AS $zone)
 {
 	echo $admin->TableCells(
 		  array(
-			$html->link($zone['CountryZone']['name'],'/country_zones/admin_edit/' . $country['Country']['id'] . '/' . $zone['CountryZone']['id']),
+			$html->link(__($zone['CountryZone']['name'],true),'/country_zones/admin_edit/' . $country['Country']['id'] . '/' . $zone['CountryZone']['id']),
 			$zone['CountryZone']['code'],
 			array($admin->ActionButton('edit','/countries/admin_edit/' . $country['Country']['id'] . '/' . $zone['CountryZone']['id'],__('Edit', true)) . $admin->ActionButton('delete','/country_zones/admin_delete/' . $country['Country']['id'] . '/' . $zone['CountryZone']['id'],__('Delete', true)), array('align'=>'center'))
 		   ));
