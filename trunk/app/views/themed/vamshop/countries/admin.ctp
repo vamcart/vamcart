@@ -23,7 +23,7 @@ foreach ($data AS $country)
 {
 	echo $admin->TableCells(
 		  array(
-			$html->link($country['Country']['name'],'/country_zones/admin/' . $country['Country']['id']),
+			$html->link(__($country['Country']['name'],true),'/country_zones/admin/' . $country['Country']['id']),
 			array($html->link($html->image('flags/' . strtolower($country['Country']['iso_code_2']) . '.png', array('alt' => $country['Country']['name'])), '/countries/admin_edit/' . $country['Country']['id'],null,null,false), array('align'=>'center')),
 			array($country['Country']['iso_code_2'], array('align'=>'center')),
 			array($country['Country']['iso_code_3'], array('align'=>'center')),
