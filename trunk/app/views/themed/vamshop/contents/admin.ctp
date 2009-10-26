@@ -35,8 +35,8 @@ foreach ($content_data AS $content)
 	echo $admin->TableCells(
 		  array(
 				$name_link,
-				$content['ContentType']['name'],
-				$content['Template']['name'],
+				__($content['ContentType']['name'],true),
+				__($content['Template']['name'],true),
 				array($ajax->link(($content['Content']['active'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))), 'null', $options = array('url' => '/contents/admin_change_active_status/' . $content['Content']['id'], 'update' => 'content'), null, false), array('align'=>'center')),
 				array($ajax->link(($content['Content']['show_in_menu'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))), 'null', $options = array('url' => '/contents/admin_change_show_in_menu_status/' . $content['Content']['id'], 'update' => 'content'), null, false), array('align'=>'center')),
 				array($admin->DefaultButton($content['Content']), array('align'=>'center')),
