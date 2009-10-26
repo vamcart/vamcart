@@ -80,19 +80,24 @@ class OrdersController extends AppController {
             )
            	)
 	    );
-			
+		
 		$email_template = $this->EmailTemplate->findByAlias('new-order');
+		$subject = $email_template['EmailTemplateDescription']['subject'];
+		$body = $email_template['EmailTemplateDescription']['content'];
+		$body = str_replace('{$name}', $this->data['Order']['bill_name'], $body);
+		$body = str_replace('{$order_status}', $this->data['Order']['order_status_id'], $body);
+		$body = str_replace('{$comments}', $this->data['OrderComment']['3'], $body);
 		
 		// Set up mail
 		$this->Email->init();
 		$this->Email->From('vam1@test.com');
 		$this->Email->FromName('Магазин');
 		$this->Email->AddAddress('vam@test.com');
-		$this->Email->Subject = 'Смена статуса';
+		$this->Email->Subject = $subject;
     
-		$this->Email->Body = $email_template['EmailTemplateDescription']['content'];
+		$this->Email->Body = $body;
 		
-		// Sending email
+		// Sending mail
 		$this->Email->send();
 		
 		$this->redirect('/orders/admin_view/' . $this->data['Order']['id']);
