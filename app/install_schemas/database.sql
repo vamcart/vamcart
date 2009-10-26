@@ -629,6 +629,8 @@ CREATE TABLE `email_templates` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+INSERT INTO `email_templates` VALUES (1, 'new-order-status', 1);
+
 DROP TABLE IF EXISTS email_template_descriptions;
 CREATE TABLE `email_template_descriptions` (
   `id` int(10) NOT NULL auto_increment,
@@ -638,6 +640,10 @@ CREATE TABLE `email_template_descriptions` (
   `content` text collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `email_template_descriptions` VALUES (1, 1, 1, 'Order Status Changed', 'Dear {$name}!\r\n\r\nThank you!\r\n\r\nNew Order Status: {$order_status}\r\n\r\n{$comments}');
+INSERT INTO `email_template_descriptions` VALUES (2, 1, 2, 'Статус Вашего заказа изменён', 'Здравствуйте, {$name}!\r\n\r\nСпасибо за Ваш заказ!\r\n\r\nСтатус Вашего заказа изменён.\r\n\r\nНовый статус заказа: {$order_status}\r\n\r\n{$comments}');
+
 
 DROP TABLE IF EXISTS events;
 CREATE TABLE `events` (
