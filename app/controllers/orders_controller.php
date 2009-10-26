@@ -81,7 +81,7 @@ class OrdersController extends AppController {
            	)
 	    );
 		
-		$email_template = $this->EmailTemplate->findByAlias('new-order');
+		$email_template = $this->EmailTemplate->findByAlias('new-order-status');
 		$subject = $email_template['EmailTemplateDescription']['subject'];
 		$body = $email_template['EmailTemplateDescription']['content'];
 		$body = str_replace('{$name}', $this->data['Order']['bill_name'], $body);
