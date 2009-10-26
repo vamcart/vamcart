@@ -14,7 +14,7 @@
 class OrdersController extends AppController {
 	var $name = 'Orders';
 	var $helpers = array('Time');
-	var $components = array('EventBase', 'Email', 'Smarty');
+	var $components = array('EventBase', 'Email', 'Smarty','ConfigurationBase');
 	var $paginate = array('limit' => 25, 'order' => array('Order.created' => 'desc'));
 		
 	function place_order ()
@@ -89,11 +89,12 @@ class OrdersController extends AppController {
 		$body = str_replace('{$comments}', $this->data['OrderComment']['3'], $body);
 		
 		global $config;
+		$config = $this->ConfigurationBase->load_configuration();
 		
 		// Set up mail
 		$this->Email->init();
-		$this->Email->From($config['NEW_ORDER_STATUS_FROM_EMAIL']);
-		$this->Email->FromName(__($config['NEW_ORDER_STATUS_FROM_NAME'],true));
+		$this->Email->From = $config['NEW_ORDER_STATUS_FROM_EMAIL'];
+		$this->Email->FromName = __($config['NEW_ORDER_STATUS_FROM_NAME'],true);
 		$this->Email->AddAddress('vam@test.com');
 		$this->Email->Subject = $subject;
     
