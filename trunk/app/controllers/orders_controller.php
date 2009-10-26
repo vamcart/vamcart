@@ -16,41 +16,6 @@ class OrdersController extends AppController {
 	var $helpers = array('Time');
 	var $components = array('EventBase', 'Email', 'Smarty');
 	var $paginate = array('limit' => 25, 'order' => array('Order.created' => 'desc'));
-
-	function send()
-	{
-
-		App::import('Model', 'EmailTemplate');
-		
-		$this->EmailTemplate =& new EmailTemplate();
-		
-		$this->EmailTemplate->unbindModel(array('hasMany' => array('EmailTemplateDescription')));
-		$this->EmailTemplate->bindModel(
-	        array('hasOne' => array(
-				'EmailTemplateDescription' => array(
-                    'className' => 'EmailTemplateDescription',
-					'conditions'   => 'language_id = ' . $this->Session->read('Customer.language_id')
-                )
-            )
-           	)
-	    );
-			
-		$email_template = $this->EmailTemplate->findByAlias('new-order');
-		
-	$this->set('test', 'переменная');
-
-     $this->Email->to = 'vam@test.com';
-     $this->Email->subject = 'Тема сообщения';
-
-     $this->Email->text_body = $email_template['EmailTemplateDescription']['content'];
-
-     //$this->Email->attach($fully_qualified_filename, optionally $new_name_when_attached);
-     // You can attach as many files as you like.
-
-     $this->Email->send();
-     
-	}
- 
 		
 	function place_order ()
 	{
@@ -99,6 +64,37 @@ class OrdersController extends AppController {
 		
 		$this->Order->save($this->data);
 		$this->Order->OrderComment->save($this->data);
+		
+		// Retrieve email template
+		App::import('Model', 'EmailTemplate');
+		
+		$this->EmailTemplate =& new EmailTemplate();
+		
+		$this->EmailTemplate->unbindModel(array('hasMany' => array('EmailTemplateDescription')));
+		$this->EmailTemplate->bindModel(
+	        array('hasOne' => array(
+				'EmailTemplateDescription' => array(
+                    'className' => 'EmailTemplateDescription',
+					'conditions'   => 'language_id = ' . $this->Session->read('Customer.language_id')
+                )
+            )
+           	)
+	    );
+			
+		$email_template = $this->EmailTemplate->findByAlias('new-order');
+		
+		// Set up mail
+		$this->Email->init();
+		$this->Email->From('vam1@test.com');
+		$this->Email->FromName('Магазин');
+		$this->Email->AddAddress('vam@test.com');
+		$this->Email->Subject = 'Смена статуса';
+    
+		$this->Email->Body = $email_template['EmailTemplateDescription']['content'];
+		
+		// Sending email
+		$this->Email->send();
+		
 		$this->redirect('/orders/admin_view/' . $this->data['Order']['id']);
 	}	
 	
