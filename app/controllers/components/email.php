@@ -6,131 +6,52 @@
 */
 
 class EmailComponent extends Object
-{
-/**
-* Send email using SMTP Auth by default.
-*/
-var $from = 'vam@test.com';
-var $fromName = "Магазин VaM Shop";
-var $sitePrefix = 'Магазин VaM Shop:';
-var $useSMTPAuth = false;
-var $smtpUserName = '';
-var $smtpPassword = '';
-var $smtpHostNames = "localhost:25";
-var $text_body = null;
-var $html_body = null;
-var $to = null;
-var $toName = null;
-var $subject = null;
-var $cc = null;
-var $bcc = null;
-var $template = 'email/default';
-var $attachments = null;
+{     
+    /**
+     * PHPMailer object.
+     * 
+     * @access private
+     * @var object
+     */
+     var $m;    
+    
+    /**
+     * Creates the PHPMailer object and sets default values.
+     * Must be called before working with the component!
+     *
+     * @access public
+     * @return void
+     */
+    function init()
+    {
+        // Include the class file and create PHPMailer instance
+        App::import('Vendor', 'PHPMailer', array('file' => 'phpmailer'.DS.'class.phpmailer.php'));
+        $this->m = new PHPMailer;
+        
+        // Set default PHPMailer variables (see PHPMailer API for more info)
+        $this->CharSet = 'utf-8';
+        $this->From = 'from@test.com';
+        $this->FromName ='Отправитель';
+        // set more PHPMailer vars, for smtp etc.
+     }
 
-var $controller;
-
-function startup( & $controller)
-{
-   $this->controller = & $controller;
-}
-
-/**
-* Helper function to generate the appropriate template location
-*
-* @return string CakePHP location of the template file
-* @param object $template_type
-*/
-function templateLocation($template_type)
-{
-   return ('..'.DS.strtolower($this->controller->name).DS.$this->template.$template_type);
-}
-
-/**
-* Renders the content for either html or text of the email
-*
-* @return string Rendered content from the associated template
-* @param object $type_suffix
-*/
-function bodyContent($type_suffix)
-{
-   $temp_layout = $this->controller->layout; // store the current controller layout
-
-   if ($type_suffix == 'html')
-       $this->controller->layout = 'admin';
-   else
-       $this->controller->layout = '';
-
-   $mail = $this->controller->render($this->templateLocation('_'.strtolower($type_suffix)));
-   // render() automatically adds to the controller->output, we'll remove it
-   $this->controller->output = str_replace($mail, '', $this->controller->output);
-
-   $this->controller->layout = $temp_layout; // restore the controller layout
-   return $mail;
-}
-
-function attach($filename, $asfile = '')
-{
-   if ( empty($this->attachments))
-   {
-       $this->attachments = array ();
-       $this->attachments[0]['filename'] = $filename;
-       $this->attachments[0]['asfile'] = $asfile;
-   } else
-   {
-       $count = count($this->attachments);
-       $this->attachments[$count+1]['filename'] = $filename;
-       $this->attachments[$count+1]['asfile'] = $asfile;
-   }
-}
-
-function send()
-{
-   App::import('Vendor', 'PHPMailer', array ('file'=>'phpmailer'.DS.'class.phpmailer.php'));
-
-   $mail = new PHPMailer();
-
-	if ($this->useSMTPAuth == true) {
-   $mail->IsSMTP();
-   $mail->SMTPAuth = $this->useSMTPAuth;
-   $mail->Host = $this->smtpHostNames;
-   $mail->Username = $this->smtpUserName;
-   $mail->Password = $this->smtpPassword;
-   }
-
-   $mail->From = $this->from;
-   $mail->FromName = $this->fromName;
-   $mail->AddAddress($this->to, $this->toName);
-   $mail->AddReplyTo($this->from, $this->fromName);
-
-   $mail->CharSet = 'UTF-8';
-   $mail->WordWrap = 80; // set word wrap to 80 characters
-
-   if (! empty($this->attachments))
-   {
-       foreach ($this->attachments as $attachment)
-       {
-           if ( empty($attachment['asfile']))
-           {
-               $mail->AddAttachment($attachment['filename']);
-           } else
-           {
-               $mail->AddAttachment($attachment['filename'], $attachment['asfile']);
-           }
-       }
-   }
-
-//   $mail->IsHTML(true); // set email format to HTML
-
-   $mail->Subject = $this->sitePrefix.' '.$this->subject;
-   $mail->Body = $this->text_body;
-   $mail->AltBody = $this->html_body;
-
-   $result = $mail->Send();
-
-   if ($result == false)
-       $result = $mail->ErrorInfo;
-
-   return $result;
-}
+    function __set($name, $value)
+    {
+        $this->m->{$name} = $value;
+    }
+    
+    function __get($name)
+    {
+        if (isset($this->m->{$name})) {
+            return $this->m->{$name};
+        }
+    }
+             
+    function __call($method, $args)
+    {
+        if (method_exists($this->m, $method)) {
+            return call_user_func_array(array($this->m, $method), $args);
+        }
+    }
 }
 ?>
