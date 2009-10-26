@@ -30,8 +30,6 @@ class EmailComponent extends Object
         
         // Set default PHPMailer variables (see PHPMailer API for more info)
         $this->CharSet = 'utf-8';
-        $this->From = 'from@test.com';
-        $this->FromName ='Отправитель';
         // set more PHPMailer vars, for smtp etc.
      }
 
