@@ -65,6 +65,11 @@ class OrdersController extends AppController {
 		$this->Order->save($this->data);
 		$this->Order->OrderComment->save($this->data);
 		
+		if ($this->data['OrderComment']['sent_to_customer'] == 1) {
+		
+		global $config;
+		$config = $this->ConfigurationBase->load_configuration();
+		
 		// Retrieve email template
 		App::import('Model', 'EmailTemplate');
 		
@@ -81,27 +86,32 @@ class OrdersController extends AppController {
            	)
 	    );
 		
+		// Get email template
 		$email_template = $this->EmailTemplate->findByAlias('new-order-status');
-		$subject = $email_template['EmailTemplateDescription']['subject'];
-		$body = $email_template['EmailTemplateDescription']['content'];
-		$body = str_replace('{$name}', $this->data['Order']['bill_name'], $body);
-		$body = str_replace('{$order_status}', $this->data['Order']['order_status_id'], $body);
-		$body = str_replace('{$comments}', $this->data['OrderComment']['3'], $body);
-		
-		global $config;
-		$config = $this->ConfigurationBase->load_configuration();
+		// Get current order status
+		$current_order_status = $this->Order->OrderStatus->OrderStatusDescription->find('first', array('conditions' => array('OrderStatusDescription.order_status_id =' => $this->data['Order']['order_status_id'], 'OrderStatusDescription.language_id =' => $this->Session->read('Customer.language_id'))));
 		
 		// Set up mail
 		$this->Email->init();
 		$this->Email->From = $config['NEW_ORDER_STATUS_FROM_EMAIL'];
 		$this->Email->FromName = __($config['NEW_ORDER_STATUS_FROM_NAME'],true);
-		$this->Email->AddAddress('vam@test.com');
-		$this->Email->Subject = $subject;
-    
+		$this->Email->AddAddress($old_order['Order']['email']);
+		
+		// Email Subject
+		$this->Email->Subject = $config['SITE_NAME'] . ' - ' . $email_template['EmailTemplateDescription']['subject'];
+		
+		$body = $email_template['EmailTemplateDescription']['content'];
+		$body = str_replace('{$name}', $old_order['Order']['bill_name'], $body);
+		$body = str_replace('{$order_status}', $current_order_status['OrderStatusDescription']['name'], $body);
+		$body = str_replace('{$comments}', $this->data['OrderComment']['comment'], $body);
+		
+		// Email Body
 		$this->Email->Body = $body;
 		
 		// Sending mail
 		$this->Email->send();
+		
+		}
 		
 		$this->redirect('/orders/admin_view/' . $this->data['Order']['id']);
 	}	
@@ -111,7 +121,7 @@ class OrdersController extends AppController {
 		$this->set('current_crumb', __('Order View', true));
 		$order = $this->Order->find('all', array('conditions' => array('Order.id' => $id)));
 		$this->set('data',$order[0]);
-
+		
 		// Bind and set the order status select list
 		$this->Order->OrderStatus->unbindModel(array('hasMany' => array('OrderStatusDescription')));
 		$this->Order->OrderStatus->bindModel(
