@@ -41,6 +41,67 @@ class OrdersController extends AppController {
 
 		$this->EventBase->ProcessEvent('PlaceOrderAfterSave');
 		
+		// Sending email
+		
+		// Retrieve email template
+		App::import('Model', 'EmailTemplate');
+		
+		$this->EmailTemplate =& new EmailTemplate();
+		
+		$this->EmailTemplate->unbindModel(array('hasMany' => array('EmailTemplateDescription')));
+		$this->EmailTemplate->bindModel(
+	        array('hasOne' => array(
+				'EmailTemplateDescription' => array(
+                    'className' => 'EmailTemplateDescription',
+					'conditions'   => 'language_id = ' . $this->Session->read('Customer.language_id')
+                )
+            )
+           	)
+	    );
+		
+		// Get email template
+		$email_template = $this->EmailTemplate->findByAlias('new-order');
+		// Get current order status
+		$current_order_status = $this->Order->OrderStatus->OrderStatusDescription->find('first', array('conditions' => array('OrderStatusDescription.order_status_id =' => $order['Order']['order_status_id'], 'OrderStatusDescription.language_id =' => $this->Session->read('Customer.language_id'))));
+		
+		// Email Subject
+		$subject = $email_template['EmailTemplateDescription']['subject'];
+		$subject = str_replace('{$order_number}',$order['Order']['id'], $subject);
+		$subject = $config['SITE_NAME'] . ' - ' . $subject;
+		
+		$body = $email_template['EmailTemplateDescription']['content'];
+		$body = str_replace('{$name}', $order['Order']['bill_name'], $body);
+		$body = str_replace('{$order_number}', $order['Order']['id'], $body);
+		$body = str_replace('{$order_status}', $current_order_status['OrderStatusDescription']['name'], $body);
+		
+		// Set up mail
+		$this->Email->init();
+		$this->Email->From = $config['NEW_ORDER_FROM_EMAIL'];
+		$this->Email->FromName = __($config['NEW_ORDER_FROM_NAME'],true);
+		// Send to customer
+		$this->Email->AddAddress($order['Order']['email']);
+		$this->Email->Subject = $subject;
+
+		// Email Body
+		$this->Email->Body = $body;
+		
+		// Sending mail
+		$this->Email->send();
+		
+		// Set up mail
+		$this->Email->init();
+		$this->Email->From = $config['NEW_ORDER_FROM_EMAIL'];
+		$this->Email->FromName = __($config['NEW_ORDER_FROM_NAME'],true);
+		// Send to admin
+		$this->Email->AddAddress($config['SEND_EXTRA_EMAIL']);
+		$this->Email->Subject = $subject;
+
+		// Email Body
+		$this->Email->Body = $body;
+		
+		// Sending mail
+		$this->Email->send();
+		
 		// Get the configuration values to redirect
 		$this->redirect('/page/thank-you' . $config['URL_EXTENSION']);
 	}
@@ -98,10 +159,14 @@ class OrdersController extends AppController {
 		$this->Email->AddAddress($old_order['Order']['email']);
 		
 		// Email Subject
-		$this->Email->Subject = $config['SITE_NAME'] . ' - ' . $email_template['EmailTemplateDescription']['subject'];
+		$subject = $email_template['EmailTemplateDescription']['subject'];
+		$subject = str_replace('{$order_number}', $this->data['Order']['id'], $subject);
+		$subject = $config['SITE_NAME'] . ' - ' . $subject;
+		$this->Email->Subject = $subject;
 		
 		$body = $email_template['EmailTemplateDescription']['content'];
 		$body = str_replace('{$name}', $old_order['Order']['bill_name'], $body);
+		$body = str_replace('{$order_number}', $this->data['Order']['id'], $body);
 		$body = str_replace('{$order_status}', $current_order_status['OrderStatusDescription']['name'], $body);
 		$body = str_replace('{$comments}', $this->data['OrderComment']['comment'], $body);
 		
