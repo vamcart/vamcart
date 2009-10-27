@@ -16,8 +16,11 @@ INSERT INTO `configurations` (`id`, `key`, `value`) VALUES
 (4, 'GD_LIBRARY', '0'),
 (5, 'THUMBNAIL_SIZE', '125'),
 (6, 'CACHE_TIME', '3600'),
-(7, 'NEW_ORDER_STATUS_FROM_EMAIL', 'vam@test.com'),
-(8, 'NEW_ORDER_STATUS_FROM_NAME', 'VaM Shop');
+(7, 'SEND_EXTRA_EMAIL', 'vam@test.com'),
+(8, 'NEW_ORDER_FROM_EMAIL', 'vam@test.com'),
+(9, 'NEW_ORDER_FROM_NAME', 'VaM Shop'),
+(10, 'NEW_ORDER_STATUS_FROM_EMAIL', 'vam@test.com'),
+(11, 'NEW_ORDER_STATUS_FROM_NAME', 'VaM Shop');
 
 DROP TABLE IF EXISTS contents;
 CREATE TABLE `contents` (
