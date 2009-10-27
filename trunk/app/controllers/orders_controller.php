@@ -88,11 +88,14 @@ class OrdersController extends AppController {
 		// Sending mail
 		$this->Email->send();
 		
+		// Send to admin
+		if(isset($config['SEND_EXTRA_EMAIL']))
+		{
+		
 		// Set up mail
 		$this->Email->init();
 		$this->Email->From = $config['NEW_ORDER_FROM_EMAIL'];
 		$this->Email->FromName = __($config['NEW_ORDER_FROM_NAME'],true);
-		// Send to admin
 		$this->Email->AddAddress($config['SEND_EXTRA_EMAIL']);
 		$this->Email->Subject = $subject;
 
@@ -101,6 +104,8 @@ class OrdersController extends AppController {
 		
 		// Sending mail
 		$this->Email->send();
+		
+		}
 		
 		// Get the configuration values to redirect
 		$this->redirect('/page/thank-you' . $config['URL_EXTENSION']);
