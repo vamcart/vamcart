@@ -1790,6 +1790,18 @@ msgid "Click here to clear cache"
 msgstr "Нажмите для очистки кэша"
 
 #: /views/themed/vamshop/configuration/admin_edit.ctp:40
+msgid "Send extra order emails to"
+msgstr "Отправлять копии писем с заказом на"
+
+#: /views/themed/vamshop/configuration/admin_edit.ctp:40
+msgid "New Order: From"
+msgstr "Новый заказ: Email отправителя"
+
+#: /views/themed/vamshop/configuration/admin_edit.ctp:40
+msgid "New Order: From Name"
+msgstr "Новый заказ: Имя отправителя"
+
+#: /views/themed/vamshop/configuration/admin_edit.ctp:40
 msgid "New Order Status: From"
 msgstr "Смена статуса заказа: Email отправителя"
 
