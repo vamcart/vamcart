@@ -630,11 +630,13 @@ DROP TABLE IF EXISTS email_templates;
 CREATE TABLE `email_templates` (
   `id` int(10) NOT NULL auto_increment,
   `alias` varchar(50) collate utf8_unicode_ci NOT NULL,
+  `default` int(4) NOT NULL,
   `order` int(4) NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `email_templates` VALUES (1, 'new-order-status', 1);
+INSERT INTO `email_templates` VALUES (1, 'new-order', 1, 1);
+INSERT INTO `email_templates` VALUES (2, 'new-order-status', 1, 2);
 
 DROP TABLE IF EXISTS email_template_descriptions;
 CREATE TABLE `email_template_descriptions` (
@@ -646,8 +648,10 @@ CREATE TABLE `email_template_descriptions` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `email_template_descriptions` VALUES (1, 1, 1, 'Order Status Changed', 'Dear {$name}!\r\n\r\nThank you!\r\n\r\nNew Order Status: {$order_status}\r\n\r\n{$comments}');
-INSERT INTO `email_template_descriptions` VALUES (2, 1, 2, 'Статус Вашего заказа изменён', 'Здравствуйте, {$name}!\r\n\r\nСпасибо за Ваш заказ!\r\n\r\nСтатус Вашего заказа изменён.\r\n\r\nНовый статус заказа: {$order_status}\r\n\r\n{$comments}');
+INSERT INTO `email_template_descriptions` VALUES (1, 1, 1, 'Your order #{$order_number}', 'Dear {$name}!\r\n\r\nYour order confirmed!\r\nOrder number: {$order_number}\r\n\r\nProducts:\r\n{$products}\r\n\r\nThank you!\r\n\r\n');
+INSERT INTO `email_template_descriptions` VALUES (2, 1, 2, 'Ваш заказ №{$order_number}', 'Здравствуйте, {$name}!\r\n\r\nВаш заказ подтверждён.\r\nНомер заказа: {$order_number}\r\n\r\nЗаказанные товары:\r\n{$products}\r\n\r\nСпасибо!');
+INSERT INTO `email_template_descriptions` VALUES (3, 2, 1, 'Order #{$order_number}: Status Changed', 'Dear {$name}!\r\n\r\nThank you!\r\n\r\nOrder number: {$order_number}\r\n\r\nNew Order Status: {$order_status}\r\n\r\n{$comments}');
+INSERT INTO `email_template_descriptions` VALUES (4, 2, 2, 'Изменён статус Вашего заказа №{$order_number}', 'Здравствуйте, {$name}!\r\n\r\nСпасибо за Ваш заказ!\r\n\r\nНомер заказа: {$order_number}\r\n\r\nСтатус Вашего заказа изменён.\r\n\r\nНовый статус заказа: {$order_status}\r\n\r\n{$comments}');
 
 
 DROP TABLE IF EXISTS events;
