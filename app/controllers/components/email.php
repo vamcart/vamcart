@@ -29,8 +29,13 @@ class EmailComponent extends Object
         $this->m = new PHPMailer;
         
         // Set default PHPMailer variables (see PHPMailer API for more info)
-        $this->CharSet = 'utf-8';
-        // set more PHPMailer vars, for smtp etc.
+		
+		$this->IsMail();
+		
+		$this->CharSet = 'utf-8';
+		// set more PHPMailer vars, for smtp etc.
+//		$this->IsSMTP();
+//		$this->SMTPKeepAlive = true; // set mailer to use SMTP//		$this->SMTPAuth = true; // turn on SMTP authentication true/false//		$this->Username = user; // SMTP username//		$this->Password = password; // SMTP password//		$this-> = server; // specify smtp server		
      }
 
     function __set($name, $value)
