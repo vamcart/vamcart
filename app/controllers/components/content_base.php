@@ -130,6 +130,8 @@ class ContentBaseComponent extends Object
 			//$options[$options_key] = $loop_content['Content']['id'] . '. ' . $loop_content['ContentDescription']['name'];
 		}
 		
+		$top_level = array("0" => __('Top Level', true));
+		$options = array_merge($top_level, $options);
 		return $options;
     }
 	
