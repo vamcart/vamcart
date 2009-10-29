@@ -52,7 +52,7 @@
 				   ));
 	$parent_language_bug_fix = __('Parent', true);
 	
-	echo '<div class="input"><label>' . $parent_language_bug_fix . '</label>' . $form->select('Content.parent_id', $parents, $data['Content']['parent_id'], $attributes = array('label' => $parent_language_bug_fix), $showEmpty = __('Top Level', true)) . '</div>';
+	echo '<div class="input"><label>' . $parent_language_bug_fix . '</label>' . $form->select('Content.parent_id', $parents, $data['Content']['parent_id'], $attributes = array('label' => $parent_language_bug_fix), $showEmpty = false) . '</div>';
 
    		echo $form->inputs(array(
    					'Content.content_type_id' => array(
