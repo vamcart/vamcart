@@ -18,8 +18,19 @@ class EmailTemplateController extends AppController {
 
 	function admin_delete ($email_template_id)
 	{
-		$this->EmailTemplate->del($email_template_id,true);
+		// Get the currency and make sure it's not the default
+		$this->EmailTemplate->id = $email_template_id;
+		$email_template = $this->EmailTemplate->read();
+		
+		if($email_template['EmailTemplate']['default'] == 1)
+		{
+			$this->Session->setFlash( __('Error: Could not delete default record.', true));		
+		}
+		else
+		{
+			// Ok, delete the currency 				$this->EmailTemplate->del($email_template_id,true);
 		$this->Session->setFlash(__('Record deleted.',true));
+		}
 		$this->redirect('/email_template/admin/');
 	}
 
