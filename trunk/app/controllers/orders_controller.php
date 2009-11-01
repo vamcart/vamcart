@@ -70,7 +70,7 @@ class OrdersController extends AppController {
 		$subject = $config['SITE_NAME'] . ' - ' . $subject;
 		
 		$body = $email_template['EmailTemplateDescription']['content'];
-		$body = str_replace('{$name}', $order['Order']['bill_name'], $body);
+		$body = str_replace('{$name}', $order['Order']['ship_name'], $body);
 		$body = str_replace('{$order_number}', $order['Order']['id'], $body);
 		$body = str_replace('{$order_status}', $current_order_status['OrderStatusDescription']['name'], $body);
 		
@@ -170,7 +170,7 @@ class OrdersController extends AppController {
 		$this->Email->Subject = $subject;
 		
 		$body = $email_template['EmailTemplateDescription']['content'];
-		$body = str_replace('{$name}', $old_order['Order']['bill_name'], $body);
+		$body = str_replace('{$name}', $old_order['Order']['ship_name'], $body);
 		$body = str_replace('{$order_number}', $this->data['Order']['id'], $body);
 		$body = str_replace('{$order_status}', $current_order_status['OrderStatusDescription']['name'], $body);
 		$body = str_replace('{$comments}', $this->data['OrderComment']['comment'], $body);
