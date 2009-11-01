@@ -11,6 +11,7 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
+	echo $javascript->link('jquery/jquery.min', false);
 	echo $javascript->link('selectall', false);
 
 echo $form->create('Content', array('action' => '/contents/admin_modify_selected/', 'url' => '/contents/admin_modify_selected/'));
