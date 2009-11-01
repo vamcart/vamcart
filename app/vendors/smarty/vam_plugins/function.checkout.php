@@ -46,35 +46,6 @@ $template = '
 			</div>
 		{/foreach}		
 	</div>
-	<div id="bill_information">
-		<div>
-			<h3>{lang}Billing Information{/lang}</h3>
-		</div>
-		<div>	
-			<label>{lang}Name{/lang}</label>
-			<input type="text" name="bill_name" value="{$order.bill_name}"/>
-		</div>
-		<div>	
-			<label>{lang}Address Line 1{/lang}</label>
-			<input type="text" name="bill_line_1" value="{$order.bill_line_1}" />
-		</div>		
-		<div>	
-			<label>{lang}Address Line 2{/lang}</label>
-			<input type="text" name="bill_line_2" value="{$order.bill_line_2}" />
-		</div>		
-		<div>	
-			<label>{lang}City{/lang}</label>
-			<input type="text" name="bill_city" value="{$order.bill_city}" />
-		</div>		
-		<div>	
-			<label>{lang}State{/lang}</label>
-			<input type="text" name="bill_state" value="{$order.bill_state}" />
-		</div>		
-		<div>	
-			<label>{lang}Zipcode{/lang}</label>
-			<input type="text" name="bill_zip" value="{$order.bill_zip}" />
-		</div>	
-	</div>		
 	<div id="ship_information">
 		<div>
 			<h3>{lang}Shipping Information{/lang}</h3>
@@ -104,6 +75,35 @@ $template = '
 			<input type="text" name="ship_zip" value="{$order.ship_zip}" />
 		</div>								
 	</div>
+	<div id="bill_information">
+		<div>
+			<h3>{lang}Billing Information{/lang}</h3>
+		</div>
+		<div>	
+			<label>{lang}Name{/lang}</label>
+			<input type="text" name="bill_name" value="{$order.bill_name}"/>
+		</div>
+		<div>	
+			<label>{lang}Address Line 1{/lang}</label>
+			<input type="text" name="bill_line_1" value="{$order.bill_line_1}" />
+		</div>		
+		<div>	
+			<label>{lang}Address Line 2{/lang}</label>
+			<input type="text" name="bill_line_2" value="{$order.bill_line_2}" />
+		</div>		
+		<div>	
+			<label>{lang}City{/lang}</label>
+			<input type="text" name="bill_city" value="{$order.bill_city}" />
+		</div>		
+		<div>	
+			<label>{lang}State{/lang}</label>
+			<input type="text" name="bill_state" value="{$order.bill_state}" />
+		</div>		
+		<div>	
+			<label>{lang}Zipcode{/lang}</label>
+			<input type="text" name="bill_zip" value="{$order.bill_zip}" />
+		</div>	
+	</div>		
 	<div id="contact_information">
 		<div>
 			<h3>{lang}Contact Information{/lang}</h3>
