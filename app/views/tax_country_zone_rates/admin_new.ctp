@@ -11,15 +11,15 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 ?>
-<script language="javascript" type="text/javascript">
+<?php echo $javascript->codeBlock('
 	$(document).ready(function(){
 
 		$("select#TaxCountryZoneRateCountryId").change(function () {
-			$("div#zones_by_country").load("<?php echo BASE; ?>/tax_country_zone_rates/list_zones_by_country/"+$("select#TaxCountryZoneRateCountryId").val());
+			$("div#zones_by_country").load("'. BASE . '/tax_country_zone_rates/list_zones_by_country/"+$("select#TaxCountryZoneRateCountryId").val());
 		})
 
 	});
-</script>
+', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
 <?php
 
 echo $form->create('TaxCountryZoneRate', array('id' => 'contentform', 'action' => '/tax_country_zone_rates/admin_new/' . $tax['Tax']['id'], 'url' => '/tax_country_zone_rates/admin_new/' . $tax['Tax']['id']));
