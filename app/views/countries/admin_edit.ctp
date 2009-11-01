@@ -11,6 +11,11 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
+	echo $javascript->link('jquery/jquery.min', false);
+	echo $javascript->link('jquery/plugins/jquery-ui.min', false);
+	echo $javascript->link('tabs', false);
+	echo $html->css('jquery/plugins/ui/css/smoothness/jquery-ui','','', false);
+
 	echo $form->create('Country', array('id' => 'contentform', 'action' => '/countries/admin_edit/' . $data['Country']['id'], 'url' => '/countries/admin_edit/' . $data['Country']['id']));
 	
 	echo $admin->StartTabs();
