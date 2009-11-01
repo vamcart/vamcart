@@ -53,7 +53,7 @@ function smarty_function_language_box($params, &$smarty)
 	foreach($languages AS $language)
 	{
 		$language['Language']['url'] = BASE . '/languages/pick_language/' . $language['Language']['id'];
-		$language['Language']['image'] = BASE . '/themed/vamshop/img/flags/' . $language['Language']['iso_code_2'] .'.png';
+		$language['Language']['image'] = BASE . '/img/flags/' . $language['Language']['iso_code_2'] .'.png';
 		$keyed_languages[] = $language['Language'];
 	}
 
