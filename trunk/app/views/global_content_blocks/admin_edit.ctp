@@ -11,6 +11,11 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
+	echo $javascript->link('jquery/jquery.min', false);
+	echo $javascript->link('jquery/plugins/jquery-ui.min', false);
+	echo $javascript->link('tabs', false);
+	echo $html->css('jquery/plugins/ui/css/smoothness/jquery-ui','','', false);
+
 	$id = $this->data['GlobalContentBlock']['id'];
 	echo $form->create('GlobalContentBlock', array('id' => 'contentform', 'action' => '/global_content_blocks/admin_edit/'.$id, 'url' => '/global_content_blocks/admin_edit/'.$id));
 	
