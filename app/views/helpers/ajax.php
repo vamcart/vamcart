@@ -71,10 +71,10 @@ class AjaxHelper extends AppHelper {
 	var $__ajaxBuffer = array();
 	
 	function beforeRender() {
-	   if ( ClassRegistry::getObject('view') ) {
-		$this->Javascript->link('jquery', false);
-		$this->Javascript->link('jquery.form', false);
-	   }
+//	   if ( ClassRegistry::getObject('view') ) {
+//		$this->Javascript->link('jquery/jquery.min', false);
+//		$this->Javascript->link('jquery/plugins/jquery.form', false);
+//	   }
 	}
 
 	function link($title, $href = null, $options = array(), $confirm = null, $escapeTitle = true) {
@@ -239,7 +239,7 @@ class AjaxHelper extends AppHelper {
  * @link          http://github.com/madrobby/scriptaculous/wikis/ajax-inplaceeditor
  */
 	function editor($id, $url, $options = array()) {
-		$this->Javascript->link('jquery/jquery.jeditable.mini', false);
+//		$this->Javascript->link('jquery/plugins/jquery.jeditable', false);
 		$url = $this->url($url);
 		$options = $this->_optionsToString($options, array(
 			'id', 'name', 'loadurl', 'type', 'data', 'style', 'callback', 'submitdata', 'method', 'rows', 'cols', 'width', 'loadtype', 'loaddata', 'onblur', 'cancel', 'submit', 'tooltip', 'placeholder', 
