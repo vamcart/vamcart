@@ -17,15 +17,15 @@
 	echo $javascript->link('tabs', false);
 	echo $html->css('jquery/plugins/ui/css/smoothness/jquery-ui','','', false);
 ?>
-<script language="javascript" type="text/javascript">
+<?php echo $javascript->codeBlock('
 	$(document).ready(function(){
 
 		$("select#ContentContentTypeId").change(function () {
-			$("div#content_type_fields").load("<?php echo BASE; ?>/contents/admin_edit_type/"+$("select#ContentContentTypeId").val());
+			$("div#content_type_fields").load("'. BASE . '/contents/admin_edit_type/"+$("select#ContentContentTypeId").val());
 		})
 
 	});
-</script>
+', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
 <?php
 	
 	// Set default div styling for template_requured container divs
@@ -136,38 +136,38 @@
 		echo '<p>' . __('Press \'Upload Images\' and choose images from your computer to upload. Select as many files as you would like. Images will upload right after you select them.', true) . '</p>';
 		echo '<div class="help tip"><p>' . __('TIP: Hold the \'control\' button to select more than one image.', true) . '</p></div>';		
 		?>
-		<?php echo $javascript->link('swfupload/swfupload');  ?>
-		<?php echo $javascript->link('swfupload/callbacks');  ?>
+		<?php echo $javascript->link('swfupload/swfupload', false);  ?>
+		<?php echo $javascript->link('swfupload/callbacks', false);  ?>
 	
-		<script language="javascript" type="text/javascript">
+<?php echo $javascript->codeBlock('
 			var swfu;
 
 			window.onload = function() {
 
 				swfu = new SWFUpload({
-				upload_script : "<?php echo BASE; ?>/contents/upload_images/<?php echo $data['Content']['id']; ?>",
+				upload_script : "' . BASE . '/contents/upload_images/' . $data['Content']['id'] . '",
 				target : "SWFUploadTarget",
-				flash_path : "<?php echo BASE; ?>/themed/vamshop/js/swfupload/swfupload.swf?session_name()=<?php echo session_id(); ?>&"+Math.random(),
+				flash_path : "' . BASE . '/js/swfupload/swfupload.swf?session_name()=' . session_id() . '&"+Math.random(),
 				allowed_filesize : 3072,	// 30 MB
 				allowed_filetypes : "*.*",
 				allowed_filetypes_description : "All files...",
-				browse_link_innerhtml : "<?php __('Browse Images') ?>",
-				upload_link_innerhtml : "<?php __('Upload Images') ?>",
+				browse_link_innerhtml : "' . __('Browse Images', true) . '",
+				upload_link_innerhtml : "' . __('Upload Images', true) . '",
 				browse_link_class : "swfuploadbtn browsebtn",
 				upload_link_class : "swfuploadbtn uploadbtn",
-				flash_loaded_callback : 'swfu.flashLoaded',
+				flash_loaded_callback : "swfu.flashLoaded",
 				upload_file_queued_callback : "fileQueued",
-				upload_file_start_callback : 'uploadFileStart',
-				upload_progress_callback : 'uploadProgress',
-				upload_file_complete_callback : 'uploadFileComplete',
-				upload_file_cancel_callback : 'uploadFileCancelled',
-				upload_queue_complete_callback : 'uploadQueueComplete',
-				upload_error_callback : 'uploadError',
-				upload_cancel_callback : 'uploadCancel',
+				upload_file_start_callback : "uploadFileStart",
+				upload_progress_callback : "uploadProgress",
+				upload_file_complete_callback : "uploadFileComplete",
+				upload_file_cancel_callback : "uploadFileCancelled",
+				upload_queue_complete_callback : "uploadQueueComplete",
+				upload_error_callback : "uploadError",
+				upload_cancel_callback : "uploadCancel",
 				auto_upload : true			
 				});
-			};	
-		</script>
+			};
+', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
 		
 		<div id="SWFUploadFileListingFiles"></div>
 		<div class="clear"></div>
