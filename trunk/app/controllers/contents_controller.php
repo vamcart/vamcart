@@ -13,6 +13,7 @@
 
 class ContentsController extends AppController {
 	var $components = array('ContentBase');
+	var $helpers = array('TinyMce');
 	var $name = 'Contents';
 
 	/**
