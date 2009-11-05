@@ -169,7 +169,13 @@ class ContentsController extends AppController {
 	
 	function generate_tax_list ()
 	{
-		return $this->Content->ContentProduct->Tax->find('list', array('order' => array('Tax.default DESC')));
+		$tax_list_translatable = $this->Content->ContentProduct->Tax->find('list', array('order' => array('Tax.default DESC')));
+		foreach($tax_list_translatable AS $key => $value)
+		{
+		$tax_list_translatable[$key] = __($value, true);
+		}
+		
+		return $tax_list_translatable;
 	}
 
 	/**
