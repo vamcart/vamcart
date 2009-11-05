@@ -22,7 +22,7 @@ class TinyMceHelper extends Helper {
 		} else {
 	$code .= $this->Javascript->codeBlock('
 		tinyMCE.init({
-			mode : "none",
+			mode : "textareas",
 			editor_deselector : "notinymce",
 			theme : "advanced",
 			language : "ru",
