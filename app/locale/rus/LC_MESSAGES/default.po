@@ -1932,6 +1932,26 @@ msgstr "Редактировать страницу"
 msgid "Content Type"
 msgstr "Тип содержания"
 
+#: /views/themed/vamshop/contents/admin_edit.ctp:60
+msgid "category"
+msgstr "категория"
+
+#: /views/themed/vamshop/contents/admin_edit.ctp:60
+msgid "product"
+msgstr "товар"
+
+#: /views/themed/vamshop/contents/admin_edit.ctp:60
+msgid "page"
+msgstr "страница"
+
+#: /views/themed/vamshop/contents/admin_edit.ctp:60
+msgid "link"
+msgstr "url ссылка"
+
+#: /views/themed/vamshop/contents/admin_edit.ctp:60
+msgid "selflink"
+msgstr "ссылка на страницу"
+
 #: /views/themed/vamshop/contents/admin_core_pages_edit.ctp:62
 #: /views/themed/vamshop/contents/admin_edit.ctp:85
 msgid "Title (%s) "
