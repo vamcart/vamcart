@@ -1,6 +1,6 @@
 <?php
 	
-	define("MCETYPOGRAF_ENGINES", realPath(dirName(__FILE__) . "/../../../engines"));
+	define("MCETYPOGRAF_ENGINES", realPath(dirName(__FILE__) . "/engines"));
 	
 	header("Content-type: text/plain; charset=utf-8");
 	mb_internal_encoding("UTF-8");
