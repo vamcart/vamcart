@@ -31,7 +31,7 @@
 			$data[$language_key]['DefinedLanguage']['value'] = "";
 			
 		echo $form->inputs(array('DefinedLanguage]['.$language['Language']['id'].'][value' => array(
-			   		'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . sprintf(__('Value (%s) ', true),__($language['Language']['name'], true)),
+			   		'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . __('Value', true),
 					'type' => 'textarea',
 					'class' => 'pagesmalltextarea',											
 					'value' => $data[$language_key]['DefinedLanguage']['value']
