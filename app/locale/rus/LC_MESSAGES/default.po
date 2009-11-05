@@ -1986,6 +1986,21 @@ msgstr "Название"
 msgid "Description"
 msgstr "Описание"
 
+#: /views/themed/vamshop/contents/admin_core_pages_edit.ctp:68
+#: /views/themed/vamshop/contents/admin_edit.ctp:91
+msgid "Meta Title"
+msgstr "Мета заголовок"
+
+#: /views/themed/vamshop/contents/admin_core_pages_edit.ctp:68
+#: /views/themed/vamshop/contents/admin_edit.ctp:91
+msgid "Meta Description"
+msgstr "Мета описание"
+
+#: /views/themed/vamshop/contents/admin_core_pages_edit.ctp:68
+#: /views/themed/vamshop/contents/admin_edit.ctp:91
+msgid "Meta Keywords"
+msgstr "Мета ключевые слова"
+
 #: /views/themed/vamshop/contents/admin_core_pages_edit.ctp:86
 #: /views/themed/vamshop/contents/admin_edit.ctp:172
 msgid "Head Data"
