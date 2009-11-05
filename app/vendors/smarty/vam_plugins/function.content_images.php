@@ -19,16 +19,16 @@ $template = '
 		<li>
 			{if $thumbnail == "true"}
 				<a href="{$image.image_path}" target="blank"><img src="{$image.image_thumb}" alt="{$image.image}" /></a>	
-				<div><a href="{$image.image_path}" target="blank">Click to Enlarge</a></div>
+				<div><a href="{$image.image_path}" target="blank">{lang}Click to Enlarge{/lang}</a></div>
 			{else}
 				<img src="{$image.image_path}" width="{$thumbnail_size}" alt="{$image.image}" />			
 			{/if}
 		</li>			
 	{foreachelse}	
 		{if $thumbnail == "true"}
-			<li><img src="{$noimg_thumb}" alt="No Image" /></li>
+			<li><img src="{$noimg_thumb}" alt="{lang}No Image{/lang}" /></li>
 		{else}
-			<li><img src="{$noimg_path}" width="{$thumbnail_size}" alt="No Image" /></li>
+			<li><img src="{$noimg_path}" width="{$thumbnail_size}" alt="{lang}No Image{/lang}" /></li>
 		{/if}		
 	{/foreach}				
 </ul>
