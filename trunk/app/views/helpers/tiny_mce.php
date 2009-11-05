@@ -22,7 +22,7 @@ class TinyMceHelper extends Helper {
 		} else {
 	$code .= $this->Javascript->codeBlock('
 		tinyMCE.init({
-			mode : "textareas",
+			mode : "none",
 			editor_deselector : "notinymce",
 			theme : "advanced",
 			language : "ru",
@@ -59,6 +59,10 @@ class TinyMceHelper extends Helper {
 	', array('allowCache'=> false,'safe'=> false,'inline'=> false));
 	}    
     
+	return $code;
+	}
+	function toggleEditor($options){
+	$code = '<a href="javascript:toggleHTMLEditor(\''.$options.'\');">' . __('Add/Remove editor', true) . '</a>'; 
 	return $code;
 	}
 }
