@@ -32,12 +32,12 @@
 		$language_key = $language['Language']['id'];
 		
 	   	echo $form->inputs(array('EmailTemplateDescription.' . $language['Language']['id'].'.subject' => array(
-				   		'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . sprintf(__('Subject (%s) ', true),__($language['Language']['name'], true)),
+				   		'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . __('Subject', true),
 						'value' => $data['EmailTemplateDescription'][$language_key]['subject']
 	            	  ) 	   																									
 				));
 		echo $form->inputs(array('EmailTemplateDescription.' . $language['Language']['id'].'.content' => array(
-			   		'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . sprintf(__('Content (%s) ', true),__($language['Language']['name'], true)),
+			   		'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . __('Content', true),
 					'type' => 'textarea',
 					'class' => 'pagesmalltextarea',											
 					'value' => $data['EmailTemplateDescription'][$language_key]['content']
