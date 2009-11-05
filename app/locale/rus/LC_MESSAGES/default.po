@@ -1978,13 +1978,13 @@ msgstr "Нет налога"
 
 #: /views/themed/vamshop/contents/admin_core_pages_edit.ctp:62
 #: /views/themed/vamshop/contents/admin_edit.ctp:85
-msgid "Title (%s) "
-msgstr "Название (%s) "
+msgid "Title"
+msgstr "Название"
 
 #: /views/themed/vamshop/contents/admin_core_pages_edit.ctp:68
 #: /views/themed/vamshop/contents/admin_edit.ctp:91
-msgid "Description (%s) "
-msgstr "Описание (%s) "
+msgid "Description"
+msgstr "Описание"
 
 #: /views/themed/vamshop/contents/admin_core_pages_edit.ctp:86
 #: /views/themed/vamshop/contents/admin_edit.ctp:172
