@@ -1977,7 +1977,7 @@ msgstr "Смотреть картинки"
 
 #: /views/themed/vamshop/contents/admin_edit.ctp:159
 msgid "This is a new product. Please press apply before uploading images."
-msgstr "Новый товар. Нажмите кнопку сохранить до загрузки картинок."
+msgstr "Новый товар. Нажмите кнопку сохранить, затем Вы сможете добавить картинки."
 
 #: /views/themed/vamshop/contents/admin_edit.ctp:168
 #: /views/themed/vamshop/defined_languages/admin_edit.ctp:19
