@@ -265,7 +265,7 @@ way to fit your requirements.
 #menu li a:hover dd 
 	{
 		display: block;
-		width: 170px;
+		width: 148px;
 	}
 
 #menu li:hover dl, 
