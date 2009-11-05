@@ -131,7 +131,7 @@ class ContentBaseComponent extends Object
 		}
 		
 		$top_level = array("0" => __('Top Level', true));
-		$options = array_merge($top_level, $options);
+		$options = $top_level + $options;
 		return $options;
     }
 	
