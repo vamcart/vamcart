@@ -2143,10 +2143,11 @@ msgid "Call (Template Placeholder)"
 msgstr "Вызов (метка для шаблона)"
 
 #: /views/themed/vamshop/defined_languages/admin_edit.ctp:34
-msgid "Value (%s) "
-msgstr "Значение (%s)"
+msgid "Value"
+msgstr "Значение"
 
 #: /views/themed/vamshop/email_template/admin.ctp:16
+#: /views/themed/vamshop/email_template/admin_edit.ctp:35
 msgid "Subject"
 msgstr "Тема письма"
 
@@ -2154,13 +2155,10 @@ msgstr "Тема письма"
 msgid "Email Templates Details"
 msgstr "Шаблоны писем"
 
-#: /views/themed/vamshop/email_template/admin_edit.ctp:35
-msgid "Subject (%s) "
-msgstr "Тема письма (%s) "
-
 #: /views/themed/vamshop/email_template/admin_edit.ctp:40
-msgid "Content (%s) "
-msgstr "Содержание (%s) "
+#: /views/themed/vamshop/user_tags/admin_edit.ctp:33
+msgid "Content"
+msgstr "Содержание"
 
 #: /views/themed/vamshop/errors/missing_connection.ctp:15
 msgid "Either you are missing a database table, or you have not yet installed the software."
@@ -2536,10 +2534,6 @@ msgstr "Создать шаблон"
 #: /views/themed/vamshop/user_tags/admin_edit.ctp:25;40
 msgid "User Tag Details"
 msgstr "Тэги пользователя"
-
-#: /views/themed/vamshop/user_tags/admin_edit.ctp:33
-msgid "Content"
-msgstr "Содержимое"
 
 #: /views/themed/vamshop/users/admin_login.ctp:15
 #: /views/themed/vamshop/users/admin_new.ctp:18
