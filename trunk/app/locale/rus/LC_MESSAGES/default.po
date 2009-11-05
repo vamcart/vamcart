@@ -1952,6 +1952,30 @@ msgstr "url ссылка"
 msgid "selflink"
 msgstr "ссылка на страницу"
 
+#: /views/themed/vamshop/contents/admin_edit.ctp:60
+msgid "Default Theme"
+msgstr "Шаблон по умолчанию"
+
+#: /views/themed/vamshop/contents/admin_edit.ctp:60
+msgid "Main Layout"
+msgstr "Основной шаблон"
+
+#: /views/themed/vamshop/contents/admin_edit.ctp:60
+msgid "Content Page"
+msgstr "Страница с содержанием"
+
+#: /views/themed/vamshop/contents/admin_edit.ctp:60
+msgid "Product Info"
+msgstr "Страница карточки товара"
+
+#: /views/themed/vamshop/contents/admin_edit.ctp:60
+msgid "Category Info"
+msgstr "Страница категории"
+
+#: /views/themed/vamshop/contents/admin_edit.ctp:60
+msgid "Non-Taxable"
+msgstr "Нет налога"
+
 #: /views/themed/vamshop/contents/admin_core_pages_edit.ctp:62
 #: /views/themed/vamshop/contents/admin_edit.ctp:85
 msgid "Title (%s) "
