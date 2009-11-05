@@ -15,9 +15,9 @@ class TinyMceHelper extends Helper {
 	$code .= $this->Javascript->link('tiny_mce/plugins/tinybrowser/tb_tinymce.js.php', false);
 	if($options){
 	$code .= $this->Javascript->codeBlock('
-		tinyMCE.init({
+		tinyMCE.init(
 		'.json_encode($options).'
-		});    
+		);    
 	', array('allowCache'=> false,'safe'=> false,'inline'=> false));
 		} else {
 	$code .= $this->Javascript->codeBlock('
