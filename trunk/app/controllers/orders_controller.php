@@ -74,6 +74,19 @@ class OrdersController extends AppController {
 		$body = str_replace('{$order_number}', $order['Order']['id'], $body);
 		$body = str_replace('{$order_status}', $current_order_status['OrderStatusDescription']['name'], $body);
 		
+		$order = $this->Order->find('all', array('conditions' => array('Order.id' => $order['Order']['id'])));
+		$order = $order[0];
+		
+		$order_products = '';
+		foreach($order['OrderProduct'] AS $product) 
+		{
+			$order_products .= $product['quantity'] . ' x ' . $product['name'] . ' = ' . $product['quantity']*$product['price'] . "\n";
+		}
+		$order_products .= "\n" . $order['ShippingMethod']['name'] . ': ' . $order['Order']['shipping'] . "\n";
+		$order_products .= __('Order Total',true) . ': ' . $order['Order']['total'] . "\n";
+		
+		$body = str_replace('{$products}', $order_products, $body);
+		
 		// Set up mail
 		$this->Email->init();
 		$this->Email->From = $config['NEW_ORDER_FROM_EMAIL'];
