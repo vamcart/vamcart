@@ -178,7 +178,7 @@ class AppController extends Controller {
 	{
 		// Navigation Menu Array
 		$navigation = array(
-			1 => array('text' => __('Home', true), 'path' => '/admin/admin_top/1'
+			1 => array('text' => __('Home', true), 'path' => '/admin/admin_top/'
 			),	
 			2 => array('text' => __('Orders', true), 'path' => '/orders/admin/', 
 				'children' => array(
