@@ -1078,10 +1078,7 @@ CREATE TABLE `templates_stylesheets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `templates_stylesheets` (`template_id`, `stylesheet_id`) VALUES 
-(1, 1),
-(1, 2),
-(1, 3),
-(1, 4);
+(1, 1);
 
 DROP TABLE IF EXISTS template_types;
 CREATE TABLE `template_types` (
