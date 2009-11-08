@@ -16,7 +16,6 @@
 	echo $javascript->link('jquery/plugins/jquery-ui.min', false);
 	echo $javascript->link('tabs', false);
 	echo $html->css('jquery/plugins/ui/css/smoothness/jquery-ui','','', false);
-	echo $javascript->link('tabs', false);
 	echo $tinyMce->init();
 ?>
 <?php echo $javascript->codeBlock('
