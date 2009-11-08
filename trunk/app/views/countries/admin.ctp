@@ -11,7 +11,8 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-	echo $javascript->link('tabs', false);
+	echo $javascript->link('jquery/jquery.min', false);
+	echo $javascript->link('jquery/plugins/jquery-ui.min', false);
 
 $paginator->options(array('update' => 'content', 'url' => '/countries/admin/', 'indicator' => 'spinner')); 
 
