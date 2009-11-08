@@ -1443,8 +1443,8 @@ msgid "(type)"
 msgstr "(type)"
 
 #: /vendors/smarty/vam_plugins/function.content_listing.php:179
-msgid "Type of content to display in the menu. Can be any of: category, product, page, link, selflink, or all. Seperate multiple values with commas, example:"
-msgstr "Тип содержимого, отображаемого в меню. Параметр может иметь следующие значения: category, product, page, link, selflink, или all. Несколько значений разделяются запятой, к примеру: "
+msgid "Type of content to display. Seperate multiple values with commas, example:"
+msgstr "Тип выводимого содержимого. Несколько значений разделяются запятой, к примеру: "
 
 #: /vendors/smarty/vam_plugins/function.content_listing.php:179
 msgid "Defaults to"
