@@ -49,7 +49,7 @@ class StorePickupController extends PaymentAppController {
 	{
 		$content = '
 		<form action="' . BASE . '/orders/place_order/" method="post">
-		<button id="vam_checkout_button" type="submit">{lang}Confirm Order{/lang}</button>
+		<span class="button"><input type="submit" value="{lang}Confirm Order{/lang}" /></span>
 		</form>';
 		return $content;	
 	}
