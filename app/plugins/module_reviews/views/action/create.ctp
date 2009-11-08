@@ -14,7 +14,7 @@
 		<textarea name="content"></textarea>
 	</div>
 	<div>
-		<input type="submit" value="Submit" />
+		<span class="button"><input type="submit" value="{lang}Submit{/lang}" /></span>
 	</div>
 	</form>
 	</div>
