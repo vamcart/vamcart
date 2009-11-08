@@ -180,7 +180,7 @@ class AppController extends Controller {
 		$navigation = array(
 			1 => array('text' => __('Home', true), 'path' => '/admin/admin_top/'
 			),	
-			2 => array('text' => __('Orders', true), 'path' => '/orders/admin/', 
+			2 => array('text' => __('Orders', true), 'path' => '/admin/admin_top/2', 
 				'children' => array(
 					1 => array('text' => __('All Orders', true), 'path' => '/orders/admin/')
 				)			
