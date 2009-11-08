@@ -225,7 +225,13 @@ class ContentsController extends AppController {
 			$this->set('data',$data);
 			$this->set('content_types',$this->Content->ContentType->find('list'));
 			$this->set('parents', $this->ContentBase->generate_content_list());
-			$this->set('templates', $this->Content->Template->find('list', array('parent_id' => '0')));
+			// Template
+			$templates_translatable =  $this->Content->Template->find('list', array('parent_id' => '0'));
+			foreach($templates_translatable AS $key => $value)
+			{
+			$templates_translatable[$key] = __($value, true);
+			}
+			$this->set('templates', $templates_translatable);
 			$this->set('languages', $this->Content->ContentDescription->Language->find('all', array('conditions' => array('active' => '1'), 'order' => array('Language.id ASC'))));
 			
 	}
