@@ -23,7 +23,7 @@ foreach ($content_data AS $content)
 	echo $admin->TableCells(
 		  array(
 				$name_link,
-				$content['Template']['name'],
+				__($content['Template']['name'], true),
 				array($admin->ActionButton('edit','/contents/admin_core_pages_edit/' . $content['Content']['id'],__('Edit', true)), array('align'=>'center'))
 		   ));
 		   	
