@@ -68,10 +68,11 @@
 			echo $flashChart->begin(); 
 
 			$flashChart->setTitle(__('Orders', true),'{color:#000;font-size:18px;}');
-			$flashChart->setData(array(1,2,4,8),'{n}',false,'Apples');		
-			$flashChart->setData(array(3,4,6,9),'{n}',false,'Oranges');
+			$flashChart->setData(array(1,2,4,8,16,32,45,54,68,82),'{n}',false,'Apples');		
+			$flashChart->setData(array(3,4,6,9,13,18,24,31,39,48),'{n}',false,'Oranges');
+			$flashChart->axis('y',array('range' => array(0,100,10)));
 			echo $flashChart->chart('bar',array('colour'=>'#ff9900'),'Apples');
-			echo $flashChart->chart('line',array('colour'=>'#0077cc'),'Oranges');	
+			echo $flashChart->chart('line',array('colour'=>'#0077cc','width'=>'2'),'Oranges');	
 			echo $flashChart->render('100%','300');
 	
 		echo $admin->EndTabContent();
