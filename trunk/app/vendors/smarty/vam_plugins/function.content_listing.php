@@ -92,11 +92,9 @@ function smarty_function_content_listing($params, &$smarty)
 	if((!isset($params['type'])) || ($params['type'] == 'all'))
 	{
 		// Set the default conditions if all or nothing was passed
-		$allowed_types[] = 'category';
-		$allowed_types[] = 'product';
-		$allowed_types[] = 'page';
-		$allowed_types[] = 'link';
-		$allowed_types[] = 'selflink';
+		App::import('Model', 'ContentType');
+		$ContentType =& new ContentType();
+		$allowed_types = $ContentType->find('list');	
 	}
 	else
 	{
@@ -170,7 +168,7 @@ function smarty_help_function_content_listing() {
 	<p><?php echo __('Just insert the tag into your template like:') ?> <code>{content_listing}</code></p>
 	<h3><?php echo __('What parameters does it take?') ?></h3>
 	<ul>
-		<li><em><?php echo __('(type)') ?></em> - <?php echo __('Type of content to display in the menu. Can be any of: category, product, page, link, selflink, or all. Seperate multiple values with commas, example:') ?> {content_listing type='category,page'}. <?php echo __('Defaults to') ?> 'all'.</li>
+		<li><em><?php echo __('(type)') ?></em> - <?php echo __('Type of content to display. Seperate multiple values with commas, example:') ?> {content_listing type='category,page'}. <?php echo __('Defaults to') ?> 'all'.</li>
 		<li><em><?php echo __('(parent)') ?></em> - <?php echo __('The parent of the content items to be shown. Accepts an alias or id, defaults to 0.') ?></li>
 		<li><em><?php echo __('(template)') ?></em> - <?php echo __('Useful if you want to override the default content listing template. Setting this will utilize the template that matches this alias.') ?></li>
 	</ul>
