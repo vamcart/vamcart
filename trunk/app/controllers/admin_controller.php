@@ -21,7 +21,7 @@ class AdminController extends AppController {
 		$this->redirect('/users/admin_login/');
 	}
 	
-	function admin_top()
+	function admin_top($level = 1)
 	{
 	
 	//App::import('Model', 'Order');
@@ -31,7 +31,7 @@ class AdminController extends AppController {
 	//$orders = $this->Order->find('all');
 	//echo var_dump($orders);
 	
-	$this->set('level',1);
+	$this->set('level', $level);
 	
 	}
 }
