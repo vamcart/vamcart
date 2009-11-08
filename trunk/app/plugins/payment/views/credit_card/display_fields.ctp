@@ -18,4 +18,4 @@
 	</div>
 </div>
 </div>
-<span class="button"><input type="submit" value="{lang}Confirm Order{/lang}" /></span>
+<span class="button"><button type="submit" value="{lang}Confirm Order{/lang}">{lang}Confirm Order{/lang}</button></span>
