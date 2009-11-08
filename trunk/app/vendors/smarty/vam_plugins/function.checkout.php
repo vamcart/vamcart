@@ -120,7 +120,7 @@ $template = '
 	<div>
 	{module alias="coupons" action="checkout_box"}
 	</div>
-	<span class="button"><input type="submit" value="{lang}Continue{/lang}" /></span>
+	<span class="button"><button type="submit" value="{lang}Continue{/lang}">{lang}Continue{/lang}</button></span>
 </form>
 </div>
 ';		
