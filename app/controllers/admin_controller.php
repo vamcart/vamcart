@@ -24,12 +24,14 @@ class AdminController extends AppController {
 	function admin_top()
 	{
 	
-	App::import('Model', 'Order');
+	//App::import('Model', 'Order');
 	
-	$this->Order =& new Order();
+	//$this->Order =& new Order();
 	
-	$orders = $this->Order->find('all');
+	//$orders = $this->Order->find('all');
 	//echo var_dump($orders);
+	
+	$this->set('level',1);
 	
 	}
 }
