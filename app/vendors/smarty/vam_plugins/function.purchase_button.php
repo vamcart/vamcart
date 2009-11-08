@@ -13,7 +13,7 @@
 
 function smarty_function_purchase_button($params, &$smarty)
 {
-	$result = '<span class="button"><input type="submit" value="'. __('Add To Cart', true) .'" /></span>';
+	$result = '<span class="button"><button type="submit" value="'. __('Add To Cart', true) .'">'. __('Add To Cart', true) .'</button></span>';
 	return $result;
 }
 
