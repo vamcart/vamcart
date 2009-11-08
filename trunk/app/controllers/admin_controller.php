@@ -14,16 +14,23 @@
 class AdminController extends AppController {
 	var $name = 'Admin';
 	var $uses = array('User');
-	var $helpers = array('Html','Javascript','Admin','Form');
+	var $helpers = array('Html','Javascript','Admin','Form', 'FlashChart');
 
 	function index() 
 	{
 		$this->redirect('/users/admin_login/');
 	}
 	
-	function admin_top($level = 1)
+	function admin_top()
 	{
-		$this->set('level',$level);
+	
+	App::import('Model', 'Order');
+	
+	$this->Order =& new Order();
+	
+	$orders = $this->Order->find('all');
+	//echo var_dump($orders);
+	
 	}
 }
 ?>

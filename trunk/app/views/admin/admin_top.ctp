@@ -11,40 +11,13 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-// If we're on the top level then assign the rest of the elements as menu children
-if($level == 1)
-{
-	$tmp_navigation = array();
+ echo $flashChart->begin(); 
 
-	$navigation[1] = null; // Removes the home page from being displayed below
-	
-	foreach($navigation AS $tmp_nav)
-	{
-		if(!empty($tmp_nav))
-			$tmp_navigation[$level]['children'][] = $tmp_nav;
-	}
-	$navigation = $tmp_navigation;
-
-}
-
-if(!empty($navigation[$level]['children']))
-{
-	$level_navigation = $navigation[$level]['children'];
-	foreach($level_navigation AS $nav)
-	{
-		echo '<div class="page_menu_item" class="">
-				<p class="heading">' . $admin->MenuLink($nav) . '</p>';
-		if(!empty($nav['children']))
-		{
-			$sub_items = '';
-			foreach($nav['children'] AS $child)
-			{
-				$sub_items .= $admin->MenuLink($child) . ', ';
-			}
-			$sub_items = rtrim($sub_items, ', ');
-			echo $sub_items;
-		}
-		echo '</div>';
-	}
-}
+ $flashChart->setTitle('Тест');
+ $flashChart->setData(array(1,2,4,8),'{n}',false,'Apples','dig');		
+ $flashChart->setData(array(3,4,6,9),'{n}',false,'Oranges','dig');
+ echo $flashChart->chart('bar',array('colour'=>'#ff9900'),'Apples','dig');
+ echo $flashChart->chart('line',array('colour'=>'#0077cc'),'Oranges','dig');	
+ echo $flashChart->render('100%','300','dig');
+ 
 ?>
