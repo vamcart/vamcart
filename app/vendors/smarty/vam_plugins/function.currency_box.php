@@ -23,7 +23,7 @@ $template = '
 	<option value="{$currency.id}" {if $currency.id == $smarty.session.Customer.currency_id}selected="selected"{/if}>{$currency.name}</option>
 		{/foreach}
 		</select>
-		<input type="submit" value="Go" />
+		<span class="button"><input type="submit" value="{lang}Go{/lang}" /></span>
 		</form>
 	</div>
 </div>
