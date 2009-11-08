@@ -1117,7 +1117,9 @@ CREATE TABLE `user_prefs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `user_prefs` (`id`, `user_id`, `name`, `value`) VALUES 
-(1, 1, 'language', 'eng');
+(1, 1, 'content_collapse', ''),
+(2, 1, 'template_collpase', ''),
+(3, 1, 'language', 'eng');
 
 DROP TABLE IF EXISTS user_tags;
 CREATE TABLE `user_tags` (
