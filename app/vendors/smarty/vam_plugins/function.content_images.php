@@ -19,7 +19,6 @@ $template = '
 		<li>
 			{if $thumbnail == "true"}
 				<a href="{$image.image_path}" class="zoom" rel="group" title="{$image.image}"><img src="{$image.image_thumb}" alt="{$image.image}" /></a>	
-				<div><a href="{$image.image_path}" class="zoom" rel="group" title="{$image.image}">{lang}Click to Enlarge{/lang}</a></div>
 			{else}
 				<img src="{$image.image_path}" width="{$thumbnail_size}" alt="{$image.image}" />			
 			{/if}
@@ -49,9 +48,12 @@ function smarty_function_content_images($params, &$smarty)
 	App::import('Model', 'ContentImage');
 		$ContentImage =& new ContentImage();
 	
+	if(!isset($params['number']))
+		$params['number'] = null;		
+	
 	if(!isset($params['width']))
 		$params['width'] = $config['THUMBNAIL_SIZE'];
-
+	
 	if(!isset($params['height']))
 		$params['height'] = 100;		
 	
@@ -59,21 +61,19 @@ function smarty_function_content_images($params, &$smarty)
 		$params['thumbnail'] = true;
 	elseif($params['thumbnail'] == 'false')
 		$params['thumbnail'] = 'false';
-
+	
 	if($config['GD_LIBRARY'] == '0')
 		$params['thumbnail'] = 'false';
 	
-	$images = $ContentImage->find('all', array('conditions' => array('content_id' => $content['Content']['id'])));
+	$images = $ContentImage->find('all', array('limit' => $params['number'], 'conditions' => array('content_id' => $content['Content']['id'])));
 	
 	$keyed_images = array();
-	foreach($images AS $image)
+	foreach($images AS $key => $value)
 	{
 		$content_id = $content['Content']['id'];
-		$keyed_images[$content_id] = array('id' => $image['ContentImage']['id'],
-										  'image' => $image['ContentImage']['image']
-										  );
-		$keyed_images[$content_id]['image_path'] = BASE . '/img/content/' . $content_id . '/' . $image['ContentImage']['image'];
-		$keyed_images[$content_id]['image_thumb'] = BASE . '/images/thumb?src=/content/' . $content_id . '/' . $image['ContentImage']['image'] . '&w=' . $params['width'];
+		$keyed_images[$key] = $value['ContentImage'];
+		$keyed_images[$key]['image_path'] = BASE . '/img/content/' . $content_id . '/' . $value['ContentImage']['image'];
+		$keyed_images[$key]['image_thumb'] = BASE . '/images/thumb?src=/content/' . $content_id . '/' . $value['ContentImage']['image'] . '&w=' . $params['width'];
 	}	
 	
 	$assignments = array('images' => $keyed_images,
