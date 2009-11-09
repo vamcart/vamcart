@@ -13,7 +13,7 @@ INSERT INTO `configurations` (`id`, `key`, `value`) VALUES
 (1, 'METADATA', '<meta name="Generator" content="VaM Shop - vamshop.com" />'),
 (2, 'SITE_NAME', 'VaM Shop'),
 (3, 'URL_EXTENSION', '.html'),
-(4, 'GD_LIBRARY', '0'),
+(4, 'GD_LIBRARY', '1'),
 (5, 'THUMBNAIL_SIZE', '125'),
 (6, 'CACHE_TIME', '3600'),
 (7, 'SEND_EXTRA_EMAIL', 'vam@test.com'),
