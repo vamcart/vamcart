@@ -18,8 +18,8 @@ $template = '
 	{foreach from=$images item=image}		
 		<li>
 			{if $thumbnail == "true"}
-				<a href="{$image.image_path}" target="blank"><img src="{$image.image_thumb}" alt="{$image.image}" /></a>	
-				<div><a href="{$image.image_path}" target="blank">{lang}Click to Enlarge{/lang}</a></div>
+				<a href="{$image.image_path}" class="zoom" rel="group" title="{$image.image}"><img src="{$image.image_thumb}" alt="{$image.image}" /></a>	
+				<div><a href="{$image.image_path}" class="zoom" rel="group" title="{$image.image}">{lang}Click to Enlarge{/lang}</a></div>
 			{else}
 				<img src="{$image.image_path}" width="{$thumbnail_size}" alt="{$image.image}" />			
 			{/if}
