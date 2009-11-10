@@ -101,6 +101,30 @@ else
 }
 
       break;
+
+    case '6':
+
+echo $form->inputs(array(
+		   'ContentNews.extra' => array(
+		   		'type' => 'hidden',
+				'value' => 1
+              )
+		  ));
+
+      break;
+
+    case '7':
+
+echo $form->inputs(array(
+		   'ContentArticle.extra' => array(
+		   		'type' => 'hidden',
+				'value' => 1
+              )
+		  ));
+
+      break;
+
 }
+
       
 ?>
