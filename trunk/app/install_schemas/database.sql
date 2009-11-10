@@ -182,6 +182,22 @@ CREATE TABLE `content_selflinks` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+DROP TABLE IF EXISTS content_news;
+CREATE TABLE `content_news` (
+  `id` int(10) NOT NULL auto_increment,
+  `content_id` int(1) NOT NULL,
+  `extra` varchar(1) collate utf8_unicode_ci NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+DROP TABLE IF EXISTS content_articles;
+CREATE TABLE `content_articles` (
+  `id` int(10) NOT NULL auto_increment,
+  `content_id` int(1) NOT NULL,
+  `extra` varchar(1) collate utf8_unicode_ci NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 DROP TABLE IF EXISTS content_types;
 CREATE TABLE `content_types` (
   `id` int(10) NOT NULL auto_increment,
@@ -196,7 +212,9 @@ INSERT INTO `content_types` (`id`, `template_type_id`, `name`, `type`) VALUES
 (2, 3, 'product', 'ContentProduct'),
 (3, 2, 'page', 'ContentPage'),
 (4, 0, 'link', 'ContentLink'),
-(5, 0, 'selflink', 'ContentSelflink');
+(5, 0, 'selflink', 'ContentSelflink'),
+(6, 0, 'news', 'ContentNews'),
+(7, 0, 'article', 'ContentArticle');
 
 DROP TABLE IF EXISTS countries;
 CREATE TABLE `countries` (
