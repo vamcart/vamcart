@@ -56,7 +56,11 @@ INSERT INTO `contents` (`id`, `parent_id`, `order`, `hierarchy`, `content_type_i
 (53, -1, 5, 0, 3, 1, 0, 'thank-you', '', 1, 1, '2009-08-07 11:58:21', '2009-08-15 16:00:40'),
 (58, -1, 0, 0, 3, 1, 0, 'read-reviews', '', 1, 0, '2009-08-20 09:37:04', '2009-08-20 09:37:04'),
 (59, -1, 0, 0, 3, 1, 0, 'create-review', '', 1, 0, '2009-08-20 09:37:04', '2009-08-20 09:37:04'),
-(68, -1, 0, 0, 3, 1, 0, 'coupon-details', '', 1, 0, '2009-09-13 11:11:08', '2009-09-13 11:11:08');
+(68, -1, 0, 0, 3, 1, 0, 'coupon-details', '', 1, 0, '2009-09-13 11:11:08', '2009-09-13 11:11:08'),
+(69, 0, 5, 0, 6, 1, 0, 'news', '', 1, 0, '2009-11-10 20:18:22', '2009-11-10 20:18:22'),
+(70, 0, 6, 0, 7, 1, 0, 'articles', '', 1, 0, '2009-11-10 20:18:45', '2009-11-10 20:18:45'),
+(71, 69, 1, 0, 6, 1, 0, 'sample-news', '', 1, 1, '2009-11-10 20:20:08', '2009-11-10 20:20:08'),
+(72, 70, 1, 0, 7, 1, 0, 'sample-article', '', 1, 1, '2009-11-10 20:20:51', '2009-11-10 20:20:51');
 
 DROP TABLE IF EXISTS content_categories;
 CREATE TABLE `content_categories` (
@@ -116,7 +120,15 @@ INSERT INTO `content_descriptions` (`id`, `content_id`, `language_id`, `name`, `
 (391, 35, 1, 'Home', '<p>Welcome to your new online catalog!</p>\r\n<p><a href=''admin/''>Click here to go to the admin area.</a><br />\r\nLogin credentials: admin/password</p>','', '', ''),
 (392, 35, 2, 'Главная страница', '<p>Добро пожаловать!</p>\r\n<p><a href=''admin/''>Вход в админку.</a><br />\r\nЛогин/пароль: admin/password</p>','', '', ''),
 (393, 68, 1, 'Voucher Details', '{module alias=''coupons'' action=''show_info''}','', '', ''),
-(394, 68, 2, 'Информация о купоне', '{module alias=''coupons'' action=''show_info''}','', '', '');
+(394, 68, 2, 'Информация о купоне', '{module alias=''coupons'' action=''show_info''}','', '', ''),
+(395, 69, 1, 'News', '', '', '', ''),
+(396, 69, 2, 'Новости', '', '', '', ''),
+(397, 70, 1, 'Articles', '', '', '', ''),
+(398, 70, 2, 'Статьи', '', '', '', ''),
+(399, 71, 1, 'News heading', 'News content','', '', ''),
+(400, 71, 2, 'Заголовок новости', 'Текст новости','', '', ''),
+(401, 72, 1, 'Article', 'Description','', '', ''),
+(402, 72, 2, 'Статья', 'Текст статьи','', '', '');
 
 DROP TABLE IF EXISTS content_images;
 CREATE TABLE `content_images` (
@@ -190,6 +202,10 @@ CREATE TABLE `content_news` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+INSERT INTO `content_news` (`id`, `content_id`, `extra`) VALUES 
+(1, 69, '1'),
+(2, 71, '1');
+
 DROP TABLE IF EXISTS content_articles;
 CREATE TABLE `content_articles` (
   `id` int(10) NOT NULL auto_increment,
@@ -197,6 +213,10 @@ CREATE TABLE `content_articles` (
   `extra` varchar(1) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `content_articles` (`id`, `content_id`, `extra`) VALUES 
+(1, 70, '1'),
+(2, 72, '1');
 
 DROP TABLE IF EXISTS content_types;
 CREATE TABLE `content_types` (
