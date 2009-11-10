@@ -1953,6 +1953,14 @@ msgid "selflink"
 msgstr "ссылка на страницу"
 
 #: /views/themed/vamshop/contents/admin_edit.ctp:60
+msgid "news"
+msgstr "новость"
+
+#: /views/themed/vamshop/contents/admin_edit.ctp:60
+msgid "article"
+msgstr "статья"
+
+#: /views/themed/vamshop/contents/admin_edit.ctp:60
 msgid "Default Theme"
 msgstr "Шаблон по умолчанию"
 
