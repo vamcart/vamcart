@@ -194,7 +194,7 @@
 				'Content.head_data' => array(
 					'label' => __('Head Data', true),
 					'type' => 'textarea',
-					'class' => 'pagesmalltextarea',
+					'class' => 'notinymce',
 					'value' => $data['Content']['head_data']
 	             ),				
 			    'Content.active' => array(
