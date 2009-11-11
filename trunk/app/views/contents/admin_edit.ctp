@@ -97,11 +97,14 @@
 			echo $form->inputs(array('ContentDescription]['.$language['Language']['id'].'][description.' . $language['Language']['id'] => array(
 				   		'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . __('Description', true),
 						'type' => 'textarea',
-						'class' => 'pagesmalltextarea',						
+						'class' => 'pagesmalltextarea',
+						'id' => 'content_description_'.$language['Language']['id'],						
 						'value' => $data['ContentDescription'][$language_key]['description']
 	            	  )));
 		echo '</div>';						  
-
+		
+		echo $tinyMce->toggleEditor('content_description_'.$language['Language']['id']);						  
+		
 		echo $form->inputs(array('ContentDescription]['.$language['Language']['id'].'][meta_title.' . $language['Language']['id'] => array(
 				   		'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . __('Meta Title', true),
 						'value' => $data['ContentDescription'][$language_key]['meta_title']
