@@ -21,8 +21,9 @@ class TinyMceHelper extends Helper {
 	', array('allowCache'=> false,'safe'=> false,'inline'=> false));
 		} else {
 	$code .= $this->Javascript->codeBlock('
+
 		tinyMCE.init({
-			mode : "textareas",
+			mode : "none",
 			editor_deselector : "notinymce",
 			theme : "advanced",
 			language : "ru",
@@ -49,13 +50,14 @@ class TinyMceHelper extends Helper {
 			theme_advanced_resizing : true
 		
 		});
-		
+	
 		function toggleHTMLEditor(id) {
 			if (!tinyMCE.get(id))
 				tinyMCE.execCommand("mceAddControl", false, id);
 			else
 				tinyMCE.execCommand("mceRemoveControl", false, id);
 		}    
+	
 	', array('allowCache'=> false,'safe'=> false,'inline'=> false));
 	}    
     
