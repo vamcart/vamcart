@@ -1981,6 +1981,14 @@ msgid "Category Info"
 msgstr "Страница категории"
 
 #: /views/themed/vamshop/contents/admin_edit.ctp:60
+msgid "News Page"
+msgstr "Страница новости"
+
+#: /views/themed/vamshop/contents/admin_edit.ctp:60
+msgid "Article Page"
+msgstr "Страница статьи"
+
+#: /views/themed/vamshop/contents/admin_edit.ctp:60
 msgid "Non-Taxable"
 msgstr "Нет налога"
 
