@@ -1749,6 +1749,10 @@ msgstr "Вы действительно хотите удалить данный
 msgid "No Data"
 msgstr "Нет данных"
 
+#: /views/helpers/tiny_mce.php:67
+msgid "Show/Hide editor"
+msgstr "Включить/Выключить редактор"
+
 #: /views/themed/vamshop/configuration/admin_edit.ctp:23
 msgid "Caching"
 msgstr "Кэширование"

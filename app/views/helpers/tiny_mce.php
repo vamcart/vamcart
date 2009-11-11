@@ -64,7 +64,7 @@ class TinyMceHelper extends Helper {
 	return $code;
 	}
 	function toggleEditor($options){
-	$code = '<a href="javascript:toggleHTMLEditor(\''.$options.'\');">' . __('Add/Remove editor', true) . '</a>'; 
+	$code = '<a href="javascript:toggleHTMLEditor(\''.$options.'\');">' . __('Show/Hide editor', true) . '</a>'; 
 	return $code;
 	}
 }
