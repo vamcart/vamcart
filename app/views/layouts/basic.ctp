@@ -1,9 +1,9 @@
 <?php
 /* -----------------------------------------------------------------------------------------
-   VaM Shop
-   http://vamshop.com
-   http://vamshop.ru
-   Copyright 2009 VaM Shop
+   VaM Cart
+   http://vamcart.com
+   http://vamcart.ru
+   Copyright 2009 VaM Cart
    -----------------------------------------------------------------------------------------
    Portions Copyright:
    Copyright 2007 by Kevin Grandon (kevingrandon@hotmail.com)
@@ -16,7 +16,7 @@
 <head>
 <?php echo $html->meta('icon'); ?> 
 <?php echo $html->charset(); ?>
-<title><?php __('VaM Shop') ?></title>
+<title><?php __('VaM Cart') ?></title>
 </head>
 
 <body>

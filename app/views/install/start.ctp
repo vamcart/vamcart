@@ -1,9 +1,9 @@
 <?php
 /* -----------------------------------------------------------------------------------------
-   VaM Shop
-   http://vamshop.com
-   http://vamshop.ru
-   Copyright 2009 VaM Shop
+   VaM Cart
+   http://vamcart.com
+   http://vamcart.ru
+   Copyright 2009 VaM Cart
    -----------------------------------------------------------------------------------------
    Portions Copyright:
    Copyright 2007 by Kevin Grandon (kevingrandon@hotmail.com)
@@ -11,7 +11,7 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 ?>
-<p><?php __('Welcome to the VaM Shop installation.') ?></p>
+<p><?php __('Welcome to the VaM Cart installation.') ?></p>
 <p><?php __('Installing version:') ?> <?php echo $version; ?></p>
 
 <?php

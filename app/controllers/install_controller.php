@@ -1,9 +1,9 @@
 <?php
 /* -----------------------------------------------------------------------------------------
-   VaM Shop
-   http://vamshop.com
-   http://vamshop.ru
-   Copyright 2009 VaM Shop
+   VaM Cart
+   http://vamcart.com
+   http://vamcart.ru
+   Copyright 2009 VaM Cart
    -----------------------------------------------------------------------------------------
    Portions Copyright:
    Copyright 2007 by Kevin Grandon (kevingrandon@hotmail.com)
@@ -132,10 +132,10 @@ class InstallController extends AppController {
 		
 		$configData = '<?php
 /* -----------------------------------------------------------------------------------------
-   VaM Shop
-   http://vamshop.com
-   http://vamshop.ru
-   Copyright 2009 VaM Shop
+   VaM Cart
+   http://vamcart.com
+   http://vamcart.ru
+   Copyright 2009 VaM Cart
    -----------------------------------------------------------------------------------------
    Portions Copyright:
    Copyright 2007 by Kevin Grandon (kevingrandon@hotmail.com)
