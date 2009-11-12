@@ -88,7 +88,7 @@ class InstallController extends AppController {
 			$values['Install']['db_host'] = 'localhost';
 			$values['Install']['db_username'] = 'root';
 			$values['Install']['db_password']  = '';
-			$values['Install']['db_name'] = 'vamshop';
+			$values['Install']['db_name'] = 'vamcart';
 		}	
 		$this->set('values',$values);
 	}
