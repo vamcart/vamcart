@@ -754,7 +754,7 @@ CREATE TABLE `global_content_blocks` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `global_content_blocks` (`id`, `name`, `content`, `alias`, `active`, `created`, `modified`) VALUES 
-(1, 'Footer', '<a href="http://vamcart.com/">PHP Shopping Cart</a> <a href="http://vamcart.com/">VaM Cart</a>', 'footer', 1, '2009-07-17 10:00:06', '2009-09-12 17:05:49');
+(1, 'Footer', '<a href="http://vamcart.com/">PHP Shopping Cart</a>: <a href="http://vamcart.com/">VaM Cart</a>', 'footer', 1, '2009-07-17 10:00:06', '2009-09-12 17:05:49');
 
 DROP TABLE IF EXISTS languages;
 CREATE TABLE `languages` (
