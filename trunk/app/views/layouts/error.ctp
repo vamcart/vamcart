@@ -1,9 +1,9 @@
 <?php
 /* -----------------------------------------------------------------------------------------
-   VaM Shop
-   http://vamshop.com
-   http://vamshop.ru
-   Copyright 2009 VaM Shop
+   VaM Cart
+   http://vamcart.com
+   http://vamcart.ru
+   Copyright 2009 VaM Cart
    -----------------------------------------------------------------------------------------
    Portions Copyright:
    Copyright 2007 by Kevin Grandon (kevingrandon@hotmail.com)
@@ -17,7 +17,7 @@
 <?php echo $html->meta('icon'); ?> 
 <?php echo $html->charset(); ?>
 <?php echo $html->css('admin'); ?>
-<title><?php __('VaM Shop') ?></title>
+<title><?php __('VaM Cart') ?></title>
 </head>
 
 <body>
@@ -26,7 +26,7 @@
 
 <!-- Header -->
 <div id="header">
-<?php echo $html->image('admin/logo.png', array('alt' => __('VaM Shop',true)))?>
+<?php echo $html->image('admin/logo.png', array('alt' => __('VaM Cart',true)))?>
 </div>
 <!-- /Header -->
 
@@ -64,7 +64,7 @@
 <!-- Footer -->
 <div id="footer">
 <p>
-<a href="http://vamshop.ru/" target="blank"><?php __('Powered by VaM Shop') ?></a>
+<a href="http://vamcart.ru/" target="blank"><?php __('Powered by VaM Cart') ?></a>
 </p>
 </div>
 <!-- /Footer -->

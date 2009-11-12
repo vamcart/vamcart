@@ -2230,8 +2230,8 @@ msgid "Click here to visit your live store."
 msgstr "Перейти в магазин."
 
 #: /views/themed/vamshop/install/start.ctp:14
-msgid "Welcome to the VaM Shop installation."
-msgstr "Установка интернет-магазина VaM Shop."
+msgid "Welcome to the VaM Cart installation."
+msgstr "Установка интернет-магазина VaM Cart."
 
 #: /views/themed/vamshop/install/start.ctp:15
 msgid "Installing version:"
@@ -2268,14 +2268,14 @@ msgid "Flag Code"
 msgstr "Код флага"
 
 #: /views/themed/vamshop/layouts/admin.ctp:19
-msgid "VaM Shop Admin"
-msgstr "Админка VaM Shop"
+msgid "VaM Cart Admin"
+msgstr "Админка VaM Cart"
 
 #: /views/themed/vamshop/layouts/admin.ctp:38
 #: /views/themed/vamshop/layouts/default.ctp:19;28
 #: /views/themed/vamshop/layouts/error.ctp:19;28
-msgid "VaM Shop"
-msgstr "VaM Shop"
+msgid "VaM Cart"
+msgstr "VaM Cart"
 
 #: /views/themed/vamshop/layouts/admin.ctp:43
 msgid "Search"
@@ -2288,8 +2288,8 @@ msgstr "Поиск по магазину"
 #: /views/themed/vamshop/layouts/admin.ctp:97
 #: /views/themed/vamshop/layouts/default.ctp:66
 #: /views/themed/vamshop/layouts/error.ctp:66
-msgid "Powered by VaM Shop"
-msgstr "Работает на VaM Shop"
+msgid "Powered by VaM Cart"
+msgstr "Работает на VaM Cart"
 
 #: /views/themed/vamshop/micro_templates/admin_create_from_tag.ctp:17
 #: /views/themed/vamshop/micro_templates/admin_edit.ctp:18
