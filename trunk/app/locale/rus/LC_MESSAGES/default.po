@@ -28,12 +28,12 @@ msgid "All Orders"
 msgstr "Все заказы"
 
 #: /app_controller.php:190
-#: /views/themed/vamshop/global_content_blocks/admin_edit.ctp:33
+#: /views/global_content_blocks/admin_edit.ctp:33
 msgid "Contents"
 msgstr "Содержание"
 
 #: /app_controller.php:192
-#: /views/themed/vamshop/contents/admin_edit.ctp:43
+#: /views/contents/admin_edit.ctp:43
 msgid "Categories & Products"
 msgstr "Категории и товары"
 
@@ -54,7 +54,7 @@ msgid "Templates"
 msgstr "Шаблоны"
 
 #: /app_controller.php:200
-#: /views/themed/vamshop/stylesheets/admin_edit.ctp:34
+#: /views/stylesheets/admin_edit.ctp:34
 msgid "Stylesheets"
 msgstr "Стили"
 
@@ -198,29 +198,29 @@ msgid "You have deleted a record."
 msgstr "Запись удалена."
 
 #: /controllers/contents_controller.php:189
-#: /views/themed/vamshop/contents/admin.ctp:44
-#: /views/themed/vamshop/contents/admin_core_pages.ctp:27
-#: /views/themed/vamshop/countries/admin.ctp:30
-#: /views/themed/vamshop/country_zones/admin.ctp:24
-#: /views/themed/vamshop/currencies/admin.ctp:28
-#: /views/themed/vamshop/defined_languages/admin.ctp:23
-#: /views/themed/vamshop/global_content_blocks/admin.ctp:26
-#: /views/themed/vamshop/languages/admin.ctp:29
-#: /views/themed/vamshop/micro_templates/admin.ctp:23
-#: /views/themed/vamshop/order_status/admin.ctp:25
-#: /views/themed/vamshop/payment_methods/admin.ctp:25
-#: /views/themed/vamshop/shipping_methods/admin.ctp:26
-#: /views/themed/vamshop/stylesheets/admin.ctp:27
-#: /views/themed/vamshop/tax_country_zone_rates/admin.ctp:26
-#: /views/themed/vamshop/taxes/admin.ctp:26
-#: /views/themed/vamshop/templates/admin.ctp:38
-#: /views/themed/vamshop/user_tags/admin.ctp:25
+#: /views/contents/admin.ctp:44
+#: /views/contents/admin_core_pages.ctp:27
+#: /views/countries/admin.ctp:30
+#: /views/country_zones/admin.ctp:24
+#: /views/currencies/admin.ctp:28
+#: /views/defined_languages/admin.ctp:23
+#: /views/global_content_blocks/admin.ctp:26
+#: /views/languages/admin.ctp:29
+#: /views/micro_templates/admin.ctp:23
+#: /views/order_status/admin.ctp:25
+#: /views/payment_methods/admin.ctp:25
+#: /views/shipping_methods/admin.ctp:26
+#: /views/stylesheets/admin.ctp:27
+#: /views/tax_country_zone_rates/admin.ctp:26
+#: /views/taxes/admin.ctp:26
+#: /views/templates/admin.ctp:38
+#: /views/user_tags/admin.ctp:25
 msgid "Edit"
 msgstr "Редактировать"
 
 #: /controllers/contents_controller.php:233
-#: /views/themed/vamshop/contents/admin_core_pages_edit.ctp:80
-#: /views/themed/vamshop/contents/admin_edit.ctp:166
+#: /views/contents/admin_core_pages_edit.ctp:80
+#: /views/contents/admin_edit.ctp:166
 msgid "Content Details"
 msgstr "Содержание"
 
@@ -257,7 +257,7 @@ msgid "Listing"
 msgstr "Список"
 
 #: /controllers/countries_controller.php:21
-#: /views/themed/vamshop/countries/admin_edit.ctp:24;46
+#: /views/countries/admin_edit.ctp:24;46
 msgid "Country Details"
 msgstr "Информация о стране"
 
@@ -293,7 +293,7 @@ msgid "Countries Listing"
 msgstr "Список стран"
 
 #: /controllers/country_zones_controller.php:28
-#: /views/themed/vamshop/country_zones/admin_edit.ctp:16
+#: /views/country_zones/admin_edit.ctp:16
 msgid "Country Zone Details"
 msgstr "Информация о регионах страны"
 
@@ -302,7 +302,7 @@ msgid "Country Zones Listing"
 msgstr "Информация о регионах страны"
 
 #: /controllers/currencies_controller.php:64
-#: /views/themed/vamshop/currencies/admin_edit.ctp:16
+#: /views/currencies/admin_edit.ctp:16
 msgid "Currency Details"
 msgstr "Информация о валюте"
 
@@ -328,7 +328,7 @@ msgid "Currencies Listing"
 msgstr "Список валют"
 
 #: /controllers/defined_languages_controller.php:35
-#: /views/themed/vamshop/defined_languages/admin_edit.ctp:17
+#: /views/defined_languages/admin_edit.ctp:17
 msgid "Defined Language Details"
 msgstr "Языковые строки"
 
@@ -349,7 +349,7 @@ msgid "Events Listing"
 msgstr "Список событий"
 
 #: /controllers/global_content_blocks_controller.php:31
-#: /views/themed/vamshop/global_content_blocks/admin_edit.ctp:25;40
+#: /views/global_content_blocks/admin_edit.ctp:25;40
 msgid "Global Content Block Details"
 msgstr "Информация о блоках"
 
@@ -370,7 +370,7 @@ msgid "Can't open config.php. Please check you have proper permissions to write 
 msgstr "Не могу открыть файл config.php. Убедитесь, что установлены необходимые права доступа на запись в этот файл."
 
 #: /controllers/languages_controller.php:66
-#: /views/themed/vamshop/languages/admin_edit.ctp:16
+#: /views/languages/admin_edit.ctp:16
 msgid "Language Details"
 msgstr "Информация о языке"
 
@@ -439,13 +439,13 @@ msgid "You have deleted a template association."
 msgstr "Удалена привязка стиля к шаблону."
 
 #: /controllers/stylesheets_controller.php:65
-#: /views/themed/vamshop/stylesheets/admin.ctp:27
-#: /views/themed/vamshop/stylesheets/admin_attach_templates.ctp:42
+#: /views/stylesheets/admin.ctp:27
+#: /views/stylesheets/admin_attach_templates.ctp:42
 msgid "Attach Template"
 msgstr "Присоединить к шаблону"
 
 #: /controllers/stylesheets_controller.php:94
-#: /views/themed/vamshop/stylesheets/admin_copy.ctp:16
+#: /views/stylesheets/admin_copy.ctp:16
 msgid "Copy Stylesheet"
 msgstr "Копирование стиля"
 
@@ -458,7 +458,7 @@ msgid "You deleted a stylesheet."
 msgstr "Стиль удалён."
 
 #: /controllers/stylesheets_controller.php:142
-#: /views/themed/vamshop/stylesheets/admin_attach_templates.ctp:14
+#: /views/stylesheets/admin_attach_templates.ctp:14
 msgid "Stylesheet"
 msgstr "Стиль"
 
@@ -531,12 +531,12 @@ msgid "You have deleted a stylesheet association."
 msgstr "Удалена привязка шаблона к стилю."
 
 #: /controllers/templates_controller.php:76
-#: /views/themed/vamshop/templates/admin.ctp:38
+#: /views/templates/admin.ctp:38
 msgid "Attach Stylesheets"
 msgstr "Добавление стилей"
 
 #: /controllers/templates_controller.php:121
-#: /views/themed/vamshop/templates/admin_copy.ctp:16
+#: /views/templates/admin_copy.ctp:16
 msgid "Copy Template"
 msgstr "Копирование шаблона"
 
@@ -621,7 +621,7 @@ msgid "No match for Username and/or Password."
 msgstr "Данные для входа указаны неправильно."
 
 #: /controllers/users_controller.php:146
-#: /views/themed/vamshop/users/admin_new.ctp:16
+#: /views/users/admin_new.ctp:16
 msgid "New Admin"
 msgstr "Новый администратор"
 
@@ -690,24 +690,24 @@ msgstr "Модуль находится в разделе Заказы - Нез�
 
 #: /plugins/module_abandoned_carts/views/admin/admin_index.ctp:16
 #: /plugins/module_coupons/views/admin/admin_edit.ctp:19
-#: /views/themed/vamshop/configuration/admin_edit.ctp:22
-#: /views/themed/vamshop/contents/admin_core_pages_edit.ctp:18
-#: /views/themed/vamshop/contents/admin_edit.ctp:35
-#: /views/themed/vamshop/countries/admin_edit.ctp:18
-#: /views/themed/vamshop/global_content_blocks/admin_edit.ctp:19
-#: /views/themed/vamshop/stylesheets/admin_edit.ctp:18
-#: /views/themed/vamshop/user_tags/admin_edit.ctp:19
+#: /views/configuration/admin_edit.ctp:22
+#: /views/contents/admin_core_pages_edit.ctp:18
+#: /views/contents/admin_edit.ctp:35
+#: /views/countries/admin_edit.ctp:18
+#: /views/global_content_blocks/admin_edit.ctp:19
+#: /views/stylesheets/admin_edit.ctp:18
+#: /views/user_tags/admin_edit.ctp:19
 msgid "Main"
 msgstr "Основные"
 
 #: /plugins/module_abandoned_carts/views/admin/admin_index.ctp:17
-#: /views/themed/vamshop/admin/admin_top.ctp:40
-#: /views/themed/vamshop/contents/admin_core_pages_edit.ctp:19
-#: /views/themed/vamshop/contents/admin_edit.ctp:38
-#: /views/themed/vamshop/countries/admin_edit.ctp:19
-#: /views/themed/vamshop/global_content_blocks/admin_edit.ctp:20
-#: /views/themed/vamshop/stylesheets/admin_edit.ctp:19
-#: /views/themed/vamshop/user_tags/admin_edit.ctp:20
+#: /views/admin/admin_top.ctp:40
+#: /views/contents/admin_core_pages_edit.ctp:19
+#: /views/contents/admin_edit.ctp:38
+#: /views/countries/admin_edit.ctp:19
+#: /views/global_content_blocks/admin_edit.ctp:20
+#: /views/stylesheets/admin_edit.ctp:19
+#: /views/user_tags/admin_edit.ctp:20
 msgid "Options"
 msgstr "Настройки"
 
@@ -728,7 +728,7 @@ msgid "Click here to purge all Abandoned Carts."
 msgstr "Очистить все незавершённые заказы."
 
 #: /plugins/module_abandoned_carts/views/admin/admin_index.ctp:41
-#: /views/themed/vamshop/modules/admin.ctp:27;31
+#: /views/modules/admin.ctp:27;31
 msgid "Are you sure?"
 msgstr "Вы уверены?"
 
@@ -741,12 +741,12 @@ msgid "Edit Coupon"
 msgstr "Редактирование купона"
 
 #: /plugins/module_coupons/controllers/admin_controller.php:31
-#: /views/themed/vamshop/configuration/admin_edit.ctp:17
+#: /views/configuration/admin_edit.ctp:17
 msgid "no"
 msgstr "нет"
 
 #: /plugins/module_coupons/controllers/admin_controller.php:31
-#: /views/themed/vamshop/configuration/admin_edit.ctp:18
+#: /views/configuration/admin_edit.ctp:18
 msgid "yes"
 msgstr "да"
 
@@ -796,25 +796,25 @@ msgstr "Информация о купоне"
 
 #: /plugins/module_coupons/views/admin/admin_edit.ctp:30
 #: /plugins/module_coupons/views/admin/admin_index.ctp:15
-#: /views/themed/vamshop/countries/admin_edit.ctp:30
-#: /views/themed/vamshop/country_zones/admin_edit.ctp:25
-#: /views/themed/vamshop/currencies/admin_edit.ctp:21
-#: /views/themed/vamshop/events/admin.ctp:16
-#: /views/themed/vamshop/global_content_blocks/admin_edit.ctp:30
-#: /views/themed/vamshop/languages/admin_edit.ctp:21
-#: /views/themed/vamshop/modules/admin.ctp:16
-#: /views/themed/vamshop/order_status/admin.ctp:16
-#: /views/themed/vamshop/payment_methods/admin.ctp:16
-#: /views/themed/vamshop/payment_methods/admin_edit.ctp:22
-#: /views/themed/vamshop/shipping_methods/admin.ctp:16
-#: /views/themed/vamshop/shipping_methods/admin_edit.ctp:23
-#: /views/themed/vamshop/stylesheets/admin_edit.ctp:30
-#: /views/themed/vamshop/tax_country_zone_rates/admin.ctp:18
-#: /views/themed/vamshop/taxes/admin.ctp:16
-#: /views/themed/vamshop/taxes/admin_edit.ctp:21
-#: /views/themed/vamshop/templates/admin_edit_details.ctp:22
-#: /views/themed/vamshop/templates/admin_new.ctp:18
-#: /views/themed/vamshop/user_tags/admin_edit.ctp:30
+#: /views/countries/admin_edit.ctp:30
+#: /views/country_zones/admin_edit.ctp:25
+#: /views/currencies/admin_edit.ctp:21
+#: /views/events/admin.ctp:16
+#: /views/global_content_blocks/admin_edit.ctp:30
+#: /views/languages/admin_edit.ctp:21
+#: /views/modules/admin.ctp:16
+#: /views/order_status/admin.ctp:16
+#: /views/payment_methods/admin.ctp:16
+#: /views/payment_methods/admin_edit.ctp:22
+#: /views/shipping_methods/admin.ctp:16
+#: /views/shipping_methods/admin_edit.ctp:23
+#: /views/stylesheets/admin_edit.ctp:30
+#: /views/tax_country_zone_rates/admin.ctp:18
+#: /views/taxes/admin.ctp:16
+#: /views/taxes/admin_edit.ctp:21
+#: /views/templates/admin_edit_details.ctp:22
+#: /views/templates/admin_new.ctp:18
+#: /views/user_tags/admin_edit.ctp:30
 msgid "Name"
 msgstr "Название"
 
@@ -856,78 +856,78 @@ msgstr "Максимальная сумма заказа"
 
 #: /plugins/module_coupons/views/admin/admin_edit.ctp:72
 #: /views/helpers/admin.php:120
-#: /views/themed/vamshop/contents/admin_core_pages_edit.ctp:100
-#: /views/themed/vamshop/contents/admin_edit.ctp:196
-#: /views/themed/vamshop/countries/admin_edit.ctp:57
-#: /views/themed/vamshop/country_zones/admin_edit.ctp:31
-#: /views/themed/vamshop/currencies/admin_edit.ctp:45
-#: /views/themed/vamshop/defined_languages/admin_edit.ctp:41
-#: /views/themed/vamshop/global_content_blocks/admin_edit.ctp:55
-#: /views/themed/vamshop/install/start.ctp:31
-#: /views/themed/vamshop/languages/admin_edit.ctp:30
-#: /views/themed/vamshop/layouts/admin.ctp:44
-#: /views/themed/vamshop/micro_templates/admin_create_from_tag.ctp:33
-#: /views/themed/vamshop/micro_templates/admin_edit.ctp:34
-#: /views/themed/vamshop/order_status/admin_edit.ctp:34
-#: /views/themed/vamshop/orders/admin_view.ctp:211
-#: /views/themed/vamshop/payment_methods/admin_edit.ctp:29
-#: /views/themed/vamshop/shipping_methods/admin_edit.ctp:30
-#: /views/themed/vamshop/stylesheets/admin_copy.ctp:26
-#: /views/themed/vamshop/stylesheets/admin_edit.ctp:59
-#: /views/themed/vamshop/tax_country_zone_rates/admin_edit.ctp:26
-#: /views/themed/vamshop/tax_country_zone_rates/admin_new.ctp:49
-#: /views/themed/vamshop/taxes/admin_edit.ctp:24
-#: /views/themed/vamshop/templates/admin_copy.ctp:26
-#: /views/themed/vamshop/templates/admin_edit.ctp:25
-#: /views/themed/vamshop/templates/admin_edit_details.ctp:26
-#: /views/themed/vamshop/user_tags/admin_edit.ctp:49
-#: /views/themed/vamshop/users/admin_new.ctp:28
-#: /views/themed/vamshop/users/admin_user_account.ctp:35
+#: /views/contents/admin_core_pages_edit.ctp:100
+#: /views/contents/admin_edit.ctp:196
+#: /views/countries/admin_edit.ctp:57
+#: /views/country_zones/admin_edit.ctp:31
+#: /views/currencies/admin_edit.ctp:45
+#: /views/defined_languages/admin_edit.ctp:41
+#: /views/global_content_blocks/admin_edit.ctp:55
+#: /views/install/start.ctp:31
+#: /views/languages/admin_edit.ctp:30
+#: /views/layouts/admin.ctp:44
+#: /views/micro_templates/admin_create_from_tag.ctp:33
+#: /views/micro_templates/admin_edit.ctp:34
+#: /views/order_status/admin_edit.ctp:34
+#: /views/orders/admin_view.ctp:211
+#: /views/payment_methods/admin_edit.ctp:29
+#: /views/shipping_methods/admin_edit.ctp:30
+#: /views/stylesheets/admin_copy.ctp:26
+#: /views/stylesheets/admin_edit.ctp:59
+#: /views/tax_country_zone_rates/admin_edit.ctp:26
+#: /views/tax_country_zone_rates/admin_new.ctp:49
+#: /views/taxes/admin_edit.ctp:24
+#: /views/templates/admin_copy.ctp:26
+#: /views/templates/admin_edit.ctp:25
+#: /views/templates/admin_edit_details.ctp:26
+#: /views/user_tags/admin_edit.ctp:49
+#: /views/users/admin_new.ctp:28
+#: /views/users/admin_user_account.ctp:35
 msgid "Submit"
 msgstr "Продолжить"
 
 #: /plugins/module_coupons/views/admin/admin_edit.ctp:72
-#: /views/themed/vamshop/configuration/admin_edit.ctp:45
-#: /views/themed/vamshop/contents/admin_core_pages_edit.ctp:100
-#: /views/themed/vamshop/contents/admin_edit.ctp:196
-#: /views/themed/vamshop/global_content_blocks/admin_edit.ctp:55
-#: /views/themed/vamshop/micro_templates/admin_create_from_tag.ctp:33
-#: /views/themed/vamshop/micro_templates/admin_edit.ctp:34
-#: /views/themed/vamshop/stylesheets/admin_edit.ctp:59
-#: /views/themed/vamshop/templates/admin_edit.ctp:25
-#: /views/themed/vamshop/user_tags/admin_edit.ctp:49
-#: /views/themed/vamshop/users/admin_user_preferences.ctp:26
+#: /views/configuration/admin_edit.ctp:45
+#: /views/contents/admin_core_pages_edit.ctp:100
+#: /views/contents/admin_edit.ctp:196
+#: /views/global_content_blocks/admin_edit.ctp:55
+#: /views/micro_templates/admin_create_from_tag.ctp:33
+#: /views/micro_templates/admin_edit.ctp:34
+#: /views/stylesheets/admin_edit.ctp:59
+#: /views/templates/admin_edit.ctp:25
+#: /views/user_tags/admin_edit.ctp:49
+#: /views/users/admin_user_preferences.ctp:26
 msgid "Apply"
 msgstr "Сохранить"
 
 #: /plugins/module_coupons/views/admin/admin_edit.ctp:72
-#: /views/themed/vamshop/configuration/admin_edit.ctp:45
-#: /views/themed/vamshop/contents/admin_core_pages_edit.ctp:100
-#: /views/themed/vamshop/contents/admin_edit.ctp:196
-#: /views/themed/vamshop/countries/admin_edit.ctp:57
-#: /views/themed/vamshop/country_zones/admin_edit.ctp:31
-#: /views/themed/vamshop/currencies/admin_edit.ctp:45
-#: /views/themed/vamshop/defined_languages/admin_edit.ctp:41
-#: /views/themed/vamshop/global_content_blocks/admin_edit.ctp:55
-#: /views/themed/vamshop/languages/admin_edit.ctp:30
-#: /views/themed/vamshop/micro_templates/admin_create_from_tag.ctp:33
-#: /views/themed/vamshop/micro_templates/admin_edit.ctp:34
-#: /views/themed/vamshop/order_status/admin_edit.ctp:34
-#: /views/themed/vamshop/payment_methods/admin_edit.ctp:29
-#: /views/themed/vamshop/shipping_methods/admin_edit.ctp:30
-#: /views/themed/vamshop/stylesheets/admin_copy.ctp:26
-#: /views/themed/vamshop/stylesheets/admin_edit.ctp:59
-#: /views/themed/vamshop/tax_country_zone_rates/admin_edit.ctp:26
-#: /views/themed/vamshop/tax_country_zone_rates/admin_new.ctp:49
-#: /views/themed/vamshop/taxes/admin_edit.ctp:24
-#: /views/themed/vamshop/templates/admin_copy.ctp:26
-#: /views/themed/vamshop/templates/admin_edit.ctp:25
-#: /views/themed/vamshop/templates/admin_edit_details.ctp:26
-#: /views/themed/vamshop/templates/admin_new.ctp:21
-#: /views/themed/vamshop/user_tags/admin_edit.ctp:49
-#: /views/themed/vamshop/users/admin_new.ctp:28
-#: /views/themed/vamshop/users/admin_user_account.ctp:35
-#: /views/themed/vamshop/users/admin_user_preferences.ctp:26
+#: /views/configuration/admin_edit.ctp:45
+#: /views/contents/admin_core_pages_edit.ctp:100
+#: /views/contents/admin_edit.ctp:196
+#: /views/countries/admin_edit.ctp:57
+#: /views/country_zones/admin_edit.ctp:31
+#: /views/currencies/admin_edit.ctp:45
+#: /views/defined_languages/admin_edit.ctp:41
+#: /views/global_content_blocks/admin_edit.ctp:55
+#: /views/languages/admin_edit.ctp:30
+#: /views/micro_templates/admin_create_from_tag.ctp:33
+#: /views/micro_templates/admin_edit.ctp:34
+#: /views/order_status/admin_edit.ctp:34
+#: /views/payment_methods/admin_edit.ctp:29
+#: /views/shipping_methods/admin_edit.ctp:30
+#: /views/stylesheets/admin_copy.ctp:26
+#: /views/stylesheets/admin_edit.ctp:59
+#: /views/tax_country_zone_rates/admin_edit.ctp:26
+#: /views/tax_country_zone_rates/admin_new.ctp:49
+#: /views/taxes/admin_edit.ctp:24
+#: /views/templates/admin_copy.ctp:26
+#: /views/templates/admin_edit.ctp:25
+#: /views/templates/admin_edit_details.ctp:26
+#: /views/templates/admin_new.ctp:21
+#: /views/user_tags/admin_edit.ctp:49
+#: /views/users/admin_new.ctp:28
+#: /views/users/admin_user_account.ctp:35
+#: /views/users/admin_user_preferences.ctp:26
 msgid "Cancel"
 msgstr "Отменить"
 
@@ -944,42 +944,42 @@ msgid "To use during checkout:"
 msgstr "Метка купонов для шаблона:"
 
 #: /plugins/module_coupons/views/admin/admin_index.ctp:15
-#: /views/themed/vamshop/countries/admin.ctp:20;20
-#: /views/themed/vamshop/country_zones/admin.ctp:16
-#: /views/themed/vamshop/country_zones/admin_edit.ctp:28
-#: /views/themed/vamshop/currencies/admin.ctp:18
-#: /views/themed/vamshop/currencies/admin_edit.ctp:24
-#: /views/themed/vamshop/languages/admin.ctp:18
-#: /views/themed/vamshop/languages/admin_edit.ctp:24
-#: /views/themed/vamshop/shipping_methods/admin.ctp:16
+#: /views/countries/admin.ctp:20;20
+#: /views/country_zones/admin.ctp:16
+#: /views/country_zones/admin_edit.ctp:28
+#: /views/currencies/admin.ctp:18
+#: /views/currencies/admin_edit.ctp:24
+#: /views/languages/admin.ctp:18
+#: /views/languages/admin_edit.ctp:24
+#: /views/shipping_methods/admin.ctp:16
 msgid "Code"
 msgstr "Код"
 
 #: /plugins/module_coupons/views/admin/admin_index.ctp:15
 #: /plugins/module_reviews/views/admin/admin_index.ctp:15
-#: /views/themed/vamshop/contents/admin.ctp:18
-#: /views/themed/vamshop/contents/admin_core_pages.ctp:16
-#: /views/themed/vamshop/countries/admin.ctp:20
-#: /views/themed/vamshop/country_zones/admin.ctp:16
-#: /views/themed/vamshop/currencies/admin.ctp:18
-#: /views/themed/vamshop/defined_languages/admin.ctp:15
-#: /views/themed/vamshop/events/admin_view.ctp:16
-#: /views/themed/vamshop/global_content_blocks/admin.ctp:17
-#: /views/themed/vamshop/languages/admin.ctp:18
-#: /views/themed/vamshop/micro_templates/admin.ctp:15
-#: /views/themed/vamshop/modules/admin.ctp:16
-#: /views/themed/vamshop/order_status/admin.ctp:16
-#: /views/themed/vamshop/orders/admin.ctp:18
-#: /views/themed/vamshop/payment_methods/admin.ctp:16
-#: /views/themed/vamshop/shipping_methods/admin.ctp:16
-#: /views/themed/vamshop/stylesheets/admin.ctp:18
-#: /views/themed/vamshop/stylesheets/admin_attach_templates.ctp:22
-#: /views/themed/vamshop/tax_country_zone_rates/admin.ctp:18
-#: /views/themed/vamshop/taxes/admin.ctp:16
-#: /views/themed/vamshop/templates/admin.ctp:16
-#: /views/themed/vamshop/templates/admin_attach_stylesheets.ctp:21
-#: /views/themed/vamshop/user_tags/admin.ctp:17
-#: /views/themed/vamshop/users/admin.ctp:16
+#: /views/contents/admin.ctp:18
+#: /views/contents/admin_core_pages.ctp:16
+#: /views/countries/admin.ctp:20
+#: /views/country_zones/admin.ctp:16
+#: /views/currencies/admin.ctp:18
+#: /views/defined_languages/admin.ctp:15
+#: /views/events/admin_view.ctp:16
+#: /views/global_content_blocks/admin.ctp:17
+#: /views/languages/admin.ctp:18
+#: /views/micro_templates/admin.ctp:15
+#: /views/modules/admin.ctp:16
+#: /views/order_status/admin.ctp:16
+#: /views/orders/admin.ctp:18
+#: /views/payment_methods/admin.ctp:16
+#: /views/shipping_methods/admin.ctp:16
+#: /views/stylesheets/admin.ctp:18
+#: /views/stylesheets/admin_attach_templates.ctp:22
+#: /views/tax_country_zone_rates/admin.ctp:18
+#: /views/taxes/admin.ctp:16
+#: /views/templates/admin.ctp:16
+#: /views/templates/admin_attach_stylesheets.ctp:21
+#: /views/user_tags/admin.ctp:17
+#: /views/users/admin.ctp:16
 msgid "Action"
 msgstr "Действие"
 
@@ -1044,8 +1044,8 @@ msgid "Author"
 msgstr "Автор"
 
 #: /plugins/module_reviews/views/admin/admin_index.ctp:15
-#: /views/themed/vamshop/orders/admin.ctp:18
-#: /views/themed/vamshop/orders/admin_view.ctp:160
+#: /views/orders/admin.ctp:18
+#: /views/orders/admin_view.ctp:160
 msgid "Date"
 msgstr "Дата"
 
@@ -1086,18 +1086,18 @@ msgid "Table based shipping can be set to work off of number of products in cart
 msgstr "Расчёт доставки может производиться в зависимости от веса товаров, суммы заказа, либо количества товаров в корзине. Ниже можно выбрать способ расчёта и указать таблицу расчёта парами (значение:стоимость), разделёнными запятой. Например: 0:1.00,1:2.50,2:3.00."
 
 #: /plugins/shipping/views/admin/table_based.ctp:16
-#: /views/themed/vamshop/contents/admin_edit_type.ctp:54
+#: /views/contents/admin_edit_type.ctp:54
 msgid "Weight"
 msgstr "Вес"
 
 #: /plugins/shipping/views/admin/table_based.ctp:17
-#: /views/themed/vamshop/orders/admin.ctp:18
-#: /views/themed/vamshop/orders/admin_view.ctp:125
+#: /views/orders/admin.ctp:18
+#: /views/orders/admin_view.ctp:125
 msgid "Total"
 msgstr "Сумма"
 
 #: /plugins/shipping/views/admin/table_based.ctp:18
-#: /views/themed/vamshop/orders/admin_view.ctp:17
+#: /views/orders/admin_view.ctp:17
 msgid "Products"
 msgstr "Товары"
 
@@ -1715,28 +1715,28 @@ msgid "Up"
 msgstr "Вверх"
 
 #: /views/helpers/admin.php:156
-#: /views/themed/vamshop/contents/admin.ctp:40;41
-#: /views/themed/vamshop/currencies/admin.ctp:26
-#: /views/themed/vamshop/global_content_blocks/admin.ctp:25
-#: /views/themed/vamshop/languages/admin.ctp:27
-#: /views/themed/vamshop/modules/admin.ctp:37
-#: /views/themed/vamshop/orders/admin_view.ctp:168
-#: /views/themed/vamshop/payment_methods/admin.ctp:23
-#: /views/themed/vamshop/shipping_methods/admin.ctp:24
-#: /views/themed/vamshop/stylesheets/admin.ctp:25
+#: /views/contents/admin.ctp:40;41
+#: /views/currencies/admin.ctp:26
+#: /views/global_content_blocks/admin.ctp:25
+#: /views/languages/admin.ctp:27
+#: /views/modules/admin.ctp:37
+#: /views/orders/admin_view.ctp:168
+#: /views/payment_methods/admin.ctp:23
+#: /views/shipping_methods/admin.ctp:24
+#: /views/stylesheets/admin.ctp:25
 msgid "True"
 msgstr "Активен"
 
 #: /views/helpers/admin.php:160
-#: /views/themed/vamshop/contents/admin.ctp:40;41
-#: /views/themed/vamshop/currencies/admin.ctp:26
-#: /views/themed/vamshop/global_content_blocks/admin.ctp:25
-#: /views/themed/vamshop/languages/admin.ctp:27
-#: /views/themed/vamshop/modules/admin.ctp:37
-#: /views/themed/vamshop/orders/admin_view.ctp:168
-#: /views/themed/vamshop/payment_methods/admin.ctp:23
-#: /views/themed/vamshop/shipping_methods/admin.ctp:24
-#: /views/themed/vamshop/stylesheets/admin.ctp:25
+#: /views/contents/admin.ctp:40;41
+#: /views/currencies/admin.ctp:26
+#: /views/global_content_blocks/admin.ctp:25
+#: /views/languages/admin.ctp:27
+#: /views/modules/admin.ctp:37
+#: /views/orders/admin_view.ctp:168
+#: /views/payment_methods/admin.ctp:23
+#: /views/shipping_methods/admin.ctp:24
+#: /views/stylesheets/admin.ctp:25
 msgid "False"
 msgstr "Неактивен"
 
@@ -1745,7 +1745,7 @@ msgid "Confirm delete action?"
 msgstr "Вы действительно хотите удалить данный элемент?"
 
 #: /views/helpers/admin.php:179
-#: /views/themed/vamshop/images/admin_view_content_images.ctp:29
+#: /views/images/admin_view_content_images.ctp:29
 msgid "No Data"
 msgstr "Нет данных"
 
@@ -1753,835 +1753,835 @@ msgstr "Нет данных"
 msgid "Show/Hide editor"
 msgstr "Включить/Выключить редактор"
 
-#: /views/themed/vamshop/configuration/admin_edit.ctp:23
+#: /views/configuration/admin_edit.ctp:23
 msgid "Caching"
 msgstr "Кэширование"
 
-#: /views/themed/vamshop/configuration/admin_edit.ctp:23
+#: /views/configuration/admin_edit.ctp:23
 msgid "Email Settings"
 msgstr "Настройка email"
 
-#: /views/themed/vamshop/configuration/admin_edit.ctp:28
+#: /views/configuration/admin_edit.ctp:28
 msgid "Site Name"
 msgstr "Название магазина"
 
-#: /views/themed/vamshop/configuration/admin_edit.ctp:29
+#: /views/configuration/admin_edit.ctp:29
 msgid "Metadata"
 msgstr "Мета тэги"
 
-#: /views/themed/vamshop/configuration/admin_edit.ctp:30
+#: /views/configuration/admin_edit.ctp:30
 msgid "URL Extension"
 msgstr "Расширение URL"
 
-#: /views/themed/vamshop/configuration/admin_edit.ctp:31
+#: /views/configuration/admin_edit.ctp:31
 msgid "GD Library Enabled"
 msgstr "Разрешить нарезку картинок"
 
-#: /views/themed/vamshop/configuration/admin_edit.ctp:32
+#: /views/configuration/admin_edit.ctp:32
 msgid "Image Thumbnail Size"
 msgstr "Размер картинки"
 
-#: /views/themed/vamshop/configuration/admin_edit.ctp:38
+#: /views/configuration/admin_edit.ctp:38
 msgid "Cache Time in Seconds"
 msgstr "Время кэширования (в секундах)"
 
-#: /views/themed/vamshop/configuration/admin_edit.ctp:40
+#: /views/configuration/admin_edit.ctp:40
 msgid "Reset Cache"
 msgstr "Очистить кэш"
 
-#: /views/themed/vamshop/configuration/admin_edit.ctp:40
+#: /views/configuration/admin_edit.ctp:40
 msgid "Click here to clear cache"
 msgstr "Нажмите для очистки кэша"
 
-#: /views/themed/vamshop/configuration/admin_edit.ctp:40
+#: /views/configuration/admin_edit.ctp:40
 msgid "Send extra order emails to"
 msgstr "Отправлять копии писем с заказом на"
 
-#: /views/themed/vamshop/configuration/admin_edit.ctp:40
+#: /views/configuration/admin_edit.ctp:40
 msgid "New Order: From"
 msgstr "Новый заказ: Email отправителя"
 
-#: /views/themed/vamshop/configuration/admin_edit.ctp:40
+#: /views/configuration/admin_edit.ctp:40
 msgid "New Order: From Name"
 msgstr "Новый заказ: Имя отправителя"
 
-#: /views/themed/vamshop/configuration/admin_edit.ctp:40
+#: /views/configuration/admin_edit.ctp:40
 msgid "New Order Status: From"
 msgstr "Смена статуса заказа: Email отправителя"
 
-#: /views/themed/vamshop/configuration/admin_edit.ctp:40
+#: /views/configuration/admin_edit.ctp:40
 msgid "New Order Status: From Name"
 msgstr "Смена статуса заказа: Имя отправителя"
 
-#: /views/themed/vamshop/contents/admin.ctp:18
-#: /views/themed/vamshop/contents/admin_core_pages.ctp:16
-#: /views/themed/vamshop/countries/admin.ctp:20
-#: /views/themed/vamshop/country_zones/admin.ctp:16
-#: /views/themed/vamshop/defined_languages/admin.ctp:15
-#: /views/themed/vamshop/global_content_blocks/admin.ctp:17
-#: /views/themed/vamshop/micro_templates/admin.ctp:15
-#: /views/themed/vamshop/stylesheets/admin.ctp:18
-#: /views/themed/vamshop/tags/admin.ctp:16
-#: /views/themed/vamshop/templates/admin.ctp:16
-#: /views/themed/vamshop/user_tags/admin.ctp:17
-#: /views/themed/vamshop/users/admin.ctp:16
+#: /views/contents/admin.ctp:18
+#: /views/contents/admin_core_pages.ctp:16
+#: /views/countries/admin.ctp:20
+#: /views/country_zones/admin.ctp:16
+#: /views/defined_languages/admin.ctp:15
+#: /views/global_content_blocks/admin.ctp:17
+#: /views/micro_templates/admin.ctp:15
+#: /views/stylesheets/admin.ctp:18
+#: /views/tags/admin.ctp:16
+#: /views/templates/admin.ctp:16
+#: /views/user_tags/admin.ctp:17
+#: /views/users/admin.ctp:16
 msgid "Title"
 msgstr "Название"
 
-#: /views/themed/vamshop/contents/admin.ctp:18
+#: /views/contents/admin.ctp:18
 msgid "Type"
 msgstr "Тип"
 
-#: /views/themed/vamshop/contents/admin.ctp:18
-#: /views/themed/vamshop/contents/admin_core_pages.ctp:16
-#: /views/themed/vamshop/contents/admin_core_pages_edit.ctp:50
-#: /views/themed/vamshop/contents/admin_edit.ctp:73
-#: /views/themed/vamshop/micro_templates/admin_create_from_tag.ctp:29
-#: /views/themed/vamshop/micro_templates/admin_edit.ctp:30
-#: /views/themed/vamshop/tags/admin_view.ctp:37
-#: /views/themed/vamshop/templates/admin_attach_stylesheets.ctp:14
-#: /views/themed/vamshop/templates/admin_edit.ctp:22
+#: /views/contents/admin.ctp:18
+#: /views/contents/admin_core_pages.ctp:16
+#: /views/contents/admin_core_pages_edit.ctp:50
+#: /views/contents/admin_edit.ctp:73
+#: /views/micro_templates/admin_create_from_tag.ctp:29
+#: /views/micro_templates/admin_edit.ctp:30
+#: /views/tags/admin_view.ctp:37
+#: /views/templates/admin_attach_stylesheets.ctp:14
+#: /views/templates/admin_edit.ctp:22
 msgid "Template"
 msgstr "Шаблон"
 
-#: /views/themed/vamshop/contents/admin.ctp:18
-#: /views/themed/vamshop/contents/admin_edit.ctp:179
-#: /views/themed/vamshop/currencies/admin.ctp:18
-#: /views/themed/vamshop/global_content_blocks/admin.ctp:17
-#: /views/themed/vamshop/global_content_blocks/admin_edit.ctp:46
-#: /views/themed/vamshop/languages/admin.ctp:18
-#: /views/themed/vamshop/payment_methods/admin.ctp:16
-#: /views/themed/vamshop/shipping_methods/admin.ctp:16
-#: /views/themed/vamshop/stylesheets/admin.ctp:18
-#: /views/themed/vamshop/stylesheets/admin_edit.ctp:48
+#: /views/contents/admin.ctp:18
+#: /views/contents/admin_edit.ctp:179
+#: /views/currencies/admin.ctp:18
+#: /views/global_content_blocks/admin.ctp:17
+#: /views/global_content_blocks/admin_edit.ctp:46
+#: /views/languages/admin.ctp:18
+#: /views/payment_methods/admin.ctp:16
+#: /views/shipping_methods/admin.ctp:16
+#: /views/stylesheets/admin.ctp:18
+#: /views/stylesheets/admin_edit.ctp:48
 msgid "Active"
 msgstr "Статус"
 
-#: /views/themed/vamshop/contents/admin.ctp:18
-#: /views/themed/vamshop/contents/admin_edit.ctp:186
+#: /views/contents/admin.ctp:18
+#: /views/contents/admin_edit.ctp:186
 msgid "Show in menu"
 msgstr "Показывать в меню"
 
-#: /views/themed/vamshop/contents/admin.ctp:18
-#: /views/themed/vamshop/currencies/admin.ctp:18
-#: /views/themed/vamshop/languages/admin.ctp:18
-#: /views/themed/vamshop/order_status/admin.ctp:16
-#: /views/themed/vamshop/payment_methods/admin.ctp:16
-#: /views/themed/vamshop/shipping_methods/admin.ctp:16
-#: /views/themed/vamshop/taxes/admin.ctp:16
-#: /views/themed/vamshop/templates/admin.ctp:16
+#: /views/contents/admin.ctp:18
+#: /views/currencies/admin.ctp:18
+#: /views/languages/admin.ctp:18
+#: /views/order_status/admin.ctp:16
+#: /views/payment_methods/admin.ctp:16
+#: /views/shipping_methods/admin.ctp:16
+#: /views/taxes/admin.ctp:16
+#: /views/templates/admin.ctp:16
 msgid "Default"
 msgstr "По умолчанию"
 
-#: /views/themed/vamshop/contents/admin.ctp:18
+#: /views/contents/admin.ctp:18
 msgid "Sort Order"
 msgstr "Порядок сортировки"
 
-#: /views/themed/vamshop/contents/admin.ctp:44;58
-#: /views/themed/vamshop/countries/admin.ctp:30;36
-#: /views/themed/vamshop/country_zones/admin.ctp:24
-#: /views/themed/vamshop/currencies/admin.ctp:28;36
-#: /views/themed/vamshop/defined_languages/admin.ctp:23
-#: /views/themed/vamshop/global_content_blocks/admin.ctp:26;33
-#: /views/themed/vamshop/images/admin_view_content_images.ctp:22;22
-#: /views/themed/vamshop/languages/admin.ctp:29;37
-#: /views/themed/vamshop/micro_templates/admin.ctp:23
-#: /views/themed/vamshop/order_status/admin.ctp:25
-#: /views/themed/vamshop/orders/admin.ctp:29
-#: /views/themed/vamshop/stylesheets/admin.ctp:27;34
-#: /views/themed/vamshop/stylesheets/admin_attach_templates.ctp:30
-#: /views/themed/vamshop/tax_country_zone_rates/admin.ctp:26;34
-#: /views/themed/vamshop/taxes/admin.ctp:26
-#: /views/themed/vamshop/templates/admin.ctp:38
-#: /views/themed/vamshop/templates/admin_attach_stylesheets.ctp:29
-#: /views/themed/vamshop/user_tags/admin.ctp:25;31
-#: /views/themed/vamshop/users/admin.ctp:23
+#: /views/contents/admin.ctp:44;58
+#: /views/countries/admin.ctp:30;36
+#: /views/country_zones/admin.ctp:24
+#: /views/currencies/admin.ctp:28;36
+#: /views/defined_languages/admin.ctp:23
+#: /views/global_content_blocks/admin.ctp:26;33
+#: /views/images/admin_view_content_images.ctp:22;22
+#: /views/languages/admin.ctp:29;37
+#: /views/micro_templates/admin.ctp:23
+#: /views/order_status/admin.ctp:25
+#: /views/orders/admin.ctp:29
+#: /views/stylesheets/admin.ctp:27;34
+#: /views/stylesheets/admin_attach_templates.ctp:30
+#: /views/tax_country_zone_rates/admin.ctp:26;34
+#: /views/taxes/admin.ctp:26
+#: /views/templates/admin.ctp:38
+#: /views/templates/admin_attach_stylesheets.ctp:29
+#: /views/user_tags/admin.ctp:25;31
+#: /views/users/admin.ctp:23
 msgid "Delete"
 msgstr "Удалить"
 
-#: /views/themed/vamshop/contents/admin.ctp:53
+#: /views/contents/admin.ctp:53
 msgid "Up One Level"
 msgstr "На уровень выше"
 
-#: /views/themed/vamshop/contents/admin.ctp:58
-#: /views/themed/vamshop/currencies/admin.ctp:36
-#: /views/themed/vamshop/global_content_blocks/admin.ctp:33
-#: /views/themed/vamshop/languages/admin.ctp:37
-#: /views/themed/vamshop/stylesheets/admin.ctp:34
+#: /views/contents/admin.ctp:58
+#: /views/currencies/admin.ctp:36
+#: /views/global_content_blocks/admin.ctp:33
+#: /views/languages/admin.ctp:37
+#: /views/stylesheets/admin.ctp:34
 msgid "Activate"
 msgstr "Активировать"
 
-#: /views/themed/vamshop/contents/admin.ctp:58
-#: /views/themed/vamshop/currencies/admin.ctp:36
-#: /views/themed/vamshop/global_content_blocks/admin.ctp:33
-#: /views/themed/vamshop/languages/admin.ctp:37
-#: /views/themed/vamshop/stylesheets/admin.ctp:34
+#: /views/contents/admin.ctp:58
+#: /views/currencies/admin.ctp:36
+#: /views/global_content_blocks/admin.ctp:33
+#: /views/languages/admin.ctp:37
+#: /views/stylesheets/admin.ctp:34
 msgid "Deactivate"
 msgstr "Деактивировать"
 
-#: /views/themed/vamshop/contents/admin.ctp:58
+#: /views/contents/admin.ctp:58
 msgid "Show In Menu"
 msgstr "Показывать в меню"
 
-#: /views/themed/vamshop/contents/admin.ctp:58
+#: /views/contents/admin.ctp:58
 msgid "Hide From Menu"
 msgstr "Не показывать в меню"
 
-#: /views/themed/vamshop/contents/admin_core_pages_edit.ctp:24
+#: /views/contents/admin_core_pages_edit.ctp:24
 msgid "Edit Page"
 msgstr "Редактировать страницу"
 
-#: /views/themed/vamshop/contents/admin_core_pages_edit.ctp:38
-#: /views/themed/vamshop/contents/admin_edit.ctp:60
+#: /views/contents/admin_core_pages_edit.ctp:38
+#: /views/contents/admin_edit.ctp:60
 msgid "Content Type"
 msgstr "Тип содержания"
 
-#: /views/themed/vamshop/contents/admin_edit.ctp:60
+#: /views/contents/admin_edit.ctp:60
 msgid "category"
 msgstr "категория"
 
-#: /views/themed/vamshop/contents/admin_edit.ctp:60
+#: /views/contents/admin_edit.ctp:60
 msgid "product"
 msgstr "товар"
 
-#: /views/themed/vamshop/contents/admin_edit.ctp:60
+#: /views/contents/admin_edit.ctp:60
 msgid "page"
 msgstr "страница"
 
-#: /views/themed/vamshop/contents/admin_edit.ctp:60
+#: /views/contents/admin_edit.ctp:60
 msgid "link"
 msgstr "url ссылка"
 
-#: /views/themed/vamshop/contents/admin_edit.ctp:60
+#: /views/contents/admin_edit.ctp:60
 msgid "selflink"
 msgstr "ссылка на страницу"
 
-#: /views/themed/vamshop/contents/admin_edit.ctp:60
+#: /views/contents/admin_edit.ctp:60
 msgid "news"
 msgstr "новость"
 
-#: /views/themed/vamshop/contents/admin_edit.ctp:60
+#: /views/contents/admin_edit.ctp:60
 msgid "article"
 msgstr "статья"
 
-#: /views/themed/vamshop/contents/admin_edit.ctp:60
+#: /views/contents/admin_edit.ctp:60
 msgid "Default Theme"
 msgstr "Шаблон по умолчанию"
 
-#: /views/themed/vamshop/contents/admin_edit.ctp:60
+#: /views/contents/admin_edit.ctp:60
 msgid "Main Layout"
 msgstr "Основной шаблон"
 
-#: /views/themed/vamshop/contents/admin_edit.ctp:60
+#: /views/contents/admin_edit.ctp:60
 msgid "Content Page"
 msgstr "Страница с содержанием"
 
-#: /views/themed/vamshop/contents/admin_edit.ctp:60
+#: /views/contents/admin_edit.ctp:60
 msgid "Product Info"
 msgstr "Страница карточки товара"
 
-#: /views/themed/vamshop/contents/admin_edit.ctp:60
+#: /views/contents/admin_edit.ctp:60
 msgid "Category Info"
 msgstr "Страница категории"
 
-#: /views/themed/vamshop/contents/admin_edit.ctp:60
+#: /views/contents/admin_edit.ctp:60
 msgid "News Page"
 msgstr "Страница новости"
 
-#: /views/themed/vamshop/contents/admin_edit.ctp:60
+#: /views/contents/admin_edit.ctp:60
 msgid "Article Page"
 msgstr "Страница статьи"
 
-#: /views/themed/vamshop/contents/admin_edit.ctp:60
+#: /views/contents/admin_edit.ctp:60
 msgid "Non-Taxable"
 msgstr "Нет налога"
 
-#: /views/themed/vamshop/contents/admin_core_pages_edit.ctp:62
-#: /views/themed/vamshop/contents/admin_edit.ctp:85
+#: /views/contents/admin_core_pages_edit.ctp:62
+#: /views/contents/admin_edit.ctp:85
 msgid "Title"
 msgstr "Название"
 
-#: /views/themed/vamshop/contents/admin_core_pages_edit.ctp:68
-#: /views/themed/vamshop/contents/admin_edit.ctp:91
+#: /views/contents/admin_core_pages_edit.ctp:68
+#: /views/contents/admin_edit.ctp:91
 msgid "Description"
 msgstr "Описание"
 
-#: /views/themed/vamshop/contents/admin_core_pages_edit.ctp:68
-#: /views/themed/vamshop/contents/admin_edit.ctp:91
+#: /views/contents/admin_core_pages_edit.ctp:68
+#: /views/contents/admin_edit.ctp:91
 msgid "Meta Title"
 msgstr "Мета заголовок"
 
-#: /views/themed/vamshop/contents/admin_core_pages_edit.ctp:68
-#: /views/themed/vamshop/contents/admin_edit.ctp:91
+#: /views/contents/admin_core_pages_edit.ctp:68
+#: /views/contents/admin_edit.ctp:91
 msgid "Meta Description"
 msgstr "Мета описание"
 
-#: /views/themed/vamshop/contents/admin_core_pages_edit.ctp:68
-#: /views/themed/vamshop/contents/admin_edit.ctp:91
+#: /views/contents/admin_core_pages_edit.ctp:68
+#: /views/contents/admin_edit.ctp:91
 msgid "Meta Keywords"
 msgstr "Мета ключевые слова"
 
-#: /views/themed/vamshop/contents/admin_core_pages_edit.ctp:86
-#: /views/themed/vamshop/contents/admin_edit.ctp:172
+#: /views/contents/admin_core_pages_edit.ctp:86
+#: /views/contents/admin_edit.ctp:172
 msgid "Head Data"
 msgstr "Заголовок"
 
-#: /views/themed/vamshop/contents/admin_edit.ctp:36
+#: /views/contents/admin_edit.ctp:36
 msgid "View Images"
 msgstr "Картинки"
 
-#: /views/themed/vamshop/contents/admin_edit.ctp:37;133
+#: /views/contents/admin_edit.ctp:37;133
 msgid "Upload Images"
 msgstr "Загрузить картинки"
 
-#: /views/themed/vamshop/contents/admin_edit.ctp:53
+#: /views/contents/admin_edit.ctp:53
 msgid "Parent"
 msgstr "Родитель"
 
-#: /views/themed/vamshop/contents/admin_edit.ctp:55
+#: /views/contents/admin_edit.ctp:55
 msgid "Top Level"
 msgstr "Начало"
 
-#: /views/themed/vamshop/contents/admin_edit.ctp:114
+#: /views/contents/admin_edit.ctp:114
 msgid "Press 'Upload Images' and choose images from your computer to upload. Select as many files as you would like. Images will upload right after you select them."
 msgstr "Нажмите \'Загрузить картинки\' и выберите картинки для загрузки на своём компьютере. Можно загружать сразу несколько картинок. Картинки загрузятся после Вашего выбора."
 
-#: /views/themed/vamshop/contents/admin_edit.ctp:115
+#: /views/contents/admin_edit.ctp:115
 msgid "TIP: Hold the 'control' button to select more than one image."
 msgstr "ПОДСКАЗКА: При выборе картинок на своём компьютере, удерживайте кнопку \'control\', если хотите загрузить сразу несколько картинок."
 
-#: /views/themed/vamshop/contents/admin_edit.ctp:132
+#: /views/contents/admin_edit.ctp:132
 msgid "Browse Images"
 msgstr "Смотреть картинки"
 
-#: /views/themed/vamshop/contents/admin_edit.ctp:159
+#: /views/contents/admin_edit.ctp:159
 msgid "This is a new product. Please press apply before uploading images."
 msgstr "Новый товар. Нажмите кнопку сохранить, затем Вы сможете добавить картинки."
 
-#: /views/themed/vamshop/contents/admin_edit.ctp:168
-#: /views/themed/vamshop/defined_languages/admin_edit.ctp:19
-#: /views/themed/vamshop/global_content_blocks/admin_edit.ctp:42
-#: /views/themed/vamshop/micro_templates/admin_create_from_tag.ctp:22
-#: /views/themed/vamshop/micro_templates/admin_edit.ctp:23
-#: /views/themed/vamshop/stylesheets/admin_edit.ctp:44
-#: /views/themed/vamshop/user_tags/admin_edit.ctp:42
+#: /views/contents/admin_edit.ctp:168
+#: /views/defined_languages/admin_edit.ctp:19
+#: /views/global_content_blocks/admin_edit.ctp:42
+#: /views/micro_templates/admin_create_from_tag.ctp:22
+#: /views/micro_templates/admin_edit.ctp:23
+#: /views/stylesheets/admin_edit.ctp:44
+#: /views/user_tags/admin_edit.ctp:42
 msgid "Alias"
 msgstr "Псевдоним"
 
-#: /views/themed/vamshop/contents/admin_edit_type.ctp:33
-#: /views/themed/vamshop/orders/admin_view.ctp:125
+#: /views/contents/admin_edit_type.ctp:33
+#: /views/orders/admin_view.ctp:125
 msgid "Price"
 msgstr "Цена"
 
-#: /views/themed/vamshop/contents/admin_edit_type.ctp:38
+#: /views/contents/admin_edit_type.ctp:38
 msgid "Tax Class"
 msgstr "Налог"
 
-#: /views/themed/vamshop/contents/admin_edit_type.ctp:44
+#: /views/contents/admin_edit_type.ctp:44
 msgid "Stock"
 msgstr "Склад"
 
-#: /views/themed/vamshop/contents/admin_edit_type.ctp:49
+#: /views/contents/admin_edit_type.ctp:49
 msgid "Model"
 msgstr "Артикул"
 
-#: /views/themed/vamshop/contents/admin_edit_type.ctp:74
+#: /views/contents/admin_edit_type.ctp:74
 msgid "Link Details"
 msgstr "Ссылка"
 
-#: /views/themed/vamshop/contents/admin_edit_type.ctp:77
+#: /views/contents/admin_edit_type.ctp:77
 msgid "URL"
 msgstr "Адрес ссылки (URL)"
 
-#: /views/themed/vamshop/contents/admin_edit_type.ctp:90
+#: /views/contents/admin_edit_type.ctp:90
 msgid "There are no available content records. Please select a different content type."
 msgstr "Доступных записей не найдено. Выберите другой тип содержания."
 
-#: /views/themed/vamshop/contents/admin_edit_type.ctp:97
+#: /views/contents/admin_edit_type.ctp:97
 msgid "Link To"
 msgstr "Ссылка на"
 
-#: /views/themed/vamshop/contents/admin_edit_type.ctp:99
+#: /views/contents/admin_edit_type.ctp:99
 msgid "Select Internal Page"
 msgstr "Выберите страницу"
 
-#: /views/themed/vamshop/countries/admin.ctp:42
-#: /views/themed/vamshop/orders/admin.ctp:41
+#: /views/countries/admin.ctp:42
+#: /views/orders/admin.ctp:41
 msgid "<< Previous"
 msgstr "<< Назад"
 
-#: /views/themed/vamshop/countries/admin.ctp:44
-#: /views/themed/vamshop/orders/admin.ctp:43
+#: /views/countries/admin.ctp:44
+#: /views/orders/admin.ctp:43
 msgid "Next >>"
 msgstr "Вперёд >>"
 
-#: /views/themed/vamshop/countries/admin_edit.ctp:34
+#: /views/countries/admin_edit.ctp:34
 msgid "ISO Code 2"
 msgstr "ISO Код 2"
 
-#: /views/themed/vamshop/countries/admin_edit.ctp:38
+#: /views/countries/admin_edit.ctp:38
 msgid "ISO Code 3"
 msgstr "ISO Код 3"
 
-#: /views/themed/vamshop/countries/admin_edit.ctp:49
+#: /views/countries/admin_edit.ctp:49
 msgid "Address Format"
 msgstr "Формат адреса"
 
-#: /views/themed/vamshop/currencies/admin.ctp:18
+#: /views/currencies/admin.ctp:18
 msgid "Currency"
 msgstr "Валюта"
 
-#: /views/themed/vamshop/currencies/admin_edit.ctp:27
+#: /views/currencies/admin_edit.ctp:27
 msgid "Symbol Left"
 msgstr "Символ слева"
 
-#: /views/themed/vamshop/currencies/admin_edit.ctp:30
+#: /views/currencies/admin_edit.ctp:30
 msgid "Symbol Right"
 msgstr "Символ справа"
 
-#: /views/themed/vamshop/currencies/admin_edit.ctp:33
+#: /views/currencies/admin_edit.ctp:33
 msgid "Decimal Point"
 msgstr "Разделитель десятичных"
 
-#: /views/themed/vamshop/currencies/admin_edit.ctp:36
+#: /views/currencies/admin_edit.ctp:36
 msgid "Thousands Point"
 msgstr "Разделитель тысячных"
 
-#: /views/themed/vamshop/currencies/admin_edit.ctp:39
+#: /views/currencies/admin_edit.ctp:39
 msgid "Decimal Places"
 msgstr "Десятичные порядки"
 
-#: /views/themed/vamshop/currencies/admin_edit.ctp:42
+#: /views/currencies/admin_edit.ctp:42
 msgid "Value"
 msgstr "Значение"
 
-#: /views/themed/vamshop/defined_languages/admin.ctp:15
-#: /views/themed/vamshop/global_content_blocks/admin.ctp:17
-#: /views/themed/vamshop/micro_templates/admin.ctp:15
-#: /views/themed/vamshop/user_tags/admin.ctp:17
+#: /views/defined_languages/admin.ctp:15
+#: /views/global_content_blocks/admin.ctp:17
+#: /views/micro_templates/admin.ctp:15
+#: /views/user_tags/admin.ctp:17
 msgid "Call (Template Placeholder)"
 msgstr "Вызов (метка для шаблона)"
 
-#: /views/themed/vamshop/defined_languages/admin_edit.ctp:34
+#: /views/defined_languages/admin_edit.ctp:34
 msgid "Value"
 msgstr "Значение"
 
-#: /views/themed/vamshop/email_template/admin.ctp:16
-#: /views/themed/vamshop/email_template/admin_edit.ctp:35
+#: /views/email_template/admin.ctp:16
+#: /views/email_template/admin_edit.ctp:35
 msgid "Subject"
 msgstr "Тема письма"
 
-#: /views/themed/vamshop/email_template/admin_edit.ctp:16
+#: /views/email_template/admin_edit.ctp:16
 msgid "Email Templates Details"
 msgstr "Шаблоны писем"
 
-#: /views/themed/vamshop/email_template/admin_edit.ctp:40
-#: /views/themed/vamshop/user_tags/admin_edit.ctp:33
+#: /views/email_template/admin_edit.ctp:40
+#: /views/user_tags/admin_edit.ctp:33
 msgid "Content"
 msgstr "Содержание"
 
-#: /views/themed/vamshop/errors/missing_connection.ctp:15
+#: /views/errors/missing_connection.ctp:15
 msgid "Either you are missing a database table, or you have not yet installed the software."
 msgstr "Нет подключения к базе данных, либо скрипт не был установлен."
 
-#: /views/themed/vamshop/errors/missing_connection.ctp:16
+#: /views/errors/missing_connection.ctp:16
 msgid "Click here to install the software."
 msgstr "Начать установку."
 
-#: /views/themed/vamshop/errors/missing_table.ctp:16
+#: /views/errors/missing_table.ctp:16
 msgid "Database table %1$s for model %2$s was not found."
 msgstr "Отсутствует таблица базы данных %1$s для модели %2$s."
 
-#: /views/themed/vamshop/events/admin.ctp:16
-#: /views/themed/vamshop/events/admin_view.ctp:16
+#: /views/events/admin.ctp:16
+#: /views/events/admin_view.ctp:16
 msgid "Originator"
 msgstr "Инициатор"
 
-#: /views/themed/vamshop/images/admin_view_content_images.ctp:14
+#: /views/images/admin_view_content_images.ctp:14
 msgid "Current Images For This Content Item"
 msgstr "Текущие картинки"
 
-#: /views/themed/vamshop/images/admin_view_content_images.ctp:15
+#: /views/images/admin_view_content_images.ctp:15
 msgid "Uploaded new images? Press apply to view them."
 msgstr "Загрузили новые картинки? Нажмите кнопку сохранить чтобы увидеть их."
 
-#: /views/themed/vamshop/images/admin_view_content_images.ctp:21
+#: /views/images/admin_view_content_images.ctp:21
 msgid "Click to Enlarge"
 msgstr "Увеличить"
 
-#: /views/themed/vamshop/install/check_permissions.ctp:16
+#: /views/install/check_permissions.ctp:16
 msgid "Step 1 - Checking System Requirements"
 msgstr "Шаг 1 - Проверка системных требований"
 
-#: /views/themed/vamshop/install/check_permissions.ctp:20
+#: /views/install/check_permissions.ctp:20
 msgid "Can write to: "
 msgstr "Права доступа на запись в: "
 
-#: /views/themed/vamshop/install/check_permissions.ctp:25
+#: /views/install/check_permissions.ctp:25
 msgid "An error has occured. Please correct the error and refresh the page."
 msgstr "Ошибка. Исправьте ошибку и обновите страницу."
 
-#: /views/themed/vamshop/install/create.ctp:15
+#: /views/install/create.ctp:15
 msgid "Database successfully imported."
 msgstr "База данных успешно загружена."
 
-#: /views/themed/vamshop/install/create.ctp:17
+#: /views/install/create.ctp:17
 msgid "Click here to visit your live store."
 msgstr "Перейти в магазин."
 
-#: /views/themed/vamshop/install/start.ctp:14
+#: /views/install/start.ctp:14
 msgid "Welcome to the VaM Cart installation."
 msgstr "Установка интернет-магазина VaM Cart."
 
-#: /views/themed/vamshop/install/start.ctp:15
+#: /views/install/start.ctp:15
 msgid "Installing version:"
 msgstr "Устанавливаемая версия:"
 
-#: /views/themed/vamshop/install/start.ctp:24
+#: /views/install/start.ctp:24
 msgid "Host"
 msgstr "Сервер базы данных"
 
-#: /views/themed/vamshop/install/start.ctp:25
+#: /views/install/start.ctp:25
 msgid "Database Name"
 msgstr "Название базы"
 
-#: /views/themed/vamshop/install/start.ctp:26
+#: /views/install/start.ctp:26
 msgid "Database Username"
 msgstr "Имя пользователя"
 
-#: /views/themed/vamshop/install/start.ctp:27
+#: /views/install/start.ctp:27
 msgid "Database Password"
 msgstr "Пароль"
 
-#: /views/themed/vamshop/languages/admin.ctp:18
-#: /views/themed/vamshop/users/admin_user_preferences.ctp:19
+#: /views/languages/admin.ctp:18
+#: /views/users/admin_user_preferences.ctp:19
 msgid "Language"
 msgstr "Язык"
 
-#: /views/themed/vamshop/countries/admin.ctp:20
-#: /views/themed/vamshop/languages/admin.ctp:18
+#: /views/countries/admin.ctp:20
+#: /views/languages/admin.ctp:18
 msgid "Flag"
 msgstr "Флаг"
 
-#: /views/themed/vamshop/languages/admin_edit.ctp:27
+#: /views/languages/admin_edit.ctp:27
 msgid "Flag Code"
 msgstr "Код флага"
 
-#: /views/themed/vamshop/layouts/admin.ctp:19
+#: /views/layouts/admin.ctp:19
 msgid "VaM Cart Admin"
 msgstr "Админка VaM Cart"
 
-#: /views/themed/vamshop/layouts/admin.ctp:38
-#: /views/themed/vamshop/layouts/default.ctp:19;28
-#: /views/themed/vamshop/layouts/error.ctp:19;28
+#: /views/layouts/admin.ctp:38
+#: /views/layouts/default.ctp:19;28
+#: /views/layouts/error.ctp:19;28
 msgid "VaM Cart"
 msgstr "VaM Cart"
 
-#: /views/themed/vamshop/layouts/admin.ctp:43
+#: /views/layouts/admin.ctp:43
 msgid "Search"
 msgstr "Поиск"
 
-#: /views/themed/vamshop/layouts/admin.ctp:43
+#: /views/layouts/admin.ctp:43
 msgid "Global Record Search"
 msgstr "Поиск по магазину"
 
-#: /views/themed/vamshop/layouts/admin.ctp:97
-#: /views/themed/vamshop/layouts/default.ctp:66
-#: /views/themed/vamshop/layouts/error.ctp:66
+#: /views/layouts/admin.ctp:97
+#: /views/layouts/default.ctp:66
+#: /views/layouts/error.ctp:66
 msgid "PHP Shopping Cart"
 msgstr "Скрипты интернет-магазина"
 
-#: /views/themed/vamshop/micro_templates/admin_create_from_tag.ctp:17
-#: /views/themed/vamshop/micro_templates/admin_edit.ctp:18
+#: /views/micro_templates/admin_create_from_tag.ctp:17
+#: /views/micro_templates/admin_edit.ctp:18
 msgid "Micro Template Details"
 msgstr "Информация о микро шаблонах"
 
-#: /views/themed/vamshop/micro_templates/admin_create_from_tag.ctp:25
-#: /views/themed/vamshop/micro_templates/admin_edit.ctp:26
+#: /views/micro_templates/admin_create_from_tag.ctp:25
+#: /views/micro_templates/admin_edit.ctp:26
 msgid "Tag Name"
 msgstr "Название тэга"
 
-#: /views/themed/vamshop/modules/admin.ctp:16
+#: /views/modules/admin.ctp:16
 msgid "Installed"
 msgstr "Установлен"
 
-#: /views/themed/vamshop/modules/admin.ctp:16
+#: /views/modules/admin.ctp:16
 msgid "Version"
 msgstr "Версия"
 
-#: /views/themed/vamshop/modules/admin.ctp:23
+#: /views/modules/admin.ctp:23
 msgid "Install"
 msgstr "Установить"
 
-#: /views/themed/vamshop/modules/admin.ctp:27
+#: /views/modules/admin.ctp:27
 msgid "Upgrade"
 msgstr "Обновить"
 
-#: /views/themed/vamshop/modules/admin.ctp:31
+#: /views/modules/admin.ctp:31
 msgid "Uninstall"
 msgstr "Удалить"
 
-#: /views/themed/vamshop/order_status/admin.ctp:16
+#: /views/order_status/admin.ctp:16
 msgid "Order"
 msgstr "Сортировка"
 
-#: /views/themed/vamshop/order_status/admin_edit.ctp:16
+#: /views/order_status/admin_edit.ctp:16
 msgid "Order Status Details"
 msgstr "Статусы заказа"
 
-#: /views/themed/vamshop/orders/admin.ctp:18
-#: /views/themed/vamshop/orders/admin_view.ctp:16
+#: /views/orders/admin.ctp:18
+#: /views/orders/admin_view.ctp:16
 msgid "Customer"
 msgstr "Покупатель"
 
-#: /views/themed/vamshop/orders/admin.ctp:18
+#: /views/orders/admin.ctp:18
 msgid "Order Number"
 msgstr "Номер заказа"
 
-#: /views/themed/vamshop/orders/admin.ctp:18
+#: /views/orders/admin.ctp:18
 msgid "Status"
 msgstr "Статус"
 
-#: /views/themed/vamshop/orders/admin.ctp:29
+#: /views/orders/admin.ctp:29
 msgid "View"
 msgstr "Смотреть"
 
-#: /views/themed/vamshop/orders/admin_view.ctp:18
+#: /views/orders/admin_view.ctp:18
 msgid "Order Comments"
 msgstr "Комментарии к заказу"
 
-#: /views/themed/vamshop/orders/admin_view.ctp:19
+#: /views/orders/admin_view.ctp:19
 msgid "New Comment"
 msgstr "Добавить комментарий"
 
-#: /views/themed/vamshop/orders/admin_view.ctp:30
+#: /views/orders/admin_view.ctp:30
 msgid "Billing Information"
 msgstr "Адрес покупателя"
 
-#: /views/themed/vamshop/orders/admin_view.ctp:33;63
+#: /views/orders/admin_view.ctp:33;63
 msgid "Customer Name"
 msgstr "Имя"
 
-#: /views/themed/vamshop/orders/admin_view.ctp:37;67
+#: /views/orders/admin_view.ctp:37;67
 msgid "Address Line 1"
 msgstr "Адрес"
 
-#: /views/themed/vamshop/orders/admin_view.ctp:41;71
+#: /views/orders/admin_view.ctp:41;71
 msgid "Address Line 2"
 msgstr "Дополнительная информация"
 
-#: /views/themed/vamshop/orders/admin_view.ctp:45;75
+#: /views/orders/admin_view.ctp:45;75
 msgid "City"
 msgstr "Город"
 
-#: /views/themed/vamshop/orders/admin_view.ctp:49;79
+#: /views/orders/admin_view.ctp:49;79
 msgid "State"
 msgstr "Регион"
 
-#: /views/themed/vamshop/orders/admin_view.ctp:53;83
+#: /views/orders/admin_view.ctp:53;83
 msgid "Zip"
 msgstr "Индекс"
 
-#: /views/themed/vamshop/orders/admin_view.ctp:60
+#: /views/orders/admin_view.ctp:60
 msgid "Shipping Information"
 msgstr "Адрес доставки"
 
-#: /views/themed/vamshop/orders/admin_view.ctp:91
+#: /views/orders/admin_view.ctp:91
 msgid "Contact Information"
 msgstr "Контактная информация"
 
-#: /views/themed/vamshop/orders/admin_view.ctp:94
-#: /views/themed/vamshop/users/admin_new.ctp:21
-#: /views/themed/vamshop/users/admin_user_account.ctp:24
+#: /views/orders/admin_view.ctp:94
+#: /views/users/admin_new.ctp:21
+#: /views/users/admin_user_account.ctp:24
 msgid "Email"
 msgstr "Email"
 
-#: /views/themed/vamshop/orders/admin_view.ctp:98
+#: /views/orders/admin_view.ctp:98
 msgid "Phone"
 msgstr "Телефон"
 
-#: /views/themed/vamshop/orders/admin_view.ctp:106
+#: /views/orders/admin_view.ctp:106
 msgid "Payment Information"
 msgstr "Оплата"
 
-#: /views/themed/vamshop/orders/admin_view.ctp:109
+#: /views/orders/admin_view.ctp:109
 msgid "Credit Card"
 msgstr "Карточка"
 
-#: /views/themed/vamshop/orders/admin_view.ctp:113
+#: /views/orders/admin_view.ctp:113
 msgid "Expiration"
 msgstr "Активна до"
 
-#: /views/themed/vamshop/orders/admin_view.ctp:125
+#: /views/orders/admin_view.ctp:125
 msgid "Product Name"
 msgstr "Наименование товара"
 
-#: /views/themed/vamshop/orders/admin_view.ctp:125
+#: /views/orders/admin_view.ctp:125
 msgid "Quantity"
 msgstr "Количество"
 
-#: /views/themed/vamshop/orders/admin_view.ctp:146
+#: /views/orders/admin_view.ctp:146
 msgid "Order Total"
 msgstr "Всего"
 
-#: /views/themed/vamshop/orders/admin_view.ctp:160
+#: /views/orders/admin_view.ctp:160
 msgid "User"
 msgstr "Пользователь"
 
-#: /views/themed/vamshop/orders/admin_view.ctp:160
+#: /views/orders/admin_view.ctp:160
 msgid "Sent To Customer"
 msgstr "Покупатель уведомлён"
 
-#: /views/themed/vamshop/orders/admin_view.ctp:160;206
+#: /views/orders/admin_view.ctp:160;206
 msgid "Comment"
 msgstr "Комментарий"
 
-#: /views/themed/vamshop/orders/admin_view.ctp:189
+#: /views/orders/admin_view.ctp:189
 msgid "Update Status"
 msgstr "Статус заказа"
 
-#: /views/themed/vamshop/orders/admin_view.ctp:201
+#: /views/orders/admin_view.ctp:201
 msgid "Send To Customer"
 msgstr "Уведомить покупателя"
 
-#: /views/themed/vamshop/payment_methods/admin_edit.ctp:16
+#: /views/payment_methods/admin_edit.ctp:16
 msgid "Payment Method Details"
 msgstr "Способы оплаты"
 
-#: /views/themed/vamshop/search/admin_global_search.ctp:47
+#: /views/search/admin_global_search.ctp:47
 msgid "Results: "
 msgstr "Найдено: "
 
-#: /views/themed/vamshop/shipping_methods/admin_edit.ctp:16
+#: /views/shipping_methods/admin_edit.ctp:16
 msgid "Shipping Method Details"
 msgstr "Способы доставки"
 
-#: /views/themed/vamshop/stylesheets/admin.ctp:18
+#: /views/stylesheets/admin.ctp:18
 msgid "Media Type"
 msgstr "Медиа тип"
 
-#: /views/themed/vamshop/stylesheets/admin.ctp:27
-#: /views/themed/vamshop/templates/admin.ctp:38
+#: /views/stylesheets/admin.ctp:27
+#: /views/templates/admin.ctp:38
 msgid "Copy"
 msgstr "Копировать"
 
-#: /views/themed/vamshop/stylesheets/admin_attach_templates.ctp:22
+#: /views/stylesheets/admin_attach_templates.ctp:22
 msgid "Current Template Associations"
 msgstr "Связан с шаблонами"
 
-#: /views/themed/vamshop/stylesheets/admin_copy.ctp:19
+#: /views/stylesheets/admin_copy.ctp:19
 msgid "Name the copy:"
 msgstr "Название копии:"
 
-#: /views/themed/vamshop/stylesheets/admin_edit.ctp:24;42
+#: /views/stylesheets/admin_edit.ctp:24;42
 msgid "Stylesheet Details"
 msgstr "Информация о стиле"
 
-#: /views/themed/vamshop/tags/admin_view.ctp:16
+#: /views/tags/admin_view.ctp:16
 msgid "About"
 msgstr "Информация"
 
-#: /views/themed/vamshop/tags/admin_view.ctp:21
+#: /views/tags/admin_view.ctp:21
 msgid "Default Template"
 msgstr "Шаблон тэга"
 
-#: /views/themed/vamshop/tags/admin_view.ctp:26
-#: /views/themed/vamshop/templates/admin_edit.ctp:17
-#: /views/themed/vamshop/templates/admin_edit_details.ctp:16
-#: /views/themed/vamshop/templates/admin_new.ctp:16
+#: /views/tags/admin_view.ctp:26
+#: /views/templates/admin_edit.ctp:17
+#: /views/templates/admin_edit_details.ctp:16
+#: /views/templates/admin_new.ctp:16
 msgid "Template Details"
 msgstr "Шаблон"
 
-#: /views/themed/vamshop/tags/admin_view.ctp:43
+#: /views/tags/admin_view.ctp:43
 msgid "Create Micro Template From Tag"
 msgstr "Создать микро шаблон из тэга"
 
-#: /views/themed/vamshop/tax_country_zone_rates/admin.ctp:18
-#: /views/themed/vamshop/tax_country_zone_rates/admin_edit.ctp:22
-#: /views/themed/vamshop/tax_country_zone_rates/admin_new.ctp:44
+#: /views/tax_country_zone_rates/admin.ctp:18
+#: /views/tax_country_zone_rates/admin_edit.ctp:22
+#: /views/tax_country_zone_rates/admin_new.ctp:44
 msgid "Tax Rate"
 msgstr "Ставка налога"
 
-#: /views/themed/vamshop/tax_country_zone_rates/admin_edit.ctp:16
-#: /views/themed/vamshop/tax_country_zone_rates/admin_new.ctp:27
+#: /views/tax_country_zone_rates/admin_edit.ctp:16
+#: /views/tax_country_zone_rates/admin_new.ctp:27
 msgid "Tax Zone Rates Details"
 msgstr "Информация о налоге"
 
-#: /views/themed/vamshop/tax_country_zone_rates/admin_new.ctp:33
+#: /views/tax_country_zone_rates/admin_new.ctp:33
 msgid "Country"
 msgstr "Страна"
 
-#: /views/themed/vamshop/tax_country_zone_rates/list_zones_by_country.ctp:15
+#: /views/tax_country_zone_rates/list_zones_by_country.ctp:15
 msgid "Country Zones"
 msgstr "Регионы"
 
-#: /views/themed/vamshop/taxes/admin.ctp:20
+#: /views/taxes/admin.ctp:20
 msgid "Are you sure you want to set all products to this tax class?"
 msgstr "Вы действительно хотите добавить всем товарам данный налог?"
 
-#: /views/themed/vamshop/taxes/admin.ctp:27
+#: /views/taxes/admin.ctp:27
 msgid "Set All Products"
 msgstr "Добавить всем товарам данный налог"
 
-#: /views/themed/vamshop/taxes/admin_edit.ctp:16
+#: /views/taxes/admin_edit.ctp:16
 msgid "Tax Details"
 msgstr "Информация о налоге"
 
-#: /views/themed/vamshop/templates/admin.ctp:22
+#: /views/templates/admin.ctp:22
 msgid "Expand"
 msgstr "Развернуть"
 
-#: /views/themed/vamshop/templates/admin.ctp:28
+#: /views/templates/admin.ctp:28
 msgid "Collapse"
 msgstr "Свернуть"
 
-#: /views/themed/vamshop/templates/admin_attach_stylesheets.ctp:21
+#: /views/templates/admin_attach_stylesheets.ctp:21
 msgid "Current Stylesheet Associations"
 msgstr "Связан со стилями"
 
-#: /views/themed/vamshop/templates/admin_attach_stylesheets.ctp:41
+#: /views/templates/admin_attach_stylesheets.ctp:41
 msgid "Attach Stylesheet"
 msgstr "Присоединить стиль"
 
-#: /views/themed/vamshop/templates/admin_copy.ctp:23
+#: /views/templates/admin_copy.ctp:23
 msgid "Template Copy Name"
 msgstr "Название копируемого шаблона"
 
-#: /views/themed/vamshop/templates/admin_new.ctp:21
+#: /views/templates/admin_new.ctp:21
 msgid "Create Template Set"
 msgstr "Создать шаблон"
 
-#: /views/themed/vamshop/user_tags/admin_edit.ctp:25;40
+#: /views/user_tags/admin_edit.ctp:25;40
 msgid "User Tag Details"
 msgstr "Тэги пользователя"
 
-#: /views/themed/vamshop/users/admin_login.ctp:15
-#: /views/themed/vamshop/users/admin_new.ctp:18
-#: /views/themed/vamshop/users/admin_user_account.ctp:21
+#: /views/users/admin_login.ctp:15
+#: /views/users/admin_new.ctp:18
+#: /views/users/admin_user_account.ctp:21
 msgid "Username"
 msgstr "Логин"
 
-#: /views/themed/vamshop/users/admin_login.ctp:16
-#: /views/themed/vamshop/users/admin_new.ctp:25
+#: /views/users/admin_login.ctp:16
+#: /views/users/admin_new.ctp:25
 msgid "Password"
 msgstr "Пароль"
 
-#: /views/themed/vamshop/users/admin_login.ctp:17
+#: /views/users/admin_login.ctp:17
 msgid "Login"
 msgstr "Войти"
 
-#: /views/themed/vamshop/users/admin_user_account.ctp:16
+#: /views/users/admin_user_account.ctp:16
 msgid "Account Details"
 msgstr "Мои данные"
 
-#: /views/themed/vamshop/users/admin_user_account.ctp:28
+#: /views/users/admin_user_account.ctp:28
 msgid "New Password"
 msgstr "Новый пароль"
 
-#: /views/themed/vamshop/users/admin_user_account.ctp:32
+#: /views/users/admin_user_account.ctp:32
 msgid "Confirm Password"
 msgstr "Подтвердите пароль"
 
-#: /views/themed/vamshop/users/admin_user_preferences.ctp:17
+#: /views/users/admin_user_preferences.ctp:17
 msgid "User Prefences"
 msgstr "Настройки"
