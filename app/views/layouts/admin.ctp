@@ -88,7 +88,7 @@ echo $admin->GenerateBreadcrumbs($navigation, $current_crumb);
 <!-- Footer -->
 <div id="footer">
 <p>
-<a href="http://vamcart.com/"><?php __('PHP Shopping Cart') ?></a>: <a href="http://vamcart.com/"><?php __('VaM Cart') ?></a>
+<a href="http://vamcart.com/"><?php __('PHP Shopping Cart') ?></a> <a href="http://vamcart.com/"><?php __('VaM Cart') ?></a>
 </p>
 </div>
 <!-- /Footer -->
