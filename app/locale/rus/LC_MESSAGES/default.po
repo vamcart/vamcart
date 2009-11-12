@@ -2288,8 +2288,8 @@ msgstr "Поиск по магазину"
 #: /views/themed/vamshop/layouts/admin.ctp:97
 #: /views/themed/vamshop/layouts/default.ctp:66
 #: /views/themed/vamshop/layouts/error.ctp:66
-msgid "Powered by VaM Cart"
-msgstr "Работает на VaM Cart"
+msgid "PHP Shopping Cart"
+msgstr "Скрипты интернет-магазина"
 
 #: /views/themed/vamshop/micro_templates/admin_create_from_tag.ctp:17
 #: /views/themed/vamshop/micro_templates/admin_edit.ctp:18
