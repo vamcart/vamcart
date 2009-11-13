@@ -672,7 +672,9 @@ INSERT INTO `defined_languages` (`id`, `language_id`, `key`, `value`, `created`,
 (79, 1, 'News', 'News', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
 (80, 2, 'News', 'Новости', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
 (81, 1, 'Articles', 'Articles', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
-(82, 2, 'Articles', 'Статьи', '2009-09-12 20:08:49', '2009-09-12 20:08:49');
+(82, 2, 'Articles', 'Статьи', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(83, 1, 'PHP Shopping Cart', 'PHP Shopping Cart', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(84, 2, 'PHP Shopping Cart', 'Скрипты интернет-магазина', '2009-09-12 20:08:49', '2009-09-12 20:08:49');
 
 DROP TABLE IF EXISTS email_templates;
 CREATE TABLE `email_templates` (
@@ -754,7 +756,7 @@ CREATE TABLE `global_content_blocks` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `global_content_blocks` (`id`, `name`, `content`, `alias`, `active`, `created`, `modified`) VALUES 
-(1, 'Footer', '<a href="http://vamcart.com/">PHP Shopping Cart</a> <a href="http://vamcart.com/">VaM Cart</a>', 'footer', 1, '2009-07-17 10:00:06', '2009-09-12 17:05:49');
+(1, 'Footer', '<a href="http://vamcart.com/">{lang}PHP Shopping Cart{/lang}</a> <a href="http://vamcart.com/">VaM Cart</a>', 'footer', 1, '2009-07-17 10:00:06', '2009-09-12 17:05:49');
 
 DROP TABLE IF EXISTS languages;
 CREATE TABLE `languages` (
