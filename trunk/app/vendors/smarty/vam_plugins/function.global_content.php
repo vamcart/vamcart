@@ -14,7 +14,7 @@
 function smarty_function_global_content($params, &$smarty)
 {
 	// Cache the output.
-	$cache_name = 'vam_gcb_output_' .  $params['alias'];
+	$cache_name = 'vam_gcb_output_' .  $params['alias'] . '_' . $_SESSION['Customer']['language_id'];
 	$output = Cache::read($cache_name);
 	if($output === false)
 	{
