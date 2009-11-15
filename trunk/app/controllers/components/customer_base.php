@@ -39,9 +39,7 @@ class CustomerBaseComponent extends Object
 				
 		foreach($customer_details AS $key => $value)
 			$order['Order'][$key] = $value;
-			$order['Order']['cc_expiration_month'] = $order['Order']['cc_expiration']['month'];
-			$order['Order']['cc_expiration_year'] = $order['Order']['cc_expiration']['year'];
-
+		
 		$this->Order->save($order);
 		
 		$this->EventBase->ProcessEvent('UpdateCustomerDetailsAfterSave');		
