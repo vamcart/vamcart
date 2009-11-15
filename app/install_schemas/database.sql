@@ -674,7 +674,11 @@ INSERT INTO `defined_languages` (`id`, `language_id`, `key`, `value`, `created`,
 (81, 1, 'Articles', 'Articles', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
 (82, 2, 'Articles', 'Статьи', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
 (83, 1, 'PHP Shopping Cart', 'PHP Shopping Cart', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
-(84, 2, 'PHP Shopping Cart', 'Скрипты интернет-магазина', '2009-09-12 20:08:49', '2009-09-12 20:08:49');
+(84, 2, 'PHP Shopping Cart', 'Скрипты интернет-магазина', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(85, 1, 'Credit Card Number', 'Credit Card Number', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(86, 2, 'Credit Card Number', 'Номер кредитной карточки', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(87, 1, 'Credit Card Expiration', 'Credit Card Expiration', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(88, 2, 'Credit Card Expiration', 'Действительна до', '2009-09-12 20:08:49', '2009-09-12 20:08:49');
 
 DROP TABLE IF EXISTS email_templates;
 CREATE TABLE `email_templates` (
