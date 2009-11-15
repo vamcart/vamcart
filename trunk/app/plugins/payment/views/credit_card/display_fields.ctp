@@ -1,17 +1,23 @@
 <div class="css_form">
 <div id="credit_card_details">
 	<div>
-		<label>CC Number:</label>
 		<?php 
-			echo $form->input('CreditCard.cc_number'); 
+		echo $form->inputs(array(
+		'legend' => false,
+		'fieldset' => false,
+		   'CreditCard.cc_number' => array(
+   		'label' => '{lang}Credit Card Number{/lang}: ',
+			'type' => 'text'
+			)
+		));
 		?>
 	</div>
 	<div>
-		<label>CC Expiration:</label>
+		<label>{lang}Credit Card Expiration{/lang}: </label>
 		<?php
-			echo $form->month('CreditCard.cc_expiration',null,null,false);
+			echo $form->month('CreditCard.cc_expiration_month', date('m'), array('name' => 'data[CreditCard][cc_expiration_month]'));
 			echo '&nbsp;&nbsp;';
-			echo $form->year('CreditCard.cc_expiration',2005,2050,2005,null,false);	
+			echo $form->year('CreditCard.cc_expiration_year',2005,2050,2005,array('name' => 'data[CreditCard][cc_expiration_year]'),false);	
 		?>
 	</div>
 	<div>
