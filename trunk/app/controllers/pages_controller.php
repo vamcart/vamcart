@@ -49,18 +49,6 @@ class PagesController extends AppController {
 		return $content_alias;
 	}
 	
-
-/*	function content_selflink ()
-	{
-		$alias = $this->getAliasFromParams($this->params);
-
-		$linked_content = $this->Content->findByAlias($alias);
-		
-		$link_to = $this->Content->read(null,$linked_content['ContentSelflink']['url']);
-		global $config;
-
-		$this->redirect('/' . $link_to['ContentType']['name'] . '/' . $link_to['Content']['alias'] . $config['URL_EXTENSION']);	
-	}*/
 	
 	function index() 
 	{	
@@ -111,10 +99,12 @@ class PagesController extends AppController {
 							   'parent_id' => $content['Content']['parent_id'],
 							   'sub_count' => array(
 							   						'all_content' => $this->Content->findCount(array('Content.parent_id' => $content['Content']['id'])),							   
-							   						'categories' => $this->Content->findCount(array('Content.parent_id' => $content['Content']['id'],'ContentType.name' => 'Category')),
-							   						'products' => $this->Content->findCount(array('Content.parent_id' => $content['Content']['id'],'ContentType.name' => 'Product')),
-							   						'pages' => $this->Content->findCount(array('Content.parent_id' => $content['Content']['id'],'ContentType.name' => 'Page')),													
-							   						'pages' => $this->Content->findCount(array('Content.parent_id' => $content['Content']['id'],'OR' => array('ContentType.name' => 'Link', 'ContentType.name' => 'Selflink')))
+							   						'categories' => $this->Content->findCount(array('Content.parent_id' => $content['Content']['id'],'ContentType.name' => 'category')),
+							   						'products' => $this->Content->findCount(array('Content.parent_id' => $content['Content']['id'],'ContentType.name' => 'product')),
+							   						'pages' => $this->Content->findCount(array('Content.parent_id' => $content['Content']['id'],'ContentType.name' => 'page')),													
+							   						'news' => $this->Content->findCount(array('Content.parent_id' => $content['Content']['id'],'ContentType.name' => 'news')),													
+							   						'article' => $this->Content->findCount(array('Content.parent_id' => $content['Content']['id'],'ContentType.name' => 'article')),													
+							   						'pages' => $this->Content->findCount(array('Content.parent_id' => $content['Content']['id'],'OR' => array('ContentType.name' => 'link')))
 							   					   ),
 							   'show_in_menu' => $content['Content']['show_in_menu'],
 							   'created' => $content['Content']['created'],
