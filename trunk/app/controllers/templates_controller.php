@@ -15,6 +15,20 @@ class TemplatesController extends AppController {
 	var $name = 'Templates';
 	var $uses = array('Template','Content','UserPref');
 	
+	function admin_set_all_products ($template_id) 
+	{
+		$products = $this->Content->find('all');
+		
+		foreach($products AS $product)
+		{
+			$product['Content']['template_id'] = $template_id;
+			$this->Content->save($product);
+		}
+	
+		$this->Session->setFlash(__('You have updated multiple records.',true));				
+		$this->redirect('/templates/admin/');
+	}
+	
 	function admin_set_as_default ($template_id)
 	{
 		$this->setDefaultItem($template_id);
