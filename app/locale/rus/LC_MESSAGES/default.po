@@ -2206,8 +2206,8 @@ msgid "Click to Enlarge"
 msgstr "Увеличить"
 
 #: /views/install/check_permissions.ctp:16
-msgid "Step 1 - Checking System Requirements"
-msgstr "Шаг 1 - Проверка системных требований"
+msgid "Checking System Requirements"
+msgstr "Проверка системных требований"
 
 #: /views/install/check_permissions.ctp:20
 msgid "Can write to: "
