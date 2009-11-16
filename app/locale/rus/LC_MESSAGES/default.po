@@ -535,6 +535,10 @@ msgstr "Удалена привязка шаблона к стилю."
 msgid "Attach Stylesheets"
 msgstr "Добавление стилей"
 
+#: /views/templates/admin.ctp:38
+msgid "Are you sure you want to set all products to this template?"
+msgstr "Вы уверены, что хотите установить данный шаблон всем товарам?"
+
 #: /controllers/templates_controller.php:121
 #: /views/templates/admin_copy.ctp:16
 msgid "Copy Template"
@@ -2513,11 +2517,11 @@ msgstr "Регионы"
 
 #: /views/taxes/admin.ctp:20
 msgid "Are you sure you want to set all products to this tax class?"
-msgstr "Вы действительно хотите добавить всем товарам данный налог?"
+msgstr "Вы действительно хотите установить всем товарам данный налог?"
 
 #: /views/taxes/admin.ctp:27
 msgid "Set All Products"
-msgstr "Добавить всем товарам данный налог"
+msgstr "Установить всем товарам"
 
 #: /views/taxes/admin_edit.ctp:16
 msgid "Tax Details"
