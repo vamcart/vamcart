@@ -81,29 +81,6 @@ echo $form->inputs(array(
       break;
     case '5':
 
-$options = $this->requestAction('/contents/content_selflink_list/' . $data['ContentSelflink']['content_id']);
-
-
-if(empty($options))
-{
-	echo '<p>' . __('There are no available content records. Please select a different content type.', true) . '</p>';
-}
-else
-{
-
-
-	echo '<div class="input">';
-	echo '<label for="ContentSelflinkUrl">' . __('Link To', true) . '</label>';
-	
-	echo $form->select('ContentSelflink.url', $options, $data['ContentSelflink']['url'], null, $showEmpty = __('Select Internal Page', true));
-	
-	echo '</div>';
-}
-
-      break;
-
-    case '6':
-
 echo $form->inputs(array(
 		   'ContentNews.extra' => array(
 		   		'type' => 'hidden',
@@ -113,7 +90,7 @@ echo $form->inputs(array(
 
       break;
 
-    case '7':
+    case '6':
 
 echo $form->inputs(array(
 		   'ContentArticle.extra' => array(
