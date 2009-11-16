@@ -12,7 +12,6 @@
    ---------------------------------------------------------------------------------------*/
 
 class ContentsController extends AppController {
-	var $components = array('ContentBase');
 	var $helpers = array('TinyMce');
 	var $name = 'Contents';
 
@@ -178,19 +177,6 @@ class ContentsController extends AppController {
 		return $tax_list_translatable;
 	}
 
-	/**
-	* Calls the ContentBase component
-	*/	
-    function content_selflink_list ($avoid_id = null)
-    {
-		if($avoid_id != null)
-			$conditions = "Content.id != '" . $avoid_id . "'";
-		else
-			$conditions = "";
-			
-       	return $this->ContentBase->generate_content_list($conditions);
-    }
-
 	function admin_core_pages_edit($content_id) 
 	{
 			$this->set('current_crumb', __('Edit',true));
@@ -224,7 +210,6 @@ class ContentsController extends AppController {
 		
 			$this->set('data',$data);
 			$this->set('content_types',$this->Content->ContentType->find('list'));
-			$this->set('parents', $this->ContentBase->generate_content_list());
 			// Template
 			$templates_translatable =  $this->Content->Template->find('list', array('parent_id' => '0'));
 			foreach($templates_translatable AS $key => $value)
@@ -426,7 +411,6 @@ class ContentsController extends AppController {
 			}
 			$this->set('content_types',$content_types_translatable);
 			
-			$this->set('parents', $this->ContentBase->generate_content_list());
 			$this->set('parent_id', $parent_id);
 			
 			// Template

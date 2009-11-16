@@ -1953,10 +1953,6 @@ msgid "link"
 msgstr "url ссылка"
 
 #: /views/contents/admin_edit.ctp:60
-msgid "selflink"
-msgstr "ссылка на страницу"
-
-#: /views/contents/admin_edit.ctp:60
 msgid "news"
 msgstr "новость"
 
