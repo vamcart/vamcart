@@ -23,17 +23,8 @@ echo $html->tableHeaders(array(	 __('Title', true), __('Type', true), __('Templa
 foreach ($content_data AS $content)
 {
 
-	// Set the name link
-	if($content['Content']['count'] > 0)
-	{
-		// Link to child view
-		$name_link = $html->link($html->image('admin/icons/folder.png') . ' ' . $content['ContentDescription']['name'], '/contents/admin/0/' . $content['Content']['id'], null, null, false);
-	}
-	else
-	{
-		// Link it to the edit screen
-		$name_link = $html->link($content['ContentDescription']['name'], '/contents/admin_edit/' . $content['Content']['id'].'/'.$parent_content['Content']['id']);
-	}
+		// Link to child view, link to the edit screen
+		$name_link = $html->link($html->image('admin/icons/folder.png'), '/contents/admin/0/' . $content['Content']['id'], null, null, false) . $html->link($content['ContentDescription']['name'], '/contents/admin_edit/' . $content['Content']['id'].'/'.$parent_content['Content']['id']);
 	
 	echo $admin->TableCells(
 		  array(
