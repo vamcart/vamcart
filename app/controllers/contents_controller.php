@@ -241,7 +241,7 @@ class ContentsController extends AppController {
 	*
 	* @param  int $content_id ID of the content we are editing
 	*/		
-	function admin_edit ($content_id = null, $parent_id = 0)
+	function admin_edit ($content_id = 0, $parent_id = 0)
 	{
 		$this->set('current_crumb', __('Content Details', true));
 		// IF we submitted the form
@@ -250,7 +250,7 @@ class ContentsController extends AppController {
 			// Did the user pressed cancel?
 			if(isset($this->params['form']['cancelbutton']))
 			{
-				if($content_id != null)
+				if($content_id != 0)
 				{
 					$content = $this->Content->read(null, $content_id);
 					if($content['Content']['parent_id'] == '-1')
@@ -363,7 +363,7 @@ class ContentsController extends AppController {
 					$this->redirect('/contents/admin_edit/' . $content_id);
 			}
 			
-				if($content_id != null)
+				if($content_id != 0)
 				{
 					$content = $this->Content->read(null, $content_id);
 					if($content['Content']['parent_id'] == '-1')
@@ -397,7 +397,7 @@ class ContentsController extends AppController {
 			}
 
 			// If it's a new content item
-			if($content_id == null)
+			if($content_id == 0)
 			{
 				// If it's a new content item set some default checked values
 				$this->set('active_checked','checked');
