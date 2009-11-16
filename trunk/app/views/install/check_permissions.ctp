@@ -13,7 +13,7 @@
 ?>
 
 <fieldset>
-<legend><?php __('Step 1 - Checking System Requirements') ?></legend>
+<legend><?php __('Checking System Requirements') ?></legend>
 <?php
 foreach($install_checks AS $check)
 {
