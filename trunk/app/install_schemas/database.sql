@@ -57,10 +57,10 @@ INSERT INTO `contents` (`id`, `parent_id`, `order`, `hierarchy`, `content_type_i
 (58, -1, 0, 0, 3, 1, 0, 'read-reviews', '', 1, 0, '2009-08-20 09:37:04', '2009-08-20 09:37:04'),
 (59, -1, 0, 0, 3, 1, 0, 'create-review', '', 1, 0, '2009-08-20 09:37:04', '2009-08-20 09:37:04'),
 (68, -1, 0, 0, 3, 1, 0, 'coupon-details', '', 1, 0, '2009-09-13 11:11:08', '2009-09-13 11:11:08'),
-(69, 0, 5, 0, 6, 1, 0, 'news', '', 1, 0, '2009-11-10 20:18:22', '2009-11-10 20:18:22'),
-(70, 0, 6, 0, 7, 1, 0, 'articles', '', 1, 0, '2009-11-10 20:18:45', '2009-11-10 20:18:45'),
+(69, 0, 5, 0, 5, 1, 0, 'news', '', 1, 0, '2009-11-10 20:18:22', '2009-11-10 20:18:22'),
+(70, 0, 6, 0, 6, 1, 0, 'articles', '', 1, 0, '2009-11-10 20:18:45', '2009-11-10 20:18:45'),
 (71, 69, 1, 0, 6, 1, 0, 'sample-news', '', 1, 1, '2009-11-10 20:20:08', '2009-11-10 20:20:08'),
-(72, 70, 1, 0, 7, 1, 0, 'sample-article', '', 1, 1, '2009-11-10 20:20:51', '2009-11-10 20:20:51');
+(72, 70, 1, 0, 6, 1, 0, 'sample-article', '', 1, 1, '2009-11-10 20:20:51', '2009-11-10 20:20:51');
 
 DROP TABLE IF EXISTS content_categories;
 CREATE TABLE `content_categories` (
@@ -186,14 +186,6 @@ INSERT INTO `content_products` (`id`, `content_id`, `stock`, `model`, `price`, `
 (16, 37, 12, '123456', 10.99, 2, 0),
 (17, 38, 22, '', 4.95, 2, 3);
 
-DROP TABLE IF EXISTS content_selflinks;
-CREATE TABLE `content_selflinks` (
-  `id` int(10) NOT NULL auto_increment,
-  `content_id` int(1) NOT NULL,
-  `url` varchar(50) collate utf8_unicode_ci NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 DROP TABLE IF EXISTS content_news;
 CREATE TABLE `content_news` (
   `id` int(10) NOT NULL auto_increment,
@@ -232,9 +224,8 @@ INSERT INTO `content_types` (`id`, `template_type_id`, `name`, `type`) VALUES
 (2, 3, 'product', 'ContentProduct'),
 (3, 2, 'page', 'ContentPage'),
 (4, 0, 'link', 'ContentLink'),
-(5, 0, 'selflink', 'ContentSelflink'),
-(6, 5, 'news', 'ContentNews'),
-(7, 6, 'article', 'ContentArticle');
+(5, 5, 'news', 'ContentNews'),
+(6, 6, 'article', 'ContentArticle');
 
 DROP TABLE IF EXISTS countries;
 CREATE TABLE `countries` (
