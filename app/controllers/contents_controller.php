@@ -241,7 +241,7 @@ class ContentsController extends AppController {
 	*
 	* @param  int $content_id ID of the content we are editing
 	*/		
-	function admin_edit ($content_id = null)
+	function admin_edit ($content_id = null, $parent_id = 0)
 	{
 		$this->set('current_crumb', __('Content Details', true));
 		// IF we submitted the form
@@ -427,6 +427,7 @@ class ContentsController extends AppController {
 			$this->set('content_types',$content_types_translatable);
 			
 			$this->set('parents', $this->ContentBase->generate_content_list());
+			$this->set('parent_id', $parent_id);
 			
 			// Template
 			$templates_translatable =  $this->Content->Template->find('list', array('parent_id' => '0'));
@@ -443,9 +444,9 @@ class ContentsController extends AppController {
 	/**
 	* Redirects the user to the admin_edit method where all work is done.
 	*/	
-	function admin_new ()
+	function admin_new ($content_id = 0, $parent_id = 0)
 	{
-		$this->redirect('/contents/admin_edit/');
+		$this->redirect('/contents/admin_edit/'.$content_id.'/'.$parent_id);
 	}
 
 	/**

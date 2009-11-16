@@ -32,7 +32,7 @@ foreach ($content_data AS $content)
 	else
 	{
 		// Link it to the edit screen
-		$name_link = $html->link($content['ContentDescription']['name'], '/contents/admin_edit/' . $content['Content']['id']);
+		$name_link = $html->link($content['ContentDescription']['name'], '/contents/admin_edit/' . $content['Content']['id'].'/'.$parent_content['Content']['id']);
 	}
 	
 	echo $admin->TableCells(
@@ -44,7 +44,7 @@ foreach ($content_data AS $content)
 				array($ajax->link(($content['Content']['show_in_menu'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))), 'null', $options = array('url' => '/contents/admin_change_show_in_menu_status/' . $content['Content']['id'], 'update' => 'content'), null, false), array('align'=>'center')),
 				array($admin->DefaultButton($content['Content']), array('align'=>'center')),
 				array($admin->MoveButtons($content['Content'], $content_count), array('align'=>'center')),				
-				array($admin->ActionButton('edit','/contents/admin_edit/' . $content['Content']['id'],__('Edit', true)) . $admin->ActionButton('delete','/contents/admin_delete/' . $content['Content']['id'],__('Delete', true)), array('align'=>'center')),
+				array($admin->ActionButton('edit','/contents/admin_edit/' . $content['Content']['id'].'/'.$parent_content['Content']['id'],__('Edit', true)) . $admin->ActionButton('delete','/contents/admin_delete/' . $content['Content']['id'],__('Delete', true)), array('align'=>'center')),
 				array($form->checkbox('modify][', array('value' => $content['Content']['id'])), array('align'=>'center'))
 		   ));
 		   	
@@ -58,6 +58,6 @@ if(isset($parent_content))
 }
 echo '</table>';
 
-echo $admin->ActionBar(array('activate'=>__('Activate',true),'deactivate'=>__('Deactivate',true),'show_in_menu'=>__('Show In Menu',true),'hide_from_menu'=>__('Hide From Menu',true),'delete'=>__('Delete',true)));
+echo $admin->ActionBar(array('activate'=>__('Activate',true),'deactivate'=>__('Deactivate',true),'show_in_menu'=>__('Show In Menu',true),'hide_from_menu'=>__('Hide From Menu',true),'delete'=>__('Delete',true)),true,'0/'.$parent_content['Content']['id']);
 echo $form->end();
 ?>

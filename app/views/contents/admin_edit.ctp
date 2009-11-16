@@ -52,15 +52,16 @@
 					'type' => 'hidden',
 					'value' => $data['Content']['id']
 	               ),
+				'Content.parent_id' => array(
+					'type' => 'hidden',
+					'value' => $parent_id
+	               ),
 				'Content.order' => array(
 					'type' => 'hidden',
 					'value' => $data['Content']['order']
 	               )
 				   ));
-	$parent_language_bug_fix = __('Parent', true);
-	
-	echo '<div class="input"><label>' . $parent_language_bug_fix . '</label>' . $form->select('Content.parent_id', $parents, $data['Content']['parent_id'], $attributes = array('label' => $parent_language_bug_fix), $showEmpty = false) . '</div>';
-
+			
    		echo $form->inputs(array(
    					'Content.content_type_id' => array(
 						'type' => 'select',
