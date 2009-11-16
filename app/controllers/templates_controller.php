@@ -295,7 +295,7 @@ class TemplatesController extends AppController {
 	function admin($ajax = false)
 	{
 		$this->set('current_crumb', __('Templates Listing', true));
-		$this->set('templates',$this->Template->find('threaded', array('order' => array('Template.name ASC'))));
+		$this->set('templates',$this->Template->find('threaded', array('order' => array('Template.id ASC'))));
 	
 		$user_prefs = $this->UserPref->find(array('name' => 'template_collpase','user_id' => $this->Session->read('User.id')));	
 		$exploded_prefs = explode(',', $user_prefs['UserPref']['value']);
