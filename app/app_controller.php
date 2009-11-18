@@ -269,7 +269,7 @@ class AppController extends Controller {
 		{
 			$install = 1;
 		}
-
+			
 		if(!isset($install)) // We're viewing the front end
 		{
 			if(!isset($_SESSION['Customer']))
@@ -283,8 +283,6 @@ class AppController extends Controller {
 				
 				$new_customer['language_id'] = $languages['Language']['id'];
 				$new_customer['language'] = $languages['Language']['iso_code_2'];
-				
-				$this->Session->write('Config.language', $languages['Language']['code']);
 				
 				// Get the default currency
 				App::import('Model', 'Currency');
@@ -300,7 +298,7 @@ class AppController extends Controller {
 				// Renew the session
 				$_SESSION['Customer'] = $_SESSION['Customer'];
 			}
-	
+			
 			// Get the configuration information
 			global $config;
 			$config = $this->ConfigurationBase->load_configuration();	
