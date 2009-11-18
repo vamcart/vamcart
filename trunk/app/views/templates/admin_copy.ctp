@@ -13,6 +13,7 @@
 
 	echo $form->create('Template', array('id' => 'contentform', 'action' => '/templates/admin_copy/' . $template['Template']['id'], 'url' => '/templates/admin_copy/' . $template['Template']['id']));
 	echo $form->inputs(array(
+					'legend' => null,
 					'fieldset' => __('Copy Template', true),
 					'Template.id' => array(
 						'type' => 'hidden',

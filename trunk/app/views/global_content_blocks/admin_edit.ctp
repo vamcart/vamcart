@@ -27,6 +27,7 @@
 	
 	echo $admin->StartTabContent('main');
 		echo $form->inputs(array(
+					'legend' => null,
 					'fieldset' => __('Global Content Block Details', true),
 				   'GlobalContentBlock.id' => array(
 				   		'type' => 'hidden'
@@ -42,6 +43,7 @@
 
 	echo $admin->StartTabContent('options');
 		echo $form->inputs(array(
+					'legend' => null,
 					'fieldset' => __('Global Content Block Details', true),
 	                'GlobalContentBlock.alias' => array(
    				   		'label' => __('Alias', true)

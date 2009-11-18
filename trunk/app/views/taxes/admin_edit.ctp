@@ -13,6 +13,7 @@
 
 	echo $form->create('Tax', array('id' => 'contentform', 'action' => '/taxes/admin_edit/', 'url' => '/taxes/admin_edit/'));
 	echo $form->inputs(array(
+					'legend' => null,
 					'fieldset' => __('Tax Details', true),
 				   'Tax.id' => array(
 				   		'type' => 'hidden'

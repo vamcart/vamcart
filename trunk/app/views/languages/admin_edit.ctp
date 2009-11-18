@@ -13,6 +13,7 @@
 
 	echo $form->create('Language', array('id' => 'contentform', 'action' => '/languages/admin_edit/', 'url' => '/languages/admin_edit/'));
 	echo $form->inputs(array(
+					'legend' => null,
 					'fieldset' => __('Language Details', true),
 				   'Language.id' => array(
 				   		'type' => 'hidden'

@@ -18,6 +18,7 @@ $types = array('weight' => __('Weight', true),
 			   'products' => __('Products', true));
 
 echo $form->inputs(array(
+	'legend' => null,
 	'key_values.table_based_type' => array(
 		'type' => 'select',
 		'selected' => $data['ShippingMethodValue'][0]['value'],

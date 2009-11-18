@@ -13,6 +13,7 @@
 
 	echo $form->create('User', array('id' => 'contentform', 'action' => '/users/admin_user_account/', 'url' => '/users/admin_user_account/'));
 	echo $form->inputs(array(
+					'legend' => null,
 					'fieldset' => __('Account Details', true),
 				   'User.id' => array(
 				   		'type' => 'hidden'

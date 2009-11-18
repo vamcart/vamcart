@@ -15,6 +15,7 @@
 	echo $form->create('MicroTemplate', array('id' => 'contentform', 'action' => '/micro_templates/admin_edit/'.$id, 'url' => '/micro_templates/admin_edit/'.$id));
 		
 		echo $form->inputs(array(
+					'legend' => null,
 					'fieldset' => __('Micro Template Details', true),
 					'MicroTemplate.id' => array(
    				   		'type' => 'hidden'

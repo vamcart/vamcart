@@ -13,6 +13,7 @@
 
 	echo $form->create('Currency', array('id' => 'contentform', 'action' => '/currencies/admin_edit/', 'url' => '/currencies/admin_edit/'));
 	echo $form->inputs(array(
+					'legend' => null,
 					'fieldset' => __('Currency Details', true),
 				   'Currency.id' => array(
 				   		'type' => 'hidden'

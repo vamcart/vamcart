@@ -13,6 +13,7 @@
 
 	echo $form->create('Stylesheet', array('id' => 'contentform', 'action' => '/stylesheets/admin_copy/' . $stylesheet['Stylesheet']['id'], 'url' => '/stylesheets/admin_copy/' . $stylesheet['Stylesheet']['id']));
 	echo $form->inputs(array(
+					'legend' => null,
 					'fieldset' =>  __('Copy Stylesheet', true),
 					'Stylesheet.name' => array(
 						'type' => 'text',

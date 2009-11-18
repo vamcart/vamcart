@@ -13,6 +13,7 @@
 
 	echo $form->create('Template', array('id' => 'contentform', 'action' => '/templates/admin_new/', 'url' => '/templates/admin_new/'));
 	echo $form->inputs(array(
+					'legend' => null,
 					'fieldset' => __('Template Details', true),				   
 	               'Template.name' => array(
 				   		'label' => __('Name', true)

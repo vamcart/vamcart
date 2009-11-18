@@ -13,6 +13,7 @@
 
 	echo $form->create('User', array('id' => 'contentform', 'action' => '/users/admin_new/', 'url' => '/users/admin_new/'));
 	echo $form->inputs(array(
+					'legend' => null,
 					'fieldset' => __('New Admin', true),
 	               'User.username' => array(
 				   		'label' => __('Username', true)

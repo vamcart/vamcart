@@ -13,6 +13,7 @@
 
 	echo $form->create('PaymentMethod', array('id' => 'contentform', 'action' => '/payment_methods/admin_edit/' . $data['PaymentMethod']['id'], 'url' => '/payment_methods/admin_edit/' . $data['PaymentMethod']['id']));
 	echo $form->inputs(array(
+					'legend' => null,
 					'fieldset' => __('Payment Method Details', true),
 				   'PaymentMethod.id' => array(
 				   		'type' => 'hidden',

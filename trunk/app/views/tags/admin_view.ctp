@@ -23,6 +23,7 @@ if(isset($default_template))
 		echo $form->create('MicroTemplate', array('id' => 'contentform', 'action' => '/micro_templates/admin_create_from_tag/', 'url' => '/micro_templates/admin_create_from_tag/'));
 		
 		echo $form->inputs(array(
+					'legend' => null,
 					'fieldset' => __('Template Details', true),
 					'MicroTemplate.tag_name' => array(
 						'value' => $tag_name,

@@ -27,6 +27,7 @@
 	
 	echo $admin->StartTabContent('main');
 		echo $form->inputs(array(
+					'legend' => null,
 					'fieldset' => __('User Tag Details', true),
 				   'UserTag.id' => array(
 				   		'type' => 'hidden'
@@ -42,6 +43,7 @@
 
 	echo $admin->StartTabContent('options');
 		echo $form->inputs(array(
+					'legend' => null,
 					'fieldset' => __('User Tag Details', true),
 	                'UserTag.alias' => array(
    				   		'label' => __('Alias', true)

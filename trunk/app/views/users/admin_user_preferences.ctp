@@ -14,6 +14,7 @@
 echo $form->create('UserPref', array('id' => 'contentform', 'action' => '/users/admin_user_preferences/', 'url' => '/users/admin_user_preferences/'));
 
 echo $form->inputs(array(
+		'legend' => null,
 		'fieldset' => __('User Prefences', true),
 		'UserPref.language' => array(
 			'label' => __('Language', true),
