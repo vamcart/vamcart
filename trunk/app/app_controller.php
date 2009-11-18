@@ -265,8 +265,14 @@ class AppController extends Controller {
 		if(!defined('BASE'))
 			define('BASE', $this->base);
 
-		if(!$this->Session->check('Customer.language_id'))
-			$this->Session->write('Customer.language_id',1);
+		if(!$this->Session->check('Customer.language_id')) {
+		
+			App::import('Model', 'Language');			$this->Language =& new Language();			$languages = $this->Language->find('first', array('conditions' => array('Language.default' => 1)));
+			
+			$this->Session->write('Customer.language_id',$languages['Language']['id']);
+			$this->Session->write('Customer.language',$languages['Language']['iso_code_2']);
+			
+		}
 			
 		if(!$this->Session->check('Customer.currency_id'))
 			$this->Session->write('Customer.currency_id',1);
