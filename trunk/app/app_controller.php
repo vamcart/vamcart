@@ -265,22 +265,51 @@ class AppController extends Controller {
 		if(!defined('BASE'))
 			define('BASE', $this->base);
 
-		if(!$this->Session->check('Customer.language_id')) {
-		
-			App::import('Model', 'Language');			$this->Language =& new Language();			$languages = $this->Language->find('first', array('conditions' => array('Language.default' => 1)));
-			
-			$this->Session->write('Customer.language_id',$languages['Language']['id']);
-			$this->Session->write('Customer.language',$languages['Language']['iso_code_2']);
-			
-		}
-			
-		if(!$this->Session->check('Customer.currency_id'))
-			$this->Session->write('Customer.currency_id',1);
-
 		if(strstr($_SERVER['REQUEST_URI'],'/install'))
 		{
 			$install = 1;
 		}
+
+		if(!isset($install)) // We're viewing the front end
+		{
+			if(!isset($_SESSION['Customer']))
+			{
+				// Set the default language
+				$new_customer = array();
+
+				// Get the default language
+				App::import('Model', 'Language');
+				$this->Language =& new Language();				$languages = $this->Language->find('first', array('conditions' => array('Language.default' => 1)));
+				
+				$new_customer['language_id'] = $languages['Language']['id'];
+				$new_customer['language'] = $languages['Language']['iso_code_2'];
+				
+				$this->Session->write('Config.language', $languages['Language']['code']);
+				
+				// Get the default currency
+				App::import('Model', 'Currency');
+				$this->Currency =& new Currency();		
+				$default_currency = $this->Currency->find('first', array('conditions' => array('Currency.default' => 1)));
+		
+				$new_customer['currency_id'] = $default_currency['Currency']['id']; 
+				if (!$this->Session->check('Customer'))
+				$this->Session->write('Customer', $new_customer);
+			}
+			else
+			{
+				// Renew the session
+				$_SESSION['Customer'] = $_SESSION['Customer'];
+			}
+	
+			// Get the configuration information
+			global $config;
+			$config = $this->ConfigurationBase->load_configuration();	
+		
+			// Assign the order information
+			global $order;
+			$order = $this->OrderBase->get_order();
+		}
+		
 		// If we're in the admin area
 		if(substr($this->action, 0, 5) == 'admin')
 		{
@@ -305,45 +334,6 @@ class AppController extends Controller {
 			{
 				$this->Session->write('User',$this->Session->read('User'));
 			}
-		}
-		elseif(!isset($install)) // We're viewing the front end
-		{
-			if(!isset($_SESSION['Customer']))
-			{
-				// Set the default language
-				$new_customer = array();
-
-				// Get the default language
-				App::import('Model', 'Language');
-				$this->Language =& new Language();		
-				$default_language = $this->Language->find(array('default' => '1'));
-
-				$new_customer['language_id'] = $default_language['Language']['id'];
-
-				$this->Session->write('Config.language_id', $default_language['Language']['id']);
-
-				// Get the default currency
-				App::import('Model', 'Currency');
-				$this->Currency =& new Currency();		
-				$default_currency = $this->Currency->find(array('default' => '1'));
-		
-				$new_customer['currency_id'] = $default_currency['Currency']['id']; 
-				if (!$this->Session->check('Customer'))
-				$this->Session->write('Customer', $new_customer);
-			}
-			else
-			{
-				// Renew the session
-				$_SESSION['Customer'] = $_SESSION['Customer'];
-			}
-	
-			// Get the configuration information
-			global $config;
-			$config = $this->ConfigurationBase->load_configuration();	
-		
-			// Assign the order information
-			global $order;
-			$order = $this->OrderBase->get_order();
 		}
 		
 	}
