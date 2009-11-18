@@ -12,6 +12,7 @@
    ---------------------------------------------------------------------------------------*/
 
 echo $form->inputs(array(
+	'legend' => null,
 	'key_values.per_item_amount' => array(
 		'label' => __('Per Item Amount',true), 
 		'value' => $data['ShippingMethodValue'][0]['value']

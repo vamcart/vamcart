@@ -27,6 +27,7 @@
 	
 echo $admin->StartTabContent('main');
 	echo $form->inputs(array(
+		'legend' => null,
 		'fieldset' => __('Coupon Details', true),
 			'ModuleCoupon.id' => array(
 				'type' => 'hidden'
@@ -52,6 +53,7 @@ echo $admin->EndTabContent();
 
 echo $admin->StartTabContent('restrictions');
 	echo $form->inputs(array(
+			'legend' => null,
 			'fieldset' => __('Coupon Details', true),
 			'ModuleCoupon.max_uses' => array(
 				'label' => __('Max Uses', true),

@@ -13,6 +13,7 @@
 
 	echo $form->create('ShippingMethod', array('id' => 'contentform', 'name' => 'contentform', 'action' => '/shipping_methods/admin_edit/'.$data['ShippingMethod']['id'], 'url' => '/shipping_methods/admin_edit/'.$data['ShippingMethod']['id']));
 		echo $form->inputs(array(
+				'legend' => null,
 				'fieldset' => __('Shipping Method Details', true),
 				'ShippingMethod.id' => array(
 					'type' => 'hidden',

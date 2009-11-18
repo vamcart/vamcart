@@ -13,6 +13,7 @@
 
 	echo $form->create('OrderStatus', array('id' => 'contentform', 'action' => '/order_status/admin_edit/' . $data['OrderStatus']['id'], 'url' => '/order_status/admin_edit/' . $data['OrderStatus']['id']));
 	echo $form->inputs(array(
+					'legend' => null,
 					'fieldset' => __('Order Status Details', true),
 				   'OrderStatus.id' => array(
 				   		'type' => 'hidden',
@@ -24,8 +25,10 @@
 	{
 		$language_key = $language['Language']['id'];
 		
-	   	echo $form->inputs(array('OrderStatusDescription.' . $language['Language']['id'] => array(
-				   		'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . $language['Language']['name'],
+	   	echo $form->inputs(array(
+						'legend' => null,
+	   				'OrderStatusDescription.' . $language['Language']['id'] => array(
+				   	'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . $language['Language']['name'],
 						'value' => $data['OrderStatusDescription'][$language_key]['name']
 	            	  ) 	   																									
 				));

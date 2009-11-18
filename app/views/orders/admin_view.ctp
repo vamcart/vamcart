@@ -182,6 +182,7 @@ echo '</table>';
 echo $form->create('OrderComment', array('id' => 'contentform', 'action' => '/orders/admin_new_comment/', 'url' => '/orders/admin_new_comment/'));
 
 	echo $form->inputs(array(
+			'legend' => null,
 			'Order.id' => array(
 				'type' => 'hidden',
 				'value' => $data['Order']['id']

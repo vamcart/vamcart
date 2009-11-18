@@ -26,6 +26,7 @@
 	
 	echo $admin->StartTabContent('main');
 		echo $form->inputs(array(
+				'legend' => null,
 				'fieldset' => __('Edit Page', true),
 				'Content.id' => array(
 					'type' => 'hidden',
@@ -50,9 +51,11 @@
 	
 	echo '<div class="template_required" id="template_required_template_picker">';
 	
-	  	echo $form->inputs(array('Content.template_id' => array(
+	  	echo $form->inputs(array(
+						'legend' => null,
+	  					'Content.template_id' => array(
 						'type' => 'select',
-				   		'label' => __('Template', true),
+			   		'label' => __('Template', true),
 						'options' => $templates,
 						'selected' => $data['Content']['template_id']
 	            	  )));
@@ -63,14 +66,18 @@
 	{
 		$language_key = $language['Language']['id'];
 		
-		echo $form->inputs(array('ContentDescription]['.$language['Language']['id'].'][name.' . $language['Language']['id'] => array(
-				   		'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . __('Title', true),
+		echo $form->inputs(array(
+						'legend' => null,
+						'ContentDescription]['.$language['Language']['id'].'][name.' . $language['Language']['id'] => array(
+				   	'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . __('Title', true),
 						'value' => $data['ContentDescription'][$language_key]['name']
 	            	  )));																								
 	
 		echo '<div id="template_required_' . $language['Language']['id'] . '" class="template_required">';
-			echo $form->inputs(array('ContentDescription]['.$language['Language']['id'].'][description.' . $language['Language']['id'] => array(
-				   		'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . __('Description', true),
+			echo $form->inputs(array(
+						'legend' => null,
+						'ContentDescription]['.$language['Language']['id'].'][description.' . $language['Language']['id'] => array(
+				   	'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . __('Description', true),
 						'type' => 'textarea',
 						'value' => $data['ContentDescription'][$language_key]['description']
 	            	  )));
@@ -82,6 +89,7 @@
 
 	echo $admin->StartTabContent('options');
 			echo $form->inputs(array(
+				'legend' => null,
 				'fieldset' => __('Content Details', true),
                 'Content.alias' => array(
 			   		'type' => 'hidden',

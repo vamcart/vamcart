@@ -26,6 +26,7 @@
 	
 	echo $admin->StartTabContent('main');
 		echo $form->inputs(array(
+					'legend' => null,
 					'fieldset' => __('Country Details', true),
 				   'Country.id' => array(
 				   		'type' => 'hidden',
@@ -48,6 +49,7 @@
 
 		echo $admin->StartTabContent('options');
 						echo $form->inputs(array(
+					'legend' => null,
 					'fieldset' => __('Country Details', true),
 	               'Country.address_format' => array(
 				   		'type' => 'textarea',

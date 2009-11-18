@@ -14,6 +14,7 @@
 	echo $form->create('DefinedLanguage', array('id' => 'contentform', 'action' => '/defined_languages/admin_edit/'.$defined_key, 'url' => '/defined_languages/admin_edit/'.$defined_key));
 	
 		echo $form->inputs(array(
+					'legend' => null,
 					'fieldset' => __('Defined Language Details', true),
 	               'DefinedLanguage.key' => array(
    				   		'label' => __('Alias', true),				   
@@ -30,8 +31,10 @@
 		if(!isset($data[$language_key]['DefinedLanguage']['value']))
 			$data[$language_key]['DefinedLanguage']['value'] = "";
 			
-		echo $form->inputs(array('DefinedLanguage]['.$language['Language']['id'].'][value' => array(
-			   		'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . __('Value', true),
+		echo $form->inputs(array(
+					'legend' => null,
+					'DefinedLanguage]['.$language['Language']['id'].'][value' => array(
+			   	'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . __('Value', true),
 					'type' => 'textarea',
 					'class' => 'pagesmalltextarea',											
 					'value' => $data[$language_key]['DefinedLanguage']['value']

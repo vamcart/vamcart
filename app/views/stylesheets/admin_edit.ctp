@@ -26,6 +26,7 @@
 	
 	echo $admin->StartTabContent('main');
 	echo $form->inputs(array(
+					'legend' => null,
 					'fieldset' => __('Stylesheet Details', true),
 				   'Stylesheet.id' => array(
 				   		'type' => 'hidden',
@@ -44,6 +45,7 @@
 
 	echo $admin->StartTabContent('options');			
 		echo $form->inputs(array(
+					'legend' => null,
 					'fieldset' => __('Stylesheet Details', true),
 					'Stylesheet.alias' => array(
 			   		'label' => __('Alias', true),				   

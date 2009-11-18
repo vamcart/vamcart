@@ -13,6 +13,7 @@
 
 	echo $form->create('EmailTemplate', array('id' => 'contentform', 'action' => '/email_template/admin_edit/' . $data['EmailTemplate']['id'], 'url' => '/email_template/admin_edit/' . $data['EmailTemplate']['id']));
 	echo $form->inputs(array(
+					'legend' => null,
 					'fieldset' => __('Email Templates Details', true),
 				   'EmailTemplate.id' => array(
 				   		'type' => 'hidden',
@@ -21,6 +22,7 @@
 		 ));
 
 		echo $form->inputs(array(
+						'legend' => null,
 	               'EmailTemplate.alias' => array(
    				   		'label' => __('Alias', true),				   
    						'value' => $data['EmailTemplate']['alias']
@@ -31,13 +33,17 @@
 	{
 		$language_key = $language['Language']['id'];
 		
-	   	echo $form->inputs(array('EmailTemplateDescription.' . $language['Language']['id'].'.subject' => array(
-				   		'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . __('Subject', true),
+	   	echo $form->inputs(array(
+						'legend' => null,
+	   				'EmailTemplateDescription.' . $language['Language']['id'].'.subject' => array(
+				   	'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . __('Subject', true),
 						'value' => $data['EmailTemplateDescription'][$language_key]['subject']
 	            	  ) 	   																									
 				));
-		echo $form->inputs(array('EmailTemplateDescription.' . $language['Language']['id'].'.content' => array(
-			   		'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . __('Content', true),
+		echo $form->inputs(array(
+					'legend' => null,
+					'EmailTemplateDescription.' . $language['Language']['id'].'.content' => array(
+			   	'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . __('Content', true),
 					'type' => 'textarea',
 					'class' => 'pagesmalltextarea',											
 					'value' => $data['EmailTemplateDescription'][$language_key]['content']

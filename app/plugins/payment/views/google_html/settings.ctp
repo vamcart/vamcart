@@ -11,7 +11,9 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 	
-echo $form->inputs(array('google_html.google_html_merchant_id' => array(
+echo $form->inputs(array(
+	'legend' => null,
+	'google_html.google_html_merchant_id' => array(
 	'label' => __('Merchant ID', true),
 	'value' => $data['PaymentMethodValue'][0]['value']
 )));

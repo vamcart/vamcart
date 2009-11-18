@@ -13,6 +13,7 @@
 
 	echo $form->create('CountryZone', array('id' => 'contentform', 'action' => '/country_zones/admin_edit/' . $country_id, 'url' => '/country_zones/admin_edit/' . $country_id));
 		echo $form->inputs(array(
+					'legend' => null,
 					'fieldset' => __('Country Zone Details', true),
 				   'CountryZone.country_id' => array(
 				   		'type' => 'hidden',

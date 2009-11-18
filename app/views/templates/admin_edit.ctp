@@ -14,6 +14,7 @@
 	$template_id = $this->data['Template']['id'];
 	echo $form->create('Template', array('id' => 'contentform', 'action' => '/templates/admin_edit/'.$template_id, 'url' => '/templates/admin_edit/'.$template_id));
 	echo $form->inputs(array(
+					'legend' => null,
 					'fieldset' => __('Template Details', true),
 				   'Template.id' => array(
 				   		'type' => 'hidden'
