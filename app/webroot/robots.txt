@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /page/home-page.html
 Disallow: /page/cart-contents.html
 Disallow: /page/checkout.html
 Disallow: /page/payment.html
