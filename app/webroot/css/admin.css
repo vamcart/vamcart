@@ -330,12 +330,6 @@ fieldset
 		border: 0px;
 	}
 
-form#contentform fieldset legend
-	{
-		padding: 0;
-		margin: 0;
-	}
-	
 legend 
 	{
 		font-size: 12pt;
