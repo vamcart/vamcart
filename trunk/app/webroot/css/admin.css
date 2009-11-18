@@ -332,7 +332,8 @@ fieldset
 
 form#contentform fieldset legend
 	{
-		display: none;
+		padding: 0;
+		margin: 0;
 	}
 	
 legend 
