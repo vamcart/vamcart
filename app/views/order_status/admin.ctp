@@ -11,6 +11,8 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
+echo $javascript->link('jquery/jquery.min', false);
+
 echo '<table class="contentTable">';
 
 echo $html->tableHeaders(array( __('Name', true), __('Default', true),  __('Order', true), __('Action', true)));
