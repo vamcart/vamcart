@@ -11,8 +11,9 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-	echo $javascript->link('jquery/jquery.min', false);
-	echo $javascript->link('tabs', false);
+echo $javascript->link('jquery/jquery.min', false);
+echo $javascript->link('tabs', false);
+echo $javascript->link('selectall', false);
 
 echo $form->create('Language', array('action' => '/languages/admin_modify_selected/', 'url' => '/languages/admin_modify_selected/'));
 

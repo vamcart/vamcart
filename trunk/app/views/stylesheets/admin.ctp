@@ -11,8 +11,9 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-	echo $javascript->link('jquery/jquery.min', false);
-	echo $javascript->link('tabs', false);
+echo $javascript->link('jquery/jquery.min', false);
+echo $javascript->link('tabs', false);
+echo $javascript->link('selectall', false);
 
 echo $form->create('Stylesheet', array('action' => '/stylesheets/admin_modify_selected/', 'url' => '/stylesheets/admin_modify_selected/'));
 
