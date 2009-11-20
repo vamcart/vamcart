@@ -121,7 +121,7 @@ class OrdersController extends AppController {
 		}
 		
 		// Get the configuration values to redirect
-		$this->redirect('/page/thank-you' . $config['URL_EXTENSION']);
+		$this->redirect('/page/success' . $config['URL_EXTENSION']);
 	}
 	
 	function admin_delete ($id)
