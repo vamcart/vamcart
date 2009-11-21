@@ -13,15 +13,7 @@
 
 function default_template_product_quantity()
 {
-$template = '
-<input 
-	id="product_quantity" 
-	name="product_quantity" 
-	class="product_quantity" 
-	type="text" 
-	value="1" 
-/>
-';		
+$template = '<input id="product_quantity" name="product_quantity" type="text" value="1" size="3" />';		
 
 return $template;
 }
