@@ -168,7 +168,7 @@
 				target : "SWFUploadTarget",
 				flash_path : "' . BASE . '/js/swfupload/swfupload.swf?session_name()=' . session_id() . '&"+Math.random(),
 				allowed_filesize : 3072,	// 30 MB
-				allowed_filetypes : "*.*",
+				allowed_filetypes : "*.jpg;*.jpeg;*.gif;*.png",
 				allowed_filetypes_description : "All files...",
 				browse_link_innerhtml : "' . __('Browse Images', true) . '",
 				upload_link_innerhtml : "' . __('Upload Images', true) . '",
