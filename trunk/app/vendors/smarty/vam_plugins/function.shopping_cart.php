@@ -26,7 +26,7 @@ $template = '
 				
 		{foreach from=$order_items item=product}			
 			<tr>
-				<td><a href="/cart/remove_product/{$product.id}" class="remove">x</a></td>
+				<td><a href="{base_path}/cart/remove_product/{$product.id}" class="remove">x</a></td>
 				<td><a href="{$product.link}">{$product.name}</a></td>
 				<td>{$product.price}</td>
 				<td>{$product.qty}</td>
