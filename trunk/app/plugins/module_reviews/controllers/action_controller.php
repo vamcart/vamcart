@@ -18,8 +18,8 @@ class ActionController extends ModuleReviewsAppController {
 	function link ()
 	{
 		global $content, $config;
-		$assignments = array('review_display_link' => '/page/read-reviews'.$config['URL_EXTENSION'].'?content_id=' . $content['Content']['id'],
-							 'review_create_link' => '/page/create-review'.$config['URL_EXTENSION'].'?content_id=' . $content['Content']['id']);
+		$assignments = array('review_display_link' => BASE.'/page/read-reviews'.$config['URL_EXTENSION'].'?content_id=' . $content['Content']['id'],
+							 'review_create_link' => BASE.'/page/create-review'.$config['URL_EXTENSION'].'?content_id=' . $content['Content']['id']);
 		return $assignments;
 	}
 	
