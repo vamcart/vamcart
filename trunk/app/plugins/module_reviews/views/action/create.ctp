@@ -3,7 +3,7 @@
 	<hr />
 	<div class="css_form">
 	<div class="review">
-	<form action="/module_reviews/action/create/" method="post">
+	<form action="{base_path}/module_reviews/action/create/" method="post">
 	<input type="hidden" name="content_id" value="{$content_id}" />
 	<div>
 		<label for="name">{lang}Name{/lang}</label>
