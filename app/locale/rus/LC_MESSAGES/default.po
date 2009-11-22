@@ -1143,6 +1143,10 @@ msgstr "Таблица тарифов"
 msgid "What does this tag do?"
 msgstr "Что делает данный тэг?"
 
+#: /vendors/smarty/vam_plugins/function.base_path.php:23
+msgid "Displays the base program path."
+msgstr "Выводит базовый путь программы."
+
 #: /vendors/smarty/vam_plugins/block.lang.php:61
 msgid "Outputs the correct language value specified by the key between the brackets."
 msgstr "Выводит значение строки между тэгами на текущем языке магазина."
