@@ -87,6 +87,7 @@ class OrdersController extends AppController {
 		
 		$body = str_replace('{$products}', $order_products, $body);
 		
+		if ($order['Order']['email'] != '') {
 		// Set up mail
 		$this->Email->init();
 		$this->Email->From = $config['NEW_ORDER_FROM_EMAIL'];
@@ -100,9 +101,10 @@ class OrdersController extends AppController {
 		
 		// Sending mail
 		$this->Email->send();
+		}
 		
 		// Send to admin
-		if(isset($config['SEND_EXTRA_EMAIL']))
+		if($config['SEND_EXTRA_EMAIL'] != '')
 		{
 		
 		// Set up mail
@@ -170,6 +172,7 @@ class OrdersController extends AppController {
 		// Get current order status
 		$current_order_status = $this->Order->OrderStatus->OrderStatusDescription->find('first', array('conditions' => array('OrderStatusDescription.order_status_id =' => $this->data['Order']['order_status_id'], 'OrderStatusDescription.language_id =' => $this->Session->read('Customer.language_id'))));
 		
+		if ($old_order['Order']['email'] != '') {
 		// Set up mail
 		$this->Email->init();
 		$this->Email->From = $config['NEW_ORDER_STATUS_FROM_EMAIL'];
@@ -193,6 +196,7 @@ class OrdersController extends AppController {
 		
 		// Sending mail
 		$this->Email->send();
+		}
 		
 		}
 		
