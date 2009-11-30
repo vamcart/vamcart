@@ -5,7 +5,7 @@
  * Author: C.James Callaway (http://www.cybergod.net) - 08/04/2008
  */
 class TinyMceHelper extends Helper {
-	var $helpers=array('Javascript');
+	var $helpers=array('Javascript', 'Session');
 	
 	function beforeRender(){
 	}
@@ -26,7 +26,7 @@ class TinyMceHelper extends Helper {
 			mode : "none",
 			editor_deselector : "notinymce",
 			theme : "advanced",
-			language : "ru",
+			language : "'.$this->Session->read('Customer.language').'",
 			paste_create_paragraphs : false,
 			paste_create_linebreaks : false,
 			paste_use_dialog : true,
