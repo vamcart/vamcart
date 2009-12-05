@@ -113,8 +113,8 @@ class PagesController extends AppController {
 			Cache::write($cache_name, $template_vars);
 		}
 		
+		echo '<!-- Powered by: VaM Cart (http://vamcart.com) -->' . "\n";
 		$this->Smarty->display($template['Template']['template'],$template_vars);
-		echo '<!-- Powered by: VaM Cart (http://vamcart.com) -->';
 		die();
 	}
 }
