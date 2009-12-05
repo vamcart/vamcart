@@ -32,7 +32,7 @@ return $template;
 function smarty_function_contact_us($params, &$smarty)
 {
 	// Cache the output.
-	$cache_name = 'vam_contact_us_output' . (isset($params['template'])?'_'.$params['template']:'') . '_' . $_SESSION['Customer']['language_id'] . '_' . $_SESSION['Customer']['currency_id'];
+	$cache_name = 'vam_contact_us_output' . (isset($params['template'])?'_'.$params['template']:'') . '_' . $_SESSION['Customer']['language_id'];
 	$output = Cache::read($cache_name);
 	if($output === false)
 	{
