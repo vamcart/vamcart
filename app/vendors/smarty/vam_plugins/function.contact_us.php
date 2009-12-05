@@ -31,7 +31,7 @@ return $template;
 
 function smarty_function_contact_us($params, &$smarty)
 {
-	$cache_name = 'vam_contact_us' . (isset($params['template'])?'_'.$params['template']:'');
+	$cache_name = 'vam_contact_us' . (isset($params['template'])?'_'.$params['template']:'') . '_' . $_SESSION['Customer']['language_id'];
 	$results = Cache::read($cache_name);
 	if($results === false)
 	{	
