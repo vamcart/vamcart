@@ -20,7 +20,8 @@ INSERT INTO `configurations` (`id`, `key`, `value`) VALUES
 (8, 'NEW_ORDER_FROM_EMAIL', 'vam@test.com'),
 (9, 'NEW_ORDER_FROM_NAME', 'VaM Cart'),
 (10, 'NEW_ORDER_STATUS_FROM_EMAIL', 'vam@test.com'),
-(11, 'NEW_ORDER_STATUS_FROM_NAME', 'VaM Cart');
+(11, 'NEW_ORDER_STATUS_FROM_NAME', 'VaM Cart'),
+(12, 'SEND_CONTACT_US_EMAIL', 'vam@test.com');
 
 DROP TABLE IF EXISTS contents;
 CREATE TABLE `contents` (

@@ -53,6 +53,7 @@ $yes_no_options[1] = __('yes', true);
 	echo $form->input('NEW_ORDER_FROM_NAME', array('label' => __('New Order: From Name', true), 'type' => 'text', 'value' => $configuration_values['NEW_ORDER_FROM_NAME']['value']));
 	echo $form->input('NEW_ORDER_STATUS_FROM_EMAIL', array('label' => __('New Order Status: From', true), 'type' => 'text', 'value' => $configuration_values['NEW_ORDER_STATUS_FROM_EMAIL']['value']));
 	echo $form->input('NEW_ORDER_STATUS_FROM_NAME', array('label' => __('New Order Status: From Name', true), 'type' => 'text', 'value' => $configuration_values['NEW_ORDER_STATUS_FROM_NAME']['value']));
+	echo $form->input('SEND_CONTACT_US_EMAIL', array('label' => __('Send contact us emails to', true), 'type' => 'text', 'value' => $configuration_values['SEND_CONTACT_US_EMAIL']['value']));
 	
 	echo $admin->EndTabContent();	
 	
