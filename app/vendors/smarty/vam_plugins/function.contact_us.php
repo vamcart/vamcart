@@ -16,12 +16,12 @@ function default_template_contact_us()
 	$template = '<form method="post" action="' . BASE . '/contact_us/send_email/">';
 	$template .= '
 <fieldset class="form">
-<legend>'.__('Contact Us', true).'</legend>
-	<p>'.__('Your Name', true).': <input type="text" name="name" /></p>
-	<p>'.__('Your Email', true).': <input type="text" name="email" /></p>
-	<p>'.__('Message', true).': <textarea name="message"></textarea></p>
+<legend>{lang}Contact Us{/lang}</legend>
+	<p>{lang}Your Name{/lang}: <input type="text" name="name" /></p>
+	<p>{lang}Your Email{/lang}: <input type="text" name="email" /></p>
+	<p>{lang}Message{/lang}: <textarea name="message"></textarea></p>
 </fieldset>
-<span class="button"><button type="submit" value="'.__('Send', true).'">'.__('Send', true).'</button></span>
+<span class="button"><button type="submit" value="{lang}Send{/lang}">{lang}Send{/lang}</button></span>
 	';		
 	$template .= '</form>';
 		
@@ -31,20 +31,27 @@ return $template;
 
 function smarty_function_contact_us($params, &$smarty)
 {
-	$cache_name = 'vam_contact_us' . (isset($params['template'])?'_'.$params['template']:'') . '_' . $_SESSION['Customer']['language_id'];
-	$results = Cache::read($cache_name);
-	if($results === false)
-	{	
-		App::import('Component', 'Smarty');
-			$Smarty =& new SmartyComponent();
+	// Cache the output.
+	$cache_name = 'vam_contact_us_output' . (isset($params['template'])?'_'.$params['template']:'') . '_' . $_SESSION['Customer']['language_id'] . '_' . $_SESSION['Customer']['currency_id'];
+	$output = Cache::read($cache_name);
+	if($output === false)
+	{
+	ob_start();
+	
+	App::import('Component', 'Smarty');
+	$Smarty =& new SmartyComponent();
 
-		$results = $Smarty->load_template($params,'contact_us');
-
-		Cache::write($cache_name, $results);		
+	$display_template = $Smarty->load_template($params,'contact_us');	
+	$Smarty->display($display_template);
+	 
+	// Write the output to cache and echo them	
+	$output = @ob_get_contents();
+	ob_end_clean();	
+	Cache::write($cache_name, $output);		
 	}
 	
+	echo $output;
 	
-	return $results;
 }
 
 function smarty_help_function_contact_us() {
