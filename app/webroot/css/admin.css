@@ -18,7 +18,8 @@ html,body
 
 body
 	{
-		font: 9pt arial,sans-serif;
+		font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif;
+		font-size: 11pt;
 		line-height: 1;
 	}
 
