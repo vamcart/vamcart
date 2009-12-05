@@ -44,7 +44,7 @@ foreach ($content_data AS $content)
 if(isset($parent_content))
 {
 	$parent_link = $html->link(__('Up One Level', true),'/contents/admin/' . $parent_content['Content']['parent_id']);
-	echo '<tr><td colspan="9">' . $parent_link . '</td></tr>';	
+	echo '<tr><td colspan="8">' . $parent_link . '</td></tr>';	
 }
 echo '</table>';
 
