@@ -1821,6 +1821,10 @@ msgstr "Смена статуса заказа: Email отправителя"
 msgid "New Order Status: From Name"
 msgstr "Смена статуса заказа: Имя отправителя"
 
+#: /views/configuration/admin_edit.ctp:40
+msgid "Send contact us emails to"
+msgstr "Получатель писем со страницы обратной связи"
+
 #: /views/contents/admin.ctp:18
 #: /views/contents/admin_core_pages.ctp:16
 #: /views/countries/admin.ctp:20
