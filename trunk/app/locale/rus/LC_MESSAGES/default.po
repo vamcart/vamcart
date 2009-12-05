@@ -2595,25 +2595,8 @@ msgid "User Prefences"
 msgstr "Настройки"
 
 #: /controllers/contact_us_controller.php:38
-#: /vendors/smarty/vam_plugins/function.contact_us.php:19
 msgid "Contact Us"
 msgstr "Связаться с нами"
-
-#: /vendors/smarty/vam_plugins/function.contact_us.php:20
-msgid "Your Name"
-msgstr "Ваше имя"
-
-#: /vendors/smarty/vam_plugins/function.contact_us.php:21
-msgid "Your Email"
-msgstr "Ваш Email"
-
-#: /vendors/smarty/vam_plugins/function.contact_us.php:22
-msgid "Message"
-msgstr "Сообщение"
-
-#: /vendors/smarty/vam_plugins/function.contact_us.php:24
-msgid "Send"
-msgstr "Отправить"
 
 #: /vendors/smarty/vam_plugins/function.contact_us.php:53
 msgid "Creates a contact us form."
