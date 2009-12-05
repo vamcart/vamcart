@@ -46,7 +46,7 @@ $tinybrowser['docroot'] = rtrim($_SERVER['DOCUMENT_ROOT'],'/');
 $tinybrowser['unixpermissions'] = 0777;
 
 // File upload paths (set to absolute by default)
-$tinybrowser['path']['image'] = '/images/'; // Image files location - also creates a '_thumbs' subdirectory within this path to hold the image thumbnails
+$tinybrowser['path']['image'] = '/app/webroot/img/'; // Image files location - also creates a '_thumbs' subdirectory within this path to hold the image thumbnails
 $tinybrowser['path']['media'] = '/media/content/'; // Media files location
 $tinybrowser['path']['file']  = '/media/content/'; // Other files location
 
