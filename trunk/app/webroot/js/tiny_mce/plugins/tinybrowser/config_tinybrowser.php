@@ -34,7 +34,7 @@ $tinybrowser = array();
 $tinybrowser['obfuscate'] = 's0123imerand0mjunk!!!111';
 
 // Set default language (ISO 639-1 code)
-$tinybrowser['language'] = 'ru';
+$tinybrowser['language'] = $_SESSION['Customer']['language'];
 
 // Set the integration type (TinyMCE is default)
 $tinybrowser['integration'] = 'tinymce'; // Possible values: 'tinymce', 'fckeditor'
