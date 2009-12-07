@@ -15,6 +15,9 @@
 <p>
 <?php __('Database successfully imported.') ?>
 </p>
+<p>
+<?php echo $html->link(__('Click here to visit your live store.',true),'/', array('target'=>'_blank')); ?>
+</p>
 <form method="post" action="http://vamcart.com/modules/evennews/index.php">
 <fieldset class="form">
 <legend><?php echo __('VaM Cart Newsletter', true); ?></legend>
@@ -29,7 +32,4 @@
 </p>
 <p>
 <?php echo __('At anytime you may remove yourself from the list if you think you joined in error.', true); ?>
-</p>
-<p>
-<?php echo $html->link(__('Click here to visit your live store.',true),'/', array('target'=>'_blank')); ?>
 </p>
