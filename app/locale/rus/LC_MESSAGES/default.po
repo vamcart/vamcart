@@ -2233,6 +2233,26 @@ msgstr "Ошибка. Исправьте ошибку и обновите стр
 msgid "Database successfully imported."
 msgstr "База данных успешно загружена."
 
+#: /views/install/create.ctp:15
+msgid "VaM Cart Newsletter"
+msgstr "Рассылка VaM Cart"
+
+#: /views/install/create.ctp:15
+msgid "Your Name"
+msgstr "Ваше имя"
+
+#: /views/install/create.ctp:15
+msgid "Your Email"
+msgstr "Ваш email"
+
+#: /views/install/create.ctp:15
+msgid "We at VaM Cart value your privacy, we will never sell or distribute your information. You will only receive information regarding VaM Cart or its affiliates."
+msgstr "Мы заботимся о безопасности Вашей информации. Вы будете получать информацию только о новостях проекта VaM Cart."
+
+#: /views/install/create.ctp:15
+msgid "At anytime you may remove yourself from the list if you think you joined in error."
+msgstr "В любой момент Вы сможете отказаться от рассылки."
+
 #: /views/install/create.ctp:17
 msgid "Click here to visit your live store."
 msgstr "Перейти в магазин."
