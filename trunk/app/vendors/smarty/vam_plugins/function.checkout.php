@@ -18,10 +18,10 @@ $template = '
 {literal}
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("div#bill_information").hide();
-			$("div#diff_billing").click(function (){
-				$("div#bill_information").show();
-				$("div#diff_billing").hide();
+		$("div#ship_information").hide();
+			$("div#diff_shipping").click(function (){
+				$("div#ship_information").show();
+				$("div#diff_shipping").hide();
 			});
 	});
 </script>
@@ -58,43 +58,6 @@ $template = '
 			</div>
 		{/foreach}		
 	</div>
-	<div id="ship_information">
-		<div>
-			<h3>{lang}Shipping Information{/lang}</h3>
-		</div>
-		<div>	
-			<label>{lang}Name{/lang}</label>
-			<input type="text" name="ship_name" value="{$order.ship_name}" />
-		</div>
-		<div>	
-			<label>{lang}Address Line 1{/lang}</label>
-			<input type="text" name="ship_line_1" value="{$order.ship_line_1}" />
-		</div>		
-		<div>	
-			<label>{lang}Address Line 1{/lang}</label>
-			<input type="text" name="ship_line_2" value="{$order.ship_line_2}" />
-		</div>		
-		<div>	
-			<label>{lang}City{/lang}</label>
-			<input type="text" name="ship_city" value="{$order.ship_city}" />
-		</div>		
-		<div>	
-			<label>{lang}State{/lang}</label>
-			<input type="text" name="ship_state" value="{$order.ship_state}" />
-		</div>		
-		<div>	
-			<label>{lang}Zipcode{/lang}</label>
-			<input type="text" name="ship_zip" value="{$order.ship_zip}" />
-		</div>								
-	</div>
-	<div id="diff_billing">
-		<div>
-			<h3>{lang}Billing Information{/lang}</h3>
-		</div>
-		<div>
-			<input type="checkbox" name="diff_billing" id="diff_billing" value="1" /> {lang}Different from shipping address{/lang}
-		</div>
-	</div>
 	<div id="bill_information">
 		<div>
 			<h3>{lang}Billing Information{/lang}</h3>
@@ -124,6 +87,43 @@ $template = '
 			<input type="text" name="bill_zip" value="{$order.bill_zip}" />
 		</div>	
 	</div>		
+	<div id="diff_shipping">
+		<div>
+			<h3>{lang}Shipping Information{/lang}</h3>
+		</div>
+		<div>
+			<input type="checkbox" name="diff_shipping" id="diff_shipping" value="1" /> {lang}Different from billing address{/lang}
+		</div>
+	</div>
+	<div id="ship_information">
+		<div>
+			<h3>{lang}Shipping Information{/lang}</h3>
+		</div>
+		<div>	
+			<label>{lang}Name{/lang}</label>
+			<input type="text" name="ship_name" value="{$order.ship_name}" />
+		</div>
+		<div>	
+			<label>{lang}Address Line 1{/lang}</label>
+			<input type="text" name="ship_line_1" value="{$order.ship_line_1}" />
+		</div>		
+		<div>	
+			<label>{lang}Address Line 1{/lang}</label>
+			<input type="text" name="ship_line_2" value="{$order.ship_line_2}" />
+		</div>		
+		<div>	
+			<label>{lang}City{/lang}</label>
+			<input type="text" name="ship_city" value="{$order.ship_city}" />
+		</div>		
+		<div>	
+			<label>{lang}State{/lang}</label>
+			<input type="text" name="ship_state" value="{$order.ship_state}" />
+		</div>		
+		<div>	
+			<label>{lang}Zipcode{/lang}</label>
+			<input type="text" name="ship_zip" value="{$order.ship_zip}" />
+		</div>								
+	</div>
 	<div id="contact_information">
 		<div>
 			<h3>{lang}Contact Information{/lang}</h3>
