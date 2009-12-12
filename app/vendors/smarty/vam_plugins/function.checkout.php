@@ -14,6 +14,18 @@
 function default_template_checkout ()
 {
 $template = '
+<script type="text/javascript" src="{base_path}/js/jquery/jquery.min.js"></script>
+{literal}
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("div#bill_information").hide();
+			$("div#diff_billing").click(function (){
+				$("div#bill_information").show();
+				$("div#diff_billing").hide();
+			});
+	});
+</script>
+{/literal}
 <div id="checkout">
 <form action="{$checkout_form_action}" method="post">
 	<div id="shipping_method">
@@ -74,6 +86,14 @@ $template = '
 			<label>{lang}Zipcode{/lang}</label>
 			<input type="text" name="ship_zip" value="{$order.ship_zip}" />
 		</div>								
+	</div>
+	<div id="diff_billing">
+		<div>
+			<h3>{lang}Billing Information{/lang}</h3>
+		</div>
+		<div>
+			{lang}Different from shipping address{/lang}:<input type="checkbox" name="diff_billing" id="diff_billing" value="1" />
+		</div>
 	</div>
 	<div id="bill_information">
 		<div>
