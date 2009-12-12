@@ -32,36 +32,6 @@ echo '
 	<tr><td width="50%">';
 
 echo '<table class="contentTable">';
-echo $html->tableHeaders(array(__('Shipping Information',true)));
-	echo $admin->TableCells(
-		  array(
-				__('Customer Name',true) . ': ' . $data['Order']['ship_name']
-		   ));
-	echo $admin->TableCells(
-		  array(
-				__('Address Line 1',true) . ': ' . $data['Order']['ship_line_1']
-		   ));
-	echo $admin->TableCells(
-		  array(
-				__('Address Line 2',true) . ': ' . $data['Order']['ship_line_2']
-		   ));
-	echo $admin->TableCells(
-		  array(
-				__('City',true) . ': ' . $data['Order']['ship_city']
-		   ));
-	echo $admin->TableCells(
-		  array(
-				__('State',true) . ': ' . $data['Order']['ship_state']
-		   ));
-	echo $admin->TableCells(
-		  array(
-				__('Zip',true) . ': ' . $data['Order']['ship_zip']
-		   ));
-echo '</table>';
-
-echo '</td><td width="50%">';
-
-echo '<table class="contentTable">';
 echo $html->tableHeaders(array(__('Billing Information',true)));
 	echo $admin->TableCells(
 		  array(
@@ -86,6 +56,36 @@ echo $html->tableHeaders(array(__('Billing Information',true)));
 	echo $admin->TableCells(
 		  array(
 				__('Zip',true) . ': ' . $data['Order']['bill_zip']
+		   ));
+echo '</table>';
+
+echo '</td><td width="50%">';
+
+echo '<table class="contentTable">';
+echo $html->tableHeaders(array(__('Shipping Information',true)));
+	echo $admin->TableCells(
+		  array(
+				__('Customer Name',true) . ': ' . $data['Order']['ship_name']
+		   ));
+	echo $admin->TableCells(
+		  array(
+				__('Address Line 1',true) . ': ' . $data['Order']['ship_line_1']
+		   ));
+	echo $admin->TableCells(
+		  array(
+				__('Address Line 2',true) . ': ' . $data['Order']['ship_line_2']
+		   ));
+	echo $admin->TableCells(
+		  array(
+				__('City',true) . ': ' . $data['Order']['ship_city']
+		   ));
+	echo $admin->TableCells(
+		  array(
+				__('State',true) . ': ' . $data['Order']['ship_state']
+		   ));
+	echo $admin->TableCells(
+		  array(
+				__('Zip',true) . ': ' . $data['Order']['ship_zip']
 		   ));
 echo '</table>';
 
