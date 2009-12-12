@@ -92,7 +92,7 @@ $template = '
 			<h3>{lang}Billing Information{/lang}</h3>
 		</div>
 		<div>
-			{lang}Different from shipping address{/lang}:<input type="checkbox" name="diff_billing" id="diff_billing" value="1" />
+			<input type="checkbox" name="diff_billing" id="diff_billing" value="1" /> {lang}Different from shipping address{/lang}
 		</div>
 	</div>
 	<div id="bill_information">
