@@ -18,6 +18,7 @@ class WebmoneyController extends PaymentAppController {
 
 	function settings ()
 	{
+		$this->set('data', $this->PaymentMethod->findByAlias($this->module_name));
 	}
 
 	function install()
@@ -28,6 +29,14 @@ class WebmoneyController extends PaymentAppController {
 		$new_module['PaymentMethod']['default'] = '0';
 		$new_module['PaymentMethod']['name'] = Inflector::humanize($this->module_name);
 		$new_module['PaymentMethod']['alias'] = $this->module_name;
+
+		$new_module['PaymentMethodValue'][0]['payment_method_id'] = $this->PaymentMethod->id;
+		$new_module['PaymentMethodValue'][0]['key'] = 'webmoney_purse';
+		$new_module['PaymentMethodValue'][0]['value'] = '';
+
+		$new_module['PaymentMethodValue'][1]['payment_method_id'] = $this->PaymentMethod->id;
+		$new_module['PaymentMethodValue'][1]['key'] = 'webmoney_secret_key';
+		$new_module['PaymentMethodValue'][1]['value'] = '';
 
 		$this->PaymentMethod->saveAll($new_module);
 
