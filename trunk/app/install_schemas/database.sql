@@ -682,7 +682,9 @@ INSERT INTO `defined_languages` (`id`, `language_id`, `key`, `value`, `created`,
 (97, 1, 'Different from billing address', 'Different from billing address', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
 (98, 2, 'Different from billing address', 'Нажмите, если адрес доставки и адрес покупателя различные', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
 (99, 1, 'Home', 'Home', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
-(100, 2, 'Home', 'Главная', '2009-09-12 20:08:49', '2009-09-12 20:08:49');
+(100, 2, 'Home', 'Главная', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(101, 1, 'Process to Payment', 'Process to Payment', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(102, 2, 'Process to Payment', 'Перейти к оплате заказа', '2009-09-12 20:08:49', '2009-09-12 20:08:49');
 
 DROP TABLE IF EXISTS email_templates;
 CREATE TABLE `email_templates` (
