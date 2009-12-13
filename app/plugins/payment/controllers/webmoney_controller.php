@@ -68,9 +68,9 @@ class WebmoneyController extends PaymentAppController {
 		$content = '';
 		
 		$content = '<form action="https://merchant.webmoney.ru/lmi/payment.asp" method="post">
-			<input type="hidden" name="LMI_PAYMENT_NO" value="'.$_SESSION['Customer']['order_id'].'">
+			<input type="hidden" name="LMI_PAYMENT_NO" value="' . $_SESSION['Customer']['order_id'] . '">
 			<input type="hidden" name="LMI_PAYEE_PURSE" value="'.$webmoney_purse.'">
-			<input type="hidden" name="LMI_PAYMENT_DESC" value="' . __('Order Number', true) . ': ' . $_SESSION['Customer']['order_id'] . ' ' . $order['Order']['email'] . '">
+			<input type="hidden" name="LMI_PAYMENT_DESC" value="' . $_SESSION['Customer']['order_id'] . ' ' . $order['Order']['email'] . '">
 			<input type="hidden" name="LMI_PAYMENT_AMOUNT" value="' . $order['Order']['total'] . '">
 			<input type="hidden" name="LMI_SIM_MODE" value="0">';
 						
@@ -103,16 +103,16 @@ class WebmoneyController extends PaymentAppController {
 
       $webmoney_data = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'webmoney_secret_key'));
       $webmoney_secret_key = $webmoney_data['PaymentMethodValue']['value'];
-
+		$order = $this->Order->read(null,$_POST['LMI_PAYMENT_NO']);
 		$crc = $_POST['LMI_HASH'];
 		$hash = strtoupper(md5($_POST['LMI_PAYEE_PURSE'].$_POST['LMI_PAYMENT_AMOUNT'].$_POST['LMI_PAYMENT_NO'].$_POST['LMI_MODE'].$_POST['LMI_SYS_INVS_NO'].$_POST['LMI_SYS_TRANS_NO'].$_POST['LMI_SYS_TRANS_DATE'].$webmoney_secret_key. 
 $_POST['LMI_PAYER_PURSE'].$_POST['LMI_PAYER_WM']));
 		$merchant_summ = 0;
 		$order_summ = 0;
-		$merchant_summ = number_format($_POST['LMI_PAYMENT_AMOUNT'],2);
-		$order_summ = number_format($order_data['Order']['total'],2);
+		$merchant_summ = number_format($_POST['LMI_PAYMENT_AMOUNT'], 2);
+		$order_summ = number_format($order['Order']['total'], 2);
 
-		if ($hash == $crc && $merchant_summ == $order_summ) {
+		if (($crc == $hash) && ($merchant_summ == $order_summ)) {
 		
 		$payment_method = $this->PaymentMethod->find(array('alias' => $this->module_name));
 		$order_data = $this->Order->find('first', array('conditions' => array('Order.id' => $_POST['LMI_PAYMENT_NO'])));
@@ -122,6 +122,7 @@ $_POST['LMI_PAYER_PURSE'].$_POST['LMI_PAYER_WM']));
 		$this->Order->save($order_data);
 		
 		}
+	
 	}
 	
 }
