@@ -21,6 +21,8 @@ class OrdersController extends AppController {
 	{
 		global $config;
 		
+		if (isset($_SESSION['Customer']['order_id'])) {
+		
 		$order = $this->Order->read(null,$_SESSION['Customer']['order_id']);
 
 		$this->EventBase->ProcessEvent('PlaceOrderBeforeSave');
@@ -119,6 +121,8 @@ class OrdersController extends AppController {
 		
 		// Sending mail
 		$this->Email->send();
+		
+		}
 		
 		}
 		
