@@ -61,24 +61,21 @@ class WebmoneyController extends PaymentAppController {
 		$order = $this->Order->read(null,$_SESSION['Customer']['order_id']);
 		
 		$payment_method = $this->PaymentMethod->find(array('alias' => $this->module_name));
-		
-		
-		$paypal_email = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'paypal_email'));
-		$email = $paypal_email['PaymentMethodValue']['value'];
-		$return_url = $_SERVER['HTTP_HOST'] .  BASE . '/orders/place_order/';
-		$cancel_url = $_SERVER['HTTP_HOST'];
+
+		$webmoney_settings = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'webmoney_purse'));
+		$webmoney_purse = $webmoney_settings['PaymentMethodValue']['value'];
 		
 		$content = '';
 		
 		$content = '<form action="https://merchant.webmoney.ru/lmi/payment.asp" method="post">
 			<input type="hidden" name="LMI_PAYMENT_NO" value="'.$_SESSION['Customer']['order_id'].'">
-			<input type="hidden" name="LMI_PAYEE_PURSE" value="Z250638326679">
-			<input type="hidden" name="LMI_PAYMENT_DESC" value="' . $_SESSION['Customer']['order_id'] . ' - ' . $order['Order']['email'] . '">
+			<input type="hidden" name="LMI_PAYEE_PURSE" value="'.$webmoney_purse.'">
+			<input type="hidden" name="LMI_PAYMENT_DESC" value="' . __('Order Number', true) . ': ' . $_SESSION['Customer']['order_id'] . ' ' . $order['Order']['email'] . '">
 			<input type="hidden" name="LMI_PAYMENT_AMOUNT" value="' . $order['Order']['total'] . '">
 			<input type="hidden" name="LMI_SIM_MODE" value="0">';
 						
 		$content .= '
-			<span class="button"><button type="submit" value="{lang}Confirm order and Process to Payment{/lang}">{lang}Confirm order and Process to Payment{/lang}</button></span>
+			<span class="button"><button type="submit" value="{lang}Process to Payment{/lang}">{lang}Process to Payment{/lang}</button></span>
 			</form>';
 	
 	// Save the order
@@ -92,7 +89,6 @@ class WebmoneyController extends PaymentAppController {
 
 		// Save the order
 		$this->Order->save($order);
-		$_SESSION['Customer']['order_id'] = null;
 
 		return $content;
 	}
@@ -105,12 +101,27 @@ class WebmoneyController extends PaymentAppController {
 	function result()
 	{
 
+      $webmoney_data = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'webmoney_secret_key'));
+      $webmoney_secret_key = $webmoney_data['PaymentMethodValue']['value'];
+
+		$crc = $_POST['LMI_HASH'];
+		$hash = strtoupper(md5($_POST['LMI_PAYEE_PURSE'].$_POST['LMI_PAYMENT_AMOUNT'].$_POST['LMI_PAYMENT_NO'].$_POST['LMI_MODE'].$_POST['LMI_SYS_INVS_NO'].$_POST['LMI_SYS_TRANS_NO'].$_POST['LMI_SYS_TRANS_DATE'].$webmoney_secret_key. 
+$_POST['LMI_PAYER_PURSE'].$_POST['LMI_PAYER_WM']));
+		$merchant_summ = 0;
+		$order_summ = 0;
+		$merchant_summ = number_format($_POST['LMI_PAYMENT_AMOUNT'],2);
+		$order_summ = number_format($order_data['Order']['total'],2);
+
+		if ($hash == $crc && $merchant_summ == $order_summ) {
+		
 		$payment_method = $this->PaymentMethod->find(array('alias' => $this->module_name));
 		$order_data = $this->Order->find('first', array('conditions' => array('Order.id' => $_POST['LMI_PAYMENT_NO'])));
 		$order_data->id = $_POST['LMI_PAYMENT_NO'];
 		$order_data['Order']['order_status_id'] = $payment_method['PaymentMethod']['order_status_id'];
 		
 		$this->Order->save($order_data);
+		
+		}
 	}
 	
 }
