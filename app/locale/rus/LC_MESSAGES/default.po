@@ -2621,3 +2621,11 @@ msgstr "Связаться с нами"
 #: /vendors/smarty/vam_plugins/function.contact_us.php:53
 msgid "Creates a contact us form."
 msgstr "Создаёт форму обратной связи."
+
+#: /plugins/payment/views/webmoney/settings.ctp:17
+msgid "WebMoney Purse"
+msgstr "Номер кошелька WebMoney"
+
+#: /plugins/payment/views/webmoney/settings.ctp:22
+msgid "WebMoney Secret Key"
+msgstr "Секретный ключ"
