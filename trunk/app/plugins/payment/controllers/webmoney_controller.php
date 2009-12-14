@@ -63,8 +63,6 @@ class WebmoneyController extends PaymentAppController {
 		$webmoney_settings = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'webmoney_purse'));
 		$webmoney_purse = $webmoney_settings['PaymentMethodValue']['value'];
 		
-		$content = '';
-		
 		$content = '<form action="https://merchant.webmoney.ru/lmi/payment.asp" method="post">
 			<input type="hidden" name="LMI_PAYMENT_NO" value="' . $_SESSION['Customer']['order_id'] . '">
 			<input type="hidden" name="LMI_PAYEE_PURSE" value="'.$webmoney_purse.'">
@@ -105,8 +103,6 @@ class WebmoneyController extends PaymentAppController {
 		$crc = $_POST['LMI_HASH'];
 		$hash = strtoupper(md5($_POST['LMI_PAYEE_PURSE'].$_POST['LMI_PAYMENT_AMOUNT'].$_POST['LMI_PAYMENT_NO'].$_POST['LMI_MODE'].$_POST['LMI_SYS_INVS_NO'].$_POST['LMI_SYS_TRANS_NO'].$_POST['LMI_SYS_TRANS_DATE'].$webmoney_secret_key. 
 $_POST['LMI_PAYER_PURSE'].$_POST['LMI_PAYER_WM']));
-		$merchant_summ = 0;
-		$order_summ = 0;
 		$merchant_summ = number_format($_POST['LMI_PAYMENT_AMOUNT'], 2);
 		$order_summ = number_format($order['Order']['total'], 2);
 
