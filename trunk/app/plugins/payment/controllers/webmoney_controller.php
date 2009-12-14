@@ -23,7 +23,6 @@ class WebmoneyController extends PaymentAppController {
 
 	function install()
 	{
-
 		$new_module = array();
 		$new_module['PaymentMethod']['active'] = '1';
 		$new_module['PaymentMethod']['default'] = '0';
@@ -100,7 +99,7 @@ class WebmoneyController extends PaymentAppController {
 	
 	function result()
 	{
-
+		$this->layout = 'empty';
       $webmoney_data = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'webmoney_secret_key'));
       $webmoney_secret_key = $webmoney_data['PaymentMethodValue']['value'];
 		$order = $this->Order->read(null,$_POST['LMI_PAYMENT_NO']);
