@@ -2629,3 +2629,11 @@ msgstr "Номер кошелька WebMoney"
 #: /plugins/payment/views/webmoney/settings.ctp:22
 msgid "WebMoney Secret Key"
 msgstr "Секретный ключ"
+
+#: /plugins/payment/views/webmoney/settings.ctp:17
+msgid "RBKMoney Store ID"
+msgstr "ID номер магазина"
+
+#: /plugins/payment/views/webmoney/settings.ctp:22
+msgid "RBKMoney Secret Key"
+msgstr "Секретный ключ"
