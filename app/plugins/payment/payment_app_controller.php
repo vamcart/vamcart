@@ -21,5 +21,14 @@ class PaymentAppController extends AppController
 		return $cc_fields;
 	}
 	
+	function beforeFilter()
+	{
+			if((!$this->Session->check('User.username')) && ($this->action != 'result'))
+			{
+				$this->Session->setFlash(__('Login Error.',true));			
+				$this->redirect('/users/admin_login/');
+				die();
+			}
+	}
 }
 ?>

@@ -14,6 +14,15 @@
 class ModuleAbandonedCartsAppController extends AppController 
 {
 
+	function beforeFilter()
+	{
+			if((!$this->Session->check('User.username')))
+			{
+				$this->Session->setFlash(__('Login Error.',true));			
+				$this->redirect('/users/admin_login/');
+				die();
+			}
+	}
 
 }
 ?>
