@@ -28,6 +28,9 @@ class ModuleReviewsAppController extends AppController
 
 	function beforeFilter()
 	{
+	
+	parent::beforeFilter(); // call the AppController::beforeFilter()
+	
 			if((!$this->Session->check('User.username')))
 			{
 				$this->Session->setFlash(__('Login Error.',true));			
