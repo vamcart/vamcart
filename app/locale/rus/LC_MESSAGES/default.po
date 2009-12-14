@@ -2657,3 +2657,15 @@ msgstr "Номер кошелька Zpayment (ID магазина)"
 #: /plugins/payment/views/zpayment/settings.ctp:22
 msgid "Zpayment Secret Key"
 msgstr "Секретный ключ"
+
+#: /plugins/payment/views/robokassa/settings.ctp:17
+msgid "Robokassa Login"
+msgstr "Ваш логин"
+
+#: /plugins/payment/views/robokassa/settings.ctp:22
+msgid "Robokassa Password 1"
+msgstr "Пароль 1"
+
+#: /plugins/payment/views/robokassa/settings.ctp:27
+msgid "Robokassa Password 2"
+msgstr "Пароль 2"
