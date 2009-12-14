@@ -13,7 +13,6 @@
 
 class WebmoneyController extends PaymentAppController {
 	var $uses = array('PaymentMethod', 'Order');
-	var $components = array('Email');
 	var $module_name = 'webmoney';
 
 	function settings ()
