@@ -107,11 +107,11 @@ class RbkmoneyController extends PaymentAppController {
       $rbkmoney_secret_key = $rbkmoney_data['PaymentMethodValue']['value'];
 		$order = $this->Order->read(null,$_POST['orderId']);
 		$crc = $_POST['hash'];
-		$hash = strtoupper(md5($_POST['eshopId'].'::'.$_POST['orderId'].'::'.$_POST['serviceName'].'::'.$_POST['eshopAccount'].'::'.$_POST['recipientAmount'].'::'.$_POST['recipientCurrency'].'::'.$_POST['paymentStatus'].'::'.$_POST['userName'].'::'.$_POST['userEmail'].'::'.$_POST['paymentData'].'::'.$rbkmoney_secret_key));
+		$hash = md5($_POST['eshopId'].'::'.$_POST['orderId'].'::'.$_POST['serviceName'].'::'.$_POST['eshopAccount'].'::'.$_POST['recipientAmount'].'::'.$_POST['recipientCurrency'].'::'.$_POST['paymentStatus'].'::'.$_POST['userName'].'::'.$_POST['userEmail'].'::'.$_POST['paymentData'].'::'.$rbkmoney_secret_key);
 		$merchant_summ = number_format($_POST['recipientAmount'], 2);
 		$order_summ = number_format($order['Order']['total'], 2);
 
-		if (($crc == $hash) && ($merchant_summ == $order_summ)) {
+		if (($crc == $hash) && ($merchant_summ == $order_summ) && ($_POST['paymentStatus'] == '5')) {
 		
 		$payment_method = $this->PaymentMethod->find(array('alias' => $this->module_name));
 		$order_data = $this->Order->find('first', array('conditions' => array('Order.id' => $_POST['orderId'])));
