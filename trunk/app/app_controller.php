@@ -290,6 +290,8 @@ class AppController extends Controller {
 				$default_currency = $this->Currency->find('first', array('conditions' => array('Currency.default' => 1)));
 		
 				$new_customer['currency_id'] = $default_currency['Currency']['id']; 
+				$new_customer['currency_code'] = $default_currency['Currency']['code'];
+				
 				if (!$this->Session->check('Customer'))
 				$this->Session->write('Customer', $new_customer);
 			}
