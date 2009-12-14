@@ -13,7 +13,7 @@
 
 class ShippingAppController extends AppController 
 {
-
+	var $layout = 'dummy';
 
 }
 ?>

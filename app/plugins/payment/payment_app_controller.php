@@ -13,12 +13,13 @@
 
 class PaymentAppController extends AppController 
 {
-
+	var $layout = 'dummy';
+	
 	function credit_card_fields ()
 	{
 		$cc_fields = $this->requestAction('/payment/credit_card/display_fields/',array('return'));
 		return $cc_fields;
 	}
-
+	
 }
 ?>
