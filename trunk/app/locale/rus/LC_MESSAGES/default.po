@@ -2637,3 +2637,15 @@ msgstr "ID номер магазина"
 #: /plugins/payment/views/webmoney/settings.ctp:22
 msgid "RBKMoney Secret Key"
 msgstr "Секретный ключ"
+
+#: /plugins/payment/views/webmoney/settings.ctp:17
+msgid "Prochange ID 1"
+msgstr "Идентификатор клиента 1"
+
+#: /plugins/payment/views/webmoney/settings.ctp:22
+msgid "Prochange ID 2"
+msgstr "Идентификатор клиента 2"
+
+#: /plugins/payment/views/webmoney/settings.ctp:27
+msgid "Prochange Secret Key"
+msgstr "Секретный ключ"
