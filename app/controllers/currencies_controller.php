@@ -18,7 +18,14 @@ class CurrenciesController extends AppController {
 	function pick_currency ()
 	{
 		$this->Session->write('Customer.currency_id', $_POST['currency_picker']);
-
+		
+		// Get the currency data		
+		App::import('Model', 'Currency');
+		$this->Currency =& new Currency();		
+		$currency_data = $this->Currency->find('first', array('conditions' => array('Currency.id' => $_POST['currency_picker'])));
+		
+		$this->Session->write('Customer.currency_code', $currency_data['Currency']['code']);
+		
 		$this->EventBase->ProcessEvent('SwitchCurrency');
 
 		// Delete the cache.
