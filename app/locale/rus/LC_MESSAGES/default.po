@@ -2630,22 +2630,30 @@ msgstr "Номер кошелька WebMoney"
 msgid "WebMoney Secret Key"
 msgstr "Секретный ключ"
 
-#: /plugins/payment/views/webmoney/settings.ctp:17
+#: /plugins/payment/views/rbkmoney/settings.ctp:17
 msgid "RBKMoney Store ID"
 msgstr "ID номер магазина"
 
-#: /plugins/payment/views/webmoney/settings.ctp:22
+#: /plugins/payment/views/rbkmoney/settings.ctp:22
 msgid "RBKMoney Secret Key"
 msgstr "Секретный ключ"
 
-#: /plugins/payment/views/webmoney/settings.ctp:17
+#: /plugins/payment/views/prochange/settings.ctp:17
 msgid "Prochange ID 1"
 msgstr "Идентификатор клиента 1"
 
-#: /plugins/payment/views/webmoney/settings.ctp:22
+#: /plugins/payment/views/prochange/settings.ctp:22
 msgid "Prochange ID 2"
 msgstr "Идентификатор клиента 2"
 
-#: /plugins/payment/views/webmoney/settings.ctp:27
+#: /plugins/payment/views/prochange/settings.ctp:27
 msgid "Prochange Secret Key"
+msgstr "Секретный ключ"
+
+#: /plugins/payment/views/zpayment/settings.ctp:17
+msgid "Zpayment Purse"
+msgstr "Номер кошелька Zpayment (ID магазина)"
+
+#: /plugins/payment/views/zpayment/settings.ctp:22
+msgid "Zpayment Secret Key"
 msgstr "Секретный ключ"
