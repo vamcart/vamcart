@@ -14,7 +14,6 @@
 function default_template_payment ()
 {
 $template = '
-{lang}{$payment_alias}-details{/lang}
 {payment_content alias=$payment_alias}
 ';
 return $template;
