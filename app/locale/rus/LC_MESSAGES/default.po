@@ -2669,3 +2669,7 @@ msgstr "Пароль 1"
 #: /plugins/payment/views/robokassa/settings.ctp:27
 msgid "Robokassa Password 2"
 msgstr "Пароль 2"
+
+#: /plugins/payment/views/assist/settings.ctp:17
+msgid "Assist Shop ID"
+msgstr "ID номер магазина"
