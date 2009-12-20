@@ -55,6 +55,10 @@ echo $html->tableHeaders(array(__('Billing Information',true)));
 		   ));
 	echo $admin->TableCells(
 		  array(
+				__('Country',true) . ': ' . $data['Order']['bill_country']
+		   ));
+	echo $admin->TableCells(
+		  array(
 				__('Zip',true) . ': ' . $data['Order']['bill_zip']
 		   ));
 echo '</table>';
@@ -82,6 +86,10 @@ echo $html->tableHeaders(array(__('Shipping Information',true)));
 	echo $admin->TableCells(
 		  array(
 				__('State',true) . ': ' . $data['Order']['ship_state']
+		   ));
+	echo $admin->TableCells(
+		  array(
+				__('Country',true) . ': ' . $data['Order']['ship_country']
 		   ));
 	echo $admin->TableCells(
 		  array(
