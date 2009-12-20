@@ -2406,6 +2406,10 @@ msgstr "Город"
 msgid "State"
 msgstr "Регион"
 
+#: /views/orders/admin_view.ctp:58;92
+msgid "Country"
+msgstr "Страна"
+
 #: /views/orders/admin_view.ctp:53;83
 msgid "Zip"
 msgstr "Индекс"
