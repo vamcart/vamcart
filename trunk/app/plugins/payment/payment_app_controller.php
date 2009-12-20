@@ -13,7 +13,6 @@
 
 class PaymentAppController extends AppController 
 {
-	var $layout = 'dummy';
 	
 	function credit_card_fields ()
 	{
