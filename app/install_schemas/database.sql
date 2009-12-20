@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS configurations;
 CREATE TABLE `configurations` (
   `id` int(10) NOT NULL auto_increment,
   `key` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `value` varchar(100) collate utf8_unicode_ci NOT NULL,
+  `value` varchar(255) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -136,7 +136,7 @@ CREATE TABLE `content_images` (
   `id` int(10) NOT NULL auto_increment,
   `content_id` int(10) NOT NULL,
   `order` int(10) NOT NULL,
-  `image` varchar(100) collate utf8_unicode_ci NOT NULL,
+  `image` varchar(255) collate utf8_unicode_ci NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY  (`id`)
@@ -772,7 +772,7 @@ INSERT INTO `event_handlers` (`id`, `event_id`, `originator`, `action`, `created
 DROP TABLE IF EXISTS global_content_blocks;
 CREATE TABLE `global_content_blocks` (
   `id` int(10) NOT NULL auto_increment,
-  `name` varchar(100) collate utf8_unicode_ci NOT NULL,
+  `name` varchar(255) collate utf8_unicode_ci NOT NULL,
   `content` text collate utf8_unicode_ci NOT NULL,
   `alias` varchar(50) collate utf8_unicode_ci NOT NULL,
   `active` tinyint(4) NOT NULL default '1',
@@ -879,27 +879,27 @@ CREATE TABLE `orders` (
   `shipping` double NOT NULL,
   `tax` double NOT NULL,
   `total` double NOT NULL,
-  `bill_name` varchar(100) collate utf8_unicode_ci NOT NULL,
-  `bill_line_1` varchar(100) collate utf8_unicode_ci NOT NULL,
-  `bill_line_2` varchar(100) collate utf8_unicode_ci NOT NULL,
-  `bill_city` varchar(100) collate utf8_unicode_ci NOT NULL,
-  `bill_state` varchar(100) collate utf8_unicode_ci NOT NULL,
-  `bill_country` varchar(100) collate utf8_unicode_ci NOT NULL,
+  `bill_name` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `bill_line_1` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `bill_line_2` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `bill_city` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `bill_state` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `bill_country` varchar(255) collate utf8_unicode_ci NOT NULL,
   `bill_zip` varchar(20) collate utf8_unicode_ci NOT NULL,
-  `ship_name` varchar(100) collate utf8_unicode_ci NOT NULL,
-  `ship_line_1` varchar(100) collate utf8_unicode_ci NOT NULL,
-  `ship_line_2` varchar(100) collate utf8_unicode_ci NOT NULL,
-  `ship_city` varchar(100) collate utf8_unicode_ci NOT NULL,
-  `ship_state` varchar(100) collate utf8_unicode_ci NOT NULL,
-  `ship_country` varchar(100) collate utf8_unicode_ci NOT NULL,
+  `ship_name` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `ship_line_1` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `ship_line_2` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `ship_city` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `ship_state` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `ship_country` varchar(255) collate utf8_unicode_ci NOT NULL,
   `ship_zip` varchar(20) collate utf8_unicode_ci NOT NULL,
-  `email` varchar(100) collate utf8_unicode_ci NOT NULL,
+  `email` varchar(255) collate utf8_unicode_ci NOT NULL,
   `phone` varchar(15) collate utf8_unicode_ci NOT NULL,
   `cc_number` int(20) NOT NULL,
   `cc_expiration_month` int(2) NOT NULL,
   `cc_expiration_year` int(4) NOT NULL,
-  `company_name` varchar(100) collate utf8_unicode_ci NOT NULL,
-  `company_info` varchar(100) collate utf8_unicode_ci NOT NULL,
+  `company_name` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `company_info` varchar(255) collate utf8_unicode_ci NOT NULL,
   `created` datetime NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -927,7 +927,7 @@ CREATE TABLE `order_products` (
   `id` int(10) NOT NULL auto_increment,
   `order_id` int(10) NOT NULL,
   `content_id` int(10) NOT NULL,
-  `name` varchar(100) collate utf8_unicode_ci NOT NULL,
+  `name` varchar(255) collate utf8_unicode_ci NOT NULL,
   `quantity` int(10) NOT NULL,
   `price` double NOT NULL,
   `weight` varchar(10) collate utf8_unicode_ci NOT NULL,
@@ -978,8 +978,8 @@ CREATE TABLE `payment_methods` (
   `id` int(10) NOT NULL auto_increment,
   `active` tinyint(4) NOT NULL,
   `default` tinyint(4) NOT NULL,
-  `name` varchar(100) collate utf8_unicode_ci NOT NULL,
-  `alias` varchar(100) collate utf8_unicode_ci NOT NULL,
+  `name` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `alias` varchar(255) collate utf8_unicode_ci NOT NULL,
   `order` int(10) NOT NULL,
   `order_status_id` int(10) NOT NULL,
   PRIMARY KEY  (`id`)
@@ -998,7 +998,7 @@ CREATE TABLE `payment_method_values` (
   `id` int(10) NOT NULL auto_increment,
   `payment_method_id` int(10) NOT NULL,
   `key` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `value` varchar(100) collate utf8_unicode_ci NOT NULL,
+  `value` varchar(255) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1035,8 +1035,8 @@ INSERT INTO `search_tables` (`id`, `model`, `field`, `url`, `edit_field`, `alter
 DROP TABLE IF EXISTS shipping_methods;
 CREATE TABLE `shipping_methods` (
   `id` int(10) NOT NULL auto_increment,
-  `name` varchar(100) collate utf8_unicode_ci NOT NULL,
-  `code` varchar(100) collate utf8_unicode_ci NOT NULL,
+  `name` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `code` varchar(255) collate utf8_unicode_ci NOT NULL,
   `default` tinyint(4) NOT NULL default '0',
   `active` tinyint(4) NOT NULL,
   `order` int(10) NOT NULL,
@@ -1054,7 +1054,7 @@ CREATE TABLE `shipping_method_values` (
   `id` int(10) NOT NULL auto_increment,
   `shipping_method_id` int(10) NOT NULL,
   `key` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `value` varchar(100) collate utf8_unicode_ci NOT NULL,
+  `value` varchar(255) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1071,7 +1071,7 @@ CREATE TABLE `stylesheets` (
   `id` int(10) NOT NULL auto_increment,
   `active` tinyint(4) NOT NULL,
   `name` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `alias` varchar(100) collate utf8_unicode_ci NOT NULL,
+  `alias` varchar(255) collate utf8_unicode_ci NOT NULL,
   `stylesheet` text collate utf8_unicode_ci NOT NULL,
   `stylesheet_media_type_id` int(10) NOT NULL,
   `created` datetime NOT NULL,
@@ -1106,7 +1106,7 @@ DROP TABLE IF EXISTS taxes;
 CREATE TABLE `taxes` (
   `id` int(10) NOT NULL auto_increment,
   `default` tinyint(4) NOT NULL,
-  `name` varchar(100) collate utf8_unicode_ci NOT NULL,
+  `name` varchar(255) collate utf8_unicode_ci NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY  (`id`)
@@ -1181,7 +1181,7 @@ CREATE TABLE `users` (
   `id` int(10) NOT NULL auto_increment,
   `username` varchar(50) collate utf8_unicode_ci NOT NULL,
   `email` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `password` varchar(100) collate utf8_unicode_ci NOT NULL,
+  `password` varchar(255) collate utf8_unicode_ci NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY  (`id`)
