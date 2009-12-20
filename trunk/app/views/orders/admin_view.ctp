@@ -168,7 +168,7 @@ foreach($data['OrderComment'] AS $comment)
 {
 	echo $admin->TableCells(
 		  array(
-				$comment['created'],
+				$time->timeAgoInWords($comment['created']),
 				($comment['sent_to_customer'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))),
 				$comment['comment']
 		   ));
