@@ -2673,3 +2673,23 @@ msgstr "Пароль 2"
 #: /plugins/payment/views/assist/settings.ctp:17
 msgid "Assist Shop ID"
 msgstr "ID номер магазина"
+
+#: Time Helper
+msgid "Today, %s"
+msgstr "Сегодня, %s"
+
+#: Time Helper
+msgid "Yesterday, %s"
+msgstr "Вчера, %s"
+
+#: Time Helper
+msgid "on %s"
+msgstr "%s"
+
+#: Time Helper
+msgid "%s ago"
+msgstr "%s"
+
+#: Time Helper
+msgid "days"
+msgstr "дней"
