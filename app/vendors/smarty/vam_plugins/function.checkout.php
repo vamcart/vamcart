@@ -39,7 +39,7 @@ $template = '
 				  checked="checked"
 				 {/if}
 				/>
-				<label for="ship_{$ship_method.id}">{$ship_method.name} - {$ship_method.cost}</label>
+				<label for="ship_{$ship_method.id}">{lang}{$ship_method.name}{/lang} - {$ship_method.cost}</label>
 			</div>
 		{/foreach}
 	</div>
@@ -54,7 +54,7 @@ $template = '
 				  checked="checked"
 				 {/if}				
 				/>
-				<label for="payment_{$payment_method.id}">{$payment_method.name}</label>
+				<label for="payment_{$payment_method.id}">{lang}{$payment_method.name}{/lang}</label>
 			</div>
 		{/foreach}		
 	</div>
