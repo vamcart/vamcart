@@ -79,6 +79,10 @@ $template = '
 			<input type="text" name="bill_city" value="{$order.bill_city}" />
 		</div>		
 		<div>	
+			<label>{lang}Country{/lang}</label>
+			<input type="text" name="bill_country" value="{$order.bill_country}" />
+		</div>		
+		<div>	
 			<label>{lang}State{/lang}</label>
 			<input type="text" name="bill_state" value="{$order.bill_state}" />
 		</div>		
@@ -114,6 +118,10 @@ $template = '
 		<div>	
 			<label>{lang}City{/lang}</label>
 			<input type="text" name="ship_city" value="{$order.ship_city}" />
+		</div>		
+		<div>	
+			<label>{lang}Country{/lang}</label>
+			<input type="text" name="ship_country" value="{$order.ship_country}" />
 		</div>		
 		<div>	
 			<label>{lang}State{/lang}</label>
