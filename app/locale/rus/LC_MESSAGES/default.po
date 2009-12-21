@@ -2432,9 +2432,13 @@ msgstr "Email"
 msgid "Phone"
 msgstr "Телефон"
 
-#: /views/orders/admin_view.ctp:106
-msgid "Payment Information"
-msgstr "Оплата"
+#: /views/orders/admin_view.ctp:98
+msgid "Phone"
+msgstr "Телефон"
+
+#: /views/orders/admin_view.ctp:115
+msgid "Company"
+msgstr "Компания"
 
 #: /views/orders/admin_view.ctp:109
 msgid "Credit Card"
