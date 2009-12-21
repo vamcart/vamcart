@@ -24,6 +24,7 @@ class MoneyOrderCheckController extends PaymentAppController {
 
 		$new_module = array();
 		$new_module['PaymentMethod']['active'] = '1';
+		$new_module['PaymentMethod']['default'] = '1';
 		$new_module['PaymentMethod']['name'] = Inflector::humanize($this->module_name);
 		$new_module['PaymentMethod']['alias'] = $this->module_name;
 
