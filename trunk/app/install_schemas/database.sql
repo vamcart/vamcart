@@ -185,7 +185,7 @@ CREATE TABLE `content_products` (
 
 INSERT INTO `content_products` (`id`, `content_id`, `stock`, `model`, `price`, `tax_id`, `weight`) VALUES 
 (16, 37, 12, '123456', 10.99, 2, 0),
-(17, 38, 22, '', 4.95, 2, 3);
+(17, 38, 22, 'sample', 4.95, 2, 3);
 
 DROP TABLE IF EXISTS content_news;
 CREATE TABLE `content_news` (
@@ -940,6 +940,7 @@ CREATE TABLE `order_products` (
   `order_id` int(10) NOT NULL,
   `content_id` int(10) NOT NULL,
   `name` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `model` varchar(255) collate utf8_unicode_ci NOT NULL,
   `quantity` int(10) NOT NULL,
   `price` double NOT NULL,
   `weight` varchar(10) collate utf8_unicode_ci NOT NULL,
@@ -947,9 +948,9 @@ CREATE TABLE `order_products` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `order_products` (`id`, `order_id`, `content_id`, `name`, `quantity`, `price`, `weight`, `tax`) VALUES 
-(1, 1, 38, 'Mozilla Firefox', 3, 4.95, '', 0),
-(2, 1, 37, 'Internet Explorer', 2, 10.99, '', 0);
+INSERT INTO `order_products` (`id`, `order_id`, `content_id`, `name`, `model`, `quantity`, `price`, `weight`, `tax`) VALUES 
+(1, 1, 38, 'Mozilla Firefox', '', 3, 4.95, '', 0),
+(2, 1, 37, 'Internet Explorer', '', 2, 10.99, '', 0);
 
 DROP TABLE IF EXISTS order_statuses;
 CREATE TABLE `order_statuses` (
