@@ -2890,3 +2890,283 @@ msgstr "ОГРН"
 #: /plugins/payment/views/invoice/settings.ctp:52
 msgid "OKPO"
 msgstr "ОКПО"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "Supplier"
+msgstr "Поставщик"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "in bank"
+msgstr "в банке"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "Invoice #"
+msgstr "Счёт №"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "on"
+msgstr "от"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "#"
+msgstr "№ п/п"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "Summa:"
+msgstr "Сумма прописью:"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "without tax."
+msgstr "Без НДС."
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "CEO"
+msgstr "Директор"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "Accountant"
+msgstr "Главный бухгалтер"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "Last Name"
+msgstr "Фамилия"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "MP"
+msgstr "МП"
+
+#: /views/helpers/summa.php:1
+msgid "zero"
+msgstr "ноль"
+
+#: /views/helpers/summa.php:1
+msgid "three"
+msgstr "три"
+
+#: /views/helpers/summa.php:1
+msgid "four"
+msgstr "четыре"
+
+#: /views/helpers/summa.php:1
+msgid "five"
+msgstr "пять"
+
+#: /views/helpers/summa.php:1
+msgid "six"
+msgstr "шесть"
+
+#: /views/helpers/summa.php:1
+msgid "seven"
+msgstr "семь"
+
+#: /views/helpers/summa.php:1
+msgid "eight"
+msgstr "восемь"
+
+#: /views/helpers/summa.php:1
+msgid "nine"
+msgstr "девять"
+
+#: /views/helpers/summa.php:1
+msgid "ten"
+msgstr "десять"
+
+#: /views/helpers/summa.php:1
+msgid "eleven"
+msgstr "одинадцать"
+
+#: /views/helpers/summa.php:1
+msgid "twelve"
+msgstr "двенадцать"
+
+#: /views/helpers/summa.php:1
+msgid "thirteen"
+msgstr "тринадцать"
+
+#: /views/helpers/summa.php:1
+msgid "fourteen"
+msgstr "четырнадцать"
+
+#: /views/helpers/summa.php:1
+msgid "fifteen"
+msgstr "пятнадцать"
+
+#: /views/helpers/summa.php:1
+msgid "sixteen"
+msgstr "шестнадцать"
+
+#: /views/helpers/summa.php:1
+msgid "seventeen"
+msgstr "семнадцать"
+
+#: /views/helpers/summa.php:1
+msgid "eighteen"
+msgstr "восемнадцать"
+
+#: /views/helpers/summa.php:1
+msgid "nineteen"
+msgstr "девятнадцать"
+
+#: /views/helpers/summa.php:1
+msgid "twenty"
+msgstr "двадцать"
+
+#: /views/helpers/summa.php:1
+msgid "thirty"
+msgstr "тридцать"
+
+#: /views/helpers/summa.php:1
+msgid "forty"
+msgstr "сорок"
+
+#: /views/helpers/summa.php:1
+msgid "fifty"
+msgstr "пятьдесят"
+
+#: /views/helpers/summa.php:1
+msgid "sixty"
+msgstr "шестьдесят"
+
+#: /views/helpers/summa.php:1
+msgid "seventy"
+msgstr "семьдесят"
+
+#: /views/helpers/summa.php:1
+msgid "eighty"
+msgstr "восемьдесят"
+
+#: /views/helpers/summa.php:1
+msgid "ninety"
+msgstr "девяносто"
+
+#: /views/helpers/summa.php:1
+msgid "hundred"
+msgstr "сто"
+
+#: /views/helpers/summa.php:1
+msgid "two hundred"
+msgstr "двести"
+
+#: /views/helpers/summa.php:1
+msgid "three hundred"
+msgstr "триста"
+
+#: /views/helpers/summa.php:1
+msgid "four hundred"
+msgstr "четыреста"
+
+#: /views/helpers/summa.php:1
+msgid "five hundred"
+msgstr "пятьсот"
+
+#: /views/helpers/summa.php:1
+msgid "six hundred"
+msgstr "шестьсот"
+
+#: /views/helpers/summa.php:1
+msgid "seven hundred"
+msgstr "семьсот"
+
+#: /views/helpers/summa.php:1
+msgid "eight hundred"
+msgstr "восемьсот"
+
+#: /views/helpers/summa.php:1
+msgid "nine hundred"
+msgstr "девятьсот"
+
+#: /views/helpers/summa.php:1
+msgid "penny"
+msgstr "копейки"
+
+#: /views/helpers/summa.php:1
+msgid "kopecks"
+msgstr "копеек"
+
+#: /views/helpers/summa.php:1
+msgid "single kopek"
+msgstr "одна копейка"
+
+#: /views/helpers/summa.php:1
+msgid "two penny"
+msgstr "две копейки"
+
+#: /views/helpers/summa.php:1
+msgid "ruble"
+msgstr "рубля"
+
+#: /views/helpers/summa.php:1
+msgid "rubles"
+msgstr "рублей"
+
+#: /views/helpers/summa.php:1
+msgid "one ruble"
+msgstr "один рубль"
+
+#: /views/helpers/summa.php:1
+msgid "two rubles"
+msgstr "два рубля"
+
+#: /views/helpers/summa.php:1
+msgid "thousands"
+msgstr "тысячи"
+
+#: /views/helpers/summa.php:1
+msgid "thousand"
+msgstr "тысяч"
+
+#: /views/helpers/summa.php:1
+msgid "one thousand"
+msgstr "одна тысяча"
+
+#: /views/helpers/summa.php:1
+msgid "two thousand"
+msgstr "две тысячи"
+
+#: /views/helpers/summa.php:1
+msgid "million"
+msgstr "миллиона"
+
+#: /views/helpers/summa.php:1
+msgid "millions"
+msgstr "миллионов"
+
+#: /views/helpers/summa.php:1
+msgid "one million"
+msgstr "один миллион"
+
+#: /views/helpers/summa.php:1
+msgid "two million"
+msgstr "два миллиона"
+
+#: /views/helpers/summa.php:1
+msgid "billion"
+msgstr "миллиарда"
+
+#: /views/helpers/summa.php:1
+msgid "billions"
+msgstr "миллиардов"
+
+#: /views/helpers/summa.php:1
+msgid "one billion"
+msgstr "один миллиард"
+
+#: /views/helpers/summa.php:1
+msgid "two billion"
+msgstr "два миллиарда"
+
+#: /views/helpers/summa.php:1
+msgid "trillion"
+msgstr "триллиона"
+
+#: /views/helpers/summa.php:1
+msgid "trillions"
+msgstr "триллионов"
+
+#: /views/helpers/summa.php:1
+msgid "one trillion"
+msgstr "один триллион"
+
+#: /views/helpers/summa.php:1
+msgid "two trillion"
+msgstr "два триллиона"
