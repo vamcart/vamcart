@@ -97,7 +97,7 @@ class InvoiceController extends PaymentAppController {
 	function before_process () 
 	{
 		$content = '
-		<a class="button" href="http://'.$_SERVER['HTTP_HOST'] .  BASE . '/payment/invoice/print_order/' . $_SESSION['Customer']['order_id'] . '" target="_blank"><span>{lang}Print Order{/lang}</span></a><br />
+		<a class="button" href="http://'.$_SERVER['HTTP_HOST'] .  BASE . '/payment/invoice/print_order/' . $_SESSION['Customer']['order_id'] . '" target="_blank"><span>{lang}Print Invoice{/lang}</span></a><br />
 		<form action="' . BASE . '/orders/place_order/" method="post">
 		<span class="button"><button type="submit" value="{lang}Confirm Order{/lang}">{lang}Confirm Order{/lang}</button></span>
 		</form>';
