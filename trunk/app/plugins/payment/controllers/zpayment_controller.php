@@ -110,7 +110,6 @@ $_POST['LMI_PAYER_PURSE'].$_POST['LMI_PAYER_WM']));
 		
 		$payment_method = $this->PaymentMethod->find(array('alias' => $this->module_name));
 		$order_data = $this->Order->find('first', array('conditions' => array('Order.id' => $_POST['LMI_PAYMENT_NO'])));
-		$order_data->id = $_POST['LMI_PAYMENT_NO'];
 		$order_data['Order']['order_status_id'] = $payment_method['PaymentMethod']['order_status_id'];
 		
 		$this->Order->save($order_data);

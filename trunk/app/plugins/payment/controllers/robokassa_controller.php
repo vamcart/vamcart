@@ -118,7 +118,6 @@ class RobokassaController extends PaymentAppController {
 		
 		$payment_method = $this->PaymentMethod->find(array('alias' => $this->module_name));
 		$order_data = $this->Order->find('first', array('conditions' => array('Order.id' => $_POST['InvId'])));
-		$order_data->id = $_POST['InvId'];
 		$order_data['Order']['order_status_id'] = $payment_method['PaymentMethod']['order_status_id'];
 		
 		$this->Order->save($order_data);
