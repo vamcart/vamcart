@@ -144,6 +144,10 @@ $template = '
 			<label>{lang}Phone{/lang}</label>
 			<input type="text" name="phone" value="{$order.phone}" />
 		</div>		
+		<div>	
+			<label>{lang}Company{/lang}</label>
+			<input type="text" name="company_name" value="{$order.company_name}" />
+		</div>		
 	</div>
 	<div>
 	{module alias="coupons" action="checkout_box"}

@@ -110,6 +110,10 @@ echo $html->tableHeaders(array(__('Contact Information',true)));
 		  array(
 				__('Phone',true) . ': ' . $data['Order']['phone']
 		   ));
+	echo $admin->TableCells(
+		  array(
+				__('Company',true) . ': ' . $data['Order']['company_name']
+		   ));
 echo '</table>';
 
 echo '</td></tr>';
