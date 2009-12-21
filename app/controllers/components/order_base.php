@@ -159,6 +159,7 @@ class OrderBaseComponent extends Object
 			$order_product = array('order_id' => $_SESSION['Customer']['order_id'],
 							 'content_id' => $content_id,
 							 'name' => $content['ContentDescription']['name'],
+							 'model' => $product['ContentProduct']['model'],
 							 'quantity' => $qty,
 							 'price' => $product['ContentProduct']['price'],
 							 'weight' => $product['ContentProduct']['weight']);
