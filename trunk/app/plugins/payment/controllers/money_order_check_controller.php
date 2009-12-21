@@ -12,7 +12,7 @@
    ---------------------------------------------------------------------------------------*/
 
 class MoneyOrderCheckController extends PaymentAppController {
-	var $uses = array('PaymentMethod');
+	var $uses = array('PaymentMethod', 'Order');
 	var $module_name = 'money_order_check';
 
 	function settings ()

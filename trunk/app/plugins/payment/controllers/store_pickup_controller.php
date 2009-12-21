@@ -12,7 +12,7 @@
    ---------------------------------------------------------------------------------------*/
 
 class StorePickupController extends PaymentAppController {
-	var $uses = array('PaymentMethod');
+	var $uses = array('PaymentMethod', 'Order');
 	var $module_name = 'store_pickup';
 
 	function settings ()

@@ -12,7 +12,7 @@
    ---------------------------------------------------------------------------------------*/
 
 class PaypalController extends PaymentAppController {
-	var $uses = array('PaymentMethod');
+	var $uses = array('PaymentMethod', 'Order');
 	var $components = array('OrderBase');
 	var $module_name = 'paypal';
 
