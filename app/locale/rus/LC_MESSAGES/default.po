@@ -2440,6 +2440,10 @@ msgstr "Телефон"
 msgid "Company"
 msgstr "Компания"
 
+#: /views/orders/admin_view.ctp:115
+msgid "Payment Information"
+msgstr "Информация об оплате"
+
 #: /views/orders/admin_view.ctp:109
 msgid "Credit Card"
 msgstr "Карточка"
