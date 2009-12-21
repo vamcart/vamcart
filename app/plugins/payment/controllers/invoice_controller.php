@@ -13,7 +13,7 @@
 
 class InvoiceController extends PaymentAppController {
 	var $uses = array('PaymentMethod', 'Order');
-	var $helpers = array('Time');
+	var $helpers = array('Time', 'Summa');
 	var $module_name = 'invoice';
 
 	function settings ()
@@ -116,6 +116,7 @@ class InvoiceController extends PaymentAppController {
 		
 		$this->set('data', $this->Order->find('first', array('conditions' => array('Order.id' => $_SESSION['Customer']['order_id']))));
 		$this->set('payment_data', $this->PaymentMethod->findByAlias($this->module_name));
+		$this->set('counter', 0);
 		
 	}
 	
