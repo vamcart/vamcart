@@ -2794,3 +2794,35 @@ msgstr "Ноябрь"
 #: Time Helper
 msgid "December"
 msgstr "Декабрь"
+
+#: /plugins/payment/views/kvitancia/settings.ctp:17
+msgid "Bank Name"
+msgstr "Название банка"
+
+#: /plugins/payment/views/kvitancia/settings.ctp:22
+msgid "Account Number 1"
+msgstr "Расчётный счёт"
+
+#: /plugins/payment/views/kvitancia/settings.ctp:27
+msgid "BIK"
+msgstr "БИК"
+
+#: /plugins/payment/views/kvitancia/settings.ctp:32
+msgid "Account Number 2"
+msgstr "Кор./счет"
+
+#: /plugins/payment/views/kvitancia/settings.ctp:37
+msgid "INN"
+msgstr "ИНН"
+
+#: /plugins/payment/views/kvitancia/settings.ctp:42
+msgid "Recipient"
+msgstr "Получатель"
+
+#: /plugins/payment/views/kvitancia/settings.ctp:47
+msgid "KPP"
+msgstr "КПП"
+
+#: /plugins/payment/views/kvitancia/settings.ctp:52
+msgid "Payment Text"
+msgstr "Назначение платежа"
