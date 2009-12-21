@@ -31,7 +31,7 @@ div { position: absolute; background: transparent; text-align: left; color: #000
 <div class="field" style="top: 174px; left: 7px; width: 500px;"><?php echo $payment_data["PaymentMethodValue"][7]['value']; ?>&nbsp;<?php echo $_SESSION['Customer']['order_id']; ?></div>
 <div class="smallf center" style="top: 190px; left: 7px; width: 500px;"><?php echo __('Payment Text', true); ?></div>
 <div style="top: 204px; left: 7px; width: 76px;"><?php echo __('Total', true); ?></div>
-<div class="field" style="top: 204px; left: 90px; width: 190px;"><?php echo $data['Order']['total']; ?> руб. </div>
+<div class="field" style="top: 204px; left: 90px; width: 190px;"><?php echo $data['Order']['total']; ?> <?php echo __('rub.', true); ?> </div>
 <div style="top: 246px; left: 7px; width: 200px;"><?php echo __('Signature', true); ?></div>
 </div>
 
@@ -56,7 +56,7 @@ div { position: absolute; background: transparent; text-align: left; color: #000
 <div class="field" style="top: 174px; left: 7px; width: 500px;"><?php echo $payment_data["PaymentMethodValue"][7]['value']; ?>&nbsp;<?php echo $_SESSION['Customer']['order_id']; ?></div>
 <div class="smallf center" style="top: 190px; left: 7px; width: 500px;"><?php echo __('Payment Text', true); ?></div>
 <div style="top: 204px; left: 7px; width: 76px;"><?php echo __('Total', true); ?></div>
-<div class="field" style="top: 204px; left: 90px; width: 190px;"><?php echo $data['Order']['total']; ?> руб. </div>
+<div class="field" style="top: 204px; left: 90px; width: 190px;"><?php echo $data['Order']['total']; ?> <?php echo __('rub.', true); ?> </div>
 <div style="top: 246px; left: 7px; width: 200px;"><?php echo __('Signature', true); ?></div>
 </div>
 </div>
