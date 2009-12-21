@@ -999,12 +999,12 @@ CREATE TABLE `payment_methods` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `payment_methods` (`id`, `active`, `default`, `name`, `alias`, `order`, `order_status_id`) VALUES 
-(1, 1, 0, 'In-store Pickup', 'store_pickup', 0, 0),
-(2, 1, 1, 'Money Order/Check', 'money_order_check', 0, 0),
-(3, 1, 0, 'Paypal', 'paypal', 0, 0),
-(4, 1, 0, 'Credit Card', 'credit_card', 0, 0),
-(5, 1, 0, 'Authorize.Net', 'authorize', 0, 0),
-(6, 1, 0, 'Google Checkout', 'google_html', 0, 0);
+(1, 1, 0, 'In-store Pickup', 'store_pickup', 0, 1),
+(2, 1, 1, 'Money Order/Check', 'money_order_check', 0, 1),
+(3, 1, 0, 'Paypal', 'paypal', 0, 1),
+(4, 1, 0, 'Credit Card', 'credit_card', 0, 1),
+(5, 1, 0, 'Authorize.Net', 'authorize', 0, 1),
+(6, 1, 0, 'Google Checkout', 'google_html', 0, 1);
 
 DROP TABLE IF EXISTS payment_method_values;
 CREATE TABLE `payment_method_values` (
