@@ -80,7 +80,7 @@ class KvitanciaController extends PaymentAppController {
 	function before_process () 
 	{
 		$content = '
-		<a class="button" href="http://'.$_SERVER['HTTP_HOST'] .  BASE . '/payment/kvitancia/print/' . $_SESSION['Customer']['order_id'] . '"><span>{lang}Print Order{/lang}</span></a><br />
+		<a class="button" href="http://'.$_SERVER['HTTP_HOST'] .  BASE . '/payment/kvitancia/print_order/' . $_SESSION['Customer']['order_id'] . '" target="_blank"><span>{lang}Print Order{/lang}</span></a><br />
 		<form action="' . BASE . '/orders/place_order/" method="post">
 		<span class="button"><button type="submit" value="{lang}Confirm Order{/lang}">{lang}Confirm Order{/lang}</button></span>
 		</form>';
@@ -89,12 +89,21 @@ class KvitanciaController extends PaymentAppController {
 
 	function after_process()
 	{
+		$payment_method = $this->PaymentMethod->find(array('alias' => $this->module_name));
+		$order_data = $this->Order->find('first', array('conditions' => array('Order.id' => $_SESSION['Customer']['order_id'])));
+		$order_data['Order']['order_status_id'] = $payment_method['PaymentMethod']['order_status_id'];
+		
+		$this->Order->save($order_data);
 	}
 	
 	
-	function result()
+	function print_order($id)
 	{
-		$this->layout = 'empty';
+		$this->layout = 'empty';		
+		
+//		if ($id != $_SESSION['Customer']['order_id'])
+//		$this->redirect('/');		
+		
       $rbkmoney_data = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'secret_key'));
       $rbkmoney_secret_key = $rbkmoney_data['PaymentMethodValue']['value'];
 		$order = $this->Order->read(null,$_POST['orderId']);
