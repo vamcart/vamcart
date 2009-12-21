@@ -13,6 +13,7 @@
 
 class KvitanciaController extends PaymentAppController {
 	var $uses = array('PaymentMethod', 'Order');
+	var $helpers = array('Time');
 	var $module_name = 'kvitancia';
 
 	function settings ()
@@ -99,30 +100,12 @@ class KvitanciaController extends PaymentAppController {
 	
 	function print_order($id)
 	{
-		$this->layout = 'empty';		
+		$this->layout = 'print';		
+		$this->pageTitle = __('Order Number', true) . ': ' . $_SESSION['Customer']['order_id'];		
 		
-//		if ($id != $_SESSION['Customer']['order_id'])
-//		$this->redirect('/');		
+		$this->set('data', $this->Order->find('first', array('conditions' => array('Order.id' => $_SESSION['Customer']['order_id']))));
+		$this->set('payment_data', $this->PaymentMethod->findByAlias($this->module_name));
 		
-      $rbkmoney_data = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'secret_key'));
-      $rbkmoney_secret_key = $rbkmoney_data['PaymentMethodValue']['value'];
-		$order = $this->Order->read(null,$_POST['orderId']);
-		$crc = $_POST['hash'];
-		$hash = md5($_POST['eshopId'].'::'.$_POST['orderId'].'::'.$_POST['serviceName'].'::'.$_POST['eshopAccount'].'::'.$_POST['recipientAmount'].'::'.$_POST['recipientCurrency'].'::'.$_POST['paymentStatus'].'::'.$_POST['userName'].'::'.$_POST['userEmail'].'::'.$_POST['paymentData'].'::'.$rbkmoney_secret_key);
-		$merchant_summ = number_format($_POST['recipientAmount'], 2);
-		$order_summ = number_format($order['Order']['total'], 2);
-
-		if (($crc == $hash) && ($merchant_summ == $order_summ) && ($_POST['paymentStatus'] == '5')) {
-		
-		$payment_method = $this->PaymentMethod->find(array('alias' => $this->module_name));
-		$order_data = $this->Order->find('first', array('conditions' => array('Order.id' => $_POST['orderId'])));
-		$order_data->id = $_POST['orderId'];
-		$order_data['Order']['order_status_id'] = $payment_method['PaymentMethod']['order_status_id'];
-		
-		$this->Order->save($order_data);
-		
-		}
-	
 	}
 	
 }
