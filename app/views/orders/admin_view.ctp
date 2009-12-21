@@ -139,12 +139,13 @@ echo '</table>';
 	echo $admin->StartTabContent('order');
 
 echo '<table class="contentTable">';
-echo $html->tableHeaders(array( __('Product Name', true), __('Price', true), __('Quantity', true), __('Total', true)));
+echo $html->tableHeaders(array( __('Product Name', true), __('Model', true), __('Price', true), __('Quantity', true), __('Total', true)));
 foreach($data['OrderProduct'] AS $product) 
 {
 	echo $admin->TableCells(
 		  array(
 				$product['name'],
+				$product['model'],
 				$product['price'],
 				$product['quantity'],
 				$product['quantity']*$product['price']
@@ -154,6 +155,7 @@ foreach($data['OrderProduct'] AS $product)
 	echo $admin->TableCells(
 		  array(
 		  		'<strong>' . $data['ShippingMethod']['name'] . ' ' . '</strong>',
+				'&nbsp;',
 				$data['Order']['shipping'],
 				'1',
 				$data['Order']['shipping']					
@@ -161,6 +163,7 @@ foreach($data['OrderProduct'] AS $product)
 	echo $admin->TableCells(
 		  array(
 		  		'<strong>' . __('Order Total',true) . '</strong>',
+				'&nbsp;',
 				'&nbsp;',
 				'&nbsp;',
 				'<strong>' . $data['Order']['total'] .'</strong>'
