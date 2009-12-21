@@ -2870,3 +2870,19 @@ msgstr "руб."
 #: /plugins/payment/views/kvitancia/print_order.ctp:52
 msgid "Signature"
 msgstr "Подпись плательщика"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "Company Address"
+msgstr "Адрес"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "Company Phone"
+msgstr "Телефон"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "OGRN"
+msgstr "ОГРН"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "OKPO"
+msgstr "ОКПО"
