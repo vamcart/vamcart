@@ -9,54 +9,54 @@ div { position: absolute; background: transparent; text-align: left; color: #000
 
 <div class="bfull" style="left: 20px; top: 20px; width: 705px; height: 574px;">
 <div class="bfull" style="left: 0px; top: 0px; width: 191px; height: 287px;">
-<div class="wide center" style="top: 13px;">Извещение</div>
-<div class="wide center" style="top: 206px;">Кассир</div>
+<div class="wide center" style="top: 13px;"><?php echo __('Notice', true); ?></div>
+<div class="wide center" style="top: 206px;"><?php echo __('Teller', true); ?></div>
 </div>
 <div class="bfull" style="left: 191px; top: 0px; width: 514px; height: 287px;">
-<div class="smallf" style="left: 452px; top: 10px;">Форма №ПД-4</div>
+<div class="smallf" style="left: 452px; top: 10px;"><?php echo __('Form #PD-4', true); ?></div>
 
-<div class="field" style="top: 24px; left: 7px; width: 500px;"><?php echo $payment_data["PaymentMethodValue"][5]['value']; ?>, ИНН/КПП <?php echo $payment_data["PaymentMethodValue"][4]['value']; ?>/<?php echo $payment_data["PaymentMethodValue"][6]['value']; ?></div>
-<div class="smallf center" style="top: 40px; left: 7px; width: 500px;">получатель платежа</div>
+<div class="field" style="top: 24px; left: 7px; width: 500px;"><?php echo $payment_data["PaymentMethodValue"][5]['value']; ?>, <?php echo __('INN', true); ?>/<?php echo __('KPP', true); ?> <?php echo $payment_data["PaymentMethodValue"][4]['value']; ?>/<?php echo $payment_data["PaymentMethodValue"][6]['value']; ?></div>
+<div class="smallf center" style="top: 40px; left: 7px; width: 500px;"><?php echo __('recipient', true); ?></div>
 <div class="field" style="top: 54px; left: 7px; width: 350px;"><?php echo $payment_data["PaymentMethodValue"][0]['value']; ?></div>
-<div class="smallf center" style="top: 70px; left: 7px; width: 350px;">Наименование банка</div>
+<div class="smallf center" style="top: 70px; left: 7px; width: 350px;"><?php echo __('Bank Name', true); ?></div>
 <div class="field" style="top: 54px; left: 364px; width: 143px;"><?php echo $payment_data["PaymentMethodValue"][1]['value']; ?></div>
-<div class="smallf center" style="top: 70px; left: 364px; width: 143px;">Расчетный счет</div>
-<div class="field" style="top: 84px; left: 7px; width: 500px;">К/с <?php echo $payment_data["PaymentMethodValue"][3]['value']; ?>, БИК <?php echo $payment_data["PaymentMethodValue"][2]['value']; ?></div>
-<div class="smallf center" style="top: 100px; left: 7px; width: 500px;">другие банковские реквизиты</div>
+<div class="smallf center" style="top: 70px; left: 364px; width: 143px;"><?php echo __('Account Number 1', true); ?></div>
+<div class="field" style="top: 84px; left: 7px; width: 500px;"><?php echo __('Account Number 2', true); ?> <?php echo $payment_data["PaymentMethodValue"][3]['value']; ?>, <?php echo __('BIK', true); ?> <?php echo $payment_data["PaymentMethodValue"][2]['value']; ?></div>
+<div class="smallf center" style="top: 100px; left: 7px; width: 500px;"><?php echo __('bank info', true); ?></div>
 <div class="field" style="top: 114px; left: 7px; width: 500px; height:14px; overflow:hidden;"><?php echo $data['Order']['bill_name']; ?>&nbsp;<?php echo $data['Order']['phone']; ?></div>
 
-<div class="smallf center" style="top: 130px; left: 7px; width: 500px;">ФИО плательщика</div>
+<div class="smallf center" style="top: 130px; left: 7px; width: 500px;"><?php echo __('Payeer Name', true); ?></div>
 <div class="field" style="top: 144px; left: 7px; width: 500px;"><?php echo $data['Order']['bill_city']; ?>&nbsp;<?php echo $data['Order']['bill_line_1']; ?></div>
-<div class="smallf center" style="top: 160px; left: 7px; width: 500px;">Адрес плательщика</div>
+<div class="smallf center" style="top: 160px; left: 7px; width: 500px;"><?php echo __('Payeer Address', true); ?></div>
 <div class="field" style="top: 174px; left: 7px; width: 500px;"><?php echo $payment_data["PaymentMethodValue"][7]['value']; ?>&nbsp;<?php echo $_SESSION['Customer']['order_id']; ?></div>
-<div class="smallf center" style="top: 190px; left: 7px; width: 500px;">Назначение платежа</div>
-<div style="top: 204px; left: 7px; width: 76px;">Сумма</div>
+<div class="smallf center" style="top: 190px; left: 7px; width: 500px;"><?php echo __('Payment Text', true); ?></div>
+<div style="top: 204px; left: 7px; width: 76px;"><?php echo __('Total', true); ?></div>
 <div class="field" style="top: 204px; left: 90px; width: 190px;"><?php echo $data['Order']['total']; ?> руб. </div>
-<div style="top: 246px; left: 7px; width: 200px;">Подпись плательщика</div>
+<div style="top: 246px; left: 7px; width: 200px;"><?php echo __('Signature', true); ?></div>
 </div>
 
 <div class="bfull" style="left: 0px; top: 287px; width: 191px; height: 287px;">
-<div class="wide center" style="top: 13px;">Квитанция</div>
-<div class="wide center" style="top: 206px;">Кассир</div>
+<div class="wide center" style="top: 13px;"><?php echo __('Receipt', true); ?></div>
+<div class="wide center" style="top: 206px;"><?php echo __('Teller', true); ?></div>
 </div>
 <div class="bfull" style="left: 191px; top: 287px; width: 514px; height: 287px;">
-<div class="smallf" style="left: 452px; top: 10px;">Форма №ПД-4</div>
-<div class="field" style="top: 24px; left: 7px; width: 500px;"><?php echo $payment_data["PaymentMethodValue"][5]['value']; ?>, ИНН/КПП <?php echo $payment_data["PaymentMethodValue"][4]['value']; ?>/<?php echo $payment_data["PaymentMethodValue"][6]['value']; ?></div>
-<div class="smallf center" style="top: 40px; left: 7px; width: 500px;">получатель платежа</div>
+<div class="smallf" style="left: 452px; top: 10px;"><?php echo __('Form #PD-4', true); ?></div>
+<div class="field" style="top: 24px; left: 7px; width: 500px;"><?php echo $payment_data["PaymentMethodValue"][5]['value']; ?>, <?php echo __('INN', true); ?>/<?php echo __('KPP', true); ?> <?php echo $payment_data["PaymentMethodValue"][4]['value']; ?>/<?php echo $payment_data["PaymentMethodValue"][6]['value']; ?></div>
+<div class="smallf center" style="top: 40px; left: 7px; width: 500px;"><?php echo __('recipient', true); ?></div>
 <div class="field" style="top: 54px; left: 7px; width: 350px;"><?php echo $payment_data["PaymentMethodValue"][0]['value']; ?></div>
-<div class="smallf center" style="top: 70px; left: 7px; width: 350px;">Наименование банка</div>
+<div class="smallf center" style="top: 70px; left: 7px; width: 350px;"><?php echo __('Bank Name', true); ?></div>
 <div class="field" style="top: 54px; left: 364px; width: 143px;"><?php echo $payment_data["PaymentMethodValue"][1]['value']; ?></div>
-<div class="smallf center" style="top: 70px; left: 364px; width: 143px;">Расчетный счет</div>
-<div class="field" style="top: 84px; left: 7px; width: 500px;">К/с <?php echo $payment_data["PaymentMethodValue"][3]['value']; ?>, БИК <?php echo $payment_data["PaymentMethodValue"][2]['value']; ?></div>
-<div class="smallf center" style="top: 100px; left: 7px; width: 500px;">другие банковские реквизиты</div>
+<div class="smallf center" style="top: 70px; left: 364px; width: 143px;"><?php echo __('Account Number 1', true); ?></div>
+<div class="field" style="top: 84px; left: 7px; width: 500px;"><?php echo __('Account Number 2', true); ?> <?php echo $payment_data["PaymentMethodValue"][3]['value']; ?>, <?php echo __('BIK', true); ?> <?php echo $payment_data["PaymentMethodValue"][2]['value']; ?></div>
+<div class="smallf center" style="top: 100px; left: 7px; width: 500px;"><?php echo __('bank info', true); ?></div>
 <div class="field" style="top: 114px; left: 7px; width: 500px; height:14px; overflow:hidden;"><?php echo $data['Order']['bill_name']; ?>&nbsp;<?php echo $data['Order']['phone']; ?></div>
-<div class="smallf center" style="top: 130px; left: 7px; width: 500px;">ФИО плательщика</div>
+<div class="smallf center" style="top: 130px; left: 7px; width: 500px;"><?php echo __('Payeer Name', true); ?></div>
 <div class="field" style="top: 144px; left: 7px; width: 500px;"><?php echo $data['Order']['bill_city']; ?>&nbsp;<?php echo $data['Order']['bill_line_1']; ?></div>
-<div class="smallf center" style="top: 160px; left: 7px; width: 500px;">Адрес плательщика</div>
+<div class="smallf center" style="top: 160px; left: 7px; width: 500px;"><?php echo __('Payeer Address', true); ?></div>
 <div class="field" style="top: 174px; left: 7px; width: 500px;"><?php echo $payment_data["PaymentMethodValue"][7]['value']; ?>&nbsp;<?php echo $_SESSION['Customer']['order_id']; ?></div>
-<div class="smallf center" style="top: 190px; left: 7px; width: 500px;">Назначение платежа</div>
-<div style="top: 204px; left: 7px; width: 76px;">Сумма</div>
+<div class="smallf center" style="top: 190px; left: 7px; width: 500px;"><?php echo __('Payment Text', true); ?></div>
+<div style="top: 204px; left: 7px; width: 76px;"><?php echo __('Total', true); ?></div>
 <div class="field" style="top: 204px; left: 90px; width: 190px;"><?php echo $data['Order']['total']; ?> руб. </div>
-<div style="top: 246px; left: 7px; width: 200px;">Подпись плательщика</div>
+<div style="top: 246px; left: 7px; width: 200px;"><?php echo __('Signature', true); ?></div>
 </div>
 </div>

@@ -2797,7 +2797,7 @@ msgstr "Декабрь"
 
 #: /plugins/payment/views/kvitancia/settings.ctp:17
 msgid "Bank Name"
-msgstr "Название банка"
+msgstr "Наименование банка"
 
 #: /plugins/payment/views/kvitancia/settings.ctp:22
 msgid "Account Number 1"
@@ -2826,3 +2826,43 @@ msgstr "КПП"
 #: /plugins/payment/views/kvitancia/settings.ctp:52
 msgid "Payment Text"
 msgstr "Назначение платежа"
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "Notice"
+msgstr "Извещение"
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "Receipt"
+msgstr "Квитанция"
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "Teller"
+msgstr "Кассир"
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "Form #PD-4"
+msgstr "Форма №ПД-4"
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "recipient"
+msgstr "получатель платежа"
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "bank info"
+msgstr "другие банковские реквизиты"
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "Payeer Name"
+msgstr "ФИО плательщика"
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "Payeer Address"
+msgstr "Адрес плательщика"
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "rub."
+msgstr "руб."
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "Signature"
+msgstr "Подпись плательщика"
