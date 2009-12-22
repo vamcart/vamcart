@@ -155,7 +155,7 @@ foreach($data['OrderProduct'] AS $product)
 	echo $admin->TableCells(
 		  array(
 		  		'<strong>' . $data['ShippingMethod']['name'] . ' ' . '</strong>',
-				'&nbsp;',
+				$data['ShippingMethod']['code'],
 				$data['Order']['shipping'],
 				'1',
 				$data['Order']['shipping']					
