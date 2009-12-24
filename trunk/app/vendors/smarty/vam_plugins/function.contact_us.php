@@ -17,9 +17,9 @@ function default_template_contact_us()
 	$template .= '
 <fieldset class="form">
 <legend>{lang}Contact Us{/lang}</legend>
-	<p>{lang}Your Name{/lang}: <input type="text" name="name" /></p>
-	<p>{lang}Your Email{/lang}: <input type="text" name="email" /></p>
-	<p>{lang}Message{/lang}: <textarea name="message"></textarea></p>
+	<p><label for="name">{lang}Your Name{/lang}:</label> <input type="text" name="name" id="name" /></p>
+	<p><label for="email">{lang}Your Email{/lang}:</label> <input type="text" name="email" id="email" /></p>
+	<p><label for="message">{lang}Message{/lang}:</label> <textarea name="message" id="message"></textarea></p>
 </fieldset>
 <span class="button"><button type="submit" value="{lang}Send{/lang}">{lang}Send{/lang}</button></span>
 	';		
