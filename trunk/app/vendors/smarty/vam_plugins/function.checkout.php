@@ -63,32 +63,32 @@ $template = '
 			<h3>{lang}Billing Information{/lang}</h3>
 		</div>
 		<div>	
-			<label>{lang}Name{/lang}</label>
-			<input type="text" name="bill_name" value="{$order.bill_name}"/>
+			<label for="bill_name">{lang}Name{/lang}</label>
+			<input type="text" name="bill_name" id="bill_name" value="{$order.bill_name}"/>
 		</div>
 		<div>	
-			<label>{lang}Address Line 1{/lang}</label>
-			<input type="text" name="bill_line_1" value="{$order.bill_line_1}" />
+			<label for="bill_line_1">{lang}Address Line 1{/lang}</label>
+			<input type="text" name="bill_line_1" id="bill_line_1" value="{$order.bill_line_1}" />
 		</div>		
 		<div>	
-			<label>{lang}Address Line 2{/lang}</label>
-			<input type="text" name="bill_line_2" value="{$order.bill_line_2}" />
+			<label for="bill_line_2">{lang}Address Line 2{/lang}</label>
+			<input type="text" name="bill_line_2" id="bill_line_2" value="{$order.bill_line_2}" />
 		</div>		
 		<div>	
-			<label>{lang}City{/lang}</label>
-			<input type="text" name="bill_city" value="{$order.bill_city}" />
+			<label for="bill_city">{lang}City{/lang}</label>
+			<input type="text" name="bill_city" id="bill_city" value="{$order.bill_city}" />
 		</div>		
 		<div>	
-			<label>{lang}Country{/lang}</label>
-			<input type="text" name="bill_country" value="{$order.bill_country}" />
+			<label for="bill_country">{lang}Country{/lang}</label>
+			<input type="text" name="bill_country" id="bill_country" value="{$order.bill_country}" />
 		</div>		
 		<div>	
-			<label>{lang}State{/lang}</label>
-			<input type="text" name="bill_state" value="{$order.bill_state}" />
+			<label for="bill_state">{lang}State{/lang}</label>
+			<input type="text" name="bill_state" id="bill_state" value="{$order.bill_state}" />
 		</div>		
 		<div>	
-			<label>{lang}Zipcode{/lang}</label>
-			<input type="text" name="bill_zip" value="{$order.bill_zip}" />
+			<label for="bill_zip">{lang}Zipcode{/lang}</label>
+			<input type="text" name="bill_zip" id="bill_zip" value="{$order.bill_zip}" />
 		</div>	
 	</div>		
 	<div id="diff_shipping">
@@ -96,7 +96,7 @@ $template = '
 			<h3>{lang}Shipping Information{/lang}</h3>
 		</div>
 		<div>
-			<input type="checkbox" name="diff_shipping" id="diff_shipping" value="1" /> {lang}Different from billing address{/lang}
+			<label for="diff_shipping"><input type="checkbox" name="diff_shipping" id="diff_shipping" value="1" /> {lang}Different from billing address{/lang}</label>
 		</div>
 	</div>
 	<div id="ship_information">
@@ -104,32 +104,32 @@ $template = '
 			<h3>{lang}Shipping Information{/lang}</h3>
 		</div>
 		<div>	
-			<label>{lang}Name{/lang}</label>
-			<input type="text" name="ship_name" value="{$order.ship_name}" />
+			<label for="ship_name">{lang}Name{/lang}</label>
+			<input type="text" name="ship_name" id="ship_name" value="{$order.ship_name}" />
 		</div>
 		<div>	
-			<label>{lang}Address Line 1{/lang}</label>
-			<input type="text" name="ship_line_1" value="{$order.ship_line_1}" />
+			<label for="ship_line_1">{lang}Address Line 1{/lang}</label>
+			<input type="text" name="ship_line_1" id="ship_line_1" value="{$order.ship_line_1}" />
 		</div>		
 		<div>	
-			<label>{lang}Address Line 1{/lang}</label>
-			<input type="text" name="ship_line_2" value="{$order.ship_line_2}" />
+			<label for="ship_line_2">{lang}Address Line 1{/lang}</label>
+			<input type="text" name="ship_line_2" id="ship_line_2" value="{$order.ship_line_2}" />
 		</div>		
 		<div>	
-			<label>{lang}City{/lang}</label>
-			<input type="text" name="ship_city" value="{$order.ship_city}" />
+			<label for="ship_city">{lang}City{/lang}</label>
+			<input type="text" name="ship_city" id="ship_city" value="{$order.ship_city}" />
 		</div>		
 		<div>	
-			<label>{lang}Country{/lang}</label>
-			<input type="text" name="ship_country" value="{$order.ship_country}" />
+			<label for="ship_country">{lang}Country{/lang}</label>
+			<input type="text" name="ship_country" id="ship_country" value="{$order.ship_country}" />
 		</div>		
 		<div>	
-			<label>{lang}State{/lang}</label>
-			<input type="text" name="ship_state" value="{$order.ship_state}" />
+			<label for="ship_state">{lang}State{/lang}</label>
+			<input type="text" name="ship_state" id="ship_state" value="{$order.ship_state}" />
 		</div>		
 		<div>	
-			<label>{lang}Zipcode{/lang}</label>
-			<input type="text" name="ship_zip" value="{$order.ship_zip}" />
+			<label for="ship_zip">{lang}Zipcode{/lang}</label>
+			<input type="text" name="ship_zip" id="ship_zip" value="{$order.ship_zip}" />
 		</div>								
 	</div>
 	<div id="contact_information">
@@ -137,16 +137,16 @@ $template = '
 			<h3>{lang}Contact Information{/lang}</h3>
 		</div>
 		<div>	
-			<label>{lang}Email{/lang}</label>
-			<input type="text" name="email" value="{$order.email}" />
+			<label for="email">{lang}Email{/lang}</label>
+			<input type="text" name="email" id="email" value="{$order.email}" />
 		</div>
 		<div>	
-			<label>{lang}Phone{/lang}</label>
-			<input type="text" name="phone" value="{$order.phone}" />
+			<label for="phone">{lang}Phone{/lang}</label>
+			<input type="text" name="phone" id="phone" value="{$order.phone}" />
 		</div>		
 		<div>	
-			<label>{lang}Company{/lang}</label>
-			<input type="text" name="company_name" value="{$order.company_name}" />
+			<label for="company_name">{lang}Company{/lang}</label>
+			<input type="text" name="company_name" id="company_name" value="{$order.company_name}" />
 		</div>		
 	</div>
 	<div>
