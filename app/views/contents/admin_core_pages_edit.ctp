@@ -81,7 +81,29 @@
 						'type' => 'textarea',
 						'value' => $data['ContentDescription'][$language_key]['description']
 	            	  )));
-		echo '</div>';						  
+		echo '</div>';
+
+		echo $form->inputs(array(
+						'legend' => null,
+						'ContentDescription]['.$language['Language']['id'].'][meta_title.' . $language['Language']['id'] => array(
+				   	'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . __('Meta Title', true),
+						'value' => $data['ContentDescription'][$language_key]['meta_title']
+	            	  )));																								
+
+		echo $form->inputs(array(
+						'legend' => null,
+						'ContentDescription]['.$language['Language']['id'].'][meta_description.' . $language['Language']['id'] => array(
+				   	'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . __('Meta Description', true),
+						'value' => $data['ContentDescription'][$language_key]['meta_description']
+	            	  )));																								
+
+		echo $form->inputs(array(
+						'legend' => null,
+						'ContentDescription]['.$language['Language']['id'].'][meta_keywords.' . $language['Language']['id'] => array(
+				   	'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . __('Meta Keywords', true),
+						'value' => $data['ContentDescription'][$language_key]['meta_keywords']
+	            	  )));																								
+								  
 	}
 		
 		
