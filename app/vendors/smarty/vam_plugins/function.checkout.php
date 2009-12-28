@@ -39,7 +39,7 @@ $template = '
 				  checked="checked"
 				 {/if}
 				/>
-				<label for="ship_{$ship_method.id}">{lang}{$ship_method.name}{/lang} - {$ship_method.cost}</label>
+				<label for="ship_{$ship_method.id}">{lang}{$ship_method.name}{/lang}{if $ship_method.cost_plain > 0} - {$ship_method.cost}{/if}</label>
 			</div>
 		{/foreach}
 	</div>
@@ -200,6 +200,7 @@ function smarty_function_checkout($params, &$smarty)
 		$keyed_ship_methods[$ship_method_id] = array(
 										  'id' => $ship_method_id,
 										  'name' => $method['ShippingMethod']['name'],
+										  'cost_plain' => $MethodBase->calculate(),
 										  'cost' => $CurrencyBase->display_price($MethodBase->calculate())
 										  );
 
