@@ -55,7 +55,7 @@ function smarty_help_function_payment() {
 	<h3><?php echo __('What does this tag do?') ?></h3>
 	<p><?php echo __('This plugin handles the payment process.') ?></p>
 	<h3><?php echo __('How do I use it?') ?></h3>
-	<p><?php echo __('You should only use this tag in the payment core page. Just insert the tag into your page like:') ?> <code>{payment}</code></p>
+	<p><?php echo __('You should only use this tag in the confirmation core page. Just insert the tag into your page like:') ?> <code>{payment}</code></p>
 	<h3><?php echo __('What parameters does it take?') ?></h3>
 	<ul>
 		<li><em><?php echo __('(template)') ?></em> - <?php echo __('Useful if you want to override the default content listing template. Setting this will utilize the template that matches this alias.') ?></li>
