@@ -59,6 +59,10 @@ class FlatRateController extends ShippingAppController {
 
 		return $method['ShippingMethodValue'][0]['value'];
 	}
+
+	function before_process()
+	{
+	}
 	
 }
 

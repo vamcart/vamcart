@@ -49,6 +49,10 @@ class FreeShippingController extends ShippingAppController {
 	{
 		return 0;
 	}
+
+	function before_process()
+	{
+	}
 	
 }
 
