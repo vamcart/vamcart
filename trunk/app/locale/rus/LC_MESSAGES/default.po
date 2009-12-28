@@ -1586,8 +1586,8 @@ msgid "Displays any necessary payment fields before sending the user off to proc
 msgstr "Показывать необходимые поля оплаты до отправки пользователя к процессу оформления заказа."
 
 #: /vendors/smarty/vam_plugins/function.payment_content.php:46
-msgid "This tag is called from the payment page like:"
-msgstr "Вы должны использовать данный тэг на странице оплаты (payment) в Админке - Содержание - Страницы. Просто вставьте следующую метку в шаблон страницы оплаты:"
+msgid "This tag is called from the confirmation page like:"
+msgstr "Вы должны использовать данный тэг на странице подтверждения заказа в Админке - Содержание - Страницы. Просто вставьте следующую метку в шаблон страницы подтверждения:"
 
 #: /vendors/smarty/vam_plugins/function.product_price.php:36
 msgid "Displays the product price for the current content."
