@@ -112,6 +112,10 @@ $newline =
 		return $shipping_price;
 	}
 	
+	function before_process()
+	{
+	}
+		
 }
 
 ?>

@@ -75,6 +75,10 @@ class PerItemController extends ShippingAppController {
 		
 		return $shipping_total;
 	}
+
+	function before_process()
+	{
+	}
 	
 }
 

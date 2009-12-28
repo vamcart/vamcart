@@ -1573,6 +1573,14 @@ msgstr "Показывает название текущей страницы."
 msgid "This plugin handles the payment process."
 msgstr "Данный тэг управляет процессом оплаты."
 
+#: /vendors/smarty/vam_plugins/function.shipping.php:50
+msgid "This plugin returns the shipping info text."
+msgstr "Данный тэг выводит информацию о модуле доставки."
+
+#: /vendors/smarty/vam_plugins/function.shipping_content.php:37
+msgid "Displays any necessary shipping text before sending the user off to process the order."
+msgstr "Выводит информацию о выбранном модуле доставки.."
+
 #: /vendors/smarty/vam_plugins/function.payment.php:66
 msgid "You should only use this tag in the confirmation core page. Just insert the tag into your page like:"
 msgstr "Вы должны использовать данный тэг на странице подтверждения заказа в Админке - Содержание - Страницы. Просто вставьте следующую метку в шаблон страницы:"
