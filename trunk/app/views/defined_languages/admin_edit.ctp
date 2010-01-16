@@ -45,4 +45,3 @@
 	echo '<div class="clear"></div>';
 	echo $form->end();
 	?>
-</div>
