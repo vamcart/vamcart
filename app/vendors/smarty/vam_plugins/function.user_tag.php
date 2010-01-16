@@ -3,7 +3,7 @@
    VaM Cart
    http://vamcart.ru
    http://vamcart.com
-   Copyright 2009 VaM Cart
+   Copyright 2010 VaM Cart
    -----------------------------------------------------------------------------------------
    Portions Copyright:
    Copyright 2007 by Kevin Grandon (kevingrandon@hotmail.com)
