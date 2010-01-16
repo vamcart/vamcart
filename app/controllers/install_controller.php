@@ -3,7 +3,7 @@
    VaM Cart
    http://vamcart.com
    http://vamcart.ru
-   Copyright 2010 VaM Cart
+   Copyright 2009-2010 VaM Cart
    -----------------------------------------------------------------------------------------
    Portions Copyright:
    Copyright 2007 by Kevin Grandon (kevingrandon@hotmail.com)
@@ -135,7 +135,7 @@ class InstallController extends AppController {
    VaM Cart
    http://vamcart.com
    http://vamcart.ru
-   Copyright 2010 VaM Cart
+   Copyright 2009-2010 VaM Cart
    -----------------------------------------------------------------------------------------
    Portions Copyright:
    Copyright 2007 by Kevin Grandon (kevingrandon@hotmail.com)
