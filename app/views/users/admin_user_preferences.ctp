@@ -11,7 +11,8 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-echo $form->create('UserPref', array('id' => 'contentform', 'action' => '/users/admin_user_preferences/', 'url' => '/users/admin_user_preferences/'));
+	echo $javascript->link('modified', false);
+        echo $form->create('UserPref', array('id' => 'contentform', 'action' => '/users/admin_user_preferences/', 'url' => '/users/admin_user_preferences/'));
 
 echo $form->inputs(array(
 		'legend' => null,

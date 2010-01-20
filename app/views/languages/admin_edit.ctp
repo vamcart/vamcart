@@ -11,7 +11,8 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-	echo $form->create('Language', array('id' => 'contentform', 'action' => '/languages/admin_edit/', 'url' => '/languages/admin_edit/'));
+	echo $javascript->link('modified', false);
+        echo $form->create('Language', array('id' => 'contentform', 'action' => '/languages/admin_edit/', 'url' => '/languages/admin_edit/'));
 	echo $form->inputs(array(
 					'legend' => null,
 					'fieldset' => __('Language Details', true),

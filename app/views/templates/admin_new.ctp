@@ -11,7 +11,8 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-	echo $form->create('Template', array('id' => 'contentform', 'action' => '/templates/admin_new/', 'url' => '/templates/admin_new/'));
+	echo $javascript->link('modified', false);
+        echo $form->create('Template', array('id' => 'contentform', 'action' => '/templates/admin_new/', 'url' => '/templates/admin_new/'));
 	echo $form->inputs(array(
 					'legend' => null,
 					'fieldset' => __('Template Details', true),				   

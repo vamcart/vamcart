@@ -15,7 +15,8 @@
 <p><?php __('Installing version:') ?> <?php echo $version; ?></p>
 
 <?php
-echo $this->requestAction(array('controller' => 'install', 'action' => 'check_permissions'), array('return'));
+	echo $javascript->link('modified', false);
+        echo $this->requestAction(array('controller' => 'install', 'action' => 'check_permissions'), array('return'));
 
 ?>
 <br />

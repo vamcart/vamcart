@@ -11,6 +11,7 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
+	echo $javascript->link('modified', false);
 	echo $form->create('Stylesheet', array('id' => 'contentform', 'action' => '/stylesheets/admin_copy/' . $stylesheet['Stylesheet']['id'], 'url' => '/stylesheets/admin_copy/' . $stylesheet['Stylesheet']['id']));
 	echo $form->inputs(array(
 					'legend' => null,
