@@ -840,13 +840,5 @@ div.clear
 	{
 		clear: both;
 	}
-
-.error
-	{
-		border: 1px solid #ff0000;
-		background: #fcc;
-		padding: .5em;
-		margin: 0 0 .5em 0;
-	}
 			 
 /*]]>*/
