@@ -21,7 +21,7 @@
 ?>
 <br />
 <?php
-echo $form->create('Install', array('action' => '/install/create/', 'url' => '/install/create/'));
+echo $form->create('Install', array('id' => 'contentform', 'action' => '/install/create/', 'url' => '/install/create/'));
 echo $form->input('db_host', array('label' => __('Host',true), 'value' => $values['Install']['db_host']));
 echo $form->input('db_name', array('label' => __('Database Name',true), 'value' => $values['Install']['db_name']));
 echo $form->input('db_username', array('label' => __('Database Username',true), 'value' => $values['Install']['db_username']));
