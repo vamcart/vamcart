@@ -361,7 +361,8 @@ div.input input
 		margin: 0;
 	}
 
-form#contentform div.input.text input 
+form#contentform div.input.text input, 
+form#contentform div.input.password input 
 	{
 		border: 1px solid; 
 		border-color: #666 #ccc #ccc #666; 
@@ -839,5 +840,13 @@ div.clear
 	{
 		clear: both;
 	}
-		 
+
+.error
+	{
+		border: 1px solid #ff0000;
+		background: #fcc;
+		padding: .5em;
+		margin: 0 0 .5em 0;
+	}
+			 
 /*]]>*/
