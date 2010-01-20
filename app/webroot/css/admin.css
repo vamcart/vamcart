@@ -523,7 +523,7 @@ div#flashMessage
 	{
 		border: 1px solid #ff0000;
 		padding: .5em 0 .5em 1.5em;
-		margin: 0;
+		margin: 0 0 .5em 0;
 		background: #fcc url(../img/admin/icons/error.png) no-repeat center left;
 	}
 	
