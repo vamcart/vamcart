@@ -11,7 +11,8 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-	$template_id = $this->data['Template']['id'];
+	echo $javascript->link('modified', false);
+        $template_id = $this->data['Template']['id'];
 	echo $form->create('Template', array('id' => 'contentform', 'action' => '/templates/admin_edit/'.$template_id, 'url' => '/templates/admin_edit/'.$template_id));
 	echo $form->inputs(array(
 					'legend' => null,

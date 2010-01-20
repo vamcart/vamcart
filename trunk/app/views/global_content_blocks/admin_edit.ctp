@@ -11,7 +11,8 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-	echo $javascript->link('jquery/jquery.min', false);
+	echo $javascript->link('modified', false);
+        echo $javascript->link('jquery/jquery.min', false);
 	echo $javascript->link('jquery/plugins/jquery-ui.min', false);
 	echo $javascript->link('tabs', false);
 	echo $html->css('jquery/plugins/ui/css/smoothness/jquery-ui','','', false);

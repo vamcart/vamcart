@@ -11,6 +11,8 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
+echo $javascript->link('modified', false);
+
 echo $help_content;
 
 echo '<div class="pageheader">' . __('About', true) . '</div>';

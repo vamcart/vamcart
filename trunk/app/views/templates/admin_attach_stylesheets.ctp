@@ -16,6 +16,8 @@
 <table class="contentTable">
 
 <?php
+echo $javascript->link('modified', false);
+
 $attached_stylesheet = $template['Stylesheet'];
 
 echo $html->tableHeaders(array( __('Current Stylesheet Associations', true), __('Action', true)));

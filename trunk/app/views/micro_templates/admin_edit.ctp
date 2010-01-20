@@ -11,7 +11,8 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-	$id = $this->data['MicroTemplate']['id'];
+	echo $javascript->link('modified', false);
+        $id = $this->data['MicroTemplate']['id'];
 	echo $form->create('MicroTemplate', array('id' => 'contentform', 'action' => '/micro_templates/admin_edit/'.$id, 'url' => '/micro_templates/admin_edit/'.$id));
 		
 		echo $form->inputs(array(
