@@ -233,7 +233,7 @@ class AppController extends Controller {
 					4 => array('icon' => 'logout.png', 'text' => __('Logout', true), 'path' => '/users/admin_logout/')					
 				)
 			),						
-			//9 => array('icon' => 'catalog.png', 'text' => __('Launch Site', true), 'path' => '/', 'attributes' => array('target' => 'blank'))
+			9 => array('icon' => 'catalog.png', 'text' => __('Launch Site', true), 'path' => '/', 'attributes' => array('target' => 'blank'))
 		);
 		
 		// Add module navigation elements
