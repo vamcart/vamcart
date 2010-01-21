@@ -245,7 +245,7 @@ class AppController extends Controller {
 		foreach($modules AS $module)
 		{
 			$nav_level = $module['Module']['nav_level'];
-			$navigation[$nav_level]['children'][] = array('text' => $module['Module']['name'], 'path' => '/module_' . $module['Module']['alias'] . '/admin/admin_index/', 'attributes' => array('class' => 'module'));
+			$navigation[$nav_level]['children'][] = array('icon' => $module['Module']['alias'].'.png', 'text' => $module['Module']['name'], 'path' => '/module_' . $module['Module']['alias'] . '/admin/admin_index/', 'attributes' => array('class' => 'module'));
 		}
 		
 		return($navigation);
