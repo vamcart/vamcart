@@ -178,28 +178,27 @@ class AppController extends Controller {
 	{
 		// Navigation Menu Array
 		$navigation = array(
-			1 => array('text' => __('Home', true), 'path' => '/admin/admin_top/'
-			),	
-			2 => array('text' => __('Orders', true), 'path' => '/admin/admin_top/2', 
+			//1 => array('icon' => 'categories.png', 'text' => __('Home', true), 'path' => '/admin/admin_top/'),	
+			2 => array('icon' => 'categories.png', 'text' => __('Orders', true), 'path' => '/admin/admin_top/2', 
 				'children' => array(
 					1 => array('text' => __('All Orders', true), 'path' => '/orders/admin/')
 				)			
 			),				
-			3 => array('text' => __('Contents', true), 'path' => '/admin/admin_top/3',
+			3 => array('icon' => 'categories.png', 'text' => __('Contents', true), 'path' => '/admin/admin_top/3',
 				'children' => array(
 					1 => array('icon' => 'categories.png', 'text' => __('Categories & Products', true), 'path' => '/contents/admin/'),
 					2 => array('icon' => 'pages.png', 'text' => __('Pages', true), 'path' => '/contents/admin_core_pages/'),
 					3 => array('icon' => 'blocks.png', 'text' => __('Content Blocks', true), 'path' => '/global_content_blocks/admin/')
 				)
 			),
-			4 => array('text' => __('Layout', true), 'path' => '/admin/admin_top/4',
+			4 => array('icon' => 'categories.png', 'text' => __('Layout', true), 'path' => '/admin/admin_top/4',
 				'children' => array(
 					1 => array('text' => __('Templates', true), 'path' => '/templates/admin/'),
 					2 => array('text' => __('Stylesheets', true), 'path' => '/stylesheets/admin/'),
 					3 => array('text' => __('Micro Templates', true), 'path' => '/micro_templates/admin/')									
 				)
 			),
-			5 => array('text' => __('Configurations', true), 'path' => '/admin/admin_top/5',
+			5 => array('icon' => 'categories.png', 'text' => __('Configurations', true), 'path' => '/admin/admin_top/5',
 				'children' => array(
 					1 => array('text' => __('Store Settings', true), 'path' => '/configuration/admin_edit/'),
 					2 => array('text' => __('Order status', true), 'path' => '/order_status/admin/'),
@@ -210,7 +209,7 @@ class AppController extends Controller {
 					7 => array('text' => __('Email Templates', true), 'path' => '/email_template/admin/')
 				)
 			),	
-			6 => array('text' => __('Locale', true), 'path' => '/admin/admin_top/6',
+			6 => array('icon' => 'categories.png', 'text' => __('Locale', true), 'path' => '/admin/admin_top/6',
 				'children' => array(
 					1 => array('text' => __('Currencies', true), 'path' => '/currencies/admin/'),
 					2 => array('text' => __('Languages', true), 'path' => '/languages/admin/'),
@@ -218,7 +217,7 @@ class AppController extends Controller {
 					4 => array('text' => __('Defined Languages', true), 'path' => '/defined_languages/admin/')															
 				)
 			),					
-			7 => array('text' => __('Extensions', true), 'path' => '/admin/admin_top/7',
+			7 => array('icon' => 'categories.png', 'text' => __('Extensions', true), 'path' => '/admin/admin_top/7',
 				'children' => array(
 					1 => array('text' => __('Modules', true), 'path' => '/modules/admin/'),
 					2 => array('text' => __('Tags', true), 'path' => '/tags/admin/'),
@@ -226,7 +225,7 @@ class AppController extends Controller {
 					4 => array('text' => __('Events', true), 'path' => '/events/admin/')
 				)
 			),									
-			8 => array('text' => __('Account', true), 'path' => '/admin/admin_top/8',
+			8 => array('icon' => 'categories.png', 'text' => __('Account', true), 'path' => '/admin/admin_top/8',
 				'children' => array(
 					1 => array('text' => __('Manage Accounts', true), 'path' => '/users/admin/'),
 					2 => array('text' => __('My Account', true), 'path' => '/users/admin_user_account/'),
@@ -234,9 +233,7 @@ class AppController extends Controller {
 					4 => array('text' => __('Logout', true), 'path' => '/users/admin_logout/')					
 				)
 			),						
-			9 => array('text' => __('Launch Site', true), 'path' => '/', 'attributes' => array('target' => 'blank')
-				
-			)
+			//9 => array('icon' => 'categories.png', 'text' => __('Launch Site', true), 'path' => '/', 'attributes' => array('target' => 'blank'))
 		);
 		
 		// Add module navigation elements
