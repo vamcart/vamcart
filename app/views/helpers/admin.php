@@ -185,7 +185,13 @@ class AdminHelper extends Helper {
 		if(!isset($menuitem['attributes']))
 			$menuitem['attributes'] = "";
 			
-		return($this->Html->link(__($menuitem['text'], true),$menuitem['path'],$menuitem['attributes'],null,false));
+		if(isset($menuitem['icon'])) {
+			$link = $this->Html->link($this->Html->image('admin/icons/menu/'.$menuitem['icon'], array('width' => 12, 'height' => 12, 'alt' => '')).' '.__($menuitem['text'], true),$menuitem['path'],$menuitem['attributes'],null,false);
+		} else {
+			$link =  $this->Html->link(__($menuitem['text'], true),$menuitem['path'],$menuitem['attributes'],null,false);
+		}
+			
+		return($link);
 	}
 	
 	

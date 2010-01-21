@@ -3,7 +3,7 @@
    VaM Cart
    http://vamcart.ru
    http://vamcart.com
-   Copyright 2009-2010 VaM Cart
+   Copyright 2009 VaM Cart
    -----------------------------------------------------------------------------------------
    Portions Copyright:
    Copyright 2007 by Kevin Grandon (kevingrandon@hotmail.com)
@@ -187,9 +187,9 @@ class AppController extends Controller {
 			),				
 			3 => array('text' => __('Contents', true), 'path' => '/admin/admin_top/3',
 				'children' => array(
-					1 => array('text' => __('Categories & Products', true), 'path' => '/contents/admin/'),
-					2 => array('text' => __('Pages', true), 'path' => '/contents/admin_core_pages/'),
-					3 => array('text' => __('Content Blocks', true), 'path' => '/global_content_blocks/admin/')
+					1 => array('icon' => 'categories.png', 'text' => __('Categories & Products', true), 'path' => '/contents/admin/'),
+					2 => array('icon' => 'pages.png', 'text' => __('Pages', true), 'path' => '/contents/admin_core_pages/'),
+					3 => array('icon' => 'blocks.png', 'text' => __('Content Blocks', true), 'path' => '/global_content_blocks/admin/')
 				)
 			),
 			4 => array('text' => __('Layout', true), 'path' => '/admin/admin_top/4',
