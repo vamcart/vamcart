@@ -265,6 +265,9 @@ way to fit your requirements.
 	{
 		display: block;
 		width: 188px;
+		border-bottom: 1px solid #e8e9ea;
+		border-left: 1px solid #e8e9ea;
+		border-right: 1px solid #e8e9ea;
 	}
 
 #menu li:hover dl, 
