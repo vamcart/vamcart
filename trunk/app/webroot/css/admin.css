@@ -146,8 +146,8 @@ div#footer p
 
 div#menu
 	{
-		border-top: 3px solid #ff9c0f;
-		background: #85A6B6;
+		border-top: 3px solid #ff7b08;
+		background: url(../img/admin/menu-bg.png) repeat-x left top;
 		padding: 0;
 		margin: 0;
 		width: 100%;
@@ -179,8 +179,8 @@ way to fit your requirements.
 		z-index: 100; 
 		margin: 0;
 		padding: 0;
-		background: #85A6B6;
-		border-right: 0px solid #91afba;
+		color: #000;
+		background: url(../img/admin/menu-bg.png) repeat-x left top;
 	}
 	
 #menu li span a
@@ -194,7 +194,7 @@ way to fit your requirements.
 #menu li a:visited 
 	{
 		display: block; 
-		color: #fff;
+		color: #000;
 		text-decoration: none;
 		margin: 0 0 0 0;
 	}
@@ -213,28 +213,26 @@ way to fit your requirements.
 		left: 0; 
 		margin: 0; 
 		padding: 0; 
-		background: #85A6B6 url(../img/admin/transparency.png);
+		background: url(../img/admin/menu-content-bg.png) repeat-x left top;
 	}
 
 #menu dt 
 	{
 		margin: 0; 
 		padding: 0;
-		border-bottom: 0px solid #fff; 
 		float: left; 
-		border-right: 0px solid #91afba;
-		background: #85A6B6;
+		background: url(../img/admin/menu-bg.png) repeat-x left top;
 	}
 
 #menu dd 
 	{
 		display: none; 
-		background: transparent; 
-		border-bottom: 1px solid #91afba; 
+		background: transparent;
+		border-bottom: 0px solid #91afba; 
 		clear:left; 
 		margin: 0; 
 		padding: 0; 
-		color: #fff; 
+		color: #000;
 		text-align: left;
 	}
 
@@ -242,7 +240,7 @@ way to fit your requirements.
 #menu dt a:visited 
 	{
 		display: block; 
-		color: #fff;
+		color: #000;
 		padding: 5px 10px; 
 		text-decoration: none;
 	}
@@ -250,8 +248,8 @@ way to fit your requirements.
 #menu dd a, 
 #menu dd a:visited 
 	{
-		background: #85A6B6;
-		color: #fff; 
+		background: transparent;
+		color: #000;
 		text-decoration: none; 
 		display: block; 
 		padding: 5px 10px;
@@ -279,8 +277,8 @@ way to fit your requirements.
 #menu li a:hover dt a, 
 #menu dd a:hover 
 	{
-		background: #91afba; 
-		color: #fff;
+		background: #ff7b08; 
+		color: #000;
 	}
    
 /* /Menu */
