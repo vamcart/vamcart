@@ -992,19 +992,20 @@ CREATE TABLE `payment_methods` (
   `active` tinyint(4) NOT NULL,
   `default` tinyint(4) NOT NULL,
   `name` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `icon` varchar(255) collate utf8_unicode_ci NOT NULL,
   `alias` varchar(255) collate utf8_unicode_ci NOT NULL,
   `order` int(10) NOT NULL,
   `order_status_id` int(10) NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `payment_methods` (`id`, `active`, `default`, `name`, `alias`, `order`, `order_status_id`) VALUES 
-(1, 1, 0, 'In-store Pickup', 'store_pickup', 0, 0),
-(2, 1, 1, 'Money Order Check', 'money_order_check', 0, 0),
-(3, 1, 0, 'Paypal', 'paypal', 0, 0),
-(4, 1, 0, 'Credit Card', 'credit_card', 0, 0),
-(5, 1, 0, 'Authorize.Net', 'authorize', 0, 0),
-(6, 1, 0, 'Google Checkout', 'google_html', 0, 0);
+INSERT INTO `payment_methods` (`id`, `active`, `default`, `name`, `icon`, `alias`, `order`, `order_status_id`) VALUES 
+(1, 1, 0, 'In-store Pickup', '', 'store_pickup', 0, 0),
+(2, 1, 1, 'Money Order Check', '', 'money_order_check', 0, 0),
+(3, 1, 0, 'Paypal', 'paypal.png', 'paypal', 0, 0),
+(4, 1, 0, 'Credit Card', '', 'credit_card', 0, 0),
+(5, 1, 0, 'Authorize.Net', '', 'authorize', 0, 0),
+(6, 1, 0, 'Google Checkout', '', 'google_html', 0, 0);
 
 DROP TABLE IF EXISTS payment_method_values;
 CREATE TABLE `payment_method_values` (
@@ -1049,6 +1050,7 @@ DROP TABLE IF EXISTS shipping_methods;
 CREATE TABLE `shipping_methods` (
   `id` int(10) NOT NULL auto_increment,
   `name` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `icon` varchar(255) collate utf8_unicode_ci NOT NULL,
   `code` varchar(255) collate utf8_unicode_ci NOT NULL,
   `default` tinyint(4) NOT NULL default '0',
   `active` tinyint(4) NOT NULL,
@@ -1056,11 +1058,11 @@ CREATE TABLE `shipping_methods` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `shipping_methods` (`id`, `name`, `code`, `default`, `active`, `order`) VALUES 
-(1, 'Free Shipping', 'free_shipping', 0, 1, 0),
-(2, 'Flat Rate', 'flat_rate', 1, 1, 0),
-(3, 'Per Item', 'per_item', 0, 1, 0),
-(4, 'Table Based', 'table_based', 0, 1, 0);
+INSERT INTO `shipping_methods` (`id`, `name`, `icon`, `code`, `default`, `active`, `order`) VALUES 
+(1, 'Free Shipping', '', 'free_shipping', 0, 1, 0),
+(2, 'Flat Rate', '', 'flat_rate', 1, 1, 0),
+(3, 'Per Item', '', 'per_item', 0, 1, 0),
+(4, 'Table Based', '', 'table_based', 0, 1, 0);
 
 DROP TABLE IF EXISTS shipping_method_values;
 CREATE TABLE `shipping_method_values` (
