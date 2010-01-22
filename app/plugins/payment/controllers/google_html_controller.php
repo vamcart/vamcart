@@ -15,6 +15,7 @@ class GoogleHtmlController extends PaymentAppController {
 	var $uses = array('PaymentMethod', 'Order');
 	var $components = array('OrderBase');
 	var $module_name = 'google_html';
+	var $icon = 'googlecheckout.png';
 
 	function settings ()
 	{
@@ -27,6 +28,7 @@ class GoogleHtmlController extends PaymentAppController {
 		$new_module = array();
 		$new_module['PaymentMethod']['active'] = '1';
 		$new_module['PaymentMethod']['name'] = Inflector::humanize($this->module_name);
+		$new_module['PaymentMethod']['icon'] = $this->icon;
 		$new_module['PaymentMethod']['alias'] = $this->module_name;
 
 		$new_module['PaymentMethodValue'][0]['payment_method_id'] = $this->PaymentMethod->id;
