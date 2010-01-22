@@ -39,7 +39,7 @@ $template = '
 				  checked="checked"
 				 {/if}
 				/>
-				<label for="ship_{$ship_method.id}">{if $ship_method.icon}<img src="{$ship_method.icon}" alt="{$ship_method.name}" title="{$ship_method.name}" />&nbsp;{/if}{lang}{$ship_method.name}{/lang}{if $ship_method.cost_plain > 0} - {$ship_method.cost}{/if}</label>
+				<label for="ship_{$ship_method.id}">{if $ship_method.icon}<img src="{base_path}/img/icons/shipping/{$ship_method.icon}" alt="{$ship_method.name}" title="{$ship_method.name}" />&nbsp;{/if}{lang}{$ship_method.name}{/lang}{if $ship_method.cost_plain > 0} - {$ship_method.cost}{/if}</label>
 			</div>
 		{/foreach}
 	</div>
@@ -54,7 +54,7 @@ $template = '
 				  checked="checked"
 				 {/if}				
 				/>
-				<label for="payment_{$payment_method.id}">{if $payment_method.icon}<img src="{$payment_method.icon}" alt="{$payment_method.name}" title="{$payment_method.name}" />&nbsp;{/if}{lang}{$payment_method.name}{/lang}</label>
+				<label for="payment_{$payment_method.id}">{if $payment_method.icon}<img src="{base_path}/img/icons/payment/{$payment_method.icon}" alt="{$payment_method.name}" title="{$payment_method.name}" />&nbsp;{/if}{lang}{$payment_method.name}{/lang}</label>
 			</div>
 		{/foreach}		
 	</div>
@@ -197,9 +197,11 @@ function smarty_function_checkout($params, &$smarty)
 		$MethodBase =& new $shipping_controller();
 		
 		$ship_method_id = $method['ShippingMethod']['id'];
+		
 		$keyed_ship_methods[$ship_method_id] = array(
 										  'id' => $ship_method_id,
 										  'name' => $method['ShippingMethod']['name'],
+										  'icon' => (isset($method['ShippingMethod']['icon']) && file_exists(IMAGES . 'icons/shipping/' . $method['ShippingMethod']['icon'])) ? $method['ShippingMethod']['icon'] : false,
 										  'cost_plain' => $MethodBase->calculate(),
 										  'cost' => $CurrencyBase->display_price($MethodBase->calculate())
 										  );
@@ -213,9 +215,11 @@ function smarty_function_checkout($params, &$smarty)
 	foreach($active_payment_methods AS $method)
 	{
 		$payment_method_id = $method['PaymentMethod']['id'];
+
 		$keyed_payment_methods[$payment_method_id] = array(
 										  'id' => $payment_method_id,
-										  'name' => $method['PaymentMethod']['name']
+										  'name' => $method['PaymentMethod']['name'],
+										  'icon' => (isset($method['PaymentMethod']['icon']) && file_exists(IMAGES . 'icons/payment/' . $method['PaymentMethod']['icon'])) ? $method['PaymentMethod']['icon'] : false
 										  );
 
 	}			
