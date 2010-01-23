@@ -95,7 +95,7 @@
 			echo '<ul>';
 	foreach($languages AS $language)
 	{
-			echo $admin->CreateTab('language_'.$language['Language']['id'],$language['Language']['name'], 'main.png');
+			echo $admin->CreateTab('language_'.$language['Language']['id'],$language['Language']['name']);
 	}
 			echo '</ul>';
 	
