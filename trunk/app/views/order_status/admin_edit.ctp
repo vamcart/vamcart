@@ -12,7 +12,13 @@
    ---------------------------------------------------------------------------------------*/
 
 	echo $javascript->link('modified', false);
-        echo $form->create('OrderStatus', array('id' => 'contentform', 'action' => '/order_status/admin_edit/' . $data['OrderStatus']['id'], 'url' => '/order_status/admin_edit/' . $data['OrderStatus']['id']));
+	echo $javascript->link('jquery/jquery.min', false);
+	echo $javascript->link('jquery/plugins/ui.core', false);
+	echo $javascript->link('jquery/plugins/ui.tabs', false);
+	echo $javascript->link('tabs', false);
+	echo $html->css('jquery/plugins/ui.tabs','','', false);
+
+	echo $form->create('OrderStatus', array('id' => 'contentform', 'action' => '/order_status/admin_edit/' . $data['OrderStatus']['id'], 'url' => '/order_status/admin_edit/' . $data['OrderStatus']['id']));
 	echo $form->inputs(array(
 					'legend' => null,
 					'fieldset' => __('Order Status Details', true),
@@ -21,10 +27,20 @@
 						'value' => $data['OrderStatus']['id']
 	               )
 		 ));
-
+	
+	echo $admin->StartTabs();
+			echo '<ul>';
+	foreach($languages AS $language)
+	{
+			echo $admin->CreateTab('language_'.$language['Language']['id'],$language['Language']['name']);
+	}
+			echo '</ul>';
+			
 	foreach($languages AS $language)
 	{
 		$language_key = $language['Language']['id'];
+		
+		echo $admin->StartTabContent('language_'.$language_key);
 		
 	   	echo $form->inputs(array(
 						'legend' => null,
@@ -33,8 +49,13 @@
 						'value' => $data['OrderStatusDescription'][$language_key]['name']
 	            	  ) 	   																									
 				));
+				
+	echo $admin->EndTabContent();
+	
 	}
 	
+	echo $admin->EndTabs();
+		
 	echo $form->submit( __('Submit', true), array('name' => 'submit')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clear"></div>';
 	echo $form->end();
