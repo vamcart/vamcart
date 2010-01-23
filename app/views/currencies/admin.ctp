@@ -12,7 +12,6 @@
    ---------------------------------------------------------------------------------------*/
 
 echo $javascript->link('jquery/jquery.min', false);
-echo $javascript->link('tabs', false);
 echo $javascript->link('selectall', false);
 
 echo $form->create('Currency', array('action' => '/currencies/admin_modify_selected/', 'url' => '/currencies/admin_modify_selected/'));

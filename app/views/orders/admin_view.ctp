@@ -12,17 +12,17 @@
    ---------------------------------------------------------------------------------------*/
 
 	echo $javascript->link('modified', false);
-        echo $javascript->link('jquery/jquery.min', false);
+	echo $javascript->link('jquery/jquery.min', false);
 	echo $javascript->link('jquery/plugins/jquery-ui.min', false);
 	echo $javascript->link('tabs', false);
 	echo $html->css('jquery/plugins/ui/css/smoothness/jquery-ui','','', false);
 
 	echo $admin->StartTabs();
 			echo '<ul>';
-			echo $admin->CreateTab('customer',__('Customer', true));
-			echo $admin->CreateTab('order',__('Products', true));	
-			echo $admin->CreateTab('comments',__('Order Comments', true));
-			echo $admin->CreateTab('status',__('New Comment', true));	
+			echo $admin->CreateTab('customer',__('Customer', true), 'customer.png');
+			echo $admin->CreateTab('order',__('Products', true), 'products.png');	
+			echo $admin->CreateTab('comments',__('Order Comments', true), 'comment.png');
+			echo $admin->CreateTab('status',__('New Comment', true), 'comment_add.png');	
 			echo '</ul>';
 
 		   		   

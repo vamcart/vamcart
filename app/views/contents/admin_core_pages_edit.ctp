@@ -12,7 +12,7 @@
    ---------------------------------------------------------------------------------------*/
 
 	echo $javascript->link('modified', false);
-        echo $javascript->link('jquery/jquery.min', false);
+	echo $javascript->link('jquery/jquery.min', false);
 	echo $javascript->link('jquery/plugins/jquery-ui.min', false);
 	echo $javascript->link('tabs', false);
 	echo $html->css('jquery/plugins/ui/css/smoothness/jquery-ui','','', false);
@@ -21,8 +21,8 @@
 	
 	echo $admin->StartTabs();
 			echo '<ul>';
-			echo $admin->CreateTab('main',__('Main',true));
-			echo $admin->CreateTab('options',__('Options',true));			
+			echo $admin->CreateTab('main',__('Main',true), 'main.png');
+			echo $admin->CreateTab('options',__('Options',true), 'options.png');			
 			echo '</ul>';
 	
 	echo $admin->StartTabContent('main');

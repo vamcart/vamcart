@@ -25,9 +25,9 @@ $yes_no_options[1] = __('yes', true);
 
 	echo $admin->StartTabs();
 			echo '<ul>';
-			echo $admin->CreateTab('main',__('Main',true));
-			echo $admin->CreateTab('caching',__('Caching',true));	
-			echo $admin->CreateTab('email',__('Email Settings',true));	
+			echo $admin->CreateTab('main',__('Main',true), 'main.png');
+			echo $admin->CreateTab('caching',__('Caching',true), 'cache.png');	
+			echo $admin->CreateTab('email',__('Email Settings',true), 'email.png');	
 			echo '</ul>';
 
 	echo $admin->StartTabContent('main');
