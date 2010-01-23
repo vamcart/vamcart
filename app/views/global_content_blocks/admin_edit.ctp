@@ -13,9 +13,10 @@
 
 	echo $javascript->link('modified', false);
 	echo $javascript->link('jquery/jquery.min', false);
-	echo $javascript->link('jquery/plugins/jquery-ui.min', false);
+	echo $javascript->link('jquery/plugins/ui.core', false);
+	echo $javascript->link('jquery/plugins/ui.tabs', false);
 	echo $javascript->link('tabs', false);
-	echo $html->css('jquery/plugins/ui/css/smoothness/jquery-ui','','', false);
+	echo $html->css('jquery/plugins/ui.tabs','','', false);
 
 	$id = $this->data['GlobalContentBlock']['id'];
 	echo $form->create('GlobalContentBlock', array('id' => 'contentform', 'action' => '/global_content_blocks/admin_edit/'.$id, 'url' => '/global_content_blocks/admin_edit/'.$id));
