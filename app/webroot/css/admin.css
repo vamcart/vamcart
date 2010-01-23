@@ -381,7 +381,7 @@ div.input textarea
 	{
 		overflow: auto; 
 		width: 80%; 
-		height: 25em; 
+		height: 20em; 
 		border: 1px solid; 
 		border-color: #666 #ccc #ccc #666; 
 		padding: .3em; 
