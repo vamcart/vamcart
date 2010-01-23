@@ -14,9 +14,10 @@
 <?php
 	echo $javascript->link('modified', false);
 	echo $javascript->link('jquery/jquery.min', false);
-	echo $javascript->link('jquery/plugins/jquery-ui.min', false);
+	echo $javascript->link('jquery/plugins/ui.core', false);
+	echo $javascript->link('jquery/plugins/ui.tabs', false);
 	echo $javascript->link('tabs', false);
-	echo $html->css('jquery/plugins/ui/css/smoothness/jquery-ui','','', false);
+	echo $html->css('jquery/plugins/ui.tabs','','', false);
 	echo $tinyMce->init();
 ?>
 <?php echo $javascript->codeBlock('
@@ -88,12 +89,23 @@
 						'selected' => $data['Content']['template_id']
 	            	  )));
 	echo '</div>';	
+
+
+	echo $admin->StartTabs('sub-tabs');
+			echo '<ul>';
+	foreach($languages AS $language)
+	{
+			echo $admin->CreateTab('language_'.$language['Language']['id'],$language['Language']['name'], 'main.png');
+	}
+			echo '</ul>';
 	
 	// Loop through the languages and display a name and descrition for each
 	foreach($languages AS $language)
 	{
 		$language_key = $language['Language']['id'];
-		
+
+	echo $admin->StartTabContent('language_'.$language_key);
+			
 		echo $form->inputs(array(
 						'legend' => null,
 						'ContentDescription]['.$language['Language']['id'].'][name.' . $language['Language']['id'] => array(
@@ -136,8 +148,10 @@
 						'value' => $data['ContentDescription'][$language_key]['meta_keywords']
 	            	  )));																								
 
+	echo $admin->EndTabContent();
 	}
 		
+	echo $admin->EndTabs();
 		
 	echo $admin->EndTabContent();
 
