@@ -49,9 +49,14 @@ class AdminHelper extends Helper {
 	* @return string	Returns the beginning of a formatted <div> element
 	*/
 	
-	function StartTabs ()
+	function StartTabs ($id = null)
 	{
-		return('<div id="tabs">');	
+		if (isset($id)) {
+			$content = '<div id="'.$id.'">';
+		} else {
+			$content = '<div id="tabs">';
+		}
+		return $content;
 	}
 	
 	/**
