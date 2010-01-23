@@ -60,9 +60,14 @@ class AdminHelper extends Helper {
 	* @param  string  $tab_alias Alias of the tab.
 	* @return string	A <div> element to be used as a tab.
 	*/	
-	function CreateTab ($tab_alias, $tab_name = null)
+	function CreateTab ($tab_alias, $tab_name = null, $icon = null)
 	{
-		return('<li><a href ="#' . $tab_alias . '">' . $tab_name . '</a></li>');
+		if (isset($icon) && file_exists(IMAGES . 'admin/icons/tabs/' . $icon)) {
+			$content = '<li><a href ="#' . $tab_alias . '">'.$this->Html->image('admin/icons/tabs/'.$icon, array('alt' => '')).'&nbsp;' . $tab_name . '</a></li>';
+		} else {
+			$content = '<li><a href ="#' . $tab_alias . '">' . $tab_name . '</a></li>';
+		}
+		return $content;
 	}	
 
 	/**
