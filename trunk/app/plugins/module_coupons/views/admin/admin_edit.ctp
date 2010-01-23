@@ -22,8 +22,8 @@
 
 	echo $admin->StartTabs();
 			echo '<ul>';
-			echo $admin->CreateTab('main',__('Main',true));
-			echo $admin->CreateTab('restrictions',__('Restrictions',true));			
+			echo $admin->CreateTab('main',__('Main',true), 'main.png');
+			echo $admin->CreateTab('restrictions',__('Restrictions',true), 'restrictions.png');			
 			echo '</ul>';
 	
 echo $admin->StartTabContent('main');
