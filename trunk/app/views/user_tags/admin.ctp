@@ -11,7 +11,6 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-echo $javascript->link('tabs', false);
 echo $javascript->link('selectall', false);
 
 echo $form->create('UserTag', array('action' => '/UserTags/admin_modify_selected/', 'url' => '/UserTags/admin_modify_selected/'));

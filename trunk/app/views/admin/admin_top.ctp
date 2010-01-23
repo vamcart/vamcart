@@ -18,8 +18,8 @@
 
 	echo $admin->StartTabs();
 			echo '<ul>';
-			echo $admin->CreateTab('home',__('Home',true));
-			echo $admin->CreateTab('orders',__('Orders',true));			
+			echo $admin->CreateTab('home',__('Home',true), 'home.png');
+			echo $admin->CreateTab('orders',__('Orders',true), 'orders.png');			
 			echo '</ul>';
 	
 	echo $admin->StartTabContent('home');
