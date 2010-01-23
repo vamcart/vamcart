@@ -68,9 +68,9 @@ class AdminHelper extends Helper {
 	function CreateTab ($tab_alias, $tab_name = null, $icon = null)
 	{
 		if (isset($icon) && file_exists(IMAGES . 'admin/icons/tabs/' . $icon)) {
-			$content = '<li><a href ="#' . $tab_alias . '">'.$this->Html->image('admin/icons/tabs/'.$icon, array('alt' => '')).'&nbsp;' . $tab_name . '</a></li>';
+			$content = '<li><a href ="#' . $tab_alias . '"><span>' . $this->Html->image('admin/icons/tabs/'.$icon, array('alt' => '')).'&nbsp;' . $tab_name . '</span></a></li>';
 		} else {
-			$content = '<li><a href ="#' . $tab_alias . '">' . $tab_name . '</a></li>';
+			$content = '<li><a href ="#' . $tab_alias . '"><span>' . $tab_name . '</span></a></li>';
 		}
 		return $content;
 	}	
