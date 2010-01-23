@@ -63,10 +63,20 @@
 	            	  )));
 	echo '</div>';	
 	
+	echo $admin->StartTabs('sub-tabs');
+			echo '<ul>';
+	foreach($languages AS $language)
+	{
+			echo $admin->CreateTab('language_'.$language['Language']['id'],$language['Language']['name']);
+	}
+			echo '</ul>';
+	
 	// Loop through the languages and display a name and descrition for each
 	foreach($languages AS $language)
 	{
 		$language_key = $language['Language']['id'];
+		
+		echo $admin->StartTabContent('language_'.$language_key);
 		
 		echo $form->inputs(array(
 						'legend' => null,
@@ -106,8 +116,11 @@
 						'value' => $data['ContentDescription'][$language_key]['meta_keywords']
 	            	  )));																								
 								  
+	echo $admin->EndTabContent();
+	
 	}
 		
+	echo $admin->EndTabs();
 		
 	echo $admin->EndTabContent();
 
