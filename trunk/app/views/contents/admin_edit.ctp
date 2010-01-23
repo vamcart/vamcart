@@ -40,10 +40,10 @@
 	
 	echo $admin->StartTabs();
 			echo '<ul>';
-			echo $admin->CreateTab('main',__('Main', true));
-			echo $admin->CreateTab('view_images',__('View Images', true));	
-			echo $admin->CreateTab('upload_images',__('Upload Images', true));			
-			echo $admin->CreateTab('options',__('Options', true));			
+			echo $admin->CreateTab('main',__('Main', true), 'main.png');
+			echo $admin->CreateTab('view_images',__('View Images', true), 'images.png');	
+			echo $admin->CreateTab('upload_images',__('Upload Images', true), 'image_add.png');			
+			echo $admin->CreateTab('options',__('Options', true), 'options.png');			
 			echo '</ul>';
 	
 	echo $admin->StartTabContent('main');
