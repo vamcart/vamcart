@@ -35,18 +35,36 @@
 &nbsp;
 </div>
 
-<!-- Navigation -->
-<div id="navigation">
-</div>
-<!-- /Navigation -->
-
 <!-- Content -->
 <div id="wrapper">
 <div id="content">
 
 <?php if($session->check('Message.flash')) $session->flash(); ?>
 
+<?php
+if(isset($current_crumb)) { 
+?>
+<div class="page">
+<div class="breadCrumbs">
+<?php
+echo $admin->GenerateBreadcrumbs($navigation, $current_crumb);
+?>
+</div>
+<div class="pageContent">
+<?php
+} 
+?>
+
 <?php echo $content_for_layout ?>
+
+<?php
+if(isset($current_crumb)) { 
+?>
+</div>
+</div>
+<?php
+} 
+?>
 
 </div>
 </div>
