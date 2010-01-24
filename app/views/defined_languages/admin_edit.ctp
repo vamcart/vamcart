@@ -33,7 +33,7 @@
 			echo '<ul>';
 	foreach($languages AS $language)
 	{
-			echo $admin->CreateTab('language_'.$language['Language']['id'],$language['Language']['name']);
+			echo $admin->CreateTab('language_'.$language['Language']['id'],$language['Language']['name'],$language['Language']['iso_code_2'].'.png');
 	}
 			echo '</ul>';
 	
