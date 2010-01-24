@@ -18,6 +18,10 @@
 	echo $javascript->link('tabs', false);
 	echo $html->css('jquery/plugins/ui.tabs','','', false);
 
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'abandoned.png').'</h2>';
+echo '<div class="pageContent">';
+
 echo $admin->StartTabs();
 			echo '<ul>';
 			echo $admin->CreateTab('main',__('Main',true), 'main.png');
@@ -50,5 +54,8 @@ echo $admin->StartTabContent('options');
 echo $admin->EndTabContent();
 
 echo $admin->EndTabs();
+
+echo '</div>';
+echo '</div>';
 
 ?>

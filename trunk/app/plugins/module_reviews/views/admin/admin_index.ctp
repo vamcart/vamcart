@@ -11,9 +11,12 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'reviews.png').'</h2>';
+echo '<div class="pageContent">';
+
 echo '<table class="contentTable">';
 echo $html->tableHeaders(array( __('Author', true), __('Date', true), __('Product', true), __('Action', true)));
-
 
 foreach ($reviews AS $review)
 {
@@ -29,5 +32,7 @@ echo '</table>';
 
 echo $admin->EmptyResults($reviews);
 
+echo '</div>';
+echo '</div>';
 
 ?>
