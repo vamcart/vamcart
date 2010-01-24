@@ -12,7 +12,12 @@
    ---------------------------------------------------------------------------------------*/
 
 	echo $javascript->link('modified', false);
-        $id = $this->data['MicroTemplate']['id'];
+	$id = $this->data['MicroTemplate']['id'];
+
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'edit.png').'</h2>';
+echo '<div class="pageContent">';
+
 	echo $form->create('MicroTemplate', array('id' => 'contentform', 'action' => '/micro_templates/admin_edit/'.$id, 'url' => '/micro_templates/admin_edit/'.$id));
 		
 		echo $form->inputs(array(
@@ -37,4 +42,5 @@
 	echo '<div class="clear"></div>';
 	echo $form->end();
 	?>
+</div>
 </div>

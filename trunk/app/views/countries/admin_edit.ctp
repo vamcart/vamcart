@@ -18,6 +18,10 @@
 	echo $javascript->link('tabs', false);
 	echo $html->css('jquery/plugins/ui.tabs','','', false);
 
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'edit.png').'</h2>';
+echo '<div class="pageContent">';
+
 	echo $form->create('Country', array('id' => 'contentform', 'action' => '/countries/admin_edit/' . $data['Country']['id'], 'url' => '/countries/admin_edit/' . $data['Country']['id']));
 	
 	echo $admin->StartTabs();
@@ -67,4 +71,5 @@
 	echo '<div class="clear"></div>';
 	echo $form->end();
 	?>
+</div>
 </div>

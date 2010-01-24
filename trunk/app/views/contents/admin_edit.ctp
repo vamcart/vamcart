@@ -30,6 +30,11 @@
 	});
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
 <?php
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'content_edit.png').'</h2>';
+echo '<div class="pageContent">';
+?>
+<?php
 	
 	// Set default div styling for template_requured container divs
 	if(($data['ContentType']['template_type_id'] > 0)||(empty($data)))
@@ -254,4 +259,5 @@
 	echo '<div class="clear"></div>';
 	echo $form->end();
 	?>
+</div>
 </div>

@@ -13,6 +13,10 @@
 
 echo $javascript->link('jquery/jquery.min', false);
 
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'templates.png').'</h2>';
+echo '<div class="pageContent">';
+
 echo '<table class="contentTable">';
 
 echo $html->tableHeaders(array(__('Title', true), __('Default', true), __('Action', true),'&nbsp;'));
@@ -58,4 +62,8 @@ echo '</table>';
 
 echo $admin->CreateNewLink(); 
 echo $form->end(); 
+
+echo '</div>';
+echo '</div>';
+
 ?>

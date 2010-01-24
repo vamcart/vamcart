@@ -12,7 +12,12 @@
    ---------------------------------------------------------------------------------------*/
 
 	echo $javascript->link('modified', false);
-        echo $form->create('UserPref', array('id' => 'contentform', 'action' => '/users/admin_user_preferences/', 'url' => '/users/admin_user_preferences/'));
+
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'prefences.png').'</h2>';
+echo '<div class="pageContent">';
+
+	echo $form->create('UserPref', array('id' => 'contentform', 'action' => '/users/admin_user_preferences/', 'url' => '/users/admin_user_preferences/'));
 
 echo $form->inputs(array(
 		'legend' => null,
@@ -28,4 +33,8 @@ echo $form->inputs(array(
 	echo $form->submit( __('Apply', true), array('name' => 'applybutton')) . $form->submit( __('Cancel', true), array('name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';
 	echo $form->end();	   
+	
+echo '</div>';
+echo '</div>';
+	
 ?>

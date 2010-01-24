@@ -11,6 +11,10 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'zones.png').'</h2>';
+echo '<div class="pageContent">';
+
 echo '<table class="contentTable">';
 
 echo $html->tableHeaders(array( __('Title', true), __('Code', true), __('Action', true)));
@@ -29,4 +33,8 @@ echo '</table>';
 //echo $admin->ActionBar(array('delete'=>__('Delete',true)));
 echo $form->end();
 echo $admin->CreateNewLink($country['Country']['id']);
+
+echo '</div>';
+echo '</div>';
+
 ?>

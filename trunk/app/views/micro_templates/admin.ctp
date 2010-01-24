@@ -11,6 +11,10 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'micro-templates.png').'</h2>';
+echo '<div class="pageContent">';
+
 echo '<table class="contentTable">';
 echo $html->tableHeaders(array( __('Alias', true), __('Call (Template Placeholder)', true),  __('Action', true)));
 
@@ -25,4 +29,8 @@ foreach ($micro_templates AS $micro_template)
 }
 echo '</table>';
 echo $admin->CreateNewLink();
+
+echo '</div>';
+echo '</div>';
+
 ?>

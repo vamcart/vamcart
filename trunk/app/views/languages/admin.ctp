@@ -14,6 +14,10 @@
 echo $javascript->link('jquery/jquery.min', false);
 echo $javascript->link('selectall', false);
 
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'languages.png').'</h2>';
+echo '<div class="pageContent">';
+
 echo $form->create('Language', array('action' => '/languages/admin_modify_selected/', 'url' => '/languages/admin_modify_selected/'));
 
 echo '<table class="contentTable">';
@@ -38,5 +42,8 @@ foreach ($language_data AS $language)
 echo '</table>';
 
 echo $admin->ActionBar(array('activate'=>__('Activate',true),'deactivate'=>__('Deactivate',true),'delete'=>__('Delete',true)));
+
+echo '</div>';
+echo '</div>';
 
 ?>

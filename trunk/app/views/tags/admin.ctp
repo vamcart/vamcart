@@ -11,6 +11,10 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'tags.png').'</h2>';
+echo '<div class="pageContent">';
+
 echo '<table class="contentTable">';
 
 echo $html->tableHeaders(array( __('Title', true),'&nbsp;'));
@@ -34,5 +38,8 @@ foreach($files AS $tag)
 }
 
 echo '</table>';
+
+echo '</div>';
+echo '</div>';
 
 ?>

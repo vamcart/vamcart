@@ -11,6 +11,10 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'email.png').'</h2>';
+echo '<div class="pageContent">';
+
 echo '<table class="contentTable">';
 
 echo $html->tableHeaders(array( __('Subject', true), __('Alias', true),  __('Action', true)));
@@ -29,5 +33,8 @@ foreach ($email_template_data AS $email_template)
 echo '</table>';
 
 echo $admin->CreateNewLink();
+
+echo '</div>';
+echo '</div>';
 
 ?>
