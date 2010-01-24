@@ -1,3 +1,4 @@
 	$(function(){
-		$('#tabs ul').tabs();
+		$('#tabs > ul').tabs();
+		$('#sub-tabs > ul').tabs();
 	});
