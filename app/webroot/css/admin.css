@@ -334,7 +334,7 @@ div.page
 		vertical-align: middle;
 	}
 
-div.page div.breadCrumbs
+div.page h2
 	{
 		margin: 0;
 		padding: 7px 0 7px 10px;
