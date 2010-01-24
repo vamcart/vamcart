@@ -433,7 +433,7 @@ div#content table.contentTable
 		width: 100%;
 		padding: 0 0 0 0;
 		margin: .3em 0 .3em 0;
-		border: 1px solid #aaaaaa;
+		border: 1px solid #97a5b0;
 		-moz-border-radius-topleft: 4px;
 		-webkit-border-top-left-radius: 4px;
 		-moz-border-radius-topright: 4px;
@@ -478,8 +478,8 @@ div#content table.contentTable th
 		font-weight: normal;
 		padding: .9em;
 		margin: 0;
-		background: #e6e6e6 url(../img/admin/table-bg.png) repeat-x left top;
-		border: 1px solid #aaaaaa;
+		background: #e3eff7 url(../img/admin/table-bg.png) repeat-x left top;
+		border: 1px solid #97a5b0;
 		-moz-border-radius-topleft: 4px;
 		-webkit-border-top-left-radius: 4px;
 		-moz-border-radius-topright: 4px;
