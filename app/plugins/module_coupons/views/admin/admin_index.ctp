@@ -11,9 +11,12 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'coupons.png').'</h2>';
+echo '<div class="pageContent">';
+
 echo '<table class="contentTable">';
 echo $html->tableHeaders(array( __('Name', true), __('Code', true), __('Action', true)));
-
 
 foreach ($coupons AS $coupon)
 {
@@ -29,5 +32,8 @@ echo '</table>';
 echo $admin->EmptyResults($coupons);
 
 echo $admin->CreateNewLink();
+
+echo '</div>';
+echo '</div>';
 
 ?>
