@@ -15,7 +15,8 @@
     case '1':
 
 echo $form->inputs(array(
-			'legend' => null,
+			'legend' => false,
+			'fieldset' => false,
 		   'ContentCategory.extra' => array(
 		   		'type' => 'hidden',
 				'value' => 1
@@ -29,7 +30,8 @@ echo $form->inputs(array(
 $tax_options = $this->requestAction('/contents/generate_tax_list/');
 
 	echo $form->inputs(array(
-		'legend' => null,
+		'legend' => false,
+		'fieldset' => false,
 	   'ContentProduct.price' => array(
    		'label' => __('Price', true),
 		'type' => 'text',
@@ -62,7 +64,8 @@ $tax_options = $this->requestAction('/contents/generate_tax_list/');
     case '3':
 
 echo $form->inputs(array(
-			'legend' => null,
+			'legend' => false,
+			'fieldset' => false,
 		   'ContentPage.extra' => array(
 		   		'type' => 'hidden',
 				'value' => 1
@@ -73,8 +76,8 @@ echo $form->inputs(array(
     case '4':
 
 echo $form->inputs(array(
-		'legend' => null,
-		'fieldset' => __('Link Details', true),
+		'legend' => false,
+		'fieldset' => false,
 		   'ContentLink.url' => array(
 		   		'type' => 'text',
 				'label' => __('URL', true),
@@ -86,7 +89,8 @@ echo $form->inputs(array(
     case '5':
 
 echo $form->inputs(array(
-			'legend' => null,
+			'legend' => false,
+			'fieldset' => false,
 		   'ContentNews.extra' => array(
 		   		'type' => 'hidden',
 				'value' => 1
@@ -98,7 +102,8 @@ echo $form->inputs(array(
     case '6':
 
 echo $form->inputs(array(
-			'legend' => null,
+			'legend' => false,
+			'fieldset' => false,
 		   'ContentArticle.extra' => array(
 		   		'type' => 'hidden',
 				'value' => 1

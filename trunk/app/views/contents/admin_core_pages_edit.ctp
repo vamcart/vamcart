@@ -28,8 +28,8 @@
 	
 	echo $admin->StartTabContent('main');
 		echo $form->inputs(array(
-				'legend' => null,
-				'fieldset' => __('Edit Page', true),
+				'legend' => false,
+				'fieldset' => false,
 				'Content.id' => array(
 					'type' => 'hidden',
 					'value' => $data['Content']['id']
@@ -54,7 +54,7 @@
 	echo '<div class="template_required" id="template_required_template_picker">';
 	
 	  	echo $form->inputs(array(
-						'legend' => null,
+						'legend' => false,
 	  					'Content.template_id' => array(
 						'type' => 'select',
 			   		'label' => __('Template', true),
@@ -79,7 +79,7 @@
 		echo $admin->StartTabContent('language_'.$language_key);
 		
 		echo $form->inputs(array(
-						'legend' => null,
+						'legend' => false,
 						'ContentDescription]['.$language['Language']['id'].'][name.' . $language['Language']['id'] => array(
 				   	'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . __('Title', true),
 						'value' => $data['ContentDescription'][$language_key]['name']
@@ -87,7 +87,7 @@
 	
 		echo '<div id="template_required_' . $language['Language']['id'] . '" class="template_required">';
 			echo $form->inputs(array(
-						'legend' => null,
+						'legend' => false,
 						'ContentDescription]['.$language['Language']['id'].'][description.' . $language['Language']['id'] => array(
 				   	'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . __('Description', true),
 						'type' => 'textarea',
@@ -96,21 +96,21 @@
 		echo '</div>';
 
 		echo $form->inputs(array(
-						'legend' => null,
+						'legend' => false,
 						'ContentDescription]['.$language['Language']['id'].'][meta_title.' . $language['Language']['id'] => array(
 				   	'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . __('Meta Title', true),
 						'value' => $data['ContentDescription'][$language_key]['meta_title']
 	            	  )));																								
 
 		echo $form->inputs(array(
-						'legend' => null,
+						'legend' => false,
 						'ContentDescription]['.$language['Language']['id'].'][meta_description.' . $language['Language']['id'] => array(
 				   	'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . __('Meta Description', true),
 						'value' => $data['ContentDescription'][$language_key]['meta_description']
 	            	  )));																								
 
 		echo $form->inputs(array(
-						'legend' => null,
+						'legend' => false,
 						'ContentDescription]['.$language['Language']['id'].'][meta_keywords.' . $language['Language']['id'] => array(
 				   	'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . __('Meta Keywords', true),
 						'value' => $data['ContentDescription'][$language_key]['meta_keywords']
@@ -126,7 +126,7 @@
 
 	echo $admin->StartTabContent('options');
 			echo $form->inputs(array(
-				'legend' => null,
+				'legend' => false,
 				'fieldset' => __('Content Details', true),
                 'Content.alias' => array(
 			   		'type' => 'hidden',
