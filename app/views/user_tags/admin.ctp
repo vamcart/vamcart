@@ -13,6 +13,10 @@
 
 echo $javascript->link('selectall', false);
 
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'user-tags.png').'</h2>';
+echo '<div class="pageContent">';
+
 echo $form->create('UserTag', array('action' => '/UserTags/admin_modify_selected/', 'url' => '/UserTags/admin_modify_selected/'));
 
 echo '<table class="contentTable">';
@@ -32,4 +36,8 @@ echo '</table>';
 
 echo $admin->ActionBar(array('delete'=>__('Delete',true)));
 echo $form->end(); 
+
+echo '</div>';
+echo '</div>';
+
 ?>

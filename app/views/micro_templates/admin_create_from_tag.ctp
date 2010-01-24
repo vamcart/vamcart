@@ -12,7 +12,12 @@
    ---------------------------------------------------------------------------------------*/
 
 	echo $javascript->link('modified', false);
-        echo $form->create('MicroTemplate', array('id' => 'contentform', 'action' => '/micro_templates/admin_edit/', 'url' => '/micro_templates/admin_edit/'));
+
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'new.png').'</h2>';
+echo '<div class="pageContent">';
+
+	echo $form->create('MicroTemplate', array('id' => 'contentform', 'action' => '/micro_templates/admin_edit/', 'url' => '/micro_templates/admin_edit/'));
 		
 		echo $form->inputs(array(
 					'legend' => null,
@@ -35,4 +40,8 @@
 	echo $form->submit( __('Submit', true), array('name' => 'submit')) . $form->submit( __('Apply', true), array('name' => 'apply')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clear"></div>';
 	echo $form->end();
+	
+echo '</div>';
+echo '</div>';
+	
 	?>

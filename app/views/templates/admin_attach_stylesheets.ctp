@@ -11,6 +11,10 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'attach_stylesheet.png').'</h2>';
+echo '<div class="pageContent">';
+
  __('Template');  echo ': ' . $html->link($template['Template']['name'],'/templates/admin_edit/' . $template['Template']['id']); ?>
 
 <table class="contentTable">
@@ -45,4 +49,8 @@ if(!empty( $available_stylesheets))
 	echo $form->end();
 	echo '</div>';
 }
+
+echo '</div>';
+echo '</div>';
+
 ?>

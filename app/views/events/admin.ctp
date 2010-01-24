@@ -11,6 +11,10 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'events.png').'</h2>';
+echo '<div class="pageContent">';
+
 echo '<table class="contentTable">';
 
 echo $html->tableHeaders(array(	__('Originator', true), __('Name', true)));
@@ -26,5 +30,8 @@ foreach ($event_data AS $event)
 }
 
 echo '</table>';
+
+echo '</div>';
+echo '</div>';
 
 ?>

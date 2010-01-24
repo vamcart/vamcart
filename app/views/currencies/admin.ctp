@@ -14,6 +14,10 @@
 echo $javascript->link('jquery/jquery.min', false);
 echo $javascript->link('selectall', false);
 
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'currencies.png').'</h2>';
+echo '<div class="pageContent">';
+
 echo $form->create('Currency', array('action' => '/currencies/admin_modify_selected/', 'url' => '/currencies/admin_modify_selected/'));
 
 echo '<table class="contentTable">';
@@ -37,5 +41,8 @@ foreach ($currency_data AS $currency)
 echo '</table>';
 
 echo $admin->ActionBar(array('activate'=>__('Activate',true),'deactivate'=>__('Deactivate',true),'delete'=>__('Delete',true)));
+
+echo '</div>';
+echo '</div>';
 
 ?>

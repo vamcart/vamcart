@@ -11,6 +11,10 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'orders.png').'</h2>';
+echo '<div class="pageContent">';
+
 echo $form->create('Order', array('action' => '/orders/admin_modify_selected/', 'url' => '/orders/admin_modify_selected/'));
 
 echo '<table class="contentTable">';
@@ -43,3 +47,6 @@ echo $form->end();
 		<td><?php echo $paginator->next(__('Next >>', true)); ?></td>
 	</tr>
 </table>
+
+</div>
+</div>

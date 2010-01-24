@@ -13,6 +13,10 @@
 
 echo $javascript->link('jquery/jquery.min', false);
 
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'taxes.png').'</h2>';
+echo '<div class="pageContent">';
+
 echo '<table class="contentTable">';
 
 echo $html->tableHeaders(array( __('Name', true), __('Default', true), __('Action', true),'&nbsp;'));
@@ -35,5 +39,8 @@ echo '</table>';
 echo $admin->EmptyResults($tax_data);
 
 echo $admin->CreateNewLink();
+
+echo '</div>';
+echo '</div>';
 
 ?>

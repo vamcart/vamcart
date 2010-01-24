@@ -18,6 +18,10 @@
 	echo $javascript->link('tabs', false);
 	echo $html->css('jquery/plugins/ui.tabs','','', false);
 
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'edit.png').'</h2>';
+echo '<div class="pageContent">';
+
 	echo $form->create('EmailTemplate', array('id' => 'contentform', 'action' => '/email_template/admin_edit/' . $data['EmailTemplate']['id'], 'url' => '/email_template/admin_edit/' . $data['EmailTemplate']['id']));
 	echo $form->inputs(array(
 					'legend' => null,
@@ -75,4 +79,8 @@
 	echo $form->submit( __('Submit', true), array('name' => 'submit')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clear"></div>';
 	echo $form->end();
+	
+echo '</div>';
+echo '</div>';
+	
 	?>

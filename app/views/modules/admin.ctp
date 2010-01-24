@@ -11,6 +11,10 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'modules.png').'</h2>';
+echo '<div class="pageContent">';
+
 echo '<table class="contentTable">';
 
 echo $html->tableHeaders(array( __('Name', true), __('Installed', true), __('Version', true), __('Action', true)));
@@ -42,5 +46,8 @@ foreach ($modules AS $module)
 }
 
 echo '</table>';
+
+echo '</div>';
+echo '</div>';
 
 ?>

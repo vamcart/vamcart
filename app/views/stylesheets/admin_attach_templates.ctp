@@ -12,6 +12,10 @@
    ---------------------------------------------------------------------------------------*/
 
 	echo $javascript->link('modified', false);
+	
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'attach_templates.png').'</h2>';
+echo '<div class="pageContent">';
         
  __('Stylesheet');  echo ': ' . $html->link($stylesheet['Stylesheet']['name'],'/stylesheets/admin_edit/' . $stylesheet['Stylesheet']['id']); ?>
 
@@ -47,3 +51,5 @@ if(!empty( $available_templates))
 	echo '</div>';
 }
 ?>
+</div>
+</div>

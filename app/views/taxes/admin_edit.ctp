@@ -12,7 +12,12 @@
    ---------------------------------------------------------------------------------------*/
 
 	echo $javascript->link('modified', false);
-        echo $form->create('Tax', array('id' => 'contentform', 'action' => '/taxes/admin_edit/', 'url' => '/taxes/admin_edit/'));
+
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'edit.png').'</h2>';
+echo '<div class="pageContent">';
+
+	echo $form->create('Tax', array('id' => 'contentform', 'action' => '/taxes/admin_edit/', 'url' => '/taxes/admin_edit/'));
 	echo $form->inputs(array(
 					'legend' => null,
 					'fieldset' => __('Tax Details', true),
@@ -26,4 +31,8 @@
 	echo $form->submit( __('Submit', true), array('name' => 'submit')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clear"></div>';
 	echo $form->end();
-	?>
+	
+echo '</div>';
+echo '</div>';
+	
+?>

@@ -13,6 +13,10 @@
 
 echo $javascript->link('jquery/jquery.min', false);
 
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'shipping-methods.png').'</h2>';
+echo '<div class="pageContent">';
+
 echo '<table class="contentTable">';
 
 echo $html->tableHeaders(array( __('Name', true), __('Code', true), __('Active', true), __('Default', true), __('Sort Order', true), __('Action', true)));
@@ -42,5 +46,8 @@ foreach ($modules AS $module)
 }
 
 echo '</table>';
+
+echo '</div>';
+echo '</div>';
 
 ?>

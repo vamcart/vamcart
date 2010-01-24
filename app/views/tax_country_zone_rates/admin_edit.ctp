@@ -12,6 +12,11 @@
    ---------------------------------------------------------------------------------------*/
 
 	echo $javascript->link('modified', false);
+
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'edit.png').'</h2>';
+echo '<div class="pageContent">';
+
         echo $form->create('TaxCountryZoneRate', array('id' => 'contentform', 'action' => '/tax_country_zone_rates/admin_edit/' . $data['Tax']['id'] . '/' . $data['TaxCountryZoneRate']['id'], 'url' => '/tax_country_zone_rates/admin_edit/' . $data['Tax']['id'] . '/' . $data['TaxCountryZoneRate']['id']));
 	echo $form->inputs(array(
 					'legend' => null,
@@ -29,4 +34,5 @@
 	echo '<div class="clear"></div>';
 	echo $form->end();
 	?>
+</div>
 </div>

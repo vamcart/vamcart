@@ -12,7 +12,12 @@
    ---------------------------------------------------------------------------------------*/
 
 	echo $javascript->link('modified', false);
-        echo $form->create('Template', array('id' => 'contentform', 'action' => '/templates/admin_copy/' . $template['Template']['id'], 'url' => '/templates/admin_copy/' . $template['Template']['id']));
+
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'copy.png').'</h2>';
+echo '<div class="pageContent">';
+
+	echo $form->create('Template', array('id' => 'contentform', 'action' => '/templates/admin_copy/' . $template['Template']['id'], 'url' => '/templates/admin_copy/' . $template['Template']['id']));
 	echo $form->inputs(array(
 					'legend' => null,
 					'fieldset' => __('Copy Template', true),
@@ -29,4 +34,5 @@
 	echo '<div class="clear"></div>';
 	echo $form->end();
 	?>
+</div>
 </div>

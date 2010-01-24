@@ -13,6 +13,10 @@
 
 echo $javascript->link('jquery/jquery.min', false);
 
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'blocks.png').'</h2>';
+echo '<div class="pageContent">';
+
 echo $form->create('GlobalContentBlock', array('action' => '/global_content_blocks/admin_modify_selected/', 'url' => '/global_content_blocks/admin_modify_selected/'));
 
 echo '<table class="contentTable">';
@@ -34,4 +38,8 @@ echo $admin->EmptyResults($global_content_blocks);
 
 echo $admin->ActionBar(array('activate'=>__('Activate',true),'deactivate'=>__('Deactivate',true),'delete'=>__('Delete',true)));
 echo $form->end(); 
+
+echo '</div>';
+echo '</div>';
+
 ?>

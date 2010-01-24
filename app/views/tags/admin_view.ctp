@@ -13,6 +13,10 @@
 
 echo $javascript->link('modified', false);
 
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'view.png').'</h2>';
+echo '<div class="pageContent">';
+
 echo $help_content;
 
 echo '<div class="pageheader">' . __('About', true) . '</div>';
@@ -48,5 +52,8 @@ if(isset($default_template))
 	echo $form->end();
 	
 }
+
+echo '</div>';
+echo '</div>';
 
 ?>

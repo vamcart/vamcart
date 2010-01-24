@@ -12,7 +12,12 @@
    ---------------------------------------------------------------------------------------*/
 
 	echo $javascript->link('modified', false);
-        echo $form->create('User', array('id' => 'contentform', 'action' => '/users/admin_new/', 'url' => '/users/admin_new/'));
+
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'new.png').'</h2>';
+echo '<div class="pageContent">';
+
+	echo $form->create('User', array('id' => 'contentform', 'action' => '/users/admin_new/', 'url' => '/users/admin_new/'));
 	echo $form->inputs(array(
 					'legend' => null,
 					'fieldset' => __('New Admin', true),
@@ -30,4 +35,8 @@
 	echo $form->submit( __('Submit', true), array('name' => 'submit')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clear"></div>';
 	echo $form->end();
+	
+echo '</div>';
+echo '</div>';
+	
 ?>

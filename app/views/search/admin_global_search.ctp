@@ -11,6 +11,10 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
+echo '<div class="page">';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'search.png').'</h2>';
+echo '<div class="pageContent">';
+
 $total_results = 0;
 
 foreach($tables AS $key => $table)
@@ -45,5 +49,8 @@ foreach($tables AS $key => $table)
 
 echo $admin->EmptyResults($total_results);
 echo __('Results: ', true) . '<strong>' . $total_results . '</strong>';
+
+echo '</div>';
+echo '</div>';
 
 ?>
