@@ -34,11 +34,6 @@
 &nbsp;
 </div>
 
-<!-- Navigation -->
-<div id="navigation">
-</div>
-<!-- /Navigation -->
-
 <!-- Content -->
 <div id="wrapper">
 <div id="content">
