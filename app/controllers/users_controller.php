@@ -120,6 +120,7 @@ class UsersController extends AppController {
 	function admin_login ()
 	{
 		$this->layout = 'default';
+		$this->set('current_crumb', __('Login', true));
 		if(empty($this->data))
 		{
 			// Redirect the user if we're logged in
