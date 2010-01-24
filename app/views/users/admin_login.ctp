@@ -12,7 +12,7 @@
    ---------------------------------------------------------------------------------------*/
 
 echo '<div class="page">';
-echo '<h2>'.$html->image('admin/icons/page/login.png', array('alt' => '')).'&nbsp;'.$current_crumb.'</h2>';
+echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'login.png').'</h2>';
 echo '<div class="pageContent">';
 
 	echo $javascript->link('modified', false);
