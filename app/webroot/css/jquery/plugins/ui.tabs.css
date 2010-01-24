@@ -85,6 +85,7 @@
 .ui-tabs-nav a:hover, .ui-tabs-nav a:focus, .ui-tabs-nav a:active,
 .ui-tabs-nav .ui-tabs-deselectable a:hover, .ui-tabs-nav .ui-tabs-deselectable a:focus, .ui-tabs-nav .ui-tabs-deselectable a:active { /* @ Opera, we need to be explicit again here now... */
     cursor: pointer;
+    text-decoration: none;
 }
 .ui-tabs-disabled {
     opacity: .4;
