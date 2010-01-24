@@ -72,6 +72,7 @@ class InstallController extends AppController {
 	function start ()
 	{	
 		$this->layout = 'default';
+		$this->set('current_crumb', __('Install', true));
 		$this->set('version',$this->Install->getVersion());
 		
 		$values = array();
