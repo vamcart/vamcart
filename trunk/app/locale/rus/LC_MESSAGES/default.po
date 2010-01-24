@@ -169,7 +169,7 @@ msgstr "Кэш очищен."
 
 #: /controllers/configuration_controller.php:26
 msgid "Store Configuration"
-msgstr "Настройки магзаина"
+msgstr "Настройки магазина"
 
 #: /controllers/configuration_controller.php:41
 #: /controllers/contents_controller.php:339
