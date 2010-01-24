@@ -11,8 +11,6 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-	echo $javascript->link('jquery/jquery.min', false);
-
 	echo '<h4>' . __('Current Images For This Content Item', true) . '</h4>';
 	echo '<p>' . __('Uploaded new images? Press apply to view them.', true) . '</p>';	
 	echo '<ul id="content_images">';
