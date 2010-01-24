@@ -12,10 +12,11 @@
    ---------------------------------------------------------------------------------------*/
 
 	echo $javascript->link('modified', false);
-        echo $javascript->link('jquery/jquery.min', false);
-	echo $javascript->link('jquery/plugins/jquery-ui.min', false);
+	echo $javascript->link('jquery/jquery.min', false);
+	echo $javascript->link('jquery/plugins/ui.core', false);
+	echo $javascript->link('jquery/plugins/ui.tabs', false);
 	echo $javascript->link('tabs', false);
-	echo $html->css('jquery/plugins/ui/css/smoothness/jquery-ui','','', false);
+	echo $html->css('jquery/plugins/ui.tabs','','', false);
 
 	$coupon_id = $this->data['ModuleCoupon']['id'];
 	echo $form->create('ModuleCoupon', array('id' => 'contentform', 'action' => '/module_coupons/admin/admin_edit/'.$coupon_id, 'url' => '/module_coupons/admin/admin_edit/'.$coupon_id));
