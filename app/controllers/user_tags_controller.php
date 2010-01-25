@@ -24,6 +24,7 @@ class UserTagsController extends AppController {
 	function admin_edit ($user_tag_id = null)
 	{
 		$this->set('current_crumb', __('User Tag', true));
+		$this->pageTitle = __('User Tag', true);
 		// Check if we pressed the cancel button
 		if(isset($this->params['form']['cancel']))
 		{
@@ -128,6 +129,7 @@ class UserTagsController extends AppController {
    function admin ()
 	{
 		$this->set('current_crumb', __('User Tags Listing', true));
+		$this->pageTitle = __('User Tags Listing', true);
 		$this->set('user_tags', $this->UserTag->find('all'));
 	}
 	

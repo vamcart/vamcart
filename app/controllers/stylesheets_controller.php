@@ -63,6 +63,7 @@ class StylesheetsController extends AppController {
 		
 		}
 		$this->set('current_crumb',__('Attach Template',true));
+		$this->pageTitle = __('Attach Template', true);
 		$this->set('stylesheet', $stylesheet);
 		
 		// First get a list of all stylesheets
@@ -92,6 +93,7 @@ class StylesheetsController extends AppController {
 	function admin_copy ($stylesheet_id)
 	{
 		$this->set('current_crumb',__('Copy Stylesheet',true));
+		$this->pageTitle = __('Copy Stylesheet', true);
 		if(empty($this->data))
 		{
 			$this->Stylesheet->id = $stylesheet_id;
@@ -140,6 +142,7 @@ class StylesheetsController extends AppController {
 	function admin_edit ($stylesheet_id = null)
 	{
 		$this->set('current_crumb', __('Stylesheet', true));
+		$this->pageTitle = __('Stylesheet', true);
 		if(($stylesheet_id == null) && (empty($this->data)))
 		{	// We're creating a stylesheet
 			$this->set('new_stylesheet', true);
@@ -237,6 +240,7 @@ class StylesheetsController extends AppController {
 	function admin($ajax_request = false)
 	{
 		$this->set('current_crumb', __('Stylesheets Listing', true));
+		$this->pageTitle = __('Stylesheets Listing', true);
 		$this->set('stylesheets',$this->Stylesheet->find('all', array('order' => array('Stylesheet.name ASC'))));
 		
 	}

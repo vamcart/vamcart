@@ -72,6 +72,7 @@ class LanguagesController extends AppController {
 	function admin_edit ($language_id = null)
 	{
 		$this->set('current_crumb', __('Language Details', true));
+		$this->pageTitle = __('Language Details', true);
 		// If they pressed cancel
 		if(isset($this->params['form']['cancel']))
 		{
@@ -149,6 +150,7 @@ class LanguagesController extends AppController {
 	function admin ($ajax = false)
 	{
 		$this->set('current_crumb', __('Languages Listing', true));
+		$this->pageTitle = __('Languages Listing', true);
 		$this->set('language_data',$this->Language->find('all', array('order' => array('Language.name ASC'))));	
 	}	
 	

@@ -32,6 +32,7 @@ class TaxCountryZoneRatesController extends AppController {
 	function admin_edit ($tax_id,$rate_id)
 	{
 		$this->set('current_crumb', __('Tax Edit', true));
+		$this->pageTitle = __('Tax Edit', true);
 		if(empty($this->data))
 		{	
 			$data = $this->TaxCountryZoneRate->find(array('TaxCountryZoneRate.id' => $rate_id),null,null,2);
@@ -55,6 +56,7 @@ class TaxCountryZoneRatesController extends AppController {
 	function admin_new ($tax_id)
 	{
 		$this->set('current_crumb', __('New Tax Zone', true));
+		$this->pageTitle = __('New Tax Zone', true);
 		$tax = $this->TaxCountryZoneRate->Tax->read(null,$tax_id);
 		if(empty($this->data))
 		{
@@ -119,6 +121,7 @@ class TaxCountryZoneRatesController extends AppController {
 	function admin ($tax_id)
 	{
 		$this->set('current_crumb', __('Tax Zones', true));
+		$this->pageTitle = __('Tax Zones', true);
 		if($tax_id == 0)
 		{
 			$this->Session->setFlash(__('Please select a tax class.',true));

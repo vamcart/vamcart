@@ -24,6 +24,7 @@ class AdminController extends AppController {
 	function admin_top($level = 1)
 	{
 	
+		$this->pageTitle = __('Home', true);
 	//App::import('Model', 'Order');
 	
 	//$this->Order =& new Order();
