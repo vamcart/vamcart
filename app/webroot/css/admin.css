@@ -321,8 +321,8 @@ div#page
 	{
 		margin: 0;
 		padding: 0;
-		background: #e5e5e5 url(../img/admin/page-bg.png) repeat-x left top;
-		border: 1px solid #e5e5e5;
+		background: #c0c1c2 url(../img/admin/page-bg.png) repeat-x left top;
+		border: 1px solid #c0c1c2;
 		-moz-border-radius-topleft: 8px;
 		-webkit-border-top-left-radius: 8px;
 		-moz-border-radius-topright: 8px;
@@ -345,6 +345,7 @@ div#pageContent
 		margin: 0;
 		padding: .5em;
 		background: #fff;
+		border-top: 1px solid #c0c1c2;
 	}
 
 /* /Page content */
