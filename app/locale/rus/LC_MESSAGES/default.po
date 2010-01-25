@@ -713,6 +713,10 @@ msgstr "Модуль находится в разделе Заказы - Нез�
 msgid "Main"
 msgstr "Основные"
 
+#: /views/admin/admin_top.ctp:24
+msgid "Menu"
+msgstr "Меню"
+
 #: /plugins/module_abandoned_carts/views/admin/admin_index.ctp:17
 #: /views/admin/admin_top.ctp:40
 #: /views/contents/admin_core_pages_edit.ctp:19
