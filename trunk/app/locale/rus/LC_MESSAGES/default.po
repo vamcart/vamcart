@@ -361,6 +361,11 @@ msgstr "Список блоков"
 msgid "Install VaM Cart"
 msgstr "Установка VaM Cart"
 
+#: /controllers/install_controller.php:103
+#: /controllers/install_controller.php:104
+msgid "VaM Cart Installed"
+msgstr "Установка VaM Cart завершена"
+
 #: /controllers/install_controller.php:108
 msgid "Unable to connect to database."
 msgstr "Не могу подключиться к базе данных. Неправильно указан доступ к базе данных."
