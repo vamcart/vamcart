@@ -357,6 +357,10 @@ msgstr "Информация о блоках"
 msgid "Global Content Blocks Listing"
 msgstr "Список блоков"
 
+#: /controllers/install_controller.php:76
+msgid "Install VaM Cart"
+msgstr "Установка VaM Cart"
+
 #: /controllers/install_controller.php:108
 msgid "Unable to connect to database."
 msgstr "Не могу подключиться к базе данных. Неправильно указан доступ к базе данных."
