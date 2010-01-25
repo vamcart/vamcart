@@ -18,9 +18,7 @@
 	echo $javascript->link('tabs', false);
 	echo $html->css('jquery/plugins/ui.tabs','','', false);
 
-echo '<div class="page">';
-echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'abandoned.png').'</h2>';
-echo '<div class="pageContent">';
+echo $admin->ShowPageHeaderStart($current_crumb, 'abandoned.png');
 
 echo $admin->StartTabs();
 			echo '<ul>';
@@ -55,7 +53,6 @@ echo $admin->EndTabContent();
 
 echo $admin->EndTabs();
 
-echo '</div>';
-echo '</div>';
+echo $admin->ShowPageHeaderEnd();
 
 ?>

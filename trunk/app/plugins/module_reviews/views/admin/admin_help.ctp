@@ -12,9 +12,7 @@
    ---------------------------------------------------------------------------------------*/
 ?>
 <?php
-echo '<div class="page">';
-echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'help.png').'</h2>';
-echo '<div class="pageContent">';
+echo $admin->ShowPageHeaderStart($current_crumb, 'help.png');
 ?>
 <h3><?php echo __('What does this do?'); ?></h3>
 <p><?php echo __('The reviews module will allow customers to publish reviews and rate your products.'); ?></p>
@@ -26,5 +24,4 @@ echo '<div class="pageContent">';
 <h3><?php echo __('To create a listing of reviews:'); ?></h3>
 <p>{module alias='reviews' action='display'}</p>
 <p><?php echo __('Generally called from the core page. If called from a template will display a listing of reviews for that content item.'); ?></p>
-</div>
-</div>
+<?php echo $admin->ShowPageHeaderEnd(); ?>
