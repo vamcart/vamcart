@@ -18,9 +18,7 @@
 	echo $javascript->link('tabs', false);
 	echo $html->css('jquery/plugins/ui.tabs','','', false);
 
-echo '<div class="page">';
-echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'order_status.png').'</h2>';
-echo '<div class="pageContent">';
+echo $admin->ShowPageHeaderStart($current_crumb, 'order_status.png');
 
 	echo $form->create('OrderStatus', array('id' => 'contentform', 'action' => '/order_status/admin_edit/' . $data['OrderStatus']['id'], 'url' => '/order_status/admin_edit/' . $data['OrderStatus']['id']));
 	echo $form->inputs(array(
@@ -64,5 +62,4 @@ echo '<div class="pageContent">';
 	echo '<div class="clear"></div>';
 	echo $form->end();
 	?>
-</div>
-</div>
+<?php echo $admin->ShowPageHeaderEnd(); ?>

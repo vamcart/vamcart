@@ -11,9 +11,7 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-echo '<div class="page">';
-echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'defined.png').'</h2>';
-echo '<div class="pageContent">';
+echo $admin->ShowPageHeaderStart($current_crumb, 'defined.png');
 
 echo '<table class="contentTable">';
 echo $html->tableHeaders(array( __('Title', true), __('Call (Template Placeholder)', true),__('Action', true)));
@@ -32,7 +30,6 @@ echo $admin->EmptyResults($defined_languages);
 
 echo $admin->CreateNewLink();
 
-echo '</div>';
-echo '</div>';
+echo $admin->ShowPageHeaderEnd();
 
 ?>

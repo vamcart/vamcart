@@ -12,9 +12,7 @@
    ---------------------------------------------------------------------------------------*/
 ?>
 <?php
-echo '<div class="page">';
-echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'install.png').'</h2>';
-echo '<div class="pageContent">';
+echo $admin->ShowPageHeaderStart($current_crumb, 'install.png');
 ?>
 <p><?php __('Welcome to the VaM Cart installation.') ?></p>
 <p><?php __('Installing version:') ?> <?php echo $version; ?></p>
@@ -40,7 +38,6 @@ echo $form->submit( __('Submit', true)) ;
 echo '<div class="clear"></div>';
 echo $form->end();
 
-echo '</div>';
-echo '</div>';
+echo $admin->ShowPageHeaderEnd();
 
 ?>

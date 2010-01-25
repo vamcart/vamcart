@@ -18,9 +18,7 @@
 	echo $javascript->link('tabs', false);
 	echo $html->css('jquery/plugins/ui.tabs','','', false);
 
-echo '<div class="page">';
-echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'page_edit.png').'</h2>';
-echo '<div class="pageContent">';
+echo $admin->ShowPageHeaderStart($current_crumb, 'page_edit.png');
 
 	echo $form->create('Content', array('id' => 'contentform', 'name' => 'contentform','enctype' => 'multipart/form-data', 'action' => '/contents/admin_edit/'.$data['Content']['id'], 'url' => '/contents/admin_edit/'.$data['Content']['id']));
 	
@@ -155,7 +153,6 @@ echo '<div class="pageContent">';
 	echo '<div class="clear"></div>';
 	echo $form->end();
 	
-echo '</div>';
-echo '</div>';
+echo $admin->ShowPageHeaderEnd();
 	
 	?>

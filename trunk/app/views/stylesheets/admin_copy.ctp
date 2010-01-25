@@ -13,9 +13,7 @@
 
 	echo $javascript->link('modified', false);
 
-echo '<div class="page">';
-echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'copy_stylesheet.png').'</h2>';
-echo '<div class="pageContent">';
+echo $admin->ShowPageHeaderStart($current_crumb, 'copy_stylesheet.png');
 
 	echo $form->create('Stylesheet', array('id' => 'contentform', 'action' => '/stylesheets/admin_copy/' . $stylesheet['Stylesheet']['id'], 'url' => '/stylesheets/admin_copy/' . $stylesheet['Stylesheet']['id']));
 	echo $form->inputs(array(
@@ -34,5 +32,4 @@ echo '<div class="pageContent">';
 	echo '<div class="clear"></div>';
 	echo $form->end();
 	?>
-</div>
-</div>
+<?php echo $admin->ShowPageHeaderEnd(); ?>

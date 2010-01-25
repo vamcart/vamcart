@@ -11,9 +11,7 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-echo '<div class="page">';
-echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'tags.png').'</h2>';
-echo '<div class="pageContent">';
+echo $admin->ShowPageHeaderStart($current_crumb, 'tags.png');
 
 echo '<table class="contentTable">';
 
@@ -39,7 +37,6 @@ foreach($files AS $tag)
 
 echo '</table>';
 
-echo '</div>';
-echo '</div>';
+echo $admin->ShowPageHeaderEnd();
 
 ?>

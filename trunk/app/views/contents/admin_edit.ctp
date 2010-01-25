@@ -30,9 +30,7 @@
 	});
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
 <?php
-echo '<div class="page">';
-echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'content_edit.png').'</h2>';
-echo '<div class="pageContent">';
+echo $admin->ShowPageHeaderStart($current_crumb, 'content_edit.png');
 ?>
 <?php
 	
@@ -259,5 +257,4 @@ echo '<div class="pageContent">';
 	echo '<div class="clear"></div>';
 	echo $form->end();
 	?>
-</div>
-</div>
+<?php echo $admin->ShowPageHeaderEnd(); ?>

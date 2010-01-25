@@ -18,9 +18,7 @@ echo $javascript->link('jquery/plugins/ui.tabs', false);
 echo $javascript->link('tabs', false);
 echo $html->css('jquery/plugins/ui.tabs','','', false);
 
-echo '<div class="page">';
-echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'configuration.png').'</h2>';
-echo '<div class="pageContent">';
+echo $admin->ShowPageHeaderStart($current_crumb, 'configuration.png');
 
 echo $form->create('Configuration', array('id' => 'contentform', 'action' => '/configuration/admin_edit/', 'url' => '/configuration/admin_edit/'));
 
@@ -69,7 +67,6 @@ $yes_no_options[1] = __('yes', true);
 	echo '<div class="clear"></div>';
 	echo $form->end();
 
-echo '</div>';
-echo '</div>';
+echo $admin->ShowPageHeaderEnd();
 
 ?>

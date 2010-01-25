@@ -24,9 +24,7 @@
 echo $javascript->link('modified', false);
         
 
-echo '<div class="page">';
-echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'new.png').'</h2>';
-echo '<div class="pageContent">';
+echo $admin->ShowPageHeaderStart($current_crumb, 'new.png');
 
 echo $form->create('TaxCountryZoneRate', array('id' => 'contentform', 'action' => '/tax_country_zone_rates/admin_new/' . $tax['Tax']['id'], 'url' => '/tax_country_zone_rates/admin_new/' . $tax['Tax']['id']));
 	
@@ -61,7 +59,6 @@ echo '<div class="clear"></div>';
 	
 echo $form->end();
 
-echo '</div>';
-echo '</div>';
+echo $admin->ShowPageHeaderEnd();
 	
 ?>
