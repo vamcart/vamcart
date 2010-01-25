@@ -286,19 +286,39 @@ class AdminHelper extends Helper {
 	}
 
 	/**
-	* Checks whether or not the oage icon exists
+	* Checks whether or not the page icon exists
 	*
 	* @param  array $flag An array of a language or country
 	* @param  booleen $text_link If true will display a text link instead if image, if the image doesn't exist.
 	* @return string	An <img> tag or name of the flag if $text_link is set to true.
 	*/	
-	function ShowPageHeader($page_name = null, $icon = null)
+	function ShowPageHeaderStart($page_name = null, $icon = null)
 	{
+			$content .= '<div class="page">';
+			$content .= '<h2>';
 		if (isset($icon) && file_exists(IMAGES . 'admin/icons/page/' . $icon)) {
-			$content = $this->Html->image('admin/icons/page/'.$icon, array('alt' => '')).'&nbsp;' . $page_name;
+			$content .= $this->Html->image('admin/icons/page/'.$icon, array('alt' => '')).'&nbsp;' . $page_name;
 		} else {
-			$content = $page_name;
+			$content .= $page_name;
 		}
+			$content .= '</h2>';
+			$content .= '<div class="pageContent">';
+			
+		return $content;
+	}
+
+	/**
+	* Checks whether or not the page icon exists
+	*
+	* @param  array $flag An array of a language or country
+	* @param  booleen $text_link If true will display a text link instead if image, if the image doesn't exist.
+	* @return string	An <img> tag or name of the flag if $text_link is set to true.
+	*/	
+	function ShowPageHeaderEnd($page_name = null, $icon = null)
+	{
+			$content .= '</div>';
+			$content .= '</div>';
+			
 		return $content;
 	}
 }
