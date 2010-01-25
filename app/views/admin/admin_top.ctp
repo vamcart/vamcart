@@ -17,9 +17,11 @@
 	echo $javascript->link('tabs', false);
 	echo $html->css('jquery/plugins/ui.tabs','','', false);
 
+	echo $admin->ShowPageHeaderStart(__('Home',true), 'home.png');
+
 	echo $admin->StartTabs();
 			echo '<ul>';
-			echo $admin->CreateTab('home',__('Home',true), 'home.png');
+			echo $admin->CreateTab('home',__('Menu',true), 'menu.png');
 			echo $admin->CreateTab('orders',__('Orders',true), 'orders.png');			
 			echo '</ul>';
 	
@@ -80,5 +82,6 @@
 
 	echo $admin->EndTabs();
 	
+	echo $admin->ShowPageHeaderEnd();
 	
 ?>
