@@ -17,7 +17,7 @@
 <?php echo $html->meta('icon'); ?> 
 <?php echo $html->charset(); ?>
 <?php echo $html->css('admin'); ?>
-<title><?php __('VaM Cart') ?></title>
+<title><?php echo $title_for_layout?></title>
 </head>
 
 <body>

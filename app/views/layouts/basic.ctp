@@ -16,7 +16,7 @@
 <head>
 <?php echo $html->meta('icon'); ?> 
 <?php echo $html->charset(); ?>
-<title><?php __('VaM Cart') ?></title>
+<title><?php echo $title_for_layout?></title>
 </head>
 
 <body>
