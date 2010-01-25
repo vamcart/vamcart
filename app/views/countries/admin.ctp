@@ -17,9 +17,7 @@ echo $javascript->link('selectall', false);
 
 $paginator->options(array('update' => 'content', 'url' => '/countries/admin/', 'indicator' => 'spinner')); 
 
-echo '<div class="page">';
-echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'countries.png').'</h2>';
-echo '<div class="pageContent">';
+echo $admin->ShowPageHeaderStart($current_crumb, 'countries.png');
 
 echo $form->create('Country', array('action' => '/countries/admin_modify_selected/', 'url' => '/countries/admin_modify_selected/'));
 
@@ -53,5 +51,4 @@ echo $form->end();
 	</tr>
 </table>
 
-</div>
-</div>
+<?php echo $admin->ShowPageHeaderEnd(); ?>

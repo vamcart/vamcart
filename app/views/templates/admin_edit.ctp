@@ -14,9 +14,7 @@
 	echo $javascript->link('modified', false);
 	$template_id = $this->data['Template']['id'];
 
-echo '<div class="page">';
-echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'edit.png').'</h2>';
-echo '<div class="pageContent">';
+echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
 	echo $form->create('Template', array('id' => 'contentform', 'action' => '/templates/admin_edit/'.$template_id, 'url' => '/templates/admin_edit/'.$template_id));
 	echo $form->inputs(array(
@@ -33,5 +31,4 @@ echo '<div class="pageContent">';
 	echo '<div class="clear"></div>';
 	echo $form->end();
 	?>
-</div>
-</div>
+<?php echo $admin->ShowPageHeaderEnd(); ?>

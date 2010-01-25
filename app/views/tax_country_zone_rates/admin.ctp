@@ -13,9 +13,7 @@
 
 echo $javascript->link('selectall', false);
 
-echo '<div class="page">';
-echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'zones.png').'</h2>';
-echo '<div class="pageContent">';
+echo $admin->ShowPageHeaderStart($current_crumb, 'zones.png');
 
 echo $form->create('TaxCountryZoneRate', array('action' => '/tax_country_zone_rates/admin_modify_selected/' . $tax['Tax']['id'], 'url' => '/tax_country_zone_rates/admin_modify_selected/' . $tax['Tax']['id']));
 
@@ -40,7 +38,6 @@ echo $admin->EmptyResults($data);
 echo $admin->ActionBar(array('delete'=>__('Delete',true)),true,$tax['Tax']['id']);
 echo $form->end();
 
-echo '</div>';
-echo '</div>';
+echo $admin->ShowPageHeaderEnd();
 
 ?>

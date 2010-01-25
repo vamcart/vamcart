@@ -11,9 +11,7 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-echo '<div class="page">';
-echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'zones.png').'</h2>';
-echo '<div class="pageContent">';
+echo $admin->ShowPageHeaderStart($current_crumb, 'zones.png');
 
 echo '<table class="contentTable">';
 
@@ -34,7 +32,6 @@ echo '</table>';
 echo $form->end();
 echo $admin->CreateNewLink($country['Country']['id']);
 
-echo '</div>';
-echo '</div>';
+echo $admin->ShowPageHeaderEnd();
 
 ?>

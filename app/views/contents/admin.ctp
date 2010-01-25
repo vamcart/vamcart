@@ -14,9 +14,7 @@
 echo $javascript->link('jquery/jquery.min', false);
 echo $javascript->link('selectall', false);
 
-echo '<div class="page">';
-echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'content.png').'</h2>';
-echo '<div class="pageContent">';
+echo $admin->ShowPageHeaderStart($current_crumb, 'content.png');
 
 echo $form->create('Content', array('action' => '/contents/admin_modify_selected/', 'url' => '/contents/admin_modify_selected/'));
 
@@ -55,7 +53,6 @@ echo '</table>';
 echo $admin->ActionBar(array('activate'=>__('Activate',true),'deactivate'=>__('Deactivate',true),'show_in_menu'=>__('Show In Menu',true),'hide_from_menu'=>__('Hide From Menu',true),'delete'=>__('Delete',true)),true,'0/'.(isset($parent_content) ? $parent_content['Content']['id'] : 0));
 echo $form->end();
 
-echo '</div>';
-echo '</div>';
+echo $admin->ShowPageHeaderEnd();
 
 ?>

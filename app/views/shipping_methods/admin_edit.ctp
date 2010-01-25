@@ -13,9 +13,7 @@
 
 	echo $javascript->link('modified', false);
 
-echo '<div class="page">';
-echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'edit.png').'</h2>';
-echo '<div class="pageContent">';
+echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
         echo $form->create('ShippingMethod', array('id' => 'contentform', 'name' => 'contentform', 'action' => '/shipping_methods/admin_edit/'.$data['ShippingMethod']['id'], 'url' => '/shipping_methods/admin_edit/'.$data['ShippingMethod']['id']));
 		echo $form->inputs(array(
@@ -43,7 +41,6 @@ echo '<div class="pageContent">';
 	echo '<div class="clear"></div>';
 	echo $form->end();
 	
-echo '</div>';
-echo '</div>';
+echo $admin->ShowPageHeaderEnd();
 	
 	?>

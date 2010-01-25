@@ -11,9 +11,7 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-echo '<div class="page">';
-echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'orders.png').'</h2>';
-echo '<div class="pageContent">';
+echo $admin->ShowPageHeaderStart($current_crumb, 'orders.png');
 
 echo $form->create('Order', array('action' => '/orders/admin_modify_selected/', 'url' => '/orders/admin_modify_selected/'));
 
@@ -48,5 +46,4 @@ echo $form->end();
 	</tr>
 </table>
 
-</div>
-</div>
+<?php echo $admin->ShowPageHeaderEnd(); ?>

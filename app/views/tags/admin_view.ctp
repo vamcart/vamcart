@@ -13,9 +13,7 @@
 
 echo $javascript->link('modified', false);
 
-echo '<div class="page">';
-echo '<h2>'.$admin->ShowPageHeader($current_crumb, 'view.png').'</h2>';
-echo '<div class="pageContent">';
+echo $admin->ShowPageHeaderStart($current_crumb, 'view.png');
 
 echo $help_content;
 
@@ -53,7 +51,6 @@ if(isset($default_template))
 	
 }
 
-echo '</div>';
-echo '</div>';
+echo $admin->ShowPageHeaderEnd();
 
 ?>
