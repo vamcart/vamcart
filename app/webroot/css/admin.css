@@ -533,7 +533,7 @@ div#content table.contentTable td
 div#content table.contentPagination
 	{
 		padding: 0;
-		margin: .5em 0 .5em 0;
+		margin: 0;
 	}
 
 div#content table.contentPagination tr
