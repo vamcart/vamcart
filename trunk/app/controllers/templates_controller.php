@@ -88,6 +88,7 @@ class TemplatesController extends AppController {
 	function admin_attach_stylesheets ($template_id)
 	{
 		$this->set('current_crumb', __('Attach Stylesheets', true));
+		$this->pageTitle = __('Attach Stylesheets', true);
 		// Get the template
 		$this->Template->id = $template_id;
 		$template = $this->Template->read();
@@ -133,6 +134,7 @@ class TemplatesController extends AppController {
 		if(empty($this->data))
 		{
 			$this->set('current_crumb', __('Copy Template', true));
+			$this->pageTitle = __('Copy Template', true);
 			$this->Template->id = $template_id;
 			$this->set('template', $this->Template->read());
 		}
@@ -197,6 +199,7 @@ class TemplatesController extends AppController {
 	function admin_edit ($template_id)
 	{
 		$this->set('current_crumb', __('Template Content', true));
+		$this->pageTitle = __('Template Content', true);
 		if(empty($this->data))	
 		{
 			$template = $this->Template->read(null, $template_id);
@@ -241,6 +244,7 @@ class TemplatesController extends AppController {
 	function admin_edit_details ($template_id)
 	{
 		$this->set('current_crumb', __('Edit Template', true));
+		$this->pageTitle = __('Edit Template', true);
 		if(empty($this->data))
 		{
 			$this->Template->id = $template_id;
@@ -258,6 +262,7 @@ class TemplatesController extends AppController {
 	function admin_new() 
 	{
 		$this->set('current_crumb', __('New Template', true));
+		$this->pageTitle = __('New Template', true);
 		if(empty($this->data))
 		{
 		
@@ -295,6 +300,7 @@ class TemplatesController extends AppController {
 	function admin($ajax = false)
 	{
 		$this->set('current_crumb', __('Templates Listing', true));
+		$this->pageTitle = __('Templates Listing', true);
 		$this->set('templates',$this->Template->find('threaded', array('order' => array('Template.id ASC'))));
 	
 		$user_prefs = $this->UserPref->find(array('name' => 'template_collpase','user_id' => $this->Session->read('User.id')));	

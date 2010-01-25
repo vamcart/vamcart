@@ -33,6 +33,7 @@ class DefinedLanguagesController extends AppController {
 	function admin_edit ($defined_language_key = "")
 	{
 		$this->set('current_crumb', __('Defined Language Details', true));
+		$this->pageTitle = __('Defined Language Details', true);
 		if(empty($this->data))
 		{
 			$data = $this->DefinedLanguage->find('all', array('conditions' => array('key' => $defined_language_key)));
@@ -91,6 +92,7 @@ class DefinedLanguagesController extends AppController {
 	function admin()
 	{
 		$this->set('current_crumb', __('Defined Language Listing', true));
+		$this->pageTitle = __('Defined Language Listing', true);
 		$this->set('defined_languages', $this->DefinedLanguage->find('all', array('group' => array('DefinedLanguage.key'))));
 	}
 }

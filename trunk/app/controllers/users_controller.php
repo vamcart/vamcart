@@ -34,6 +34,7 @@ class UsersController extends AppController {
 	function admin_user_account () 
 	{
 		$this->set('current_crumb', __('My Account Details', true));
+		$this->pageTitle = __('My Account Details', true);
 		if(!empty($this->data))
 		{
 			// Redirect if the user pressed cancel
@@ -71,6 +72,7 @@ class UsersController extends AppController {
 	function admin_user_preferences () 
 	{
 		$this->set('current_crumb', __('My Prefences', true));
+		$this->pageTitle = __('My Prefences', true);
 		if(!empty($this->data))
 		{
 			if(isset($this->params['form']['cancelbutton']))
@@ -147,6 +149,7 @@ class UsersController extends AppController {
 	function admin_new ()
 	{	
 		$this->set('current_crumb', __('New Admin', true));
+		$this->pageTitle = __('New Admin', true);
 		if(empty($this->data))
 		{
 		}
@@ -198,6 +201,7 @@ class UsersController extends AppController {
 	function admin () 
 	{
 		$this->set('current_crumb', __('Admins Listing', true));
+		$this->pageTitle = __('Admins Listing', true);
 		$this->set('users', $this->User->find('all'));
 	}	
 }

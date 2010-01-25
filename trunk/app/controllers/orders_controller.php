@@ -214,6 +214,7 @@ class OrdersController extends AppController {
 	function admin_view ($id)
 	{
 		$this->set('current_crumb', __('Order View', true));
+		$this->pageTitle = __('Order View', true);
 		$order = $this->Order->find('all', array('conditions' => array('Order.id' => $id)));
 		$this->set('data',$order[0]);
 		
@@ -249,6 +250,7 @@ class OrdersController extends AppController {
 	function admin ($ajax = false)
 	{
 		$this->set('current_crumb', __('Orders Listing', true));
+		$this->pageTitle = __('Orders Listing', true);
 		$this->Order->OrderStatus->unbindModel(array('hasMany' => array('OrderStatusDescription')));
 		$this->Order->OrderStatus->bindModel(
 	        array('hasOne' => array(
