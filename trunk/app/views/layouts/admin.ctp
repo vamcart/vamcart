@@ -17,7 +17,7 @@ header('Content-Type: text/html; charset=utf-8');
 <head>
 <?php echo $html->meta('icon'); ?> 
 <?php echo $html->charset(); ?>
-<title><?php __('VaM Cart Admin') ?></title>
+<title><?php echo $title_for_layout?></title>
 <?php echo $html->css('admin');  ?>
 <?php echo $scripts_for_layout; ?>
 </head>

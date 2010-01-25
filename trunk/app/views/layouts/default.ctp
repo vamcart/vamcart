@@ -18,7 +18,7 @@
 <?php echo $html->charset(); ?>
 <?php echo $html->css('admin'); ?>
 <?php echo $scripts_for_layout; ?>
-<title><?php __('VaM Cart') ?></title>
+<title><?php echo $title_for_layout?></title>
 </head>
 
 <body>
