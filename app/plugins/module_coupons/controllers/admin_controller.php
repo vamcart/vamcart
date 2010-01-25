@@ -27,6 +27,7 @@ class AdminController extends ModuleCouponsAppController {
 		if(empty($this->data))
 		{
 			$this->set('current_crumb',__('Edit Coupon', true));
+			$this->pageTitle = __('Edit Coupon', true);
 
 			$this->set('free_shipping_options',array('no' => __('no' ,true), 'yes' => __('yes',true)));
 			$this->data = $this->ModuleCoupon->read(null,$id);
@@ -62,11 +63,14 @@ class AdminController extends ModuleCouponsAppController {
 	function admin_index()
 	{
 		$this->set('current_crumb',__('Manage Coupons', true));
+		$this->pageTitle = __('Manage Coupons', true);
 		$this->set('coupons',$this->ModuleCoupon->find('all'));
 	}
 	
 	function admin_help()
 	{
+		$this->set('current_crumb',__('Coupons', true));
+		$this->pageTitle = __('Coupons', true);
 	}
 
 }
