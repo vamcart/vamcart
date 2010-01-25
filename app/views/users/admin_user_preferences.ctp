@@ -13,11 +13,11 @@
 
 	echo $javascript->link('modified', false);
 
-echo $admin->ShowPageHeaderStart($current_crumb, 'prefences.png');
+	echo $admin->ShowPageHeaderStart($current_crumb, 'prefences.png');
 
 	echo $form->create('UserPref', array('id' => 'contentform', 'action' => '/users/admin_user_preferences/', 'url' => '/users/admin_user_preferences/'));
 
-echo $form->inputs(array(
+	echo $form->inputs(array(
 		'legend' => null,
 		'fieldset' => __('User Prefences', true),
 		'UserPref.language' => array(
@@ -32,6 +32,6 @@ echo $form->inputs(array(
 	echo '<div class="clear"></div>';
 	echo $form->end();	   
 	
-echo $admin->ShowPageHeaderEnd();
+	echo $admin->ShowPageHeaderEnd();
 	
 ?>

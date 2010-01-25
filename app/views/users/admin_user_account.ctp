@@ -13,7 +13,7 @@
 
 	echo $javascript->link('modified', false);
 
-echo $admin->ShowPageHeaderStart($current_crumb, 'account.png');
+	echo $admin->ShowPageHeaderStart($current_crumb, 'account.png');
 
 	echo $form->create('User', array('id' => 'contentform', 'action' => '/users/admin_user_account/', 'url' => '/users/admin_user_account/'));
 	echo $form->inputs(array(
@@ -41,6 +41,6 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'account.png');
 	echo '<div class="clear"></div>';
 	echo $form->end();
 	
-echo $admin->ShowPageHeaderEnd();
+	echo $admin->ShowPageHeaderEnd();
 	
 ?>

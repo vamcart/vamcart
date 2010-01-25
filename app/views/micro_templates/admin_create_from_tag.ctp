@@ -13,7 +13,7 @@
 
 	echo $javascript->link('modified', false);
 
-echo $admin->ShowPageHeaderStart($current_crumb, 'new.png');
+	echo $admin->ShowPageHeaderStart($current_crumb, 'new.png');
 
 	echo $form->create('MicroTemplate', array('id' => 'contentform', 'action' => '/micro_templates/admin_edit/', 'url' => '/micro_templates/admin_edit/'));
 		
@@ -39,6 +39,6 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'new.png');
 	echo '<div class="clear"></div>';
 	echo $form->end();
 	
-echo $admin->ShowPageHeaderEnd();
+	echo $admin->ShowPageHeaderEnd();
 	
 	?>

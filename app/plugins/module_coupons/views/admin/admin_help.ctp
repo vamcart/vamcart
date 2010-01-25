@@ -12,9 +12,7 @@
    ---------------------------------------------------------------------------------------*/
 
 ?>
-<?php
-echo $admin->ShowPageHeaderStart($current_crumb, 'help.png');
-?>
+<?php echo $admin->ShowPageHeaderStart($current_crumb, 'help.png'); ?>
 <h3><?php echo __('What does this do?'); ?></h3>
 <p><?php echo __('The coupons module allows you to create promotional discounts and coupons for your customers to use.'); ?></p>
 <h3><?php echo __('How do I use this?'); ?></h3>

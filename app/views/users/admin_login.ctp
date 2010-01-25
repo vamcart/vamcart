@@ -11,7 +11,7 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-echo $admin->ShowPageHeaderStart($current_crumb, 'login.png');
+	echo $admin->ShowPageHeaderStart($current_crumb, 'login.png');
 
 	echo $javascript->link('modified', false);
 	echo $form->create('User', array('id' => 'contentform', 'action' => '/users/admin_login/', 'url' => '/users/admin_login/'));
@@ -21,6 +21,6 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'login.png');
 	echo '<div class="clear"></div>';
 	echo $form->end();
 
-echo $admin->ShowPageHeaderEnd();
+	echo $admin->ShowPageHeaderEnd();
 
 ?>

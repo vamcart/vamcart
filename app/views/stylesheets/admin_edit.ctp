@@ -18,7 +18,7 @@
 	echo $javascript->link('tabs', false);
 	echo $html->css('jquery/plugins/ui.tabs','','', false);
 
-echo $admin->ShowPageHeaderStart($current_crumb, 'stylesheets.png');
+	echo $admin->ShowPageHeaderStart($current_crumb, 'stylesheets.png');
 
 	echo $form->create('Stylesheet', array('id' => 'contentform', 'action' => '/stylesheets/admin_edit/'.$data['Stylesheet']['id'], 'url' => '/stylesheets/admin_edit/'.$data['Stylesheet']['id']));
 
@@ -71,6 +71,6 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'stylesheets.png');
 	echo '<div class="clear"></div>';
 	echo $form->end();
 
-echo $admin->ShowPageHeaderEnd();
+	echo $admin->ShowPageHeaderEnd();
 	
-	?>
+?>
