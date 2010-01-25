@@ -31,7 +31,7 @@ $template = '<div>
 	<li class="no_items">{lang}No Items Found{/lang}</li>
 {/foreach}
 </ul>
-<div class="clearb"></div>
+<div class="clear"></div>
 </div>
 ';		
 
