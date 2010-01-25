@@ -11,7 +11,9 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 ?>
-
+<?php
+echo $admin->ShowPageHeaderStart($current_crumb, 'install.png');
+?>
 <p>
 <?php __('Database successfully imported.') ?>
 </p>
@@ -33,3 +35,6 @@
 <p>
 <?php echo __('At anytime you may remove yourself from the list if you think you joined in error.', true); ?>
 </p>
+<?php
+echo $admin->ShowPageHeaderEnd();
+?>
