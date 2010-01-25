@@ -13,7 +13,7 @@
 
 	echo $javascript->link('modified', false);
 
-echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
+	echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
         echo $form->create('TaxCountryZoneRate', array('id' => 'contentform', 'action' => '/tax_country_zone_rates/admin_edit/' . $data['Tax']['id'] . '/' . $data['TaxCountryZoneRate']['id'], 'url' => '/tax_country_zone_rates/admin_edit/' . $data['Tax']['id'] . '/' . $data['TaxCountryZoneRate']['id']));
 	echo $form->inputs(array(
@@ -31,5 +31,5 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 	echo $form->submit( __('Submit', true), array('name' => 'submit')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clear"></div>';
 	echo $form->end();
-	?>
-<?php echo $admin->ShowPageHeaderEnd(); ?>
+	echo $admin->ShowPageHeaderEnd(); 
+?>

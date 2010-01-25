@@ -67,6 +67,6 @@ $yes_no_options[1] = __('yes', true);
 	echo '<div class="clear"></div>';
 	echo $form->end();
 
-echo $admin->ShowPageHeaderEnd();
+	echo $admin->ShowPageHeaderEnd();
 
 ?>

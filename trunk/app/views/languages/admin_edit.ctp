@@ -13,7 +13,7 @@
 
 	echo $javascript->link('modified', false);
 
-echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
+	echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
 	echo $form->create('Language', array('id' => 'contentform', 'action' => '/languages/admin_edit/', 'url' => '/languages/admin_edit/'));
 	echo $form->inputs(array(
@@ -35,5 +35,5 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 	echo $form->submit( __('Submit', true), array('name' => 'submit')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clear"></div>';
 	echo $form->end();
-	?>
-<?php echo $admin->ShowPageHeaderEnd(); ?>
+	echo $admin->ShowPageHeaderEnd(); 
+?>

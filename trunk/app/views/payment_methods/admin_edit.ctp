@@ -13,7 +13,7 @@
 
 	echo $javascript->link('modified', false);
 
-echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
+	echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
 	echo $form->create('PaymentMethod', array('id' => 'contentform', 'action' => '/payment_methods/admin_edit/' . $data['PaymentMethod']['id'], 'url' => '/payment_methods/admin_edit/' . $data['PaymentMethod']['id']));
 	echo $form->inputs(array(
@@ -45,6 +45,6 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 	echo '<div class="clear"></div>';
 	echo $form->end();
 	
-echo $admin->ShowPageHeaderEnd();
+	echo $admin->ShowPageHeaderEnd();
 	
 	?>

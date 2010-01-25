@@ -18,7 +18,7 @@
 	echo $javascript->link('tabs', false);
 	echo $html->css('jquery/plugins/ui.tabs','','', false);
 
-echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
+	echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
 	echo $form->create('EmailTemplate', array('id' => 'contentform', 'action' => '/email_template/admin_edit/' . $data['EmailTemplate']['id'], 'url' => '/email_template/admin_edit/' . $data['EmailTemplate']['id']));
 	echo $form->inputs(array(
@@ -78,6 +78,6 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 	echo '<div class="clear"></div>';
 	echo $form->end();
 	
-echo $admin->ShowPageHeaderEnd();
+	echo $admin->ShowPageHeaderEnd();
 	
 	?>

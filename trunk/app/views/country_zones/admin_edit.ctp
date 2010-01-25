@@ -13,7 +13,7 @@
 
 	echo $javascript->link('modified', false);
 	
-echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
+	echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 	
 	echo $form->create('CountryZone', array('id' => 'contentform', 'action' => '/country_zones/admin_edit/' . $country_id, 'url' => '/country_zones/admin_edit/' . $country_id));
 		echo $form->inputs(array(
@@ -37,6 +37,6 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 	echo '<div class="clear"></div>';
 	echo $form->end();
 	
-echo $admin->ShowPageHeaderEnd();
+	echo $admin->ShowPageHeaderEnd();
 	
 	?>

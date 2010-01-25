@@ -18,7 +18,7 @@
 	echo $javascript->link('tabs', false);
 	echo $html->css('jquery/plugins/ui.tabs','','', false);
 
-echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
+	echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
 	$id = $this->data['GlobalContentBlock']['id'];
 	echo $form->create('GlobalContentBlock', array('id' => 'contentform', 'action' => '/global_content_blocks/admin_edit/'.$id, 'url' => '/global_content_blocks/admin_edit/'.$id));
@@ -66,5 +66,5 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 	echo $form->submit( __('Submit', true), array('name' => 'submit')) . $form->submit( __('Apply', true), array('name' => 'apply')) . $form->submit( __('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clear"></div>';
 	echo $form->end();
-	?>
-<?php echo $admin->ShowPageHeaderEnd(); ?>
+	echo $admin->ShowPageHeaderEnd(); 
+?>

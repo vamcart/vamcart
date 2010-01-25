@@ -18,7 +18,7 @@
 	echo $javascript->link('tabs', false);
 	echo $html->css('jquery/plugins/ui.tabs','','', false);
 
-echo $admin->ShowPageHeaderStart($current_crumb, 'view.png');
+	echo $admin->ShowPageHeaderStart($current_crumb, 'view.png');
 
 	echo $admin->StartTabs();
 			echo '<ul>';
@@ -232,12 +232,12 @@ echo $form->create('OrderComment', array('id' => 'contentform', 'action' => '/or
 			)
 		));
 
-echo $form->submit( __('Submit', true), array('name' => 'submit', 'id' => 'submit'));
-echo '<div class="clear"></div>';
-echo $form->end();
+	echo $form->submit( __('Submit', true), array('name' => 'submit', 'id' => 'submit'));
+	echo '<div class="clear"></div>';
+	echo $form->end();
 
 	echo $admin->EndTabs();
 	
-echo $admin->ShowPageHeaderEnd();
+	echo $admin->ShowPageHeaderEnd();
 	
 ?>

@@ -30,7 +30,7 @@
 	});
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
 <?php
-echo $admin->ShowPageHeaderStart($current_crumb, 'content_edit.png');
+echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 ?>
 <?php
 	
@@ -256,5 +256,5 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'content_edit.png');
 	echo $form->submit( __('Submit', true), array('name' => 'submitbutton', 'id' => 'submitbutton')) . $form->submit( __('Apply', true), array('name' => 'applybutton')) . $form->submit( __('Cancel', true), array('name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';
 	echo $form->end();
-	?>
-<?php echo $admin->ShowPageHeaderEnd(); ?>
+	echo $admin->ShowPageHeaderEnd(); 
+?>

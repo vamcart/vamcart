@@ -13,7 +13,7 @@
 
 	echo $javascript->link('modified', false);
 	
-echo $admin->ShowPageHeaderStart($current_crumb, 'attach_templates.png');
+	echo $admin->ShowPageHeaderStart($current_crumb, 'attach_templates.png');
         
  __('Stylesheet');  echo ': ' . $html->link($stylesheet['Stylesheet']['name'],'/stylesheets/admin_edit/' . $stylesheet['Stylesheet']['id']); ?>
 
