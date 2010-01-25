@@ -2,7 +2,7 @@
    VaM Cart - open source ecommerce solution
    http://vamcart.com
 
-   Copyright (c) 2009 VaM Cart 
+   Copyright (c) 2010 VaM Cart 
    -----------------------------------------------------------------------------------------
    Released under the GNU General Public License 
    ---------------------------------------------------------------------------------------*/
@@ -321,23 +321,22 @@ div#page
 	{
 		margin: 0;
 		padding: 0;
-		background: #f4f4f4 url(../img/admin/page-bg.png) repeat-x left top;
-		border: 1px solid #c0c1c2;
-		-moz-border-radius-topleft: 8px;
-		-webkit-border-top-left-radius: 8px;
-		-moz-border-radius-topright: 8px;
-		-webkit-border-top-right-radius: 8px;
-		-moz-border-radius-bottomleft: 8px;
-		-webkit-border-bottom-left-radius: 8px;
-		-moz-border-radius-bottomright: 8px;
-		-webkit-border-bottom-right-radius: 8px;
-		vertical-align: middle;
 	}
 
 div#page h2
 	{
 		margin: 0;
 		padding: 7px 0 7px 10px;
+		background: #f4f4f4 url(../img/admin/page-bg.png) repeat-x left top;
+		border-top: 1px solid #c0c1c2;
+		border-left: 1px solid #c0c1c2;
+		border-right: 1px solid #c0c1c2;
+		border-bottom: 1px solid #c0c1c2;
+		-moz-border-radius-topleft: 8px;
+		-webkit-border-top-left-radius: 8px;
+		-moz-border-radius-topright: 8px;
+		-webkit-border-top-right-radius: 8px;
+		vertical-align: middle;
 	}
 	
 div#pageContent
@@ -345,7 +344,14 @@ div#pageContent
 		margin: 0;
 		padding: .5em;
 		background: #fff;
-		border-top: 1px solid #c0c1c2;
+		border-top: 0px;
+		border-left: 1px solid #c0c1c2;
+		border-right: 1px solid #c0c1c2;
+		border-bottom: 1px solid #c0c1c2;
+		-moz-border-radius-bottomleft: 8px;
+		-webkit-border-bottom-left-radius: 8px;
+		-moz-border-radius-bottomright: 8px;
+		-webkit-border-bottom-right-radius: 8px;
 	}
 
 /* /Page content */
