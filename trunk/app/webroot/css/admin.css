@@ -317,7 +317,7 @@ div#navigation div.breadCrumbs
 
 /* Page content */
 
-div.page
+div#page
 	{
 		margin: 0;
 		padding: 0;
@@ -334,13 +334,13 @@ div.page
 		vertical-align: middle;
 	}
 
-div.page h2
+div#page h2
 	{
 		margin: 0;
 		padding: 7px 0 7px 10px;
 	}
 	
-div.pageContent
+div#pageContent
 	{
 		margin: 0;
 		padding: .5em;
