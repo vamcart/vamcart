@@ -19,6 +19,8 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'install.png');
 
 <?php
 	echo $javascript->link('modified', false);
+	echo $javascript->link('jquery/jquery.min', false);
+	echo $javascript->link('focus-first-input', false);
         echo $this->requestAction(array('controller' => 'install', 'action' => 'check_permissions'), array('return'));
 
 ?>

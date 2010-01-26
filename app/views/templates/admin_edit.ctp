@@ -12,6 +12,9 @@
    ---------------------------------------------------------------------------------------*/
 
 	echo $javascript->link('modified', false);
+	echo $javascript->link('jquery/jquery.min', false);
+	echo $javascript->link('focus-first-input', false);
+
 	$template_id = $this->data['Template']['id'];
 
 	echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');

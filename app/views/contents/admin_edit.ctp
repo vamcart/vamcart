@@ -17,6 +17,7 @@
 	echo $javascript->link('jquery/plugins/ui.core', false);
 	echo $javascript->link('jquery/plugins/ui.tabs', false);
 	echo $javascript->link('tabs', false);
+	echo $javascript->link('focus-first-input', false);
 	echo $html->css('jquery/plugins/ui.tabs','','', false);
 	echo $tinyMce->init();
 ?>

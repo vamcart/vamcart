@@ -19,6 +19,8 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'attach_stylesheet.png');
 
 <?php
 echo $javascript->link('modified', false);
+echo $javascript->link('jquery/jquery.min', false);
+echo $javascript->link('focus-first-input', false);
 
 $attached_stylesheet = $template['Stylesheet'];
 
