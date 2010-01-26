@@ -250,6 +250,7 @@ way to fit your requirements.
 	{
 		background: transparent;
 		color: #000;
+		border-left: 1px solid #e8e9ea;
 		text-decoration: none; 
 		display: block; 
 		padding: 5px 10px;
@@ -266,7 +267,6 @@ way to fit your requirements.
 		display: block;
 		width: 188px;
 		border-bottom: 1px solid #e8e9ea;
-		border-left: 1px solid #e8e9ea;
 		border-right: 1px solid #e8e9ea;
 	}
 
