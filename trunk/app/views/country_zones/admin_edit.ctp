@@ -12,7 +12,9 @@
    ---------------------------------------------------------------------------------------*/
 
 	echo $javascript->link('modified', false);
-	
+	echo $javascript->link('jquery/jquery.min', false);
+	echo $javascript->link('focus-first-input', false);
+
 	echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 	
 	echo $form->create('CountryZone', array('id' => 'contentform', 'action' => '/country_zones/admin_edit/' . $country_id, 'url' => '/country_zones/admin_edit/' . $country_id));

@@ -12,6 +12,8 @@
    ---------------------------------------------------------------------------------------*/
 
 	echo $javascript->link('modified', false);
+	echo $javascript->link('jquery/jquery.min', false);
+	echo $javascript->link('focus-first-input', false);
 
 	echo $admin->ShowPageHeaderStart($current_crumb, 'prefences.png');
 
