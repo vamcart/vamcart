@@ -15,6 +15,8 @@ function default_template_checkout ()
 {
 $template = '
 <script type="text/javascript" src="{base_path}/js/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="{base_path}/js/modified.js"></script>
+<script type="text/javascript" src="{base_path}/js/focus-first-input.js"></script>
 {literal}
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -27,7 +29,7 @@ $template = '
 </script>
 {/literal}
 <div id="checkout">
-<form action="{$checkout_form_action}" method="post">
+<form action="{$checkout_form_action}" method="post" id="contentform">
 	<div id="shipping_method">
 		<div>
 			<h3>{lang}Shipping Method{/lang}</h3>
