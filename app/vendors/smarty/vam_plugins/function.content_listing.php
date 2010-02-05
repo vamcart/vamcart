@@ -119,7 +119,11 @@ function smarty_function_content_listing($params, &$smarty)
 		{
 			$content_list[$count]['name']	= $raw_data['ContentDescription']['name'];
 			$content_list[$count]['alias']	= $raw_data['Content']['alias'];	
-	
+		
+		if (isset($raw_data['ContentImage']['image']) && file_exists(IMAGES . 'content/' . $raw_data['Content']['id'] . '/' . $raw_data['ContentImage']['image'])) {
+			$content_list[$count]['icon']	= BASE . '/img/content/' . $raw_data['Content']['id'] . '/' . $raw_data['ContentImage']['image'];
+		}
+		
 			if($raw_data['ContentImage']['image'] != "")
 				$image_url = 'content/' . $raw_data['Content']['id'] . '/' . $raw_data['ContentImage']['image'];
 			else 
