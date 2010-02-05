@@ -15,7 +15,7 @@ function smarty_function_admin_area_link($params, &$smarty)
 {
 	if(!empty($_SESSION['User']))
 	{
-		echo '<li><a href="' . BASE . '/admin/"><span>'.__('Administration', true).'</span></a></li>';
+		echo '<li><a href="' . BASE . '/admin/">&nbsp;<img src="' . BASE . '/img/admin/icons/menu/account.png" width="15" height="14" border="0" alt="" /><span>'.__('Administration', true).'</span></a></li>';
 	}
 
 }
