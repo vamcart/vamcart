@@ -6,3 +6,15 @@
     RewriteRule ^css/(.*\.css) combine.php?type=css&files=$1
     RewriteRule ^js/(.*\.js) combine.php?type=javascript&files=$1
 </IfModule>
+
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/x-javascript
+</IfModule>
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType application/x-javascript A8640000
+    ExpiresByType text/javascript A8640000
+    ExpiresByType text/css A8640000
+    ExpiresByType image/png A8640000
+</IfModule>
