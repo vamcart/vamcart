@@ -18,10 +18,14 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'install.png');
 <p><?php __('Installing version:') ?> <?php echo $version; ?></p>
 
 <?php
-	echo $javascript->link('modified', false);
-	echo $javascript->link('jquery/jquery.min', false);
-	echo $javascript->link('focus-first-input', false);
-        echo $this->requestAction(array('controller' => 'install', 'action' => 'check_permissions'), array('return'));
+
+$combine->js(array(
+	'modified.js',
+	'jquery/jquery.min.js',
+	'focus-first-input.js'
+));
+
+echo $this->requestAction(array('controller' => 'install', 'action' => 'check_permissions'), array('return'));
 
 ?>
 <br />

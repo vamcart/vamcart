@@ -12,12 +12,18 @@
    ---------------------------------------------------------------------------------------*/
 ?>
 <?php
-	echo $javascript->link('modified', false);
-	echo $javascript->link('jquery/jquery.min', false);
-	echo $javascript->link('jquery/plugins/ui.core', false);
-	echo $javascript->link('jquery/plugins/ui.tabs', false);
-	echo $javascript->link('tabs', false);
-	echo $javascript->link('focus-first-input', false);
+
+$combine->js(array(
+	'modified.js',
+	'jquery/jquery.min.js',
+	'jquery/plugins/ui.core.js',
+	'jquery/plugins/ui.tabs.js',
+	'tabs.js',
+	'swfupload/swfupload.js',
+	'swfupload/callbacks.js',
+	'focus-first-input.js'
+));
+	
 	echo $html->css('jquery/plugins/ui.tabs','','', false);
 	echo $tinyMce->init();
 ?>
@@ -174,9 +180,6 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 		echo '<p>' . __('Press \'Upload Images\' and choose images from your computer to upload. Select as many files as you would like. Images will upload right after you select them.', true) . '</p>';
 		echo '<div class="help tip"><p>' . __('TIP: Hold the \'control\' button to select more than one image.', true) . '</p></div>';		
 		?>
-		<?php echo $javascript->link('swfupload/swfupload', false);  ?>
-		<?php echo $javascript->link('swfupload/callbacks', false);  ?>
-	
 <?php echo $javascript->codeBlock('
 			var swfu;
 

@@ -12,10 +12,13 @@
    ---------------------------------------------------------------------------------------*/
 
 	echo $admin->ShowPageHeaderStart($current_crumb, 'login.png');
-
-	echo $javascript->link('jquery/jquery.min', false);
-	echo $javascript->link('focus-first-input', false);
-	echo $javascript->link('modified', false);
+	
+	$combine->js(array(
+		'jquery/jquery.min.js',
+		'focus-first-input.js',
+		'modified.js'
+	));
+	
 	echo $form->create('User', array('id' => 'contentform', 'action' => '/users/admin_login/', 'url' => '/users/admin_login/'));
 	echo $form->input('username', array('label' => __('Username', true)));
 	echo $form->input('password', array('label' => __('Password', true)));

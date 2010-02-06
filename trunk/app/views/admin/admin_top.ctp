@@ -11,10 +11,13 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-	echo $javascript->link('jquery/jquery.min', false);
-	echo $javascript->link('jquery/plugins/ui.core', false);
-	echo $javascript->link('jquery/plugins/ui.tabs', false);
-	echo $javascript->link('tabs', false);
+$combine->js(array(
+	'jquery/jquery.min.js',
+	'jquery/plugins/ui.core.js',
+	'jquery/plugins/ui.tabs.js',
+	'tabs.js'
+));
+
 	echo $html->css('jquery/plugins/ui.tabs','','', false);
 
 	echo $admin->ShowPageHeaderStart(__('Home',true), 'home.png');
