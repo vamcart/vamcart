@@ -21,10 +21,12 @@
 	});
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
 <?php
-echo $javascript->link('modified', false);
-echo $javascript->link('jquery/jquery.min', false);
-echo $javascript->link('focus-first-input', false);
-        
+
+$combine->js(array(
+	'modified.js',
+	'jquery/jquery.min.js',
+	'focus-first-input.js'
+));
 
 echo $admin->ShowPageHeaderStart($current_crumb, 'new.png');
 
