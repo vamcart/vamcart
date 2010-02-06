@@ -62,7 +62,7 @@ function compress($path, $name, $type) {
 		$stylesheet = str_replace(array(' }', '} '), '}', $stylesheet);
 		$output = $stylesheet;
 	} else {
-		App::import('Vendor', 'jsmin');
+		App::import('Vendor', 'jsmin'.DS.'jsmin');
 		$output = JSMin::minify($input);
 	}
 	
