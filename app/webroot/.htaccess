@@ -18,3 +18,5 @@
     ExpiresByType text/css A8640000
     ExpiresByType image/png A8640000
 </IfModule>
+
+FileETag none
