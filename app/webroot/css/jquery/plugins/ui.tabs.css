@@ -97,7 +97,10 @@
     border-right: 1px solid #97a5b0;
     border-bottom: 1px solid #97a5b0;
     padding: 1em 8px;
-    background: #fff url(../../../img/admin/menu-content-bg.png) repeat-x left top; /* declare background color for container to avoid distorted fonts in IE while fading */
+		background-color: #fff;
+		background-image: url(../../../img/admin/bg.png);
+		background-position: 0 0;
+		background-repeat: repeat-x; 
 		border-top-left-radius: 4px;
 		border-top-right-radius: 4px;
 		border-bottom-left-radius: 4px;
