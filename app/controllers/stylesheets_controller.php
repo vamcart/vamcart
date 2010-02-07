@@ -20,6 +20,7 @@ class StylesheetsController extends AppController {
 		$stylesheet = $this->Stylesheet->find("Stylesheet.id = '".$alias."' OR Stylesheet.alias = '".$alias."'");
 
 		/* set MIME type */
+		@ob_start ('ob_gzhandler');
 		header("Content-Type: text/css");
 		header("Cache-Control: must-revalidate");
 		$offset = 72000 ;
