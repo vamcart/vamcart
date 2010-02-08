@@ -19,6 +19,16 @@ class StylesheetsController extends AppController {
 		$alias = str_replace(".css","",$alias);
 		$stylesheet = $this->Stylesheet->find("Stylesheet.id = '".$alias."' OR Stylesheet.alias = '".$alias."'");
 
+		// Minify css
+		$stylesheetcontent = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $stylesheet['Stylesheet']['stylesheet']);
+		$stylesheetcontent = str_replace(array("\r\n", "\r", "\n", "\t", '/\s\s+/', '  ', '   '), '', $stylesheetcontent);
+		$stylesheetcontent = str_replace(array(' {', '{ '), '{', $stylesheetcontent);
+		$stylesheetcontent = str_replace(array(' }', '} '), '}', $stylesheetcontent);
+		$output = $stylesheetcontent;
+
+		App::import('Vendor', 'jsmin'.DS.'jsmin');
+		$output = JSMin::minify($output);
+
 		/* set MIME type */
 		@ob_start ('ob_gzhandler');
 		header("Content-Type: text/css");
@@ -30,7 +40,7 @@ class StylesheetsController extends AppController {
 		header($ExpStr); 
 
 		echo '/* Begin Stylesheet: ' . $stylesheet['Stylesheet']['name'] . ' */';		
-		echo $stylesheet['Stylesheet']['stylesheet'];
+		echo $output;
 		echo '/* End Stylesheet: ' . $stylesheet['Stylesheet']['name'] . ' */';				
 		die();
 
