@@ -20,14 +20,10 @@ class StylesheetsController extends AppController {
 		$stylesheet = $this->Stylesheet->find("Stylesheet.id = '".$alias."' OR Stylesheet.alias = '".$alias."'");
 
 		// Minify css
-		$stylesheetcontent = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $stylesheet['Stylesheet']['stylesheet']);
-		$stylesheetcontent = str_replace(array("\r\n", "\r", "\n", "\t", '/\s\s+/', '  ', '   '), '', $stylesheetcontent);
-		$stylesheetcontent = str_replace(array(' {', '{ '), '{', $stylesheetcontent);
-		$stylesheetcontent = str_replace(array(' }', '} '), '}', $stylesheetcontent);
-		$output = $stylesheetcontent;
-
-		App::import('Vendor', 'jsmin'.DS.'jsmin');
-		$output = JSMin::minify($output);
+		$output = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $stylesheet['Stylesheet']['stylesheet']);
+		$output = str_replace(array("\r\n", "\r", "\n", "\t", '/\s\s+/', '  ', '   '), '', $output);
+		$output = str_replace(array(' {', '{ '), '{', $output);
+		$output = str_replace(array(' }', '} '), '}', $output);
 
 		/* set MIME type */
 		@ob_start ('ob_gzhandler');
