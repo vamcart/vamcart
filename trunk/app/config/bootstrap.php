@@ -41,4 +41,8 @@
  *
  */
 //EOF
+
+	Configure::write('Asset.jsPath', 'js');
+	Configure::write('Asset.cssPath', 'css');
+
 ?>
