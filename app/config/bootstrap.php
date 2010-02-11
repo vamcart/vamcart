@@ -42,7 +42,7 @@
  */
 //EOF
 
-	Configure::write('Asset.jsPath', 'js/packed');
-	Configure::write('Asset.cssPath', 'css/packed');
+	Configure::write('Asset.jsPath', 'js-packed');
+	Configure::write('Asset.cssPath', 'css-packed');
 
 ?>
