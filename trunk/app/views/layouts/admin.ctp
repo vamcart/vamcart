@@ -18,7 +18,6 @@ header('Content-Type: text/html; charset=utf-8');
 <?php echo $html->charset(); ?>
 <title><?php echo $title_for_layout?></title>
 <?php echo $html->css('admin');  ?>
-<?php echo $scripts_for_layout; ?>
 </head>
 
 <body>
@@ -96,5 +95,8 @@ echo $admin->GenerateBreadcrumbs($navigation, $current_crumb);
 
 </div>
 <!-- /Container -->
+
+<?php echo $scripts_for_layout; ?>
+
 </body>
 </html>

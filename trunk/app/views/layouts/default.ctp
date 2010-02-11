@@ -16,7 +16,6 @@
 <head>
 <?php echo $html->charset(); ?>
 <?php echo $html->css('admin'); ?>
-<?php echo $scripts_for_layout; ?>
 <title><?php echo $title_for_layout?></title>
 </head>
 
@@ -66,5 +65,8 @@
 
 </div>
 <!-- /Container -->
+
+<?php echo $scripts_for_layout; ?>
+
 </body>
 </html>
