@@ -20,7 +20,7 @@ $javascript->link(array(
 	'focus-first-input.js'
 ), false);
 
-	echo $html->css('jquery/plugins/ui.tabs','','', false);
+	echo $html->css('ui.tabs', null, null, false);
 
 	echo $admin->ShowPageHeaderStart($current_crumb, 'stylesheets.png');
 
