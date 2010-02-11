@@ -16,7 +16,7 @@ header('Content-Type: text/html; charset=utf-8');
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <?php echo $html->charset(); ?>
-<title><?php echo $title_for_layout?></title>
+<title><?php echo $title_for_layout; ?></title>
 <?php echo $html->css('admin');  ?>
 </head>
 
@@ -67,9 +67,11 @@ echo $admin->GenerateBreadcrumbs($navigation, $current_crumb);
 <div id="wrapper">
 <div id="content">
 
+<?php echo $scripts_for_layout; ?>
+
 <?php if($session->check('Message.flash')) $session->flash(); ?>
 
-<?php echo $content_for_layout ?>
+<?php echo $content_for_layout; ?>
 
 </div>
 </div>
@@ -95,8 +97,6 @@ echo $admin->GenerateBreadcrumbs($navigation, $current_crumb);
 
 </div>
 <!-- /Container -->
-
-<?php echo $scripts_for_layout; ?>
 
 </body>
 </html>

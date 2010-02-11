@@ -15,10 +15,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <?php echo $html->charset(); ?>
-<title><?php echo $title_for_layout?></title>
+<title><?php echo $title_for_layout; ?></title>
 </head>
 
 <body>
-	<?php echo $content_for_layout ?>
+<?php echo $content_for_layout; ?>
 </body>
 </html>
