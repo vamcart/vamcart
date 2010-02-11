@@ -78,7 +78,7 @@ div#fancy_close {
 	right: -15px;
 	height: 30px;
 	width: 30px;
-	background: url('images/fancy_closebox.png') top left no-repeat;
+	background: url('../img/jquery/plugins/fancybox/fancy_closebox.png') top left no-repeat;
 	cursor: pointer;
 	z-index: 181;
 	display: none;
