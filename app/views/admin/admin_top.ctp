@@ -18,7 +18,7 @@ $javascript->link(array(
 	'tabs.js'
 ), false);
 
-	echo $html->css('jquery/plugins/ui.tabs','','', false);
+	echo $html->css('ui.tabs', null, null, false);
 
 	echo $admin->ShowPageHeaderStart(__('Home',true), 'home.png');
 
