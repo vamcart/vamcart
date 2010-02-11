@@ -37,7 +37,7 @@
 <div id="wrapper">
 <div id="content">
 
-<?php echo $scripts_for_layout; ?>
+<?php echo $asset->scripts_for_layout(); ?>
 
 <?php if($session->check('Message.flash')) $session->flash(); ?>
 
