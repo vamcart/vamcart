@@ -12,7 +12,7 @@
    ---------------------------------------------------------------------------------------*/
 
 class AppController extends Controller {
-	var $helpers = array('Html','Javascript','Ajax','Form','Admin');
+	var $helpers = array('Html','Javascript','Ajax','Form','Admin', 'Asset');
 	var $components = array('RequestHandler','ConfigurationBase','CurrencyBase','OrderBase');
 	var $layout = 'admin';
 
