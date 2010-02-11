@@ -13,11 +13,11 @@
 
 	echo $admin->ShowPageHeaderStart($current_crumb, 'login.png');
 	
-	$combine->js(array(
+	$javascript->link(array(
 		'jquery/jquery.min.js',
 		'focus-first-input.js',
 		'modified.js'
-	));
+	), false);
 	
 	echo $form->create('User', array('id' => 'contentform', 'action' => '/users/admin_login/', 'url' => '/users/admin_login/'));
 	echo $form->input('username', array('label' => __('Username', true)));

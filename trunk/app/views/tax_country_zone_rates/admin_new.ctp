@@ -22,11 +22,11 @@
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
 <?php
 
-$combine->js(array(
+$javascript->link(array(
 	'modified.js',
 	'jquery/jquery.min.js',
 	'focus-first-input.js'
-));
+), false);
 
 echo $admin->ShowPageHeaderStart($current_crumb, 'new.png');
 

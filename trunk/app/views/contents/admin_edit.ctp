@@ -13,7 +13,7 @@
 ?>
 <?php
 
-$combine->js(array(
+$javascript->link(array(
 	'modified.js',
 	'jquery/jquery.min.js',
 	'jquery/plugins/ui.core.js',
@@ -22,7 +22,7 @@ $combine->js(array(
 	'swfupload/swfupload.js',
 	'swfupload/callbacks.js',
 	'focus-first-input.js'
-));
+), false);
 	
 	echo $html->css('jquery/plugins/ui.tabs','','', false);
 	echo $tinyMce->init();
