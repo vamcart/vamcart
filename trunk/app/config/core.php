@@ -156,14 +156,14 @@
  *
  * To use, prefix the CSS link URL with '/ccss/' instead of '/css/' or use HtmlHelper::css().
  */
-	//Configure::write('Asset.filter.css', 'assets.php');
+	//Configure::write('Asset.filter.css', 'css.php');
 /**
  * Plug in your own custom JavaScript compressor by dropping a script in your webroot to handle the
  * output, and setting the config below to the name of the script.
  *
  * To use, prefix your JavaScript link URLs with '/cjs/' instead of '/js/' or use JavaScriptHelper::link().
  */
-	//Configure::write('Asset.filter.js', 'assets.php');
+	//Configure::write('Asset.filter.js', 'custom_javascript_output_filter.php');
 /**
  * The classname and database used in CakePHP's
  * access control lists.
