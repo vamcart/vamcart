@@ -9,12 +9,16 @@
     AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/x-javascript
 </IfModule>
 
-<IfModule mod_expires.c>
-    ExpiresActive On
-    ExpiresByType application/x-javascript A8640000
-    ExpiresByType text/javascript A8640000
-    ExpiresByType text/css A8640000
-    ExpiresByType image/png A8640000
+<IfModule mod_expires.c> 
+  ExpiresActive On
+  ExpiresByType text/css "access plus 10 years"
+  ExpiresByType text/js "access plus 10 years"
+  ExpiresByType text/javascript "access plus 10 years"
+  ExpiresByType application/x-javascript "access plus 10 years"
+  ExpiresByType application/javascript "access plus 10 years"
+  ExpiresByType image/png "access plus 10 years"
+  ExpiresByType image/gif "access plus 10 years"
+  ExpiresByType image/jpeg "access plus 10 years"
 </IfModule>
 
 FileETag none
