@@ -11,10 +11,10 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-$combine->js(array(
+$javascript->link(array(
 	'jquery/jquery.min.js',
 	'selectall.js'
-));
+), false);
 
 $paginator->options(array('update' => 'content', 'url' => '/countries/admin/', 'indicator' => 'spinner')); 
 

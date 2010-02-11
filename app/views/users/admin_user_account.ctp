@@ -11,11 +11,11 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-$combine->js(array(
+$javascript->link(array(
 	'modified.js',
 	'jquery/jquery.min.js',
 	'focus-first-input.js'
-));
+), false);
 
 	echo $admin->ShowPageHeaderStart($current_crumb, 'account.png');
 

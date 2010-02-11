@@ -11,11 +11,11 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-$combine->js(array(
+$javascript->link(array(
 	'modified.js',
 	'jquery/jquery.min.js',
 	'focus-first-input.js'
-));
+), false);
 
 	$template_id = $this->data['Template']['id'];
 

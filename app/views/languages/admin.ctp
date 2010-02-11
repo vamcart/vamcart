@@ -11,10 +11,10 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-$combine->js(array(
+$javascript->link(array(
 	'jquery/jquery.min.js',
 	'selectall.js'
-));
+), false);
 
 echo $admin->ShowPageHeaderStart($current_crumb, 'languages.png');
 

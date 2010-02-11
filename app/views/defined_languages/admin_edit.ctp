@@ -11,14 +11,14 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-$combine->js(array(
+$javascript->link(array(
 	'modified.js',
 	'jquery/jquery.min.js',
 	'jquery/plugins/ui.core.js',
 	'jquery/plugins/ui.tabs.js',
 	'tabs.js',
 	'focus-first-input.js'
-));
+), false);
 
 	echo $html->css('jquery/plugins/ui.tabs','','', false);
 	
