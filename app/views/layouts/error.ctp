@@ -16,7 +16,7 @@
 <head>
 <?php echo $html->charset(); ?>
 <?php echo $html->css('admin'); ?>
-<title><?php echo $title_for_layout?></title>
+<title><?php echo $title_for_layout; ?></title>
 </head>
 
 <body>
@@ -39,7 +39,7 @@
 
 <?php if($session->check('Message.flash')) $session->flash(); ?>
 
-<?php echo $content_for_layout ?>
+<?php echo $content_for_layout; ?>
 
 </div>
 </div>

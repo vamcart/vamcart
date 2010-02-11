@@ -16,7 +16,7 @@
 <head>
 <?php echo $html->charset(); ?>
 <?php echo $html->css('admin'); ?>
-<title><?php echo $title_for_layout?></title>
+<title><?php echo $title_for_layout; ?></title>
 </head>
 
 <body>
@@ -37,9 +37,11 @@
 <div id="wrapper">
 <div id="content">
 
+<?php echo $scripts_for_layout; ?>
+
 <?php if($session->check('Message.flash')) $session->flash(); ?>
 
-<?php echo $content_for_layout ?>
+<?php echo $content_for_layout; ?>
 
 </div>
 </div>
@@ -65,8 +67,6 @@
 
 </div>
 <!-- /Container -->
-
-<?php echo $scripts_for_layout; ?>
 
 </body>
 </html>
