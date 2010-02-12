@@ -11,7 +11,7 @@ class TinyMceHelper extends Helper {
 	}
 	function init($options=false){
 	$code = '';
-	$code .= $this->Javascript->link('tiny_mce/tiny_mce', false);
+	$code .= $this->Javascript->link('tiny_mce/jquery.tinymce', false);
 	$code .= $this->Javascript->link('tiny_mce/plugins/tinybrowser/tb_tinymce.js.php', false);
 	if($options){
 	$code .= $this->Javascript->codeBlock('
@@ -22,8 +22,13 @@ class TinyMceHelper extends Helper {
 		} else {
 	$code .= $this->Javascript->codeBlock('
 
-		tinyMCE.init({
-			mode : "none",
+	$().ready(function() {
+	
+		$("textarea").tinymce({
+			// Location of TinyMCE script
+			script_url : "'.BASE.'/js/tiny_mce/tiny_mce.js",
+
+			// General options
 			editor_deselector : "notinymce",
 			theme : "advanced",
 			language : "'.$this->Session->read('Customer.language').'",
@@ -32,7 +37,7 @@ class TinyMceHelper extends Helper {
 			paste_use_dialog : true,
 			convert_urls : false,
 		
-			plugins : "safari,typograf,spellchecker,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,imagemanager,filemanager",
+			plugins : "pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,typograf,spellchecker",
 		
 			file_browser_callback : "tinyBrowser",
 		
@@ -48,15 +53,18 @@ class TinyMceHelper extends Helper {
 			theme_advanced_toolbar_align : "left",
 			theme_advanced_statusbar_location : "bottom",
 			theme_advanced_resizing : true
-		
-		});
+
+
+		    });
+
+	});
 	
 		function toggleHTMLEditor(id) {
 			if (!tinyMCE.get(id))
 				tinyMCE.execCommand("mceAddControl", false, id);
 			else
 				tinyMCE.execCommand("mceRemoveControl", false, id);
-		}    
+		}    	
 	
 	', array('allowCache'=> false,'safe'=> false,'inline'=> false));
 	}    
