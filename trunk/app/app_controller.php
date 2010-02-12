@@ -128,7 +128,7 @@ class AppController extends Controller {
 		if($alias == "")
 			$alias = rand(1000,9999);
 			
-		//Convert cyrillic symbols to translit
+		//Replace cyrillic symbols to translit
 		$trdic = array(
 		"ё"=>"jo",
 		"ж"=>"zh",
