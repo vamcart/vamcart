@@ -24,7 +24,7 @@ class TinyMceHelper extends Helper {
 
 	$().ready(function() {
 	
-		$("textarea").tinymce({
+		$("textarea.pagesmalltextarea").tinymce({
 			// Location of TinyMCE script
 			script_url : "'.BASE.'/js/tiny_mce/tiny_mce.js",
 
