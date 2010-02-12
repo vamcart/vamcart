@@ -27,7 +27,7 @@ class InstallComponent extends Object
 
 	function getVersion ()
 	{
-		$version = file_get_contents(APP . 'version.txt');
+		$version = file_get_contents(WWW_ROOT . 'version.txt');
 		return $version;
 	}
 	
