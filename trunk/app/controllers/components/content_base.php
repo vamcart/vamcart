@@ -83,13 +83,13 @@ class ContentBaseComponent extends Object
 			
 		if($content_alias == "")
 			$content_alias = $this->default_content();
-
+		
 		// Unbind all models then rebind just the ones we'll need
 		$this->Content->unbindAll();
 		
 		// Bind the template and content_type models
 	    $this->Content->bindModel(array('belongsTo' => array('Template' => array('className' => 'Template'))));
-
+		
 	    $this->Content->bindModel(array('belongsTo' => array('ContentType' => array('className' => 'ContentType'))));		
 		
 		$content_conditions = "Content.id = '".$content_alias."' OR Content.alias = '".$content_alias."' AND Content.active ='1'";
@@ -97,8 +97,7 @@ class ContentBaseComponent extends Object
 		
 		if ($content === false)
 		$this->cakeError('error404'); 
-
-
+		
 		return $content;
 	}
 	
