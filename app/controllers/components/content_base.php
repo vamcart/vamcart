@@ -92,7 +92,7 @@ class ContentBaseComponent extends Object
 
 	    $this->Content->bindModel(array('belongsTo' => array('ContentType' => array('className' => 'ContentType'))));		
 		
-		$content_conditions = "Content.id = '".$content_alias."' OR Content.alias = '".$content_alias."'";
+		$content_conditions = "Content.active = '1', Content.id = '".$content_alias."' OR Content.alias = '".$content_alias."'";
 		$content = $this->Content->find($content_conditions,null, null, 2);
 		
 		if ($content === false)
