@@ -104,7 +104,7 @@ function smarty_function_content_listing($params, &$smarty)
 			$allowed_types[] =  $type;
 	}
 	
-	$content_list_data_conditions = array('Content.parent_id' => $params['parent'],'Content.show_in_menu' => '1');
+	$content_list_data_conditions = array('Content.parent_id' => $params['parent'],'Content.active' => '1','Content.show_in_menu' => '1');
 	$Content->recursive = 2;
 	$content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'order' => array('Content.order ASC')));
 	
