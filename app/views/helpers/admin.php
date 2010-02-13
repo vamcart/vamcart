@@ -294,6 +294,7 @@ class AdminHelper extends Helper {
 	*/	
 	function ShowPageHeaderStart($page_name = null, $icon = null)
 	{
+			$content = '';
 			$content .= '<div id="page">';
 			$content .= '<h2>';
 		if (isset($icon) && file_exists(IMAGES . 'admin/icons/page/' . $icon)) {
@@ -316,6 +317,7 @@ class AdminHelper extends Helper {
 	*/	
 	function ShowPageHeaderEnd($page_name = null, $icon = null)
 	{
+			$content = '';
 			$content .= '</div>';
 			$content .= '</div>';
 			
