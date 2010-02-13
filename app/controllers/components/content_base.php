@@ -94,6 +94,10 @@ class ContentBaseComponent extends Object
 		
 		$content_conditions = "Content.id = '".$content_alias."' OR Content.alias = '".$content_alias."'";
 		$content = $this->Content->find($content_conditions,null, null, 2);
+		
+		if ($content === false)
+		$this->cakeError('error404'); 
+
 
 		return $content;
 	}
