@@ -347,7 +347,8 @@ class ContentsController extends AppController {
 				if($this->data['Content']['parent_id'] == '-1')
 					$this->redirect('/contents/admin_core_pages_edit/' . $content_id);
 				else
-					$this->redirect('/contents/admin_edit/' . $content_id . '/' . $parent_id);
+					$content = $this->Content->read(null, $content_id);
+					$this->redirect('/contents/admin_edit/' . $content_id . '/' . $content['Content']['parent_id']);
 			}
 			
 				if($content_id != 0)
