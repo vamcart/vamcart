@@ -541,7 +541,7 @@ div#content table.contentTable tr.contentRowEven
 	{
 		padding: 0;
 		margin: 0;
-		background: transparent;
+		background: #f7f7f7;
 	}
 
 div#content table.contentTable tr.contentRowOdd
