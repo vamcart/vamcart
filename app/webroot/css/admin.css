@@ -541,7 +541,7 @@ div#content table.contentTable tr.contentRowEven
 	{
 		padding: 0;
 		margin: 0;
-		background: #f7f7f7;
+		background: transparent;
 	}
 
 div#content table.contentTable tr.contentRowOdd
@@ -639,7 +639,7 @@ div#content .noData
 	{
 		padding: .5em;
 		margin: 0;
-		background: #f7f7f7;
+		background: transparent;
 	}
 	
 /* /Tables */
