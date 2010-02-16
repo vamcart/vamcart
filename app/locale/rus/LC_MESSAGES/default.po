@@ -38,6 +38,10 @@ msgid "Categories/Products"
 msgstr "Категории и товары"
 
 #: /app_controller.php:193
+msgid "Import/Export"
+msgstr "Импорт/Экспорт"
+
+#: /app_controller.php:193
 msgid "Pages"
 msgstr "Страницы"
 
