@@ -189,8 +189,9 @@ class AppController extends Controller {
 			3 => array('icon' => 'contents.png', 'text' => __('Contents', true), 'path' => '/admin/admin_top/3',
 				'children' => array(
 					1 => array('icon' => 'categories.png', 'text' => __('Categories/Products', true), 'path' => '/contents/admin/'),
-					2 => array('icon' => 'pages.png', 'text' => __('Pages', true), 'path' => '/contents/admin_core_pages/'),
-					3 => array('icon' => 'blocks.png', 'text' => __('Content Blocks', true), 'path' => '/global_content_blocks/admin/')
+					2 => array('icon' => 'import.png', 'text' => __('Import/Export', true), 'path' => '/import_export/admin/'),
+					3 => array('icon' => 'pages.png', 'text' => __('Pages', true), 'path' => '/contents/admin_core_pages/'),
+					4 => array('icon' => 'blocks.png', 'text' => __('Content Blocks', true), 'path' => '/global_content_blocks/admin/')
 				)
 			),
 			4 => array('icon' => 'layout.png', 'text' => __('Layout', true), 'path' => '/admin/admin_top/4',
