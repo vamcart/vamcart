@@ -79,7 +79,7 @@ class ShippingMethodsController extends AppController {
 				$module['id'] = $db_module['ShippingMethod']['id'];
 				$module['name'] = (isset($db_module['ShippingMethod']['name'])?$db_module['ShippingMethod']['name']:Inflector::humanize($module['code']));
 				$module['default'] = (isset($db_module['ShippingMethod']['default'])?$db_module['ShippingMethod']['default']:0);
-				$module['installed'] = $this->ShippingMethod->findCount(array('code' => $module['code'], 'active' => '1'));
+				$module['installed'] = $this->ShippingMethod->find('count', array('conditions' => array('code' => $module['code'], 'active' => '1')));
 				$module['order'] = $db_module['ShippingMethod']['order'];
 				
 				$modules[] = $module;

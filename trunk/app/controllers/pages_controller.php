@@ -98,13 +98,13 @@ class PagesController extends AppController {
 							   'content_alias' => $content['Content']['alias'],
 							   'parent_id' => $content['Content']['parent_id'],
 							   'sub_count' => array(
-							   						'all_content' => $this->Content->findCount(array('Content.parent_id' => $content['Content']['id'])),							   
-							   						'categories' => $this->Content->findCount(array('Content.parent_id' => $content['Content']['id'],'ContentType.name' => 'category')),
-							   						'products' => $this->Content->findCount(array('Content.parent_id' => $content['Content']['id'],'ContentType.name' => 'product')),
-							   						'pages' => $this->Content->findCount(array('Content.parent_id' => $content['Content']['id'],'ContentType.name' => 'page')),													
-							   						'news' => $this->Content->findCount(array('Content.parent_id' => $content['Content']['id'],'ContentType.name' => 'news')),													
-							   						'article' => $this->Content->findCount(array('Content.parent_id' => $content['Content']['id'],'ContentType.name' => 'article')),													
-							   						'pages' => $this->Content->findCount(array('Content.parent_id' => $content['Content']['id'],'OR' => array('ContentType.name' => 'link')))
+							   						'all_content' => $this->Content->find('count', array('conditions' => array('Content.parent_id' => $content['Content']['id']))),							   
+							   						'categories' => $this->Content->find('count', array('conditions' => array('Content.parent_id' => $content['Content']['id'],'ContentType.name' => 'category'))),
+							   						'products' => $this->Content->find('count', array('conditions' => array('Content.parent_id' => $content['Content']['id'],'ContentType.name' => 'product'))),
+							   						'pages' => $this->Content->find('count', array('conditions' => array('Content.parent_id' => $content['Content']['id'],'ContentType.name' => 'page'))),													
+							   						'news' => $this->Content->find('count', array('conditions' => array('Content.parent_id' => $content['Content']['id'],'ContentType.name' => 'news'))),													
+							   						'article' => $this->Content->find('count', array('conditions' => array('Content.parent_id' => $content['Content']['id'],'ContentType.name' => 'article'))),													
+							   						'pages' => $this->Content->find('count', array('conditions' => array('Content.parent_id' => $content['Content']['id'],'OR' => array('ContentType.name' => 'link'))))
 							   					   ),
 							   'show_in_menu' => $content['Content']['show_in_menu'],
 							   'created' => $content['Content']['created'],
