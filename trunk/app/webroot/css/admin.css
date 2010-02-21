@@ -670,6 +670,7 @@ div.error-message
 	{
 		padding: .5em 0 .5em 1.5em;
 		margin: .5em;
+		font-weight: bold;
 		background: transparent url(../img/admin/icons/error.png) no-repeat center left;
 	}
 
