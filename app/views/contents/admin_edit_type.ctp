@@ -29,6 +29,8 @@ echo $form->inputs(array(
 
 $tax_options = $this->requestAction('/contents/generate_tax_list/');
 
+	echo $validation->bind('ContentProduct', array('form' => '#contentform', 'messageId' => 'messages'));
+
 	echo $form->inputs(array(
 		'legend' => false,
 		'fieldset' => false,
