@@ -13,7 +13,7 @@
 ?>
 <?php
 
-echo $validation->bind('ContentProduct', array('form' => '#contentform'));
+echo $validation->bind('ContentProduct', array('form' => '#contentform', 'messageId' => 'messages'));
 
 $javascript->link(array(
 	'modified.js',
@@ -259,6 +259,8 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 	echo $admin->EndTabContent();
 
 	echo $admin->EndTabs();
+
+	echo '<div id="messages"></div>';
 
 	echo $form->submit( __('Submit', true), array('name' => 'submitbutton', 'id' => 'submitbutton')) . $form->submit( __('Apply', true), array('name' => 'applybutton')) . $form->submit( __('Cancel', true), array('name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';
