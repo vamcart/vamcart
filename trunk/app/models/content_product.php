@@ -16,13 +16,13 @@ class ContentProduct extends AppModel {
 	var $belongsTo = array('Tax');
 	
 	var $validate = array(
-	'ContentProduct.price' => array(
+	'price' => array(
 		'rule' => 'notEmpty'
 	),
-	'ContentProduct.weight' => array(
+	'weight' => array(
 		'rule' => 'notEmpty'
 	),
-	'ContentProduct.stock' => array(
+	'stock' => array(
 		'rule' => 'notEmpty'
 	)
 	);
