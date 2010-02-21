@@ -18,7 +18,7 @@ class ModuleReviewsAppController extends AppController
 		App::import('Model', 'Module');
 			$this->Module =& new Module();
 		
-		if($this->Module->findCount(array('alias' => 'reviews')) == 1)
+		if($this->Module->find('count', array('conditions' => array('alias' => 'reviews'))) == 1)
 		{
 			App::import('Model', 'ModuleReview');
 				$this->ModuleReview =& new Module();

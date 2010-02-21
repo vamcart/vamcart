@@ -36,7 +36,7 @@ class OrderStatusController extends AppController {
 		{
 			$this->Session->setFlash( __('Error: Could not delete default record.', true));		
 		}
-		elseif($this->OrderStatus->Order->findCount(array('Order.order_status_id' => $order_status_id)) > 0)
+		elseif($this->OrderStatus->Order->find('count', array('conditions' => array('Order.order_status_id' => $order_status_id))) > 0)
 		{
 			$this->Session->setFlash( __('Record deleted.', true));				
 		}
@@ -166,7 +166,7 @@ class OrderStatusController extends AppController {
 	    );
 		
 		$this->set('order_status_data',$this->OrderStatus->find('all', array('order' => array('OrderStatus.order ASC'))));			
-		$this->set('order_status_count', $this->OrderStatus->findCount());
+		$this->set('order_status_count', $this->OrderStatus->find('count'));
 
 	}	
 }

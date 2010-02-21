@@ -68,7 +68,7 @@ class EventController extends ModuleCouponsAppController {
 		$this->OrderProduct =& new OrderProduct();
 		
 		// Make sure this coupon isn't already in our 'cart'	
-		$coupon_count = $this->OrderProduct->findCount(array('order_id' => $order['Order']['id'], 'name' => $coupon_product['OrderProduct']['name']));
+		$coupon_count = $this->OrderProduct->find('count', array('conditions' => array('order_id' => $order['Order']['id'], 'name' => $coupon_product['OrderProduct']['name'])));
 		if($coupon_count > 0)
 		{
 			echo '<div class="error">'.__('Error: Coupon already used.', true).'</div>';

@@ -163,7 +163,7 @@ class UsersController extends AppController {
 			}
 			
 			// Check for other users with this username
-			$check_username = $this->User->findCount(array('username' => $this->data['User']['username']));
+			$check_username = $this->User->find('count', array('conditions' => array('username' => $this->data['User']['username'])));
 			
 			if($check_username > 0)
 			{

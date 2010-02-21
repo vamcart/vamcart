@@ -171,9 +171,7 @@ class TemplatesController extends AppController {
 	function admin_delete ($template_id)
 	{
 		// First make sure nothing is using this template
-		$check_content = $this->Content->findCount(array('template_id' => $template_id));
-		
-		$template_count = $this->Template->findCount();
+		$check_content = $this->Content->find('count', array('conditions' => array('template_id' => $template_id)));
 		
 		// Don't allow the delete if something is utilizing this template
 		if(($check_content) > 0)
