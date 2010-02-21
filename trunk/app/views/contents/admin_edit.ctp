@@ -13,8 +13,6 @@
 ?>
 <?php
 
-echo $validation->bind('ContentProduct', array('form' => '#contentform', 'messageId' => 'messages'));
-
 $javascript->link(array(
 	'modified.js',
 	'jquery/jquery.min.js',
