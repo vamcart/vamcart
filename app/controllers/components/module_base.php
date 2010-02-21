@@ -121,7 +121,7 @@ class ModuleBaseComponent extends Object
 		App::import('Model', 'Module');
 		$this->Module =& new Module();
 		
-		$check_count = $this->Module->findCount(array('Module.alias' => $module_alias));
+		$check_count = $this->Module->find('count', array('conditions' => array('Module.alias' => $module_alias)));
 		
 		if(($redirect == true)&&($check_count == 1))
 		{

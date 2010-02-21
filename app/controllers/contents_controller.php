@@ -459,7 +459,7 @@ class ContentsController extends AppController {
 					case "delete":
 					
 						// Check the count of the child elements, dont allow them to delete a content item with children yet
-						$count_children = $this->Content->findCount(array('Content.parent_id' => $content['Content']['id']));
+						$count_children = $this->Content->find('count', array('conditions' => array('Content.parent_id' => $content['Content']['id'])));
 					if($count_children > 0)
 					{
 							$build_flash .= __('Unable to delete content item with children.', true);
@@ -522,7 +522,7 @@ class ContentsController extends AppController {
 		// Loop through and assign the counts
 		foreach($content_data AS $key => $value)
 		{
-			$content_data[$key]['Content']['count'] = $this->Content->findCount(array('Content.parent_id' => $value['Content']['id']));
+			$content_data[$key]['Content']['count'] = $this->Content->find('count', array('conditions' => array('Content.parent_id' => $value['Content']['id'])));
 		}
 		
 		$this->set('content_data', $content_data);
@@ -554,7 +554,7 @@ class ContentsController extends AppController {
 		// Loop through and assign the counts
 		foreach($content_data AS $key => $value)
 		{
-			$content_data[$key]['Content']['count'] = $this->Content->findCount(array('Content.parent_id' => $value['Content']['id']));
+			$content_data[$key]['Content']['count'] = $this->Content->find('count', array('conditions' => array('Content.parent_id' => $value['Content']['id'])));
 		}
 		
 		// Assign the parent content if $parent_id > 0
@@ -576,7 +576,7 @@ class ContentsController extends AppController {
 		}
 		
 		$this->set('content_data', $content_data);
-		$this->set('content_count', $this->Content->findCount(array('Content.parent_id' => $parent_id)));
+		$this->set('content_count', $this->Content->find('count', array('conditions' => array('Content.parent_id' => $parent_id))));
 	}
 
 }

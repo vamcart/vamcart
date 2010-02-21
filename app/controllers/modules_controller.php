@@ -30,7 +30,7 @@ class ModulesController extends AppController {
 				$module = array();
 				$module['alias'] = substr($dir,7,strlen($dir)); 
 				$module['name'] = Inflector::humanize($module['alias']);
-				$module['installed'] = $this->Module->findCount(array('alias' => $module['alias']));
+				$module['installed'] = $this->Module->find('count', array('conditions' => array('alias' => $module['alias'])));
 				
 				$module['version'] = intval(file_get_contents(APP . 'plugins' . DS . $dir . DS . 'version.txt'));
 				
