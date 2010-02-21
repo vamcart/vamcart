@@ -12,7 +12,7 @@
    ---------------------------------------------------------------------------------------*/
 
 class ContentsController extends AppController {
-	var $helpers = array('TinyMce');
+	var $helpers = array('TinyMce', 'Validation');
 	var $name = 'Contents';
 
 	/**

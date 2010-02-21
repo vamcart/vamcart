@@ -13,9 +13,12 @@
 ?>
 <?php
 
+echo $validation->bind('ContentProduct', array('form' => '#contentform'));
+
 $javascript->link(array(
 	'modified.js',
 	'jquery/jquery.min.js',
+	'jquery/plugins/jquery.validation.js',
 	'jquery/plugins/ui.core.js',
 	'jquery/plugins/ui.tabs.js',
 	'tabs.js',
