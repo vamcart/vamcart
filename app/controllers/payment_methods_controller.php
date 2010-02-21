@@ -101,7 +101,7 @@ class PaymentMethodsController extends AppController {
 				$module['id'] = $db_module['PaymentMethod']['id'];
 				$module['name'] = (isset($db_module['PaymentMethod']['name'])?$db_module['PaymentMethod']['name']:Inflector::humanize($module['alias']));
 				$module['default'] = (isset($db_module['PaymentMethod']['default'])?$db_module['PaymentMethod']['default']:0);
-				$module['installed'] = $this->PaymentMethod->findCount(array('alias' => $module['alias'], 'active' => '1'));
+				$module['installed'] = $this->PaymentMethod->find('count', array('conditions' => array('alias' => $module['alias'], 'active' => '1')));
 				$module['order'] = $db_module['PaymentMethod']['order'];
 				
 				$modules[] = $module;
