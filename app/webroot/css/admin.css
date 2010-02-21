@@ -685,6 +685,12 @@ div.error-message
 		-moz-border-radius-bottomright: 4px;
 		-webkit-border-bottom-right-radius: 4px;
 	}
+
+div.error input
+	{
+		border: 1px solid #ff0000;
+		background: #fcc;
+	}
 	
 /* /Messages */
 

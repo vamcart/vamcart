@@ -69,8 +69,7 @@ class ValidationHelper extends Helper {
 						} else {
 							$validator['message'] = sprintf('%s %s',
 																							__('There was a problem with the field', true),
-																							//Inflector::humanize($field)
-																							''
+																							__(Inflector::humanize($field), true)
 																						 );
 						}
           }
