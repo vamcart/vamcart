@@ -124,8 +124,8 @@ class ContentBaseComponent extends Object
 		
 		$options = array();
 		
-		$temp_content = $this->Content->findAll($conditions, null, 'ContentDescription.name ASC');
-		
+		$temp_content = $this->Content->find('all', array('conditions' => $conditions));
+					
 		foreach($temp_content AS $loop_content)
 		{
 			$options_key = $loop_content['Content']['id'];
