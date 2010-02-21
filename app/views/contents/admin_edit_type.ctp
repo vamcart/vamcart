@@ -35,7 +35,7 @@ $tax_options = $this->requestAction('/contents/generate_tax_list/');
 	   'ContentProduct.price' => array(
    		'label' => __('Price', true),
 		'type' => 'text',
-		'value' => $data['ContentProduct']['price']
+		'value' => !isset($data['ContentProduct']['price'])? 0 : $data['ContentProduct']['price']
 	   ),
 	   'ContentProduct.tax_id' => array(
    		'label' => __('Tax Class', true),
@@ -46,7 +46,7 @@ $tax_options = $this->requestAction('/contents/generate_tax_list/');
 	   'ContentProduct.stock' => array(
    		'label' => __('Stock', true),
 		'type' => 'text',
-		'value' => $data['ContentProduct']['stock']
+		'value' => !isset($data['ContentProduct']['stock'])? 0 : $data['ContentProduct']['stock']
 	   ),
 	   'ContentProduct.model' => array(
    		'label' => __('Model', true),
@@ -56,7 +56,7 @@ $tax_options = $this->requestAction('/contents/generate_tax_list/');
 	   'ContentProduct.weight' => array(
    		'label' => __('Weight', true),
 		'type' => 'text',
-		'value' => $data['ContentProduct']['weight']
+		'value' => !isset($data['ContentProduct']['weight'])? 0 : $data['ContentProduct']['weight']
 	   )
 	));
 

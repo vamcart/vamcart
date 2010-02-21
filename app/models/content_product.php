@@ -19,6 +19,9 @@ class ContentProduct extends AppModel {
 	'ContentProduct.price' => array(
 		'rule' => 'notEmpty'
 	),
+	'ContentProduct.weight' => array(
+		'rule' => 'notEmpty'
+	),
 	'ContentProduct.stock' => array(
 		'rule' => 'notEmpty'
 	)
