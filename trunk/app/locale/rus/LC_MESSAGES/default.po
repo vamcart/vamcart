@@ -3195,3 +3195,7 @@ msgstr "один триллион"
 #: /views/helpers/summa.php:1
 msgid "two trillion"
 msgstr "два триллиона"
+
+#: /views/helpers/validation.php:71
+msgid "There was a problem with the field"
+msgstr "Ошибка в данном поле"
