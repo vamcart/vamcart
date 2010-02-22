@@ -124,6 +124,8 @@
     display: inline-block;
 }
 *:first-child+html .ui-tabs-nav  { /* @ IE 7 Standards Mode - do not group selectors, otherwise IE 6 will ignore complete rule (because of the unknown + combinator)... */
+    padding: 0;
+    margin: 0;
     display: inline-block;
 }
 
