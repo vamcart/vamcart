@@ -38,6 +38,7 @@ echo $form->input('Search.term',array('label' => __('Search',true),'value' => __
 echo $form->submit( __('Submit', true));
 echo $form->end();
 ?>
+<?php echo $admin->getHelpPage(); ?>
 </div>
 <div class="clear"></div>
 </div>
