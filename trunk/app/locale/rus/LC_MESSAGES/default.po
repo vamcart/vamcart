@@ -2338,6 +2338,14 @@ msgstr "Поиск"
 msgid "Global Record Search"
 msgstr "Поиск по магазину"
 
+#: /views/layouts/admin.ctp:45
+msgid "Help"
+msgstr "Помощь"
+
+#: /views/layouts/admin.ctp:45
+msgid "Help for this page"
+msgstr "Помощь по странице"
+
 #: /views/layouts/admin.ctp:97
 #: /views/layouts/default.ctp:66
 #: /views/layouts/error.ctp:66
