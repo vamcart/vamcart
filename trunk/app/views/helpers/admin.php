@@ -323,6 +323,19 @@ class AdminHelper extends Helper {
 			
 		return $content;
 	}
+
+	/**
+	* Returns wiki help url for current page
+	*
+	* @return string	Wiki Help Page.
+	*/	
+	function getHelpPage()
+	{
+			$content = '<a href ="http://vamcart.com/modules/wiki/index.php?page=' . (!isset($this->params['plugin']) ? null : $this->params['plugin'].'/') . $this->params['controller'].'/'.$this->params['action'] . '"><img src="' . BASE . '/img/admin/icons/help.png" alt="'.__('Help',true) .'" /> '.__('Help for this page',true).'</a>';
+			
+		return $content;
+	}
+
 }
 
 ?>
