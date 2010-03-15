@@ -205,14 +205,14 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
 				// Button settings
 
-				button_image_url : "images/SmallSpyGlassWithTransperancy_17x18.png",
+				button_image_url : "' . BASE . '/img/admin/swfupload/browse.png",
 				button_width: "160",
-				button_height: "30",
+				button_height: "18",
 				button_placeholder_id: "spanButtonPlaceHolder",
 				button_text: \'<span class="browsebtn">' . __('Browse Images', true) . '</span>\',
 				button_text_style: ".browsebtn { font-size: 14pt; font-family: Trebuchet MS, Lucida Grande, Verdana, Arial, Sans-Serif; line-height: 1; }",
-				button_text_left_padding: 12,
-				button_text_top_padding: 3,
+				button_text_left_padding: 18,
+				button_text_top_padding: 0,
 
 				button_window_mode: SWFUpload.WINDOW_MODE.TRANSPARENT,
 				button_cursor: SWFUpload.CURSOR.HAND,
