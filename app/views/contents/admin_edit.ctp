@@ -212,6 +212,9 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 				button_text_style: ".browsebtn { font-size: 14pt; font-family: Trebuchet MS, Lucida Grande, Verdana, Arial, Sans-Serif; line-height: 1; }",
 				button_text_left_padding: 12,
 				button_text_top_padding: 3,
+
+				button_window_mode: SWFUpload.WINDOW_MODE.TRANSPARENT,
+				button_cursor: SWFUpload.CURSOR.HAND,
 				
 				// The event handler functions are defined in handlers.js
 				swfupload_preload_handler : preLoad,
