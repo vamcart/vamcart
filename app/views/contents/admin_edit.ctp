@@ -21,7 +21,9 @@ $javascript->link(array(
 	'jquery/plugins/ui.tabs.js',
 	'tabs.js',
 	'swfupload/swfupload.js',
-	'swfupload/callbacks.js',
+	'swfupload/swfupload.queue.js',
+	'swfupload/fileprogress.js',
+	'swfupload/handlers.js',
 	'focus-first-input.js'
 ), false);
 	
@@ -182,39 +184,62 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 		echo '<div class="help tip"><p>' . __('TIP: Hold the \'control\' button to select more than one image.', true) . '</p></div>';		
 		?>
 <?php echo $javascript->codeBlock('
-			var swfu;
+		var swfu;
 
-			window.onload = function() {
+		window.onload = function() {
+			var settings = {
+				flash_url : "' . BASE . '/js/swfupload/swfupload.swf",
+				flash9_url : "' . BASE . '/js/swfupload/swfupload_fp9.swf",
+				upload_url: "' . BASE . '/contents/upload_images/' . $data['Content']['id'] . '",
+				post_params: {"PHPSESSID" : "' . session_id() . '"},
+				file_size_limit : "10 MB",
+				file_types : "*.jpg;*.jpeg;*.gif;*.png",
+				file_types_description : "All Files",
+				file_upload_limit : 100,
+				file_queue_limit : 0,
+				custom_settings : {
+					progressTarget : "fsUploadProgress",
+					cancelButtonId : "btnCancel"
+				},
+				debug: false,
 
-				swfu = new SWFUpload({
-				upload_script : "' . BASE . '/contents/upload_images/' . $data['Content']['id'] . '",
-				target : "SWFUploadTarget",
-				flash_path : "' . BASE . '/js/swfupload/swfupload.swf?session_name()=' . session_id() . '&"+Math.random(),
-				allowed_filesize : 3072,	// 30 MB
-				allowed_filetypes : "*.jpg;*.jpeg;*.gif;*.png",
-				allowed_filetypes_description : "All files...",
-				browse_link_innerhtml : "' . __('Browse Images', true) . '",
-				upload_link_innerhtml : "' . __('Upload Images', true) . '",
-				browse_link_class : "swfuploadbtn browsebtn",
-				upload_link_class : "swfuploadbtn uploadbtn",
-				flash_loaded_callback : "swfu.flashLoaded",
-				upload_file_queued_callback : "fileQueued",
-				upload_file_start_callback : "uploadFileStart",
-				upload_progress_callback : "uploadProgress",
-				upload_file_complete_callback : "uploadFileComplete",
-				upload_file_cancel_callback : "uploadFileCancelled",
-				upload_queue_complete_callback : "uploadQueueComplete",
-				upload_error_callback : "uploadError",
-				upload_cancel_callback : "uploadCancel",
-				auto_upload : true			
-				});
+				// Button settings
+
+				button_width: "65",
+				button_height: "29",
+				button_placeholder_id: "spanButtonPlaceHolder",
+				button_text: \'<span class="theFont">Hello</span>\',
+				button_text_style: ".theFont { font-size: 16; }",
+				button_text_left_padding: 12,
+				button_text_top_padding: 3,
+				
+				// The event handler functions are defined in handlers.js
+				swfupload_preload_handler : preLoad,
+				swfupload_load_failed_handler : loadFailed,
+				file_queued_handler : fileQueued,
+				file_queue_error_handler : fileQueueError,
+				file_dialog_complete_handler : fileDialogComplete,
+				upload_start_handler : uploadStart,
+				upload_progress_handler : uploadProgress,
+				upload_error_handler : uploadError,
+				upload_success_handler : uploadSuccess,
+				upload_complete_handler : uploadComplete,
+				queue_complete_handler : queueComplete	// Queue plugin event
 			};
+
+			swfu = new SWFUpload(settings);
+	     };
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
 		
-		<div id="SWFUploadFileListingFiles"></div>
-		<div class="clear"></div>
-		<h4 id="queueinfo"></h4>		
-		<div id="SWFUploadTarget"></div>		
+
+			<div class="fieldset flash" id="fsUploadProgress">
+			</div>
+		<div id="divStatus">0 Files Uploaded</div>
+			<div>
+				<span id="spanButtonPlaceHolder"></span>
+				<input id="btnCancel" type="button" value="Cancel All Uploads" onclick="swfu.cancelQueue();" disabled="disabled" style="margin-left: 2px; font-size: 8pt; height: 29px;" />
+			</div>
+
 		<?php
 	
 	}
