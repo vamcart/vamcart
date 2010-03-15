@@ -205,6 +205,7 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
 				// Button settings
 
+				button_image_url : "images/SmallSpyGlassWithTransperancy_17x18.png",
 				button_width: "160",
 				button_height: "30",
 				button_placeholder_id: "spanButtonPlaceHolder",
