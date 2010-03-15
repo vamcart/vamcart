@@ -209,7 +209,7 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 				button_height: "30",
 				button_placeholder_id: "spanButtonPlaceHolder",
 				button_text: \'<span class="browsebtn">' . __('Browse Images', true) . '</span>\',
-				button_text_style: ".theFont { font-size: 16; }",
+				button_text_style: ".browsebtn { font-size: 14pt; font-family: Trebuchet MS, Lucida Grande, Verdana, Arial, Sans-Serif; line-height: 1; }",
 				button_text_left_padding: 12,
 				button_text_top_padding: 3,
 				
@@ -232,13 +232,15 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
 		
 
-			<div class="fieldset flash" id="fsUploadProgress">
-			</div>
-		<div id="divStatus">0 Files Uploaded</div>
+			<div id="fsUploadProgress"></div>
+			<div class="clear"></div>
 			<div>
 				<span id="spanButtonPlaceHolder"></span>
-				<input id="btnCancel" type="button" value="Cancel All Uploads" onclick="swfu.cancelQueue();" disabled="disabled" style="margin-left: 2px; font-size: 8pt; height: 29px;" />
 			</div>
+			<div id="btnCancel">
+				<input id="btnCancel" type="button" value="<?php echo __('Cancel All Uploads', true); ?>" onclick="swfu.cancelQueue();" disabled="disabled" />
+			</div>
+			<div id="divStatus"><?php echo __('Files Uploaded:', true); ?> 0</div>
 
 		<?php
 	

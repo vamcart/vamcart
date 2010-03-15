@@ -854,112 +854,136 @@ del.button:hover span
 
 /* SWF Upload */
 
-.swfuploadbtn 
+.progressWrapper 
 	{
-		display: block;
-		width: 100px;
-		padding: 0 0 0 20px;
-	}
-		
-.browsebtn 
-	{ 
-		white-space: nowrap;
-		font-size: 14px;
-		background: url(../img/admin/swfupload/add.png) no-repeat 0 0; 
-	}
-
-.uploadbtn 
-	{ 
-		font-size: 14px;
-		display: none;
-		background: url(../img/admin/swfupload/accept.png) no-repeat 0 0; 
-		white-space: nowrap;
-	}
-		
-.cancelbtn 
-	{ 
-		display: block;
-		width: 16px;
-		height: 16px;
-		float: right;
-		background: url(../img/admin/swfupload/cancel.png) no-repeat; 
-	}
-		
-#cancelqueuebtn 
-	{
-		display: block;
-		display: none;
-		background: url(../img/admin/swfupload/cancel.png) no-repeat 0 4px;
-		margin: 10px 0;
-	}
-		
-#SWFUploadFileListingFiles ul 
-	{
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
-
-.SWFUploadFileItem 
-	{
-		display: block;
 		width: 230px;
-		height: 70px;
+		overflow: hidden;
 		float: left;
-		background: #eaefea;
-		margin: 0 10px 10px 0;
-		padding: 5px;
 	}
 
-.fileUploading 
-	{ 
-		background: #fee727; 
+.progressContainer 
+	{
+		margin: 5px;
+		padding: 4px;
+		border: solid 1px #E8E8E8;
+		background-color: #F7F7F7;
+		overflow: hidden;
 	}
 
-.uploadCompleted 
-	{ 
-		background: #d2fa7c; 
+/* Message */
+.message 
+	{
+		margin: 1em 0;
+		padding: 10px 20px;
+		border: solid 1px #FFDD99;
+		background-color: #FFFFCC;
+		overflow: hidden;
 	}
 
-.uploadCancelled 
-	{ 
-		background: #f77c7c; 
+/* Error */
+.red 
+	{
+		border: solid 1px #B50000;
+		background-color: #FFEBEB;
 	}
-		
-.uploadCompleted .cancelbtn, 
-.uploadCancelled .cancelbtn 
+
+/* Current */
+.green 
+	{
+		border: solid 1px #DDF0DD;
+		background-color: #EBFFEB;
+	}
+
+/* Complete */
+.blue 
+	{
+		border: solid 1px #CEE2F2;
+		background-color: #F0F5FF;
+	}
+
+.progressName 
+	{
+		font-size: 8pt;
+		font-weight: 700;
+		color: #555;
+		width: 323px;
+		height: 14px;
+		text-align: left;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+
+.progressBarInProgress,
+.progressBarComplete,
+.progressBarError 
+	{
+		font-size: 0;
+		width: 0%;
+		height: 2px;
+		background-color: blue;
+		margin-top: 2px;
+	}
+
+.progressBarComplete 
+	{
+		width: 100%;
+		background-color: green;
+		visibility: hidden;
+	}
+
+.progressBarStatus 
 	{
 		display: none;
 	}
-		
-span.progressBar 
+
+.progressBarError 
 	{
-		width: 200px;
-		display: block;
-		font-size: 10px;
-		height: 4px;
+		width: 100%;
+		background-color: red;
+		visibility: hidden;
+	}
+
+.progressBarStatus 
+	{
 		margin-top: 2px;
-		margin-bottom: 10px;
-		background-color: #CCC;
+		width: 337px;
+		font-size: 7pt;
+		font-family: Arial;
+		text-align: left;
+		white-space: nowrap;
 	}
 
-#content_images 
+a.progressCancel 
 	{
-		list-style-image: none;
-		list-style-position: outside;
-		list-style-type: none;
-		margin: 0pt;
-		padding: 0pt;
-	}
-
-#content_images li 
-	{
+		font-size: 0;
 		display: block;
-		float: left;
-		padding: 4px;
-		border: 1px solid #999999;
-		background-color: #FFFFFF;
-		margin: 5px;
+		height: 14px;
+		width: 14px;
+		background-repeat: no-repeat;
+		background-position: -14px 0px;
+		float: right;
+	}
+
+a.progressCancel:hover 
+	{
+		background-position: 0px 0px;
+	}
+
+/* -- SWFUpload Object Styles ------------------------------- */
+.swfupload 
+	{
+		vertical-align: top;
+	}
+
+div#btnCancel,
+div#btnCancel input
+	{
+		display: none;
+	}
+
+div#divStatus
+	{
+		display: none;
 	}
 
 /* /SWF Upload */
