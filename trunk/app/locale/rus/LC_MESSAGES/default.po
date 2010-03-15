@@ -2087,6 +2087,14 @@ msgstr "ПОДСКАЗКА: При выборе картинок на своём
 msgid "Browse Images"
 msgstr "Смотреть картинки"
 
+#: /views/contents/admin_edit.ctp:134
+msgid "Files Uploaded:"
+msgstr "Файлов загружено:"
+
+#: /views/contents/admin_edit.ctp:136
+msgid "Cancel All Uploads"
+msgstr "Отменить загрузку"
+
 #: /views/contents/admin_edit.ctp:159
 msgid "This is a new product. Please press apply before uploading images."
 msgstr "Новый товар. Нажмите кнопку сохранить, затем Вы сможете добавить картинки."
