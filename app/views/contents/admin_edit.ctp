@@ -207,11 +207,11 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
 				button_image_url : "' . BASE . '/img/admin/swfupload/browse.png",
 				button_width: "160",
-				button_height: "18",
+				button_height: "22",
 				button_placeholder_id: "spanButtonPlaceHolder",
 				button_text: \'<span class="browsebtn">' . __('Browse Images', true) . '</span>\',
 				button_text_style: ".browsebtn { font-size: 14pt; font-family: Trebuchet MS, Lucida Grande, Verdana, Arial, Sans-Serif; line-height: 1; }",
-				button_text_left_padding: 18,
+				button_text_left_padding: 22,
 				button_text_top_padding: 0,
 
 				button_window_mode: SWFUpload.WINDOW_MODE.TRANSPARENT,
