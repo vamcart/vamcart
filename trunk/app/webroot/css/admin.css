@@ -987,23 +987,23 @@ div#divStatus
 	}
 
 #content_images 
-        {
-                list-style-image: none;
-                list-style-position: outside;
-                list-style-type: none;
-                margin: 0pt;
-                padding: 0pt;
-        }
+	{
+		list-style-image: none;
+		list-style-position: outside;
+		list-style-type: none;
+		margin: 0pt;
+		padding: 0pt;
+	}
 
 #content_images li 
-        {
-                display: block;
-                float: left;
-                padding: 4px;
-                border: 1px solid #999999;
-                background-color: #FFFFFF;
-                margin: 5px;
-        }
+	{
+		display: block;
+		float: left;
+		padding: 4px;
+		border: 1px solid #999999;
+		background-color: #FFFFFF;
+		margin: 5px;
+	}
 
 /* /SWF Upload */
 
