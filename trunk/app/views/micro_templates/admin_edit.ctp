@@ -14,7 +14,8 @@
 $javascript->link(array(
 	'modified.js',
 	'jquery/jquery.min.js',
-	'focus-first-input.js'
+	'focus-first-input.js',
+	'codemirror/codemirror.js'
 ), false);
 
 	$id = $this->data['MicroTemplate']['id'];
@@ -37,6 +38,7 @@ $javascript->link(array(
 	                ),
 					'MicroTemplate.template' => array(
 						'type' => 'textarea',
+   				   		'id' => 'code',
    				   		'label' => __('Template', true)
 	                ),
 				));
@@ -45,4 +47,17 @@ $javascript->link(array(
 	echo '<div class="clear"></div>';
 	echo $form->end();
 	echo $admin->ShowPageHeaderEnd(); 
+	
+	echo $javascript->codeBlock('
+      var editor = CodeMirror.fromTextArea("code", {
+        height: "350px",
+        parserfile: ["parsexml.js", "parsecss.js", "tokenizejavascript.js", "parsejavascript.js",
+                     "tokenizephp.js", "parsephp.js",
+                     "parsephphtmlmixed.js"],
+        stylesheet: ["'. BASE . '/js/codemirror/css/xmlcolors.css", "'. BASE . '/js/codemirror/css/jscolors.css", "'. BASE . '/js/codemirror/css/csscolors.css", "'. BASE . '/js/codemirror/css/phpcolors.css"],
+        path: "'. BASE . '/js/codemirror/",
+        continuousScanning: 500
+      });
+', array('allowCache'=>false,'safe'=>false,'inline'=>true));	
+	
 ?>
