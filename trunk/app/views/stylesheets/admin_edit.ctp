@@ -17,7 +17,8 @@ $javascript->link(array(
 	'jquery/plugins/ui.core.js',
 	'jquery/plugins/ui.tabs.js',
 	'tabs.js',
-	'focus-first-input.js'
+	'focus-first-input.js',
+	'codemirror/codemirror.js'
 ), false);
 
 	echo $html->css('ui.tabs', null, null, false);
@@ -46,6 +47,7 @@ $javascript->link(array(
 	               ),
 				   'Stylesheet.stylesheet' => array(
    				   		'label' => __('Stylesheets', true),				   
+   						'id' => 'code',
    						'value' => $data['Stylesheet']['stylesheet']
 	               )																										
 			));
@@ -76,5 +78,15 @@ $javascript->link(array(
 	echo $form->end();
 
 	echo $admin->ShowPageHeaderEnd();
+
+	echo $javascript->codeBlock('
+      var editor = CodeMirror.fromTextArea("code", {
+        height: "350px",
+        parserfile: ["parsecss.js"],
+        stylesheet: ["'. BASE . '/js/codemirror/css/csscolors.css"],
+        path: "'. BASE . '/js/codemirror/",
+        continuousScanning: 500
+      });
+', array('allowCache'=>false,'safe'=>false,'inline'=>true));	
 	
 ?>
