@@ -38,7 +38,7 @@ class EmailTemplateController extends AppController {
 	function admin_edit ($email_template_id = null)
 	{
 		$this->set('current_crumb', __('Edit', true));
-		$this->pageTitle = __('Edit', true);
+		$this->set('title_for_layout', __('Edit', true));
 		// If they pressed cancel
 		if(isset($this->params['form']['cancel']))
 		{
@@ -128,7 +128,7 @@ class EmailTemplateController extends AppController {
 	function admin ($ajax = false)
 	{
 		$this->set('current_crumb', __('Email Templates Listing', true));
-		$this->pageTitle = __('Email Templates Listing', true);
+		$this->set('title_for_layout', __('Email Templates Listing', true));
 		// Lets remove the hasMany association for now and associate it with our language of choice
 		$this->EmailTemplate->unbindModel(array('hasMany' => array('EmailTemplateDescription')));
 		$this->EmailTemplate->bindModel(

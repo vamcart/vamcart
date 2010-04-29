@@ -34,7 +34,7 @@ class UsersController extends AppController {
 	function admin_user_account () 
 	{
 		$this->set('current_crumb', __('My Account Details', true));
-		$this->pageTitle = __('My Account Details', true);
+		$this->set('title_for_layout', __('My Account Details', true));
 		if(!empty($this->data))
 		{
 			// Redirect if the user pressed cancel
@@ -72,7 +72,7 @@ class UsersController extends AppController {
 	function admin_user_preferences () 
 	{
 		$this->set('current_crumb', __('My Prefences', true));
-		$this->pageTitle = __('My Prefences', true);
+		$this->set('title_for_layout', __('My Prefences', true));
 		if(!empty($this->data))
 		{
 			if(isset($this->params['form']['cancelbutton']))
@@ -123,7 +123,7 @@ class UsersController extends AppController {
 	{
 		$this->layout = 'default';
 		$this->set('current_crumb', __('Login', true));
-		$this->pageTitle = __('Login', true);
+		$this->set('title_for_layout', __('Login', true));
 		if(empty($this->data))
 		{
 			// Redirect the user if we're logged in
@@ -149,7 +149,7 @@ class UsersController extends AppController {
 	function admin_new ()
 	{	
 		$this->set('current_crumb', __('New Admin', true));
-		$this->pageTitle = __('New Admin', true);
+		$this->set('title_for_layout', __('New Admin', true));
 		if(empty($this->data))
 		{
 		}
@@ -201,7 +201,7 @@ class UsersController extends AppController {
 	function admin () 
 	{
 		$this->set('current_crumb', __('Admins Listing', true));
-		$this->pageTitle = __('Admins Listing', true);
+		$this->set('title_for_layout', __('Admins Listing', true));
 		$this->set('users', $this->User->find('all'));
 	}	
 }

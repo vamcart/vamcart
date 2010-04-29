@@ -27,7 +27,7 @@ class ShippingMethodsController extends AppController {
 	function admin_edit ($shipping_method_id)
 	{
 		$this->set('current_crumb', __('Edit Shipping Method', true));
-		$this->pageTitle = __('Edit Shipping Method', true);
+		$this->set('title_for_layout', __('Edit Shipping Method', true));
 		if(isset($this->params['form']['cancel']))
 		{
 			$this->redirect('/shipping_methods/admin/');
@@ -66,7 +66,7 @@ class ShippingMethodsController extends AppController {
 	function admin ()
 	{
 		$this->set('current_crumb', __('Modules Listing', true));
-		$this->pageTitle = __('Modules Listing', true);
+		$this->set('title_for_layout', __('Modules Listing', true));
 		$path = APP . 'plugins' . DS . 'shipping' . DS . 'views';
 		$module_path = new Folder($path);
 		$dirs = $module_path->read();

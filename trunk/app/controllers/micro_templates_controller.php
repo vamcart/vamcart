@@ -17,7 +17,7 @@ class MicroTemplatesController extends AppController {
 	function admin_create_from_tag ()
 	{
 		$this->set('current_crumb',__('Enter an alias to use',true));
-		$this->pageTitle = __('Enter an alias to use', true);
+		$this->set('title_for_layout', __('Enter an alias to use', true));
 	}
 	
 		
@@ -31,7 +31,7 @@ class MicroTemplatesController extends AppController {
 	function admin_edit ($id = null)
 	{
 		$this->set('current_crumb', __('Micro Template', true));
-		$this->pageTitle = __('Micro Template', true);
+		$this->set('title_for_layout', __('Micro Template', true));
 		if(empty($this->data))
 		{
 			$this->data = $this->MicroTemplate->read(null,$id);
@@ -74,7 +74,7 @@ class MicroTemplatesController extends AppController {
 	function admin ($ajax = false)
 	{
 		$this->set('current_crumb', __('Micro Templates Listing', true));
-		$this->pageTitle = __('Micro Templates Listing', true);
+		$this->set('title_for_layout', __('Micro Templates Listing', true));
 		$this->set('micro_templates',$this->MicroTemplate->find('all'));
 	}
 }

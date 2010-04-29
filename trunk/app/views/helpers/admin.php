@@ -144,15 +144,15 @@ class AdminHelper extends Helper {
 
 		if($data['order'] < $count)
 		{
-			$button .= $this->Ajax->link($this->Html->image('admin/icons/down.png', array('alt' => __('Down', true))),'null', $options = array('url' => 'admin_move/' . $data['id'] . '/down', 'update' => 'content'),null,false);		
+			$button .= $this->Ajax->link($this->Html->image('admin/icons/down.png', array('alt' => __('Down', true))),'null', $options = array('escape' => false, 'url' => 'admin_move/' . $data['id'] . '/down', 'update' => 'content'),null,false);		
 		}
 		else
 		{
-			$button .= $this->Html->link($this->Html->image('admin/transparency.png', array('width' => '16')), 'javascript:void(0);', null, null, false);
+			$button .= $this->Html->link($this->Html->image('admin/transparency.png', array('width' => '16')), 'javascript:void(0);', array('escape' => false));
 		}
 		if($data['order'] > 1)
 		{
-			$button .= $this->Ajax->link($this->Html->image('admin/icons/up.png', array('alt' => __('Up', true))),'null', $options = array('url' => 'admin_move/' . $data['id'] . '/up', 'update' => 'content'),null,false);		
+			$button .= $this->Ajax->link($this->Html->image('admin/icons/up.png', array('alt' => __('Up', true))),'null', $options = array('escape' => false, 'url' => 'admin_move/' . $data['id'] . '/up', 'update' => 'content'),null,false);		
 		}
 		return($button);
 	}
@@ -165,7 +165,7 @@ class AdminHelper extends Helper {
 		}
 		else
 		{
-			$button = $this->Ajax->link($this->Html->image('admin/icons/false.png', array('alt' => __('False', true))),'null', $options = array('url' => 'admin_set_as_default/' . $data['id'], 'update' => 'content'),null,false);		
+			$button = $this->Ajax->link($this->Html->image('admin/icons/false.png', array('alt' => __('False', true))),'null', $options = array('escape' => false, 'url' => 'admin_set_as_default/' . $data['id'], 'update' => 'content'),null,false);		
 		}
 		return($button);
 	}
@@ -177,7 +177,7 @@ class AdminHelper extends Helper {
 		else
 			$confirm_text = null;
 			
-		$button = $this->Html->link($this->Html->image('admin/icons/' . $action . '.png', array('alt' => $alt)),$path,null,$confirm_text,false);
+		$button = $this->Html->link($this->Html->image('admin/icons/' . $action . '.png', array('alt' => $alt)), $path, array('escape' => false), $confirm_text);
 		return($button);		
 	}
 	
@@ -196,9 +196,9 @@ class AdminHelper extends Helper {
 			$menuitem['attributes'] = "";
 			
 		if(isset($menuitem['icon'])) {
-			$link = $this->Html->link($this->Html->image('admin/icons/menu/'.$menuitem['icon'], array('width' => 16, 'height' => 16, 'alt' => '')).'&nbsp;'.__($menuitem['text'], true),$menuitem['path'],$menuitem['attributes'],null,false);
+			$link =  $this->Html->link($this->Html->image('admin/icons/menu/'.$menuitem['icon'], array('width' => 16, 'height' => 16, 'alt' => '')).'&nbsp;'.__($menuitem['text'], true), $menuitem['path'], array('escape' => false));
 		} else {
-			$link =  $this->Html->link(__($menuitem['text'], true),$menuitem['path'],$menuitem['attributes'],null,false);
+			$link =  $this->Html->link(__($menuitem['text'], true),$menuitem['path'], array('escape' => false));
 		}
 			
 		return($link);

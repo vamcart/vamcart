@@ -11,7 +11,7 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-$javascript->link(array(
+$html->script(array(
 	'modified.js',
 	'jquery/jquery.min.js',
 	'jquery/plugins/ui.core.js',
@@ -19,9 +19,9 @@ $javascript->link(array(
 	'tabs.js',
 	'focus-first-input.js',
 	'codemirror/codemirror.js'
-), false);
+), array('inline' => false));
 
-	echo $html->css('ui.tabs', null, null, false);
+	echo $html->css('ui.tabs', null, array('inline' => false));
 
 	echo $admin->ShowPageHeaderStart($current_crumb, 'stylesheets.png');
 
@@ -79,7 +79,7 @@ $javascript->link(array(
 
 	echo $admin->ShowPageHeaderEnd();
 
-	echo $javascript->codeBlock('
+	echo $html->scriptBlock('
       var editor = CodeMirror.fromTextArea("code", {
         height: "350px",
         parserfile: ["parsecss.js"],

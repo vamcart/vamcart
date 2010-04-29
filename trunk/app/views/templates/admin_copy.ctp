@@ -11,11 +11,11 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-$javascript->link(array(
+$html->script(array(
 	'modified.js',
 	'jquery/jquery.min.js',
 	'focus-first-input.js'
-), false);
+), array('inline' => false));
 
 	echo $admin->ShowPageHeaderStart($current_crumb, 'copy.png');
 

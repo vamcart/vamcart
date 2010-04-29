@@ -11,7 +11,7 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-echo $javascript->link('jquery/jquery.min', false);
+echo $html->script('jquery/jquery.min', array('inline' => false));
 
 echo $admin->ShowPageHeaderStart($current_crumb, 'shipping-methods.png');
 

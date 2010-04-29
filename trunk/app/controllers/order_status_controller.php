@@ -63,7 +63,7 @@ class OrderStatusController extends AppController {
 	function admin_edit ($order_status_id = null)
 	{
 		$this->set('current_crumb', __('Order Status', true));
-		$this->pageTitle = __('Order Status', true);
+		$this->set('title_for_layout', __('Order Status', true));
 		// If they pressed cancel
 		if(isset($this->params['form']['cancel']))
 		{
@@ -152,7 +152,7 @@ class OrderStatusController extends AppController {
 	function admin ($ajax = false)
 	{
 		$this->set('current_crumb', __('Order Status Listing', true));
-		$this->pageTitle = __('Order Status Listing', true);
+		$this->set('title_for_layout', __('Order Status Listing', true));
 		// Lets remove the hasMany association for now and associate it with our language of choice
 		$this->OrderStatus->unbindModel(array('hasMany' => array('OrderStatusDescription')));
 		$this->OrderStatus->bindModel(

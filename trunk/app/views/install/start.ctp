@@ -19,11 +19,11 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'install.png');
 
 <?php
 
-$javascript->link(array(
+$html->script(array(
 	'modified.js',
 	'jquery/jquery.min.js',
 	'focus-first-input.js'
-), false);
+), array('inline' => false));
 
 echo $this->requestAction(array('controller' => 'install', 'action' => 'check_permissions'), array('return'));
 
