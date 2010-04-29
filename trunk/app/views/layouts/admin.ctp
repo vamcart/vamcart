@@ -70,7 +70,7 @@ echo $admin->GenerateBreadcrumbs($navigation, $current_crumb);
 
 <?php echo $asset->scripts_for_layout(); ?>
 
-<?php if($session->check('Message.flash')) $session->flash(); ?>
+<?php if($session->check('Message.flash')) echo $session->flash(); ?>
 
 <?php echo $content_for_layout; ?>
 
