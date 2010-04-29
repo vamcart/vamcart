@@ -31,7 +31,7 @@ foreach ($data AS $country)
 	echo $admin->TableCells(
 		  array(
 			$html->link(__($country['Country']['name'],true),'/country_zones/admin/' . $country['Country']['id']),
-			array($html->link($html->image('flags/' . strtolower($country['Country']['iso_code_2']) . '.png', array('alt' => $country['Country']['name'])), '/countries/admin_edit/' . $country['Country']['id'],null,null,false), array('align'=>'center')),
+			array($html->link($html->image('flags/' . strtolower($country['Country']['iso_code_2']) . '.png', array('alt' => $country['Country']['name'])), '/countries/admin_edit/' . $country['Country']['id'], array('escape' => false)), array('align'=>'center')),
 			array($country['Country']['iso_code_2'], array('align'=>'center')),
 			array($country['Country']['iso_code_3'], array('align'=>'center')),
 			array($admin->ActionButton('edit','/countries/admin_edit/' . $country['Country']['id'],__('Edit', true)) . $admin->ActionButton('delete','/countries/admin_delete/' . $country['Country']['id'],__('Delete', true)), array('align'=>'center')),
