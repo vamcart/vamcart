@@ -29,7 +29,7 @@ class GlobalContentBlocksController extends AppController {
 	function admin_edit ($global_content_block_id = null)
 	{
 		$this->set('current_crumb', __('Global Content Block Details', true));
-		$this->pageTitle = __('Global Content Block Details', true);
+		$this->set('title_for_layout', __('Global Content Block Details', true));
 		if(isset($this->params['form']['cancel']))
 		{
 			$this->redirect('/global_content_blocks/admin/');
@@ -122,7 +122,7 @@ class GlobalContentBlocksController extends AppController {
 	function admin($ajax_request = false)
 	{
 		$this->set('current_crumb', __('Global Content Blocks Listing', true));
-		$this->pageTitle = __('Global Content Blocks Listing', true);
+		$this->set('title_for_layout', __('Global Content Blocks Listing', true));
 		$this->set('global_content_blocks', $this->GlobalContentBlock->find('all'));
 	}
 }

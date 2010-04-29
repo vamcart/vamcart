@@ -11,7 +11,7 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-echo $javascript->link('selectall', false);
+echo $html->script('selectall', array('inline' => false));
 
 echo $admin->ShowPageHeaderStart($current_crumb, 'user-tags.png');
 

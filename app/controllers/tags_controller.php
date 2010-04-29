@@ -18,7 +18,7 @@ class TagsController extends AppController {
 	function admin_view ($type, $tag)
 	{
 		$this->set('current_crumb', __('Tag Details', true));
-		$this->pageTitle = __('Tag Details', true);
+		$this->set('title_for_layout', __('Tag Details', true));
 		require_once("../vendors/smarty/vam_plugins/" . $type . "." . $tag . ".php");
 		
 		// Get information for the help content
@@ -54,7 +54,7 @@ class TagsController extends AppController {
 	function admin ()
 	{
 		$this->set('current_crumb', __('Tags Listing', true));
-		$this->pageTitle = __('Tags Listing', true);
+		$this->set('title_for_layout', __('Tags Listing', true));
 		$files = array();
 		if ($handle = opendir('../vendors/smarty/vam_plugins/')) {
 	    	while (false !== ($file = readdir($handle))) 

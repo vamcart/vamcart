@@ -24,7 +24,7 @@ class ConfigurationController extends AppController {
 	function admin_edit ()
 	{
 		$this->set('current_crumb', __('Store Configuration', true));
-		$this->pageTitle = __('Store Configuration', true);
+		$this->set('title_for_layout', __('Store Configuration', true));
 		if(!empty($this->data))
 		{
 			if(isset($this->params['form']['cancelbutton']))

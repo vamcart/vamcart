@@ -11,12 +11,12 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-$javascript->link(array(
+$html->script(array(
 	'modified.js',
 	'jquery/jquery.min.js',
 	'focus-first-input.js',
 	'codemirror/codemirror.js'
-), false);
+), array('inline' => false));
 
 	$id = $this->data['MicroTemplate']['id'];
 
@@ -48,7 +48,7 @@ $javascript->link(array(
 	echo $form->end();
 	echo $admin->ShowPageHeaderEnd(); 
 	
-	echo $javascript->codeBlock('
+	echo $html->scriptBlock('
       var editor = CodeMirror.fromTextArea("code", {
         height: "350px",
         parserfile: ["parsexml.js", "parsecss.js", "tokenizejavascript.js", "parsejavascript.js",

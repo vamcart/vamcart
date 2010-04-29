@@ -11,10 +11,10 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-$javascript->link(array(
+$html->script(array(
 	'jquery/jquery.min.js',
 	'selectall.js'
-), false);
+), array('inline' => false));
 
 echo $admin->ShowPageHeaderStart($current_crumb, 'content.png');
 
@@ -28,14 +28,14 @@ foreach ($content_data AS $content)
 {
 
 		// Link to child view, link to the edit screen
-		$name_link = $html->link($html->image('admin/icons/folder.png'), '/contents/admin/0/' . $content['Content']['id'], null, null, false) . $html->link($content['ContentDescription']['name'], '/contents/admin_edit/' . $content['Content']['id'].'/'.(isset($parent_content) ? $parent_content['Content']['id'] : 0));
+		$name_link = $html->link($html->image('admin/icons/folder.png'), '/contents/admin/0/' . $content['Content']['id'], array('escape' => false)) . $html->link($content['ContentDescription']['name'], '/contents/admin_edit/' . $content['Content']['id'].'/'.(isset($parent_content) ? $parent_content['Content']['id'] : 0));
 	
 	echo $admin->TableCells(
 		  array(
 				$name_link,
 				__($content['ContentType']['name'],true),
-				array($ajax->link(($content['Content']['active'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))), 'null', $options = array('url' => '/contents/admin_change_active_status/' . $content['Content']['id'], 'update' => 'content'), null, false), array('align'=>'center')),
-				array($ajax->link(($content['Content']['show_in_menu'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))), 'null', $options = array('url' => '/contents/admin_change_show_in_menu_status/' . $content['Content']['id'], 'update' => 'content'), null, false), array('align'=>'center')),
+				array($ajax->link(($content['Content']['active'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))), 'null', $options = array('escape' => false, 'url' => '/contents/admin_change_active_status/' . $content['Content']['id'], 'update' => 'content'), null, false), array('align'=>'center')),
+				array($ajax->link(($content['Content']['show_in_menu'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))), 'null', $options = array('escape' => false, 'url' => '/contents/admin_change_show_in_menu_status/' . $content['Content']['id'], 'update' => 'content'), null, false), array('align'=>'center')),
 				array($admin->DefaultButton($content['Content']), array('align'=>'center')),
 				array($admin->MoveButtons($content['Content'], $content_count), array('align'=>'center')),				
 				array($admin->ActionButton('edit','/contents/admin_edit/' . $content['Content']['id'].'/'.(isset($parent_content) ? $parent_content['Content']['id'] : 0),__('Edit', true)) . $admin->ActionButton('delete','/contents/admin_delete/' . $content['Content']['id'],__('Delete', true)), array('align'=>'center')),

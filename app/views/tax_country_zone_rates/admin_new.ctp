@@ -11,7 +11,7 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 ?>
-<?php echo $javascript->codeBlock('
+<?php echo $html->scriptBlock('
 	$(document).ready(function(){
 
 		$("select#TaxCountryZoneRateCountryId").change(function () {
@@ -22,11 +22,11 @@
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
 <?php
 
-$javascript->link(array(
+$html->script(array(
 	'modified.js',
 	'jquery/jquery.min.js',
 	'focus-first-input.js'
-), false);
+), array('inline' => false));
 
 echo $admin->ShowPageHeaderStart($current_crumb, 'new.png');
 

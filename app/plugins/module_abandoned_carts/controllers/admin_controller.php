@@ -35,7 +35,7 @@ class AdminController extends ModuleAbandonedCartsAppController {
 		$this->Order =& new Order();
 			
 		$this->set('current_crumb',__('Abandoned Carts', true));
-		$this->pageTitle = __('Abandoned Carts', true);
+		$this->set('title_for_layout', __('Abandoned Carts', true));
 		$this->set('data',$this->Order->find('all', array('conditions' => array('Order.order_status_id' => '0'))));
 		
 	}
@@ -43,7 +43,7 @@ class AdminController extends ModuleAbandonedCartsAppController {
 	function admin_help()
 	{
 		$this->set('current_crumb',__('Abandoned Carts', true));
-		$this->pageTitle = __('Abandoned Carts', true);
+		$this->set('title_for_layout', __('Abandoned Carts', true));
 	}
 
 }

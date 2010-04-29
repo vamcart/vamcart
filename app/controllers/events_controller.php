@@ -18,7 +18,7 @@ class EventsController extends AppController {
    	function admin_view($id)
 	{
 		$this->set('current_crumb', __('Event Details', true));
-		$this->pageTitle = __('Event Details', true);
+		$this->set('title_for_layout', __('Event Details', true));
 		$event = $this->Event->read(null,$id);
 		$this->set('current_crumb_info',$event['Event']['alias']);		
 			
@@ -30,7 +30,7 @@ class EventsController extends AppController {
 	function admin()
 	{
 		$this->set('current_crumb', __('Events Listing', true));
-		$this->pageTitle = __('Events Listing', true);
+		$this->set('title_for_layout', __('Events Listing', true));
 		$this->set('event_data',$this->Event->find('all', array('order' => array('Event.alias ASC'))));
 	}
 }

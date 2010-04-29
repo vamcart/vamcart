@@ -73,7 +73,7 @@ class InstallController extends AppController {
 	{	
 		$this->layout = 'default';
 		$this->set('current_crumb', __('Install VaM Cart', true));
-		$this->pageTitle = __('Install VaM Cart', true);
+		$this->set('title_for_layout', __('Install VaM Cart', true));
 		$this->set('version',$this->Install->getVersion());
 		
 		$values = array();
@@ -101,7 +101,7 @@ class InstallController extends AppController {
 		$this->layout = 'default';
 
 		$this->set('current_crumb', __('VaM Cart Installed', true));
-		$this->pageTitle = __('VaM Cart Installed', true);
+		$this->set('title_for_layout', __('VaM Cart Installed', true));
 		
 		$username = $this->data['Install']['db_username'];
 		$password = $this->data['Install']['db_password'];

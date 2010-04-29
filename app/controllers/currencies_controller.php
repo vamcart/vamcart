@@ -69,7 +69,7 @@ class CurrenciesController extends AppController {
 	function admin_edit ($currency_id = null)
 	{
 		$this->set('current_crumb', __('Currency Details', true));
-		$this->pageTitle = __('Currency Details', true);
+		$this->set('title_for_layout', __('Currency Details', true));
 		// If they pressed cancel
 		if(isset($this->params['form']['cancel']))
 		{
@@ -147,7 +147,7 @@ class CurrenciesController extends AppController {
 	function admin ($ajax = false)
 	{
 		$this->set('current_crumb', __('Currencies Listing', true));
-		$this->pageTitle = __('Currencies Listing', true);
+		$this->set('title_for_layout', __('Currencies Listing', true));
 		$this->set('currency_data',$this->Currency->find('all', array('order' => array('Currency.name ASC'))));
 	}	
 	

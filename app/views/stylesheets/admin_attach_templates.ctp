@@ -11,7 +11,7 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-	echo $javascript->link('modified', false);
+	echo $html->script('modified', array('inline' => false));
 	
 	echo $admin->ShowPageHeaderStart($current_crumb, 'attach_templates.png');
         

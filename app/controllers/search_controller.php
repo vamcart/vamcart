@@ -17,7 +17,7 @@ class SearchController extends AppController {
 	function admin_global_search ()
 	{
 		$this->set('current_crumb',__('Search Results',true));
-		$this->pageTitle = __('Search Results', true);
+		$this->set('title_for_layout', __('Search Results', true));
 		
 		$search_tables = $this->Search->find('all');
 		$search_results = array();

@@ -28,7 +28,7 @@ class PaymentMethodsController extends AppController {
 	function admin_edit ($id)
 	{
 		$this->set('current_crumb', __('Edit Payment Method', true));
-		$this->pageTitle = __('Edit Payment Method', true);
+		$this->set('title_for_layout', __('Edit Payment Method', true));
 
 		// Load Order Statuses
 		App::import('Model', 'OrderStatusDescription');
@@ -88,7 +88,7 @@ class PaymentMethodsController extends AppController {
 	function admin ()
 	{
 		$this->set('current_crumb', __('Modules Listing', true));
-		$this->pageTitle = __('Modules Listing', true);
+		$this->set('title_for_layout', __('Modules Listing', true));
 		$path = APP . 'plugins' . DS . 'payment' . DS . 'views';
 		$module_path = new Folder($path);
 		$dirs = $module_path->read();

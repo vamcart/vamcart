@@ -98,7 +98,7 @@ class KvitanciaController extends PaymentAppController {
 	function print_order($id)
 	{
 		$this->layout = 'print';		
-		$this->pageTitle = __('Order Number', true) . ': ' . $_SESSION['Customer']['order_id'];		
+		$this->set('title_for_layout', __('Order Number', true) . ': ' . $_SESSION['Customer']['order_id']);		
 		
 		$this->set('data', $this->Order->find('first', array('conditions' => array('Order.id' => $_SESSION['Customer']['order_id']))));
 		$this->set('payment_data', $this->PaymentMethod->findByAlias($this->module_name));

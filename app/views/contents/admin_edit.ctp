@@ -13,7 +13,7 @@
 ?>
 <?php
 
-$javascript->link(array(
+$html->script(array(
 	'modified.js',
 	'jquery/jquery.min.js',
 	'jquery/plugins/jquery.validation.js',
@@ -25,12 +25,12 @@ $javascript->link(array(
 	'swfupload/fileprogress.js',
 	'swfupload/handlers.js',
 	'focus-first-input.js'
-), false);
+), array('inline' => false));
 	
-	echo $html->css('ui.tabs', null, null, false);
+	echo $html->css('ui.tabs', null, array('inline' => false));
 	echo $tinyMce->init();
 ?>
-<?php echo $javascript->codeBlock('
+<?php echo $html->scriptBlock('
 	$(document).ready(function(){
 
 		$("select#ContentContentTypeId").change(function () {
@@ -183,7 +183,7 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 		echo '<p>' . __('Press \'Upload Images\' and choose images from your computer to upload. Select as many files as you would like. Images will upload right after you select them.', true) . '</p>';
 		echo '<div class="help tip"><p>' . __('TIP: Hold the \'control\' button to select more than one image.', true) . '</p></div>';		
 		?>
-<?php echo $javascript->codeBlock('
+<?php echo $html->scriptBlock('
 		var swfu;
 
 		window.onload = function() {

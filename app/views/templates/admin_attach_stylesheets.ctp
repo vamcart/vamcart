@@ -18,11 +18,11 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'attach_stylesheet.png');
 <table class="contentTable">
 
 <?php
-$javascript->link(array(
+$html->script(array(
 	'modified.js',
 	'jquery/jquery.min.js',
 	'focus-first-input.js'
-), false);
+), array('inline' => false));
 
 $attached_stylesheet = $template['Stylesheet'];
 

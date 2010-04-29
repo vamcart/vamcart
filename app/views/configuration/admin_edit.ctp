@@ -11,16 +11,16 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-$javascript->link(array(
+$html->script(array(
 	'modified.js',
 	'jquery/jquery.min.js',
 	'jquery/plugins/ui.core.js',
 	'jquery/plugins/ui.tabs.js',
 	'tabs.js',
 	'focus-first-input.js'
-), false);
+), array('inline' => false));
 
-echo $html->css('ui.tabs', null, null, false);
+echo $html->css('ui.tabs', null, array('inline' => false));
 
 echo $admin->ShowPageHeaderStart($current_crumb, 'configuration.png');
 

@@ -19,7 +19,7 @@ class ImportExportController extends AppController {
 	function admin ($ajax = false)
 	{
 		$this->set('current_crumb', __('Import/Export', true));
-		$this->pageTitle = __('Import/Export', true);
+		$this->set('title_for_layout', __('Import/Export', true));
 	}
 	
 }
