@@ -29,7 +29,7 @@ class AssetHelper extends Helper {
   //the packed files are named by stringing together all the individual file names
   //this can generate really long names, so by setting this option to true
   //the long name is md5'd, producing a resonable length file name.
-  var $md5FileName = false;
+  var $md5FileName = true;
  
   //you can change this if you want to store the files in a different location.
   //this is relative to your webroot
