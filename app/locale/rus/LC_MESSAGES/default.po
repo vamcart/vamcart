@@ -2727,6 +2727,30 @@ msgstr "Пароль 2"
 msgid "Assist Shop ID"
 msgstr "ID номер магазина"
 
+#: /plugins/payment/views/interkassa/settings.ctp:17
+msgid "InterKassa ID"
+msgstr "ID номер магазина в InterKassa"
+
+#: /plugins/payment/views/interkassa/settings.ctp:22
+msgid "InterKassa Secret Key"
+msgstr "Секретный ключ"
+
+#: /plugins/payment/views/liqpay/settings.ctp:17
+msgid "LiqPay ID"
+msgstr "ID номер магазина в LiqPay"
+
+#: /plugins/payment/views/liqpay/settings.ctp:22
+msgid "LiqPay Secret Key"
+msgstr "Секретный ключ"
+
+#: /plugins/payment/views/qiwi/settings.ctp:17
+msgid "Qiwi ID"
+msgstr "ID номер магазина в Qiwi"
+
+#: /plugins/payment/views/qiwi/settings.ctp:22
+msgid "Qiwi Secret Key"
+msgstr "Секретный ключ"
+
 #: Time Helper
 msgid "Today, %s"
 msgstr "Сегодня, %s"
