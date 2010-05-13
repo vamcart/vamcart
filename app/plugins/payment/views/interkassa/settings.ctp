@@ -13,13 +13,13 @@
 
 echo $form->inputs(array(
 	'legend' => null,
-	'webmoney.webmoney_purse' => array(
-	'label' => __('WebMoney Purse', true),
+	'interkassa.interkassa_id' => array(
+	'label' => __('InterKassa ID', true),
 	'value' => $data['PaymentMethodValue'][0]['value']
 	),
 	
-	'webmoney.webmoney_secret_key' => array(
-	'label' => __('WebMoney Secret Key', true),
+	'interkassa.interkassa_secret_key' => array(
+	'label' => __('InterKassa Secret Key', true),
 	'value' => $data['PaymentMethodValue'][1]['value']
 	)
 	

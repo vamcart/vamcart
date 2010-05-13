@@ -11,10 +11,10 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-class WebmoneyController extends PaymentAppController {
+class LiqpayController extends PaymentAppController {
 	var $uses = array('PaymentMethod', 'Order');
-	var $module_name = 'webmoney';
-	var $icon = 'webmoney.png';
+	var $module_name = 'liqpay';
+	var $icon = 'liqpay.png';
 
 	function settings ()
 	{
@@ -31,11 +31,11 @@ class WebmoneyController extends PaymentAppController {
 		$new_module['PaymentMethod']['alias'] = $this->module_name;
 
 		$new_module['PaymentMethodValue'][0]['payment_method_id'] = $this->PaymentMethod->id;
-		$new_module['PaymentMethodValue'][0]['key'] = 'webmoney_purse';
+		$new_module['PaymentMethodValue'][0]['key'] = 'liqpay_id';
 		$new_module['PaymentMethodValue'][0]['value'] = '';
 
 		$new_module['PaymentMethodValue'][1]['payment_method_id'] = $this->PaymentMethod->id;
-		$new_module['PaymentMethodValue'][1]['key'] = 'webmoney_secret_key';
+		$new_module['PaymentMethodValue'][1]['key'] = 'liqpay_secret_key';
 		$new_module['PaymentMethodValue'][1]['value'] = '';
 
 		$this->PaymentMethod->saveAll($new_module);
@@ -62,15 +62,24 @@ class WebmoneyController extends PaymentAppController {
 		
 		$payment_method = $this->PaymentMethod->find(array('alias' => $this->module_name));
 
-		$webmoney_settings = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'webmoney_purse'));
-		$webmoney_purse = $webmoney_settings['PaymentMethodValue']['value'];
-		
-		$content = '<form action="https://merchant.webmoney.ru/lmi/payment.asp" method="post">
-			<input type="hidden" name="LMI_PAYMENT_NO" value="' . $_SESSION['Customer']['order_id'] . '">
-			<input type="hidden" name="LMI_PAYEE_PURSE" value="'.$webmoney_purse.'">
-			<input type="hidden" name="LMI_PAYMENT_DESC" value="' . $_SESSION['Customer']['order_id'] . ' ' . $order['Order']['email'] . '">
-			<input type="hidden" name="LMI_PAYMENT_AMOUNT" value="' . $order['Order']['total'] . '">
-			<input type="hidden" name="LMI_SIM_MODE" value="0">';
+		$liqpay_settings = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'liqpay_id'));
+		$liqpay_id = $liqpay_settings['PaymentMethodValue']['value'];
+
+      $liqpay_data = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'liqpay_secret_key'));
+      $liqpay_secret_key = $liqpay_data['PaymentMethodValue']['value'];
+
+		$server_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/payment/liqpay/result/';
+		$result_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/orders/place_order/';
+      
+		$content = '<form action="https://liqpay.com/?do=clickNbuy" method="post">
+			<input type="hidden" name="order_id'" value="' . $_SESSION['Customer']['order_id'] . '">
+			<input type="hidden" name="merchant_id" value="'.$liqpay_id.'">
+			<input type="hidden" name="description" value="' . $_SESSION['Customer']['order_id'] . ' ' . $order['Order']['email'] . '">
+			<input type="hidden" name="amount" value="' . $order['Order']['total'] . '">
+			<input type="hidden" name="currency" value="' . $_SESSION['Customer']['currency_code'] . '">
+			<input type="hidden" name="version" value="1.1">
+			<input type="hidden" name="server_url" value="' . $server_url . '">
+			<input type="hidden" name="result_url" value="' . $result_url . '">';
 						
 		$content .= '
 			<span class="button"><button type="submit" value="{lang}Process to Payment{/lang}">{lang}Process to Payment{/lang}</button></span>
@@ -99,19 +108,21 @@ class WebmoneyController extends PaymentAppController {
 	function result()
 	{
 		$this->layout = 'empty';
-      $webmoney_data = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'webmoney_secret_key'));
-      $webmoney_secret_key = $webmoney_data['PaymentMethodValue']['value'];
-		$order = $this->Order->read(null,$_POST['LMI_PAYMENT_NO']);
-		$crc = $_POST['LMI_HASH'];
-		$hash = strtoupper(md5($_POST['LMI_PAYEE_PURSE'].$_POST['LMI_PAYMENT_AMOUNT'].$_POST['LMI_PAYMENT_NO'].$_POST['LMI_MODE'].$_POST['LMI_SYS_INVS_NO'].$_POST['LMI_SYS_TRANS_NO'].$_POST['LMI_SYS_TRANS_DATE'].$webmoney_secret_key. 
-$_POST['LMI_PAYER_PURSE'].$_POST['LMI_PAYER_WM']));
-		$merchant_summ = number_format($_POST['LMI_PAYMENT_AMOUNT'], 2);
+      $liqpay_data = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'liqpay_secret_key'));
+      $liqpay_secret_key = $liqpay_data['PaymentMethodValue']['value'];
+		$liqpay_settings = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'liqpay_id'));
+		$liqpay_id = $liqpay_settings['PaymentMethodValue']['value'];
+		$order = $this->Order->read(null,$_POST['order_id']);
+		$crc = $_POST['signature'];
+		$hash_source = "|".$_POST['version']."|".$liqpay_secret_key."|".$_POST['action_name']."|".$_POST['sender_phone']."|".$liqpay_id."|".$_POST['amount']."|".$_POST['currency']."|".$_POST['order_id']."|".$_POST['transaction_id']."|".$_POST['status']."|".$_POST['code']."|";
+		$hash = base64_encode(sha1($hash_source,1));
+		$merchant_summ = number_format($_POST['amount'], 2);
 		$order_summ = number_format($order['Order']['total'], 2);
 
-		if (($crc == $hash) && ($merchant_summ == $order_summ)) {
-		
+		if (($crc == $hash) && ($merchant_summ == $order_summ) && ($_POST['status'] == 'success')) {
+			
 		$payment_method = $this->PaymentMethod->find(array('alias' => $this->module_name));
-		$order_data = $this->Order->find('first', array('conditions' => array('Order.id' => $_POST['LMI_PAYMENT_NO'])));
+		$order_data = $this->Order->find('first', array('conditions' => array('Order.id' => $_POST['order_id'])));
 		$order_data['Order']['order_status_id'] = $payment_method['PaymentMethod']['order_status_id'];
 		
 		$this->Order->save($order_data);
