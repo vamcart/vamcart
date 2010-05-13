@@ -72,7 +72,7 @@ class LiqpayController extends PaymentAppController {
 		$result_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/orders/place_order/';
       
 		$content = '<form action="https://liqpay.com/?do=clickNbuy" method="post">
-			<input type="hidden" name="order_id'" value="' . $_SESSION['Customer']['order_id'] . '">
+			<input type="hidden" name="order_id" value="' . $_SESSION['Customer']['order_id'] . '">
 			<input type="hidden" name="merchant_id" value="'.$liqpay_id.'">
 			<input type="hidden" name="description" value="' . $_SESSION['Customer']['order_id'] . ' ' . $order['Order']['email'] . '">
 			<input type="hidden" name="amount" value="' . $order['Order']['total'] . '">
