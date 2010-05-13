@@ -72,7 +72,7 @@ class InterkassaController extends PaymentAppController {
       $ik_sign_hash = md5($ik_sign_hash_str);
       		
 		$content = '<form action="https://interkassa.com/lib/payment.php" method="post">
-			<input type="hidden" name="ik_payment_id'" value="' . $_SESSION['Customer']['order_id'] . '">
+			<input type="hidden" name="ik_payment_id" value="' . $_SESSION['Customer']['order_id'] . '">
 			<input type="hidden" name="ik_shop_id" value="'.$interkassa_id.'">
 			<input type="hidden" name="ik_payment_desc" value="' . $_SESSION['Customer']['order_id'] . ' ' . $order['Order']['email'] . '">
 			<input type="hidden" name="ik_payment_amount" value="' . $order['Order']['total'] . '">
