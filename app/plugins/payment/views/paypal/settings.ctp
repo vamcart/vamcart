@@ -15,6 +15,7 @@ echo $form->inputs(array(
 	'legend' => null,
 	'paypal.paypal_email' => array(
 	'label' => __('Paypal Email', true),
+	'type' => 'text',
 	'value' => $data['PaymentMethodValue'][0]['value']
 )));
 
