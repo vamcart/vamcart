@@ -19,7 +19,7 @@ echo $form->inputs(array(
 	),
 	
 	'qiwi.qiwi_secret_key' => array(
-	'label' => __('Qiwi Secret Key', true),
+	'label' => __('Qiwi Password', true),
 	'value' => $data['PaymentMethodValue'][1]['value']
 	)
 	

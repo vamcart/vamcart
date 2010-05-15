@@ -11,10 +11,10 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-class InterkassaController extends PaymentAppController {
+class QiwiController extends PaymentAppController {
 	var $uses = array('PaymentMethod', 'Order');
-	var $module_name = 'interkassa';
-	var $icon = 'interkassa.png';
+	var $module_name = 'qiwi';
+	var $icon = 'qiwi.png';
 
 	function settings ()
 	{
@@ -31,11 +31,11 @@ class InterkassaController extends PaymentAppController {
 		$new_module['PaymentMethod']['alias'] = $this->module_name;
 
 		$new_module['PaymentMethodValue'][0]['payment_method_id'] = $this->PaymentMethod->id;
-		$new_module['PaymentMethodValue'][0]['key'] = 'interkassa_id';
+		$new_module['PaymentMethodValue'][0]['key'] = 'qiwi_id';
 		$new_module['PaymentMethodValue'][0]['value'] = '';
 
 		$new_module['PaymentMethodValue'][1]['payment_method_id'] = $this->PaymentMethod->id;
-		$new_module['PaymentMethodValue'][1]['key'] = 'interkassa_secret_key';
+		$new_module['PaymentMethodValue'][1]['key'] = 'qiwi_secret_key';
 		$new_module['PaymentMethodValue'][1]['value'] = '';
 
 		$this->PaymentMethod->saveAll($new_module);
@@ -57,25 +57,79 @@ class InterkassaController extends PaymentAppController {
 
 	function before_process () 
 	{
-			
-		$order = $this->Order->read(null,$_SESSION['Customer']['order_id']);
-		
-		$payment_method = $this->PaymentMethod->find(array('alias' => $this->module_name));
 
-		$interkassa_settings = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'interkassa_id'));
-		$interkassa_id = $interkassa_settings['PaymentMethodValue']['value'];
-		
-		$content = '<form action="https://merchant.webmoney.ru/lmi/payment.asp" method="post">
-			<input type="hidden" name="LMI_PAYMENT_NO" value="' . $_SESSION['Customer']['order_id'] . '">
-			<input type="hidden" name="LMI_PAYEE_PURSE" value="'.$interkassa_id.'">
-			<input type="hidden" name="LMI_PAYMENT_DESC" value="' . $_SESSION['Customer']['order_id'] . ' ' . $order['Order']['email'] . '">
-			<input type="hidden" name="LMI_PAYMENT_AMOUNT" value="' . $order['Order']['total'] . '">
-			<input type="hidden" name="LMI_SIM_MODE" value="0">';
-						
-		$content .= '
-			<span class="button"><button type="submit" value="{lang}Process to Payment{/lang}">{lang}Process to Payment{/lang}</button></span>
-			</form>';
+		$order = $this->Order->read(null,$_SESSION['Customer']['order_id']);
+		$insert_order = true;			
 	
+		$qiwi_id_data = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'qiwi_id'));
+		$qiwi_id = $qiwi_id_data['PaymentMethodValue']['value'];
+
+		$qiwi_secret_key_data = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'qiwi_secret_key'));
+		$qiwi_secret_key = $qiwi_secret_key_data['PaymentMethodValue']['value'];
+
+			// Выписываем qiwi счёт для покупателя
+
+        if ($insert_order == true) {
+        	
+			App::import('Vendor', 'Nusoap', array('file' => 'nusoap'.DS.'nusoap.php'));
+
+			$client = new nusoap_client("https://mobw.ru/services/ishop", false); // создаем клиента для отправки запроса на QIWI
+			$error = $client->getError();
+			
+			//if ( !empty($error) ) {
+			// обрабатываем возможные ошибки и в случае их возникновения откатываем транзакцию в своей системе
+			//echo -1;
+			//exit();
+			//}
+			
+			$client->useHTTPPersistentConnection();
+			
+			// Параметры для передачи данных о платеже:
+			// login - Ваш ID в системе QIWI
+			// password - Ваш пароль
+			// user - Телефон покупателя (10 символов, например 916820XXXX)
+			// amount - Сумма платежа в рублях
+			// comment - Комментарий, который пользователь увидит в своем личном кабинете или платежном автомате
+			// txn - Наш внутренний уникальный номер транзакции
+			// lifetime - Время жизни платежа до его автоматической отмены
+			// alarm - Оповещать ли клиента через СМС или звонком о выписанном счете
+			// create - 0 - только для зарегистрированных пользователей QIWI, 1 - для всех
+			$params = array(
+			'login' => $qiwi_id,
+			'password' => $qiwi_secret_key,
+			'user' => ($_SESSION['qiwi_telephone'] == '' ? $POST['qiwi_telephone'] : $_SESSION['qiwi_telephone']),
+			'amount' => number_format($order['Order']['total'],0,'',''),
+			'comment' => $_SESSION['Customer']['order_id'],
+			'txn' => $_SESSION['Customer']['order_id'],
+			'lifetime' => date("d.m.Y H:i:s", strtotime("+2 weeks")),
+			'alarm' => 1,
+			'create' => 1
+			);
+			
+			// собственно запрос:
+			$result = $client->call('createBill', $params, "http://server.ishop.mw.ru/");
+			
+			//if ($client->fault) {
+			//echo -1;
+			//exit();
+			//} else {
+			//$err = $client->getError();
+			//if ($err) {
+			//echo -1;
+			//exit();
+			//} else {
+			//echo $result;
+			//exit();
+			//}
+			//}
+
+        }	
+	
+		$content = '
+		<form action="' . BASE . '/orders/place_order/" method="post">
+		<span class="button"><button type="submit" value="{lang}Confirm Order{/lang}">{lang}Confirm Order{/lang}</button></span>
+		</form>';
+
 	// Save the order
 	
 		foreach($_POST AS $key => $value)
@@ -87,8 +141,10 @@ class InterkassaController extends PaymentAppController {
 
 		// Save the order
 		$this->Order->save($order);
+    
+      $insert_order = false;
 
-		return $content;
+		return $content;	
 	}
 
 	function after_process()
@@ -99,11 +155,11 @@ class InterkassaController extends PaymentAppController {
 	function result()
 	{
 		$this->layout = 'empty';
-      $interkassa_data = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'interkassa_secret_key'));
-      $interkassa_secret_key = $interkassa_data['PaymentMethodValue']['value'];
+      $qiwi_data = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'qiwi_secret_key'));
+      $qiwi_secret_key = $qiwi_data['PaymentMethodValue']['value'];
 		$order = $this->Order->read(null,$_POST['LMI_PAYMENT_NO']);
 		$crc = $_POST['LMI_HASH'];
-		$hash = strtoupper(md5($_POST['LMI_PAYEE_PURSE'].$_POST['LMI_PAYMENT_AMOUNT'].$_POST['LMI_PAYMENT_NO'].$_POST['LMI_MODE'].$_POST['LMI_SYS_INVS_NO'].$_POST['LMI_SYS_TRANS_NO'].$_POST['LMI_SYS_TRANS_DATE'].$interkassa_secret_key. 
+		$hash = strtoupper(md5($_POST['LMI_PAYEE_PURSE'].$_POST['LMI_PAYMENT_AMOUNT'].$_POST['LMI_PAYMENT_NO'].$_POST['LMI_MODE'].$_POST['LMI_SYS_INVS_NO'].$_POST['LMI_SYS_TRANS_NO'].$_POST['LMI_SYS_TRANS_DATE'].$qiwi_secret_key. 
 $_POST['LMI_PAYER_PURSE'].$_POST['LMI_PAYER_WM']));
 		$merchant_summ = number_format($_POST['LMI_PAYMENT_AMOUNT'], 2);
 		$order_summ = number_format($order['Order']['total'], 2);
