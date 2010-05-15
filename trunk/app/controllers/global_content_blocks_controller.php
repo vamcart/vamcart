@@ -21,7 +21,7 @@ class GlobalContentBlocksController extends AppController {
 		
 	function admin_delete ($global_content_block_id)
 	{
-		$this->GlobalContentBlock->del($global_content_block_id);	
+		$this->GlobalContentBlock->delete($global_content_block_id);	
 		$this->Session->setFlash(__('Record deleted.', true));		
 		$this->redirect('/global_content_blocks/admin/');
 	}
@@ -99,7 +99,7 @@ class GlobalContentBlocksController extends AppController {
 				switch ($this->params['form']['multiaction']) 
 				{
 					case "delete":
-					    $this->GlobalContentBlock->del($value);
+					    $this->GlobalContentBlock->delete($value);
 						$build_flash .= __('Record deleted.', true) . ' ' . $gcb['GlobalContentBlock']['name'] . '<br />';		
 					    break;
 					case "activate":

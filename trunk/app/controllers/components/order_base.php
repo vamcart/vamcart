@@ -128,7 +128,7 @@ class OrderBaseComponent extends Object
 		$this->EventBase->ProcessEvent('RemoveFromCartBeforeSave');		
 		if($order_product['OrderProduct']['quantity'] <= $qty)
 		{
-			$this->Order->OrderProduct->del($order_product['OrderProduct']['id']);
+			$this->Order->OrderProduct->delete($order_product['OrderProduct']['id']);
 		}
 		else
 		{

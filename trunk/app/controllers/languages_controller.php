@@ -62,7 +62,7 @@ class LanguagesController extends AppController {
 		else
 		{
 			// Ok, delete the language
-			$this->Language->del($language_id);	
+			$this->Language->delete($language_id);	
 			$this->Session->setFlash( __('Record deleted.', true));		
 		}
 		$this->redirect('/languages/admin/');
@@ -114,7 +114,7 @@ class LanguagesController extends AppController {
 						// Make sure it's not the default language
 						if($language['Language']['default'] == 0)
 						{
-						    $this->Language->del($value);
+						    $this->Language->delete($value);
 							$build_flash .= __('Record deleted.', true) . ' ' . $language['Language']['name'] . '<br />';									
 						}
 						else

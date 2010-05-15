@@ -25,7 +25,7 @@ class UsersController extends AppController {
 		}
 		else	
 		{
-			$this->User->del($user_id);
+			$this->User->delete($user_id);
 			$this->Session->setFlash(__('Record deleted.', true));
 		}
 		$this->redirect('/users/admin/');
@@ -113,7 +113,7 @@ class UsersController extends AppController {
 	{
 		$this->layout = 'default';
 	
-		$this->Session->del('User');
+		$this->Session->delete('User');
 		$this->Session->setFlash(__('You have logged out.', true));
 		$this->redirect('/users/admin_login');
 	

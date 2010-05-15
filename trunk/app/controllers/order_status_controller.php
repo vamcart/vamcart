@@ -44,7 +44,7 @@ class OrderStatusController extends AppController {
 		{
 			// Ok, delete the order_status and cascade for the description
 			$status = $this->OrderStatus->read(null,$order_status_id);
-			$this->OrderStatus->del($order_status_id, true);	
+			$this->OrderStatus->delete($order_status_id, true);	
 			
 			// Move all order status that have a higher sort order 1 slot down
 			$higher_positions = $this->OrderStatus->find('all', array('conditions' => array('OrderStatus.order >' => $status['OrderStatus']['order'])));
@@ -122,7 +122,7 @@ class OrderStatusController extends AppController {
 			$descriptions = $this->OrderStatus->OrderStatusDescription->find('all', array('conditions' => array('order_status_id' => $order_status_id)));
 			foreach($descriptions AS $description)
 			{
-				$this->OrderStatus->OrderStatusDescription->del($description['OrderStatusDescription']['id']);
+				$this->OrderStatus->OrderStatusDescription->delete($description['OrderStatusDescription']['id']);
 			}
 
 		

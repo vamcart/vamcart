@@ -59,7 +59,7 @@ class CurrenciesController extends AppController {
 		else
 		{
 			// Ok, delete the currency
-			$this->Currency->del($currency_id);	
+			$this->Currency->delete($currency_id);	
 			$this->Session->setFlash( __('Record deleted.', true));		
 		}
 		$this->redirect('/currencies/admin/');
@@ -111,7 +111,7 @@ class CurrenciesController extends AppController {
 						// Make sure it's not the default currency
 						if($currency['Currency']['default'] == 0)
 						{
-						    $this->Currency->del($value);
+						    $this->Currency->delete($value);
 							$build_flash .= __('Record deleted.', true) . ' (' . $currency['Currency']['name'] . ')<br />';									
 						}
 						else

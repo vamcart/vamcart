@@ -49,7 +49,7 @@ class WebmoneyController extends PaymentAppController {
 
 		$module_id = $this->PaymentMethod->findByAlias($this->module_name);
 
-		$this->PaymentMethod->del($module_id['PaymentMethod']['id'], true);
+		$this->PaymentMethod->delete($module_id['PaymentMethod']['id'], true);
 			
 		$this->Session->setFlash(__('Module Uninstalled', true));
 		$this->redirect('/payment_methods/admin/');

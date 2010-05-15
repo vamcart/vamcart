@@ -99,7 +99,7 @@ class SetupController extends ModuleCouponsAppController {
 			
 		// Delete the module record
 		$module = $this->Module->findByAlias('coupons');
-		$this->Module->del($module['Module']['id']);
+		$this->Module->delete($module['Module']['id']);
 		
 		// Deletes the tables
 		$uninstall_query = "DROP TABLE `module_coupons`;";
@@ -112,7 +112,7 @@ class SetupController extends ModuleCouponsAppController {
 		$handlers = $this->Event->EventHandler->find('all', array('conditions' => array('EventHandler.originator' => 'CouponsModule')));
 		foreach($handlers AS $value)
 		{
-			$this->Event->EventHandler->del($value['EventHandler']['id']);
+			$this->Event->EventHandler->delete($value['EventHandler']['id']);
 		}
 		
 		// Delete the core page
@@ -120,7 +120,7 @@ class SetupController extends ModuleCouponsAppController {
 			$this->Content =& new Content();		
 
 		$core_page = $this->Content->find(array('Content.parent_id' => '-1','alias' => 'coupon-details'));
-		$this->Content->del($core_page['Content']['id'],true);
+		$this->Content->delete($core_page['Content']['id'],true);
 		
 		$this->Session->setFlash(__('Module Uninstalled', true));
 		$this->redirect('/modules/admin/');	

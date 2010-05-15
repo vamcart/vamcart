@@ -18,7 +18,7 @@ class CountryZonesController extends AppController {
 
 	function admin_delete ($country_id, $zone_id)
 	{
-		$this->CountryZone->del($zone_id);
+		$this->CountryZone->delete($zone_id);
 		$this->Session->setFlash(__('Record deleted.', true));
 		$this->redirect('/country_zones/admin/' . $country_id);
 	}

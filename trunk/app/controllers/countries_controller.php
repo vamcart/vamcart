@@ -58,7 +58,7 @@ class CountriesController extends AppController {
 				switch ($this->params['form']['multiaction']) 
 				{
 					case "delete":
-						$this->Country->del($value);
+						$this->Country->delete($value);
 						$build_flash .= __('Record deleted.', true) . ' ' . $country['Country']['name'] . '<br />';									
 					break;								
 				}
@@ -70,7 +70,7 @@ class CountriesController extends AppController {
 	
 	function admin_delete ($country_id)
 	{
-		$this->Country->del($country_id);
+		$this->Country->delete($country_id);
 		$this->Session->setFlash( __('Record deleted.', true));
 		$this->redirect('/countries/admin');
 	}

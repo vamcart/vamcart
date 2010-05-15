@@ -136,7 +136,7 @@ class OrdersController extends AppController {
 	
 	function admin_delete ($id)
 	{
-		$this->Order->del($id,true);
+		$this->Order->delete($id,true);
 		$this->Session->setFlash(__('Record deleted.',true));
 		$this->redirect('/orders/admin/');
 	}
