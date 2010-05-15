@@ -29,6 +29,7 @@ echo $form->inputs(array(
 		'type' => 'textarea',
 		'class' => 'pagesmalltextarea',
 		'label' => __('Rates',true),
+		'type' => 'text',
 		'value' => $data['ShippingMethodValue'][1]['value']
 	)
 	
