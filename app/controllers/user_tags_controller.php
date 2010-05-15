@@ -16,7 +16,7 @@ class UserTagsController extends AppController {
    
 	function admin_delete ($UserTag_id)
 	{
-		$this->UserTag->del($UserTag_id);	
+		$this->UserTag->delete($UserTag_id);	
 		$this->Session->setFlash(__('Record deleted.', true));		
 		$this->redirect('/user_tags/admin/');
 	}
@@ -116,7 +116,7 @@ class UserTagsController extends AppController {
 				switch ($this->params['form']['multiaction']) 
 				{
 					case "delete":
-					    $this->UserTag->del($value);
+					    $this->UserTag->delete($value);
 						$build_flash .= __('User tag deleted.', true) . ' ' . $gcb['UserTag']['name'] . '<br />';		
 					    break;
 				}

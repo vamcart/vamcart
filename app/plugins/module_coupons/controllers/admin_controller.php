@@ -17,7 +17,7 @@ class AdminController extends ModuleCouponsAppController {
 	
 	function admin_delete($id)
 	{
-		$this->ModuleCoupon->del($id);
+		$this->ModuleCoupon->delete($id);
 		$this->Session->setFlash(__('You have deleted a coupon.', true));
 		$this->redirect('/module_coupons/admin/admin_index/');
 	}

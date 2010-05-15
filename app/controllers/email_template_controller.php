@@ -29,7 +29,7 @@ class EmailTemplateController extends AppController {
 		else
 		{
 		// Ok, delete the email template
-		$this->EmailTemplate->del($email_template_id,true);
+		$this->EmailTemplate->delete($email_template_id,true);
 		$this->Session->setFlash(__('Record deleted.',true));
 		}
 		$this->redirect('/email_template/admin/');
@@ -97,7 +97,7 @@ class EmailTemplateController extends AppController {
 			$descriptions = $this->EmailTemplate->EmailTemplateDescription->find('all', array('conditions' => array('email_template_id' => $email_template_id)));
 			foreach($descriptions AS $description)
 			{
-				$this->EmailTemplate->EmailTemplateDescription->del($description['EmailTemplateDescription']['id']);
+				$this->EmailTemplate->EmailTemplateDescription->delete($description['EmailTemplateDescription']['id']);
 			}
 
 		

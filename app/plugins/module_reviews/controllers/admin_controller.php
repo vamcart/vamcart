@@ -17,7 +17,7 @@ class AdminController extends ModuleReviewsAppController {
 	
 	function admin_delete ($id)
 	{
-		$this->ModuleReview->del($id);
+		$this->ModuleReview->delete($id);
 		$this->Session->setFlash(__('Record Deleted.',true));
 		$this->redirect('/module_reviews/admin/admin_index/');
 	}

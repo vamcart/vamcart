@@ -85,7 +85,7 @@ class ImagesController extends AppController {
 			$filename =  WWW_ROOT . IMAGES_URL . 'content/' . $image['ContentImage']['content_id'] . '/' . $image['ContentImage']['image'];
 			unlink($filename);
 			
-			$this->ContentImage->del($image_id);			
+			$this->ContentImage->delete($image_id);			
 		}
 		$this->redirect('/images/admin_view_content_images/' . $image['ContentImage']['content_id']);
 	}

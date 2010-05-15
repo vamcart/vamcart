@@ -38,7 +38,7 @@ class TaxesController extends AppController {
 	function admin_delete ($id)	
 	{
 		$this->Session->setFlash(__('Record deleted.',true));	
-		$this->Tax->del($id);
+		$this->Tax->delete($id);
 	}
 		
 	function admin_edit ($id = null)

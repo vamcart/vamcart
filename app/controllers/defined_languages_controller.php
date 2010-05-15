@@ -23,7 +23,7 @@ class DefinedLanguagesController extends AppController {
 		$definitions = $this->DefinedLanguage->find('all', array('conditions' => array('key' => $key)));
 		foreach($definitions AS $definition)
 		{
-			$this->DefinedLanguage->del($definition['DefinedLanguage']['id']);
+			$this->DefinedLanguage->delete($definition['DefinedLanguage']['id']);
 		}
 		$this->Session->setFlash(__('Record deleted.',true));
 		$this->redirect('/defined_languages/admin/');
@@ -63,7 +63,7 @@ class DefinedLanguagesController extends AppController {
 			$language_descriptions = $this->DefinedLanguage->find('all', array('conditions' => array('key' => $defined_language_key)));
 			foreach($language_descriptions AS $language_description)
 			{
-				$this->DefinedLanguage->del($language_description['DefinedLanguage']['id']);
+				$this->DefinedLanguage->delete($language_description['DefinedLanguage']['id']);
 			}
 
 			foreach($this->data['DefinedLanguage']['DefinedLanguage'] AS $id => $value)

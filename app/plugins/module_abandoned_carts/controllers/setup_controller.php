@@ -50,7 +50,7 @@ class SetupController extends ModuleAbandonedCartsAppController {
 			
 		// Delete the module record
 		$module = $this->Module->findByAlias('abandoned_carts');
-		$this->Module->del($module['Module']['id']);
+		$this->Module->delete($module['Module']['id']);
 		
 			
 		$this->Session->setFlash(__('Module Uninstalled', true));

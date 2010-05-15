@@ -138,7 +138,7 @@ class StylesheetsController extends AppController {
 		else
 		{
 			// Ok, delete the stylesheet
-			$this->Stylesheet->del($stylesheet_id);	
+			$this->Stylesheet->delete($stylesheet_id);	
 			$this->Session->setFlash(__('You deleted a stylesheet.',true));		
 		}
 		$this->redirect('/stylesheets/admin/');
@@ -223,7 +223,7 @@ class StylesheetsController extends AppController {
 				switch ($this->params['form']['multiaction']) 
 				{
 					case "delete":
-					    $this->Stylesheet->del($value);
+					    $this->Stylesheet->delete($value);
 						$this->Session->setFlash(__('You have deleted multiple stylesheets.',true));		
 					    break;
 					case "activate":

@@ -128,7 +128,7 @@ class ContentsController extends AppController {
 		}
 		else
 		{
-			$this->Content->del($content_id, true);
+			$this->Content->delete($content_id, true);
 			$this->Session->setFlash(__('You have deleted a record.', true));		
 		}
 		$this->redirect('/contents/admin/');
@@ -298,7 +298,7 @@ class ContentsController extends AppController {
 			$descriptions = $this->Content->ContentDescription->find('all', array('conditions' => array('content_id' => $content_id)));
 			foreach($descriptions AS $description)
 			{
-				$this->Content->ContentDescription->del($description['ContentDescription']['id']);
+				$this->Content->ContentDescription->delete($description['ContentDescription']['id']);
 			}
 
 			foreach($this->data['ContentDescription'] AS $id => $value)
@@ -466,7 +466,7 @@ class ContentsController extends AppController {
 					}
 					else
 					{
-						    $this->Content->del($value, true);
+						    $this->Content->delete($value, true);
 							$build_flash .= __('Deleted a content item.', true);
 					}
 				    break;

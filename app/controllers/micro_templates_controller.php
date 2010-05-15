@@ -23,7 +23,7 @@ class MicroTemplatesController extends AppController {
 		
 	function admin_delete ($id)
 	{
-		$this->MicroTemplate->del($id);
+		$this->MicroTemplate->delete($id);
 		$this->Session->setFlash( __('Record deleted.',true));
 		$this->redirect('/micro_templates/admin');
 	}

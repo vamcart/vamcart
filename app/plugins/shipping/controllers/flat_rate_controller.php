@@ -44,7 +44,7 @@ class FlatRateController extends ShippingAppController {
 
 		$module_id = $this->ShippingMethod->findByCode($this->module_name);
 
-		$this->ShippingMethod->del($module_id['ShippingMethod']['id'], true);
+		$this->ShippingMethod->delete($module_id['ShippingMethod']['id'], true);
 			
 		$this->Session->setFlash(__('Module Uninstalled', true));
 		$this->redirect('/shipping_methods/admin/');

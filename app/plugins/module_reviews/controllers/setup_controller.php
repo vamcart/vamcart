@@ -72,17 +72,17 @@ class SetupController extends ModuleReviewsAppController {
 		
 		// Delete the module record
 		$module = $this->Module->findByAlias('reviews');
-		$this->Module->del($module['Module']['id']);
+		$this->Module->delete($module['Module']['id']);
 		
 		// Delete the core page
 		App::import('Model', 'Content');
 			$this->Content =& new Content();		
 
 		$core_page = $this->Content->find(array('Content.parent_id' => '-1','alias' => 'read-reviews'));
-		$this->Content->del($core_page['Content']['id'],true);
+		$this->Content->delete($core_page['Content']['id'],true);
 
 		$core_page2 = $this->Content->find(array('Content.parent_id' => '-1','alias' => 'create-review'));
-		$this->Content->del($core_page2['Content']['id'],true);		
+		$this->Content->delete($core_page2['Content']['id'],true);		
 		
 		// Delete the module record
 		$uninstall_query = "DROP TABLE `module_reviews`;";

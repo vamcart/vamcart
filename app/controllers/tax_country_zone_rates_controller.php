@@ -24,7 +24,7 @@ class TaxCountryZoneRatesController extends AppController {
 
 	function admin_delete ($tax_id, $zone_rate_id)
 	{
-		$this->TaxCountryZoneRate->del($zone_rate_id);
+		$this->TaxCountryZoneRate->delete($zone_rate_id);
 		$this->Session->setFlash(__('Record deleted.',true));
 		$this->redirect('/tax_country_zone_rates/admin/' . $tax_id);
 	}	
@@ -109,7 +109,7 @@ class TaxCountryZoneRatesController extends AppController {
 				switch ($this->params['form']['multiaction']) 
 				{
 					case "delete":
-					    $this->TaxCountryZoneRate->del($value, true);
+					    $this->TaxCountryZoneRate->delete($value, true);
 					    break;
 				}
 			}

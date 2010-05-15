@@ -184,11 +184,11 @@ class TemplatesController extends AppController {
 			$child_templates = $this->Template->find('all', array('conditions' => array('parent_id' => $template_id)));
 			foreach($child_templates AS $child)
 			{
-				$this->Template->del($child['Template']['id']);
+				$this->Template->delete($child['Template']['id']);
 			}
 			
 			// Ok, delete the template
-			$this->Template->del($template_id);	
+			$this->Template->delete($template_id);	
 			$this->Session->setFlash(__('You deleted a template.', true));		
 		}
 		$this->redirect('/templates/admin/');

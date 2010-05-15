@@ -23,7 +23,7 @@ class AdminController extends ModuleAbandonedCartsAppController {
 		$old_carts = $this->Order->find('all', array('conditions' => array('Order.order_status_id' => '0')));
 		foreach($old_carts AS $cart)
 		{
-			$this->Order->del($cart, true);
+			$this->Order->delete($cart, true);
 		}
 		$this->Session->setFlash(__('Abandoned carts have been purged.', true));
 		$this->redirect('/module_abandoned_carts/admin/admin_index/');
