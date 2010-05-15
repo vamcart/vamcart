@@ -2748,8 +2748,8 @@ msgid "Qiwi ID"
 msgstr "ID номер магазина в Qiwi"
 
 #: /plugins/payment/views/qiwi/settings.ctp:22
-msgid "Qiwi Secret Key"
-msgstr "Секретный ключ"
+msgid "Qiwi Password"
+msgstr "Ваш пароль"
 
 #: Time Helper
 msgid "Today, %s"
