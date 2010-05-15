@@ -58,9 +58,32 @@ class QiwiController extends PaymentAppController {
 	function before_process () 
 	{
 
-		$order = $this->Order->read(null,$_SESSION['Customer']['order_id']);
-		$insert_order = true;			
+		$content = '{lang}Example{/lang}: &nbsp;<input type="text" name="qiwi_telephone" /> {lang}Phone{/lang}: 916820XXXX
+
+		<form action="' . BASE . '/orders/place_order/" method="post">
+		<span class="button"><button type="submit" value="{lang}Confirm Order{/lang}">{lang}Confirm Order{/lang}</button></span>
+		</form>';
+
+	// Save the order
 	
+		foreach($_POST AS $key => $value)
+			$order['Order'][$key] = $value;
+		
+		// Get the default order status
+		$default_status = $this->Order->OrderStatus->find(array('default' => '1'));
+		$order['Order']['order_status_id'] = $default_status['OrderStatus']['id'];
+
+		// Save the order
+		$this->Order->save($order);
+    
+		return $content;	
+	}
+
+	function after_process()
+	{
+		
+		$order = $this->Order->read(null,$_SESSION['Customer']['order_id']);
+
 		$qiwi_id_data = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'qiwi_id'));
 		$qiwi_id = $qiwi_id_data['PaymentMethodValue']['value'];
 
@@ -69,7 +92,7 @@ class QiwiController extends PaymentAppController {
 
 			// Выписываем qiwi счёт для покупателя
 
-        if ($insert_order == true) {
+        //if ($insert_order == true) {
         	
 			App::import('Vendor', 'Nusoap', array('file' => 'nusoap'.DS.'nusoap.php'));
 
@@ -123,32 +146,8 @@ class QiwiController extends PaymentAppController {
 			//}
 			//}
 
-        }	
-	
-		$content = '
-		<form action="' . BASE . '/orders/place_order/" method="post">
-		<span class="button"><button type="submit" value="{lang}Confirm Order{/lang}">{lang}Confirm Order{/lang}</button></span>
-		</form>';
-
-	// Save the order
-	
-		foreach($_POST AS $key => $value)
-			$order['Order'][$key] = $value;
+        //}	
 		
-		// Get the default order status
-		$default_status = $this->Order->OrderStatus->find(array('default' => '1'));
-		$order['Order']['order_status_id'] = $default_status['OrderStatus']['id'];
-
-		// Save the order
-		$this->Order->save($order);
-    
-      $insert_order = false;
-
-		return $content;	
-	}
-
-	function after_process()
-	{
 	}
 	
 	
