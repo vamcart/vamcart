@@ -90,7 +90,7 @@ continue;
 switch($asset['type']) {
 case 'js':
 $processed = $this->__process($asset['type'], $asset['assets']);
-$scripts_for_layout[] = $this->Javascript->link('/' . $this->cachePaths['js'] . '/' . $processed);
+$scripts_for_layout[] = $this->Html->script('/' . $this->cachePaths['js'] . '/' . $processed);
 break;
 case 'css':
 $processed = $this->__process($asset['type'], $asset['assets']);
