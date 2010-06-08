@@ -62,7 +62,7 @@ class SmartyComponent extends Object
 		App::import('Vendor', 'Smarty', array('file' => 'smarty'.DS.'Smarty.class.php'));
 		$smarty = new Smarty();
 		
-		$smarty->plugins_dir = array('plugins','vam_plugins');
+		$smarty->plugins_dir = array('plugins', 'local_plugins', 'vam_plugins');
 	    require_once $smarty->_get_plugin_filepath('function', 'eval');
 		
 		return $smarty;
