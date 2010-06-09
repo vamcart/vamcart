@@ -11,9 +11,9 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-class EmsController extends ShippingAppController {
+class EmsRussianPostShippingController extends ShippingAppController {
 	var $uses = array('ShippingMethod');
-	var $module_name = 'ems';
+	var $module_name = 'ems_russian_post_shipping';
 	var $icon = 'ems.png';
 
 	function settings ()
@@ -26,7 +26,7 @@ class EmsController extends ShippingAppController {
 
 		$new_module = array();
 		$new_module['ShippingMethod']['active'] = '1';
-		$new_module['ShippingMethod']['default'] = '1';
+		$new_module['ShippingMethod']['default'] = '0';
 		$new_module['ShippingMethod']['name'] = Inflector::humanize($this->module_name);
 		$new_module['ShippingMethod']['icon'] = $this->icon;
 		$new_module['ShippingMethod']['code'] = $this->module_name;
@@ -59,8 +59,12 @@ class EmsController extends ShippingAppController {
 		
 		$method = $this->ShippingMethod->findByCode($this->module_name);
 
+			global $order;
+			
         $from_city = strtolower('city--Moskva');
-        $to_city = strtolower('city--'.$this->_makeAlias($_POST['city']));
+        $to_city = strtolower('city--Stavropol');
+        $shipping_weight = 3;
+
         
         $url = 'http://emspost.ru/api/rest?method=ems.calculate&from='.$from_city.'&to='.$to_city.'&weight='.$shipping_weight;
 
