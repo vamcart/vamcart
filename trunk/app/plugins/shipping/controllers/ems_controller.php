@@ -11,9 +11,9 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-class RussianPostEmsController extends ShippingAppController {
+class EmsController extends ShippingAppController {
 	var $uses = array('ShippingMethod');
-	var $module_name = 'russian_post_ems';
+	var $module_name = 'ems';
 	var $icon = 'ems.png';
 
 	function settings ()
@@ -59,8 +59,8 @@ class RussianPostEmsController extends ShippingAppController {
 		
 		$method = $this->ShippingMethod->findByCode($this->module_name);
 
-        $from_city = strtolower('city--'.MODULE_SHIPPING_RUSSIANPOSTEMS_CITY);
-        $to_city = strtolower('city--'.vam_cleanName($this->_makeAlias($_POST['city'])));
+        $from_city = strtolower('city--Moskva');
+        $to_city = strtolower('city--'.$this->_makeAlias($_POST['city']));
         
         $url = 'http://emspost.ru/api/rest?method=ems.calculate&from='.$from_city.'&to='.$to_city.'&weight='.$shipping_weight;
 
