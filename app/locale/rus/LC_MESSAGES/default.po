@@ -1496,6 +1496,14 @@ msgstr "(template)"
 msgid "Useful if you want to override the default content listing template. Setting this will utilize the template that matches this alias."
 msgstr "Данный параметр полезен если Вы хотите поменять шаблон отображения по умолчанию. В качестве значения для данного параметра указывается псевдоним микро шаблона."
 
+#: /vendors/smarty/vam_plugins/function.content_listing.php:182
+msgid "(limit)"
+msgstr "(limit)"
+
+#: /vendors/smarty/vam_plugins/function.content_listing.php:183
+msgid "Useful if you want to limit number of content items to show."
+msgstr "Данный параметр полезен если Вы хотите ограничить количество выводимых элементов."
+
 #: /vendors/smarty/vam_plugins/function.currency_box.php:87
 msgid "Allows the user to select a currency."
 msgstr "Позволяет пользователю выбирать валюту магазина."
