@@ -103,10 +103,13 @@ function smarty_function_content_listing($params, &$smarty)
 		foreach($types AS $type)
 			$allowed_types[] =  $type;
 	}
+
+	if(!isset($params['limit']))
+		$params['limit'] = null;
 	
 	$content_list_data_conditions = array('Content.parent_id' => $params['parent'],'Content.active' => '1','Content.show_in_menu' => '1');
 	$Content->recursive = 2;
-	$content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'order' => array('Content.order ASC')));
+	$content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => $params['limit'], 'order' => array('Content.order ASC')));
 	
 
 	// Loop through the content list and create a new array with only what the template needs
@@ -175,6 +178,7 @@ function smarty_help_function_content_listing() {
 		<li><em><?php echo __('(type)') ?></em> - <?php echo __('Type of content to display. Seperate multiple values with commas, example:') ?> {content_listing type='category,page'}. <?php echo __('Defaults to') ?> 'all'.</li>
 		<li><em><?php echo __('(parent)') ?></em> - <?php echo __('The parent of the content items to be shown. Accepts an alias or id, defaults to 0.') ?></li>
 		<li><em><?php echo __('(template)') ?></em> - <?php echo __('Useful if you want to override the default content listing template. Setting this will utilize the template that matches this alias.') ?></li>
+		<li><em><?php echo __('(limit)') ?></em> - <?php echo __('Useful if you want to limit number of content items to show.') ?></li>
 	</ul>
 	<?php
 }
