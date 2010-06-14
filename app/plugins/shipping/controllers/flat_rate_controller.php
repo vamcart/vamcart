@@ -31,7 +31,7 @@ class FlatRateController extends ShippingAppController {
 
 		$new_module['ShippingMethodValue'][0]['shipping_method_id'] = $this->ShippingMethod->id;
 		$new_module['ShippingMethodValue'][0]['key'] = 'cost';
-		$new_module['ShippingMethodValue'][0]['value'] = '5.99';
+		$new_module['ShippingMethodValue'][0]['value'] = '0';
 
 		$this->ShippingMethod->saveAll($new_module);
 
