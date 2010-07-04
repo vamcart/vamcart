@@ -33,7 +33,7 @@ foreach ($attached_stylesheet AS $stylesheet)
 
 	echo $admin->TableCells(
 		  array(
-			$html->link($stylesheet['name'],'/stylesheet/admin_edit/' . $stylesheet['id']),
+			$html->link($stylesheet['name'],'/stylesheets/admin_edit/' . $stylesheet['id']),
 			array($admin->ActionButton('delete','/templates/admin_delete_stylesheet_association/' . $template['Template']['id'] . '/' . $stylesheet['id'],__('Delete', true)), array('align'=>'center'))
 		   ));
 }
