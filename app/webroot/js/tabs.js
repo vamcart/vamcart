@@ -1,4 +1,4 @@
 	$(function(){
-		$('#tabs > ul').tabs();
-		$('#sub-tabs > ul').tabs();
+		$('#tabs > ul').tabs({ fx: { opacity: 'toggle' } });
+		$('#sub-tabs > ul').tabs({ fx: { opacity: 'toggle' } });
 	});
