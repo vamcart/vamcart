@@ -78,6 +78,10 @@ function smarty_function_content_listing($params, &$smarty)
 				'ContentLink' => array(
                     'className' => 'ContentLink'
 					))));		
+		$Content->bindModel(array('hasOne' => array(
+				'ContentProduct' => array(
+                    'className' => 'ContentProduct'
+					))));		
 	// Make sure parent is valid, if it's not a number get the correct parent number
 	if(!isset($params['parent']))
 		$params['parent'] = 0;
@@ -122,6 +126,10 @@ function smarty_function_content_listing($params, &$smarty)
 		{
 			$content_list[$count]['name']	= $raw_data['ContentDescription']['name'];
 			$content_list[$count]['alias']	= $raw_data['Content']['alias'];	
+			$content_list[$count]['price']	= $raw_data['ContentProduct']['price'];	
+			$content_list[$count]['stock']	= $raw_data['ContentProduct']['stock'];	
+			$content_list[$count]['model']	= $raw_data['ContentProduct']['model'];	
+			$content_list[$count]['weight']	= $raw_data['ContentProduct']['weight'];	
 		
 		if (isset($raw_data['ContentImage']['image']) && file_exists(IMAGES . 'content/' . $raw_data['Content']['id'] . '/' . $raw_data['ContentImage']['image'])) {
 			$content_list[$count]['icon']	= BASE . '/img/content/' . $raw_data['Content']['id'] . '/' . $raw_data['ContentImage']['image'];
