@@ -15,7 +15,7 @@ html,body
 		padding: 0;
 		background-color: #fff;
 		background-image: url(../img/admin/bg.png);
-		background-position: 0 0;
+		background-position: 0 -221px;
 		background-repeat: repeat-x; 
 	}
 
@@ -93,7 +93,7 @@ div#right
 	{
 		background-color: #fff;
 		background-image: url(../img/admin/bg.png);
-		background-position: 0 -2305px;
+		background-position: 0 0;
 		background-repeat: repeat-x; 
 		height: 100px;
 	}
@@ -155,7 +155,7 @@ div#menu
 		border-top: 3px solid #ff7b08;
 		background-color: #fff;
 		background-image: url(../img/admin/bg.png);
-		background-position: 0 -2406px;
+		background-position: 0 -100px;
 		background-repeat: repeat-x; 
 		padding: 0;
 		margin: 0;
@@ -191,7 +191,7 @@ way to fit your requirements.
 		color: #000;
 		background-color: #fff;
 		background-image: url(../img/admin/bg.png);
-		background-position: 0 -2406px;
+		background-position: 0 -100px;
 		background-repeat: repeat-x; 
 	}
 	
@@ -227,7 +227,7 @@ way to fit your requirements.
 		padding: 0; 
 		background-color: #fff;
 		background-image: url(../img/admin/bg.png);
-		background-position: 0 -2442px;
+		background-position: 0 -221px;
 		background-repeat: repeat-x; 
 	}
 
@@ -238,7 +238,7 @@ way to fit your requirements.
 		float: left; 
 		background-color: #fff;
 		background-image: url(../img/admin/bg.png);
-		background-position: 0 -2406px;
+		background-position: 0 -100px;
 		background-repeat: repeat-x; 
 	}
 
@@ -347,7 +347,7 @@ div#page h2
 		padding: 7px 0 7px 10px;
 		background-color: #f4f4f4;
 		background-image: url(../img/admin/bg.png);
-		background-position: 0 -2843px;
+		background-position: 0 -135px;
 		background-repeat: repeat-x; 
 		border-top: 1px solid #c0c1c2;
 		border-left: 1px solid #c0c1c2;
@@ -368,7 +368,7 @@ div#pageContent
 		padding: .5em;
 		background-color: #fff;
 		background-image: url(../img/admin/bg.png);
-		background-position: 0 -3314px;
+		background-position: 0 -602px;
 		background-repeat: repeat-x; 
 		border-top: 0px;
 		border-left: 1px solid #c0c1c2;
@@ -567,7 +567,7 @@ div#content table.contentTable th
 		margin: 0;
 		background-color: #e3eff7;
 		background-image: url(../img/admin/bg.png);
-		background-position: 0 -3231px;
+		background-position: 0 0;
 		background-repeat: repeat-x; 
 		border: 1px solid #97a5b0;
 		border-top-left-radius: 4px;
@@ -651,7 +651,7 @@ div#flashMessage
 		border: 1px solid #ff0000;
 		padding: .5em 0 .5em 1.5em;
 		margin: 0 0 .5em 0;
-		background: #fcc url(../img/admin/icons/error.png) no-repeat center left;
+		background: #fcc url(../img/icons/error.png) no-repeat center left;
 		border-top-left-radius: 4px;
 		border-top-right-radius: 4px;
 		border-bottom-left-radius: 4px;
@@ -671,7 +671,7 @@ div.error-message
 		padding: .5em 0 .5em 1.5em;
 		margin: .5em;
 		font-weight: bold;
-		background: transparent url(../img/admin/icons/error.png) no-repeat center left;
+		background: transparent url(../img/icons/error.png) no-repeat center left;
 	}
 
 div.error input
@@ -723,8 +723,8 @@ span.button button,
 span.button input, 
 del.button span
 	{
-		background-image: url(../img/admin/buttons/form_buttons.png);
-		_background-image: url(../img/admin/buttons/form_buttons.gif);
+		background-image: url(../img/buttons/form_buttons.png);
+		_background-image: url(../img/buttons/form_buttons.gif);
 	}
 
 a.button span, 
