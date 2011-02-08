@@ -48,6 +48,7 @@ $html->script(array(
 				   'Stylesheet.stylesheet' => array(
    				   		'label' => __('Stylesheets', true),				   
    						'id' => 'code',
+   						'label' => false,
    						'value' => $data['Stylesheet']['stylesheet']
 	               )																										
 			));

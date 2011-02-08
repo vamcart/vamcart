@@ -39,7 +39,7 @@ $html->script(array(
 					'MicroTemplate.template' => array(
 						'type' => 'textarea',
    				   		'id' => 'code',
-   				   		'label' => __('Template', true)
+   				   		'label' => false
 	                ),
 				));
 
