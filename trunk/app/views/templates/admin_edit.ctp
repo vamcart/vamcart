@@ -31,7 +31,7 @@ $html->script(array(
 	               ),
 				   'Template.template' => array(
    				   		'id' => 'code',
-   				   		'label' => __('Template', true)
+   				   		'label' => false
 	               )																										
 			));
 	echo $form->submit(__('Submit', true), array('name' => 'submit')) . $form->submit(__('Apply', true), array('name' => 'apply')) . $form->submit(__('Cancel', true), array('name' => 'cancel'));
@@ -47,7 +47,7 @@ $html->script(array(
                      "parsephphtmlmixed.js"],
         stylesheet: ["'. BASE . '/js/codemirror/css/xmlcolors.css", "'. BASE . '/js/codemirror/css/jscolors.css", "'. BASE . '/js/codemirror/css/csscolors.css", "'. BASE . '/js/codemirror/css/phpcolors.css"],
         path: "'. BASE . '/js/codemirror/",
-        continuousScanning: 500
+        continuousScanning: 500,
       });
 ', array('allowCache'=>false,'safe'=>false,'inline'=>true));	
 	
