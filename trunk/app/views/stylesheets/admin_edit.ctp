@@ -14,6 +14,7 @@
 $html->script(array(
 	'modified.js',
 	'jquery/jquery.min.js',
+	'jquery/plugins/jquery.validation.js',
 	'jquery/plugins/ui.core.js',
 	'jquery/plugins/ui.tabs.js',
 	'tabs.js',
@@ -32,7 +33,9 @@ $html->script(array(
 			echo $admin->CreateTab('main',__('Main',true), 'main.png');
 			echo $admin->CreateTab('options',__('Options',true), 'options.png');			
 			echo '</ul>';
-	
+
+	echo $validation->bind('Stylesheet', array('form' => '#contentform', 'messageId' => 'messages'));
+		
 	echo $admin->StartTabContent('main');
 	echo $form->inputs(array(
 					'legend' => null,
@@ -72,7 +75,9 @@ $html->script(array(
 	echo $admin->EndTabContent();			
 
 	echo $admin->EndTabs();
-			
+
+	echo '<div id="messages"></div>';
+				
 	echo $form->submit(__('Submit', true), array('name' => 'submit')) . $form->submit(__('Apply', true), array('name' => 'apply')) . $form->submit(__('Cancel', true), array('name' => 'cancel'));
 	echo '<div class="clear"></div>';
 	echo $form->end();

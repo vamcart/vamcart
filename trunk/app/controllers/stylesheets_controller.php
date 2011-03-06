@@ -13,7 +13,8 @@
 
 class StylesheetsController extends AppController {
 	var $name = 'Stylesheets';
-	
+	var $helpers = array('Validation');
+		
 	function load($alias)
 	{
 		$alias = str_replace(".css","",$alias);
