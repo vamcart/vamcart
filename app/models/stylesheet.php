@@ -19,6 +19,12 @@ class Stylesheet extends AppModel {
                                      'joinTable'    => 'templates_stylesheets',
                                      'foreignKey'   => 'stylesheet_id',
                                ));
-							   
+
+	var $validate = array(
+	'name' => array(
+		'rule' => 'notEmpty'
+	)
+	);
+								   
 }
 ?>
