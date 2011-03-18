@@ -24,7 +24,7 @@ echo $form->create('Country', array('action' => '/countries/admin_modify_selecte
 
 echo '<table class="contentTable">';
 
-echo $html->tableHeaders(array( __('Title', true), __('Flag', true), __('Code', true) . ' 2', __('Code', true) . ' 3', __('Action', true), '<input type="checkbox" onclick="checkAll(this)" />'));
+echo $html->tableHeaders(array( __('Title', true), __('Flag', true), __('Code', true) . ' 2', __('Code', true) . ' 3', __('EU', true), __('Private', true), __('Firm', true), __('Action', true), '<input type="checkbox" onclick="checkAll(this)" />'));
 
 foreach ($data AS $country)
 {
@@ -34,6 +34,9 @@ foreach ($data AS $country)
 			array($html->link($html->image('flags/' . strtolower($country['Country']['iso_code_2']) . '.png', array('alt' => $country['Country']['name'])), '/countries/admin_edit/' . $country['Country']['id'], array('escape' => false)), array('align'=>'center')),
 			array($country['Country']['iso_code_2'], array('align'=>'center')),
 			array($country['Country']['iso_code_3'], array('align'=>'center')),
+                        array($country['Country']['eu'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true))), array('align'=>'center')),
+			array($country['Country']['private'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true))), array('align'=>'center')),
+                        array($country['Country']['firm'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true))), array('align'=>'center')),
 			array($admin->ActionButton('edit','/countries/admin_edit/' . $country['Country']['id'],__('Edit', true)) . $admin->ActionButton('delete','/countries/admin_delete/' . $country['Country']['id'],__('Delete', true)), array('align'=>'center')),
 			array($form->checkbox('modify][', array('value' => $country['Country']['id'])), array('align'=>'center'))
 		   ));

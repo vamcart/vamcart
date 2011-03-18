@@ -51,7 +51,19 @@
 	               'Country.iso_code_3' => array(
 				   		'label' => __('ISO Code 3', true),
    						'value' => $data['Country']['iso_code_3']
-	               )		     				   	   																									
+	               ),
+                       'Country.eu' => array(
+				   		'label' => __('EU Country', true),
+   						'value' => $data['Country']['eu']
+	               ),
+                       'Country.private' => array(
+				   		'label' => __('Private person VAT', true),
+   						'value' => $data['Country']['privat']
+	               ),
+                       'Country.firm' => array(
+				   		'label' => __('Firm VAT', true),
+   						'value' => $data['Country']['pravna']
+	               )
 			));
 		echo $admin->EndTabContent();
 
