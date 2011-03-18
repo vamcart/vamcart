@@ -295,4 +295,8 @@
  *
  */
 	Cache::config('default', array('engine' => 'File'));
+
+        // In EU, VAT is calculated at the end of order
+        // depending on the billing address
+        Configure::write('EU-VAT', 20);
 ?>
