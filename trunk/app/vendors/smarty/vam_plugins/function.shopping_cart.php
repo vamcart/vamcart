@@ -90,11 +90,33 @@ function smarty_function_shopping_cart($params, &$smarty)
 										  'url' => BASE . '/product/' . $cart_item['content_id'] . $config['URL_EXTENSION'],										  
 										  'line_total' => $CurrencyBase->display_price($cart_item['quantity']*$cart_item['price']));
 
-	}	
+	}
+
+        $VAT = Configure::read('EU-VAT') / 100;
+        App::import('Model', 'Country');
+                $Country =& new Country();
+        $country = $Country->findByIsoCode_2($order['Order']['bill_country']);
+        if ($order['Order']['company_vat'] != '')
+        {
+            // Firm order
+            if ($country['Country']['firm'] == 0)
+                $VAT = 0;
+        }
+        else
+        {
+            // Provate person order
+            if ($country['Country']['private'] == 0)
+                $VAT = 0;
+        }
+
+        $order_vat = round($order['Order']['total'] * $VAT, 2);
+        $order_total_vat = $order['Order']['total'] + $order_vat;
 	
 	$assignments = array('checkout_link' => BASE . '/page/checkout' . $config['URL_EXTENSION'],
 						 'order_total' => $CurrencyBase->display_price($order['Order']['total']),
 						 'shipping_total' => $CurrencyBase->display_price($order['Order']['shipping']),
+                                                 'order_vat' => $CurrencyBase->display_price($order_vat),
+                                                 'order_total_vat' => $CurrencyBase->display_price($order_total_vat),
 						 'order_items' => $order_items,
 						 'cart_link' => BASE . '/page/cart-contents' . $config['URL_EXTENSION']
 						 );								 
