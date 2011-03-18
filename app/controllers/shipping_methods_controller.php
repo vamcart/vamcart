@@ -46,7 +46,7 @@ class ShippingMethodsController extends AppController {
 			{
 			foreach($this->data['key_values'] AS $key => $value)
 			{
-				$attribute = $this->ShippingMethod->ShippingMethodValue->findByKey($key);			
+				$attribute = $this->ShippingMethod->ShippingMethodValue->findByShippingMethodId($shipping_method_id);
 				if(empty($attribute))
 				{
 					$this->ShippingMethod->ShippingMethodValue->create();
