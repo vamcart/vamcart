@@ -32,6 +32,9 @@ class OrderBaseComponent extends Object
 		
 		App::import('Model', 'Order');
 			$this->Order =& new Order();
+
+               App::import('Model', 'ContentProduct');
+			$this->ContentProduct =& new ContentProduct();
 					
 	}
 	
@@ -153,6 +156,11 @@ class OrderBaseComponent extends Object
 		// Get the product from the OrderProduct model...	
 		$order_product = $this->Order->OrderProduct->find(array('order_id' => $_SESSION['Customer']['order_id'], 'content_id' => $content_id));
 
+                // needed for calculating correct discount price
+                $prices = $this->ContentProduct->find('first', array(
+                    'conditions' => array('content_id' => $content_id)
+                ));
+
 		if(empty($order_product))
 		{
 
@@ -163,10 +171,22 @@ class OrderBaseComponent extends Object
 							 'quantity' => $qty,
 							 'price' => $product['ContentProduct']['price'],
 							 'weight' => $product['ContentProduct']['weight']);
+
+                        foreach($prices['ContentProductPrice'] as $price)
+                        {
+                            if ($qty>=$price['quantity'])
+                                $order_product['price'] = $price['price'];
+                        }
 		}
 		else
 		{
 			$order_product['OrderProduct']['quantity'] += abs($qty);
+                        
+                        foreach($prices['ContentProductPrice'] as $price)
+                        {
+                            if ($order_product['OrderProduct']['quantity']>=$price['quantity'])
+                                $order_product['OrderProduct']['price'] = $price['price'];
+                        }
 		}
 
 		App::import('Component', 'EventBase');
