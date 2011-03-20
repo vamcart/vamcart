@@ -190,7 +190,7 @@ CREATE TABLE `content_products` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `content_products` (`id`, `content_id`, `stock`, `model`, `price`, `tax_id`, `weight`) VALUES 
+INSERT INTO `content_products` (`id`, `content_id`, `stock`, `model`, `price`, `tax_id`, `weight`, `moq`, `pf`) VALUES 
 (16, 37, 12, '123456', 10.99, 2, 0, 1, 1),
 (17, 38, 22, 'sample', 4.95, 2, 3, 1, 1);
 
