@@ -29,9 +29,11 @@ foreach ($content_data AS $content)
 
 		// Link to child view, link to the edit screen
 		$name_link = $html->link($html->image('admin/icons/folder.png'), '/contents/admin/0/' . $content['Content']['id'], array('escape' => false));
-                if ($content['ContentType']['name']=='product')
-                        $name_link .= $html->link($html->image('admin/icons/folder.png'), '/discounts/admin/' . $content['ContentProduct']['id'], array('escape' => false));
                 $name_link .= $html->link($content['ContentDescription']['name'], '/contents/admin_edit/' . $content['Content']['id'].'/'.(isset($parent_content) ? $parent_content['Content']['id'] : 0));
+
+				if ($content['ContentType']['name']=='product') {
+					$discounts = $admin->ActionButton('discounts', '/discounts/admin/' . $content['ContentProduct']['id'],__('Discounts', true)); 
+				}
 	
 	echo $admin->TableCells(
 		  array(
@@ -41,7 +43,7 @@ foreach ($content_data AS $content)
 				array($ajax->link(($content['Content']['show_in_menu'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))), 'null', $options = array('escape' => false, 'url' => '/contents/admin_change_show_in_menu_status/' . $content['Content']['id'], 'update' => 'content'), null, false), array('align'=>'center')),
 				array($admin->DefaultButton($content['Content']), array('align'=>'center')),
 				array($admin->MoveButtons($content['Content'], $content_count), array('align'=>'center')),				
-				array($admin->ActionButton('edit','/contents/admin_edit/' . $content['Content']['id'].'/'.(isset($parent_content) ? $parent_content['Content']['id'] : 0),__('Edit', true)) . $admin->ActionButton('delete','/contents/admin_delete/' . $content['Content']['id'],__('Delete', true)), array('align'=>'center')),
+				array($admin->ActionButton('edit','/contents/admin_edit/' . $content['Content']['id'].'/'.(isset($parent_content) ? $parent_content['Content']['id'] : 0),__('Edit', true)) . $admin->ActionButton('delete','/contents/admin_delete/' . $content['Content']['id'],__('Delete', true)) . $discounts, array('align'=>'center')),
 				array($form->checkbox('modify][', array('value' => $content['Content']['id'])), array('align'=>'center'))
 		   ));
 		   	
