@@ -163,6 +163,8 @@ class OrderBaseComponent extends Object
 
 		if(empty($order_product))
 		{
+                        if ($qty<$prices['ContentProduct']['moq'])
+                            $qty = $prices['ContentProduct']['moq'];
 
 			$order_product = array('order_id' => $_SESSION['Customer']['order_id'],
 							 'content_id' => $content_id,
@@ -181,6 +183,9 @@ class OrderBaseComponent extends Object
 		else
 		{
 			$order_product['OrderProduct']['quantity'] += abs($qty);
+
+                        if ($order_product['OrderProduct']['quantity']<$prices['ContentProduct']['moq'])
+                            $order_product['OrderProduct']['quantity'] = $prices['ContentProduct']['moq'];
                         
                         foreach($prices['ContentProductPrice'] as $price)
                         {
