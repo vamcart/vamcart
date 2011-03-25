@@ -27,6 +27,8 @@ function smarty_function_product_prices($params, &$smarty)
         }
         $quantites .= '+<br>';
     }
+    else
+        $quantites .= '</b>';
 
     echo '<p class="left"><a rel="lightbox|450|320" href="/static/bubbles/" class="bubble bubble-in" title="'.$content['ContentProduct']['stock'].' '.__('available', true).'"><span>available</span></a><br><br>';
         //foreach echo price
