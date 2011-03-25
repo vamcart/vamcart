@@ -39,6 +39,16 @@ $tax_options = $this->requestAction('/contents/generate_tax_list/');
 		'type' => 'text',
 		'value' => !isset($data['ContentProduct']['price'])? 0 : $data['ContentProduct']['price']
 	   ),
+           'ContentProduct.moq' => array(
+   		'label' => __('Minimum order quantity', true),
+		'type' => 'text',
+		'value' => !isset($data['ContentProduct']['moq'])? 0 : $data['ContentProduct']['moq']
+	   ),
+           'ContentProduct.pf' => array(
+   		'label' => __('Packet quantity', true),
+		'type' => 'text',
+		'value' => !isset($data['ContentProduct']['pf'])? 0 : $data['ContentProduct']['pf']
+	   ),
 	   'ContentProduct.tax_id' => array(
    		'label' => __('Tax Class', true),
 		'type' => 'select',
