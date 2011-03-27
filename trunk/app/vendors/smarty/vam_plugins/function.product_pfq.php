@@ -12,8 +12,12 @@
 function smarty_function_product_pfq($params, &$smarty)
 {
     global $content;
+    if ($content['ContentProduct']['stock'] == -1)
+    {
+        return '';
+    }
 
-    echo $content['ContentProduct']['pf'];
+    echo __('Packet quantity', true) . ': ' . $content['ContentProduct']['pf'];
 }
 
 function smarty_help_function_product_pfq () {

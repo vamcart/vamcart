@@ -21,6 +21,12 @@ return $template;
 
 function smarty_function_product_quantity($params, &$smarty)
 {
+        global $content;
+        if ($content['ContentProduct']['stock'] < 1)
+        {
+            return '';
+        }
+
 	$cache_name = 'vam_product_quantity' . (isset($params['template'])?'_'.$params['template']:'');
 	$results = Cache::read($cache_name);
 	if($results === false)
