@@ -13,6 +13,12 @@
 
 function smarty_function_purchase_button($params, &$smarty)
 {
+        global $content;
+        if ($content['ContentProduct']['stock'] < 1)
+        {
+            return '';
+        }
+
 	$result = '<span class="button"><button type="submit" value="'. __('Add To Cart', true) .'">'. __('Add To Cart', true) .'</button></span>';
 	return $result;
 }

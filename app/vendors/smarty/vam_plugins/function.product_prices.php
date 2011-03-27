@@ -30,15 +30,32 @@ function smarty_function_product_prices($params, &$smarty)
     else
         $quantites .= '</b>';
 
-    echo '<p class="left"><a rel="lightbox|450|320" href="/static/bubbles/" class="bubble bubble-in" title="'.$content['ContentProduct']['stock'].' '.__('available', true).'"><span>available</span></a><br><br>';
-        //foreach echo price
-        echo '<b><span class="price calculated">'.$CurrencyBase->display_price($content['ContentProduct']['price']).'</span></b><br>';
-        foreach ($content['ContentProductPrice'] as $price)
-            echo '<span class="price calculated">'.$CurrencyBase->display_price($price['price']).'</span><br>';
+    $stock = '';
+    $stock_text = $content['ContentProduct']['stock'].' '.__('available', true);
+    if ($content['ContentProduct']['stock'] > 5)
+        $stock.='full';
+    elseif ($content['ContentProduct']['stock'] == 0)
+        $stock.='empty';
+    elseif ($content['ContentProduct']['stock'] == -1)
+    {
+        $stock.='retired';
+        $stock_text = __('retired', true);
+    }
+    else
+        $srock.='low';
+
+    echo '<p class="left"><img src="/img/icons/stock/'.$stock.'.png" title="'.$stock_text.'" class="stock_image" /><br><br>';
+        if ($content['ContentProduct']['stock']>-1)
+        {
+            echo '<b><span class="price calculated">'.$CurrencyBase->display_price($content['ContentProduct']['price']).'</span></b><br>';
+            foreach ($content['ContentProductPrice'] as $price)
+                echo '<span class="price calculated">'.$CurrencyBase->display_price($price['price']).'</span><br>';
+        }
     echo '</p>';
     echo '<p class="right">';
-        echo $content['ContentProduct']['stock'].' '.__('in stock', true).'<br><br>';
-        echo $quantites;
+        echo $stock_text.'<br><br>';
+        if ($content['ContentProduct']['stock']>-1)
+            echo $quantites;
     echo '</p>';
 }
 

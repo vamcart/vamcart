@@ -12,8 +12,12 @@
 function smarty_function_product_moq($params, &$smarty)
 {
     global $content;
+    if ($content['ContentProduct']['stock'] == -1)
+    {
+        return '';
+    }
 
-    echo $content['ContentProduct']['moq'];
+    echo __('Minimum order required', true) . ': ' . $content['ContentProduct']['moq'];
 }
 
 function smarty_help_function_product_moq () {
