@@ -29,7 +29,7 @@ foreach ($content_data AS $content)
 
 		// Link to child view, link to the edit screen
 		$name_link = $html->link($html->image('admin/icons/folder.png'), '/contents/admin/0/' . $content['Content']['id'], array('escape' => false));
-                $name_link .= $html->link($content['ContentDescription']['name'], '/contents/admin_edit/' . $content['Content']['id'].'/'.(isset($parent_content) ? $parent_content['Content']['id'] : 0));
+                $name_link .= $html->link($content['ContentDescription']['name'], '/contents/admin/0/' . $content['Content']['id']);
 
 				if ($content['ContentType']['name']=='product') {
 					$discounts = $admin->ActionButton('discounts', '/discounts/admin/' . $content['ContentProduct']['id'],__('Discounts', true)); 
