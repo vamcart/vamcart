@@ -11,13 +11,13 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-class ModulesController extends AppController {
-	var $name = 'Modules';
+class BookmarksController extends AppController {
+	var $name = 'Bookmarks';
    
 	function admin ()
 	{
-		$this->set('current_crumb', __('Modules Listing', true));
-		$this->set('title_for_layout', __('Modules Listing', true));
+		$this->set('current_crumb', __('Bookmarks Listing', true));
+		$this->set('title_for_layout', __('Bookmarks Listing', true));
 		$path = APP . 'plugins' . DS;
 		$module_path = new Folder($path);
 		$dirs = $module_path->read();

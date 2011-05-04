@@ -11,7 +11,7 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-class Module extends AppModel {
-   var $name = 'Module';
+class Bookmark extends AppModel {
+   var $name = 'Bookmark';
 }
 ?>
