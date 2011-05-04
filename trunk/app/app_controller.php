@@ -181,6 +181,11 @@ class AppController extends Controller {
 		// Navigation Menu Array
 		$navigation = array(
 			//1 => array('icon' => 'home.png', 'text' => __('Home', true), 'path' => '/admin/admin_top/'),	
+			1 => array('icon' => 'bookmarks.png', 'text' => __('Bookmarks', true), 'path' => '/bookmarks/admin/', 
+				'children' => array(
+					1 => array('icon' => 'all-orders.png', 'text' => __('All Orders', true), 'path' => '/orders/admin/')
+				)			
+			),				
 			2 => array('icon' => 'orders.png', 'text' => __('Orders', true), 'path' => '/admin/admin_top/2', 
 				'children' => array(
 					1 => array('icon' => 'all-orders.png', 'text' => __('All Orders', true), 'path' => '/orders/admin/')
