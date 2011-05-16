@@ -181,7 +181,6 @@ class AppController extends Controller {
 		// Navigation Menu Array
 		$navigation = array(
 			//1 => array('icon' => 'home.png', 'text' => __('Home', true), 'path' => '/admin/admin_top/'),	
-			1 => array('icon' => 'bookmarks.png', 'text' => __('Bookmarks', true), 'path' => '/bookmarks/admin/'),	
 			2 => array('icon' => 'orders.png', 'text' => __('Orders', true), 'path' => '/admin/admin_top/2', 
 				'children' => array(
 					1 => array('icon' => 'all-orders.png', 'text' => __('All Orders', true), 'path' => '/orders/admin/')
@@ -250,26 +249,6 @@ class AppController extends Controller {
 		{
 			$nav_level = $module['Module']['nav_level'];
 			$navigation[$nav_level]['children'][] = array('icon' => $module['Module']['alias'].'.png', 'text' => $module['Module']['name'], 'path' => '/module_' . $module['Module']['alias'] . '/admin/admin_index/', 'attributes' => array('class' => 'module'));
-		}
-		
-		// Add bookmarks to admin menu
-		App::import('Model', 'Bookmark');
-		$this->Bookmark =& new Bookmark();
-		
-		$bookmarks = $this->Bookmark->find('all');
-		
-		foreach($bookmarks AS $bookmark)
-		{
-		
-		$nav_level = 1;
-		
-		if ($bookmark['Bookmark']['path'] = $this->params['controller'].'/'.$this->params['action']) {
-		$navigation[$nav_level]['children'][] = array('icon' => 'bookmark_delete.png', 'text' => 'Удалить закладку', 'path' => 'bookmarks/delete/'.$this->params['controller'].'/'.$this->params['action']);
-		} else {
-		$navigation[$nav_level]['children'][] = array('icon' => 'bookmark_add.png', 'text' => 'Добавить закладку', 'path' => 'bookmarks/add/'.$this->params['controller'].'/'.$this->params['action']);
-		}
-		
-			$navigation[$nav_level]['children'][] = array('icon' => $bookmark['Bookmark']['icon'], 'text' => $bookmark['Bookmark']['text'], 'path' => $bookmark['Bookmark']['path'], 'attributes' => array('class' => 'module'));
 		}
 		
 		return($navigation);

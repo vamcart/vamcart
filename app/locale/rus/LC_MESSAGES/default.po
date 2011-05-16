@@ -19,10 +19,6 @@ msgstr ""
 msgid "Home"
 msgstr "Главная"
 
-#: /app_controller.php:183
-msgid "Bookmarks"
-msgstr "Закладки"
-
 #: /app_controller.php:185
 msgid "Orders"
 msgstr "Заказы"
