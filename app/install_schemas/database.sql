@@ -1,15 +1,6 @@
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET NAMES 'utf8';
 
-DROP TABLE IF EXISTS bookmarks;
-CREATE TABLE `bookmarks` (
-  `id` int(10) NOT NULL auto_increment,
-  `icon` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `text` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `path` varchar(50) collate utf8_unicode_ci NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 DROP TABLE IF EXISTS configurations;
 CREATE TABLE `configurations` (
   `id` int(10) NOT NULL auto_increment,
