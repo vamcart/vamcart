@@ -62,8 +62,10 @@ class SmartyComponent extends Object
 		App::import('Vendor', 'Smarty', array('file' => 'smarty'.DS.'Smarty.class.php'));
 		$smarty = new Smarty();
 		
-		$smarty->plugins_dir = array('plugins', 'local_plugins', 'vam_plugins');
-	    require_once $smarty->_get_plugin_filepath('function', 'eval');
+		$smarty->plugins_dir = array(
+			'../vendors/smarty/plugins',
+			'../vendors/smarty/local_plugins',
+			'../vendors/smarty/vam_plugins');
 		
 		return $smarty;
 	}
@@ -77,7 +79,8 @@ class SmartyComponent extends Object
 			$smarty->assign($key,$value);
 		}
 		
-	    return smarty_function_eval(array('var' => $str), $smarty);
+		// $smarty->display('eval:' . $str);
+		return $smarty->fetch('eval:' . $str, null, null, null, false);
 	}
  
 	function display($str,$assigns = array())
