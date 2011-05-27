@@ -79,7 +79,6 @@ class SmartyComponent extends Object
 			$smarty->assign($key,$value);
 		}
 		
-		// $smarty->display('eval:' . $str);
 		return $smarty->fetch('eval:' . $str, null, null, null, false);
 	}
  
