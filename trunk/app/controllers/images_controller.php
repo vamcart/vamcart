@@ -41,7 +41,7 @@ class ImagesController extends AppController {
                 $phpThumb->q = $quality;
                 $phpThumb->config_imagemagick_path = '/usr/bin/convert';
                 $phpThumb->config_prefer_imagemagick = false;
-                $phpThumb->config_output_format = 'jpg';
+                $phpThumb->config_output_format = 'png';
                 $phpThumb->config_error_die_on_error = true;
                 $phpThumb->config_document_root = '';
                 $phpThumb->config_temp_directory = APP . 'tmp';
