@@ -1042,8 +1042,9 @@ div.clear
      
 .CodeMirror 
 	{
-		border-top: 1px solid black; 
-		border-bottom: 1px solid black;
+		border-top: 1px solid #eee; 
+		border-bottom: 1px solid #eee;
+		background: #fff;
 	}
 	
 .activeline 
