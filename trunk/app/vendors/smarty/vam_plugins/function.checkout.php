@@ -17,7 +17,7 @@ $template = '
 <script type="text/javascript" src="{base_path}/js/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="{base_path}/js/modified.js"></script>
 <script type="text/javascript" src="{base_path}/js/focus-first-input.js"></script>
-{literal}
+
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("div#ship_information").hide();
@@ -27,7 +27,7 @@ $template = '
 			});
 	});
 </script>
-{/literal}
+
 <div id="checkout">
 <form action="{$checkout_form_action}" method="post" id="contentform">
 	<div id="shipping_method">
