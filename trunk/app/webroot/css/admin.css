@@ -1037,4 +1037,20 @@ div.clear
 		clear: both;
 	}
 			 
+			 
+/* Code Mirror */
+     
+.CodeMirror 
+	{
+		border-top: 1px solid black; 
+		border-bottom: 1px solid black;
+	}
+	
+.activeline 
+	{
+		background: #f0fcff !important;
+	}
+			 
+/* /Code Mirror */
+			 
 /*]]>*/
