@@ -19,10 +19,20 @@ $html->script(array(
 	'jquery/plugins/ui.tabs.js',
 	'tabs.js',
 	'focus-first-input.js',
-	'codemirror/codemirror.js'
+	'codemirror/lib/codemirror.js',
+	'codemirror/mode/javascript/javascript.js',
+	'codemirror/mode/css/css.js',
+	'codemirror/mode/xml/xml.js',
+	'codemirror/mode/htmlmixed/htmlmixed.js'
 ), array('inline' => false));
 
-	echo $html->css('ui.tabs', null, array('inline' => false));
+$html->css(array(
+	'ui.tabs',
+	'codemirror/codemirror',
+	'codemirror/css',
+	'codemirror/xml',
+	'codemirror/javascript'
+), null, array('inline' => false));
 
 	echo $admin->ShowPageHeaderStart($current_crumb, 'stylesheets.png');
 
@@ -85,13 +95,14 @@ $html->script(array(
 	echo $admin->ShowPageHeaderEnd();
 
 	echo $html->scriptBlock('
-      var editor = CodeMirror.fromTextArea("code", {
-        height: "350px",
-        parserfile: ["parsecss.js"],
-        stylesheet: ["'. BASE . '/js/codemirror/css/csscolors.css"],
-        path: "'. BASE . '/js/codemirror/",
-        continuousScanning: 500
-      });
+var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+  lineNumbers: true,
+  onCursorActivity: function() {
+    editor.setLineClass(hlLine, null);
+    hlLine = editor.setLineClass(editor.getCursor().line, "activeline");
+  }
+});
+var hlLine = editor.setLineClass(0, "activeline");
 ', array('allowCache'=>false,'safe'=>false,'inline'=>true));	
 	
 ?>
