@@ -1042,13 +1042,14 @@ div.clear
      
 .CodeMirror 
 	{
+		width: auto;
 		border-top: 1px solid black; 
 		border-bottom: 1px solid black;
 	}
 	
 .activeline 
 	{
-		background: #f0fcff !important;
+		background: #ffc !important;
 	}
 			 
 /* /Code Mirror */
