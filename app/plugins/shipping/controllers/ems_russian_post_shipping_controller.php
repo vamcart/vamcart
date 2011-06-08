@@ -62,7 +62,7 @@ class EmsRussianPostShippingController extends ShippingAppController {
 			global $order;
 			
         $from_city = strtolower('city--Moskva');
-        $to_city = strtolower('city--'.$this->Translit->convert($order['Order']['bill_city']));
+        $to_city = strtolower('city--'.$order['Order']['bill_city']);
         $shipping_weight = 3;
 
         
