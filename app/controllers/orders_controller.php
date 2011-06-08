@@ -27,6 +27,7 @@ class OrdersController extends AppController {
 			$order['Order'][$key] = $value;
 		
 		$this->Order->save($order);
+	
 		
 		$this->redirect('/page/confirmation' . $config['URL_EXTENSION']);				
 				
