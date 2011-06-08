@@ -15,6 +15,7 @@ class PagesController extends AppController {
 	var $components = array('ConfigurationBase','ContentBase','Smarty', 'Gzip.Gzip');
 	var $uses = null;
 	var $autoLayout = false;
+	var $autoRender = false;
 	var $helpers = null;
 	var $layout = null;
 	
@@ -117,7 +118,6 @@ class PagesController extends AppController {
 
 		echo '<!-- Powered by: VaM Cart (http://vamcart.com) -->' . "\n";
 		$this->Smarty->display($template['Template']['template'],$template_vars);
-		die();
 	}
 }
 ?>
