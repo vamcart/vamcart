@@ -22,13 +22,17 @@ class OrdersController extends AppController {
 		
 		global $config;
 		global $order;
-		
+
+		if (isset($_SESSION['Customer']['order_id'])) {
+					
 		foreach($_POST AS $key => $value)
 			$order['Order'][$key] = $value;
 		
 		$this->Order->save($order);
 		
 		$this->redirect('/page/confirmation' . $config['URL_EXTENSION']);				
+
+		}
 				
 	}
 		
