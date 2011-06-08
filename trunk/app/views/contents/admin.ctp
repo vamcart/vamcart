@@ -40,6 +40,8 @@ foreach ($content_data AS $content)
 
 				if ($content['ContentType']['name']=='product') {
 					$discounts = $admin->ActionButton('discounts', '/discounts/admin/' . $content['ContentProduct']['id'],__('Discounts', true)); 
+				} else {
+					$discounts = null; 
 				}
 	
 	echo $admin->TableCells(
