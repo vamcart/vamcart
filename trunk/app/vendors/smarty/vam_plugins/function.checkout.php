@@ -41,7 +41,7 @@ $template = '
 				  checked="checked"
 				 {/if}
 				/>
-				<label for="ship_{$ship_method.id}">{if $ship_method.icon}<img src="{base_path}/img/icons/shipping/{$ship_method.icon}" alt="{$ship_method.name}" title="{$ship_method.name}" />&nbsp;{/if}{lang}{$ship_method.name}{/lang}{if $ship_method.cost_plain > 0} - {$ship_method.cost}{/if}</label>
+				<label for="ship_{$ship_method.id}">{if $ship_method.icon}<img src="{base_path}/img/icons/shipping/{$ship_method.icon}" alt="{$ship_method.name}" title="{$ship_method.name}" />&nbsp;{/if}{lang}{$ship_method.name}{/lang}</label>
 			</div>
 		{/foreach}
 	</div>
