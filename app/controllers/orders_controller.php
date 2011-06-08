@@ -16,6 +16,21 @@ class OrdersController extends AppController {
 	var $helpers = array('Time');
 	var $components = array('EventBase', 'Email', 'Smarty','ConfigurationBase');
 	var $paginate = array('limit' => 25, 'order' => array('Order.created' => 'desc'));
+
+	function confirmation ()
+	{
+
+		global $config;
+		global $order;
+	
+		foreach($_POST AS $key => $value)
+			$order['Order'][$key] = $value;
+		
+		$this->Order->save($order);
+		
+		$this->redirect('/page/confirmation' . $config['URL_EXTENSION']);				
+				
+	}
 		
 	function place_order ()
 	{
