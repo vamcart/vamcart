@@ -240,7 +240,7 @@ function smarty_function_checkout($params, $template)
 		'ship_methods' => $keyed_ship_methods,
 		'payment_methods' => $keyed_payment_methods,
 		'order' => $order['Order'],
-		'checkout_form_action' => BASE . '/page/confirmation' . $config['URL_EXTENSION']
+		'checkout_form_action' => BASE . '/orders/confirmation/'
 	);
 	
 	$display_template = $Smarty->load_template($params,'checkout');
