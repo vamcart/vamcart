@@ -19,15 +19,14 @@ class OrdersController extends AppController {
 
 	function confirmation ()
 	{
-
+		
 		global $config;
 		global $order;
-	
+		
 		foreach($_POST AS $key => $value)
 			$order['Order'][$key] = $value;
 		
 		$this->Order->save($order);
-	
 		
 		$this->redirect('/page/confirmation' . $config['URL_EXTENSION']);				
 				
