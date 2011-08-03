@@ -188,14 +188,13 @@ CREATE TABLE `content_products` (
   `weight` double NOT NULL,
   `moq` int(8) NOT NULL DEFAULT '1' COMMENT 'Minimum order quantity',
   `pf` int(8) NOT NULL DEFAULT '1' COMMENT 'Price For',
-  `viewed` int(10) NOT NULL,
   `ordered` int(10) NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `content_products` (`id`, `content_id`, `stock`, `model`, `price`, `tax_id`, `weight`, `moq`, `pf`, `viewed`, `ordered`) VALUES 
-(16, 37, 12, '123456', 10.99, 2, 0, 1, 1, 0, 0),
-(17, 38, 22, 'sample', 4.95, 2, 3, 1, 1, 0, 0);
+INSERT INTO `content_products` (`id`, `content_id`, `stock`, `model`, `price`, `tax_id`, `weight`, `moq`, `pf`, `ordered`) VALUES 
+(16, 37, 12, '123456', 10.99, 2, 0, 1, 1, 0),
+(17, 38, 22, 'sample', 4.95, 2, 3, 1, 1, 0);
 
 DROP TABLE IF EXISTS content_product_prices;
 CREATE TABLE IF NOT EXISTS `content_product_prices` (
