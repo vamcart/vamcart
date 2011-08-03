@@ -43,7 +43,7 @@ CREATE TABLE `contents` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `contents` (`id`, `parent_id`, `order`, `hierarchy`, `content_type_id`, `template_id`, `default`, `alias`, `head_data`, `active`, `show_in_menu`, `viewed`, `created`, `modified`) VALUES 
-(35, 0, 1, 0, 3, 1, 1, 'home-page', '', 1, 1, 0, '2009-07-28 21:11:18', '2009-09-12 12:30:17','0'),
+(35, 0, 1, 0, 3, 1, 1, 'home-page', '', 1, 1, 0, '2009-07-28 21:11:18', '2009-09-12 12:30:17'),
 (36, 0, 3, 0, 1, 1, 0, 'horns', '', 1, 1, 0, '2009-07-28 21:11:49', '2009-08-01 14:56:05'),
 (38, 36, 2, 0, 2, 1, 0, 'elk-horns', '', 1, 1, 0, '2009-07-29 18:54:37', '2009-09-11 11:20:29'),
 (39, 0, 2, 0, 1, 1, 0, 'hoofs', '', 1, 1, 0, '2009-07-29 22:02:10', '2009-08-01 14:55:54'),
