@@ -68,6 +68,7 @@ class PagesController extends AppController {
 		if($content === false)
 		{					
 			$content = $this->ContentBase->get_content_information($alias);
+			
 			$content_description = $this->ContentBase->get_content_description($content['Content']['id']);
 		
 			$content['ContentDescription'] = $content_description['ContentDescription'];
@@ -80,6 +81,11 @@ class PagesController extends AppController {
                             $content[$key] = $value;
 
 			Cache::write($cache_name, $content);
+
+			// Update content viewed
+			$content['Content']['viewed'] = $content['Content']['viewed'] + 1; 
+			$this->Content->save($content);
+
 		}
 
 		// Get the template information.  
