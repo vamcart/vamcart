@@ -49,6 +49,17 @@ class OrdersController extends AppController {
 		foreach($_POST AS $key => $value)
 			$order['Order'][$key] = $value;
 		
+		// Update products ordered 
+		foreach($order['OrderProduct'] as $order_data) {
+		
+		App::import('Model', 'ContentProduct');		
+		$ContentProduct =& new ContentProduct();	
+		$product_data = $ContentProduct->findByContentId($order_data['content_id']);
+		$product_data['ContentProduct']['ordered'] = $product_data['ContentProduct']['ordered'] + $order_data['quantity'];
+		$ContentProduct->save($product_data);
+		
+		}
+			
 		// Get the default order status
 		if ($order['Order']['order_status_id'] == 0) {
 		$default_status = $this->Order->OrderStatus->find(array('default' => '1'));
