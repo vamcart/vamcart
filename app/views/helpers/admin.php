@@ -340,13 +340,16 @@ class AdminHelper extends Helper {
 	* Returns html form button
 	*
 	* @param  string  $name Alias of the tab.
-	* @param  string  $icon Button icon.	* @param  string  $type Button type.	*/	
-	function formButton ($name, $icon = null, $type = 'submit')
+	* @param  string  $icon Button icon.	* @param  array  $parameters Button type.	*
+	* @return string	HTML Form Button.
+	*/	
+	function formButton ($name, $icon = null, $parameters = null)
 	{
+		
 		if (isset($icon) && file_exists(IMAGES . 'admin/icons/buttons/' . $icon)) {
-			$content = $this->Form->button($this->Html->image('admin/icons/buttons/'.$icon, array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__($name, true), array('type' => $type, 'value' => $name));
+			$content = $this->Form->button($this->Html->image('admin/icons/buttons/'.$icon, array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__($name, true), $parameters);
 		} else {
-			$content = $this->Form->button(__($name, true), array('type' => $type, 'value' => $name));
+			$content = $this->Form->button(__($name, true), $parameters);
 		}
 		return $content;
 	}	
