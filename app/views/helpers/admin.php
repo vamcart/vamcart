@@ -364,8 +364,8 @@ class AdminHelper extends Helper {
 	function formButtonCatalog ($name, $icon = null, $parameters = null)
 	{
 		
-		if (isset($icon) && file_exists(IMAGES . 'catalog/icons/buttons/' . $icon)) {
-			$content = $this->Form->button($this->Html->image('catalog/icons/buttons/'.$icon, array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__($name, true), $parameters);
+		if (isset($icon) && file_exists(IMAGES . 'icons/buttons/' . $icon)) {
+			$content = $this->Form->button($this->Html->image('icons/buttons/'.$icon, array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__($name, true), $parameters);
 		} else {
 			$content = $this->Form->button(__($name, true), $parameters);
 		}
