@@ -38,7 +38,7 @@ echo $form->input('db_password', array('label' => __('Database Password',true), 
 
 echo '<br />';		
 		
-echo $admin->formButton(__('Submit', true), 'submit.png', array('type' => 'submit', 'name' => 'submit'));
+echo $admin->formButtonCatalog(__('Submit', true), 'submit.png', array('type' => 'submit', 'name' => 'submit'));
 
 
 echo '<div class="clear"></div>';
