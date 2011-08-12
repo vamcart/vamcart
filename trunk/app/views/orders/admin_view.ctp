@@ -236,7 +236,7 @@ echo $form->create('OrderComment', array('id' => 'contentform', 'action' => '/or
 			)
 		));
 
-	echo $form->submit( __('Submit', true), array('name' => 'submit', 'id' => 'submit'));
+	echo $admin->formButton(__('Submit', true), 'submit.png', array('type' => 'submit', 'name' => 'submit', 'id' => 'submit'));
 	echo '<div class="clear"></div>';
 	echo $form->end();
 
