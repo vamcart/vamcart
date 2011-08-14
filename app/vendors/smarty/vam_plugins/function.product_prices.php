@@ -42,7 +42,7 @@ function smarty_function_product_prices($params, &$smarty)
         $stock_text = __('retired', true);
     }
     else
-        $srock.='low';
+        $stock.='low';
 
     echo '<p class="left"><img src="/img/icons/stock/'.$stock.'.png" title="'.$stock_text.'" class="stock_image" /><br><br>';
         if ($content['ContentProduct']['stock']>-1)
