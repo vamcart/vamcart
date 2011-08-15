@@ -359,7 +359,7 @@ class AdminHelper extends Helper {
 	*
 	* @param  string  $name Alias of the tab.
 	* @param  string  $icon Button icon.	* @param  array  $parameters Button type.	*
-	* @return string	HTML Form Button.
+	* @return string	HTML Catalog Form Button.
 	*/	
 	function formButtonCatalog ($name, $icon = null, $parameters = null)
 	{
@@ -368,6 +368,44 @@ class AdminHelper extends Helper {
 			$content = $this->Form->button($this->Html->image('icons/buttons/'.$icon, array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__($name, true), $parameters);
 		} else {
 			$content = $this->Form->button(__($name, true), $parameters);
+		}
+		return $content;
+	}	
+
+	/**
+	* Returns html link button
+	*
+	* @param  string  $title HTML Link Title.
+	* @param  string  $url URL.
+	* @param  string  $icon Button icon.	* @param  array  $parameters Button type.	* @param  array  $confirmMessage Specify $confirmMessage to display a javascript confirm() dialog.	*
+	* @return string	HTML Link Button.
+	*/	
+	function linkButton ($title, $url, $icon = null, $parameters = null, $confirmMessage)
+	{
+		
+		if (isset($icon) && file_exists(IMAGES . 'admin/icons/buttons/' . $icon)) {
+			$content = $this->Html->link($this->Html->image('admin/icons/buttons/'.$icon, array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__($title,true), $url, $parameters, $confirmMessage);
+		} else {
+			$content = $this->Html->link(__($title,true), $url, $parameters, $confirmMessage);
+		}
+		return $content;
+	}	
+
+	/**
+	* Returns html link button for catalog
+	*
+	* @param  string  $title HTML Link Title.
+	* @param  string  $url URL.
+	* @param  string  $icon Button icon.	* @param  array  $parameters Button type.	* @param  array  $confirmMessage Specify $confirmMessage to display a javascript confirm() dialog.	*
+	* @return string	HTML Link Button for Catalog.
+	*/	
+	function linkButtonCatalog ($title, $url, $icon = null, $parameters = null, $confirmMessage = false)
+	{
+		
+		if (isset($icon) && file_exists(IMAGES . 'icons/buttons/' . $icon)) {
+			$content = $this->Html->link($this->Html->image('icons/buttons/'.$icon, array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__($title,true), $url, $parameters, $confirmMessage);
+		} else {
+			$content = $this->Html->link(__($title,true), $url, $parameters, $confirmMessage);
 		}
 		return $content;
 	}	

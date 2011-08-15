@@ -18,7 +18,7 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'install.png');
 <?php __('Database successfully imported.') ?>
 </p>
 <p>
-<?php echo $html->link($this->Html->image('icons/buttons/submit.png', array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__('Click here to visit your live store.',true),'/',array('escape' => false, 'target'=>'_blank', 'class' => 'button')); ?>
+<?php echo $admin->linkButtonCatalog(__('Click here to visit your live store.',true),'/','submit.png',array('escape' => false, 'target'=>'_blank', 'class' => 'button')); ?>
 </p>
 <form method="post" action="http://vamcart.com/modules/evennews/index.php">
 <fieldset class="form">

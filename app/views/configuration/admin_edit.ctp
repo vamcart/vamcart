@@ -51,7 +51,7 @@ $yes_no_options[1] = __('yes', true);
 
 	echo $form->input('CACHE_TIME', array('label' => __('Cache Time in Seconds', true), 'type' => 'text', 'value' => $configuration_values['CACHE_TIME']['value']));
 
-	echo __('Reset Cache', true) . '&nbsp;&nbsp;&nbsp;' . $html->link($this->Html->image('admin/icons/buttons/clear.png', array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__('Click here to clear cache',true),'/configuration/admin_clear_cache/',array('escape' => false, 'class' => 'button'));
+	echo __('Reset Cache', true) . '&nbsp;&nbsp;&nbsp;' . $admin->linkButton(__('Click here to clear cache',true),'/configuration/admin_clear_cache/','clear.png',array('escape' => false, 'class' => 'button'));
 	echo $admin->EndTabContent();
 	
 	echo $admin->StartTabContent('email');

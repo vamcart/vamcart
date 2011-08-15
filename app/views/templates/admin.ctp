@@ -40,7 +40,7 @@ foreach ($templates AS $template)
 			$html->link(__($template['Template']['name'],true),'/templates/admin_edit/' . $template['Template']['id'], array('style' => 'font-weight:bold;')),
 			array($admin->DefaultButton($template['Template']), array('align'=>'center')),
 			array($admin->ActionButton('stylesheet','/templates/admin_attach_stylesheets/' . $template['Template']['id'],__('Attach Stylesheets', true)) . $admin->ActionButton('copy','/templates/admin_copy/' . $template['Template']['id'],__('Copy', true)) . $admin->ActionButton('edit','/templates/admin_edit_details/' . $template['Template']['id'],__('Edit', true)) . $admin->ActionButton('delete','/templates/admin_delete/' . $template['Template']['id'],__('Delete', true)), array('align'=>'center')),
-			array($html->link($this->Html->image('admin/icons/buttons/set_all.png', array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__('Set All Products',true), '/templates/admin_set_all_products/' . $template['Template']['id'], array('escape' => false, 'class' => 'button'),$set_all_bug_fix), array('align'=>'center'))
+			array($admin->linkButton(__('Set All Products',true), '/templates/admin_set_all_products/' . $template['Template']['id'], 'set_all.png', array('escape' => false, 'class' => 'button'),$set_all_bug_fix), array('align'=>'center'))
 		   ));
 	echo '<tr id=collapse_"' . $template['Template']['id'] . '" style="' . $collapse_style . '"><td colspan="4">';
 	echo '<table class="contentTable">';
