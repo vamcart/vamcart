@@ -18,7 +18,7 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'install.png');
 <?php __('Database successfully imported.') ?>
 </p>
 <p>
-<?php echo $html->link(__('Click here to visit your live store.',true),'/', array('target'=>'_blank')); ?>
+<?php echo $html->link($this->Html->image('icons/buttons/submit.png', array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__('Click here to visit your live store.',true),'/',array('escape' => false, 'target'=>'_blank', 'class' => 'button')); ?>
 </p>
 <form method="post" action="http://vamcart.com/modules/evennews/index.php">
 <fieldset class="form">
@@ -27,7 +27,7 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'install.png');
 <div class="input text"><?php echo __('Your Email', true); ?>: <input type="text" name="user_mail" /></div>
 </fieldset>
 <input type='hidden' name='action' value='subscribe_conf'>
-<span class="button"><button type="submit" value="<?php echo __('Submit', true); ?>"><?php echo __('Submit', true); ?></button></span>
+<?php echo $admin->formButtonCatalog(__('Subscribe', true), 'subscribe.png', array('type' => 'submit', 'name' => 'submitbutton')); ?>
 </form>
 <p>
 <?php echo __('We at VaM Cart value your privacy, we will never sell or distribute your information. You will only receive information regarding VaM Cart or its affiliates.', true); ?>
