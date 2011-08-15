@@ -32,7 +32,7 @@ $html->script(array(
               )		 			  			  
 	   ));
 	   
-	echo $form->submit( __('Apply', true), array('name' => 'applybutton')) . $form->submit( __('Cancel', true), array('name' => 'cancelbutton'));
+	echo $admin->formButton(__('Apply', true), 'apply.png', array('type' => 'submit', 'name' => 'applybutton')) . $admin->formButton(__('Cancel', true), 'cancel.png', array('type' => 'reset', 'name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';
 	echo $form->end();	   
 	

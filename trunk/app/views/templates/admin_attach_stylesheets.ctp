@@ -46,7 +46,7 @@ if(!empty( $available_stylesheets))
 	echo '<div class="attach_select">';
 	echo $form->create('Template.Stylesheet', array('action' => '/templates/admin_attach_stylesheets/'.$template['Template']['id'], 'url' => '/templates/admin_attach_stylesheets/'.$template['Template']['id']));
 	echo $form->select('Stylesheet.Stylesheet', $available_stylesheets);
-	echo $form->submit( __('Attach Stylesheet', true), array('name' => 'attach_stylesheet'));
+	echo $admin->formButton(__('Attach Stylesheet', true), 'css_add.png', array('type' => 'submit', 'name' => 'attach_stylesheet'));	
 	echo '<div class="clear"></div>';
 	echo $form->end();
 	echo '</div>';
