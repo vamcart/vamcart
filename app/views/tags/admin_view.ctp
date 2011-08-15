@@ -45,7 +45,7 @@ if(isset($default_template))
 					)
 				));
 
-	echo $form->submit(__('Create Micro Template From Tag', true), array('name' => 'submit'));
+	echo $admin->formButton(__('Create Micro Template From Tag', true), 'submit.png', array('type' => 'submit', 'name' => 'submit'));
 	echo '<div class="clear"></div>';
 	echo $form->end();
 	

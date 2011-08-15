@@ -107,7 +107,7 @@ class AdminHelper extends Helper {
 		if($this->params['plugin'] != "")
 			$path = '/' . $this->params['plugin'] . $path;
 			
-		return($this->Html->link($title, $path, array('class' => 'button')));
+		return($this->Html->link($this->Html->image('admin/icons/buttons/add.png', array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .$title, $path, array('escape' => false, 'class' => 'button')));
 	}
 	
 	function ActionBar($options = null, $new = true, $extra_path = null) 
