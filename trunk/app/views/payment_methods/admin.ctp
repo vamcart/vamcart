@@ -24,11 +24,11 @@ foreach ($modules AS $module)
 
 	if($module['installed'] == 0)
 	{
-		$action_button = $html->link(__('Install',true),'/payment/' . $module['alias'] . '/install/');
+		$action_button = $html->link($this->Html->image('admin/icons/buttons/install.png', array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__('Install',true),'/payment/' . $module['alias'] . '/install/',array('escape' => false, 'class' => 'button'));
 	}
 	else
 	{
-		$action_button = $html->link(__('Uninstall',true),'/payment/' . $module['alias'] . '/uninstall/',null,__('Are you sure?', true));
+		$action_button = $html->link($this->Html->image('admin/icons/buttons/uninstall.png', array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__('Uninstall',true),'/payment/' . $module['alias'] . '/uninstall/',array('escape' => false, 'class' => 'button'),__('Are you sure?', true));
 	}
 
 	echo $admin->TableCells(
