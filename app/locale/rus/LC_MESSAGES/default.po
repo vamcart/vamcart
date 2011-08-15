@@ -2287,6 +2287,10 @@ msgid "Your Email"
 msgstr "Ваш email"
 
 #: /views/install/create.ctp:15
+msgid "Subscribe"
+msgstr "Подписаться"
+
+#: /views/install/create.ctp:15
 msgid "We at VaM Cart value your privacy, we will never sell or distribute your information. You will only receive information regarding VaM Cart or its affiliates."
 msgstr "Мы заботимся о безопасности Вашей информации. Вы будете получать информацию только о новостях VaM Cart."
 
