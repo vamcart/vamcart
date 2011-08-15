@@ -28,7 +28,7 @@ foreach ($tax_data AS $tax)
 				$html->link($tax['Tax']['name'], '/tax_country_zone_rates/admin/' . $tax['Tax']['id']),
 				array($admin->DefaultButton($tax['Tax']), array('align'=>'center')),
 				array($admin->ActionButton('edit','/taxes/admin_edit/' . $tax['Tax']['id'],__('Edit', true)) . $admin->ActionButton('delete','/taxes/admin_delete/' . $tax['Tax']['id'],__('Delete', true)), array('align'=>'center')),
-				array($html->link($this->Html->image('admin/icons/buttons/set_all.png', array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__('Set All Products',true), '/taxes/admin_set_all_products/' . $tax['Tax']['id'], array('escape' => false, 'class' => 'button'),$set_all_bug_fix), array('align'=>'center'))
+				array($admin->linkButton(__('Set All Products',true), '/taxes/admin_set_all_products/' . $tax['Tax']['id'], 'set_all.png', array('escape' => false, 'class' => 'button'),$set_all_bug_fix), array('align'=>'center'))
 		   ));
 		   	
 }

@@ -22,15 +22,15 @@ foreach ($modules AS $module)
 
 	if($module['installed'] == 0)
 	{
-		$action_button = $html->link($this->Html->image('admin/icons/buttons/install.png', array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__('Install',true),'/module_' . $module['alias'] . '/setup/install/',array('escape' => false, 'class' => 'button'));
+		$action_button = $admin->linkButton(__('Install',true),'/module_' . $module['alias'] . '/setup/install/','install.png', array('escape' => false, 'class' => 'button'));
 	}
 	elseif((isset($module['installed_version']))&&($module['installed_version'] < $module['version']))
 	{
-		$action_button = $html->link($this->Html->image('admin/icons/buttons/upgrade.png', array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__('Upgrade',true),'/module_' . $module['alias'] . '/setup/upgrade/',array('escape' => false, 'class' => 'button'),__('Are you sure?', true));
+		$action_button = $admin->linkButton(__('Upgrade',true),'/module_' . $module['alias'] . '/setup/upgrade/','upgrade.png', array('escape' => false, 'class' => 'button'),__('Are you sure?', true));
 	}
 	else
 	{
-		$action_button = $html->link($this->Html->image('admin/icons/buttons/uninstall.png', array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__('Uninstall',true),'/module_' . $module['alias'] . '/setup/uninstall/',array('escape' => false, 'class' => 'button'),__('Are you sure?', true));
+		$action_button = $admin->linkButton(__('Uninstall',true),'/module_' . $module['alias'] . '/setup/uninstall/','uninstall.png', array('escape' => false, 'class' => 'button'),__('Are you sure?', true));
 	}
 
 	echo $admin->TableCells(
