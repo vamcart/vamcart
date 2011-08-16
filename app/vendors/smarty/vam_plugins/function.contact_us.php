@@ -25,7 +25,7 @@ $template =
 	<p><label for="email">{lang}Your Email{/lang}:</label> <input type="text" name="email" id="email" /></p>
 	<p><label for="message">{lang}Message{/lang}:</label> <textarea name="message" id="message"></textarea></p>
 </fieldset>
-<span class="button"><button type="submit" value="{lang}Send{/lang}">{lang}Send{/lang}</button></span>
+<span class="button"><button type="submit" value="{lang}Send{/lang}"><img src="{base_path}/img/icons/buttons/submit.png" width="12" height="12" alt="" />&nbsp;{lang}Send{/lang}</button></span>
 	';		
 	$template .= '</form>';
 		

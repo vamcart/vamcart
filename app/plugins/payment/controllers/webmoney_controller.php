@@ -73,7 +73,7 @@ class WebmoneyController extends PaymentAppController {
 			<input type="hidden" name="LMI_SIM_MODE" value="0">';
 						
 		$content .= '
-			<span class="button"><button type="submit" value="{lang}Process to Payment{/lang}">{lang}Process to Payment{/lang}</button></span>
+			<span class="button"><button type="submit" value="{lang}Process to Payment{/lang}"><img src="{base_path}/img/icons/buttons/submit.png" width="12" height="12" alt="" />&nbsp;{lang}Process to Payment{/lang}</button></span>
 			</form>';
 	
 	// Save the order
