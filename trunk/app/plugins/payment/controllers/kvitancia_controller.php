@@ -85,7 +85,7 @@ class KvitanciaController extends PaymentAppController {
 		$content = '
 		<a class="button" href="http://'.$_SERVER['HTTP_HOST'] .  BASE . '/payment/kvitancia/print_order/' . $_SESSION['Customer']['order_id'] . '" target="_blank"><span>{lang}Print Order{/lang}</span></a><br />
 		<form action="' . BASE . '/orders/place_order/" method="post">
-		<span class="button"><button type="submit" value="{lang}Confirm Order{/lang}">{lang}Confirm Order{/lang}</button></span>
+		<span class="button"><button type="submit" value="{lang}Confirm Order{/lang}"><img src="{base_path}/img/icons/buttons/submit.png" width="12" height="12" alt="" />&nbsp;{lang}Confirm Order{/lang}</button></span>
 		</form>';
 		return $content;	
 	}

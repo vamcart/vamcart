@@ -157,7 +157,7 @@ $template = '
 	<div>
 	{module alias="coupons" action="checkout_box"}
 	</div>
-	<span class="button"><button type="submit" value="{lang}Continue{/lang}">{lang}Continue{/lang}</button></span>
+	<span class="button"><button type="submit" value="{lang}Continue{/lang}"><img src="{base_path}/img/icons/buttons/submit.png" width="12" height="12" alt="" />&nbsp;{lang}Continue{/lang}</button></span>
 </form>
 </div>
 ';		
