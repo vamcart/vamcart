@@ -1,9 +1,6 @@
 <?php
 /* -----------------------------------------------------------------------------------------
-   VaM Cart
-   http://vamcart.com
-   http://vamcart.ru
-   Copyright 2009-2010 VaM Cart
+   VamCart - http://vamcart.com
    -----------------------------------------------------------------------------------------
    Portions Copyright:
    Copyright 2007 by Kevin Grandon (kevingrandon@hotmail.com)
@@ -122,7 +119,7 @@ class PagesController extends AppController {
 			Cache::write($cache_name, $template_vars);
 		}
 
-		echo '<!-- Powered by: VaM Cart (http://vamcart.com) -->' . "\n";
+		echo '<!-- Powered by: VamCart (http://vamcart.com) -->' . "\n";
 		$this->Smarty->display($template['Template']['template'],$template_vars);
 	}
 }

@@ -1,9 +1,6 @@
 <?php
 /* -----------------------------------------------------------------------------------------
-   VaM Cart
-   http://vamcart.com
-   http://vamcart.ru
-   Copyright 2009-2010 VaM Cart
+   VamCart - http://vamcart.com
    -----------------------------------------------------------------------------------------
    Portions Copyright:
    Copyright 2007 by Kevin Grandon (kevingrandon@hotmail.com)
@@ -22,7 +19,7 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'install.png');
 </p>
 <form method="post" action="http://vamcart.com/modules/evennews/index.php">
 <fieldset class="form">
-<legend><?php echo __('VaM Cart Newsletter', true); ?></legend>
+<legend><?php echo __('VamCart Newsletter', true); ?></legend>
 <div class="input text"><?php echo __('Your Name', true); ?>: <input type="text" name="user_nick" /></div>
 <div class="input text"><?php echo __('Your Email', true); ?>: <input type="text" name="user_mail" /></div>
 </fieldset>
@@ -30,7 +27,7 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'install.png');
 <?php echo $admin->formButtonCatalog(__('Subscribe', true), 'subscribe.png', array('type' => 'submit', 'name' => 'submitbutton')); ?>
 </form>
 <p>
-<?php echo __('We at VaM Cart value your privacy, we will never sell or distribute your information. You will only receive information regarding VaM Cart or its affiliates.', true); ?>
+<?php echo __('We at VamCart value your privacy, we will never sell or distribute your information. You will only receive information regarding VamCart or its affiliates.', true); ?>
 </p>
 <p>
 <?php echo __('At anytime you may remove yourself from the list if you think you joined in error.', true); ?>

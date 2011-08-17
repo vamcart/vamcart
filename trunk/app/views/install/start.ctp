@@ -1,9 +1,6 @@
 <?php
 /* -----------------------------------------------------------------------------------------
-   VaM Cart
-   http://vamcart.com
-   http://vamcart.ru
-   Copyright 2009-2010 VaM Cart
+   VamCart - http://vamcart.com
    -----------------------------------------------------------------------------------------
    Portions Copyright:
    Copyright 2007 by Kevin Grandon (kevingrandon@hotmail.com)
@@ -14,7 +11,7 @@
 <?php
 echo $admin->ShowPageHeaderStart($current_crumb, 'install.png');
 ?>
-<p><?php __('Welcome to the VaM Cart installation.') ?></p>
+<p><?php __('Welcome to the VamCart installation.') ?></p>
 <p><?php __('Installing version:') ?> <?php echo $version; ?></p>
 
 <?php
