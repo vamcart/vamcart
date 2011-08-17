@@ -1,9 +1,6 @@
 <?php
 /* -----------------------------------------------------------------------------------------
-   VaM Cart
-   http://vamcart.com
-   http://vamcart.ru
-   Copyright 2009-2010 VaM Cart
+   VamCart - http://vamcart.com
    -----------------------------------------------------------------------------------------
    Portions Copyright:
    Copyright 2007 by Kevin Grandon (kevingrandon@hotmail.com)
@@ -72,8 +69,8 @@ class InstallController extends AppController {
 	function start ()
 	{	
 		$this->layout = 'default';
-		$this->set('current_crumb', __('Install VaM Cart', true));
-		$this->set('title_for_layout', __('Install VaM Cart', true));
+		$this->set('current_crumb', __('Install VamCart', true));
+		$this->set('title_for_layout', __('Install VamCart', true));
 		$this->set('version',$this->Install->getVersion());
 		
 		$values = array();
@@ -100,8 +97,8 @@ class InstallController extends AppController {
 	{
 		$this->layout = 'default';
 
-		$this->set('current_crumb', __('VaM Cart Installed', true));
-		$this->set('title_for_layout', __('VaM Cart Installed', true));
+		$this->set('current_crumb', __('VamCart Installed', true));
+		$this->set('title_for_layout', __('VamCart Installed', true));
 		
 		$username = $this->data['Install']['db_username'];
 		$password = $this->data['Install']['db_password'];
@@ -137,10 +134,7 @@ class InstallController extends AppController {
 		
 		$configData = '<?php
 /* -----------------------------------------------------------------------------------------
-   VaM Cart
-   http://vamcart.com
-   http://vamcart.ru
-   Copyright 2009-2010 VaM Cart
+   VamCart - http://vamcart.com
    -----------------------------------------------------------------------------------------
    Portions Copyright:
    Copyright 2007 by Kevin Grandon (kevingrandon@hotmail.com)

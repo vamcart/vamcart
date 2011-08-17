@@ -1,10 +1,7 @@
 <?php
 header('Content-Type: text/html; charset=utf-8'); 
 /* -----------------------------------------------------------------------------------------
-   VaM Cart
-   http://vamcart.com
-   http://vamcart.ru
-   Copyright 2009-2010 VaM Cart
+   VamCart - http://vamcart.com
    -----------------------------------------------------------------------------------------
    Portions Copyright:
    Copyright 2007 by Kevin Grandon (kevingrandon@hotmail.com)
@@ -27,7 +24,7 @@ header('Content-Type: text/html; charset=utf-8');
 <!-- Header -->
 <div id="header">
 <div class="header-left">
-<?php echo $html->link($html->image('admin/logo.png', array('alt' => __('VaM Cart',true))), '/admin/admin_top/', array('escape'=>false));
+<?php echo $html->link($html->image('admin/logo.png', array('alt' => __('VamCart',true))), '/admin/admin_top/', array('escape'=>false));
 
 ?>
 </div>
@@ -91,7 +88,7 @@ echo $admin->GenerateBreadcrumbs($navigation, $current_crumb);
 <!-- Footer -->
 <div id="footer">
 <p>
-<a href="http://vamcart.com/"><?php __('PHP Shopping Cart') ?></a> <a href="http://vamcart.com/"><?php __('VaM Cart') ?></a>
+<a href="http://vamcart.com/"><?php __('PHP Shopping Cart') ?></a> <a href="http://vamcart.com/"><?php __('VamCart') ?></a>
 </p>
 </div>
 <!-- /Footer -->

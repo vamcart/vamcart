@@ -362,13 +362,13 @@ msgid "Global Content Blocks Listing"
 msgstr "Список блоков"
 
 #: /controllers/install_controller.php:76
-msgid "Install VaM Cart"
-msgstr "Установка VaM Cart"
+msgid "Install VamCart"
+msgstr "Установка VamCart"
 
 #: /controllers/install_controller.php:103
 #: /controllers/install_controller.php:104
-msgid "VaM Cart Installed"
-msgstr "Установка VaM Cart завершена"
+msgid "VamCart Installed"
+msgstr "Установка VamCart завершена"
 
 #: /controllers/install_controller.php:108
 msgid "Unable to connect to database."
@@ -2275,8 +2275,8 @@ msgid "Database successfully imported."
 msgstr "База данных успешно загружена."
 
 #: /views/install/create.ctp:15
-msgid "VaM Cart Newsletter"
-msgstr "Рассылка VaM Cart"
+msgid "VamCart Newsletter"
+msgstr "Рассылка VamCart"
 
 #: /views/install/create.ctp:15
 msgid "Your Name"
@@ -2291,8 +2291,8 @@ msgid "Subscribe"
 msgstr "Подписаться"
 
 #: /views/install/create.ctp:15
-msgid "We at VaM Cart value your privacy, we will never sell or distribute your information. You will only receive information regarding VaM Cart or its affiliates."
-msgstr "Мы заботимся о безопасности Вашей информации. Вы будете получать информацию только о новостях VaM Cart."
+msgid "We at VamCart value your privacy, we will never sell or distribute your information. You will only receive information regarding VamCart or its affiliates."
+msgstr "Мы заботимся о безопасности Вашей информации. Вы будете получать информацию только о новостях VamCart."
 
 #: /views/install/create.ctp:15
 msgid "At anytime you may remove yourself from the list if you think you joined in error."
@@ -2303,8 +2303,8 @@ msgid "Click here to visit your live store."
 msgstr "Перейти в магазин."
 
 #: /views/install/start.ctp:14
-msgid "Welcome to the VaM Cart installation."
-msgstr "Установка интернет-магазина VaM Cart."
+msgid "Welcome to the VamCart installation."
+msgstr "Установка интернет-магазина VamCart."
 
 #: /views/install/start.ctp:15
 msgid "Installing version:"
@@ -2341,14 +2341,14 @@ msgid "Flag Code"
 msgstr "Код флага"
 
 #: /views/layouts/admin.ctp:19
-msgid "VaM Cart Admin"
-msgstr "Админка VaM Cart"
+msgid "VamCart Admin"
+msgstr "Админка VamCart"
 
 #: /views/layouts/admin.ctp:38
 #: /views/layouts/default.ctp:19;28
 #: /views/layouts/error.ctp:19;28
-msgid "VaM Cart"
-msgstr "VaM Cart"
+msgid "VamCart"
+msgstr "VamCart"
 
 #: /views/layouts/admin.ctp:43
 msgid "Search"

@@ -1,9 +1,6 @@
 <?php
 /* -----------------------------------------------------------------------------------------
-   VaM Cart
-   http://vamcart.ru
-   http://vamcart.com
-   Copyright 2009-2010 VaM Cart
+   VamCart - http://vamcart.com
    -----------------------------------------------------------------------------------------
    Portions Copyright:
    Copyright 2007 by Kevin Grandon (kevingrandon@hotmail.com)
