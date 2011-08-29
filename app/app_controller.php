@@ -323,7 +323,7 @@ class AppController extends Controller {
 			$this->set('current_crumb',$this->Locale->set_crumb($this->params['action'],$this->params['controller']));	
 		
 			// Check the admin login credentials against the database
-			// TODO: Make this more secure, possibly change to a requestaction in users controller
+			// ToDo: Make this more secure, possibly change to a requestaction in users controller
 			if((!$this->Session->check('User.username'))&& (($this->action != 'admin_login') || ($this->action == 'index')))
 			{
 				$this->Session->setFlash(__('Login Error.',true));			
