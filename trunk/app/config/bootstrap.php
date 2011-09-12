@@ -45,4 +45,7 @@
 	Configure::write('Asset.jsPath', 'js-packed');
 	Configure::write('Asset.cssPath', 'css-packed');
 
+	if(!defined('CryptKey')) define('CryptKey','VamCart');
+	if(!defined('CheckServer')) define('CheckServer','http://updates.vamcart.com/');
+
 ?>
