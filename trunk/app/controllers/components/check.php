@@ -32,7 +32,7 @@ class CheckComponent extends Object
 					$('#jquery-msg-overlay').fadeOut('fast');
 				}
 				</script>
-				<div id="jquery-msg-overlay" class="black-on-white" style="position: absolute; z-index: 1000; top: 0px; right: 0px; left: 0px; height: 100%; display: block; "><img src="/img/blank.gif" id="jquery-msg-bg" style="width: 100%; height: 100%; top: 0px; left: 0px;"><div id="jquery-msg-content" class="jquery-msg-content" style="position: absolute; display: block; left: 50%; top: 50%; margin: -50px 0 0 -230px; "><p>Лицензия недействительна!<br/>Перейдите в раздел &laquo;<a href="/license/admin" style="color:#FF0000">Лицензия</a>&raquo; и введите новый ключ лицензии.</p><p style="font-size: 11px;"><a href="javascript:void(0)" onClick="closeNotice();">Закрыть</a></p></div></div>
+				<div id="jquery-msg-overlay" class="black-on-white" style="position: absolute; z-index: 1000; top: 0px; right: 0px; left: 0px; height: 100%; display: block; "><img src="<?php echo BASE ?>/img/admin/transparency.png" id="jquery-msg-bg" style="width: 100%; height: 100%; top: 0px; left: 0px;"><div id="jquery-msg-content" class="jquery-msg-content" style="position: absolute; display: block; left: 50%; top: 50%; margin: -50px 0 0 -230px; "><p>Лицензия недействительна!<br/>Перейдите в раздел &laquo;<a href="<?php echo BASE ?>/license/admin" style="color:#FF0000">Лицензия</a>&raquo; и введите новый ключ лицензии.</p><p style="font-size: 11px;"><a href="javascript:void(0)" onClick="closeNotice();">Закрыть</a></p></div></div>
 <?php
      		}
      	}
@@ -48,7 +48,7 @@ class CheckComponent extends Object
 				function closeNotice() {					$('#jquery-msg-overlay').fadeOut('fast');
 				}
 				</script>
-				<div id="jquery-msg-overlay" class="black-on-white" style="position: absolute; z-index: 1000; top: 0px; right: 0px; left: 0px; height: 100%; display: block; "><img src="/img/blank.gif" id="jquery-msg-bg" style="width: 100%; height: 100%; top: 0px; left: 0px;"><div id="jquery-msg-content" class="jquery-msg-content" style="position: absolute; display: block; left: 50%; top: 50%; margin: -50px 0 0 -230px; "><p>Доступна новая версия VamCart, версии <?php echo $latest_version; ?>!<br/>Перейдите в раздел &laquo;<a href="/update/admin" style="color:#FF0000">Обновление</a>&raquo; и обновите версию VamCart.</p><p style="font-size: 11px;"><a href="javascript:void(0)" onClick="closeNotice();">Закрыть</a></p></div></div>
+				<div id="jquery-msg-overlay" class="black-on-white" style="position: absolute; z-index: 1000; top: 0px; right: 0px; left: 0px; height: 100%; display: block; "><img src="<?php echo BASE ?>/img/admin/transparency.png" id="jquery-msg-bg" style="width: 100%; height: 100%; top: 0px; left: 0px;"><div id="jquery-msg-content" class="jquery-msg-content" style="position: absolute; display: block; left: 50%; top: 50%; margin: -50px 0 0 -230px; "><p>Доступна новая версия VamCart, версии <?php echo $latest_version; ?>!<br/>Перейдите в раздел &laquo;<a href="<?php echo BASE ?>/update/admin" style="color:#FF0000">Обновление</a>&raquo; и обновите версию VamCart.</p><p style="font-size: 11px;"><a href="javascript:void(0)" onClick="closeNotice();">Закрыть</a></p></div></div>
 <?php
 			}
 		}
