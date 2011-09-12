@@ -1,9 +1,9 @@
 /* -----------------------------------------------------------------------------------------
-   VamCart - open source ecommerce solution
-   http://vamcart.com
-   -----------------------------------------------------------------------------------------
-   Released under the GNU General Public License 
-   ---------------------------------------------------------------------------------------*/
+VamCart - open source ecommerce solution
+http://vamcart.com
+-----------------------------------------------------------------------------------------
+Released under the GNU General Public License 
+---------------------------------------------------------------------------------------*/
 
 /*<![CDATA[*/
 
@@ -34,7 +34,7 @@ h1, h2, h3
 		margin: 0;
 		padding: 0;
 	}
-   
+		 
 /* Links color */
 
 a, 
@@ -111,7 +111,7 @@ div#right
 	}
 
 /* Search */
-   
+		 
 #header div.header-right label 
 	{
 		display: none;
@@ -137,13 +137,13 @@ div#footer
 		text-align: center;
 		color: #000;
 	}
-   
+		 
 div#footer p
 	{
 		margin: 0;
 		padding: 5px 10px;
 	}
-   
+		 
 /* /Footer */
 
 /* Menu */
@@ -299,23 +299,23 @@ way to fit your requirements.
 		background: #ff7b08; 
 		color: #fff;
 	}
-   
+		 
 /* /Menu */
 
 /* Navigation */
 
 div#navigation
-        {
-                padding: 0;
-                margin: 0;
-        }
+								{
+		padding: 0;
+		margin: 0;
+								}
 
 div#navigation div.breadCrumbs
-        {
-                padding: 0;
-                margin: 5px 0 0 10px;
-        }
-        
+								{
+		padding: 0;
+		margin: 5px 0 0 10px;
+								}
+								
 /* /Navigation */
 
 /* Page header */
@@ -692,7 +692,7 @@ del.button
 		border: none;
 		font-size: 0;
 		line-height: 0;
-    
+				
 	/*
 	for Safari, read this first
 	http://creativebits.org/webdev/safari_background_repeat_bug_fix
@@ -739,7 +739,7 @@ del.button span
 		letter-spacing: 0 !important;
 		font-family: "Arial" !important;
 		font-size: 13px !important;
-		font-style: normal;    
+		font-style: normal;				
 		background-color: transparent;
 		background-position: 100% 0;
 		background-repeat: no-repeat;
@@ -1037,7 +1037,7 @@ div.clear
 			 
 			 
 /* Code Mirror */
-     
+				 
 .CodeMirror 
 	{
 		border-top: 1px solid #eee; 
@@ -1051,5 +1051,61 @@ div.clear
 	}
 			 
 /* /Code Mirror */
+
+/* jQuery PopUp */
+
+#jquery-msg-bg 
+	{
+		-moz-opacity: 0.6;
+		-khtml-opacity: 0.6;
+		opacity: 0.6;
+		filter: alpha(opacity=60);
+		background: black;
+	}
+
+.jquery-msg-content 
+	{
+		-webkit-background-clip: padding-box;
+		padding: 15px;
+	}
+
+.black-on-white .jquery-msg-content 
+	{
+		background: white;
+		color: #333333;
+		-webkit-box-shadow: 5px 5px 30px 0 black;
+		-moz-box-shadow: 5px 5px 30px 0 black;
+		box-shadow: 5px 5px 30px 0 black;
+		-webkit-border-radius: 8px;
+		-moz-border-radius: 8px;
+		-o-border-radius: 8px;
+		-khtml-border-radius: 8px;
+		-ms-border-radius: 8px;
+		border-radius: 8px;
+		/* ie fix */
+		-pie-lazy-init: true;
+		behavior: url(../img/PIE.htc);
+	}
+
+.white-on-black .jquery-msg-content 
+	{
+		-moz-opacity: 0.5;
+		-khtml-opacity: 0.5;
+		opacity: 0.5;
+		filter: alpha(opacity=50);
+		background: black;
+		color: white;
+		-webkit-border-radius: 8px;
+		-moz-border-radius: 8px;
+		-o-border-radius: 8px;
+		-khtml-border-radius: 8px;
+		-ms-border-radius: 8px;
+		border-radius: 8px;
+		/* ie fix */
+		-pie-lazy-init: true;
+		behavior: url(../img/PIE.htc);
+	}
+
+/* /jQuery PopUp */
 			 
 /*]]>*/
