@@ -10,7 +10,7 @@ CREATE TABLE `configurations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `configurations` (`id`, `key`, `value`) VALUES 
-(1, 'METADATA', '<meta name="generator" content="Bluefish 2.0.3" />'),
+(1, 'METADATA', '<meta name="generator" content="Bluefish 2.0.2" />'),
 (2, 'SITE_NAME', 'VamCart'),
 (3, 'URL_EXTENSION', '.html'),
 (4, 'GD_LIBRARY', '1'),
@@ -1260,3 +1260,16 @@ CREATE TABLE `user_tags` (
 
 INSERT INTO `user_tags` (`id`, `name`, `alias`, `content`, `created`, `modified`) VALUES 
 (1, 'User Agent', 'user-agent', 'echo $_SERVER[''HTTP_USER_AGENT''];', '2009-07-25 09:50:24', '2009-07-27 18:08:55');
+
+DROP TABLE IF EXISTS licenses;
+CREATE TABLE IF NOT EXISTS `licenses` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `licenseKey` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+DROP TABLE IF EXISTS updates;
+CREATE TABLE IF NOT EXISTS `updates` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
