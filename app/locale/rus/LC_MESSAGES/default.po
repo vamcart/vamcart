@@ -74,6 +74,14 @@ msgstr "Настройки"
 msgid "Store Settings"
 msgstr "Магазин"
 
+#: /app_controller.php:206
+msgid "License"
+msgstr "Лицензия"
+
+#: /app_controller.php:206
+msgid "Update"
+msgstr "Обновление"
+
 #: /app_controller.php:207
 msgid "Order status"
 msgstr "Статусы заказа"
