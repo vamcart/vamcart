@@ -26,7 +26,7 @@ class UpdateController extends AppController {
             $this->data->versions = explode(';',$this->data->versions);
             $this->data->current_version = '';
             foreach($this->data->versions as $version) {            	$this->Check->get_update_archive($version);
-				require_once('../classes/zip.php');
+        		App::import('Vendor', 'PclZip', array('file' => 'pclzip'.DS.'zip.php'));
 				$this->data->zip_dir = basename($version);
             	if(!@mkdir('../tmp/updates/'.$this->data->zip_dir, 0777))
 					die("<font color='red'>Error : Unable to create directory</font><br />");
