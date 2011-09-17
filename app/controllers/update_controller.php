@@ -18,7 +18,7 @@ class UpdateController extends AppController {
 		$this->data->current_version = file_get_contents('./version.txt');
 		$this->data->latest_version = $this->Check->get_latest_update_version();
 
-		if($this->data->current_version <= $this->data->latest_version) {
+		if($this->data->current_version >= $this->data->latest_version) {
 			$this->set('current_crumb', __('Update Key', true));
 			$this->set('title_for_layout', __('Update Key', true));
 			$this->set('error','1');
@@ -35,8 +35,13 @@ class UpdateController extends AppController {
 					die("<font color='red'>Error : Unable to unzip archive</font>");
                 $this->data->description = file_get_contents('../tmp/updates/'.$this->data->zip_dir.'/description.xml');
                 $this->data->description = $this->Check->xml2array($this->data->description);
+                if(isset($this->data->description['files']['file']['value']) && $this->data->description['files']['file']['value'] != '') {                	$this->data->tmp[0]['value'] = $this->data->description['files']['file']['value'];
+                	$this->data->tmp[0]['attr'] = $this->data->description['files']['file']['attr'];
+                	$this->data->description['files']['file'] = $this->data->tmp;
+                }
 
-                if(count($this->data->description['files']['file']) > 0) {                	foreach($this->data->description['files']['file'] as $file) {						if($file['attr']['action'] == 'create')							@copy('../tmp/updates/'.$this->data->zip_dir.$file['attr']['path'].$file['value'], '../..'.$file['attr']['path'].$file['value']);
+
+                if(count($this->data->description['files']['file']) > 0) {                	foreach($this->data->description['files']['file'] as $file) {						if($file['attr']['action'] == 'create')							copy('../tmp/updates/'.$this->data->zip_dir.$file['attr']['path'].$file['value'], '../..'.$file['attr']['path'].$file['value']);
 						if($file['attr']['action'] == 'update') {							@unlink('../..'.$file['attr']['path'].$file['value']);
 							@copy('../tmp/updates/'.$this->data->zip_dir.$file['attr']['path'].$file['value'], '../..'.$file['attr']['path'].$file['value']);
 						}
@@ -56,8 +61,8 @@ class UpdateController extends AppController {
 						}
                 	}
                 }
-      		//@unlink('../tmp/updates/'.$this->data->zip_dir);
-      		//@unlink('../tmp/updates/'.$version.'.zip');
+      		@unlink('../tmp/updates/'.$this->data->zip_dir);
+      		@unlink('../tmp/updates/'.$version.'.zip');
       		$this->data->current_version = $version;
             }
             $filename = './version.txt';
