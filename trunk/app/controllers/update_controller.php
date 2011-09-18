@@ -61,7 +61,8 @@ class UpdateController extends AppController {
 						}
                 	}
                 }
-      		@rmdir('../tmp/updates/'.$this->data->zip_dir);
+      		App::import('Vendor', 'DeleteAll', array('file' => 'deleteall'.DS.'deleteall.php'));    
+      		@deleteAll('../tmp/updates/'.$this->data->zip_dir);
       		@unlink('../tmp/updates/'.$version.'.zip');
       		$this->data->current_version = $version;
             }
