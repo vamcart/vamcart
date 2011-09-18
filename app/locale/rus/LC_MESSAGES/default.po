@@ -3300,38 +3300,38 @@ msgstr "Ключ"
 msgid "Key:"
 msgstr "Ключ:"
 
-#: /app/controllers/license_controller.php
+#: /app/views/license/admin.ctp
 msgid "Domain:"
 msgstr "Лицензия для домена:"
 
-#: /app/controllers/license_controller.php
+#: /app/views/license/admin.ctp
 msgid "Start Date:"
 msgstr "Дата начала лицензии:"
 
-#: /app/controllers/license_controller.php
+#: /app/views/license/admin.ctp
 msgid "End Date:"
 msgstr "Дата завершения лицензии:"
 
-#: /app/controllers/license_controller.php
+#: /app/views/license/admin.ctp
 msgid "License is invalid. Check your key."
 msgstr "Ваша лицензия недействительна. Обновите ключ лицензии."
 
-#: /app/view/update/admin.ctp
+#: /app/views/update/admin.ctp
 msgid "Your VamCart Version:"
 msgstr "У Вас установлен VamCart версии:"
 
-#: /app/view/update/admin.ctp
+#: /app/views/update/admin.ctp
 msgid "Current VamCart Version:"
 msgstr "Последняя версия VamCart:"
 
-#: /app/view/update/admin_update.ctp
+#: /app/views/update/admin_update.ctp
 msgid "Click Update button to start VamCart AutoUpdate."
 msgstr "Нажмите кнопку Обновить для обновления Вашего магазина до последней версии."
 
-#: /app/view/update/admin_update.ctp
+#: /app/views/update/admin_update.ctp
 msgid "You currently use latest version of VamCart."
 msgstr "У вас самая последняя версия VamCart."
 
-#: /app/view/update/admin.ctp
+#: /app/views/update/admin.ctp
 msgid "Update sucessfully finished."
 msgstr "Обновление успешно завершено."
