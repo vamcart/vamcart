@@ -62,18 +62,6 @@ class CheckComponent extends Object
 
 	function get ($licenseID)
 	{
-    	/*$curl = curl_init();
-
-    	curl_setopt($curl, CURLOPT_URL, 'http://admin.i-baza.com/check/'.$licenseID);
-	    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-	    curl_setopt($curl, CURLOPT_HEADER, false);
-
-    	$this->data = curl_exec($curl);
-
-    	curl_close($curl);
-
-    	return $this->data;*/
-
     	$host = $this->check_host();
         if(strpos($host,'www.') !== FALSE) $host = str_replace('www.','',$host);
     	return file_get_contents(CheckServer.'check/'.$licenseID.'/'.$host);
