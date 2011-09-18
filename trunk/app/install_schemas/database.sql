@@ -1268,6 +1268,9 @@ CREATE TABLE IF NOT EXISTS `licenses` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+INSERT INTO `licenses` (`id`, `licenseKey`) VALUES 
+(1, 'NTc5MmEyMjdlMG5qZGxhf3BbXAMAeGdWWLa7jYXx');
+
 DROP TABLE IF EXISTS updates;
 CREATE TABLE IF NOT EXISTS `updates` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
