@@ -3259,3 +3259,35 @@ msgstr "два триллиона"
 #: /views/helpers/validation.php:71
 msgid "There was a problem with the field"
 msgstr "Ошибка в поле"
+
+#: /app/controllers/components/check.php
+msgid "License invalid!"
+msgstr "Лицензия недействительна!"
+
+#: /app/controllers/components/check.php
+msgid "Go to Admin - Configurations -"
+msgstr "Перейдите в раздел Админка - Настройки -"
+
+#: /app/controllers/components/check.php
+msgid "License"
+msgstr "Лицензия"
+
+#: /app/controllers/components/check.php
+msgid "and check your key."
+msgstr "и введите новый ключ лицензии."
+
+#: /app/controllers/components/check.php
+msgid "Close"
+msgstr "Закрыть"
+
+#: /app/controllers/components/check.php
+msgid "New version available. VamCart"
+msgstr "Доступна новая версия VamCart"
+
+#: /app/controllers/components/check.php
+msgid "Update"
+msgstr "Обновление"
+
+#: /app/controllers/components/check.php
+msgid "and update your store."
+msgstr "и обновите Ваш магазин."
