@@ -12,16 +12,12 @@ echo $html->script('jquery/jquery.min', array('inline' => false));
 
 echo $admin->ShowPageHeaderStart($current_crumb, 'upgrade.png');
 
-echo '<table class="contentTable">';
+echo '<p>'.__('Your VamCart Version:', true).' <strong>'.$update_data->current_version.'</strong></p>';
+echo '<p>'.__('Current VamCart Version:', true).' <strong>'.$update_data->latest_version.'</strong></p>';
 
-echo '<p>Текущая версия VamCart: <strong>'.$update_data->current_version.'</strong></p>';
-echo '<p>Последняя версия VamCart: <strong>'.$update_data->latest_version.'</strong></p>';
-
-if($update_data->current_version < $update_data->latest_version) {	echo '<p style="color: #FF0000">Требуется срочное обновление!</p>';
-	echo '<span class="button" style="padding-bottom:15px;"><button onCLick="location.href=\''.BASE.'/update/admin_update/\'"><img src="'.BASE.'/img/admin/icons/buttons/submit.png" width="12" height="12" alt="">&nbsp;Обновить</button></span>';
+if($update_data->current_version < $update_data->latest_version) {	echo '<p>'.__('Click Update button to start VamCart AutoUpdate.', true).'</p>';
+	echo $admin->linkButton(__('Update', true),'/update/admin_update/','submit.png',array('escape' => false, 'class' => 'button'));
 }
-
-echo '</table>';
 
 echo $admin->ShowPageHeaderEnd();
 
