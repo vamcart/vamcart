@@ -24,8 +24,7 @@ $html->script(array(
 				   		'type' => 'hidden'
 	               ),
 	               'License.licenseKey' => array(
-				   		'label' => __('Key:', true),
-				   		'size' => '150'
+				   		'label' => __('Key:', true)
 	               )
 			));
 	echo $admin->formButton(__('Submit', true), 'submit.png', array('type' => 'submit', 'name' => 'submit')) . $admin->formButton(__('Cancel', true), 'cancel.png', array('type' => 'reset', 'name' => 'cancel'));
