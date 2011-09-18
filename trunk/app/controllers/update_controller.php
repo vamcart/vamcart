@@ -61,7 +61,7 @@ class UpdateController extends AppController {
 						}
                 	}
                 }
-      		@unlink('../tmp/updates/'.$this->data->zip_dir);
+      		@rmdir('../tmp/updates/'.$this->data->zip_dir);
       		@unlink('../tmp/updates/'.$version.'.zip');
       		$this->data->current_version = $version;
             }
