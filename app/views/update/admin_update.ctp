@@ -1,3 +1,3 @@
 <?php
-if($error == 1) echo '<p>У вас самая последняя версия VamCart.</p>';
-if($success == 1) echo '<p>Обновление прошло успешно</p>';
+if($error == 1) echo '<p>'.__('You currently use latest version of VamCart.', true).'</p>';
+if($success == 1) echo '<p>'.__('Update sucessfully finished.', true).'</p>';
