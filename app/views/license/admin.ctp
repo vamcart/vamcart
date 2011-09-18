@@ -14,12 +14,12 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'key.png');
 
 echo '<table class="contentTable">';
 
-echo '<p>Ваша лицензия: <strong>'. $license_data['licenseKey'] .'</strong> '. $admin->ActionButton('edit','/license/admin_edit/' . $license_data['id'],__('Edit', true)) .'</p>';
+echo '<p>'.__('Key:', true).' <strong>'. $license_data['licenseKey'] .'</strong> '. $admin->ActionButton('edit','/license/admin_edit/' . $license_data['id'],__('Edit', true)) .'</p>';
 if($license_data['check'] == 'true') {
-	echo '<p>Лицензия для домена: <strong>'. $license_data['params'][0] .'</strong></p>';
-	//echo '<p>Дата начала лицензии: <strong>'. $license_data['params'][1] .'</strong></p>';
-	echo '<p>Дата завершения лицензии: <strong>'. $license_data['params'][1] .'</strong></p>';
-} else {	echo '<p>Ваша лицензия недействительна. Обновите ключ лицензии.</p>';
+	echo '<p>'.__('Domain:', true).' <strong>'. $license_data['params'][0] .'</strong></p>';
+	//echo '<p>'.__('Start Date:', true).' <strong>'. $license_data['params'][1] .'</strong></p>';
+	echo '<p>'.__('End Date:', true).' <strong>'. $license_data['params'][1] .'</strong></p>';
+} else {	echo '<p>'.__('License is invalid. Check your key.', true).'</p>';
 }
 
 echo '</table>';

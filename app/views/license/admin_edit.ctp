@@ -19,12 +19,13 @@ $html->script(array(
 	echo $form->create('License', array('id' => 'contentform', 'action' => '/license/admin_edit/', 'url' => '/license/admin_edit/'));
 	echo $form->inputs(array(
 					'legend' => null,
-					'fieldset' => __('License_Key', true),
+					'fieldset' => __('Key:', true),
 				   'License.id' => array(
 				   		'type' => 'hidden'
 	               ),
 	               'License.licenseKey' => array(
-				   		'label' => __('License_Key', true)
+				   		'label' => __('Key:', true),
+				   		'size' => '150'
 	               )
 			));
 	echo $admin->formButton(__('Submit', true), 'submit.png', array('type' => 'submit', 'name' => 'submit')) . $admin->formButton(__('Cancel', true), 'cancel.png', array('type' => 'reset', 'name' => 'cancel'));
