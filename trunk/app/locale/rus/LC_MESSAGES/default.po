@@ -3291,3 +3291,27 @@ msgstr "Обновление"
 #: /app/controllers/components/check.php
 msgid "and update your store."
 msgstr "и обновите Ваш магазин."
+
+#: /app/controllers/license_controller.php
+msgid "License Key"
+msgstr "Ключ"
+
+#: /app/controllers/license_controller.php
+msgid "Key:"
+msgstr "Ключ:"
+
+#: /app/controllers/license_controller.php
+msgid "Domain:"
+msgstr "Лицензия для домена:"
+
+#: /app/controllers/license_controller.php
+msgid "Start Date:"
+msgstr "Дата начала лицензии:"
+
+#: /app/controllers/license_controller.php
+msgid "End Date:"
+msgstr "Дата завершения лицензии:"
+
+#: /app/controllers/license_controller.php
+msgid "License is invalid. Check your key."
+msgstr "Ваша лицензия недействительна. Обновите ключ лицензии."

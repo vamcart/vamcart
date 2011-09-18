@@ -14,8 +14,8 @@ class LicenseController extends AppController {
 
     function admin_edit ($id = null)
 	{
-		$this->set('current_crumb', __('License_Key', true));
-		$this->set('title_for_layout', __('License_Key', true));
+		$this->set('current_crumb', __('License Key', true));
+		$this->set('title_for_layout', __('License Key', true));
 		if(empty($this->data))
 		{
 			$this->data = $this->License->read(null,$id);
@@ -30,7 +30,7 @@ class LicenseController extends AppController {
 			}
 
 			$this->License->save($this->data);
-			$this->Session->setFlash(__('Record created.',true));
+			$this->Session->setFlash(__('Record saved.',true));
 			$this->redirect('/license/admin/');
 		}
 	}
@@ -42,8 +42,8 @@ class LicenseController extends AppController {
 
 	function admin($ajax_request = false)
 	{
-  		$this->set('current_crumb', __('License_Key', true));
-		$this->set('title_for_layout', __('License_Key', true));
+  		$this->set('current_crumb', __('License Key', true));
+		$this->set('title_for_layout', __('License Key', true));
 		$this->data = $this->License->find('first');
 		if($this->data) $this->data['License']['check'] = $this->Check->get($this->data['License']['licenseKey']);
 		$this->data['License']['license'] = $this->Crypt->decrypt($this->data['License']['licenseKey'],'VamCart');
