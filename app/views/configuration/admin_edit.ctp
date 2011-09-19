@@ -41,6 +41,8 @@ $yes_no_options[1] = __('yes', true);
 	echo $form->input('URL_EXTENSION', array('label' => __('URL Extension', true), 'type' => 'text', 'value' => $configuration_values['URL_EXTENSION']['value']));
 	echo $form->input('GD_LIBRARY', array('label' => __('GD Library Enabled', true), 'type' => 'select', 'options' => $yes_no_options, 'selected' => $configuration_values['GD_LIBRARY']['value']));
 	echo $form->input('THUMBNAIL_SIZE', array('label' => __('Image Thumbnail Size', true), 'type' => 'text', 'value' => $configuration_values['THUMBNAIL_SIZE']['value']));
+	echo $form->input('GOOGLE_ANALYTICS', array('label' => __('Google Analytics ID', true), 'type' => 'text', 'value' => $configuration_values['GOOGLE_ANALYTICS']['value']));
+	echo $form->input('YANDEX_METRIKA', array('label' => __('Yandex.Metrika ID', true), 'type' => 'text', 'value' => $configuration_values['YANDEX_METRIKA']['value']));
 	
 	echo $admin->EndTabContent();
 
