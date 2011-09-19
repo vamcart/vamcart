@@ -1177,16 +1177,28 @@ msgid "Displays the google analytics code."
 msgstr "Выводит код счётчика Google Analytics."
 
 #: /vendors/smarty/vam_plugins/function.google_analytics.php:23
+msgid "(true or false) If set to true display the display google analytics ecommerce tracking code in checkout success page."
+msgstr "(true или false) Если значение параметра установлено в true, то выводится код для электронной коммерции. Параметр true нужно устанавливать только на странице успешного завершения заказа, на всех остальных страницах false."
+
+#: /vendors/smarty/vam_plugins/function.google_analytics.php:23
+msgid "(checkout_success)"
+msgstr "(checkout_success)"
+
+#: /vendors/smarty/vam_plugins/function.yandex_metrika.php:23
+msgid "Displays the yandex metrika code."
+msgstr "Выводит код счётчика Яндекс.Метрика."
+
+#: /vendors/smarty/vam_plugins/function.yandex_metrika.php:23
+msgid "(true or false) If set to true display the display yandex metrika ecommerce tracking code in checkout success page."
+msgstr "(true или false) Если значение параметра установлено в true, то выводится код для электронной коммерции. Параметр true нужно устанавливать только на странице успешного завершения заказа, на всех остальных страницах false."
+
+#: /vendors/smarty/vam_plugins/function.google_analytics.php:23
 msgid "(checkout_success)"
 msgstr "(checkout_success)"
 
 #: /vendors/smarty/vam_plugins/function.google_analytics.php:23
 msgid "(true or false) If set to true display the display google analytics ecommerce tracking code in checkout success page."
 msgstr "(true или false) Если значение параметра установлено в true, то выводится код для электронной коммерции. Параметр true нужно устанавливать только на странице успешного завершения заказа, на всех остальных страницах false."
-
-#: /vendors/smarty/vam_plugins/function.google_analytics.php:23
-msgid "Displays the google analytics code."
-msgstr "Выводит код счётчика Google Analytics."
 
 #: /vendors/smarty/vam_plugins/block.lang.php:61
 msgid "Outputs the correct language value specified by the key between the brackets."
