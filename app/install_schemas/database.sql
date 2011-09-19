@@ -15,13 +15,15 @@ INSERT INTO `configurations` (`id`, `key`, `value`) VALUES
 (3, 'URL_EXTENSION', '.html'),
 (4, 'GD_LIBRARY', '1'),
 (5, 'THUMBNAIL_SIZE', '125'),
-(6, 'CACHE_TIME', '3600'),
-(7, 'SEND_EXTRA_EMAIL', 'vam@test.com'),
-(8, 'NEW_ORDER_FROM_EMAIL', 'vam@test.com'),
-(9, 'NEW_ORDER_FROM_NAME', 'VamCart'),
-(10, 'NEW_ORDER_STATUS_FROM_EMAIL', 'vam@test.com'),
-(11, 'NEW_ORDER_STATUS_FROM_NAME', 'VamCart'),
-(12, 'SEND_CONTACT_US_EMAIL', 'vam@test.com');
+(6, 'GOOGLE_ANALYTICS', ''),
+(7, 'YANDEX_METRIKA', ''),
+(8, 'CACHE_TIME', '3600'),
+(9, 'SEND_EXTRA_EMAIL', 'vam@test.com'),
+(10, 'NEW_ORDER_FROM_EMAIL', 'vam@test.com'),
+(11, 'NEW_ORDER_FROM_NAME', 'VamCart'),
+(12, 'NEW_ORDER_STATUS_FROM_EMAIL', 'vam@test.com'),
+(13, 'NEW_ORDER_STATUS_FROM_NAME', 'VamCart'),
+(14, 'SEND_CONTACT_US_EMAIL', 'vam@test.com');
 
 DROP TABLE IF EXISTS contents;
 CREATE TABLE `contents` (
