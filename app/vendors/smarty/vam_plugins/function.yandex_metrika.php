@@ -18,8 +18,7 @@ function smarty_function_yandex_metrika($params, $template)
 
 	$_SERVER['QUERY_STRING'] = str_replace('url=','',$_SERVER['QUERY_STRING']);
 	
-		switch ($params['checkout_success']) {
-			case 'true' :
+	if (($_SERVER['QUERY_STRING'] == 'page/confirmation' . $config['URL_EXTENSION'])) {
 
 // Prepare the Analytics "Transaction line" string
 
@@ -58,9 +57,7 @@ var yaParams = {
 <noscript><div><img src="//mc.yandex.ru/watch/' . $config['YANDEX_METRIKA'] . '" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 			
 			';
-			break;		
-			default :
-			if (($_SERVER['QUERY_STRING'] != 'page/confirmation' . $config['URL_EXTENSION'])) {
+	} else {
 			$result = '
 
 <!-- Yandex.Metrika counter -->
@@ -84,8 +81,7 @@ var yaParams = {};
 		
 			
 			';
-			}
-		}
+	}
 	}
 
 	return $result;
@@ -99,7 +95,7 @@ function smarty_help_function_yandex_metrika() {
 	<p><?php echo __('Just insert the tag into your template like:') ?> <code>{yandex_metrika}</code></p>
 	<h3><?php echo __('What parameters does it take?') ?></h3>
 	<ul>
-		<li><em><?php echo __('(checkout_success)') ?></em> - <?php echo __('(true or false) If set to true display the display yandex metrika ecommerce tracking code in checkout success page.') ?></li>		
+		<li><em>(<?php echo __('None') ?>)</em></li>
 	</ul>
 	<?php
 }
