@@ -10,21 +10,78 @@
 
 function smarty_function_google_analytics($params, $template)
 {
-	App::import('Component', 'OrderBase');
-		$OrderBase =& new OrderBaseComponent();		
 	
-	App::import('Component', 'CurrencyBase');
-		$CurrencyBase =& new CurrencyBaseComponent();		
-		
 	global $order;		
 	global $config;
+	
+	$params['checkout_success'] = (!isset($params['checkout_success'])) ? false : true;
+	$result = '';
+	
+	if ($config['GOOGLE_ANALYTICS'] != '') {
 
-	switch ($params['checkout_success']) {
-		case 'true' :
-		$result = 'test true';
-		break;		
-		default :
-		$result = 'test false';
+   $_SERVER['QUERY_STRING'] = str_replace('url=','',$_SERVER['QUERY_STRING']);
+	
+		switch ($params['checkout_success']) {
+			case 'true' :
+
+// Prepare the Analytics "Transaction line" string
+
+	$transaction_string = '\'' . $order['Order']['id'] . '\','."\n".'\'' . $config['SITE_NAME'] . '\','."\n".'\'' . $order['Order']['total'] . '\','."\n".'\'' . $order['Order']['tax'] . '\','."\n".'\'' . $order['Order']['shipping'] . '\','."\n".'\'' . $order['Order']['bill_city'] . '\','."\n".'\'' . $order['Order']['bill_state'] . '\','."\n".'\'' . $order['Order']['bill_country'] . '\'';
+
+// Get products info for Analytics "Item lines"
+
+	$item_string = '';
+    foreach($order['OrderProduct'] AS $items) {
+	  $item_string .=  '_gaq.push([\'_addItem\','."\n".'\'' . $order['Order']['id'] . '\','."\n".'\'' . $items['id'] . '\','."\n".'\'' . htmlspecialchars($items['name']) . '\','."\n".'\'' . htmlspecialchars($items['Content']['parent_id']) . '\','."\n".'\'' . $items['price'] . '\','."\n".'\'' . $items['quantity'] . '\''."\n".']);'."\n";
+    }
+
+			$result = '
+			
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push([\'_setAccount\', \'' . $config['GOOGLE_ANALYTICS'] . '\']);
+  _gaq.push([\'_trackPageview\']);
+  _gaq.push([\'_trackPageLoadTime\']);
+
+   _gaq.push([\'_addTrans\',
+' . $transaction_string . '
+]);
+
+' . $item_string . '
+  _gaq.push([\'_trackTrans\']); //submits transaction to the Analytics servers
+
+  (function() {
+    var ga = document.createElement(\'script\'); ga.type = \'text/javascript\'; ga.async = true;
+    ga.src = (\'https:\' == document.location.protocol ? \'https://ssl\' : \'http://www\') + \'.google-analytics.com/ga.js\';
+    var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+			
+			';
+			break;		
+			default :
+			if (($_SERVER['QUERY_STRING'] != 'page/confirmation' . $config['URL_EXTENSION'])) {
+			$result = '
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push([\'_setAccount\', \''.$config['GOOGLE_ANALYTICS'].'\']);
+  _gaq.push([\'_trackPageview\']);
+  _gaq.push([\'_trackPageLoadTime\']);
+
+  (function() {
+    var ga = document.createElement(\'script\'); ga.type = \'text/javascript\'; ga.async = true;
+    ga.src = (\'https:\' == document.location.protocol ? \'https://ssl\' : \'http://www\') + \'.google-analytics.com/ga.js\';
+    var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>			
+			
+			';
+			}
+		}
 	}
 
 	return $result;
