@@ -19,7 +19,7 @@ function smarty_function_google_analytics($params, $template)
 	
 	if ($config['GOOGLE_ANALYTICS'] != '') {
 
-   $_SERVER['QUERY_STRING'] = str_replace('url=','',$_SERVER['QUERY_STRING']);
+	$_SERVER['QUERY_STRING'] = str_replace('url=','',$_SERVER['QUERY_STRING']);
 	
 		switch ($params['checkout_success']) {
 			case 'true' :
