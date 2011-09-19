@@ -18,8 +18,7 @@ function smarty_function_google_analytics($params, $template)
 
 	$_SERVER['QUERY_STRING'] = str_replace('url=','',$_SERVER['QUERY_STRING']);
 	
-		switch ($params['checkout_success']) {
-			case 'true' :
+	if (($_SERVER['QUERY_STRING'] == 'page/confirmation' . $config['URL_EXTENSION'])) {
 
 // Prepare the Analytics "Transaction line" string
 
@@ -56,9 +55,7 @@ function smarty_function_google_analytics($params, $template)
 </script>
 			
 			';
-			break;		
-			default :
-			if (($_SERVER['QUERY_STRING'] != 'page/confirmation' . $config['URL_EXTENSION'])) {
+	} else {
 			$result = '
 
 <script type="text/javascript">
@@ -77,8 +74,7 @@ function smarty_function_google_analytics($params, $template)
 </script>			
 			
 			';
-			}
-		}
+	}
 	}
 
 	return $result;
@@ -92,7 +88,7 @@ function smarty_help_function_google_analytics() {
 	<p><?php echo __('Just insert the tag into your template like:') ?> <code>{google_analytics}</code></p>
 	<h3><?php echo __('What parameters does it take?') ?></h3>
 	<ul>
-		<li><em><?php echo __('(checkout_success)') ?></em> - <?php echo __('(true or false) If set to true display the display google analytics ecommerce tracking code in checkout success page.') ?></li>		
+		<li><em>(<?php echo __('None') ?>)</em></li>
 	</ul>
 	<?php
 }
