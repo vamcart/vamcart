@@ -1172,6 +1172,22 @@ msgstr "Что делает данный тэг?"
 msgid "Displays the base program path."
 msgstr "Выводит базовый путь программы."
 
+#: /vendors/smarty/vam_plugins/function.google_analytics.php:23
+msgid "Displays the google analytics code."
+msgstr "Выводит код счётчика Google Analytics."
+
+#: /vendors/smarty/vam_plugins/function.google_analytics.php:23
+msgid "(checkout_success)"
+msgstr "(checkout_success)"
+
+#: /vendors/smarty/vam_plugins/function.google_analytics.php:23
+msgid "(true or false) If set to true display the display google analytics ecommerce tracking code in checkout success page."
+msgstr "(true или false) Если значение параметра установлено в true, то выводится код для электронной коммерции. Параметр true нужно устанавливать только на странице успешного завершения заказа, на всех остальных страницах false."
+
+#: /vendors/smarty/vam_plugins/function.google_analytics.php:23
+msgid "Displays the google analytics code."
+msgstr "Выводит код счётчика Google Analytics."
+
 #: /vendors/smarty/vam_plugins/block.lang.php:61
 msgid "Outputs the correct language value specified by the key between the brackets."
 msgstr "Выводит значение строки между тэгами на текущем языке магазина."
@@ -1829,6 +1845,14 @@ msgstr "Разрешить нарезку картинок"
 #: /views/configuration/admin_edit.ctp:32
 msgid "Image Thumbnail Size"
 msgstr "Размер картинки"
+
+#: /views/configuration/admin_edit.ctp:28
+msgid "Google Analytics ID"
+msgstr "Ваш ID в Google Analytics"
+
+#: /views/configuration/admin_edit.ctp:28
+msgid "Yandex.Metrika ID"
+msgstr "Ваш ID в Яндекс Метрике"
 
 #: /views/configuration/admin_edit.ctp:38
 msgid "Cache Time in Seconds"
