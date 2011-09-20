@@ -39,8 +39,10 @@ class UpdateController extends AppController {
 
 
                 if(count($this->data->description['files']['file']) > 0) {                	foreach($this->data->description['files']['file'] as $file) {						if($file['attr']['action'] == 'create')							copy('../tmp/updates/'.$this->data->zip_dir.$file['attr']['path'].$file['value'], '../..'.$file['attr']['path'].$file['value']);
+							//chmod('../..'.$file['attr']['path'].$file['value'],0755);
 						if($file['attr']['action'] == 'update') {							@unlink('../..'.$file['attr']['path'].$file['value']);
 							@copy('../tmp/updates/'.$this->data->zip_dir.$file['attr']['path'].$file['value'], '../..'.$file['attr']['path'].$file['value']);
+							//chmod('../..'.$file['attr']['path'].$file['value'],0755);
 						}
 						if($file['attr']['action'] == 'delete')
 							@unlink('../..'.$file['attr']['path'].$file['value']);
