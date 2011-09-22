@@ -7,7 +7,7 @@
 
 echo $html->script('jquery/jquery.min', array('inline' => false));
 
-echo $admin->ShowPageHeaderStart($current_crumb, 'key.png');
+echo $admin->ShowPageHeaderStart($current_crumb, 'license.png');
 
 echo '<table class="contentTable">';
 

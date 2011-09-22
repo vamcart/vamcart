@@ -7,7 +7,7 @@
 
 echo $html->script('jquery/jquery.min', array('inline' => false));
 
-echo $admin->ShowPageHeaderStart($current_crumb, 'upgrade.png');
+echo $admin->ShowPageHeaderStart($current_crumb, 'update.png');
 
 echo '<p>'.__('Your VamCart Version:', true).' <strong>'.$update_data->current_version.'</strong></p>';
 echo '<p>'.__('Current VamCart Version:', true).' <strong>'.$update_data->latest_version.'</strong></p>';
