@@ -4443,13 +4443,14 @@ class FormHelperTest extends CakeTestCase {
 		);
 		$this->assertTags($result, $expected);
 
-		$selected = strtotime('2008-10-26 10:33:00');
+		$selected = strtotime('2008-10-26 12:33:00');
 		$result = $this->Form->dateTime('Model.field', 'DMY', '12', $selected);
 		$this->assertPattern('/<option[^<>]+value="2008"[^<>]+selected="selected"[^>]*>2008<\/option>/', $result);
-		$this->assertPattern('/<option[^<>]+value="10"[^<>]+selected="selected"[^>]*>10<\/option>/', $result);
+		$this->assertPattern('/<option[^<>]+value="10"[^<>]+selected="selected"[^>]*>October<\/option>/', $result);
 		$this->assertPattern('/<option[^<>]+value="26"[^<>]+selected="selected"[^>]*>26<\/option>/', $result);
-		$this->assertPattern('/<option[^<>]+value="10"[^<>]+selected="selected"[^>]*>10<\/option>/', $result);
+		$this->assertPattern('/<option[^<>]+value="12"[^<>]+selected="selected"[^>]*>12<\/option>/', $result);
 		$this->assertPattern('/<option[^<>]+value="33"[^<>]+selected="selected"[^>]*>33<\/option>/', $result);
+		$this->assertPattern('/<option[^<>]+value="pm"[^<>]+selected="selected"[^>]*>pm<\/option>/', $result);
 
 		$this->Form->create('Contact');
 		$result = $this->Form->input('published');
@@ -5747,6 +5748,51 @@ class FormHelperTest extends CakeTestCase {
 		$expected = array(
 			'form' => array(
 				'id' => 'ContactAddForm', 'method' => 'post', 'action' => '/contacts/index/param',
+				'accept-charset' => 'utf-8'
+			),
+			'div' => array('style' => 'display:none;'),
+			'input' => array('type' => 'hidden', 'name' => '_method', 'value' => 'POST'),
+			'/div'
+		);
+		$this->assertTags($result, $expected);
+
+	}
+
+/**
+ * Test the onsubmit option for create()
+ *
+ * @return void
+ */
+	public function testCreateOnSubmit() {
+		$this->Form->data = array();
+		$this->Form->params['controller'] = 'contacts';
+		$this->Form->params['models'] = array('Contact');
+		$result = $this->Form->create(array('url' => array('action' => 'index', 'param'), 'default' => false));
+		$expected = array(
+			'form' => array(
+				'id' => 'ContactAddForm', 'method' => 'post', 'onsubmit' => 'event.returnValue = false; return false;', 'action' => '/contacts/index/param',
+				'accept-charset' => 'utf-8'
+			),
+			'div' => array('style' => 'display:none;'),
+			'input' => array('type' => 'hidden', 'name' => '_method', 'value' => 'POST'),
+			'/div'
+		);
+		$this->assertTags($result, $expected);
+
+		$this->Form->data = array();
+		$this->Form->params['controller'] = 'contacts';
+		$this->Form->params['models'] = array('Contact');
+		$result = $this->Form->create(array(
+			'url' => array('action' => 'index', 'param'),
+			'default' => false,
+			'onsubmit' => 'someFunction();'
+		));
+
+		$expected = array(
+			'form' => array(
+				'id' => 'ContactAddForm', 'method' => 'post', 
+				'onsubmit' => 'someFunction();event.returnValue = false; return false;',
+				'action' => '/contacts/index/param',
 				'accept-charset' => 'utf-8'
 			),
 			'div' => array('style' => 'display:none;'),
