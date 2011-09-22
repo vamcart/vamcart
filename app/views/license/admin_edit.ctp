@@ -11,7 +11,7 @@ $html->script(array(
 	'focus-first-input.js'
 ), array('inline' => false));
 
-	echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
+	echo $admin->ShowPageHeaderStart($current_crumb, 'license.png');
 
 	echo $form->create('License', array('id' => 'contentform', 'action' => '/license/admin_edit/', 'url' => '/license/admin_edit/'));
 	echo $form->inputs(array(
