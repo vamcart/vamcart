@@ -40,7 +40,7 @@ class InstallController extends AppController {
 	function check_permissions ()
 	{
 		// Check if required files/directories are writable.
-		$dirs_to_check = array(ROOT . DS . 'config.php', TMP, CACHE, TMP . 'updates');
+		$dirs_to_check = array(ROOT . DS . 'config.php', TMP, CACHE, TMP . 'updates/');
 		$install_checks = array();
 		
 		foreach($dirs_to_check AS $dir)
