@@ -105,5 +105,33 @@ class PaymentMethodsController extends AppController {
 				
 	}
 
+	function add ($ajax = false)
+	{
+		$this->set('current_crumb', __('Module Upload', true));
+		$this->set('title_for_layout', __('Module Upload', true));
+	}
+
+	function upload ($params)
+	{
+
+		// If they pressed cancel
+		if(isset($this->params['form']['cancel']))
+		{
+			$this->redirect('/payment_methods/admin/');
+			die();
+		}
+		
+  $val = $this->data['AddModule']['submittedfile'];
+ if ( (!empty( $this->data['AddModule']['submittedfile']['tmp_name']) && $this->data['AddModule']['submittedfile']['tmp_name'] != 'none')) {
+ $this->Session->setFlash( __('File Uploaded', true));		
+ }
+ $this->Session->setFlash( __('File Not Uploaded', true));		
+
+		$this->set('file', $this->data['AddModule']['submittedfile']["tmp_name"]);
+		
+		//$this->redirect('/payment_methods/admin/');
+	
+	}
+	
 }
 ?>
