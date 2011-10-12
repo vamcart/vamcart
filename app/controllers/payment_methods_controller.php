@@ -113,6 +113,8 @@ class PaymentMethodsController extends AppController {
 
 	function upload ($params)
 	{
+		$this->set('current_crumb', __('Module Upload', true));
+		$this->set('title_for_layout', __('Module Upload', true));
 
 		// If they pressed cancel
 		if(isset($this->params['form']['cancel']))
@@ -124,10 +126,35 @@ class PaymentMethodsController extends AppController {
   $val = $this->data['AddModule']['submittedfile'];
  if ( (!empty( $this->data['AddModule']['submittedfile']['tmp_name']) && $this->data['AddModule']['submittedfile']['tmp_name'] != 'none')) {
  $this->Session->setFlash( __('File Uploaded', true));		
+
+$this->destination = '../tmp/';
+$this->filename = $this->data['AddModule']['submittedfile']['name'];
+$this->permissions = '0777';
+
+        if (move_uploaded_file($this->data['AddModule']['submittedfile']['tmp_name'], $this->destination . $this->filename)) {
+            chmod($this->destination . $this->filename, $this->permissions);
+            //$message->add('<b>'.$this->filename.'</b> '.SUCCESS_FILE_SAVED_SUCCESSFULLY, 'success');
+
+
+        		App::import('Vendor', 'PclZip', array('file' => 'pclzip'.DS.'zip.php'));
+
+            	if(!@mkdir('../tmp/1', 0777))
+					die("<font color='red'>Error : Unable to create directory</font><br />");
+				$this->data->archive = new PclZip('../tmp/'.$this->filename);
+				if ($this->data->archive->extract(PCLZIP_OPT_PATH,'../tmp') == 0)
+					die("<font color='red'>Error : Unable to unzip archive</font>");
+
+            return true;
+        } else {
+            //$message->add('<b>'.$this->filename.'</b> '.ERROR_FILE_NOT_SAVED, 'error');
+            return false;
+        }
+
  }
  $this->Session->setFlash( __('File Not Uploaded', true));		
 
 		$this->set('file', $this->data['AddModule']['submittedfile']["tmp_name"]);
+		$this->set('info', $this->data['AddModule']['submittedfile']);
 		
 		//$this->redirect('/payment_methods/admin/');
 	

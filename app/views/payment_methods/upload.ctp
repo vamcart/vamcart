@@ -1,5 +1,5 @@
 <?php
 
-echo '-'.var_dump($file);
+echo '-'.var_dump($info);
 	
 	?>
