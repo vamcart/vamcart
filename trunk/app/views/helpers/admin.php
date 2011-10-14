@@ -374,7 +374,7 @@ class AdminHelper extends Helper {
 	* @param  string  $icon Button icon.	* @param  array  $parameters Button type.	* @param  array  $confirmMessage Specify $confirmMessage to display a javascript confirm() dialog.	*
 	* @return string	HTML Link Button.
 	*/	
-	function linkButton ($title, $url, $icon = null, $parameters = null, $confirmMessage)
+	function linkButton ($title, $url, $icon = null, $parameters = null, $confirmMessage = false)
 	{
 		
 		if (isset($icon) && file_exists(IMAGES . 'admin/icons/buttons/' . $icon)) {
