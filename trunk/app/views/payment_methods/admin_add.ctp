@@ -7,7 +7,7 @@
 
 echo $admin->ShowPageHeaderStart($current_crumb, 'payment-methods.png');
 
-	echo $form->create('AddModule', array('enctype' => 'multipart/form-data', 'id' => 'contentform', 'action' => '/payment_methods/upload/', 'url' => '/payment_methods/upload/'));
+	echo $form->create('AddModule', array('enctype' => 'multipart/form-data', 'id' => 'contentform', 'action' => '/payment_methods/admin_upload/', 'url' => '/payment_methods/admin_upload/'));
 
 	echo $form->inputs(array(
 					'legend' => null,
