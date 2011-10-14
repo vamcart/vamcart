@@ -39,6 +39,8 @@ foreach ($modules AS $module)
 
 echo '</table>';
 
+echo $admin->linkButton(__('Add module',true), '/modules/admin_add/', 'add.png', array('escape' => false, 'class' => 'button'));
+
 echo $admin->ShowPageHeaderEnd();
 
 ?>
