@@ -105,13 +105,13 @@ class PaymentMethodsController extends AppController {
 				
 	}
 
-	function add ($ajax = false)
+	function admin_add ()
 	{
 		$this->set('current_crumb', __('Module Upload', true));
 		$this->set('title_for_layout', __('Module Upload', true));
 	}
 
-	function upload ($params)
+	function admin_upload ()
 	{
 		$this->set('current_crumb', __('Module Upload', true));
 		$this->set('title_for_layout', __('Module Upload', true));
