@@ -138,13 +138,14 @@ class PaymentMethodsController extends AppController {
 					$this->archive = new PclZip('../tmp/modules/'.$this->filename);
 						if ($this->archive->extract(PCLZIP_OPT_PATH,'../..') == 0)
 							die(__('Error : Unable to unzip archive', true));
-								} else {
-							return false;
-						}
-
+					@unlink($this->destination.$this->filename);
 				} else {
-					$this->Session->setFlash( __('Module Not Uploaded', true));
-				}		
+							return false;
+				}
+
+		} else {
+			$this->Session->setFlash( __('Module Not Uploaded', true));
+		}		
 		
 		$this->redirect('/payment_methods/admin/');
 	
