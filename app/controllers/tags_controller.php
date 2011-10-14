@@ -72,5 +72,52 @@ class TagsController extends AppController {
 		$this->set('files',$files);
 		
 	}
+
+	function admin_add ()
+	{
+		$this->set('current_crumb', __('Module Upload', true));
+		$this->set('title_for_layout', __('Module Upload', true));
+	}
+
+	function admin_upload ()
+	{
+		$this->set('current_crumb', __('Module Upload', true));
+		$this->set('title_for_layout', __('Module Upload', true));
+
+		// If they pressed cancel
+		if(isset($this->params['form']['cancel']))
+		{
+			$this->redirect('/tags/admin/');
+			die();
+		}
+		
+		$val = $this->data['AddModule']['submittedfile'];
+		
+		if ( (!empty( $this->data['AddModule']['submittedfile']['tmp_name']) && $this->data['AddModule']['submittedfile']['tmp_name'] != 'none')) {
+			$this->Session->setFlash( __('Module Uploaded', true));		
+
+			$this->destination = '../tmp/modules/';
+			$this->filename = $this->data['AddModule']['submittedfile']['name'];
+			$this->permissions = '0777';
+
+				if (move_uploaded_file($this->data['AddModule']['submittedfile']['tmp_name'], $this->destination . $this->filename)) {
+					chmod($this->destination . $this->filename, $this->permissions);
+					App::import('Vendor', 'PclZip', array('file' => 'pclzip'.DS.'zip.php'));
+					$this->archive = new PclZip('../tmp/modules/'.$this->filename);
+						if ($this->archive->extract(PCLZIP_OPT_PATH,'../..') == 0)
+							die(__('Error : Unable to unzip archive', true));
+					@unlink($this->destination.$this->filename);
+				} else {
+							return false;
+				}
+
+		} else {
+			$this->Session->setFlash( __('Module Not Uploaded', true));
+		}		
+		
+		$this->redirect('/tags/admin/');
+	
+	}
+	
 }
 ?>
