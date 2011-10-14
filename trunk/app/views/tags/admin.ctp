@@ -31,6 +31,8 @@ foreach($files AS $tag)
 
 echo '</table>';
 
+echo $admin->linkButton(__('Add module',true), '/tags/admin_add/', 'add.png', array('escape' => false, 'class' => 'button'));
+
 echo $admin->ShowPageHeaderEnd();
 
 ?>
