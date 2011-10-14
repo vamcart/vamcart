@@ -39,7 +39,7 @@ foreach ($modules AS $module)
 
 echo '</table>';
 
-echo $admin->linkButton(__('Add module',true), '/payment_methods/add/', 'add.png', array('escape' => false, 'class' => 'button'));
+echo $admin->linkButton(__('Add module',true), '/payment_methods/admin_add/', 'add.png', array('escape' => false, 'class' => 'button'));
 
 echo $admin->ShowPageHeaderEnd();
 
