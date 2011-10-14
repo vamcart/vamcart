@@ -443,6 +443,30 @@ msgstr "Редактирование способа оплаты"
 msgid "Payment Methods Listing"
 msgstr "Список способов оплаты"
 
+#: /controllers/payment_methods_controller.php:68
+msgid "Add module"
+msgstr "Добавить модуль"
+
+#: /controllers/payment_methods_controller.php:68
+msgid "Module Upload"
+msgstr "Загрузка модуля"
+
+#: /controllers/payment_methods_controller.php:68
+msgid "Upload New Module"
+msgstr "Добавить новый модуль"
+
+#: /controllers/payment_methods_controller.php:68
+msgid "Module Uploaded"
+msgstr "Модуль добавлен"
+
+#: /controllers/payment_methods_controller.php:68
+msgid "Error : Unable to unzip archive"
+msgstr "Ошибка: Невозможно распаковать архив"
+
+#: /controllers/payment_methods_controller.php:68
+msgid "Module Not Uploaded"
+msgstr "Модуль загружен"
+
 #: /controllers/search_controller.php:19
 msgid "Search Results"
 msgstr "Результаты поиска"
