@@ -172,8 +172,6 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
 	echo $admin->StartTabContent('upload_images');
 	
-	if((isset($data['Content']['id'])) && ($data['Content']['id'] > 0))
-	{
 		echo '<p>' . __('Press \'Upload Images\' and choose images from your computer to upload. Select as many files as you would like. Images will upload right after you select them.', true) . '</p>';
 		echo '<div class="help tip"><p>' . __('TIP: Hold the \'control\' button to select more than one image.', true) . '</p></div>';		
 		?>
@@ -184,7 +182,7 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 			var settings = {
 				flash_url : "' . BASE . '/js/swfupload/swfupload.swf",
 				flash9_url : "' . BASE . '/js/swfupload/swfupload_fp9.swf",
-				upload_url: "' . BASE . '/contents/upload_images/' . $data['Content']['id'] . '",
+				upload_url: "' . BASE . '/contents/upload_images/' . $content_id . '",
 				post_params: {"PHPSESSID" : "' . session_id() . '"},
 				file_size_limit : "10 MB",
 				file_types : "*.jpg;*.jpeg;*.gif;*.png",
@@ -241,13 +239,7 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 			<div id="divStatus"><?php echo __('Files Uploaded:', true); ?> 0</div>
 
 		<?php
-	
-	}
-	else
-	{
-		echo '<p>' . __('This is a new product. Please press apply before uploading images.', true)	 . '</p>';
-	}
-			
+		
 	echo $admin->EndTabContent();
 
 	echo $admin->StartTabContent('options');
