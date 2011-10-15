@@ -9,7 +9,6 @@
    ---------------------------------------------------------------------------------------*/
 
 $html->script(array(
-	'jquery/jquery.min.js',
 	'selectall.js'
 ), array('inline' => false));
 

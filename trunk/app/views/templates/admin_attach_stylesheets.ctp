@@ -14,7 +14,6 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'attach_stylesheet.png');
 <?php
 $html->script(array(
 	'modified.js',
-	'jquery/jquery.min.js',
 	'focus-first-input.js'
 ), array('inline' => false));
 

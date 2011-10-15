@@ -6,7 +6,6 @@
    ---------------------------------------------------------------------------------------*/
 
 $html->script(array(
-	'jquery/jquery.min.js',
 	'jquery/plugins/ui.core.js',
 	'jquery/plugins/ui.tabs.js',
 	'tabs.js'

@@ -15,7 +15,6 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'install.png');
 
 $html->script(array(
 	'modified.js',
-	'jquery/jquery.min.js',
 	'focus-first-input.js'
 ), array('inline' => false));
 

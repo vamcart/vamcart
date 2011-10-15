@@ -8,8 +8,7 @@
 	echo $admin->ShowPageHeaderStart($current_crumb, 'login.png');
 	
 	$html->script(array(
-		'jquery/jquery.min.js',
-		'focus-first-input.js',
+			'focus-first-input.js',
 		'modified.js'
 	), array('inline' => false));
 	
