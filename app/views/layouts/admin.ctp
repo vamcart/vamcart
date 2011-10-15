@@ -62,6 +62,13 @@ echo $admin->GenerateBreadcrumbs($navigation, $current_crumb);
 <div id="wrapper">
 <div id="content">
 
+<?php 
+	echo $html->script(array(
+		'jquery/jquery.min.js'
+	), array('inline' => false));
+	
+	?>
+	
 <?php echo $asset->scripts_for_layout(); ?>
 
 <?php if($session->check('Message.flash')) echo $session->flash(); ?>

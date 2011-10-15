@@ -18,7 +18,6 @@
 
 $html->script(array(
 	'modified.js',
-	'jquery/jquery.min.js',
 	'focus-first-input.js'
 ), array('inline' => false));
 

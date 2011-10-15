@@ -7,8 +7,7 @@
 
 	$html->script(array(
 		'modified.js',
-		'jquery/jquery.min.js',
-		'jquery/plugins/ui.core.js',
+			'jquery/plugins/ui.core.js',
 		'jquery/plugins/ui.tabs.js',
 		'tabs.js',
 		'focus-first-input.js'

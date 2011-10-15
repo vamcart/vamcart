@@ -7,7 +7,6 @@
 
 $html->script(array(
 	'modified.js',
-	'jquery/jquery.min.js',
 	'focus-first-input.js',
 	'codemirror/lib/codemirror.js',
 	'codemirror/mode/javascript/javascript.js',
