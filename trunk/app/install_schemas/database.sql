@@ -10,7 +10,7 @@ CREATE TABLE `configurations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `configurations` (`id`, `key`, `value`) VALUES 
-(1, 'METADATA', '<meta name="generator" content="Bluefish 2.0.2" />'),
+(1, 'METADATA', '<meta name="generator" content="Bluefish 2.0.3" />'),
 (2, 'SITE_NAME', 'VamCart'),
 (3, 'URL_EXTENSION', '.html'),
 (4, 'GD_LIBRARY', '1'),
@@ -742,7 +742,11 @@ INSERT INTO `defined_languages` (`id`, `language_id`, `key`, `value`, `created`,
 (131, 1, 'Example', 'Example', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
 (132, 2, 'Example', 'Пример', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
 (133, 1, 'Phone', 'Phone', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
-(134, 2, 'Phone', 'Телефон', '2009-09-12 20:08:49', '2009-09-12 20:08:49');
+(134, 2, 'Phone', 'Телефон', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(135, 1, 'Please agree to our policy.', 'Please agree to our policy.', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(136, 2, 'Please agree to our policy.', 'Нажимая кнопку "Продолжить", я подтверждаю свою дееспособность, даю согласие на обработку своих персональных данных.', '2009-09-12 20:08:49', '2009-09-12 20:08:49');
+(137, 1, 'Terms & Conditions.', 'Terms & Conditions.', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(138, 2, 'Terms & Conditions.', 'Подробнее о защите персональной информации.', '2009-09-12 20:08:49', '2009-09-12 20:08:49');
 
 DROP TABLE IF EXISTS email_templates;
 CREATE TABLE `email_templates` (
