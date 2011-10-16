@@ -147,6 +147,14 @@ $template = '
 			<label for="company_name">{lang}Company{/lang}</label>
 			<input type="text" name="company_name" id="company_name" value="{$order.company_name}" />
 		</div>		
+    <div>  
+      <label for="company_vat">{lang}VAT number{/lang}</label>
+      <input type="text" name="company_vat" id="company_vat" value="{$order.company_vat}" />
+    </div>    
+    <div>  
+      <label for="agree">{lang}Please agree to our policy.{/lang} <a href="{base_path}/page/conditions-of-use.html">{lang}Terms & Conditions.{/lang}</a></label>
+      <input type="checkbox" class="checkbox" id="agree" name="agree" />
+    </div>    
 	</div>
 	<div>
 	{module alias="coupons" action="checkout_box"}
