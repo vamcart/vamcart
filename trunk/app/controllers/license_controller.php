@@ -7,6 +7,7 @@
 
 class LicenseController extends AppController {
 	var $name = 'License';
+	var $components = array('Check', 'Crypt');
 	var $data;
 
     function admin_edit ($id = null)
