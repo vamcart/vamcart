@@ -8,6 +8,7 @@ set_time_limit(3600);
 
 class UpdateController extends AppController {
 	var $name = 'Update';
+	var $components = array('Check');	
 	var $data;
 
 	function admin_update($ajax_request = false)
