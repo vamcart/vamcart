@@ -9,7 +9,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <?php echo $html->charset(); ?>
-<?php echo $html->css('admin'); ?>
+<?php echo $html->css('admin', null, array('inline' => false)); ?>
+<?php echo $html->script(array('jquery/jquery.min.js'), array('inline' => false)); ?>
+<?php echo $asset->scripts_for_layout(); ?>
 <title><?php echo $title_for_layout; ?></title>
 </head>
 
@@ -30,14 +32,6 @@
 <!-- Content -->
 <div id="wrapper">
 <div id="content">
-
-<?php 
-	echo $html->script(array(
-		'jquery/jquery.min.js'
-	), array('inline' => false));
-?>
-	
-<?php echo $asset->scripts_for_layout(); ?>
 
 <?php if($session->check('Message.flash')) echo $session->flash(); ?>
 

@@ -11,7 +11,9 @@ header('Content-Type: text/html; charset=utf-8');
 <head>
 <?php echo $html->charset(); ?>
 <title><?php echo $title_for_layout; ?></title>
-<?php echo $html->css('admin');  ?>
+<?php echo $html->css('admin', null, array('inline' => false)); ?>
+<?php echo $html->script(array('jquery/jquery.min.js'), array('inline' => false)); ?>
+<?php echo $asset->scripts_for_layout(); ?>
 </head>
 
 <body>
@@ -61,15 +63,6 @@ echo $admin->GenerateBreadcrumbs($navigation, $current_crumb);
 <!-- Content -->
 <div id="wrapper">
 <div id="content">
-
-<?php 
-	echo $html->script(array(
-		'jquery/jquery.min.js'
-	), array('inline' => false));
-	
-	?>
-	
-<?php echo $asset->scripts_for_layout(); ?>
 
 <?php if($session->check('Message.flash')) echo $session->flash(); ?>
 
