@@ -705,9 +705,11 @@ del.button
 		color: #2e523b;
 		font-style: normal;
 		margin: 0 6px 0px 0;
-		padding: 0 10px 0 0;	
-		vertical-align: middle;	
 		padding-top: -2px;
+		padding-right: 10px;
+		padding-botton: 0;
+		padding-left: 0;	
+		vertical-align: middle;	
 		_position: relative;
 		_width: 10px;	
 		_overflow-y: hidden;
