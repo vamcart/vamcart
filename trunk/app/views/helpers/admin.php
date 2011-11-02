@@ -377,7 +377,7 @@ class AdminHelper extends Helper {
 		if (isset($icon) && file_exists(IMAGES . 'admin/icons/buttons/' . $icon)) {
 			$content = $this->Html->link('<span>'.$this->Html->image('admin/icons/buttons/'.$icon, array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__($title,true).'</span>', $url, $parameters, $confirmMessage);
 		} else {
-			$content = $this->Html->link(__($title,true), $url, $parameters, $confirmMessage);
+			$content = $this->Html->link('<span>'.__($title,true).'</span>', $url, $parameters, $confirmMessage);
 		}
 		return $content;
 	}	
@@ -396,7 +396,7 @@ class AdminHelper extends Helper {
 		if (isset($icon) && file_exists(IMAGES . 'icons/buttons/' . $icon)) {
 			$content = $this->Html->link('<span>'.$this->Html->image('icons/buttons/'.$icon, array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__($title,true).'</span>', $url, $parameters, $confirmMessage);
 		} else {
-			$content = $this->Html->link(__($title,true), $url, $parameters, $confirmMessage);
+			$content = $this->Html->link('<span>'.__($title,true).'</span>', $url, $parameters, $confirmMessage);
 		}
 		return $content;
 	}	
