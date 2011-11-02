@@ -101,7 +101,7 @@ class AdminHelper extends Helper {
 		if($this->params['plugin'] != "")
 			$path = '/' . $this->params['plugin'] . $path;
 			
-		return($this->Html->link($this->Html->image('admin/icons/buttons/add.png', array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .$title, $path, array('escape' => false, 'class' => 'button')));
+		return($this->Html->link('<span>'.$this->Html->image('admin/icons/buttons/add.png', array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .$title.'</span>', $path, array('escape' => false, 'class' => 'button')));
 	}
 	
 	function ActionBar($options = null, $new = true, $extra_path = null) 
@@ -202,27 +202,24 @@ class AdminHelper extends Helper {
 	function DrawMenu ($navigation_walk)
 	{
 		$navigation = "";
-		$navigation .= '<ul id="menu">';
+		$navigation .= '<ul>';
 		foreach($navigation_walk AS $nav)
 		{
-			$navigation .= '<li><span>' . $this->MenuLink($nav) . '</span>';
+			$navigation .= '<li>' . $this->MenuLink($nav);
 					
 			if(!empty($nav['children']))	
 			{
-				$navigation .= '<!--[if lte IE 6]><a href="#nogo"><table class="ie6"><tr><td><![endif]-->';	
-				$navigation .= '<dl>';	
-				$navigation .= '<dt>' . $this->MenuLink($nav) . '</dt>';	
+		$navigation .= '<ul>';
 				foreach($nav['children'] AS $navchild)
 				{
-					$navigation .= '<dd>' . $this->MenuLink($navchild) . '</dd>';
+					$navigation .= '<li>' . $this->MenuLink($navchild) . '</li>';
 				}
-				$navigation .= '</dl>';
-				$navigation .= '<!--[if lte IE 6]></td></tr></table></a><![endif]-->';
+		$navigation .= '</ul>';
 			}
 			$navigation .= '</li>';
 		}
 		$navigation .= '</ul>';
-		$navigation .= '<div class="clear"></div>' . "\n";
+		$navigation .= '<span><a href="#x">X</a></span><div class="clear"></div>' . "\n";
 		
 		return($navigation);
 	}
@@ -341,9 +338,9 @@ class AdminHelper extends Helper {
 	{
 		
 		if (isset($icon) && file_exists(IMAGES . 'admin/icons/buttons/' . $icon)) {
-			$content = $this->Form->button($this->Html->image('admin/icons/buttons/'.$icon, array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__($name, true), $parameters);
+			$content = '<span class="button">'.$this->Form->button($this->Html->image('admin/icons/buttons/'.$icon, array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__($name, true), $parameters).'</span>';
 		} else {
-			$content = $this->Form->button(__($name, true), $parameters);
+			$content = '<span class="button">'.$this->Form->button(__($name, true), $parameters).'</span>';
 		}
 		return $content;
 	}	
@@ -359,9 +356,9 @@ class AdminHelper extends Helper {
 	{
 		
 		if (isset($icon) && file_exists(IMAGES . 'icons/buttons/' . $icon)) {
-			$content = $this->Form->button($this->Html->image('icons/buttons/'.$icon, array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__($name, true), $parameters);
+			$content = '<span class="button">'.$this->Form->button($this->Html->image('icons/buttons/'.$icon, array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__($name, true), $parameters).'</span>';
 		} else {
-			$content = $this->Form->button(__($name, true), $parameters);
+			$content = '<span class="button">'.$this->Form->button(__($name, true), $parameters).'</span>';
 		}
 		return $content;
 	}	
@@ -378,7 +375,7 @@ class AdminHelper extends Helper {
 	{
 		
 		if (isset($icon) && file_exists(IMAGES . 'admin/icons/buttons/' . $icon)) {
-			$content = $this->Html->link($this->Html->image('admin/icons/buttons/'.$icon, array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__($title,true), $url, $parameters, $confirmMessage);
+			$content = $this->Html->link('<span>'.$this->Html->image('admin/icons/buttons/'.$icon, array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__($title,true).'</span>', $url, $parameters, $confirmMessage);
 		} else {
 			$content = $this->Html->link(__($title,true), $url, $parameters, $confirmMessage);
 		}
@@ -397,7 +394,7 @@ class AdminHelper extends Helper {
 	{
 		
 		if (isset($icon) && file_exists(IMAGES . 'icons/buttons/' . $icon)) {
-			$content = $this->Html->link($this->Html->image('icons/buttons/'.$icon, array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__($title,true), $url, $parameters, $confirmMessage);
+			$content = $this->Html->link('<span>'.$this->Html->image('icons/buttons/'.$icon, array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__($title,true).'</span>', $url, $parameters, $confirmMessage);
 		} else {
 			$content = $this->Html->link(__($title,true), $url, $parameters, $confirmMessage);
 		}
