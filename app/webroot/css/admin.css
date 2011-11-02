@@ -225,7 +225,7 @@ div#menu
 		font:11pt/30px 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif; 
 		color: #000; 
 		text-decoration: none;
-		padding: 0 15px;
+		padding: 0 10px;
 	}
 
 #menu ul ul li a 
@@ -237,7 +237,7 @@ div#menu
 		border-right: 1px solid #e8e9ea;
 		text-decoration: none; 
 		display: block; 
-		padding: 0 20px 0 15px;
+		padding: 0 20px 0 10px;
 	}
 
 #menu ul li:hover > ul 
