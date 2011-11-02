@@ -148,7 +148,7 @@ div#footer p
 
 /* Menu */
 
-div#menu
+div#menu 
 	{
 		border-top: 3px solid #ff7b08;
 		background-color: #fff;
@@ -157,148 +157,196 @@ div#menu
 		background-repeat: repeat-x; 
 		padding: 0;
 		margin: 0;
-		width: 100%;
 	}
 
-/* ================================================================ 
-This copyright notice must be untouched at all times.
-
-The original version of this stylesheet and the associated (x)html
-is available at http://www.cssplay.co.uk/menus/variable_dl.html
-Copyright (c) 2005-2007 Stu Nicholls. All rights reserved.
-This stylesheet and the assocaited (x)html may be modified in any 
-way to fit your requirements.
-=================================================================== */
-
-#menu li, 
 #menu ul 
 	{
-		list-style-type: none; 
-		margin: 0;
+		float: left; 
+		list-style: none; 
+		white-space: nowrap; 
+		text-align: left; 
+		display: inline-block; 
 		padding: 0;
+		margin: 0;
+	}
+	
+#menu ul 
+	{
+		display:inline;
 	}
 
 #menu li 
 	{
-		display: block; 
-		float: left; 
-		z-index: 100; 
-		margin: 0;
-		padding: 0;
-		color: #000;
-		background-color: #fff;
-		background-image: url(../img/admin/bg.png);
-		background-position: 0 -100px;
-		background-repeat: repeat-x; 
+		margin: 0; 
+		padding:0; 
+		list-style:none;
 	}
 	
-#menu li span a
+#menu li 
 	{
-		display: block; 
-		z-index: 100; 
-		padding: 5px 10px;
+		display: inline-block; 
+		display: inline;
 	}
 
-#menu li a, 
-#menu li a:visited 
-	{
-		display: block; 
-		color: #000;
-		text-decoration: none;
-		margin: 0 0 0 0;
-	}
-
-#menu table.ie6 
-	{
-		margin: 0;
-		padding: 0;
-		border-collapse: collapse;
-	}
-
-#menu dl 
+#menu ul ul 
 	{
 		position: absolute; 
-		top: 0; 
-		left: 0; 
-		margin: 0; 
-		padding: 0; 
+		left:-9999px; 
+		padding:0;
 		background-color: #fff;
 		background-image: url(../img/admin/bg.png);
 		background-position: 0 -221px;
 		background-repeat: repeat-x; 
 	}
-
-#menu dt 
+	
+#menu > ul 
 	{
-		margin: 0; 
-		padding: 0;
+		display: table; 
+		margin: 0 auto;
+	}
+
+#menu > ul > li 
+	{
 		float: left; 
-		background-color: #fff;
-		background-image: url(../img/admin/bg.png);
-		background-position: 0 -100px;
-		background-repeat: repeat-x; 
+		display: block; 
+		position: relative; 
+		z-index: 100;
 	}
 
-#menu dd 
+#menu > ul > li:hover 
 	{
-		display: none; 
-		background: transparent;
-		border-bottom: 0px solid #91afba; 
-		clear:left; 
-		margin: 0; 
-		padding: 0; 
-		color: #000;
-		text-align: left;
+		display: inline-block; 
+		z-index: 10;
 	}
 
-#menu dt a, 
-#menu dt a:visited 
+#menu ul a 
 	{
 		display: block; 
-		color: #000;
-		padding: 5px 10px; 
+		font:11pt/30px 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif; 
+		color: #000; 
 		text-decoration: none;
+		padding: 0 15px;
 	}
 
-#menu dd a, 
-#menu dd a:visited 
+#menu ul ul li a 
 	{
 		background: transparent;
 		color: #000;
+		border-bottom: 1px solid #e8e9ea;
 		border-left: 1px solid #e8e9ea;
+		border-right: 1px solid #e8e9ea;
 		text-decoration: none; 
 		display: block; 
-		padding: 5px 10px;
+		padding: 0 20px 0 15px;
 	}
 
-#menu li a:hover 
+#menu ul li:hover > ul 
 	{
-		border: 0;
+		z-index: -1;
+		top: 30px; 
+		left: -1px; 
+	}
+	
+#menu ul li.left:hover > ul 
+	{
+		z-index: -1;
+		top: 30px; 
+		right: -1px; 
+		left: auto; 
 	}
 
-#menu li:hover dd, 
-#menu li a:hover dd 
+#menu ul ul li:hover > ul 
 	{
-		display: block;
-		width: 188px;
-		border-bottom: 1px solid #e8e9ea;
-		border-right: 1px solid #e8e9ea;
+		z-index: 10;
+		top: auto; 
+		left: 100%; 
+		margin-top: -31px; 
+		margin-left: -10px; 
+	}
+	
+#menu li.left ul li:hover > ul 
+	{
+		z-index: 10;
+		top: auto; 
+		right: 100%; 
+		left: auto; 
+		margin-top: -31px; 
+		margin-right: -10px; 
 	}
 
-#menu li:hover dl, 
-#menu li a:hover dl 
+#menu li.left ul a 
 	{
-		border-bottom: 0px solid #e2dfa8;
+		text-align: right;
 	}
 
-#menu li:hover dt a, 
-#menu li a:hover dt a, 
-#menu dd a:hover 
+#menu li:hover > a 
 	{
-		background: #ff7b08; 
-		color: #fff;
+		color: #fff; 
+		background-color: #ff7b08;
 	}
-		 
+	
+#menu ul ul li:hover a 
+	{
+	}
+	
+#menu ul ul li:first-child > a 
+	{
+	}
+	
+#menu ul ul li:last-child > a 
+	{
+	}
+
+#menu span 
+	{
+		display: block; 
+		position: absolute; 
+		right: 9999px; 
+		top: -35px;
+	}
+
+@media only screen and (max-device-width:768px)
+	{
+
+		#menu ul ul 
+			{
+				display: none;
+			}
+
+		#menu ul li:hover > ul 
+			{
+				display: block;
+			}
+
+		#menu span 
+			{
+			}
+
+		#menu span a 
+			{
+				display: block; 
+				float: left; 
+				font: 11pt/30px 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif; 
+				white-space: nowrap; 
+				color: #222; 
+				text-decoration: none; 
+				width: 80px; 
+				text-align: center; 
+				margin-right: -40px;
+			}
+
+		#menu:hover span 
+			{
+				right: 50%;
+			}
+
+		#menu span:hover 
+			{
+				right: 9999px;
+			}
+	
+	}
+				 
 /* /Menu */
 
 /* Navigation */
