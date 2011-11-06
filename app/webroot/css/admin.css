@@ -202,7 +202,7 @@ div#menu
 #menu > ul 
 	{
 		display: table; 
-		margin: 0 auto;
+		margin: 0;
 	}
 
 #menu > ul > li 
