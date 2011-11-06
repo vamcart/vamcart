@@ -23,9 +23,7 @@ header('Content-Type: text/html; charset=utf-8');
 <!-- Header -->
 <div id="header">
 <div class="header-left">
-<?php echo $html->link($html->image('admin/logo.png', array('alt' => __('VamCart',true))), '/admin/admin_top/', array('escape'=>false));
-
-?>
+<?php echo $html->link($html->image('admin/logo.png', array('alt' => __('VamCart',true))), '/admin/admin_top/', array('escape'=>false));?>
 </div>
 <div class="header-right">
 <?php 
