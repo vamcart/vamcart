@@ -237,11 +237,6 @@ class StylesheetsController extends AppController {
 		$this->redirect('/stylesheets/admin/');
 	}	
 	
-	function admin_set_as_default ($stylesheet_id)
-	{
-		$this->setDefaultItem($stylesheet_id);
-	}
-		
 	function admin($ajax_request = false)
 	{
 		$this->set('current_crumb', __('Stylesheets Listing', true));
