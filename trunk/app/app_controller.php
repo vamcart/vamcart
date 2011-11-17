@@ -232,7 +232,12 @@ class AppController extends Controller {
 					4 => array('icon' => 'logout.png', 'text' => __('Logout', true), 'path' => '/users/admin_logout/')					
 				)
 			),						
-			9 => array('icon' => 'catalog.png', 'text' => __('Launch Site', true), 'path' => '/', 'attributes' => array('target' => 'blank'))
+            9 => array('icon' => 'tools.png', 'text' => __('Tools', true), 'path' => '/admin/admin_top/9',
+                'children' => array(
+                    1 => array('icon' => 'database-backup.png', 'text' => __('Database Backup', true), 'path' => '/tools/admin_backup/')
+                )
+            ),
+			10 => array('icon' => 'catalog.png', 'text' => __('Launch Site', true), 'path' => '/', 'attributes' => array('target' => 'blank'))
 		);
 		
 		// Add module navigation elements
