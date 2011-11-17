@@ -167,6 +167,18 @@ msgstr "Настройки"
 msgid "Logout"
 msgstr "Выход"
 
+#: /app_controller.php:235
+msgid "Tools"
+msgstr "Инструменты"
+
+#: /app_controller.php:235
+msgid "Database Backup"
+msgstr "Резервное копирование"
+
+#: /app_controller.php:235
+msgid "Database Manager"
+msgstr "Управление базой данных"
+
 #: /app_controller.php:238
 msgid "Launch Site"
 msgstr "Каталог"

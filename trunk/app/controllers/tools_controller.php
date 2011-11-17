@@ -14,7 +14,7 @@ class ToolsController extends AppController {
     */
     function admin_backup($ajax_request = false)
     {
-        $this->set('current_crumb', __('Sypex Dumper', true));
+        $this->set('current_crumb', __('Database Manager', true));
         $this->set('title_for_layout', __('Database Backup', true));
         $l = $this->Session->read('Config.language');
         if (NULL == $l) {
