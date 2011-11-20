@@ -32,7 +32,7 @@ class UsersController extends AppController {
 		if(!empty($this->data))
 		{
 			// Redirect if the user pressed cancel
-			if(isset($this->params['form']['cancel']))
+			if(isset($this->params['form']['cancelbutton']))
 			{
 				$this->redirect('/admin/admin_top/6/');
 			}
@@ -150,7 +150,7 @@ class UsersController extends AppController {
 		else
 		{
 			// Redirect if the user pressed cancel
-			if(isset($this->params['form']['cancel']))
+			if(isset($this->params['form']['cancelbutton']))
 			{
 				$this->redirect('/users/admin/');
 				die();

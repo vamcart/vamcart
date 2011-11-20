@@ -17,7 +17,7 @@ class DiscountsController extends AppController {
 		$this->set('current_crumb', __('Discounts Details', true));
 		$this->set('title_for_layout', __('Discounts Details', true));
 		// If they pressed cancel
-		if(isset($this->params['form']['cancel']))
+		if(isset($this->params['form']['cancelbutton']))
 		{
 			$this->redirect('/discounts/admin/'.$content_id);
 			die();

@@ -46,7 +46,7 @@ class TaxesController extends AppController {
 		else
 		{
 			// If they pressed cancel
-			if(isset($this->params['form']['cancel']))
+			if(isset($this->params['form']['cancelbutton']))
 			{
 				$this->redirect('/taxes/admin/');
 				die();

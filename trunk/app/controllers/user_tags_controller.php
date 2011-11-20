@@ -20,7 +20,7 @@ class UserTagsController extends AppController {
 		$this->set('current_crumb', __('User Tag', true));
 		$this->set('title_for_layout', __('User Tag', true));
 		// Check if we pressed the cancel button
-		if(isset($this->params['form']['cancel']))
+		if(isset($this->params['form']['cancelbutton']))
 		{
 			$this->redirect('/user_tags/admin/');die();
 		}

@@ -35,7 +35,7 @@ class TaxCountryZoneRatesController extends AppController {
 		}
 		else
 		{
-			if(isset($this->params['form']['cancel']))
+			if(isset($this->params['form']['cancelbutton']))
 			{
 				$this->redirect('/tax_country_zone_rates/admin/' . $tax_id);
 				die();
@@ -60,7 +60,7 @@ class TaxCountryZoneRatesController extends AppController {
 		}
 		else
 		{
-			if(isset($this->params['form']['cancel']))
+			if(isset($this->params['form']['cancelbutton']))
 			{
 				$this->redirect('/tax_country_zone_rates/admin/' . $tax_id);
 				die();

@@ -101,7 +101,7 @@ class StylesheetsController extends AppController {
 		}
 		else
 		{
-			if(isset($this->params['form']['cancel']))
+			if(isset($this->params['form']['cancelbutton']))
 			{
 				$this->redirect('/stylesheets/admin/');
 			}
@@ -165,7 +165,7 @@ class StylesheetsController extends AppController {
 		}
 		else
 		{	// We submitted data
-			if(isset($this->params['form']['cancel']))
+			if(isset($this->params['form']['cancelbutton']))
 			{	
 				$this->redirect('/stylesheets/admin/');
 			}

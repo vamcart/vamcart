@@ -55,7 +55,7 @@ class ModulesController extends AppController {
 		$this->set('title_for_layout', __('Module Upload', true));
 
 		// If they pressed cancel
-		if(isset($this->params['form']['cancel']))
+		if(isset($this->params['form']['cancelbutton']))
 		{
 			$this->redirect('/modules/admin/');
 			die();

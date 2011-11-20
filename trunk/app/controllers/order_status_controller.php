@@ -59,7 +59,7 @@ class OrderStatusController extends AppController {
 		$this->set('current_crumb', __('Order Status', true));
 		$this->set('title_for_layout', __('Order Status', true));
 		// If they pressed cancel
-		if(isset($this->params['form']['cancel']))
+		if(isset($this->params['form']['cancelbutton']))
 		{
 			$this->redirect('/order_status/admin/');
 			die();
