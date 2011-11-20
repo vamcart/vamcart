@@ -22,7 +22,7 @@ class ShippingMethodsController extends AppController {
 	{
 		$this->set('current_crumb', __('Edit Shipping Method', true));
 		$this->set('title_for_layout', __('Edit Shipping Method', true));
-		if(isset($this->params['form']['cancel']))
+		if(isset($this->params['form']['cancelbutton']))
 		{
 			$this->redirect('/shipping_methods/admin/');
 			die();
@@ -95,7 +95,7 @@ class ShippingMethodsController extends AppController {
 		$this->set('title_for_layout', __('Module Upload', true));
 
 		// If they pressed cancel
-		if(isset($this->params['form']['cancel']))
+		if(isset($this->params['form']['cancelbutton']))
 		{
 			$this->redirect('/shipping_methods/admin/');
 			die();

@@ -24,7 +24,7 @@ class GlobalContentBlocksController extends AppController {
 	{
 		$this->set('current_crumb', __('Global Content Block Details', true));
 		$this->set('title_for_layout', __('Global Content Block Details', true));
-		if(isset($this->params['form']['cancel']))
+		if(isset($this->params['form']['cancelbutton']))
 		{
 			$this->redirect('/global_content_blocks/admin/');
 			die();

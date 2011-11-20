@@ -212,7 +212,7 @@ class TemplatesController extends AppController {
 		}
 		else
 		{
-			if(isset($this->params['form']['cancel']))
+			if(isset($this->params['form']['cancelbutton']))
 			{
 				$this->redirect('/templates/admin/');
 				die();
@@ -261,7 +261,7 @@ class TemplatesController extends AppController {
 		}
 		else
 		{
-			if(isset($this->params['form']['cancel']))
+			if(isset($this->params['form']['cancelbutton']))
 			{
 				$this->redirect('/templates/admin/');
 				die();

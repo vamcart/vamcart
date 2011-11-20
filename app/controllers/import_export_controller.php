@@ -20,7 +20,7 @@ class ImportExportController extends AppController {
 	{
 
 		// If they pressed cancel
-		if(isset($this->params['form']['cancel']))
+		if(isset($this->params['form']['cancelbutton']))
 		{
 			$this->redirect('/import_export/admin/');
 			die();

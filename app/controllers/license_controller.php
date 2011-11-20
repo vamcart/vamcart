@@ -7,7 +7,6 @@
 
 class LicenseController extends AppController {
 	var $name = 'License';
-	var $components = array('Check', 'Crypt');
 	var $data;
 
     function admin_edit ($id = null)
@@ -21,7 +20,7 @@ class LicenseController extends AppController {
 		else
 		{
 			// If they pressed cancel
-			if(isset($this->params['form']['cancel']))
+			if(isset($this->params['form']['cancelbutton']))
 			{
 				$this->redirect('/license/admin/');
 				die();

@@ -34,7 +34,7 @@ class MicroTemplatesController extends AppController {
 		else
 		{
 			// Check if we pressed the cancel button
-			if(isset($this->params['form']['cancel']))
+			if(isset($this->params['form']['cancelbutton']))
 			{
 				$this->redirect('/micro_templates/admin/');
 				die();

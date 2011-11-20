@@ -65,7 +65,7 @@ class CurrenciesController extends AppController {
 		$this->set('current_crumb', __('Currency Details', true));
 		$this->set('title_for_layout', __('Currency Details', true));
 		// If they pressed cancel
-		if(isset($this->params['form']['cancel']))
+		if(isset($this->params['form']['cancelbutton']))
 		{
 			$this->redirect('/currencies/admin/');
 			die();

@@ -15,7 +15,7 @@ class CountriesController extends AppController {
 		$this->set('current_crumb', __('Country Details', true));
 		$this->set('title_for_layout', __('Edit', true));
 		// If they pressed cancel
-		if(isset($this->params['form']['cancel']))
+		if(isset($this->params['form']['cancelbutton']))
 		{
 			$this->redirect('/countries/admin/');
 			die();
