@@ -107,14 +107,20 @@ class StylesheetsController extends AppController {
 			}
 			else
 			{
+				$this->Stylesheet->id = $stylesheet_id;
+				$old_stylesheet = $this->Stylesheet->read();
 			
-				// If the alias is empty, generate it by the name, otherwise generate it with the alias again just for protection.
-				$this->data['Stylesheet']['alias'] = $this->generateAlias($this->data['Stylesheet']['name']);	
-				
-				$this->Stylesheet->save($this->data);
+				$new_stylesheet = $old_stylesheet;
+				$new_stylesheet['Stylesheet']['id'] = null;
+				$new_stylesheet['Stylesheet']['name'] = $this->data['Stylesheet']['name'];
+				$new_stylesheet['Stylesheet']['alias'] = $this->generateAlias($this->data['Stylesheet']['name']);	
+				$new_stylesheet['Stylesheet']['stylesheet'] = $this->data['Stylesheet']['stylesheet'];
+			
+				$this->Stylesheet->save($new_stylesheet);
+			
 				$stylesheet_id = $this->Stylesheet->getLastInsertId();
 		
-				$this->redirect('/stylesheets/admin_edit/' . $stylesheet_id . '/true');
+				$this->redirect('/stylesheets/admin_edit/' . $stylesheet_id);
 			}
 		}	
 	}
