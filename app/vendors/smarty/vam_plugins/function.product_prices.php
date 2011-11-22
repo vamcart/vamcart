@@ -1,9 +1,9 @@
 <?php
 /* -----------------------------------------------------------------------------------------
    VamCart - http://vamcart.com
-   Copyright 2011 David Lednik
    -----------------------------------------------------------------------------------------
-   Released under the GNU General Public License
+   Copyright (c) 2011 VamSoft Ltd.
+   License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
 function smarty_function_product_prices($params, &$smarty)
