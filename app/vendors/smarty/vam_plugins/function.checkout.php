@@ -265,13 +265,5 @@ function smarty_help_function_checkout() {
 }
 
 function smarty_about_function_checkout() {
-	?>
-	<p><?php echo __('Author: Kevin Grandon &lt;kevingrandon@hotmail.com&gt;') ?></p>
-	<p><?php echo __('Version:') ?> 0.1</p>
-	<p>
-	<?php echo __('Change History:') ?><br/>
-	<?php echo __('None') ?>
-	</p>
-	<?php
 }
 ?>
