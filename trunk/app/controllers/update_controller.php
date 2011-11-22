@@ -3,7 +3,8 @@ set_time_limit(3600);
 /* -----------------------------------------------------------------------------------------
    VamCart - http://vamcart.com
    -----------------------------------------------------------------------------------------
-   Released under the GNU General Public License
+   Copyright (c) 2011 VamSoft Ltd.
+   License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
 class UpdateController extends AppController {
