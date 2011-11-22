@@ -2,7 +2,8 @@
 /* -----------------------------------------------------------------------------------------
    VamCart - http://vamcart.com
    -----------------------------------------------------------------------------------------
-   Released under the GNU General Public License
+   Copyright (c) 2011 VamSoft Ltd.
+   License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
 class ActionController extends ModuleCouponsAppController {
