@@ -12,7 +12,6 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'view.png');
 
 echo $help_content;
 
-echo '<div class="pageheader">' . __('About', true) . '</div>';
 echo $about_content;
 
 if(isset($default_template))
