@@ -35,13 +35,5 @@ function smarty_help_function_admin_edit_link() {
 }
 
 function smarty_about_function_admin_edit_link() {
-	?>
-	<p><?php echo __('Author: Kevin Grandon &lt;kevingrandon@hotmail.com&gt;') ?></p>
-	<p><?php echo __('Version:') ?> 0.1</p>
-	<p>
-	<?php echo __('Change History:') ?><br/>
-	<?php echo __('None') ?>
-	</p>
-	<?php
 }
 ?>
