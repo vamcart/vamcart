@@ -102,13 +102,5 @@ function smarty_help_function_yandex_metrika() {
 }
 
 function smarty_about_function_yandex_metrika() {
-	?>
-	<p><?php echo __('Author: Alexandr Menovchicov &lt;vam@kypi.ru&gt;') ?></p>
-	<p><?php echo __('Version:') ?> 0.1</p>
-	<p>
-	<?php echo __('Change History:') ?><br/>
-	<?php echo __('None') ?>
-	</p>
-	<?php
 }
 ?>

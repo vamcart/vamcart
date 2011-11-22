@@ -95,13 +95,5 @@ function smarty_help_function_google_analytics() {
 }
 
 function smarty_about_function_google_analytics() {
-	?>
-	<p><?php echo __('Author: Alexandr Menovchicov &lt;vam@kypi.ru&gt;') ?></p>
-	<p><?php echo __('Version:') ?> 0.1</p>
-	<p>
-	<?php echo __('Change History:') ?><br/>
-	<?php echo __('None') ?>
-	</p>
-	<?php
 }
 ?>
