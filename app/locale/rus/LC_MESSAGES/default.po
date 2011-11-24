@@ -1757,6 +1757,10 @@ msgstr "Ваш ID в Google Analytics"
 msgid "Yandex.Metrika ID"
 msgstr "Ваш ID в Яндекс Метрике"
 
+#: /views/configuration/admin_edit.ctp:28
+msgid "Products Per Page"
+msgstr "Товаров на одной странице"
+
 #: /views/configuration/admin_edit.ctp:38
 msgid "Cache Time in Seconds"
 msgstr "Время кэширования (в секундах)"
