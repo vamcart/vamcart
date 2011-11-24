@@ -40,7 +40,8 @@ $yes_no_options[1] = __('yes', true);
 	echo $form->input('THUMBNAIL_SIZE', array('label' => __('Image Thumbnail Size', true), 'type' => 'text', 'value' => $configuration_values['THUMBNAIL_SIZE']['value']));
 	echo $form->input('GOOGLE_ANALYTICS', array('label' => __('Google Analytics ID', true), 'type' => 'text', 'value' => $configuration_values['GOOGLE_ANALYTICS']['value']));
 	echo $form->input('YANDEX_METRIKA', array('label' => __('Yandex.Metrika ID', true), 'type' => 'text', 'value' => $configuration_values['YANDEX_METRIKA']['value']));
-	
+	echo $form->input('PRODUCTS_PER_PAGE', array('label' => __('Products Per Page', true), 'type' => 'text', 'value' => $configuration_values['PRODUCTS_PER_PAGE']['value']));
+
 	echo $admin->EndTabContent();
 
 	echo $admin->StartTabContent('caching');
