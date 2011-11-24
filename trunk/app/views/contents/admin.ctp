@@ -60,7 +60,7 @@ if(isset($parent_content))
 }
 echo '</table>';
 
-echo $admin->ActionBar(array('activate'=>__('Activate',true),'deactivate'=>__('Deactivate',true),'show_in_menu'=>__('Show In Menu',true),'hide_from_menu'=>__('Hide From Menu',true),'delete'=>__('Delete',true)),true,'0/'.(isset($parent_content) ? $parent_content['Content']['id'] : 0));
+echo $admin->ActionBar(array('activate'=>__('Activate',true),'deactivate'=>__('Deactivate',true),'show_in_menu'=>__('Show In Menu',true),'hide_from_menu'=>__('Hide From Menu',true),'delete'=>__('Delete',true)),true,(isset($last_content_id) ? $last_content_id : 0).'/'.(isset($parent_content) ? $parent_content['Content']['id'] : 0));
 echo $form->end();
 echo $admin->ShowPageHeaderEnd();
 
