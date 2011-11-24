@@ -9,6 +9,17 @@
 function default_template_content_listing()
 {
 $template = '<div>
+ {if $pages_number > 1 || $page=="all"}
+    <div class="paginator">
+          <ul>
+            <li>{lang}Pages{/lang}:</li>
+            {for $pg=1 to $pages_number}
+            <li><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}" {if $pg == $page}class="current"{/if}>{$pg}</a></li>
+            {/for}
+            <li><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all" {if "all" == $page}class="current"{/if}>{lang}All{/lang}</a></li>
+          </ul>
+    </div>
+  {/if}  
 <ul class="listing">
 {foreach from=$content_list item=node}
 	<li
@@ -27,6 +38,17 @@ $template = '<div>
 {/foreach}
 </ul>
 <div class="clear"></div>
+  {if $pages_number > 1 || $page=="all"}
+    <div class="paginator">
+          <ul>
+            <li>{lang}Pages{/lang}:</li>
+            {for $pg=1 to $pages_number}
+            <li><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}" {if $pg == $page}class="current"{/if}>{$pg}</a></li>
+            {/for}
+            <li><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all" {if "all" == $page}class="current"{/if}>{lang}All{/lang}</a></li>
+          </ul>
+    </div>
+  {/if}  
 </div>
 ';		
 
@@ -86,6 +108,9 @@ function smarty_function_content_listing($params, $template)
 		$params['parent'] = $get_content['Content']['id'];
 	}
 
+        if(!isset ($params['on_page']))
+            $params['on_page'] = $config['PRODUCTS_PER_PAGE'];
+
         if(!isset ($params['page']))
             $params['page'] = 1;
 	
@@ -106,9 +131,6 @@ function smarty_function_content_listing($params, $template)
 			$allowed_types[] =  $type;
 	}
 
-	if(!isset($params['limit']))
-		$params['limit'] = null;
-	
 	$content_list_data_conditions = array('Content.parent_id' => $params['parent'],'Content.active' => '1','Content.show_in_menu' => '1');
 	$Content->recursive = 2;
         
@@ -121,7 +143,7 @@ function smarty_function_content_listing($params, $template)
                 $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
             }
             else{
-                $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => $config['PRODUCTS_PER_PAGE'],'page' => $params['page'], 'order' => array('Content.order ASC')));
+                $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => $params['on_page'],'page' => $params['page'], 'order' => array('Content.order ASC')));
                 $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
             }
             
@@ -180,7 +202,7 @@ function smarty_function_content_listing($params, $template)
         
         // Calculating the number of pages
          if($params['type'] == 'product'){
-             $vars['pages_number'] = ceil($content_total/$config['PRODUCTS_PER_PAGE']);
+             $vars['pages_number'] = ceil($content_total/$params['on_page']);
          }
 
          
@@ -212,7 +234,8 @@ function smarty_help_function_content_listing() {
 		<li><em><?php echo __('(type)') ?></em> - <?php echo __('Type of content to display. Seperate multiple values with commas, example:') ?> {content_listing type='category,page'}. <?php echo __('Defaults to') ?> 'all'.</li>
 		<li><em><?php echo __('(parent)') ?></em> - <?php echo __('The parent of the content items to be shown. Accepts an alias or id, defaults to 0.') ?></li>
 		<li><em><?php echo __('(template)') ?></em> - <?php echo __('Useful if you want to override the default content listing template. Setting this will utilize the template that matches this alias.') ?></li>
-		<li><em><?php echo __('(limit)') ?></em> - <?php echo __('Useful if you want to limit number of content items to show.') ?></li>
+		<li><em><?php echo __('(page)') ?></em> - <?php echo __('Current page.') ?></li>
+		<li><em><?php echo __('(on_page)') ?></em> - <?php echo __('Items per page.') ?></li>
 	</ul>
 	<?php
 }
