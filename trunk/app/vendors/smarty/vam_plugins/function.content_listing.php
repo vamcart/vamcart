@@ -85,6 +85,9 @@ function smarty_function_content_listing($params, $template)
 		$get_content = $Content->findByAlias($params['parent']);
 		$params['parent'] = $get_content['Content']['id'];
 	}
+
+        if(!isset ($params['page']))
+            $params['page'] = 1;
 	
 	// Loop through the values in $params['type'] and set some more condiitons
 	$allowed_types = array();
@@ -108,7 +111,24 @@ function smarty_function_content_listing($params, $template)
 	
 	$content_list_data_conditions = array('Content.parent_id' => $params['parent'],'Content.active' => '1','Content.show_in_menu' => '1');
 	$Content->recursive = 2;
-	$content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => $params['limit'], 'order' => array('Content.order ASC')));
+        
+
+        // Applying pagination for products only
+
+        if($params['type'] == 'product'){
+            if($params['page'] == 'all'){
+                $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'order' => array('Content.order ASC')));
+                $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
+            }
+            else{
+                $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => $config['PRODUCTS_PER_PAGE'],'page' => $params['page'], 'order' => array('Content.order ASC')));
+                $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
+            }
+            
+        }
+        else{
+            $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'order' => array('Content.order ASC')));
+        }
 	
 
 	// Loop through the content list and create a new array with only what the template needs
@@ -154,9 +174,20 @@ function smarty_function_content_listing($params, $template)
 	$vars = $template->smarty->tpl_vars;
 	$vars['content_list'] = $content_list;
 	$vars['count'] = $count;
+        $vars['page'] = $params['page'];
+        $vars['ext'] = $config['URL_EXTENSION'];
 
+        
+        // Calculating the number of pages
+         if($params['type'] == 'product'){
+             $vars['pages_number'] = ceil($content_total/$config['PRODUCTS_PER_PAGE']);
+         }
+
+         
 	if($config['GD_LIBRARY'] == 0)
 		$vars['thumbnail_width'] = $config['THUMBNAIL_SIZE'];
+
+        
 
 	$display_template = $Smarty->load_template($params,'content_listing');	
 	$Smarty->display($display_template,$vars);
@@ -187,5 +218,13 @@ function smarty_help_function_content_listing() {
 }
 
 function smarty_about_function_content_listing() {
+	?>
+	<p><?php echo __('Author: Kevin Grandon &lt;kevingrandon@hotmail.com&gt;') ?></p>
+	<p><?php echo __('Version:') ?> 0.1</p>
+	<p>
+	<?php echo __('Change History:') ?><br/>
+	<?php echo __('None') ?>
+	</p>
+	<?php
 }
 ?>
