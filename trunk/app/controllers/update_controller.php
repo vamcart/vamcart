@@ -1,11 +1,12 @@
 <?php
-set_time_limit(3600);
 /* -----------------------------------------------------------------------------------------
    VamCart - http://vamcart.com
    -----------------------------------------------------------------------------------------
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
+
+set_time_limit(3600);
 
 class UpdateController extends AppController {
 	var $name = 'Update';
