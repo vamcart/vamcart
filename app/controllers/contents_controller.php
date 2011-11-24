@@ -399,6 +399,7 @@ class ContentsController extends AppController {
 					$this->set('menu_checked',' ');					
 			}
 		
+			$this->set('content_id',$content_id);
 			$this->set('data',$data);
 			
 			// Content type
@@ -572,6 +573,9 @@ class ContentsController extends AppController {
 		
 		$this->set('content_data', $content_data);
 		$this->set('content_count', $this->Content->find('count', array('conditions' => array('Content.parent_id' => $parent_id))));
+		$last_content_id = $this->Content->find('first', array('order' => array('Content.id DESC')));
+		$last_content_id = $last_content_id['Content']['id']+1;
+		$this->set('last_content_id', $last_content_id);
 	}
 
 }
