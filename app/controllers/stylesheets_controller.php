@@ -25,9 +25,9 @@ class StylesheetsController extends AppController {
 		@ob_start ('ob_gzhandler');
 		header("Content-Type: text/css");
 		header("Cache-Control: must-revalidate");
-		$offset = 72000 ;
-		//$ExpStr = "Expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";
-		//header($ExpStr); 
+		$offset = 720000 ;
+		$ExpStr = "Expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";
+		header($ExpStr); 
 
 		echo '/* Begin Stylesheet: ' . $stylesheet['Stylesheet']['name'] . ' */';		
 		echo $output;
