@@ -113,6 +113,9 @@ function smarty_function_content_listing($params, $template)
 
         if(!isset ($params['page']))
             $params['page'] = 1;
+
+        if(!isset ($params['type']))
+            $params['type'] = 'all';
 	
 	// Loop through the values in $params['type'] and set some more condiitons
 	$allowed_types = array();
