@@ -17,6 +17,8 @@
   ExpiresByType application/x-javascript "access plus 10 years"
   ExpiresByType application/javascript "access plus 10 years"
   ExpiresByType image/png "access plus 10 years"
+  ExpiresByType image/x-icon "access plus 10 years"
+  ExpiresByType image/vnd.microsoft.icon "access plus 10 years"
   ExpiresByType image/gif "access plus 10 years"
   ExpiresByType image/jpeg "access plus 10 years"
 </IfModule>
