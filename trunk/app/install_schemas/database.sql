@@ -13,7 +13,7 @@ CREATE TABLE `configuration_groups` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `configuration_groups` (`id`, `key`, `value`) VALUES 
+INSERT INTO `configuration_groups` (`id`, `key`, `name`, `description`, `group_icon`, `visible`, `sort_order`) VALUES 
 (1, 'main', 'Main','','main.png','1','1'),
 (2, 'cache', 'Caching','','cache.png','1','2'),
 (3, 'email', 'Email Settings','','email.png','1','3');
@@ -31,9 +31,9 @@ CREATE TABLE `configurations` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `configurations` (`id`, `key`, `value`) VALUES 
+INSERT INTO `configurations` (`id`, `key`, `value`, `type`, `name`, `description`, `group_id`, `sort_order`) VALUES 
 (1, 'SITE_NAME', 'VamCart','text','Site Name','','1','1'),
-(2, 'METADATA', '<meta name="generator" content="Bluefish 2.0.3" />','textarea','Metadata','','','1','2'),
+(2, 'METADATA', '<meta name="generator" content="Bluefish 2.0.3" />','textarea','Metadata','','1','2'),
 (3, 'URL_EXTENSION', '.html','text','URL Extension','','1','3'),
 (4, 'GD_LIBRARY', '1','text','GD Library Enabled','','1','4'),
 (5, 'THUMBNAIL_SIZE', '125','text','Image Thumbnail Size','','1','5'),
