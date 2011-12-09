@@ -198,7 +198,7 @@ class AppController extends Controller {
 			),
 			5 => array('icon' => 'configurations.png', 'text' => __('Configurations', true), 'path' => '/admin/admin_top/5',
 				'children' => array(
-					1 => array('icon' => 'store.png', 'text' => __('Store Settings', true), 'path' => '/configuration/admin_edit/'),
+					1 => array('icon' => 'store.png', 'text' => __('Store Settings', true), 'path' => '/configuration/admin/'),
 					2 => array('icon' => 'license.png', 'text' => __('License', true), 'path' => '/license/admin/'),
 					3 => array('icon' => 'update.png', 'text' => __('Update', true), 'path' => '/update/admin/'),
 					4 => array('icon' => 'order-status.png', 'text' => __('Order status', true), 'path' => '/order_status/admin/'),
