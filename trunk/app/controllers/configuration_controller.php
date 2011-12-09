@@ -56,7 +56,7 @@ class ConfigurationController extends AppController {
 		$this->set('current_crumb', __('Store Configuration', true));
 		$this->set('title_for_layout', __('Store Configuration', true));
 		
-		$this->set('data',$this->ConfigurationGroup->find('all'));
+		$this->set('data',$this->ConfigurationGroup->find('all', array('conditions' => array('ConfigurationGroup.visible' => 1), 'order' => array('ConfigurationGroup.sort_order ASC'))));
 	}	
 }
 ?>
