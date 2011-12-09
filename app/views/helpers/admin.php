@@ -62,7 +62,7 @@ class AdminHelper extends Helper {
 	*/	
 	function CreateTab ($tab_alias, $tab_name = null, $icon = null)
 	{
-		if (isset($icon) && file_exists(IMAGES . 'admin/icons/tabs/' . $icon)) {
+		if (!empty($icon) && file_exists(IMAGES . 'admin/icons/tabs/' . $icon)) {
 			$content = '<li><a href ="#' . $tab_alias . '"><span>' . $this->Html->image('admin/icons/tabs/'.$icon, array('alt' => '')).'&nbsp;' . $tab_name . '</span></a></li>';
 		} else {
 			$content = '<li><a href ="#' . $tab_alias . '"><span>' . $tab_name . '</span></a></li>';
@@ -289,7 +289,7 @@ class AdminHelper extends Helper {
 			$content = '';
 			$content .= '<div id="page">';
 			$content .= '<h2>';
-		if (isset($icon) && file_exists(IMAGES . 'admin/icons/page/' . $icon)) {
+		if (!empty($icon) && file_exists(IMAGES . 'admin/icons/page/' . $icon)) {
 			$content .= $this->Html->image('admin/icons/page/'.$icon, array('alt' => '')).'&nbsp;' . $page_name;
 		} else {
 			$content .= $page_name;
@@ -338,7 +338,7 @@ class AdminHelper extends Helper {
 	function formButton ($name, $icon = null, $parameters = null)
 	{
 		
-		if (isset($icon) && file_exists(IMAGES . 'admin/icons/buttons/' . $icon)) {
+		if (!empty($icon) && file_exists(IMAGES . 'admin/icons/buttons/' . $icon)) {
 			$content = '<span class="button">'.$this->Form->button($this->Html->image('admin/icons/buttons/'.$icon, array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__($name, true), $parameters).'</span>';
 		} else {
 			$content = '<span class="button">'.$this->Form->button(__($name, true), $parameters).'</span>';
@@ -356,7 +356,7 @@ class AdminHelper extends Helper {
 	function formButtonCatalog ($name, $icon = null, $parameters = null)
 	{
 		
-		if (isset($icon) && file_exists(IMAGES . 'icons/buttons/' . $icon)) {
+		if (!empty($icon) && file_exists(IMAGES . 'icons/buttons/' . $icon)) {
 			$content = '<span class="button">'.$this->Form->button($this->Html->image('icons/buttons/'.$icon, array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__($name, true), $parameters).'</span>';
 		} else {
 			$content = '<span class="button">'.$this->Form->button(__($name, true), $parameters).'</span>';
@@ -375,7 +375,7 @@ class AdminHelper extends Helper {
 	function linkButton ($title, $url, $icon = null, $parameters = null, $confirmMessage = false)
 	{
 		
-		if (isset($icon) && file_exists(IMAGES . 'admin/icons/buttons/' . $icon)) {
+		if (!empty($icon) && file_exists(IMAGES . 'admin/icons/buttons/' . $icon)) {
 			$content = $this->Html->link('<span>'.$this->Html->image('admin/icons/buttons/'.$icon, array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__($title,true).'</span>', $url, $parameters, $confirmMessage);
 		} else {
 			$content = $this->Html->link('<span>'.__($title,true).'</span>', $url, $parameters, $confirmMessage);
@@ -394,7 +394,7 @@ class AdminHelper extends Helper {
 	function linkButtonCatalog ($title, $url, $icon = null, $parameters = null, $confirmMessage = false)
 	{
 		
-		if (isset($icon) && file_exists(IMAGES . 'icons/buttons/' . $icon)) {
+		if (!empty($icon) && file_exists(IMAGES . 'icons/buttons/' . $icon)) {
 			$content = $this->Html->link('<span>'.$this->Html->image('icons/buttons/'.$icon, array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__($title,true).'</span>', $url, $parameters, $confirmMessage);
 		} else {
 			$content = $this->Html->link('<span>'.__($title,true).'</span>', $url, $parameters, $confirmMessage);
