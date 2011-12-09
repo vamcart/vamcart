@@ -1,30 +1,52 @@
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET NAMES 'utf8';
 
+DROP TABLE IF EXISTS configuration_groups;
+CREATE TABLE `configuration_groups` (
+  `id` int(10) NOT NULL auto_increment,
+  `key` varchar(50) collate utf8_unicode_ci NOT NULL,
+  `name` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `description` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `group_icon` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `visible` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `sort_order` varchar(255) collate utf8_unicode_ci NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `configuration_groups` (`id`, `key`, `value`) VALUES 
+(1, 'main', 'Main','','main.png','1','1'),
+(2, 'cache', 'Caching','','cache.png','1','2'),
+(3, 'email', 'Email Settings','','email.png','1','3');
+
 DROP TABLE IF EXISTS configurations;
 CREATE TABLE `configurations` (
   `id` int(10) NOT NULL auto_increment,
   `key` varchar(50) collate utf8_unicode_ci NOT NULL,
   `value` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `type` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `name` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `description` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `group_id` int(10) NOT NULL,
+  `sort_order` varchar(255) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `configurations` (`id`, `key`, `value`) VALUES 
-(1, 'METADATA', '<meta name="generator" content="Bluefish 2.0.3" />'),
-(2, 'SITE_NAME', 'VamCart'),
-(3, 'URL_EXTENSION', '.html'),
-(4, 'GD_LIBRARY', '1'),
-(5, 'THUMBNAIL_SIZE', '125'),
-(6, 'GOOGLE_ANALYTICS', ''),
-(7, 'YANDEX_METRIKA', ''),
-(8, 'CACHE_TIME', '3600'),
-(9, 'SEND_EXTRA_EMAIL', 'vam@test.com'),
-(10, 'NEW_ORDER_FROM_EMAIL', 'vam@test.com'),
-(11, 'NEW_ORDER_FROM_NAME', 'VamCart'),
-(12, 'NEW_ORDER_STATUS_FROM_EMAIL', 'vam@test.com'),
-(13, 'NEW_ORDER_STATUS_FROM_NAME', 'VamCart'),
-(14, 'SEND_CONTACT_US_EMAIL', 'vam@test.com'),
-(15, 'PRODUCTS_PER_PAGE', '10');
+(1, 'SITE_NAME', 'VamCart','text','Site Name','','1','1'),
+(2, 'METADATA', '<meta name="generator" content="Bluefish 2.0.3" />','textarea','Metadata','','','1','2'),
+(3, 'URL_EXTENSION', '.html','text','URL Extension','','1','3'),
+(4, 'GD_LIBRARY', '1','text','GD Library Enabled','','1','4'),
+(5, 'THUMBNAIL_SIZE', '125','text','Image Thumbnail Size','','1','5'),
+(6, 'GOOGLE_ANALYTICS', '','text','Google Analytics ID','','1','6'),
+(7, 'YANDEX_METRIKA', '','text','Yandex.Metrika ID','','1','7'),
+(8, 'PRODUCTS_PER_PAGE', '10','text','Products Per Page','','1','8'),
+(9, 'CACHE_TIME', '3600','text','Cache Time in Seconds','','2','9'),
+(10, 'SEND_EXTRA_EMAIL', 'vam@test.com','text','Send extra order emails to','','3','10'),
+(11, 'NEW_ORDER_FROM_EMAIL', 'vam@test.com','text','New Order: From','','3','11'),
+(12, 'NEW_ORDER_FROM_NAME', 'VamCart','text','New Order: From Name','','3','12'),
+(13, 'NEW_ORDER_STATUS_FROM_EMAIL', 'vam@test.com','text','New Order Status: From','','3','13'),
+(14, 'NEW_ORDER_STATUS_FROM_NAME', 'VamCart','text','New Order Status: From Name','','3','14'),
+(15, 'SEND_CONTACT_US_EMAIL', 'vam@test.com','text','Send contact us emails to','','3','15');
 
 DROP TABLE IF EXISTS contents;
 CREATE TABLE `contents` (
