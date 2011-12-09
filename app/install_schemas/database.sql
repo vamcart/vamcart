@@ -21,7 +21,7 @@ INSERT INTO `configuration_groups` (`id`, `key`, `name`, `description`, `group_i
 DROP TABLE IF EXISTS configurations;
 CREATE TABLE `configurations` (
   `id` int(10) NOT NULL auto_increment,
-  `configuratin_group_id` int(10) NOT NULL,
+  `configuration_group_id` int(10) NOT NULL,
   `key` varchar(50) collate utf8_unicode_ci NOT NULL,
   `value` varchar(255) collate utf8_unicode_ci NOT NULL,
   `type` varchar(255) collate utf8_unicode_ci NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE `configurations` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `configurations` (`id`, `configuratin_group_id`, `key`, `value`, `type`, `name`, `description`, `sort_order`) VALUES 
+INSERT INTO `configurations` (`id`, `configuration_group_id`, `key`, `value`, `type`, `name`, `description`, `sort_order`) VALUES 
 (1,'1','SITE_NAME', 'VamCart','text','Site Name','','1'),
 (2,'1','METADATA', '<meta name="generator" content="Bluefish 2.0.3" />','textarea','Metadata','','2'),
 (3,'1','URL_EXTENSION', '.html','text','URL Extension','','3'),
