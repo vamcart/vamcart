@@ -25,28 +25,29 @@ CREATE TABLE `configurations` (
   `key` varchar(50) collate utf8_unicode_ci NOT NULL,
   `value` varchar(255) collate utf8_unicode_ci NOT NULL,
   `type` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `options` varchar(255) collate utf8_unicode_ci NOT NULL,
   `name` varchar(255) collate utf8_unicode_ci NOT NULL,
   `description` varchar(255) collate utf8_unicode_ci NOT NULL,
   `sort_order` varchar(255) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `configurations` (`id`, `configuration_group_id`, `key`, `value`, `type`, `name`, `description`, `sort_order`) VALUES 
-(1,'1','SITE_NAME', 'VamCart','text','Site Name','','1'),
-(2,'1','METADATA', '<meta name="generator" content="Bluefish 2.0.3" />','textarea','Metadata','','2'),
-(3,'1','URL_EXTENSION', '.html','text','URL Extension','','3'),
-(4,'1','GD_LIBRARY', '1','text','GD Library Enabled','','4'),
-(5,'1','THUMBNAIL_SIZE', '125','text','Image Thumbnail Size','','5'),
-(6,'1','GOOGLE_ANALYTICS', '','text','Google Analytics ID','','6'),
-(7,'1','YANDEX_METRIKA', '','text','Yandex.Metrika ID','','7'),
-(8,'1','PRODUCTS_PER_PAGE', '10','text','Products Per Page','','8'),
-(9,'2','CACHE_TIME', '3600','text','Cache Time in Seconds','','9'),
-(10,'3','SEND_EXTRA_EMAIL', 'vam@test.com','text','Send extra order emails to','','10'),
-(11,'3','NEW_ORDER_FROM_EMAIL', 'vam@test.com','text','New Order: From','','11'),
-(12,'3','NEW_ORDER_FROM_NAME', 'VamCart','text','New Order: From Name','','12'),
-(13,'3','NEW_ORDER_STATUS_FROM_EMAIL', 'vam@test.com','text','New Order Status: From','','13'),
-(14,'3','NEW_ORDER_STATUS_FROM_NAME', 'VamCart','text','New Order Status: From Name','','14'),
-(15,'3','SEND_CONTACT_US_EMAIL', 'vam@test.com','text','Send contact us emails to','','15');
+INSERT INTO `configurations` (`id`, `configuration_group_id`, `key`, `value`, `type`, `options`, `name`, `description`, `sort_order`) VALUES 
+(1,'1','SITE_NAME', 'VamCart','text', '', 'Site Name','','1'),
+(2,'1','METADATA', '<meta name="generator" content="Bluefish 2.0.3" />','textarea', '', 'Metadata','','2'),
+(3,'1','URL_EXTENSION', '.html','text', '', 'URL Extension','','3'),
+(4,'1','GD_LIBRARY', '1','select', '0,1', 'GD Library Enabled','','4'),
+(5,'1','THUMBNAIL_SIZE', '125','text', '', 'Image Thumbnail Size','','5'),
+(6,'1','GOOGLE_ANALYTICS', '','text', '', 'Google Analytics ID','','6'),
+(7,'1','YANDEX_METRIKA', '','text', '', 'Yandex.Metrika ID','','7'),
+(8,'1','PRODUCTS_PER_PAGE', '10','text', '', 'Products Per Page','','8'),
+(9,'2','CACHE_TIME', '3600','text', '', 'Cache Time in Seconds','','9'),
+(10,'3','SEND_EXTRA_EMAIL', 'vam@test.com','text', '', 'Send extra order emails to','','10'),
+(11,'3','NEW_ORDER_FROM_EMAIL', 'vam@test.com','text', '', 'New Order: From','','11'),
+(12,'3','NEW_ORDER_FROM_NAME', 'VamCart','text', '', 'New Order: From Name','','12'),
+(13,'3','NEW_ORDER_STATUS_FROM_EMAIL', 'vam@test.com','text', '', 'New Order Status: From','','13'),
+(14,'3','NEW_ORDER_STATUS_FROM_NAME', 'VamCart','text', '', 'New Order Status: From Name','','14'),
+(15,'3','SEND_CONTACT_US_EMAIL', 'vam@test.com','text', '', 'Send contact us emails to','','15');
 
 DROP TABLE IF EXISTS contents;
 CREATE TABLE `contents` (
