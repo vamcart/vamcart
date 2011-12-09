@@ -8,6 +8,5 @@
 
 class Configuration extends AppModel {
 	var $name = 'Configuration';
-   var $belongsTo = array('ConfigurationGroup');	
 }
 ?>
