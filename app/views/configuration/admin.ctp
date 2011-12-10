@@ -22,28 +22,28 @@ echo $form->create('Configuration', array('id' => 'contentform', 'action' => '/c
 
 	echo $admin->StartTabs();
 	
-$gr = '';	
-$st = '';	
+		$gr = '';	
+		$st = '';	
 
-$yes_no_options = array();
-$yes_no_options[0] = __('no', true);
-$yes_no_options[1] = __('yes', true);
+		$yes_no_options = array();
+		$yes_no_options[0] = __('no', true);
+		$yes_no_options[1] = __('yes', true);
 	
 		foreach ($data AS $groups)
 			{
-			$gr .= $admin->CreateTab($groups['ConfigurationGroup']['key'],__($groups['ConfigurationGroup']['name'],true), $groups['ConfigurationGroup']['group_icon'])."\n";
+			$gr .= $admin->CreateTab($groups['ConfigurationGroup']['key'],__($groups['ConfigurationGroup']['name'],true), $groups['ConfigurationGroup']['group_icon']);
 			
-					$st .= $admin->StartTabContent($groups['ConfigurationGroup']['key'])."\n";
+					$st .= $admin->StartTabContent($groups['ConfigurationGroup']['key']);
 					foreach($groups['Configuration'] AS $settings)
 					{
 						$st .= $form->input($settings['key'], array('label' => __($settings['name'], true), 'type' => $settings['type'], 'options' => (!isset($settings['options']) ? null : $yes_no_options), 'value' => $settings['value']));
 					}
-					$st .= $admin->EndTabContent()."\n";
+					$st .= $admin->EndTabContent();
 			
 		}
 
-echo '<ul>'.$gr.'</ul>'."\n";
-echo $st."\n";
+			echo '<ul>'.$gr.'</ul>';
+			echo $st;
 
 	echo $admin->EndTabs();
 
