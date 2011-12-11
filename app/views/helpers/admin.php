@@ -115,7 +115,7 @@ class AdminHelper extends Helper {
 		
 		if(!empty($options))
 		{
-				$content .= '<select name="multiaction" onchange="this.form.submit();">';
+				$content .= '<select name="multiaction" onchange="if (this.form.onsubmit == undefined) { this.form.submit(); } else { if (this.form.onsubmit() != false) { this.form.submit();} return false;} ">';
 				$content .= '<option value="">'.__('With Selected:', true).'</option>';
 			foreach($options AS $key => $value)
 			{

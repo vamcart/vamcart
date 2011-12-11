@@ -45,9 +45,9 @@ class AppController extends Controller {
 		$current[$current_model]['order'] = $temp_order;
 
 		$this->$current_model->save($new);
-		$this->$current_model->save($current);	
+		$this->$current_model->save($current);
 
-		$this->redirect('/' . $current_controller . '/admin/' . $this->RequestHandler->isAjax());	
+		$this->redirect('/' . $current_controller . '/admin/0/' . $current[$current_model]['parent_id'] . '/' . $this->RequestHandler->isAjax());
 	}
 	
 
@@ -63,12 +63,14 @@ class AppController extends Controller {
 		$current_model = $this->modelClass;
 		$current_controller = $this->params['controller'];
 		$grab_info = $this->$current_model->find('all');
+		$parent_id = -1;
 
 		foreach ($grab_info AS $info)
 		{
 			if ($id == $info[$current_model]['id'])
 			{
-				$info[$current_model]['default'] = 1;	
+				$info[$current_model]['default'] = 1;
+				$parent_id = $info[$current_model]['parent_id'];
 			}
 			else
 			{
@@ -78,7 +80,7 @@ class AppController extends Controller {
 		}
 		
 		
-		$this->redirect('/' . $current_controller . '/admin/' . $this->RequestHandler->isAjax());	
+		$this->redirect('/' . $current_controller . '/admin/0/' . $parent_id . '/' . $this->RequestHandler->isAjax());
 		
 	}
 	
@@ -96,7 +98,6 @@ class AppController extends Controller {
 		// Read the record
 		$this->$current_model->id = $id;
 		$record = $this->$current_model->read();
-				
 		if($record[$current_model]['active'] == 0)
 		{
 			$record[$current_model]['active'] = 1;
@@ -108,7 +109,7 @@ class AppController extends Controller {
 		$this->$current_model->save($record);
 
 		// Redirect depending on the current controller
-		$this->redirect('/' . $current_controller . '/admin/' . $this->RequestHandler->isAjax());	
+		$this->redirect('/' . $current_controller . '/admin/0/' . $record[$current_model]['parent_id'] . '/' . $this->RequestHandler->isAjax());
 	}
 
 	/**
