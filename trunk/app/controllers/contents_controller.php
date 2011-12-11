@@ -19,28 +19,29 @@ class ContentsController extends AppController {
 
 		
 		$directory = WWW_ROOT . IMAGES_URL . '/content/' . $content_id;
-		if(!is_dir($directory))
+		if(!is_dir($directory)) {
 			mkdir($directory);
-			
-			$fileObject = $_FILES['Filedata'];
+		}
+		
+		$fileObject = $_FILES['Filedata'];
 
-			$filetype = $fileObject['type'];
-			$filesize = $fileObject['size'];
-			$filename = $fileObject['name'];
-			$filetmpname = $fileObject['tmp_name'];
+		$filetype = $fileObject['type'];
+		$filesize = $fileObject['size'];
+		$filename = $fileObject['name'];
+		$filetmpname = $fileObject['tmp_name'];
 
-			move_uploaded_file($filetmpname, $directory.'/'.$filename);			
-			
-			// Create the database record
-			$content_image = array();
-			$content_image['ContentImage']['content_id'] = $content_id;
-			$content_image['ContentImage']['image'] = $filename;
-			// Calculate the image with the highest order
-			$highest = $this->Content->ContentImage->find(array('content_id' => $content_id), null, 'ContentImage.order DESC');
-			$content_image['ContentImage']['order'] = $highest['ContentImage']['order'] + 1;
-			
-			$this->Content->ContentImage->save($content_image);
-					
+		move_uploaded_file($filetmpname, $directory.'/'.$filename);			
+		
+		// Create the database record
+		$content_image = array();
+		$content_image['ContentImage']['content_id'] = $content_id;
+		$content_image['ContentImage']['image'] = $filename;
+		// Calculate the image with the highest order
+		$highest = $this->Content->ContentImage->find(array('content_id' => $content_id), null, 'ContentImage.order DESC');
+		$content_image['ContentImage']['order'] = $highest['ContentImage']['order'] + 1;
+		
+		$this->Content->ContentImage->save($content_image);
+		
 	}
 
 	/**
@@ -89,7 +90,7 @@ class ContentsController extends AppController {
 		}
 		$this->Content->save($content);
 
-		$this->redirect('/contents/admin/' . $this->RequestHandler->isAjax());		
+		$this->redirect('/contents/admin/0/' . $content['Content']['parent_id'] . '/' . $this->RequestHandler->isAjax());		
 	}
 	
 	/**
@@ -126,7 +127,7 @@ class ContentsController extends AppController {
 			$this->Content->delete($content_id, true);
 			$this->Session->setFlash(__('You have deleted a record.', true));		
 		}
-		$this->redirect('/contents/admin/');
+		$this->redirect('/contents/admin/0/' . $content['Content']['parent_id']);
 	}
 
 	/**
@@ -153,7 +154,6 @@ class ContentsController extends AppController {
 			$model = $content_type['ContentType']['type'];
 			$view = $content_type['ContentType']['type'];
 		}
-
 
 		$data = $this->Content->$model->find(array('content_id' => $content_id));
 		$this->set('data', $data);
@@ -440,6 +440,7 @@ class ContentsController extends AppController {
 	function admin_modify_selected() 
 	{
 		$build_flash = "";
+		$target_page = '/contents/admin/';
 		foreach($this->params['data']['Content']['modify'] AS $value)
 		{
 			// Make sure the id is valid
@@ -453,44 +454,66 @@ class ContentsController extends AppController {
 				switch ($this->params['form']['multiaction']) 
 				{
 					case "delete":
-					
+						$target_page = '/contents/admin/0/' . $content['Content']['parent_id'];
 						// Check the count of the child elements, dont allow them to delete a content item with children yet
 						$count_children = $this->Content->find('count', array('conditions' => array('Content.parent_id' => $content['Content']['id'])));
-					if($count_children > 0)
-					{
+						if($count_children > 0)
+						{
 							$build_flash .= __('Unable to delete content item with children.', true);
-					}
-					else
-					{
-						    $this->Content->delete($value, true);
+						}
+						else
+						{
+							$this->Content->delete($value, true);
 							$build_flash .= __('Deleted a content item.', true);
-					}
-				    break;
+						}
+						break;
 					case "show_in_menu":
-					    $content['Content']['show_in_menu'] = 1;
+						$content['Content']['show_in_menu'] = 1;
 						$this->Content->save($content);
 						$build_flash .= __('Now showing in menu.', true);
-					break;
+						$target_page = '/contents/admin/0/' . $content['Content']['parent_id'];
+						break;
 					case "hide_from_menu":
-					    $content['Content']['show_in_menu'] = 0;
+						$content['Content']['show_in_menu'] = 0;
 						$this->Content->save($content);
 						$build_flash .= __('Now hiding from menu.', true);
-					break;					
+						$target_page = '/contents/admin/0/' . $content['Content']['parent_id'];
+						break;
 					case "activate":
-					    $content['Content']['active'] = 1;
+						$content['Content']['active'] = 1;
 						$this->Content->save($content);
 						$build_flash .= __('Activated content item.', true);
-			    	break;
+						$target_page = '/contents/admin/0/' . $content['Content']['parent_id'];
+						break;
 					case "deactivate":
-					    $content['Content']['active'] = 0;
+						$content['Content']['active'] = 0;
 						$this->Content->save($content);
-						$build_flash .= __('Inactivated content item.', true);						
-				    break;
+						$build_flash .= __('Inactivated content item.', true);
+						$target_page = '/contents/admin/0/' . $content['Content']['parent_id'];
+						break;
+					case "copy":
+						$parent_id = $this->params['form']['target_category'];
+						$this->_copy_content($content, $parent_id);
+						$build_flash .= __('Copied content item.', true);
+						$target_page = '/contents/admin/0/' . $parent_id;
+						break;
+					case "move":
+						$parent_id = $this->params['form']['target_category'];
+						$content['Content']['parent_id'] = $parent_id;
+						$highest_order_content = $this->Content->find(array('Content.parent_id' => $parent_id),null,'Content.order DESC');
+						$new_order = $highest_order_content['Content']['order'] + 1;
+						$content['Content']['order'] = $new_order;
+						$this->Content->save($content);
+						$build_flash .= __('Moved content item.', true);
+						$target_page = '/contents/admin/0/' . $parent_id;
+						break;
+					default:
+						break;
 				}
 			}
 		}
 		$this->Session->setFlash($build_flash);	
-		$this->redirect('/contents/admin/');
+		$this->redirect($target_page);
 	}	
 
 
@@ -537,15 +560,15 @@ class ContentsController extends AppController {
 		// Lets remove the hasMany association for now and associate it with our language of choice
 		$this->Content->unbindModel(array('hasMany' => array('ContentDescription')));
 		$this->Content->bindModel(
-	        array('hasOne' => array(
-				'ContentDescription' => array(
-                    'className' => 'ContentDescription',
-					'conditions'   => 'language_id = ' . $this->Session->read('Customer.language_id')
-                )
-            )
-           	)
-	    );
-			
+			array('hasOne' => array(
+						'ContentDescription' => array(
+							'className' => 'ContentDescription',
+							'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
+							)
+						)
+			)
+		);
+
 		$content_data = $this->Content->find('all', array('conditions' => array('Content.parent_id' => $parent_id), 'order' => array('Content.order ASC')));
 		// Loop through and assign the counts
 		foreach($content_data AS $key => $value)
@@ -558,14 +581,14 @@ class ContentsController extends AppController {
 		{
 			$this->Content->unbindModel(array('hasMany' => array('ContentDescription')));
 			$this->Content->bindModel(array('hasOne' => array(
-												'ContentDescription' => array(
-								                    'className' => 'ContentDescription',
-													'conditions'   => 'language_id = ' . $this->Session->read('Customer.language_id')
-								                )
-								            )
-								           	)
-									    );
-										
+									'ContentDescription' => array(
+										'className' => 'ContentDescription',
+										'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
+										)
+									)
+							)
+			);
+
 			$parent_content = $this->Content->read(null, $parent_id);
 			$this->set('current_crumb_info', $parent_content['ContentDescription']['name']);
 			$this->set('parent_content', $parent_content);			
@@ -577,6 +600,95 @@ class ContentsController extends AppController {
 		$last_content_id = $last_content_id['Content']['id']+1;
 		$this->set('last_content_id', $last_content_id);
 	}
+	
+	function admin_categories_tree()
+	{
+		$this->Content->unbindModel(array('hasMany' => array('ContentDescription')));
 
+		$this->Content->bindModel(array('hasOne' => array(
+								'ContentDescription' => array(
+									'className' => 'ContentDescription',
+									'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
+									)
+								)
+						)
+		);
+		
+		$categories = $this->Content->find('threaded', array('conditions' => array('Content.content_type_id' => 1)));
+		$tree = array();
+		foreach ($categories as $category) {
+			$this->_add_tree_node(&$tree, $category, 0);
+		}
+		$this->set('content_data', $tree);
+	}
+
+	function _add_tree_node($tree, $node, $level)
+	{
+		$tree[] = array('id' => $node['Content']['id'],
+				'name' => $node['ContentDescription']['name'],
+				'level' => $level,
+				'tree_prefix' => str_repeat('&nbsp;&nbsp;', $level));
+				
+		foreach ($node['children'] as $child) {
+			$this->_add_tree_node(&$tree, $child, $level + 1);
+		}
+	}
+	
+	function _copy_content($content, $parent_id)
+	{
+		$content['Content']['id'] = null;
+		$content['Content']['parent_id'] = $parent_id;
+		$content['Content']['viewed'] = 0;
+		$highest_order_content = $this->Content->find(array('Content.parent_id' => $parent_id),null,'Content.order DESC');
+		$new_order = $highest_order_content['Content']['order'] + 1;
+		$content['Content']['order'] = $new_order;
+		
+		$this->Content->create();
+		$this->Content->save($content['Content']);
+		$content_id = $this->Content->getLastInsertid();
+		
+		foreach ($content['ContentDescription'] as $description)
+		{
+			$description['id'] = null;
+			$description['content_id'] = $content_id;
+			$this->Content->ContentDescription->create();
+			$this->Content->ContentDescription->save($description);
+		}
+		
+		$model = $content['ContentType']['type'];
+		
+		$content[$model]['id'] = null;
+		$content[$model]['content_id'] = $content_id;
+		
+		if ('ContentProduct' == $model) {
+			$content[$model]['ordered'] = 0;
+		}
+		
+		$this->Content->$model->create();
+		$this->Content->$model->save($content[$model]);
+		
+		$this->_copy_content_images($content, $content_id);
+	}
+	
+	function _copy_content_images($content, $dst_content_id)
+	{
+		foreach ($content['ContentImage'] as $image) {
+			$src_filename = WWW_ROOT . IMAGES_URL . '/content/' . $image['content_id'] . '/' . $image['image'];
+			$dst_filename = WWW_ROOT . IMAGES_URL . '/content/' . $dst_content_id . '/' . $image['image'];
+			$dst_dir = WWW_ROOT . IMAGES_URL . '/content/' . $dst_content_id;
+			
+			if(!is_dir($dst_dir)) {
+				@mkdir($dst_dir);
+			}
+			
+			@copy($src_filename, $dst_filename);
+			
+			$image['id'] = null;
+			$image['content_id'] = $dst_content_id;
+			
+			$this->Content->ContentImage->create();
+			$this->Content->ContentImage->save($image);
+		}
+	}
 }
 ?>
