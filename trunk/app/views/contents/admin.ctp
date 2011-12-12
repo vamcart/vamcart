@@ -7,9 +7,12 @@
    ---------------------------------------------------------------------------------------*/
 
 $l = $this->Session->read('Config.language');
+
 if (NULL == $l) {
 	$l = $this->Session->read('Customer.language');
 }
+
+$l = substr($l, 0, 2);
 
 $html->script(array(
 	'jquery/plugins/jquery-ui-min.js',
