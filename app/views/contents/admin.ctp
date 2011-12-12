@@ -6,11 +6,16 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
+$l = $this->Session->read('Config.language');
+if (NULL == $l) {
+	$l = $this->Session->read('Customer.language');
+}
+
 $html->script(array(
 	'jquery/plugins/jquery-ui-min.js',
 	'selectall.js',
 	'admin_content.js',
-	'admin_content_i18n_' . $this->Session->read('UserPref.language') . '.js'
+	'admin_content_i18n_' . $l . '.js'
 ), array('inline' => false));
 
 echo $html->css('jquery-ui.css', null, array('inline' => false));
