@@ -9,7 +9,8 @@
 $html->script(array(
 	'jquery/plugins/jquery-ui-min.js',
 	'selectall.js',
-	'admin_content.js'
+	'admin_content.js',
+	'admin_content_i18n_' . $this->Session->read('UserPref.language') . '.js'
 ), array('inline' => false));
 
 echo $html->css('jquery-ui.css', null, array('inline' => false));
