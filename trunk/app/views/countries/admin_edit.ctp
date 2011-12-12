@@ -6,13 +6,12 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-	$html->script(array(
-		'modified.js',
-			'jquery/plugins/ui.core.js',
-		'jquery/plugins/ui.tabs.js',
-		'tabs.js',
-		'focus-first-input.js'
-	), array('inline' => false));
+$html->script(array(
+	'modified.js',
+	'jquery/plugins/jquery-ui-min.js',
+	'tabs.js',
+	'focus-first-input.js'
+), array('inline' => false));
 
 	echo $html->css('ui.tabs', null, array('inline' => false));
 

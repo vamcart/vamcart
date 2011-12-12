@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 
 $html->script(array(
-	'jquery/jquery-ui-min.js',
+	'jquery/plugins/jquery-ui-min.js',
 	'selectall.js',
 	'admin_content.js'
 ), array('inline' => false));

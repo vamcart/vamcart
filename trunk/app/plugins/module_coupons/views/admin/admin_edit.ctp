@@ -8,9 +8,7 @@
 
 $html->script(array(
 	'modified.js',
-	'jquery/jquery.min.js',
-	'jquery/plugins/ui.core.js',
-	'jquery/plugins/ui.tabs.js',
+	'jquery/plugins/jquery-ui-min.js',
 	'tabs.js',
 	'focus-first-input.js'
 ), array('inline' => false));

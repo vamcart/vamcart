@@ -11,8 +11,7 @@
 $html->script(array(
 	'modified.js',
 	'jquery/plugins/jquery.validation.js',
-	'jquery/plugins/ui.core.js',
-	'jquery/plugins/ui.tabs.js',
+	'jquery/plugins/jquery-ui-min.js',
 	'tabs.js',
 	'swfupload/swfupload.js',
 	'swfupload/swfupload.queue.js',
