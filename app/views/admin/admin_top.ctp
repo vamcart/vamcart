@@ -7,8 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 
 $html->script(array(
-	'jquery/plugins/ui.core.js',
-	'jquery/plugins/ui.tabs.js',
+	'jquery/plugins/jquery-ui-min.js',
 	'tabs.js'
 ), array('inline' => false));
 
