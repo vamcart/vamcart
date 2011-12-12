@@ -3266,3 +3266,19 @@ msgstr "У вас самая последняя версия VamCart."
 #: /app/views/update/admin.ctp
 msgid "Update sucessfully finished."
 msgstr "Обновление успешно завершено."
+
+#: /views/contents/admin_categories_tree.ctp:186
+msgid "Select target category"
+msgstr "Выберите целевую директорию"
+
+#: /views/contents/admin.ctp:186
+msgid "Move"
+msgstr "Переместить"
+
+#: /controllers/contents_controller.php:472
+msgid "Copied content item."
+msgstr "Элемент скопирован."
+
+#: /controllers/contents_controller.php:472
+msgid "Moved content item."
+msgstr "Элемент перемещён."
