@@ -19,20 +19,23 @@ function categorySelection(form)
 {
 	return $('<div id="categories-dialog"></div>').load('/contents/admin_categories_tree/').dialog({
 		modal: true,
-		title: 'Categories',
+		title: i18n.Categories,
 		height: 200,
-		buttons: {
-			"Select": function () {
+		buttons: [{
+			text: i18n.Select,
+			click: function () {
 				var val = $("#category").val();
 				$(form).append('<input type="hidden" name="target_category" />');
 				$("input[name=target_category]").val(val);
 				$(form).submit();
 				$(this).dialog("close");
-			},
-			"Cancel": function () {
+			}
+		}, {
+			text: i18n.Cancel,
+			click : function () {
 				$(this).dialog("close");
 			}
-		},
+		}],
 		close: function () {
 			$("#category").val('');
 		}
