@@ -48,7 +48,7 @@ var yaParams = {
 (function(w, c) {
     (w[c] = w[c] || []).push(function() {
         try {
-            w.yaCounter' . $config['YANDEX_METRIKA'] . ' = new Ya.Metrika({id:' . $config['YANDEX_METRIKA'] . ', enableAll: true,ut:"noindex",params:window.yaParams||{ }});
+            w.yaCounter' . $config['YANDEX_METRIKA'] . ' = new Ya.Metrika({id:' . $config['YANDEX_METRIKA'] . ', enableAll: true,webvisor:true,ut:"noindex",params:window.yaParams||{ }});
         }
         catch(e) { }
     });
@@ -70,7 +70,7 @@ var yaParams = {};
 (function(w, c) {
     (w[c] = w[c] || []).push(function() {
         try {
-            w.yaCounter'.$config['YANDEX_METRIKA'].' = new Ya.Metrika({id:'.$config['YANDEX_METRIKA'].', enableAll: true,ut:"noindex",params:window.yaParams||{ }});
+            w.yaCounter'.$config['YANDEX_METRIKA'].' = new Ya.Metrika({id:'.$config['YANDEX_METRIKA'].', enableAll: true,webvisor:true,ut:"noindex",params:window.yaParams||{ }});
         }
         catch(e) { }
     });
