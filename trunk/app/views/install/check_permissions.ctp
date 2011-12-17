@@ -7,12 +7,11 @@
    ---------------------------------------------------------------------------------------*/
 ?>
 
-<fieldset>
-<legend><?php __('Checking System Requirements') ?></legend>
 <?php
 foreach($install_checks AS $check)
 {
-	echo $html->image('admin/icons/'.($check['passed']=='passed'?'true.png':'false.png')) . '   ' . __('Can write to: ',true) . $check['dir'] . '<br />';
+	if ($check['passed']=='failed')
+	echo $html->image('admin/icons/false.png') . '   ' . __('Can\'t write to: ',true) . $check['dir'] . '<br />';
 }
 
 if(isset($fatal_error))
@@ -20,4 +19,3 @@ if(isset($fatal_error))
 	echo '<p>' . __('An error has occured. Please correct the error and refresh the page.') . '</p>';	
 }
 ?>
-</fieldset>
