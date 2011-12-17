@@ -2201,13 +2201,9 @@ msgstr "Загрузили новые картинки? Нажмите кноп�
 msgid "Click to Enlarge"
 msgstr "Увеличить"
 
-#: /views/install/check_permissions.ctp:16
-msgid "Checking System Requirements"
-msgstr "Проверка системных требований"
-
 #: /views/install/check_permissions.ctp:20
-msgid "Can write to: "
-msgstr "Права доступа на запись в: "
+msgid "Can\'t write to: "
+msgstr "Установите права доступа на запись в: "
 
 #: /views/install/check_permissions.ctp:25
 msgid "An error has occured. Please correct the error and refresh the page."
