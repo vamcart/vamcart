@@ -6,8 +6,8 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class CountryZone extends AppModel {
-   var $name = 'CountryZone';
-   var $belongsTo = array('Country', 'GeoZone');
+class GeoZone extends AppModel {
+	var $name = 'GeoZone';
+	var $hasMany = array('CountryZone');
 }
 ?>

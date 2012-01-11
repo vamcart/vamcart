@@ -14,11 +14,17 @@ if (NULL == $l) {
 
 $l = substr($l, 0, 2);
 
+$fname = 'admin_content_i18n_' . $l . '.js';
+
+if (!file_exists(WWW_ROOT . 'js/' . $fname)) {
+	$fname = 'admin_content_i18n_en.js';
+}
+    
 $html->script(array(
 	'jquery/plugins/jquery-ui-min.js',
 	'selectall.js',
 	'admin_content.js',
-	'admin_content_i18n_' . $l . '.js'
+	$fname
 ), array('inline' => false));
 
 echo $html->css('jquery-ui.css', null, array('inline' => false));

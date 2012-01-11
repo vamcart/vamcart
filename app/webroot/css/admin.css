@@ -1101,6 +1101,13 @@ div.clear
 			 
 /* /Code Mirror */
 
+/* Geo Zones */
+select#countries, select#country_zones
+	{
+		width: 370px;
+	}
+/* /Geo Zones */
+
 /* jQuery PopUp */
 
 #jquery-msg-bg 
