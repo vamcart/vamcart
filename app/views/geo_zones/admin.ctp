@@ -12,7 +12,7 @@ $html->script(array(
 
 $paginator->options(array('update' => 'content', 'url' => '/geo_zones/admin/', 'indicator' => 'spinner')); 
 
-echo $admin->ShowPageHeaderStart($current_crumb, '');
+echo $admin->ShowPageHeaderStart($current_crumb, 'geo-zones.png');
 
 echo $form->create('GeoZone', array('action' => '/geo_zones/admin_modify_selected/', 'url' => '/geo_zones/admin_modify_selected/'));
 
