@@ -127,6 +127,10 @@ msgstr "Страны"
 msgid "Defined Languages"
 msgstr "Языковые строки"
 
+#: /app_controller.php:219
+msgid "Geo Zones"
+msgstr "Зоны"
+
 #: /app_controller.php:222
 msgid "Extensions"
 msgstr "Расширения"
@@ -3278,3 +3282,35 @@ msgstr "Элемент скопирован."
 #: /controllers/contents_controller.php:472
 msgid "Moved content item."
 msgstr "Элемент перемещён."
+
+#: /controllers/geo_zones_controller.php:472
+msgid "Country Zones linked."
+msgstr "Регионы добавлены."
+
+#: /controllers/geo_zones_controller.php:472
+msgid "Country Zones unlinked."
+msgstr "Регионы удалены."
+
+#: /controllers/geo_zones_controller.php:472
+msgid "Geo Zone Details"
+msgstr "Информация о географической зоне"
+
+#: /controllers/geo_zones_controller.php:472
+msgid "Edit Zones for Geo Zone"
+msgstr "Редактирование регионов для зоны"
+
+#: /controllers/geo_zones_controller.php:472
+msgid "Geo Zones Listing"
+msgstr "Список географических зон"
+
+#: /views/geo_zones/admin_country_zones.ctp:472
+msgid "Select country"
+msgstr "Выберите страну"
+
+#: /views/geo_zones/admin_country_zones.ctp:472
+msgid "Select regions"
+msgstr "Выберите регионы"
+
+#: /views/geo_zones/admin_country_zones_getzones.ctp:472
+msgid "Empty"
+msgstr "Нет данных"
