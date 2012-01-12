@@ -215,7 +215,7 @@ class AppController extends Controller {
 					1 => array('icon' => 'currencies.png', 'text' => __('Currencies', true), 'path' => '/currencies/admin/'),
 					2 => array('icon' => 'languages.png', 'text' => __('Languages', true), 'path' => '/languages/admin/'),
 					3 => array('icon' => 'countries.png', 'text' => __('Countries', true), 'path' => '/countries/admin/'),
-					4 => array('icon' => '', 'text' => __('Geo Zones', true), 'path' => '/geo_zones/admin/'),
+					4 => array('icon' => 'geo-zones.png', 'text' => __('Geo Zones', true), 'path' => '/geo_zones/admin/'),
 					5 => array('icon' => 'defined.png', 'text' => __('Defined Languages', true), 'path' => '/defined_languages/admin/')															
 				)
 			),					
