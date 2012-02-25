@@ -21,12 +21,15 @@ if (!file_exists(WWW_ROOT . 'js/' . $fname)) {
 
 $html->script(array(
     'jquery/plugins/jquery-ui-min.js',
+    'lou-multi-select/jquery.multi-select.js',
+    'lou-multi-select/jquery.quicksearch.js',
     'selectall.js',
     'admin_geo_zones.js',
     $fname
 ), array('inline' => false));
 
 echo $html->css('jquery-ui.css', null, array('inline' => false));
+echo $html->css('multi-select.css', null, array('inline' => false));
 
 echo $admin->ShowPageHeaderStart($current_crumb, '');
 echo $form->create('GeoZoneZones', array('action' => '/geo_zones/admin_modify_country_zones_selected/', 'url' => '/geo_zones/admin_modify_country_zones_selected/'));
