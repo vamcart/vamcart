@@ -29,12 +29,17 @@ class GeoZonesController extends AppController {
 		$this->redirect('/geo_zones/admin_zones_edit/' . $geo_zone_id);
 	}
 	
-	function admin_country_zone_link($geo_zone_id = null, $country_zone_id = null)
+	function admin_country_zone_link()
 	{
-		$this->CountryZone->id = $country_zone_id;
-		$country_zone = $this->CountryZone->read();
-		$country_zone['CountryZone']['geo_zone_id'] = $geo_zone_id;
-		$this->CountryZone->save($country_zone);
+		$geo_zone_id = $this->params['form']['geo_zone_id'];
+		$countries_id = explode(',', $this->params['form']['country_zones_id']);
+
+		foreach ($countries_id as $country_id) {
+			$this->CountryZone->id = $country_id;
+			$country_zone = $this->CountryZone->read();
+			$country_zone['CountryZone']['geo_zone_id'] = $geo_zone_id;
+			$this->CountryZone->save($country_zone);
+		}
 
 		$this->Session->setFlash(__('Country Zones linked.', true));
 		exit();
@@ -79,7 +84,9 @@ class GeoZonesController extends AppController {
 		$this->set('geo_zone_id', $geo_zone_id);
 
 		foreach ($data['CountryZone'] as $key => $country_zone) {
-			$country = $this->GeoZone->CountryZone->find('first', $country_zone['country_id']);
+			$country = $this->GeoZone->CountryZone->find('first', array(
+				'conditions' => array('CountryZone.country_id' => $country_zone['country_id'])
+			));
 			$data['CountryZone'][$key]['country_name'] = $country['Country']['name'];
 		}
 
