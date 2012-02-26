@@ -55,22 +55,22 @@ class GeoZonesController extends AppController {
 			$this->redirect('/geo_zones/admin/');
 			die();
 		}
-		
+
 		if(empty($this->data))
 		{
-			$this->data = $this->GeoZone->read(null,$geo_zone_id);
+			$this->data = $this->GeoZone->read(null, $geo_zone_id);
 		}
 		else
 		{
 			$this->GeoZone->save($this->data);
 			
-			if($geo_zone_id == null) {
+			if($this->data['GeoZone']['id'] == null) {
 				$this->Session->setFlash(__('Record created.', true));
 			} else {
 				$this->Session->setFlash(__('Record saved.', true));
 			}
-			
-			$this->redirect('/geo_zones/admin/' . $country_id);
+
+			$this->redirect('/geo_zones/admin_edit/');
 			die();
 		
 		}
