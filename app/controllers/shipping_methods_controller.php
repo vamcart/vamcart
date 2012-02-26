@@ -39,18 +39,23 @@ class ShippingMethodsController extends AppController {
 			
 			if((isset($this->data['key_values'])) && (!empty($this->data['key_values'])))
 			{
-			foreach($this->data['key_values'] AS $key => $value)
-			{
-				$attribute = $this->ShippingMethod->ShippingMethodValue->findByShippingMethodId($shipping_method_id);
-				if(empty($attribute))
-				{
-					$this->ShippingMethod->ShippingMethodValue->create();
-					$attribute['ShippingMethodValue']['shipping_method_id'] = $this->data['ShippingMethod']['id'];
-					$attribute['ShippingMethodValue']['key'] = $key;					
-				}
-				$attribute['ShippingMethodValue']['value'] = $value;
-				$this->ShippingMethod->ShippingMethodValue->save($attribute);
-			}
+			    foreach($this->data['key_values'] AS $key => $value)
+			    {
+                    $attribute = $this->ShippingMethod->ShippingMethodValue->find('first', array(
+                        'conditions' => array('ShippingMethodValue.shipping_method_id' => $shipping_method_id,
+                                              'key' => $key
+                        )));
+
+                    if(empty($attribute))
+				    {
+					    $this->ShippingMethod->ShippingMethodValue->create();
+					    $attribute['ShippingMethodValue']['shipping_method_id'] = $this->data['ShippingMethod']['id'];
+					    $attribute['ShippingMethodValue']['key'] = $key;
+				    }
+				    $attribute['ShippingMethodValue']['value'] = $value;
+
+				    $this->ShippingMethod->ShippingMethodValue->save($attribute);
+			    }
 			}
 			
 			$this->Session->setFlash(__('Record saved.',true));
