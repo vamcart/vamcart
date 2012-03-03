@@ -3312,5 +3312,9 @@ msgid "Select regions"
 msgstr "Выберите регионы"
 
 #: /views/geo_zones/admin_country_zones_getzones.ctp:472
-msgid "Empty"
-msgstr "Нет данных"
+msgid "Select All"
+msgstr "Добавить все"
+
+#: /views/geo_zones/admin_country_zones_getzones.ctp:472
+msgid "Deselect All"
+msgstr "Удалить все"
