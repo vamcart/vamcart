@@ -12,7 +12,6 @@ class TinyMceHelper extends Helper {
 	function init($options=false){
 	$code = '';
 	$code .= $this->Javascript->link('tiny_mce/jquery.tinymce', false);
-	$code .= $this->Javascript->link('tiny_mce/plugins/tinybrowser/tb_tinymce.js.php', false);
 	if($options){
 	$code .= $this->Javascript->codeBlock('
 		tinyMCE.init(
@@ -38,8 +37,6 @@ class TinyMceHelper extends Helper {
 			convert_urls : false,
 		
 			plugins : "pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,typograf,spellchecker",
-		
-			file_browser_callback : "tinyBrowser",
 		
 			spellchecker_languages : "+Russian=ru,English=en",
 			spellchecker_rpc_url : "'.BASE.'/js/tiny_mce/plugins/spellchecker/rpc_proxy.php",
