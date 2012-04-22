@@ -220,7 +220,7 @@ class AdminHelper extends Helper {
 			$navigation .= '</li>';
 		}
 		$navigation .= '</ul>';
-		$navigation .= '<span><a href="#x">X</a></span><div class="clear"></div>' . "\n";
+		$navigation .= $this->Html->image('admin/transparency.png', array('width' => '16', 'class' => 'menu')).'</div>' . "\n";
 		
 		return($navigation);
 	}
