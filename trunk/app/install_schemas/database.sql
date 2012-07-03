@@ -34,7 +34,7 @@ CREATE TABLE `configurations` (
 
 INSERT INTO `configurations` (`id`, `configuration_group_id`, `key`, `value`, `type`, `options`, `name`, `description`, `sort_order`) VALUES 
 (1,'1','SITE_NAME', 'VamCart','text', '', 'Site Name','','1'),
-(2,'1','METADATA', '<meta name="generator" content="Bluefish 2.0.3" />','textarea', '', 'Metadata','','2'),
+(2,'1','METADATA', '<meta name="generator" content="Bluefish 2.2.2" />','textarea', '', 'Metadata','','2'),
 (3,'1','URL_EXTENSION', '.html','text', '', 'URL Extension','','3'),
 (4,'1','GD_LIBRARY', '1','select', '0,1', 'GD Library Enabled','','4'),
 (5,'1','THUMBNAIL_SIZE', '125','text', '', 'Image Thumbnail Size','','5'),
@@ -775,7 +775,9 @@ INSERT INTO `defined_languages` (`id`, `language_id`, `key`, `value`, `created`,
 (139, 1, 'All', 'All', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
 (140, 2, 'All', 'Все', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
 (141, 1, 'Pages', 'Pages', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
-(142, 2, 'Pages', 'Страницы', '2009-09-12 20:08:49', '2009-09-12 20:08:49');
+(142, 2, 'Pages', 'Страницы', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(143, 1, 'Update', 'Update', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(144, 2, 'Update', 'Обновить', '2009-09-12 20:08:49', '2009-09-12 20:08:49');
 
 DROP TABLE IF EXISTS email_templates;
 CREATE TABLE `email_templates` (
