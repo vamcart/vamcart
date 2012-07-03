@@ -41,11 +41,11 @@
 	Router::connect('/pages/*', array('controller' => 'pages'));
 
 	Router::connect('/product/:content_alias', array('controller' => 'pages', 'action' => 'index'));
-	Router::connect('/category/:content_alias', array('controller' => 'pages', 'action' => 'index'));	
+	Router::connect('/category/:content_alias', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/category/:content_alias/page/:page', array('controller' => 'pages', 'action' => 'index'));
-	Router::connect('/page/:content_alias', array('controller' => 'pages', 'action' => 'index'));	
-	Router::connect('/news/:content_alias', array('controller' => 'pages', 'action' => 'index'));	
-	Router::connect('/article/:content_alias', array('controller' => 'pages', 'action' => 'index'));	
-	
+	Router::connect('/page/:content_alias', array('controller' => 'pages', 'action' => 'index'));
+	Router::connect('/news/:content_alias', array('controller' => 'pages', 'action' => 'index'));
+	Router::connect('/article/:content_alias', array('controller' => 'pages', 'action' => 'index'));
+
 	Router::connect('/tests', array('controller' => 'tests', 'action' => 'index'));
 ?>

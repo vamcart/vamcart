@@ -1,4 +1,4 @@
-<?php 
+<?php
 /* -----------------------------------------------------------------------------------------
    VamCart - http://vamcart.com
    -----------------------------------------------------------------------------------------
@@ -43,7 +43,7 @@ class PerItemController extends ShippingAppController {
 		$module_id = $this->ShippingMethod->findByCode($this->module_name);
 
 		$this->ShippingMethod->delete($module_id['ShippingMethod']['id'], true);
-			
+
 		$this->Session->setFlash(__('Module Uninstalled', true));
 		$this->redirect('/shipping_methods/admin/');
 	}
@@ -53,28 +53,28 @@ class PerItemController extends ShippingAppController {
 		App::import('Model', 'ShippingMethod');
 		$this->ShippingMethod =& new ShippingMethod();
 		$key_values = $this->ShippingMethod->findByCode($this->module_name);
-	
+
 		$data = array();
 		if(!empty($key_values['ShippingMethodValue']))
 			$data = array_combine(Set::extract($key_values, 'ShippingMethodValue.{n}.key'),
-							  Set::extract($key_values, 'ShippingMethodValue.{n}.value'));	
-		
+				Set::extract($key_values, 'ShippingMethodValue.{n}.value'));
+
 		global $order;
-		
+
 		$shipping_total = $data['per_item_handling'];
-		
-		foreach($order['OrderProduct'] AS $product)
-		{
-			$shipping_total += ($data['per_item_amount']*$product['quantity']);
+
+		if (isset($order['OrderProduct'])) {
+			foreach($order['OrderProduct'] AS $product) {
+				$shipping_total += ($data['per_item_amount']*$product['quantity']);
+			}
 		}
-		
+
 		return $shipping_total;
 	}
 
 	function before_process()
 	{
 	}
-	
-}
 
+}
 ?>

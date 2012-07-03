@@ -13,11 +13,11 @@ class Content extends AppModel {
 	var $hasOne = array('ContentLink' => array('dependent' => true),'ContentProduct' => array('dependent' => true),'ContentPage' => array('dependent' => true),'ContentCategory' => array('dependent' => true),'ContentArticle' => array('dependent' => true),'ContentNews' => array('dependent' => true));
 
 	var $validate = array(
-	'parent_id' => array(
-		'rule' => 'notEmpty'
-	)
+		'parent_id' => array(
+			'rule' => 'notEmpty'
+		)
 	);
-	
+
 }
 
 ?>
