@@ -3318,3 +3318,11 @@ msgstr "Добавить все"
 #: /views/geo_zones/admin_country_zones_getzones.ctp:472
 msgid "Deselect All"
 msgstr "Удалить все"
+
+#: /vendors/smarty/vam_plugins/function.state_list.php:23
+msgid "None"
+msgstr "Нет"
+
+#: /vendors/smarty/vam_plugins/function.state_list.php:23
+msgid "Generates States list."
+msgstr "Выводит список регионов"
