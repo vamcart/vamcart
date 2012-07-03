@@ -3330,3 +3330,23 @@ msgstr "Выводит список регионов"
 #: /vendors/smarty/vam_plugins/function.country_list.php:23
 msgid "Generates Country list."
 msgstr "Выводит список стран"
+
+#: /plugins/shipping/views/zone_based/settings.ctp:16
+msgid "Select zone"
+msgstr "Выберите зону"
+
+#: /plugins/shipping/views/zone_based/settings.ctp:16
+msgid "Based Off"
+msgstr "Способ расчёта доставки"
+
+#: /plugins/shipping/views/zone_based/settings.ctp:16
+msgid "Geo Zone"
+msgstr "Географическая зона"
+
+#: /plugins/shipping/views/zone_based/settings.ctp:16
+msgid "Shipping Cost for Zone"
+msgstr "Стоимость доставки для зоны"
+
+#: /plugins/shipping/views/zone_based/settings.ctp:16
+msgid "Shipping Handling Cost for Zone"
+msgstr "Надбавка к стоимости для зоны"
