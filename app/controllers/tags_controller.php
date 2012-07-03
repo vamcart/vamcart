@@ -55,7 +55,7 @@ class TagsController extends AppController {
 			
 		while ($files[] = readdir($handle));
 		sort($files);
-		closedir($dir);			
+		closedir($handle);			
 					
 	    	foreach ($files as $file) 
 	    	{
