@@ -52,8 +52,13 @@ class TagsController extends AppController {
 		$this->set('title_for_layout', __('Tags Listing', true));
 		$files = array();
 		if ($handle = opendir('../vendors/smarty/vam_plugins/')) {
-	    	while (false !== ($file = readdir($handle))) 
-			{
+			
+		while ($files[] = readdir($handle));
+		sort($files);
+		closedir($dir);			
+					
+	    	foreach ($files as $file) 
+	    	{
 				$smarty_plugin = explode('.',$file);
 
 				if(($smarty_plugin[0] == 'function') || ($smarty_plugin[0] == 'block'))
