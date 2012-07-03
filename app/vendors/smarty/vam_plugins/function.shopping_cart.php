@@ -45,7 +45,7 @@ $template = '
 			<td class="total-value"><nobr>{$order_total}</nobr></td>
 		</tr>
 	</table>
-	<a class="checkout back" href="{$checkout_link}">{lang}Checkout{/lang}</a>
+	<a class="button" href="{$checkout_link}"><span><img src="{base_path}/img/icons/buttons/cart_add.png" width="12" height="12" alt="" />&nbsp;{lang}Checkout{/lang}</span></a>
 	<span class="button">
 		<button type="submit" name="updatebutton"><img src="{base_path}/img/icons/buttons/submit.png" width="12" height="12" alt="" />&nbsp;{lang}Update{/lang}<button />
 	<span>
