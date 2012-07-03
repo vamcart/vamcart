@@ -35,7 +35,7 @@ function smarty_help_function_state_list () {
 	<h3><?php echo __('What does this tag do?') ?></h3>
 	<p><?php echo __('Generates States list.') ?></p>
 	<h3><?php echo __('How do I use it?') ?></h3>
-	<p><?php echo __('Just insert the tag into your template like:') ?> <code>{country_list}</code></p>
+	<p><?php echo __('Just insert the tag into your template like:') ?> <code>{state_list}</code></p>
 	<h3><?php echo __('What parameters does it take?') ?></h3>
 	<ul>
 		<li><em>(<?php echo __('None') ?>)</em></li>
