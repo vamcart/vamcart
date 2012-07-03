@@ -46,7 +46,9 @@ $template = '
 		</tr>
 	</table>
 	<a class="checkout back" href="{$checkout_link}">{lang}Checkout{/lang}</a>
-	<input type="submit" class="button update back" value="{lang}Update{/lang}" />
+	<span class="button">
+		<button type="submit" name="updatebutton"><img src="{base_path}/img/icons/buttons/submit.png" width="12" height="12" alt="" />&nbsp;{lang}Update{/lang}<button />
+	<span>
 	<br style="clear: both;" />
 </div>
 </form>
