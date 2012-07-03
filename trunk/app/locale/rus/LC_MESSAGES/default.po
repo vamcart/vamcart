@@ -3326,3 +3326,7 @@ msgstr "Нет"
 #: /vendors/smarty/vam_plugins/function.state_list.php:23
 msgid "Generates States list."
 msgstr "Выводит список регионов"
+
+#: /vendors/smarty/vam_plugins/function.country_list.php:23
+msgid "Generates Country list."
+msgstr "Выводит список стран"
