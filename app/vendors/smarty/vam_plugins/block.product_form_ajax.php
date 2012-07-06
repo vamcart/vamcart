@@ -23,7 +23,7 @@ function smarty_block_product_form_ajax($params, $product_form, $template, &$rep
 	echo $output;
 }
 
-function smarty_help_function_product_form() {
+function smarty_help_function_product_form_ajax() {
 ?>
 	<h3><?php echo __('What does this tag do?') ?></h3>
 	<p><?php echo __('Wraps the product purchase button with a ajax form.') ?></p>

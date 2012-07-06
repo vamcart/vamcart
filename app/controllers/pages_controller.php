@@ -128,7 +128,8 @@ class PagesController extends AppController {
 				'show_in_menu' => $content['Content']['show_in_menu'],
 				'created' => $content['Content']['created'],
 				'modified' => $content['Content']['modified'],
-				'page' => $this->params['page']
+				'page' => $this->params['page'],
+				'ajax_enable' => $config['AJAX_ENABLE'],
 			);
 
 			Cache::write($cache_name, $template_vars);
