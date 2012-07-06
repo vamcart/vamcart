@@ -9,7 +9,7 @@
 class CartController extends AppController {
 	var $name = 'Cart';
 	var $uses = array('Content','Order');
-	var $components = array('ConfigurationBase', 'ContentBase', 'OrderBase', 'EventBase');
+	var $components = array('ConfigurationBase', 'ContentBase', 'OrderBase', 'Smarty', 'EventBase', 'Gzip.Gzip');
 
 	function remove_product ($product_id, $qty = 9999) {
 		$this->OrderBase->remove_product($product_id, $qty);
@@ -46,9 +46,14 @@ class CartController extends AppController {
 		$this->OrderBase->add_product($_POST['product_id'], $_POST['product_quantity']);
 
 		global $config;
-		$content = $this->Content->read(null,$_POST['product_id']);
+		$content = $this->Content->read(null, $_POST['product_id']);
 
-		$this->redirect('/product/' . $content['Content']['alias'] . $config['URL_EXTENSION']);
+		if ($this->RequestHandler->isAjax()) {
+			$this->Smarty->display("{shopping_cart template='cart-content-box-ajax'}");
+			die();
+		} else {
+			$this->redirect('/product/' . $content['Content']['alias'] . $config['URL_EXTENSION']);
+		}
 	}
 
 	function update_cart_qty()
