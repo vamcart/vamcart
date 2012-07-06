@@ -37,6 +37,8 @@
  */
 //	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
+	Router::parseExtensions('rss','xml');
+
 	Router::connect('/', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/pages/*', array('controller' => 'pages'));
 
@@ -46,6 +48,7 @@
 	Router::connect('/page/:content_alias', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/news/:content_alias', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/article/:content_alias', array('controller' => 'pages', 'action' => 'index'));
+	Router::connect('/google_sitemap', array('controller' => 'sitemaps', 'action' => 'google', 'url' => array('ext' => 'xml')));
 
 	Router::connect('/tests', array('controller' => 'tests', 'action' => 'index'));
 ?>
