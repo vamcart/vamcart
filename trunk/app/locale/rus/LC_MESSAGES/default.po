@@ -1773,6 +1773,10 @@ msgstr "Ваш ID в Яндекс Метрике"
 msgid "Products Per Page"
 msgstr "Товаров на одной странице"
 
+#: /views/configuration/admin_edit.ctp:28
+msgid "Ajax Enable"
+msgstr "Разрешить Ajax"
+
 #: /views/configuration/admin_edit.ctp:38
 msgid "Cache Time in Seconds"
 msgstr "Время кэширования (в секундах)"
