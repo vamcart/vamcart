@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 
 class AppController extends Controller {
-	var $helpers = array('Html','Javascript','Ajax','Form','Admin', 'Asset', 'Session');
+	var $helpers = array('Html', 'Javascript', 'Ajax', 'Form', 'Admin', 'Asset', 'Session');
 	var $components = array('RequestHandler', 'ConfigurationBase', 'CurrencyBase', 'OrderBase', 'Translit', 'Session', 'DebugKit.Toolbar');
 	var $layout = 'admin';
 
@@ -17,17 +17,17 @@ class AppController extends Controller {
 	*
 	* @param int $id ID of the database record we are moving
 	* @param int $direction Direction we are moving the record.  Can be 'up' or 'down'
-	*/	
+	*/
 	function moveItem ($id, $direction)
 	{
 		// Define the current model and controller
 		$current_model = $this->modelClass;
-		$current_controller = $this->params['controller'];	
-	
+		$current_controller = $this->params['controller'];
+
 		// Get the record we're moving
 		$this->$current_model->id = $id;
 		$current = $this->$current_model->read();
-		
+
 		// Check if it has a parent_id set
 		if(isset($current[$current_model]['parent_id']))
 			$parent_conditions = " AND " . $current_model . ".parent_id = " . $current[$current_model]['parent_id'] . " ";

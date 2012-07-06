@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 
 class PagesController extends AppController {
-	var $components = array('ConfigurationBase','ContentBase','Smarty', 'Gzip.Gzip');
+	var $components = array('ConfigurationBase', 'ContentBase', 'Smarty', 'Gzip.Gzip');
 	var $uses = null;
 	var $autoLayout = false;
 	var $autoRender = false;
