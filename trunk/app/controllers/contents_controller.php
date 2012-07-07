@@ -92,7 +92,24 @@ class ContentsController extends AppController {
 
 		$this->redirect('/contents/admin/0/' . $content['Content']['parent_id'] . '/' . $this->RequestHandler->isAjax());		
 	}
-	
+
+	function admin_change_yml_export_status ($content_id) 
+	{
+		$this->Content->id = $content_id;
+		$content = $this->Content->read();
+
+		if ($content['Content']['yml_export'] == 0) {
+			$content['Content']['yml_export'] = 1;
+		} else {
+			$content['Content']['yml_export'] = 0;
+		}
+
+		$this->Content->save($content);
+
+		$this->redirect('/contents/admin/0/' . $content['Content']['parent_id'] . '/' . $this->RequestHandler->isAjax());
+	}
+
+
 	/**
 	* Toggles the active status of a content item.
 	*
@@ -477,6 +494,18 @@ class ContentsController extends AppController {
 						$content['Content']['show_in_menu'] = 0;
 						$this->Content->save($content);
 						$build_flash .= __('Now hiding from menu.', true);
+						$target_page = '/contents/admin/0/' . $content['Content']['parent_id'];
+						break;
+					case "yml_export":
+						$content['Content']['yml_export'] = 1;
+						$this->Content->save($content);
+						$build_flash .= __('Now exporting to YML.', true);
+						$target_page = '/contents/admin/0/' . $content['Content']['parent_id'];
+						break;
+					case "yml_not_export":
+						$content['Content']['yml_export'] = 0;
+						$this->Content->save($content);
+						$build_flash .= __('Now not exporting to YML.', true);
 						$target_page = '/contents/admin/0/' . $content['Content']['parent_id'];
 						break;
 					case "activate":
