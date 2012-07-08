@@ -264,6 +264,10 @@ msgstr "Запись удалена."
 msgid "Now showing in menu."
 msgstr "Показывать в меню."
 
+#: /controllers/contents_controller.php:457
+msgid "Export to YML"
+msgstr "Экспорт в YML"
+
 #: /controllers/contents_controller.php:462
 msgid "Now hiding from menu."
 msgstr "Не показывать в меню."
