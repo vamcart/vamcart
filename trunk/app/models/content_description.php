@@ -12,11 +12,8 @@ class ContentDescription extends AppModel {
 	var $belongsTo = array('Language');
 	
 	var $validate = array(
-	'content_id' => array(
-		'rule' => 'notEmpty'
-	)
+		'content_id' => array(
+			'rule' => 'notEmpty'
+		)
 	);
-		
 }
-
-?>
