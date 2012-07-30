@@ -206,7 +206,7 @@ INSERT INTO `content_pages` (`id`, `content_id`, `extra`) VALUES
 (30, 49, '1'),
 (31, 50, '1'),
 (32, 51, '1'),
-(33, 53, '1');
+(33, 53, '1'),
 (34, 73, '1');
 
 DROP TABLE IF EXISTS content_products;
