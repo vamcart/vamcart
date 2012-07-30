@@ -61,7 +61,6 @@ class PagesController extends AppController {
 		if($content === false)
 		{
 			$content = $this->ContentBase->get_content_information($alias);
-
 			$content_description = $this->ContentBase->get_content_description($content['Content']['id']);
 			$content['ContentDescription'] = $content_description['ContentDescription'];
 
@@ -78,7 +77,6 @@ class PagesController extends AppController {
 			$content['Content']['viewed'] = $content['Content']['viewed'] + 1; 
 			$this->Content->save($content);
 		}
-
 
 		/*
 		$this->paginate = array(
@@ -134,7 +132,7 @@ class PagesController extends AppController {
 
 			Cache::write($cache_name, $template_vars);
 		}
-
+		
 		echo '<!-- Powered by: VamCart (http://vamcart.com) -->' . "\n";
 		$this->Smarty->display($template['Template']['template'], $template_vars);
 		die();
