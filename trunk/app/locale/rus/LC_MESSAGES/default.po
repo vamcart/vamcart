@@ -3362,3 +3362,27 @@ msgstr "Стоимость доставки для зоны"
 #: /plugins/shipping/views/zone_based/settings.ctp:16
 msgid "Shipping Handling Cost for Zone"
 msgstr "Надбавка к стоимости для зоны"
+
+#: /app/models/customer.php:16
+msgid "Firstname must only contain letters and numbers."
+msgstr "Поле Имя должно содержать только буквы и цифры"
+
+#: /app/models/customer.php:16
+msgid "Lastname must only contain letters and numbers."
+msgstr "Поле Фамилия должно содержать только буквы и цифры"
+
+#: /app/models/customer.php:16
+msgid "Password can not be blank"
+msgstr "Поле Пароль не должно быть пустым"
+
+#: /app/models/customer.php:16
+msgid "Passwords don\'t match"
+msgstr "Пароли не совпадают, значения полей Пароль и Повторите пароль должны совпадать"
+
+#: /app/models/customer.php:16
+msgid "Please, input correct e-mail address"
+msgstr "Пожалуйста, укажите правильный e-mail адрес"
+
+#: /app/models/customer.php:16
+msgid "This email has already been taken."
+msgstr "Данный email уже зарегистрирован."

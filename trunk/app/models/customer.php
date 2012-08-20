@@ -9,27 +9,29 @@
 class Customer extends AppModel {
 	var $name = 'Customer';
 
-	var $validate = array(
+	function _validationRules() 
+	{
+	$this->validate = array(
 		'firstname' => array(
 			'rule' => 'alphaNumeric',
 			'required' => true,
 			'allowEmpty' => false,
-			'message' => 'Firstname must only contain letters and numbers.'
+			'message' => __('Firstname must only contain letters and numbers.', true)
 		),
 		'lastname' => array(
 			'rule' => 'alphaNumeric',
 			'required' => true,
 			'allowEmpty' => false,
-			'message' => 'Lastname must only contain letters and numbers.'
+			'message' => __('Lastname must only contain letters and numbers.', true)
 		),
 		'password' => array(
 			'passwordlength' => array(
 				'rule' => 'notEmpty',
-				'message' => 'Password can not be blank',
+				'message' => __('Password can not be blank', true)
 			),
 			'passwordequal' => array(
 				'rule' => 'checkpasswords',
-				'message' => 'Passwords dont match'
+				'message' => __('Passwords don\'t match', true)
 			),
 		),
 		'email' => array (
@@ -37,14 +39,15 @@ class Customer extends AppModel {
 				'rule' => array('email', true),
 				'required' => true,
 				'allowEmpty' => false,
-				'message' => 'Please, input correct e-mail address',
+				'message' => __('Please, input correct e-mail address', true)
 			),
 			'unique' => array (
 				'rule' => 'isUnique',
-				'message' => 'This email has already been taken.',
+				'message' => __('This email has already been taken.', true)
 			),
 		),
 	);
+	}
 
 	function checkpasswords()
 	{
