@@ -13,15 +13,15 @@ $template = '
 <div class="error">{$error}</div>
 {/foreach}
 <form id="login-form" name="login-form" action="{base_path}/site/register" method="post">
-<div class="label"><label for="firstname">{lang}Firstname:{/lang}</label></div><input id="firstname" name="customer[firstname]" type="text" value="{$form_data.firstname}" />
+<div class="label"><label for="firstname">{lang}Firstname{/lang}:</label></div><input id="firstname" name="customer[firstname]" type="text" value="{$form_data.firstname}" />
 <br />
-<div class="label"><label for="lastname">{lang}Lastname:{/lang}</label></div><input id="lastname" name="customer[lastname]" type="text" value="{$form_data.lastname}" />
+<div class="label"><label for="lastname">{lang}Lastname{/lang}:</label></div><input id="lastname" name="customer[lastname]" type="text" value="{$form_data.lastname}" />
 <br />
-<div class="label"><label for="email">{lang}E-mail:{/lang}</label></div><input id="email" name="customer[email]" type="text" value="{$form_data.email}" />
+<div class="label"><label for="email">{lang}E-mail{/lang}:</label></div><input id="email" name="customer[email]" type="text" value="{$form_data.email}" />
 <br />
-<div class="label"><label for="password">{lang}Password:{/lang}</label></div><input id="password" name="customer[password]" type="password" />
+<div class="label"><label for="password">{lang}Password{/lang}:</label></div><input id="password" name="customer[password]" type="password" />
 <br />
-<div class="label"><label for="retype">{lang}Retype Password:{/lang}</label></div><input id="retype" name="customer[retype]" type="password" />
+<div class="label"><label for="retype">{lang}Retype Password{/lang}:</label></div><input id="retype" name="customer[retype]" type="password" />
 <br />
 <br />
 <span class="button"><button type="submit" value="{lang}Register{/lang}"><img src="{base_path}/img/icons/buttons/submit.png" width="12" height="12" alt="" />&nbsp;{lang}Register{/lang}</button></span>
