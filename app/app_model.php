@@ -8,6 +8,20 @@
 
 class AppModel extends Model
 {
+	
+	
+    public $validate = array();
+
+    public function __construct($id = false, $table = null, $ds = null) {
+        parent::__construct($id, $table, $ds);
+
+        $this->_validationRules();
+    }
+
+    function _validationRules() {
+        //implemented on child classes
+    }	
+	
 	/**
 	* Called by Cake after every model is saved.  
 	* This method clears the cache if we're saving to one of the specified models to check.
