@@ -75,5 +75,22 @@ class SiteController extends AppController {
 			$this->redirect('/customer/register'  . $config['URL_EXTENSION']);
 		}
 	}
+	
+	function login()
+	{
+	}
+
+	function logout()
+	{
+		$this->Auth->logout();
+
+		if (isset($this->params['url']['return_url'])) {
+			$return_url = urldecode(base64_decode($this->params['url'][return_url]));
+		} else {
+			$return_url = '/';
+		}
+
+		$this->redirect($return_url);
+	}
 
 }
