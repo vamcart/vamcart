@@ -282,11 +282,6 @@ class AppController extends Controller {
 		}
 		
 		$this->Auth->allow();
-		$this->Auth->userModel = 'Customer';
-		$this->Auth->fields = array('username' => 'email', 'password' => 'password');
-		$this->Auth->loginAction = array('admin' => false, 'controller' => 'site', 'action' => 'login');
-		$this->Auth->logoutAction = array('admin' => false, 'controller' => 'site', 'action' => 'logout');
-		$this->Auth->authenticate = ClassRegistry::init('Customer');
 		
 		// Set a base to use for smarty URLs.
 		if(!defined('BASE')) {
@@ -296,10 +291,18 @@ class AppController extends Controller {
 		if(strstr($_SERVER['REQUEST_URI'],'/install'))
 		{
 			$install = 1;
+			$this->Auth->userModel = 'UserInstall';
+			$this->Auth->authenticate = ClassRegistry::init('UserInstall');
 		}
 		
 		if(!isset($install)) // We're viewing the front end
 		{
+			$this->Auth->userModel = 'Customer';
+			$this->Auth->fields = array('username' => 'email', 'password' => 'password');
+			$this->Auth->loginAction = array('admin' => false, 'controller' => 'site', 'action' => 'login');
+			$this->Auth->logoutAction = array('admin' => false, 'controller' => 'site', 'action' => 'logout');
+			$this->Auth->authenticate = ClassRegistry::init('Customer');
+
 			if(!isset($_SESSION['Customer']))
 			{
 				// Set the default language
