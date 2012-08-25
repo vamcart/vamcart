@@ -29,42 +29,25 @@ return $template;
 
 function smarty_function_login_box($params, $template)
 {
-	// Cache the output.
-	$cache_name = 'vam_login_output' . (isset($params['template'])?'_'.$params['template']:'') . '_' . $_SESSION['Customer']['language_id'] . '_' . $_SESSION['Customer']['currency_id'];
-	$currency_output = Cache::read($cache_name);
+	App::import('Component', 'Smarty');
+	$Smarty =& new SmartyComponent();
 
-//	if ($currency_output === false) {
-		ob_start();
+	if (isset($_SESSION['Auth']) && isset($_SESSION['Auth']['Customer'])) {
+		$isLoggedIn = true;
+	} else {
+		$isLoggedIn = false;
+	}
 
-		App::import('Component', 'Smarty');
-		$Smarty =& new SmartyComponent();
+	global $Dispatcher;
 
-//		App::import('Model', 'Currency');
-//		$Currency =& new Currency();
+	$vars = array(
+		'login_form_action' => BASE . '/site/login/',
+		'is_logged_in' => $isLoggedIn,
+		'return_url' => base64_encode(urlencode($Dispatcher->here)),
+	);
 
-//		$currencies = $Currency->find('all', array('conditions' => array('active' => '1')));
-
-//		if (count($currencies) == 1) {
-//			return;
-//		}
-
-//		$keyed_currencies = array();
-//		foreach($currencies AS $currency) {
-//			$keyed_currencies[] = $currency['Currency'];
-//		}
-
-		$vars = array('login_form_action' => BASE . '/currencies/pick_currency/');
-
-		$display_template = $Smarty->load_template($params, 'login_box');
-		$Smarty->display($display_template, $vars);
-
-		// Write the output to cache and echo them
-		$currency_output = @ob_get_contents();
-		ob_end_clean();	
-		Cache::write($cache_name, $currency_output);
-//	}
-	echo $currency_output;
-
+	$display_template = $Smarty->load_template($params, 'login_box');
+	$Smarty->display($display_template, $vars);
 }
 
 function smarty_help_function_login_box() {

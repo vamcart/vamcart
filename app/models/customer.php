@@ -54,4 +54,18 @@ class Customer extends AppModel {
 		return !strcmp($this->data['Customer']['password'], $this->data['Customer']['retype']);
 	}
 
+	function hashPasswords($data)
+	{
+		if(isset($data['Customer'])) {
+			if (isset($data['Customer']['password'])) {
+				$data['Customer']['password'] = md5($data['Customer']['password']);
+			}
+		}
+		return $data;
+	}
+
+	function login()
+	{
+	}
+
 }

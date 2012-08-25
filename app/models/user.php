@@ -12,6 +12,7 @@ class User extends AppModel {
 
 	var $hasMany = array('UserPref' => array('dependent'     => true));
 
+	function hashPasswords($data) {
+		return $data;
+	}
 }
-
-?>

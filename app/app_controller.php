@@ -8,7 +8,17 @@
 
 class AppController extends Controller {
 	var $helpers = array('Html', 'Javascript', 'Ajax', 'Form', 'Admin', 'Asset', 'Session');
-	var $components = array('RequestHandler', 'ConfigurationBase', 'CurrencyBase', 'OrderBase', 'Translit', 'Session', 'DebugKit.Toolbar');
+	var $components = array(
+		'RequestHandler',
+		'ConfigurationBase',
+		'CurrencyBase',
+		'OrderBase',
+		'Translit',
+		'Session',
+		'Auth' => array(
+		),
+		'DebugKit.Toolbar'
+	);
 	var $layout = 'admin';
 
 	/**
@@ -265,15 +275,29 @@ class AppController extends Controller {
 	*/				
 	function beforeFilter()
 	{
+	
+		if (isset($_GET['return_url'])) {
+			
+			$this->Auth->loginRedirect = urldecode(base64_decode($_GET['return_url']));
+		}
+		
+		$this->Auth->allow();
+		$this->Auth->userModel = 'Customer';
+		$this->Auth->fields = array('username' => 'email', 'password' => 'password');
+		$this->Auth->loginAction = array('admin' => false, 'controller' => 'site', 'action' => 'login');
+		$this->Auth->logoutAction = array('admin' => false, 'controller' => 'site', 'action' => 'logout');
+		$this->Auth->authenticate = ClassRegistry::init('Customer');
+		
 		// Set a base to use for smarty URLs.
-		if(!defined('BASE'))
+		if(!defined('BASE')) {
 			define('BASE', $this->base);
+		}
 
 		if(strstr($_SERVER['REQUEST_URI'],'/install'))
 		{
 			$install = 1;
 		}
-			
+		
 		if(!isset($install)) // We're viewing the front end
 		{
 			if(!isset($_SESSION['Customer']))
@@ -283,7 +307,8 @@ class AppController extends Controller {
 
 				// Get the default language
 				App::import('Model', 'Language');
-				$this->Language =& new Language();				$languages = $this->Language->find('first', array('conditions' => array('Language.default' => 1)));
+				$this->Language =& new Language();
+				$languages = $this->Language->find('first', array('conditions' => array('Language.default' => 1)));
 				
 				$new_customer['language_id'] = $languages['Language']['id'];
 				$new_customer['language'] = $languages['Language']['iso_code_2'];
@@ -319,6 +344,9 @@ class AppController extends Controller {
 		// If we're in the admin area
 		if(substr($this->action, 0, 5) == 'admin')
 		{
+			$this->Auth->userModel = 'User';
+			$this->Auth->fields = array('username' => 'username', 'password' => 'password');
+			$this->Auth->authenticate = ClassRegistry::init('User');
 			// Set the menu if the action is prefixed with admin_
 			$this->set('navigation',$this->getAdminNavigation());	
 
@@ -342,12 +370,12 @@ class AppController extends Controller {
 			}
 		}
 		
-			// Prevent direct requests to extensions
-			if((!$this->Session->check('User.username')) && (($this->action == 'install') || ($this->action == 'uninstall') || ($this->action == 'settings')))
-			{
-				$this->Session->setFlash(__('Login Error.',true));			
-				$this->redirect('/users/admin_login/');
-			}
+		// Prevent direct requests to extensions
+		if((!$this->Session->check('User.username')) && (($this->action == 'install') || ($this->action == 'uninstall') || ($this->action == 'settings')))
+		{
+			$this->Session->setFlash(__('Login Error.',true));
+			$this->redirect('/users/admin_login/');
+		}
 
 	}
 }
