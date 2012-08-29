@@ -1686,6 +1686,10 @@ msgstr "Будет доступно для тэга пользователя ч�
 msgid "Create New"
 msgstr "Добавить"
 
+#: /views/helpers/admin.php:93
+msgid "Export"
+msgstr "Экспорт"
+
 #: /views/helpers/admin.php:113
 msgid "With Selected:"
 msgstr "Выделенные:"
