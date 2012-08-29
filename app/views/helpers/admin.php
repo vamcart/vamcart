@@ -105,12 +105,28 @@ class AdminHelper extends Helper {
 		return($this->Html->link('<span>'.$this->Html->image('admin/icons/buttons/add.png', array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .$title.'</span>', $path, array('escape' => false, 'class' => 'button')));
 	}
 	
-	function ActionBar($options = null, $new = true, $extra_path = null) 
+	function CreateExportLink ($extra_path = null)
+	{
+		$title = sprintf(__('Export', true), __(Inflector::underscore($this->params['controller']), true));
+		$path =  '/' . $this->params['controller'] . '/download_export/' . $extra_path;
+
+		if($this->params['plugin'] != "") {
+			$path = '/' . $this->params['plugin'] . $path;
+		}
+
+		return($this->Html->link('<span>'.$this->Html->image('admin/icons/buttons/export.png', array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .$title.'</span>', $path, array('escape' => false, 'class' => 'button')));
+	}
+	
+	function ActionBar($options = null, $new = true, $extra_path = null, $export = false) 
 	{
 		$content = '
 		<div class="addContent">
 			' . (($new == true) ? $this->CreateNewLink($extra_path) : '') . '
 		</div>
+		<div class="exportContent">
+			' . (($export == true) ? $this->CreateExportLink($extra_path) : '') . '
+		</div>
+
 		<div class="multiAction">';
 		
 		if(!empty($options))
