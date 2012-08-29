@@ -37,6 +37,47 @@ class StylesheetsController extends AppController {
 	}
 
 
+	function download_export()
+	{
+		$images = array();
+		$z = new ZipArchive();
+		$res = $z->open('./files/styles.zip', ZIPARCHIVE::OVERWRITE);
+
+		$stylesheets = $this->Stylesheet->find('all');
+		$output  = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+		$output .= '<stylesheets>' . "\n";
+		foreach ($stylesheets as $stylesheet) {
+		$output .= '  <stylesheet name="' . $stylesheet['Stylesheet']['name'] . '" alias="' . $stylesheet['Stylesheet']['alias'] . '">' . "\n";
+		$output .= '  <![CDATA[' . "\n";
+		$output .= $stylesheet['Stylesheet']['stylesheet'];
+		$output .= '  ]]>' . "\n";
+		$output .= '  </stylesheet>' . "\n";
+		
+		$matches = array();
+		
+		preg_match_all('/url\(\.\.\/\.\.\/(.*?)\)/', $stylesheet['Stylesheet']['stylesheet'], $matches);
+
+		foreach ((array)$matches[1] as $matche) {
+			$images[$matche] = $matche;
+		}
+		
+		}
+		$output .= '</stylesheets>' . "\n";
+		$z->addFromString('stylesheets.xml', $output);
+
+		foreach ($images as $image) {
+			$z->addFile($image, $image);
+		}
+
+		$z->close();
+
+		header('Content-Type: application/octet-stream');
+		header('Content-Disposition: attachment; filename="styles.zip"');
+		readfile('./files/styles.zip');
+		@unlink('./files/styles.zip');
+		die();
+	}
+
 	function admin_delete_template_association($template_id, $stylesheet_id)
 	{
 		$this->Stylesheet->Template->delete_single_association($template_id, $stylesheet_id);	
