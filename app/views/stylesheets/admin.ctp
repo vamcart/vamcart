@@ -32,7 +32,7 @@ foreach ($stylesheets AS $stylesheet)
 }
 echo '</table>';
 
-echo $admin->ActionBar(array('activate'=>__('Activate',true),'deactivate'=>__('Deactivate',true),'delete'=>__('Delete',true)), true, '', true);
+echo $admin->ActionBar(array('activate'=>__('Activate',true),'deactivate'=>__('Deactivate',true),'delete'=>__('Delete',true)), true, '', true, true);
 echo $form->end(); 
 
 echo $admin->ShowPageHeaderEnd();
