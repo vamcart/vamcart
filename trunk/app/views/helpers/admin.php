@@ -117,7 +117,19 @@ class AdminHelper extends Helper {
 		return($this->Html->link('<span>'.$this->Html->image('admin/icons/buttons/export.png', array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .$title.'</span>', $path, array('escape' => false, 'class' => 'button')));
 	}
 	
-	function ActionBar($options = null, $new = true, $extra_path = null, $export = false) 
+	function CreateImportLink ($extra_path = null)
+	{
+		$title = sprintf(__('Import', true), __(Inflector::underscore($this->params['controller']), true));
+		$path =  '/' . $this->params['controller'] . '/admin_import/' . $extra_path;
+
+		if($this->params['plugin'] != "") {
+			$path = '/' . $this->params['plugin'] . $path;
+		}
+
+		return($this->Html->link('<span>'.$this->Html->image('admin/icons/buttons/import.png', array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .$title.'</span>', $path, array('escape' => false, 'class' => 'button')));
+	}
+	
+	function ActionBar($options = null, $new = true, $extra_path = null, $export = false, $import = false) 
 	{
 		$content = '
 		<div class="addContent">
@@ -125,6 +137,9 @@ class AdminHelper extends Helper {
 		</div>
 		<div class="exportContent">
 			' . (($export == true) ? $this->CreateExportLink($extra_path) : '') . '
+		</div>
+		<div class="importContent">
+			' . (($import == true) ? $this->CreateImportLink($extra_path) : '') . '
 		</div>
 
 		<div class="multiAction">';

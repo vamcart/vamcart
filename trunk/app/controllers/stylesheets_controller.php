@@ -285,6 +285,103 @@ class StylesheetsController extends AppController {
 		$this->redirect('/stylesheets/admin/');
 	}	
 	
+	function admin_import()
+	{
+	}
+	
+	function admin_upload()
+	{
+	
+		if (isset($this->data['Stylesheet']['submittedfile'])
+		       && $this->data['Stylesheet']['submittedfile']['error'] == 0
+		       && is_uploaded_file($this->data['Stylesheet']['submittedfile']['tmp_name'])) {
+
+			@$this->removeDir('./files/img');
+			@unlink('./files/' . $this->data['Stylesheet']['submittedfile']['name']);
+			@unlink('./files/stylesheets.xml');
+			move_uploaded_file($this->data['Stylesheet']['submittedfile']['tmp_name'], './files/' . $this->data['Stylesheet']['submittedfile']['name']);
+
+			$z = new ZipArchive();
+			$z->open('./files/' . $this->data['Stylesheet']['submittedfile']['name']);
+
+			$res = $z->extractTo('./files/');
+			$this->copyDir('./files/img', './img', true);
+
+			$res = $z->extractTo('./files/', 'stylesheets.xml');
+			if ($res) {
+				$doc = new DOMDocument();
+				if ($doc->load('./files/stylesheets.xml')) {
+					$xpath = new DOMXpath($doc);
+					$sheets = $xpath->query('//stylesheets/stylesheet');
+					foreach ($sheets as $sheet) {
+						$name = '';
+						$alias = '';
+
+						foreach ($sheet->attributes as $attribute) {
+							if ('name' == $attribute->name) {
+								$name = $attribute->value;
+							} elseif ('alias' == $attribute->name) {
+								$alias = $attribute->value;
+							}
+						}
+
+						if ('' == $name || '' == $alias) {
+							$this->Session->setFlash(__('Style name or style alias is empty',true));
+							@$this->removeDir('./files/img');
+							@unlink('./files/stylesheets.xml');
+							@unlink('./files/' . $this->data['Stylesheet']['submittedfile']['name']);
+							$this->redirect('/stylesheets/admin_import/');
+						} else {
+							$data = $sheet->nodeValue;
+							$stylesheet = $this->Stylesheet->find("Stylesheet.alias = '".$alias."'");
+
+							if (!$stylesheet) {
+								$stylesheet = array();
+								$stylesheet['Stylesheet'] = array(
+									'id' => null,
+								);
+							}
+
+							$stylesheet['Stylesheet']['name'] = $name;
+							$stylesheet['Stylesheet']['alias'] = $alias;
+							$stylesheet['Stylesheet']['stylesheet'] = $data;
+
+							$this->Stylesheet->save($stylesheet);
+						}
+					}
+
+					$this->Session->setFlash(__('Styles has been imported.',true));
+					@$this->removeDir('./files/img');
+					@unlink('./files/stylesheets.xml');
+					@unlink('./files/' . $this->data['Stylesheet']['submittedfile']['name']);
+					$this->redirect('/stylesheets/admin/');
+				} else {
+					$this->Session->setFlash(__('Invalid XML file stylesheets.xml.',true));
+					@$this->removeDir('./files/img');
+					@unlink('./files/stylesheets.xml');
+					@unlink('./files/' . $this->data['Stylesheet']['submittedfile']['name']);
+					$this->redirect('/stylesheets/admin_import/');
+				}
+			} else {
+				$this->Session->setFlash(__('Error extracting stylesheets.xml.',true));
+				@$this->removeDir('./files/img');
+				@unlink('./files/stylesheets.xml');
+				@unlink('./files/' . $this->data['Stylesheet']['submittedfile']['name']);
+				$this->redirect('/stylesheets/admin_import/');
+			}
+
+			$z->close();
+
+			@$this->removeDir('./files/img');
+			@unlink('./files/stylesheets.xml');
+			@unlink('./files/' . $this->data['Stylesheet']['submittedfile']['name']);
+			$this->redirect('/stylesheets/admin/');
+		} else {
+			$this->Session->setFlash(__('Please, select the file for import.',true));
+			$this->redirect('/stylesheets/admin_import/');
+		}
+	}
+	
 	function admin($ajax_request = false)
 	{
 		$this->set('current_crumb', __('Stylesheets Listing', true));
@@ -293,5 +390,67 @@ class StylesheetsController extends AppController {
 		
 	}
 	
+	
+	// Helper stuff
+	function removeDir($path)
+	{
+		if (file_exists($path) && is_dir($path)) {
+			$dirHandle = opendir($path);
+
+			while (false !== ($file = readdir($dirHandle))) {
+				if ($file!='.' && $file!='..') {
+					$tmpPath=$path.'/'.$file;
+					chmod($tmpPath, 0777);
+
+					if (is_dir($tmpPath)) {
+						$this->removeDir($tmpPath);
+					} else {
+						if (file_exists($tmpPath)) {
+							@unlink($tmpPath);
+						}
+					}
+				}
+			}
+
+			closedir($dirHandle);
+
+			if (file_exists($path)) {
+				@rmdir($path);
+			}
+		}
+	}
+
+	function copyDir($source, $dest, $overwrite = false)
+	{
+		if (!is_dir($dest)) {
+			mkdir($dest);
+		}
+
+		if ($handle = opendir($source)) {
+			while (false !== ($file = readdir($handle))) {
+				if ($file != '.' && $file != '..') {
+					$path = $source . '/' . $file;
+
+					if (is_file($path)) {
+						if (!is_file($dest . '/' . $file) || $overwrite) {
+							$ext = pathinfo($file, PATHINFO_EXTENSION);
+							if ('php' != $ext) {
+								if (!@copy($path, $dest . '/' . $file)) {
+								}
+							}
+						}
+					} elseif (is_dir($path)) {
+
+						if (!is_dir($dest . '/' . $file)) {
+							mkdir($dest . '/' . $file);
+						}
+
+						$this->copyDir($path, $dest . '/' . $file, $overwrite);
+					}
+				}
+			}
+			closedir($handle);
+		}
+	}
 }
 ?>

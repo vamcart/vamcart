@@ -1057,12 +1057,16 @@ div.submit
 		margin: .5em .5em 0 0;
 	}
 	
-div.addContent, div.exportContent
+div.addContent, div.exportContent, div.importContent
 	{
 /*		width: 20%;*/
 		float: left;
 		margin: .5em 0 0 0;
 	}
+
+#stylesheetImportForm div.submit {
+	float: none;
+}
 
 div.multiAction
 	{
