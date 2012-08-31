@@ -1690,6 +1690,10 @@ msgstr "Добавить"
 msgid "Export"
 msgstr "Экспорт"
 
+#: /views/helpers/admin.php:93
+msgid "Import"
+msgstr "Импорт"
+
 #: /views/helpers/admin.php:113
 msgid "With Selected:"
 msgstr "Выделенные:"
@@ -3390,3 +3394,23 @@ msgstr "Пожалуйста, укажите правильный e-mail адр�
 #: /app/models/customer.php:16
 msgid "This email has already been taken."
 msgstr "Данный email уже зарегистрирован."
+
+#: /app/controllers/stylesheets_controller.php:331
+msgid "Style name or style alias is empty."
+msgstr "Не указано название или псевдоним стиля."
+
+#: /app/controllers/stylesheets_controller.php:355
+msgid "Styles has been imported."
+msgstr "Стили успешно импортированы."
+
+#: /app/controllers/stylesheets_controller.php:361
+msgid "Invalid XML file stylesheets.xml."
+msgstr "Неправильный XML файл stylesheets.xml."
+
+#: /app/controllers/stylesheets_controller.php:368
+msgid "Error extracting stylesheets.xml."
+msgstr "Ошибка распаковки stylesheets.xml."
+
+#: /app/controllers/stylesheets_controller.php:382
+msgid "Please, select the file for import."
+msgstr "Пожалуйста, выберите файл для импорта."
