@@ -24,6 +24,8 @@ echo '</table>';
 echo $admin->EmptyResults($defined_languages);
 
 echo $admin->CreateNewLink();
+echo $admin->CreateExportLink();
+echo $admin->CreateImportLink();
 
 echo $admin->ShowPageHeaderEnd();
 
