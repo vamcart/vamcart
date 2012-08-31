@@ -287,6 +287,8 @@ class StylesheetsController extends AppController {
 	
 	function admin_import()
 	{
+		$this->set('current_crumb', __('Import', true));
+		$this->set('title_for_layout', __('Import', true));
 	}
 	
 	function admin_upload()
@@ -326,7 +328,7 @@ class StylesheetsController extends AppController {
 						}
 
 						if ('' == $name || '' == $alias) {
-							$this->Session->setFlash(__('Style name or style alias is empty',true));
+							$this->Session->setFlash(__('Style name or style alias is empty.',true));
 							@$this->removeDir('./files/img');
 							@unlink('./files/stylesheets.xml');
 							@unlink('./files/' . $this->data['Stylesheet']['submittedfile']['name']);
