@@ -23,7 +23,54 @@ class DefinedLanguagesController extends AppController {
 		$this->Session->setFlash(__('Record deleted.',true));
 		$this->redirect('/defined_languages/admin/');
 	}
-	
+
+	function download_export()
+	{
+		$images = array();
+		$z = new ZipArchive();
+		$res = $z->open('./files/languages.zip', ZIPARCHIVE::OVERWRITE);
+
+		$definitions = $this->DefinedLanguage->find('all');
+		$output  = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+		$output .= '<definitions>' . "\n";
+
+		$definitions_array = array();
+
+		foreach ($definitions as $definition) {
+			if (!isset($definitions_array[$definition['DefinedLanguage']['key']])) {
+				$definitions_array[$definition['DefinedLanguage']['key']] = array();
+			}
+
+			$definitions_array[$definition['DefinedLanguage']['key']][$definition['DefinedLanguage']['language_id']] =
+				$definition['DefinedLanguage']['value'];
+		}
+
+		foreach ($definitions_array as $key => $definition) {
+			$output .= '  <definition>' . "\n";
+			$output .= '    <key><![CDATA[' . $key . ']]></key>' . "\n";
+			foreach ($definition as $language_id => $value) {
+				$output .= '    <language id="' . $language_id . '">' . "\n";
+				$output .= '      <![CDATA[';
+				$output .= $value;
+				$output .= ']]>' . "\n";
+				$output .= '    </language>' . "\n";
+			}
+			$output .= '  </definition>' . "\n";
+		}
+
+		$output .= '</definitions>' . "\n";
+		$z->addFromString('defined_languages.xml', $output);
+
+		$z->close();
+
+		header('Content-Type: application/octet-stream');
+		header('Content-Disposition: attachment; filename="languages.zip"');
+		readfile('./files/languages.zip');
+		@unlink('./files/languages.zip');
+		die();
+	}
+
+
 	
 	function admin_edit ($defined_language_key = "")
 	{
