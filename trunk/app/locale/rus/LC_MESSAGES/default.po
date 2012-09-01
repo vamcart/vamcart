@@ -3414,3 +3414,19 @@ msgstr "Ошибка распаковки stylesheets.xml."
 #: /app/controllers/stylesheets_controller.php:382
 msgid "Please, select the file for import."
 msgstr "Пожалуйста, выберите файл для импорта."
+
+#: /app/controllers/defined_languages_controller.php:173
+msgid "Key or language_id empty."
+msgstr "Ключ или id номер языка не указаны."
+
+#: /app/controllers/defined_languages_controller.php:197
+msgid "Defined languages has been imported."
+msgstr "Языковые строки успешно импортированы."
+
+#: /app/controllers/defined_languages_controller.php:202
+msgid "Invalid XML file defined_languages.xml."
+msgstr "Неправильный XML файл defined_languages.xml."
+
+#: /app/controllers/defined_languages_controller.php:208
+msgid "Error extracting defined_languages.xml."
+msgstr "Ошибка распаковки defined_languages.xml."
