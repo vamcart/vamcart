@@ -131,6 +131,98 @@ class DefinedLanguagesController extends AppController {
 		$this->redirect('/defined_languages/admin_edit/');	
 	}
 	
+	function admin_import()
+	{
+		$this->set('current_crumb', __('Import', true));
+		$this->set('title_for_layout', __('Import', true));
+	}
+
+	function admin_upload()
+	{
+		if (isset($this->data['DefinedLanguages']['submittedfile'])
+			&& $this->data['DefinedLanguages']['submittedfile']['error'] == 0
+			&& is_uploaded_file($this->data['DefinedLanguages']['submittedfile']['tmp_name'])) {
+
+			@unlink('./files/' . $this->data['DefinedLanguages']['submittedfile']['name']);
+			@unlink('./files/defined_languages.xml');
+			move_uploaded_file($this->data['DefinedLanguages']['submittedfile']['tmp_name'], './files/' . $this->data['DefinedLanguages']['submittedfile']['name']);
+
+			$z = new ZipArchive();
+			$z->open('./files/' . $this->data['DefinedLanguages']['submittedfile']['name']);
+
+			$res = $z->extractTo('./files/', 'defined_languages.xml');
+			if ($res) {
+				$doc = new DOMDocument();
+				if ($doc->load('./files/defined_languages.xml')) {
+					$xpath = new DOMXpath($doc);
+					$keys = $xpath->query('//definitions/definition/key');
+
+					foreach ($keys as $key) {
+						$original = $key->nodeValue;
+						$languages = $xpath->query('//definitions/definition[key="' . $key->nodeValue . '"]/language');
+						foreach($languages as $language) {
+							$id = '';
+							foreach ($language->attributes as $attribute) {
+								if ('id' == $attribute->name) {
+									$language_id = $attribute->value;
+								}
+							}
+							$value = trim($language->nodeValue);
+
+							if ('' == $language_id || '' == $key) {
+								$this->Session->setFlash(__('Key or language_id empty.',true));
+								@unlink('./files/defined_languages.xml');
+								@unlink('./files/' . $this->data['DefinedLanguages']['submittedfile']['name']);
+								$this->redirect('/defined_languages/admin_import/');
+							} else {
+								$definition = $this->DefinedLanguage->find("DefinedLanguage.language_id = '". $language_id ."' and DefinedLanguage.key='" . $original . "'");
+
+								if (!$definition) {
+									$definition = array();
+									$definition['DefinedLanguage'] = array(
+										'id' => null,
+									);
+								}
+
+								$definition['DefinedLanguage']['language_id'] = $language_id;
+								$definition['DefinedLanguage']['key'] = $original;
+								$definition['DefinedLanguage']['value'] = $value;
+
+								$this->DefinedLanguage->save($definition);
+							}
+
+						}
+					}
+
+					$this->Session->setFlash(__('Defined languages has been imported.',true));
+					@unlink('./files/defined_languages.xml');
+					@unlink('./files/' . $this->data['DefinedLanguages']['submittedfile']['name']);
+					$this->redirect('/defined_languages/admin/');
+				} else {
+					$this->Session->setFlash(__('Invalid XML file defined_languages.xml.',true));
+					@unlink('./files/defined_languages.xml');
+					@unlink('./files/' . $this->data['DefinedLanguages']['submittedfile']['name']);
+					$this->redirect('/defined_languages/admin_import/');
+				}
+			} else {
+				$this->Session->setFlash(__('Error extracting defined_languages.xml.',true));
+				@unlink('./files/defined_languages.xml');
+				@unlink('./files/' . $this->data['DefinedLanguages']['submittedfile']['name']);
+				$this->redirect('/defined_languages/admin_import/');
+			}
+
+			$z->close();
+
+			@unlink('./files/defined_languages.xml');
+			@unlink('./files/' . $this->data['DefinedLanguages']['submittedfile']['name']);
+			$this->redirect('/defined_languages/admin/');
+		} else {
+			$this->Session->setFlash(__('Please, select the file for import.',true));
+			$this->redirect('/defined_languages/admin_import/');
+		}
+	}
+
+
 	function admin()
 	{
 		$this->set('current_crumb', __('Defined Language Listing', true));
