@@ -335,6 +335,8 @@ class StylesheetsController extends AppController {
 							$this->redirect('/stylesheets/admin_import/');
 						} else {
 							$data = $sheet->nodeValue;
+
+							$this->Stylesheet->unbindModel(array('hasAndBelongsToMany' => array('Template')), false);
 							$stylesheet = $this->Stylesheet->find("Stylesheet.alias = '".$alias."'");
 
 							if (!$stylesheet) {
