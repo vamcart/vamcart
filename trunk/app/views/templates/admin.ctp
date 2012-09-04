@@ -54,6 +54,9 @@ foreach ($templates AS $template)
 echo '</table>';
 
 echo $admin->CreateNewLink(); 
+echo $admin->CreateExportLink();
+echo $admin->CreateImportLink();
+
 echo $form->end(); 
 
 echo $admin->ShowPageHeaderEnd();
