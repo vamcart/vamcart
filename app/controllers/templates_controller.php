@@ -302,5 +302,38 @@ class TemplatesController extends AppController {
 		$this->set('user_prefs', $exploded_prefs);	
 	}
 	
+	function download_export()
+	{
+		$images = array();
+		$z = new ZipArchive();
+		$res = $z->open('./files/templates.zip', ZIPARCHIVE::OVERWRITE);
+
+		$templates = $this->Template->find('threaded', array('order' => array('Template.id ASC')));
+
+		$output  = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+		$output .= '<templates>' . "\n";
+
+		foreach ($templates as $key => $template) {
+			$output .= '  <template name="' . $template['Template']['name'] . '">' . "\n";
+			foreach ($template['children'] as $child) {
+				$output .= '    <template template_type_id="' . $child['Template']['template_type_id'] . '" name="' . $child['Template']['name'] . '">' . "\n";
+				$output .= '      <![CDATA[';
+				$output .= $child['Template']['template'];
+				$output .= ']]>' . "\n";
+				$output .= '    </template>' . "\n";
+			}
+			$output .= '  </template>' . "\n";
+		}
+
+		$output .= '</templates>' . "\n";
+		$z->addFromString('templates.xml', $output);
+
+		$z->close();
+
+		header('Content-Type: application/octet-stream');
+		header('Content-Disposition: attachment; filename="templates.zip"');
+		readfile('./files/templates.zip');
+		@unlink('./files/templates.zip');
+		die();
+	}
 }
-?>
