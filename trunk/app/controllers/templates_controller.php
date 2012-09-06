@@ -336,4 +336,127 @@ class TemplatesController extends AppController {
 		@unlink('./files/templates.zip');
 		die();
 	}
+
+	function admin_import()
+	{
+		$this->set('current_crumb', __('Import', true));
+		$this->set('title_for_layout', __('Import', true));
+	}
+
+	function admin_upload()
+	{
+		if (isset($this->data['Templates']['submittedfile'])
+			&& $this->data['Templates']['submittedfile']['error'] == 0
+			&& is_uploaded_file($this->data['Templates']['submittedfile']['tmp_name'])) {
+
+			@unlink('./files/' . $this->data['Templates']['submittedfile']['name']);
+			@unlink('./files/templates.xml');
+			move_uploaded_file($this->data['Templates']['submittedfile']['tmp_name'], './files/' . $this->data['Templates']['submittedfile']['name']);
+
+			$z = new ZipArchive();
+			$z->open('./files/' . $this->data['Templates']['submittedfile']['name']);
+
+			$res = $z->extractTo('./files/', 'templates.xml');
+
+			if ($res) {
+				$doc = new DOMDocument();
+				if ($doc->load('./files/templates.xml')) {
+					$xpath = new DOMXpath($doc);
+					$templates = $xpath->query('//templates/template');
+
+					foreach ($templates as $template) {
+						$name = '';
+
+						foreach ($template->attributes as $attribute) {
+							if ('name' == $attribute->name) {
+								$name = $attribute->value;
+							}
+						}
+
+						if ('' == $name) {
+							$this->Session->setFlash(__('Templates name is empty.',true));
+							@unlink('./files/templates.xml');
+							@unlink('./files/' . $this->data['Templates']['submittedfile']['name']);
+							$this->redirect('/templates/admin_import/');
+						} else {
+							$this->Template->unbindModel(array('hasAndBelongsToMany' => array('Stylesheet')), false);
+							$tmpl = $this->Template->find("Template.name = '" . $name . "'");
+
+							if (!$tmpl) {
+								$tmpl = array();
+								$tmpl['Template'] = array('id' => null);
+								$tmpl['Template']['parent_id'] = 0;
+								$tmpl['Template']['template_type_id'] = 0;
+								$tmpl['Template']['name'] = $name;
+								$this->Template->save($tmpl);
+								$id = $this->Template->getLastInsertId();
+							} else {
+								$id = $tmpl['Template']['id'];
+							}
+
+							$children = $xpath->query('//templates/template[@name="' . $name . '"]/template');
+
+							foreach ($children as $child) {
+								$child_name = '';
+								$child_type_id = '';
+
+								foreach ($child->attributes as $attribute) {
+
+									if ('name' == $attribute->name) {
+										$child_name = $attribute->value;
+									}
+
+									if ('template_type_id' == $attribute->name) {
+										$child_type_id = $attribute->value;
+									}
+
+								}
+
+								$child_template = $this->Template->find("Template.parent_id='" . $id . "' and Template.template_type_id='" . $child_type_id . "'");
+								
+								if (!$child_template) {
+									$child_template = array();
+									$child_template['Template'] = array(
+										'id' => null,
+									);
+								}
+
+								$child_template['Template']['parent_id'] = $id;
+								$child_template['Template']['template_type_id'] = $child_type_id;
+								$child_template['Template']['name'] = $child_name;
+								$child_template['Template']['template'] = trim($child->nodeValue);
+
+								$this->Template->save($child_template);
+							}
+						}
+					}
+
+					$this->Session->setFlash(__('Templates has been imported.',true));
+					@unlink('./files/templates.xml');
+					@unlink('./files/' . $this->data['Templates']['submittedfile']['name']);
+					$this->redirect('/templates/admin/');
+				} else {
+					$this->Session->setFlash(__('Invalid XML file templates.xml.',true));
+					@unlink('./files/templates.xml');
+					@unlink('./files/' . $this->data['Templates']['submittedfile']['name']);
+					$this->redirect('/templates/admin_import/');
+				}
+			} else {
+				$this->Session->setFlash(__('Error extracting templates.xml.',true));
+				@unlink('./files/templates.xml');
+				@unlink('./files/' . $this->data['Templates']['submittedfile']['name']);
+				$this->redirect('/templates/admin_import/');
+			}
+
+			$z->close();
+
+			@unlink('./files/templates.xml');
+			@unlink('./files/' . $this->data['Templates']['submittedfile']['name']);
+			$this->redirect('/templatess/admin/');
+		} else {
+			$this->Session->setFlash(__('Please, select the file for import.',true));
+			$this->redirect('/templates/admin_import/');
+		}
+	}
+
 }
