@@ -3430,3 +3430,19 @@ msgstr "Неправильный XML файл defined_languages.xml."
 #: /app/controllers/defined_languages_controller.php:208
 msgid "Error extracting defined_languages.xml."
 msgstr "Ошибка распаковки defined_languages.xml."
+
+#: /app/controllers/templates_controller.php:377
+msgid "Templates name is empty."
+msgstr "Не указано название шаблона."
+
+#: /app/controllers/templates_controller.php:434
+msgid "Templates has been imported."
+msgstr "Шаблоны успешно импортированы."
+
+#: /app/controllers/templates_controller.php:439
+msgid "Invalid XML file templates.xml."
+msgstr "Неправильный XML файл templates.xml."
+
+#: /app/controllers/templates_controller.php:445
+msgid "Error extracting templates.xml."
+msgstr "Ошибка распаковки templates.xml."
