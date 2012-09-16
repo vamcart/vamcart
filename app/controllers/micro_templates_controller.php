@@ -72,5 +72,36 @@ class MicroTemplatesController extends AppController {
 		$this->set('title_for_layout', __('Micro Templates Listing', true));
 		$this->set('micro_templates',$this->MicroTemplate->find('all'));
 	}
+	function download_export()
+	{
+		$images = array();
+		$z = new ZipArchive();
+		$res = $z->open('./files/micro_templates.zip', ZIPARCHIVE::OVERWRITE);
+
+		$micro_templates = $this->MicroTemplate->find('all');
+
+		$output  = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+		$output .= '<micro_templates>' . "\n";
+
+		foreach ($micro_templates as $key => $template) {
+			$output .= '  <micro_template alias="' . $template['MicroTemplate']['alias'] . '" tag_name="' . $template['MicroTemplate']['tag_name'] . '">' . "\n";
+			$output .= '    <![CDATA[';
+			$output .= $template['MicroTemplate']['template'];
+			$output .= ']]>' . "\n";
+			$output .= '  </micro_template>' . "\n";
+		}
+
+		$output .= '</micro_templates>' . "\n";
+		$z->addFromString('micro_templates.xml', $output);
+
+		$z->close();
+
+		header('Content-Type: application/octet-stream');
+		header('Content-Disposition: attachment; filename="micro_templates.zip"');
+		readfile('./files/micro_templates.zip');
+		@unlink('./files/micro_templates.zip');
+		die();
+	}
+
 }
 ?>
