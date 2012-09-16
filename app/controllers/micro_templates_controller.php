@@ -103,5 +103,94 @@ class MicroTemplatesController extends AppController {
 		die();
 	}
 
+	function admin_import()
+	{
+		$this->set('current_crumb', __('Import', true));
+		$this->set('title_for_layout', __('Import', true));
+	}
+
+	function admin_upload()
+	{
+		if (isset($this->data['MicroTemplates']['submittedfile'])
+			&& $this->data['MicroTemplates']['submittedfile']['error'] == 0
+			&& is_uploaded_file($this->data['MicroTemplates']['submittedfile']['tmp_name'])) {
+
+			@unlink('./files/' . $this->data['MicroTemplates']['submittedfile']['name']);
+			@unlink('./files/micro_templates.xml');
+			move_uploaded_file($this->data['MicroTemplates']['submittedfile']['tmp_name'], './files/' . $this->data['MicroTemplates']['submittedfile']['name']);
+
+			$z = new ZipArchive();
+			$z->open('./files/' . $this->data['MicroTemplates']['submittedfile']['name']);
+
+			$res = $z->extractTo('./files/', 'micro_templates.xml');
+
+			if ($res) {
+				$doc = new DOMDocument();
+				if ($doc->load('./files/micro_templates.xml')) {
+					$xpath = new DOMXpath($doc);
+					$micro_templates = $xpath->query('//micro_templates/micro_template');
+
+					foreach ($micro_templates as $template) {
+						$alias = '';
+						$tag_name = '';
+
+						foreach ($template->attributes as $attribute) {
+							if ('alias' == $attribute->name) {
+								$alias = $attribute->value;
+							}
+
+							if ('tag_name' == $attribute->name) {
+								$tag_name = $attribute->value;
+							}
+						}
+
+						if ('' == $alias) {
+							$this->Session->setFlash(__('MicroTemplates alias is empty.',true));
+							@unlink('./files/micro_templates.xml');
+							@unlink('./files/' . $this->data['MicroTemplates']['submittedfile']['name']);
+							$this->redirect('/micro_templates/admin_import/');
+						} else {
+							$tmpl = $this->MicroTemplate->find("MicroTemplate.alias = '" . $alias . "'");
+
+							if (!$tmpl) {
+								$tmpl = array();
+								$tmpl['MicroTemplate'] = array('id' => null);
+								$tmpl['MicroTemplate']['alias'] = $alias;
+							}
+
+							$tmpl['MicroTemplate']['tag_name'] = $tag_name;
+							$tmpl['MicroTemplate']['template'] = trim($template->nodeValue);
+
+							$this->MicroTemplate->save($tmpl);
+						}
+					}
+
+					$this->Session->setFlash(__('MicroTemplates has been imported.',true));
+					@unlink('./files/micro_templates.xml');
+					@unlink('./files/' . $this->data['MicroTemplates']['submittedfile']['name']);
+					$this->redirect('/micro_templates/admin/');
+				} else {
+					$this->Session->setFlash(__('Invalid XML file micro_templates.xml.',true));
+					@unlink('./files/micro_templates.xml');
+					@unlink('./files/' . $this->data['MicriTemplates']['submittedfile']['name']);
+					$this->redirect('/micro_templates/admin_import/');
+				}
+			} else {
+				$this->Session->setFlash(__('Error extracting micro_templates.xml.',true));
+				@unlink('./files/micro_templates.xml');
+				@unlink('./files/' . $this->data['MicroTemplates']['submittedfile']['name']);
+				$this->redirect('/micro_templates/admin_import/');
+			}
+
+			$z->close();
+			@unlink('./files/micro_templates.xml');
+			@unlink('./files/' . $this->data['MicroTemplates']['submittedfile']['name']);
+			$this->redirect('/micro_templates/admin/');
+		} else {
+			$this->Session->setFlash(__('Please, select the file for import.',true));
+			$this->redirect('/micro_templates/admin_import/');
+		}
+	}
+
 }
 ?>

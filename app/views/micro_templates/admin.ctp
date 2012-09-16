@@ -23,7 +23,7 @@ foreach ($micro_templates AS $micro_template)
 echo '</table>';
 echo $admin->CreateNewLink();
 echo $admin->CreateExportLink();
-//echo $admin->CreateImportLink();
+echo $admin->CreateImportLink();
 
 echo $admin->ShowPageHeaderEnd();
 
