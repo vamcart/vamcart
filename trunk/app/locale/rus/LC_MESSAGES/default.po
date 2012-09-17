@@ -3446,3 +3446,19 @@ msgstr "Неправильный XML файл templates.xml."
 #: /app/controllers/templates_controller.php:445
 msgid "Error extracting templates.xml."
 msgstr "Ошибка распаковки templates.xml."
+
+#: /app/controllers/micro_templates_controller.php:148
+msgid "MicroTemplates alias is empty."
+msgstr "Не указан псевдоним микро шаблона."
+
+#: /app/controllers/micro_templates_controller.php:168
+msgid "MicroTemplates has been imported."
+msgstr "Микро шаблоны успешно импортированы."
+
+#: /app/controllers/micro_templates_controller.php:173
+msgid "Invalid XML file micro_templates.xml."
+msgstr "Неправильный XML файл micro_templates.xml."
+
+#: /app/controllers/micro_templates_controller.php:179
+msgid "Error extracting micro_templates.xml."
+msgstr "Ошибка распаковки micro_templates.xml."
