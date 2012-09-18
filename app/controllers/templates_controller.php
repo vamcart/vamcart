@@ -304,7 +304,7 @@ class TemplatesController extends AppController {
 	
 	function download_export()
 	{
-		$images = array();
+		$scripts = array();
 		$z = new ZipArchive();
 		$res = $z->open('./files/templates.zip', ZIPARCHIVE::OVERWRITE);
 
@@ -316,6 +316,14 @@ class TemplatesController extends AppController {
 		foreach ($templates as $key => $template) {
 			$output .= '  <template name="' . $template['Template']['name'] . '">' . "\n";
 			foreach ($template['children'] as $child) {
+
+				$matches = array();
+				preg_match_all('/<script.*?src\w*?=\w*?\"{base_path}\/(.*)?\"/i', $child['Template']['template'], $matches);
+
+				foreach ((array)$matches[1] as $matche) {
+					$scripts[$matche] = $matche;
+				}
+
 				$output .= '    <template template_type_id="' . $child['Template']['template_type_id'] . '" name="' . $child['Template']['name'] . '">' . "\n";
 				$output .= '      <![CDATA[';
 				$output .= $child['Template']['template'];
@@ -327,6 +335,10 @@ class TemplatesController extends AppController {
 
 		$output .= '</templates>' . "\n";
 		$z->addFromString('templates.xml', $output);
+
+		foreach ($scripts as $script) {
+			$z->addFile($script, $script);
+		}
 
 		$z->close();
 

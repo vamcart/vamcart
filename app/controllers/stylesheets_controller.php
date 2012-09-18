@@ -47,19 +47,19 @@ class StylesheetsController extends AppController {
 		$output  = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
 		$output .= '<stylesheets>' . "\n";
 		foreach ($stylesheets as $stylesheet) {
-		$output .= '  <stylesheet name="' . $stylesheet['Stylesheet']['name'] . '" alias="' . $stylesheet['Stylesheet']['alias'] . '">' . "\n";
-		$output .= '  <![CDATA[' . "\n";
-		$output .= $stylesheet['Stylesheet']['stylesheet'];
-		$output .= '  ]]>' . "\n";
-		$output .= '  </stylesheet>' . "\n";
-		
-		$matches = array();
-		
-		preg_match_all('/url\(\.\.\/\.\.\/(.*?)\)/', $stylesheet['Stylesheet']['stylesheet'], $matches);
+			$output .= '  <stylesheet name="' . $stylesheet['Stylesheet']['name'] . '" alias="' . $stylesheet['Stylesheet']['alias'] . '">' . "\n";
+			$output .= '  <![CDATA[' . "\n";
+			$output .= $stylesheet['Stylesheet']['stylesheet'];
+			$output .= '  ]]>' . "\n";
+			$output .= '  </stylesheet>' . "\n";
 
-		foreach ((array)$matches[1] as $matche) {
-			$images[$matche] = $matche;
-		}
+			$matches = array();
+			
+			preg_match_all('/url\(\.\.\/\.\.\/(.*?)\)/', $stylesheet['Stylesheet']['stylesheet'], $matches);
+
+			foreach ((array)$matches[1] as $matche) {
+				$images[$matche] = $matche;
+			}
 		
 		}
 		$output .= '</stylesheets>' . "\n";
