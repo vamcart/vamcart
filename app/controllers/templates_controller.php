@@ -305,6 +305,7 @@ class TemplatesController extends AppController {
 	function download_export()
 	{
 		$scripts = array();
+		$images = array();
 		$z = new ZipArchive();
 		$res = $z->open('./files/templates.zip', ZIPARCHIVE::OVERWRITE);
 
@@ -318,10 +319,17 @@ class TemplatesController extends AppController {
 			foreach ($template['children'] as $child) {
 
 				$matches = array();
-				preg_match_all('/<script.*?src\w*?=\w*?\"{base_path}\/(.*)?\"/i', $child['Template']['template'], $matches);
+				preg_match_all('/<script.*?src\w*?=\w*?\"{base_path}\/(.*?)\"/i', $child['Template']['template'], $matches);
 
 				foreach ((array)$matches[1] as $matche) {
 					$scripts[$matche] = $matche;
+				}
+
+				$matches = array();
+				preg_match_all('/<img.*?src\w*?=\w*?\"{base_path}\/(.*?)\"/i', $child['Template']['template'], $matches);
+
+				foreach ((array)$matches[1] as $matche) {
+					$images[$matche] = $matche;
 				}
 
 				$output .= '    <template template_type_id="' . $child['Template']['template_type_id'] . '" name="' . $child['Template']['name'] . '">' . "\n";
@@ -338,6 +346,10 @@ class TemplatesController extends AppController {
 
 		foreach ($scripts as $script) {
 			$z->addFile($script, $script);
+		}
+
+		foreach ($images as $image) {
+			$z->addFile($image, $image);
 		}
 
 		$z->close();
@@ -370,6 +382,7 @@ class TemplatesController extends AppController {
 
 			$res = $z->extractTo('./files/');
 			$this->copyDir('./files/js', './js', true);
+			$this->copyDir('./files/img', './img', true);
 
 			$res = $z->extractTo('./files/', 'templates.xml');
 
@@ -391,6 +404,7 @@ class TemplatesController extends AppController {
 						if ('' == $name) {
 							$this->Session->setFlash(__('Templates name is empty.',true));
 							@$this->removeDir('./files/js');
+							@$this->removeDir('./files/img');
 							@unlink('./files/templates.xml');
 							@unlink('./files/' . $this->data['Templates']['submittedfile']['name']);
 							$this->redirect('/templates/admin_import/');
@@ -449,12 +463,14 @@ class TemplatesController extends AppController {
 
 					$this->Session->setFlash(__('Templates has been imported.',true));
 					@$this->removeDir('./files/js');
+					@$this->removeDir('./files/img');
 					@unlink('./files/templates.xml');
 					@unlink('./files/' . $this->data['Templates']['submittedfile']['name']);
 					$this->redirect('/templates/admin/');
 				} else {
 					$this->Session->setFlash(__('Invalid XML file templates.xml.',true));
 					@$this->removeDir('./files/js');
+					@$this->removeDir('./files/img');
 					@unlink('./files/templates.xml');
 					@unlink('./files/' . $this->data['Templates']['submittedfile']['name']);
 					$this->redirect('/templates/admin_import/');
@@ -462,6 +478,7 @@ class TemplatesController extends AppController {
 			} else {
 				$this->Session->setFlash(__('Error extracting templates.xml.',true));
 				@$this->removeDir('./files/js');
+				@$this->removeDir('./files/img');
 				@unlink('./files/templates.xml');
 				@unlink('./files/' . $this->data['Templates']['submittedfile']['name']);
 				$this->redirect('/templates/admin_import/');
@@ -470,6 +487,7 @@ class TemplatesController extends AppController {
 			$z->close();
 
 			@$this->removeDir('./files/js');
+			@$this->removeDir('./files/img');
 			@unlink('./files/templates.xml');
 			@unlink('./files/' . $this->data['Templates']['submittedfile']['name']);
 			$this->redirect('/templatess/admin/');
