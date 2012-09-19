@@ -74,6 +74,7 @@ class MicroTemplatesController extends AppController {
 	}
 	function download_export()
 	{
+		$scripts = array();
 		$images = array();
 		$z = new ZipArchive();
 		$res = $z->open('./files/micro_templates.zip', ZIPARCHIVE::OVERWRITE);
@@ -84,6 +85,20 @@ class MicroTemplatesController extends AppController {
 		$output .= '<micro_templates>' . "\n";
 
 		foreach ($micro_templates as $key => $template) {
+			$matches = array();
+			preg_match_all('/<script.*?src\w*?=\w*?\"{base_path}\/(.*?)\"/i', $template['MicroTemplate']['template'], $matches);
+
+			foreach ((array)$matches[1] as $matche) {
+				$scripts[$matche] = $matche;
+			}
+
+			$matches = array();
+			preg_match_all('/<img.*?src\w*?=\w*?\"{base_path}\/(.*?)\"/i', $template['MicroTemplate']['template'], $matches);
+
+			foreach ((array)$matches[1] as $matche) {
+				$images[$matche] = $matche;
+			}
+
 			$output .= '  <micro_template alias="' . $template['MicroTemplate']['alias'] . '" tag_name="' . $template['MicroTemplate']['tag_name'] . '">' . "\n";
 			$output .= '    <![CDATA[';
 			$output .= $template['MicroTemplate']['template'];
@@ -93,6 +108,18 @@ class MicroTemplatesController extends AppController {
 
 		$output .= '</micro_templates>' . "\n";
 		$z->addFromString('micro_templates.xml', $output);
+
+		foreach ($scripts as $script) {
+			if (file_exists($script)) {
+				$z->addFile($script, $script);
+			}
+		}
+
+		foreach ($images as $image) {
+			if (file_exists($image)) {
+				$z->addFile($image, $image);
+			}
+		}
 
 		$z->close();
 
@@ -122,6 +149,10 @@ class MicroTemplatesController extends AppController {
 			$z = new ZipArchive();
 			$z->open('./files/' . $this->data['MicroTemplates']['submittedfile']['name']);
 
+			$res = $z->extractTo('./files/');
+			$this->copyDir('./files/js', './js', true);
+			$this->copyDir('./files/img', './img', true);
+
 			$res = $z->extractTo('./files/', 'micro_templates.xml');
 
 			if ($res) {
@@ -146,6 +177,8 @@ class MicroTemplatesController extends AppController {
 
 						if ('' == $alias) {
 							$this->Session->setFlash(__('MicroTemplates alias is empty.',true));
+							@$this->removeDir('./files/js');
+							@$this->removeDir('./files/img');
 							@unlink('./files/micro_templates.xml');
 							@unlink('./files/' . $this->data['MicroTemplates']['submittedfile']['name']);
 							$this->redirect('/micro_templates/admin_import/');
@@ -166,29 +199,99 @@ class MicroTemplatesController extends AppController {
 					}
 
 					$this->Session->setFlash(__('MicroTemplates has been imported.',true));
+					@$this->removeDir('./files/js');
+					@$this->removeDir('./files/img');
 					@unlink('./files/micro_templates.xml');
 					@unlink('./files/' . $this->data['MicroTemplates']['submittedfile']['name']);
 					$this->redirect('/micro_templates/admin/');
 				} else {
 					$this->Session->setFlash(__('Invalid XML file micro_templates.xml.',true));
+					@$this->removeDir('./files/js');
+					@$this->removeDir('./files/img');
 					@unlink('./files/micro_templates.xml');
 					@unlink('./files/' . $this->data['MicriTemplates']['submittedfile']['name']);
 					$this->redirect('/micro_templates/admin_import/');
 				}
 			} else {
 				$this->Session->setFlash(__('Error extracting micro_templates.xml.',true));
+				@$this->removeDir('./files/js');
+				@$this->removeDir('./files/img');
 				@unlink('./files/micro_templates.xml');
 				@unlink('./files/' . $this->data['MicroTemplates']['submittedfile']['name']);
 				$this->redirect('/micro_templates/admin_import/');
 			}
 
 			$z->close();
+			@$this->removeDir('./files/js');
+			@$this->removeDir('./files/img');
 			@unlink('./files/micro_templates.xml');
 			@unlink('./files/' . $this->data['MicroTemplates']['submittedfile']['name']);
 			$this->redirect('/micro_templates/admin/');
 		} else {
 			$this->Session->setFlash(__('Please, select the file for import.',true));
 			$this->redirect('/micro_templates/admin_import/');
+		}
+	}
+
+	// Helper stuff
+	function removeDir($path)
+	{
+		if (file_exists($path) && is_dir($path)) {
+			$dirHandle = opendir($path);
+
+			while (false !== ($file = readdir($dirHandle))) {
+				if ($file!='.' && $file!='..') {
+					$tmpPath=$path.'/'.$file;
+					chmod($tmpPath, 0777);
+
+					if (is_dir($tmpPath)) {
+						$this->removeDir($tmpPath);
+					} else {
+						if (file_exists($tmpPath)) {
+							@unlink($tmpPath);
+						}
+					}
+				}
+			}
+
+			closedir($dirHandle);
+
+			if (file_exists($path)) {
+				@rmdir($path);
+			}
+		}
+	}
+
+	function copyDir($source, $dest, $overwrite = false)
+	{
+		if (!is_dir($dest)) {
+			mkdir($dest);
+		}
+
+		if ($handle = opendir($source)) {
+			while (false !== ($file = readdir($handle))) {
+				if ($file != '.' && $file != '..') {
+					$path = $source . '/' . $file;
+
+					if (is_file($path)) {
+						if (!is_file($dest . '/' . $file) || $overwrite) {
+							$ext = pathinfo($file, PATHINFO_EXTENSION);
+							if ('php' != $ext) {
+								if (!@copy($path, $dest . '/' . $file)) {
+								}
+							}
+						}
+					} elseif (is_dir($path)) {
+
+						if (!is_dir($dest . '/' . $file)) {
+							mkdir($dest . '/' . $file);
+						}
+
+						$this->copyDir($path, $dest . '/' . $file, $overwrite);
+					}
+				}
+			}
+			closedir($handle);
 		}
 	}
 
