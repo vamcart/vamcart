@@ -368,6 +368,9 @@ class TemplatesController extends AppController {
 			$z = new ZipArchive();
 			$z->open('./files/' . $this->data['Templates']['submittedfile']['name']);
 
+			$res = $z->extractTo('./files/');
+			$this->copyDir('./files/js', './js', true);
+
 			$res = $z->extractTo('./files/', 'templates.xml');
 
 			if ($res) {
@@ -387,6 +390,7 @@ class TemplatesController extends AppController {
 
 						if ('' == $name) {
 							$this->Session->setFlash(__('Templates name is empty.',true));
+							@$this->removeDir('./files/js');
 							@unlink('./files/templates.xml');
 							@unlink('./files/' . $this->data['Templates']['submittedfile']['name']);
 							$this->redirect('/templates/admin_import/');
@@ -444,17 +448,20 @@ class TemplatesController extends AppController {
 					}
 
 					$this->Session->setFlash(__('Templates has been imported.',true));
+					@$this->removeDir('./files/js');
 					@unlink('./files/templates.xml');
 					@unlink('./files/' . $this->data['Templates']['submittedfile']['name']);
 					$this->redirect('/templates/admin/');
 				} else {
 					$this->Session->setFlash(__('Invalid XML file templates.xml.',true));
+					@$this->removeDir('./files/js');
 					@unlink('./files/templates.xml');
 					@unlink('./files/' . $this->data['Templates']['submittedfile']['name']);
 					$this->redirect('/templates/admin_import/');
 				}
 			} else {
 				$this->Session->setFlash(__('Error extracting templates.xml.',true));
+				@$this->removeDir('./files/js');
 				@unlink('./files/templates.xml');
 				@unlink('./files/' . $this->data['Templates']['submittedfile']['name']);
 				$this->redirect('/templates/admin_import/');
@@ -462,12 +469,75 @@ class TemplatesController extends AppController {
 
 			$z->close();
 
+			@$this->removeDir('./files/js');
 			@unlink('./files/templates.xml');
 			@unlink('./files/' . $this->data['Templates']['submittedfile']['name']);
 			$this->redirect('/templatess/admin/');
 		} else {
 			$this->Session->setFlash(__('Please, select the file for import.',true));
 			$this->redirect('/templates/admin_import/');
+		}
+	}
+
+	// Helper stuff
+	function removeDir($path)
+	{
+		if (file_exists($path) && is_dir($path)) {
+			$dirHandle = opendir($path);
+
+			while (false !== ($file = readdir($dirHandle))) {
+				if ($file!='.' && $file!='..') {
+					$tmpPath=$path.'/'.$file;
+					chmod($tmpPath, 0777);
+
+					if (is_dir($tmpPath)) {
+						$this->removeDir($tmpPath);
+					} else {
+						if (file_exists($tmpPath)) {
+							@unlink($tmpPath);
+						}
+					}
+				}
+			}
+
+			closedir($dirHandle);
+
+			if (file_exists($path)) {
+				@rmdir($path);
+			}
+		}
+	}
+
+	function copyDir($source, $dest, $overwrite = false)
+	{
+		if (!is_dir($dest)) {
+			mkdir($dest);
+		}
+
+		if ($handle = opendir($source)) {
+			while (false !== ($file = readdir($handle))) {
+				if ($file != '.' && $file != '..') {
+					$path = $source . '/' . $file;
+
+					if (is_file($path)) {
+						if (!is_file($dest . '/' . $file) || $overwrite) {
+							$ext = pathinfo($file, PATHINFO_EXTENSION);
+							if ('php' != $ext) {
+								if (!@copy($path, $dest . '/' . $file)) {
+								}
+							}
+						}
+					} elseif (is_dir($path)) {
+
+						if (!is_dir($dest . '/' . $file)) {
+							mkdir($dest . '/' . $file);
+						}
+
+						$this->copyDir($path, $dest . '/' . $file, $overwrite);
+					}
+				}
+			}
+			closedir($handle);
 		}
 	}
 
