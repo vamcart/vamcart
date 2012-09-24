@@ -10,7 +10,7 @@ function smarty_function_search_result($params, $template)
 	global $config;
 	uses('sanitize');
 	$clean = new Sanitize();
-	$clean->paranoid($_POST);
+	$clean->paranoid($_GET);
 
 	App::import('Component', 'Smarty');
 	$Smarty =& new SmartyComponent();
@@ -18,11 +18,24 @@ function smarty_function_search_result($params, $template)
 	App::import('Component', 'Session');
 	$Session =& new SessionComponent();
 
-	if (isset($_POST['keyword']) && !empty($_POST['keyword'])) {
+	$params['on_page'] = $config['PRODUCTS_PER_PAGE'];
+
+	$vars = $template->smarty->tpl_vars;
+	
+	if (!isset($_GET['page'])) {
+		$vars['page'] = 1;
+	} else {
+		$vars['page'] = $_GET['page'];
+	}
+
+	if (isset($_GET['keyword']) && !empty($_GET['keyword'])) {
 
 		App::import('Model', 'Content');
 		$Content =& new Content();
-		$Content->unbindAll();
+
+		$Content->unbindModel(array('belongsTo' => array('ContentType', 'Template')), false);
+		$Content->unbindModel(array('hasMany' => array('ContentImage', 'ContentDescription')), false);
+		$Content->unbindModel(array('hasOne' => array('ContentLink', 'ContentProduct', 'ContentPage', 'ContentCategory', 'ContentArticle', 'ContentNews')), false);
 
 		$Content->bindModel(array(
 			'hasOne' => array(
@@ -31,7 +44,7 @@ function smarty_function_search_result($params, $template)
 					'conditions'   => 'language_id = '.$_SESSION['Customer']['language_id']
 				)
 			)
-		));
+		), false);
 
 		$Content->bindModel(array(
 			'belongsTo' => array(
@@ -39,7 +52,7 @@ function smarty_function_search_result($params, $template)
 					'className' => 'ContentType'
 				)
 			)
-		));
+		), false);
 
 		$Content->bindModel(array(
 			'hasOne' => array(
@@ -50,7 +63,7 @@ function smarty_function_search_result($params, $template)
 					)
 				)
 			)
-		));
+		), false);
 
 		$Content->bindModel(array(
 			'hasOne' => array(
@@ -58,13 +71,20 @@ function smarty_function_search_result($params, $template)
 					'className' => 'ContentProduct'
 				)
 			)
-		));
+		), false);
 
 		$search_conditions = array('AND' => array('ContentType.name' => 'product',
-						'OR' => array('ContentDescription.name LIKE' => '%' . $_POST['keyword'] . '%',
-							      'ContentDescription.description LIKE' => '%' . $_POST['keyword'] . '%')));
+						'OR' => array('ContentDescription.name LIKE' => '%' . $_GET['keyword'] . '%',
+							      'ContentDescription.description LIKE' => '%' . $_GET['keyword'] . '%')));
+		$Content->recursive = 2;
 
-		$content_list_data = $Content->find('all', array('conditions' => $search_conditions, 'recursive' => 2));
+		$content_total = $content_list_data = $Content->find('count', array('conditions' => $search_conditions));;
+
+		if ($vars['page'] == 'all') {
+			$content_list_data = $Content->find('all', array('conditions' => $search_conditions));
+		} else {
+			$content_list_data = $Content->find('all', array('conditions' => $search_conditions, 'limit' => $params['on_page'], 'page' => $vars['page']));
+		}
 
 		$content_list = array();
 		$count = 0;
@@ -101,15 +121,11 @@ function smarty_function_search_result($params, $template)
 		$count = 0;
 	}
 
-
-	$content_total = $count;
-	$vars = $template->smarty->tpl_vars;
 	$vars['content_list'] = $content_list;
 	$vars['count'] = $count;
-	$params['on_page'] = $config['PRODUCTS_PER_PAGE'];
-	
-	//$vars['page'] = $params['page'];
-	$vars['page'] = 1;
+	$params['keyword'] = $_GET['keyword'];
+	$vars['keyword'] = urlencode($_GET['keyword']);
+
 	$vars['ext'] = $config['URL_EXTENSION'];
 	$vars['pages_number'] = ceil($content_total/$params['on_page']);
 
@@ -117,7 +133,7 @@ function smarty_function_search_result($params, $template)
 		$vars['thumbnail_width'] = $config['THUMBNAIL_SIZE'];
         }
 
-	$display_template = $Smarty->load_template($params, 'content_listing');
+	$display_template = $Smarty->load_template($params, 'content_listing_search');
 	$Smarty->display($display_template, $vars);
 
 }
