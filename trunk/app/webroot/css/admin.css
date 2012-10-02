@@ -673,6 +673,18 @@ div#content table.orderTable td
 		margin: 0;
 	}
 
+div.search-f {
+	float: right;
+	margin: 0 9px;
+}
+
+div.search-f label {
+	display: none;
+}
+
+div.search-f .submit {
+	display: none;
+}
 /* /Orders */
 
 div#content .noData
@@ -682,6 +694,7 @@ div#content .noData
 		background: transparent;
 	}
 	
+
 /* /Tables */
 
 /* Messages */

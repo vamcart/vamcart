@@ -294,5 +294,38 @@ class OrdersController extends AppController {
 		$this->set('data',$data);
 
 	}	
+
+	function admin_search() {
+		if (!isset($_SESSION['Search'])) {
+			$_SESSION['Search'] = array();
+		}
+
+		if (isset($this->data['Search']['term'])) {
+			$_SESSION['Search']['term'] = $this->data['Search']['term'];
+		}
+		$this->set('current_crumb', __('Search Result', true));
+		$this->set('title_for_layout', __('Search Result', true));
+		$this->Order->OrderStatus->unbindModel(array('hasMany' => array('OrderStatusDescription')));
+		$this->Order->OrderStatus->bindModel(array(
+			'hasOne' => array(
+				'OrderStatusDescription' => array(
+					'className'  => 'OrderStatusDescription',
+					'conditions' => 'OrderStatusDescription.language_id = ' . $this->Session->read('Customer.language_id')
+				)
+			)
+		));
+
+		$this->Order->recursive = 2;
+
+		if (isset($_SESSION['Search']['term']) and ($this->RequestHandler->isPost() or isset($this->params['named']['page']) )) {
+			$term = $_SESSION['Search']['term'];
+		} else {
+			$term ='~';
+			unset($_SESSION['Search']['term']);
+		}
+
+		$data = $this->paginate('Order', "Order.order_status_id > 0 and (Order.id='" . (int)$term . "' or Order.bill_name LIKE '%" . $term . "%' or Order.email LIKE '%" . $term . "%' or Order.phone LIKE '%" . $term . "%')");
+		$this->set('data',$data);
+	}
 }
 ?>
