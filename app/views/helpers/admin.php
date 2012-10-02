@@ -315,19 +315,24 @@ class AdminHelper extends Helper {
 	* @param  booleen $text_link If true will display a text link instead if image, if the image doesn't exist.
 	* @return string	An <img> tag or name of the flag if $text_link is set to true.
 	*/	
-	function ShowPageHeaderStart($page_name = null, $icon = null)
+	function ShowPageHeaderStart($page_name = null, $icon = null, $search_form = null)
 	{
-			$content = '';
-			$content .= '<div id="page">';
-			$content .= '<h2>';
+		$content = '';
+		$content .= '<div id="page">';
+		$content .= '<h2>';
+
 		if (!empty($icon) && file_exists(IMAGES . 'admin/icons/page/' . $icon)) {
 			$content .= $this->Html->image('admin/icons/page/'.$icon, array('alt' => '')).'&nbsp;' . $page_name;
 		} else {
 			$content .= $page_name;
 		}
-			$content .= '</h2>';
-			$content .= '<div id="pageContent">';
-			
+
+		if (null != $search_form) {
+			$content .= '<div class="search-f">' . $search_form . '</div>';
+		}
+		$content .= '</h2>';
+		$content .= '<div id="pageContent">';
+
 		return $content;
 	}
 
