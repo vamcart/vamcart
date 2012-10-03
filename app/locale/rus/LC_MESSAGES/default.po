@@ -3470,7 +3470,3 @@ msgstr "Результаты поиска"
 #: /app/views/orders/admin.ctp:10
 msgid "Order Search"
 msgstr "Поиск заказов"
-
-#: /app/views/orders/admin.ctp:10
-msgid "Order Search"
-msgstr "Поиск заказов"
