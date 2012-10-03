@@ -3462,3 +3462,15 @@ msgstr "Неправильный XML файл micro_templates.xml."
 #: /app/controllers/micro_templates_controller.php:179
 msgid "Error extracting micro_templates.xml."
 msgstr "Ошибка распаковки micro_templates.xml."
+
+#: /app/controllers/orders_controller.php:307
+msgid "Search Result"
+msgstr "Результаты поиска"
+
+#: /app/views/orders/admin.ctp:10
+msgid "Order Search"
+msgstr "Поиск заказов"
+
+#: /app/views/orders/admin.ctp:10
+msgid "Order Search"
+msgstr "Поиск заказов"
