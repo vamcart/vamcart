@@ -288,7 +288,22 @@ INSERT INTO `content_types` (`id`, `template_type_id`, `name`, `type`) VALUES
 (3, 2, 'page', 'ContentPage'),
 (4, 0, 'link', 'ContentLink'),
 (5, 5, 'news', 'ContentNews'),
-(6, 6, 'article', 'ContentArticle');
+(6, 6, 'article', 'ContentArticle'),
+(7, 7, 'downloadable', 'ContentDownloadable');
+
+DROP TABLE IF EXISTS `content_downloadables`;
+CREATE TABLE IF NOT EXISTS `content_downloadables` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `content_id` int(10) NOT NULL,
+  `filename` varchar(256) NOT NULL,
+  `filestorename` varchar(256) NOT NULL,
+  `price` double NOT NULL,
+  `model` varchar(50) NOT NULL,
+  `tax_id` int(10) NOT NULL,
+  `max_downloads` int(10) NOT NULL,
+  `max_days_for_download` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS countries;
 CREATE TABLE IF NOT EXISTS `countries` (

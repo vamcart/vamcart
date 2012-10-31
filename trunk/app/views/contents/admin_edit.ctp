@@ -81,19 +81,20 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 	               )));
 
 		echo '<div id="content_type_fields">';
-			echo $this->requestAction( '/contents/admin_edit_type/' . (!isset($data['Content']['content_type_id'])? 2 : $data['Content']['content_type_id']) . '/' . $data['Content']['id'], array('return'));	
+			echo $this->requestAction( '/contents/admin_edit_type/' . (!isset($data['Content']['content_type_id'])? 2 : $data['Content']['content_type_id']) . '/' . $data['Content']['id'], array('return'));
 		echo '</div>';
 	
 	echo '<div class="template_required" id="template_required_template_picker" style="display:' . $tpl_req_style . ';">';
 	
-	  	echo $form->inputs(array(
-						'legend' => false,
-	  					'Content.template_id' => array(
+		echo $form->inputs(array(
+					'legend' => false,
+					'Content.template_id' => array(
 						'type' => 'select',
-				   	'label' => __('Template', true),
+						'label' => __('Template', true),
 						'options' => $templates,
 						'selected' => $data['Content']['template_id']
-	            	  )));
+					)
+		));
 	echo '</div>';	
 
 
