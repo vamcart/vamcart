@@ -53,7 +53,7 @@ foreach ($content_data AS $content)
 		$name_link .= $html->link($content['ContentDescription']['name'], '/contents/admin_edit/' . $content['Content']['id'].'/'.(isset($parent_content) ? $parent_content['Content']['id'] : 0));
 	}
 	
-	if ($content['ContentType']['name']=='product') {
+	if ($content['ContentType']['name']=='product' || $content['ContentType']['name']=='downloadable') {
 		$discounts = $admin->ActionButton('discounts', '/discounts/admin/' . $content['ContentProduct']['id'],__('Discounts', true)); 
 	} else {
 		$discounts = null; 

@@ -264,6 +264,40 @@ class ContentsController extends AppController {
 				
 			}
 			
+			if (7 == $this->data['Content']['content_type_id']) {
+
+				if (isset($this->data['ContentDownloadable']['delete']) && $this->data['ContentDownloadable']['delete'] ) {
+					$content_downloadable = $this->Content->ContentDownloadable->find('all', array('conditions' => array('content_id' => $content_id)));
+					foreach ($content_downloadable as $download) {
+						if ('' != $download['ContentDownloadable']['filestorename']) {
+							@unlink('./downloads/' . $download['ContentDownloadable']['filestorename']);
+						}
+					}
+					$this->data['ContentDownloadable']['filename'] = '';
+					$this->data['ContentDownloadable']['filestorename'] = '';
+				} else {
+					if (isset($this->data['ContentDownloadable']['file'])
+					    && $this->data['ContentDownloadable']['file']['error'] == 0
+					    && is_uploaded_file($this->data['ContentDownloadable']['file']['tmp_name'])) {
+
+						$store_name = $this->_random_string();
+
+						$content_downloadable = $this->Content->ContentDownloadable->find('all', array('conditions' => array('content_id' => $content_id)));
+						foreach ($content_downloadable as $download) {
+							if ('' != $download['ContentDownloadable']['filestorename']) {
+								@unlink('./downloads/' . $download['ContentDownloadable']['filestorename']);
+							}
+						}
+
+						move_uploaded_file($this->data['ContentDownloadable']['file']['tmp_name'], './downloads/' . $store_name);
+						$this->data['ContentDownloadable']['filename'] = $this->data['ContentDownloadable']['file']['name'];
+						$this->data['ContentDownloadable']['filestorename'] = $store_name;
+
+					}
+				}
+
+			}
+			
 			// Generate the alias based depending on whether or not it's empty
 			// If the alias is empty, generate it by the name, otherwise generate it with the alias again just for protection.
 			if($this->data['Content']['alias'] == "")
@@ -276,7 +310,7 @@ class ContentsController extends AppController {
 			}
 			else
 			{
-				$this->data['Content']['alias'] = $this->generateAlias($this->data['Content']['alias']);	
+				$this->data['Content']['alias'] = $this->generateAlias($this->data['Content']['alias']);
 			}
 			
 			// Get the content with the highest order set with the same parent_id and increase that by 1 if it's new
@@ -289,13 +323,9 @@ class ContentsController extends AppController {
 			}
 		
 			// Figure out something to do here if we try to move to a child content item.
-			
-			
-			
-			
-			
+
 			// Save to the database
-			$this->Content->save($this->data['Content']);	
+			$this->Content->save($this->data['Content']);
 			
 			
 			if($content_id == null)
@@ -363,19 +393,19 @@ class ContentsController extends AppController {
 					$this->redirect('/contents/admin_edit/' . $content_id . '/' . $content['Content']['parent_id']);
 			}
 			
-				if($content_id != 0)
-				{
-					$content = $this->Content->read(null, $content_id);
-					if($content['Content']['parent_id'] == '-1')
-						$this->redirect('/contents/admin_core_pages/');
-					else
-						$this->redirect('/contents/admin/0/' . $content['Content']['parent_id']);die();
-				}	
+			if($content_id != 0)
+			{
+				$content = $this->Content->read(null, $content_id);
+				if($content['Content']['parent_id'] == '-1')
+					$this->redirect('/contents/admin_core_pages/');
 				else
-				{
-					$this->redirect('/contents/admin/'); die();
-				}
-						
+					$this->redirect('/contents/admin/0/' . $content['Content']['parent_id']);die();
+			}
+			else
+			{
+				$this->redirect('/contents/admin/'); die();
+			}
+			
 		}
 		else	// The form has not been submitted
 		{
@@ -423,7 +453,7 @@ class ContentsController extends AppController {
 			$content_types_translatable = $this->Content->ContentType->find('list');
 			foreach($content_types_translatable AS $key => $value)
 			{
-			$content_types_translatable[$key] = __($value, true);
+				$content_types_translatable[$key] = __($value, true);
 			}
 			$this->set('content_types',$content_types_translatable);
 			
@@ -433,7 +463,7 @@ class ContentsController extends AppController {
 			$templates_translatable =  $this->Content->Template->find('list', array('conditions'=>array('parent_id' => '0')));
 			foreach($templates_translatable AS $key => $value)
 			{
-			$templates_translatable[$key] = __($value, true);
+				$templates_translatable[$key] = __($value, true);
 			}
 			$this->set('templates', $templates_translatable);
 			$this->set('languages', $this->Content->ContentDescription->Language->find('all', array('conditions' => array('active' => '1'), 'order' => array('Language.id ASC'))));
@@ -718,6 +748,16 @@ class ContentsController extends AppController {
 			$this->Content->ContentImage->create();
 			$this->Content->ContentImage->save($image);
 		}
+	}
+	
+	function _random_string()
+	{
+		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$randstring = '';
+		for ($i = 0; $i < 16; $i++) {
+			$randstring .= mb_substr($characters, rand(0, strlen($characters) - 1), 1);
+		}
+		return $randstring;
 	}
 }
 ?>
