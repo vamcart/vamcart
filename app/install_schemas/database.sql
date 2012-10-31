@@ -300,8 +300,8 @@ CREATE TABLE IF NOT EXISTS `content_downloadables` (
   `price` double NOT NULL,
   `model` varchar(50) NOT NULL,
   `tax_id` int(10) NOT NULL,
-  `max_downloads` int(10) NOT NULL,
-  `max_days_for_download` int(10) NOT NULL,
+  `max_downloads` int(10) DEFAULT '0',
+  `max_days_for_download` int(10) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
