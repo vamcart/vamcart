@@ -27,6 +27,9 @@ class OrderBaseComponent extends Object
 
 		App::import('Model', 'ContentProduct');
 		$this->ContentProduct =& new ContentProduct();
+
+		App::import('Model', 'ContentDownloadable');
+		$this->ContentDownloadable =& new ContentDownloadable();
 	}
 
 	function get_order ($order_id = null)
@@ -132,7 +135,7 @@ class OrderBaseComponent extends Object
 	function add_product($content_id, $qty = 1, $update = false) {
 		$this->load_models();
 		$content = $this->ContentBase->get_content_information($content_id);
-
+		$content_type = $content['ContentType']['name'];
 		$content_description = $this->ContentBase->get_content_description($content_id);
 		$content['ContentDescription'] = $content_description['ContentDescription'];
 
@@ -142,24 +145,49 @@ class OrderBaseComponent extends Object
 		$order_product = $this->Order->OrderProduct->find(array('order_id' => $_SESSION['Customer']['order_id'], 'content_id' => $content_id));
 
 		// needed for calculating correct discount price
-		$prices = $this->ContentProduct->find('first', array(
-			'conditions' => array('content_id' => $content_id)
-		));
+		switch ($content_type) {
+			case 'product':
+				$prices = $this->ContentProduct->find('first', array(
+					'conditions' => array('content_id' => $content_id)
+				));
+				break;
+			case 'downloadable':
+				$prices = $this->ContentDownloadable->find('first', array(
+					'conditions' => array('content_id' => $content_id)
+				));
+				break;
+		}
 
 		if (empty($order_product)) {
 
-			if ($qty < $prices['ContentProduct']['moq']) {
-				$qty = $prices['ContentProduct']['moq'];
+			if ('product' == $content_type) {
+				if ($qty < $prices['ContentProduct']['moq']) {
+					$qty = $prices['ContentProduct']['moq'];
+				}
 			}
 
-			$order_product = array('order_id' => $_SESSION['Customer']['order_id'],
-				'content_id' => $content_id,
-				'name' => $content['ContentDescription']['name'],
-				'model' => $product['ContentProduct']['model'],
-				'quantity' => $qty,
-				'price' => $product['ContentProduct']['price'],
-				'weight' => $product['ContentProduct']['weight']
-			);
+			switch ($content_type) {
+				case 'product':
+					$order_product = array('order_id' => $_SESSION['Customer']['order_id'],
+						'content_id' => $content_id,
+						'name' => $content['ContentDescription']['name'],
+						'model' => $product['ContentProduct']['model'],
+						'quantity' => $qty,
+						'price' => $product['ContentProduct']['price'],
+						'weight' => $product['ContentProduct']['weight']
+					);
+					break;
+				case 'downloadable':
+					$order_product = array('order_id' => $_SESSION['Customer']['order_id'],
+						'content_id' => $content_id,
+						'name' => $content['ContentDescription']['name'],
+						'model' => $product['ContentDownloadable']['model'],
+						'quantity' => $qty,
+						'price' => $product['ContentDownloadable']['price'],
+						'weight' => 0
+					);
+					break;
+			}
 
 			if (isset($prices['ContentProductPrice'])) {
 				foreach ($prices['ContentProductPrice'] as $price) {
@@ -175,8 +203,10 @@ class OrderBaseComponent extends Object
 				$order_product['OrderProduct']['quantity'] += abs($qty);
 			}
 
-			if ($order_product['OrderProduct']['quantity'] < $prices['ContentProduct']['moq']) {
-				$order_product['OrderProduct']['quantity'] = $prices['ContentProduct']['moq'];
+			if ('product' == $content_type) {
+				if ($order_product['OrderProduct']['quantity'] < $prices['ContentProduct']['moq']) {
+					$order_product['OrderProduct']['quantity'] = $prices['ContentProduct']['moq'];
+				}
 			}
 
 			if (isset($prices['ContentProductPrice'])) {
