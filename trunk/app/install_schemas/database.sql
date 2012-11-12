@@ -1081,7 +1081,12 @@ CREATE TABLE `order_products` (
   `price` double NOT NULL,
   `weight` varchar(10) collate utf8_unicode_ci NOT NULL,
   `tax` double NOT NULL,
-  PRIMARY KEY  (`id`)
+  `filename` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `filestorename` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `download_count` int(11) NOT NULL,
+  `max_downloads` int(10) NOT NULL DEFAULT '0',
+  `max_days_for_download` int(10) NOT NULL DEFAULT '0',
+  `download_key` varchar(256) COLLATE utf8_unicode_ci NOT NULL,  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `order_products` (`id`, `order_id`, `content_id`, `name`, `model`, `quantity`, `price`, `weight`, `tax`) VALUES 

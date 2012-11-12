@@ -8,11 +8,11 @@
 
 class Order extends AppModel {
 	var $name = 'Order';
-	
+
 	var $belongsTo = array('OrderStatus',
-						   'ShippingMethod',
-						   'PaymentMethod');
-						   
+				'ShippingMethod',
+				'PaymentMethod');
+
 	var $hasMany = array('OrderProduct' => array('dependent' => true),
 						 'OrderComment' => array('dependent' => true));
 }

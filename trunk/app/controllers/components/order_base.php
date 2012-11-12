@@ -184,7 +184,13 @@ class OrderBaseComponent extends Object
 						'model' => $product['ContentDownloadable']['model'],
 						'quantity' => $qty,
 						'price' => $product['ContentDownloadable']['price'],
-						'weight' => 0
+						'weight' => 0,
+						'filename' => $product['ContentDownloadable']['filename'],
+						'filestorename' => $product['ContentDownloadable']['filestorename'],
+						'download_count' => 0,
+						'max_downloads' => (int)$product['ContentDownloadable']['max_downloads'],
+						'max_days_for_download' => (int)$product['ContentDownloadable']['max_days_for_download'],
+						'download_key' => $this->_random_string()
 					);
 					break;
 			}
@@ -226,6 +232,16 @@ class OrderBaseComponent extends Object
 		$this->EventBase->ProcessEvent('AddToCartAfterSave');
 
 		$this->update_order_totals();
+	}
+	
+	function _random_string()
+	{
+		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$randstring = '';
+		for ($i = 0; $i < 16; $i++) {
+			$randstring .= mb_substr($characters, rand(0, strlen($characters) - 1), 1);
+		}
+		return $randstring;
 	}
 }
 ?>

@@ -36,129 +36,137 @@ class OrdersController extends AppController {
 		global $config;
 		
 		if (isset($_SESSION['Customer']['order_id'])) {
-		
-		$order = $this->Order->read(null,$_SESSION['Customer']['order_id']);
-		
-		$this->EventBase->ProcessEvent('PlaceOrderBeforeSave');
-		
-		foreach($_POST AS $key => $value)
-			$order['Order'][$key] = $value;
-		
-		// Update products ordered 
-		foreach($order['OrderProduct'] as $order_data) {
-		
-		App::import('Model', 'ContentProduct');		
-		$ContentProduct =& new ContentProduct();	
-		$product_data = $ContentProduct->findByContentId($order_data['content_id']);
-		$product_data['ContentProduct']['ordered'] = $product_data['ContentProduct']['ordered'] + $order_data['quantity'];
-		$ContentProduct->save($product_data);
-		
-		}
+			$order = $this->Order->read(null,$_SESSION['Customer']['order_id']);
+			$this->EventBase->ProcessEvent('PlaceOrderBeforeSave');
+
+			foreach($_POST AS $key => $value) {
+				$order['Order'][$key] = $value;
+			}
+
+			// Update products ordered 
+			foreach($order['OrderProduct'] as $order_data) {
+
+				if ('' == $order['OrderProduct']['filename']) {
+					App::import('Model', 'ContentProduct');
+					$ContentProduct =& new ContentProduct();
+					$product_data = $ContentProduct->findByContentId($order_data['content_id']);
+					$product_data['ContentProduct']['ordered'] = $product_data['ContentProduct']['ordered'] + $order_data['quantity'];
+					$ContentProduct->save($product_data);
+				} else {
+					App::import('Model', 'ContentDownloadable');
+					$ContentDownloadable =& new ContentDownloadable();
+					$product_data = $ContentDownloadable->findByContentId($order_data['content_id']);
+					$product_data['ContentDownloadable']['ordered'] = $product_data['ContentDownloadable']['ordered'] + $order_data['quantity'];
+					$ContentDownloadable->save($product_data);
+				}
+
+			}
+
+			// Get the default order status
+			if ($order['Order']['order_status_id'] == 0) {
+				$default_status = $this->Order->OrderStatus->find(array('default' => '1'));
+				$order['Order']['order_status_id'] = $default_status['OrderStatus']['id'];
+			}
+
+			// Save the order
+			$this->Order->save($order);
+
+			// Load the after_process function from the payment modules
+			$this->requestAction('/payment/'.$order['PaymentMethod']['alias'].'/after_process/');
+
+			// Empty the cart
+			$_SESSION['Customer']['order_id'] = null;
+
+			$this->EventBase->ProcessEvent('PlaceOrderAfterSave');
+
+			// Sending email
 			
-		// Get the default order status
-		if ($order['Order']['order_status_id'] == 0) {
-		$default_status = $this->Order->OrderStatus->find(array('default' => '1'));
-		$order['Order']['order_status_id'] = $default_status['OrderStatus']['id'];
-		}
-		
-		// Save the order
-		$this->Order->save($order);
-		
-		// Load the after_process function from the payment modules
-		$this->requestAction('/payment/'.$order['PaymentMethod']['alias'].'/after_process/');
-		
-		// Empty the cart
-		$_SESSION['Customer']['order_id'] = null;
-		
-		$this->EventBase->ProcessEvent('PlaceOrderAfterSave');
-		
-		// Sending email
-		
-		// Retrieve email template
-		App::import('Model', 'EmailTemplate');
-		
-		$this->EmailTemplate =& new EmailTemplate();
-		
-		$this->EmailTemplate->unbindModel(array('hasMany' => array('EmailTemplateDescription')));
-		$this->EmailTemplate->bindModel(
-	        array('hasOne' => array(
-				'EmailTemplateDescription' => array(
-                    'className' => 'EmailTemplateDescription',
-					'conditions'   => 'language_id = ' . $this->Session->read('Customer.language_id')
-                )
-            )
-           	)
-	    );
-		
-		// Get email template
-		$email_template = $this->EmailTemplate->findByAlias('new-order');
-		// Get current order status
-		$current_order_status = $this->Order->OrderStatus->OrderStatusDescription->find('first', array('conditions' => array('OrderStatusDescription.order_status_id =' => $order['Order']['order_status_id'], 'OrderStatusDescription.language_id =' => $this->Session->read('Customer.language_id'))));
-		
-		// Email Subject
-		$subject = $email_template['EmailTemplateDescription']['subject'];
-		$subject = str_replace('{$order_number}',$order['Order']['id'], $subject);
-		$subject = $config['SITE_NAME'] . ' - ' . $subject;
-		
-		$body = $email_template['EmailTemplateDescription']['content'];
-		$body = str_replace('{$name}', $order['Order']['bill_name'], $body);
-		$body = str_replace('{$order_number}', $order['Order']['id'], $body);
-		$body = str_replace('{$order_status}', $current_order_status['OrderStatusDescription']['name'], $body);
-		
-		$order = $this->Order->find('all', array('conditions' => array('Order.id' => $order['Order']['id'])));
-		$order = $order[0];
-		
-		$order_products = '';
-		foreach($order['OrderProduct'] AS $product) 
-		{
-			$order_products .= $product['quantity'] . ' x ' . $product['name'] . ' = ' . $product['quantity']*$product['price'] . "\n";
-		}
-		$order_products .= "\n" . $order['ShippingMethod']['name'] . ': ' . $order['Order']['shipping'] . "\n";
-		$order_products .= __('Order Total',true) . ': ' . $order['Order']['total'] . "\n";
-		
-		$body = str_replace('{$products}', $order_products, $body);
-		
-		if ($order['Order']['email'] != '') {
-		// Set up mail
-		$this->Email->init();
-		$this->Email->From = $config['NEW_ORDER_FROM_EMAIL'];
-		$this->Email->FromName = __($config['NEW_ORDER_FROM_NAME'],true);
-		// Send to customer
-		$this->Email->AddAddress($order['Order']['email']);
-		$this->Email->Subject = $subject;
+			// Retrieve email template
+			App::import('Model', 'EmailTemplate');
 
-		// Email Body
-		$this->Email->Body = $body;
-		
-		// Sending mail
-		$this->Email->send();
-		}
-		
-		// Send to admin
-		if($config['SEND_EXTRA_EMAIL'] != '')
-		{
-		
-		// Set up mail
-		$this->Email->init();
-		$this->Email->From = $config['NEW_ORDER_FROM_EMAIL'];
-		$this->Email->FromName = __($config['NEW_ORDER_FROM_NAME'],true);
-		$this->Email->AddAddress($config['SEND_EXTRA_EMAIL']);
-		$this->Email->Subject = $subject;
+			$this->EmailTemplate =& new EmailTemplate();
 
-		// Email Body
-		$this->Email->Body = $body;
+			$this->EmailTemplate->unbindModel(array('hasMany' => array('EmailTemplateDescription')));
+			$this->EmailTemplate->bindModel(
+				array('hasOne' => array(
+					'EmailTemplateDescription' => array(
+						'className'  => 'EmailTemplateDescription',
+						'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
+					)
+				))
+			);
+
+			// Get email template
+			$email_template = $this->EmailTemplate->findByAlias('new-order');
+			// Get current order status
+			$current_order_status = $this->Order->OrderStatus->OrderStatusDescription->find('first', array('conditions' => array('OrderStatusDescription.order_status_id =' => $order['Order']['order_status_id'], 'OrderStatusDescription.language_id =' => $this->Session->read('Customer.language_id'))));
+
+			// Email Subject
+			$subject = $email_template['EmailTemplateDescription']['subject'];
+			$subject = str_replace('{$order_number}',$order['Order']['id'], $subject);
+			$subject = $config['SITE_NAME'] . ' - ' . $subject;
+
+			$body = $email_template['EmailTemplateDescription']['content'];
+			$body = str_replace('{$name}', $order['Order']['bill_name'], $body);
+			$body = str_replace('{$order_number}', $order['Order']['id'], $body);
+			$body = str_replace('{$order_status}', $current_order_status['OrderStatusDescription']['name'], $body);
+
+			$order = $this->Order->find('all', array('conditions' => array('Order.id' => $order['Order']['id'])));
+			$order = $order[0];
+
+			$order_products = '';
+			foreach($order['OrderProduct'] AS $product) {
+				$order_products .= $product['quantity'] . ' x ' . $product['name'] . ' = ' . $product['quantity']*$product['price'] . "\n";
+				if ('' != $product['filename']) {
+					$order_products .= __('download link: ', true) . FULL_BASE_URL . '/download/' . $order['Order']['id'] . '/' . $product['id'] . '/' . $product['download_key'] . "\n";
+				}
+			}
+
+			$order_products .= "\n" . $order['ShippingMethod']['name'] . ': ' . $order['Order']['shipping'] . "\n";
+			$order_products .= __('Order Total',true) . ': ' . $order['Order']['total'] . "\n";
+
+			$body = str_replace('{$products}', $order_products, $body);
+
+			if ($order['Order']['email'] != '') {
+				// Set up mail
+				$this->Email->init();
+				$this->Email->From = $config['NEW_ORDER_FROM_EMAIL'];
+				$this->Email->FromName = __($config['NEW_ORDER_FROM_NAME'],true);
+				// Send to customer
+				$this->Email->AddAddress($order['Order']['email']);
+				$this->Email->Subject = $subject;
+
+				// Email Body
+				$this->Email->Body = $body;
+
+				// Sending mail
+				$this->Email->send();
+			}
 		
-		// Sending mail
-		$this->Email->send();
+			// Send to admin
+			if($config['SEND_EXTRA_EMAIL'] != '') {
+
+				// Set up mail
+				$this->Email->init();
+				$this->Email->From = $config['NEW_ORDER_FROM_EMAIL'];
+				$this->Email->FromName = __($config['NEW_ORDER_FROM_NAME'],true);
+				$this->Email->AddAddress($config['SEND_EXTRA_EMAIL']);
+				$this->Email->Subject = $subject;
+
+				// Email Body
+				$this->Email->Body = $body;
 		
+				// Sending mail
+				$this->Email->send();
+
+			}
+
 		}
-		
-		}
-		
+
 		// Get the configuration values to redirect
 		$this->redirect('/page/success' . $config['URL_EXTENSION']);
 	}
-	
+
 	function admin_delete ($id)
 	{
 		$this->Order->delete($id,true);
