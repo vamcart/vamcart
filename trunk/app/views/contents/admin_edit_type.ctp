@@ -106,6 +106,7 @@ switch($content_type_id) {
 		break;
 	case '7':
 		$tax_options = $this->requestAction('/contents/generate_tax_list/');
+		$order_statuses = $this->requestAction('/contents/generate_order_statuses_list/');
 
 		echo $validation->bind('ContentDownloadable', array('form' => '#contentform', 'messageId' => 'messages'));
 
@@ -122,6 +123,12 @@ switch($content_type_id) {
 				'type' => 'select',
 				'options' => $tax_options,
 				'selected' => $data['ContentDownloadable']['tax_id']
+			),
+			'ContentDownloadable.order_status_id' => array(
+				'label' => __('Need order status to download', true),
+				'type' => 'select',
+				'options' => $order_statuses,
+				'selected' => $data['ContentDownloadable']['order_status_id']
 			),
 			'ContentDownloadable.model' => array(
 				'label' => __('Model', true),

@@ -300,6 +300,7 @@ CREATE TABLE IF NOT EXISTS `content_downloadables` (
   `price` double NOT NULL,
   `model` varchar(50) NOT NULL,
   `tax_id` int(10) NOT NULL,
+  `order_status_id` int(10) NOT NULL,
   `max_downloads` int(10) DEFAULT '0',
   `max_days_for_download` int(10) DEFAULT '0',
   PRIMARY KEY (`id`)
@@ -1086,7 +1087,9 @@ CREATE TABLE `order_products` (
   `download_count` int(11) NOT NULL,
   `max_downloads` int(10) NOT NULL DEFAULT '0',
   `max_days_for_download` int(10) NOT NULL DEFAULT '0',
-  `download_key` varchar(256) COLLATE utf8_unicode_ci NOT NULL,  PRIMARY KEY  (`id`)
+  `download_key` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
+  `order_status_id` int(10) NOT NULL,
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `order_products` (`id`, `order_id`, `content_id`, `name`, `model`, `quantity`, `price`, `weight`, `tax`) VALUES 

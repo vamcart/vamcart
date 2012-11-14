@@ -151,19 +151,17 @@ class OrderStatusController extends AppController {
 		// Lets remove the hasMany association for now and associate it with our language of choice
 		$this->OrderStatus->unbindModel(array('hasMany' => array('OrderStatusDescription')));
 		$this->OrderStatus->bindModel(
-	        array('hasOne' => array(
+			array('hasOne' => array(
 				'OrderStatusDescription' => array(
-                    'className' => 'OrderStatusDescription',
-					'conditions'   => 'language_id = ' . $this->Session->read('Customer.language_id')
-                )
-            )
-           	)
-	    );
-		
-		$this->set('order_status_data',$this->OrderStatus->find('all', array('order' => array('OrderStatus.order ASC'))));			
-		$this->set('order_status_count', $this->OrderStatus->find('count'));
+					'className' => 'OrderStatusDescription',
+					'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
+				)
+			))
+		);
 
-	}	
+		$this->set('order_status_data',$this->OrderStatus->find('all', array('order' => array('OrderStatus.order ASC'))));
+		$this->set('order_status_count', $this->OrderStatus->find('count'));
+	}
 }
 
 ?>

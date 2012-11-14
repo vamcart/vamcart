@@ -44,6 +44,7 @@
 
 	Router::connect('/product/:content_alias', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/downloadable/:content_alias', array('controller' => 'pages', 'action' => 'index'));
+	Router::connect('/download/:order_id/:content_id/:download_key', array('controller' => 'download', 'action' => 'get'));
 	Router::connect('/category/:content_alias', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/category/:content_alias/page/:page', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/page/:content_alias', array('controller' => 'pages', 'action' => 'index'));

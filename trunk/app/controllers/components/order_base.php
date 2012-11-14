@@ -190,6 +190,7 @@ class OrderBaseComponent extends Object
 						'download_count' => 0,
 						'max_downloads' => (int)$product['ContentDownloadable']['max_downloads'],
 						'max_days_for_download' => (int)$product['ContentDownloadable']['max_days_for_download'],
+						'order_status_id' => (int)$product['ContentDownloadable']['order_status_id'],
 						'download_key' => $this->_random_string()
 					);
 					break;

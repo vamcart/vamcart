@@ -188,6 +188,31 @@ class ContentsController extends AppController {
 		
 		return $tax_list_translatable;
 	}
+	
+	function generate_order_statuses_list()
+	{
+		App::import('Model', 'OrderStatus');
+		$OrderStatus = new OrderStatus();
+
+		$OrderStatus->unbindModel(array('hasMany' => array('OrderStatusDescription')));
+		$OrderStatus->bindModel(
+			array('hasOne' => array(
+				'OrderStatusDescription' => array(
+					'className' => 'OrderStatusDescription',
+					'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
+				)
+			))
+		);
+
+		$order_statuses_list = $OrderStatus->find('all', array('order' => array('OrderStatus.order')));
+
+		$order_statuses_list_ = array();
+		foreach ($order_statuses_list as $status) {
+			$order_statuses_list_[$status['OrderStatus']['id']] = $status['OrderStatusDescription']['name'];
+		}
+		
+		return $order_statuses_list_;
+	}
 
 	function admin_core_pages_edit($content_id) 
 	{
