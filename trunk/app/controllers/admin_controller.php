@@ -9,7 +9,7 @@
 class AdminController extends AppController {
 	var $name = 'Admin';
 	var $uses = array('User');
-	var $components = array('Check');
+	//var $components = array('Check');
 	var $helpers = array('Html','Javascript','Admin','Form', 'FlashChart');
 
 	function index() 
