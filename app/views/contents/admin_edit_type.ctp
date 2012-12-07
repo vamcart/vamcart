@@ -150,7 +150,7 @@ switch($content_type_id) {
 				'value' => $data['ContentDownloadable']['max_downloads']
 			),
 			'ContentDownloadable.max_days_for_download' => array(
-				'label' => __('Days for download', true),
+				'label' => __('Max. days for download', true),
 				'type' => 'text',
 				'value' => $data['ContentDownloadable']['max_days_for_download']
 			)

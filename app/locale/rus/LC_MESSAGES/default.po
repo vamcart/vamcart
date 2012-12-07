@@ -268,6 +268,10 @@ msgstr "Показывать в меню."
 msgid "Export to YML"
 msgstr "Экспорт в YML"
 
+#: /controllers/contents_controller.php:457
+msgid "Not export to YML"
+msgstr "Не экпортировать в YML"
+
 #: /controllers/contents_controller.php:462
 msgid "Now hiding from menu."
 msgstr "Не показывать в меню."
@@ -1977,6 +1981,10 @@ msgid "article"
 msgstr "статья"
 
 #: /views/contents/admin_edit.ctp:60
+msgid "downloadable"
+msgstr "скачиваемый"
+
+#: /views/contents/admin_edit.ctp:60
 msgid "Default Theme"
 msgstr "Шаблон по умолчанию"
 
@@ -2120,6 +2128,26 @@ msgstr "Ссылка на"
 #: /views/contents/admin_edit_type.ctp:99
 msgid "Select Internal Page"
 msgstr "Выберите страницу"
+
+#: /views/contents/admin_edit_type.ctp:99
+msgid "Required order status to download"
+msgstr "Необходимый статус заказа для загрузки"
+
+#: /views/contents/admin_edit_type.ctp:99
+msgid "File: "
+msgstr "Файл: "
+
+#: /views/contents/admin_edit_type.ctp:99
+msgid "delete "
+msgstr "удалить"
+
+#: /views/contents/admin_edit_type.ctp:99
+msgid "Max. downloads"
+msgstr "Максимум скачиваний"
+
+#: /views/contents/admin_edit_type.ctp:99
+msgid "Max. days for download"
+msgstr "Максимум дней для загрузки"
 
 #: /views/countries/admin.ctp:42
 #: /views/orders/admin.ctp:41
@@ -3467,6 +3495,34 @@ msgstr "Ошибка распаковки micro_templates.xml."
 msgid "Search Result"
 msgstr "Результаты поиска"
 
+#: /app/controllers/orders_controller.php:121
+msgid "Download link: "
+msgstr "Загрузить: "
+
 #: /app/views/orders/admin.ctp:10
 msgid "Order Search"
 msgstr "Поиск заказов"
+
+#: /vendors/smarty/vam_plugins/function.downloadable_prices.php:36
+msgid "Displays the product prices for the current content."
+msgstr "Показывает стоимость товара в текущей странице."
+
+#: /app/controllers/download_controller.php:49
+msgid "Last allowed download date is reached."
+msgstr "Количество дней, в течение которых была разрешена загрузка, истекло."
+
+#: /app/controllers/download_controller.php:53
+msgid "The number of downloads is exceeded."
+msgstr "Товар уже был скачан максимально разрешённое количество раз."
+
+#: /app/controllers/download_controller.php:57
+msgid "Order is not payed."
+msgstr "Заказ не был оплачен."
+
+#: /app/controllers/download_controller.php:61
+msgid "Product is not found."
+msgstr "Товар не найден."
+
+#: /app/controllers/download_controller.php:65
+msgid "Order is not found."
+msgstr "Заказ не найден."
