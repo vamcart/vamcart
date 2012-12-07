@@ -125,7 +125,7 @@ switch($content_type_id) {
 				'selected' => $data['ContentDownloadable']['tax_id']
 			),
 			'ContentDownloadable.order_status_id' => array(
-				'label' => __('Need order status to download', true),
+				'label' => __('Required order status to download', true),
 				'type' => 'select',
 				'options' => $order_statuses,
 				'selected' => $data['ContentDownloadable']['order_status_id']
