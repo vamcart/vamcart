@@ -118,7 +118,7 @@ class OrdersController extends AppController {
 			foreach($order['OrderProduct'] AS $product) {
 				$order_products .= $product['quantity'] . ' x ' . $product['name'] . ' = ' . $product['quantity']*$product['price'] . "\n";
 				if ('' != $product['filename']) {
-					$order_products .= __('Download link: ', true) . FULL_BASE_URL . '/download/' . $order['Order']['id'] . '/' . $product['id'] . '/' . $product['download_key'] . "\n";
+					$order_products .= __('Download link: ', true) . FULL_BASE_URL . BASE . '/download/' . $order['Order']['id'] . '/' . $product['id'] . '/' . $product['download_key'] . "\n";
 				}
 			}
 
