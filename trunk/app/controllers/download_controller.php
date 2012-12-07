@@ -46,23 +46,23 @@ class DownloadController extends AppController {
 							
 							die;
 						} else {
-							echo __('Last allowed download date is reached', true);
+							echo __('Last allowed download date is reached.', true);
 							die;
 						}
 					} else {
-						echo __('The number of downloads is exceeded', true);
+						echo __('The number of downloads is exceeded.', true);
 						die;
 					}
 				} else {
-					echo __('Order is not payed', true);
+					echo __('Order is not payed.', true);
 					die;
 				}
 			} else {
-				echo __('Product is not found', true);
+				echo __('Product is not found.', true);
 				die;
 			}
 		} else {
-			echo __('Order is not found', true);
+			echo __('Order is not found.', true);
 			die;
 		}
 	}
