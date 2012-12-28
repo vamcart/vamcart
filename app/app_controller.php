@@ -16,8 +16,7 @@ class AppController extends Controller {
 		'Translit',
 		'Session',
 		'Auth' => array(
-		),
-		'DebugKit.Toolbar'
+		)
 	);
 	var $layout = 'admin';
 
