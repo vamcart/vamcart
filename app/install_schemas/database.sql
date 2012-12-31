@@ -48,7 +48,7 @@ INSERT INTO `configurations` (`id`, `configuration_group_id`, `key`, `value`, `t
 (13,'3','NEW_ORDER_STATUS_FROM_EMAIL', 'vam@test.com','text', '', 'New Order Status: From','','13'),
 (14,'3','NEW_ORDER_STATUS_FROM_NAME', 'VamCart','text', '', 'New Order Status: From Name','','14'),
 (15,'3','SEND_CONTACT_US_EMAIL', 'vam@test.com','text', '', 'Send contact us emails to','','15'),
-(16,'1','AJAX_ENABLE', '1', 'select', '0,1', 'Ajax Enable', '', '16');
+(16,'1','AJAX_ENABLE', '0', 'select', '0,1', 'Ajax Enable', '', '16');
 
 DROP TABLE IF EXISTS contents;
 CREATE TABLE `contents` (
