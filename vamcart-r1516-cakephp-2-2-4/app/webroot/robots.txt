@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /users/admin_login
+Disallow: /page/home-page.html
+Disallow: /page/cart-contents.html
+Disallow: /page/checkout.html
+Disallow: /page/confirmation.html
+Disallow: /page/success.html
+Disallow: /product/68.html
+Disallow: /languages/pick_language/*
+Disallow: /page/read-reviews.html?content_id=*
+Disallow: /page/create-review.html?content_id=*
