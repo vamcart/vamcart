@@ -25,7 +25,7 @@ class GlobalContentBlocksController extends AppController {
 	{
 		$this->set('current_crumb', __('Global Content Block Details', true));
 		$this->set('title_for_layout', __('Global Content Block Details', true));
-		if(isset($this->params['form']['cancelbutton']))
+		if(isset($this->request->data['cancelbutton']))
 		{
 			$this->redirect('/global_content_blocks/admin/');
 			die();
@@ -60,7 +60,7 @@ class GlobalContentBlocksController extends AppController {
 				$this->Session->setFlash(__('Record saved.', true));
 		
 		
-			if(isset($this->params['form']['apply']))
+			if(isset($this->request->data['apply']))
 			{
 				if($global_content_block_id == null)
 					$global_content_block_id = $this->GlobalContentBlock->getLastInsertId();	
@@ -91,7 +91,7 @@ class GlobalContentBlocksController extends AppController {
 				$this->GlobalContentBlock->id = $value;
 				$gcb = $this->GlobalContentBlock->read();
 			
-				switch ($this->params['form']['multiaction']) 
+				switch ($this->request->data['multiaction']) 
 				{
 					case "delete":
 					    $this->GlobalContentBlock->delete($value);

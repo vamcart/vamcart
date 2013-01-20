@@ -23,7 +23,7 @@ class ConfigurationController extends AppController {
 		$this->set('title_for_layout', __('Store Configuration', true));
 		if(!empty($this->data))
 		{
-			if(isset($this->params['form']['cancelbutton']))
+			if(isset($this->request->data['cancelbutton']))
 			{
 				$this->redirect('/configuration/admin/');
 				die();

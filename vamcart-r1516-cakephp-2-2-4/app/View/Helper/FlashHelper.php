@@ -81,10 +81,10 @@ class FlashHelper extends AppHelper {
 		$this->initialized = true;
         $view =& ClassRegistry::getObject('view'); 
         if (is_object($view)) { 
-            $view->addScript($this->Js->link('swfobject')); 
+            $view->addScript($this->Html->script('swfobject')); 
             return true;
         } else {
-        	return $this->Js->link('swfobject');
+        	return $this->Html->script('swfobject');
         }
 	}
 	

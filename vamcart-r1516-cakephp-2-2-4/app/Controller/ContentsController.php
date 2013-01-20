@@ -272,7 +272,7 @@ class ContentsController extends AppController {
 		if(!empty($this->data))
 		{
 			// Did the user pressed cancel?
-			if(isset($this->params['form']['cancelbutton']))
+			if(isset($this->request->data['cancelbutton']))
 			{
 				if($content_id != 0)
 				{
@@ -409,7 +409,7 @@ class ContentsController extends AppController {
 			$this->Session->setFlash(__('Record saved.', true));
 		
 			// Check if we pressed 'apply' otherwise just render
-			if(isset($this->params['form']['applybutton']))
+			if(isset($this->request->data['applybutton']))
 			{
 				if($this->data['Content']['parent_id'] == '-1')
 					$this->redirect('/contents/admin_core_pages_edit/' . $content_id);
@@ -523,7 +523,7 @@ class ContentsController extends AppController {
 				$this->Content->id = $value;
 				$content = $this->Content->read();
 			
-				switch ($this->params['form']['multiaction']) 
+				switch ($this->request->data['multiaction']) 
 				{
 					case "delete":
 						$target_page = '/contents/admin/0/' . $content['Content']['parent_id'];
@@ -576,13 +576,13 @@ class ContentsController extends AppController {
 						$target_page = '/contents/admin/0/' . $content['Content']['parent_id'];
 						break;
 					case "copy":
-						$parent_id = $this->params['form']['target_category'];
+						$parent_id = $this->request->data['target_category'];
 						$this->_copy_content($content, $parent_id);
 						$build_flash .= __('Copied content item.', true);
 						$target_page = '/contents/admin/0/' . $parent_id;
 						break;
 					case "move":
-						$parent_id = $this->params['form']['target_category'];
+						$parent_id = $this->request->data['target_category'];
 						$content['Content']['parent_id'] = $parent_id;
 						$highest_order_content = $this->Content->find('first', array('conditions' => array('Content.parent_id' => $parent_id),null,'Content.order DESC'));
 						$new_order = $highest_order_content['Content']['order'] + 1;

@@ -58,8 +58,8 @@ class AjaxHelper extends Helper {
 	
 	function beforeRender() {
 //	   if ( ClassRegistry::getObject('view') ) {
-//		$this->Js->link('jquery/jquery.min', false);
-//		$this->Js->link('jquery/plugins/jquery.form', false);
+//		$this->Html->script('jquery/jquery.min', false);
+//		$this->Html->script('jquery/plugins/jquery.form', false);
 //	   }
 	}
 
@@ -225,7 +225,7 @@ class AjaxHelper extends Helper {
  * @link          http://github.com/madrobby/scriptaculous/wikis/ajax-inplaceeditor
  */
 	function editor($id, $url, $options = array()) {
-//		$this->Js->link('jquery/plugins/jquery.jeditable', false);
+//		$this->Html->script('jquery/plugins/jquery.jeditable', false);
 		$url = $this->url($url);
 		$options = $this->_optionsToString($options, array(
 			'id', 'name', 'loadurl', 'type', 'data', 'style', 'callback', 'submitdata', 'method', 'rows', 'cols', 'width', 'loadtype', 'loaddata', 'onblur', 'cancel', 'submit', 'tooltip', 'placeholder', 

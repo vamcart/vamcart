@@ -143,7 +143,7 @@ class StylesheetsController extends AppController {
 		}
 		else
 		{
-			if(isset($this->params['form']['cancelbutton']))
+			if(isset($this->request->data['cancelbutton']))
 			{
 				$this->redirect('/stylesheets/admin/');
 			}
@@ -207,7 +207,7 @@ class StylesheetsController extends AppController {
 		}
 		else
 		{	// We submitted data
-			if(isset($this->params['form']['cancelbutton']))
+			if(isset($this->request->data['cancelbutton']))
 			{	
 				$this->redirect('/stylesheets/admin/');
 			}
@@ -239,7 +239,7 @@ class StylesheetsController extends AppController {
 				}
 			}
 			
-			if(isset($this->params['form']['apply']))
+			if(isset($this->request->data['apply']))
 				$this->redirect('/stylesheets/admin_edit/' . $stylesheet_id);
 			else
 				$this->redirect('/stylesheets/admin/');
@@ -263,7 +263,7 @@ class StylesheetsController extends AppController {
 				$this->Stylesheet->id = $value;
 				$stylesheet = $this->Stylesheet->read();
 			
-				switch ($this->params['form']['multiaction']) 
+				switch ($this->request->data['multiaction']) 
 				{
 					case "delete":
 					    $this->Stylesheet->delete($value);

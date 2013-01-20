@@ -35,7 +35,7 @@ class EmailTemplateController extends AppController {
 		$this->set('current_crumb', __('Edit', true));
 		$this->set('title_for_layout', __('Edit', true));
 		// If they pressed cancel
-		if(isset($this->params['form']['cancelbutton']))
+		if(isset($this->request->data['cancelbutton']))
 		{
 			$this->redirect('/email_template/admin/');
 			die();

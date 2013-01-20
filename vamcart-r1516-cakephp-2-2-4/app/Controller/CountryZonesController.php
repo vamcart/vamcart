@@ -24,7 +24,7 @@ class CountryZonesController extends AppController {
 		$this->set('title_for_layout', __('Country Zone Details', true));
 		$this->set('country_id', $country_id);
 
-		if(isset($this->params['form']['cancelbutton']))
+		if(isset($this->request->data['cancelbutton']))
 		{
 			$this->redirect('/country_zones/admin/' . $country_id);
 			die();

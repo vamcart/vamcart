@@ -59,9 +59,9 @@ public function  beforeRender(Controller $controller){
 		$smarty = new Smarty();
 
 		$smarty->plugins_dir = array(
-			'../vendors/smarty/plugins',
-			'../vendors/smarty/local_plugins',
-			'../vendors/smarty/vam_plugins'
+			'../Vendor/smarty/plugins',
+			'../Vendor/smarty/local_plugins',
+			'../Vendor/smarty/vam_plugins'
 		);
 
 		return $smarty;

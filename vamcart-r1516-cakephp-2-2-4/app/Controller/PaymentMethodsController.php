@@ -51,7 +51,7 @@ class PaymentMethodsController extends AppController {
 		}
 		else
 		{
-			if(isset($this->params['form']['cancelbutton']))
+			if(isset($this->request->data['cancelbutton']))
 			{
 				$this->redirect('/payment_methods/admin/');
 				die();
@@ -118,7 +118,7 @@ class PaymentMethodsController extends AppController {
 		$this->set('title_for_layout', __('Module Upload', true));
 
 		// If they pressed cancel
-		if(isset($this->params['form']['cancelbutton']))
+		if(isset($this->request->data['cancelbutton']))
 		{
 			$this->redirect('/payment_methods/admin/');
 			die();

@@ -19,7 +19,7 @@ class DiscountsController extends AppController {
 		$this->set('current_crumb', __('Discounts Details', true));
 		$this->set('title_for_layout', __('Discounts Details', true));
 		// If they pressed cancel
-		if(isset($this->params['form']['cancelbutton']))
+		if(isset($this->request->data['cancelbutton']))
 		{
 			$this->redirect('/discounts/admin/'.$content_id);
 			die();
@@ -55,7 +55,7 @@ class DiscountsController extends AppController {
 				$this->Currency->id = $value;
 				$currency = $this->Currency->read();
 
-				switch ($this->params['form']['multiaction'])
+				switch ($this->request->data['multiaction'])
 				{
 					case "delete":
 						// Make sure it's not the default currency
