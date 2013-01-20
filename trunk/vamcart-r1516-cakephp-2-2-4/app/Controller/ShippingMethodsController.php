@@ -6,6 +6,8 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 App::uses('AppController', 'Controller');
+App::uses('Folder', 'Utility');
+
 class ShippingMethodsController extends AppController {
 	var $name = 'ShippingMethods';
 
