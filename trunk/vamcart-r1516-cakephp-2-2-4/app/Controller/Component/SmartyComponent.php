@@ -21,6 +21,9 @@ public function shutdown(Controller $controller) {
     
 public function  beforeRender(Controller $controller){
 	}
+
+public function beforeRedirect(Controller $controller){
+	}
 	
 	function load_template ($params, $tag)
 	{

@@ -27,6 +27,9 @@ public function shutdown(Controller $controller) {
 public function  beforeRender(Controller $controller){
 	}
 
+public function beforeRedirect(Controller $controller){
+	}
+
 	function getVersion ()
 	{
 		$version = file_get_contents(WWW_ROOT . 'version.txt');

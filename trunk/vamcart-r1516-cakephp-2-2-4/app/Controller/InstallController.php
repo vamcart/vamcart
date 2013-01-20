@@ -151,7 +151,7 @@ class InstallController extends AppController {
 class DATABASE_CONFIG {
 
 	var $default = array(
-		\'driver\' => \'mysql\',
+		\'datasource\' => \'Database/Mysql\',
 		\'persistent\' => false,
 		\'host\' => \'' . $this->data['Install']['db_host'] . '\',
 		\'login\' => \'' . $this->data['Install']['db_username'] . '\',

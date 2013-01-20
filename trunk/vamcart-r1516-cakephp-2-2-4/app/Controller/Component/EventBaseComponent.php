@@ -26,6 +26,9 @@ public function shutdown(Controller $controller) {
 public function  beforeRender(Controller $controller){
 	}
 
+public function beforeRedirect(Controller $controller){
+	}
+
 	function ProcessEvent ($event_alias)
 	{
 		App::import('Model', 'Event');
