@@ -48,7 +48,7 @@ public function  beforeRender(Controller $controller){
 	*/
 	function default_content ()
 	{
-		$content = $this->Content->find(array('Content.default' => '1'));
+		$content = $this->Content->find('first', array('conditions' => array('Content.default' => '1')));
 		$content_id = $content['Content']['id'];
 
 		return $content_id;
@@ -70,7 +70,7 @@ public function  beforeRender(Controller $controller){
 
 		$this->load_models();
 
-		 $this->ContentDescription->find(array('content_id' => $content_id, 'language_id' => $this->Session->read('Customer.language_id')));
+		 $this->ContentDescription->find('first', array('conditions' => array('content_id' => $content_id, 'language_id' => $this->Session->read('Customer.language_id'))));
 
 		return $this->ContentDescription;
 	}

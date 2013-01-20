@@ -63,7 +63,7 @@ public function beforeRedirect(Controller $controller){
 		if ($order_id != null) {
 			$this->Order->unbindModel(array('belongsTo' => array('OrderStatus')));
 			$this->Order->unbindModel(array('hasMany' => array('OrderComment')));
-			$order = $this->Order->find(array('Order.id' => $order_id), null, null, 2);
+			$order = $this->Order->find('first', array('conditions' => array('Order.id' => $order_id), null, null, 2));
 		} else {
 			$order = array();
 		}
@@ -133,7 +133,7 @@ public function beforeRedirect(Controller $controller){
 	{
 		$this->load_models();
 
-		$order_product = $this->Order->OrderProduct->find(array('content_id' => $product_id,'order_id' => $_SESSION['Customer']['order_id']));
+		$order_product = $this->Order->OrderProduct->find('first', array('conditions' => array('content_id' => $product_id,'order_id' => $_SESSION['Customer']['order_id'])));
 
 		App::import('Component', 'EventBase');
 		$this->EventBase =& new EventBaseComponent();
@@ -159,10 +159,10 @@ public function beforeRedirect(Controller $controller){
 		$content_description = $this->ContentBase->get_content_description($content_id);
 		$content['ContentDescription'] = $content_description['ContentDescription'];
 
-		$product = $this->Order->OrderProduct->Content->find(array('Content.id' => $content_id));
+		$product = $this->Order->OrderProduct->Content->find('first', array('conditions' => array('Content.id' => $content_id)));
 
 		// Get the product from the OrderProduct model...
-		$order_product = $this->Order->OrderProduct->find(array('order_id' => $_SESSION['Customer']['order_id'], 'content_id' => $content_id));
+		$order_product = $this->Order->OrderProduct->find('first', array('conditions' => array('order_id' => $_SESSION['Customer']['order_id'], 'content_id' => $content_id)));
 
 		// needed for calculating correct discount price
 		switch ($content_type) {

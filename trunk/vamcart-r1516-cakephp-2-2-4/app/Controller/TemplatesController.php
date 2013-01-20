@@ -31,7 +31,7 @@ class TemplatesController extends AppController {
 	
 	function expand_section($template_id) 
 	{
-		$user_prefs = $this->UserPref->find(array('name' => 'template_collpase', 'user_id' => $this->Session->read('User.id')));
+		$user_prefs = $this->UserPref->find('first', array('conditions' => array('name' => 'template_collpase', 'user_id' => $this->Session->read('User.id'))));
 		$template_collapse = explode(',', $user_prefs['UserPref']['value']);
 
 		$new_collapsed = "";
@@ -51,7 +51,7 @@ class TemplatesController extends AppController {
 
 	function contract_section($template_id) 
 	{
-		$user_prefs = $this->UserPref->find(array('name' => 'template_collpase', 'user_id' => $this->Session->read('User.id')));
+		$user_prefs = $this->UserPref->find('first', array('conditions' => array('name' => 'template_collpase', 'user_id' => $this->Session->read('User.id'))));
 		$template_collapse = explode(',', $user_prefs['UserPref']['value']);
 
 		$new_collapsed = "";
@@ -199,7 +199,7 @@ class TemplatesController extends AppController {
 			
 			if($template['Template']['parent_id'] == 0)
 			{
-				$layout_template = $this->Template->find(array('parent_id' => $template_id, 'template_type_id' => '1'));
+				$layout_template = $this->Template->find('first', array('conditions' => array('parent_id' => $template_id, 'template_type_id' => '1')));
 				$this->redirect('/templates/admin_edit/' . $layout_template['Template']['id']);				
 			}
 			
@@ -296,7 +296,7 @@ class TemplatesController extends AppController {
 		$this->set('title_for_layout', __('Templates Listing', true));
 		$this->set('templates',$this->Template->find('threaded', array('order' => array('Template.id ASC'))));
 	
-		$user_prefs = $this->UserPref->find(array('name' => 'template_collpase','user_id' => $this->Session->read('User.id')));	
+		$user_prefs = $this->UserPref->find('first', array('conditions' => array('name' => 'template_collpase','user_id' => $this->Session->read('User.id'))));	
 		$exploded_prefs = explode(',', $user_prefs['UserPref']['value']);
 	
 		$this->set('user_prefs', $exploded_prefs);	

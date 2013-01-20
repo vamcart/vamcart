@@ -59,11 +59,11 @@ class RobokassaController extends PaymentAppController {
 			
 		$order = $this->Order->read(null,$_SESSION['Customer']['order_id']);
 		
-		$payment_method = $this->PaymentMethod->find(array('alias' => $this->module_name));
+		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 
-		$robokassa_settings = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'login'));
+		$robokassa_settings = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'login')));
 		$login = $robokassa_settings['PaymentMethodValue']['value'];
-		$robokassa_pass_settings = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'password1'));
+		$robokassa_pass_settings = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'password1')));
 		$password1 = $robokassa_pass_settings['PaymentMethodValue']['value'];
 		
 		
@@ -86,7 +86,7 @@ class RobokassaController extends PaymentAppController {
 			$order['Order'][$key] = $value;
 		
 		// Get the default order status
-		$default_status = $this->Order->OrderStatus->find(array('default' => '1'));
+		$default_status = $this->Order->OrderStatus->find('first', array('conditions' => array('default' => '1')));
 		$order['Order']['order_status_id'] = $default_status['OrderStatus']['id'];
 
 		// Save the order
@@ -103,7 +103,7 @@ class RobokassaController extends PaymentAppController {
 	function result()
 	{
 		$this->layout = 'empty';
-      $robokassa_data = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'password2'));
+      $robokassa_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'password2')));
       $password2 = $robokassa_data['PaymentMethodValue']['value'];
 		$order = $this->Order->read(null,$_POST['InvId']);
 		$crc = $_POST['SignatureValue'];
@@ -113,7 +113,7 @@ class RobokassaController extends PaymentAppController {
 
 		if (($crc == $hash) && ($merchant_summ == $order_summ)) {
 		
-		$payment_method = $this->PaymentMethod->find(array('alias' => $this->module_name));
+		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 		$order_data = $this->Order->find('first', array('conditions' => array('Order.id' => $_POST['InvId'])));
 		$order_data['Order']['order_status_id'] = $payment_method['PaymentMethod']['order_status_id'];
 		

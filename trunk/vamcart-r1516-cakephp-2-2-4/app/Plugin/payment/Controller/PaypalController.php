@@ -51,7 +51,7 @@ class PaypalController extends PaymentAppController {
 	{
 		$order = $this->OrderBase->get_order();
 		
-		$paypal_email = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'paypal_email'));
+		$paypal_email = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'paypal_email')));
 		$email = $paypal_email['PaymentMethodValue']['value'];
 		$return_url = $_SERVER['HTTP_HOST'] .  BASE . '/orders/place_order/';
 		$cancel_url = $_SERVER['HTTP_HOST'];
@@ -86,7 +86,7 @@ class PaypalController extends PaymentAppController {
 	
 	function after_process()
 	{
-		$payment_method = $this->PaymentMethod->find(array('alias' => $this->module_name));
+		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 		$order_data = $this->Order->find('first', array('conditions' => array('Order.id' => $_SESSION['Customer']['order_id'])));
 		if ($payment_method['PaymentMethod']['order_status_id'] > 0) {
 		$order_data['Order']['order_status_id'] = $payment_method['PaymentMethod']['order_status_id'];

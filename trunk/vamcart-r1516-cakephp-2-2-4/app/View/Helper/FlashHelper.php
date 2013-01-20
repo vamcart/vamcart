@@ -39,7 +39,7 @@
  */
  App::uses('AppHelper', 'View');
 class FlashHelper extends AppHelper {	
-	public $helpers = array('Javascript');
+	public $helpers = array('Js', 'Html');
 	/**
 	 * Used for remembering options from init() to each renderSwf
 	 *
@@ -81,10 +81,10 @@ class FlashHelper extends AppHelper {
 		$this->initialized = true;
         $view =& ClassRegistry::getObject('view'); 
         if (is_object($view)) { 
-            $view->addScript($this->Javascript->link('swfobject')); 
+            $view->addScript($this->Js->link('swfobject')); 
             return true;
         } else {
-        	return $this->Javascript->link('swfobject');
+        	return $this->Js->link('swfobject');
         }
 	}
 	
@@ -129,13 +129,13 @@ class FlashHelper extends AppHelper {
 		$params =  '{wmode : "opaque"}';
 		$attributes = '{}';
 		if (isset($options['flashvars'])) {
-			$flashvars = $this->Javascript->object($options['flashvars']);
+			$flashvars = $this->Js->object($options['flashvars']);
 		}
 		if (isset($options['params'])) {
-			$params = $this->Javascript->object($options['params']);
+			$params = $this->Js->object($options['params']);
 		}
 		if (isset($options['attributes'])) {
-			$attributes = $this->Javascript->object($options['attributes']);
+			$attributes = $this->Js->object($options['attributes']);
 		}
 	
 		if ($divDomId === false) {
@@ -154,7 +154,7 @@ class FlashHelper extends AppHelper {
 		}
 		
 		$swfLocation = $this->request->webroot.$swfFile;
-		$ret .= $this->Javascript->codeBlock(
+		$ret .= $this->Html->scriptBlock(
 			'swfobject.embedSWF("'.$swfLocation.'", "'.$divDomId.'", "'.$width.'", "'.$height.'", "'.$version.'","'.$install.'", '.$flashvars.', '.$params.', '.$attributes.');');
 	
 		return $ret;

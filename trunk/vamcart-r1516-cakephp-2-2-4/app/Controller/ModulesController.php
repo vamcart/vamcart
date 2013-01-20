@@ -31,7 +31,7 @@ class ModulesController extends AppController {
 				
 				if($module['installed'] > 0)
 				{
-					$db_module = $this->Module->find(array('alias' => $module['alias']));
+					$db_module = $this->Module->find('first', array('conditions' => array('alias' => $module['alias'])));
 					$module['installed_version'] = $db_module['Module']['version'];
 				}
 					

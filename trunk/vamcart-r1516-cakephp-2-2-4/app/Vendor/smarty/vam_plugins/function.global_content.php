@@ -25,7 +25,7 @@ function smarty_function_global_content($params, $template)
 	App::import('Model', 'GlobalContentBlock');
 		$GlobalContentBlock =& new GlobalContentBlock();
 
-	$gcb = $GlobalContentBlock->find(array('alias' => $params['alias']));
+	$gcb = $GlobalContentBlock->find('first', array('conditions' => array('alias' => $params['alias'])));
 
 	$Smarty->display($gcb['GlobalContentBlock']['content'], $template->smarty->tpl_vars);
 		

@@ -31,7 +31,7 @@ class ShippingMethodsController extends AppController {
 		
 		if(empty($this->data))
 		{
-			$this->set('data', $this->ShippingMethod->find(array('id' =>$shipping_method_id,null,null,2)));
+			$this->set('data', $this->ShippingMethod->find('first', array('conditions' => array('id' =>$shipping_method_id,null,null,2))));
 		}
 		else
 		{

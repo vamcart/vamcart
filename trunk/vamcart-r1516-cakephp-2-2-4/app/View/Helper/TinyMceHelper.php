@@ -6,21 +6,21 @@
  */
  App::uses('AppHelper', 'View');
 class TinyMceHelper extends Helper {
-	var $helpers=array('Javascript', 'Session');
+	var $helpers=array('Js', 'Html', 'Session');
 	
 	function beforeRender(){
 	}
 	function init($options=false){
 	$code = '';
-	$code .= $this->Javascript->link('tiny_mce/jquery.tinymce', false);
+	$code .= $this->Js->link('tiny_mce/jquery.tinymce', false);
 	if($options){
-	$code .= $this->Javascript->codeBlock('
+	$code .= $this->Html->scriptBlock('
 		tinyMCE.init(
 		'.json_encode($options).'
 		);    
 	', array('allowCache'=> false,'safe'=> false,'inline'=> false));
 		} else {
-	$code .= $this->Javascript->codeBlock('
+	$code .= $this->Html->scriptBlock('
 
 	$().ready(function() {
 	

@@ -51,9 +51,9 @@ class AssistController extends PaymentAppController {
 			
 		$order = $this->Order->read(null,$_SESSION['Customer']['order_id']);
 		
-		$payment_method = $this->PaymentMethod->find(array('alias' => $this->module_name));
+		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 
-		$assist_settings = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'assist_shop_id'));
+		$assist_settings = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'assist_shop_id')));
 		$assist_shop_id = $assist_settings['PaymentMethodValue']['value'];
 		$return_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/orders/place_order/';
 		
@@ -75,7 +75,7 @@ class AssistController extends PaymentAppController {
 			$order['Order'][$key] = $value;
 		
 		// Get the default order status
-		$default_status = $this->Order->OrderStatus->find(array('default' => '1'));
+		$default_status = $this->Order->OrderStatus->find('first', array('conditions' => array('default' => '1')));
 		$order['Order']['order_status_id'] = $default_status['OrderStatus']['id'];
 
 		// Save the order

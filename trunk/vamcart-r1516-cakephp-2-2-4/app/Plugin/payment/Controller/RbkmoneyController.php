@@ -57,9 +57,9 @@ class RbkmoneyController extends PaymentAppController {
 		
 		$order = $this->Order->read(null,$_SESSION['Customer']['order_id']);
 		
-		$payment_method = $this->PaymentMethod->find(array('alias' => $this->module_name));
+		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 
-		$rbkmoney_settings = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'store_id'));
+		$rbkmoney_settings = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'store_id')));
 		$rbkmoney_store_id = $rbkmoney_settings['PaymentMethodValue']['value'];
 		$success_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/orders/place_order/';
 		$fail_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/page/checkout' . $config['URL_EXTENSION'];
@@ -83,7 +83,7 @@ class RbkmoneyController extends PaymentAppController {
 			$order['Order'][$key] = $value;
 		
 		// Get the default order status
-		$default_status = $this->Order->OrderStatus->find(array('default' => '1'));
+		$default_status = $this->Order->OrderStatus->find('first', array('conditions' => array('default' => '1')));
 		$order['Order']['order_status_id'] = $default_status['OrderStatus']['id'];
 
 		// Save the order
@@ -100,7 +100,7 @@ class RbkmoneyController extends PaymentAppController {
 	function result()
 	{
 		$this->layout = 'empty';
-      $rbkmoney_data = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'secret_key'));
+      $rbkmoney_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'secret_key')));
       $rbkmoney_secret_key = $rbkmoney_data['PaymentMethodValue']['value'];
 		$order = $this->Order->read(null,$_POST['orderId']);
 		$crc = $_POST['hash'];
@@ -110,7 +110,7 @@ class RbkmoneyController extends PaymentAppController {
 
 		if (($crc == $hash) && ($merchant_summ == $order_summ) && ($_POST['paymentStatus'] == '5')) {
 		
-		$payment_method = $this->PaymentMethod->find(array('alias' => $this->module_name));
+		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 		$order_data = $this->Order->find('first', array('conditions' => array('Order.id' => $_POST['orderId'])));
 		$order_data['Order']['order_status_id'] = $payment_method['PaymentMethod']['order_status_id'];
 		

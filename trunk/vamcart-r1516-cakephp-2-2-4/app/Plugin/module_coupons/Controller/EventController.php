@@ -19,7 +19,7 @@ class EventController extends ModuleCouponsAppController {
 		App::import('Model', 'ModuleCoupons.ModuleCoupon');
 		$this->ModuleCoupon =& new ModuleCoupon();			
 		
-		$coupon = $this->ModuleCoupon->find(array('code' => $_POST['module_coupon_code']));
+		$coupon = $this->ModuleCoupon->find('first', array('conditions' => array('code' => $_POST['module_coupon_code'])));
 		// Check restrictions
 		if(count($order['OrderProduct']) < $coupon['ModuleCoupon']['min_product_count'])
 			$invalid_msg = __('Not enough products in cart for coupon. Requires: ') . $coupon['ModuleCoupon']['min_product_count'] . __(' products.');

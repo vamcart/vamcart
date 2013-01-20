@@ -55,12 +55,12 @@ class LiqpayController extends PaymentAppController {
 			
 		$order = $this->Order->read(null,$_SESSION['Customer']['order_id']);
 		
-		$payment_method = $this->PaymentMethod->find(array('alias' => $this->module_name));
+		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 
-		$liqpay_settings = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'liqpay_id'));
+		$liqpay_settings = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'liqpay_id')));
 		$liqpay_id = $liqpay_settings['PaymentMethodValue']['value'];
 
-      $liqpay_data = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'liqpay_secret_key'));
+      $liqpay_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'liqpay_secret_key')));
       $liqpay_secret_key = $liqpay_data['PaymentMethodValue']['value'];
 
 		$server_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/payment/liqpay/result/';
@@ -86,7 +86,7 @@ class LiqpayController extends PaymentAppController {
 			$order['Order'][$key] = $value;
 		
 		// Get the default order status
-		$default_status = $this->Order->OrderStatus->find(array('default' => '1'));
+		$default_status = $this->Order->OrderStatus->find('first', array('conditions' => array('default' => '1')));
 		$order['Order']['order_status_id'] = $default_status['OrderStatus']['id'];
 
 		// Save the order
@@ -103,9 +103,9 @@ class LiqpayController extends PaymentAppController {
 	function result()
 	{
 		$this->layout = 'empty';
-      $liqpay_data = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'liqpay_secret_key'));
+      $liqpay_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'liqpay_secret_key')));
       $liqpay_secret_key = $liqpay_data['PaymentMethodValue']['value'];
-		$liqpay_settings = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'liqpay_id'));
+		$liqpay_settings = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'liqpay_id')));
 		$liqpay_id = $liqpay_settings['PaymentMethodValue']['value'];
 		$order = $this->Order->read(null,$_POST['order_id']);
 		$crc = $_POST['signature'];
@@ -116,7 +116,7 @@ class LiqpayController extends PaymentAppController {
 
 		if (($crc == $hash) && ($merchant_summ == $order_summ) && ($_POST['status'] == 'success')) {
 			
-		$payment_method = $this->PaymentMethod->find(array('alias' => $this->module_name));
+		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 		$order_data = $this->Order->find('first', array('conditions' => array('Order.id' => $_POST['order_id'])));
 		$order_data['Order']['order_status_id'] = $payment_method['PaymentMethod']['order_status_id'];
 		

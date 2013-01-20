@@ -28,10 +28,10 @@ class CartController extends AppController {
 			$new_order['Order']['order_status_id'] = 0;
 
 			// Get default shipping & payment methods and assign them to the order
-			$default_payment = $this->Order->PaymentMethod->find(array('default' => '1'));
+			$default_payment = $this->Order->PaymentMethod->find('first', array('conditions' => array('default' => '1')));
 			$new_order['Order']['payment_method_id'] = $default_payment['PaymentMethod']['id'];
 
-			$default_shipping = $this->Order->ShippingMethod->find(array('default' => '1'));
+			$default_shipping = $this->Order->ShippingMethod->find('first', array('conditions' => array('default' => '1')));
 			$new_order['Order']['shipping_method_id'] = $default_shipping['ShippingMethod']['id'];
 
 			// Save the order

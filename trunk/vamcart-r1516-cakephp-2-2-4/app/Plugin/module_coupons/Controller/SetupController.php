@@ -114,7 +114,7 @@ class SetupController extends ModuleCouponsAppController {
 		App::import('Model', 'Content');
 			$this->Content =& new Content();		
 
-		$core_page = $this->Content->find(array('Content.parent_id' => '-1','alias' => 'coupon-details'));
+		$core_page = $this->Content->find('first', array('conditions' => array('Content.parent_id' => '-1','alias' => 'coupon-details')));
 		$this->Content->delete($core_page['Content']['id'],true);
 		
 		$this->Session->setFlash(__('Module Uninstalled'));

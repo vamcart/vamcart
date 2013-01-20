@@ -55,12 +55,12 @@ class InterkassaController extends PaymentAppController {
 			
 		$order = $this->Order->read(null,$_SESSION['Customer']['order_id']);
 		
-		$payment_method = $this->PaymentMethod->find(array('alias' => $this->module_name));
+		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 
-		$interkassa_settings = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'interkassa_id'));
+		$interkassa_settings = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'interkassa_id')));
 		$interkassa_id = $interkassa_settings['PaymentMethodValue']['value'];
 
-      $interkassa_data = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'interkassa_secret_key'));
+      $interkassa_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'interkassa_secret_key')));
       $interkassa_secret_key = $interkassa_data['PaymentMethodValue']['value'];
       
       $ik_sign_hash_str = $interkassa_id . ':' . $order['Order']['total'] . ':' . $_SESSION['Customer']['order_id'] . ':' . '' . ':' . $_SESSION['Customer']['order_id'] . ':' . $interkassa_secret_key;
@@ -85,7 +85,7 @@ class InterkassaController extends PaymentAppController {
 			$order['Order'][$key] = $value;
 		
 		// Get the default order status
-		$default_status = $this->Order->OrderStatus->find(array('default' => '1'));
+		$default_status = $this->Order->OrderStatus->find('first', array('conditions' => array('default' => '1')));
 		$order['Order']['order_status_id'] = $default_status['OrderStatus']['id'];
 
 		// Save the order
@@ -102,7 +102,7 @@ class InterkassaController extends PaymentAppController {
 	function result()
 	{
 		$this->layout = 'empty';
-      $interkassa_data = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'interkassa_secret_key'));
+      $interkassa_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'interkassa_secret_key')));
       $interkassa_secret_key = $interkassa_data['PaymentMethodValue']['value'];
 		$order = $this->Order->read(null,$_POST['ik_payment_id']);
 		$crc = $_POST['ik_sign_hash'];
@@ -112,7 +112,7 @@ class InterkassaController extends PaymentAppController {
 
 		if (($crc == $hash) && ($merchant_summ == $order_summ) && ($_POST['ik_payment_state'] == 'success')) {
 			
-		$payment_method = $this->PaymentMethod->find(array('alias' => $this->module_name));
+		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 		$order_data = $this->Order->find('first', array('conditions' => array('Order.id' => $_POST['ik_payment_id'])));
 		$order_data['Order']['order_status_id'] = $payment_method['PaymentMethod']['order_status_id'];
 		
