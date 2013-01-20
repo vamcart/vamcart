@@ -213,7 +213,7 @@ class TemplatesController extends AppController {
 		}
 		else
 		{
-			if(isset($this->params['form']['cancelbutton']))
+			if(isset($this->request->data['cancelbutton']))
 			{
 				$this->redirect('/templates/admin/');
 				die();
@@ -222,7 +222,7 @@ class TemplatesController extends AppController {
 			$this->Template->save($this->data);		
 			$this->Session->setFlash(__('Record saved.', true));
 				
-			if(isset($this->params['form']['apply']))
+			if(isset($this->request->data['apply']))
 			{
 				$this->redirect('/templates/admin_edit/' . $template_id);
 			}
@@ -262,7 +262,7 @@ class TemplatesController extends AppController {
 		}
 		else
 		{
-			if(isset($this->params['form']['cancelbutton']))
+			if(isset($this->request->data['cancelbutton']))
 			{
 				$this->redirect('/templates/admin/');
 				die();

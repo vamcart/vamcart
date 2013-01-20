@@ -95,7 +95,7 @@ class DefinedLanguagesController extends AppController {
 		else
 		{
 			// Check if we pressed the cancel button
-			if(isset($this->params['form']['cancelbutton']))
+			if(isset($this->request->data['cancelbutton']))
 			{
 				$this->redirect('/defined_languages/admin/');
 				die();

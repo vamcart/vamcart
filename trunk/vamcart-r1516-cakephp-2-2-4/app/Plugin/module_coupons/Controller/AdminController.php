@@ -30,7 +30,7 @@ class AdminController extends ModuleCouponsAppController {
 		}
 		else
 		{
-			if(isset($this->params['form']['cancelbutton']))
+			if(isset($this->request->data['cancelbutton']))
 			{
 				$this->redirect('/module_coupons/admin/admin_index/');
 				die();
@@ -42,7 +42,7 @@ class AdminController extends ModuleCouponsAppController {
 			if($id == null)
 				$id = $this->ModuleCoupon->getLastInsertId();
 			
-			if(isset($this->params['form']['applybutton']))
+			if(isset($this->request->data['applybutton']))
 				$this->redirect('/module_coupons/admin/admin_edit/' . $id);		
 			else
 				$this->redirect('/module_coupons/admin/admin_index/');

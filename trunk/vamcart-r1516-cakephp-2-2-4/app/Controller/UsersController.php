@@ -33,7 +33,7 @@ class UsersController extends AppController {
 		if(!empty($this->data))
 		{
 			// Redirect if the user pressed cancel
-			if(isset($this->params['form']['cancelbutton']))
+			if(isset($this->request->data['cancelbutton']))
 			{
 				$this->redirect('/admin/admin_top/6/');
 			}
@@ -70,7 +70,7 @@ class UsersController extends AppController {
 		$this->set('title_for_layout', __('My Prefences', true));
 		if(!empty($this->data))
 		{
-			if(isset($this->params['form']['cancelbutton']))
+			if(isset($this->request->data['cancelbutton']))
 			{
 				$this->redirect('/admin/admin_top/8');
 				die();
@@ -156,7 +156,7 @@ class UsersController extends AppController {
 		else
 		{
 			// Redirect if the user pressed cancel
-			if(isset($this->params['form']['cancelbutton']))
+			if(isset($this->request->data['cancelbutton']))
 			{
 				$this->redirect('/users/admin/');
 				die();

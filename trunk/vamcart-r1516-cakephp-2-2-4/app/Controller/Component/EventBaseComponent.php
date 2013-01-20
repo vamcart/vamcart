@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class EventBaseComponent extends Object 
+class EventBaseComponent extends Component 
 {
 
 	function beforeFilter ()

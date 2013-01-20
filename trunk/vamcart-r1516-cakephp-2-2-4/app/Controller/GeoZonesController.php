@@ -31,8 +31,8 @@ class GeoZonesController extends AppController {
 	
 	function admin_country_zone_link()
 	{
-		$geo_zone_id = $this->params['form']['geo_zone_id'];
-		$countries_id = explode(',', $this->params['form']['country_zones_id']);
+		$geo_zone_id = $this->request->data['geo_zone_id'];
+		$countries_id = explode(',', $this->request->data['country_zones_id']);
 
 		foreach ($countries_id as $country_id) {
 			$this->CountryZone->id = $country_id;
@@ -50,7 +50,7 @@ class GeoZonesController extends AppController {
 		$this->set('current_crumb', __('Geo Zone Details', true));
 		$this->set('title_for_layout', __('Geo Zone Details', true));
 
-		if(isset($this->params['form']['cancelbutton']))
+		if(isset($this->request->data['cancelbutton']))
 		{
 			$this->redirect('/geo_zones/admin/');
 			die();
@@ -107,7 +107,7 @@ class GeoZonesController extends AppController {
 				$this->GeoZone->id = $value;
 				$geo_zone = $this->GeoZone->read();
 
-				switch ($this->params['form']['multiaction']) {
+				switch ($this->request->data['multiaction']) {
 					case "delete":
 						$this->GeoZone->delete($value);
 						$build_flash .= __('Record deleted.', true) . ' ' . $geo_zone['GeoZone']['name'] . '<br />';
@@ -123,7 +123,7 @@ class GeoZonesController extends AppController {
 
 	function admin_modify_country_zones_selected()
 	{
-		if(isset($this->params['form']['cancelbutton']))
+		if(isset($this->request->data['cancelbutton']))
 		{
 			$this->redirect('/geo_zones/admin/');
 			die();

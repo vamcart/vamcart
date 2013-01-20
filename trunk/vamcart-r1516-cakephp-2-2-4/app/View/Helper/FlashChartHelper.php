@@ -1058,7 +1058,7 @@ class FlashChartHelper extends AppHelper {
                 }
             ');
 		} else {
-            $ret = $this->Js->link('json/json2');
+            $ret = $this->Html->script('json/json2');
             $ret .= $this->Html->scriptBlock('
                 function to_string(arr) {
                     return JSON.stringify(arr);

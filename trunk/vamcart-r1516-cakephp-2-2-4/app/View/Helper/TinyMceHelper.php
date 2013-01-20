@@ -6,13 +6,13 @@
  */
  App::uses('AppHelper', 'View');
 class TinyMceHelper extends Helper {
-	var $helpers=array('Js', 'Html', 'Session');
+	var $helpers=array('Html', 'Session');
 	
 	function beforeRender(){
 	}
 	function init($options=false){
 	$code = '';
-	$code .= $this->Js->link('tiny_mce/jquery.tinymce', false);
+	$code .= $this->Html->script('tiny_mce/jquery.tinymce', false);
 	if($options){
 	$code .= $this->Html->scriptBlock('
 		tinyMCE.init(

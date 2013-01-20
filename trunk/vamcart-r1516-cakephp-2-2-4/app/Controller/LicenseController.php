@@ -22,7 +22,7 @@ class LicenseController extends AppController {
 		else
 		{
 			// If they pressed cancel
-			if(isset($this->params['form']['cancelbutton']))
+			if(isset($this->request->data['cancelbutton']))
 			{
 				$this->redirect('/license/admin/');
 				die();
