@@ -54,7 +54,7 @@ class GoogleHtmlController extends PaymentAppController {
 		App::import('Model', 'PaymentMethod');
 		$this->PaymentMethod =& new PaymentMethod();
 		
-		$google_merchant_id = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'google_html_merchant_id'));
+		$google_merchant_id = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'google_html_merchant_id')));
 		$merchant_id = $google_merchant_id['PaymentMethodValue']['value'];
 		
 		
@@ -87,7 +87,7 @@ class GoogleHtmlController extends PaymentAppController {
 	
 	function after_process()
 	{
-		$payment_method = $this->PaymentMethod->find(array('alias' => $this->module_name));
+		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 		$order_data = $this->Order->find('first', array('conditions' => array('Order.id' => $_SESSION['Customer']['order_id'])));
 		if ($payment_method['PaymentMethod']['order_status_id'] > 0) {
 		$order_data['Order']['order_status_id'] = $payment_method['PaymentMethod']['order_status_id'];

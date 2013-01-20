@@ -31,7 +31,7 @@ class ConfigurationController extends AppController {
 						
 			foreach($this->data['Configuration'] AS $key => $value)
 			{
-				$current_config = $this->Configuration->find(array('key' => $key));
+				$current_config = $this->Configuration->find('first', array('conditions' => array('key' => $key)));
 				$current_config['Configuration']['value'] = $value;
 				$this->Configuration->save($current_config);
 			}

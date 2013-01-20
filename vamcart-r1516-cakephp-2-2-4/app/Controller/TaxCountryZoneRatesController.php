@@ -30,7 +30,7 @@ class TaxCountryZoneRatesController extends AppController {
 		$this->set('title_for_layout', __('Tax Edit', true));
 		if(empty($this->data))
 		{	
-			$data = $this->TaxCountryZoneRate->find(array('TaxCountryZoneRate.id' => $rate_id),null,null,2);
+			$data = $this->TaxCountryZoneRate->find('first', array('conditions' => array('TaxCountryZoneRate.id' => $rate_id),null,null,2));
 			$this->set('current_crumb_info',$data['CountryZone']['Country']['name'] . ' - ' . $data['CountryZone']['name']);			
 			$this->set('data',$data);
 		}

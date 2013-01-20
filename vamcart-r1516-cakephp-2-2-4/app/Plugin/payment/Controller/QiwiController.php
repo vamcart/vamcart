@@ -65,10 +65,10 @@ class QiwiController extends PaymentAppController {
 	{
 		$order = $this->Order->read(null,$_SESSION['Customer']['order_id']);
 
-		$qiwi_id_data = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'qiwi_id'));
+		$qiwi_id_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'qiwi_id')));
 		$qiwi_id = $qiwi_id_data['PaymentMethodValue']['value'];
 
-		$qiwi_secret_key_data = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'qiwi_secret_key'));
+		$qiwi_secret_key_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'qiwi_secret_key')));
 		$qiwi_secret_key = $qiwi_secret_key_data['PaymentMethodValue']['value'];
 
 			// Выписываем qiwi счёт для покупателя
@@ -140,7 +140,7 @@ class QiwiController extends PaymentAppController {
 			$order['Order'][$key] = $value;
 		
 		// Get the default order status
-		$default_status = $this->Order->OrderStatus->find(array('default' => '1'));
+		$default_status = $this->Order->OrderStatus->find('first', array('conditions' => array('default' => '1')));
 		$order['Order']['order_status_id'] = $default_status['OrderStatus']['id'];
 
 		// Save the order
@@ -162,10 +162,10 @@ class QiwiController extends PaymentAppController {
 
 			$order = $this->Order->read(null,$txn);
 	
-			$qiwi_id_data = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'qiwi_id'));
+			$qiwi_id_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'qiwi_id')));
 			$qiwi_id = $qiwi_id_data['PaymentMethodValue']['value'];
 	
-			$qiwi_secret_key_data = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'qiwi_secret_key'));
+			$qiwi_secret_key_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'qiwi_secret_key')));
 			$qiwi_secret_key = $qiwi_secret_key_data['PaymentMethodValue']['value'];
 			
 			//обработка возможных ошибок авторизации
@@ -181,7 +181,7 @@ class QiwiController extends PaymentAppController {
 			// меняем статус заказа при условии оплаты счёта
 			if ( $status == 60 ) {
 				
-			$payment_method = $this->PaymentMethod->find(array('alias' => $this->module_name));
+			$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 			$order_data = $this->Order->find('first', array('conditions' => array('Order.id' => $txn)));
 			$order_data['Order']['order_status_id'] = $payment_method['PaymentMethod']['order_status_id'];
 			

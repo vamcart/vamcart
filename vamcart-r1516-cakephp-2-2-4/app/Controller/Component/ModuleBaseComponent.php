@@ -41,7 +41,7 @@ public function  beforeRender(Controller $controller){
 		$this->Module =& new Module();
 		
 		$module_alias = substr($this->controller->params['plugin'],7,strlen($this->controller->params['plugin']));
-		$installed_module = $this->Module->find(array('alias' => $module_alias));
+		$installed_module = $this->Module->find('first', array('conditions' => array('alias' => $module_alias)));
 		
 		// Make sure we're not upgrading to a lower version.
 		$installed_version = $installed_module['Module']['version'];
@@ -95,7 +95,7 @@ public function  beforeRender(Controller $controller){
 		App::import('Model', 'Template');
 			$this->Template =& new Template();		
 		
-		$default_template = $this->Template->find(array('default' => '1'));
+		$default_template = $this->Template->find('first', array('conditions' => array('default' => '1')));
 		$new_page['Content']['template_id'] = $default_template['Template']['id'];
 			
 		$this->Content->save($new_page);

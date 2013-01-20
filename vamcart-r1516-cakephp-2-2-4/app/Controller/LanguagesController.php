@@ -17,7 +17,7 @@ class LanguagesController extends AppController {
 		// Set Config.language
 		App::import('Model', 'Language');
 		$this->Language =& new Language();		
-		$default_language = $this->Language->find(array('id' => $language_id));
+		$default_language = $this->Language->find('first', array('conditions' => array('id' => $language_id)));
 
 		$this->Session->write('Config.language', $default_language['Language']['code']);
 		$this->Session->write('Customer.language', $default_language['Language']['iso_code_2']);

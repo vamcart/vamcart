@@ -24,21 +24,7 @@ class AjaxHelper extends Helper {
  *
  * @var array
  */
-	var $helpers = array('Html', 'Javascript', 'Form');
-/**
- * HtmlHelper instance
- *
- * @var object
- * @access public
- */
-	var $Html = null;
-/**
- * JavaScriptHelper instance
- *
- * @var object
- * @access public
- */
-	var $Javascript = null;
+	var $helpers = array('Html', 'Js', 'Form');
 /**
  * Names of Javascript callback functions.
  *
@@ -72,8 +58,8 @@ class AjaxHelper extends Helper {
 	
 	function beforeRender() {
 //	   if ( ClassRegistry::getObject('view') ) {
-//		$this->Javascript->link('jquery/jquery.min', false);
-//		$this->Javascript->link('jquery/plugins/jquery.form', false);
+//		$this->Js->link('jquery/jquery.min', false);
+//		$this->Js->link('jquery/plugins/jquery.form', false);
 //	   }
 	}
 
@@ -110,7 +96,7 @@ class AjaxHelper extends Helper {
 
 		$htmlOptions['onclick'] .= ' return false;';
 		$return = $this->Html->link($title, '#', $htmlOptions, null, $escapeTitle);
-		$script = $this->Javascript->codeBlock(
+		$script = $this->Html->scriptBlock(
 			"jQuery('#{$htmlOptions['id']}').click( function() {" . $this->remoteFunction($options) . "; return false;});"
 		);
 
@@ -150,7 +136,7 @@ class AjaxHelper extends Helper {
 		}
 
 		if (isset($confirm)) {
-			$func = "if (confirm('" . $this->Javascript->escapeString($confirm)
+			$func = "if (confirm('" . $this->Js->escapeString($confirm)
 				. "')) { $func; } else { event.returnValue = false; return false; }";
 		}
 		return $func;
@@ -179,7 +165,7 @@ class AjaxHelper extends Helper {
 			$options['data'] = "$('#{$htmlOptions['id']}').parents('form').formSerialize()";
 		}*/
 		return $this->Form->submit($title, $htmlOptions)
-			. $this->Javascript->codeBlock("jQuery('#{$htmlOptions['id']}').click( function() { " . $this->remoteFunction($options, "jQuery('#{$htmlOptions['id']}').parents('form').ajaxSubmit") . "; return false;});");
+			. $this->Html->scriptBlock("jQuery('#{$htmlOptions['id']}').click( function() { " . $this->remoteFunction($options, "jQuery('#{$htmlOptions['id']}').parents('form').ajaxSubmit") . "; return false;});");
 	}
 
 /**
@@ -225,7 +211,7 @@ class AjaxHelper extends Helper {
 		$defaults = array('model' => $model);
 		$options = array_merge($defaults, $options);
 		$form = $this->Form->create($options['model'], $htmlOptions);
-		$script =  $this->Javascript->codeBlock("jQuery('#{$htmlOptions['id']}').submit( function() { " . $this->remoteFunction($options, "jQuery('#{$htmlOptions['id']}').ajaxSubmit") . "; return false;});");
+		$script =  $this->Html->scriptBlock("jQuery('#{$htmlOptions['id']}').submit( function() { " . $this->remoteFunction($options, "jQuery('#{$htmlOptions['id']}').ajaxSubmit") . "; return false;});");
 		return $form . $script;
 	}
 
@@ -239,7 +225,7 @@ class AjaxHelper extends Helper {
  * @link          http://github.com/madrobby/scriptaculous/wikis/ajax-inplaceeditor
  */
 	function editor($id, $url, $options = array()) {
-//		$this->Javascript->link('jquery/plugins/jquery.jeditable', false);
+//		$this->Js->link('jquery/plugins/jquery.jeditable', false);
 		$url = $this->url($url);
 		$options = $this->_optionsToString($options, array(
 			'id', 'name', 'loadurl', 'type', 'data', 'style', 'callback', 'submitdata', 'method', 'rows', 'cols', 'width', 'loadtype', 'loaddata', 'onblur', 'cancel', 'submit', 'tooltip', 'placeholder', 
@@ -260,7 +246,7 @@ class AjaxHelper extends Helper {
 
 		$type = 'InPlaceEditor';
 		if (isset($options['collection']) && is_array($options['collection'])) {
-			$options['collection'] = $this->Javascript->object($options['collection']);
+			$options['collection'] = $this->Js->object($options['collection']);
 			$type = 'InPlaceCollectionEditor';
 		}
 
@@ -278,11 +264,11 @@ class AjaxHelper extends Helper {
 		$options = $this->_buildOptions($options, $this->editorOptions);
 		$script = "{$var}new Ajax.{$type}('{$id}', '{$url}', {$options});";
 		*/
-		return $this->Javascript->codeBlock($script);
+		return $this->Html->scriptBlock($script);
 	}
 
 	function observeField($field, $options = array()) {
-		return $this->Javascript->codeBlock("jQuery('#{$field}').change( function() { " . $this->remoteFunction($options, "jQuery('#{$field}').parents('form').ajaxSubmit") . "; return false;});");
+		return $this->Html->scriptBlock("jQuery('#{$field}').change( function() { " . $this->remoteFunction($options, "jQuery('#{$field}').parents('form').ajaxSubmit") . "; return false;});");
 	}
 
 
@@ -294,7 +280,7 @@ class AjaxHelper extends Helper {
  */
 	function div($id, $options = array()) {
 		if (env('HTTP_X_UPDATE') != null) {
-			$this->Javascript->enabled = false;
+			$this->Js->enabled = false;
 			$divs = explode(' ', env('HTTP_X_UPDATE'));
 
 			if (in_array($id, $divs)) {
@@ -555,12 +541,12 @@ class AjaxHelper extends Helper {
 				$out  = 'var __ajaxUpdater__ = {' . join(", \n", $data) . '};' . "\n";
 				$out .= 'for (n in __ajaxUpdater__) { if (typeof __ajaxUpdater__[n] == "string" && jQuery(n)) jQuery(\'#n\').html(unescape(decodeURIComponent(__ajaxUpdater__[n])));}';
 
-				echo $this->Javascript->codeBlock($out, false);
+				echo $this->Html->scriptBlock($out, false);
 			}
-			$scripts = $this->Javascript->getCache();
+			$scripts = $this->Js->getCache();
 
 			if (!empty($scripts)) {
-				echo $this->Javascript->codeBlock($scripts, false);
+				echo $this->Html->scriptBlock($scripts, false);
 			}
 			exit();
 		}

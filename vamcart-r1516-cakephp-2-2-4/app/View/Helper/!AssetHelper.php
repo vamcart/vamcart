@@ -46,7 +46,7 @@ class AssetHelper extends AppHelper {
   //I like high_compression because it still leaves the file readable.
   var $cssCompression = 'high_compression';
  
-  var $helpers = array('Html', 'Javascript');
+  var $helpers = array('Html', 'Js');
   var $viewScriptCount = 0;
   var $initialized = false;
   var $js = array();

@@ -50,7 +50,7 @@ class AuthorizeController extends PaymentAppController {
 		App::import('Model', 'PaymentMethod');
 		$this->PaymentMethod =& new PaymentMethod();
 		
-		$authorize_login = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'authorize_login'));
+		$authorize_login = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'authorize_login')));
 		$login = $authorize_login['PaymentMethodValue']['value'];
 		
 		$this->redirect('/orders/place_order/');
@@ -60,7 +60,7 @@ class AuthorizeController extends PaymentAppController {
 	{
 		$order = $this->OrderBase->get_order();
 	   	
-		$authorize_login = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'authorize_login'));
+		$authorize_login = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'authorize_login')));
 		$login = $authorize_login['PaymentMethodValue']['value'];
 	
 		$content = '<form action="' . BASE . '/payment/authorize/process_payment/" method="post">';
@@ -75,7 +75,7 @@ class AuthorizeController extends PaymentAppController {
 
 	function after_process()
 	{
-		$payment_method = $this->PaymentMethod->find(array('alias' => $this->module_name));
+		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 		$order_data = $this->Order->find('first', array('conditions' => array('Order.id' => $_SESSION['Customer']['order_id'])));
 		if ($payment_method['PaymentMethod']['order_status_id'] > 0) {
 		$order_data['Order']['order_status_id'] = $payment_method['PaymentMethod']['order_status_id'];

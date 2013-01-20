@@ -89,7 +89,7 @@ var $components = array('ConfigurationBase', 'ContentBase', 'Smarty', 'Gzip.Gzip
 			$content['ContentDescription'] = $content_description['ContentDescription'];
 
 			$specific_model = $content['ContentType']['type'];
-			$specific_content = $this->Content->$specific_model->find(array('content_id' => $content['Content']['id']));
+			$specific_content = $this->Content->$specific_model->find('first', array('conditions' => array('content_id' => $content['Content']['id'])));
 			//$content[$specific_model] = $specific_content[$specific_model];
 			foreach($specific_content as $key=>$value) {
 				$content[$key] = $value;
@@ -120,7 +120,7 @@ var $components = array('ConfigurationBase', 'ContentBase', 'Smarty', 'Gzip.Gzip
 		$cache_name = 'vam_layout_template_' . $content['Content']['id'];
 		$template = Cache::read($cache_name);
 		if ($template === false) {
-			$template = $this->Content->Template->find(array('template_type_id' => '1', 'parent_id' => $content['Template']['id']));
+			$template = $this->Content->Template->find('first', array('conditions' => array('template_type_id' => '1', 'parent_id' => $content['Template']['id'])));
 			Cache::write($cache_name, $template);
 		}
 		// Save cache based on content_id for template_vars.

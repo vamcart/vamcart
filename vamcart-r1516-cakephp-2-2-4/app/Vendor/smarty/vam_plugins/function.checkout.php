@@ -234,7 +234,7 @@ function smarty_function_checkout($params, $template)
 		
 	// Assign the current order
 	$Order->unbindAll();
-	$order = $Order->find(array('Order.id' => $_SESSION['Customer']['order_id']));
+	$order = $Order->find('first', array('conditions' => array('Order.id' => $_SESSION['Customer']['order_id'])));
 		
 
 	global $config;

@@ -37,7 +37,7 @@ class ContentsController extends AppController {
 		$content_image['ContentImage']['content_id'] = $content_id;
 		$content_image['ContentImage']['image'] = $filename;
 		// Calculate the image with the highest order
-		$highest = $this->Content->ContentImage->find(array('content_id' => $content_id), null, 'ContentImage.order DESC');
+		$highest = $this->Content->ContentImage->find('first', array('conditions' => array('content_id' => $content_id), null, 'ContentImage.order DESC'));
 		$content_image['ContentImage']['order'] = $highest['ContentImage']['order'] + 1;
 		
 		$this->Content->ContentImage->save($content_image);
@@ -172,7 +172,7 @@ class ContentsController extends AppController {
 			$view = $content_type['ContentType']['type'];
 		}
 
-		$data = $this->Content->$model->find(array('content_id' => $content_id));
+		$data = $this->Content->$model->find('first', array('conditions' => array('content_id' => $content_id)));
 		$this->set('data', $data);
 		$this->set('content_type_id', $content_type_id);
 	}
@@ -341,7 +341,7 @@ class ContentsController extends AppController {
 			// Get the content with the highest order set with the same parent_id and increase that by 1 if it's new
 			if($this->data['Content']['order'] < 1)
 			{
-				$highest_order_content = $this->Content->find(array('Content.parent_id' => $this->data['Content']['parent_id']),null,'Content.order DESC');
+				$highest_order_content = $this->Content->find('first', array('conditions' => array('Content.parent_id' => $this->data['Content']['parent_id']),null,'Content.order DESC'));
 				$new_order = $highest_order_content['Content']['order'] + 1;
 				$this->data['Content']['order'] = $new_order;
 								
@@ -399,7 +399,7 @@ class ContentsController extends AppController {
 
 			// Check if we already have a record for this type of special content, if so delete it.
 			// I'm sure there's a better way to do this
-			$check_specified_type = $this->Content->$model->find(array('content_id' => $content_id));
+			$check_specified_type = $this->Content->$model->find('first', array('conditions' => array('content_id' => $content_id)));
 			if(!empty($check_specified_type))
 				$special_content[$model]['id']= $check_specified_type[$model]['id'];
 			
@@ -584,7 +584,7 @@ class ContentsController extends AppController {
 					case "move":
 						$parent_id = $this->params['form']['target_category'];
 						$content['Content']['parent_id'] = $parent_id;
-						$highest_order_content = $this->Content->find(array('Content.parent_id' => $parent_id),null,'Content.order DESC');
+						$highest_order_content = $this->Content->find('first', array('conditions' => array('Content.parent_id' => $parent_id),null,'Content.order DESC'));
 						$new_order = $highest_order_content['Content']['order'] + 1;
 						$content['Content']['order'] = $new_order;
 						$this->Content->save($content);
@@ -723,7 +723,7 @@ class ContentsController extends AppController {
 		$content['Content']['id'] = null;
 		$content['Content']['parent_id'] = $parent_id;
 		$content['Content']['viewed'] = 0;
-		$highest_order_content = $this->Content->find(array('Content.parent_id' => $parent_id),null,'Content.order DESC');
+		$highest_order_content = $this->Content->find('first', array('conditions' => array('Content.parent_id' => $parent_id),null,'Content.order DESC'));
 		$new_order = $highest_order_content['Content']['order'] + 1;
 		$content['Content']['order'] = $new_order;
 		

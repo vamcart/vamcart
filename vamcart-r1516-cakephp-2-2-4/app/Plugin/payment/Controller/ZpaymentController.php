@@ -55,9 +55,9 @@ class ZpaymentController extends PaymentAppController {
 			
 		$order = $this->Order->read(null,$_SESSION['Customer']['order_id']);
 		
-		$payment_method = $this->PaymentMethod->find(array('alias' => $this->module_name));
+		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 
-		$zpayment_settings = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'zpayment_purse'));
+		$zpayment_settings = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'zpayment_purse')));
 		$zpayment_purse = $zpayment_settings['PaymentMethodValue']['value'];
 		
 		$content = '<form action="http://www.z-payment.ru/merchant.php" method="post">
@@ -77,7 +77,7 @@ class ZpaymentController extends PaymentAppController {
 			$order['Order'][$key] = $value;
 		
 		// Get the default order status
-		$default_status = $this->Order->OrderStatus->find(array('default' => '1'));
+		$default_status = $this->Order->OrderStatus->find('first', array('conditions' => array('default' => '1')));
 		$order['Order']['order_status_id'] = $default_status['OrderStatus']['id'];
 
 		// Save the order
@@ -94,7 +94,7 @@ class ZpaymentController extends PaymentAppController {
 	function result()
 	{
 		$this->layout = 'empty';
-      $zpayment_data = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'zpayment_secret_key'));
+      $zpayment_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'zpayment_secret_key')));
       $zpayment_secret_key = $zpayment_data['PaymentMethodValue']['value'];
 		$order = $this->Order->read(null,$_POST['LMI_PAYMENT_NO']);
 		$crc = $_POST['LMI_HASH'];
@@ -105,7 +105,7 @@ $_POST['LMI_PAYER_PURSE'].$_POST['LMI_PAYER_WM']));
 
 		if (($crc == $hash) && ($merchant_summ == $order_summ)) {
 		
-		$payment_method = $this->PaymentMethod->find(array('alias' => $this->module_name));
+		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 		$order_data = $this->Order->find('first', array('conditions' => array('Order.id' => $_POST['LMI_PAYMENT_NO'])));
 		$order_data['Order']['order_status_id'] = $payment_method['PaymentMethod']['order_status_id'];
 		

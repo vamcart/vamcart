@@ -64,7 +64,7 @@ class OrdersController extends AppController {
 
 			// Get the default order status
 			if ($order['Order']['order_status_id'] == 0) {
-				$default_status = $this->Order->OrderStatus->find(array('default' => '1'));
+				$default_status = $this->Order->OrderStatus->find('first', array('conditions' => array('default' => '1')));
 				$order['Order']['order_status_id'] = $default_status['OrderStatus']['id'];
 			}
 

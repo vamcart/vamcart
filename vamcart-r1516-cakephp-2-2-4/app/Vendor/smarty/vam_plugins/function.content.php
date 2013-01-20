@@ -24,7 +24,7 @@ function smarty_function_content($params, $template)
 		App::import('Model', 'Template');
 		$Template =& new Template();
 
-		$contentTemplate = $Template->find(array('parent_id' => $content['Template']['id'], 'template_type_id' => $content['ContentType']['template_type_id']));
+		$contentTemplate = $Template->find('first', array('conditions' => array('parent_id' => $content['Template']['id'], 'template_type_id' => $content['ContentType']['template_type_id'])));
 
 		$Smarty->display($contentTemplate['Template']['template'], $template->smarty->tpl_vars);
 		// Write the output to cache and echo them

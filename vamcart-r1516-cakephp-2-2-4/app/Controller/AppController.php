@@ -33,7 +33,7 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 	
-	var $helpers = array('Html', 'Javascript', 'Ajax', 'Form', 'Admin', 'Session');
+	var $helpers = array('Html', 'Js', 'Ajax', 'Form', 'Admin', 'Session');
 	var $components = array(
 		'RequestHandler',
 		'ConfigurationBase',
@@ -190,7 +190,7 @@ class AppController extends Controller {
 		
 		// Get the model we're in and make sure that alias isn't taken
 		$current_model = $this->modelClass;
-		$check_records = $this->$current_model->find('all', array('conditions' => array($current_model . '.id !=' => $this->data[$current_model]['id'], $current_model . '.alias =' => $alias)));
+		$check_records = $this->$current_model->find('all', array('conditions' => array($current_model . '.id !=' => $this->request->data[$current_model]['id'], $current_model . '.alias =' => $alias)));
 
 		if(count($check_records) > 0)
 		{
@@ -336,7 +336,7 @@ class AppController extends Controller {
 				App::import('Model', 'Language');
 				$this->Language = new Language();
 				$languages = $this->Language->find('first', array('conditions' => array('Language.default' => 1)));
-				
+
 				$new_customer['language_id'] = $languages['Language']['id'];
 				$new_customer['language'] = $languages['Language']['iso_code_2'];
 				
@@ -378,12 +378,12 @@ class AppController extends Controller {
 			$this->set('navigation',$this->getAdminNavigation());	
 
 			// We load the locale component here so it doesn't get loaded for the front end
-			//App::import('Component', 'Locale');
-			//App::uses('LocaleComponent', 'Controller/Component');
-			//$this->Locale =& new LocaleComponent();
+			App::uses('LocaleComponent', 'Controller/Component');
+
+			$Locale =& new LocaleComponent();
 			
 			// Set a current breadcrumb from the locale based on the current controller/action		
-			//$this->set('current_crumb',$this->Locale->set_crumb($this->params['action'],$this->params['controller']));	
+			$this->set('current_crumb',$Locale->set_crumb($this->params['action'],$this->params['controller']));	
 		
 			// Check the admin login credentials against the database
 			// ToDo: Make this more secure, possibly change to a requestaction in users controller

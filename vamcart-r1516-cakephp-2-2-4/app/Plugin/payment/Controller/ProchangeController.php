@@ -59,11 +59,11 @@ class ProchangeController extends PaymentAppController {
 			
 		$order = $this->Order->read(null,$_SESSION['Customer']['order_id']);
 		
-		$payment_method = $this->PaymentMethod->find(array('alias' => $this->module_name));
+		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 
-		$prochange_settings = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'pro_client'));
+		$prochange_settings = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'pro_client')));
 		$pro_client = $prochange_settings['PaymentMethodValue']['value'];
-		$prochange_ra_settings = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'pro_ra'));
+		$prochange_ra_settings = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'pro_ra')));
 		$pro_ra = $prochange_ra_settings['PaymentMethodValue']['value'];
 		
 		$content = '<form action="http://merchant.prochange.ru/pay.pro" method="post">
@@ -83,7 +83,7 @@ class ProchangeController extends PaymentAppController {
 			$order['Order'][$key] = $value;
 		
 		// Get the default order status
-		$default_status = $this->Order->OrderStatus->find(array('default' => '1'));
+		$default_status = $this->Order->OrderStatus->find('first', array('conditions' => array('default' => '1')));
 		$order['Order']['order_status_id'] = $default_status['OrderStatus']['id'];
 
 		// Save the order
@@ -100,7 +100,7 @@ class ProchangeController extends PaymentAppController {
 	function result()
 	{
 		$this->layout = 'empty';
-      $prochange_data = $this->PaymentMethod->PaymentMethodValue->find(array('key' => 'secret_key'));
+      $prochange_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'secret_key')));
       $secret_key = $prochange_data['PaymentMethodValue']['value'];
 		$order = $this->Order->read(null,$_POST['PRO_FIELD_1']);
 		$crc = $_POST['PRO_SECRET_KEY'];
@@ -110,7 +110,7 @@ class ProchangeController extends PaymentAppController {
 
 		if (($crc == $hash) && ($merchant_summ == $order_summ)) {
 		
-		$payment_method = $this->PaymentMethod->find(array('alias' => $this->module_name));
+		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 		$order_data = $this->Order->find('first', array('conditions' => array('Order.id' => $_POST['PRO_FIELD_1'])));
 		$order_data->id = $_POST['PRO_FIELD_1'];
 		$order_data['Order']['order_status_id'] = $payment_method['PaymentMethod']['order_status_id'];

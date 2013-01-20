@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 App::uses('AppModel', 'Model');
-class Language extends AppModel {
+class DefinedLanguage extends AppModel {
 	var $name = 'DefinedLanguage';
 	var $belongsTo = array('Language');
 }

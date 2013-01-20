@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('AppHelper', 'View');
 class AdminHelper extends Helper {
-	var $helpers = array('Html', 'Form', 'Javascript', 'Ajax');	
+	var $helpers = array('Html', 'Form', 'Js', 'Ajax');	
 
 	########################################################
 	# Functions for tabs

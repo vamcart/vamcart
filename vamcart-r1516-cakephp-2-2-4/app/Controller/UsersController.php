@@ -9,7 +9,7 @@ App::uses('AppController', 'Controller');
 class UsersController extends AppController {
 	var $name = 'Users';
 	var $uses = array('User', 'UserPref', 'Language');
-	var $helpers = array('Html','Javascript','Admin','Form');
+	var $helpers = array('Html','Js','Admin','Form');
 	var $components = array('Locale');
 	
 	function admin_delete ($user_id)
@@ -59,7 +59,7 @@ class UsersController extends AppController {
 		}
 		else
 		{
-			$this->data = $this->User->find(array('id' => $this->Session->read('User.id')));
+			$this->data = $this->User->find('first', array('conditions' => array('id' => $this->Session->read('User.id'))));
 				
 		}
 	}
@@ -79,7 +79,7 @@ class UsersController extends AppController {
 			//pr($this->data);
 			$this->Session->write('Config.language', $this->data['UserPref']['language']); 
 			$this->Session->write('UserPref.language', $this->data['UserPref']['language']); 			
-			$user_prefs = $this->User->UserPref->find(array('user_id' => $_SESSION['User']['id'], 'name' => 'language'));
+			$user_prefs = $this->User->UserPref->find('first', array('conditions' => array('user_id' => $_SESSION['User']['id'], 'name' => 'language')));
 			$user_prefs['UserPref']['language'] = $this->data['UserPref']['language'];
 			$this->User->UserPref->save($user_prefs);
 			$this->Session->setFlash(__('Record saved.', true));
@@ -135,11 +135,14 @@ class UsersController extends AppController {
 				// If there was an error set the flash and render
 				$this->Session->setFlash(__('No match for Username and/or Password.', true));
 			}
-			echo debug($admin_user);
+
+			if(!empty($admin_user))
+			{
 			// Write to the session and redirect
 			$this->Session->write('User', $admin_user['User']);
 			$this->Session->write('UserPref', $this->UserPref->find('list', array('user_id' => $admin_user['User']['id']), null, null, '{n}.UserPref.name', '{n}.UserPref.value'));
-			$this->redirect('/admin/admin_top/');		
+			$this->redirect('/admin/admin_top/');
+			}		
 		}
 	}	
 	

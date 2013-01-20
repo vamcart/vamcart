@@ -66,7 +66,7 @@ class PaymentMethodsController extends AppController {
 			
 			foreach($this->data[$type_key] AS $key => $value)
 			{
-				$original_value = $this->PaymentMethod->PaymentMethodValue->find(array('key' => $key,'payment_method_id' => $id));
+				$original_value = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => $key,'payment_method_id' => $id)));
 				$original_value['PaymentMethodValue']['payment_method_id'] = $id;
 				$original_value['PaymentMethodValue']['key'] = $key;
 				$original_value['PaymentMethodValue']['value'] = $value;				

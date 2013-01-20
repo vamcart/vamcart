@@ -34,7 +34,7 @@ public function  beforeRender(Controller $controller){
 				App::import('Model', 'MicroTemplate');
 				$MicroTemplate =& new MicroTemplate();
 
-				$template = $MicroTemplate->find(array('alias' => $params['template']));
+				$template = $MicroTemplate->find('first', array('conditions' => array('alias' => $params['template'])));
 				$display_template = $template['MicroTemplate']['template'];
 
 				echo $display_template;
