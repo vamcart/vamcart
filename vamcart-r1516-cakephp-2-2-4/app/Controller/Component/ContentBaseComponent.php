@@ -8,7 +8,7 @@
 App::uses('Controller/Component', 'SessionComponent');
 	App::uses('Model', 'Content');
 		App::uses('Model', 'ContentDescription');
-class ContentBaseComponent extends Object 
+class ContentBaseComponent extends Component
 {
     var $components = array('Session','Smarty');
 
@@ -29,6 +29,8 @@ public function shutdown(Controller $controller) {
 public function  beforeRender(Controller $controller){
 	}
 	
+public function beforeRedirect(Controller $controller){
+	}
 
 	function load_models ()
 	{
@@ -98,7 +100,7 @@ public function  beforeRender(Controller $controller){
 		$this->Content->bindModel(array('belongsTo' => array('ContentType' => array('className' => 'ContentType'))));
 
 		$content_conditions = "Content.id = '" . $content_alias . "' OR BINARY Content.alias = '" . $content_alias . "' AND Content.active ='1'";
-		$content = $this->Content->find($content_conditions, null, null, 2);
+		$content = $this->Content->find('first', array('conditions' =>$content_conditions, null, null, 2));
 
 		if ($content === false) {
 			$this->cakeError('error404');

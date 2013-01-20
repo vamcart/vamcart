@@ -66,29 +66,26 @@ class AppModel extends Model {
 	*/		
 	function unbindAll($params = array())
 	{
-	    foreach($this->__associations as $ass)
-	    {
-	      if(!empty($this->{$ass}))
-	      {
-	        $this->__backAssociation[$ass] = $this->{$ass};
-	        if(isset($params[$ass]))
-	        {
-	          foreach($this->{$ass} as $model => $detail)
-	          {
-	            if(!in_array($model,$params[$ass]))
-	            {
-	              $this->__backAssociation = array_merge($this->__backAssociation, $this->{$ass});
-	              unset($this->{$ass}[$model]);
-	            }
-	          }
-	        }else
-	        {
-	          $this->__backAssociation = array_merge($this->__backAssociation, $this->{$ass});
-	          $this->{$ass} = array();
-	        }
 
-      }
-    }
+$unbind = array(); 
+    foreach ($this->belongsTo as $model=>$info) 
+    { 
+      $unbind['belongsTo'][] = $model; 
+    } 
+    foreach ($this->hasOne as $model=>$info) 
+    { 
+      $unbind['hasOne'][] = $model; 
+    } 
+    foreach ($this->hasMany as $model=>$info) 
+    { 
+      $unbind['hasMany'][] = $model; 
+    } 
+    foreach ($this->hasAndBelongsToMany as $model=>$info) 
+    { 
+      $unbind['hasAndBelongsToMany'][] = $model; 
+    } 
+    parent::unbindModel($unbind); 
+
     return true;
 	}
   
