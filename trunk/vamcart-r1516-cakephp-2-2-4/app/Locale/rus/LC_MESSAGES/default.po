@@ -2013,6 +2013,10 @@ msgid "Article Page"
 msgstr "Страница статьи"
 
 #: /views/contents/admin_edit.ctp:60
+msgid "Downloadable Product Info"
+msgstr "Страница карточки скачиваемого товара"
+
+#: /views/contents/admin_edit.ctp:60
 msgid "Non-Taxable"
 msgstr "Нет налога"
 
