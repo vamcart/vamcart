@@ -69,10 +69,8 @@ function smarty_function_content_listing($params, $template)
 	global $config;
 		
 	// Load some necessary components & models
-	App::import('Component', 'Smarty');
+	App::uses('SmartyComponent', 'Controller/Component');
 		$Smarty =& new SmartyComponent();
-	App::import('Component', 'Session');
-		$Session =& new SessionComponent();		
 
 	App::import('Model', 'Content');
 		$Content =& new Content();		
