@@ -410,7 +410,7 @@ class TemplatesController extends AppController {
 							$this->redirect('/templates/admin_import/');
 						} else {
 							$this->Template->unbindModel(array('hasAndBelongsToMany' => array('Stylesheet')), false);
-							$tmpl = $this->Template->find("Template.name = '" . $name . "'");
+							$tmpl = $this->Template->find('first', array('conditions' => "Template.name = '" . $name . "'"));
 
 							if (!$tmpl) {
 								$tmpl = array();
@@ -442,7 +442,7 @@ class TemplatesController extends AppController {
 
 								}
 
-								$child_template = $this->Template->find("Template.parent_id='" . $id . "' and Template.template_type_id='" . $child_type_id . "'");
+								$child_template = $this->Template->find('first', array('conditions' => "Template.parent_id='" . $id . "' and Template.template_type_id='" . $child_type_id . "'"));
 								
 								if (!$child_template) {
 									$child_template = array();

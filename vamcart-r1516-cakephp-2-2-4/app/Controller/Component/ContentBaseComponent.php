@@ -71,10 +71,10 @@ public function beforeRedirect(Controller $controller){
 		}
 
 		$this->load_models();
-
-		 $this->ContentDescription->find('first', array('conditions' => array('content_id' => $content_id, 'language_id' => $this->Session->read('Customer.language_id'))));
-
-		return $this->ContentDescription;
+		 
+		$content_description = $this->ContentDescription->find('first', array('conditions' => array('content_id' => $content_id, 'language_id' => $this->Session->read('Customer.language_id'))));
+ 
+		return $content_description;
 	}
 
 	/**
@@ -100,7 +100,7 @@ public function beforeRedirect(Controller $controller){
 		$this->Content->bindModel(array('belongsTo' => array('ContentType' => array('className' => 'ContentType'))));
 
 		$content_conditions = "Content.id = '" . $content_alias . "' OR BINARY Content.alias = '" . $content_alias . "' AND Content.active ='1'";
-		$content = $this->Content->find('first', array('conditions' =>$content_conditions, null, null, 2));
+		$content = $this->Content->find('first', array('recursive' => 2, 'conditions' => $content_conditions));
 
 		if ($content === false) {
 			$this->cakeError('error404');

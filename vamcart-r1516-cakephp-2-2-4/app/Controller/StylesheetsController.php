@@ -13,7 +13,7 @@ class StylesheetsController extends AppController {
 	function load($alias)
 	{
 		$alias = str_replace(".css","",$alias);
-		$stylesheet = $this->Stylesheet->find("Stylesheet.id = '".$alias."' OR Stylesheet.alias = '".$alias."'");
+		$stylesheet = $this->Stylesheet->find('first', array('conditions' => "Stylesheet.id = '".$alias."' OR Stylesheet.alias = '".$alias."'"));
 
 		// Minify css
 		$output = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $stylesheet['Stylesheet']['stylesheet']);
@@ -337,7 +337,7 @@ class StylesheetsController extends AppController {
 							$data = $sheet->nodeValue;
 
 							$this->Stylesheet->unbindModel(array('hasAndBelongsToMany' => array('Template')), false);
-							$stylesheet = $this->Stylesheet->find("Stylesheet.alias = '".$alias."'");
+							$stylesheet = $this->Stylesheet->find('first', array('conditions' => "Stylesheet.alias = '".$alias."'"));
 
 							if (!$stylesheet) {
 								$stylesheet = array();
