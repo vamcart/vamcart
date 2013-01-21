@@ -175,7 +175,7 @@ class DefinedLanguagesController extends AppController {
 								@unlink('./files/' . $this->data['DefinedLanguages']['submittedfile']['name']);
 								$this->redirect('/defined_languages/admin_import/');
 							} else {
-								$definition = $this->DefinedLanguage->find("DefinedLanguage.language_id = '". $language_id ."' and DefinedLanguage.key='" . $original . "'");
+								$definition = $this->DefinedLanguage->find('first', array('conditions' => "DefinedLanguage.language_id = '". $language_id ."' and DefinedLanguage.key='" . $original . "'"));
 
 								if (!$definition) {
 									$definition = array();

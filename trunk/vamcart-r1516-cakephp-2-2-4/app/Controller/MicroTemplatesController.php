@@ -183,7 +183,7 @@ class MicroTemplatesController extends AppController {
 							@unlink('./files/' . $this->data['MicroTemplates']['submittedfile']['name']);
 							$this->redirect('/micro_templates/admin_import/');
 						} else {
-							$tmpl = $this->MicroTemplate->find("MicroTemplate.alias = '" . $alias . "'");
+							$tmpl = $this->MicroTemplate->find('first', array('conditions' => "MicroTemplate.alias = '" . $alias . "'"));
 
 							if (!$tmpl) {
 								$tmpl = array();

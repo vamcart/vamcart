@@ -86,6 +86,7 @@ var $components = array('ConfigurationBase', 'ContentBase', 'Smarty', 'Gzip.Gzip
 		{
 			$content = $this->ContentBase->get_content_information($alias);
 			$content_description = $this->ContentBase->get_content_description($content['Content']['id']);
+
 			$content['ContentDescription'] = $content_description['ContentDescription'];
 
 			$specific_model = $content['ContentType']['type'];
