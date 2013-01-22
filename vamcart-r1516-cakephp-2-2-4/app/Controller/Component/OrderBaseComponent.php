@@ -63,7 +63,7 @@ public function beforeRedirect(Controller $controller){
 		if ($order_id != null) {
 			$this->Order->unbindModel(array('belongsTo' => array('OrderStatus')));
 			$this->Order->unbindModel(array('hasMany' => array('OrderComment')));
-			$order = $this->Order->find('first', array('conditions' => array('Order.id' => $order_id), null, null, 2));
+			$order = $this->Order->find('first', array('recursive' => 2, 'conditions' => array('Order.id' => $order_id)));
 		} else {
 			$order = array();
 		}
