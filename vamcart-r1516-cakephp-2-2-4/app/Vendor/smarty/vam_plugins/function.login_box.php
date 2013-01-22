@@ -43,7 +43,8 @@ function smarty_function_login_box($params, $template)
 	$vars = array(
 		'login_form_action' => BASE . '/site/login/',
 		'is_logged_in' => $isLoggedIn,
-		'return_url' => base64_encode(urlencode($Dispatcher->here)),
+//		'return_url' => base64_encode(urlencode($Dispatcher->here)),
+		'return_url' => '',
 	);
 
 	$display_template = $Smarty->load_template($params, 'login_box');
