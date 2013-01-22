@@ -15,7 +15,6 @@
 <table class="contentTable">
 
 <?php
-//pr($stylesheet['Template']);die();
 $attached_template = $stylesheet['Template'];
 
 echo $this->Html->tableHeaders(array( __('Current Template Associations'), __('Action')));
