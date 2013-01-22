@@ -8,7 +8,7 @@
 
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'attach_stylesheet.png');
 
- __('Template');  echo ': ' . $this->Html->link($template['Template']['name'],'/templates/admin_edit/' . $template['Template']['id']); ?>
+ echo __('Template');  echo ': ' . $this->Html->link($template['Template']['name'],'/templates/admin_edit/' . $template['Template']['id']); ?>
 
 <table class="contentTable">
 

@@ -10,7 +10,7 @@
 	
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'attach_templates.png');
         
- __('Stylesheet');  echo ': ' . $this->Html->link($stylesheet['Stylesheet']['name'],'/stylesheets/admin_edit/' . $stylesheet['Stylesheet']['id']); ?>
+ echo __('Stylesheet');  echo ': ' . $this->Html->link($stylesheet['Stylesheet']['name'],'/stylesheets/admin_edit/' . $stylesheet['Stylesheet']['id']); ?>
 
 <table class="contentTable">
 
