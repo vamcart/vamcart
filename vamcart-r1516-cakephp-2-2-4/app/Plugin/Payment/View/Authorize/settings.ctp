@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 	
-echo $form->inputs(array(
+echo $this->Form->inputs(array(
 	'legend' => null,
 	'authorize.authorize_login' => array(
 	'label' => __('Authorize.Net ID'),

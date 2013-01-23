@@ -8,7 +8,7 @@
 
 class StorePickupController extends PaymentAppController {
 	var $uses = array('PaymentMethod', 'Order');
-	var $module_name = 'store_pickup';
+	var $module_name = 'StorePickup';
 
 	function settings ()
 	{

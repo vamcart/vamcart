@@ -69,7 +69,7 @@ class ShippingMethodsController extends AppController {
 	{
 		$this->set('current_crumb', __('Modules Listing', true));
 		$this->set('title_for_layout', __('Modules Listing', true));
-		$path = APP . 'plugins' . DS . 'shipping' . DS . 'views';
+		$path = APP . 'Plugin' . DS . 'Shipping' . DS . 'View';
 		$module_path = new Folder($path);
 		$dirs = $module_path->read();
 		$modules = array();
@@ -78,11 +78,11 @@ class ShippingMethodsController extends AppController {
 				$module = array();
 				$module['code'] = $dir; 
 				$db_module = $this->ShippingMethod->findByCode($module['code']);
-				$module['id'] = $db_module['ShippingMethod']['id'];
+				$module['id'] = (isset($db_module['ShippingMethod']['id'])?$db_module['ShippingMethod']['id']:null);
 				$module['name'] = (isset($db_module['ShippingMethod']['name'])?$db_module['ShippingMethod']['name']:Inflector::humanize($module['code']));
-				$module['default'] = (isset($db_module['ShippingMethod']['default'])?$db_module['ShippingMethod']['default']:0);
+				$module['default'] = (isset($db_module['ShippingMethod']['default'])?$db_module['ShippingMethod']['default']:null);
 				$module['installed'] = $this->ShippingMethod->find('count', array('conditions' => array('code' => $module['code'], 'active' => '1')));
-				$module['order'] = $db_module['ShippingMethod']['order'];
+				$module['order'] = (isset($db_module['ShippingMethod']['order'])?$db_module['ShippingMethod']['order']:null);
 				
 				$modules[] = $module;
 		}

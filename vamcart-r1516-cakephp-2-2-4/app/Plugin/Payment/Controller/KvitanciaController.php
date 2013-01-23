@@ -9,7 +9,7 @@
 class KvitanciaController extends PaymentAppController {
 	var $uses = array('PaymentMethod', 'Order');
 	var $helpers = array('Time');
-	var $module_name = 'kvitancia';
+	var $module_name = 'Kvitancia';
 	var $icon = 'kvitancia.png';
 
 	function settings ()

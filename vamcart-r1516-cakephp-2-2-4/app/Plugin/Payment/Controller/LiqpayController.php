@@ -8,7 +8,7 @@
 
 class LiqpayController extends PaymentAppController {
 	var $uses = array('PaymentMethod', 'Order');
-	var $module_name = 'liqpay';
+	var $module_name = 'Liqpay';
 	var $icon = 'liqpay.png';
 
 	function settings ()

@@ -8,7 +8,7 @@
 
 class FreeShippingController extends ShippingAppController {
 	var $uses = array('ShippingMethod');
-	var $module_name = 'free_shipping';
+	var $module_name = 'FreeShipping';
 
 	function settings ()
 	{

@@ -47,5 +47,5 @@ for ($i = 0; $i < $num_zones; $i++) {
     );
 }
 
-echo $form->inputs($fields);
+echo $this->Form->inputs($fields);
 ?>

@@ -8,7 +8,7 @@
 
 class ZoneBasedController extends ShippingAppController {
         var $uses = array('ShippingMethod', 'GeoZone');
-        var $module_name = 'zone_based';
+        var $module_name = 'ZoneBased';
         var $num_zones = 10;
 
         function settings ()

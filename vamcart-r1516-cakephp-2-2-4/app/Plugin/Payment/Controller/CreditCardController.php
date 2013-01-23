@@ -8,7 +8,7 @@
 
 class CreditCardController extends PaymentAppController {
 	var $uses = array('PaymentMethod', 'Order');
-	var $module_name = 'credit_card';
+	var $module_name = 'CreditCard';
 
 	function settings ()
 	{

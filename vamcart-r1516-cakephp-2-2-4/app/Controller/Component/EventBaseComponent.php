@@ -32,9 +32,9 @@ public function beforeRedirect(Controller $controller){
 	function ProcessEvent ($event_alias)
 	{
 		App::import('Model', 'Event');
-		$this->Event =& new Event();
+		$Event =& new Event();
 		
-		$events = $this->Event->EventHandler->find('all', array('conditions' => array('Event.alias' => $event_alias)));
+		$events = $Event->EventHandler->find('all', array('conditions' => array('Event.alias' => $event_alias)));
 		
 		if(!empty($events))
 		{

@@ -11,7 +11,7 @@ class PaymentAppController extends AppController
 	
 	function credit_card_fields ()
 	{
-		$cc_fields = $this->requestAction('/payment/credit_card/display_fields/',array('return'));
+		$cc_fields = $this->requestAction('/Payment/CreditCard/display_fields/',array('return'));
 		return $cc_fields;
 	}
 	

@@ -8,7 +8,7 @@
 
 class InterkassaController extends PaymentAppController {
 	var $uses = array('PaymentMethod', 'Order');
-	var $module_name = 'interkassa';
+	var $module_name = 'Interkassa';
 	var $icon = 'interkassa.png';
 
 	function settings ()

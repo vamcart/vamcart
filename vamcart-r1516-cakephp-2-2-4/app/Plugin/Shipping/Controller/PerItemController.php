@@ -8,7 +8,7 @@
 
 class PerItemController extends ShippingAppController {
 	var $uses = array('ShippingMethod');
-	var $module_name = 'per_item';
+	var $module_name = 'PerItem';
 
 	function settings ()
 	{

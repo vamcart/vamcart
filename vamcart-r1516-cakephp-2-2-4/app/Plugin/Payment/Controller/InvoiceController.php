@@ -9,7 +9,7 @@
 class InvoiceController extends PaymentAppController {
 	var $uses = array('PaymentMethod', 'Order');
 	var $helpers = array('Time', 'Summa');
-	var $module_name = 'invoice';
+	var $module_name = 'Invoice';
 
 	function settings ()
 	{

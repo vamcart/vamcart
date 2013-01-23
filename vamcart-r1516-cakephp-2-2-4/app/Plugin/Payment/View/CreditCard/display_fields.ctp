@@ -2,7 +2,7 @@
 <div id="credit_card_details">
 	<div>
 		<?php 
-		echo $form->inputs(array(
+		echo $this->Form->inputs(array(
 		'legend' => false,
 		'fieldset' => false,
 		   'CreditCard.cc_number' => array(

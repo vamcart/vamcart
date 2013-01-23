@@ -32,7 +32,7 @@ public function beforeRedirect(Controller $controller){
 	function get_version ()
 	{
 		
-		$version = intval(file_get_contents(APP . 'plugins' . DS . $this->controller->params['plugin'] . DS . 'version.txt'));
+		$version = intval(file_get_contents(APP . 'Plugin' . DS . $this->controller->params['plugin'] . DS . 'version.txt'));
 		return $version;
 	}
 	
@@ -64,7 +64,7 @@ public function beforeRedirect(Controller $controller){
 		{
 			$end_file = $version + 1;
 			
-			$upgrade_file = APP . 'plugins' . DS . $this->controller->params['plugin'] . DS . 'upgrade_schemas' . DS .  $start_file . '.to.' . $end_file . '.php';
+			$upgrade_file = APP . 'Plugin' . DS . $this->controller->params['plugin'] . DS . 'upgrade_schemas' . DS .  $start_file . '.to.' . $end_file . '.php';
 			
 			if(file_exists($upgrade_file))
 			{

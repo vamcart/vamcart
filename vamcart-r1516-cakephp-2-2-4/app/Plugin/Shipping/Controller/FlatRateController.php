@@ -8,7 +8,7 @@
 
 class FlatRateController extends ShippingAppController {
 	var $uses = array('ShippingMethod');
-	var $module_name = 'flat_rate';
+	var $module_name = 'FlatRate';
 
 	function settings ()
 	{

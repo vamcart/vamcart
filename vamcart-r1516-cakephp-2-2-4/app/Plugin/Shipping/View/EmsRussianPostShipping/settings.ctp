@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $form->inputs(array(
+echo $this->Form->inputs(array(
 	'legend' => null,
 	'key_values.city' => array(
 		'label' => __('Store City'), 
