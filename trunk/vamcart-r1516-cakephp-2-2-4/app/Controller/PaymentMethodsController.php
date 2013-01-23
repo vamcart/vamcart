@@ -64,7 +64,7 @@ class PaymentMethodsController extends AppController {
 			
 			// Loop through the extra and save the the PaymentMethodValue table
 			$payment = $this->PaymentMethod->read(null,$id);
-			$type_key = $payment['PaymentMethod']['alias'];
+			$type_key = strtolower($payment['PaymentMethod']['alias']);
 			
 			foreach($this->data[$type_key] AS $key => $value)
 			{
@@ -86,7 +86,7 @@ class PaymentMethodsController extends AppController {
 	{
 		$this->set('current_crumb', __('Modules Listing', true));
 		$this->set('title_for_layout', __('Modules Listing', true));
-		$path = APP . 'plugins' . DS . 'payment' . DS . 'views';
+		$path = APP . 'Plugin' . DS . 'Payment' . DS . 'View';
 		$module_path = new Folder($path);
 		$dirs = $module_path->read();
 		$modules = array();
@@ -95,11 +95,11 @@ class PaymentMethodsController extends AppController {
 				$module = array();
 				$module['alias'] = $dir; 
 				$db_module = $this->PaymentMethod->findByAlias($module['alias']);
-				$module['id'] = $db_module['PaymentMethod']['id'];
+				$module['id'] = (isset($db_module['PaymentMethod']['id'])?$db_module['PaymentMethod']['id']:null);
 				$module['name'] = (isset($db_module['PaymentMethod']['name'])?$db_module['PaymentMethod']['name']:Inflector::humanize($module['alias']));
-				$module['default'] = (isset($db_module['PaymentMethod']['default'])?$db_module['PaymentMethod']['default']:0);
+				$module['default'] = (isset($db_module['PaymentMethod']['default'])?$db_module['PaymentMethod']['default']:null);
 				$module['installed'] = $this->PaymentMethod->find('count', array('conditions' => array('alias' => $module['alias'], 'active' => '1')));
-				$module['order'] = $db_module['PaymentMethod']['order'];
+				$module['order'] = (isset($db_module['PaymentMethod']['order'])?$db_module['PaymentMethod']['order']:null);
 				
 				$modules[] = $module;
 		}

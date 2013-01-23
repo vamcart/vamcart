@@ -8,7 +8,7 @@
 
 class QiwiController extends PaymentAppController {
 	var $uses = array('PaymentMethod', 'Order');
-	var $module_name = 'qiwi';
+	var $module_name = 'Qiwi';
 	var $icon = 'qiwi.png';
 
 	function settings ()

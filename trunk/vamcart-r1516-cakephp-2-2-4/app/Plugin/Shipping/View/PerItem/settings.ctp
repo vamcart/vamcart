@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $form->inputs(array(
+echo $this->Form->inputs(array(
 	'legend' => null,
 	'key_values.per_item_amount' => array(
 		'label' => __('Per Item Amount'), 

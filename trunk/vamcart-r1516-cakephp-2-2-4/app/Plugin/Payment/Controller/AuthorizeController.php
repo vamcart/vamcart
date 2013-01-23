@@ -9,7 +9,7 @@
 class AuthorizeController extends PaymentAppController {
 	var $components = array('OrderBase');
 	var $uses = array('PaymentMethod', 'Order');
-	var $module_name = 'authorize';
+	var $module_name = 'Authorize';
 
 	function settings ()
 	{

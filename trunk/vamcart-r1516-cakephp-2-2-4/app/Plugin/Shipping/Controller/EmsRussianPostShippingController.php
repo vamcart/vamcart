@@ -8,7 +8,7 @@
 
 class EmsRussianPostShippingController extends ShippingAppController {
 	var $uses = array('ShippingMethod');
-	var $module_name = 'ems_russian_post_shipping';
+	var $module_name = 'EmsRussianPostShipping';
 	var $icon = 'ems.png';
 
 	function settings ()

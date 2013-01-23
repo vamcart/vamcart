@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $form->inputs(array(
+echo $this->Form->inputs(array(
 	'legend' => null,
 	'webmoney.webmoney_purse' => array(
 	'label' => __('WebMoney Purse'),

@@ -41,6 +41,23 @@ class CryptComponent extends Object
   var $r; // random number or 10byte key
   var $csl; // (CSL) CS N length for CS2
 
+	function beforeFilter ()	{	}
+public function initialize(Controller $controller) {
+	}
+    
+public function startup(Controller $controller) {
+	}
+
+public function shutdown(Controller $controller) {
+	}
+
+public function beforeRedirect(Controller $controller){
+	}
+    
+public function  beforeRender(Controller $controller){
+	}
+
+
   /**
    * Constructor
    *

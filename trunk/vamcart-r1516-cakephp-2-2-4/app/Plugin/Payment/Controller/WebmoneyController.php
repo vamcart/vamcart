@@ -8,7 +8,7 @@
 
 class WebmoneyController extends PaymentAppController {
 	var $uses = array('PaymentMethod', 'Order');
-	var $module_name = 'webmoney';
+	var $module_name = 'Webmoney';
 	var $icon = 'webmoney.png';
 
 	function settings ()

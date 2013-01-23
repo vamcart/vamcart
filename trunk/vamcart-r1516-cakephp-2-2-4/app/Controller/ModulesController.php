@@ -15,21 +15,21 @@ class ModulesController extends AppController {
 	{
 		$this->set('current_crumb', __('Modules Listing', true));
 		$this->set('title_for_layout', __('Modules Listing', true));
-		$path = APP . 'plugins' . DS;
+		$path = APP . 'Plugin' . DS;
 		$module_path = new Folder($path);
 		$dirs = $module_path->read();
 
 		$modules = array();
 		foreach($dirs[0] AS $dir)
 		{
-			if(substr($dir,0,7) == 'module_')
+			if(substr($dir,0,6) == 'Module')
 			{
 				$module = array();
-				$module['alias'] = substr($dir,7,strlen($dir)); 
+				$module['alias'] = substr($dir,6,strlen($dir)); 
 				$module['name'] = Inflector::humanize($module['alias']);
 				$module['installed'] = $this->Module->find('count', array('conditions' => array('alias' => $module['alias'])));
 				
-				$module['version'] = intval(file_get_contents(APP . 'plugins' . DS . $dir . DS . 'version.txt'));
+				$module['version'] = intval(file_get_contents(APP . 'Plugin' . DS . $dir . DS . 'version.txt'));
 				
 				if($module['installed'] > 0)
 				{

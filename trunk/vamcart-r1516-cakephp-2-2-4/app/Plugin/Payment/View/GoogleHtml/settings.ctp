@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 	
-echo $form->inputs(array(
+echo $this->Form->inputs(array(
 	'legend' => null,
 	'google_html.google_html_merchant_id' => array(
 	'label' => __('Merchant ID'),

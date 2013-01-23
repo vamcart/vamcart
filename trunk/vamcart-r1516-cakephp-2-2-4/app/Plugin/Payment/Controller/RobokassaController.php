@@ -8,7 +8,7 @@
 
 class RobokassaController extends PaymentAppController {
 	var $uses = array('PaymentMethod', 'Order');
-	var $module_name = 'robokassa';
+	var $module_name = 'Robokassa';
 	var $icon = 'robokassa.png';
 
 	function settings ()

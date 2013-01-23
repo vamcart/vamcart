@@ -12,7 +12,7 @@ $types = array('weight' => __('Weight'),
 			   'total' => __('Total'),
 			   'products' => __('Products'));
 
-echo $form->inputs(array(
+echo $this->Form->inputs(array(
 	'legend' => null,
 	'key_values.table_based_type' => array(
 		'type' => 'select',

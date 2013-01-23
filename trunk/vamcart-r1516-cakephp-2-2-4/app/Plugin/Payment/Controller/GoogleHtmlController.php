@@ -9,7 +9,7 @@
 class GoogleHtmlController extends PaymentAppController {
 	var $uses = array('PaymentMethod', 'Order');
 	var $components = array('OrderBase');
-	var $module_name = 'google_html';
+	var $module_name = 'GoogleHtml';
 	var $icon = 'googlecheckout.png';
 
 	function settings ()

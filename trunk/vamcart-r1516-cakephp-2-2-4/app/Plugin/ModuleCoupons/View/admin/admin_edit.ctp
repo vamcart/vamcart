@@ -27,7 +27,7 @@ $html->script(array(
 			echo '</ul>';
 	
 echo $admin->StartTabContent('main');
-	echo $form->inputs(array(
+	echo $this->Form->inputs(array(
 		'legend' => null,
 		'fieldset' => __('Coupon Details'),
 			'ModuleCoupon.id' => array(
@@ -53,7 +53,7 @@ echo $admin->StartTabContent('main');
 echo $admin->EndTabContent();   
 
 echo $admin->StartTabContent('restrictions');
-	echo $form->inputs(array(
+	echo $this->Form->inputs(array(
 			'legend' => null,
 			'fieldset' => __('Coupon Details'),
 			'ModuleCoupon.max_uses' => array(

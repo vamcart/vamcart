@@ -8,7 +8,7 @@
 
 class RbkmoneyController extends PaymentAppController {
 	var $uses = array('PaymentMethod', 'Order');
-	var $module_name = 'rbkmoney';
+	var $module_name = 'Rbkmoney';
 	var $icon = 'rbkmoney.png';
 
 	function settings ()

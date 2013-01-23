@@ -8,7 +8,7 @@
 
 class TableBasedController extends ShippingAppController {
 	var $uses = array('ShippingMethod');
-	var $module_name = 'table_based';
+	var $module_name = 'TableBased';
 
 	function settings ()
 	{

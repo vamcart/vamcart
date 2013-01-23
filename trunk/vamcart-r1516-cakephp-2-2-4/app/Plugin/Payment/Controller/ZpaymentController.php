@@ -8,7 +8,7 @@
 
 class ZpaymentController extends PaymentAppController {
 	var $uses = array('PaymentMethod', 'Order');
-	var $module_name = 'zpayment';
+	var $module_name = 'Zpayment';
 	var $icon = 'zpayment.png';
 
 	function settings ()

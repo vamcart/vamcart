@@ -8,7 +8,7 @@
 
 class AssistController extends PaymentAppController {
 	var $uses = array('PaymentMethod', 'Order');
-	var $module_name = 'assist';
+	var $module_name = 'Assist';
 	var $icon = 'assist.png';
 
 	function settings ()

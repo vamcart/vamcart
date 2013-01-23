@@ -3,9 +3,6 @@
 public function initialize(Controller $controller) {
 	}
     
-public function startup(Controller $controller) {
-	}
-
 public function shutdown(Controller $controller) {
 	}
 

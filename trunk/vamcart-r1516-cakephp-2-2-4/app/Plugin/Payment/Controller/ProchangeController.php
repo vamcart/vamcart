@@ -8,7 +8,7 @@
 
 class ProchangeController extends PaymentAppController {
 	var $uses = array('PaymentMethod', 'Order');
-	var $module_name = 'prochange';
+	var $module_name = 'Prochange';
 	var $icon = 'prochange.png';
 
 	function settings ()
