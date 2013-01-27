@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-$html->script(array(
+$this->Html->script(array(
 	'modified.js',
 	'jquery/plugins/jquery-ui-min.js',
 	'tabs.js',
@@ -15,41 +15,41 @@ $html->script(array(
 
 	echo $this->Html->css('ui.tabs', null, array('inline' => false));
 
-	echo $admin->ShowPageHeaderStart($current_crumb, 'abandoned.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'abandoned.png');
 
-echo $admin->StartTabs();
+echo $this->Admin->StartTabs();
 			echo '<ul>';
-			echo $admin->CreateTab('main',__('Main'), 'main.png');
-			echo $admin->CreateTab('options',__('Options'), 'options.png');			
+			echo $this->Admin->CreateTab('main',__('Main'), 'main.png');
+			echo $this->Admin->CreateTab('options',__('Options'), 'options.png');			
 			echo '</ul>';
 
-echo $admin->StartTabContent('main');
+echo $this->Admin->StartTabContent('main');
 echo '<table class="contentTable">';
 
-echo $html->tableHeaders(array(  __('Order Id'), __('Number of Products'), __('Date Placed')));
+echo $this->Html->tableHeaders(array(  __('Order Id'), __('Number of Products'), __('Date Placed')));
 
 foreach($data AS $order)
 {
-	echo $admin->TableCells(
+	echo $this->Admin->TableCells(
 		  array(
-			$html->link($order['Order']['id'],'/module_abandoned_carts/admin/admin_manage/' . $order['Order']['id']),
+			$this->Html->link($order['Order']['id'],'/module_abandoned_carts/admin/admin_manage/' . $order['Order']['id']),
 			count($order['OrderProduct']),
 			$time->niceShort($order['Order']['created'])
 		   ));
 }
 
 echo '</table>';
-echo $admin->EmptyResults($data);
+echo $this->Admin->EmptyResults($data);
 
-echo $admin->EndTabContent();
-echo $admin->StartTabContent('options');
+echo $this->Admin->EndTabContent();
+echo $this->Admin->StartTabContent('options');
 
-		echo $html->link(__('Click here to purge all Abandoned Carts.'),'/module_abandoned_carts/admin/purge_old_carts/',null,__('Are you sure?'));
+		echo $this->Html->link(__('Click here to purge all Abandoned Carts.'),'/module_abandoned_carts/admin/purge_old_carts/',null,__('Are you sure?'));
 	
-echo $admin->EndTabContent();
+echo $this->Admin->EndTabContent();
 
-echo $admin->EndTabs();
+echo $this->Admin->EndTabs();
 
-echo $admin->ShowPageHeaderEnd();
+echo $this->Admin->ShowPageHeaderEnd();
 
 ?>

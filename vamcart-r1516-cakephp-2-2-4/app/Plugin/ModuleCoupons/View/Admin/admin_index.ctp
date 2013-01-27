@@ -6,26 +6,26 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $admin->ShowPageHeaderStart($current_crumb, 'coupons.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'coupons.png');
 
 echo '<table class="contentTable">';
-echo $html->tableHeaders(array( __('Name'), __('Code'), __('Action')));
+echo $this->Html->tableHeaders(array( __('Name'), __('Code'), __('Action')));
 
 foreach ($coupons AS $coupon)
 {
-	echo $admin->TableCells(
+	echo $this->Admin->TableCells(
 		  array(
-			$html->link($coupon['ModuleCoupon']['name'],'/module_coupons/admin/admin_edit/' . $coupon['ModuleCoupon']['id']),
+			$this->Html->link($coupon['ModuleCoupon']['name'],'/module_coupons/admin/admin_edit/' . $coupon['ModuleCoupon']['id']),
 			$coupon['ModuleCoupon']['code'],
-			$admin->ActionButton('edit','/module_coupons/admin/admin_edit/' . $coupon['ModuleCoupon']['id'],__('Edit')) . $admin->ActionButton('delete','/module_coupons/admin/admin_delete/' . $coupon['ModuleCoupon']['id'],__('Delete'))
+			$this->Admin->ActionButton('edit','/module_coupons/admin/admin_edit/' . $coupon['ModuleCoupon']['id'],__('Edit')) . $this->Admin->ActionButton('delete','/module_coupons/admin/admin_delete/' . $coupon['ModuleCoupon']['id'],__('Delete'))
 		   ));
 }
 echo '</table>';
 
-echo $admin->EmptyResults($coupons);
+echo $this->Admin->EmptyResults($coupons);
 
-echo $admin->CreateNewLink();
+echo $this->Admin->CreateNewLink();
 
-echo $admin->ShowPageHeaderEnd();
+echo $this->Admin->ShowPageHeaderEnd();
 
 ?>

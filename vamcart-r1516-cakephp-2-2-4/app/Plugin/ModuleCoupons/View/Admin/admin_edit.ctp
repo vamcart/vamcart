@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-$html->script(array(
+$this->Html->script(array(
 	'modified.js',
 	'jquery/plugins/jquery-ui-min.js',
 	'tabs.js',
@@ -15,18 +15,18 @@ $html->script(array(
 
 	echo $this->Html->css('ui.tabs', null, array('inline' => false));
 
-	echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
 	$coupon_id = $this->data['ModuleCoupon']['id'];
 	echo $form->create('ModuleCoupon', array('id' => 'contentform', 'action' => '/module_coupons/admin/admin_edit/'.$coupon_id, 'url' => '/module_coupons/admin/admin_edit/'.$coupon_id));
 
-	echo $admin->StartTabs();
+	echo $this->Admin->StartTabs();
 			echo '<ul>';
-			echo $admin->CreateTab('main',__('Main'), 'main.png');
-			echo $admin->CreateTab('restrictions',__('Restrictions'), 'restrictions.png');			
+			echo $this->Admin->CreateTab('main',__('Main'), 'main.png');
+			echo $this->Admin->CreateTab('restrictions',__('Restrictions'), 'restrictions.png');			
 			echo '</ul>';
 	
-echo $admin->StartTabContent('main');
+echo $this->Admin->StartTabContent('main');
 	echo $this->Form->inputs(array(
 		'legend' => null,
 		'fieldset' => __('Coupon Details'),
@@ -50,9 +50,9 @@ echo $admin->StartTabContent('main');
 				'label' => __('Amount Off Total')
              )
    ));
-echo $admin->EndTabContent();   
+echo $this->Admin->EndTabContent();   
 
-echo $admin->StartTabContent('restrictions');
+echo $this->Admin->StartTabContent('restrictions');
 	echo $this->Form->inputs(array(
 			'legend' => null,
 			'fieldset' => __('Coupon Details'),
@@ -73,15 +73,15 @@ echo $admin->StartTabContent('restrictions');
 				'label' => __('Max Order Total')
              )
 	));
-echo $admin->EndTabContent();   
+echo $this->Admin->EndTabContent();   
 
-	echo $admin->EndTabs();
+	echo $this->Admin->EndTabs();
 
-	echo $admin->formButton(__('Submit'), 'submit.png', array('type' => 'submit', 'name' => 'submitbutton', 'id' => 'submitbutton')) . $admin->formButton(__('Apply'), 'apply.png', array('type' => 'submit', 'name' => 'applybutton')) . $admin->formButton(__('Cancel'), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
+	echo $this->Admin->formButton(__('Submit'), 'submit.png', array('type' => 'submit', 'name' => 'submitbutton', 'id' => 'submitbutton')) . $this->Admin->formButton(__('Apply'), 'apply.png', array('type' => 'submit', 'name' => 'applybutton')) . $this->Admin->formButton(__('Cancel'), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
 	
 	echo '<div class="clear"></div>';
 	echo $form->end();
 	
-	echo $admin->ShowPageHeaderEnd();
+	echo $this->Admin->ShowPageHeaderEnd();
 
 ?>
