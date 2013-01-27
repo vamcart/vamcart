@@ -15,9 +15,9 @@
 	<div>
 		<label>{lang}Credit Card Expiration{/lang}: </label>
 		<?php
-			echo $form->month('CreditCard.cc_expiration_month', date('m'), array('name' => 'data[CreditCard][cc_expiration_month]'));
+			echo $this->Form->month('CreditCard.cc_expiration_month', date('m'), array('name' => 'data[CreditCard][cc_expiration_month]'));
 			echo '&nbsp;&nbsp;';
-			echo $form->year('CreditCard.cc_expiration_year',2005,2050,2005,array('name' => 'data[CreditCard][cc_expiration_year]'),false);	
+			echo $this->Form->year('CreditCard.cc_expiration_year',2005,2050,2005,array('name' => 'data[CreditCard][cc_expiration_year]'),false);	
 		?>
 	</div>
 	<div>
