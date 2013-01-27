@@ -29,7 +29,7 @@ class LicenseController extends AppController {
 		{
 			$this->License->save($this->data);		
 			$this->Session->setFlash(__('Record saved.', true));
-			$this->redirect('/license/admin');
+			$this->redirect('/license/admin/');
 		}		
 	}
 
