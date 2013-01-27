@@ -6,25 +6,25 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $admin->ShowPageHeaderStart($current_crumb, 'reviews.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'reviews.png');
 
 echo '<table class="contentTable">';
-echo $html->tableHeaders(array( __('Author'), __('Date'), __('Product'), __('Action')));
+echo $this->Html->tableHeaders(array( __('Author'), __('Date'), __('Product'), __('Action')));
 
 foreach ($reviews AS $review)
 {
-	echo $admin->TableCells(
+	echo $this->Admin->TableCells(
 		  array(
-			$html->link($review['ModuleReview']['name'],'/module_reviews/admin/admin_edit/' . $review['ModuleReview']['id']),
+			$this->Html->link($review['ModuleReview']['name'],'/module_reviews/admin/admin_edit/' . $review['ModuleReview']['id']),
 			$time->niceShort($review['ModuleReview']['created']),
 			$review['Content']['alias'],
-			$admin->ActionButton('edit','/module_reviews/admin/admin_edit/' . $review['ModuleReview']['id']) . $admin->ActionButton('delete','/module_reviews/admin/admin_delete/' . $review['ModuleReview']['id'])
+			$this->Admin->ActionButton('edit','/module_reviews/admin/admin_edit/' . $review['ModuleReview']['id']) . $this->Admin->ActionButton('delete','/module_reviews/admin/admin_delete/' . $review['ModuleReview']['id'])
 		   ));
 }
 echo '</table>';
 
-echo $admin->EmptyResults($reviews);
+echo $this->Admin->EmptyResults($reviews);
 
-echo $admin->ShowPageHeaderEnd();
+echo $this->Admin->ShowPageHeaderEnd();
 
 ?>
