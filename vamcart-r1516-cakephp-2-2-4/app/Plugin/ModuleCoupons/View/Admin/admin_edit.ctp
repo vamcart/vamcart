@@ -18,7 +18,7 @@ $this->Html->script(array(
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
 	$coupon_id = $this->data['ModuleCoupon']['id'];
-	echo $form->create('ModuleCoupon', array('id' => 'contentform', 'action' => '/module_coupons/admin/admin_edit/'.$coupon_id, 'url' => '/module_coupons/admin/admin_edit/'.$coupon_id));
+	echo $this->Form->create('ModuleCoupon', array('id' => 'contentform', 'action' => '/module_coupons/admin/admin_edit/'.$coupon_id, 'url' => '/module_coupons/admin/admin_edit/'.$coupon_id));
 
 	echo $this->Admin->StartTabs();
 			echo '<ul>';
@@ -80,7 +80,7 @@ echo $this->Admin->EndTabContent();
 	echo $this->Admin->formButton(__('Submit'), 'submit.png', array('type' => 'submit', 'name' => 'submitbutton', 'id' => 'submitbutton')) . $this->Admin->formButton(__('Apply'), 'apply.png', array('type' => 'submit', 'name' => 'applybutton')) . $this->Admin->formButton(__('Cancel'), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
 	
 	echo '<div class="clear"></div>';
-	echo $form->end();
+	echo $this->Form->end();
 	
 	echo $this->Admin->ShowPageHeaderEnd();
 
