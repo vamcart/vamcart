@@ -21,7 +21,7 @@ class AdminController extends ModuleAbandonedCartsAppController {
 			$this->Order->delete($cart, true);
 		}
 		$this->Session->setFlash(__('Abandoned carts have been purged.'));
-		$this->redirect('/module_abandoned_carts/admin/admin_index/');
+		$this->redirect('/ModuleAbandonedCarts/admin/admin_index/');
 	}
 
 	function admin_index ()

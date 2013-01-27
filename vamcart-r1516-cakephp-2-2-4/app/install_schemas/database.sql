@@ -900,7 +900,7 @@ CREATE TABLE `event_handlers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `event_handlers` (`id`, `event_id`, `originator`, `action`, `created`, `modified`) VALUES 
-(1, 2, 'CouponsModule', '/ModuleCoupons/Event/UtilizeCoupon/', '2009-09-13 11:11:08', '2009-09-13 11:11:08');
+(1, 2, 'CouponsModule', '/module_coupons/event/utilize_coupon/', '2009-09-13 11:11:08', '2009-09-13 11:11:08');
 
 DROP TABLE IF EXISTS `geo_zones`;
 CREATE TABLE IF NOT EXISTS `geo_zones` (
@@ -984,8 +984,8 @@ CREATE TABLE `modules` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `modules` (`id`, `name`, `alias`, `version`, `nav_level`) VALUES 
-(1, 'Reviews', 'reviews', '1.0', 3),
-(2, 'Coupons', 'coupons', '2', 3);
+(1, 'reviews', 'reviews', '1.0', 3),
+(2, 'coupons', 'coupons', '2', 3);
 
 DROP TABLE IF EXISTS module_coupons;
 CREATE TABLE `module_coupons` (
