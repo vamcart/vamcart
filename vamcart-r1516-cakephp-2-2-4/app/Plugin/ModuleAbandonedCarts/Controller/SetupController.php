@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 
 class SetupController extends ModuleAbandonedCartsAppController {
-	var $uses = null;
+	var $uses = array('Module', 'Content');
 	var $components = array('ModuleBase');
 
 	function upgrade ()
@@ -20,9 +20,6 @@ class SetupController extends ModuleAbandonedCartsAppController {
 	function install()
 	{
 		$this->ModuleBase->check_if_installed('abandoned_carts');
-		
-		App::import('Model', 'Module');
-		$this->Module =& new Module();
 		
 		// Create the new module record		
 		$new_module = array();
@@ -40,9 +37,6 @@ class SetupController extends ModuleAbandonedCartsAppController {
 	
 	function uninstall()
 	{
-		App::import('Model', 'Module');
-		$this->Module =& new Module();
-			
 		// Delete the module record
 		$module = $this->Module->findByAlias('abandoned_carts');
 		$this->Module->delete($module['Module']['id']);

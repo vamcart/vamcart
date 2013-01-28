@@ -25,7 +25,7 @@ class ModulesController extends AppController {
 			if(substr($dir,0,6) == 'Module')
 			{
 				$module = array();
-				$module['alias'] = strtolower(substr($dir,6,strlen($dir))); 
+				$module['alias'] = strtolower(substr(preg_replace('/([A-Z])/', '_${1}', substr($dir,6,strlen($dir))) , 1));
 				$module['name'] = Inflector::humanize($module['alias']);
 				$module['installed'] = $this->Module->find('count', array('conditions' => array('alias' => $module['alias'])));
 				

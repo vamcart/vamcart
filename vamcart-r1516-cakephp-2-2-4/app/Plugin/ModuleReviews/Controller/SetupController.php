@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 
 class SetupController extends ModuleReviewsAppController {
-	var $uses = null;
+	var $uses = array('Module', 'Content');
 	var $components = array('ModuleBase');
 	
 	function upgrade ()
@@ -54,7 +54,7 @@ class SetupController extends ModuleReviewsAppController {
 		`modified` DATETIME NOT NULL
 		) ENGINE = innodb;";
 		
-		$this->Module->execute($install_query);
+		$this->Module->query($install_query);
 		
 		$this->Session->setFlash(__('Module Installed'));
 		$this->redirect('/modules/admin/');
@@ -69,10 +69,6 @@ class SetupController extends ModuleReviewsAppController {
 		$module = $this->Module->findByAlias('reviews');
 		$this->Module->delete($module['Module']['id']);
 		
-		// Delete the core page
-		App::import('Model', 'Content');
-			$this->Content =& new Content();		
-
 		$core_page = $this->Content->find('first', array('conditions' => array('Content.parent_id' => '-1','alias' => 'read-reviews')));
 		$this->Content->delete($core_page['Content']['id'],true);
 
@@ -81,7 +77,7 @@ class SetupController extends ModuleReviewsAppController {
 		
 		// Delete the module record
 		$uninstall_query = "DROP TABLE `module_reviews`;";
-		$this->Module->execute($uninstall_query);
+		$this->Module->query($uninstall_query);
 		
 		$this->Session->setFlash(__('Module Uninstalled')); 
 		$this->redirect('/modules/admin/');
