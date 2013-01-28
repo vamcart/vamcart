@@ -14,8 +14,10 @@ class ModuleBaseComponent extends Object
 	{
 	}
 
-    public function initialize(Controller $controller) {
-	}
+ function initialize(Controller &$controller, $settings = array()) {
+        // saving the controller reference for later use
+        $this->controller =& $controller;
+    }
     
 public function startup(Controller $controller) {
 	}
@@ -31,8 +33,9 @@ public function beforeRedirect(Controller $controller){
 	
 	function get_version ()
 	{
-		
-		$version = intval(file_get_contents(APP . 'Plugin' . DS . $this->controller->params['plugin'] . DS . 'version.txt'));
+
+		$version = intval(file_get_contents(APP . 'Plugin' . DS . $this->controller->plugin . DS . 'version.txt'));
+
 		return $version;
 	}
 	
@@ -43,7 +46,7 @@ public function beforeRedirect(Controller $controller){
 		App::import('Model', 'Module');
 		$this->Module =& new Module();
 		
-		$module_alias = substr($this->controller->params['plugin'],7,strlen($this->controller->params['plugin']));
+		$module_alias = substr($this->controller->plugin,7,strlen($this->controller->plugin));
 		$installed_module = $this->Module->find('first', array('conditions' => array('alias' => $module_alias)));
 		
 		// Make sure we're not upgrading to a lower version.
@@ -64,7 +67,7 @@ public function beforeRedirect(Controller $controller){
 		{
 			$end_file = $version + 1;
 			
-			$upgrade_file = APP . 'Plugin' . DS . $this->controller->params['plugin'] . DS . 'upgrade_schemas' . DS .  $start_file . '.to.' . $end_file . '.php';
+			$upgrade_file = APP . 'Plugin' . DS . $this->controller->plugin . DS . 'upgrade_schemas' . DS .  $start_file . '.to.' . $end_file . '.php';
 			
 			if(file_exists($upgrade_file))
 			{

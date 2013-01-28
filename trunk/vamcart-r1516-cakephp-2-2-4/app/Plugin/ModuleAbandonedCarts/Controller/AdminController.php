@@ -8,13 +8,10 @@
 
 class AdminController extends ModuleAbandonedCartsAppController {
 	var $helpers = array('Time','Admin');
-	var $uses = null;
+	var $uses = array('Order');
 
 	function purge_old_carts()
 	{
-		App::import('Model', 'Order');
-		$this->Order =& new Order();
-		
 		$old_carts = $this->Order->find('all', array('conditions' => array('Order.order_status_id' => '0')));
 		foreach($old_carts AS $cart)
 		{
@@ -26,9 +23,6 @@ class AdminController extends ModuleAbandonedCartsAppController {
 
 	function admin_index ()
 	{
-		App::import('Model', 'Order');
-		$this->Order =& new Order();
-			
 		$this->set('current_crumb',__('Abandoned Carts'));
 		$this->set('title_for_layout', __('Abandoned Carts'));
 		$this->set('data',$this->Order->find('all', array('conditions' => array('Order.order_status_id' => '0'))));

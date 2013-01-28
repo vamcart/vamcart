@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 
 class SetupController extends ModuleCouponsAppController {
-	var $uses = null;
+	var $uses = array('Module', 'Content', 'Event');
 	var $components = array('ModuleBase');
 	
 	function upgrade ()
@@ -20,9 +20,6 @@ class SetupController extends ModuleCouponsAppController {
 	function install()
 	{
 		$this->ModuleBase->check_if_installed('coupons');
-		
-		App::import('Model', 'Module');
-		$this->Module =& new Module();
 		
 		// Create the new module record		
 		$new_module = array();
@@ -42,8 +39,6 @@ class SetupController extends ModuleCouponsAppController {
 
 		
 		// Create a new event
-		App::import('Model', 'Event');
-		$this->Event =& new Event();
 		$event = $this->Event->findByAlias('UpdateOrderTotalsAfterSave');
 		
 		$new_handler = array();
@@ -78,7 +73,7 @@ class SetupController extends ModuleCouponsAppController {
 				
 		foreach($install_query AS $query)
 		{
-			$this->Module->execute($query);
+			$this->Module->query($query);
 		}
 		
 
@@ -89,20 +84,13 @@ class SetupController extends ModuleCouponsAppController {
 	
 	function uninstall()
 	{
-		App::import('Model', 'Module');
-		$this->Module =& new Module();
-			
 		// Delete the module record
 		$module = $this->Module->findByAlias('coupons');
 		$this->Module->delete($module['Module']['id']);
 		
 		// Deletes the tables
 		$uninstall_query = "DROP TABLE `module_coupons`;";
-		$this->Module->execute($uninstall_query);
-		
-		// Delete any associated events.
-		App::import('Model', 'Event');	
-		$this->Event =& new Event();
+		$this->Module->query($uninstall_query);
 		
 		$handlers = $this->Event->EventHandler->find('all', array('conditions' => array('EventHandler.originator' => 'CouponsModule')));
 		foreach($handlers AS $value)
@@ -111,9 +99,6 @@ class SetupController extends ModuleCouponsAppController {
 		}
 		
 		// Delete the core page
-		App::import('Model', 'Content');
-			$this->Content =& new Content();		
-
 		$core_page = $this->Content->find('first', array('conditions' => array('Content.parent_id' => '-1','alias' => 'coupon-details')));
 		$this->Content->delete($core_page['Content']['id'],true);
 		
