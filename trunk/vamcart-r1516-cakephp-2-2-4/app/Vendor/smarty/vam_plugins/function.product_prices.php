@@ -43,7 +43,7 @@ function smarty_function_product_prices($params, &$smarty)
 		$stock .= 'low';
 	}
 
-	echo '<p class="left"><img src="/img/icons/stock/'.$stock.'.png" title="'.$stock_text.'" class="stock_image" /><br /><br />';
+	echo '<p class="left"><img src="'.BASE.'/img/icons/stock/'.$stock.'.png" title="'.$stock_text.'" class="stock_image" /><br /><br />';
 
 	if ($content['ContentProduct']['stock'] > -1) {
 		echo '<b><span class="price calculated">' . $CurrencyBase->display_price($content['ContentProduct']['price']) . '</span></b><br>';
