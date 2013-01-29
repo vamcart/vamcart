@@ -15,7 +15,7 @@ class SiteController extends AppController {
 	{
 		global $config;
 
-		uses('sanitize');
+		App::uses('Sanitize', 'Utility');
 		$clean = new Sanitize();
 		$clean->clean($_POST);
 		if (isset($_POST['customer'])) {
