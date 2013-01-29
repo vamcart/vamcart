@@ -8,7 +8,7 @@
 function smarty_function_search_result($params, $template)
 {
 	global $config;
-	uses('sanitize');
+	App::uses('Sanitize', 'Utility');
 	$clean = new Sanitize();
 	$clean->paranoid($_GET);
 
