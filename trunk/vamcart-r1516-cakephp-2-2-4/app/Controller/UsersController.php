@@ -33,7 +33,7 @@ class UsersController extends AppController {
 		if(!empty($this->data))
 		{
 			// Redirect if the user pressed cancel
-			if(isset($this->request->data['cancelbutton']))
+			if(isset($this->data['cancelbutton']))
 			{
 				$this->redirect('/admin/admin_top/6/');
 			}
@@ -48,7 +48,7 @@ class UsersController extends AppController {
 					die();
 				}
 				
-				$this->data['User']['password'] = md5($this->data['User']['password']);
+				$this->request->data['User']['password'] = md5($this->data['User']['password']);
 
 			}
 				$this->User->save($this->data);
@@ -59,7 +59,7 @@ class UsersController extends AppController {
 		}
 		else
 		{
-			$this->data = $this->User->find('first', array('conditions' => array('id' => $this->Session->read('User.id'))));
+			$this->request->data = $this->User->find('first', array('conditions' => array('id' => $this->Session->read('User.id'))));
 				
 		}
 	}
@@ -70,7 +70,7 @@ class UsersController extends AppController {
 		$this->set('title_for_layout', __('My Prefences', true));
 		if(!empty($this->data))
 		{
-			if(isset($this->request->data['cancelbutton']))
+			if(isset($this->data['cancelbutton']))
 			{
 				$this->redirect('/admin/admin_top/8');
 				die();
@@ -156,7 +156,7 @@ class UsersController extends AppController {
 		else
 		{
 			// Redirect if the user pressed cancel
-			if(isset($this->request->data['cancelbutton']))
+			if(isset($this->data['cancelbutton']))
 			{
 				$this->redirect('/users/admin/');
 				die();
@@ -173,7 +173,7 @@ class UsersController extends AppController {
 			}
 
 			
-			$this->data['User']['password'] = md5($this->data['User']['password']);
+			$this->request->data['User']['password'] = md5($this->data['User']['password']);
 			$this->User->save($this->data);
 			
 			// Set some default preferences

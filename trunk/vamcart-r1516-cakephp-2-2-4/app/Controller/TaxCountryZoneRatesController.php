@@ -36,7 +36,7 @@ class TaxCountryZoneRatesController extends AppController {
 		}
 		else
 		{
-			if(isset($this->request->data['cancelbutton']))
+			if(isset($this->data['cancelbutton']))
 			{
 				$this->redirect('/tax_country_zone_rates/admin/' . $tax_id);
 				die();
@@ -61,7 +61,7 @@ class TaxCountryZoneRatesController extends AppController {
 		}
 		else
 		{
-			if(isset($this->request->data['cancelbutton']))
+			if(isset($this->data['cancelbutton']))
 			{
 				$this->redirect('/tax_country_zone_rates/admin/' . $tax_id);
 				die();
@@ -101,7 +101,7 @@ class TaxCountryZoneRatesController extends AppController {
 				$this->TaxCountryZoneRate->id = $value;
 				$tax_rate = $this->TaxCountryZoneRate->read();
 			
-				switch ($this->request->data['multiaction']) 
+				switch ($this->data['multiaction']) 
 				{
 					case "delete":
 					    $this->TaxCountryZoneRate->delete($value, true);

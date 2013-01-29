@@ -25,12 +25,12 @@ class AdminController extends ModuleCouponsAppController {
 			$this->set('title_for_layout', __('Edit Coupon'));
 
 			$this->set('free_shipping_options',array('no' => __('no' ), 'yes' => __('yes')));
-			$this->data = $this->ModuleCoupon->read(null,$id);
+			$this->request->data = $this->ModuleCoupon->read(null,$id);
 
 		}
 		else
 		{
-			if(isset($this->request->data['cancelbutton']))
+			if(isset($this->data['cancelbutton']))
 			{
 				$this->redirect('/module_coupons/admin/admin_index/');
 				die();

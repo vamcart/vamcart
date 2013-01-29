@@ -15,7 +15,7 @@ class LicenseController extends AppController {
 		$this->set('current_crumb', __('License Key', true));
 		$this->set('title_for_layout', __('License Key', true));
 		// If they pressed cancel
-		if(isset($this->request->data['cancelbutton']))
+		if(isset($this->data['cancelbutton']))
 		{
 			$this->redirect('/license/admin/');
 			die();
@@ -23,7 +23,7 @@ class LicenseController extends AppController {
 		
 		if(empty($this->data))
 		{
-			$this->data = $this->License->read(null,$id);
+			$this->request->data = $this->License->read(null,$id);
 		}
 		else
 		{

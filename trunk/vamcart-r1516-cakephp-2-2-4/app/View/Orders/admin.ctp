@@ -27,7 +27,7 @@ foreach ($data AS $order)
 				$order['Order']['id'],
 				$order['Order']['total'],
 				$this->Time->timeAgoInWords($order['Order']['created']),
-				$order['OrderStatus']['OrderStatusDescription'][0]['name'],
+				$order['OrderStatus']['OrderStatusDescription']['name'],
 				array($this->Admin->ActionButton('view','/orders/admin_view/' . $order['Order']['id'],__('View')) . $this->Admin->ActionButton('delete','/orders/admin_delete/' . $order['Order']['id'],__('Delete')), array('align'=>'center'))
 		   ));
 		   	
@@ -37,6 +37,8 @@ echo $this->Admin->EmptyResults($data);
 
 echo $this->Form->end();
 
+echo $this->Admin->ShowPageHeaderEnd();
+
 ?>
 <table class="contentPagination">
 	<tr>
@@ -45,5 +47,3 @@ echo $this->Form->end();
 		<td><?php echo $this->Paginator->next(__('Next >>')); ?></td>
 	</tr>
 </table>
-
-<?php echo $this->Admin->ShowPageHeaderEnd(); ?>
