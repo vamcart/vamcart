@@ -34,7 +34,7 @@ foreach($data AS $order)
 		  array(
 			$this->Html->link($order['Order']['id'],'/module_abandoned_carts/admin/admin_manage/' . $order['Order']['id']),
 			count($order['OrderProduct']),
-			$time->niceShort($order['Order']['created'])
+			$this->Time->niceShort($order['Order']['created'])
 		   ));
 }
 
