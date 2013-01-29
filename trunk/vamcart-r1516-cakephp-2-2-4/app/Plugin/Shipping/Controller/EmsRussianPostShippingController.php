@@ -49,9 +49,6 @@ class EmsRussianPostShippingController extends ShippingAppController {
 
 	function calculate ()
 	{
-		App::import('Model', 'ShippingMethod');
-		$this->ShippingMethod =& new ShippingMethod();
-		
 		$method = $this->ShippingMethod->findByCode($this->module_name);
 
 			global $order;
