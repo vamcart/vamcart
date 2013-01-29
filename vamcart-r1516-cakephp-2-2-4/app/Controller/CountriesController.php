@@ -16,7 +16,7 @@ class CountriesController extends AppController {
 		$this->set('current_crumb', __('Country Details', true));
 		$this->set('title_for_layout', __('Edit', true));
 		// If they pressed cancel
-		if(isset($this->request->data['cancelbutton']))
+		if(isset($this->data['cancelbutton']))
 		{
 			$this->redirect('/countries/admin/');
 			die();
@@ -50,7 +50,7 @@ class CountriesController extends AppController {
 				$this->Country->id = $value;
 				$country = $this->Country->read();
 		
-				switch ($this->request->data['multiaction']) 
+				switch ($this->data['multiaction']) 
 				{
 					case "delete":
 						$this->Country->delete($value);

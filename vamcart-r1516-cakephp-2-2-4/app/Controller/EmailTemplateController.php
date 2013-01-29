@@ -35,7 +35,7 @@ class EmailTemplateController extends AppController {
 		$this->set('current_crumb', __('Edit', true));
 		$this->set('title_for_layout', __('Edit', true));
 		// If they pressed cancel
-		if(isset($this->request->data['cancelbutton']))
+		if(isset($this->data['cancelbutton']))
 		{
 			$this->redirect('/email_template/admin/');
 			die();
@@ -71,7 +71,7 @@ class EmailTemplateController extends AppController {
 			{
 				$highest = $this->EmailTemplate->find('all', array('order' => array('EmailTemplate.order DESC')));
 				$order = $highest['EmailTemplate']['order'] + 1;
-				$this->data['EmailTemplate']['order'] = $order;
+				$this->request->data['EmailTemplate']['order'] = $order;
 				
 				// Also set the flash
 				$this->Session->setFlash(__('Record created.', true));

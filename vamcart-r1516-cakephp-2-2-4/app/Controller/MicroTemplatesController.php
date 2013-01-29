@@ -29,26 +29,26 @@ class MicroTemplatesController extends AppController {
 		$this->set('title_for_layout', __('Micro Template', true));
 		if(empty($this->data))
 		{
-			$this->data = $this->MicroTemplate->read(null,$id);
+			$this->request->data = $this->MicroTemplate->read(null,$id);
 			
 		}
 		else
 		{
 			// Check if we pressed the cancel button
-			if(isset($this->request->data['cancelbutton']))
+			if(isset($this->data['cancelbutton']))
 			{
 				$this->redirect('/micro_templates/admin/');
 				die();
 			}
 			
 			// Generate the alias to be safe
-			$this->data['MicroTemplate']['alias'] = $this->generateAlias($this->data['MicroTemplate']['alias']);	
+			$this->request->data['MicroTemplate']['alias'] = $this->generateAlias($this->data['MicroTemplate']['alias']);	
 		
 			$this->MicroTemplate->save($this->data);
 
 			$this->Session->setFlash( __('Micro Template Saved.',true));
 			
-			if(isset($this->request->data['apply']))
+			if(isset($this->data['apply']))
 			{
 				if($id == null)
 					$id = $this->MicroTemplate->getLastInsertId();

@@ -272,7 +272,7 @@ class ContentsController extends AppController {
 		if(!empty($this->data))
 		{
 			// Did the user pressed cancel?
-			if(isset($this->request->data['cancelbutton']))
+			if(isset($this->data['cancelbutton']))
 			{
 				if($content_id != 0)
 				{
@@ -298,8 +298,8 @@ class ContentsController extends AppController {
 							@unlink('./downloads/' . $download['ContentDownloadable']['filestorename']);
 						}
 					}
-					$this->data['ContentDownloadable']['filename'] = '';
-					$this->data['ContentDownloadable']['filestorename'] = '';
+					$this->request->data['ContentDownloadable']['filename'] = '';
+					$this->request->data['ContentDownloadable']['filestorename'] = '';
 				} else {
 					if (isset($this->data['ContentDownloadable']['file'])
 					    && $this->data['ContentDownloadable']['file']['error'] == 0
@@ -315,8 +315,8 @@ class ContentsController extends AppController {
 						}
 
 						move_uploaded_file($this->data['ContentDownloadable']['file']['tmp_name'], './downloads/' . $store_name);
-						$this->data['ContentDownloadable']['filename'] = $this->data['ContentDownloadable']['file']['name'];
-						$this->data['ContentDownloadable']['filestorename'] = $store_name;
+						$this->request->data['ContentDownloadable']['filename'] = $this->data['ContentDownloadable']['file']['name'];
+						$this->request->data['ContentDownloadable']['filestorename'] = $store_name;
 
 					}
 				}
@@ -331,11 +331,11 @@ class ContentsController extends AppController {
 				// TODO: Change the way this gets the default language id for now its jsut set on english
 				$default_language_id = $this->Session->read('Customer.language_id');
 				$content_name = $this->data['ContentDescription'][$default_language_id]['name'][1];
-				$this->data['Content']['alias'] = $this->generateAlias($content_name);
+				$this->request->data['Content']['alias'] = $this->generateAlias($content_name);
 			}
 			else
 			{
-				$this->data['Content']['alias'] = $this->generateAlias($this->data['Content']['alias']);
+				$this->request->data['Content']['alias'] = $this->generateAlias($this->data['Content']['alias']);
 			}
 			
 			// Get the content with the highest order set with the same parent_id and increase that by 1 if it's new
@@ -343,7 +343,7 @@ class ContentsController extends AppController {
 			{
 				$highest_order_content = $this->Content->find('first', array('conditions' => array('Content.parent_id' => $this->data['Content']['parent_id']),null,'Content.order DESC'));
 				$new_order = $highest_order_content['Content']['order'] + 1;
-				$this->data['Content']['order'] = $new_order;
+				$this->request->data['Content']['order'] = $new_order;
 								
 			}
 		
@@ -523,7 +523,7 @@ class ContentsController extends AppController {
 				$this->Content->id = $value;
 				$content = $this->Content->read();
 			
-				switch ($this->request->data['multiaction']) 
+				switch ($this->data['multiaction']) 
 				{
 					case "delete":
 						$target_page = '/contents/admin/0/' . $content['Content']['parent_id'];

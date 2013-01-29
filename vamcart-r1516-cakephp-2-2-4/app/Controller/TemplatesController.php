@@ -93,7 +93,7 @@ class TemplatesController extends AppController {
 			// Construct an array of stylesheet IDs in the data so we can save teh HABTM
 			foreach($template['Stylesheet'] AS $value)
 			{
-				$this->data['Stylesheet']['Stylesheet'][] = $value['id'];
+				$this->request->data['Stylesheet']['Stylesheet'][] = $value['id'];
 			}
 			$this->Template->save($this->data);
 			
@@ -203,7 +203,7 @@ class TemplatesController extends AppController {
 				$this->redirect('/templates/admin_edit/' . $layout_template['Template']['id']);				
 			}
 			
-			$this->data = $template;
+			$this->request->data = $template;
 			
 			// Set the breadcrumb and breadcrumb info
 
@@ -213,7 +213,7 @@ class TemplatesController extends AppController {
 		}
 		else
 		{
-			if(isset($this->request->data['cancelbutton']))
+			if(isset($this->data['cancelbutton']))
 			{
 				$this->redirect('/templates/admin/');
 				die();
@@ -222,7 +222,7 @@ class TemplatesController extends AppController {
 			$this->Template->save($this->data);		
 			$this->Session->setFlash(__('Record saved.', true));
 				
-			if(isset($this->request->data['apply']))
+			if(isset($this->data['apply']))
 			{
 				$this->redirect('/templates/admin_edit/' . $template_id);
 			}
@@ -262,7 +262,7 @@ class TemplatesController extends AppController {
 		}
 		else
 		{
-			if(isset($this->request->data['cancelbutton']))
+			if(isset($this->data['cancelbutton']))
 			{
 				$this->redirect('/templates/admin/');
 				die();

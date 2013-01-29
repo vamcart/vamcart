@@ -66,7 +66,7 @@ class CurrenciesController extends AppController {
 		$this->set('current_crumb', __('Currency Details', true));
 		$this->set('title_for_layout', __('Currency Details', true));
 		// If they pressed cancel
-		if(isset($this->request->data['cancelbutton']))
+		if(isset($this->data['cancelbutton']))
 		{
 			$this->redirect('/currencies/admin/');
 			die();
@@ -74,7 +74,7 @@ class CurrenciesController extends AppController {
 		
 		if(empty($this->data))
 		{
-			$this->data = $this->Currency->read(null,$currency_id);
+			$this->request->data = $this->Currency->read(null,$currency_id);
 		}
 		else
 		{
@@ -100,7 +100,7 @@ class CurrenciesController extends AppController {
 				$this->Currency->id = $value;
 				$currency = $this->Currency->read();
 		
-				switch ($this->request->data['multiaction']) 
+				switch ($this->data['multiaction']) 
 				{
 					case "delete":
 						// Make sure it's not the default currency

@@ -21,7 +21,7 @@ class UserTagsController extends AppController {
 		$this->set('current_crumb', __('User Tag', true));
 		$this->set('title_for_layout', __('User Tag', true));
 		// Check if we pressed the cancel button
-		if(isset($this->request->data['cancelbutton']))
+		if(isset($this->data['cancelbutton']))
 		{
 			$this->redirect('/user_tags/admin/');die();
 		}
@@ -31,7 +31,7 @@ class UserTagsController extends AppController {
 			$this->UserTag->id = $user_tag_id;
 			$data = $this->UserTag->read();
 			
-			$this->data = $data;
+			$this->request->data = $data;
 			$this->set('data',$data);
 		}
 		else
@@ -79,7 +79,7 @@ class UserTagsController extends AppController {
 			}
 		
 		
-			if(isset($this->request->data['apply']))
+			if(isset($this->data['apply']))
 			{
 				$this->redirect('/user_tags/admin_edit/' . $user_tag_id);
 			}
@@ -108,7 +108,7 @@ class UserTagsController extends AppController {
 				$this->UserTag->id = $value;
 				$gcb = $this->UserTag->read();
 			
-				switch ($this->request->data['multiaction']) 
+				switch ($this->data['multiaction']) 
 				{
 					case "delete":
 					    $this->UserTag->delete($value);

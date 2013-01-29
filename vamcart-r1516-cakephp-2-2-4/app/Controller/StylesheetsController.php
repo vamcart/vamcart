@@ -96,7 +96,7 @@ class StylesheetsController extends AppController {
 			// Construct an array of stylesheet IDs in the data so we can save teh HABTM
 			foreach($stylesheet['Template'] AS $value)
 			{
-				$this->data['Template']['Template'][] = $value['id'];
+				$this->request->data['Template']['Template'][] = $value['id'];
 			}
 			$this->Stylesheet->save($this->data);
 			
@@ -143,7 +143,7 @@ class StylesheetsController extends AppController {
 		}
 		else
 		{
-			if(isset($this->request->data['cancelbutton']))
+			if(isset($this->data['cancelbutton']))
 			{
 				$this->redirect('/stylesheets/admin/');
 			}
@@ -207,7 +207,7 @@ class StylesheetsController extends AppController {
 		}
 		else
 		{	// We submitted data
-			if(isset($this->request->data['cancelbutton']))
+			if(isset($this->data['cancelbutton']))
 			{	
 				$this->redirect('/stylesheets/admin/');
 			}
@@ -216,11 +216,11 @@ class StylesheetsController extends AppController {
 				// If the alias is empty, generate it by the name, otherwise generate it with the alias again just for protection.
 				if($this->data['Stylesheet']['alias'] == "")
 				{	
-					$this->data['Stylesheet']['alias'] = $this->generateAlias( $this->data['Stylesheet']['name']);
+					$this->request->data['Stylesheet']['alias'] = $this->generateAlias( $this->data['Stylesheet']['name']);
 				}
 				else
 				{
-					$this->data['Stylesheet']['alias'] = $this->generateAlias($this->data['Stylesheet']['alias']);	
+					$this->request->data['Stylesheet']['alias'] = $this->generateAlias($this->data['Stylesheet']['alias']);	
 				}
 
 			
@@ -239,7 +239,7 @@ class StylesheetsController extends AppController {
 				}
 			}
 			
-			if(isset($this->request->data['apply']))
+			if(isset($this->data['apply']))
 				$this->redirect('/stylesheets/admin_edit/' . $stylesheet_id);
 			else
 				$this->redirect('/stylesheets/admin/');
@@ -263,7 +263,7 @@ class StylesheetsController extends AppController {
 				$this->Stylesheet->id = $value;
 				$stylesheet = $this->Stylesheet->read();
 			
-				switch ($this->request->data['multiaction']) 
+				switch ($this->data['multiaction']) 
 				{
 					case "delete":
 					    $this->Stylesheet->delete($value);

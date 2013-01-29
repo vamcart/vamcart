@@ -69,7 +69,7 @@ class LanguagesController extends AppController {
 		$this->set('current_crumb', __('Language Details', true));
 		$this->set('title_for_layout', __('Language Details', true));
 		// If they pressed cancel
-		if(isset($this->request->data['cancelbutton']))
+		if(isset($this->data['cancelbutton']))
 		{
 			$this->redirect('/languages/admin/');
 			die();
@@ -77,7 +77,7 @@ class LanguagesController extends AppController {
 		
 		if(empty($this->data))
 		{
-			$this->data = $this->Language->read(null,$language_id);
+			$this->request->data = $this->Language->read(null,$language_id);
 		}
 		else
 		{
@@ -103,7 +103,7 @@ class LanguagesController extends AppController {
 				$this->Language->id = $value;
 				$language = $this->Language->read();
 		
-				switch ($this->request->data['multiaction']) 
+				switch ($this->data['multiaction']) 
 				{
 					case "delete":
 						// Make sure it's not the default language

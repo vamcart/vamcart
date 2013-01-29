@@ -42,12 +42,12 @@ class TaxesController extends AppController {
 		$this->set('title_for_layout', __('Tax', true));
 		if(empty($this->data))
 		{
-			$this->data = $this->Tax->read(null,$id);
+			$this->request->data = $this->Tax->read(null,$id);
 		}
 		else
 		{
 			// If they pressed cancel
-			if(isset($this->request->data['cancelbutton']))
+			if(isset($this->data['cancelbutton']))
 			{
 				$this->redirect('/taxes/admin/');
 				die();

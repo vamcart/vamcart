@@ -50,7 +50,7 @@ class GeoZonesController extends AppController {
 		$this->set('current_crumb', __('Geo Zone Details', true));
 		$this->set('title_for_layout', __('Geo Zone Details', true));
 
-		if(isset($this->request->data['cancelbutton']))
+		if(isset($this->data['cancelbutton']))
 		{
 			$this->redirect('/geo_zones/admin/');
 			die();
@@ -107,7 +107,7 @@ class GeoZonesController extends AppController {
 				$this->GeoZone->id = $value;
 				$geo_zone = $this->GeoZone->read();
 
-				switch ($this->request->data['multiaction']) {
+				switch ($this->data['multiaction']) {
 					case "delete":
 						$this->GeoZone->delete($value);
 						$build_flash .= __('Record deleted.', true) . ' ' . $geo_zone['GeoZone']['name'] . '<br />';
@@ -123,7 +123,7 @@ class GeoZonesController extends AppController {
 
 	function admin_modify_country_zones_selected()
 	{
-		if(isset($this->request->data['cancelbutton']))
+		if(isset($this->data['cancelbutton']))
 		{
 			$this->redirect('/geo_zones/admin/');
 			die();
