@@ -65,13 +65,12 @@ class ActionController extends ModuleReviewsAppController {
 		$this->ModuleReview->unbindAll();		
 		$reviews = $this->ModuleReview->find('all', array('conditions' => array('content_id' => $content_id)));
 		
-		App::import('Helper', 'Time');
-		$time = new TimeHelper();
+		App::uses('CakeTime', 'Utility');
 		
 		$assigned_reviews = array();
 		foreach($reviews AS $review)
 		{
-			$review['ModuleReview']['created'] = $time->niceShort($review['ModuleReview']['created']);
+			$review['ModuleReview']['created'] = CakeTime::niceShort($review['ModuleReview']['created']);
 			$assigned_reviews[] = $review['ModuleReview'];
 		}
 
