@@ -10,8 +10,6 @@ $this->Html->script(array(
 	'selectall.js'
 ), array('inline' => false));
 
-$this->Paginator->options(array('update' => 'content', 'url' => '/geo_zones/admin/', 'indicator' => 'spinner')); 
-
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'geo-zones.png');
 
 echo $this->Form->create('GeoZone', array('action' => '/geo_zones/admin_modify_selected/', 'url' => '/geo_zones/admin_modify_selected/'));

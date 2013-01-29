@@ -9,7 +9,7 @@ App::uses('AppController', 'Controller');
 class GeoZonesController extends AppController {
 	var $name = 'GeoZones';
 	var $uses = array('Country', 'GeoZone','CountryZone');
-	
+	var $paginate = array();
 
 	function admin_delete ($geo_zone_id)
 	{
