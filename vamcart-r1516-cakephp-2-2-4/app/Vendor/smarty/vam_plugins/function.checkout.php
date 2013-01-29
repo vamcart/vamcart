@@ -201,7 +201,7 @@ function smarty_function_checkout($params, $template)
 	{
 		$shipping = Inflector::classify($method['ShippingMethod']['code']);
 		$shipping_controller =  Inflector::classify($method['ShippingMethod']['code']) . 'Controller';
-		App::import('Controller', 'shipping.'.$shipping);
+		App::import('Controller', 'Shipping.'.$shipping);
 		$MethodBase =& new $shipping_controller();
 		
 		$ship_method_id = $method['ShippingMethod']['id'];

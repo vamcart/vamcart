@@ -1218,12 +1218,11 @@ CREATE TABLE `shipping_method_values` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `shipping_method_values` (`id`, `shipping_method_id`, `key`, `value`) VALUES 
-(1, 2, 'rate', '0'),
-(2, 3, 'per_item_amount', '1'),
-(3, 3, 'per_item_handling', '5.00'),
-(4, 4, 'table_based_type', 'weight'),
-(5, 4, 'table_based_rates', '0:0.50,\r\n1:1.50,\r\n2:2.25,\r\n3:3.00,\r\n4:5.75'),
-(6, 2, 'cost', '0');
+(1, 3, 'per_item_amount', '1'),
+(2, 3, 'per_item_handling', '5.00'),
+(3, 4, 'table_based_type', 'weight'),
+(4, 4, 'table_based_rates', '0:0.50,\r\n1:1.50,\r\n2:2.25,\r\n3:3.00,\r\n4:5.75'),
+(5, 2, 'cost', '0');
 
 DROP TABLE IF EXISTS stylesheets;
 CREATE TABLE `stylesheets` (
