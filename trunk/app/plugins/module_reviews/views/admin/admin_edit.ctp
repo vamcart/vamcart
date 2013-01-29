@@ -14,8 +14,7 @@ echo __('Author: ', true) . $data['ModuleReview']['name'];
 echo '<br /><br />';
 echo __('Review: ', true) . $data['ModuleReview']['content'];
 echo '<br /><br />';
-echo $html->link(__('Return to menu', true),'/module_reviews/admin/admin_index/',array('class' => 'button'));
-
+echo $admin->linkButton(__('Return to menu'),'/module_reviews/admin/admin_index/','up.png',array('escape' => false, 'class' => 'button'));
 echo $admin->ShowPageHeaderEnd();
 
 ?>
