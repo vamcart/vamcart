@@ -14,7 +14,7 @@ class ContactUsController extends AppController {
 	function send_email ()
 	{
 		// Clean up the post
-		uses('sanitize');
+		App::uses('Sanitize', 'Utility');
 		$clean = new Sanitize();
 		$clean->paranoid($_POST);
 		

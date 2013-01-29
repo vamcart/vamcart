@@ -27,7 +27,7 @@ class ActionController extends ModuleReviewsAppController {
 			$new_review['ModuleReview']['name'] = $_POST['name'];
 			$new_review['ModuleReview']['content'] = $_POST['content'];
 			
-			uses('sanitize');
+			App::uses('Sanitize', 'Utility');
 			$Clean = new Sanitize();
 			
 			$Clean->paranoid($new_review);

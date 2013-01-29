@@ -35,6 +35,7 @@ public function beforeRedirect(Controller $controller){
 	{
 	
 		
+		//$this->ContentBase = new ContentBaseComponent(new ComponentCollection);
 
 		
 		$this->Content = new Content();
@@ -80,7 +81,7 @@ public function beforeRedirect(Controller $controller){
 
 		$shipping = Inflector::classify($order['ShippingMethod']['code']);
 		$shipping_controller =  Inflector::classify($order['ShippingMethod']['code']) . 'Controller';
-		 App::import('Controller', 'shipping.'.$shipping);
+		 App::import('Controller', 'Shipping.'.$shipping);
 		$this->MethodBase =& new $shipping_controller();
 
 		$shipping_total = $this->MethodBase->calculate();

@@ -18,7 +18,7 @@ class CartController extends AppController {
 
 	function purchase_product () {
 		// Clean up the post
-		uses('sanitize');
+		App::uses('Sanitize', 'Utility');
 		$clean = new Sanitize();
 		$clean->paranoid($_POST);
 
@@ -59,7 +59,7 @@ class CartController extends AppController {
 	function update_cart_qty()
 	{
 		// Clean up the post
-		uses('sanitize');
+		App::uses('Sanitize', 'Utility');
 		$clean = new Sanitize();
 		$clean->paranoid($_POST);
 
