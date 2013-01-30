@@ -8,6 +8,7 @@
 class OrdersController extends AppController {
 	var $name = 'Orders';
 	var $helpers = array('Time');
+	var $uses = array('EmailTemplate', 'Order');
 	var $components = array('EventBase', 'Email', 'Smarty','ConfigurationBase');
 	var $paginate = array('limit' => 25, 'order' => array('Order.created' => 'desc'));
 
@@ -81,10 +82,6 @@ class OrdersController extends AppController {
 			// Sending email
 			
 			// Retrieve email template
-			App::import('Model', 'EmailTemplate');
-
-			$this->EmailTemplate =& new EmailTemplate();
-
 			$this->EmailTemplate->unbindModel(array('hasMany' => array('EmailTemplateDescription')));
 			$this->EmailTemplate->bindModel(
 				array('hasOne' => array(
@@ -192,10 +189,6 @@ class OrdersController extends AppController {
 		$config = $this->ConfigurationBase->load_configuration();
 		
 		// Retrieve email template
-		App::import('Model', 'EmailTemplate');
-		
-		$this->EmailTemplate =& new EmailTemplate();
-		
 		$this->EmailTemplate->unbindModel(array('hasMany' => array('EmailTemplateDescription')));
 		$this->EmailTemplate->bindModel(
 	        array('hasOne' => array(
