@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class UserTagBaseComponent extends Object 
+class UserTagBaseComponent extends Component 
 {
 
 	public function beforeFilter ()

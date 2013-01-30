@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class CustomerBaseComponent extends Object 
+class CustomerBaseComponent extends Component 
 {
 
    public function initialize(Controller $controller) {

@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class PaymentMethodBaseComponent extends Object 
+class PaymentMethodBaseComponent extends Component 
 {
 
 	public function beforeFilter ()
