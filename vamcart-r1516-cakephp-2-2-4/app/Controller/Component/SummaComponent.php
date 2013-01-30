@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class SummaComponent extends Object 
+class SummaComponent extends Component 
 {
 
 	public function beforeFilter ()

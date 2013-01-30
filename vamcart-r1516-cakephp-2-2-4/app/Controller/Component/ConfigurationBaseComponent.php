@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class ConfigurationBaseComponent extends Object 
+class ConfigurationBaseComponent extends Component 
 {
 
 	public function beforeFilter ()

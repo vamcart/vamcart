@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class InstallComponent extends Object 
+class InstallComponent extends Component 
 {
     public $components = array('Session','Smarty');
 

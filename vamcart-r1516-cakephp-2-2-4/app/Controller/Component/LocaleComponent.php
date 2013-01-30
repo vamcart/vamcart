@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class LocaleComponent extends Object
+class LocaleComponent extends Component
 {
 
 	public function beforeFilter ()
