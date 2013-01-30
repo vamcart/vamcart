@@ -5,6 +5,7 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
+App::uses('PaymentAppController', 'Payment.Controller');
 
 class StorePickupController extends PaymentAppController {
 	var $uses = array('PaymentMethod', 'Order');

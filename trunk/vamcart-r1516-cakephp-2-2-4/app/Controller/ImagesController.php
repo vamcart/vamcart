@@ -5,7 +5,6 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-App::uses('AppController', 'Controller');
 class ImagesController extends AppController {
 	var $name = 'Images';
 	var $uses = array('ContentImage');

@@ -5,7 +5,6 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-App::uses('AppController', 'Controller');
 class DownloadController extends AppController {
 	var $name = 'Download';
 	var $uses = null;

@@ -5,7 +5,6 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-App::uses('AppController', 'Controller');
 class ConfigurationController extends AppController {
 	var $name = 'Configuration';
 	var $uses = array('Configuration', 'ConfigurationGroup');

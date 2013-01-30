@@ -5,6 +5,7 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
+App::uses('ModuleReviewsAppController', 'ModuleReviews.Controller');
 
 class SetupController extends ModuleReviewsAppController {
 	var $uses = array('Module', 'Content');
