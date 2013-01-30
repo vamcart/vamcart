@@ -7,6 +7,6 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class License extends AppModel {
-	var $name = 'License';
+	public $name = 'License';
 }
 ?>

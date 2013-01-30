@@ -7,13 +7,13 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class Order extends AppModel {
-	var $name = 'Order';
+	public $name = 'Order';
 
-	var $belongsTo = array('OrderStatus',
+	public $belongsTo = array('OrderStatus',
 				'ShippingMethod',
 				'PaymentMethod');
 
-	var $hasMany = array('OrderProduct' => array('dependent' => true),
+	public $hasMany = array('OrderProduct' => array('dependent' => true),
 						 'OrderComment' => array('dependent' => true));
 }
 ?>

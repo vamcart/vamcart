@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class EmailTemplateDescription extends AppModel {
-	var $name = 'EmailTemplateDescription';
-	var $belongsTo = array('EmailTemplate','Language');
+	public $name = 'EmailTemplateDescription';
+	public $belongsTo = array('EmailTemplate','Language');
 }
 ?>

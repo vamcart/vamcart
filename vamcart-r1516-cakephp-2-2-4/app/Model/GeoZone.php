@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class GeoZone extends AppModel {
-	var $name = 'GeoZone';
-	var $hasMany = array('CountryZone');
+	public $name = 'GeoZone';
+	public $hasMany = array('CountryZone');
 }
 ?>

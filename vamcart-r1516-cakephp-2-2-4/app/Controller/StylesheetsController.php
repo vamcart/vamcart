@@ -6,10 +6,10 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 class StylesheetsController extends AppController {
-	var $name = 'Stylesheets';
-	var $helpers = array('Validation');
+	public $name = 'Stylesheets';
+	public $helpers = array('Validation');
 		
-	function load($alias)
+	public function load($alias)
 	{
 		$alias = str_replace(".css","",$alias);
 		$stylesheet = $this->Stylesheet->find('first', array('conditions' => "Stylesheet.id = '".$alias."' OR Stylesheet.alias = '".$alias."'"));
@@ -36,7 +36,7 @@ class StylesheetsController extends AppController {
 	}
 
 
-	function download_export()
+	public function download_export()
 	{
 		$images = array();
 		$z = new ZipArchive();
@@ -77,7 +77,7 @@ class StylesheetsController extends AppController {
 		die();
 	}
 
-	function admin_delete_template_association($template_id, $stylesheet_id)
+	public function admin_delete_template_association($template_id, $stylesheet_id)
 	{
 		$this->Stylesheet->Template->delete_single_association($template_id, $stylesheet_id);	
 		$this->Session->setFlash(__('You have deleted a template association.',true));
@@ -85,7 +85,7 @@ class StylesheetsController extends AppController {
 		$this->redirect('/stylesheets/admin_attach_templates/' . $stylesheet_id);
 	}
 	
-	function admin_attach_templates ($stylesheet_id)
+	public function admin_attach_templates ($stylesheet_id)
 	{
 		// Get the stylesheet
 		$this->Stylesheet->id = $stylesheet_id;
@@ -126,12 +126,12 @@ class StylesheetsController extends AppController {
 		
 	}
 	
-	function admin_change_active_status ($id) 
+	public function admin_change_active_status ($id) 
 	{
 		$this->changeActiveStatus($id);	
 	}
 	
-	function admin_copy ($stylesheet_id)
+	public function admin_copy ($stylesheet_id)
 	{
 		$this->set('current_crumb',__('Copy Stylesheet',true));
 		$this->set('title_for_layout', __('Copy Stylesheet', true));
@@ -166,7 +166,7 @@ class StylesheetsController extends AppController {
 		}	
 	}
 	
-	function admin_delete ($stylesheet_id)
+	public function admin_delete ($stylesheet_id)
 	{
 		// First make sure no templates are using this stylesheet
 		$this->Stylesheet->id = $stylesheet_id;
@@ -186,7 +186,7 @@ class StylesheetsController extends AppController {
 		$this->redirect('/stylesheets/admin/');
 	}
 	
-	function admin_edit ($stylesheet_id = null)
+	public function admin_edit ($stylesheet_id = null)
 	{
 		$this->set('current_crumb', __('Stylesheet', true));
 		$this->set('title_for_layout', __('Stylesheet', true));
@@ -245,12 +245,12 @@ class StylesheetsController extends AppController {
 		}
 	}
 	
-	function admin_new() 
+	public function admin_new() 
 	{
 		$this->redirect('/stylesheets/admin_edit/');
 	}
 	
-	function admin_modify_selected() 
+	public function admin_modify_selected() 
 	{
 		foreach($this->params['data']['Stylesheet']['modify'] AS $value)
 		{
@@ -284,13 +284,13 @@ class StylesheetsController extends AppController {
 		$this->redirect('/stylesheets/admin/');
 	}	
 	
-	function admin_import()
+	public function admin_import()
 	{
 		$this->set('current_crumb', __('Import', true));
 		$this->set('title_for_layout', __('Import', true));
 	}
 	
-	function admin_upload()
+	public function admin_upload()
 	{
 	
 		if (isset($this->data['Stylesheet']['submittedfile'])
@@ -385,7 +385,7 @@ class StylesheetsController extends AppController {
 		}
 	}
 	
-	function admin($ajax_request = false)
+	public function admin($ajax_request = false)
 	{
 		$this->set('current_crumb', __('Stylesheets Listing', true));
 		$this->set('title_for_layout', __('Stylesheets Listing', true));
@@ -395,7 +395,7 @@ class StylesheetsController extends AppController {
 	
 	
 	// Helper stuff
-	function removeDir($path)
+	public function removeDir($path)
 	{
 		if (file_exists($path) && is_dir($path)) {
 			$dirHandle = opendir($path);
@@ -423,7 +423,7 @@ class StylesheetsController extends AppController {
 		}
 	}
 
-	function copyDir($source, $dest, $overwrite = false)
+	public function copyDir($source, $dest, $overwrite = false)
 	{
 		if (!is_dir($dest)) {
 			mkdir($dest);

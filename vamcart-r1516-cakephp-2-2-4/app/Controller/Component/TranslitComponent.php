@@ -28,7 +28,7 @@ class TranslitComponent extends Object
 	public function beforeRedirect(Controller $controller){
 	}
 	
-	function convert ($alias)
+	public function convert ($alias)
 	{
 
 		//Replace cyrillic symbols to translit

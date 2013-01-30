@@ -6,10 +6,10 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 class TaxesController extends AppController {
-	var $name = 'Taxes';
-	var $uses = 'Tax';
+	public $name = 'Taxes';
+	public $uses = 'Tax';
 	
-	function admin_set_all_products ($tax_id) 
+	public function admin_set_all_products ($tax_id) 
 	{
 		$products = $this->Tax->ContentProduct->find('all');
 		
@@ -24,18 +24,18 @@ class TaxesController extends AppController {
 	}
 	
 
-	function admin_set_as_default ($id)
+	public function admin_set_as_default ($id)
 	{
 		$this->setDefaultItem($id);
 	}
 	
-	function admin_delete ($id)	
+	public function admin_delete ($id)	
 	{
 		$this->Session->setFlash(__('Record deleted.',true));	
 		$this->Tax->delete($id);
 	}
 		
-	function admin_edit ($id = null)
+	public function admin_edit ($id = null)
 	{
 		$this->set('current_crumb', __('Tax', true));
 		$this->set('title_for_layout', __('Tax', true));
@@ -58,12 +58,12 @@ class TaxesController extends AppController {
 		}
 	}
 	
-	function admin_new ()
+	public function admin_new ()
 	{
 		$this->redirect('/taxes/admin_edit/');
 	}
 	
-	function admin ($ajax = false)
+	public function admin ($ajax = false)
 	{
 		$this->set('current_crumb', __('Taxes Listing', true));
 		$this->set('title_for_layout', __('Taxes Listing', true));

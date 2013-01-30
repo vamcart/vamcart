@@ -31,8 +31,8 @@
  */
 class AppController extends Controller {
 	
-	var $helpers = array('Html', 'Js', 'Ajax', 'Form', 'Admin', 'Session');
-	var $components = array(
+	public $helpers = array('Html', 'Js', 'Ajax', 'Form', 'Admin', 'Session');
+	public $components = array(
 		'RequestHandler',
 		'ConfigurationBase',
 		'CurrencyBase',
@@ -42,7 +42,7 @@ class AppController extends Controller {
 		'Auth' => array(
 		)
 	);
-	var $layout = 'admin';
+	public $layout = 'admin';
 
 	/**
 	* Changes the value of the sort field of a database record.
@@ -51,7 +51,7 @@ class AppController extends Controller {
 	* @param int $id ID of the database record we are moving
 	* @param int $direction Direction we are moving the record.  Can be 'up' or 'down'
 	*/
-	function moveItem ($id, $direction)
+	public function moveItem ($id, $direction)
 	{
 		// Define the current model and controller
 		$current_model = $this->modelClass;
@@ -90,7 +90,7 @@ class AppController extends Controller {
 	*
 	* @param int $id ID of the database record we are setting as default.
 	*/	
-	function setDefaultItem ($id)
+	public function setDefaultItem ($id)
 	{
 
 		$current_model = $this->modelClass;
@@ -103,7 +103,7 @@ class AppController extends Controller {
 			if ($id == $info[$current_model]['id'])
 			{
 				$info[$current_model]['default'] = 1;
-				$parent_id = $info[$current_model]['parent_id'];
+				$parent_id = (!empty($info[$current_model]['parent_id']) ? $info[$current_model]['parent_id'] : 0);
 			}
 			else
 			{
@@ -122,7 +122,7 @@ class AppController extends Controller {
 	*
 	* @param int $id ID of the database record we are changing
 	*/	
-	function changeActiveStatus ($id)
+	public function changeActiveStatus ($id)
 	{
 		// Set the model and controller
 		$current_model = $this->modelClass;
@@ -152,7 +152,7 @@ class AppController extends Controller {
 	* @param string $alias String to modify.
 	* @return  string  $alias Modified alias.
 	*/		
-	function _makeAlias ($alias)
+	public function _makeAlias ($alias)
 	{
 		if($alias == "")
 			$alias = rand(1000,9999);
@@ -175,7 +175,7 @@ class AppController extends Controller {
 	* @param int $tail Tail to tack onto the alias if it exists.
 	* @return  string  A modified and unique alias.
 	*/			
-	function generateAlias($name, $tail=1)
+	public function generateAlias($name, $tail=1)
 	{
 		// Add the tail if it's greater than 1
 		if($tail > 1)
@@ -205,7 +205,7 @@ class AppController extends Controller {
 	*
 	* @return  array  Navigation array for the administration area.
 	*/				
-	function getAdminNavigation ()
+	public function getAdminNavigation ()
 	{
 		// Navigation Menu Array
 		$navigation = array(
@@ -293,10 +293,10 @@ class AppController extends Controller {
 
 	/**
 	* Called before anything.
-	* This function really needs some help.
+	* This public function really needs some help.
 	*
 	*/				
-	function beforeFilter()
+	public function beforeFilter()
 	{
 		if (isset($_GET['return_url'])) {
 			

@@ -6,16 +6,16 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 class UserTagsController extends AppController {
-   var $name = 'UserTags';
+   public $name = 'UserTags';
    
-	function admin_delete ($UserTag_id)
+	public function admin_delete ($UserTag_id)
 	{
 		$this->UserTag->delete($UserTag_id);	
 		$this->Session->setFlash(__('Record deleted.', true));		
 		$this->redirect('/user_tags/admin/');
 	}
 	
-	function admin_edit ($user_tag_id = null)
+	public function admin_edit ($user_tag_id = null)
 	{
 		$this->set('current_crumb', __('User Tag', true));
 		$this->set('title_for_layout', __('User Tag', true));
@@ -48,7 +48,7 @@ class UserTagsController extends AppController {
 			// Check the user defined tag for errors
 			srand();
 			ob_start();
-			if (eval('function testfunction'.rand().'() {'.$this->data['UserTag']['content'].'}') === FALSE)
+			if (eval('public function testfunction'.rand().'() {'.$this->data['UserTag']['content'].'}') === FALSE)
 			{
 				$error = array();
                 $buffer = ob_get_clean();
@@ -89,12 +89,12 @@ class UserTagsController extends AppController {
 		}
 	}	
 	
-	function admin_new ()
+	public function admin_new ()
 	{
 		$this->redirect('/user_tags/admin_edit/');
 	}   
 
-	function admin_modify_selected() 
+	public function admin_modify_selected() 
 	{
 		$build_flash = "";
 		foreach($this->params['data']['UserTag']['modify'] AS $value)
@@ -120,7 +120,7 @@ class UserTagsController extends AppController {
 		$this->redirect('/user_tags/admin/');
 	}
    
-   function admin ()
+   public function admin ()
 	{
 		$this->set('current_crumb', __('User Tags Listing', true));
 		$this->set('title_for_layout', __('User Tags Listing', true));

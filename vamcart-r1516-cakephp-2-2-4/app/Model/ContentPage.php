@@ -7,6 +7,6 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class ContentPage extends AppModel {
-	var $name = 'ContentPage';
+	public $name = 'ContentPage';
 }
 ?>

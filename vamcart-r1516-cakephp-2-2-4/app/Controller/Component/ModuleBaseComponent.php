@@ -8,7 +8,7 @@
 
 class ModuleBaseComponent extends Object 
 {
-	var $components = array('Session');
+	public $components = array('Session');
 	
 	public function beforeFilter ()
 	{
@@ -30,14 +30,14 @@ class ModuleBaseComponent extends Object
 	public function beforeRedirect(Controller $controller){
 	}
 	
-	function get_version ()
+	public function get_version ()
 	{
 		$version = intval(file_get_contents(APP . 'Plugin' . DS . $this->controller->plugin . DS . 'version.txt'));
 
 		return $version;
 	}
 	
-	function upgrade ()
+	public function upgrade ()
 	{
 		$current_version = $this->get_version();
 
@@ -84,7 +84,7 @@ class ModuleBaseComponent extends Object
 		$Module->save($installed_module);
 	}
 	
-	function create_core_page ($alias,$name,$description)
+	public function create_core_page ($alias,$name,$description)
 	{
 		App::import('Model', 'Content');
 			$Content =& new Content();		
@@ -122,7 +122,7 @@ class ModuleBaseComponent extends Object
 		}
 	}
 	
-	function check_if_installed ($module_alias,$redirect = true)
+	public function check_if_installed ($module_alias,$redirect = true)
 	{
 		App::import('Model', 'Module');
 		$Module =& new Module();

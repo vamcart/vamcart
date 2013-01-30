@@ -6,16 +6,16 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 class CartController extends AppController {
-	var $name = 'Cart';
-	var $uses = array('Content','Order');
-	var $components = array('ConfigurationBase', 'ContentBase', 'OrderBase', 'Smarty', 'EventBase', 'Gzip.Gzip');
+	public $name = 'Cart';
+	public $uses = array('Content','Order');
+	public $components = array('ConfigurationBase', 'ContentBase', 'OrderBase', 'Smarty', 'EventBase', 'Gzip.Gzip');
 
-	function remove_product ($product_id, $qty = 9999) {
+	public function remove_product ($product_id, $qty = 9999) {
 		$this->OrderBase->remove_product($product_id, $qty);
 		$this->redirect($_SERVER['HTTP_REFERER']);
 	}
 
-	function purchase_product () {
+	public function purchase_product () {
 		// Clean up the post
 		App::uses('Sanitize', 'Utility');
 		$clean = new Sanitize();
@@ -55,7 +55,7 @@ class CartController extends AppController {
 		}
 	}
 
-	function update_cart_qty()
+	public function update_cart_qty()
 	{
 		// Clean up the post
 		App::uses('Sanitize', 'Utility');

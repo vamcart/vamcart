@@ -7,6 +7,6 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class Configuration extends AppModel {
-	var $name = 'Configuration';
+	public $name = 'Configuration';
 }
 ?>

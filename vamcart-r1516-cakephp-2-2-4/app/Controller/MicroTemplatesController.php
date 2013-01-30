@@ -6,23 +6,23 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 class MicroTemplatesController extends AppController {
-	var $name = 'MicroTemplates';
+	public $name = 'MicroTemplates';
 	
-	function admin_create_from_tag ()
+	public function admin_create_from_tag ()
 	{
 		$this->set('current_crumb',__('Enter an alias to use',true));
 		$this->set('title_for_layout', __('Enter an alias to use', true));
 	}
 	
 		
-	function admin_delete ($id)
+	public function admin_delete ($id)
 	{
 		$this->MicroTemplate->delete($id);
 		$this->Session->setFlash( __('Record deleted.',true));
 		$this->redirect('/micro_templates/admin');
 	}
 	
-	function admin_edit ($id = null)
+	public function admin_edit ($id = null)
 	{
 		$this->set('current_crumb', __('Micro Template', true));
 		$this->set('title_for_layout', __('Micro Template', true));
@@ -60,18 +60,18 @@ class MicroTemplatesController extends AppController {
 		}
 	}
 	
-	function admin_new ()
+	public function admin_new ()
 	{
 		$this->redirect('/micro_templates/admin_edit/');	
 	}
 	
-	function admin ($ajax = false)
+	public function admin ($ajax = false)
 	{
 		$this->set('current_crumb', __('Micro Templates Listing', true));
 		$this->set('title_for_layout', __('Micro Templates Listing', true));
 		$this->set('micro_templates',$this->MicroTemplate->find('all'));
 	}
-	function download_export()
+	public function download_export()
 	{
 		$scripts = array();
 		$images = array();
@@ -129,13 +129,13 @@ class MicroTemplatesController extends AppController {
 		die();
 	}
 
-	function admin_import()
+	public function admin_import()
 	{
 		$this->set('current_crumb', __('Import', true));
 		$this->set('title_for_layout', __('Import', true));
 	}
 
-	function admin_upload()
+	public function admin_upload()
 	{
 		if (isset($this->data['MicroTemplates']['submittedfile'])
 			&& $this->data['MicroTemplates']['submittedfile']['error'] == 0
@@ -233,7 +233,7 @@ class MicroTemplatesController extends AppController {
 	}
 
 	// Helper stuff
-	function removeDir($path)
+	public function removeDir($path)
 	{
 		if (file_exists($path) && is_dir($path)) {
 			$dirHandle = opendir($path);
@@ -261,7 +261,7 @@ class MicroTemplatesController extends AppController {
 		}
 	}
 
-	function copyDir($source, $dest, $overwrite = false)
+	public function copyDir($source, $dest, $overwrite = false)
 	{
 		if (!is_dir($dest)) {
 			mkdir($dest);

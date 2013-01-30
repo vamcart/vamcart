@@ -6,21 +6,21 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 class GlobalContentBlocksController extends AppController {
-	var $name = 'GlobalContentBlocks';
+	public $name = 'GlobalContentBlocks';
 
-	function admin_change_active_status ($id) 
+	public function admin_change_active_status ($id) 
 	{
 		$this->changeActiveStatus($id);	
 	}
 		
-	function admin_delete ($global_content_block_id)
+	public function admin_delete ($global_content_block_id)
 	{
 		$this->GlobalContentBlock->delete($global_content_block_id);	
 		$this->Session->setFlash(__('Record deleted.', true));		
 		$this->redirect('/global_content_blocks/admin/');
 	}
 	
-	function admin_edit ($global_content_block_id = null)
+	public function admin_edit ($global_content_block_id = null)
 	{
 		$this->set('current_crumb', __('Global Content Block Details', true));
 		$this->set('title_for_layout', __('Global Content Block Details', true));
@@ -72,12 +72,12 @@ class GlobalContentBlocksController extends AppController {
 		}
 	}	
 	
-	function admin_new ()
+	public function admin_new ()
 	{
 		$this->redirect('/global_content_blocks/admin_edit/');
 	}
 	
-	function admin_modify_selected() 
+	public function admin_modify_selected() 
 	{
 		$build_flash = "";
 		foreach($this->params['data']['GlobalContentBlock']['modify'] AS $value)
@@ -113,7 +113,7 @@ class GlobalContentBlocksController extends AppController {
 		$this->redirect('/global_content_blocks/admin/');
 	}
 	
-	function admin($ajax_request = false)
+	public function admin($ajax_request = false)
 	{
 		$this->set('current_crumb', __('Global Content Blocks Listing', true));
 		$this->set('title_for_layout', __('Global Content Blocks Listing', true));

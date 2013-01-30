@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class EventHandler extends AppModel {
-	var $name = 'EventHandler';
-	var $belongsTo = array('Event');
+	public $name = 'EventHandler';
+	public $belongsTo = array('Event');
 }
 ?>

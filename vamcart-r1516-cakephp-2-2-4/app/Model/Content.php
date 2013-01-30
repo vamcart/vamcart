@@ -7,12 +7,12 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class Content extends AppModel {
-	var $name = 'Content';
-	var $belongsTo = array('ContentType','Template');
-	var $hasMany = array('ContentImage','ContentDescription' => array('dependent' => true));
-	var $hasOne = array('ContentLink' => array('dependent' => true),'ContentProduct' => array('dependent' => true),'ContentPage' => array('dependent' => true),'ContentCategory' => array('dependent' => true),'ContentArticle' => array('dependent' => true),'ContentNews' => array('dependent' => true),'ContentDownloadable' => array('dependent' => true));
+	public $name = 'Content';
+	public $belongsTo = array('ContentType','Template');
+	public $hasMany = array('ContentImage','ContentDescription' => array('dependent' => true));
+	public $hasOne = array('ContentLink' => array('dependent' => true),'ContentProduct' => array('dependent' => true),'ContentPage' => array('dependent' => true),'ContentCategory' => array('dependent' => true),'ContentArticle' => array('dependent' => true),'ContentNews' => array('dependent' => true),'ContentDownloadable' => array('dependent' => true));
 
-	var $validate = array(
+	public $validate = array(
 		'parent_id' => array(
 			'rule' => 'notEmpty'
 		)

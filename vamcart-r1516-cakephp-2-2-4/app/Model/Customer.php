@@ -7,9 +7,9 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class Customer extends AppModel {
-	var $name = 'Customer';
+	public $name = 'Customer';
 
-	function _validationRules() 
+	public function _validationRules() 
 	{
 	$this->validate = array(
 		'firstname' => array(
@@ -49,12 +49,12 @@ class Customer extends AppModel {
 	);
 	}
 
-	function checkpasswords()
+	public function checkpasswords()
 	{
 		return !strcmp($this->data['Customer']['password'], $this->data['Customer']['retype']);
 	}
 
-	function hashPasswords($data)
+	public function hashPasswords($data)
 	{
 		if(isset($data['Customer'])) {
 			if (isset($data['Customer']['password'])) {
@@ -64,7 +64,7 @@ class Customer extends AppModel {
 		return $data;
 	}
 
-	function login()
+	public function login()
 	{
 	}
 

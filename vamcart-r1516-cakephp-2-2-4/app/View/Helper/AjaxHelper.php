@@ -24,46 +24,46 @@ class AjaxHelper extends Helper {
  *
  * @var array
  */
-	var $helpers = array('Html', 'Js', 'Form');
+	public $helpers = array('Html', 'Js', 'Form');
 /**
  * Names of Javascript callback functions.
  *
  * @var array
  */
-//	var $callbacks = array('complete', 'create', 'exception', 'failure', 'interactive', 'loading', 'loaded', 'success', 'uninitialized');
-	var $callbacks = array('beforeSend', 'complete', 'error', 'success', 'beforeSubmit');
+//	public $callbacks = array('complete', 'create', 'exception', 'failure', 'interactive', 'loading', 'loaded', 'success', 'uninitialized');
+	public $callbacks = array('beforeSend', 'complete', 'error', 'success', 'beforeSubmit');
 /**
  * Names of AJAX options.
  *
  * @var array
  */
-	var $ajaxOptions = array('async', 'beforeSend', 'cache', 'complete', 'contentType', 'data', 'dataType', 'error', 'global', 'isModified', 'jsonp', 'password', 'processData', 'success', 'timeout', 'type', 'url', 'username', 'target', 'beforeSubmit');
+	public $ajaxOptions = array('async', 'beforeSend', 'cache', 'complete', 'contentType', 'data', 'dataType', 'error', 'global', 'isModified', 'jsonp', 'password', 'processData', 'success', 'timeout', 'type', 'url', 'username', 'target', 'beforeSubmit');
 
 /**
  * Names of additional Ajax Form Options
  *
  * @var array
  */
-	var $ajaxFormOptions = array('target', 'beforeSubmit', 'semantic', 'resetFrom', 'clearForm');
+	public $ajaxFormOptions = array('target', 'beforeSubmit', 'semantic', 'resetFrom', 'clearForm');
 
-	var $editorOptions = array('id', 'name', 'loadurl', 'type', 'data', 'style', 'callback', 'submitdata', 'method', 'rows', 'cols', 'width', 'loadtype', 'loaddata', 'onblur', 'cancel', 'submit', 'tooltip', 'placeholder', 'ajaxOptions');
+	public $editorOptions = array('id', 'name', 'loadurl', 'type', 'data', 'style', 'callback', 'submitdata', 'method', 'rows', 'cols', 'width', 'loadtype', 'loaddata', 'onblur', 'cancel', 'submit', 'tooltip', 'placeholder', 'ajaxOptions');
 
-	var $ajaxFormCallbacks = array('beforeSubmit');
+	public $ajaxFormCallbacks = array('beforeSubmit');
 /**
  * Output buffer for Ajax update content
  *
  * @var array
  */
-	var $__ajaxBuffer = array();
+	public $__ajaxBuffer = array();
 	
-	function beforeRender() {
+	public function beforeRender() {
 //	   if ( ClassRegistry::getObject('view') ) {
 //		$this->Html->script('jquery/jquery.min', false);
 //		$this->Html->script('jquery/plugins/jquery.form', false);
 //	   }
 	}
 
-	function link($title, $href = null, $options = array(), $confirm = null, $escapeTitle = true) {
+	public function link($title, $href = null, $options = array(), $confirm = null, $escapeTitle = true) {
 		if (!isset($href)) {
 			$href = $title;
 		}
@@ -116,7 +116,7 @@ class AjaxHelper extends Helper {
  * @param array $options options for javascript
  * @return string html code for link to remote action
  */
-	function remoteFunction($options = null, $function = 'jQuery.ajax') {
+	public function remoteFunction($options = null, $function = 'jQuery.ajax') {
 		if ( isset($options['confirm']) ) {
 			$confirm = $options['confirm'];
 			unset($options['confirm']);
@@ -151,7 +151,7 @@ class AjaxHelper extends Helper {
  * @param array $options Callback options
  * @return string Ajaxed input button
  */
-	function submit($title = 'Submit', $options = array()) {
+	public function submit($title = 'Submit', $options = array()) {
 		$htmlOptions = $this->__getHtmlOptions($options);
 		$htmlOptions['value'] = $title;
 
@@ -188,7 +188,7 @@ class AjaxHelper extends Helper {
  * @return string JavaScript/HTML code
  * @see AjaxHelper::link()
  */
-	function form($params = null, $type = 'post', $options = array()) {
+	public function form($params = null, $type = 'post', $options = array()) {
 		$model = false;
 		if (is_array($params)) {
 			extract($params, EXTR_OVERWRITE);
@@ -224,7 +224,7 @@ class AjaxHelper extends Helper {
  * @param array $options Array of options to control the editor, including ajaxOptions (see link).
  * @link          http://github.com/madrobby/scriptaculous/wikis/ajax-inplaceeditor
  */
-	function editor($id, $url, $options = array()) {
+	public function editor($id, $url, $options = array()) {
 //		$this->Html->script('jquery/plugins/jquery.jeditable', false);
 		$url = $this->url($url);
 		$options = $this->_optionsToString($options, array(
@@ -267,7 +267,7 @@ class AjaxHelper extends Helper {
 		return $this->Html->scriptBlock($script);
 	}
 
-	function observeField($field, $options = array()) {
+	public function observeField($field, $options = array()) {
 		return $this->Html->scriptBlock("jQuery('#{$field}').change( function() { " . $this->remoteFunction($options, "jQuery('#{$field}').parents('form').ajaxSubmit") . "; return false;});");
 	}
 
@@ -278,7 +278,7 @@ class AjaxHelper extends Helper {
  * @param string $id options for javascript
  * @return string HTML code
  */
-	function div($id, $options = array()) {
+	public function div($id, $options = array()) {
 		if (env('HTTP_X_UPDATE') != null) {
 			$this->Js->enabled = false;
 			$divs = explode(' ', env('HTTP_X_UPDATE'));
@@ -298,7 +298,7 @@ class AjaxHelper extends Helper {
  * @param string $id The DOM ID of the element
  * @return string HTML code
  */
-	function divEnd($id) {
+	public function divEnd($id) {
 		if (env('HTTP_X_UPDATE') != null) {
 			$divs = explode(' ', env('HTTP_X_UPDATE'));
 			if (in_array($id, $divs)) {
@@ -315,14 +315,14 @@ class AjaxHelper extends Helper {
  *
  * @return boolean True if the current request is a Prototype Ajax update call
  */
-	function isAjax() {
+	public function isAjax() {
 		return (isset($this->request->params['isAjax']) && $this->request->params['isAjax'] === true);
 	}
 /**
  * Private helper function for Javascript.
  *
  */
-	function __optionsForAjax($options = array()) {
+	public function __optionsForAjax($options = array()) {
 		if (isset($options['update'])) {
 			$update = $options['update'];
 			if (is_array($options['update'])) {
@@ -408,7 +408,7 @@ class AjaxHelper extends Helper {
  * @return array Array of html options
  * @access private
  */
-	function __getHtmlOptions($options, $extra = array()) {
+	public function __getHtmlOptions($options, $extra = array()) {
 		foreach ($this->ajaxOptions as $key) {
 			if (isset($options[$key])) {
 				unset($options[$key]);
@@ -430,7 +430,7 @@ class AjaxHelper extends Helper {
  * @param array $acceptable	Array of legal keys in this options context
  * @return string	String of Javascript array definition
  */
-	function _buildOptions($options, $acceptable) {
+	public function _buildOptions($options, $acceptable) {
 		if (is_array($options)) {
 			$out = array();
 
@@ -459,7 +459,7 @@ class AjaxHelper extends Helper {
  * @return array Options with their callbacks properly set
  * @access protected
  */
-	function _buildCallbacks($options) {
+	public function _buildCallbacks($options) {
 		$callbacks = array();
 
 		foreach ($this->callbacks as $callback) {
@@ -498,7 +498,7 @@ class AjaxHelper extends Helper {
  * @access private
  * @return array
  */
-	function _optionsToString($options, $stringOpts = array()) {
+	public function _optionsToString($options, $stringOpts = array()) {
 		foreach ($stringOpts as $option) {
 			if (isset($options[$option]) /*&& !empty($options[$option]) && is_string($options[$option]) && $options[$option][0] != "'"*/) {
 				if ($options[$option] === true || $options[$option] === 'true') {
@@ -522,7 +522,7 @@ class AjaxHelper extends Helper {
  *
  * @access public
  */
-	function afterRender() {
+	public function afterRender() {
 		if (env('HTTP_X_UPDATE') != null && !empty($this->__ajaxBuffer)) {
 			@ob_end_clean();
 

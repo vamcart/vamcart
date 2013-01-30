@@ -7,10 +7,10 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class UserInstall extends AppModel {
-	var $name = 'UserInstall';
-	var $useTable = false;
+	public $name = 'UserInstall';
+	public $useTable = false;
 
-	function hashPasswords($data)
+	public function hashPasswords($data)
 	{
 		return $data;
 	}

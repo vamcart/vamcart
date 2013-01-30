@@ -7,10 +7,10 @@
    ---------------------------------------------------------------------------------------*/
 class EmailTemplateController extends AppController {
 
-	var $name = 'EmailTemplate';
-	var $uses = array('EmailTemplate','Language');
+	public $name = 'EmailTemplate';
+	public $uses = array('EmailTemplate','Language');
 
-	function admin_delete ($email_template_id)
+	public function admin_delete ($email_template_id)
 	{
 		// Get the email template and make sure it's not the default
 		$this->EmailTemplate->id = $email_template_id;
@@ -29,7 +29,7 @@ class EmailTemplateController extends AppController {
 		$this->redirect('/email_template/admin/');
 	}
 
-	function admin_edit ($email_template_id = null)
+	public function admin_edit ($email_template_id = null)
 	{
 		$this->set('current_crumb', __('Edit', true));
 		$this->set('title_for_layout', __('Edit', true));
@@ -113,13 +113,13 @@ class EmailTemplateController extends AppController {
 
 	
 
-	function admin_new() 
+	public function admin_new() 
 	{
 		$this->redirect('/email_template/admin_edit/');
 	}
 
 
-	function admin ($ajax = false)
+	public function admin ($ajax = false)
 	{
 		$this->set('current_crumb', __('Email Templates Listing', true));
 		$this->set('title_for_layout', __('Email Templates Listing', true));

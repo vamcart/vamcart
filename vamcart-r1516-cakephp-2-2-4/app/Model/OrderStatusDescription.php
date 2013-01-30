@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class OrderStatusDescription extends AppModel {
-	var $name = 'OrderStatusDescription';
-	var $belongsTo = array('OrderStatus','Language');
+	public $name = 'OrderStatusDescription';
+	public $belongsTo = array('OrderStatus','Language');
 }
 ?>

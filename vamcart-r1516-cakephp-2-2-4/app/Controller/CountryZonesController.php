@@ -6,18 +6,18 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 class CountryZonesController extends AppController {
-	var $name = 'CountryZones';
-	var $uses = array('Country','CountryZone');
+	public $name = 'CountryZones';
+	public $uses = array('Country','CountryZone');
 	
 
-	function admin_delete ($country_id, $zone_id)
+	public function admin_delete ($country_id, $zone_id)
 	{
 		$this->CountryZone->delete($zone_id);
 		$this->Session->setFlash(__('Record deleted.', true));
 		$this->redirect('/country_zones/admin/' . $country_id);
 	}
 	
-	function admin_edit ($country_id, $zone_id = null)
+	public function admin_edit ($country_id, $zone_id = null)
 	{
 		$this->set('current_crumb', __('Country Zone Details', true));
 		$this->set('title_for_layout', __('Country Zone Details', true));
@@ -45,12 +45,12 @@ class CountryZonesController extends AppController {
 		}		
 	}
 	
-	function admin_new ($country_id)
+	public function admin_new ($country_id)
 	{
 		$this->redirect('/country_zones/admin_edit/' . $country_id);
 	}
 	
-	function admin ($country_id)
+	public function admin ($country_id)
 	{
 		$this->set('current_crumb', __('Country Zones Listing', true));
 		$this->set('title_for_layout', __('Country Zones Listing', true));

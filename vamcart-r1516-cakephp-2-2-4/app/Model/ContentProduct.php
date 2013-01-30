@@ -7,10 +7,10 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class ContentProduct extends AppModel {
-	var $name = 'ContentProduct';
-	var $belongsTo = array('Tax');
+	public $name = 'ContentProduct';
+	public $belongsTo = array('Tax');
 	
-	var $validate = array(
+	public $validate = array(
 	'price' => array(
 		'rule' => 'notEmpty'
 	),

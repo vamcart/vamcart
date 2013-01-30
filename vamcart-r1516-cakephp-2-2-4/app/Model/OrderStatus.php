@@ -8,8 +8,8 @@
 App::uses('Model', 'AppModel');
 class OrderStatus extends AppModel {
 
-	var $name = 'OrderStatus';
-	var $hasMany = array('OrderStatusDescription' => array('dependent'     => true),'Order');
+	public $name = 'OrderStatus';
+	public $hasMany = array('OrderStatusDescription' => array('dependent'     => true),'Order');
 
 }
 ?>

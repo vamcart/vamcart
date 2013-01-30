@@ -12,7 +12,7 @@ App::uses('Model', 'ContentDescription');
 
 class ContentBaseComponent extends Object
 {
-    var $components = array('Session','Smarty');
+    public $components = array('Session','Smarty');
 
 	public function beforeFilter ()
 	{
@@ -34,7 +34,7 @@ class ContentBaseComponent extends Object
 	public function beforeRedirect(Controller $controller){
 	}
 
-	function load_models ()
+	public function load_models ()
 	{
 		// We're loading the Session component here because the smarty plugin can't yet
 		
@@ -50,7 +50,7 @@ class ContentBaseComponent extends Object
 	* Returns the ID of the default page
 	*
 	*/
-	function default_content ()
+	public function default_content ()
 	{
 		$content = $this->Content->find('first', array('conditions' => array('Content.default' => '1')));
 		$content_id = $content['Content']['id'];
@@ -66,7 +66,7 @@ class ContentBaseComponent extends Object
 	* @param int $content_id ID of content page to Get
 	* @return  array  Content descriptions
 	*/
-	function get_content_description ($content_id = null)
+	public function get_content_description ($content_id = null)
 	{
 		if ($content_id == null) {
 			$content_id = $this->default_content();
@@ -85,7 +85,7 @@ class ContentBaseComponent extends Object
 	* @param int $content_id ID of content page to Get
 	* @return  array  Content without the descriptions
 	*/
-	function get_content_information ($content_alias)
+	public function get_content_information ($content_alias)
 	{
 		$this->load_models();
 
@@ -118,7 +118,7 @@ class ContentBaseComponent extends Object
 	* @param array $conditions array or string of conditions for findAll
 	* @return  array  List of all available content.
 	*/
-	function generate_content_list ($conditions = null)
+	public function generate_content_list ($conditions = null)
 	{
 		$this->Content->unbindModel(array('hasMany' => array('ContentDescription')));
 		$this->Content->bindModel(

@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('AppModel', 'Model');
 class DefinedLanguage extends AppModel {
-	var $name = 'DefinedLanguage';
-	var $belongsTo = array('Language');
+	public $name = 'DefinedLanguage';
+	public $belongsTo = array('Language');
 }
 ?>

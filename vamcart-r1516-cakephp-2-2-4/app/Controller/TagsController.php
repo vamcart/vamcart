@@ -6,10 +6,10 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 class TagsController extends AppController {
-	var $name = 'Tags';
-	var $uses = null;
+	public $name = 'Tags';
+	public $uses = null;
 	
-	function admin_view ($type, $tag)
+	public function admin_view ($type, $tag)
 	{
 		$this->set('current_crumb', __('Tag Details', true));
 		$this->set('title_for_layout', __('Tag Details', true));
@@ -45,7 +45,7 @@ class TagsController extends AppController {
 		
 	}
 	
-	function admin ()
+	public function admin ()
 	{
 		$this->set('current_crumb', __('Tags Listing', true));
 		$this->set('title_for_layout', __('Tags Listing', true));
@@ -77,13 +77,13 @@ class TagsController extends AppController {
 		
 	}
 
-	function admin_add ()
+	public function admin_add ()
 	{
 		$this->set('current_crumb', __('Module Upload', true));
 		$this->set('title_for_layout', __('Module Upload', true));
 	}
 
-	function admin_upload ()
+	public function admin_upload ()
 	{
 		$this->set('current_crumb', __('Module Upload', true));
 		$this->set('title_for_layout', __('Module Upload', true));

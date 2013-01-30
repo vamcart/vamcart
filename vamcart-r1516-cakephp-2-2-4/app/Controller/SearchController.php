@@ -6,9 +6,9 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 class SearchController extends AppController {
-	var $name = 'Search';
+	public $name = 'Search';
 	
-	function admin_global_search ()
+	public function admin_global_search ()
 	{
 		$this->set('current_crumb',__('Search Results',true));
 		$this->set('title_for_layout', __('Search Results', true));

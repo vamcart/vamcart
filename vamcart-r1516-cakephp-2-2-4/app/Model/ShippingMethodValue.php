@@ -7,6 +7,6 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class ShippingMethodValue extends AppModel {
-	var $name = 'ShippingMethodValue';
+	public $name = 'ShippingMethodValue';
 }
 ?>

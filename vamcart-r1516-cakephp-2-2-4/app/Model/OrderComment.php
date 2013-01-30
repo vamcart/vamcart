@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class OrderComment extends AppModel {
-	var $name = 'OrderComment';
-	var $belongsTo = array('Order','User');
+	public $name = 'OrderComment';
+	public $belongsTo = array('Order','User');
 }
 ?>

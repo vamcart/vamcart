@@ -28,7 +28,7 @@ class UserTagBaseComponent extends Object
 	public function beforeRedirect(Controller $controller){
 	}
 
-	function call_user_tag ($params)
+	public function call_user_tag ($params)
 	{
 		// Load the model
 		App::import('Model', 'UserTag');

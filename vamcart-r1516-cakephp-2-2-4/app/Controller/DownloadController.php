@@ -6,11 +6,11 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 class DownloadController extends AppController {
-	var $name = 'Download';
-	var $uses = null;
+	public $name = 'Download';
+	public $uses = null;
 	
 
-	function get() {
+	public function get() {
 		App::import('Model', 'Order');
 		App::import('Model', 'OrderProduct');
 		$Order = new Order();

@@ -6,10 +6,10 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 class TemplatesController extends AppController {
-	var $name = 'Templates';
-	var $uses = array('Template','Content','UserPref');
+	public $name = 'Templates';
+	public $uses = array('Template','Content','UserPref');
 	
-	function admin_set_all_products ($template_id) 
+	public function admin_set_all_products ($template_id) 
 	{
 		$products = $this->Content->find('all');
 		
@@ -23,12 +23,12 @@ class TemplatesController extends AppController {
 		$this->redirect('/templates/admin/');
 	}
 	
-	function admin_set_as_default ($template_id)
+	public function admin_set_as_default ($template_id)
 	{
 		$this->setDefaultItem($template_id);
 	}
 	
-	function expand_section($template_id) 
+	public function expand_section($template_id) 
 	{
 		$user_prefs = $this->UserPref->find('first', array('conditions' => array('name' => 'template_collpase', 'user_id' => $this->Session->read('User.id'))));
 		$template_collapse = explode(',', $user_prefs['UserPref']['value']);
@@ -48,7 +48,7 @@ class TemplatesController extends AppController {
 	}
 
 
-	function contract_section($template_id) 
+	public function contract_section($template_id) 
 	{
 		$user_prefs = $this->UserPref->find('first', array('conditions' => array('name' => 'template_collpase', 'user_id' => $this->Session->read('User.id'))));
 		$template_collapse = explode(',', $user_prefs['UserPref']['value']);
@@ -71,7 +71,7 @@ class TemplatesController extends AppController {
 		$this->redirect('/templates/admin/' . $this->RequestHandler->isAjax());		
 	}
 	
-	function admin_delete_stylesheet_association($template_id, $stylesheet_id)
+	public function admin_delete_stylesheet_association($template_id, $stylesheet_id)
 	{
 		$this->Template->delete_single_association($template_id, $stylesheet_id);	
 		$this->Session->setFlash(__('You have deleted a stylesheet association.', true));
@@ -79,7 +79,7 @@ class TemplatesController extends AppController {
 		$this->redirect('/templates/admin_attach_stylesheets/' . $template_id);
 	}
 	
-	function admin_attach_stylesheets ($template_id)
+	public function admin_attach_stylesheets ($template_id)
 	{
 		$this->set('current_crumb', __('Attach Stylesheets', true));
 		$this->set('title_for_layout', __('Attach Stylesheets', true));
@@ -123,7 +123,7 @@ class TemplatesController extends AppController {
 		
 	}
 
-	function admin_copy ($template_id)
+	public function admin_copy ($template_id)
 	{
 		if(empty($this->data))
 		{
@@ -162,7 +162,7 @@ class TemplatesController extends AppController {
 		
 	}
 	
-	function admin_delete ($template_id)
+	public function admin_delete ($template_id)
 	{
 		// First make sure nothing is using this template
 		$check_content = $this->Content->find('count', array('conditions' => array('template_id' => $template_id)));
@@ -188,7 +188,7 @@ class TemplatesController extends AppController {
 		$this->redirect('/templates/admin/');
 	}
 	
-	function admin_edit ($template_id)
+	public function admin_edit ($template_id)
 	{
 		$this->set('current_crumb', __('Template Content', true));
 		$this->set('title_for_layout', __('Template Content', true));
@@ -233,7 +233,7 @@ class TemplatesController extends AppController {
 		}
 	}
 	
-	function admin_edit_details ($template_id)
+	public function admin_edit_details ($template_id)
 	{
 		$this->set('current_crumb', __('Edit Template', true));
 		$this->set('title_for_layout', __('Edit Template', true));
@@ -251,7 +251,7 @@ class TemplatesController extends AppController {
 		}
 	}
 	
-	function admin_new() 
+	public function admin_new() 
 	{
 		$this->set('current_crumb', __('New Template', true));
 		$this->set('title_for_layout', __('New Template', true));
@@ -289,7 +289,7 @@ class TemplatesController extends AppController {
 		}
 	}
 	
-	function admin($ajax = false)
+	public function admin($ajax = false)
 	{
 		$this->set('current_crumb', __('Templates Listing', true));
 		$this->set('title_for_layout', __('Templates Listing', true));
@@ -301,7 +301,7 @@ class TemplatesController extends AppController {
 		$this->set('user_prefs', $exploded_prefs);	
 	}
 	
-	function download_export()
+	public function download_export()
 	{
 		$scripts = array();
 		$images = array();
@@ -360,13 +360,13 @@ class TemplatesController extends AppController {
 		die();
 	}
 
-	function admin_import()
+	public function admin_import()
 	{
 		$this->set('current_crumb', __('Import', true));
 		$this->set('title_for_layout', __('Import', true));
 	}
 
-	function admin_upload()
+	public function admin_upload()
 	{
 		if (isset($this->data['Templates']['submittedfile'])
 			&& $this->data['Templates']['submittedfile']['error'] == 0
@@ -497,7 +497,7 @@ class TemplatesController extends AppController {
 	}
 
 	// Helper stuff
-	function removeDir($path)
+	public function removeDir($path)
 	{
 		if (file_exists($path) && is_dir($path)) {
 			$dirHandle = opendir($path);
@@ -525,7 +525,7 @@ class TemplatesController extends AppController {
 		}
 	}
 
-	function copyDir($source, $dest, $overwrite = false)
+	public function copyDir($source, $dest, $overwrite = false)
 	{
 		if (!is_dir($dest)) {
 			mkdir($dest);

@@ -7,6 +7,6 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class ContentNews extends AppModel {
-	var $name = 'ContentNews';
+	public $name = 'ContentNews';
 }
 ?>

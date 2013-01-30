@@ -6,12 +6,12 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 class InstallController extends AppController {
-	var $name = 'Install';
-	var $uses = null;
-	var $components = array('Install');
+	public $name = 'Install';
+	public $uses = null;
+	public $components = array('Install');
 
 
-	function parse_mysql_dump($url, $ignoreerrors = false) 
+	public function parse_mysql_dump($url, $ignoreerrors = false) 
 	{
 		$file_content = file($url);
 		//pr($file_content);
@@ -32,12 +32,12 @@ class InstallController extends AppController {
 		}
 	}
 		
-	function index ()
+	public function index ()
 	{
 		$this->redirect('/install/start/');
 	}
 	
-	function check_permissions ()
+	public function check_permissions ()
 	{
 		// Check if required files/directories are writable.
 		$dirs_to_check = array(
@@ -73,7 +73,7 @@ class InstallController extends AppController {
 		$this->set('install_checks',$install_checks);	
 	}
 	
-	function start ()
+	public function start ()
 	{	
 		$this->layout = 'default';
 		$this->set('current_crumb', __('Install VamCart', true));
@@ -100,7 +100,7 @@ class InstallController extends AppController {
 	}
 	
 	
-	function create ()
+	public function create ()
 	{
 		$this->layout = 'default';
 
@@ -149,7 +149,7 @@ class InstallController extends AppController {
 
 class DATABASE_CONFIG {
 
-	var $default = array(
+	public $default = array(
 		\'datasource\' => \'Database/Mysql\',
 		\'persistent\' => false,
 		\'host\' => \'' . $this->data['Install']['db_host'] . '\',

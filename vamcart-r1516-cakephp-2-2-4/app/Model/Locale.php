@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class Locale extends AppModel {
-	var $name = 'Locale';
-	var $useTable = false;
+	public $name = 'Locale';
+	public $useTable = false;
 }
 ?>

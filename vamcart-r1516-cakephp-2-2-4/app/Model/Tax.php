@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class Tax extends AppModel {
-	var $name = 'Tax';
-	var $hasMany = array('TaxCountryZoneRate','ContentProduct');
+	public $name = 'Tax';
+	public $hasMany = array('TaxCountryZoneRate','ContentProduct');
 }
 ?>

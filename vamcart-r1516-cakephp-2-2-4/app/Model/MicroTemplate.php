@@ -7,6 +7,6 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class MicroTemplate extends AppModel {
-	var $name = 'MicroTemplate';
+	public $name = 'MicroTemplate';
 }
 ?>

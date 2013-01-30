@@ -28,7 +28,7 @@ class EventBaseComponent extends Object
    public function beforeRedirect(Controller $controller){
 	}
 
-	function ProcessEvent ($event_alias)
+	public function ProcessEvent ($event_alias)
 	{
 		App::import('Model', 'Event');
 		$Event =& new Event();

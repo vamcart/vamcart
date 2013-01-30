@@ -6,12 +6,12 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 class UsersController extends AppController {
-	var $name = 'Users';
-	var $uses = array('User', 'UserPref', 'Language');
-	var $helpers = array('Html','Js','Admin','Form');
-	var $components = array('Locale');
+	public $name = 'Users';
+	public $uses = array('User', 'UserPref', 'Language');
+	public $helpers = array('Html','Js','Admin','Form');
+	public $components = array('Locale');
 	
-	function admin_delete ($user_id)
+	public function admin_delete ($user_id)
 	{
 		if($user_id == $this->Session->read('User.id'))
 		{
@@ -25,7 +25,7 @@ class UsersController extends AppController {
 		$this->redirect('/users/admin/');
 	}
 	
-	function admin_user_account () 
+	public function admin_user_account () 
 	{
 		$this->set('current_crumb', __('My Account Details', true));
 		$this->set('title_for_layout', __('My Account Details', true));
@@ -63,7 +63,7 @@ class UsersController extends AppController {
 		}
 	}
 	
-	function admin_user_preferences () 
+	public function admin_user_preferences () 
 	{
 		$this->set('current_crumb', __('My Prefences', true));
 		$this->set('title_for_layout', __('My Prefences', true));
@@ -103,7 +103,7 @@ class UsersController extends AppController {
 
 
 	   
-	function admin_logout ()
+	public function admin_logout ()
 	{
 		$this->layout = 'default';
 	
@@ -113,7 +113,7 @@ class UsersController extends AppController {
 	
 	}
 
-	function admin_login ()
+	public function admin_login ()
 	{
 	
 		$this->layout = 'default';
@@ -145,7 +145,7 @@ class UsersController extends AppController {
 		}
 	}	
 	
-	function admin_new ()
+	public function admin_new ()
 	{	
 		$this->set('current_crumb', __('New Admin', true));
 		$this->set('title_for_layout', __('New Admin', true));
@@ -197,7 +197,7 @@ class UsersController extends AppController {
 		}
 	}
 	
-	function admin () 
+	public function admin () 
 	{
 		$this->set('current_crumb', __('Admins Listing', true));
 		$this->set('title_for_layout', __('Admins Listing', true));

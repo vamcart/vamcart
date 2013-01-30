@@ -6,9 +6,9 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 class TaxCountryZoneRatesController extends AppController {
-	var $name = 'TaxCountryZoneRates';
+	public $name = 'TaxCountryZoneRates';
 	
-	function list_zones_by_country($country_id) 
+	public function list_zones_by_country($country_id) 
 	{
 		$zones = $this->TaxCountryZoneRate->CountryZone->find('list', array('country_id' => $country_id));
 		$zones['ALL'] = __('All Country Zones',true);
@@ -16,14 +16,14 @@ class TaxCountryZoneRatesController extends AppController {
 		$this->set('zones', $zones);
 	}	
 
-	function admin_delete ($tax_id, $zone_rate_id)
+	public function admin_delete ($tax_id, $zone_rate_id)
 	{
 		$this->TaxCountryZoneRate->delete($zone_rate_id);
 		$this->Session->setFlash(__('Record deleted.',true));
 		$this->redirect('/tax_country_zone_rates/admin/' . $tax_id);
 	}	
 
-	function admin_edit ($tax_id,$rate_id)
+	public function admin_edit ($tax_id,$rate_id)
 	{
 		$this->set('current_crumb', __('Tax Edit', true));
 		$this->set('title_for_layout', __('Tax Edit', true));
@@ -47,7 +47,7 @@ class TaxCountryZoneRatesController extends AppController {
 		}
 	}
 
-	function admin_new ($tax_id)
+	public function admin_new ($tax_id)
 	{
 		$this->set('current_crumb', __('New Tax Zone', true));
 		$this->set('title_for_layout', __('New Tax Zone', true));
@@ -91,7 +91,7 @@ class TaxCountryZoneRatesController extends AppController {
 		}
 	}
 
-	function admin_modify_selected($tax_id) 
+	public function admin_modify_selected($tax_id) 
 	{
 		foreach($this->params['data']['TaxCountryZoneRate']['modify'] AS $value)
 		{
@@ -112,7 +112,7 @@ class TaxCountryZoneRatesController extends AppController {
 		$this->redirect('/tax_country_zone_rates/admin/' . $tax_id);
 	}	
 	
-	function admin ($tax_id)
+	public function admin ($tax_id)
 	{
 		$this->set('current_crumb', __('Tax Zones', true));
 		$this->set('title_for_layout', __('Tax Zones', true));

@@ -6,13 +6,13 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 class OrdersController extends AppController {
-	var $name = 'Orders';
-	var $helpers = array('Time');
-	var $uses = array('EmailTemplate', 'Order');
-	var $components = array('EventBase', 'Email', 'Smarty','ConfigurationBase');
-	var $paginate = array('limit' => 25, 'order' => array('Order.created' => 'desc'));
+	public $name = 'Orders';
+	public $helpers = array('Time');
+	public $uses = array('EmailTemplate', 'Order');
+	public $components = array('EventBase', 'Email', 'Smarty','ConfigurationBase');
+	public $paginate = array('limit' => 25, 'order' => array('Order.created' => 'desc'));
 
-	function confirmation ()
+	public function confirmation ()
 	{
 		
 		global $config;
@@ -31,7 +31,7 @@ class OrdersController extends AppController {
 				
 	}
 		
-	function place_order ()
+	public function place_order ()
 	{
 		global $config;
 		
@@ -71,7 +71,7 @@ class OrdersController extends AppController {
 			// Save the order
 			$this->Order->save($order);
 
-			// Load the after_process function from the payment modules
+			// Load the after_process public function from the payment modules
 			$this->requestAction('/payment/'.$order['PaymentMethod']['alias'].'/after_process/');
 
 			// Empty the cart
@@ -163,14 +163,14 @@ class OrdersController extends AppController {
 		$this->redirect('/page/success' . $config['URL_EXTENSION']);
 	}
 
-	function admin_delete ($id)
+	public function admin_delete ($id)
 	{
 		$this->Order->delete($id,true);
 		$this->Session->setFlash(__('Record deleted.',true));
 		$this->redirect('/orders/admin/');
 	}
 
-	function admin_new_comment ($user = null)
+	public function admin_new_comment ($user = null)
 	{
 		// First get the original order, and see if we're changing status
 		$old_order = $this->Order->read(null,$this->data['Order']['id']);
@@ -236,7 +236,7 @@ class OrdersController extends AppController {
 		$this->redirect('/orders/admin_view/' . $this->data['Order']['id']);
 	}	
 	
-	function admin_view ($id)
+	public function admin_view ($id)
 	{
 		$this->set('current_crumb', __('Order View', true));
 		$this->set('title_for_layout', __('Order View', true));
@@ -267,12 +267,12 @@ class OrdersController extends AppController {
 		$this->set('order_status_list',$order_status_list);
 	}
 	
-	function admin_modify_selected ()
+	public function admin_modify_selected ()
 	{
 		$this->redirect('/orders/admin/');
 	}
 	
-	function admin ($ajax = false)
+	public function admin ($ajax = false)
 	{
 		$this->set('current_crumb', __('Orders Listing', true));
 		$this->set('title_for_layout', __('Orders Listing', true));
@@ -295,7 +295,7 @@ class OrdersController extends AppController {
 
 	}	
 
-	function admin_search() {
+	public function admin_search() {
 		if (!isset($_SESSION['Search'])) {
 			$_SESSION['Search'] = array();
 		}

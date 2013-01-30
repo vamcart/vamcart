@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class UserPref extends AppModel {
-	var $name = 'UserPref';
+	public $name = 'UserPref';
 }
 
 ?>
