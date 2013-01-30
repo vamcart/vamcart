@@ -38,9 +38,9 @@ class UserTagsController extends AppController {
 			
 			// Generate the alias based depending on whether or not we entered one.
 			if($this->data['UserTag']['alias'] == "")
-				$this->data['UserTag']['alias'] = $this->generateAlias($this->data['UserTag']['name']);
+				$this->request->data['UserTag']['alias'] = $this->generateAlias($this->data['UserTag']['name']);
 			else
-				$this->data['UserTag']['alias'] = $this->generateAlias($this->data['UserTag']['alias']);	
+				$this->request->data['UserTag']['alias'] = $this->generateAlias($this->data['UserTag']['alias']);	
 			
 			// Save the user tag
 			$this->UserTag->save($this->data);		

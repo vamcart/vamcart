@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 class SiteController extends AppController {
 	var $name = 'Site';
-	var $uses = array('Customer');
+	var $uses = array('Customer', 'EmailTemplate');
 	var $components = array('Email', 'Smarty', 'ConfigurationBase');
 
 	function register()
@@ -26,9 +26,6 @@ class SiteController extends AppController {
 				$ret = $customer->save($_POST['customer']);
 				
 				// Retrieve email template
-				App::import('Model', 'EmailTemplate');
-				$this->EmailTemplate =& new EmailTemplate();
-
 				$this->EmailTemplate->unbindModel(array('hasMany' => array('EmailTemplateDescription')));
 				$this->EmailTemplate->bindModel(array(
 					'hasOne' => array(
