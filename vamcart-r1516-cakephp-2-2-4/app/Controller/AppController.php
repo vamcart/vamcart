@@ -142,7 +142,7 @@ class AppController extends Controller {
 		$this->$current_model->save($record);
 
 		// Redirect depending on the current controller
-		$this->redirect('/' . $current_controller . '/admin/0/' . $record[$current_model]['parent_id'] . '/' . $this->RequestHandler->isAjax());
+		$this->redirect('/' . $current_controller . '/admin/0/' . (!empty($record[$current_model]['parent_id']) ? $record[$current_model]['parent_id'] : 0) . '/' . $this->RequestHandler->isAjax());
 	}
 
 	/**
