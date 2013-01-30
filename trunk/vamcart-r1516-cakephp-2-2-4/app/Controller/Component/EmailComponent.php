@@ -29,7 +29,7 @@ class EmailComponent extends Object
      * @access private
      * @var object
      */
-     var $m;    
+     public $m;    
     
     /**
      * Creates the PHPMailer object and sets default values.
@@ -38,7 +38,7 @@ class EmailComponent extends Object
      * @access public
      * @return void
      */
-    function init()
+    public function init()
     {
         // Include the class file and create PHPMailer instance
         App::import('Vendor', 'PHPMailer', array('file' => 'phpmailer'.DS.'class.phpmailer.php'));
@@ -54,19 +54,19 @@ class EmailComponent extends Object
 //		$this->SMTPKeepAlive = true; // set mailer to use SMTP//		$this->SMTPAuth = true; // turn on SMTP authentication true/false//		$this->Username = user; // SMTP username//		$this->Password = password; // SMTP password//		$this-> = server; // specify smtp server		
      }
 
-    function __set($name, $value)
+    public function __set($name, $value)
     {
         $this->m->{$name} = $value;
     }
     
-    function __get($name)
+    public function __get($name)
     {
         if (isset($this->m->{$name})) {
             return $this->m->{$name};
         }
     }
              
-    function __call($method, $args)
+    public function __call($method, $args)
     {
         if (method_exists($this->m, $method)) {
             return call_user_func_array(array($this->m, $method), $args);

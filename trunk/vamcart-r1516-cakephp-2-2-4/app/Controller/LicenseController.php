@@ -6,10 +6,10 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 class LicenseController extends AppController {
-	var $name = 'License';
-	var $components = array('Check', 'Crypt');		
+	public $name = 'License';
+	public $components = array('Check', 'Crypt');		
 
-    function admin_edit ($id = null)
+    public function admin_edit ($id = null)
 	{
 		$this->set('current_crumb', __('License Key', true));
 		$this->set('title_for_layout', __('License Key', true));
@@ -32,12 +32,12 @@ class LicenseController extends AppController {
 		}		
 	}
 
-	function admin_new ()
+	public function admin_new ()
 	{
 		$this->redirect('/license/admin_edit/');
 	}
 
-	function admin($ajax_request = false)
+	public function admin($ajax_request = false)
 	{
   		$this->set('current_crumb', __('License Key', true));
 		$this->set('title_for_layout', __('License Key', true));

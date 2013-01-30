@@ -7,6 +7,6 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class Tool extends AppModel {
-    var $name = 'Tool';
-    var $useTable = false;
+    public $name = 'Tool';
+    public $useTable = false;
 }

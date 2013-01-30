@@ -8,9 +8,9 @@
 App::uses('Folder', 'Utility');
 
 class ModulesController extends AppController {
-	var $name = 'Modules';
+	public $name = 'Modules';
    
-	function admin ()
+	public function admin ()
 	{
 		$this->set('current_crumb', __('Modules Listing', true));
 		$this->set('title_for_layout', __('Modules Listing', true));
@@ -45,13 +45,13 @@ class ModulesController extends AppController {
 				
 	}
 
-	function admin_add ()
+	public function admin_add ()
 	{
 		$this->set('current_crumb', __('Module Upload', true));
 		$this->set('title_for_layout', __('Module Upload', true));
 	}
 
-	function admin_upload ()
+	public function admin_upload ()
 	{
 		$this->set('current_crumb', __('Module Upload', true));
 		$this->set('title_for_layout', __('Module Upload', true));

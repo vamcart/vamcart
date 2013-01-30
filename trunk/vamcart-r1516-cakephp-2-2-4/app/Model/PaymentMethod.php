@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class PaymentMethod extends AppModel {
-	var $name = 'PaymentMethod';
-	var $hasMany = array('PaymentMethodValue' => array('dependent' => true));
+	public $name = 'PaymentMethod';
+	public $hasMany = array('PaymentMethodValue' => array('dependent' => true));
 }
 ?>

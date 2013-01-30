@@ -6,11 +6,11 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 class SiteController extends AppController {
-	var $name = 'Site';
-	var $uses = array('Customer', 'EmailTemplate');
-	var $components = array('Email', 'Smarty', 'ConfigurationBase');
+	public $name = 'Site';
+	public $uses = array('Customer', 'EmailTemplate');
+	public $components = array('Email', 'Smarty', 'ConfigurationBase');
 
-	function register()
+	public function register()
 	{
 		global $config;
 
@@ -72,11 +72,11 @@ class SiteController extends AppController {
 		}
 	}
 	
-	function login()
+	public function login()
 	{
 	}
 
-	function logout()
+	public function logout()
 	{
 		$this->Auth->logout();
 

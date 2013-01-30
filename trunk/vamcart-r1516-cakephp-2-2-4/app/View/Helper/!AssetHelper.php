@@ -16,59 +16,59 @@ class AssetHelper extends AppHelper {
   //Cake debug = 0 packed js/css returned. $this->debug doesn't do anything.
   //Cake debug > 0, $this->debug = false essentially turns the helper off. js/css not packed. Good for debugging your js/css files.
   //Cake debug > 0, $this->debug = true packed js/css returned. Good for debugging this helper.
-  var $debug = false;
+  public $debug = false;
  
   //there is a *minimal* perfomance hit associated with looking up the filemtimes
   //if you clean out your cached dir (as set below) on builds then you don't need this.
-  var $checkTs = false;
+  public $checkTs = false;
  
   //Class for localizing JS files if JS I18N plugin is installed
   //http://github.com/mcurry/js/tree/master
-  var $Lang = false;
+  public $Lang = false;
  
   //the packed files are named by stringing together all the individual file names
   //this can generate really long names, so by setting this option to true
   //the long name is md5'd, producing a resonable length file name.
-  var $md5FileName = true;
+  public $md5FileName = true;
  
   //you can change this if you want to store the files in a different location.
   //this is relative to your webroot
-  var $cachePaths = array('css' => 'ccss', 'js' => 'cjs');
-  var $paths = array('wwwRoot' => WWW_ROOT,
+  public $cachePaths = array('css' => 'ccss', 'js' => 'cjs');
+  public $paths = array('wwwRoot' => WWW_ROOT,
                      'js' => JS,
                      'css' => CSS);
  
-  var $foundFiles = array();
+  public $foundFiles = array();
  
   //set the css compression level
   //options: default, low_compression, high_compression, highest_compression
   //default is no compression
   //I like high_compression because it still leaves the file readable.
-  var $cssCompression = 'high_compression';
+  public $cssCompression = 'high_compression';
  
-  var $helpers = array('Html', 'Js');
-  var $viewScriptCount = 0;
-  var $initialized = false;
-  var $js = array();
-  var $css = array();
-var $assets = array();
+  public $helpers = array('Html', 'Js');
+  public $viewScriptCount = 0;
+  public $initialized = false;
+  public $js = array();
+  public $css = array();
+public $assets = array();
  
-  var $View = null;
+  public $View = null;
  
-  function __construct($paths=array()) {
+  public function __construct($paths=array()) {
     $this->paths = am($this->paths, $paths);
  
     $this->View =& ClassRegistry::getObject('view');
   }
  
   //flag so we know the view is done rendering and it's the layouts turn
-  function afterRender() {
+  public function afterRender() {
     if ($this->View) {
       $this->viewScriptCount = count($this->View->__scripts);
     }
   }
  
-  function scripts_for_layout($types=array('js', 'css', 'codeblock')) {
+  public function scripts_for_layout($types=array('js', 'css', 'codeblock')) {
     if (!is_array($types)) {
       $types = array($types);
     }
@@ -104,7 +104,7 @@ $scripts_for_layout[] = $asset['assets']['script'];
     return implode("\n\t", $scripts_for_layout) . "\n\t";
   }
  
-  function __init() {
+  public function __init() {
     $this->initialized = true;
 $this->assets = array();
  
@@ -171,7 +171,7 @@ $this->assets[$slot] = array('type' => $prev, 'assets' => $holding);
 }
   }
  
-  function __process($type, $assets) {
+  public function __process($type, $assets) {
     $path = $this->__getPath($type);
     $folder = new Folder($this->paths['wwwRoot'] . $this->cachePaths[$type], true);
  
@@ -270,7 +270,7 @@ $this->assets[$slot] = array('type' => $prev, 'assets' => $holding);
 * @return string the full path to the file
 * @access private
 */
-  function __getFileContents(&$asset, $type) {
+  public function __getFileContents(&$asset, $type) {
     $assetFile = $this->__findFile($asset, $type);
  
     if ($assetFile) {
@@ -284,7 +284,7 @@ $this->assets[$slot] = array('type' => $prev, 'assets' => $holding);
     return '';
   }
  
-  function __findFile(&$asset, $type) {
+  public function __findFile(&$asset, $type) {
     $key = md5(serialize($asset) . $type);
     if (!empty($this->foundFiles[$key])) {
       return $this->foundFiles[$key];
@@ -340,7 +340,7 @@ $this->assets[$slot] = array('type' => $prev, 'assets' => $holding);
 * @return string
 * @access private
 */
-  function __generateFileName($names) {
+  public function __generateFileName($names) {
     $fileName = Sanitize::paranoid(str_replace('/', '-', implode('_', $names)), array('_', '-'));
  
     if ($this->md5FileName) {
@@ -350,7 +350,7 @@ $this->assets[$slot] = array('type' => $prev, 'assets' => $holding);
     return $fileName;
   }
  
-  function __getPath($type) {
+  public function __getPath($type) {
     switch ($type) {
       case 'js':
         return $this->paths['js'];

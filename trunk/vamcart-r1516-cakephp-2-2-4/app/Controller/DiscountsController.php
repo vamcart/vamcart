@@ -1,10 +1,10 @@
 <?php
 
 class DiscountsController extends AppController {
-	var $name = 'Discounts';
-        var $uses = array('ContentProductPrice');
+	public $name = 'Discounts';
+        public $uses = array('ContentProductPrice');
 
-	function admin_delete ($content_id, $id)
+	public function admin_delete ($content_id, $id)
 	{
                 // Ok, delete the currency
                 $this->ContentProductPrice->delete($id);
@@ -13,7 +13,7 @@ class DiscountsController extends AppController {
 		$this->redirect('/discounts/admin/'.$content_id);
 	}
 
-	function admin_edit($content_id = null, $id = null)
+	public function admin_edit($content_id = null, $id = null)
 	{
 		$this->set('current_crumb', __('Discounts Details', true));
 		$this->set('title_for_layout', __('Discounts Details', true));
@@ -38,12 +38,12 @@ class DiscountsController extends AppController {
 		}
 	}
 
-	function admin_new($content_id = null)
+	public function admin_new($content_id = null)
 	{
 		$this->redirect('/discounts/admin_edit/'.$content_id);
 	}
 
-	function admin_modify_selected()
+	public function admin_modify_selected()
 	{
 		$build_flash = "";
 		foreach($this->params['data']['Currency']['modify'] AS $value)
@@ -93,7 +93,7 @@ class DiscountsController extends AppController {
 		$this->redirect('/currencies/admin/');
 	}
 
-	function admin($content_id = null, $ajax = false)
+	public function admin($content_id = null, $ajax = false)
 	{
 		$this->set('current_crumb', __('Discounts Listing', true));
 		$this->set('title_for_layout', __('Discounts Listing', true));

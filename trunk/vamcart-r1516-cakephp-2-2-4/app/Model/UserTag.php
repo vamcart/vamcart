@@ -7,6 +7,6 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class UserTag extends AppModel {
-	var $name = 'UserTag';
+	public $name = 'UserTag';
 }
 ?>

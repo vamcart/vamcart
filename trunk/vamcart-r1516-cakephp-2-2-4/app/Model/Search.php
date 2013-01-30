@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class Search extends AppModel {
-	var $name = 'Search';
-	var $useTable = 'search_tables';
+	public $name = 'Search';
+	public $useTable = 'search_tables';
 }
 ?>

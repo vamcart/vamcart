@@ -8,7 +8,7 @@
    App::uses('AppHelper', 'View');
 class SummaHelper extends Helper {
 	
-function get($summ){ 
+public function get($summ){ 
 
 $diw=Array(    0 =>    Array(    0  => Array( 0=> __('zero'),    1=>1), 
                 1  => Array( 0=> "",        1=>2), 
@@ -81,7 +81,7 @@ $this->nom = $nom;
  return $retval." ".$kop; 
 } 
 
-function get_string($summ,$nominal){ 
+public function get_string($summ,$nominal){ 
  $retval=""; 
  $nom=-1; 
  $summ=round($summ); 

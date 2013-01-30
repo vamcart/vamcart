@@ -7,15 +7,15 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class Stylesheet extends AppModel {
-	var $name = 'Stylesheet';
-	var $belongsTo = array('StylesheetMediaType');
-	var $hasAndBelongsToMany = array('Template' =>
+	public $name = 'Stylesheet';
+	public $belongsTo = array('StylesheetMediaType');
+	public $hasAndBelongsToMany = array('Template' =>
 								array('className'    => 'Template',
                                      'joinTable'    => 'templates_stylesheets',
                                      'foreignKey'   => 'stylesheet_id',
                                ));
 
-	var $validate = array(
+	public $validate = array(
 	'name' => array(
 		'rule' => 'notEmpty'
 	)

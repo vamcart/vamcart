@@ -7,16 +7,16 @@
    ---------------------------------------------------------------------------------------*/
 class ImportExportController extends AppController {
 
-	var $name = 'ImportExport';
-	var $uses = null;
+	public $name = 'ImportExport';
+	public $uses = null;
 
-	function admin ($ajax = false)
+	public function admin ($ajax = false)
 	{
 		$this->set('current_crumb', __('Import/Export', true));
 		$this->set('title_for_layout', __('Import/Export', true));
 	}
 
-	function import ($params)
+	public function import ($params)
 	{
 
 		// If they pressed cancel

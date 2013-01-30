@@ -26,7 +26,7 @@ class SmartyComponent extends Object
 	public function beforeRedirect(Controller $controller){
 	}
 	
-	function load_template ($params, $tag)
+	public function load_template ($params, $tag)
 	{
 		if(isset($params['template'])) {
 			// Cache the output.
@@ -57,7 +57,7 @@ class SmartyComponent extends Object
 		return $display_template;
 	}
 
-	function load_smarty ()
+	public function load_smarty ()
 	{
 		App::import('Vendor', 'Smarty', array('file' => 'smarty'.DS.'Smarty.class.php'));
 		$smarty = new Smarty();
@@ -71,7 +71,7 @@ class SmartyComponent extends Object
 		return $smarty;
 	}
 
-	function fetch($str, $assigns = array())
+	public function fetch($str, $assigns = array())
 	{
 		$smarty = $this->load_smarty();
 
@@ -82,7 +82,7 @@ class SmartyComponent extends Object
 		return $smarty->fetch('eval:' . $str, null, null, null, false);
 	}
 
-	function display($str, $assigns = array())
+	public function display($str, $assigns = array())
 	{
 		echo $this->fetch($str, $assigns);
 	}

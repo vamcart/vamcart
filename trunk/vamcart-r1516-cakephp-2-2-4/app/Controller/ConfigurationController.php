@@ -6,17 +6,17 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 class ConfigurationController extends AppController {
-	var $name = 'Configuration';
-	var $uses = array('Configuration', 'ConfigurationGroup');
+	public $name = 'Configuration';
+	public $uses = array('Configuration', 'ConfigurationGroup');
 	
-	function admin_clear_cache ()
+	public function admin_clear_cache ()
 	{
 		Cache::clear();
 		$this->Session->setFlash(__('Cache cleared.',true));
 		$this->redirect('/configuration/admin/');
 	}
 	
-	function admin_edit ()
+	public function admin_edit ()
 	{
 		$this->set('current_crumb', __('Store Configuration', true));
 		$this->set('title_for_layout', __('Store Configuration', true));
@@ -50,7 +50,7 @@ class ConfigurationController extends AppController {
 		$this->set('configuration_values',$keyed_config_values);
 	}
 	
-	function admin ()
+	public function admin ()
 	{
 		$this->set('current_crumb', __('Store Configuration', true));
 		$this->set('title_for_layout', __('Store Configuration', true));

@@ -301,7 +301,7 @@ class FlashChartHelper extends AppHelper {
 	// Numbers path (Set::extract) is stored here at runtime
 	private $numbersPath = NULL;
 	// Default settings, also default parameters for the FlashChart::begin() method
-	private $settings = array('width' => 800, 'height' => 350);
+	private $options = array('width' => 800, 'height' => 350);
 	// Default axis ranges
 	private $defaultRange = array('x' => array(0, 10, 1), 'y' => array(0, 10, 1));
 	// Default scatter chart options
@@ -350,13 +350,13 @@ class FlashChartHelper extends AppHelper {
 	 */
 	public function render($width = null, $height = null, $chartId = 'default', $domId = false) {
 		if (!is_null($width)) {
-			$this->settings['width'] = $width;
+			$this->options['width'] = $width;
 		}
 		if (!is_null($height)) {
-			$this->settings['height'] = $height;
+			$this->options['height'] = $height;
 		}
 		$this->Chart = new open_flash_chart();
-		return $this->Flash->renderSwf($this->swf,$this->settings['width'],$this->settings['height'],$domId,
+		return $this->Flash->renderSwf($this->swf,$this->options['width'],$this->options['height'],$domId,
             array('flashvars'=>array('get-data'=>'get_data_'.$chartId)));
 	}
 	

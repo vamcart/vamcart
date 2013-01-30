@@ -7,6 +7,6 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class Currency extends AppModel {
-	var $name = 'Currency';
+	public $name = 'Currency';
 }
 ?>

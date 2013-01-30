@@ -40,7 +40,7 @@ class AppModel extends Model {
         $this->_validationRules();
     }
 
-    function _validationRules() {
+    public function _validationRules() {
         //implemented on child classes
     }	
 	
@@ -49,7 +49,7 @@ class AppModel extends Model {
 	* This method clears the cache if we're saving to one of the specified models to check.
 	*
 	*/			
-	function afterSave($created)
+	public function afterSave($created)
 	{
 		$check_models = array('Content','Template','Stylesheet','MicroTemplate','GlobalContentBlock');
 		if(in_array($this->name,$check_models))
@@ -64,7 +64,7 @@ class AppModel extends Model {
 	*
 	* @param  array $params Array of models to un-associate
 	*/		
-	function unbindAll($params = array())
+	public function unbindAll($params = array())
 	{
 
 $unbind = array(); 

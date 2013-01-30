@@ -6,10 +6,10 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 class LanguagesController extends AppController {
-	var $name = 'Languages';
-	var $components = array('EventBase');	
+	public $name = 'Languages';
+	public $components = array('EventBase');	
 	
-	function pick_language($language_id,$redirect = null) 
+	public function pick_language($language_id,$redirect = null) 
 	{
 		$this->Session->write('Customer.language_id', $language_id);
 
@@ -33,17 +33,17 @@ class LanguagesController extends AppController {
 		
 	}
 
-	function admin_change_active_status ($id) 
+	public function admin_change_active_status ($id) 
 	{
 		$this->changeActiveStatus($id);	
 	}
 		
-	function admin_set_as_default ($language_id)
+	public function admin_set_as_default ($language_id)
 	{
 		$this->setDefaultItem($language_id);
 	}
 
-	function admin_delete ($language_id)
+	public function admin_delete ($language_id)
 	{
 		// Get the language and make sure it's not the default
 		$this->Language->id = $language_id;
@@ -63,7 +63,7 @@ class LanguagesController extends AppController {
 	}
 	
 	
-	function admin_edit ($language_id = null)
+	public function admin_edit ($language_id = null)
 	{
 		$this->set('current_crumb', __('Language Details', true));
 		$this->set('title_for_layout', __('Language Details', true));
@@ -86,12 +86,12 @@ class LanguagesController extends AppController {
 		}		
 	}
 	
-	function admin_new() 
+	public function admin_new() 
 	{
 		$this->redirect('/languages/admin_edit/');
 	}
 	
-	function admin_modify_selected() 	
+	public function admin_modify_selected() 	
 	{
 		$build_flash = "";
 		foreach($this->params['data']['Language']['modify'] AS $value)
@@ -141,7 +141,7 @@ class LanguagesController extends AppController {
 		$this->redirect('/languages/admin/');
 	}	
 	
-	function admin ($ajax = false)
+	public function admin ($ajax = false)
 	{
 		$this->set('current_crumb', __('Languages Listing', true));
 		$this->set('title_for_layout', __('Languages Listing', true));

@@ -6,11 +6,11 @@
  */
  App::uses('AppHelper', 'View');
 class TinyMceHelper extends Helper {
-	var $helpers=array('Html', 'Session');
+	public $helpers=array('Html', 'Session');
 	
-	function beforeRender(){
+	public function beforeRender(){
 	}
-	function init($options=false){
+	public function init($options=false){
 	$code = '';
 	$code .= $this->Html->script('tiny_mce/jquery.tinymce', false);
 	if($options){
@@ -57,7 +57,7 @@ class TinyMceHelper extends Helper {
 
 	});
 	
-		function toggleHTMLEditor(id) {
+		public function toggleHTMLEditor(id) {
 			if (!tinyMCE.get(id))
 				tinyMCE.execCommand("mceAddControl", false, id);
 			else
@@ -69,7 +69,7 @@ class TinyMceHelper extends Helper {
     
 	return $code;
 	}
-	function toggleEditor($options){
+	public function toggleEditor($options){
 	$code = '<a href="javascript:toggleHTMLEditor(\''.$options.'\');">' . __('Show/Hide editor') . '</a>'; 
 	return $code;
 	}

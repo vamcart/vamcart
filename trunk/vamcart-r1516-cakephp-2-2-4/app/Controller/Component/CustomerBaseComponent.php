@@ -29,7 +29,7 @@ class CustomerBaseComponent extends Object
 	*
 	* @param  array  $details A key => value paired array of customer details.  Keys should be the same as the fields in the Order table.
 	*/
-	function save_customer_details ($customer_details)
+	public function save_customer_details ($customer_details)
 	{
 
 		App::uses('EventBaseComponent', 'Controller/Component');

@@ -7,6 +7,6 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class ContentImage extends AppModel {
-	var $name = 'ContentImage';
+	public $name = 'ContentImage';
 }
 ?>

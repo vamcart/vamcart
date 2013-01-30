@@ -7,6 +7,6 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class TemplateType extends AppModel {
-	var $name = 'TemplateType';
+	public $name = 'TemplateType';
 }
 ?>

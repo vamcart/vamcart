@@ -30,14 +30,14 @@
  */
 class PagesController extends AppController {
 
-var $components = array('ConfigurationBase', 'ContentBase', 'Smarty', 'Gzip.Gzip');
-	var $uses = null;
-	var $autoLayout = false;
-	var $autoRender = false;
-	var $helpers = null;
-	var $layout = null;
+public $components = array('ConfigurationBase', 'ContentBase', 'Smarty', 'Gzip.Gzip');
+	public $uses = null;
+	public $autoLayout = false;
+	public $autoRender = false;
+	public $helpers = null;
+	public $layout = null;
 
-	function beforeFilter()
+	public function beforeFilter()
 	{
 		// This redirects the user to the install script if the config.php filesize is empty.
 		if ($this->action == 'index') {
@@ -53,7 +53,7 @@ var $components = array('ConfigurationBase', 'ContentBase', 'Smarty', 'Gzip.Gzip
 
 	}
 
-	function getAliasFromParams ($params)
+	public function getAliasFromParams ($params)
 	{
 		global $config;
 
@@ -66,7 +66,7 @@ var $components = array('ConfigurationBase', 'ContentBase', 'Smarty', 'Gzip.Gzip
 		return $content_alias;
 	}
 
-	function index()
+	public function index()
 	{
 		global $content;
 		global $config;

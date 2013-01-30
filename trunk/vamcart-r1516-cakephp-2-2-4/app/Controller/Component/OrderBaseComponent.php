@@ -32,7 +32,7 @@ class OrderBaseComponent extends Object
 	public function beforeRedirect(Controller $controller){
 	}
 
-	function load_models()
+	public function load_models()
 	{
 	
 		
@@ -54,7 +54,7 @@ class OrderBaseComponent extends Object
 		$this->ContentDownloadable = new ContentDownloadable();
 	}
 
-	function get_order ($order_id = null)
+	public function get_order ($order_id = null)
 	{
 		if (($order_id == null) && (isset($_SESSION['Customer']['order_id']))) {
 			$order_id = $_SESSION['Customer']['order_id'];
@@ -73,7 +73,7 @@ class OrderBaseComponent extends Object
 		return $order;
 	}
 
-	function get_order_shipping (&$order)
+	public function get_order_shipping (&$order)
 	{
 
 		if (!isset($order['ShippingMethod']['code'])) {
@@ -90,7 +90,7 @@ class OrderBaseComponent extends Object
 		return $shipping_total;
 	}
 
-	function get_order_tax (&$order)
+	public function get_order_tax (&$order)
 	{
 		$running_total = 0;
 
@@ -102,7 +102,7 @@ class OrderBaseComponent extends Object
 
 	}
 
-	function get_order_total (&$order)
+	public function get_order_total (&$order)
 	{
 		$running_total = 0;
 
@@ -113,7 +113,7 @@ class OrderBaseComponent extends Object
 		return $running_total;
 	}
 
-	function update_order_totals ()
+	public function update_order_totals ()
 	{
 		$this->load_models();
 
@@ -130,7 +130,7 @@ class OrderBaseComponent extends Object
 		$EventBase->ProcessEvent('UpdateOrderTotalsAfterSave');
 	}
 
-	function remove_product ($product_id, $qty = 1)
+	public function remove_product ($product_id, $qty = 1)
 	{
 		$this->load_models();
 
@@ -152,7 +152,7 @@ class OrderBaseComponent extends Object
 		$this->update_order_totals();
 	}
 
-	function add_product($content_id, $qty = 1, $update = false) {
+	public function add_product($content_id, $qty = 1, $update = false) {
 		$this->load_models();
 		$content = $this->ContentBase->get_content_information($content_id);
 		$content_type = $content['ContentType']['name'];
@@ -254,7 +254,7 @@ class OrderBaseComponent extends Object
 		$this->update_order_totals();
 	}
 	
-	function _random_string()
+	public function _random_string()
 	{
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		$randstring = '';

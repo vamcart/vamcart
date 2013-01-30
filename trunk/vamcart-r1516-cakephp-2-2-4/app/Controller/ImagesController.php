@@ -6,10 +6,10 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 class ImagesController extends AppController {
-	var $name = 'Images';
-	var $uses = array('ContentImage');
+	public $name = 'Images';
+	public $uses = array('ContentImage');
 	
-	function thumb ()
+	public function thumb ()
 	{
             if(empty($_GET['src'])){
                 die("No source image");
@@ -70,7 +70,7 @@ class ImagesController extends AppController {
             }
 	}
 
-	function admin_delete_content_image($image_id) 
+	public function admin_delete_content_image($image_id) 
 	{
 		if($image_id != null)
 		{
@@ -84,7 +84,7 @@ class ImagesController extends AppController {
 		$this->redirect('/images/admin_view_content_images/' . $image['ContentImage']['content_id']);
 	}
 	
-	function admin_view_content_images ($content_id)
+	public function admin_view_content_images ($content_id)
 	{
 		$this->set('content_id',$content_id);
 		$this->set('content_images',$this->ContentImage->find('all', array('conditions' => array('content_id' => $content_id))));

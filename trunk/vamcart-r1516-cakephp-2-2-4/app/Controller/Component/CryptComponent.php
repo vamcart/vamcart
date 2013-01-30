@@ -38,8 +38,8 @@
 class CryptComponent extends Object
 {
 
-  var $r; // random number or 10byte key
-  var $csl; // (CSL) CS N length for CS2
+  public $r; // random number or 10byte key
+  public $csl; // (CSL) CS N length for CS2
 
 	public function beforeFilter ()	{	}
 	
@@ -64,7 +64,7 @@ class CryptComponent extends Object
    * @access public
    * @param CipherSaber2 length (defaults to 1 == CS1)
    **/
-  function ctlCipherSaber($csl = 1) // defaults to CS1
+  public function ctlCipherSaber($csl = 1) // defaults to CS1
   {
     $this->csl = $csl;
   }
@@ -75,7 +75,7 @@ class CryptComponent extends Object
    * @access public
    * @param $length - integer length value
    **/
-  function setCsLength($length)
+  public function setCsLength($length)
   {
     $this->csl = $length;
   }
@@ -86,7 +86,7 @@ class CryptComponent extends Object
    * @access public
    * @return integer length value
    **/
-  function getCsLength()
+  public function getCsLength()
   {
     return $this->csl;
   }
@@ -99,7 +99,7 @@ class CryptComponent extends Object
    * @param $key - key/password to be used for encryption
    * @return encrypted and base64 encoded string
    **/
-  function encrypt($str, $key)
+  public function encrypt($str, $key)
   {
     srand((double)microtime()*1234567);
     $this->r = substr(md5(rand(0,32000)),0,10);
@@ -114,7 +114,7 @@ class CryptComponent extends Object
    * @param $key - key/password to be used for decryption
    * @return decrypted string
    **/
-  function decrypt($str, $key)
+  public function decrypt($str, $key)
   {
     $str=base64_decode($str);
     $this->r = substr($str,0,10);
@@ -130,7 +130,7 @@ class CryptComponent extends Object
    * @param $key - key/password to be used for encryption
    * @return encrypted string
    **/
-  function binEncrypt($str,$key)
+  public function binEncrypt($str,$key)
   {
     srand((double)microtime()*1234567);
     $this->r = substr(md5(rand(0,32000)),0,10);
@@ -145,7 +145,7 @@ class CryptComponent extends Object
    * @param $key - key/password to be used for decryption
    * @return decrypted string
    **/
-  function binDecrypt($str,$key)
+  public function binDecrypt($str,$key)
   {
     $this->r = substr($str,0,10);
     $str=substr($str,10);
@@ -161,7 +161,7 @@ class CryptComponent extends Object
    * @param $p - key
      * @return encrypted/decrypted string
      **/
-  function _cs($d, $p)
+  public function _cs($d, $p)
   {
     $k = $this->r;
     $p .= $k;

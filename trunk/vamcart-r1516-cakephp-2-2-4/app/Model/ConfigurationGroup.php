@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class ConfigurationGroup extends AppModel {
-	var $name = 'ConfigurationGroup';
-	var $hasMany = array('Configuration' => array('dependent' => true));	
+	public $name = 'ConfigurationGroup';
+	public $hasMany = array('Configuration' => array('dependent' => true));	
 }
 ?>

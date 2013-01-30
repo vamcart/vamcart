@@ -7,6 +7,6 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class GlobalContentBlock extends AppModel {
-	var $name = 'GlobalContentBlock';
+	public $name = 'GlobalContentBlock';
 }
 ?>

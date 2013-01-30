@@ -28,7 +28,7 @@ class PaymentMethodBaseComponent extends Object
 	public function beforeRedirect(Controller $controller){
 	}
 	
-	function save_customer_data()
+	public function save_customer_data()
 	{
 		App::uses('CustomerBaseComponent', 'Controller/Component');
 		$this->CustomerBase =& new CustomerBaseComponent(new ComponentCollection());

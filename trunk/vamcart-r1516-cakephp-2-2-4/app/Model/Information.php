@@ -7,6 +7,6 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class Information extends AppModel {
-	var $name = 'Information';
+	public $name = 'Information';
 }
 ?>

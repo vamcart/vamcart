@@ -28,7 +28,7 @@ class ConfigurationBaseComponent extends Object
 	public function beforeRender(Controller $controller){
 	}
 	
-	function load_configuration ()
+	public function load_configuration ()
 	{
 		$config_values = Cache::read('vam_config');
 		

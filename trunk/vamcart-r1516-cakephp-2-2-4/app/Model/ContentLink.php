@@ -7,6 +7,6 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class ContentLink extends AppModel {
-	var $name = 'ContentLink';
+	public $name = 'ContentLink';
 }
 ?>

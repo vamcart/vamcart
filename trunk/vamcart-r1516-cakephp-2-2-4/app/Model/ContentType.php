@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class ContentType extends AppModel {
-	var $name = 'ContentType';
-	var $belongsTo = array('TemplateType');
+	public $name = 'ContentType';
+	public $belongsTo = array('TemplateType');
 }
 ?>

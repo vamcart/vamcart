@@ -8,7 +8,7 @@
 
 class InstallComponent extends Object 
 {
-    var $components = array('Session','Smarty');
+    public $components = array('Session','Smarty');
 
 	public function beforeFilter ()
 	{
@@ -29,13 +29,13 @@ class InstallComponent extends Object
 	public function beforeRedirect(Controller $controller){
 	}
 
-	function getVersion ()
+	public function getVersion ()
 	{
 		$version = file_get_contents(WWW_ROOT . 'version.txt');
 		return $version;
 	}
 	
-    function begin_install ()
+    public function begin_install ()
     {
 
     }

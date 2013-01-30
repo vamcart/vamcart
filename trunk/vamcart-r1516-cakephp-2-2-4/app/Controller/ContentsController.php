@@ -6,14 +6,14 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 class ContentsController extends AppController {
-	var $helpers = array('TinyMce', 'Validation');
-	var $name = 'Contents';
+	public $helpers = array('TinyMce', 'Validation');
+	public $name = 'Contents';
 
 	/**
 	* Uploads all images, and saves records to content_images
 	*
 	*/
-	function upload_images ($content_id)
+	public function upload_images ($content_id)
 	{
 
 		
@@ -51,7 +51,7 @@ class ContentsController extends AppController {
 	* @param  int  $id The id of the content we're going to be moving.
 	* @param  string  $direction String value of 'up' or 'down'
 	*/
-	function admin_move ($id, $direction)
+	public function admin_move ($id, $direction)
 	{
 		$this->moveItem($id, $direction);		
 	}
@@ -64,7 +64,7 @@ class ContentsController extends AppController {
 	*
 	* @param  int  $content_id The id of the content we're going to be setting as active.
 	*/
-	function admin_set_as_default ($content_id)
+	public function admin_set_as_default ($content_id)
 	{
 		$this->setDefaultItem($content_id);
 	}
@@ -74,7 +74,7 @@ class ContentsController extends AppController {
 	*
 	* @param  string  $content_id Id of the content item to change.
 	*/	
-	function admin_change_show_in_menu_status ($content_id) 
+	public function admin_change_show_in_menu_status ($content_id) 
 	{
 		$this->Content->id = $content_id;
 		$content = $this->Content->read();
@@ -92,7 +92,7 @@ class ContentsController extends AppController {
 		$this->redirect('/contents/admin/0/' . $content['Content']['parent_id'] . '/' . $this->RequestHandler->isAjax());		
 	}
 
-	function admin_change_yml_export_status ($content_id) 
+	public function admin_change_yml_export_status ($content_id) 
 	{
 		$this->Content->id = $content_id;
 		$content = $this->Content->read();
@@ -116,7 +116,7 @@ class ContentsController extends AppController {
 	*
 	* @param  int  $content_id The id of the content we're going to change.
 	*/
-	function admin_change_active_status ($content_id) 
+	public function admin_change_active_status ($content_id) 
 	{
 		$this->changeActiveStatus($content_id);	
 	}
@@ -128,7 +128,7 @@ class ContentsController extends AppController {
 	*
 	* @param  int  $content_id The id of the content we're going to delete.
 	*/	
-	function admin_delete ($content_id)
+	public function admin_delete ($content_id)
 	{	
 		$this->Content->id = $content_id;
 		$content = $this->Content->read();
@@ -151,7 +151,7 @@ class ContentsController extends AppController {
 	*
 	* @param  int  $content_id The id of the current content item.
 	*/	
-	function admin_edit_type ($content_type_id, $content_id = null)
+	public function admin_edit_type ($content_type_id, $content_id = null)
 	{
 		$this->Content->id = $content_id;
 		$content = $this->Content->read();
@@ -177,7 +177,7 @@ class ContentsController extends AppController {
 	}
 	
 	
-	function generate_tax_list ()
+	public function generate_tax_list ()
 	{
 		$tax_list_translatable = $this->Content->ContentProduct->Tax->find('list', array('order' => array('Tax.default DESC')));
 		foreach($tax_list_translatable AS $key => $value)
@@ -188,7 +188,7 @@ class ContentsController extends AppController {
 		return $tax_list_translatable;
 	}
 	
-	function generate_order_statuses_list()
+	public function generate_order_statuses_list()
 	{
 		App::import('Model', 'OrderStatus');
 		$OrderStatus = new OrderStatus();
@@ -213,7 +213,7 @@ class ContentsController extends AppController {
 		return $order_statuses_list_;
 	}
 
-	function admin_core_pages_edit($content_id) 
+	public function admin_core_pages_edit($content_id) 
 	{
 			$this->set('current_crumb', __('Edit',true));
 			$this->set('title_for_layout', __('Edit', true));
@@ -263,7 +263,7 @@ class ContentsController extends AppController {
 	*
 	* @param  int $content_id ID of the content we are editing
 	*/		
-	function admin_edit ($content_id = 0, $parent_id = 0)
+	public function admin_edit ($content_id = 0, $parent_id = 0)
 	{
 		$this->set('current_crumb', __('Edit', true));
 		$this->set('title_for_layout', __('Content', true));
@@ -498,7 +498,7 @@ class ContentsController extends AppController {
 	/**
 	* Redirects the user to the admin_edit method where all work is done.
 	*/	
-	function admin_new ($content_id = 0, $parent_id = 0)
+	public function admin_new ($content_id = 0, $parent_id = 0)
 	{
 		$this->redirect('/contents/admin_edit/'.$content_id.'/'.$parent_id);
 	}
@@ -508,7 +508,7 @@ class ContentsController extends AppController {
 	*
 	* Disallows the user from deleting the default content item.
 	*/	
-	function admin_modify_selected() 
+	public function admin_modify_selected() 
 	{
 		$build_flash = "";
 		$target_page = '/contents/admin/';
@@ -604,7 +604,7 @@ class ContentsController extends AppController {
 	* Displays a list of all core content pages.
 	*
 	*/		
-	function admin_core_pages ()
+	public function admin_core_pages ()
 	{
 		$this->set('current_crumb', __('Pages Listing',true));
 		$this->set('title_for_layout', __('Pages Listing', true));
@@ -636,7 +636,7 @@ class ContentsController extends AppController {
 	*
 	* @param  booleen  $ajax Uses the value in $ajax to determine whether or not to display the Ajax layout.
 	*/		
-	function admin ($ajax = false, $parent_id = 0)
+	public function admin ($ajax = false, $parent_id = 0)
 	{
 		$this->set('current_crumb', __('Listing', true));
 		$this->set('title_for_layout', __('Content', true));
@@ -684,7 +684,7 @@ class ContentsController extends AppController {
 		$this->set('last_content_id', $last_content_id);
 	}
 	
-	function admin_categories_tree()
+	public function admin_categories_tree()
 	{
 		$this->Content->unbindModel(array('hasMany' => array('ContentDescription')));
 
@@ -705,7 +705,7 @@ class ContentsController extends AppController {
 		$this->set('content_data', $tree);
 	}
 
-	function _add_tree_node($tree, $node, $level)
+	public function _add_tree_node($tree, $node, $level)
 	{
 		$tree[] = array('id' => $node['Content']['id'],
 				'name' => $node['ContentDescription']['name'],
@@ -717,7 +717,7 @@ class ContentsController extends AppController {
 		}
 	}
 	
-	function _copy_content($content, $parent_id)
+	public function _copy_content($content, $parent_id)
 	{
 		$content['Content']['id'] = null;
 		$content['Content']['parent_id'] = $parent_id;
@@ -753,7 +753,7 @@ class ContentsController extends AppController {
 		$this->_copy_content_images($content, $content_id);
 	}
 	
-	function _copy_content_images($content, $dst_content_id)
+	public function _copy_content_images($content, $dst_content_id)
 	{
 		foreach ($content['ContentImage'] as $image) {
 			$src_filename = WWW_ROOT . IMAGES_URL . '/content/' . $image['content_id'] . '/' . $image['image'];
@@ -774,7 +774,7 @@ class ContentsController extends AppController {
 		}
 	}
 	
-	function _random_string()
+	public function _random_string()
 	{
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		$randstring = '';

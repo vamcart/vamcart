@@ -7,20 +7,20 @@
    ---------------------------------------------------------------------------------------*/
 class OrderStatusController extends AppController {
 
-	var $name = 'OrderStatus';
-	var $uses = array('OrderStatus','Language');
+	public $name = 'OrderStatus';
+	public $uses = array('OrderStatus','Language');
 
-	function admin_set_as_default ($order_status_id)
+	public function admin_set_as_default ($order_status_id)
 	{
 		$this->setDefaultItem($order_status_id);
 	}
 
-	function admin_move ($id, $direction)
+	public function admin_move ($id, $direction)
 	{
 		$this->moveItem($id, $direction);		
 	}
 	
-	function admin_delete ($order_status_id)
+	public function admin_delete ($order_status_id)
 	{
 		// Get the order_status and make sure it's not the default
 		$this->OrderStatus->id = $order_status_id;
@@ -54,7 +54,7 @@ class OrderStatusController extends AppController {
 
 	}
 
-	function admin_edit ($order_status_id = null)
+	public function admin_edit ($order_status_id = null)
 	{
 		$this->set('current_crumb', __('Order Status', true));
 		$this->set('title_for_layout', __('Order Status', true));
@@ -137,13 +137,13 @@ class OrderStatusController extends AppController {
 
 	
 
-	function admin_new() 
+	public function admin_new() 
 	{
 		$this->redirect('/order_status/admin_edit/');
 	}
 
 
-	function admin ($ajax = false)
+	public function admin ($ajax = false)
 	{
 		$this->set('current_crumb', __('Order Status Listing', true));
 		$this->set('title_for_layout', __('Order Status Listing', true));

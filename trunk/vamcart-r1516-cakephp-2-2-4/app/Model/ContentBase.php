@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class ContentBase extends AppModel {
-	var $name = 'ContentBase';
-	var $useTable = false;
+	public $name = 'ContentBase';
+	public $useTable = false;
 }
 ?>

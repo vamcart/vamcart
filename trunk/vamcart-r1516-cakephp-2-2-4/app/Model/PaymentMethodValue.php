@@ -7,6 +7,6 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class PaymentMethodValue extends AppModel {
-	var $name = 'PaymentMethodValue';
+	public $name = 'PaymentMethodValue';
 	}
 ?>

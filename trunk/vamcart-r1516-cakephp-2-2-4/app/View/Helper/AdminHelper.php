@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('AppHelper', 'View');
 class AdminHelper extends Helper {
-	var $helpers = array('Html', 'Form', 'Js', 'Ajax');	
+	public $helpers = array('Html', 'Form', 'Js', 'Ajax');	
 
 	########################################################
 	# Functions for tabs
@@ -22,7 +22,7 @@ class AdminHelper extends Helper {
 	* @param  string  $tab_alias Alias of the tab content.  Should be the same as the alias for the actual tab.
 	* @return string	Beginning <div> tag of the Tab Contents
 	*/
-	function StartTabContent ($tab_alias)
+	public function StartTabContent ($tab_alias)
 	{
 		return('<div id="' . $tab_alias . '">');		
 	}
@@ -33,7 +33,7 @@ class AdminHelper extends Helper {
 	*
 	* @return string	A closing </div> tag.
 	*/	
-	function EndTabContent ()
+	public function EndTabContent ()
 	{
 		return('</div>');
 	}
@@ -44,7 +44,7 @@ class AdminHelper extends Helper {
 	* @return string	Returns the beginning of a formatted <div> element
 	*/
 	
-	function StartTabs ($id = null)
+	public function StartTabs ($id = null)
 	{
 		if (isset($id)) {
 			$content = '<div id="'.$id.'">';
@@ -60,7 +60,7 @@ class AdminHelper extends Helper {
 	* @param  string  $tab_alias Alias of the tab.
 	* @return string	A <div> element to be used as a tab.
 	*/	
-	function CreateTab ($tab_alias, $tab_name = null, $icon = null)
+	public function CreateTab ($tab_alias, $tab_name = null, $icon = null)
 	{
 		if (!empty($icon) && file_exists(IMAGES . 'admin/icons/tabs/' . $icon)) {
 			$content = '<li><a href ="#' . $tab_alias . '"><span>' . $this->Html->image('admin/icons/tabs/'.$icon, array('alt' => '')).'&nbsp;' . $tab_name . '</span></a></li>';
@@ -75,12 +75,12 @@ class AdminHelper extends Helper {
 	*
 	* @return string	Ending </div> element of tab area and JavaScript to load a tab.
 	*/	
-	function EndTabs ()
+	public function EndTabs ()
 	{
 		return('</div>');
 	}
 	
-	function TableCells ($cell_array)
+	public function TableCells ($cell_array)
 	{
 		return($this->Html->TableCells(
 				   $cell_array,
@@ -93,7 +93,7 @@ class AdminHelper extends Helper {
 	########################################################
 	# Functions for bottom bar under tabular content
 	########################################################	
-	function CreateNewLink ($extra_path = null)
+	public function CreateNewLink ($extra_path = null)
 	{
 		$title = sprintf(__('Create New', true), __(Inflector::underscore($this->params['controller']), true));
 		//$title = __($this->params['controller'] . '_create_link', true);
@@ -105,7 +105,7 @@ class AdminHelper extends Helper {
 		return($this->Html->link('<span>'.$this->Html->image('admin/icons/buttons/add.png', array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .$title.'</span>', $path, array('escape' => false, 'class' => 'button')));
 	}
 	
-	function CreateExportLink ($extra_path = null)
+	public function CreateExportLink ($extra_path = null)
 	{
 		$title = sprintf(__('Export', true), __(Inflector::underscore($this->params['controller']), true));
 		$path =  '/' . $this->params['controller'] . '/download_export/' . $extra_path;
@@ -117,7 +117,7 @@ class AdminHelper extends Helper {
 		return($this->Html->link('<span>'.$this->Html->image('admin/icons/buttons/export.png', array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .$title.'</span>', $path, array('escape' => false, 'class' => 'button')));
 	}
 	
-	function CreateImportLink ($extra_path = null)
+	public function CreateImportLink ($extra_path = null)
 	{
 		$title = sprintf(__('Import', true), __(Inflector::underscore($this->params['controller']), true));
 		$path =  '/' . $this->params['controller'] . '/admin_import/' . $extra_path;
@@ -129,7 +129,7 @@ class AdminHelper extends Helper {
 		return($this->Html->link('<span>'.$this->Html->image('admin/icons/buttons/import.png', array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .$title.'</span>', $path, array('escape' => false, 'class' => 'button')));
 	}
 	
-	function ActionBar($options = null, $new = true, $extra_path = null, $export = false, $import = false) 
+	public function ActionBar($options = null, $new = true, $extra_path = null, $export = false, $import = false) 
 	{
 		$content = '
 		<div class="addContent">
@@ -164,7 +164,7 @@ class AdminHelper extends Helper {
 	########################################################
 	# Functions for tabular content
 	########################################################	
-	function MoveButtons ($data, $count) 
+	public function MoveButtons ($data, $count) 
 	{
 		$button = "";
 
@@ -183,7 +183,7 @@ class AdminHelper extends Helper {
 		return($button);
 	}
 
-	function DefaultButton ($data)
+	public function DefaultButton ($data)
 	{
 		if($data['default'] == 1)
 		{
@@ -196,7 +196,7 @@ class AdminHelper extends Helper {
 		return($button);
 	}
 
-	function ActionButton ($action, $path, $alt)
+	public function ActionButton ($action, $path, $alt)
 	{
 		if($action == 'delete')
 			$confirm_text = __('Confirm delete action?',true);
@@ -207,7 +207,7 @@ class AdminHelper extends Helper {
 		return($button);		
 	}
 	
-	function EmptyResults ($data)
+	public function EmptyResults ($data)
 	{
 		if(empty($data))
 			return '<div class="noData">' . __('No Data',true) . '</div>';
@@ -215,7 +215,7 @@ class AdminHelper extends Helper {
 	########################################################
 	# Functions for menu & breadcrumbs
 	########################################################		
-	function MenuLink ($menuitem)
+	public function MenuLink ($menuitem)
 	{
 		// Set a an empty value for attribues if it's not set.
 		if(!isset($menuitem['attributes']))
@@ -231,7 +231,7 @@ class AdminHelper extends Helper {
 	}
 	
 	
-	function DrawMenu ($navigation_walk)
+	public function DrawMenu ($navigation_walk)
 	{
 		$navigation = "";
 		$navigation .= '<ul>';
@@ -256,7 +256,7 @@ class AdminHelper extends Helper {
 		return($navigation);
 	}
 	
-	function GenerateBreadcrumbs ($navigation_walk, $current_crumb)
+	public function GenerateBreadcrumbs ($navigation_walk, $current_crumb)
 	{
 		// Get the breadcrumb divider
 		$divider = '<span class="separator"> > </span>';
@@ -302,7 +302,7 @@ class AdminHelper extends Helper {
 	* @param  booleen $text_link If true will display a text link instead if image, if the image doesn't exist.
 	* @return string	An <img> tag or name of the flag if $text_link is set to true.
 	*/	
-	function ShowFlag($flag, $text_link = true)
+	public function ShowFlag($flag, $text_link = true)
 	{
 		$image = $this->Html->image('flags/' . strtolower($flag['iso_code_2']) . '.png');	
 		return($image);
@@ -315,7 +315,7 @@ class AdminHelper extends Helper {
 	* @param  booleen $text_link If true will display a text link instead if image, if the image doesn't exist.
 	* @return string	An <img> tag or name of the flag if $text_link is set to true.
 	*/	
-	function ShowPageHeaderStart($page_name = null, $icon = null, $search_form = null)
+	public function ShowPageHeaderStart($page_name = null, $icon = null, $search_form = null)
 	{
 		$content = '';
 		$content .= '<div id="page">';
@@ -343,7 +343,7 @@ class AdminHelper extends Helper {
 	* @param  booleen $text_link If true will display a text link instead if image, if the image doesn't exist.
 	* @return string	An <img> tag or name of the flag if $text_link is set to true.
 	*/	
-	function ShowPageHeaderEnd($page_name = null, $icon = null)
+	public function ShowPageHeaderEnd($page_name = null, $icon = null)
 	{
 			$content = '';
 			$content .= '</div>';
@@ -357,7 +357,7 @@ class AdminHelper extends Helper {
 	*
 	* @return string	Wiki Help Page.
 	*/	
-	function getHelpPage()
+	public function getHelpPage()
 	{
 			$content = '<a href ="http://vamcart.com/modules/wiki/index.php?page=' . (!isset($this->params['plugin']) ? null : $this->params['plugin'].'/') . $this->params['controller'].'/'.$this->params['action'] . '" target="_blank"><img src="' . BASE . '/img/admin/icons/help.png" alt="'.__('Help',true) .'" /> '.__('Help for this page',true).'</a>';
 			
@@ -371,7 +371,7 @@ class AdminHelper extends Helper {
 	* @param  string  $icon Button icon.	* @param  array  $parameters Button type.	*
 	* @return string	HTML Form Button.
 	*/	
-	function formButton ($name, $icon = null, $parameters = null)
+	public function formButton ($name, $icon = null, $parameters = null)
 	{
 		
 		if (!empty($icon) && file_exists(IMAGES . 'admin/icons/buttons/' . $icon)) {
@@ -389,7 +389,7 @@ class AdminHelper extends Helper {
 	* @param  string  $icon Button icon.	* @param  array  $parameters Button type.	*
 	* @return string	HTML Catalog Form Button.
 	*/	
-	function formButtonCatalog ($name, $icon = null, $parameters = null)
+	public function formButtonCatalog ($name, $icon = null, $parameters = null)
 	{
 		
 		if (!empty($icon) && file_exists(IMAGES . 'icons/buttons/' . $icon)) {
@@ -408,7 +408,7 @@ class AdminHelper extends Helper {
 	* @param  string  $icon Button icon.	* @param  array  $parameters Button type.	* @param  array  $confirmMessage Specify $confirmMessage to display a javascript confirm() dialog.	*
 	* @return string	HTML Link Button.
 	*/	
-	function linkButton ($title, $url, $icon = null, $parameters = null, $confirmMessage = false)
+	public function linkButton ($title, $url, $icon = null, $parameters = null, $confirmMessage = false)
 	{
 		
 		if (!empty($icon) && file_exists(IMAGES . 'admin/icons/buttons/' . $icon)) {
@@ -427,7 +427,7 @@ class AdminHelper extends Helper {
 	* @param  string  $icon Button icon.	* @param  array  $parameters Button type.	* @param  array  $confirmMessage Specify $confirmMessage to display a javascript confirm() dialog.	*
 	* @return string	HTML Link Button for Catalog.
 	*/	
-	function linkButtonCatalog ($title, $url, $icon = null, $parameters = null, $confirmMessage = false)
+	public function linkButtonCatalog ($title, $url, $icon = null, $parameters = null, $confirmMessage = false)
 	{
 		
 		if (!empty($icon) && file_exists(IMAGES . 'icons/buttons/' . $icon)) {

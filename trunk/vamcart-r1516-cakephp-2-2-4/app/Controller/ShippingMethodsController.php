@@ -8,19 +8,19 @@
 App::uses('Folder', 'Utility');
 
 class ShippingMethodsController extends AppController {
-	var $name = 'ShippingMethods';
+	public $name = 'ShippingMethods';
 
-	function admin_change_active_status ($id) 
+	public function admin_change_active_status ($id) 
 	{
 		$this->changeActiveStatus($id);	
 	}
 	
-	function admin_set_as_default ($id)
+	public function admin_set_as_default ($id)
 	{
 		$this->setDefaultItem($id);
 	}
 	
-	function admin_edit ($shipping_method_id)
+	public function admin_edit ($shipping_method_id)
 	{
 		$this->set('current_crumb', __('Edit Shipping Method', true));
 		$this->set('title_for_layout', __('Edit Shipping Method', true));
@@ -64,7 +64,7 @@ class ShippingMethodsController extends AppController {
 		}
 	}
 	
-	function admin ()
+	public function admin ()
 	{
 		$this->set('current_crumb', __('Modules Listing', true));
 		$this->set('title_for_layout', __('Modules Listing', true));
@@ -90,13 +90,13 @@ class ShippingMethodsController extends AppController {
 				
 	}
 
-	function admin_add ()
+	public function admin_add ()
 	{
 		$this->set('current_crumb', __('Module Upload', true));
 		$this->set('title_for_layout', __('Module Upload', true));
 	}
 
-	function admin_upload ()
+	public function admin_upload ()
 	{
 		$this->set('current_crumb', __('Module Upload', true));
 		$this->set('title_for_layout', __('Module Upload', true));

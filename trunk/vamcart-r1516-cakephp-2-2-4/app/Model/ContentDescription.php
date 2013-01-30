@@ -8,10 +8,10 @@
 App::uses('Model', 'AppModel');
 class ContentDescription extends AppModel {
 
-	var $name = 'ContentDescription';
-	var $belongsTo = array('Language');
+	public $name = 'ContentDescription';
+	public $belongsTo = array('Language');
 	
-	var $validate = array(
+	public $validate = array(
 		'content_id' => array(
 			'rule' => 'notEmpty'
 		)

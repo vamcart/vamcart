@@ -7,6 +7,6 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class Module extends AppModel {
-   var $name = 'Module';
+   public $name = 'Module';
 }
 ?>

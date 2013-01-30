@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
 class Admin extends AppModel {
-	var $name = 'Admin';
-	var $useTable = false;
+	public $name = 'Admin';
+	public $useTable = false;
 }
 ?>
