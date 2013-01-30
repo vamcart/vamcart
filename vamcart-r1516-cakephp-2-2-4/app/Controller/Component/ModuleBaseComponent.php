@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class ModuleBaseComponent extends Component 
+class ModuleBaseComponent extends Object 
 {
 	var $components = array('Session');
 	
@@ -15,8 +15,7 @@ class ModuleBaseComponent extends Component
 	}
 
 	public function initialize(Controller &$controller, $settings = array()) {
-     // saving the controller reference for later use
-     $this->controller =& $controller;
+		$this->controller =& $controller;
     }
     
 	public function startup(Controller $controller) {
@@ -33,7 +32,6 @@ class ModuleBaseComponent extends Component
 	
 	function get_version ()
 	{
-
 		$version = intval(file_get_contents(APP . 'Plugin' . DS . $this->controller->plugin . DS . 'version.txt'));
 
 		return $version;
@@ -44,10 +42,10 @@ class ModuleBaseComponent extends Component
 		$current_version = $this->get_version();
 
 		App::import('Model', 'Module');
-		$this->Module =& new Module();
+		$Module =& new Module();
 		
 		$module_alias = substr($this->controller->plugin,7,strlen($this->controller->plugin));
-		$installed_module = $this->Module->find('first', array('conditions' => array('alias' => $module_alias)));
+		$installed_module = $Module->find('first', array('conditions' => array('alias' => $module_alias)));
 		
 		// Make sure we're not upgrading to a lower version.
 		$installed_version = $installed_module['Module']['version'];
@@ -76,14 +74,14 @@ class ModuleBaseComponent extends Component
 
 				foreach($changes AS $change)
 				{
-					$this->Module->execute($change);
+					$Module->execute($change);
 				}
 				$start_file = $end_file;
 			}
 		}
 		
 		$installed_module['Module']['version'] = $current_version;
-		$this->Module->save($installed_module);
+		$Module->save($installed_module);
 	}
 	
 	function create_core_page ($alias,$name,$description)
@@ -99,9 +97,9 @@ class ModuleBaseComponent extends Component
 
 		// Get the default template
 		App::import('Model', 'Template');
-			$this->Template =& new Template();		
+			$Template =& new Template();		
 		
-		$default_template = $this->Template->find('first', array('conditions' => array('default' => '1')));
+		$default_template = $Template->find('first', array('conditions' => array('default' => '1')));
 		$new_page['Content']['template_id'] = $default_template['Template']['id'];
 			
 		$Content->save($new_page);
@@ -127,9 +125,9 @@ class ModuleBaseComponent extends Component
 	function check_if_installed ($module_alias,$redirect = true)
 	{
 		App::import('Model', 'Module');
-		$this->Module =& new Module();
+		$Module =& new Module();
 		
-		$check_count = $this->Module->find('count', array('conditions' => array('Module.alias' => $module_alias)));
+		$check_count = $Module->find('count', array('conditions' => array('Module.alias' => $module_alias)));
 		
 		if(($redirect == true)&&($check_count == 1))
 		{

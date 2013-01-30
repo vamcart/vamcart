@@ -1,6 +1,5 @@
 <?php
 
-App::uses('AppController', 'Controller');
 class DiscountsController extends AppController {
 	var $name = 'Discounts';
         var $uses = array('ContentProductPrice');

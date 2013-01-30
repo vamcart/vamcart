@@ -5,6 +5,7 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
+App::uses('ModuleAbandonedCartsAppController', 'ModuleAbandonedCarts.Controller');
 
 class AdminController extends ModuleAbandonedCartsAppController {
 	var $helpers = array('Time','Admin');

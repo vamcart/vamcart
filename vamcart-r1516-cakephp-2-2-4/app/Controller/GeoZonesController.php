@@ -5,7 +5,6 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-App::uses('AppController', 'Controller');
 class GeoZonesController extends AppController {
 	var $name = 'GeoZones';
 	var $uses = array('Country', 'GeoZone','CountryZone');

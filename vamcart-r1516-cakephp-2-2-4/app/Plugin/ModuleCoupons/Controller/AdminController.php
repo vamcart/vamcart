@@ -5,6 +5,7 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
+App::uses('ModuleCouponsAppController', 'ModuleCoupons.Controller');
 
 class AdminController extends ModuleCouponsAppController {
 	var $helpers = array('Time','Admin');

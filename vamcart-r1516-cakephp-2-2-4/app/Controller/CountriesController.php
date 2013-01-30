@@ -5,7 +5,6 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-App::uses('AppController', 'Controller');
 class CountriesController extends AppController {
 	var $name = 'Countries';
 	var $components = array('RequestHandler');

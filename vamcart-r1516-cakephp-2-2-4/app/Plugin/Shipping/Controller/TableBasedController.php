@@ -5,6 +5,7 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
+App::uses('ShippingAppController', 'Shipping.Controller');
 
 class TableBasedController extends ShippingAppController {
 	var $uses = array('ShippingMethod');

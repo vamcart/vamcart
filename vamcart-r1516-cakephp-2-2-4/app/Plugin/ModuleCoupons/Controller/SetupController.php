@@ -5,6 +5,7 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
+App::uses('ModuleCouponsAppController', 'ModuleCoupons.Controller');
 
 class SetupController extends ModuleCouponsAppController {
 	var $uses = array('Module', 'Content', 'Event');

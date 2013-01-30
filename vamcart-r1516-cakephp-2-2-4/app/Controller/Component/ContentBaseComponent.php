@@ -10,7 +10,7 @@ App::uses('Controller/Component', 'SessionComponent');
 App::uses('Model', 'Content');
 App::uses('Model', 'ContentDescription');
 
-class ContentBaseComponent extends Component
+class ContentBaseComponent extends Object
 {
     var $components = array('Session','Smarty');
 
@@ -38,7 +38,7 @@ class ContentBaseComponent extends Component
 	{
 		// We're loading the Session component here because the smarty plugin can't yet
 		
-		$this->SessionComponent = new SessionComponent(new ComponentCollection());
+		$this->Session = new SessionComponent(new ComponentCollection());
 
 		$this->Content = new Content();
 
