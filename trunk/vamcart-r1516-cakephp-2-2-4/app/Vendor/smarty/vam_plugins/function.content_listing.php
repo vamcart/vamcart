@@ -131,14 +131,11 @@ function smarty_function_content_listing($params, $template)
 		foreach($types AS $type)
 			$allowed_types[] =  $type;
 	}
-
 	$content_list_data_conditions = array('Content.parent_id' => $params['parent'],'Content.active' => '1','Content.show_in_menu' => '1');
 	$Content->recursive = 2;
-        
 
         // Applying pagination for products only
-
-        if($params['type'] == 'product'){
+        if(strpos($params['type'],'product') !== false){
             if($params['page'] == 'all'){
                 $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'order' => array('Content.order ASC')));
                 $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
@@ -197,15 +194,15 @@ function smarty_function_content_listing($params, $template)
 	$vars = $template->smarty->tpl_vars;
 	$vars['content_list'] = $content_list;
 	$vars['count'] = $count;
+	$vars['pages_number'] = 0;
         $vars['page'] = $params['page'];
         $vars['ext'] = $config['URL_EXTENSION'];
 
         
         // Calculating the number of pages
-         if($params['type'] == 'product'){
+         if(strpos($params['type'],'product') !== false){
              $vars['pages_number'] = ceil($content_total/$params['on_page']);
          }
-
          
 	if($config['GD_LIBRARY'] == 0)
 		$vars['thumbnail_width'] = $config['THUMBNAIL_SIZE'];
