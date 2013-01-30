@@ -64,7 +64,7 @@ class PaymentMethodsController extends AppController {
 			// Loop through the extra and save the the PaymentMethodValue table
 			$payment = $this->PaymentMethod->read(null,$id);
 			$type_key = strtolower($payment['PaymentMethod']['alias']);
-			
+			if (isset($this->data[$type_key])) {
 			foreach($this->data[$type_key] AS $key => $value)
 			{
 				$original_value = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => $key,'payment_method_id' => $id)));
@@ -73,6 +73,7 @@ class PaymentMethodsController extends AppController {
 				$original_value['PaymentMethodValue']['value'] = $value;				
 
 				$this->PaymentMethod->PaymentMethodValue->save($original_value);
+			}
 			}
 			
 			$this->Session->setFlash(__('Record saved.',true));
