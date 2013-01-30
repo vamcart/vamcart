@@ -21,10 +21,21 @@ class GzipComponent extends Object{
 	 * @author Felix Geisendörfer
 	 * @link http://debuggable.com/posts/issues-with-output-buffering-in-cakephp:480f4dd5-b4fc-42a7-a5ab-4544cbdd56cb
 	 **/
-	 public function initialize(Controller $controller) {
+	function beforeFilter ()
+	{
+		
 	}
-	
-	public function  beforeRender(Controller $controller){
+
+    public function initialize(Controller $controller) {
+	}
+    
+public function shutdown(Controller $controller) {
+	}
+    
+public function  beforeRender(Controller $controller){
+	}
+
+public function beforeRedirect(Controller $controller){
 	}
 	 
 	public function startup(Controller $controller){

@@ -28,8 +28,8 @@ function smarty_function_module($params, $template)
 	
 
 	
-	App::import('Component', 'Smarty');
-	$Smarty =& new SmartyComponent();
+	App::uses('SmartyComponent', 'Controller/Component');
+	$Smarty =& new SmartyComponent(new ComponentCollection());
 	
 	
 	$assignments = $Smarty->requestAction('/module_' . $params['alias'] . '/' . $params['controller'] . '/' . $params['action'] .'/');

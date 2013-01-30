@@ -74,7 +74,7 @@ class EventController extends ModuleCouponsAppController {
 		$this->OrderProduct->save($coupon_product);
 		
 		// Save the new order totals
-		App::import('Component', 'Order');
+		App::import('Model', 'Order');
 		$this->Order =& new Order();
 		
 		$order = $this->Order->read(null,$_SESSION['Customer']['order_id']);

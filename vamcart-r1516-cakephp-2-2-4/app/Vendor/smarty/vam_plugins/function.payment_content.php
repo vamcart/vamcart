@@ -17,8 +17,8 @@ function smarty_function_payment_content($params, $template)
 	 **/	
 	global $config;
 	
-	App::import('Component', 'Smarty');
-		$Smarty =& new SmartyComponent();
+	App::uses('SmartyComponent', 'Controller/Component');
+		$Smarty =& new SmartyComponent(new ComponentCollection());
 
 	$payment_content = $Smarty->requestAction( '/payment/' . $params['alias'] . '/before_process/');	
 

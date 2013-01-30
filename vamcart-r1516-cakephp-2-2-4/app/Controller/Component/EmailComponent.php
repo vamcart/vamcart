@@ -5,8 +5,24 @@
 * @see http://bakery.cakephp.org/articles/view/94
 */
 
-class EmailComponent extends Object
+class EmailComponent extends Component
 {     
+
+   public function initialize(Controller $controller) {
+	}
+    
+	public function startup(Controller $controller) {
+	}
+
+	public function shutdown(Controller $controller) {
+	}
+    
+	public function beforeRender(Controller $controller){
+	}
+
+	public function beforeRedirect(Controller $controller){
+	}
+	
     /**
      * PHPMailer object.
      * 

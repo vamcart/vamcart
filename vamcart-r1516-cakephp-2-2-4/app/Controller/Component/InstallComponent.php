@@ -6,28 +6,27 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class InstallComponent extends Object 
+class InstallComponent extends Component 
 {
     var $components = array('Session','Smarty');
 
-	function beforeFilter ()
+	public function beforeFilter ()
 	{
-		
 	}
 
-    public function initialize(Controller $controller) {
+	public function initialize(Controller $controller) {
 	}
     
-public function startup(Controller $controller) {
+	public function startup(Controller $controller) {
 	}
 
-public function shutdown(Controller $controller) {
+	public function shutdown(Controller $controller) {
 	}
     
-public function  beforeRender(Controller $controller){
+	public function beforeRender(Controller $controller){
 	}
 
-public function beforeRedirect(Controller $controller){
+	public function beforeRedirect(Controller $controller){
 	}
 
 	function getVersion ()

@@ -17,8 +17,8 @@ function smarty_function_content($params, $template)
 		ob_start();
 
 		// Load the smarty component because we're coming from a plugin
-		App::import('Component', 'Smarty');
-		$Smarty =& new SmartyComponent();
+		App::uses('SmartyComponent', 'Controller/Component');
+		$Smarty =& new SmartyComponent(new ComponentCollection());
 
 		// Load the template model and get the sub-template from the databse
 		App::import('Model', 'Template');

@@ -20,8 +20,8 @@ function smarty_function_product_quantity($params, $template)
 	$results = Cache::read($cache_name);
 	if($results === false)
 	{	
-		App::import('Component', 'Smarty');
-			$Smarty =& new SmartyComponent();
+		App::uses('SmartyComponent', 'Controller/Component');
+			$Smarty =& new SmartyComponent(new ComponentCollection());
 
 		$results = $Smarty->load_template($params,'product_quantity');
 

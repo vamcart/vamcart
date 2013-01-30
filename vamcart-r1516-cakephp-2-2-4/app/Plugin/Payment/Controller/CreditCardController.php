@@ -45,8 +45,8 @@ class CreditCardController extends PaymentAppController {
 
 	function process_payment ()
 	{
-		App::import('Component', 'CustomerBase');		
-		$this->CustomerBase =& new CustomerBaseComponent();
+		App::uses('CustomerBaseComponent', 'Controller/Component');	
+		$this->CustomerBase =& new CustomerBaseComponent(new ComponentCollection());
 		
 		$this->CustomerBase->save_customer_details($this->data['CreditCard']);
 		

@@ -37,8 +37,8 @@ function smarty_function_contact_us($params, $template)
 	{
 	ob_start();
 	
-	App::import('Component', 'Smarty');
-	$Smarty =& new SmartyComponent();
+	App::uses('SmartyComponent', 'Controller/Component');
+	$Smarty =& new SmartyComponent(new ComponentCollection());
 
 	$display_template = $Smarty->load_template($params,'contact_us');	
 	$Smarty->display($display_template);

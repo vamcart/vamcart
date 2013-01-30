@@ -177,11 +177,11 @@ function smarty_function_checkout($params, $template)
 	/*
 	 *  Load some necessary models
 	 **/	
-	App::import('Component', 'Smarty');
-		$Smarty =& new SmartyComponent();
+	App::uses('SmartyComponent', 'Controller/Component');
+		$Smarty =& new SmartyComponent(new ComponentCollection());
 
-	App::import('Component', 'CurrencyBase');
-		$CurrencyBase =& new CurrencyBaseComponent();		
+	App::uses('CurrencyBaseComponent', 'Controller/Component');
+		$CurrencyBase =& new CurrencyBaseComponent(new ComponentCollection());		
 	
 	App::import('Model', 'Order');
 		$Order =& new Order();

@@ -6,27 +6,26 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class UserTagBaseComponent extends Object 
+class UserTagBaseComponent extends Component 
 {
 
-	function beforeFilter ()
+	public function beforeFilter ()
 	{
-		
 	}
 
-    public function initialize(Controller $controller) {
+	public function initialize(Controller $controller) {
 	}
     
-public function startup(Controller $controller) {
+	public function startup(Controller $controller) {
 	}
 
-public function shutdown(Controller $controller) {
+	public function shutdown(Controller $controller) {
 	}
     
-public function  beforeRender(Controller $controller){
+	public function beforeRender(Controller $controller){
 	}
 
-public function beforeRedirect(Controller $controller){
+	public function beforeRedirect(Controller $controller){
 	}
 
 	function call_user_tag ($params)

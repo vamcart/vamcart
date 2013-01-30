@@ -13,7 +13,7 @@ function smarty_function_search_result($params, $template)
 	$clean->paranoid($_GET);
 
 	App::uses('SmartyComponent', 'Controller/Component');
-	$Smarty =& new SmartyComponent();
+	$Smarty =& new SmartyComponent(new ComponentCollection());
 
 	$params['on_page'] = $config['PRODUCTS_PER_PAGE'];
 

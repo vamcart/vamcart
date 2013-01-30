@@ -6,22 +6,22 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class CustomerBaseComponent extends Object 
+class CustomerBaseComponent extends Component 
 {
 
    public function initialize(Controller $controller) {
 	}
     
-public function startup(Controller $controller) {
+	public function startup(Controller $controller) {
 	}
 
-public function shutdown(Controller $controller) {
+	public function shutdown(Controller $controller) {
 	}
     
-public function  beforeRender(Controller $controller){
+	public function beforeRender(Controller $controller){
 	}
 
-public function beforeRedirect(Controller $controller){
+	public function beforeRedirect(Controller $controller){
 	}
 
 	/**
@@ -32,8 +32,8 @@ public function beforeRedirect(Controller $controller){
 	function save_customer_details ($customer_details)
 	{
 
-		App::import('Component', 'EventBase');
-		$this->EventBase =& new EventBaseComponent();
+		App::uses('EventBaseComponent', 'Controller/Component');
+		$this->EventBase =& new EventBaseComponent(new ComponentCollection());
 		
 		App::import('Model', 'Order');
 		$this->Order =& new Order();

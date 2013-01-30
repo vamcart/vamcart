@@ -33,8 +33,8 @@ function smarty_function_language_box($params, $template)
 
 	global $content;
 	
-	App::import('Component', 'Smarty');
-		$Smarty =& new SmartyComponent();
+	App::uses('SmartyComponent', 'Controller/Component');
+		$Smarty =& new SmartyComponent(new ComponentCollection());
 
 	App::import('Model', 'Language');
 		$Language =& new Language();

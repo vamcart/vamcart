@@ -6,9 +6,28 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class SummaComponent extends Object 
+class SummaComponent extends Component 
 {
 
+	public function beforeFilter ()
+	{
+	}
+
+	public function initialize(Controller $controller) {
+	}
+    
+	public function startup(Controller $controller) {
+	}
+
+	public function shutdown(Controller $controller) {
+	}
+
+	public function beforeRender(Controller $controller){
+	}
+	
+	public function beforeRedirect(Controller $controller){
+	}
+	
 var $diw=Array(    0 =>    Array(    0  => Array( 0=> "ноль",    1=>1), 
                 1  => Array( 0=> "",        1=>2), 
                 2  => Array( 0=> "",        1=>3), 
@@ -117,15 +136,5 @@ function get_string($summ,$nominal){
  return trim($retval); 
 } 
 
-	function beforeFilter ()
-	{
-		
-	}
-
-    function startup(&$controller)
-	{
-    }
-	
-	
 }
 ?>
