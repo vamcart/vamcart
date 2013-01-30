@@ -6,26 +6,26 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class CurrencyBaseComponent extends Object 
+class CurrencyBaseComponent extends Component 
 {
 
-	function beforeFilter ()
+	public function beforeFilter ()
 	{
-		
 	}
 
-    public function initialize(Controller $controller) {
+   public function initialize(Controller $controller) {
 	}
     
-public function startup(Controller $controller) {
+	public function startup(Controller $controller) {
 	}
 
-public function shutdown(Controller $controller) {
+	public function shutdown(Controller $controller) {
 	}
-public function  beforeRender(Controller $controller){
+	
+	public function beforeRender(Controller $controller){
 	}
 
-public function beforeRedirect(Controller $controller){
+	public function beforeRedirect(Controller $controller){
 	}
 
 	function display_price ($price)
@@ -36,9 +36,9 @@ public function beforeRedirect(Controller $controller){
 		{
 		
 			App::import('Model', 'Currency');
-				$this->Currency =& new Currency();
+			$Currency =& new Currency();
 	
-			$currency = $this->Currency->read(null, $_SESSION['Customer']['currency_id']);
+			$currency = $Currency->read(null, $_SESSION['Customer']['currency_id']);
 
 			Cache::write('vam_currency_' . $_SESSION['Customer']['currency_id'], $currency);
 		}

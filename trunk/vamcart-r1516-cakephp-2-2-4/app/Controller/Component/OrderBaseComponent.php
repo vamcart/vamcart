@@ -5,37 +5,38 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-   App::uses('Controller/Component', 'ContentBaseComponent');
-   App::import('Model', 'Content');
-   App::import('Model', 'ContentDescription');
-   App::import('Model', 'Order');
-   App::import('Model', 'ContentProduct');
-   App::import('Model', 'ContentDownloadable');
-class OrderBaseComponent extends Object
+App::uses('ContentBaseComponent', 'Controller/Component');
+App::uses('EventBaseComponent', 'Controller/Component');
+App::import('Model', 'Content');
+App::import('Model', 'ContentDescription');
+App::import('Model', 'Order');
+App::import('Model', 'ContentProduct');
+App::import('Model', 'ContentDownloadable');
+
+class OrderBaseComponent extends Component
 {
 
 	public function initialize(Controller $controller) {
 	}
     
-public function startup(Controller $controller) {
+	public function startup(Controller $controller) {
 	$this->load_models();
 	}
 
-public function shutdown(Controller $controller) {
+	public function shutdown(Controller $controller) {
 	}
     
-public function  beforeRender(Controller $controller){
+	public function beforeRender(Controller $controller){
 	}
 
-public function beforeRedirect(Controller $controller){
+	public function beforeRedirect(Controller $controller){
 	}
-
 
 	function load_models()
 	{
 	
 		
-		//$this->ContentBase = new ContentBaseComponent(new ComponentCollection);
+		$this->ContentBase = new ContentBaseComponent(new ComponentCollection());
 
 		
 		$this->Content = new Content();
@@ -82,9 +83,9 @@ public function beforeRedirect(Controller $controller){
 		$shipping = Inflector::classify($order['ShippingMethod']['code']);
 		$shipping_controller =  Inflector::classify($order['ShippingMethod']['code']) . 'Controller';
 		 App::import('Controller', 'Shipping.'.$shipping);
-		$this->MethodBase =& new $shipping_controller();
+		$MethodBase =& new $shipping_controller();
 
-		$shipping_total = $this->MethodBase->calculate();
+		$shipping_total = $MethodBase->calculate();
 
 		return $shipping_total;
 	}
@@ -122,12 +123,11 @@ public function beforeRedirect(Controller $controller){
 		$order['Order']['tax'] = $this->get_order_tax($order);
 		$order['Order']['total'] = $this->get_order_total($order) + $order['Order']['tax'] + $order['Order']['shipping'] ;
 
-		App::import('Component', 'EventBase');
-		$this->EventBase =& new EventBaseComponent();
+		$EventBase =& new EventBaseComponent(new ComponentCollection());
 
-		$this->EventBase->ProcessEvent('UpdateOrderTotalsBeforeSave');
+		$EventBase->ProcessEvent('UpdateOrderTotalsBeforeSave');
 		$this->Order->save($order);
-		$this->EventBase->ProcessEvent('UpdateOrderTotalsAfterSave');
+		$EventBase->ProcessEvent('UpdateOrderTotalsAfterSave');
 	}
 
 	function remove_product ($product_id, $qty = 1)
@@ -136,10 +136,9 @@ public function beforeRedirect(Controller $controller){
 
 		$order_product = $this->Order->OrderProduct->find('first', array('conditions' => array('content_id' => $product_id,'order_id' => $_SESSION['Customer']['order_id'])));
 
-		App::import('Component', 'EventBase');
-		$this->EventBase =& new EventBaseComponent();
+		$EventBase =& new EventBaseComponent(new ComponentCollection());
 
-		$this->EventBase->ProcessEvent('RemoveFromCartBeforeSave');
+		$EventBase->ProcessEvent('RemoveFromCartBeforeSave');
 
 		if($order_product['OrderProduct']['quantity'] <= $qty) {
 			$this->Order->OrderProduct->delete($order_product['OrderProduct']['id']);
@@ -148,7 +147,7 @@ public function beforeRedirect(Controller $controller){
 			$this->Order->OrderProduct->save($order_product);
 		}
 
-		$this->EventBase->ProcessEvent('RemoveFromCartAfterSave');
+		$EventBase->ProcessEvent('RemoveFromCartAfterSave');
 
 		$this->update_order_totals();
 	}
@@ -246,12 +245,11 @@ public function beforeRedirect(Controller $controller){
 			}
 		}
 
-		App::import('Component', 'EventBase');
-		$this->EventBase =& new EventBaseComponent();
+		$EventBase =& new EventBaseComponent(new ComponentCollection());
 
-		$this->EventBase->ProcessEvent('AddToCartBeforeSave');
+		$EventBase->ProcessEvent('AddToCartBeforeSave');
 		$this->Order->OrderProduct->save($order_product);
-		$this->EventBase->ProcessEvent('AddToCartAfterSave');
+		$EventBase->ProcessEvent('AddToCartAfterSave');
 
 		$this->update_order_totals();
 	}

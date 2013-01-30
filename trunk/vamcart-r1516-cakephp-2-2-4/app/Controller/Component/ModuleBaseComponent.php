@@ -6,29 +6,29 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class ModuleBaseComponent extends Object 
+class ModuleBaseComponent extends Component 
 {
 	var $components = array('Session');
 	
-	function beforeFilter ()
+	public function beforeFilter ()
 	{
 	}
 
- function initialize(Controller &$controller, $settings = array()) {
-        // saving the controller reference for later use
-        $this->controller =& $controller;
+	public function initialize(Controller &$controller, $settings = array()) {
+     // saving the controller reference for later use
+     $this->controller =& $controller;
     }
     
-public function startup(Controller $controller) {
+	public function startup(Controller $controller) {
 	}
 
-public function shutdown(Controller $controller) {
+	public function shutdown(Controller $controller) {
 	}
     
-public function  beforeRender(Controller $controller){
+	public function beforeRender(Controller $controller){
 	}
 
-public function beforeRedirect(Controller $controller){
+	public function beforeRedirect(Controller $controller){
 	}
 	
 	function get_version ()
@@ -89,7 +89,7 @@ public function beforeRedirect(Controller $controller){
 	function create_core_page ($alias,$name,$description)
 	{
 		App::import('Model', 'Content');
-			$this->Content =& new Content();		
+			$Content =& new Content();		
 
 		$new_page = array();
 		$new_page['Content']['alias'] = $alias;
@@ -104,11 +104,11 @@ public function beforeRedirect(Controller $controller){
 		$default_template = $this->Template->find('first', array('conditions' => array('default' => '1')));
 		$new_page['Content']['template_id'] = $default_template['Template']['id'];
 			
-		$this->Content->save($new_page);
-		$new_page_id = $this->Content->getLastInsertId();			
+		$Content->save($new_page);
+		$new_page_id = $Content->getLastInsertId();			
 		
 		// Get all of the active languages
-		$languages = $this->Content->ContentDescription->Language->find('all', array('conditions' => array('active' => '1')));
+		$languages = $Content->ContentDescription->Language->find('all', array('conditions' => array('active' => '1')));
 		
 		// Loop through the languages, saving each one.
 		foreach($languages AS $language)
@@ -119,8 +119,8 @@ public function beforeRedirect(Controller $controller){
 			$new_description['ContentDescription']['name'] = $name;
 			$new_description['ContentDescription']['description'] = $description;						
 			
-			$this->Content->ContentDescription->create();
-			$this->Content->ContentDescription->save($new_description);
+			$Content->ContentDescription->create();
+			$Content->ContentDescription->save($new_description);
 		}
 	}
 	

@@ -23,8 +23,8 @@ function smarty_function_shipping($params, $template)
 	global $config;
 	global $order;		
 		
-	App::import('Component', 'Smarty');
-		$Smarty =& new SmartyComponent();
+	App::uses('SmartyComponent', 'Controller/Component');
+		$Smarty =& new SmartyComponent(new ComponentCollection());
 
 	App::import('Model', 'ShippingMethod');
 		$ShippingMethod =& new ShippingMethod();

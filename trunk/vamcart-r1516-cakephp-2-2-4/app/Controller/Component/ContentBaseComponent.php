@@ -5,31 +5,33 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
+
 App::uses('Controller/Component', 'SessionComponent');
-	App::uses('Model', 'Content');
-		App::uses('Model', 'ContentDescription');
+App::uses('Model', 'Content');
+App::uses('Model', 'ContentDescription');
+
 class ContentBaseComponent extends Component
 {
     var $components = array('Session','Smarty');
 
-	function beforeFilter ()
+	public function beforeFilter ()
 	{
-
 	}
-public function initialize(Controller $controller) {
+	
+	public function initialize(Controller $controller) {
 	}
     
-public function startup(Controller $controller) {
+	public function startup(Controller $controller) {
 	$this->load_models();
 	}
 
-public function shutdown(Controller $controller) {
+	public function shutdown(Controller $controller) {
 	}
     
-public function  beforeRender(Controller $controller){
+	public function beforeRender(Controller $controller){
 	}
 	
-public function beforeRedirect(Controller $controller){
+	public function beforeRedirect(Controller $controller){
 	}
 
 	function load_models ()

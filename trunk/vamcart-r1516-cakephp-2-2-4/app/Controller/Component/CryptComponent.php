@@ -35,28 +35,28 @@
  *   echo $ccs->binDecrypt('1234567890abcdef', 'xyz');
  **/
 
-class CryptComponent extends Object
+class CryptComponent extends Component
 {
 
   var $r; // random number or 10byte key
   var $csl; // (CSL) CS N length for CS2
 
-	function beforeFilter ()	{	}
-public function initialize(Controller $controller) {
+	public function beforeFilter ()	{	}
+	
+	public function initialize(Controller $controller) {
 	}
     
-public function startup(Controller $controller) {
+	public function startup(Controller $controller) {
 	}
 
-public function shutdown(Controller $controller) {
+	public function shutdown(Controller $controller) {
 	}
 
-public function beforeRedirect(Controller $controller){
+	public function beforeRedirect(Controller $controller){
 	}
     
-public function  beforeRender(Controller $controller){
+	public function beforeRender(Controller $controller){
 	}
-
 
   /**
    * Constructor

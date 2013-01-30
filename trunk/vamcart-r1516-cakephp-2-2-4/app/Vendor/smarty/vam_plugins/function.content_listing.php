@@ -70,7 +70,7 @@ function smarty_function_content_listing($params, $template)
 		
 	// Load some necessary components & models
 	App::uses('SmartyComponent', 'Controller/Component');
-		$Smarty =& new SmartyComponent();
+		$Smarty =& new SmartyComponent(new ComponentCollection());
 
 	App::import('Model', 'Content');
 		$Content =& new Content();		

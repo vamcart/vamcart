@@ -17,8 +17,8 @@ function smarty_function_shipping_content($params, $template)
 	 **/	
 	global $config;
 	
-	App::import('Component', 'Smarty');
-		$Smarty =& new SmartyComponent();
+	App::uses('SmartyComponent', 'Controller/Component');
+		$Smarty =& new SmartyComponent(new ComponentCollection());
 
 	$shipping_content = $Smarty->requestAction( '/shipping/' . $params['alias'] . '/before_process/');	
 

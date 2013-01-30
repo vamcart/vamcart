@@ -6,26 +6,26 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class LocaleComponent extends Object
+class LocaleComponent extends Component
 {
 
-	function beforeFilter ()
+	public function beforeFilter ()
 	{
-		
-	}
-public function initialize(Controller $controller) {
-	}
-    
-public function startup(Controller $controller) {
 	}
 
-public function shutdown(Controller $controller) {
+	public function initialize(Controller $controller) {
 	}
     
-public function  beforeRender(Controller $controller){
+	public function startup(Controller $controller) {
 	}
 
-public function beforeRedirect(Controller $controller){
+	public function shutdown(Controller $controller) {
+	}
+    
+	public function beforeRender(Controller $controller){
+	}
+
+	public function beforeRedirect(Controller $controller){
 	}
 	
 	function custom_crumb ($format, $language_key, $count = 1)
