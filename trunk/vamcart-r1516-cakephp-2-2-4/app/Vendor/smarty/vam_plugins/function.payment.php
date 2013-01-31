@@ -27,7 +27,7 @@ function smarty_function_payment($params, $template)
 		$Smarty =& new SmartyComponent(new ComponentCollection());
 
 	App::uses('PaymentMethodBaseComponent', 'Controller/Component');
-		$PaymentMethodBase =& new PaymentMethodBaseComponent();
+		$PaymentMethodBase =& new PaymentMethodBaseComponent(new ComponentCollection());
 
 	App::import('Model', 'PaymentMethod');
 		$PaymentMethod =& new PaymentMethod();

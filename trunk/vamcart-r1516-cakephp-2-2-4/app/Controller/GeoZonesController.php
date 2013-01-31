@@ -92,7 +92,7 @@ class GeoZonesController extends AppController {
 		$this->set(compact('data'));
 	}
 	
-	public function admin_new ($geo_zone_id)
+	public function admin_new ($geo_zone_id = null)
 	{
 		$this->redirect('/geo_zones/admin_edit/' . $geo_zone_id);
 	}

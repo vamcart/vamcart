@@ -5,7 +5,7 @@
 * @see http://bakery.cakephp.org/articles/view/94
 */
 
-class EmailComponent extends Component
+class EmailComponent extends Object
 {     
 
    public function initialize(Controller $controller) {

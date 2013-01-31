@@ -1,5 +1,5 @@
 <?php/* -----------------------------------------------------------------------------------------   VamCart - http://vamcart.com   -----------------------------------------------------------------------------------------   Copyright (c) 2011 VamSoft Ltd.
-   License - http://vamcart.com/license.html   ---------------------------------------------------------------------------------------*/class CheckComponent extends Component{    public $data;	public function beforeFilter ()	{	}
+   License - http://vamcart.com/license.html   ---------------------------------------------------------------------------------------*/class CheckComponent extends Object{    public $data;	public function beforeFilter ()	{	}
 
 	public function initialize(Controller $controller) {
 	}
