@@ -1,20 +1,43 @@
 <?php
-/* -----------------------------------------------------------------------------------------
-   VamCart - http://vamcart.com
-   -----------------------------------------------------------------------------------------
-   Copyright (c) 2011 VamSoft Ltd.
-   License - http://vamcart.com/license.html
-   ---------------------------------------------------------------------------------------*/
+/**
+ * Static content controller.
+ *
+ * This file will render views from views/pages/
+ *
+ * PHP 5
+ *
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ *
+ * Licensed under The MIT License
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       app.Controller
+ * @since         CakePHP(tm) v 0.2.9
+ * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ */
 
+
+/**
+ * Static content controller
+ *
+ * Override this controller by placing a copy in controllers directory of an application
+ *
+ * @package       app.Controller
+ * @link http://book.cakephp.org/2.0/en/controllers/pages-controller.html
+ */
 class PagesController extends AppController {
-	var $components = array('ConfigurationBase', 'ContentBase', 'Smarty', 'Gzip.Gzip');
-	var $uses = null;
-	var $autoLayout = false;
-	var $autoRender = false;
-	var $helpers = null;
-	var $layout = null;
 
-	function beforeFilter()
+public $components = array('ConfigurationBase', 'ContentBase', 'Smarty', 'Gzip.Gzip');
+	public $uses = null;
+	public $autoLayout = false;
+	public $autoRender = false;
+	public $helpers = null;
+	public $layout = null;
+
+	public function beforeFilter()
 	{
 		// This redirects the user to the install script if the config.php filesize is empty.
 		if ($this->action == 'index') {
@@ -30,7 +53,7 @@ class PagesController extends AppController {
 
 	}
 
-	function getAliasFromParams ($params)
+	public function getAliasFromParams ($params)
 	{
 		global $config;
 
@@ -43,13 +66,13 @@ class PagesController extends AppController {
 		return $content_alias;
 	}
 
-	function index()
+	public function index()
 	{
 		global $content;
 		global $config;
 
 		App::import('Model', 'Content');
-		$this->Content =& new Content();
+		$this->Content = new Content();
 
 		$alias = $this->getAliasFromParams($this->params);
 
@@ -62,10 +85,11 @@ class PagesController extends AppController {
 		{
 			$content = $this->ContentBase->get_content_information($alias);
 			$content_description = $this->ContentBase->get_content_description($content['Content']['id']);
+
 			$content['ContentDescription'] = $content_description['ContentDescription'];
 
 			$specific_model = $content['ContentType']['type'];
-			$specific_content = $this->Content->$specific_model->find(array('content_id' => $content['Content']['id']));
+			$specific_content = $this->Content->$specific_model->find('first', array('conditions' => array('content_id' => $content['Content']['id'])));
 			//$content[$specific_model] = $specific_content[$specific_model];
 			foreach($specific_content as $key=>$value) {
 				$content[$key] = $value;
@@ -96,7 +120,7 @@ class PagesController extends AppController {
 		$cache_name = 'vam_layout_template_' . $content['Content']['id'];
 		$template = Cache::read($cache_name);
 		if ($template === false) {
-			$template = $this->Content->Template->find(array('template_type_id' => '1', 'parent_id' => $content['Template']['id']));
+			$template = $this->Content->Template->find('first', array('conditions' => array('template_type_id' => '1', 'parent_id' => $content['Template']['id'])));
 			Cache::write($cache_name, $template);
 		}
 		// Save cache based on content_id for template_vars.
@@ -136,4 +160,3 @@ class PagesController extends AppController {
 		die();
 	}
 }
-?>

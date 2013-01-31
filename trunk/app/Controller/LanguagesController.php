@@ -5,19 +5,18 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-
 class LanguagesController extends AppController {
-	var $name = 'Languages';
-	var $components = array('EventBase');	
+	public $name = 'Languages';
+	public $components = array('EventBase');	
 	
-	function pick_language($language_id,$redirect = null) 
+	public function pick_language($language_id,$redirect = null) 
 	{
 		$this->Session->write('Customer.language_id', $language_id);
 
 		// Set Config.language
 		App::import('Model', 'Language');
 		$this->Language =& new Language();		
-		$default_language = $this->Language->find(array('id' => $language_id));
+		$default_language = $this->Language->find('first', array('conditions' => array('id' => $language_id)));
 
 		$this->Session->write('Config.language', $default_language['Language']['code']);
 		$this->Session->write('Customer.language', $default_language['Language']['iso_code_2']);
@@ -34,17 +33,17 @@ class LanguagesController extends AppController {
 		
 	}
 
-	function admin_change_active_status ($id) 
+	public function admin_change_active_status ($id) 
 	{
 		$this->changeActiveStatus($id);	
 	}
 		
-	function admin_set_as_default ($language_id)
+	public function admin_set_as_default ($language_id)
 	{
 		$this->setDefaultItem($language_id);
 	}
 
-	function admin_delete ($language_id)
+	public function admin_delete ($language_id)
 	{
 		// Get the language and make sure it's not the default
 		$this->Language->id = $language_id;
@@ -64,12 +63,12 @@ class LanguagesController extends AppController {
 	}
 	
 	
-	function admin_edit ($language_id = null)
+	public function admin_edit ($language_id = null)
 	{
 		$this->set('current_crumb', __('Language Details', true));
 		$this->set('title_for_layout', __('Language Details', true));
 		// If they pressed cancel
-		if(isset($this->params['form']['cancelbutton']))
+		if(isset($this->data['cancelbutton']))
 		{
 			$this->redirect('/languages/admin/');
 			die();
@@ -77,22 +76,22 @@ class LanguagesController extends AppController {
 		
 		if(empty($this->data))
 		{
-			$this->data = $this->Language->read(null,$language_id);
+			$this->request->data = $this->Language->read(null,$language_id);
 		}
 		else
 		{
 			$this->Language->save($this->data);		
 			$this->Session->setFlash(__('Record created.', true));
-			$this->redirect('/languages/admin');
+			$this->redirect('/languages/admin/');
 		}		
 	}
 	
-	function admin_new() 
+	public function admin_new() 
 	{
 		$this->redirect('/languages/admin_edit/');
 	}
 	
-	function admin_modify_selected() 	
+	public function admin_modify_selected() 	
 	{
 		$build_flash = "";
 		foreach($this->params['data']['Language']['modify'] AS $value)
@@ -103,7 +102,7 @@ class LanguagesController extends AppController {
 				$this->Language->id = $value;
 				$language = $this->Language->read();
 		
-				switch ($this->params['form']['multiaction']) 
+				switch ($this->data['multiaction']) 
 				{
 					case "delete":
 						// Make sure it's not the default language
@@ -142,7 +141,7 @@ class LanguagesController extends AppController {
 		$this->redirect('/languages/admin/');
 	}	
 	
-	function admin ($ajax = false)
+	public function admin ($ajax = false)
 	{
 		$this->set('current_crumb', __('Languages Listing', true));
 		$this->set('title_for_layout', __('Languages Listing', true));

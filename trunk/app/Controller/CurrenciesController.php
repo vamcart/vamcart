@@ -5,12 +5,11 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-
 class CurrenciesController extends AppController {
-	var $name = 'Currencies';
-	var $components = array('EventBase');
+	public $name = 'Currencies';
+	public $components = array('EventBase');
 
-	function pick_currency ()
+	public function pick_currency ()
 	{
 		$this->Session->write('Customer.currency_id', $_POST['currency_picker']);
 		
@@ -31,17 +30,17 @@ class CurrenciesController extends AppController {
 		$this->redirect($_SERVER['HTTP_REFERER']);
 	}
 		
-	function admin_change_active_status ($id) 
+	public function admin_change_active_status ($id) 
 	{
 		$this->changeActiveStatus($id);	
 	}
 	
-	function admin_set_as_default ($currency_id)
+	public function admin_set_as_default ($currency_id)
 	{
 		$this->setDefaultItem($currency_id);
 	}
 
-	function admin_delete ($currency_id)
+	public function admin_delete ($currency_id)
 	{
 		// Get the currency and make sure it's not the default
 		$this->Currency->id = $currency_id;
@@ -61,12 +60,12 @@ class CurrenciesController extends AppController {
 	}
 	
 	
-	function admin_edit ($currency_id = null)
+	public function admin_edit ($currency_id = null)
 	{
 		$this->set('current_crumb', __('Currency Details', true));
 		$this->set('title_for_layout', __('Currency Details', true));
 		// If they pressed cancel
-		if(isset($this->params['form']['cancelbutton']))
+		if(isset($this->data['cancelbutton']))
 		{
 			$this->redirect('/currencies/admin/');
 			die();
@@ -74,7 +73,7 @@ class CurrenciesController extends AppController {
 		
 		if(empty($this->data))
 		{
-			$this->data = $this->Currency->read(null,$currency_id);
+			$this->request->data = $this->Currency->read(null,$currency_id);
 		}
 		else
 		{
@@ -84,12 +83,12 @@ class CurrenciesController extends AppController {
 		}		
 	}
 	
-	function admin_new() 
+	public function admin_new() 
 	{
 		$this->redirect('/currencies/admin_edit/');
 	}
 	
-	function admin_modify_selected() 	
+	public function admin_modify_selected() 	
 	{
 		$build_flash = "";
 		foreach($this->params['data']['Currency']['modify'] AS $value)
@@ -100,7 +99,7 @@ class CurrenciesController extends AppController {
 				$this->Currency->id = $value;
 				$currency = $this->Currency->read();
 		
-				switch ($this->params['form']['multiaction']) 
+				switch ($this->data['multiaction']) 
 				{
 					case "delete":
 						// Make sure it's not the default currency
@@ -139,7 +138,7 @@ class CurrenciesController extends AppController {
 		$this->redirect('/currencies/admin/');
 	}	
 	
-	function admin ($ajax = false)
+	public function admin ($ajax = false)
 	{
 		$this->set('current_crumb', __('Currencies Listing', true));
 		$this->set('title_for_layout', __('Currencies Listing', true));

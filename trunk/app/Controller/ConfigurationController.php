@@ -5,25 +5,24 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-
 class ConfigurationController extends AppController {
-	var $name = 'Configuration';
-	var $uses = array('Configuration', 'ConfigurationGroup');
+	public $name = 'Configuration';
+	public $uses = array('Configuration', 'ConfigurationGroup');
 	
-	function admin_clear_cache ()
+	public function admin_clear_cache ()
 	{
 		Cache::clear();
 		$this->Session->setFlash(__('Cache cleared.',true));
 		$this->redirect('/configuration/admin/');
 	}
 	
-	function admin_edit ()
+	public function admin_edit ()
 	{
 		$this->set('current_crumb', __('Store Configuration', true));
 		$this->set('title_for_layout', __('Store Configuration', true));
 		if(!empty($this->data))
 		{
-			if(isset($this->params['form']['cancelbutton']))
+			if(isset($this->data['cancelbutton']))
 			{
 				$this->redirect('/configuration/admin/');
 				die();
@@ -31,7 +30,7 @@ class ConfigurationController extends AppController {
 						
 			foreach($this->data['Configuration'] AS $key => $value)
 			{
-				$current_config = $this->Configuration->find(array('key' => $key));
+				$current_config = $this->Configuration->find('first', array('conditions' => array('key' => $key)));
 				$current_config['Configuration']['value'] = $value;
 				$this->Configuration->save($current_config);
 			}
@@ -51,7 +50,7 @@ class ConfigurationController extends AppController {
 		$this->set('configuration_values',$keyed_config_values);
 	}
 	
-	function admin ()
+	public function admin ()
 	{
 		$this->set('current_crumb', __('Store Configuration', true));
 		$this->set('title_for_layout', __('Store Configuration', true));

@@ -5,14 +5,13 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-
 class UsersController extends AppController {
-	var $name = 'Users';
-	var $uses = array('User', 'UserPref', 'Language');
-	var $helpers = array('Html','Javascript','Admin','Form');
-	var $components = array('Locale');
+	public $name = 'Users';
+	public $uses = array('User', 'UserPref', 'Language');
+	public $helpers = array('Html','Js','Admin','Form');
+	public $components = array('Locale');
 	
-	function admin_delete ($user_id)
+	public function admin_delete ($user_id)
 	{
 		if($user_id == $this->Session->read('User.id'))
 		{
@@ -26,14 +25,14 @@ class UsersController extends AppController {
 		$this->redirect('/users/admin/');
 	}
 	
-	function admin_user_account () 
+	public function admin_user_account () 
 	{
 		$this->set('current_crumb', __('My Account Details', true));
 		$this->set('title_for_layout', __('My Account Details', true));
 		if(!empty($this->data))
 		{
 			// Redirect if the user pressed cancel
-			if(isset($this->params['form']['cancelbutton']))
+			if(isset($this->data['cancelbutton']))
 			{
 				$this->redirect('/admin/admin_top/6/');
 			}
@@ -48,7 +47,7 @@ class UsersController extends AppController {
 					die();
 				}
 				
-				$this->data['User']['password'] = md5($this->data['User']['password']);
+				$this->request->data['User']['password'] = md5($this->data['User']['password']);
 
 			}
 				$this->User->save($this->data);
@@ -59,18 +58,18 @@ class UsersController extends AppController {
 		}
 		else
 		{
-			$this->data = $this->User->find(array('id' => $this->Session->read('User.id')));
+			$this->request->data = $this->User->find('first', array('conditions' => array('id' => $this->Session->read('User.id'))));
 				
 		}
 	}
 	
-	function admin_user_preferences () 
+	public function admin_user_preferences () 
 	{
 		$this->set('current_crumb', __('My Prefences', true));
 		$this->set('title_for_layout', __('My Prefences', true));
 		if(!empty($this->data))
 		{
-			if(isset($this->params['form']['cancelbutton']))
+			if(isset($this->data['cancelbutton']))
 			{
 				$this->redirect('/admin/admin_top/8');
 				die();
@@ -79,7 +78,7 @@ class UsersController extends AppController {
 			//pr($this->data);
 			$this->Session->write('Config.language', $this->data['UserPref']['language']); 
 			$this->Session->write('UserPref.language', $this->data['UserPref']['language']); 			
-			$user_prefs = $this->User->UserPref->find(array('user_id' => $_SESSION['User']['id'], 'name' => 'language'));
+			$user_prefs = $this->User->UserPref->find('first', array('conditions' => array('user_id' => $_SESSION['User']['id'], 'name' => 'language')));
 			$user_prefs['UserPref']['language'] = $this->data['UserPref']['language'];
 			$this->User->UserPref->save($user_prefs);
 			$this->Session->setFlash(__('Record saved.', true));
@@ -104,7 +103,7 @@ class UsersController extends AppController {
 
 
 	   
-	function admin_logout ()
+	public function admin_logout ()
 	{
 		$this->layout = 'default';
 	
@@ -114,8 +113,9 @@ class UsersController extends AppController {
 	
 	}
 
-	function admin_login ()
+	public function admin_login ()
 	{
+	
 		$this->layout = 'default';
 		$this->set('current_crumb', __('Login', true));
 		$this->set('title_for_layout', __('Login', true));
@@ -127,21 +127,25 @@ class UsersController extends AppController {
 		}
 		else
 		{
-			$admin_user = $this->User->find(array('username' => $this->data['User']['username'],'password' => md5($this->data['User']['password'])));
+			$admin_user = $this->User->find('first', array('conditions' => array('username' => $this->data['User']['username'],'password' => md5($this->data['User']['password']))));
 
 			if(empty($admin_user))
 			{
 				// If there was an error set the flash and render
 				$this->Session->setFlash(__('No match for Username and/or Password.', true));
 			}
+
+			if(!empty($admin_user))
+			{
 			// Write to the session and redirect
 			$this->Session->write('User', $admin_user['User']);
 			$this->Session->write('UserPref', $this->UserPref->find('list', array('user_id' => $admin_user['User']['id']), null, null, '{n}.UserPref.name', '{n}.UserPref.value'));
-			$this->redirect('/admin/admin_top/');		
+			$this->redirect('/admin/admin_top/');
+			}		
 		}
 	}	
 	
-	function admin_new ()
+	public function admin_new ()
 	{	
 		$this->set('current_crumb', __('New Admin', true));
 		$this->set('title_for_layout', __('New Admin', true));
@@ -151,7 +155,7 @@ class UsersController extends AppController {
 		else
 		{
 			// Redirect if the user pressed cancel
-			if(isset($this->params['form']['cancelbutton']))
+			if(isset($this->data['cancelbutton']))
 			{
 				$this->redirect('/users/admin/');
 				die();
@@ -168,7 +172,7 @@ class UsersController extends AppController {
 			}
 
 			
-			$this->data['User']['password'] = md5($this->data['User']['password']);
+			$this->request->data['User']['password'] = md5($this->data['User']['password']);
 			$this->User->save($this->data);
 			
 			// Set some default preferences
@@ -193,7 +197,7 @@ class UsersController extends AppController {
 		}
 	}
 	
-	function admin () 
+	public function admin () 
 	{
 		$this->set('current_crumb', __('Admins Listing', true));
 		$this->set('title_for_layout', __('Admins Listing', true));

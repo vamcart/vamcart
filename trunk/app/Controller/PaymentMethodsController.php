@@ -5,22 +5,23 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
+App::uses('Folder', 'Utility');
 
 class PaymentMethodsController extends AppController {
-	var $name = 'PaymentMethods';
+	public $name = 'PaymentMethods';
 
-	function admin_set_as_default ($id)
+	public function admin_set_as_default ($id)
 	{
 		$this->setDefaultItem($id);
 	}
 	
-	function admin_change_active_status ($id) 
+	public function admin_change_active_status ($id) 
 	{
 		$this->changeActiveStatus($id);	
 	}
 		
 
-	function admin_edit ($id)
+	public function admin_edit ($id)
 	{
 		$this->set('current_crumb', __('Edit Payment Method', true));
 		$this->set('title_for_layout', __('Edit Payment Method', true));
@@ -51,7 +52,7 @@ class PaymentMethodsController extends AppController {
 		}
 		else
 		{
-			if(isset($this->params['form']['cancelbutton']))
+			if(isset($this->data['cancelbutton']))
 			{
 				$this->redirect('/payment_methods/admin/');
 				die();
@@ -62,16 +63,17 @@ class PaymentMethodsController extends AppController {
 			
 			// Loop through the extra and save the the PaymentMethodValue table
 			$payment = $this->PaymentMethod->read(null,$id);
-			$type_key = $payment['PaymentMethod']['alias'];
-			
+			$type_key = strtolower($payment['PaymentMethod']['alias']);
+			if (isset($this->data[$type_key])) {
 			foreach($this->data[$type_key] AS $key => $value)
 			{
-				$original_value = $this->PaymentMethod->PaymentMethodValue->find(array('key' => $key,'payment_method_id' => $id));
+				$original_value = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => $key,'payment_method_id' => $id)));
 				$original_value['PaymentMethodValue']['payment_method_id'] = $id;
 				$original_value['PaymentMethodValue']['key'] = $key;
 				$original_value['PaymentMethodValue']['value'] = $value;				
 
 				$this->PaymentMethod->PaymentMethodValue->save($original_value);
+			}
 			}
 			
 			$this->Session->setFlash(__('Record saved.',true));
@@ -80,11 +82,11 @@ class PaymentMethodsController extends AppController {
 	
 	}	
 		
-	function admin ()
+	public function admin ()
 	{
 		$this->set('current_crumb', __('Modules Listing', true));
 		$this->set('title_for_layout', __('Modules Listing', true));
-		$path = APP . 'plugins' . DS . 'payment' . DS . 'views';
+		$path = APP . 'Plugin' . DS . 'Payment' . DS . 'View';
 		$module_path = new Folder($path);
 		$dirs = $module_path->read();
 		$modules = array();
@@ -93,11 +95,11 @@ class PaymentMethodsController extends AppController {
 				$module = array();
 				$module['alias'] = $dir; 
 				$db_module = $this->PaymentMethod->findByAlias($module['alias']);
-				$module['id'] = $db_module['PaymentMethod']['id'];
+				$module['id'] = (isset($db_module['PaymentMethod']['id'])?$db_module['PaymentMethod']['id']:null);
 				$module['name'] = (isset($db_module['PaymentMethod']['name'])?$db_module['PaymentMethod']['name']:Inflector::humanize($module['alias']));
-				$module['default'] = (isset($db_module['PaymentMethod']['default'])?$db_module['PaymentMethod']['default']:0);
+				$module['default'] = (isset($db_module['PaymentMethod']['default'])?$db_module['PaymentMethod']['default']:null);
 				$module['installed'] = $this->PaymentMethod->find('count', array('conditions' => array('alias' => $module['alias'], 'active' => '1')));
-				$module['order'] = $db_module['PaymentMethod']['order'];
+				$module['order'] = (isset($db_module['PaymentMethod']['order'])?$db_module['PaymentMethod']['order']:null);
 				
 				$modules[] = $module;
 		}
@@ -106,19 +108,19 @@ class PaymentMethodsController extends AppController {
 				
 	}
 
-	function admin_add ()
+	public function admin_add ()
 	{
 		$this->set('current_crumb', __('Module Upload', true));
 		$this->set('title_for_layout', __('Module Upload', true));
 	}
 
-	function admin_upload ()
+	public function admin_upload ()
 	{
 		$this->set('current_crumb', __('Module Upload', true));
 		$this->set('title_for_layout', __('Module Upload', true));
 
 		// If they pressed cancel
-		if(isset($this->params['form']['cancelbutton']))
+		if(isset($this->data['cancelbutton']))
 		{
 			$this->redirect('/payment_methods/admin/');
 			die();

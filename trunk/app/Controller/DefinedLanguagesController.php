@@ -5,15 +5,14 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-
 class DefinedLanguagesController extends AppController {
-	var $name = 'DefinedLanguages';
+	public $name = 'DefinedLanguages';
 	
 	/*
 	* Delets all language definitions with key = $key 
 	*
 	*/
-	function admin_delete ($key)
+	public function admin_delete ($key)
 	{
 		$definitions = $this->DefinedLanguage->find('all', array('conditions' => array('key' => $key)));
 		foreach($definitions AS $definition)
@@ -24,7 +23,7 @@ class DefinedLanguagesController extends AppController {
 		$this->redirect('/defined_languages/admin/');
 	}
 
-	function download_export()
+	public function download_export()
 	{
 		$images = array();
 		$z = new ZipArchive();
@@ -72,7 +71,7 @@ class DefinedLanguagesController extends AppController {
 
 
 	
-	function admin_edit ($defined_language_key = "")
+	public function admin_edit ($defined_language_key = "")
 	{
 		$this->set('current_crumb', __('Defined Language Details', true));
 		$this->set('title_for_layout', __('Defined Language Details', true));
@@ -95,7 +94,7 @@ class DefinedLanguagesController extends AppController {
 		else
 		{
 			// Check if we pressed the cancel button
-			if(isset($this->params['form']['cancelbutton']))
+			if(isset($this->data['cancelbutton']))
 			{
 				$this->redirect('/defined_languages/admin/');
 				die();
@@ -126,18 +125,18 @@ class DefinedLanguagesController extends AppController {
 		}
 	}
 	
-	function admin_new()
+	public function admin_new()
 	{
 		$this->redirect('/defined_languages/admin_edit/');	
 	}
 	
-	function admin_import()
+	public function admin_import()
 	{
 		$this->set('current_crumb', __('Import', true));
 		$this->set('title_for_layout', __('Import', true));
 	}
 
-	function admin_upload()
+	public function admin_upload()
 	{
 		if (isset($this->data['DefinedLanguages']['submittedfile'])
 			&& $this->data['DefinedLanguages']['submittedfile']['error'] == 0
@@ -175,7 +174,7 @@ class DefinedLanguagesController extends AppController {
 								@unlink('./files/' . $this->data['DefinedLanguages']['submittedfile']['name']);
 								$this->redirect('/defined_languages/admin_import/');
 							} else {
-								$definition = $this->DefinedLanguage->find("DefinedLanguage.language_id = '". $language_id ."' and DefinedLanguage.key='" . $original . "'");
+								$definition = $this->DefinedLanguage->find('first', array('conditions' => "DefinedLanguage.language_id = '". $language_id ."' and DefinedLanguage.key='" . $original . "'"));
 
 								if (!$definition) {
 									$definition = array();
@@ -223,7 +222,7 @@ class DefinedLanguagesController extends AppController {
 	}
 
 
-	function admin()
+	public function admin()
 	{
 		$this->set('current_crumb', __('Defined Language Listing', true));
 		$this->set('title_for_layout', __('Defined Language Listing', true));

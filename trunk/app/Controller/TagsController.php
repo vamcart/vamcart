@@ -5,16 +5,15 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-
 class TagsController extends AppController {
-	var $name = 'Tags';
-	var $uses = null;
+	public $name = 'Tags';
+	public $uses = null;
 	
-	function admin_view ($type, $tag)
+	public function admin_view ($type, $tag)
 	{
 		$this->set('current_crumb', __('Tag Details', true));
 		$this->set('title_for_layout', __('Tag Details', true));
-		require_once("../vendors/smarty/vam_plugins/" . $type . "." . $tag . ".php");
+		require_once("../Vendor/smarty/vam_plugins/" . $type . "." . $tag . ".php");
 		
 		// Get information for the help content
 		ob_start();
@@ -46,12 +45,12 @@ class TagsController extends AppController {
 		
 	}
 	
-	function admin ()
+	public function admin ()
 	{
 		$this->set('current_crumb', __('Tags Listing', true));
 		$this->set('title_for_layout', __('Tags Listing', true));
 		$files = array();
-		if ($handle = opendir('../vendors/smarty/vam_plugins/')) {
+		if ($handle = opendir('../Vendor/smarty/vam_plugins/')) {
 			
 		while ($files[] = readdir($handle));
 		sort($files);
@@ -62,7 +61,7 @@ class TagsController extends AppController {
 
 				if(($smarty_plugin[0] == 'function') || ($smarty_plugin[0] == 'block'))
 				{
-					require_once("../vendors/smarty/vam_plugins/".$file);
+					require_once("../Vendor/smarty/vam_plugins/".$file);
 					$default_template_function = 'default_template_' . $smarty_plugin[1];
 		
 					if(function_exists($default_template_function))
@@ -78,19 +77,19 @@ class TagsController extends AppController {
 		
 	}
 
-	function admin_add ()
+	public function admin_add ()
 	{
 		$this->set('current_crumb', __('Module Upload', true));
 		$this->set('title_for_layout', __('Module Upload', true));
 	}
 
-	function admin_upload ()
+	public function admin_upload ()
 	{
 		$this->set('current_crumb', __('Module Upload', true));
 		$this->set('title_for_layout', __('Module Upload', true));
 
 		// If they pressed cancel
-		if(isset($this->params['form']['cancelbutton']))
+		if(isset($this->data['cancelbutton']))
 		{
 			$this->redirect('/tags/admin/');
 			die();

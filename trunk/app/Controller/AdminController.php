@@ -5,21 +5,20 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-
 class AdminController extends AppController {
-	var $name = 'Admin';
-	var $uses = array('User');
-	//var $components = array('Check');
-	var $helpers = array('Html','Javascript','Admin','Form', 'FlashChart');
+	public $name = 'Admin';
+	public $uses = array('User');
+	//public $components = array('Check');
+	public $helpers = array('Html','Js','Admin','Form', 'FlashChart');
 
-	function index() 
+	public function index() 
 	{
 		$this->redirect('/users/admin_login/');
 	}
 	
-	function admin_top($level = 1)
+	public function admin_top($level = 1)
 	{
-	
+		$this->set('current_crumb', __('', true));	
 		$this->set('title_for_layout', __('Home', true));
 	//App::import('Model', 'Order');
 	
