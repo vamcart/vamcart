@@ -5,15 +5,14 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-
 set_time_limit(3600);
 
 class UpdateController extends AppController {
-	var $name = 'Update';
-	var $components = array('Check');	
-	var $data;
+	public $name = 'Update';
+	public $components = array('Check');	
+	public $data;
 
-	function admin_update($ajax_request = false)
+	public function admin_update($ajax_request = false)
 	{
 		$this->data->current_version = file_get_contents('./version.txt');
 		$this->data->latest_version = $this->Check->get_latest_update_version();
@@ -76,7 +75,7 @@ class UpdateController extends AppController {
 		}
 	}
 
-	function admin($ajax_request = false)
+	public function admin($ajax_request = false)
 	{
   		$this->set('current_crumb', __('Update', true));
 		$this->set('title_for_layout', __('Update', true));

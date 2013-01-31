@@ -5,16 +5,15 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-
 class ContentsController extends AppController {
-	var $helpers = array('TinyMce', 'Validation');
-	var $name = 'Contents';
+	public $helpers = array('TinyMce', 'Validation');
+	public $name = 'Contents';
 
 	/**
 	* Uploads all images, and saves records to content_images
 	*
 	*/
-	function upload_images ($content_id)
+	public function upload_images ($content_id)
 	{
 
 		
@@ -37,7 +36,7 @@ class ContentsController extends AppController {
 		$content_image['ContentImage']['content_id'] = $content_id;
 		$content_image['ContentImage']['image'] = $filename;
 		// Calculate the image with the highest order
-		$highest = $this->Content->ContentImage->find(array('content_id' => $content_id), null, 'ContentImage.order DESC');
+		$highest = $this->Content->ContentImage->find('first', array('conditions' => array('content_id' => $content_id), null, 'ContentImage.order DESC'));
 		$content_image['ContentImage']['order'] = $highest['ContentImage']['order'] + 1;
 		
 		$this->Content->ContentImage->save($content_image);
@@ -52,7 +51,7 @@ class ContentsController extends AppController {
 	* @param  int  $id The id of the content we're going to be moving.
 	* @param  string  $direction String value of 'up' or 'down'
 	*/
-	function admin_move ($id, $direction)
+	public function admin_move ($id, $direction)
 	{
 		$this->moveItem($id, $direction);		
 	}
@@ -65,7 +64,7 @@ class ContentsController extends AppController {
 	*
 	* @param  int  $content_id The id of the content we're going to be setting as active.
 	*/
-	function admin_set_as_default ($content_id)
+	public function admin_set_as_default ($content_id)
 	{
 		$this->setDefaultItem($content_id);
 	}
@@ -75,7 +74,7 @@ class ContentsController extends AppController {
 	*
 	* @param  string  $content_id Id of the content item to change.
 	*/	
-	function admin_change_show_in_menu_status ($content_id) 
+	public function admin_change_show_in_menu_status ($content_id) 
 	{
 		$this->Content->id = $content_id;
 		$content = $this->Content->read();
@@ -93,7 +92,7 @@ class ContentsController extends AppController {
 		$this->redirect('/contents/admin/0/' . $content['Content']['parent_id'] . '/' . $this->RequestHandler->isAjax());		
 	}
 
-	function admin_change_yml_export_status ($content_id) 
+	public function admin_change_yml_export_status ($content_id) 
 	{
 		$this->Content->id = $content_id;
 		$content = $this->Content->read();
@@ -117,7 +116,7 @@ class ContentsController extends AppController {
 	*
 	* @param  int  $content_id The id of the content we're going to change.
 	*/
-	function admin_change_active_status ($content_id) 
+	public function admin_change_active_status ($content_id) 
 	{
 		$this->changeActiveStatus($content_id);	
 	}
@@ -129,7 +128,7 @@ class ContentsController extends AppController {
 	*
 	* @param  int  $content_id The id of the content we're going to delete.
 	*/	
-	function admin_delete ($content_id)
+	public function admin_delete ($content_id)
 	{	
 		$this->Content->id = $content_id;
 		$content = $this->Content->read();
@@ -152,7 +151,7 @@ class ContentsController extends AppController {
 	*
 	* @param  int  $content_id The id of the current content item.
 	*/	
-	function admin_edit_type ($content_type_id, $content_id = null)
+	public function admin_edit_type ($content_type_id, $content_id = null)
 	{
 		$this->Content->id = $content_id;
 		$content = $this->Content->read();
@@ -172,13 +171,13 @@ class ContentsController extends AppController {
 			$view = $content_type['ContentType']['type'];
 		}
 
-		$data = $this->Content->$model->find(array('content_id' => $content_id));
+		$data = $this->Content->$model->find('first', array('conditions' => array('content_id' => $content_id)));
 		$this->set('data', $data);
 		$this->set('content_type_id', $content_type_id);
 	}
 	
 	
-	function generate_tax_list ()
+	public function generate_tax_list ()
 	{
 		$tax_list_translatable = $this->Content->ContentProduct->Tax->find('list', array('order' => array('Tax.default DESC')));
 		foreach($tax_list_translatable AS $key => $value)
@@ -189,7 +188,7 @@ class ContentsController extends AppController {
 		return $tax_list_translatable;
 	}
 	
-	function generate_order_statuses_list()
+	public function generate_order_statuses_list()
 	{
 		App::import('Model', 'OrderStatus');
 		$OrderStatus = new OrderStatus();
@@ -214,7 +213,7 @@ class ContentsController extends AppController {
 		return $order_statuses_list_;
 	}
 
-	function admin_core_pages_edit($content_id) 
+	public function admin_core_pages_edit($content_id) 
 	{
 			$this->set('current_crumb', __('Edit',true));
 			$this->set('title_for_layout', __('Edit', true));
@@ -264,7 +263,7 @@ class ContentsController extends AppController {
 	*
 	* @param  int $content_id ID of the content we are editing
 	*/		
-	function admin_edit ($content_id = 0, $parent_id = 0)
+	public function admin_edit ($content_id = 0, $parent_id = 0)
 	{
 		$this->set('current_crumb', __('Edit', true));
 		$this->set('title_for_layout', __('Content', true));
@@ -272,7 +271,7 @@ class ContentsController extends AppController {
 		if(!empty($this->data))
 		{
 			// Did the user pressed cancel?
-			if(isset($this->params['form']['cancelbutton']))
+			if(isset($this->data['cancelbutton']))
 			{
 				if($content_id != 0)
 				{
@@ -298,8 +297,8 @@ class ContentsController extends AppController {
 							@unlink('./downloads/' . $download['ContentDownloadable']['filestorename']);
 						}
 					}
-					$this->data['ContentDownloadable']['filename'] = '';
-					$this->data['ContentDownloadable']['filestorename'] = '';
+					$this->request->data['ContentDownloadable']['filename'] = '';
+					$this->request->data['ContentDownloadable']['filestorename'] = '';
 				} else {
 					if (isset($this->data['ContentDownloadable']['file'])
 					    && $this->data['ContentDownloadable']['file']['error'] == 0
@@ -315,8 +314,8 @@ class ContentsController extends AppController {
 						}
 
 						move_uploaded_file($this->data['ContentDownloadable']['file']['tmp_name'], './downloads/' . $store_name);
-						$this->data['ContentDownloadable']['filename'] = $this->data['ContentDownloadable']['file']['name'];
-						$this->data['ContentDownloadable']['filestorename'] = $store_name;
+						$this->request->data['ContentDownloadable']['filename'] = $this->data['ContentDownloadable']['file']['name'];
+						$this->request->data['ContentDownloadable']['filestorename'] = $store_name;
 
 					}
 				}
@@ -331,19 +330,19 @@ class ContentsController extends AppController {
 				// TODO: Change the way this gets the default language id for now its jsut set on english
 				$default_language_id = $this->Session->read('Customer.language_id');
 				$content_name = $this->data['ContentDescription'][$default_language_id]['name'][1];
-				$this->data['Content']['alias'] = $this->generateAlias($content_name);
+				$this->request->data['Content']['alias'] = $this->generateAlias($content_name);
 			}
 			else
 			{
-				$this->data['Content']['alias'] = $this->generateAlias($this->data['Content']['alias']);
+				$this->request->data['Content']['alias'] = $this->generateAlias($this->data['Content']['alias']);
 			}
 			
 			// Get the content with the highest order set with the same parent_id and increase that by 1 if it's new
 			if($this->data['Content']['order'] < 1)
 			{
-				$highest_order_content = $this->Content->find(array('Content.parent_id' => $this->data['Content']['parent_id']),null,'Content.order DESC');
+				$highest_order_content = $this->Content->find('first', array('conditions' => array('Content.parent_id' => $this->data['Content']['parent_id']),null,'Content.order DESC'));
 				$new_order = $highest_order_content['Content']['order'] + 1;
-				$this->data['Content']['order'] = $new_order;
+				$this->request->data['Content']['order'] = $new_order;
 								
 			}
 		
@@ -399,7 +398,7 @@ class ContentsController extends AppController {
 
 			// Check if we already have a record for this type of special content, if so delete it.
 			// I'm sure there's a better way to do this
-			$check_specified_type = $this->Content->$model->find(array('content_id' => $content_id));
+			$check_specified_type = $this->Content->$model->find('first', array('conditions' => array('content_id' => $content_id)));
 			if(!empty($check_specified_type))
 				$special_content[$model]['id']= $check_specified_type[$model]['id'];
 			
@@ -409,7 +408,7 @@ class ContentsController extends AppController {
 			$this->Session->setFlash(__('Record saved.', true));
 		
 			// Check if we pressed 'apply' otherwise just render
-			if(isset($this->params['form']['applybutton']))
+			if(isset($this->request->data['applybutton']))
 			{
 				if($this->data['Content']['parent_id'] == '-1')
 					$this->redirect('/contents/admin_core_pages_edit/' . $content_id);
@@ -499,7 +498,7 @@ class ContentsController extends AppController {
 	/**
 	* Redirects the user to the admin_edit method where all work is done.
 	*/	
-	function admin_new ($content_id = 0, $parent_id = 0)
+	public function admin_new ($content_id = 0, $parent_id = 0)
 	{
 		$this->redirect('/contents/admin_edit/'.$content_id.'/'.$parent_id);
 	}
@@ -509,7 +508,7 @@ class ContentsController extends AppController {
 	*
 	* Disallows the user from deleting the default content item.
 	*/	
-	function admin_modify_selected() 
+	public function admin_modify_selected() 
 	{
 		$build_flash = "";
 		$target_page = '/contents/admin/';
@@ -523,7 +522,7 @@ class ContentsController extends AppController {
 				$this->Content->id = $value;
 				$content = $this->Content->read();
 			
-				switch ($this->params['form']['multiaction']) 
+				switch ($this->data['multiaction']) 
 				{
 					case "delete":
 						$target_page = '/contents/admin/0/' . $content['Content']['parent_id'];
@@ -576,15 +575,15 @@ class ContentsController extends AppController {
 						$target_page = '/contents/admin/0/' . $content['Content']['parent_id'];
 						break;
 					case "copy":
-						$parent_id = $this->params['form']['target_category'];
+						$parent_id = $this->request->data['target_category'];
 						$this->_copy_content($content, $parent_id);
 						$build_flash .= __('Copied content item.', true);
 						$target_page = '/contents/admin/0/' . $parent_id;
 						break;
 					case "move":
-						$parent_id = $this->params['form']['target_category'];
+						$parent_id = $this->request->data['target_category'];
 						$content['Content']['parent_id'] = $parent_id;
-						$highest_order_content = $this->Content->find(array('Content.parent_id' => $parent_id),null,'Content.order DESC');
+						$highest_order_content = $this->Content->find('first', array('conditions' => array('Content.parent_id' => $parent_id),null,'Content.order DESC'));
 						$new_order = $highest_order_content['Content']['order'] + 1;
 						$content['Content']['order'] = $new_order;
 						$this->Content->save($content);
@@ -605,7 +604,7 @@ class ContentsController extends AppController {
 	* Displays a list of all core content pages.
 	*
 	*/		
-	function admin_core_pages ()
+	public function admin_core_pages ()
 	{
 		$this->set('current_crumb', __('Pages Listing',true));
 		$this->set('title_for_layout', __('Pages Listing', true));
@@ -637,7 +636,7 @@ class ContentsController extends AppController {
 	*
 	* @param  booleen  $ajax Uses the value in $ajax to determine whether or not to display the Ajax layout.
 	*/		
-	function admin ($ajax = false, $parent_id = 0)
+	public function admin ($ajax = false, $parent_id = 0)
 	{
 		$this->set('current_crumb', __('Listing', true));
 		$this->set('title_for_layout', __('Content', true));
@@ -685,7 +684,7 @@ class ContentsController extends AppController {
 		$this->set('last_content_id', $last_content_id);
 	}
 	
-	function admin_categories_tree()
+	public function admin_categories_tree()
 	{
 		$this->Content->unbindModel(array('hasMany' => array('ContentDescription')));
 
@@ -706,7 +705,7 @@ class ContentsController extends AppController {
 		$this->set('content_data', $tree);
 	}
 
-	function _add_tree_node($tree, $node, $level)
+	public function _add_tree_node($tree, $node, $level)
 	{
 		$tree[] = array('id' => $node['Content']['id'],
 				'name' => $node['ContentDescription']['name'],
@@ -718,12 +717,12 @@ class ContentsController extends AppController {
 		}
 	}
 	
-	function _copy_content($content, $parent_id)
+	public function _copy_content($content, $parent_id)
 	{
 		$content['Content']['id'] = null;
 		$content['Content']['parent_id'] = $parent_id;
 		$content['Content']['viewed'] = 0;
-		$highest_order_content = $this->Content->find(array('Content.parent_id' => $parent_id),null,'Content.order DESC');
+		$highest_order_content = $this->Content->find('first', array('conditions' => array('Content.parent_id' => $parent_id),null,'Content.order DESC'));
 		$new_order = $highest_order_content['Content']['order'] + 1;
 		$content['Content']['order'] = $new_order;
 		
@@ -754,7 +753,7 @@ class ContentsController extends AppController {
 		$this->_copy_content_images($content, $content_id);
 	}
 	
-	function _copy_content_images($content, $dst_content_id)
+	public function _copy_content_images($content, $dst_content_id)
 	{
 		foreach ($content['ContentImage'] as $image) {
 			$src_filename = WWW_ROOT . IMAGES_URL . '/content/' . $image['content_id'] . '/' . $image['image'];
@@ -775,7 +774,7 @@ class ContentsController extends AppController {
 		}
 	}
 	
-	function _random_string()
+	public function _random_string()
 	{
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		$randstring = '';

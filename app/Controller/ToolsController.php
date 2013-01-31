@@ -5,16 +5,15 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-
 class ToolsController extends AppController {
-    var $name = 'Tools';
-    var $uses = null;
+    public $name = 'Tools';
+    public $uses = null;
 
     /**
     * Sypex Dumper database backup/restore tool.
     *
     */
-    function admin_backup($ajax_request = false)
+    public function admin_backup($ajax_request = false)
     {
         $this->set('current_crumb', __('Database Manager', true));
         $this->set('title_for_layout', __('Database Backup', true));

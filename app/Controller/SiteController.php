@@ -5,17 +5,16 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-
 class SiteController extends AppController {
-	var $name = 'Site';
-	var $uses = array('Customer');
-	var $components = array('Email', 'Smarty', 'ConfigurationBase');
+	public $name = 'Site';
+	public $uses = array('Customer', 'EmailTemplate');
+	public $components = array('Email', 'Smarty', 'ConfigurationBase');
 
-	function register()
+	public function register()
 	{
 		global $config;
 
-		uses('sanitize');
+		App::uses('Sanitize', 'Utility');
 		$clean = new Sanitize();
 		$clean->clean($_POST);
 		if (isset($_POST['customer'])) {
@@ -27,9 +26,6 @@ class SiteController extends AppController {
 				$ret = $customer->save($_POST['customer']);
 				
 				// Retrieve email template
-				App::import('Model', 'EmailTemplate');
-				$this->EmailTemplate =& new EmailTemplate();
-
 				$this->EmailTemplate->unbindModel(array('hasMany' => array('EmailTemplateDescription')));
 				$this->EmailTemplate->bindModel(array(
 					'hasOne' => array(
@@ -76,11 +72,11 @@ class SiteController extends AppController {
 		}
 	}
 	
-	function login()
+	public function login()
 	{
 	}
 
-	function logout()
+	public function logout()
 	{
 		$this->Auth->logout();
 

@@ -5,23 +5,22 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-
 class UserTagsController extends AppController {
-   var $name = 'UserTags';
+   public $name = 'UserTags';
    
-	function admin_delete ($UserTag_id)
+	public function admin_delete ($UserTag_id)
 	{
 		$this->UserTag->delete($UserTag_id);	
 		$this->Session->setFlash(__('Record deleted.', true));		
 		$this->redirect('/user_tags/admin/');
 	}
 	
-	function admin_edit ($user_tag_id = null)
+	public function admin_edit ($user_tag_id = null)
 	{
 		$this->set('current_crumb', __('User Tag', true));
 		$this->set('title_for_layout', __('User Tag', true));
 		// Check if we pressed the cancel button
-		if(isset($this->params['form']['cancelbutton']))
+		if(isset($this->data['cancelbutton']))
 		{
 			$this->redirect('/user_tags/admin/');die();
 		}
@@ -31,7 +30,7 @@ class UserTagsController extends AppController {
 			$this->UserTag->id = $user_tag_id;
 			$data = $this->UserTag->read();
 			
-			$this->data = $data;
+			$this->request->data = $data;
 			$this->set('data',$data);
 		}
 		else
@@ -39,9 +38,9 @@ class UserTagsController extends AppController {
 			
 			// Generate the alias based depending on whether or not we entered one.
 			if($this->data['UserTag']['alias'] == "")
-				$this->data['UserTag']['alias'] = $this->generateAlias($this->data['UserTag']['name']);
+				$this->request->data['UserTag']['alias'] = $this->generateAlias($this->data['UserTag']['name']);
 			else
-				$this->data['UserTag']['alias'] = $this->generateAlias($this->data['UserTag']['alias']);	
+				$this->request->data['UserTag']['alias'] = $this->generateAlias($this->data['UserTag']['alias']);	
 			
 			// Save the user tag
 			$this->UserTag->save($this->data);		
@@ -49,7 +48,7 @@ class UserTagsController extends AppController {
 			// Check the user defined tag for errors
 			srand();
 			ob_start();
-			if (eval('function testfunction'.rand().'() {'.$this->data['UserTag']['content'].'}') === FALSE)
+			if (eval('public function testfunction'.rand().'() {'.$this->data['UserTag']['content'].'}') === FALSE)
 			{
 				$error = array();
                 $buffer = ob_get_clean();
@@ -79,7 +78,7 @@ class UserTagsController extends AppController {
 			}
 		
 		
-			if(isset($this->params['form']['apply']))
+			if(isset($this->data['apply']))
 			{
 				$this->redirect('/user_tags/admin_edit/' . $user_tag_id);
 			}
@@ -90,12 +89,12 @@ class UserTagsController extends AppController {
 		}
 	}	
 	
-	function admin_new ()
+	public function admin_new ()
 	{
 		$this->redirect('/user_tags/admin_edit/');
 	}   
 
-	function admin_modify_selected() 
+	public function admin_modify_selected() 
 	{
 		$build_flash = "";
 		foreach($this->params['data']['UserTag']['modify'] AS $value)
@@ -108,7 +107,7 @@ class UserTagsController extends AppController {
 				$this->UserTag->id = $value;
 				$gcb = $this->UserTag->read();
 			
-				switch ($this->params['form']['multiaction']) 
+				switch ($this->data['multiaction']) 
 				{
 					case "delete":
 					    $this->UserTag->delete($value);
@@ -121,7 +120,7 @@ class UserTagsController extends AppController {
 		$this->redirect('/user_tags/admin/');
 	}
    
-   function admin ()
+   public function admin ()
 	{
 		$this->set('current_crumb', __('User Tags Listing', true));
 		$this->set('title_for_layout', __('User Tags Listing', true));

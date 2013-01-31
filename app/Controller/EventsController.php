@@ -5,12 +5,11 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-
 class EventsController extends AppController {
-	var $name = 'Events';
+	public $name = 'Events';
    
    
-   	function admin_view($id)
+   	public function admin_view($id)
 	{
 		$this->set('current_crumb', __('Event Details', true));
 		$this->set('title_for_layout', __('Event Details', true));
@@ -22,7 +21,7 @@ class EventsController extends AppController {
 		
 	}
    
-	function admin()
+	public function admin()
 	{
 		$this->set('current_crumb', __('Events Listing', true));
 		$this->set('title_for_layout', __('Events Listing', true));

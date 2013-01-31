@@ -1,14 +1,38 @@
 <?php
-/* -----------------------------------------------------------------------------------------
-   VamCart - http://vamcart.com
-   -----------------------------------------------------------------------------------------
-   Copyright (c) 2011 VamSoft Ltd.
-   License - http://vamcart.com/license.html
-   ---------------------------------------------------------------------------------------*/
+/**
+ * Application level Controller
+ *
+ * This file is application-wide controller file. You can put all
+ * application-wide controller-related methods here.
+ *
+ * PHP 5
+ *
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ *
+ * Licensed under The MIT License
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       app.Controller
+ * @since         CakePHP(tm) v 0.2.9
+ * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ */
 
+/**
+ * Application Controller
+ *
+ * Add your application-wide methods in the class below, your controllers
+ * will inherit them.
+ *
+ * @package       app.Controller
+ * @link http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
+ */
 class AppController extends Controller {
-	var $helpers = array('Html', 'Javascript', 'Ajax', 'Form', 'Admin', 'Asset', 'Session');
-	var $components = array(
+	
+	public $helpers = array('Html', 'Js', 'Ajax', 'Form', 'Admin', 'Session');
+	public $components = array(
 		'RequestHandler',
 		'ConfigurationBase',
 		'CurrencyBase',
@@ -18,7 +42,7 @@ class AppController extends Controller {
 		'Auth' => array(
 		)
 	);
-	var $layout = 'admin';
+	public $layout = 'admin';
 
 	/**
 	* Changes the value of the sort field of a database record.
@@ -27,7 +51,7 @@ class AppController extends Controller {
 	* @param int $id ID of the database record we are moving
 	* @param int $direction Direction we are moving the record.  Can be 'up' or 'down'
 	*/
-	function moveItem ($id, $direction)
+	public function moveItem ($id, $direction)
 	{
 		// Define the current model and controller
 		$current_model = $this->modelClass;
@@ -66,7 +90,7 @@ class AppController extends Controller {
 	*
 	* @param int $id ID of the database record we are setting as default.
 	*/	
-	function setDefaultItem ($id)
+	public function setDefaultItem ($id)
 	{
 
 		$current_model = $this->modelClass;
@@ -79,7 +103,7 @@ class AppController extends Controller {
 			if ($id == $info[$current_model]['id'])
 			{
 				$info[$current_model]['default'] = 1;
-				$parent_id = $info[$current_model]['parent_id'];
+				$parent_id = (!empty($info[$current_model]['parent_id']) ? $info[$current_model]['parent_id'] : 0);
 			}
 			else
 			{
@@ -98,7 +122,7 @@ class AppController extends Controller {
 	*
 	* @param int $id ID of the database record we are changing
 	*/	
-	function changeActiveStatus ($id)
+	public function changeActiveStatus ($id)
 	{
 		// Set the model and controller
 		$current_model = $this->modelClass;
@@ -118,7 +142,7 @@ class AppController extends Controller {
 		$this->$current_model->save($record);
 
 		// Redirect depending on the current controller
-		$this->redirect('/' . $current_controller . '/admin/0/' . $record[$current_model]['parent_id'] . '/' . $this->RequestHandler->isAjax());
+		$this->redirect('/' . $current_controller . '/admin/0/' . (!empty($record[$current_model]['parent_id']) ? $record[$current_model]['parent_id'] : 0) . '/' . $this->RequestHandler->isAjax());
 	}
 
 	/**
@@ -128,7 +152,7 @@ class AppController extends Controller {
 	* @param string $alias String to modify.
 	* @return  string  $alias Modified alias.
 	*/		
-	function _makeAlias ($alias)
+	public function _makeAlias ($alias)
 	{
 		if($alias == "")
 			$alias = rand(1000,9999);
@@ -151,7 +175,7 @@ class AppController extends Controller {
 	* @param int $tail Tail to tack onto the alias if it exists.
 	* @return  string  A modified and unique alias.
 	*/			
-	function generateAlias($name, $tail=1)
+	public function generateAlias($name, $tail=1)
 	{
 		// Add the tail if it's greater than 1
 		if($tail > 1)
@@ -181,7 +205,7 @@ class AppController extends Controller {
 	*
 	* @return  array  Navigation array for the administration area.
 	*/				
-	function getAdminNavigation ()
+	public function getAdminNavigation ()
 	{
 		// Navigation Menu Array
 		$navigation = array(
@@ -254,14 +278,14 @@ class AppController extends Controller {
 		
 		// Add module navigation elements
 		App::import('Model', 'Module');
-		$this->Module =& new Module();
+		$Module =& new Module();
 		
-		$modules = $this->Module->find('all');
+		$modules = $Module->find('all');
 		
 		foreach($modules AS $module)
 		{
 			$nav_level = $module['Module']['nav_level'];
-			$navigation[$nav_level]['children'][] = array('icon' => $module['Module']['alias'].'.png', 'text' => $module['Module']['name'], 'path' => '/module_' . $module['Module']['alias'] . '/admin/admin_index/', 'attributes' => array('class' => 'module'));
+			$navigation[$nav_level]['children'][] = array('icon' => $module['Module']['alias'].'.png', 'text' => ucfirst($module['Module']['name']), 'path' => '/module_' . $module['Module']['alias'] . '/admin/admin_index/', 'attributes' => array('class' => 'module'));
 		}
 		
 		return($navigation);
@@ -269,10 +293,10 @@ class AppController extends Controller {
 
 	/**
 	* Called before anything.
-	* This function really needs some help.
+	* This public function really needs some help.
 	*
 	*/				
-	function beforeFilter()
+	public function beforeFilter()
 	{
 		if (isset($_GET['return_url'])) {
 			
@@ -308,9 +332,9 @@ class AppController extends Controller {
 
 				// Get the default language
 				App::import('Model', 'Language');
-				$this->Language =& new Language();
+				$this->Language = new Language();
 				$languages = $this->Language->find('first', array('conditions' => array('Language.default' => 1)));
-				
+
 				$new_customer['language_id'] = $languages['Language']['id'];
 				$new_customer['language'] = $languages['Language']['iso_code_2'];
 				
@@ -318,7 +342,7 @@ class AppController extends Controller {
 				
 				// Get the default currency
 				App::import('Model', 'Currency');
-				$this->Currency =& new Currency();		
+				$this->Currency = new Currency();		
 				$default_currency = $this->Currency->find('first', array('conditions' => array('Currency.default' => 1)));
 		
 				$new_customer['currency_id'] = $default_currency['Currency']['id']; 
@@ -352,11 +376,12 @@ class AppController extends Controller {
 			$this->set('navigation',$this->getAdminNavigation());	
 
 			// We load the locale component here so it doesn't get loaded for the front end
-			App::import('Component', 'Locale');
-			$this->Locale =& new LocaleComponent();
+			App::uses('LocaleComponent', 'Controller/Component');
+
+			$Locale =& new LocaleComponent(new ComponentCollection ());
 			
 			// Set a current breadcrumb from the locale based on the current controller/action		
-			$this->set('current_crumb',$this->Locale->set_crumb($this->params['action'],$this->params['controller']));	
+			$this->set('current_crumb',$Locale->set_crumb($this->params['action'],$this->params['controller']));	
 		
 			// Check the admin login credentials against the database
 			// ToDo: Make this more secure, possibly change to a requestaction in users controller
@@ -380,4 +405,3 @@ class AppController extends Controller {
 
 	}
 }
-?>

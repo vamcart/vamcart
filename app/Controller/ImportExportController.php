@@ -5,23 +5,22 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-
 class ImportExportController extends AppController {
 
-	var $name = 'ImportExport';
-	var $uses = null;
+	public $name = 'ImportExport';
+	public $uses = null;
 
-	function admin ($ajax = false)
+	public function admin ($ajax = false)
 	{
 		$this->set('current_crumb', __('Import/Export', true));
 		$this->set('title_for_layout', __('Import/Export', true));
 	}
 
-	function import ($params)
+	public function import ($params)
 	{
 
 		// If they pressed cancel
-		if(isset($this->params['form']['cancelbutton']))
+		if(isset($this->data['cancelbutton']))
 		{
 			$this->redirect('/import_export/admin/');
 			die();

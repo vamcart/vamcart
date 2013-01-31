@@ -5,19 +5,18 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-
 class SitemapsController extends AppController {
-	var $name = 'Sitemaps';
-	var $uses = null;
-	var $helpers = array('Time');
-	var $components = array('RequestHandler');
+	public $name = 'Sitemaps';
+	public $uses = null;
+	public $helpers = array('Time');
+	public $components = array('RequestHandler');
 
-	function index() 
+	public function index() 
 	{
 		$this->redirect('/google_sitemap/');
 	}
 
-	function google()
+	public function google()
 	{
 		global $content;
 		$params = array();
@@ -92,7 +91,7 @@ class SitemapsController extends AppController {
 		Configure::write('debug', 0);
 	}
 
-	function yandex()
+	public function yandex()
 	{
 
 		global $content;

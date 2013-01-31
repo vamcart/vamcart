@@ -5,20 +5,19 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-
 class GeoZonesController extends AppController {
-	var $name = 'GeoZones';
-	var $uses = array('Country', 'GeoZone','CountryZone');
-	
+	public $name = 'GeoZones';
+	public $uses = array('Country', 'GeoZone','CountryZone');
+	public $paginate = array();
 
-	function admin_delete ($geo_zone_id)
+	public function admin_delete ($geo_zone_id)
 	{
 		$this->GeoZone->delete($geo_zone_id);
 		$this->Session->setFlash(__('Record deleted.', true));
 		$this->redirect('/geo_zones/admin/');
 	}
 	
-	function admin_country_zone_unlink($country_zone_id = null, $geo_zone_id = null)
+	public function admin_country_zone_unlink($country_zone_id = null, $geo_zone_id = null)
 	{
 		$this->CountryZone->id = $country_zone_id;
 		$country_zone = $this->CountryZone->read();
@@ -29,10 +28,10 @@ class GeoZonesController extends AppController {
 		$this->redirect('/geo_zones/admin_zones_edit/' . $geo_zone_id);
 	}
 	
-	function admin_country_zone_link()
+	public function admin_country_zone_link()
 	{
-		$geo_zone_id = $this->params['form']['geo_zone_id'];
-		$countries_id = explode(',', $this->params['form']['country_zones_id']);
+		$geo_zone_id = $this->request->data['geo_zone_id'];
+		$countries_id = explode(',', $this->request->data['country_zones_id']);
 
 		foreach ($countries_id as $country_id) {
 			$this->CountryZone->id = $country_id;
@@ -45,12 +44,12 @@ class GeoZonesController extends AppController {
 		exit();
 	}
 	
-	function admin_edit ($geo_zone_id = null)
+	public function admin_edit ($geo_zone_id = null)
 	{
 		$this->set('current_crumb', __('Geo Zone Details', true));
 		$this->set('title_for_layout', __('Geo Zone Details', true));
 
-		if(isset($this->params['form']['cancelbutton']))
+		if(isset($this->data['cancelbutton']))
 		{
 			$this->redirect('/geo_zones/admin/');
 			die();
@@ -76,7 +75,7 @@ class GeoZonesController extends AppController {
 		}
 	}
 
-	function admin_zones_edit($geo_zone_id = null)
+	public function admin_zones_edit($geo_zone_id = null)
 	{
 		$data = $this->GeoZone->read(null, $geo_zone_id);
 		$this->set('title_for_layout', __('Edit Zones for Geo Zone', true));
@@ -93,12 +92,12 @@ class GeoZonesController extends AppController {
 		$this->set(compact('data'));
 	}
 	
-	function admin_new ($geo_zone_id)
+	public function admin_new ($geo_zone_id = null)
 	{
 		$this->redirect('/geo_zones/admin_edit/' . $geo_zone_id);
 	}
 	
-	function admin_modify_selected()
+	public function admin_modify_selected()
 	{
 		$build_flash = "";
 		foreach ($this->params['data']['GeoZone']['modify'] AS $value) {
@@ -107,7 +106,7 @@ class GeoZonesController extends AppController {
 				$this->GeoZone->id = $value;
 				$geo_zone = $this->GeoZone->read();
 
-				switch ($this->params['form']['multiaction']) {
+				switch ($this->data['multiaction']) {
 					case "delete":
 						$this->GeoZone->delete($value);
 						$build_flash .= __('Record deleted.', true) . ' ' . $geo_zone['GeoZone']['name'] . '<br />';
@@ -121,9 +120,9 @@ class GeoZonesController extends AppController {
 		$this->redirect('/geo_zones/admin/');
 	}
 
-	function admin_modify_country_zones_selected()
+	public function admin_modify_country_zones_selected()
 	{
-		if(isset($this->params['form']['cancelbutton']))
+		if(isset($this->data['cancelbutton']))
 		{
 			$this->redirect('/geo_zones/admin/');
 			die();
@@ -143,7 +142,7 @@ class GeoZonesController extends AppController {
 		$this->redirect('/geo_zones/admin_zones_edit/' . $this->params['data']['GeoZoneZones']['geo_zone_id']);
 	}
 
-	function admin ($ajax_request = false)
+	public function admin ($ajax_request = false)
 	{
 		$this->set('current_crumb', __('Geo Zones Listing', true));
 		$this->set('title_for_layout', __('Geo Zones Listing', true));
@@ -152,7 +151,7 @@ class GeoZonesController extends AppController {
 		$this->set(compact('data'));
 	}
 	
-	function admin_country_zones()
+	public function admin_country_zones()
 	{
 		$countries = $this->Country->find('list', array(
 					'fields' => array('Country.id', 'Country.name')
@@ -161,7 +160,7 @@ class GeoZonesController extends AppController {
 		$this->set('countries', $countries);
 	}
 	
-	function admin_country_zones_getzones($country_id = null)
+	public function admin_country_zones_getzones($country_id = null)
 	{
 		$this->layout = 'ajax';
 		$zones = $this->CountryZone->find('list', array('conditions' => array('CountryZone.country_id' => $country_id), 'fields' => array('CountryZone.id', 'CountryZone.name')));

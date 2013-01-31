@@ -5,16 +5,15 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-
 class ContactUsController extends AppController {
-	var $name = 'ContactUs';
-	var $uses = null;
-	var $components = array('Email', 'ConfigurationBase');
+	public $name = 'ContactUs';
+	public $uses = null;
+	public $components = array('Email', 'ConfigurationBase');
 
-	function send_email ()
+	public function send_email ()
 	{
 		// Clean up the post
-		uses('sanitize');
+		App::uses('Sanitize', 'Utility');
 		$clean = new Sanitize();
 		$clean->paranoid($_POST);
 		

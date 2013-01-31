@@ -5,20 +5,19 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-
 class CartController extends AppController {
-	var $name = 'Cart';
-	var $uses = array('Content','Order');
-	var $components = array('ConfigurationBase', 'ContentBase', 'OrderBase', 'Smarty', 'EventBase', 'Gzip.Gzip');
+	public $name = 'Cart';
+	public $uses = array('Content','Order');
+	public $components = array('ConfigurationBase', 'ContentBase', 'OrderBase', 'Smarty', 'EventBase', 'Gzip.Gzip');
 
-	function remove_product ($product_id, $qty = 9999) {
+	public function remove_product ($product_id, $qty = 9999) {
 		$this->OrderBase->remove_product($product_id, $qty);
 		$this->redirect($_SERVER['HTTP_REFERER']);
 	}
 
-	function purchase_product () {
+	public function purchase_product () {
 		// Clean up the post
-		uses('sanitize');
+		App::uses('Sanitize', 'Utility');
 		$clean = new Sanitize();
 		$clean->paranoid($_POST);
 
@@ -28,10 +27,10 @@ class CartController extends AppController {
 			$new_order['Order']['order_status_id'] = 0;
 
 			// Get default shipping & payment methods and assign them to the order
-			$default_payment = $this->Order->PaymentMethod->find(array('default' => '1'));
+			$default_payment = $this->Order->PaymentMethod->find('first', array('conditions' => array('default' => '1')));
 			$new_order['Order']['payment_method_id'] = $default_payment['PaymentMethod']['id'];
 
-			$default_shipping = $this->Order->ShippingMethod->find(array('default' => '1'));
+			$default_shipping = $this->Order->ShippingMethod->find('first', array('conditions' => array('default' => '1')));
 			$new_order['Order']['shipping_method_id'] = $default_shipping['ShippingMethod']['id'];
 
 			// Save the order
@@ -56,10 +55,10 @@ class CartController extends AppController {
 		}
 	}
 
-	function update_cart_qty()
+	public function update_cart_qty()
 	{
 		// Clean up the post
-		uses('sanitize');
+		App::uses('Sanitize', 'Utility');
 		$clean = new Sanitize();
 		$clean->paranoid($_POST);
 

@@ -5,33 +5,34 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
+App::uses('Folder', 'Utility');
 
 class ShippingMethodsController extends AppController {
-	var $name = 'ShippingMethods';
+	public $name = 'ShippingMethods';
 
-	function admin_change_active_status ($id) 
+	public function admin_change_active_status ($id) 
 	{
 		$this->changeActiveStatus($id);	
 	}
 	
-	function admin_set_as_default ($id)
+	public function admin_set_as_default ($id)
 	{
 		$this->setDefaultItem($id);
 	}
 	
-	function admin_edit ($shipping_method_id)
+	public function admin_edit ($shipping_method_id)
 	{
 		$this->set('current_crumb', __('Edit Shipping Method', true));
 		$this->set('title_for_layout', __('Edit Shipping Method', true));
-		if(isset($this->params['form']['cancelbutton']))
+		if(isset($this->data['cancelbutton']))
 		{
 			$this->redirect('/shipping_methods/admin/');
 			die();
 		}
-		
+
 		if(empty($this->data))
 		{
-			$this->set('data', $this->ShippingMethod->find(array('id' =>$shipping_method_id,null,null,2)));
+			$this->set('data', $this->ShippingMethod->find('first', array('conditions' => array('id' =>$shipping_method_id,null,null,2))));
 		}
 		else
 		{
@@ -63,11 +64,11 @@ class ShippingMethodsController extends AppController {
 		}
 	}
 	
-	function admin ()
+	public function admin ()
 	{
 		$this->set('current_crumb', __('Modules Listing', true));
 		$this->set('title_for_layout', __('Modules Listing', true));
-		$path = APP . 'plugins' . DS . 'shipping' . DS . 'views';
+		$path = APP . 'Plugin' . DS . 'Shipping' . DS . 'View';
 		$module_path = new Folder($path);
 		$dirs = $module_path->read();
 		$modules = array();
@@ -76,11 +77,11 @@ class ShippingMethodsController extends AppController {
 				$module = array();
 				$module['code'] = $dir; 
 				$db_module = $this->ShippingMethod->findByCode($module['code']);
-				$module['id'] = $db_module['ShippingMethod']['id'];
+				$module['id'] = (isset($db_module['ShippingMethod']['id'])?$db_module['ShippingMethod']['id']:null);
 				$module['name'] = (isset($db_module['ShippingMethod']['name'])?$db_module['ShippingMethod']['name']:Inflector::humanize($module['code']));
-				$module['default'] = (isset($db_module['ShippingMethod']['default'])?$db_module['ShippingMethod']['default']:0);
+				$module['default'] = (isset($db_module['ShippingMethod']['default'])?$db_module['ShippingMethod']['default']:null);
 				$module['installed'] = $this->ShippingMethod->find('count', array('conditions' => array('code' => $module['code'], 'active' => '1')));
-				$module['order'] = $db_module['ShippingMethod']['order'];
+				$module['order'] = (isset($db_module['ShippingMethod']['order'])?$db_module['ShippingMethod']['order']:null);
 				
 				$modules[] = $module;
 		}
@@ -89,19 +90,19 @@ class ShippingMethodsController extends AppController {
 				
 	}
 
-	function admin_add ()
+	public function admin_add ()
 	{
 		$this->set('current_crumb', __('Module Upload', true));
 		$this->set('title_for_layout', __('Module Upload', true));
 	}
 
-	function admin_upload ()
+	public function admin_upload ()
 	{
 		$this->set('current_crumb', __('Module Upload', true));
 		$this->set('title_for_layout', __('Module Upload', true));
 
 		// If they pressed cancel
-		if(isset($this->params['form']['cancelbutton']))
+		if(isset($this->data['cancelbutton']))
 		{
 			$this->redirect('/shipping_methods/admin/');
 			die();

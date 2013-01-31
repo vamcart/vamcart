@@ -5,23 +5,22 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-
 class OrderStatusController extends AppController {
 
-	var $name = 'OrderStatus';
-	var $uses = array('OrderStatus','Language');
+	public $name = 'OrderStatus';
+	public $uses = array('OrderStatus','Language');
 
-	function admin_set_as_default ($order_status_id)
+	public function admin_set_as_default ($order_status_id)
 	{
 		$this->setDefaultItem($order_status_id);
 	}
 
-	function admin_move ($id, $direction)
+	public function admin_move ($id, $direction)
 	{
 		$this->moveItem($id, $direction);		
 	}
 	
-	function admin_delete ($order_status_id)
+	public function admin_delete ($order_status_id)
 	{
 		// Get the order_status and make sure it's not the default
 		$this->OrderStatus->id = $order_status_id;
@@ -55,12 +54,12 @@ class OrderStatusController extends AppController {
 
 	}
 
-	function admin_edit ($order_status_id = null)
+	public function admin_edit ($order_status_id = null)
 	{
 		$this->set('current_crumb', __('Order Status', true));
 		$this->set('title_for_layout', __('Order Status', true));
 		// If they pressed cancel
-		if(isset($this->params['form']['cancelbutton']))
+		if(isset($this->data['cancelbutton']))
 		{
 			$this->redirect('/order_status/admin/');
 			die();
@@ -96,7 +95,7 @@ class OrderStatusController extends AppController {
 			{
 				$highest = $this->OrderStatus->find('all', array('order' => array('OrderStatus.order DESC')));
 				$order = $highest['OrderStatus']['order'] + 1;
-				$this->data['OrderStatus']['order'] = $order;
+				$this->request->data['OrderStatus']['order'] = $order;
 				
 				// Also set the flash
 				$this->Session->setFlash(__('Record created.', true));
@@ -138,13 +137,13 @@ class OrderStatusController extends AppController {
 
 	
 
-	function admin_new() 
+	public function admin_new() 
 	{
 		$this->redirect('/order_status/admin_edit/');
 	}
 
 
-	function admin ($ajax = false)
+	public function admin ($ajax = false)
 	{
 		$this->set('current_crumb', __('Order Status Listing', true));
 		$this->set('title_for_layout', __('Order Status Listing', true));
