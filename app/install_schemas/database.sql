@@ -984,8 +984,8 @@ CREATE TABLE `modules` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `modules` (`id`, `name`, `alias`, `version`, `nav_level`) VALUES 
-(1, 'Reviews', 'reviews', '1.0', 3),
-(2, 'Coupons', 'coupons', '2', 3);
+(1, 'reviews', 'reviews', '1.0', 3),
+(2, 'coupons', 'coupons', '2', 3);
 
 DROP TABLE IF EXISTS module_coupons;
 CREATE TABLE `module_coupons` (
@@ -1144,12 +1144,12 @@ CREATE TABLE `payment_methods` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `payment_methods` (`id`, `active`, `default`, `name`, `icon`, `alias`, `order`, `order_status_id`) VALUES 
-(1, 1, 0, 'In-store Pickup', '', 'store_pickup', 0, 0),
-(2, 1, 1, 'Money Order Check', '', 'money_order_check', 0, 0),
-(3, 1, 0, 'Paypal', 'paypal.png', 'paypal', 0, 0),
-(4, 1, 0, 'Credit Card', '', 'credit_card', 0, 0),
-(5, 1, 0, 'Authorize.Net', '', 'authorize', 0, 0),
-(6, 1, 0, 'Google Checkout', '', 'google_html', 0, 0);
+(1, 1, 0, 'In-store Pickup', '', 'StorePickup', 0, 0),
+(2, 1, 1, 'Money Order Check', '', 'MoneyOrderCheck', 0, 0),
+(3, 1, 0, 'Paypal', 'paypal.png', 'Paypal', 0, 0),
+(4, 1, 0, 'Credit Card', '', 'CreditCard', 0, 0),
+(5, 1, 0, 'Authorize.Net', '', 'Authorize', 0, 0),
+(6, 1, 0, 'Google Checkout', '', 'GoogleHtml', 0, 0);
 
 DROP TABLE IF EXISTS payment_method_values;
 CREATE TABLE `payment_method_values` (
@@ -1203,10 +1203,10 @@ CREATE TABLE `shipping_methods` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `shipping_methods` (`id`, `name`, `icon`, `code`, `default`, `active`, `order`) VALUES 
-(1, 'Free Shipping', '', 'free_shipping', 0, 1, 0),
-(2, 'Flat Rate', '', 'flat_rate', 1, 1, 0),
-(3, 'Per Item', '', 'per_item', 0, 1, 0),
-(4, 'Table Based', '', 'table_based', 0, 1, 0);
+(1, 'Free Shipping', '', 'FreeShipping', 0, 1, 0),
+(2, 'Flat Rate', '', 'FlatRate', 1, 1, 0),
+(3, 'Per Item', '', 'PerItem', 0, 1, 0),
+(4, 'Table Based', '', 'TableBased', 0, 1, 0);
 
 DROP TABLE IF EXISTS shipping_method_values;
 CREATE TABLE `shipping_method_values` (
