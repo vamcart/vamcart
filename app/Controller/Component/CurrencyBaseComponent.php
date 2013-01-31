@@ -9,17 +9,26 @@
 class CurrencyBaseComponent extends Object 
 {
 
-	function beforeFilter ()
+	public function beforeFilter ()
 	{
-		
 	}
 
-    function startup(&$controller)
-	{
-    }
+   public function initialize(Controller $controller) {
+	}
+    
+	public function startup(Controller $controller) {
+	}
 
+	public function shutdown(Controller $controller) {
+	}
+	
+	public function beforeRender(Controller $controller){
+	}
 
-	function display_price ($price)
+	public function beforeRedirect(Controller $controller){
+	}
+
+	public function display_price ($price)
 	{
 		// Start Cache
 		$currency = Cache::read('vam_currency_' . $_SESSION['Customer']['currency_id']);
@@ -27,9 +36,9 @@ class CurrencyBaseComponent extends Object
 		{
 		
 			App::import('Model', 'Currency');
-				$this->Currency =& new Currency();
+			$Currency =& new Currency();
 	
-			$currency = $this->Currency->read(null, $_SESSION['Customer']['currency_id']);
+			$currency = $Currency->read(null, $_SESSION['Customer']['currency_id']);
 
 			Cache::write('vam_currency_' . $_SESSION['Customer']['currency_id'], $currency);
 		}

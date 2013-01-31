@@ -8,14 +8,25 @@
 
 class SmartyComponent extends Object
 {
-	function beforeFilter () {
+	public function beforeFilter () {
+	}
+	
+	public function initialize(Controller $controller) {
+	}
+    
+	public function startup(Controller $controller) {
 	}
 
-	function startup(&$controller)
-	{
+	public function shutdown(Controller $controller) {
+	}
+    
+	public function beforeRender(Controller $controller){
 	}
 
-	function load_template ($params, $tag)
+	public function beforeRedirect(Controller $controller){
+	}
+	
+	public function load_template ($params, $tag)
 	{
 		if(isset($params['template'])) {
 			// Cache the output.
@@ -27,7 +38,7 @@ class SmartyComponent extends Object
 				App::import('Model', 'MicroTemplate');
 				$MicroTemplate =& new MicroTemplate();
 
-				$template = $MicroTemplate->find(array('alias' => $params['template']));
+				$template = $MicroTemplate->find('first', array('conditions' => array('alias' => $params['template'])));
 				$display_template = $template['MicroTemplate']['template'];
 
 				echo $display_template;
@@ -46,21 +57,21 @@ class SmartyComponent extends Object
 		return $display_template;
 	}
 
-	function load_smarty ()
+	public function load_smarty ()
 	{
 		App::import('Vendor', 'Smarty', array('file' => 'smarty'.DS.'Smarty.class.php'));
 		$smarty = new Smarty();
 
 		$smarty->plugins_dir = array(
-			'../vendors/smarty/plugins',
-			'../vendors/smarty/local_plugins',
-			'../vendors/smarty/vam_plugins'
+			'../Vendor/smarty/plugins',
+			'../Vendor/smarty/local_plugins',
+			'../Vendor/smarty/vam_plugins'
 		);
 
 		return $smarty;
 	}
 
-	function fetch($str, $assigns = array())
+	public function fetch($str, $assigns = array())
 	{
 		$smarty = $this->load_smarty();
 
@@ -71,7 +82,7 @@ class SmartyComponent extends Object
 		return $smarty->fetch('eval:' . $str, null, null, null, false);
 	}
 
-	function display($str, $assigns = array())
+	public function display($str, $assigns = array())
 	{
 		echo $this->fetch($str, $assigns);
 	}

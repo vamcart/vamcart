@@ -9,22 +9,31 @@
 class EventBaseComponent extends Object 
 {
 
-	function beforeFilter ()
+	public function beforeFilter ()
 	{
-		
 	}
 
-    function startup(&$controller)
-	{
+   public function initialize(Controller $controller) {
+	}
+    
+   public function startup(Controller $controller) {
+	}
 
-    }
+   public function shutdown(Controller $controller) {
+	}
+    
+   public function beforeRender(Controller $controller){
+	}
 
-	function ProcessEvent ($event_alias)
+   public function beforeRedirect(Controller $controller){
+	}
+
+	public function ProcessEvent ($event_alias)
 	{
 		App::import('Model', 'Event');
-		$this->Event =& new Event();
+		$Event =& new Event();
 		
-		$events = $this->Event->EventHandler->find('all', array('conditions' => array('Event.alias' => $event_alias)));
+		$events = $Event->EventHandler->find('all', array('conditions' => array('Event.alias' => $event_alias)));
 		
 		if(!empty($events))
 		{

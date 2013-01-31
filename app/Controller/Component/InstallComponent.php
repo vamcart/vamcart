@@ -8,25 +8,34 @@
 
 class InstallComponent extends Object 
 {
-    var $components = array('Session','Smarty');
+    public $components = array('Session','Smarty');
 
-	function beforeFilter ()
+	public function beforeFilter ()
 	{
-		
 	}
 
-    function startup(&$controller)
-	{
-	
-    }
+	public function initialize(Controller $controller) {
+	}
+    
+	public function startup(Controller $controller) {
+	}
 
-	function getVersion ()
+	public function shutdown(Controller $controller) {
+	}
+    
+	public function beforeRender(Controller $controller){
+	}
+
+	public function beforeRedirect(Controller $controller){
+	}
+
+	public function getVersion ()
 	{
 		$version = file_get_contents(WWW_ROOT . 'version.txt');
 		return $version;
 	}
 	
-    function begin_install ()
+    public function begin_install ()
     {
 
     }

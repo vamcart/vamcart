@@ -9,17 +9,26 @@
 class TranslitComponent extends Object 
 {
 
-	function beforeFilter ()
+	public function beforeFilter ()
 	{
-		
 	}
 
-    function startup(&$controller)
-	{
-	
-    }
+	public function initialize(Controller $controller) {
+	}
+    
+	public function startup(Controller $controller) {
+	}
 
-	function convert ($alias)
+	public function shutdown(Controller $controller) {
+	}
+
+	public function beforeRender(Controller $controller){
+	}
+	
+	public function beforeRedirect(Controller $controller){
+	}
+	
+	public function convert ($alias)
 	{
 
 		//Replace cyrillic symbols to translit
