@@ -13,7 +13,7 @@ App::import('Model', 'Order');
 App::import('Model', 'ContentProduct');
 App::import('Model', 'ContentDownloadable');
 
-class OrderBaseComponent extends Component
+class OrderBaseComponent extends Object
 {
 
 	public function initialize(Controller $controller) {

@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class SmartyComponent extends Component
+class SmartyComponent extends Object
 {
 	public function beforeFilter () {
 	}

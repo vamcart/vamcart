@@ -35,7 +35,7 @@
  *   echo $ccs->binDecrypt('1234567890abcdef', 'xyz');
  **/
 
-class CryptComponent extends Component
+class CryptComponent extends Object
 {
 
   public $r; // random number or 10byte key

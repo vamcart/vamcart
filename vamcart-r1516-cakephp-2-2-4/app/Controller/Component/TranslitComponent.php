@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class TranslitComponent extends Component 
+class TranslitComponent extends Object 
 {
 
 	public function beforeFilter ()
