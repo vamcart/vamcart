@@ -9,26 +9,35 @@
 class ConfigurationBaseComponent extends Object 
 {
 
-
-	function beforeFilter ()
+	public function beforeFilter ()
 	{
 	}
 
-    function startup(&$controller)
-	{
+	public function initialize(Controller $controller) {
+	}
+    
+	public function startup(Controller $controller) {
+	}
 
-    }
+	public function shutdown(Controller $controller) {
+	}
 
-	function load_configuration ()
+	public function beforeRedirect(Controller $controller){
+	}
+    
+	public function beforeRender(Controller $controller){
+	}
+	
+	public function load_configuration ()
 	{
 		$config_values = Cache::read('vam_config');
 		
 		if($config_values === false)
 		{
 			App::import('Model', 'Configuration');
-				$this->Configuration =& new Configuration();
+				$Configuration =& new Configuration();
 	
-			$configuration_values = $this->Configuration->find('all');
+			$configuration_values = $Configuration->find('all');
 
 			$config_values = array_combine(Set::extract($configuration_values, '{n}.Configuration.key'),
 						 		 Set::extract($configuration_values, '{n}.Configuration.value'));		

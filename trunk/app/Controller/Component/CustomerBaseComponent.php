@@ -9,21 +9,31 @@
 class CustomerBaseComponent extends Object 
 {
 
-    function startup(&$controller)
-	{
+   public function initialize(Controller $controller) {
+	}
+    
+	public function startup(Controller $controller) {
+	}
 
-    }
+	public function shutdown(Controller $controller) {
+	}
+    
+	public function beforeRender(Controller $controller){
+	}
+
+	public function beforeRedirect(Controller $controller){
+	}
 
 	/**
 	* Saves all current customer information to the correct order record
 	*
 	* @param  array  $details A key => value paired array of customer details.  Keys should be the same as the fields in the Order table.
 	*/
-	function save_customer_details ($customer_details)
+	public function save_customer_details ($customer_details)
 	{
 
-		App::import('Component', 'EventBase');
-		$this->EventBase =& new EventBaseComponent();
+		App::uses('EventBaseComponent', 'Controller/Component');
+		$this->EventBase =& new EventBaseComponent(new ComponentCollection());
 		
 		App::import('Model', 'Order');
 		$this->Order =& new Order();

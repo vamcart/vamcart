@@ -9,17 +9,26 @@
 class UserTagBaseComponent extends Object 
 {
 
-	function beforeFilter ()
+	public function beforeFilter ()
 	{
-		
 	}
 
-    function startup(&$controller)
-	{
+	public function initialize(Controller $controller) {
+	}
+    
+	public function startup(Controller $controller) {
+	}
 
-    }
+	public function shutdown(Controller $controller) {
+	}
+    
+	public function beforeRender(Controller $controller){
+	}
 
-	function call_user_tag ($params)
+	public function beforeRedirect(Controller $controller){
+	}
+
+	public function call_user_tag ($params)
 	{
 		// Load the model
 		App::import('Model', 'UserTag');

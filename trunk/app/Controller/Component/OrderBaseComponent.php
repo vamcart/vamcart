@@ -5,34 +5,56 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
+App::uses('ContentBaseComponent', 'Controller/Component');
+App::uses('EventBaseComponent', 'Controller/Component');
+App::import('Model', 'Content');
+App::import('Model', 'ContentDescription');
+App::import('Model', 'Order');
+App::import('Model', 'ContentProduct');
+App::import('Model', 'ContentDownloadable');
+
 class OrderBaseComponent extends Object
 {
 
-	function startup(&$controller) {
+	public function initialize(Controller $controller) {
+	}
+    
+	public function startup(Controller $controller) {
+	$this->load_models();
 	}
 
-	function load_models()
+	public function shutdown(Controller $controller) {
+	}
+    
+	public function beforeRender(Controller $controller){
+	}
+
+	public function beforeRedirect(Controller $controller){
+	}
+
+	public function load_models()
 	{
-		App::import('Component', 'ContentBase');
-		$this->ContentBase =& new ContentBaseComponent();
+	
+		
+		$this->ContentBase = new ContentBaseComponent(new ComponentCollection());
 
-		App::import('Model', 'Content');
-		$this->Content =& new Content();
+		
+		$this->Content = new Content();
 
-		App::import('Model', 'ContentDescription');
-		$this->ContentDescription =& new ContentDescription();
+	
+		$this->ContentDescription = new ContentDescription();
 
-		App::import('Model', 'Order');
-		$this->Order =& new Order();
+		
+		$this->Order = new Order();
 
-		App::import('Model', 'ContentProduct');
-		$this->ContentProduct =& new ContentProduct();
+	
+		$this->ContentProduct = new ContentProduct();
 
-		App::import('Model', 'ContentDownloadable');
-		$this->ContentDownloadable =& new ContentDownloadable();
+	
+		$this->ContentDownloadable = new ContentDownloadable();
 	}
 
-	function get_order ($order_id = null)
+	public function get_order ($order_id = null)
 	{
 		if (($order_id == null) && (isset($_SESSION['Customer']['order_id']))) {
 			$order_id = $_SESSION['Customer']['order_id'];
@@ -43,7 +65,7 @@ class OrderBaseComponent extends Object
 		if ($order_id != null) {
 			$this->Order->unbindModel(array('belongsTo' => array('OrderStatus')));
 			$this->Order->unbindModel(array('hasMany' => array('OrderComment')));
-			$order = $this->Order->find(array('Order.id' => $order_id), null, null, 2);
+			$order = $this->Order->find('first', array('recursive' => 2, 'conditions' => array('Order.id' => $order_id)));
 		} else {
 			$order = array();
 		}
@@ -51,7 +73,7 @@ class OrderBaseComponent extends Object
 		return $order;
 	}
 
-	function get_order_shipping (&$order)
+	public function get_order_shipping (&$order)
 	{
 
 		if (!isset($order['ShippingMethod']['code'])) {
@@ -60,15 +82,15 @@ class OrderBaseComponent extends Object
 
 		$shipping = Inflector::classify($order['ShippingMethod']['code']);
 		$shipping_controller =  Inflector::classify($order['ShippingMethod']['code']) . 'Controller';
-		 App::import('Controller', 'shipping.'.$shipping);
-		$this->MethodBase =& new $shipping_controller();
+		 App::import('Controller', 'Shipping.'.$shipping);
+		$MethodBase =& new $shipping_controller();
 
-		$shipping_total = $this->MethodBase->calculate();
+		$shipping_total = $MethodBase->calculate();
 
 		return $shipping_total;
 	}
 
-	function get_order_tax (&$order)
+	public function get_order_tax (&$order)
 	{
 		$running_total = 0;
 
@@ -80,7 +102,7 @@ class OrderBaseComponent extends Object
 
 	}
 
-	function get_order_total (&$order)
+	public function get_order_total (&$order)
 	{
 		$running_total = 0;
 
@@ -91,7 +113,7 @@ class OrderBaseComponent extends Object
 		return $running_total;
 	}
 
-	function update_order_totals ()
+	public function update_order_totals ()
 	{
 		$this->load_models();
 
@@ -101,24 +123,22 @@ class OrderBaseComponent extends Object
 		$order['Order']['tax'] = $this->get_order_tax($order);
 		$order['Order']['total'] = $this->get_order_total($order) + $order['Order']['tax'] + $order['Order']['shipping'] ;
 
-		App::import('Component', 'EventBase');
-		$this->EventBase =& new EventBaseComponent();
+		$EventBase =& new EventBaseComponent(new ComponentCollection());
 
-		$this->EventBase->ProcessEvent('UpdateOrderTotalsBeforeSave');
+		$EventBase->ProcessEvent('UpdateOrderTotalsBeforeSave');
 		$this->Order->save($order);
-		$this->EventBase->ProcessEvent('UpdateOrderTotalsAfterSave');
+		$EventBase->ProcessEvent('UpdateOrderTotalsAfterSave');
 	}
 
-	function remove_product ($product_id, $qty = 1)
+	public function remove_product ($product_id, $qty = 1)
 	{
 		$this->load_models();
 
-		$order_product = $this->Order->OrderProduct->find(array('content_id' => $product_id,'order_id' => $_SESSION['Customer']['order_id']));
+		$order_product = $this->Order->OrderProduct->find('first', array('conditions' => array('content_id' => $product_id,'order_id' => $_SESSION['Customer']['order_id'])));
 
-		App::import('Component', 'EventBase');
-		$this->EventBase =& new EventBaseComponent();
+		$EventBase =& new EventBaseComponent(new ComponentCollection());
 
-		$this->EventBase->ProcessEvent('RemoveFromCartBeforeSave');
+		$EventBase->ProcessEvent('RemoveFromCartBeforeSave');
 
 		if($order_product['OrderProduct']['quantity'] <= $qty) {
 			$this->Order->OrderProduct->delete($order_product['OrderProduct']['id']);
@@ -127,22 +147,22 @@ class OrderBaseComponent extends Object
 			$this->Order->OrderProduct->save($order_product);
 		}
 
-		$this->EventBase->ProcessEvent('RemoveFromCartAfterSave');
+		$EventBase->ProcessEvent('RemoveFromCartAfterSave');
 
 		$this->update_order_totals();
 	}
 
-	function add_product($content_id, $qty = 1, $update = false) {
+	public function add_product($content_id, $qty = 1, $update = false) {
 		$this->load_models();
 		$content = $this->ContentBase->get_content_information($content_id);
 		$content_type = $content['ContentType']['name'];
 		$content_description = $this->ContentBase->get_content_description($content_id);
 		$content['ContentDescription'] = $content_description['ContentDescription'];
 
-		$product = $this->Order->OrderProduct->Content->find(array('Content.id' => $content_id));
+		$product = $this->Order->OrderProduct->Content->find('first', array('conditions' => array('Content.id' => $content_id)));
 
 		// Get the product from the OrderProduct model...
-		$order_product = $this->Order->OrderProduct->find(array('order_id' => $_SESSION['Customer']['order_id'], 'content_id' => $content_id));
+		$order_product = $this->Order->OrderProduct->find('first', array('conditions' => array('order_id' => $_SESSION['Customer']['order_id'], 'content_id' => $content_id)));
 
 		// needed for calculating correct discount price
 		switch ($content_type) {
@@ -225,17 +245,16 @@ class OrderBaseComponent extends Object
 			}
 		}
 
-		App::import('Component', 'EventBase');
-		$this->EventBase =& new EventBaseComponent();
+		$EventBase =& new EventBaseComponent(new ComponentCollection());
 
-		$this->EventBase->ProcessEvent('AddToCartBeforeSave');
+		$EventBase->ProcessEvent('AddToCartBeforeSave');
 		$this->Order->OrderProduct->save($order_product);
-		$this->EventBase->ProcessEvent('AddToCartAfterSave');
+		$EventBase->ProcessEvent('AddToCartAfterSave');
 
 		$this->update_order_totals();
 	}
 	
-	function _random_string()
+	public function _random_string()
 	{
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 		$randstring = '';

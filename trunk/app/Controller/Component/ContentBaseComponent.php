@@ -6,31 +6,43 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class ContentBaseComponent extends Object 
+App::uses('Controller/Component', 'SessionComponent');
+App::uses('Model', 'Content');
+App::uses('Model', 'ContentDescription');
+
+class ContentBaseComponent extends Object
 {
-    var $components = array('Session','Smarty');
+    public $components = array('Session','Smarty');
 
-	function beforeFilter ()
+	public function beforeFilter ()
 	{
-
+	}
+	
+	public function initialize(Controller $controller) {
+	}
+    
+	public function startup(Controller $controller) {
+	$this->load_models();
 	}
 
-	function startup(&$controller)
-	{
-		$this->load_models();
+	public function shutdown(Controller $controller) {
+	}
+    
+	public function beforeRender(Controller $controller){
+	}
+	
+	public function beforeRedirect(Controller $controller){
 	}
 
-	function load_models ()
+	public function load_models ()
 	{
 		// We're loading the Session component here because the smarty plugin can't yet
-		App::import('Component', 'Session');
-		$this->Session =& new SessionComponent();
+		
+		$this->Session = new SessionComponent(new ComponentCollection());
 
-		App::import('Model', 'Content');
-		$this->Content =& new Content();
+		$this->Content = new Content();
 
-		App::import('Model', 'ContentDescription');
-		$this->ContentDescription =& new ContentDescription();
+		$this->ContentDescription = new ContentDescription();
 	}
 
 
@@ -38,9 +50,9 @@ class ContentBaseComponent extends Object
 	* Returns the ID of the default page
 	*
 	*/
-	function default_content ()
+	public function default_content ()
 	{
-		$content = $this->Content->find(array('Content.default' => '1'));
+		$content = $this->Content->find('first', array('conditions' => array('Content.default' => '1')));
 		$content_id = $content['Content']['id'];
 
 		return $content_id;
@@ -54,16 +66,16 @@ class ContentBaseComponent extends Object
 	* @param int $content_id ID of content page to Get
 	* @return  array  Content descriptions
 	*/
-	function get_content_description ($content_id = null)
+	public function get_content_description ($content_id = null)
 	{
 		if ($content_id == null) {
 			$content_id = $this->default_content();
 		}
 
 		$this->load_models();
-
-		$content_description = $this->ContentDescription->find(array('content_id' => $content_id, 'language_id' => $this->Session->read('Customer.language_id')));
-
+		 
+		$content_description = $this->ContentDescription->find('first', array('conditions' => array('content_id' => $content_id, 'language_id' => $this->Session->read('Customer.language_id'))));
+ 
 		return $content_description;
 	}
 
@@ -73,7 +85,7 @@ class ContentBaseComponent extends Object
 	* @param int $content_id ID of content page to Get
 	* @return  array  Content without the descriptions
 	*/
-	function get_content_information ($content_alias)
+	public function get_content_information ($content_alias)
 	{
 		$this->load_models();
 
@@ -90,7 +102,7 @@ class ContentBaseComponent extends Object
 		$this->Content->bindModel(array('belongsTo' => array('ContentType' => array('className' => 'ContentType'))));
 
 		$content_conditions = "Content.id = '" . $content_alias . "' OR BINARY Content.alias = '" . $content_alias . "' AND Content.active ='1'";
-		$content = $this->Content->find($content_conditions, null, null, 2);
+		$content = $this->Content->find('first', array('recursive' => 2, 'conditions' => $content_conditions));
 
 		if ($content === false) {
 			$this->cakeError('error404');
@@ -106,7 +118,7 @@ class ContentBaseComponent extends Object
 	* @param array $conditions array or string of conditions for findAll
 	* @return  array  List of all available content.
 	*/
-	function generate_content_list ($conditions = null)
+	public function generate_content_list ($conditions = null)
 	{
 		$this->Content->unbindModel(array('hasMany' => array('ContentDescription')));
 		$this->Content->bindModel(

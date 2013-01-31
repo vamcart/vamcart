@@ -8,33 +8,44 @@
 
 class ModuleBaseComponent extends Object 
 {
-	var $components = array('Session');
+	public $components = array('Session');
 	
-	function beforeFilter ()
+	public function beforeFilter ()
 	{
 	}
 
-    function startup(&$controller)
-	{
-  		$this->controller =& $controller;
+	public function initialize(Controller &$controller, $settings = array()) {
+		$this->controller =& $controller;
     }
+    
+	public function startup(Controller $controller) {
+	}
+
+	public function shutdown(Controller $controller) {
+	}
+    
+	public function beforeRender(Controller $controller){
+	}
+
+	public function beforeRedirect(Controller $controller){
+	}
 	
-	function get_version ()
+	public function get_version ()
 	{
-		
-		$version = intval(file_get_contents(APP . 'plugins' . DS . $this->controller->params['plugin'] . DS . 'version.txt'));
+		$version = intval(file_get_contents(APP . 'Plugin' . DS . $this->controller->plugin . DS . 'version.txt'));
+
 		return $version;
 	}
 	
-	function upgrade ()
+	public function upgrade ()
 	{
 		$current_version = $this->get_version();
 
 		App::import('Model', 'Module');
-		$this->Module =& new Module();
+		$Module =& new Module();
 		
-		$module_alias = substr($this->controller->params['plugin'],7,strlen($this->controller->params['plugin']));
-		$installed_module = $this->Module->find(array('alias' => $module_alias));
+		$module_alias = substr($this->controller->plugin,7,strlen($this->controller->plugin));
+		$installed_module = $Module->find('first', array('conditions' => array('alias' => $module_alias)));
 		
 		// Make sure we're not upgrading to a lower version.
 		$installed_version = $installed_module['Module']['version'];
@@ -54,7 +65,7 @@ class ModuleBaseComponent extends Object
 		{
 			$end_file = $version + 1;
 			
-			$upgrade_file = APP . 'plugins' . DS . $this->controller->params['plugin'] . DS . 'upgrade_schemas' . DS .  $start_file . '.to.' . $end_file . '.php';
+			$upgrade_file = APP . 'Plugin' . DS . $this->controller->plugin . DS . 'upgrade_schemas' . DS .  $start_file . '.to.' . $end_file . '.php';
 			
 			if(file_exists($upgrade_file))
 			{
@@ -63,20 +74,20 @@ class ModuleBaseComponent extends Object
 
 				foreach($changes AS $change)
 				{
-					$this->Module->execute($change);
+					$Module->execute($change);
 				}
 				$start_file = $end_file;
 			}
 		}
 		
 		$installed_module['Module']['version'] = $current_version;
-		$this->Module->save($installed_module);
+		$Module->save($installed_module);
 	}
 	
-	function create_core_page ($alias,$name,$description)
+	public function create_core_page ($alias,$name,$description)
 	{
 		App::import('Model', 'Content');
-			$this->Content =& new Content();		
+			$Content =& new Content();		
 
 		$new_page = array();
 		$new_page['Content']['alias'] = $alias;
@@ -86,16 +97,16 @@ class ModuleBaseComponent extends Object
 
 		// Get the default template
 		App::import('Model', 'Template');
-			$this->Template =& new Template();		
+			$Template =& new Template();		
 		
-		$default_template = $this->Template->find(array('default' => '1'));
+		$default_template = $Template->find('first', array('conditions' => array('default' => '1')));
 		$new_page['Content']['template_id'] = $default_template['Template']['id'];
 			
-		$this->Content->save($new_page);
-		$new_page_id = $this->Content->getLastInsertId();			
+		$Content->save($new_page);
+		$new_page_id = $Content->getLastInsertId();			
 		
 		// Get all of the active languages
-		$languages = $this->Content->ContentDescription->Language->find('all', array('conditions' => array('active' => '1')));
+		$languages = $Content->ContentDescription->Language->find('all', array('conditions' => array('active' => '1')));
 		
 		// Loop through the languages, saving each one.
 		foreach($languages AS $language)
@@ -106,17 +117,17 @@ class ModuleBaseComponent extends Object
 			$new_description['ContentDescription']['name'] = $name;
 			$new_description['ContentDescription']['description'] = $description;						
 			
-			$this->Content->ContentDescription->create();
-			$this->Content->ContentDescription->save($new_description);
+			$Content->ContentDescription->create();
+			$Content->ContentDescription->save($new_description);
 		}
 	}
 	
-	function check_if_installed ($module_alias,$redirect = true)
+	public function check_if_installed ($module_alias,$redirect = true)
 	{
 		App::import('Model', 'Module');
-		$this->Module =& new Module();
+		$Module =& new Module();
 		
-		$check_count = $this->Module->find('count', array('conditions' => array('Module.alias' => $module_alias)));
+		$check_count = $Module->find('count', array('conditions' => array('Module.alias' => $module_alias)));
 		
 		if(($redirect == true)&&($check_count == 1))
 		{
