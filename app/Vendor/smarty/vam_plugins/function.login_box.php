@@ -29,8 +29,8 @@ return $template;
 
 function smarty_function_login_box($params, $template)
 {
-	App::import('Component', 'Smarty');
-	$Smarty =& new SmartyComponent();
+	App::uses('SmartyComponent', 'Controller/Component');
+	$Smarty =& new SmartyComponent(new ComponentCollection());
 
 	if (isset($_SESSION['Auth']) && isset($_SESSION['Auth']['Customer'])) {
 		$isLoggedIn = true;
@@ -43,7 +43,8 @@ function smarty_function_login_box($params, $template)
 	$vars = array(
 		'login_form_action' => BASE . '/site/login/',
 		'is_logged_in' => $isLoggedIn,
-		'return_url' => base64_encode(urlencode($Dispatcher->here)),
+//		'return_url' => base64_encode(urlencode($Dispatcher->here)),
+		'return_url' => '',
 	);
 
 	$display_template = $Smarty->load_template($params, 'login_box');

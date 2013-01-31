@@ -10,8 +10,8 @@ function smarty_function_product_price($params, $template)
 {
 	global $content;
 	
-	App::import('Component', 'CurrencyBase');
-		$CurrencyBase =& new CurrencyBaseComponent();
+	App::uses('CurrencyBaseComponent', 'Controller/Component');
+	$CurrencyBase =& new CurrencyBaseComponent(new ComponentCollection());
 	
 	$price = $CurrencyBase->display_price($content['ContentProduct']['price']);
 	

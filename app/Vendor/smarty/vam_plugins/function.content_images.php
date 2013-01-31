@@ -37,8 +37,8 @@ function smarty_function_content_images($params, $template)
 	global $content;
 	global $config;
 	
-	App::import('Component', 'Smarty');
-		$Smarty =& new SmartyComponent();
+	App::uses('SmartyComponent', 'Controller/Component');
+		$Smarty =& new SmartyComponent(new ComponentCollection());
 		
 	App::import('Model', 'ContentImage');
 		$ContentImage =& new ContentImage();

@@ -36,8 +36,8 @@ function smarty_function_currency_box($params, $template)
     	{
     		ob_start();
 			
-	App::import('Component', 'Smarty');
-		$Smarty =& new SmartyComponent();
+	App::uses('SmartyComponent', 'Controller/Component');
+		$Smarty =& new SmartyComponent(new ComponentCollection());
 
 	App::import('Model', 'Currency');
 		$Currency =& new Currency();

@@ -25,7 +25,7 @@ function smarty_block_lang($params, $content, $template, &$repeat)
 	App::import('Model', 'DefinedLanguage');
 	$DefinedLanguage =& new DefinedLanguage();
 
-	$language_content = $DefinedLanguage->find(array('language_id' => $_SESSION['Customer']['language_id'], 'key' => $content));
+	$language_content = $DefinedLanguage->find('first', array('conditions' => array('language_id' => $_SESSION['Customer']['language_id'], 'key' => $content)));
 	if(empty($language_content['DefinedLanguage']['value']))
 		//$output = "Error! Empty language value for: " . $content;
 		$lang_output = $content;		

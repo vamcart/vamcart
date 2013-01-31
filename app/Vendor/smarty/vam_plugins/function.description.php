@@ -11,8 +11,8 @@ function smarty_function_description($params, $template)
 		
 	global $content;
 		
-	App::import('Component', 'Smarty');
-		$Smarty =& new SmartyComponent();
+	App::uses('SmartyComponent', 'Controller/Component');
+		$Smarty =& new SmartyComponent(new ComponentCollection());
 
 	$Smarty->display($content['ContentDescription']['description']);
 	

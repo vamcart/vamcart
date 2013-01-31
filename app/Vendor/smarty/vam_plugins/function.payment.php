@@ -23,11 +23,11 @@ function smarty_function_payment($params, $template)
 	global $config;
 	global $order;		
 		
-	App::import('Component', 'Smarty');
-		$Smarty =& new SmartyComponent();
+	App::uses('SmartyComponent', 'Controller/Component');
+		$Smarty =& new SmartyComponent(new ComponentCollection());
 
-	App::import('Component', 'PaymentMethodBase');
-		$PaymentMethodBase =& new PaymentMethodBaseComponent();
+	App::uses('PaymentMethodBaseComponent', 'Controller/Component');
+		$PaymentMethodBase =& new PaymentMethodBaseComponent(new ComponentCollection());
 
 	App::import('Model', 'PaymentMethod');
 		$PaymentMethod =& new PaymentMethod();

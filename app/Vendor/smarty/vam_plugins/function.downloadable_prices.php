@@ -10,8 +10,8 @@ function smarty_function_downloadable_prices($params, &$smarty)
 {
 	global $content;
 
-	App::import('Component', 'CurrencyBase');
-	$CurrencyBase =& new CurrencyBaseComponent();
+	App::uses('CurrencyBaseComponent', 'Controller/Component');
+	$CurrencyBase =& new CurrencyBaseComponent(new ComponentCollection());
 
 	$prices  = '';
 	$quantites = '';

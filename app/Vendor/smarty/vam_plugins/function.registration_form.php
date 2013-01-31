@@ -34,8 +34,8 @@ return $template;
 
 function smarty_function_registration_form($params, $template)
 {
-	App::import('Component', 'Smarty');
-	$Smarty =& new SmartyComponent();
+	App::uses('SmartyComponent', 'Controller/Component');
+	$Smarty =& new SmartyComponent(new ComponentCollection());
 
 	$errors = array();
 

@@ -60,14 +60,14 @@ return $template;
 
 function smarty_function_shopping_cart($params, $template)
 {
-	App::import('Component', 'Smarty');
-	$Smarty =& new SmartyComponent();
+	App::uses('SmartyComponent', 'Controller/Component');
+	$Smarty =& new SmartyComponent(new ComponentCollection());
 
-	App::import('Component', 'OrderBase');
-	$OrderBase =& new OrderBaseComponent();
+	App::uses('OrderBaseComponent', 'Controller/Component');
+	$OrderBase =& new OrderBaseComponent(new ComponentCollection());
 
-	App::import('Component', 'CurrencyBase');
-	$CurrencyBase =& new CurrencyBaseComponent();
+	App::uses('CurrencyBaseComponent', 'Controller/Component');
+	$CurrencyBase =& new CurrencyBaseComponent(new ComponentCollection());
 
 	global $order;
 	global $config;
