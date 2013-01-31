@@ -5,10 +5,10 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-
+App::uses('Model', 'AppModel');
 class StylesheetMediaType extends AppModel {
 
-	var $name = 'StylesheetMediaType';
+	public $name = 'StylesheetMediaType';
 
 }
 

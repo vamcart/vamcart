@@ -5,8 +5,8 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-
+App::uses('Model', 'AppModel');
 class Information extends AppModel {
-	var $name = 'Information';
+	public $name = 'Information';
 }
 ?>

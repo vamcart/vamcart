@@ -5,9 +5,9 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-
+App::uses('Model', 'AppModel');
 class Locale extends AppModel {
-	var $name = 'Locale';
-	var $useTable = false;
+	public $name = 'Locale';
+	public $useTable = false;
 }
 ?>

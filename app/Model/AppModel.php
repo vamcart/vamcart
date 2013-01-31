@@ -1,16 +1,38 @@
 <?php
-/* -----------------------------------------------------------------------------------------
-   VamCart - http://vamcart.com
-   -----------------------------------------------------------------------------------------
-   Copyright (c) 2011 VamSoft Ltd.
-   License - http://vamcart.com/license.html
-   ---------------------------------------------------------------------------------------*/
+/**
+ * Application model for Cake.
+ *
+ * This file is application-wide model file. You can put all
+ * application-wide model-related methods here.
+ *
+ * PHP 5
+ *
+ * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
+ * Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ *
+ * Licensed under The MIT License
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @link          http://cakephp.org CakePHP(tm) Project
+ * @package       app.Model
+ * @since         CakePHP(tm) v 0.2.9
+ * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ */
 
-class AppModel extends Model
-{
+App::uses('Model', 'Model');
+
+/**
+ * Application model for Cake.
+ *
+ * Add your application-wide methods in the class below, your models
+ * will inherit them.
+ *
+ * @package       app.Model
+ */
+class AppModel extends Model {
 	
-	
-    public $validate = array();
+	public $validate = array();
 
     public function __construct($id = false, $table = null, $ds = null) {
         parent::__construct($id, $table, $ds);
@@ -18,7 +40,7 @@ class AppModel extends Model
         $this->_validationRules();
     }
 
-    function _validationRules() {
+    public function _validationRules() {
         //implemented on child classes
     }	
 	
@@ -27,7 +49,7 @@ class AppModel extends Model
 	* This method clears the cache if we're saving to one of the specified models to check.
 	*
 	*/			
-	function afterSave()
+	public function afterSave($created)
 	{
 		$check_models = array('Content','Template','Stylesheet','MicroTemplate','GlobalContentBlock');
 		if(in_array($this->name,$check_models))
@@ -42,33 +64,29 @@ class AppModel extends Model
 	*
 	* @param  array $params Array of models to un-associate
 	*/		
-	function unbindAll($params = array())
+	public function unbindAll($params = array())
 	{
-	    foreach($this->__associations as $ass)
-	    {
-	      if(!empty($this->{$ass}))
-	      {
-	        $this->__backAssociation[$ass] = $this->{$ass};
-	        if(isset($params[$ass]))
-	        {
-	          foreach($this->{$ass} as $model => $detail)
-	          {
-	            if(!in_array($model,$params[$ass]))
-	            {
-	              $this->__backAssociation = array_merge($this->__backAssociation, $this->{$ass});
-	              unset($this->{$ass}[$model]);
-	            }
-	          }
-	        }else
-	        {
-	          $this->__backAssociation = array_merge($this->__backAssociation, $this->{$ass});
-	          $this->{$ass} = array();
-	        }
 
-      }
-    }
+$unbind = array(); 
+    foreach ($this->belongsTo as $model=>$info) 
+    { 
+      $unbind['belongsTo'][] = $model; 
+    } 
+    foreach ($this->hasOne as $model=>$info) 
+    { 
+      $unbind['hasOne'][] = $model; 
+    } 
+    foreach ($this->hasMany as $model=>$info) 
+    { 
+      $unbind['hasMany'][] = $model; 
+    } 
+    foreach ($this->hasAndBelongsToMany as $model=>$info) 
+    { 
+      $unbind['hasAndBelongsToMany'][] = $model; 
+    } 
+    parent::unbindModel($unbind); 
+
     return true;
 	}
   
 }
-?>

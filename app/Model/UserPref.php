@@ -5,9 +5,9 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-
+App::uses('Model', 'AppModel');
 class UserPref extends AppModel {
-	var $name = 'UserPref';
+	public $name = 'UserPref';
 }
 
 ?>
