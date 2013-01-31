@@ -1,1 +1,0 @@
-Information about coupons can be placed here.
