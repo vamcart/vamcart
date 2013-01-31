@@ -5,9 +5,9 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-
+App::uses('Model', 'AppModel');
 class ContentBase extends AppModel {
-	var $name = 'ContentBase';
-	var $useTable = false;
+	public $name = 'ContentBase';
+	public $useTable = false;
 }
 ?>

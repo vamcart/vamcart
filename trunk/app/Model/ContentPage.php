@@ -5,8 +5,8 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-
+App::uses('Model', 'AppModel');
 class ContentPage extends AppModel {
-	var $name = 'ContentPage';
+	public $name = 'ContentPage';
 }
 ?>

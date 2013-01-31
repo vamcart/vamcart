@@ -5,9 +5,9 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-
+App::uses('AppModel', 'Model');
 class DefinedLanguage extends AppModel {
-	var $name = 'DefinedLanguage';
-	var $belongsTo = array('Language');
+	public $name = 'DefinedLanguage';
+	public $belongsTo = array('Language');
 }
 ?>

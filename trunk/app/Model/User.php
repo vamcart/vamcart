@@ -5,14 +5,14 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-
+App::uses('Model', 'AppModel');
 class User extends AppModel {
 
-	var $name = 'User';
+	public $name = 'User';
 
-	var $hasMany = array('UserPref' => array('dependent'     => true));
+	public $hasMany = array('UserPref' => array('dependent'     => true));
 
-	function hashPasswords($data) {
+	public function hashPasswords($data) {
 		return $data;
 	}
 }

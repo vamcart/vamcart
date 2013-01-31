@@ -5,11 +5,11 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-
+App::uses('Model', 'AppModel');
 class ContentCategory extends AppModel {
-	var $name = 'ContentCategory';
+	public $name = 'ContentCategory';
 	
-	var $validate = array(
+	public $validate = array(
 	'content_id' => array(
 		'rule' => 'notEmpty'
 	)

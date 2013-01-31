@@ -5,10 +5,10 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-
+App::uses('Model', 'AppModel');
 class OrderProduct extends AppModel {
-	var $name = 'OrderProduct';
+	public $name = 'OrderProduct';
 
-	var $belongsTo = array('Content');
+	public $belongsTo = array('Content');
 }
 ?>
