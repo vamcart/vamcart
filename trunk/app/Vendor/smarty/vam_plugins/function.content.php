@@ -17,14 +17,14 @@ function smarty_function_content($params, $template)
 		ob_start();
 
 		// Load the smarty component because we're coming from a plugin
-		App::import('Component', 'Smarty');
-		$Smarty =& new SmartyComponent();
+		App::uses('SmartyComponent', 'Controller/Component');
+		$Smarty =& new SmartyComponent(new ComponentCollection());
 
 		// Load the template model and get the sub-template from the databse
 		App::import('Model', 'Template');
 		$Template =& new Template();
 
-		$contentTemplate = $Template->find(array('parent_id' => $content['Template']['id'], 'template_type_id' => $content['ContentType']['template_type_id']));
+		$contentTemplate = $Template->find('first', array('conditions' => array('parent_id' => $content['Template']['id'], 'template_type_id' => $content['ContentType']['template_type_id'])));
 
 		$Smarty->display($contentTemplate['Template']['template'], $template->smarty->tpl_vars);
 		// Write the output to cache and echo them

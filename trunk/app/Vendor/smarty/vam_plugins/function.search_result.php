@@ -8,15 +8,12 @@
 function smarty_function_search_result($params, $template)
 {
 	global $config;
-	uses('sanitize');
+	App::uses('Sanitize', 'Utility');
 	$clean = new Sanitize();
 	$clean->paranoid($_GET);
 
-	App::import('Component', 'Smarty');
-	$Smarty =& new SmartyComponent();
-
-	App::import('Component', 'Session');
-	$Session =& new SessionComponent();
+	App::uses('SmartyComponent', 'Controller/Component');
+	$Smarty =& new SmartyComponent(new ComponentCollection());
 
 	$params['on_page'] = $config['PRODUCTS_PER_PAGE'];
 

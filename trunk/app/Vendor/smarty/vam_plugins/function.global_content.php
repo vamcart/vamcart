@@ -18,14 +18,14 @@ function smarty_function_global_content($params, $template)
 	global $content;
 		
 	// Load the smarty component because we're coming from a plugin
-	App::import('Component', 'Smarty');
-		$Smarty =& new SmartyComponent();
+	App::uses('SmartyComponent', 'Controller/Component');
+		$Smarty =& new SmartyComponent(new ComponentCollection());
 	
 	// Load the template model and get the sub-template from the databse
 	App::import('Model', 'GlobalContentBlock');
 		$GlobalContentBlock =& new GlobalContentBlock();
 
-	$gcb = $GlobalContentBlock->find(array('alias' => $params['alias']));
+	$gcb = $GlobalContentBlock->find('first', array('conditions' => array('alias' => $params['alias'])));
 
 	$Smarty->display($gcb['GlobalContentBlock']['content'], $template->smarty->tpl_vars);
 		
