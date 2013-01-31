@@ -6,33 +6,33 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-$html->script(array(
+$this->Html->script(array(
 	'modified.js',
 	'jquery/plugins/jquery-ui-min.js',
 	'tabs.js',
 	'focus-first-input.js'
 ), array('inline' => false));
 
-	echo $html->css('ui.tabs', null, array('inline' => false));
+	echo $this->Html->css('ui.tabs', null, array('inline' => false));
 	
-	echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 	
-	echo $form->create('DefinedLanguage', array('id' => 'contentform', 'action' => '/defined_languages/admin_edit/'.$defined_key, 'url' => '/defined_languages/admin_edit/'.$defined_key));
+	echo $this->Form->create('DefinedLanguage', array('id' => 'contentform', 'action' => '/defined_languages/admin_edit/'.$defined_key, 'url' => '/defined_languages/admin_edit/'.$defined_key));
 	
-		echo $form->inputs(array(
+		echo $this->Form->inputs(array(
 					'legend' => null,
-					'fieldset' => __('Defined Language Details', true),
+					'fieldset' => __('Defined Language Details'),
 	               'DefinedLanguage.key' => array(
-   				   		'label' => __('Alias', true),				   
+   				   		'label' => __('Alias'),				   
    						'value' => $defined_key
 	               )
 				));
 	
-	echo $admin->StartTabs();
+	echo $this->Admin->StartTabs();
 			echo '<ul>';
 	foreach($languages AS $language)
 	{
-			echo $admin->CreateTab('language_'.$language['Language']['id'],$language['Language']['name'],$language['Language']['iso_code_2'].'.png');
+			echo $this->Admin->CreateTab('language_'.$language['Language']['id'],$language['Language']['name'],$language['Language']['iso_code_2'].'.png');
 	}
 			echo '</ul>';
 	
@@ -41,31 +41,31 @@ $html->script(array(
 	{
 		$language_key = $language['Language']['id'];
 		
-		echo $admin->StartTabContent('language_'.$language_key);
+		echo $this->Admin->StartTabContent('language_'.$language_key);
 		
 		// Quick fix to avoid errors, change this later
 		if(!isset($data[$language_key]['DefinedLanguage']['value']))
 			$data[$language_key]['DefinedLanguage']['value'] = "";
 			
-		echo $form->inputs(array(
+		echo $this->Form->inputs(array(
 					'legend' => null,
 					'DefinedLanguage]['.$language['Language']['id'].'][value' => array(
-			   	'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . __('Value', true),
+			   	'label' => $this->Admin->ShowFlag($language['Language']) . '&nbsp;' . __('Value'),
 					'type' => 'textarea',
 					'class' => 'pagesmalltextarea',											
 					'value' => $data[$language_key]['DefinedLanguage']['value']
             	  )));
             	  
-	echo $admin->EndTabContent();
+	echo $this->Admin->EndTabContent();
 	
 	}
 	
-	echo $admin->EndTabs();
+	echo $this->Admin->EndTabs();
 	
-	echo $admin->formButton(__('Submit', true), 'submit.png', array('type' => 'submit', 'name' => 'submit')) . $admin->formButton(__('Cancel', true), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
+	echo $this->Admin->formButton(__('Submit'), 'submit.png', array('type' => 'submit', 'name' => 'submit')) . $this->Admin->formButton(__('Cancel'), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';
-	echo $form->end();
+	echo $this->Form->end();
 	
-	echo $admin->ShowPageHeaderEnd();
+	echo $this->Admin->ShowPageHeaderEnd();
 	
 ?>

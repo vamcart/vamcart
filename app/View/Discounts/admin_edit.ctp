@@ -6,17 +6,17 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-$html->script(array(
+$this->Html->script(array(
 	'modified.js',
 	'focus-first-input.js'
 ), array('inline' => false));
 
-	echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
-	echo $form->create('Discount', array('id' => 'contentform', 'action' => '/discounts/admin_edit/', 'url' => '/discounts/admin_edit/'));
-	echo $form->inputs(array(
+	echo $this->Form->create('Discount', array('id' => 'contentform', 'action' => '/discounts/admin_edit/', 'url' => '/discounts/admin_edit/'));
+	echo $this->Form->inputs(array(
 					'legend' => null,
-					'fieldset' => __('Discount Details', true),
+					'fieldset' => __('Discount Details'),
 				   'ContentProductPrice.id' => array(
 				   		'type' => 'hidden'
 	               ),
@@ -24,14 +24,14 @@ $html->script(array(
 				   		'type' => 'hidden'
 	               ),
                                    'ContentProductPrice.quantity' => array(
-				   		'label' => __('Quantity', true)
+				   		'label' => __('Quantity')
 	               ),
 				   'ContentProductPrice.price' => array(
-   				   		'label' => __('Price', true)
+   				   		'label' => __('Price')
 	               )				     				   	   																									
 			));
-	echo $admin->formButton(__('Submit', true), 'submit.png', array('type' => 'submit', 'name' => 'submit')) . $admin->formButton(__('Cancel', true), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
+	echo $this->Admin->formButton(__('Submit'), 'submit.png', array('type' => 'submit', 'name' => 'submit')) . $this->Admin->formButton(__('Cancel'), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';
-	echo $form->end();
-	echo $admin->ShowPageHeaderEnd(); 
+	echo $this->Form->end();
+	echo $this->Admin->ShowPageHeaderEnd(); 
 ?>

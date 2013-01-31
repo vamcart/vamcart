@@ -6,28 +6,28 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-$html->script(array(
+$this->Html->script(array(
 	'modified.js',
 	'focus-first-input.js'
 ), array('inline' => false));
 
-	echo $admin->ShowPageHeaderStart($current_crumb, 'copy.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'copy.png');
 
-	echo $form->create('Template', array('id' => 'contentform', 'action' => '/templates/admin_copy/' . $template['Template']['id'], 'url' => '/templates/admin_copy/' . $template['Template']['id']));
-	echo $form->inputs(array(
+	echo $this->Form->create('Template', array('id' => 'contentform', 'action' => '/templates/admin_copy/' . $template['Template']['id'], 'url' => '/templates/admin_copy/' . $template['Template']['id']));
+	echo $this->Form->inputs(array(
 					'legend' => null,
-					'fieldset' => __('Copy Template', true),
+					'fieldset' => __('Copy Template'),
 					'Template.id' => array(
 						'type' => 'hidden',
 						'value' =>  $template['Template']['id']
 	               ),
 					'Template.name' => array(
 						'type' => 'text',
-						'label' => __('Template Copy Name', true) . ': '
+						'label' => __('Template Copy Name') . ': '
 	               )										   																
 			));
-	echo $admin->formButton(__('Submit', true), 'submit.png', array('type' => 'submit', 'name' => 'submit')) . $admin->formButton(__('Cancel', true), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
+	echo $this->Admin->formButton(__('Submit'), 'submit.png', array('type' => 'submit', 'name' => 'submit')) . $this->Admin->formButton(__('Cancel'), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';
-	echo $form->end();
-	echo $admin->ShowPageHeaderEnd(); 
+	echo $this->Form->end();
+	echo $this->Admin->ShowPageHeaderEnd(); 
 ?>

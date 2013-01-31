@@ -6,27 +6,27 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $admin->ShowPageHeaderStart($current_crumb, 'email.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'email.png');
 
 echo '<table class="contentTable">';
 
-echo $html->tableHeaders(array( __('Subject', true), __('Alias', true),  __('Action', true)));
+echo $this->Html->tableHeaders(array( __('Subject'), __('Alias'),  __('Action')));
 
 foreach ($email_template_data AS $email_template)
 {
-	echo $admin->TableCells(
+	echo $this->Admin->TableCells(
 		  array(
-				$html->link($email_template['EmailTemplateDescription']['subject'], '/email_template/admin_edit/' . $email_template['EmailTemplate']['id']),
+				$this->Html->link($email_template['EmailTemplateDescription']['subject'], '/email_template/admin_edit/' . $email_template['EmailTemplate']['id']),
 				$email_template['EmailTemplate']['alias'],
-				array($admin->ActionButton('edit','/email_template/admin_edit/' . $email_template['EmailTemplate']['id'],__('Edit', true)) . $admin->ActionButton('delete','/email_template/admin_delete/' . $email_template['EmailTemplate']['id'],__('Delete', true)), array('align'=>'center'))
+				array($this->Admin->ActionButton('edit','/email_template/admin_edit/' . $email_template['EmailTemplate']['id'],__('Edit')) . $this->Admin->ActionButton('delete','/email_template/admin_delete/' . $email_template['EmailTemplate']['id'],__('Delete')), array('align'=>'center'))
 		   ));
 		   	
 }
 
 echo '</table>';
 
-echo $admin->CreateNewLink();
+echo $this->Admin->CreateNewLink();
 
-echo $admin->ShowPageHeaderEnd();
+echo $this->Admin->ShowPageHeaderEnd();
 
 ?>

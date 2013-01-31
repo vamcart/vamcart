@@ -6,56 +6,56 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-$html->script(array(
+$this->Html->script(array(
 	'modified.js',
 	'jquery/plugins/jquery-ui-min.js',
 	'tabs.js',
 	'focus-first-input.js'
 ), array('inline' => false));
 
-	echo $html->css('ui.tabs', null, array('inline' => false));
+	echo $this->Html->css('ui.tabs', null, array('inline' => false));
 
-	echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
-	$user_tag_id = $this->data['UserTag']['id'];
-	echo $form->create('UserTag', array('id' => 'contentform', 'action' => '/user_tags/admin_edit/'.$user_tag_id, 'url' => '/user_tags/admin_edit/'.$user_tag_id));
+	$user_tag_id = $this->request->data['UserTag']['id'];
+	echo $this->Form->create('UserTag', array('id' => 'contentform', 'action' => '/user_tags/admin_edit/'.$user_tag_id, 'url' => '/user_tags/admin_edit/'.$user_tag_id));
 	
-	echo $admin->StartTabs();
+	echo $this->Admin->StartTabs();
 			echo '<ul>';
-			echo $admin->CreateTab('main',__('Main',true), 'main.png');
-			echo $admin->CreateTab('options',__('Options',true), 'options.png');			
+			echo $this->Admin->CreateTab('main',__('Main'), 'main.png');
+			echo $this->Admin->CreateTab('options',__('Options'), 'options.png');			
 			echo '</ul>';
 	
-	echo $admin->StartTabContent('main');
-		echo $form->inputs(array(
+	echo $this->Admin->StartTabContent('main');
+		echo $this->Form->inputs(array(
 					'legend' => null,
-					'fieldset' => __('User Tag Details', true),
+					'fieldset' => __('User Tag Details'),
 				   'UserTag.id' => array(
 				   		'type' => 'hidden'
 	               ),
 	               'UserTag.name' => array(
-   				   		'label' => __('Name', true)
+   				   		'label' => __('Name')
 	               ),
 				   'UserTag.content' => array(
-   				   		'label' => __('Content', true)
+   				   		'label' => __('Content')
 	               )																										
 			));
-	echo $admin->EndTabContent();
+	echo $this->Admin->EndTabContent();
 
-	echo $admin->StartTabContent('options');
-		echo $form->inputs(array(
+	echo $this->Admin->StartTabContent('options');
+		echo $this->Form->inputs(array(
 					'legend' => null,
-					'fieldset' => __('User Tag Details', true),
+					'fieldset' => __('User Tag Details'),
 	                'UserTag.alias' => array(
-   				   		'label' => __('Alias', true)
+   				   		'label' => __('Alias')
 	                )																								
 			));
-	echo $admin->EndTabContent();
+	echo $this->Admin->EndTabContent();
 	
-	echo $admin->EndTabs();
+	echo $this->Admin->EndTabs();
 	
-	echo $admin->formButton(__('Submit', true), 'submit.png', array('type' => 'submit', 'name' => 'submitbutton', 'id' => 'submit')) . $admin->formButton(__('Apply', true), 'apply.png', array('type' => 'submit', 'name' => 'apply')) . $admin->formButton(__('Cancel', true), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
+	echo $this->Admin->formButton(__('Submit'), 'submit.png', array('type' => 'submit', 'name' => 'submitbutton', 'id' => 'submit')) . $this->Admin->formButton(__('Apply'), 'apply.png', array('type' => 'submit', 'name' => 'apply')) . $this->Admin->formButton(__('Cancel'), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';
-	echo $form->end();
-	echo $admin->ShowPageHeaderEnd(); 
+	echo $this->Form->end();
+	echo $this->Admin->ShowPageHeaderEnd(); 
 ?>

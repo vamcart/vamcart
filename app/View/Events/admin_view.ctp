@@ -6,15 +6,15 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $admin->ShowPageHeaderStart($current_crumb, 'events.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'events.png');
 
 echo '<table class="contentTable">';
 
-echo $html->tableHeaders(array(	__('Originator', true),__('Action', true)));
+echo $this->Html->tableHeaders(array(	__('Originator'),__('Action')));
 
 foreach ($event_handlers AS $handle)
 {
-	echo $admin->TableCells(
+	echo $this->Admin->TableCells(
 		  array(
 				$handle['EventHandler']['originator'],
 				array($handle['EventHandler']['action'], array('align'=>'center'))
@@ -23,8 +23,8 @@ foreach ($event_handlers AS $handle)
 }
 
 echo '</table>';
-echo $admin->EmptyResults($event_handlers);
+echo $this->Admin->EmptyResults($event_handlers);
 
-echo $admin->ShowPageHeaderEnd();
+echo $this->Admin->ShowPageHeaderEnd();
 
 ?>

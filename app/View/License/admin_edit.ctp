@@ -6,28 +6,28 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-$html->script(array(
+$this->Html->script(array(
 	'modified.js',
 	'focus-first-input.js'
 ), array('inline' => false));
 
-	echo $admin->ShowPageHeaderStart($current_crumb, 'license.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'license.png');
 
-	echo $form->create('License', array('id' => 'contentform', 'action' => '/license/admin_edit/', 'url' => '/license/admin_edit/'));
-	echo $form->inputs(array(
+	echo $this->Form->create('License', array('id' => 'contentform', 'action' => '/license/admin_edit/', 'url' => '/license/admin_edit/'));
+	echo $this->Form->inputs(array(
 					'legend' => null,
-					'fieldset' => __('Key:', true),
+					'fieldset' => __('Key:'),
 				   'License.id' => array(
 				   		'type' => 'hidden'
 	               ),
-	               'License.licenseKey' => array(
-				   		'label' => __('Key:', true)
-	               )
+				   'License.licenseKey' => array(
+   				   		'label' => __('Key:')
+	               )						   		     				   	   																									
 			));
-	echo $admin->formButton(__('Submit', true), 'submit.png', array('type' => 'submit', 'name' => 'submit')) . $admin->formButton(__('Cancel', true), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
+	echo $this->Admin->formButton(__('Submit'), 'submit.png', array('type' => 'submit', 'name' => 'submit')) . $this->Admin->formButton(__('Cancel'), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';
-	echo $form->end();
+	echo $this->Form->end();
 
-	echo $admin->ShowPageHeaderEnd();
+	echo $this->Admin->ShowPageHeaderEnd();
 
 ?>

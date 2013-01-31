@@ -6,27 +6,27 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $admin->ShowPageHeaderStart($current_crumb, 'defined.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'defined.png');
 
 echo '<table class="contentTable">';
-echo $html->tableHeaders(array( __('Title', true), __('Call (Template Placeholder)', true),__('Action', true)));
+echo $this->Html->tableHeaders(array( __('Title'), __('Call (Template Placeholder)'),__('Action')));
 
 foreach ($defined_languages AS $defined_language)
 {
-	echo $admin->TableCells(
+	echo $this->Admin->TableCells(
 		  array(
-			$html->link($defined_language['DefinedLanguage']['key'],'/defined_languages/admin_edit/' . $defined_language['DefinedLanguage']['key']),
+			$this->Html->link($defined_language['DefinedLanguage']['key'],'/defined_languages/admin_edit/' . $defined_language['DefinedLanguage']['key']),
 			'{lang}' . $defined_language['DefinedLanguage']['key'] . '{/lang}',
-			array($admin->ActionButton('edit','/defined_languages/admin_edit/' . $defined_language['DefinedLanguage']['key'],__('Edit', true)) . $admin->ActionButton('delete','/defined_languages/admin_delete/' . $defined_language['DefinedLanguage']['key'],__('Delete', true)), array('align'=>'center'))
+			array($this->Admin->ActionButton('edit','/defined_languages/admin_edit/' . $defined_language['DefinedLanguage']['key'],__('Edit')) . $this->Admin->ActionButton('delete','/defined_languages/admin_delete/' . $defined_language['DefinedLanguage']['key'],__('Delete')), array('align'=>'center'))
 		   ));
 }
 echo '</table>';
-echo $admin->EmptyResults($defined_languages);
+echo $this->Admin->EmptyResults($defined_languages);
 
-echo $admin->CreateNewLink();
-echo $admin->CreateExportLink();
-echo $admin->CreateImportLink();
+echo $this->Admin->CreateNewLink();
+echo $this->Admin->CreateExportLink();
+echo $this->Admin->CreateImportLink();
 
-echo $admin->ShowPageHeaderEnd();
+echo $this->Admin->ShowPageHeaderEnd();
 
 ?>

@@ -6,28 +6,28 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $admin->ShowPageHeaderStart($current_crumb, 'pages.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'pages.png');
 
 echo '<table class="contentTable">';
 
-echo $html->tableHeaders(array(	 __('Title', true), __('Template', true), __('Action', true)));
+echo $this->Html->tableHeaders(array(	 __('Title'), __('Template'), __('Action')));
 //pr($content_data);
 foreach ($content_data AS $content)
 {
 
-	$name_link = $html->link($content['ContentDescription']['name'], '/contents/admin_core_pages_edit/' . $content['Content']['id']);
+	$name_link = $this->Html->link($content['ContentDescription']['name'], '/contents/admin_core_pages_edit/' . $content['Content']['id']);
 	
-	echo $admin->TableCells(
+	echo $this->Admin->TableCells(
 		  array(
 				$name_link,
-				__($content['Template']['name'], true),
-				array($admin->ActionButton('edit','/contents/admin_core_pages_edit/' . $content['Content']['id'],__('Edit', true)), array('align'=>'center'))
+				__($content['Template']['name']),
+				array($this->Admin->ActionButton('edit','/contents/admin_core_pages_edit/' . $content['Content']['id'],__('Edit')), array('align'=>'center'))
 		   ));
 		   	
 }
 
 echo '</table>';
 
-echo $admin->ShowPageHeaderEnd();
+echo $this->Admin->ShowPageHeaderEnd();
 
 ?>

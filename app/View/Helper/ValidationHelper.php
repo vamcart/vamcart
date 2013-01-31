@@ -12,6 +12,7 @@
  */
 
 //feel free to replace these or overwrite in your bootstrap.php
+App::uses('AppHelper', 'View');
 if (!defined('VALID_EMAIL_JS')) {
   define('VALID_EMAIL_JS', '/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/');
 }
@@ -21,14 +22,14 @@ if (!defined('VALID_IP_JS')) {
 }
 
 class ValidationHelper extends Helper {
-  var $helpers = array('Javascript');
+  public $helpers = array('Js', 'Html');
 
   //For security reasons you may not want to include all possible validations.
   //In your bootstrap you can define which are allowed
   //Configure::write('javascriptValidationWhitelist', array('alphaNumeric', 'minLength'));
-  var $whitelist = false;
+  public $whitelist = false;
 
-  function bind($modelNames, $options=array()) {
+  public function bind($modelNames, $options=array()) {
     $defaultOptions = array('form' => 'form', 'inline' => true, 'root' => Router::url('/'), 'watch' => array(), 'catch' => true);
     $options = am($defaultOptions, $options);
     $pluginOptions = array_intersect_key($options, array('messageId' => true, 'root' => true, 'watch' => true));
@@ -63,13 +64,13 @@ class ValidationHelper extends Helper {
           }
 
           if (!isset($validator['message'])) {
-						$message = sprintf(__($key, true), __($field, true));
+						$message = sprintf(__($key), __($field));
 						if($key != $message) {
 							$validator['message'] = $message;
 						} else {
 							$validator['message'] = sprintf('%s %s',
-																							__('There was a problem with the field', true),
-																							__(Inflector::humanize($field), true)
+																							__('There was a problem with the field'),
+																							__(Inflector::humanize($field))
 																						 );
 						}
           }
@@ -80,7 +81,7 @@ class ValidationHelper extends Helper {
 
           if ($rule) {
             $temp = array('rule' => $rule,
-                          'message' => __($validator['message'], true)
+                          'message' => __($validator['message'])
                          );
 
             if (isset($validator['last']) && $validator['last'] === true) {
@@ -111,27 +112,27 @@ class ValidationHelper extends Helper {
 			if($options['catch']) {
 				$js = sprintf('$(function() { $("%s").validate(%s, %s) });',
 											$options['form'],
-											$this->Javascript->object($validation),
-											$this->Javascript->object($pluginOptions));
+											$this->Js->object($validation),
+											$this->Js->object($pluginOptions));
 			} else {
 				$js = sprintf('$(function() { $("%s").data("validation", %s) });',
 											$options['form'],
-											$this->Javascript->object($validation));	
+											$this->Js->object($validation));	
 			}
     } else {
-      return $this->Javascript->object($validation);
+      return $this->Js->object($validation);
     }
 
-    if ($options['inline']) {
-      return sprintf($this->Javascript->tags['javascriptblock'], $js);
-    } else {
-      $this->Javascript->codeBlock($js, array('inline' => false));
-    }
+    //if ($options['inline']) {
+      //return sprintf($this->Js->tags['javascriptblock'], $js);
+    //} else {
+      $this->Html->scriptBlock($js, array('inline' => false));
+    //}
 
     return;
   }
 
-  function __convertRule($rule) {
+  public function __convertRule($rule) {
     $regex = false;
 
     if ($rule == '_extract') {
@@ -258,7 +259,7 @@ class ValidationHelper extends Helper {
     return array('rule' => $rule, 'params' => $params);
   }
 
-	function __fixWatch($modelName, $fields) {
+	public function __fixWatch($modelName, $fields) {
 		foreach($fields as $i => $field) {
 			if (strpos($field, '.') !== false) {
 				list($model, $field) = explode('.', $field);

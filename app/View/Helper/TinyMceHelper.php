@@ -4,22 +4,23 @@
  * Quick TinyMCE Helper for CakePHP
  * Author: C.James Callaway (http://www.cybergod.net) - 08/04/2008
  */
+ App::uses('AppHelper', 'View');
 class TinyMceHelper extends Helper {
-	var $helpers=array('Javascript', 'Session');
+	public $helpers=array('Html', 'Session');
 	
-	function beforeRender(){
+	public function beforeRender(){
 	}
-	function init($options=false){
+	public function init($options=false){
 	$code = '';
-	$code .= $this->Javascript->link('tiny_mce/jquery.tinymce', false);
+	$code .= $this->Html->script('tiny_mce/jquery.tinymce', false);
 	if($options){
-	$code .= $this->Javascript->codeBlock('
+	$code .= $this->Html->scriptBlock('
 		tinyMCE.init(
 		'.json_encode($options).'
 		);    
 	', array('allowCache'=> false,'safe'=> false,'inline'=> false));
 		} else {
-	$code .= $this->Javascript->codeBlock('
+	$code .= $this->Html->scriptBlock('
 
 	$().ready(function() {
 	
@@ -56,7 +57,7 @@ class TinyMceHelper extends Helper {
 
 	});
 	
-		function toggleHTMLEditor(id) {
+		public function toggleHTMLEditor(id) {
 			if (!tinyMCE.get(id))
 				tinyMCE.execCommand("mceAddControl", false, id);
 			else
@@ -68,8 +69,8 @@ class TinyMceHelper extends Helper {
     
 	return $code;
 	}
-	function toggleEditor($options){
-	$code = '<a href="javascript:toggleHTMLEditor(\''.$options.'\');">' . __('Show/Hide editor', true) . '</a>'; 
+	public function toggleEditor($options){
+	$code = '<a href="javascript:toggleHTMLEditor(\''.$options.'\');">' . __('Show/Hide editor') . '</a>'; 
 	return $code;
 	}
 }

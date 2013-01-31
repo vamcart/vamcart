@@ -6,24 +6,24 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $admin->ShowPageHeaderStart($current_crumb, 'users.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'users.png');
 
 echo '<table class="contentTable">';
 
-echo $html->tableHeaders(array( __('Title', true), __('Action', true)));
+echo $this->Html->tableHeaders(array( __('Title'), __('Action')));
 
 foreach ($users AS $user)
 {
-	echo $admin->TableCells(
+	echo $this->Admin->TableCells(
 		  array(
 			$user['User']['username'],
-			array($admin->ActionButton('delete','/users/admin_delete/' . $user['User']['id'],__('Delete', true)), array('align'=>'center'))
+			array($this->Admin->ActionButton('delete','/users/admin_delete/' . $user['User']['id'],__('Delete')), array('align'=>'center'))
 		   ));
 }
 echo '</table>';
 
-echo $admin->CreateNewLink(); 
+echo $this->Admin->CreateNewLink(); 
 
-echo $admin->ShowPageHeaderEnd();
+echo $this->Admin->ShowPageHeaderEnd();
 
 ?>

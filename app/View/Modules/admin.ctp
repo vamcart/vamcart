@@ -6,32 +6,32 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $admin->ShowPageHeaderStart($current_crumb, 'modules.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'modules.png');
 
 echo '<table class="contentTable">';
 
-echo $html->tableHeaders(array( __('Name', true), __('Installed', true), __('Version', true), __('Action', true)));
+echo $this->Html->tableHeaders(array( __('Name'), __('Installed'), __('Version'), __('Action')));
 
 foreach ($modules AS $module)
 {
 
 	if($module['installed'] == 0)
 	{
-		$action_button = $admin->linkButton(__('Install',true),'/module_' . $module['alias'] . '/setup/install/','install.png', array('escape' => false, 'class' => 'button'));
+		$action_button = $this->Admin->linkButton(__('Install'),'/module_' . $module['alias'] . '/setup/install/','install.png', array('escape' => false, 'class' => 'button'));
 	}
 	elseif((isset($module['installed_version']))&&($module['installed_version'] < $module['version']))
 	{
-		$action_button = $admin->linkButton(__('Upgrade',true),'/module_' . $module['alias'] . '/setup/upgrade/','upgrade.png', array('escape' => false, 'class' => 'button'),__('Are you sure?', true));
+		$action_button = $this->Admin->linkButton(__('Upgrade'),'/module_' . $module['alias'] . '/setup/upgrade/','upgrade.png', array('escape' => false, 'class' => 'button'),__('Are you sure?'));
 	}
 	else
 	{
-		$action_button = $admin->linkButton(__('Uninstall',true),'/module_' . $module['alias'] . '/setup/uninstall/','uninstall.png', array('escape' => false, 'class' => 'button'),__('Are you sure?', true));
+		$action_button = $this->Admin->linkButton(__('Uninstall'),'/module_' . $module['alias'] . '/setup/uninstall/','uninstall.png', array('escape' => false, 'class' => 'button'),__('Are you sure?'));
 	}
 
-	echo $admin->TableCells(
+	echo $this->Admin->TableCells(
 		  array(
-		  	$html->link($module['name'],'/module_' . $module['alias'] . '/admin/admin_help'),
-			array(($module['installed'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))), array('align'=>'center')),
+		  	$this->Html->link($module['name'],'/module_' . $module['alias'] . '/admin/admin_help'),
+			array(($module['installed'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False')))), array('align'=>'center')),
 			array($module['version'], array('align'=>'center')),
 			array($action_button, array('align'=>'center'))	
 		   ));
@@ -40,8 +40,8 @@ foreach ($modules AS $module)
 
 echo '</table>';
 
-echo $admin->linkButton(__('Add module',true), '/modules/admin_add/', 'add.png', array('escape' => false, 'class' => 'button'));
+echo $this->Admin->linkButton(__('Add module'), '/modules/admin_add/', 'add.png', array('escape' => false, 'class' => 'button'));
 
-echo $admin->ShowPageHeaderEnd();
+echo $this->Admin->ShowPageHeaderEnd();
 
 ?>

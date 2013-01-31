@@ -6,50 +6,50 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-$html->script(array(
+$this->Html->script(array(
 	'modified.js',
 	'jquery/plugins/jquery-ui-min.js',
 	'tabs.js',
 	'focus-first-input.js'
 ), array('inline' => false));
 
-echo $html->css('ui.tabs', null, array('inline' => false));
+echo $this->Html->css('ui.tabs', null, array('inline' => false));
 
-echo $admin->ShowPageHeaderStart($current_crumb, 'content.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'content.png');
 
-echo $form->create('Configuration', array('id' => 'contentform', 'action' => '/configuration/admin_edit/', 'url' => '/configuration/admin_edit/'));
+echo $this->Form->create('Configuration', array('id' => 'contentform', 'action' => '/configuration/admin_edit/', 'url' => '/configuration/admin_edit/'));
 
-	echo $admin->StartTabs();
+	echo $this->Admin->StartTabs();
 	
 		$gr = '';	
 		$st = '';	
 
 		$yes_no_options = array();
-		$yes_no_options[0] = __('no', true);
-		$yes_no_options[1] = __('yes', true);
+		$yes_no_options[0] = __('no');
+		$yes_no_options[1] = __('yes');
 	
 		foreach ($data AS $groups)
 			{
-			$gr .= $admin->CreateTab($groups['ConfigurationGroup']['key'],__($groups['ConfigurationGroup']['name'],true), $groups['ConfigurationGroup']['group_icon']);
+			$gr .= $this->Admin->CreateTab($groups['ConfigurationGroup']['key'],__($groups['ConfigurationGroup']['name']), $groups['ConfigurationGroup']['group_icon']);
 			
-					$st .= $admin->StartTabContent($groups['ConfigurationGroup']['key']);
+					$st .= $this->Admin->StartTabContent($groups['ConfigurationGroup']['key']);
 					foreach($groups['Configuration'] AS $settings)
 					{
-						$st .= $form->input($settings['key'], array('label' => __($settings['name'], true), 'type' => $settings['type'], 'options' => (!isset($settings['options']) ? null : $yes_no_options), 'value' => $settings['value']));
+						$st .= $this->Form->input($settings['key'], array('label' => __($settings['name']), 'type' => $settings['type'], 'options' => (!isset($settings['options']) ? null : $yes_no_options), 'value' => $settings['value']));
 					}
-					$st .= $admin->EndTabContent();
+					$st .= $this->Admin->EndTabContent();
 			
 		}
 
 			echo '<ul>'.$gr.'</ul>';
 			echo $st;
 
-	echo $admin->EndTabs();
+	echo $this->Admin->EndTabs();
 
-	echo $admin->formButton(__('Submit', true), 'submit.png', array('type' => 'submit', 'name' => 'submit')) . $admin->formButton(__('Cancel', true), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
+	echo $this->Admin->formButton(__('Submit'), 'submit.png', array('type' => 'submit', 'name' => 'submit')) . $this->Admin->formButton(__('Cancel'), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';
-	echo $form->end();
+	echo $this->Form->end();
 
-echo $admin->ShowPageHeaderEnd();
+echo $this->Admin->ShowPageHeaderEnd();
 
 ?>

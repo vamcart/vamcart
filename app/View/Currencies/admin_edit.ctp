@@ -6,47 +6,47 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-$html->script(array(
+$this->Html->script(array(
 	'modified.js',
 	'focus-first-input.js'
 ), array('inline' => false));
 
-	echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
-	echo $form->create('Currency', array('id' => 'contentform', 'action' => '/currencies/admin_edit/', 'url' => '/currencies/admin_edit/'));
-	echo $form->inputs(array(
+	echo $this->Form->create('Currency', array('id' => 'contentform', 'action' => '/currencies/admin_edit/', 'url' => '/currencies/admin_edit/'));
+	echo $this->Form->inputs(array(
 					'legend' => null,
-					'fieldset' => __('Currency Details', true),
+					'fieldset' => __('Currency Details'),
 				   'Currency.id' => array(
 				   		'type' => 'hidden'
 	               ),
 	               'Currency.name' => array(
-				   		'label' => __('Name', true)
+				   		'label' => __('Name')
 	               ),
 				   'Currency.code' => array(
-   				   		'label' => __('Code', true)
+   				   		'label' => __('Code')
 	               ),	
 				   'Currency.symbol_left' => array(
-   				   		'label' => __('Symbol Left', true)
+   				   		'label' => __('Symbol Left')
 	               ),	
 				   'Currency.symbol_right' => array(
-   				   		'label' => __('Symbol Right', true)
+   				   		'label' => __('Symbol Right')
 	               ),	
 				   'Currency.decimal_point' => array(
-   				   		'label' => __('Decimal Point', true)
+   				   		'label' => __('Decimal Point')
 	               ),					   				   			
 				   'Currency.thousands_point' => array(
-   				   		'label' => __('Thousands Point', true)
+   				   		'label' => __('Thousands Point')
 	               ),	
 				   'Currency.decimal_places' => array(
-   				   		'label' => __('Decimal Places', true)
+   				   		'label' => __('Decimal Places')
 	               ),				 
 				   'Currency.value' => array(
-   				   		'label' => __('Value', true)
+   				   		'label' => __('Value')
 	               )					     				   	   																									
 			));
-	echo $admin->formButton(__('Submit', true), 'submit.png', array('type' => 'submit', 'name' => 'submit')) . $admin->formButton(__('Cancel', true), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
+	echo $this->Admin->formButton(__('Submit'), 'submit.png', array('type' => 'submit', 'name' => 'submit')) . $this->Admin->formButton(__('Cancel'), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';
-	echo $form->end();
-	echo $admin->ShowPageHeaderEnd(); 
+	echo $this->Form->end();
+	echo $this->Admin->ShowPageHeaderEnd(); 
 ?>

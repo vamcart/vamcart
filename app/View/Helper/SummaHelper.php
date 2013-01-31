@@ -5,58 +5,59 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
+   App::uses('AppHelper', 'View');
 class SummaHelper extends Helper {
 	
-function get($summ){ 
+public function get($summ){ 
 
-$diw=Array(    0 =>    Array(    0  => Array( 0=> __('zero',true),    1=>1), 
+$diw=Array(    0 =>    Array(    0  => Array( 0=> __('zero'),    1=>1), 
                 1  => Array( 0=> "",        1=>2), 
                 2  => Array( 0=> "",        1=>3), 
-                3  => Array( 0=> __('three',true),        1=>0), 
-                4  => Array( 0=> __('four',true),    1=>0), 
-                5  => Array( 0=> __('five',true),    1=>1), 
-                6  => Array( 0=> __('six',true),    1=>1), 
-                7  => Array( 0=> __('seven',true),    1=>1), 
-                8  => Array( 0=> __('eight',true),    1=>1), 
-                9  => Array( 0=> __('nine',true),    1=>1), 
-                10 => Array( 0=> __('ten',true),    1=>1), 
-                11 => Array( 0=> __('eleven',true),    1=>1), 
-                12 => Array( 0=> __('twelve',true),    1=>1), 
-                13 => Array( 0=> __('thirteen',true),    1=>1), 
-                14 => Array( 0=> __('fourteen',true),1=>1), 
-                15 => Array( 0=> __('fifteen',true),    1=>1), 
-                16 => Array( 0=> __('sixteen',true),    1=>1), 
-                17 => Array( 0=> __('seventeen',true),    1=>1), 
-                18 => Array( 0=> __('eighteen',true),1=>1), 
-                19 => Array( 0=> __('nineteen',true),1=>1) 
+                3  => Array( 0=> __('three'),        1=>0), 
+                4  => Array( 0=> __('four'),    1=>0), 
+                5  => Array( 0=> __('five'),    1=>1), 
+                6  => Array( 0=> __('six'),    1=>1), 
+                7  => Array( 0=> __('seven'),    1=>1), 
+                8  => Array( 0=> __('eight'),    1=>1), 
+                9  => Array( 0=> __('nine'),    1=>1), 
+                10 => Array( 0=> __('ten'),    1=>1), 
+                11 => Array( 0=> __('eleven'),    1=>1), 
+                12 => Array( 0=> __('twelve'),    1=>1), 
+                13 => Array( 0=> __('thirteen'),    1=>1), 
+                14 => Array( 0=> __('fourteen'),1=>1), 
+                15 => Array( 0=> __('fifteen'),    1=>1), 
+                16 => Array( 0=> __('sixteen'),    1=>1), 
+                17 => Array( 0=> __('seventeen'),    1=>1), 
+                18 => Array( 0=> __('eighteen'),1=>1), 
+                19 => Array( 0=> __('nineteen'),1=>1) 
             ), 
-        1 =>    Array(    2  => Array( 0=> __('twenty',true),    1=>1), 
-                3  => Array( 0=> __('thirty',true),    1=>1), 
-                4  => Array( 0=> __('forty',true),    1=>1), 
-                5  => Array( 0=> __('fifty',true),    1=>1), 
-                6  => Array( 0=> __('sixty',true),    1=>1), 
-                7  => Array( 0=> __('seventy',true),    1=>1), 
-                8  => Array( 0=> __('eighty',true),    1=>1), 
-                9  => Array( 0=> __('ninety',true),    1=>1)  
+        1 =>    Array(    2  => Array( 0=> __('twenty'),    1=>1), 
+                3  => Array( 0=> __('thirty'),    1=>1), 
+                4  => Array( 0=> __('forty'),    1=>1), 
+                5  => Array( 0=> __('fifty'),    1=>1), 
+                6  => Array( 0=> __('sixty'),    1=>1), 
+                7  => Array( 0=> __('seventy'),    1=>1), 
+                8  => Array( 0=> __('eighty'),    1=>1), 
+                9  => Array( 0=> __('ninety'),    1=>1)  
             ), 
-        2 =>    Array(    1  => Array( 0=> __('hundred',true),        1=>1), 
-                2  => Array( 0=> __('two hundred',true),    1=>1), 
-                3  => Array( 0=> __('three hundred',true),    1=>1), 
-                4  => Array( 0=> __('four hundred',true),    1=>1), 
-                5  => Array( 0=> __('five hundred',true),    1=>1), 
-                6  => Array( 0=> __('six hundred',true),    1=>1), 
-                7  => Array( 0=> __('seven hundred',true),    1=>1), 
-                8  => Array( 0=> __('eight hundred',true),    1=>1), 
-                9  => Array( 0=> __('nine hundred',true),    1=>1) 
+        2 =>    Array(    1  => Array( 0=> __('hundred'),        1=>1), 
+                2  => Array( 0=> __('two hundred'),    1=>1), 
+                3  => Array( 0=> __('three hundred'),    1=>1), 
+                4  => Array( 0=> __('four hundred'),    1=>1), 
+                5  => Array( 0=> __('five hundred'),    1=>1), 
+                6  => Array( 0=> __('six hundred'),    1=>1), 
+                7  => Array( 0=> __('seven hundred'),    1=>1), 
+                8  => Array( 0=> __('eight hundred'),    1=>1), 
+                9  => Array( 0=> __('nine hundred'),    1=>1) 
             ) 
 ); 
 
-$nom=Array(    0 => Array(0=>__('penny',true),  1=>__('kopecks',true),    2=>__('single kopek',true), 3=>__('two penny',true)), 
-        1 => Array(0=>__('ruble',true),    1=>__('rubles',true),    2=>__('one ruble',true),   3=>__('two rubles',true)), 
-        2 => Array(0=>__('thousands',true),   1=>__('thousand',true),     2=>__('one thousand',true),  3=>__('two thousand',true)), 
-        3 => Array(0=>__('million',true), 1=>__('millions',true), 2=>__('one million',true), 3=>__('two million',true)), 
-        4 => Array(0=>__('billion',true),1=>__('billions',true),2=>__('one billion',true),3=>__('two billion',true)),
-        5 => Array(0=>__('trillion',true),1=>__('trillions',true),2=>__('one trillion',true),3=>__('two trillion',true)) 
+$nom=Array(    0 => Array(0=>__('penny'),  1=>__('kopecks'),    2=>__('single kopek'), 3=>__('two penny')), 
+        1 => Array(0=>__('ruble'),    1=>__('rubles'),    2=>__('one ruble'),   3=>__('two rubles')), 
+        2 => Array(0=>__('thousands'),   1=>__('thousand'),     2=>__('one thousand'),  3=>__('two thousand')), 
+        3 => Array(0=>__('million'), 1=>__('millions'), 2=>__('one million'), 3=>__('two million')), 
+        4 => Array(0=>__('billion'),1=>__('billions'),2=>__('one billion'),3=>__('two billion')),
+        5 => Array(0=>__('trillion'),1=>__('trillions'),2=>__('one trillion'),3=>__('two trillion')) 
 ); 
 
 $this->diw = $diw;
@@ -76,11 +77,11 @@ $this->nom = $nom;
   if(($summ_rub-$summ_tmp)>0) $summ_rub--; 
   $retval=$this->get_string($summ_part,$i)." ".$retval; 
  endfor; 
- if(($this->out_rub)==0) $retval.=' ' . __('rubles', true); 
+ if(($this->out_rub)==0) $retval.=' ' . __('rubles'); 
  return $retval." ".$kop; 
 } 
 
-function get_string($summ,$nominal){ 
+public function get_string($summ,$nominal){ 
  $retval=""; 
  $nom=-1; 
  $summ=round($summ); 
