@@ -6,76 +6,76 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-$html->script(array(
+$this->Html->script(array(
 	'modified.js',
 	'jquery/plugins/jquery-ui-min.js',
 	'tabs.js',
 	'focus-first-input.js'
 ), array('inline' => false));
 
-	echo $html->css('ui.tabs', null, array('inline' => false));
+	echo $this->Html->css('ui.tabs', null, array('inline' => false));
 
-	echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
-	echo $form->create('Country', array('id' => 'contentform', 'action' => '/countries/admin_edit/' . $data['Country']['id'], 'url' => '/countries/admin_edit/' . $data['Country']['id']));
+	echo $this->Form->create('Country', array('id' => 'contentform', 'action' => '/countries/admin_edit/' . $data['Country']['id'], 'url' => '/countries/admin_edit/' . $data['Country']['id']));
 	
-	echo $admin->StartTabs();
+	echo $this->Admin->StartTabs();
 			echo '<ul>';
-			echo $admin->CreateTab('main',__('Main',true), 'main.png');
-			echo $admin->CreateTab('options',__('Options',true), 'options.png');			
+			echo $this->Admin->CreateTab('main',__('Main'), 'main.png');
+			echo $this->Admin->CreateTab('options',__('Options'), 'options.png');			
 			echo '</ul>';
 	
-	echo $admin->StartTabContent('main');
-		echo $form->inputs(array(
+	echo $this->Admin->StartTabContent('main');
+		echo $this->Form->inputs(array(
 					'legend' => null,
-					'fieldset' => __('Country Details', true),
+					'fieldset' => __('Country Details'),
 				   'Country.id' => array(
 				   		'type' => 'hidden',
 						'value' => $data['Country']['id']
 	               ),
 	               'Country.name' => array(
-				   		'label' => __('Name', true),
+				   		'label' => __('Name'),
    						'value' => $data['Country']['name']
 	               ),
 	               'Country.iso_code_2' => array(
-				   		'label' => __('ISO Code 2', true),
+				   		'label' => __('ISO Code 2'),
    						'value' => $data['Country']['name']
 	               ),
 	               'Country.iso_code_3' => array(
-				   		'label' => __('ISO Code 3', true),
+				   		'label' => __('ISO Code 3'),
    						'value' => $data['Country']['iso_code_3']
 	               ),
                        'Country.eu' => array(
-				   		'label' => __('EU Country', true),
+				   		'label' => __('EU Country'),
    						'value' => $data['Country']['eu']
 	               ),
                        'Country.private' => array(
-				   		'label' => __('Private person VAT', true),
+				   		'label' => __('Private person VAT'),
    						'value' => $data['Country']['privat']
 	               ),
                        'Country.firm' => array(
-				   		'label' => __('Firm VAT', true),
+				   		'label' => __('Firm VAT'),
    						'value' => $data['Country']['pravna']
 	               )
 			));
-		echo $admin->EndTabContent();
+		echo $this->Admin->EndTabContent();
 
-		echo $admin->StartTabContent('options');
-						echo $form->inputs(array(
+		echo $this->Admin->StartTabContent('options');
+						echo $this->Form->inputs(array(
 					'legend' => null,
-					'fieldset' => __('Country Details', true),
+					'fieldset' => __('Country Details'),
 	               'Country.address_format' => array(
 				   		'type' => 'textarea',
-				   		'label' => __('Address Format', true),
+				   		'label' => __('Address Format'),
    						'value' => $data['Country']['address_format']
 	               )		
 				  ));	
-		echo $admin->EndTabContent();
+		echo $this->Admin->EndTabContent();
 
-	echo $admin->EndTabs();
+	echo $this->Admin->EndTabs();
 
-	echo $admin->formButton(__('Submit', true), 'submit.png', array('type' => 'submit', 'name' => 'submit')) . $admin->formButton(__('Cancel', true), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
+	echo $this->Admin->formButton(__('Submit'), 'submit.png', array('type' => 'submit', 'name' => 'submit')) . $this->Admin->formButton(__('Cancel'), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';
-	echo $form->end();
-	echo $admin->ShowPageHeaderEnd(); 
+	echo $this->Form->end();
+	echo $this->Admin->ShowPageHeaderEnd(); 
 ?>

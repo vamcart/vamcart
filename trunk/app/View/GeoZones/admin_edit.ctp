@@ -6,31 +6,31 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-$html->script(array(
+$this->Html->script(array(
 	'modified.js',
 	'focus-first-input.js'
 ), array('inline' => false));
 
-	echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
-	echo $form->create('Geozone', array('id' => 'contentform', 'action' => '/geo_zones/admin_edit/', 'url' => '/geo_zones/admin_edit/'));
+	echo $this->Form->create('Geozone', array('id' => 'contentform', 'action' => '/geo_zones/admin_edit/', 'url' => '/geo_zones/admin_edit/'));
 	
-	echo $form->inputs(array(
+	echo $this->Form->inputs(array(
 					'legend' => null,
-					'fieldset' => __('Geo Zone Details', true),
+					'fieldset' => __('Geo Zone Details'),
 					'GeoZone.id' => array(
 						'type' => 'hidden'
 			),
 			'GeoZone.name' => array(
-						'label' => __('Name', true)
+						'label' => __('Name')
 			),
 			'GeoZone.description' => array(
-						'label' => __('Description', true)
+						'label' => __('Description')
 			)
 	));
-	echo $admin->formButton(__('Submit', true), 'submit.png', array('type' => 'submit', 'name' => 'submit')) . $admin->formButton(__('Cancel', true), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
+	echo $this->Admin->formButton(__('Submit'), 'submit.png', array('type' => 'submit', 'name' => 'submit')) . $this->Admin->formButton(__('Cancel'), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
 	
 	echo '<div class="clear"></div>';
-	echo $form->end();
-	echo $admin->ShowPageHeaderEnd(); 
+	echo $this->Form->end();
+	echo $this->Admin->ShowPageHeaderEnd(); 
 ?>

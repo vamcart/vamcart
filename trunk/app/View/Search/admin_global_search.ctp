@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $admin->ShowPageHeaderStart($current_crumb, 'search.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'search.png');
 
 $total_results = 0;
 
@@ -16,7 +16,7 @@ foreach($tables AS $key => $table)
 	if($model_results > 0)
 	{
 		echo '<table class="contentTable">';
-		echo $html->tableHeaders(array($table['Search']['model'] . ' - ' . $table['Search']['field']));
+		echo $this->Html->tableHeaders(array($table['Search']['model'] . ' - ' . $table['Search']['field']));
 		
 		$model = $table['Search']['model'];
 		$field = $table['Search']['field'];
@@ -30,9 +30,9 @@ foreach($tables AS $key => $table)
 			else
 				$anchor = $result[$model][$field];
 			
-			echo $admin->TableCells(
+			echo $this->Admin->TableCells(
 		 	 array(
-			 	$html->link($anchor,$table['Search']['url'] . $result[$model][$edit_field])
+			 	$this->Html->link($anchor,$table['Search']['url'] . $result[$model][$edit_field])
 			));
 		}
 		echo '</table>';
@@ -40,9 +40,9 @@ foreach($tables AS $key => $table)
 	$total_results += $model_results;
 }
 
-echo $admin->EmptyResults($total_results);
-echo __('Results: ', true) . '<strong>' . $total_results . '</strong>';
+echo $this->Admin->EmptyResults($total_results);
+echo __('Results: ') . '<strong>' . $total_results . '</strong>';
 
-echo $admin->ShowPageHeaderEnd();
+echo $this->Admin->ShowPageHeaderEnd();
 
 ?>

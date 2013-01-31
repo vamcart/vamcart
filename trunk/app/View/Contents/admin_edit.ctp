@@ -8,7 +8,7 @@
 ?>
 <?php
 
-$html->script(array(
+$this->Html->script(array(
 	'modified.js',
 	'jquery/plugins/jquery.validation.js',
 	'jquery/plugins/jquery-ui-min.js',
@@ -20,10 +20,10 @@ $html->script(array(
 	'focus-first-input.js'
 ), array('inline' => false));
 	
-	echo $html->css('ui.tabs', null, array('inline' => false));
-	echo $tinyMce->init();
+	echo $this->Html->css('ui.tabs', null, array('inline' => false));
+	echo $this->TinyMce->init();
 ?>
-<?php echo $html->scriptBlock('
+<?php echo $this->Html->scriptBlock('
 	$(document).ready(function(){
 
 		$("select#ContentContentTypeId").change(function () {
@@ -33,7 +33,7 @@ $html->script(array(
 	});
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
 <?php
-echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 ?>
 <?php
 	
@@ -43,18 +43,18 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 	else
 		$tpl_req_style = "none";
 
-	echo $form->create('Content', array('id' => 'contentform', 'name' => 'contentform','enctype' => 'multipart/form-data', 'action' => '/contents/admin_edit/'.$data['Content']['id'], 'url' => '/contents/admin_edit/'.$data['Content']['id']));
+	echo $this->Form->create('Content', array('id' => 'contentform', 'name' => 'contentform','enctype' => 'multipart/form-data', 'action' => '/contents/admin_edit/'.$data['Content']['id'], 'url' => '/contents/admin_edit/'.$data['Content']['id']));
 	
-	echo $admin->StartTabs();
+	echo $this->Admin->StartTabs();
 			echo '<ul>';
-			echo $admin->CreateTab('main',__('Main', true), 'main.png');
-			echo $admin->CreateTab('view_images',__('View Images', true), 'images.png');	
-			echo $admin->CreateTab('upload_images',__('Upload Images', true), 'image_add.png');			
-			echo $admin->CreateTab('options',__('Options', true), 'options.png');			
+			echo $this->Admin->CreateTab('main',__('Main'), 'main.png');
+			echo $this->Admin->CreateTab('view_images',__('View Images'), 'images.png');	
+			echo $this->Admin->CreateTab('upload_images',__('Upload Images'), 'image_add.png');			
+			echo $this->Admin->CreateTab('options',__('Options'), 'options.png');			
 			echo '</ul>';
 	
-	echo $admin->StartTabContent('main');
-		echo $form->inputs(array(
+	echo $this->Admin->StartTabContent('main');
+		echo $this->Form->inputs(array(
 				'fieldset' => false,
 				'legend' => false,
 				'Content.id' => array(
@@ -71,11 +71,11 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 	               )
 				   ));
 			
-   		echo $form->inputs(array(
+   		echo $this->Form->inputs(array(
 						'legend' => false,
    					'Content.content_type_id' => array(
 						'type' => 'select',
-				   	'label' => __('Content Type', true),
+				   	'label' => __('Content Type'),
 						'options' => $content_types,
 						'selected' => (!isset($data['Content']['content_type_id'])? 2 : $data['Content']['content_type_id'])
 	               )));
@@ -86,11 +86,11 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 	
 	echo '<div class="template_required" id="template_required_template_picker" style="display:' . $tpl_req_style . ';">';
 	
-		echo $form->inputs(array(
+		echo $this->Form->inputs(array(
 					'legend' => false,
 					'Content.template_id' => array(
 						'type' => 'select',
-						'label' => __('Template', true),
+						'label' => __('Template'),
 						'options' => $templates,
 						'selected' => $data['Content']['template_id']
 					)
@@ -98,11 +98,11 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 	echo '</div>';	
 
 
-	echo $admin->StartTabs('sub-tabs');
+	echo $this->Admin->StartTabs('sub-tabs');
 			echo '<ul>';
 	foreach($languages AS $language)
 	{
-			echo $admin->CreateTab('language_'.$language['Language']['id'],$language['Language']['name'],$language['Language']['iso_code_2'].'.png');
+			echo $this->Admin->CreateTab('language_'.$language['Language']['id'],$language['Language']['name'],$language['Language']['iso_code_2'].'.png');
 	}
 			echo '</ul>';
 	
@@ -111,20 +111,20 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 	{
 		$language_key = $language['Language']['id'];
 
-	echo $admin->StartTabContent('language_'.$language_key);
+	echo $this->Admin->StartTabContent('language_'.$language_key);
 			
-		echo $form->inputs(array(
+		echo $this->Form->inputs(array(
 						'legend' => false,
 						'ContentDescription]['.$language['Language']['id'].'][name.' . $language['Language']['id'] => array(
-				   	'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . __('Title', true),
+				   	'label' => $this->Admin->ShowFlag($language['Language']) . '&nbsp;' . __('Title'),
 						'value' => $data['ContentDescription'][$language_key]['name']
 	            	  )));																								
 	
 		echo '<div id="template_required_' . $language['Language']['id'] . '" class="template_required" style="display:' . $tpl_req_style . ';">';
-			echo $form->inputs(array(
+			echo $this->Form->inputs(array(
 						'legend' => false,
 						'ContentDescription]['.$language['Language']['id'].'][description.' . $language['Language']['id'] => array(
-				   	'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . __('Description', true),
+				   	'label' => $this->Admin->ShowFlag($language['Language']) . '&nbsp;' . __('Description'),
 						'type' => 'textarea',
 						'class' => 'pagesmalltextarea',
 						'id' => 'content_description_'.$language['Language']['id'],						
@@ -132,50 +132,50 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 	            	  )));
 		echo '</div>';						  
 		
-		echo $tinyMce->toggleEditor('content_description_'.$language['Language']['id']);						  
+		echo $this->TinyMce->toggleEditor('content_description_'.$language['Language']['id']);						  
 		
-		echo $form->inputs(array(
+		echo $this->Form->inputs(array(
 						'legend' => false,
 						'ContentDescription]['.$language['Language']['id'].'][meta_title.' . $language['Language']['id'] => array(
-				   	'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . __('Meta Title', true),
+				   	'label' => $this->Admin->ShowFlag($language['Language']) . '&nbsp;' . __('Meta Title'),
 						'value' => $data['ContentDescription'][$language_key]['meta_title']
 	            	  )));																								
 
-		echo $form->inputs(array(
+		echo $this->Form->inputs(array(
 						'legend' => false,
 						'ContentDescription]['.$language['Language']['id'].'][meta_description.' . $language['Language']['id'] => array(
-				   	'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . __('Meta Description', true),
+				   	'label' => $this->Admin->ShowFlag($language['Language']) . '&nbsp;' . __('Meta Description'),
 						'value' => $data['ContentDescription'][$language_key]['meta_description']
 	            	  )));																								
 
-		echo $form->inputs(array(
+		echo $this->Form->inputs(array(
 						'legend' => false,
 						'ContentDescription]['.$language['Language']['id'].'][meta_keywords.' . $language['Language']['id'] => array(
-				   	'label' => $admin->ShowFlag($language['Language']) . '&nbsp;' . __('Meta Keywords', true),
+				   	'label' => $this->Admin->ShowFlag($language['Language']) . '&nbsp;' . __('Meta Keywords'),
 						'value' => $data['ContentDescription'][$language_key]['meta_keywords']
 	            	  )));																								
 
-	echo $admin->EndTabContent();
+	echo $this->Admin->EndTabContent();
 	}
 		
-	echo $admin->EndTabs();
+	echo $this->Admin->EndTabs();
 		
-	echo $admin->EndTabContent();
+	echo $this->Admin->EndTabContent();
 
-	echo $admin->StartTabContent('view_images');
+	echo $this->Admin->StartTabContent('view_images');
 		echo '<div id="content_images_holder">';		
 		echo $this->requestAction('/images/admin_view_content_images/' . (!isset($data['Content']['id'])? 0 : $data['Content']['id']), array('return'));	
 		echo '</div>';
 		
-	echo $admin->EndTabContent();
+	echo $this->Admin->EndTabContent();
 
 
-	echo $admin->StartTabContent('upload_images');
+	echo $this->Admin->StartTabContent('upload_images');
 	
-		echo '<p>' . __('Press \'Upload Images\' and choose images from your computer to upload. Select as many files as you would like. Images will upload right after you select them.', true) . '</p>';
-		echo '<div class="help tip"><p>' . __('TIP: Hold the \'control\' button to select more than one image.', true) . '</p></div>';		
+		echo '<p>' . __('Press \'Upload Images\' and choose images from your computer to upload. Select as many files as you would like. Images will upload right after you select them.') . '</p>';
+		echo '<div class="help tip"><p>' . __('TIP: Hold the \'control\' button to select more than one image.') . '</p></div>';		
 		?>
-<?php echo $html->scriptBlock('
+<?php echo $this->Html->scriptBlock('
 		var swfu;
 
 		window.onload = function() {
@@ -201,7 +201,7 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 				button_width: "180",
 				button_height: "22",
 				button_placeholder_id: "spanButtonPlaceHolder",
-				button_text: \'<span class="browsebtn">' . __('Browse Images', true) . '</span>\',
+				button_text: \'<span class="browsebtn">' . __('Browse Images') . '</span>\',
 				button_text_style: ".browsebtn { font-size: 12pt; font-family: Trebuchet MS, Lucida Grande, Verdana, Arial, Sans-Serif; line-height: 1; }",
 				button_text_left_padding: 22,
 				button_text_top_padding: 0,
@@ -234,51 +234,51 @@ echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 				<span id="spanButtonPlaceHolder"></span>
 			</div>
 			<div id="btnCancel">
-				<input id="btnCancel" type="button" value="<?php echo __('Cancel All Uploads', true); ?>" onclick="swfu.cancelQueue();" disabled="disabled" />
+				<input id="btnCancel" type="button" value="<?php echo __('Cancel All Uploads'); ?>" onclick="swfu.cancelQueue();" disabled="disabled" />
 			</div>
-			<div id="divStatus"><?php echo __('Files Uploaded:', true); ?> 0</div>
+			<div id="divStatus"><?php echo __('Files Uploaded:'); ?> 0</div>
 
 		<?php
 		
-	echo $admin->EndTabContent();
+	echo $this->Admin->EndTabContent();
 
-	echo $admin->StartTabContent('options');
-			echo $form->inputs(array(
+	echo $this->Admin->StartTabContent('options');
+			echo $this->Form->inputs(array(
 					'legend' => false,
-					'fieldset' => __('Content Details', true),
+					'fieldset' => __('Content Details'),
                 'Content.alias' => array(
-			   		'label' => __('Alias', true),				   
+			   		'label' => __('Alias'),				   
 					'value' => $data['Content']['alias']
                 ),
 				'Content.head_data' => array(
-					'label' => __('Head Data', true),
+					'label' => __('Head Data'),
 					'type' => 'textarea',
 					'class' => 'notinymce',
 					'value' => $data['Content']['head_data']
 	             ),				
 			    'Content.active' => array(
 					'type' => 'checkbox',
-			   		'label' => __('Active', true),
+			   		'label' => __('Active'),
 					'value' => '1',
 					'class' => 'checkbox_group',
 					'checked' => $active_checked
                 ),
 			    'Content.show_in_menu' => array(
 					'type' => 'checkbox',
-			   		'label' => __('Show in menu', true),
+			   		'label' => __('Show in menu'),
 					'value' => '1',
 					'class' => 'checkbox_group',
 					'checked' => $menu_checked
                 )
 		));
-	echo $admin->EndTabContent();
+	echo $this->Admin->EndTabContent();
 
-	echo $admin->EndTabs();
+	echo $this->Admin->EndTabs();
 
 	echo '<div id="messages"></div>';
 
-	echo $admin->formButton(__('Submit', true), 'submit.png', array('type' => 'submit', 'name' => 'submitbutton', 'id' => 'submitbutton')) . $admin->formButton(__('Apply', true), 'apply.png', array('type' => 'submit', 'name' => 'applybutton')) . $admin->formButton(__('Cancel', true), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
+	echo $this->Admin->formButton(__('Submit'), 'submit.png', array('type' => 'submit', 'name' => 'submitbutton', 'id' => 'submitbutton')) . $this->Admin->formButton(__('Apply'), 'apply.png', array('type' => 'submit', 'name' => 'applybutton')) . $this->Admin->formButton(__('Cancel'), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';
-	echo $form->end();
-	echo $admin->ShowPageHeaderEnd(); 
+	echo $this->Form->end();
+	echo $this->Admin->ShowPageHeaderEnd(); 
 ?>

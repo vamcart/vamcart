@@ -6,17 +6,17 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-$html->script(array(
+$this->Html->script(array(
 	'modified.js',
 	'focus-first-input.js'
 ), array('inline' => false));
 
-	echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 	
-	echo $form->create('CountryZone', array('id' => 'contentform', 'action' => '/country_zones/admin_edit/' . $country_id, 'url' => '/country_zones/admin_edit/' . $country_id));
-		echo $form->inputs(array(
+	echo $this->Form->create('CountryZone', array('id' => 'contentform', 'action' => '/country_zones/admin_edit/' . $country_id, 'url' => '/country_zones/admin_edit/' . $country_id));
+		echo $this->Form->inputs(array(
 					'legend' => null,
-					'fieldset' => __('Country Zone Details', true),
+					'fieldset' => __('Country Zone Details'),
 				   'CountryZone.country_id' => array(
 				   		'type' => 'hidden',
 						'value' => $country_id
@@ -25,16 +25,16 @@ $html->script(array(
 				   		'type' => 'hidden'
 	               ),
 	               'CountryZone.name' => array(
-				   		'label' => __('Name', true)
+				   		'label' => __('Name')
 	               ),
 	               'CountryZone.code' => array(
-				   		'label' => __('Code', true)
+				   		'label' => __('Code')
 	               )	     		
 				   ));		   	   																									
-	echo $admin->formButton(__('Submit', true), 'submit.png', array('type' => 'submit', 'name' => 'submit')) . $admin->formButton(__('Cancel', true), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
+	echo $this->Admin->formButton(__('Submit'), 'submit.png', array('type' => 'submit', 'name' => 'submit')) . $this->Admin->formButton(__('Cancel'), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';
-	echo $form->end();
+	echo $this->Form->end();
 	
-	echo $admin->ShowPageHeaderEnd();
+	echo $this->Admin->ShowPageHeaderEnd();
 	
 	?>

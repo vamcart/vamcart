@@ -44,44 +44,44 @@
  * 
  * If you're allready using prototype in your application, make sure you tell the helper this through the begin call:
  *
- *   echo $flashChart->begin(array('prototype'=>true));
+ *   echo $this->FlashChart->begin(array('prototype'=>true));
  *
  *
  * Usage Example 1 : Minimum usage. You will always need at least this.
  * 
  *  <?php
- *		echo $flashChart->begin();
- *		$flashChart->setData(array(1,2,4,8));
- *		echo $flashChart->chart();
- *      echo $flashChart->render();
+ *		echo $this->FlashChart->begin();
+ *		$this->FlashChart->setData(array(1,2,4,8));
+ *		echo $this->FlashChart->chart();
+ *      echo $this->FlashChart->render();
  *	?>
  * 
  * Usage Example 2 : Minimum with 2 datasets 
  *  
  *  <?php
- *		echo $flashChart->begin();
- *		$flashChart->setData(array(1,2,4,8),'{n}',false,'Apples');
- *		$flashChart->setData(array(3,4,6,9),'{n}',false,'Oranges');
- *		echo $flashChart->chart('line',array('colour'=>'green'),'Apples');
- *		echo $flashChart->chart('line',array('colour'=>'orange'),'Oranges');
+ *		echo $this->FlashChart->begin();
+ *		$this->FlashChart->setData(array(1,2,4,8),'{n}',false,'Apples');
+ *		$this->FlashChart->setData(array(3,4,6,9),'{n}',false,'Oranges');
+ *		echo $this->FlashChart->chart('line',array('colour'=>'green'),'Apples');
+ *		echo $this->FlashChart->chart('line',array('colour'=>'orange'),'Oranges');
  *	?>
  *
  * Usage Example 3 : Minimum with 2 seperate charts 
  *  
  *    <?php
- *       echo $flashChart->begin(); 
+ *       echo $this->FlashChart->begin(); 
  *
- *       $flashChart->setData(array(3,4,6,9),'{n}',false,'Potatoes');
- *       $flashChart->setTitle('Veggies');
- *       echo $flashChart->chart('line',array('colour'=>'#cc3355'),'Potatoes');
- *       echo $flashChart->render();
+ *       $this->FlashChart->setData(array(3,4,6,9),'{n}',false,'Potatoes');
+ *       $this->FlashChart->setTitle('Veggies');
+ *       echo $this->FlashChart->chart('line',array('colour'=>'#cc3355'),'Potatoes');
+ *       echo $this->FlashChart->render();
  *
- *       $flashChart->setTitle('Fruits');
- *       $flashChart->setData(array(1,2,4,8),'{n}',false,'Apples','dig');		
- *       $flashChart->setData(array(3,4,6,9),'{n}',false,'Oranges','dig');
- *       echo $flashChart->chart('line',array('colour'=>'#33cc33'),'Apples','dig');
- *       echo $flashChart->chart('line',array('colour'=>'#ccaa44'),'Oranges','dig');	
- *       echo $flashChart->render(500,500,'dig');
+ *       $this->FlashChart->setTitle('Fruits');
+ *       $this->FlashChart->setData(array(1,2,4,8),'{n}',false,'Apples','dig');		
+ *       $this->FlashChart->setData(array(3,4,6,9),'{n}',false,'Oranges','dig');
+ *       echo $this->FlashChart->chart('line',array('colour'=>'#33cc33'),'Apples','dig');
+ *       echo $this->FlashChart->chart('line',array('colour'=>'#ccaa44'),'Oranges','dig');	
+ *       echo $this->FlashChart->render(500,500,'dig');
  *   ?>
  * 
  * 
@@ -89,24 +89,24 @@
  * 
  * <?php 
  *		foreach ($data as $key => $model) {
- *			$data[$key]['Day']['date'] = $time->format('d.M',$data[$key]['Day']['date']);
+ *			$data[$key]['Day']['date'] = $this->Time->format('d.M',$data[$key]['Day']['date']);
  *		}
- *		echo $flashChart->begin('SteppChart', 500,500);		
+ *		echo $this->FlashChart->begin('SteppChart', 500,500);		
  *		
- *		$flashChart->setTitle('Steppometer','{color:#880a88;font-size:35px;padding-bottom:20px;}');
+ *		$this->FlashChart->setTitle('Steppometer','{color:#880a88;font-size:35px;padding-bottom:20px;}');
  *	
- *		$flashChart->setData($data); 
- *		$flashChart->setNumbersPath( '{n}.Day.count' );
- *		$flashChart->setLabelsPath( 'default.{n}.Day.date' );
+ *		$this->FlashChart->setData($data); 
+ *		$this->FlashChart->setNumbersPath( '{n}.Day.count' );
+ *		$this->FlashChart->setLabelsPath( 'default.{n}.Day.date' );
  *		
- *		$flashChart->setLegend('x','Dato');
- *		$flashChart->setLegend('y','Skritt', '{color:#AA0aFF;font-size:40px;}' );
+ *		$this->FlashChart->setLegend('x','Dato');
+ *		$this->FlashChart->setLegend('y','Skritt', '{color:#AA0aFF;font-size:40px;}' );
  *		
- *		$flashChart->axis('x',array('tick_height' => 10,'3d' => -10));
- *		$flashChart->axis('y',array('range' => array(0,10000,1000)));
+ *		$this->FlashChart->axis('x',array('tick_height' => 10,'3d' => -10));
+ *		$this->FlashChart->axis('y',array('range' => array(0,10000,1000)));
  *					
- *		echo $flashChart->chart();
- *		echo $flashChart->render();
+ *		echo $this->FlashChart->chart();
+ *		echo $this->FlashChart->render();
  *	?>
  * 
  * Usage Example 5 : Charting non-numeric data and labels on y-axis
@@ -119,22 +119,22 @@
  *        
  *       $labels = array();
  *       foreach ($data as $key => $label) {
- *           $labels[$key] = $time->nice($label['Event']['when'] );
+ *           $labels[$key] = $this->Time->nice($label['Event']['when'] );
  *       }
  *       
- *       echo $flashChart->begin(); 
+ *       echo $this->FlashChart->begin(); 
  *       
- *       $flashChart->setTitle('"Events" by Grade','{font-size:50px;color:#AA66AA;}'); 
+ *       $this->FlashChart->setTitle('"Events" by Grade','{font-size:50px;color:#AA66AA;}'); 
  *       
- *       $flashChart->setLegend('x','Dato');
- *       $flashChart->setLegend('y','Grade', '{color:#AA0aFF;font-size:40px;}' );
+ *       $this->FlashChart->setLegend('x','Dato');
+ *       $this->FlashChart->setLegend('y','Grade', '{color:#AA0aFF;font-size:40px;}' );
  *       
- *       $flashChart->axis('x',array('labels' => $labels,'tick_height' => 20),array('vertical' => true,'colour'=>'#3399AA'));
- *       $flashChart->axis('y',array('range' => array(0, 6, 1),'labels' => array('','F','E','D','C','B','A')));
+ *       $this->FlashChart->axis('x',array('labels' => $labels,'tick_height' => 20),array('vertical' => true,'colour'=>'#3399AA'));
+ *       $this->FlashChart->axis('y',array('range' => array(0, 6, 1),'labels' => array('','F','E','D','C','B','A')));
  *           
- *       $flashChart->setData($data,'/Event/value'); 
- *       echo $flashChart->chart('bar_3d', array('colour'=>'#aa55AA'));
- *       echo $flashChart->render();
+ *       $this->FlashChart->setData($data,'/Event/value'); 
+ *       echo $this->FlashChart->chart('bar_3d', array('colour'=>'#aa55AA'));
+ *       echo $this->FlashChart->render();
  *  ?>
  * 
  * Usage Example 6 :  Scatter and loading message
@@ -148,24 +148,24 @@
  *		    	'y' => number_format(cos(deg2rad($i)), 2, '.', '') 
  *		    );    
  *		}
- *		echo $flashChart->begin();
- *		$flashChart->setData($data);
- *		$flashChart->setTitle('Scatter');
- *		$flashChart->axis('x',array('range' => array(-2,3,1)));
- *		$flashChart->axis('y',array('range' => array(-2,2,1)));	
- *		$flashChart->ready = 'alert("ready");' ;
- *		$flashChart->loading = 'alert("Getting your round thing, please wait.");' ;
- *		echo $flashChart->chart('scatter');	
- *      echo $flashChart->render(300,300);
+ *		echo $this->FlashChart->begin();
+ *		$this->FlashChart->setData($data);
+ *		$this->FlashChart->setTitle('Scatter');
+ *		$this->FlashChart->axis('x',array('range' => array(-2,3,1)));
+ *		$this->FlashChart->axis('y',array('range' => array(-2,2,1)));	
+ *		$this->FlashChart->ready = 'alert("ready");' ;
+ *		$this->FlashChart->loading = 'alert("Getting your round thing, please wait.");' ;
+ *		echo $this->FlashChart->chart('scatter');	
+ *      echo $this->FlashChart->render(300,300);
  *	?>
  * 
  * Usage Example 7 : Radar
  * 
  *  <?php
- *  echo $flashChart->begin('progress', 600, 600);
- *	$flashChart->setTitle('Radar');
- *	$flashChart->setData(array(3, 4, 5, 4, 3, 3, 2.5));
- *	$flashChart->setRadarAxis(array(
+ *  echo $this->FlashChart->begin('progress', 600, 600);
+ *	$this->FlashChart->setTitle('Radar');
+ *	$this->FlashChart->setData(array(3, 4, 5, 4, 3, 3, 2.5));
+ *	$this->FlashChart->setRadarAxis(array(
  *			'max' => 5, 
  *			'steps' => 1, 
  *			'colour' => '#EFD1EF', 
@@ -173,8 +173,8 @@
  *			'label_colour' => '#343434', 
  *			'labels' => array('0', '1', '2', '3', '4', '5')));
  *	
- *	$flashChart->setToolTip(null, array('proximity' => true));
- *	echo $flashChart->chart('radar', array(
+ *	$this->FlashChart->setToolTip(null, array('proximity' => true));
+ *	echo $this->FlashChart->chart('radar', array(
  *			'halo_size' => 1, 
  *			'width' => 1, 
  *			'dot_size' => 4, 
@@ -184,28 +184,28 @@
  *			'fill_alpha' => 0.4, 
  *			'loop' => true)	
  *	);
- *  echo $flashChart->render(800,800);
+ *  echo $this->FlashChart->render(800,800);
  *	?>
  * 
  * Usage Example 8 : Stacked Bars, prototype, multiple charts and dom id
  * 
  * <?php
- *       echo $html->script('prototype');
- *       echo $flashChart->begin(array('prototype'=>true));
- *       $flashChart->setTitle('Stacked Bars');		
- *       $flashChart->axis('y',array('range' => array(0, 100, 10)));	
- *       $flashChart->setStackColours(array('#0000ff','#ff0000','#00FF00')); 
- *       $flashChart->setData(array(
+ *       echo $this->Html->script('prototype');
+ *       echo $this->FlashChart->begin(array('prototype'=>true));
+ *       $this->FlashChart->setTitle('Stacked Bars');		
+ *       $this->FlashChart->axis('y',array('range' => array(0, 100, 10)));	
+ *       $this->FlashChart->setStackColours(array('#0000ff','#ff0000','#00FF00')); 
+ *       $this->FlashChart->setData(array(
  *           array(65,15,20),
  *           array(45,15,40),
  *           array(51,29,20),
  *           array(15,35,50),
  *       ));
- *       echo $flashChart->chart('bar_stack');	
- *       echo $flashChart->render(800,800);	    
- *       echo $flashChart->setData(array(1,3,2,4),'{n}',false,'stuff','chart2');
- *       echo $flashChart->chart('line',array(),'stuff','chart2');	
- *       echo $flashChart->render(400,400,'chart2','chartDomId');
+ *       echo $this->FlashChart->chart('bar_stack');	
+ *       echo $this->FlashChart->render(800,800);	    
+ *       echo $this->FlashChart->setData(array(1,3,2,4),'{n}',false,'stuff','chart2');
+ *       echo $this->FlashChart->chart('line',array(),'stuff','chart2');	
+ *       echo $this->FlashChart->render(400,400,'chart2','chartDomId');
  *   ?>
  *   <hr>
  *   <div id="chartDomId"></div>
@@ -224,9 +224,10 @@
  * @version 3.3.93
  * 
  **/
+ App::uses('AppHelper', 'View');
 App::import('Vendor', 'flashchart/open-flash-chart');
 class FlashChartHelper extends AppHelper {	
-	public $helpers = array('Flash','Javascript');
+	public $helpers = array('Flash', 'Html', 'Js');
 	
 	/**
 	 * The Vendor OpenFlashChart object. The helper
@@ -300,7 +301,7 @@ class FlashChartHelper extends AppHelper {
 	// Numbers path (Set::extract) is stored here at runtime
 	private $numbersPath = NULL;
 	// Default settings, also default parameters for the FlashChart::begin() method
-	private $settings = array('width' => 800, 'height' => 350);
+	private $options = array('width' => 800, 'height' => 350);
 	// Default axis ranges
 	private $defaultRange = array('x' => array(0, 10, 1), 'y' => array(0, 10, 1));
 	// Default scatter chart options
@@ -326,8 +327,8 @@ class FlashChartHelper extends AppHelper {
 	 * Call only once.
 	 *
 	 * @param array $options valid options are 'prototype'
-	 * @example $flashChart->begin();
-	 * @example $flashChart->begin(array('prototype'=>true));
+	 * @example $this->FlashChart->begin();
+	 * @example $this->FlashChart->begin(array('prototype'=>true));
 	 * @return string Javascript library includes
 	 */
 	public function begin($options = array()) {
@@ -349,13 +350,13 @@ class FlashChartHelper extends AppHelper {
 	 */
 	public function render($width = null, $height = null, $chartId = 'default', $domId = false) {
 		if (!is_null($width)) {
-			$this->settings['width'] = $width;
+			$this->options['width'] = $width;
 		}
 		if (!is_null($height)) {
-			$this->settings['height'] = $height;
+			$this->options['height'] = $height;
 		}
 		$this->Chart = new open_flash_chart();
-		return $this->Flash->renderSwf($this->swf,$this->settings['width'],$this->settings['height'],$domId,
+		return $this->Flash->renderSwf($this->swf,$this->options['width'],$this->options['height'],$domId,
             array('flashvars'=>array('get-data'=>'get_data_'.$chartId)));
 	}
 	
@@ -373,9 +374,9 @@ class FlashChartHelper extends AppHelper {
 	 * how to find your data. If you give no path, neither here, nor with the above
 	 * mentioned methods, it expects the data array to be array(12,32,15,23).
 	 *    
-	 * @example $flashChart->setData(array(1,5,23,35));
-	 * @example $flashChart->setData($users,'/User/age','/User/name');
-	 * @example $flashChart->setData($data,'{n}.Event.grade','{n}.Girl.name', 'Girls');
+	 * @example $this->FlashChart->setData(array(1,5,23,35));
+	 * @example $this->FlashChart->setData($users,'/User/age','/User/name');
+	 * @example $this->FlashChart->setData($data,'{n}.Event.grade','{n}.Girl.name', 'Girls');
 	 * @param array $data
 	 * @param string $numbersPath
 	 * @param string $labelsPath (if string, this dataset will overwrite any previous label path.)
@@ -384,7 +385,7 @@ class FlashChartHelper extends AppHelper {
 	 */
 	public function setData($data, $numbersPath = '{n}', $labelsPath = false, $datasetName = 'default') {
 	
-		$this->data[$datasetName] = $data;
+		$this->request->data[$datasetName] = $data;
 		if (is_string($numbersPath)) {
 			$this->numbersPath[$datasetName] = $numbersPath;
 		}
@@ -410,9 +411,9 @@ class FlashChartHelper extends AppHelper {
 	 *   For options documentation see;
 	 *   http://teethgrinder.co.uk/open-flash-chart-2/
 	 *  
-	 * @example echo $flashChart->chart();
-	 * @example echo $flashChart->chart('bar_3d', array('colour'=>'#aa55AA'));
-	 * @example echo $flashChart->chart('line',array('colour'=>'green'),'Apples');
+	 * @example echo $this->FlashChart->chart();
+	 * @example echo $this->FlashChart->chart('bar_3d', array('colour'=>'#aa55AA'));
+	 * @example echo $this->FlashChart->chart('line',array('colour'=>'green'),'Apples');
 	 * @param string $type Valid types - see doc in top
 	 * @param array $options varies depending on type. See vendor documentation
 	 * @param string $datasetName The name to be used to associate charts with data
@@ -448,7 +449,7 @@ class FlashChartHelper extends AppHelper {
 			case 'bar': case 'bar_filled': case 'bar_glass': case 'bar_3d':
 			case 'area_line': case 'area_hollow':
 			
-				if (empty($this->data[$datasetName])) {
+				if (empty($this->request->data[$datasetName])) {
 					return false;
 				}	
 				$this->Chart->set_bg_colour($this->bg_colour);
@@ -493,12 +494,12 @@ class FlashChartHelper extends AppHelper {
 	 * @return string
 	 */
 	public function barStack($options = array(), $datasetName = 'default', $chartId = 'default') {
-		if (empty($this->data[$datasetName])) {
+		if (empty($this->request->data[$datasetName])) {
 			return false;
 		}	
 		$bar_stack = new bar_stack();
 		$bar_stack->set_colours($this->stackColours);
-		foreach ($this->data[$datasetName] as $values) {
+		foreach ($this->request->data[$datasetName] as $values) {
 			$bar_stack->append_stack($values);
 		}
     if (!empty($this->tooltip) ) {
@@ -531,7 +532,7 @@ class FlashChartHelper extends AppHelper {
 	 * @return string
 	 */
 	public function scatter($options = array(), $datasetName = 'default', $chartId = 'default') {
-		if (empty($this->data[$datasetName])) {
+		if (empty($this->request->data[$datasetName])) {
 			return false;
 		}	
 		$options = am($this->scatter_options, $options);
@@ -541,7 +542,7 @@ class FlashChartHelper extends AppHelper {
 			$scatter = new scatter($options['colour'], $options['size']);
 		}		
 		$values = array();
-		foreach ($this->data[$datasetName] as $row) {
+		foreach ($this->request->data[$datasetName] as $row) {
 			$values[] = new scatter_value($row[$options['x_key']], $row[$options['y_key']]);
 		}
     if (!empty($this->tooltip) ) {
@@ -566,7 +567,7 @@ class FlashChartHelper extends AppHelper {
 	 * @return string
 	 */
 	public function sketch($options = array(), $datasetName = 'default', $chartId = 'default') {
-		if (empty($this->data[$datasetName])) {
+		if (empty($this->request->data[$datasetName])) {
 			return false;
 		}
 		$this->Chart->set_bg_colour($this->bg_colour);
@@ -588,15 +589,15 @@ class FlashChartHelper extends AppHelper {
 	 * 
 	 * @todo Each value can have it's own tooltip using the dot_value class
 	 *
-	 * @example echo $flashChart->radar(array('loop'=>false','colour'=>'336699'));
-	 * @example echo $flashChart->radar(array('type'=>filled'),'Dataset2');
+	 * @example echo $this->FlashChart->radar(array('loop'=>false','colour'=>'336699'));
+	 * @example echo $this->FlashChart->radar(array('type'=>filled'),'Dataset2');
 	 * @param array $options
 	 * @param string $datasetName The name to be used to associate charts with data
 	 * @param string $chartId Name of chart. Use for seperate charts.
 	 * @return string
 	 */
 	public function radar($options = array(), $datasetName = 'default', $chartId = 'default') {
-		if (empty($this->data[$datasetName])) {
+		if (empty($this->request->data[$datasetName])) {
 			return false;
 		}	
 		$this->Chart->set_bg_colour($this->bg_colour);
@@ -622,7 +623,7 @@ class FlashChartHelper extends AppHelper {
 		if (isset($options['tooltip_path'])) {
 			$numbers = $values;
 			$values = array();
-			$tooltips = Set::extract($xpath,$this->data[$datasetName]);
+			$tooltips = Set::extract($xpath,$this->request->data[$datasetName]);
 			if (isset($options['tooltip_colour'])) {
 				$colour = $options['tooltip_colour'];
 				unset($options['tooltip_colour']);	
@@ -674,8 +675,8 @@ class FlashChartHelper extends AppHelper {
 	 * For options documentation; 
 	 * http://teethgrinder.co.uk/open-flash-chart-2/pie-chart.php
 	 * 
-	 * @example echo $flashChart->renderPie();
-	 * @example echo $flashChart->renderPie(array('animate'=>false);
+	 * @example echo $this->FlashChart->renderPie();
+	 * @example echo $this->FlashChart->renderPie(array('animate'=>false);
 	 * @param array $options
 	 * 		Valid options : values, animate, start_angle, tooltip
 	 * @param string $datasetName The name to be used to associate charts with data
@@ -683,7 +684,7 @@ class FlashChartHelper extends AppHelper {
 	 * @return string
 	 */
 	public function pie($options = array(), $datasetName = 'default', $chartId = 'default') {
-		if (empty($this->data[$datasetName])) {
+		if (empty($this->request->data[$datasetName])) {
 			return false;
 		}
 		$this->Chart->set_bg_colour($this->bg_colour);
@@ -696,7 +697,7 @@ class FlashChartHelper extends AppHelper {
 			$pie->set_tooltip($this->tooltip);
 		}
 		$pies = array();
-		$labels = Set::extract($this->data, $this->labelsPath);
+		$labels = Set::extract($this->request->data, $this->labelsPath);
 		$numbers = $this->getNumbers($datasetName);
 		foreach ($numbers as $key => $value) {
 			if (isset($labels[$key]) && is_string($labels[$key])) {
@@ -718,7 +719,7 @@ class FlashChartHelper extends AppHelper {
 	 * Documentation:
 	 * http://teethgrinder.co.uk/open-flash-chart-2/tooltip-menu.php
 	 * 
-	 * @example $flashChart->setToolTip('#val#%');
+	 * @example $this->FlashChart->setToolTip('#val#%');
 	 * @param string $tooltip
 	 * @param array $options see OFC2 doc for valid options
 	 */
@@ -744,8 +745,8 @@ class FlashChartHelper extends AppHelper {
 	 * Sets the title above the chart. You can also style it with
 	 * css as the second parameter.
 	 *
-	 * @example $flashChart->setTitle('Awesomeness');
-	 * @example $flashChart->setTitle('Coolness, by date','{font-size:26px;}');
+	 * @example $this->FlashChart->setTitle('Awesomeness');
+	 * @example $this->FlashChart->setTitle('Coolness, by date','{font-size:26px;}');
 	 * @param string $title_text
 	 * @param string $style css
 	 */
@@ -762,8 +763,8 @@ class FlashChartHelper extends AppHelper {
 	 * Set the descriptive texts next to the axies to describe their meaning.
 	 * You can also style it directly here using CSS.
 	 *
-	 * @example $flashChart->setLegend('x','Time of day');
-	 * @example $flashChart->setLegend('y','Coolness factor','{font-size:10px;color:#FF0000;}');
+	 * @example $this->FlashChart->setLegend('x','Time of day');
+	 * @example $this->FlashChart->setLegend('y','Coolness factor','{font-size:10px;color:#FF0000;}');
 	 * @param string $axis 'x' or 'y'
 	 * @param string $title
 	 * @param string $style css
@@ -795,9 +796,9 @@ class FlashChartHelper extends AppHelper {
 	 * http://teethgrinder.co.uk/open-flash-chart-2/x-axis.php
 	 * http://teethgrinder.co.uk/open-flash-chart-2/y-axis.php
 	 * 
-	 * @example $flashChart->axis('x'); //Sets labels from dataset
-	 * @example $flashChart->axis('x',array('labels'=>array('Things','To','Do')),array('colour'=>'#aaFF33', 'vertical'=>true)); 
-	 * @example $flashChart->axis('y', array('range'=>array(0,50,5), 'tick_length'=>15);
+	 * @example $this->FlashChart->axis('x'); //Sets labels from dataset
+	 * @example $this->FlashChart->axis('x',array('labels'=>array('Things','To','Do')),array('colour'=>'#aaFF33', 'vertical'=>true)); 
+	 * @example $this->FlashChart->axis('y', array('range'=>array(0,50,5), 'tick_length'=>15);
 	 * @param string $axis 'x' or 'y'
 	 * @param array $options
 	 * @param array $labelsOptions used to customize x axis labels
@@ -862,7 +863,7 @@ class FlashChartHelper extends AppHelper {
 		} 
 		if ($axis == 'x' && is_string($this->labelsPath) && !empty($this->labelsPath) ) {
             if (sizeof($labelsOptions) > 0) {            
-                $labels = Set::extract($this->data, $this->labelsPath);
+                $labels = Set::extract($this->request->data, $this->labelsPath);
                 $x_axis_label = new x_axis_labels;        
                 foreach ($labelsOptions as $key => $setting) {   
                     $set_method = 'set_' . $key;
@@ -871,7 +872,7 @@ class FlashChartHelper extends AppHelper {
                 $x_axis_label->set_labels($labels); 
                 $axis_object->set_labels($x_axis_label);
             } else {
-                $labels = Set::extract($this->data, $this->labelsPath);
+                $labels = Set::extract($this->request->data, $this->labelsPath);
                 $axis_object->set_labels_from_array($labels);
 			}
 		} elseif (isset($options['labels']) && is_array($options['labels']) && $axis == 'x') {
@@ -938,8 +939,8 @@ class FlashChartHelper extends AppHelper {
 	/**
 	 * Spokes are the labels that name the "radius"-axis of the chart
 	 *
-	 * @example $flashChart->setRadarSpokes(array('weight','height','strength'));
-	 * @example $flashChart->setRadarSpokes(array('red','green','blue'),'#AA3377');
+	 * @example $this->FlashChart->setRadarSpokes(array('weight','height','strength'));
+	 * @example $this->FlashChart->setRadarSpokes(array('red','green','blue'),'#AA3377');
 	 * @param array $spokes
 	 * @param string $colour
 	 */
@@ -969,7 +970,7 @@ class FlashChartHelper extends AppHelper {
 	 * method. You do not need to set it both places.
 	 * NB. The path should start with the name of the dataset
 	 *
-	 * @example $flashChart->setLabelsPath('Default.{n}.User.name');
+	 * @example $this->FlashChart->setLabelsPath('Default.{n}.User.name');
 	 * @param string $path
 	 */
 	public function setLabelsPath($path) {
@@ -1006,9 +1007,9 @@ class FlashChartHelper extends AppHelper {
 	 */
 	private function getNumbers($datasetName = 'default') {
 		if ($this->numbersPath[$datasetName] != '{n}') {
-			$numbers = Set::extract($this->data[$datasetName], $this->numbersPath[$datasetName]);
+			$numbers = Set::extract($this->request->data[$datasetName], $this->numbersPath[$datasetName]);
 		} else {
-			$numbers = $this->data[$datasetName];
+			$numbers = $this->request->data[$datasetName];
 		}
 		/** the +0 is doing a math function to force php to autocast the value to a numeric type */
 		foreach ($numbers as $key => $value) {
@@ -1026,12 +1027,12 @@ class FlashChartHelper extends AppHelper {
 	 * @return string
 	 */
 	private function renderData($chartId = 'default') {			
-		return $this->Javascript->codeBlock(
+		return $this->Html->scriptBlock(
 			'function get_data_'.$chartId.'() {
 				'.$this->loading.'
 			    return to_string(data_'.$chartId.');
 			}
-			var data_'.$chartId.' = ' . $this->Javascript->object($this->Chart) . ';'
+			var data_'.$chartId.' = ' . $this->Js->object($this->Chart) . ';'
 		);
 	}
 
@@ -1045,27 +1046,27 @@ class FlashChartHelper extends AppHelper {
 	 */
 	private function scripts($options = array()) {        
 		if (isset($options['prototype'])) {
-            $ret = $this->Javascript->codeBlock('                
+            $ret = $this->Html->scriptBlock('                
                 function to_string(arr) {
                     return Object.toJSON(arr); 
                 }
             ');
 		} else if(isset($options['mootools'])) {
-		     $ret = $this->Javascript->codeBlock('                
+		     $ret = $this->Html->scriptBlock('                
                 function to_string(arr) {
                     return JSON.encode(arr); 
                 }
             ');
 		} else {
-            $ret = $this->Javascript->link('json/json2');
-            $ret .= $this->Javascript->codeBlock('
+            $ret = $this->Html->script('json/json2');
+            $ret .= $this->Html->scriptBlock('
                 function to_string(arr) {
                     return JSON.stringify(arr);
                 }
             ');
 		}
 				
-		$ret .= $this->Javascript->codeBlock(
+		$ret .= $this->Html->scriptBlock(
 		'	
 			function ofc_ready()
 			{

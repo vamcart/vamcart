@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-$html->script(array(
+$this->Html->script(array(
 	'modified.js',
 	'jquery/plugins/jquery.validation.js',
 	'jquery/plugins/jquery-ui-min.js',
@@ -19,7 +19,7 @@ $html->script(array(
 	'codemirror/mode/htmlmixed/htmlmixed.js'
 ), array('inline' => false));
 
-$html->css(array(
+$this->Html->css(array(
 	'ui.tabs',
 	'codemirror/codemirror',
 	'codemirror/css',
@@ -27,67 +27,67 @@ $html->css(array(
 	'codemirror/javascript'
 ), null, array('inline' => false));
 
-	echo $admin->ShowPageHeaderStart($current_crumb, 'stylesheets.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'stylesheets.png');
 
-	echo $form->create('Stylesheet', array('id' => 'contentform', 'action' => '/stylesheets/admin_edit/'.$data['Stylesheet']['id'], 'url' => '/stylesheets/admin_edit/'.$data['Stylesheet']['id']));
+	echo $this->Form->create('Stylesheet', array('id' => 'contentform', 'action' => '/stylesheets/admin_edit/'.$data['Stylesheet']['id'], 'url' => '/stylesheets/admin_edit/'.$data['Stylesheet']['id']));
 
-	echo $admin->StartTabs();
+	echo $this->Admin->StartTabs();
 			echo '<ul>';
-			echo $admin->CreateTab('main',__('Main',true), 'main.png');
-			echo $admin->CreateTab('options',__('Options',true), 'options.png');			
+			echo $this->Admin->CreateTab('main',__('Main'), 'main.png');
+			echo $this->Admin->CreateTab('options',__('Options'), 'options.png');			
 			echo '</ul>';
 
-	echo $validation->bind('Stylesheet', array('form' => '#contentform', 'messageId' => 'messages'));
+	echo $this->Validation->bind('Stylesheet', array('form' => '#contentform', 'messageId' => 'messages'));
 		
-	echo $admin->StartTabContent('main');
-	echo $form->inputs(array(
+	echo $this->Admin->StartTabContent('main');
+	echo $this->Form->inputs(array(
 					'legend' => null,
-					'fieldset' => __('Stylesheet Details', true),
+					'fieldset' => __('Stylesheet Details'),
 				   'Stylesheet.id' => array(
 				   		'type' => 'hidden',
 						'value' => $data['Stylesheet']['id']
 	               ),
 	               'Stylesheet.name' => array(
-   				   		'label' => __('Name', true),				   
+   				   		'label' => __('Name'),				   
    						'value' => $data['Stylesheet']['name']
 	               ),
 				   'Stylesheet.stylesheet' => array(
-   				   		'label' => __('Stylesheets', true),				   
+   				   		'label' => __('Stylesheets'),				   
    						'id' => 'code',
    						'value' => $data['Stylesheet']['stylesheet']
 	               )																										
 			));
-	echo $admin->EndTabContent();
+	echo $this->Admin->EndTabContent();
 
-	echo $admin->StartTabContent('options');			
-		echo $form->inputs(array(
+	echo $this->Admin->StartTabContent('options');			
+		echo $this->Form->inputs(array(
 					'legend' => null,
-					'fieldset' => __('Stylesheet Details', true),
+					'fieldset' => __('Stylesheet Details'),
 					'Stylesheet.alias' => array(
-			   		'label' => __('Alias', true),				   
+			   		'label' => __('Alias'),				   
 					'value' => $data['Stylesheet']['alias']
                 	),
 				   'Stylesheet.active' => array(
-				   		'label' => __('Active', true),
+				   		'label' => __('Active'),
 				   		'type' => 'checkbox',
 						'class' => 'checkbox_group',						
    						'checked' => $active_checked
 	               )																										
 			));
 			
-	echo $admin->EndTabContent();			
+	echo $this->Admin->EndTabContent();			
 
-	echo $admin->EndTabs();
+	echo $this->Admin->EndTabs();
 
 	echo '<div id="messages"></div>';
 				
-	echo $admin->formButton(__('Submit', true), 'submit.png', array('type' => 'submit', 'name' => 'submitbutton', 'id' => 'submit')) . $admin->formButton(__('Apply', true), 'apply.png', array('type' => 'submit', 'name' => 'apply')) . $admin->formButton(__('Cancel', true), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
+	echo $this->Admin->formButton(__('Submit'), 'submit.png', array('type' => 'submit', 'name' => 'submitbutton', 'id' => 'submit')) . $this->Admin->formButton(__('Apply'), 'apply.png', array('type' => 'submit', 'name' => 'apply')) . $this->Admin->formButton(__('Cancel'), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';
-	echo $form->end();
+	echo $this->Form->end();
 
-	echo $admin->ShowPageHeaderEnd();
+	echo $this->Admin->ShowPageHeaderEnd();
 
-	echo $html->scriptBlock('
+	echo $this->Html->scriptBlock('
 var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   lineNumbers: true,
   onCursorActivity: function() {

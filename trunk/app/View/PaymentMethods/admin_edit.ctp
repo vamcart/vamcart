@@ -6,32 +6,32 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-$html->script(array(
+$this->Html->script(array(
 	'modified.js',
 	'focus-first-input.js'
 ), array('inline' => false));
 
-	echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
-	echo $form->create('PaymentMethod', array('id' => 'contentform', 'action' => '/payment_methods/admin_edit/' . $data['PaymentMethod']['id'], 'url' => '/payment_methods/admin_edit/' . $data['PaymentMethod']['id']));
-	echo $form->inputs(array(
+	echo $this->Form->create('PaymentMethod', array('id' => 'contentform', 'action' => '/payment_methods/admin_edit/' . $data['PaymentMethod']['id'], 'url' => '/payment_methods/admin_edit/' . $data['PaymentMethod']['id']));
+	echo $this->Form->inputs(array(
 					'legend' => null,
-					'fieldset' => __('Payment Method Details', true),
+					'fieldset' => __('Payment Method Details'),
 				   'PaymentMethod.id' => array(
 				   		'type' => 'hidden',
 						'value' => $data['PaymentMethod']['id']
 	               ),
 	               'PaymentMethod.name' => array(
-				   		'label' => __('Name', true),
+				   		'label' => __('Name'),
    						'value' => $data['PaymentMethod']['name']
 	               ),				     				   	   																									
 	               'PaymentMethod.order' => array(
-				   		'label' => __('Sort Order', true),
+				   		'label' => __('Sort Order'),
    						'value' => $data['PaymentMethod']['order']
 	               ),				     				   	   																									
 	               'PaymentMethod.order_status_id' => array(
 							'type' => 'select',
-							'label' => __('Order Status', true),
+							'label' => __('Order Status'),
 							'options' => $order_status_list,
 							'selected' => $current_order_status
 	               )				     				   	   																									
@@ -39,10 +39,10 @@ $html->script(array(
 	
 	echo $this->requestAction( '/payment/'.$data['PaymentMethod']['alias'].'/settings/', array('return'));	
 	
-	echo $admin->formButton(__('Submit', true), 'submit.png', array('type' => 'submit', 'name' => 'submit')) . $admin->formButton(__('Cancel', true), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
+	echo $this->Admin->formButton(__('Submit'), 'submit.png', array('type' => 'submit', 'name' => 'submit')) . $this->Admin->formButton(__('Cancel'), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';
-	echo $form->end();
+	echo $this->Form->end();
 	
-	echo $admin->ShowPageHeaderEnd();
+	echo $this->Admin->ShowPageHeaderEnd();
 	
 	?>

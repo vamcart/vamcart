@@ -11,7 +11,7 @@
 foreach($install_checks AS $check)
 {
 	if ($check['passed']=='failed')
-	echo $html->image('admin/icons/false.png') . '   ' . __('Can\'t write to: ',true) . $check['dir'] . '<br />';
+	echo $this->Html->image('admin/icons/false.png') . '   ' . __('Can\'t write to: ') . $check['dir'] . '<br />';
 }
 
 if(isset($fatal_error))

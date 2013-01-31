@@ -18,18 +18,18 @@
  *
  * Example 1 :
  * 
- * echo $flash->renderSwf('test.swf',400,200,'flashy');
+ * echo $this->Flash->renderSwf('test.swf',400,200,'flashy');
  * echo '<div id="flashy"></div>';
  * 
  * Example 2 :
  * 
- * $flash->init(array('width'=>200,'height'=>100));
- * echo $flash->renderSwf('test1.swf');
- * echo $flash->renderSwf('test2swf');
+ * $this->Flash->init(array('width'=>200,'height'=>100));
+ * echo $this->Flash->renderSwf('test1.swf');
+ * echo $this->Flash->renderSwf('test2swf');
  * 
  * Example 3 :
  * 
- * echo $flash->renderSwf('flashfiles/fl_countdown_v3_3.swf?mo=1&da=24&snd=off&co=AA3333',800,250,false,
+ * echo $this->Flash->renderSwf('flashfiles/fl_countdown_v3_3.swf?mo=1&da=24&snd=off&co=AA3333',800,250,false,
  * 		array('params' => array('movie'=>'?mo=1&da=24&snd=off&co=AA3333')));
  * 
  * @author Alexander Morland
@@ -37,8 +37,9 @@
  * @version 1.3
  * @modified 28. nov. 2008
  */
+ App::uses('AppHelper', 'View');
 class FlashHelper extends AppHelper {	
-	public $helpers = array('Javascript');
+	public $helpers = array('Js', 'Html');
 	/**
 	 * Used for remembering options from init() to each renderSwf
 	 *
@@ -69,8 +70,8 @@ class FlashHelper extends AppHelper {
 	 * swf library. Should be called once, but if using several groups of flashes,
 	 * MAY be called several times, once before each group.
 	 *
-	 * @example echo $flash->init();
-	 * @example $flash->init(array('width'=>200,'height'=>100);
+	 * @example echo $this->Flash->init();
+	 * @example $this->Flash->init(array('width'=>200,'height'=>100);
 	 * @return mixed String if it was not able to add the script to the view, true if it was
 	 */
 	public function init($options = array()) {
@@ -80,10 +81,10 @@ class FlashHelper extends AppHelper {
 		$this->initialized = true;
         $view =& ClassRegistry::getObject('view'); 
         if (is_object($view)) { 
-            $view->addScript($this->Javascript->link('swfobject')); 
+            $view->addScript($this->Html->script('swfobject')); 
             return true;
         } else {
-        	return $this->Javascript->link('swfobject');
+        	return $this->Html->script('swfobject');
         }
 	}
 	
@@ -97,9 +98,9 @@ class FlashHelper extends AppHelper {
 	 * For doucumentation on what options can be sent, look here:
 	 * http://code.google.com/p/swfobject/wiki/documentation
 	 *
-	 * @example echo $flash->renderSwf('counter.swf'); // size set with init();
-	 * @example echo $flash->renderSwf('flash/ad.swf',100,20);
-	 * @example echo $flash->renderSwf('swf/banner.swf',800,200,'banner_ad',array('params'=>array('wmode'=>'opaque')));
+	 * @example echo $this->Flash->renderSwf('counter.swf'); // size set with init();
+	 * @example echo $this->Flash->renderSwf('flash/ad.swf',100,20);
+	 * @example echo $this->Flash->renderSwf('swf/banner.swf',800,200,'banner_ad',array('params'=>array('wmode'=>'opaque')));
 	 * @param string $swfFile Filename (with paths relative to webroot)
 	 * @param int $width if null, will use width set by FlashHelper::init()
 	 * @param int $height if null, will use height set by FlashHelper::init()
@@ -128,13 +129,13 @@ class FlashHelper extends AppHelper {
 		$params =  '{wmode : "opaque"}';
 		$attributes = '{}';
 		if (isset($options['flashvars'])) {
-			$flashvars = $this->Javascript->object($options['flashvars']);
+			$flashvars = $this->Js->object($options['flashvars']);
 		}
 		if (isset($options['params'])) {
-			$params = $this->Javascript->object($options['params']);
+			$params = $this->Js->object($options['params']);
 		}
 		if (isset($options['attributes'])) {
-			$attributes = $this->Javascript->object($options['attributes']);
+			$attributes = $this->Js->object($options['attributes']);
 		}
 	
 		if ($divDomId === false) {
@@ -152,8 +153,8 @@ class FlashHelper extends AppHelper {
 			$install =  '';			
 		}
 		
-		$swfLocation = $this->webroot.$swfFile;
-		$ret .= $this->Javascript->codeBlock(
+		$swfLocation = $this->request->webroot.$swfFile;
+		$ret .= $this->Html->scriptBlock(
 			'swfobject.embedSWF("'.$swfLocation.'", "'.$divDomId.'", "'.$width.'", "'.$height.'", "'.$version.'","'.$install.'", '.$flashvars.', '.$params.', '.$attributes.');');
 	
 		return $ret;

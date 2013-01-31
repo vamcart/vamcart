@@ -6,33 +6,33 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $html->script('jquery/jquery.min', array('inline' => false));
+echo $this->Html->script('jquery/jquery.min', array('inline' => false));
 
-echo $admin->ShowPageHeaderStart($current_crumb, 'taxes.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'taxes.png');
 
 echo '<table class="contentTable">';
 
-echo $html->tableHeaders(array( __('Name', true), __('Default', true), __('Action', true),'&nbsp;'));
+echo $this->Html->tableHeaders(array( __('Name'), __('Default'), __('Action'),'&nbsp;'));
 
 foreach ($tax_data AS $tax)
 {
-	$set_all_bug_fix =  __('Are you sure you want to set all products to this tax class?',true);
+	$set_all_bug_fix =  __('Are you sure you want to set all products to this tax class?');
 	
-	echo $admin->TableCells(
+	echo $this->Admin->TableCells(
 		  array(
-				$html->link($tax['Tax']['name'], '/tax_country_zone_rates/admin/' . $tax['Tax']['id']),
-				array($admin->DefaultButton($tax['Tax']), array('align'=>'center')),
-				array($admin->ActionButton('edit','/taxes/admin_edit/' . $tax['Tax']['id'],__('Edit', true)) . $admin->ActionButton('delete','/taxes/admin_delete/' . $tax['Tax']['id'],__('Delete', true)), array('align'=>'center')),
-				array($admin->linkButton(__('Set All Products',true), '/taxes/admin_set_all_products/' . $tax['Tax']['id'], 'set_all.png', array('escape' => false, 'class' => 'button'),$set_all_bug_fix), array('align'=>'center'))
+				$this->Html->link($tax['Tax']['name'], '/tax_country_zone_rates/admin/' . $tax['Tax']['id']),
+				array($this->Admin->DefaultButton($tax['Tax']), array('align'=>'center')),
+				array($this->Admin->ActionButton('edit','/taxes/admin_edit/' . $tax['Tax']['id'],__('Edit')) . $this->Admin->ActionButton('delete','/taxes/admin_delete/' . $tax['Tax']['id'],__('Delete')), array('align'=>'center')),
+				array($this->Admin->linkButton(__('Set All Products'), '/taxes/admin_set_all_products/' . $tax['Tax']['id'], 'set_all.png', array('escape' => false, 'class' => 'button'),$set_all_bug_fix), array('align'=>'center'))
 		   ));
 		   	
 }
 echo '</table>';
 
-echo $admin->EmptyResults($tax_data);
+echo $this->Admin->EmptyResults($tax_data);
 
-echo $admin->CreateNewLink();
+echo $this->Admin->CreateNewLink();
 
-echo $admin->ShowPageHeaderEnd();
+echo $this->Admin->ShowPageHeaderEnd();
 
 ?>

@@ -6,30 +6,30 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-$html->script(array(
+$this->Html->script(array(
 	'modified.js',
 	'focus-first-input.js'
 ), array('inline' => false));
 
-	echo $admin->ShowPageHeaderStart($current_crumb, 'prefences.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'prefences.png');
 
-	echo $form->create('UserPref', array('id' => 'contentform', 'action' => '/users/admin_user_preferences/', 'url' => '/users/admin_user_preferences/'));
+	echo $this->Form->create('UserPref', array('id' => 'contentform', 'action' => '/users/admin_user_preferences/', 'url' => '/users/admin_user_preferences/'));
 
-	echo $form->inputs(array(
+	echo $this->Form->inputs(array(
 		'legend' => null,
-		'fieldset' => __('User Prefences', true),
+		'fieldset' => __('User Prefences'),
 		'UserPref.language' => array(
-			'label' => __('Language', true),
+			'label' => __('Language'),
 			'type' => 'select',
 			'options' => $available_languages,
 			'selected' => $current_language
               )		 			  			  
 	   ));
 	   
-	echo $admin->formButton(__('Apply', true), 'apply.png', array('type' => 'submit', 'name' => 'applybutton')) . $admin->formButton(__('Cancel', true), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
+	echo $this->Admin->formButton(__('Apply'), 'apply.png', array('type' => 'submit', 'name' => 'applybutton')) . $this->Admin->formButton(__('Cancel'), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';
-	echo $form->end();	   
+	echo $this->Form->end();	   
 	
-	echo $admin->ShowPageHeaderEnd();
+	echo $this->Admin->ShowPageHeaderEnd();
 	
 ?>

@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-$html->script(array(
+$this->Html->script(array(
 	'modified.js',
 	'focus-first-input.js',
 	'codemirror/lib/codemirror.js',
@@ -16,35 +16,35 @@ $html->script(array(
 	'codemirror/mode/htmlmixed/htmlmixed.js'
 ), array('inline' => false));
 
-$html->css(array(
+$this->Html->css(array(
 	'codemirror/codemirror',
 	'codemirror/css',
 	'codemirror/xml',
 	'codemirror/javascript'
 ), null, array('inline' => false));
 
-	$template_id = $this->data['Template']['id'];
+	$template_id = $this->request->data['Template']['id'];
 
-	echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
-	echo $form->create('Template', array('id' => 'contentform', 'action' => '/templates/admin_edit/'.$template_id, 'url' => '/templates/admin_edit/'.$template_id));
-	echo $form->inputs(array(
+	echo $this->Form->create('Template', array('id' => 'contentform', 'action' => '/templates/admin_edit/'.$template_id, 'url' => '/templates/admin_edit/'.$template_id));
+	echo $this->Form->inputs(array(
 					'legend' => null,
-					'fieldset' => __('Template Details', true),
+					'fieldset' => __('Template Details'),
 				   'Template.id' => array(
 				   		'type' => 'hidden'
 	               ),
 				   'Template.template' => array(
    				   		'id' => 'code',
-   				   		'label' => __('Template', true)
+   				   		'label' => __('Template')
 	               )																										
 			));
-	echo $admin->formButton(__('Submit', true), 'submit.png', array('type' => 'submit', 'name' => 'submitbutton', 'id' => 'submit')) . $admin->formButton(__('Apply', true), 'apply.png', array('type' => 'submit', 'name' => 'apply')) . $admin->formButton(__('Cancel', true), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
+	echo $this->Admin->formButton(__('Submit'), 'submit.png', array('type' => 'submit', 'name' => 'submitbutton', 'id' => 'submit')) . $this->Admin->formButton(__('Apply'), 'apply.png', array('type' => 'submit', 'name' => 'apply')) . $this->Admin->formButton(__('Cancel'), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';
-	echo $form->end();
-	echo $admin->ShowPageHeaderEnd(); 
+	echo $this->Form->end();
+	echo $this->Admin->ShowPageHeaderEnd(); 
 
-	echo $html->scriptBlock('
+	echo $this->Html->scriptBlock('
 var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   mode: "text/html",
   lineNumbers: true,

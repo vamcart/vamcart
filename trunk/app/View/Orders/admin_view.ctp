@@ -6,114 +6,95 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-$html->script(array(
+$this->Html->script(array(
 	'modified.js',
 	'jquery/plugins/jquery-ui-min.js',
 	'tabs.js',
 	'focus-first-input.js'
 ), array('inline' => false));
 
-	echo $html->css('ui.tabs', null, array('inline' => false));
+	echo $this->Html->css('ui.tabs', null, array('inline' => false));
 
-	echo $admin->ShowPageHeaderStart($current_crumb, 'view.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'view.png');
 
-	echo $admin->StartTabs();
+	echo $this->Admin->StartTabs();
 			echo '<ul>';
-			echo $admin->CreateTab('customer',__('Customer', true), 'customer.png');
-			echo $admin->CreateTab('order',__('Products', true), 'products.png');	
-			echo $admin->CreateTab('comments',__('Order Comments', true), 'comment.png');
-			echo $admin->CreateTab('status',__('New Comment', true), 'comment_add.png');	
+			echo $this->Admin->CreateTab('customer',__('Customer'), 'customer.png');
+			echo $this->Admin->CreateTab('order',__('Products'), 'products.png');	
+			echo $this->Admin->CreateTab('comments',__('Order Comments'), 'comment.png');
+			echo $this->Admin->CreateTab('status',__('New Comment'), 'comment_add.png');	
 			echo '</ul>';
 
 		   		   
-	echo $admin->StartTabContent('customer');
+	echo $this->Admin->StartTabContent('customer');
 
 echo '
 <table class="orderTable">
 	<tr><td width="50%">';
 
 echo '<table class="contentTable">';
-echo $html->tableHeaders(array(__('Billing Information',true)));
-	echo $admin->TableCells(
+echo $this->Html->tableHeaders(array(__('Billing Information')));
+	echo $this->Admin->TableCells(
 		  array(
-				__('Customer Name',true) . ': ' . $data['Order']['bill_name']
+				__('Customer Name') . ': ' . $data['Order']['bill_name']
 		   ));
-	echo $admin->TableCells(
+	echo $this->Admin->TableCells(
 		  array(
-				__('Address Line 1',true) . ': ' . $data['Order']['bill_line_1']
+				__('Address Line 1') . ': ' . $data['Order']['bill_line_1']
 		   ));
-	echo $admin->TableCells(
+	echo $this->Admin->TableCells(
 		  array(
-				__('Address Line 2',true) . ': ' . $data['Order']['bill_line_2']
+				__('Address Line 2') . ': ' . $data['Order']['bill_line_2']
 		   ));
-	echo $admin->TableCells(
+	echo $this->Admin->TableCells(
 		  array(
-				__('City',true) . ': ' . $data['Order']['bill_city']
+				__('City') . ': ' . $data['Order']['bill_city']
 		   ));
-	echo $admin->TableCells(
+	echo $this->Admin->TableCells(
 		  array(
-				__('State',true) . ': ' . $data['Order']['bill_state']
+				__('State') . ': ' . $data['Order']['bill_state']
 		   ));
-	echo $admin->TableCells(
+	echo $this->Admin->TableCells(
 		  array(
-				__('Country',true) . ': ' . $data['Order']['bill_country']
+				__('Country') . ': ' . $data['Order']['bill_country']
 		   ));
-	echo $admin->TableCells(
+	echo $this->Admin->TableCells(
 		  array(
-				__('Zip',true) . ': ' . $data['Order']['bill_zip']
+				__('Zip') . ': ' . $data['Order']['bill_zip']
 		   ));
 echo '</table>';
 
 echo '</td><td width="50%">';
 
 echo '<table class="contentTable">';
-echo $html->tableHeaders(array(__('Shipping Information',true)));
-	echo $admin->TableCells(
+echo $this->Html->tableHeaders(array(__('Shipping Information')));
+	echo $this->Admin->TableCells(
 		  array(
-				__('Customer Name',true) . ': ' . $data['Order']['ship_name']
+				__('Customer Name') . ': ' . $data['Order']['ship_name']
 		   ));
-	echo $admin->TableCells(
+	echo $this->Admin->TableCells(
 		  array(
-				__('Address Line 1',true) . ': ' . $data['Order']['ship_line_1']
+				__('Address Line 1') . ': ' . $data['Order']['ship_line_1']
 		   ));
-	echo $admin->TableCells(
+	echo $this->Admin->TableCells(
 		  array(
-				__('Address Line 2',true) . ': ' . $data['Order']['ship_line_2']
+				__('Address Line 2') . ': ' . $data['Order']['ship_line_2']
 		   ));
-	echo $admin->TableCells(
+	echo $this->Admin->TableCells(
 		  array(
-				__('City',true) . ': ' . $data['Order']['ship_city']
+				__('City') . ': ' . $data['Order']['ship_city']
 		   ));
-	echo $admin->TableCells(
+	echo $this->Admin->TableCells(
 		  array(
-				__('State',true) . ': ' . $data['Order']['ship_state']
+				__('State') . ': ' . $data['Order']['ship_state']
 		   ));
-	echo $admin->TableCells(
+	echo $this->Admin->TableCells(
 		  array(
-				__('Country',true) . ': ' . $data['Order']['ship_country']
+				__('Country') . ': ' . $data['Order']['ship_country']
 		   ));
-	echo $admin->TableCells(
+	echo $this->Admin->TableCells(
 		  array(
-				__('Zip',true) . ': ' . $data['Order']['ship_zip']
-		   ));
-echo '</table>';
-
-echo '</td></tr>';
-echo '<tr><td colspan="2">';
-
-echo '<table class="contentTable">';
-echo $html->tableHeaders(array(__('Contact Information',true)));
-	echo $admin->TableCells(
-		  array(
-				__('Email',true) . ': ' . $data['Order']['email']
-		   ));
-	echo $admin->TableCells(
-		  array(
-				__('Phone',true) . ': ' . $data['Order']['phone']
-		   ));
-	echo $admin->TableCells(
-		  array(
-				__('Company',true) . ': ' . $data['Order']['company_name']
+				__('Zip') . ': ' . $data['Order']['ship_zip']
 		   ));
 echo '</table>';
 
@@ -121,29 +102,48 @@ echo '</td></tr>';
 echo '<tr><td colspan="2">';
 
 echo '<table class="contentTable">';
-echo $html->tableHeaders(array(__('Payment Information',true)));
-	echo $admin->TableCells(
+echo $this->Html->tableHeaders(array(__('Contact Information')));
+	echo $this->Admin->TableCells(
 		  array(
-				__('Credit Card',true) . ': ' . $data['Order']['cc_number']
+				__('Email') . ': ' . $data['Order']['email']
 		   ));
-	echo $admin->TableCells(
+	echo $this->Admin->TableCells(
 		  array(
-				__('Expiration',true) . ': ' . $data['Order']['cc_expiration_month'] . '-' . $data['Order']['cc_expiration_year']
+				__('Phone') . ': ' . $data['Order']['phone']
+		   ));
+	echo $this->Admin->TableCells(
+		  array(
+				__('Company') . ': ' . $data['Order']['company_name']
+		   ));
+echo '</table>';
+
+echo '</td></tr>';
+echo '<tr><td colspan="2">';
+
+echo '<table class="contentTable">';
+echo $this->Html->tableHeaders(array(__('Payment Information')));
+	echo $this->Admin->TableCells(
+		  array(
+				__('Credit Card') . ': ' . $data['Order']['cc_number']
+		   ));
+	echo $this->Admin->TableCells(
+		  array(
+				__('Expiration') . ': ' . $data['Order']['cc_expiration_month'] . '-' . $data['Order']['cc_expiration_year']
 		   ));
 echo '</table>';
 
 echo '</td></tr>';
 echo '</table>';
 
-	echo $admin->EndTabContent();
+	echo $this->Admin->EndTabContent();
 
-	echo $admin->StartTabContent('order');
+	echo $this->Admin->StartTabContent('order');
 
 echo '<table class="contentTable">';
-echo $html->tableHeaders(array( __('Product Name', true), __('Model', true), __('Price', true), __('Quantity', true), __('Total', true)));
+echo $this->Html->tableHeaders(array( __('Product Name'), __('Model'), __('Price'), __('Quantity'), __('Total')));
 foreach($data['OrderProduct'] AS $product) 
 {
-	echo $admin->TableCells(
+	echo $this->Admin->TableCells(
 		  array(
 				$product['name'],
 				$product['model'],
@@ -153,7 +153,7 @@ foreach($data['OrderProduct'] AS $product)
 		   ));
 }
 
-	echo $admin->TableCells(
+	echo $this->Admin->TableCells(
 		  array(
 		  		'<strong>' . $data['ShippingMethod']['name'] . ' ' . '</strong>',
 				$data['ShippingMethod']['code'],
@@ -161,9 +161,9 @@ foreach($data['OrderProduct'] AS $product)
 				'1',
 				$data['Order']['shipping']					
 		  ));
-	echo $admin->TableCells(
+	echo $this->Admin->TableCells(
 		  array(
-		  		'<strong>' . __('Order Total',true) . '</strong>',
+		  		'<strong>' . __('Order Total') . '</strong>',
 				'&nbsp;',
 				'&nbsp;',
 				'&nbsp;',
@@ -172,32 +172,32 @@ foreach($data['OrderProduct'] AS $product)
 echo '</table>';
 
 
-	echo $admin->EndTabContent();
+	echo $this->Admin->EndTabContent();
 
-	echo $admin->StartTabContent('comments');
+	echo $this->Admin->StartTabContent('comments');
 
 echo '<table class="contentTable">';
 
-echo $html->tableHeaders(array( __('Date', true), __('Sent To Customer', true), __('Comment', true)));
+echo $this->Html->tableHeaders(array( __('Date'), __('Sent To Customer'), __('Comment')));
 
 foreach($data['OrderComment'] AS $comment) 
 {
-	echo $admin->TableCells(
+	echo $this->Admin->TableCells(
 		  array(
-				$time->timeAgoInWords($comment['created']),
-				($comment['sent_to_customer'] == 1?$html->image('admin/icons/true.png', array('alt' => __('True', true))):$html->image('admin/icons/false.png', array('alt' => __('False', true)))),
+				$this->Time->timeAgoInWords($comment['created']),
+				($comment['sent_to_customer'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False')))),
 				$comment['comment']
 		   ));
 }
 echo '</table>';
 
-	echo $admin->EndTabContent();
+	echo $this->Admin->EndTabContent();
 
-	echo $admin->StartTabContent('status');
+	echo $this->Admin->StartTabContent('status');
 
-echo $form->create('OrderComment', array('id' => 'contentform', 'action' => '/orders/admin_new_comment/', 'url' => '/orders/admin_new_comment/'));
+echo $this->Form->create('OrderComment', array('id' => 'contentform', 'action' => '/orders/admin_new_comment/', 'url' => '/orders/admin_new_comment/'));
 
-	echo $form->inputs(array(
+	echo $this->Form->inputs(array(
 			'legend' => null,
 			'Order.id' => array(
 				'type' => 'hidden',
@@ -207,7 +207,7 @@ echo $form->create('OrderComment', array('id' => 'contentform', 'action' => '/or
 				'type' => 'select',
 				'options' => $order_status_list,
 				'selected' => $data['Order']['order_status_id'],
-				'label' => __('Update Status',true)
+				'label' => __('Update Status')
 			),
 			'OrderComment.order_id' => array(
 				'type' => 'hidden',
@@ -219,22 +219,22 @@ echo $form->create('OrderComment', array('id' => 'contentform', 'action' => '/or
 			),	
 			'OrderComment.sent_to_customer' => array(
 				'type' => 'checkbox',
-				'label' => __('Send To Customer',true),
+				'label' => __('Send To Customer'),
 				'class' => 'checkbox_group'
 			)									,
 			'OrderComment.comment' => array(
 				'type' => 'textarea',
-				'label' => __('Comment',true),
+				'label' => __('Comment'),
 				'class' => 'pagesmallesttextarea'
 			)
 		));
 
-	echo $admin->formButton(__('Submit', true), 'submit.png', array('type' => 'submit', 'name' => 'submit', 'id' => 'submit'));
+	echo $this->Admin->formButton(__('Submit'), 'submit.png', array('type' => 'submit', 'name' => 'submit', 'id' => 'submit'));
 	echo '<div class="clear"></div>';
-	echo $form->end();
+	echo $this->Form->end();
 
-	echo $admin->EndTabs();
+	echo $this->Admin->EndTabs();
 	
-	echo $admin->ShowPageHeaderEnd();
+	echo $this->Admin->ShowPageHeaderEnd();
 	
 ?>

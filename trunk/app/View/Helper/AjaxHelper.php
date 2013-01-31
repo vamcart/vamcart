@@ -17,67 +17,53 @@
  * @lastmodified  $Date: 2009-05-01$
  * @license       http://www.opensource.org/licenses/mit-license.php The MIT License
  */
-
-class AjaxHelper extends AppHelper {
+App::uses('AppHelper', 'View');
+class AjaxHelper extends Helper {
 /**
  * Included helpers.
  *
  * @var array
  */
-	var $helpers = array('Html', 'Javascript', 'Form');
-/**
- * HtmlHelper instance
- *
- * @var object
- * @access public
- */
-	var $Html = null;
-/**
- * JavaScriptHelper instance
- *
- * @var object
- * @access public
- */
-	var $Javascript = null;
+	public $helpers = array('Html', 'Js', 'Form');
 /**
  * Names of Javascript callback functions.
  *
  * @var array
  */
-//	var $callbacks = array('complete', 'create', 'exception', 'failure', 'interactive', 'loading', 'loaded', 'success', 'uninitialized');
-	var $callbacks = array('beforeSend', 'complete', 'error', 'success', 'beforeSubmit');
+//	public $callbacks = array('complete', 'create', 'exception', 'failure', 'interactive', 'loading', 'loaded', 'success', 'uninitialized');
+	public $callbacks = array('beforeSend', 'complete', 'error', 'success', 'beforeSubmit');
 /**
  * Names of AJAX options.
  *
  * @var array
  */
-	var $ajaxOptions = array('async', 'beforeSend', 'cache', 'complete', 'contentType', 'data', 'dataType', 'error', 'global', 'isModified', 'jsonp', 'password', 'processData', 'success', 'timeout', 'type', 'url', 'username', 'target', 'beforeSubmit');
+	public $ajaxOptions = array('async', 'beforeSend', 'cache', 'complete', 'contentType', 'data', 'dataType', 'error', 'global', 'isModified', 'jsonp', 'password', 'processData', 'success', 'timeout', 'type', 'url', 'username', 'target', 'beforeSubmit');
 
 /**
  * Names of additional Ajax Form Options
  *
  * @var array
  */
-	var $ajaxFormOptions = array('target', 'beforeSubmit', 'semantic', 'resetFrom', 'clearForm');
+	public $ajaxFormOptions = array('target', 'beforeSubmit', 'semantic', 'resetFrom', 'clearForm');
 
-	var $editorOptions = array('id', 'name', 'loadurl', 'type', 'data', 'style', 'callback', 'submitdata', 'method', 'rows', 'cols', 'width', 'loadtype', 'loaddata', 'onblur', 'cancel', 'submit', 'tooltip', 'placeholder', 'ajaxOptions');
+	public $editorOptions = array('id', 'name', 'loadurl', 'type', 'data', 'style', 'callback', 'submitdata', 'method', 'rows', 'cols', 'width', 'loadtype', 'loaddata', 'onblur', 'cancel', 'submit', 'tooltip', 'placeholder', 'ajaxOptions');
 
-	var $ajaxFormCallbacks = array('beforeSubmit');
+	public $ajaxFormCallbacks = array('beforeSubmit');
 /**
  * Output buffer for Ajax update content
  *
  * @var array
  */
-	var $__ajaxBuffer = array();
+	public $__ajaxBuffer = array();
 	
-	function beforeRender() {
+	public function beforeRender() {
 //	   if ( ClassRegistry::getObject('view') ) {
-//		$this->Javascript->link('jquery/jquery.min', false);
-//		$this->Javascript->link('jquery/plugins/jquery.form', false);
+//		$this->Html->script('jquery/jquery.min', false);
+//		$this->Html->script('jquery/plugins/jquery.form', false);
 //	   }
 	}
 
-	function link($title, $href = null, $options = array(), $confirm = null, $escapeTitle = true) {
+	public function link($title, $href = null, $options = array(), $confirm = null, $escapeTitle = true) {
 		if (!isset($href)) {
 			$href = $title;
 		}
@@ -110,7 +96,7 @@ class AjaxHelper extends AppHelper {
 
 		$htmlOptions['onclick'] .= ' return false;';
 		$return = $this->Html->link($title, '#', $htmlOptions, null, $escapeTitle);
-		$script = $this->Javascript->codeBlock(
+		$script = $this->Html->scriptBlock(
 			"jQuery('#{$htmlOptions['id']}').click( function() {" . $this->remoteFunction($options) . "; return false;});"
 		);
 
@@ -130,7 +116,7 @@ class AjaxHelper extends AppHelper {
  * @param array $options options for javascript
  * @return string html code for link to remote action
  */
-	function remoteFunction($options = null, $function = 'jQuery.ajax') {
+	public function remoteFunction($options = null, $function = 'jQuery.ajax') {
 		if ( isset($options['confirm']) ) {
 			$confirm = $options['confirm'];
 			unset($options['confirm']);
@@ -150,7 +136,7 @@ class AjaxHelper extends AppHelper {
 		}
 
 		if (isset($confirm)) {
-			$func = "if (confirm('" . $this->Javascript->escapeString($confirm)
+			$func = "if (confirm('" . $this->Js->escapeString($confirm)
 				. "')) { $func; } else { event.returnValue = false; return false; }";
 		}
 		return $func;
@@ -165,7 +151,7 @@ class AjaxHelper extends AppHelper {
  * @param array $options Callback options
  * @return string Ajaxed input button
  */
-	function submit($title = 'Submit', $options = array()) {
+	public function submit($title = 'Submit', $options = array()) {
 		$htmlOptions = $this->__getHtmlOptions($options);
 		$htmlOptions['value'] = $title;
 
@@ -179,7 +165,7 @@ class AjaxHelper extends AppHelper {
 			$options['data'] = "$('#{$htmlOptions['id']}').parents('form').formSerialize()";
 		}*/
 		return $this->Form->submit($title, $htmlOptions)
-			. $this->Javascript->codeBlock("jQuery('#{$htmlOptions['id']}').click( function() { " . $this->remoteFunction($options, "jQuery('#{$htmlOptions['id']}').parents('form').ajaxSubmit") . "; return false;});");
+			. $this->Html->scriptBlock("jQuery('#{$htmlOptions['id']}').click( function() { " . $this->remoteFunction($options, "jQuery('#{$htmlOptions['id']}').parents('form').ajaxSubmit") . "; return false;});");
 	}
 
 /**
@@ -202,7 +188,7 @@ class AjaxHelper extends AppHelper {
  * @return string JavaScript/HTML code
  * @see AjaxHelper::link()
  */
-	function form($params = null, $type = 'post', $options = array()) {
+	public function form($params = null, $type = 'post', $options = array()) {
 		$model = false;
 		if (is_array($params)) {
 			extract($params, EXTR_OVERWRITE);
@@ -225,7 +211,7 @@ class AjaxHelper extends AppHelper {
 		$defaults = array('model' => $model);
 		$options = array_merge($defaults, $options);
 		$form = $this->Form->create($options['model'], $htmlOptions);
-		$script =  $this->Javascript->codeBlock("jQuery('#{$htmlOptions['id']}').submit( function() { " . $this->remoteFunction($options, "jQuery('#{$htmlOptions['id']}').ajaxSubmit") . "; return false;});");
+		$script =  $this->Html->scriptBlock("jQuery('#{$htmlOptions['id']}').submit( function() { " . $this->remoteFunction($options, "jQuery('#{$htmlOptions['id']}').ajaxSubmit") . "; return false;});");
 		return $form . $script;
 	}
 
@@ -238,8 +224,8 @@ class AjaxHelper extends AppHelper {
  * @param array $options Array of options to control the editor, including ajaxOptions (see link).
  * @link          http://github.com/madrobby/scriptaculous/wikis/ajax-inplaceeditor
  */
-	function editor($id, $url, $options = array()) {
-//		$this->Javascript->link('jquery/plugins/jquery.jeditable', false);
+	public function editor($id, $url, $options = array()) {
+//		$this->Html->script('jquery/plugins/jquery.jeditable', false);
 		$url = $this->url($url);
 		$options = $this->_optionsToString($options, array(
 			'id', 'name', 'loadurl', 'type', 'data', 'style', 'callback', 'submitdata', 'method', 'rows', 'cols', 'width', 'loadtype', 'loaddata', 'onblur', 'cancel', 'submit', 'tooltip', 'placeholder', 
@@ -260,7 +246,7 @@ class AjaxHelper extends AppHelper {
 
 		$type = 'InPlaceEditor';
 		if (isset($options['collection']) && is_array($options['collection'])) {
-			$options['collection'] = $this->Javascript->object($options['collection']);
+			$options['collection'] = $this->Js->object($options['collection']);
 			$type = 'InPlaceCollectionEditor';
 		}
 
@@ -278,11 +264,11 @@ class AjaxHelper extends AppHelper {
 		$options = $this->_buildOptions($options, $this->editorOptions);
 		$script = "{$var}new Ajax.{$type}('{$id}', '{$url}', {$options});";
 		*/
-		return $this->Javascript->codeBlock($script);
+		return $this->Html->scriptBlock($script);
 	}
 
-	function observeField($field, $options = array()) {
-		return $this->Javascript->codeBlock("jQuery('#{$field}').change( function() { " . $this->remoteFunction($options, "jQuery('#{$field}').parents('form').ajaxSubmit") . "; return false;});");
+	public function observeField($field, $options = array()) {
+		return $this->Html->scriptBlock("jQuery('#{$field}').change( function() { " . $this->remoteFunction($options, "jQuery('#{$field}').parents('form').ajaxSubmit") . "; return false;});");
 	}
 
 
@@ -292,9 +278,9 @@ class AjaxHelper extends AppHelper {
  * @param string $id options for javascript
  * @return string HTML code
  */
-	function div($id, $options = array()) {
+	public function div($id, $options = array()) {
 		if (env('HTTP_X_UPDATE') != null) {
-			$this->Javascript->enabled = false;
+			$this->Js->enabled = false;
 			$divs = explode(' ', env('HTTP_X_UPDATE'));
 
 			if (in_array($id, $divs)) {
@@ -312,7 +298,7 @@ class AjaxHelper extends AppHelper {
  * @param string $id The DOM ID of the element
  * @return string HTML code
  */
-	function divEnd($id) {
+	public function divEnd($id) {
 		if (env('HTTP_X_UPDATE') != null) {
 			$divs = explode(' ', env('HTTP_X_UPDATE'));
 			if (in_array($id, $divs)) {
@@ -329,14 +315,14 @@ class AjaxHelper extends AppHelper {
  *
  * @return boolean True if the current request is a Prototype Ajax update call
  */
-	function isAjax() {
-		return (isset($this->params['isAjax']) && $this->params['isAjax'] === true);
+	public function isAjax() {
+		return (isset($this->request->params['isAjax']) && $this->request->params['isAjax'] === true);
 	}
 /**
  * Private helper function for Javascript.
  *
  */
-	function __optionsForAjax($options = array()) {
+	public function __optionsForAjax($options = array()) {
 		if (isset($options['update'])) {
 			$update = $options['update'];
 			if (is_array($options['update'])) {
@@ -387,10 +373,10 @@ class AjaxHelper extends AppHelper {
 /*		foreach ($options as $key => $value) {
 			switch($key) {
 				case 'type':
-					$jsOptions['asynchronous'] = ife(($value == 'synchronous'), 'false', 'true');
+					$jsOptions['asynchronous'] = !empty(($value == 'synchronous')) ? 'false' : 'true';
 				break;
 				case 'evalScripts':
-					$jsOptions['evalScripts'] = ife($value, 'true', 'false');
+					$jsOptions['evalScripts'] = !empty($value) ? 'true' : 'false';
 				break;
 				case 'position':
 					$jsOptions['insertion'] = "Insertion." . Inflector::camelize($options['position']);
@@ -422,7 +408,7 @@ class AjaxHelper extends AppHelper {
  * @return array Array of html options
  * @access private
  */
-	function __getHtmlOptions($options, $extra = array()) {
+	public function __getHtmlOptions($options, $extra = array()) {
 		foreach ($this->ajaxOptions as $key) {
 			if (isset($options[$key])) {
 				unset($options[$key]);
@@ -444,7 +430,7 @@ class AjaxHelper extends AppHelper {
  * @param array $acceptable	Array of legal keys in this options context
  * @return string	String of Javascript array definition
  */
-	function _buildOptions($options, $acceptable) {
+	public function _buildOptions($options, $acceptable) {
 		if (is_array($options)) {
 			$out = array();
 
@@ -473,7 +459,7 @@ class AjaxHelper extends AppHelper {
  * @return array Options with their callbacks properly set
  * @access protected
  */
-	function _buildCallbacks($options) {
+	public function _buildCallbacks($options) {
 		$callbacks = array();
 
 		foreach ($this->callbacks as $callback) {
@@ -512,7 +498,7 @@ class AjaxHelper extends AppHelper {
  * @access private
  * @return array
  */
-	function _optionsToString($options, $stringOpts = array()) {
+	public function _optionsToString($options, $stringOpts = array()) {
 		foreach ($stringOpts as $option) {
 			if (isset($options[$option]) /*&& !empty($options[$option]) && is_string($options[$option]) && $options[$option][0] != "'"*/) {
 				if ($options[$option] === true || $options[$option] === 'true') {
@@ -536,7 +522,7 @@ class AjaxHelper extends AppHelper {
  *
  * @access public
  */
-	function afterRender() {
+	public function afterRender() {
 		if (env('HTTP_X_UPDATE') != null && !empty($this->__ajaxBuffer)) {
 			@ob_end_clean();
 
@@ -545,7 +531,7 @@ class AjaxHelper extends AppHelper {
 			$keys = array_keys($this->__ajaxBuffer);
 
 			if (count($divs) == 1 && in_array($divs[0], $keys)) {
-				e($this->__ajaxBuffer[$divs[0]]);
+				echo $this->__ajaxBuffer[$divs[0]];
 			} else {
 				foreach ($this->__ajaxBuffer as $key => $val) {
 					if (in_array($key, $divs)) {
@@ -555,12 +541,12 @@ class AjaxHelper extends AppHelper {
 				$out  = 'var __ajaxUpdater__ = {' . join(", \n", $data) . '};' . "\n";
 				$out .= 'for (n in __ajaxUpdater__) { if (typeof __ajaxUpdater__[n] == "string" && jQuery(n)) jQuery(\'#n\').html(unescape(decodeURIComponent(__ajaxUpdater__[n])));}';
 
-				e($this->Javascript->codeBlock($out, false));
+				echo $this->Html->scriptBlock($out, false);
 			}
-			$scripts = $this->Javascript->getCache();
+			$scripts = $this->Js->getCache();
 
 			if (!empty($scripts)) {
-				e($this->Javascript->codeBlock($scripts, false));
+				echo $this->Html->scriptBlock($scripts, false);
 			}
 			exit();
 		}

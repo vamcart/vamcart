@@ -6,62 +6,62 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-$html->script(array(
+$this->Html->script(array(
 	'modified.js',
 	'jquery/plugins/jquery-ui-min.js',
 	'tabs.js',
 	'focus-first-input.js'
 ), array('inline' => false));
 
-	echo $html->css('ui.tabs', null, array('inline' => false));
+	echo $this->Html->css('ui.tabs', null, array('inline' => false));
 
-	echo $admin->ShowPageHeaderStart($current_crumb, 'edit.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
-	$id = $this->data['GlobalContentBlock']['id'];
-	echo $form->create('GlobalContentBlock', array('id' => 'contentform', 'action' => '/global_content_blocks/admin_edit/'.$id, 'url' => '/global_content_blocks/admin_edit/'.$id));
+	$id = $this->request->data['GlobalContentBlock']['id'];
+	echo $this->Form->create('GlobalContentBlock', array('id' => 'contentform', 'action' => '/global_content_blocks/admin_edit/'.$id, 'url' => '/global_content_blocks/admin_edit/'.$id));
 	
-	echo $admin->StartTabs();
+	echo $this->Admin->StartTabs();
 			echo '<ul>';
-			echo $admin->CreateTab('main',__('Main',true), 'main.png');
-			echo $admin->CreateTab('options',__('Options',true), 'options.png');			
+			echo $this->Admin->CreateTab('main',__('Main'), 'main.png');
+			echo $this->Admin->CreateTab('options',__('Options'), 'options.png');			
 			echo '</ul>';
 	
-	echo $admin->StartTabContent('main');
-		echo $form->inputs(array(
+	echo $this->Admin->StartTabContent('main');
+		echo $this->Form->inputs(array(
 					'legend' => null,
-					'fieldset' => __('Global Content Block Details', true),
+					'fieldset' => __('Global Content Block Details'),
 				   'GlobalContentBlock.id' => array(
 				   		'type' => 'hidden'
 	               ),
 	               'GlobalContentBlock.name' => array(
-   				   		'label' => __('Name', true)
+   				   		'label' => __('Name')
 	               ),
 				   'GlobalContentBlock.content' => array(
-   				   		'label' => __('Contents', true)
+   				   		'label' => __('Contents')
 	               )																										
 			));
-	echo $admin->EndTabContent();
+	echo $this->Admin->EndTabContent();
 
-	echo $admin->StartTabContent('options');
-		echo $form->inputs(array(
+	echo $this->Admin->StartTabContent('options');
+		echo $this->Form->inputs(array(
 					'legend' => null,
-					'fieldset' => __('Global Content Block Details', true),
+					'fieldset' => __('Global Content Block Details'),
 	                'GlobalContentBlock.alias' => array(
-   				   		'label' => __('Alias', true)
+   				   		'label' => __('Alias')
 	                ),
 				    'GlobalContentBlock.active' => array(
 						'type' => 'checkbox',
-   				   		'label' => __('Active', true),
+   				   		'label' => __('Active'),
 						'value' => '1',
 						'class' => 'checkbox_group'
 	                )																										
 			));
-	echo $admin->EndTabContent();
+	echo $this->Admin->EndTabContent();
 	
-	echo $admin->EndTabs();
+	echo $this->Admin->EndTabs();
 	
-	echo $admin->formButton(__('Submit', true), 'submit.png', array('type' => 'submit', 'name' => 'submit')) . $admin->formButton(__('Apply', true), 'apply.png', array('type' => 'submit', 'name' => 'apply')) . $admin->formButton(__('Cancel', true), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
+	echo $this->Admin->formButton(__('Submit'), 'submit.png', array('type' => 'submit', 'name' => 'submit')) . $this->Admin->formButton(__('Apply'), 'apply.png', array('type' => 'submit', 'name' => 'apply')) . $this->Admin->formButton(__('Cancel'), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';
-	echo $form->end();
-	echo $admin->ShowPageHeaderEnd(); 
+	echo $this->Form->end();
+	echo $this->Admin->ShowPageHeaderEnd(); 
 ?>

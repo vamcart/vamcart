@@ -1,8 +1,8 @@
 <?php
-echo $form->select('countries', $countries, null, array('escape' => false, 'empty' => __('Select country', true)));
+echo $this->Form->select('countries', $countries, null, array('escape' => false, 'empty' => __('Select country')));
 ?>
-<p><a href="#" id="selectAll"><?php echo __('Select All', true) ?></a> | <a href="#" id="deselectAll"><?php echo __('Deselect All', true) ?></a></p>
+<p><a href="#" id="selectAll"><?php echo __('Select All') ?></a> | <a href="#" id="deselectAll"><?php echo __('Deselect All') ?></a></p>
 <?php
-echo $form->select('country_zones', array(), null, array('escape' => false, 'empty' => __('Select regions', true)));
-echo $javascript->codeBlock('$(\'select#countries\').change(function(){onCountriesChanged();});');
-echo $javascript->blockEnd();
+echo $this->Form->select('country_zones', array(), null, array('escape' => false, 'empty' => __('Select regions')));
+echo $this->Html->codeBlock('$(\'select#countries\').change(function(){onCountriesChanged();});');
+echo $this->Html->blockEnd();

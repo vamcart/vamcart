@@ -6,25 +6,25 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $admin->ShowPageHeaderStart($current_crumb, 'payment-methods.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'payment-methods.png');
 
-	echo $form->create('AddModule', array('enctype' => 'multipart/form-data', 'id' => 'contentform', 'action' => '/payment_methods/admin_upload/', 'url' => '/payment_methods/admin_upload/'));
+	echo $this->Form->create('AddModule', array('enctype' => 'multipart/form-data', 'id' => 'contentform', 'action' => '/payment_methods/admin_upload/', 'url' => '/payment_methods/admin_upload/'));
 
-	echo $form->inputs(array(
+	echo $this->Form->inputs(array(
 					'legend' => null,
-					'fieldset' => __('Upload New Module', true),
+					'fieldset' => __('Upload New Module'),
 				   'AddModule.submittedfile' => array(
 				   	'type' => 'file',
-				   	'label' => __('Upload New Module', true),
+				   	'label' => __('Upload New Module'),
 						'between'=>'<br />'
 	               )
 		 ));
 
-	echo $admin->formButton(__('Submit', true), 'submit.png', array('type' => 'submit', 'name' => 'submit')) . $admin->formButton(__('Cancel', true), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
+	echo $this->Admin->formButton(__('Submit'), 'submit.png', array('type' => 'submit', 'name' => 'submit')) . $this->Admin->formButton(__('Cancel'), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
 	
 	echo '<div class="clear"></div>';
-	echo $form->end();
+	echo $this->Form->end();
 
-echo $admin->ShowPageHeaderEnd();
+echo $this->Admin->ShowPageHeaderEnd();
 	
 ?>

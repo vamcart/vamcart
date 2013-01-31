@@ -6,33 +6,33 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-$html->script(array(
+$this->Html->script(array(
 	'selectall.js'
 ), array('inline' => false));
 
-echo $admin->ShowPageHeaderStart($current_crumb, 'currencies.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'currencies.png');
 
-echo $form->create('Discount', array('action' => '/discounts/admin_modify_selected/', 'url' => '/discounts/admin_modify_selected/'));
+echo $this->Form->create('Discount', array('action' => '/discounts/admin_modify_selected/', 'url' => '/discounts/admin_modify_selected/'));
 
 echo '<table class="contentTable">';
 
-echo $html->tableHeaders(array( __('Quantity', true), __('Price', true), __('Action', true), '<input type="checkbox" onclick="checkAll(this)" />'));
+echo $this->Html->tableHeaders(array( __('Quantity'), __('Price'), __('Action'), '<input type="checkbox" onclick="checkAll(this)" />'));
 
 foreach ($discount_data AS $discount)
 {
-	echo $admin->TableCells(
+	echo $this->Admin->TableCells(
 		  array(
 				$discount['ContentProductPrice']['quantity'],
                                 array($discount['ContentProductPrice']['price'], array('align'=>'center')),
-                                array($admin->ActionButton('edit','/discounts/admin_edit/'. $content_product_id . '/' . $discount['ContentProductPrice']['id'],__('Edit', true)) . $admin->ActionButton('delete','/discounts/admin_delete/' . $content_product_id . '/' . $discount['ContentProductPrice']['id'],__('Delete', true)), array('align'=>'center')),
-                                array($form->checkbox('modify][', array('value' => $discount['ContentProductPrice']['id'])), array('align'=>'center'))
+                                array($this->Admin->ActionButton('edit','/discounts/admin_edit/'. $content_product_id . '/' . $discount['ContentProductPrice']['id'],__('Edit')) . $this->Admin->ActionButton('delete','/discounts/admin_delete/' . $content_product_id . '/' . $discount['ContentProductPrice']['id'],__('Delete')), array('align'=>'center')),
+                                array($this->Form->checkbox('modify][', array('value' => $discount['ContentProductPrice']['id'])), array('align'=>'center'))
 		   ));
 }
 
 echo '</table>';
 
-echo $admin->ActionBar(array('delete'=>__('Delete',true)), true, $content_product_id);
+echo $this->Admin->ActionBar(array('delete'=>__('Delete')), true, $content_product_id);
 
-echo $admin->ShowPageHeaderEnd();
+echo $this->Admin->ShowPageHeaderEnd();
 
 ?>
