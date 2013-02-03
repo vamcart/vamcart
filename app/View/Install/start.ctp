@@ -30,8 +30,6 @@ echo $this->Form->input('db_name', array('label' => __('Database Name'), 'value'
 echo $this->Form->input('db_username', array('label' => __('Database Username'), 'value' => $values['Install']['db_username']));
 echo $this->Form->input('db_password', array('label' => __('Database Password'), 'value' => $values['Install']['db_password']));
 
-echo '<br />';		
-		
 echo $this->Admin->formButtonCatalog(__('Submit'), 'apply.png', array('type' => 'submit', 'name' => 'submit'));
 
 
