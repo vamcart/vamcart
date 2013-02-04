@@ -57,7 +57,7 @@ class TinyMceHelper extends Helper {
 
 	});
 	
-		public function toggleHTMLEditor(id) {
+		function toggleHTMLEditor(id) {
 			if (!tinyMCE.get(id))
 				tinyMCE.execCommand("mceAddControl", false, id);
 			else
