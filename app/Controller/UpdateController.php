@@ -17,6 +17,9 @@ class UpdateController extends AppController {
 		$this->data->current_version = file_get_contents('./version.txt');
 		$this->data->latest_version = $this->Check->get_latest_update_version();
 
+     	$this->set('error','0');
+     	$this->set('success','0');
+
 			$this->set('current_crumb', __('Update', true));
 			$this->set('title_for_layout', __('Update', true));
 
