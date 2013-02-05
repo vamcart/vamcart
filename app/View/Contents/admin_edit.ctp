@@ -10,7 +10,6 @@
 
 $this->Html->script(array(
 	'modified.js',
-	'jquery/plugins/jquery.validation.js',
 	'jquery/plugins/jquery-ui-min.js',
 	'tabs.js',
 	'swfupload/swfupload.js',
@@ -274,8 +273,6 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 	echo $this->Admin->EndTabContent();
 
 	echo $this->Admin->EndTabs();
-
-	echo '<div id="messages"></div>';
 
 	echo $this->Admin->formButton(__('Submit'), 'submit.png', array('type' => 'submit', 'name' => 'submitbutton', 'id' => 'submitbutton')) . $this->Admin->formButton(__('Apply'), 'apply.png', array('type' => 'submit', 'name' => 'applybutton')) . $this->Admin->formButton(__('Cancel'), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';
