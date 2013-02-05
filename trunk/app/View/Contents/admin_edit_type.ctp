@@ -20,8 +20,6 @@ switch($content_type_id) {
 	default:
 		$tax_options = $this->requestAction('/contents/generate_tax_list/');
 
-		echo $this->Validation->bind('ContentProduct', array('form' => '#contentform', 'messageId' => 'messages'));
-
 		echo $this->Form->inputs(array(
 			'legend' => false,
 			'fieldset' => false,
@@ -107,8 +105,6 @@ switch($content_type_id) {
 	case '7':
 		$tax_options = $this->requestAction('/contents/generate_tax_list/');
 		$order_statuses = $this->requestAction('/contents/generate_order_statuses_list/');
-
-		echo $this->Validation->bind('ContentDownloadable', array('form' => '#contentform', 'messageId' => 'messages'));
 
 		echo $this->Form->inputs(array(
 			'legend' => false,

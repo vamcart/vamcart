@@ -33,8 +33,6 @@ $this->Html->css(array(
 			echo $this->Admin->CreateTab('options',__('Options'), 'options.png');			
 			echo '</ul>';
 
-	echo $this->Validation->bind('Stylesheet', array('form' => '#contentform', 'messageId' => 'messages'));
-		
 	echo $this->Admin->StartTabContent('main');
 	echo $this->Form->inputs(array(
 					'legend' => null,
