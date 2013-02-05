@@ -18,9 +18,6 @@ $this->Html->script(array(
 
 $this->Html->css(array(
 	'codemirror/codemirror',
-	'codemirror/css',
-	'codemirror/xml',
-	'codemirror/javascript'
 ), null, array('inline' => false));
 
 	$id = $this->request->data['MicroTemplate']['id'];
@@ -57,12 +54,16 @@ $this->Html->css(array(
 var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   mode: "text/html",
   lineNumbers: true,
-  onCursorActivity: function() {
-    editor.setLineClass(hlLine, null);
-    hlLine = editor.setLineClass(editor.getCursor().line, "activeline");
+  lineWrapping: true
+});
+var hlLine = editor.addLineClass(0, "background", "activeline");
+editor.on("cursorActivity", function() {
+  var cur = editor.getLineHandle(editor.getCursor().line);
+  if (cur != hlLine) {
+    editor.removeLineClass(hlLine, "background", "activeline");
+    hlLine = editor.addLineClass(cur, "background", "activeline");
   }
 });
-var hlLine = editor.setLineClass(0, "activeline");
 ', array('allowCache'=>false,'safe'=>false,'inline'=>true));	
 	
 ?>

@@ -21,10 +21,7 @@ $this->Html->script(array(
 
 $this->Html->css(array(
 	'ui.tabs',
-	'codemirror/codemirror',
-	'codemirror/css',
-	'codemirror/xml',
-	'codemirror/javascript'
+	'codemirror/codemirror'
 ), null, array('inline' => false));
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'stylesheets.png');
@@ -89,13 +86,18 @@ $this->Html->css(array(
 
 	echo $this->Html->scriptBlock('
 var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+  mode: "css",
   lineNumbers: true,
-  onCursorActivity: function() {
-    editor.setLineClass(hlLine, null);
-    hlLine = editor.setLineClass(editor.getCursor().line, "activeline");
+  lineWrapping: true
+});
+var hlLine = editor.addLineClass(0, "background", "activeline");
+editor.on("cursorActivity", function() {
+  var cur = editor.getLineHandle(editor.getCursor().line);
+  if (cur != hlLine) {
+    editor.removeLineClass(hlLine, "background", "activeline");
+    hlLine = editor.addLineClass(cur, "background", "activeline");
   }
 });
-var hlLine = editor.setLineClass(0, "activeline");
 ', array('allowCache'=>false,'safe'=>false,'inline'=>true));	
 	
 ?>
