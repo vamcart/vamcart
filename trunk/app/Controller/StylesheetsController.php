@@ -7,7 +7,6 @@
    ---------------------------------------------------------------------------------------*/
 class StylesheetsController extends AppController {
 	public $name = 'Stylesheets';
-	public $helpers = array('Validation');
 		
 	public function load($alias)
 	{

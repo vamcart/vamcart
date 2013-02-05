@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 class ContentsController extends AppController {
-	public $helpers = array('TinyMce', 'Validation');
+	public $helpers = array('TinyMce');
 	public $name = 'Contents';
 
 	/**

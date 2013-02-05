@@ -8,7 +8,6 @@
 
 $this->Html->script(array(
 	'modified.js',
-	'jquery/plugins/jquery.validation.js',
 	'jquery/plugins/jquery-ui-min.js',
 	'tabs.js',
 	'focus-first-input.js',
@@ -75,9 +74,7 @@ $this->Html->css(array(
 	echo $this->Admin->EndTabContent();			
 
 	echo $this->Admin->EndTabs();
-
-	echo '<div id="messages"></div>';
-				
+			
 	echo $this->Admin->formButton(__('Submit'), 'submit.png', array('type' => 'submit', 'name' => 'submitbutton', 'id' => 'submit')) . $this->Admin->formButton(__('Apply'), 'apply.png', array('type' => 'submit', 'name' => 'apply')) . $this->Admin->formButton(__('Cancel'), 'cancel.png', array('type' => 'submit', 'name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';
 	echo $this->Form->end();
