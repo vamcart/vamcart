@@ -19,6 +19,7 @@ class UpdateController extends AppController {
 
      	$this->set('error','0');
      	$this->set('success','0');
+		$templine = '';
 
 			$this->set('current_crumb', __('Update', true));
 			$this->set('title_for_layout', __('Update', true));
