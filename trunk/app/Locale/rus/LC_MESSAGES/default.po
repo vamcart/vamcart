@@ -647,7 +647,7 @@ msgstr "Тэг пользователя"
 
 #: /controllers/user_tags_controller.php:61
 msgid "Invalid Tag Code"
-msgstr "Неправильный код тэга"
+msgstr "Неправильный код в поле сожержание"
 
 #: /controllers/user_tags_controller.php:77
 msgid "User tag created."
