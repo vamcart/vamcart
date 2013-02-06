@@ -48,7 +48,7 @@ class UserTagsController extends AppController {
 			// Check the user defined tag for errors
 			srand();
 			ob_start();
-			if (eval('public function testfunction'.rand().'() {'.$this->data['UserTag']['content'].'}') === FALSE)
+			if (eval('function testfunction'.rand().'() {'.$this->request->data['UserTag']['content'].'}') === FALSE)
 			{
 				$error = array();
                 $buffer = ob_get_clean();
