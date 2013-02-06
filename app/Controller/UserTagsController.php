@@ -53,7 +53,7 @@ class UserTagsController extends AppController {
 				$error = array();
                 $buffer = ob_get_clean();
 				
-				$error = __('Invalid Tag Code',true) . ':<br />' . $buffer;
+				$error = __('Invalid Tag Code',true);
 				$this->Session->setFlash($error);
 
 				if($user_tag_id == null)
