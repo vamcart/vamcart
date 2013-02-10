@@ -20,7 +20,7 @@ $this->Html->css(array(
 	'codemirror/codemirror',
 ), null, array('inline' => false));
 
-	$id = $this->request->data['MicroTemplate']['id'];
+	$id = $this->data['MicroTemplate']['id'];
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
