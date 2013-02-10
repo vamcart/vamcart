@@ -20,7 +20,7 @@ $this->Html->css(array(
 	'codemirror/codemirror',
 ), null, array('inline' => false));
 
-	$template_id = $this->request->data['Template']['id'];
+	$template_id = $this->data['Template']['id'];
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 

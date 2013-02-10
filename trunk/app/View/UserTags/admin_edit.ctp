@@ -17,7 +17,7 @@ $this->Html->script(array(
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
-	$user_tag_id = $this->request->data['UserTag']['id'];
+	$user_tag_id = $this->data['UserTag']['id'];
 	echo $this->Form->create('UserTag', array('id' => 'contentform', 'action' => '/user_tags/admin_edit/'.$user_tag_id, 'url' => '/user_tags/admin_edit/'.$user_tag_id));
 	
 	echo $this->Admin->StartTabs();

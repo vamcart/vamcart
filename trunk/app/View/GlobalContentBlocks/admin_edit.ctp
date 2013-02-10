@@ -17,7 +17,7 @@ $this->Html->script(array(
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
-	$id = $this->request->data['GlobalContentBlock']['id'];
+	$id = $this->data['GlobalContentBlock']['id'];
 	echo $this->Form->create('GlobalContentBlock', array('id' => 'contentform', 'action' => '/global_content_blocks/admin_edit/'.$id, 'url' => '/global_content_blocks/admin_edit/'.$id));
 	
 	echo $this->Admin->StartTabs();
