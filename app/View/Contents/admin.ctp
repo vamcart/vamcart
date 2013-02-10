@@ -23,9 +23,54 @@ if (!file_exists(WWW_ROOT . 'js/' . $fname)) {
 $this->Html->script(array(
 	'jquery/plugins/jquery-ui-min.js',
 	'selectall.js',
-	'admin_content.js',
 	$fname
 ), array('inline' => false));
+?>
+<?php echo $this->Html->scriptBlock('
+function beforeSubmit(form)
+{
+	var action = form.multiaction.value;
+
+	$(\'#categories-dialog\').dialog(\'destroy\');
+
+	if (\'copy\' == action) {
+		var dialog = categorySelection(form);
+		return false;
+	} else if (\'move\' == action) {
+		var dialog = categorySelection(form);
+		return false;
+	} else {
+		return true;
+	}
+}
+
+function categorySelection(form)
+{
+	return $(\'<div id="categories-dialog"></div>\').load(\''. BASE . '/contents/admin_categories_tree/\').dialog({
+		modal: true,
+		title: i18n.Categories,
+		height: 200,
+		buttons: [{
+			text: i18n.Select,
+			click: function () {
+				var val = $("#category").val();
+				$(form).append(\'<input type="hidden" name="target_category" />\');
+				$("input[name=target_category]").val(val);
+				$(form).submit();
+				$(this).dialog("close");
+			}
+		}, {
+			text: i18n.Cancel,
+			click : function () {
+				$(this).dialog("close");
+			}
+		}],
+		close: function () {
+			$("#category").val(\'\');
+		}
+	});
+}', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
+<?php
 
 echo $this->Html->css('jquery-ui.css', null, array('inline' => false));
 
