@@ -43,7 +43,7 @@ class AdminController extends ModuleCouponsAppController {
 			if($id == null)
 				$id = $this->ModuleCoupon->getLastInsertId();
 			
-			if(isset($this->request->data['applybutton']))
+			if(isset($this->data['applybutton']))
 				$this->redirect('/module_coupons/admin/admin_edit/' . $id);		
 			else
 				$this->redirect('/module_coupons/admin/admin_index/');

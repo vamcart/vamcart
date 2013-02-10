@@ -408,7 +408,7 @@ class ContentsController extends AppController {
 			$this->Session->setFlash(__('Record saved.', true));
 		
 			// Check if we pressed 'apply' otherwise just render
-			if(isset($this->request->data['applybutton']))
+			if(isset($this->data['applybutton']))
 			{
 				if($this->data['Content']['parent_id'] == '-1')
 					$this->redirect('/contents/admin_core_pages_edit/' . $content_id);
@@ -575,17 +575,14 @@ class ContentsController extends AppController {
 						$target_page = '/contents/admin/0/' . $content['Content']['parent_id'];
 						break;
 					case "copy":
-						$parent_id = $this->request->data['target_category'];
+						$parent_id = $this->data['target_category'];
 						$this->_copy_content($content, $parent_id);
 						$build_flash .= __('Copied content item.', true);
 						$target_page = '/contents/admin/0/' . $parent_id;
 						break;
 					case "move":
-						$parent_id = $this->request->data['target_category'];
+						$parent_id = $this->data['target_category'];
 						$content['Content']['parent_id'] = $parent_id;
-						$highest_order_content = $this->Content->find('first', array('conditions' => array('Content.parent_id' => $parent_id),null,'Content.order DESC'));
-						$new_order = $highest_order_content['Content']['order'] + 1;
-						$content['Content']['order'] = $new_order;
 						$this->Content->save($content);
 						$build_flash .= __('Moved content item.', true);
 						$target_page = '/contents/admin/0/' . $parent_id;
@@ -722,9 +719,6 @@ class ContentsController extends AppController {
 		$content['Content']['id'] = null;
 		$content['Content']['parent_id'] = $parent_id;
 		$content['Content']['viewed'] = 0;
-		$highest_order_content = $this->Content->find('first', array('conditions' => array('Content.parent_id' => $parent_id),null,'Content.order DESC'));
-		$new_order = $highest_order_content['Content']['order'] + 1;
-		$content['Content']['order'] = $new_order;
 		
 		$this->Content->create();
 		$this->Content->save($content['Content']);
