@@ -8,12 +8,25 @@
 
 $this->Html->script(array(
 	'jquery/plugins/jquery-ui-min.js',
+	'jquery/plugins/jquery.zrssfeed.min.js',
 	'tabs.js'
 ), array('inline' => false));
-
+?>
+<?php echo $this->Html->scriptBlock('
+$(document).ready(function () {
+	$("#news").rssfeed("http://vamcart.com/modules/news/backendt.php?topicid=2", {
+		header: false,
+		date: false,
+		content: false,
+		limit: 3,
+	});
+});', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
+<?php
 	echo $this->Html->css('ui.tabs', null, array('inline' => false));
 	
 	echo $this->admin->ShowPageHeaderStart(__('Home',true), 'home.png');
+
+	echo '<div id="news"></div>';
 
 	echo $this->admin->StartTabs();
 			echo '<ul>';
