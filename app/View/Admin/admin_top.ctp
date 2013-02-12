@@ -18,7 +18,7 @@ $(document).ready(function () {
 		header: false,
 		date: false,
 		content: false,
-		limit: 3,
+		limit: 1,
 	});
 });', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
 <?php
