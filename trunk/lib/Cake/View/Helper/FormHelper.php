@@ -1,13 +1,12 @@
 <?php
 /**
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
- * @copyright   Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
+ * @copyright   Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link        http://cakephp.org CakePHP(tm) Project
  * @package       Cake.View.Helper
  * @since       CakePHP(tm) v 0.10.0.1076
@@ -793,7 +792,7 @@ class FormHelper extends AppHelper {
 			} else {
 				$text = $fieldName;
 			}
-			if (substr($text, -3) === '_id') {
+			if (substr($text, -3) == '_id') {
 				$text = substr($text, 0, -3);
 			}
 			$text = __(Inflector::humanize(Inflector::underscore($text)));
@@ -840,20 +839,16 @@ class FormHelper extends AppHelper {
  * @return string Completed form inputs.
  * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/form.html#FormHelper::inputs
  */
-	public function inputs($fields = null, $blacklist = null, $options = array()) {
+	public function inputs($fields = null, $blacklist = null) {
 		$fieldset = $legend = true;
-		$modelFields = array();
 		$model = $this->model();
-		if ($model) {
-			$modelFields = array_keys($this->_introspectModel($model, 'fields'));
-		}
 		if (is_array($fields)) {
-			if (array_key_exists('legend', $fields) && !in_array('legend', $modelFields)) {
+			if (array_key_exists('legend', $fields)) {
 				$legend = $fields['legend'];
 				unset($fields['legend']);
 			}
 
-			if (isset($fields['fieldset']) && !in_array('fieldset', $modelFields)) {
+			if (isset($fields['fieldset'])) {
 				$fieldset = $fields['fieldset'];
 				unset($fields['fieldset']);
 			}
@@ -865,15 +860,8 @@ class FormHelper extends AppHelper {
 			$fields = array();
 		}
 
-		if (isset($options['legend'])) {
-			$legend = $options['legend'];
-		}
-		if (isset($options['fieldset'])) {
-			$fieldset = $options['fieldset'];
-		}
-
 		if (empty($fields)) {
-			$fields = $modelFields;
+			$fields = array_keys($this->_introspectModel($model, 'fields'));
 		}
 
 		if ($legend === true) {
@@ -912,13 +900,13 @@ class FormHelper extends AppHelper {
 			$fieldsetClass = '';
 		}
 
-		if ($fieldset) {
-			if ($legend) {
-				$out = $this->Html->useTag('legend', $legend) . $out;
-			}
-			$out = $this->Html->useTag('fieldset', $fieldsetClass, $out);
+		if ($fieldset && $legend) {
+			return $this->Html->useTag('fieldset', $fieldsetClass, $this->Html->useTag('legend', $legend) . $out);
+		} elseif ($fieldset) {
+			return $this->Html->useTag('fieldset', $fieldsetClass, $out);
+		} else {
+			return $out;
 		}
-		return $out;
 	}
 
 /**
@@ -993,7 +981,7 @@ class FormHelper extends AppHelper {
 		unset($options['type'], $options['before'], $options['between'], $options['after'], $options['format']);
 
 		$out['error'] = null;
-		if ($type !== 'hidden' && $error !== false) {
+		if ($type != 'hidden' && $error !== false) {
 			$errMsg = $this->error($fieldName, $error);
 			if ($errMsg) {
 				$divOptions = $this->addClass($divOptions, 'error');
@@ -1192,13 +1180,13 @@ class FormHelper extends AppHelper {
  * @return array
  */
 	protected function _getFormat($options) {
-		if ($options['type'] === 'hidden') {
+		if ($options['type'] == 'hidden') {
 			return array('input');
 		}
 		if (is_array($options['format']) && in_array('input', $options['format'])) {
 			return $options['format'];
 		}
-		if ($options['type'] === 'checkbox') {
+		if ($options['type'] == 'checkbox') {
 			return array('before', 'input', 'between', 'label', 'after', 'error');
 		}
 		return array('before', 'label', 'between', 'input', 'after', 'error');
@@ -1246,7 +1234,7 @@ class FormHelper extends AppHelper {
 		) {
 			$options['maxlength'] = $fieldDef['length'];
 		}
-		if ($autoLength && $fieldDef['type'] === 'float') {
+		if ($autoLength && $fieldDef['type'] == 'float') {
 			$options['maxlength'] = array_sum(explode(',', $fieldDef['length'])) + 1;
 		}
 		return $options;
@@ -1511,8 +1499,7 @@ class FormHelper extends AppHelper {
 			if (isset($value) && strval($optValue) === strval($value)) {
 				$optionsHere['checked'] = 'checked';
 			}
-			$isNumeric = is_numeric($optValue);
-			if ($disabled && (!is_array($disabled) || in_array((string)$optValue, $disabled, !$isNumeric))) {
+			if ($disabled && (!is_array($disabled) || in_array($optValue, $disabled))) {
 				$optionsHere['disabled'] = true;
 			}
 			$tagName = Inflector::camelize(
@@ -2053,7 +2040,7 @@ class FormHelper extends AppHelper {
 			)
 		));
 
-		$template = ($style === 'checkbox') ? 'checkboxmultipleend' : 'selectend';
+		$template = ($style == 'checkbox') ? 'checkboxmultipleend' : 'selectend';
 		$select[] = $this->Html->useTag($template);
 		return implode("\n", $select);
 	}
@@ -2127,7 +2114,7 @@ class FormHelper extends AppHelper {
 		} elseif ($attributes['value'] === false) {
 			$attributes['value'] = null;
 		}
-		$yearOptions = array('value' => $attributes['value'], 'min' => $minYear, 'max' => $maxYear, 'order' => 'desc');
+		$yearOptions = array('min' => $minYear, 'max' => $maxYear, 'order' => 'desc');
 		if (isset($attributes['orderYear'])) {
 			$yearOptions['order'] = $attributes['orderYear'];
 			unset($attributes['orderYear']);
@@ -2503,14 +2490,14 @@ class FormHelper extends AppHelper {
 		if (!empty($timeFormat)) {
 			$time = explode(':', $days[1]);
 
-			if ($time[0] >= '12' && $timeFormat === '12') {
+			if ($time[0] >= '12' && $timeFormat == '12') {
 				$meridian = 'pm';
-			} elseif ($time[0] === '00' && $timeFormat === '12') {
+			} elseif ($time[0] == '00' && $timeFormat == '12') {
 				$time[0] = 12;
 			} elseif ($time[0] >= 12) {
 				$meridian = 'pm';
 			}
-			if ($time[0] == 0 && $timeFormat === '12') {
+			if ($time[0] == 0 && $timeFormat == '12') {
 				$time[0] = 12;
 			}
 			$hour = $min = null;
@@ -2531,7 +2518,7 @@ class FormHelper extends AppHelper {
  * @return array
  */
 	protected function _name($options = array(), $field = null, $key = 'name') {
-		if ($this->requestType === 'get') {
+		if ($this->requestType == 'get') {
 			if ($options === null) {
 				$options = array();
 			} elseif (is_string($options)) {
@@ -2618,7 +2605,7 @@ class FormHelper extends AppHelper {
 				$isNumeric = is_numeric($name);
 				if (
 					(!$selectedIsArray && !$selectedIsEmpty && (string)$attributes['value'] == (string)$name) ||
-					($selectedIsArray && in_array((string)$name, $attributes['value'], !$isNumeric))
+					($selectedIsArray && in_array($name, $attributes['value'], !$isNumeric))
 				) {
 					if ($attributes['style'] === 'checkbox') {
 						$htmlOptions['checked'] = true;
@@ -2630,26 +2617,26 @@ class FormHelper extends AppHelper {
 				if ($showParents || (!in_array($title, $parents))) {
 					$title = ($attributes['escape']) ? h($title) : $title;
 
-					$hasDisabled = !empty($attributes['disabled']);
-					if ($hasDisabled) {
-						$disabledIsArray = is_array($attributes['disabled']);
-						if ($disabledIsArray) {
-							$disabledIsNumeric = is_numeric($name);
-						}
-					}
-					if (
-						$hasDisabled &&
-						$disabledIsArray &&
-						in_array((string)$name, $attributes['disabled'], !$disabledIsNumeric)
-					) {
-						$htmlOptions['disabled'] = 'disabled';
-					}
-					if ($hasDisabled && !$disabledIsArray) {
-						$htmlOptions['disabled'] = $attributes['disabled'] === true ? 'disabled' : $attributes['disabled'];
-					}
-
 					if ($attributes['style'] === 'checkbox') {
 						$htmlOptions['value'] = $name;
+
+						$hasDisabled = !empty($attributes['disabled']);
+						if ($hasDisabled) {
+							$disabledIsArray = is_array($attributes['disabled']);
+							if ($disabledIsArray) {
+								$disabledIsNumeric = is_numeric($htmlOptions['value']);
+							}
+						}
+						if (
+							$hasDisabled &&
+							$disabledIsArray &&
+							in_array($htmlOptions['value'], $attributes['disabled'], !$disabledIsNumeric)
+						) {
+							$htmlOptions['disabled'] = 'disabled';
+						}
+						if ($hasDisabled && !$disabledIsArray) {
+							$htmlOptions['disabled'] = $attributes['disabled'] === true ? 'disabled' : $attributes['disabled'];
+						}
 
 						$tagName = $attributes['id'] . Inflector::camelize(Inflector::slug($name));
 						$htmlOptions['id'] = $tagName;
@@ -2764,16 +2751,10 @@ class FormHelper extends AppHelper {
 				if ($min > $max) {
 					list($min, $max) = array($max, $min);
 				}
-				if (!empty($options['value']) && (int)$options['value'] < $min) {
-					$min = (int)$options['value'];
-				} elseif (!empty($options['value']) && (int)$options['value'] > $max) {
-					$max = (int)$options['value'];
-				}
-
 				for ($i = $min; $i <= $max; $i++) {
 					$data[$i] = $i;
 				}
-				if ($options['order'] !== 'asc') {
+				if ($options['order'] != 'asc') {
 					$data = array_reverse($data, true);
 				}
 			break;
