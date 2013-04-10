@@ -27,8 +27,12 @@ function smarty_function_stylesheet($params, $template)
 		foreach ($content['Template']['Stylesheet'] AS $attached_stylesheet)
 		{
 			$stylesheet .= '<link type="text/css" ';
+			if (isset($params['media']) && $params['media'] != '')
+			{
+			$stylesheet .= 'media="' . $params['media'] . '" ';
+			}
 			$stylesheet .= 'href="' . BASE . '/stylesheets/load/'.$attached_stylesheet['alias'] . '.css';
-			$stylesheet .= '" rel="stylesheet"  media="screen"/>'; 
+			$stylesheet .= '" rel="stylesheet" />'; 
 		}
 	}
 
