@@ -487,6 +487,7 @@ div.input input
 	}
 
 form#contentform div.input.text input, 
+form#contentform div.input.email input, 
 form#contentform div.input.password input 
 	{
 		border: 1px solid; 
