@@ -31,7 +31,9 @@ $(document).ready(function () {
 	echo $this->admin->StartTabs();
 			echo '<ul>';
 			echo $this->admin->CreateTab('home',__('Menu',true), 'menu.png');
-			echo $this->admin->CreateTab('orders',__('Orders',true), 'orders.png');			
+			if($level == 1) {
+			echo $this->admin->CreateTab('orders',__('Orders',true), 'orders.png');
+			}			
 			echo '</ul>';
 	
 	echo $this->admin->StartTabContent('home');
@@ -75,6 +77,8 @@ $(document).ready(function () {
 
 		echo $this->admin->EndTabContent();
 
+		if($level == 1) {
+				
 		echo $this->admin->StartTabContent('orders');
 
 			echo $this->flashChart->begin(); 
@@ -88,6 +92,8 @@ $(document).ready(function () {
 			echo $this->flashChart->render('100%','300');
 	
 		echo $this->admin->EndTabContent();
+		
+		}
 
 	echo $this->admin->EndTabs();
 	
