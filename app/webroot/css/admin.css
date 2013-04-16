@@ -469,6 +469,7 @@ div.input
 	
 div.input input 
 	{
+		border: 1px solid; 
 		border-color: #666 #ccc #ccc #666; 
 		padding: .2em;
 		margin: 0;
