@@ -347,16 +347,16 @@ div#footer p
 /* Navigation */
 
 div#navigation
-								{
+	{
 		padding: 0;
 		margin: 0;
-								}
+	}
 
 div#navigation div.breadCrumbs
-								{
+	{
 		padding: 0;
 		margin: 5px 0 0 10px;
-								}
+	}
 								
 /* /Navigation */
 
