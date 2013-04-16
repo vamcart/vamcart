@@ -19,7 +19,7 @@ html,body
 
 body
 	{
-		font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif;
+		font-family: 'Lucida Grande', Helvetica, Arial, Verdana, sans-serif;
 		font-size: 11pt;
 		line-height: 1;
 	}
@@ -233,7 +233,7 @@ div#footer p
 #menu ul a 
 	{
 		display: block; 
-		font:11pt/30px 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif; 
+		font:11pt/30px 'Lucida Grande', Helvetica, Arial, Verdana, sans-serif; 
 		color: #fff; 
 		text-decoration: none; 
 		padding: 0 20px; 
@@ -261,7 +261,7 @@ div#footer p
 #menu ul ul a 
 	{
 		display: block; 
-		font:11pt/30px 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, Sans-Serif; 
+		font:11pt/30px 'Lucida Grande', Helvetica, Arial, Verdana, sans-serif; 
 		color: #000; 
 		text-decoration: none;
 		padding: 0 10px; 
