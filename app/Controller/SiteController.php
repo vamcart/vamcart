@@ -21,8 +21,8 @@ class SiteController extends AppController {
 			$customer = new Customer();
 			$customer->set($_POST['customer']);
 			if ($customer->validates()) {
-				$_POST['customer']['password'] = md5($_POST['customer']['password']);
-				$_POST['customer']['retype'] = md5($_POST['customer']['retype']);
+				$_POST['customer']['password'] = Security::hash($_POST['customer']['password'], 'sha1', true);
+				$_POST['customer']['retype'] = Security::hash($_POST['customer']['retype'], 'sha1', true);
 				$ret = $customer->save($_POST['customer']);
 				
 				// Retrieve email template

@@ -58,7 +58,7 @@ class Customer extends AppModel {
 	{
 		if(isset($data['Customer'])) {
 			if (isset($data['Customer']['password'])) {
-				$data['Customer']['password'] = md5($data['Customer']['password']);
+				$data['Customer']['password'] = Security::hash($data['Customer']['password'], 'sha1', true);
 			}
 		}
 		return $data;

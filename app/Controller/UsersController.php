@@ -47,7 +47,7 @@ class UsersController extends AppController {
 					die();
 				}
 				
-				$this->request->data['User']['password'] = md5($this->data['User']['password']);
+				$this->request->data['User']['password'] = Security::hash($this->data['User']['password'], 'sha1', true);
 
 			}
 				$this->User->save($this->data);
@@ -127,7 +127,7 @@ class UsersController extends AppController {
 		}
 		else
 		{
-			$admin_user = $this->User->find('first', array('conditions' => array('username' => $this->data['User']['username'],'password' => md5($this->data['User']['password']))));
+			$admin_user = $this->User->find('first', array('conditions' => array('username' => $this->data['User']['username'],'password' => Security::hash($this->data['User']['password'], 'sha1', true))));
 
 			if(empty($admin_user))
 			{
@@ -172,7 +172,7 @@ class UsersController extends AppController {
 			}
 
 			
-			$this->request->data['User']['password'] = md5($this->data['User']['password']);
+			$this->request->data['User']['password'] = Security::hash($this->data['User']['password'], 'sha1', true);
 			$this->User->save($this->data);
 			
 			// Set some default preferences
