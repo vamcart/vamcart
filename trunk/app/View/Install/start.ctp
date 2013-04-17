@@ -29,6 +29,10 @@ echo $this->Form->input('db_host', array('label' => __('Host'), 'value' => $valu
 echo $this->Form->input('db_name', array('label' => __('Database Name'), 'value' => $values['Install']['db_name']));
 echo $this->Form->input('db_username', array('label' => __('Database Username'), 'value' => $values['Install']['db_username']));
 echo $this->Form->input('db_password', array('label' => __('Database Password'), 'value' => $values['Install']['db_password']));
+echo '<div>'.__('Admin Credentials').'</div>';
+echo $this->Form->input('username', array('label' => __('Username'), 'value' => $values['Install']['username']));
+echo $this->Form->input('email', array('label' => __('Email'), 'value' => $values['Install']['email']));
+echo $this->Form->input('password', array('label' => __('Password'), 'value' => $values['Install']['password']));
 
 echo '<br />';
 
