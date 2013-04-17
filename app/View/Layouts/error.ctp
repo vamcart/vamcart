@@ -28,6 +28,7 @@
 <title><?php echo $title_for_layout; ?></title>
 <?php echo $this->Html->css(array(
 										'admin',
+										'normalize.css',
 										'bootstrap/bootstrap.css',
 										'bootstrap/bootstrap-responsive.css',
 											), null, array('inline' => true)); ?>
