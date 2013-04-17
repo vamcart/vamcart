@@ -426,10 +426,6 @@ div#page h2
 		border-bottom: 1px solid #c0c1c2;
 		border-top-left-radius: 8px;
 		border-top-right-radius: 8px;
-		-moz-border-radius-topleft: 8px;
-		-webkit-border-top-left-radius: 8px;
-		-moz-border-radius-topright: 8px;
-		-webkit-border-top-right-radius: 8px;
 		vertical-align: middle;
 	}
 	
@@ -447,10 +443,6 @@ div#pageContent
 		border-bottom: 1px solid #c0c1c2;
 		border-bottom-left-radius: 8px;
 		border-bottom-right-radius: 8px;
-		-moz-border-radius-bottomleft: 8px;
-		-webkit-border-bottom-left-radius: 8px;
-		-moz-border-radius-bottomright: 8px;
-		-webkit-border-bottom-right-radius: 8px;
 	}
 
 /* /Page content */
@@ -508,14 +500,6 @@ div.input input
 		border-top-right-radius: 4px;
 		border-bottom-left-radius: 4px;
 		border-bottom-right-radius: 4px;
-		-moz-border-radius-topleft: 4px;
-		-webkit-border-top-left-radius: 4px;
-		-moz-border-radius-topright: 4px;
-		-webkit-border-top-right-radius: 4px;
-		-moz-border-radius-bottomleft: 4px;
-		-webkit-border-bottom-left-radius: 4px;
-		-moz-border-radius-bottomright: 4px;
-		-webkit-border-bottom-right-radius: 4px;
 	}
 
 form#contentform div.input.text input, 
@@ -531,14 +515,6 @@ form#contentform div.input.password input
 		border-top-right-radius: 4px;
 		border-bottom-left-radius: 4px;
 		border-bottom-right-radius: 4px;
-		-moz-border-radius-topleft: 4px;
-		-webkit-border-top-left-radius: 4px;
-		-moz-border-radius-topright: 4px;
-		-webkit-border-top-right-radius: 4px;
-		-moz-border-radius-bottomleft: 4px;
-		-webkit-border-bottom-left-radius: 4px;
-		-moz-border-radius-bottomright: 4px;
-		-webkit-border-bottom-right-radius: 4px;
 	}
 
 div.input select 
@@ -548,14 +524,6 @@ div.input select
 		border-top-right-radius: 4px;
 		border-bottom-left-radius: 4px;
 		border-bottom-right-radius: 4px;
-		-moz-border-radius-topleft: 4px;
-		-webkit-border-top-left-radius: 4px;
-		-moz-border-radius-topright: 4px;
-		-webkit-border-top-right-radius: 4px;
-		-moz-border-radius-bottomleft: 4px;
-		-webkit-border-bottom-left-radius: 4px;
-		-moz-border-radius-bottomright: 4px;
-		-webkit-border-bottom-right-radius: 4px;
 	}
 
 div.input textarea 
@@ -570,14 +538,6 @@ div.input textarea
 		border-top-right-radius: 4px;
 		border-bottom-left-radius: 4px;
 		border-bottom-right-radius: 4px;
-		-moz-border-radius-topleft: 4px;
-		-webkit-border-top-left-radius: 4px;
-		-moz-border-radius-topright: 4px;
-		-webkit-border-top-right-radius: 4px;
-		-moz-border-radius-bottomleft: 4px;
-		-webkit-border-bottom-left-radius: 4px;
-		-moz-border-radius-bottomright: 4px;
-		-webkit-border-bottom-right-radius: 4px;
 	}
 
 div.input textarea:focus, div.input input:focus, .sffocus, .sffocus 
@@ -599,14 +559,6 @@ div#content table.contentTable
 		border-top-right-radius: 4px;
 		border-bottom-left-radius: 4px;
 		border-bottom-right-radius: 4px;
-		-moz-border-radius-topleft: 4px;
-		-webkit-border-top-left-radius: 4px;
-		-moz-border-radius-topright: 4px;
-		-webkit-border-top-right-radius: 4px;
-		-moz-border-radius-bottomleft: 4px;
-		-webkit-border-bottom-left-radius: 4px;
-		-moz-border-radius-bottomright: 4px;
-		-webkit-border-bottom-right-radius: 4px;
 	}
 
 div#content table.contentTable tr
@@ -652,14 +604,6 @@ div#content table.contentTable th
 		border-top-right-radius: 4px;
 		border-bottom-left-radius: 4px;
 		border-bottom-right-radius: 4px;
-		-moz-border-radius-topleft: 4px;
-		-webkit-border-top-left-radius: 4px;
-		-moz-border-radius-topright: 4px;
-		-webkit-border-top-right-radius: 4px;
-		-moz-border-radius-bottomleft: 4px;
-		-webkit-border-bottom-left-radius: 4px;
-		-moz-border-radius-bottomright: 4px;
-		-webkit-border-bottom-right-radius: 4px;
 	}
 
 div#content table.contentTable td
@@ -747,14 +691,6 @@ div#flashMessage
 		border-top-right-radius: 4px;
 		border-bottom-left-radius: 4px;
 		border-bottom-right-radius: 4px;
-		-moz-border-radius-topleft: 4px;
-		-webkit-border-top-left-radius: 4px;
-		-moz-border-radius-topright: 4px;
-		-webkit-border-top-right-radius: 4px;
-		-moz-border-radius-bottomleft: 4px;
-		-webkit-border-bottom-left-radius: 4px;
-		-moz-border-radius-bottomright: 4px;
-		-webkit-border-bottom-right-radius: 4px;
 	}
 
 div.error-message
@@ -779,7 +715,6 @@ a.button,
 span.button, 
 del.button
 	{
-		display: -moz-inline-box;
 		display: inline-block;
 		cursor: pointer;
 		border: none;
@@ -828,7 +763,6 @@ del.button span
 		white-space: nowrap;
 		cursor: pointer;
 		color: #222;
-		display: -moz-inline-box;
 		display: inline-block;
 		line-height: 1;
 		letter-spacing: 0 !important;
@@ -1161,8 +1095,6 @@ select#countries, select#country_zones
 
 #jquery-msg-bg 
 	{
-		-moz-opacity: 0.6;
-		-khtml-opacity: 0.6;
 		opacity: 0.6;
 		filter: alpha(opacity=60);
 		background: black;
@@ -1170,7 +1102,6 @@ select#countries, select#country_zones
 
 .jquery-msg-content 
 	{
-		-webkit-background-clip: padding-box;
 		padding: 15px;
 	}
 
@@ -1178,14 +1109,7 @@ select#countries, select#country_zones
 	{
 		background: white;
 		color: #333333;
-		-webkit-box-shadow: 5px 5px 30px 0 black;
-		-moz-box-shadow: 5px 5px 30px 0 black;
 		box-shadow: 5px 5px 30px 0 black;
-		-webkit-border-radius: 8px;
-		-moz-border-radius: 8px;
-		-o-border-radius: 8px;
-		-khtml-border-radius: 8px;
-		-ms-border-radius: 8px;
 		border-radius: 8px;
 		/* ie fix */
 		-pie-lazy-init: true;
@@ -1194,17 +1118,10 @@ select#countries, select#country_zones
 
 .white-on-black .jquery-msg-content 
 	{
-		-moz-opacity: 0.5;
-		-khtml-opacity: 0.5;
 		opacity: 0.5;
 		filter: alpha(opacity=50);
 		background: black;
 		color: white;
-		-webkit-border-radius: 8px;
-		-moz-border-radius: 8px;
-		-o-border-radius: 8px;
-		-khtml-border-radius: 8px;
-		-ms-border-radius: 8px;
 		border-radius: 8px;
 		/* ie fix */
 		-pie-lazy-init: true;
