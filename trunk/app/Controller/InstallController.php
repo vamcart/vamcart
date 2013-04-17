@@ -177,7 +177,7 @@ class DATABASE_CONFIG {
 	     	}
 		}
 		
-	   @mysqli_query($dbh, 'update users set username = "' . trim(stripslashes($admin_username)) . '", email = "' . trim(stripslashes($admin_email)) . '", password = "' . md5(trim(stripslashes($admin_password))) . '", created = "now()", modified = "now()" where id = "1"');
+	   @mysqli_query($dbh, 'update users set username = "' . trim(stripslashes($admin_username)) . '", email = "' . trim(stripslashes($admin_email)) . '", password = "' . Security::hash(trim(stripslashes($admin_password)), 'sha1', true) . '", created = "now()", modified = "now()" where id = "1"');
 		
 
 	}
