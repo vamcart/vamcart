@@ -40,7 +40,7 @@ INSERT INTO `configurations` (`id`, `configuration_group_id`, `key`, `value`, `t
 (5,'1','THUMBNAIL_SIZE', '125','text', '', 'Image Thumbnail Size','','5'),
 (6,'1','GOOGLE_ANALYTICS', '','text', '', 'Google Analytics ID','','6'),
 (7,'1','YANDEX_METRIKA', '','text', '', 'Yandex.Metrika ID','','7'),
-(8,'1','PRODUCTS_PER_PAGE', '10','text', '', 'Products Per Page','','8'),
+(8,'1','PRODUCTS_PER_PAGE', '20','text', '', 'Products Per Page','','8'),
 (9,'2','CACHE_TIME', '3600','text', '', 'Cache Time in Seconds','','9'),
 (10,'3','SEND_EXTRA_EMAIL', 'vam@test.com','text', '', 'Send extra order emails to','','10'),
 (11,'3','NEW_ORDER_FROM_EMAIL', 'vam@test.com','text', '', 'New Order: From','','11'),
