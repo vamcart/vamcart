@@ -25,11 +25,11 @@
 <title><?php echo $title_for_layout; ?></title>
 <?php echo $this->Html->css(array(
 										'admin',
-										//'bootstrap/bootstrap.css',
+										'bootstrap/bootstrap.css',
 											), null, array('inline' => true)); ?>
 <?php echo $this->Html->script(array(
 											'jquery/jquery.min.js',
-											//'bootstrap/bootstrap.min.js'
+											'bootstrap/bootstrap.min.js'
 												),
 											array('inline' => true)); ?>
 <?php echo $scripts_for_layout; ?>

@@ -67,6 +67,22 @@ div#content
 		padding: .5em;
 	}
 
+div#content a, 
+div#content a:visited,
+div#content a:hover  
+	{
+		color: #494a4e;
+		text-decoration: none;
+	}
+
+div#header a, 
+div#header a:visited, 
+div#header a:hover 
+	{
+		color: #494a4e;
+		text-decoration: none;
+	}
+	
 /* /Content */
 
 /* Left column */
@@ -357,7 +373,7 @@ div#navigation div.breadCrumbs
 		padding: 0;
 		margin: 5px 0 0 10px;
 	}
-								
+
 /* /Navigation */
 
 /* Page header */
@@ -384,7 +400,7 @@ div#page
 div#page h2
 	{
 		margin: 0;
-		padding: 7px 0 7px 10px;
+		padding: 0 0 0 10px;
 		background-color: #f4f4f4;
 		background-image: url(../img/admin/bg.png);
 		background-position: 0 -135px;
