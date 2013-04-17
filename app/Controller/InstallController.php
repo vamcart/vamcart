@@ -11,27 +11,6 @@ class InstallController extends AppController {
 	public $components = array('Install');
 
 
-	public function parse_mysql_dump($url, $ignoreerrors = false) 
-	{
-		$file_content = file($url);
-		//pr($file_content);
-	
-	 	$query = "";
-		foreach($file_content as $sql_line) {
-			$tsl = trim($sql_line);
-			if (($sql_line != "") && (substr($tsl, 0, 2) != "--") && (substr($tsl, 0, 1) != "#")) 
-			{
-				$query .= $sql_line;
-	       		if(preg_match("/;\s*$/", $sql_line)) 
-				{
-	         		$result = mysql_query($query);
-	         		if (!$result && !$ignoreerrors) die(mysql_error());
-	         		$query = "";
-	       		}
-	     	}
-		}
-	}
-		
 	public function index ()
 	{
 		$this->redirect('/install/start/');
@@ -88,6 +67,9 @@ class InstallController extends AppController {
 			$values['Install']['db_username'] = $this->data['Install']['db_username'];
 			$values['Install']['db_password']  = $this->data['Install']['db_password'];
 			$values['Install']['db_name'] = $this->data['Install']['db_name'];
+			$values['Install']['username'] = $this->data['Install']['username'];
+			$values['Install']['email'] = $this->data['Install']['email'];
+			$values['Install']['password'] = $this->data['Install']['password'];
 		}
 		else
 		{
@@ -95,6 +77,9 @@ class InstallController extends AppController {
 			$values['Install']['db_username'] = 'root';
 			$values['Install']['db_password']  = '';
 			$values['Install']['db_name'] = 'vamcart';
+			$values['Install']['username'] = 'admin';
+			$values['Install']['email'] = 'admin@vamcart.loc';
+			$values['Install']['password'] = 'password';
 		}	
 		$this->set('values',$values);
 	}
@@ -110,21 +95,25 @@ class InstallController extends AppController {
 		$username = $this->data['Install']['db_username'];
 		$password = $this->data['Install']['db_password'];
 		$hostname = $this->data['Install']['db_host'];	
+		$database = $this->data['Install']['db_name'];	
+		$admin_username = $this->data['Install']['username'];	
+		$admin_email = $this->data['Install']['email'];	
+		$admin_password = $this->data['Install']['password'];	
 		
 		// Attempt to connect to the database
-		if(!$dbh = mysql_connect($hostname, $username, $password) )
+		
+		$dbh = mysqli_connect($hostname, $username, $password, $database);
+		
+		if(!$dbh)
 		{
 			$this->Session->setFlash(__('Unable to connect to database.',true));
 			$error = 1;
 		}
 
-		// Attempt to select the database
-		if(!$selected = mysql_select_db($this->data['Install']['db_name'],$dbh))
-		{
-			$this->Session->setFlash(__('Could not select database. Are you sure you created it?',true));
-			$error = 1;
-		}
-			
+	   @mysqli_query($dbh, "SET SQL_MODE= ''");
+	   @mysqli_query($dbh, "SET SQL_BIG_SELECTS=1");
+	   @mysqli_query($dbh, "SET NAMES 'utf8' COLLATE 'utf8_general_ci'");
+		
 		// Attempt to open the config file
 		if(!$fh = fopen(ROOT . '/config.php', 'w'))
 		{
@@ -168,7 +157,28 @@ class DATABASE_CONFIG {
 	
 			
 		$file = ROOT . '/app/install_schemas/database.sql';
-		$this->parse_mysql_dump($file);
+
+		$file_content = file($file);
+		//pr($file_content);
+	
+	 	$query = "";
+	 	$ignoreerrors = false;
+		foreach($file_content as $sql_line) {
+			$tsl = trim($sql_line);
+			if (($sql_line != "") && (substr($tsl, 0, 2) != "--") && (substr($tsl, 0, 1) != "#")) 
+			{
+				$query .= $sql_line;
+	       		if(preg_match("/;\s*$/", $sql_line)) 
+				{
+	         		$result = mysqli_query($dbh, $query);
+	         		if (!$result && !$ignoreerrors) die(mysqli_error($dbh));
+	         		$query = "";
+	       		}
+	     	}
+		}
+		
+	   @mysqli_query($dbh, 'update users set username = "' . trim(stripslashes($admin_username)) . '", email = "' . trim(stripslashes($admin_email)) . '", password = "' . md5(trim(stripslashes($admin_password))) . '", created = "now()", modified = "now()" where id = "1"');
+		
 
 	}
 }

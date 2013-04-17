@@ -2321,6 +2321,22 @@ msgstr "Имя пользователя"
 msgid "Database Password"
 msgstr "Пароль"
 
+#: /views/install/start.ctp:27
+msgid "Admin Credentials"
+msgstr "Данные для входа в админку"
+
+#: /views/install/start.ctp:27
+msgid "Username"
+msgstr "Логин"
+
+#: /views/install/start.ctp:27
+msgid "Email"
+msgstr "Email"
+
+#: /views/install/start.ctp:27
+msgid "Password"
+msgstr "Пароль"
+
 #: /views/languages/admin.ctp:18
 #: /views/users/admin_user_preferences.ctp:19
 msgid "Language"
