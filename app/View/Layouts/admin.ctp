@@ -10,10 +10,14 @@
 <html>
 <head>
 <?php echo $this->Html->charset(); ?>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title><?php echo $title_for_layout; ?></title>
 <?php echo $this->Html->css(array(
 										'admin',
 										'bootstrap/bootstrap.css',
+										'bootstrap/bootstrap-responsive.css',
 											), null, array('inline' => true)); ?>
 
 <?php echo $this->Html->script(array(
