@@ -30,6 +30,7 @@
 										'admin',
 										'normalize.css',
 										'bootstrap/bootstrap.css',
+										'bootstrap/cus-icons.css',
 										'bootstrap/bootstrap-responsive.css',
 											), null, array('inline' => true)); ?>
 <?php echo $this->Html->script(array(
