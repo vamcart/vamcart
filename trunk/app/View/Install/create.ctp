@@ -22,7 +22,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'install.png');
 <div class="input text"><?php echo __('Your Email'); ?>: <input type="text" name="user_mail" /></div>
 </fieldset>
 <input type='hidden' name='action' value='subscribe_conf'>
-<?php echo $this->Admin->formButtonCatalog(__('Subscribe'), 'subscribe.png', array('type' => 'submit', 'name' => 'submitbutton')); ?>
+<?php echo $this->Admin->formButtonCatalog(__('Subscribe'), 'cus-newspaper', array('class' => 'btn', 'type' => 'submit', 'name' => 'submitbutton')); ?>
 </form>
 <p>
 <?php echo __('We at VamCart value your privacy, we will never sell or distribute your information. You will only receive information regarding VamCart or its affiliates.'); ?>
