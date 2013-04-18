@@ -411,10 +411,10 @@ class AdminHelper extends Helper {
 	public function linkButton ($title, $url, $icon = null, $parameters = null, $confirmMessage = false)
 	{
 		
-		if (!empty($icon) && file_exists(IMAGES . 'admin/icons/buttons/' . $icon)) {
-			$content = $this->Html->link('<span>'.$this->Html->image('admin/icons/buttons/'.$icon, array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__($title,true).'</span>', $url, $parameters, $confirmMessage);
+		if (!empty($icon)) {
+			$content = $this->Html->link('<i class="'.$icon.'"></i>'.' ' .__($title,true), $url, $parameters, $confirmMessage);
 		} else {
-			$content = $this->Html->link('<span>'.__($title,true).'</span>', $url, $parameters, $confirmMessage);
+			$content = $this->Html->link(__($title,true), $url, $parameters, $confirmMessage);
 		}
 		return $content;
 	}	
@@ -430,10 +430,10 @@ class AdminHelper extends Helper {
 	public function linkButtonCatalog ($title, $url, $icon = null, $parameters = null, $confirmMessage = false)
 	{
 		
-		if (!empty($icon) && file_exists(IMAGES . 'icons/buttons/' . $icon)) {
-			$content = $this->Html->link('<span>'.$this->Html->image('icons/buttons/'.$icon, array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .__($title,true).'</span>', $url, $parameters, $confirmMessage);
+		if (!empty($icon)) {
+			$content = $this->Html->link('<i class="'.$icon.'"></i>'.' ' .__($title,true), $url, $parameters, $confirmMessage);
 		} else {
-			$content = $this->Html->link('<span>'.__($title,true).'</span>', $url, $parameters, $confirmMessage);
+			$content = $this->Html->link(__($title,true), $url, $parameters, $confirmMessage);
 		}
 		return $content;
 	}	

@@ -13,7 +13,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'install.png');
 <?php echo __('Database successfully imported.') ?>
 </p>
 <p>
-<?php echo $this->Admin->linkButtonCatalog(__('Click here to visit your live store.'),'/','submit.png',array('escape' => false, 'target'=>'_blank', 'class' => 'button')); ?>
+<?php echo $this->Admin->linkButtonCatalog(__('Click here to visit your live store.'),'/','cus-cart-go',array('escape' => false, 'target'=>'_blank', 'class' => 'btn')); ?>
 </p>
 <form method="post" action="http://vamcart.com/modules/evennews/index.php">
 <fieldset class="form">
