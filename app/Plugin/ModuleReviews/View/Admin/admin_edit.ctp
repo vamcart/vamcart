@@ -14,7 +14,7 @@ echo __('Author: ') . $data['ModuleReview']['name'];
 echo '<br /><br />';
 echo __('Review: ') . $data['ModuleReview']['content'];
 echo '<br /><br />';
-echo $this->Admin->linkButton(__('Return to menu'),'/module_reviews/admin/admin_index/','up.png',array('escape' => false, 'class' => 'button'));
+echo $this->Admin->linkButton(__('Return to menu'),'/module_reviews/admin/admin_index/','cus-arrow-left',array('escape' => false, 'class' => 'btn'));
 echo $this->Admin->ShowPageHeaderEnd();
 
 ?>
