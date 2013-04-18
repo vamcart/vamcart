@@ -229,7 +229,7 @@ echo $this->Form->create('OrderComment', array('id' => 'contentform', 'action' =
 			)
 		));
 
-	echo $this->Admin->formButton(__('Submit'), 'submit.png', array('type' => 'submit', 'name' => 'submit', 'id' => 'submit'));
+	echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn', 'type' => 'submit', 'name' => 'submit', 'id' => 'submit'));
 	echo '<div class="clear"></div>';
 	echo $this->Form->end();
 
