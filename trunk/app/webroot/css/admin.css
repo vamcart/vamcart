@@ -710,6 +710,12 @@ div.error input
 /* /Messages */
 
 /* Buttons */
+
+.btn
+	{
+		margin: 2px;
+	}
+	
 /* /Buttons */
 
 /* SWF Upload */

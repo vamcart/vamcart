@@ -102,7 +102,7 @@ class AdminHelper extends Helper {
 		if($this->params['plugin'] != "")
 			$path = '/' . $this->params['plugin'] . $path;
 			
-		return($this->Html->link('<span>'.$this->Html->image('admin/icons/buttons/add.png', array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .$title.'</span>', $path, array('escape' => false, 'class' => 'button')));
+		return($this->Html->link('<i class="cus-add"></i>'.' '.$title, $path, array('escape' => false, 'class' => 'btn')));
 	}
 	
 	public function CreateExportLink ($extra_path = null)
@@ -114,7 +114,7 @@ class AdminHelper extends Helper {
 			$path = '/' . $this->params['plugin'] . $path;
 		}
 
-		return($this->Html->link('<span>'.$this->Html->image('admin/icons/buttons/export.png', array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .$title.'</span>', $path, array('escape' => false, 'class' => 'button')));
+		return($this->Html->link('<i class="cus-arrow-out"></i>'.' '.$title, $path, array('escape' => false, 'class' => 'btn')));
 	}
 	
 	public function CreateImportLink ($extra_path = null)
@@ -126,7 +126,7 @@ class AdminHelper extends Helper {
 			$path = '/' . $this->params['plugin'] . $path;
 		}
 
-		return($this->Html->link('<span>'.$this->Html->image('admin/icons/buttons/import.png', array('width' => '12', 'height' => '12', 'alt' => '')).'&nbsp;' .$title.'</span>', $path, array('escape' => false, 'class' => 'button')));
+		return($this->Html->link('<i class="cus-arrow-in"></i>'.' '.$title, $path, array('escape' => false, 'class' => 'btn')));
 	}
 	
 	public function ActionBar($options = null, $new = true, $extra_path = null, $export = false, $import = false) 
