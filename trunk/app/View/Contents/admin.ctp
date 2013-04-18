@@ -121,7 +121,7 @@ foreach ($content_data AS $content)
 // Display a link letting the user to go up one level
 if(isset($parent_content))
 {
-	$parent_link = $this->Admin->linkButton(__('Up One Level'),'/contents/admin/0/' . $parent_content['Content']['parent_id'],'up.png',array('escape' => false, 'class' => 'button'));
+	$parent_link = $this->Admin->linkButton(__('Up One Level'),'/contents/admin/0/' . $parent_content['Content']['parent_id'],'cus-arrow-up',array('escape' => false, 'class' => 'btn'));
 	echo '<tr><td colspan="8">' . $parent_link . '</td></tr>';	
 }
 echo '</table>';

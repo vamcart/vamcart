@@ -35,7 +35,7 @@ foreach ($templates AS $template)
 			$this->Html->link(__($template['Template']['name']),'/templates/admin_edit/' . $template['Template']['id'], array('style' => 'font-weight:bold;')),
 			array($this->Admin->DefaultButton($template['Template']), array('align'=>'center')),
 			array($this->Admin->ActionButton('stylesheet','/templates/admin_attach_stylesheets/' . $template['Template']['id'],__('Attach Stylesheets')) . $this->Admin->ActionButton('copy','/templates/admin_copy/' . $template['Template']['id'],__('Copy')) . $this->Admin->ActionButton('edit','/templates/admin_edit_details/' . $template['Template']['id'],__('Edit')) . $this->Admin->ActionButton('delete','/templates/admin_delete/' . $template['Template']['id'],__('Delete')), array('align'=>'center')),
-			array($this->Admin->linkButton(__('Set All Products'), '/templates/admin_set_all_products/' . $template['Template']['id'], 'set_all.png', array('escape' => false, 'class' => 'button'),$set_all_bug_fix), array('align'=>'center'))
+			array($this->Admin->linkButton(__('Set All Products'), '/templates/admin_set_all_products/' . $template['Template']['id'], 'cus-table-add', array('escape' => false, 'class' => 'btn'),$set_all_bug_fix), array('align'=>'center'))
 		   ));
 	echo '<tr id=collapse_"' . $template['Template']['id'] . '" style="' . $collapse_style . '"><td colspan="4">';
 	echo '<table class="contentTable">';

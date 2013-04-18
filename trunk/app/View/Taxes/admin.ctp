@@ -23,7 +23,7 @@ foreach ($tax_data AS $tax)
 				$this->Html->link($tax['Tax']['name'], '/tax_country_zone_rates/admin/' . $tax['Tax']['id']),
 				array($this->Admin->DefaultButton($tax['Tax']), array('align'=>'center')),
 				array($this->Admin->ActionButton('edit','/taxes/admin_edit/' . $tax['Tax']['id'],__('Edit')) . $this->Admin->ActionButton('delete','/taxes/admin_delete/' . $tax['Tax']['id'],__('Delete')), array('align'=>'center')),
-				array($this->Admin->linkButton(__('Set All Products'), '/taxes/admin_set_all_products/' . $tax['Tax']['id'], 'set_all.png', array('escape' => false, 'class' => 'button'),$set_all_bug_fix), array('align'=>'center'))
+				array($this->Admin->linkButton(__('Set All Products'), '/taxes/admin_set_all_products/' . $tax['Tax']['id'], 'cus-table-add', array('escape' => false, 'class' => 'btn'),$set_all_bug_fix), array('align'=>'center'))
 		   ));
 		   	
 }

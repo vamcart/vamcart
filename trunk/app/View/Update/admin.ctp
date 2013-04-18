@@ -14,7 +14,7 @@ echo '<p>'.__('Your VamCart Version:').' <strong>'.$update_data->current_version
 
 if($update_data->current_version < $update_data->latest_version) {	echo '<p>'.__('Current VamCart Version:').' <strong>'.$update_data->latest_version.'</strong></p>';
 	echo '<p>'.__('Click Update button to start VamCart AutoUpdate.').'</p>';
-	echo $this->Admin->linkButton(__('Update'),'/update/admin_update/','submit.png',array('escape' => false, 'class' => 'button'));
+	echo $this->Admin->linkButton(__('Update'),'/update/admin_update/','cus-tick',array('escape' => false, 'class' => 'btn'));
 }
 
 echo $this->Admin->ShowPageHeaderEnd();
