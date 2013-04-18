@@ -75,7 +75,7 @@ class ProchangeController extends PaymentAppController {
 			<input type="hidden" name="PRO_SUMMA" value="' . $order['Order']['total'] . '">';
 						
 		$content .= '
-			<span class="button"><button type="submit" value="{lang}Process to Payment{/lang}"><img src="{base_path}/img/icons/buttons/submit.png" width="12" height="12" alt="" />&nbsp;{lang}Process to Payment{/lang}</button></span>
+			<button class="btn" type="submit" value="{lang}Process to Payment{/lang}"><i class="cus-tick"></i> {lang}Process to Payment{/lang}</button>
 			</form>';
 	
 	// Save the order

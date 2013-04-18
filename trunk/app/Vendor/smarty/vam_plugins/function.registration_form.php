@@ -24,7 +24,7 @@ $template = '
 <div class="label"><label for="retype">{lang}Retype Password{/lang}:</label></div><input id="retype" name="customer[retype]" type="password" />
 <br />
 <br />
-<span class="button"><button type="submit" value="{lang}Register{/lang}"><img src="{base_path}/img/icons/buttons/submit.png" width="12" height="12" alt="" />&nbsp;{lang}Register{/lang}</button></span>
+<button class="btn" type="submit" value="{lang}Register{/lang}"><i class="cus-tick"></i> {lang}Register{/lang}</button>
 </form>
 ';
 
