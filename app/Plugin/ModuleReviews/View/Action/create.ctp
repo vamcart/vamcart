@@ -14,7 +14,7 @@
 		<textarea name="content"></textarea>
 	</div>
 	<div>
-		<span class="button"><button type="submit" value="{lang}Submit{/lang}">{lang}Submit{/lang}</button></span>
+		<button class="btn" type="submit" value="{lang}Submit{/lang}"><i class="cus-tick"></i> {lang}Submit{/lang}</button>
 	</div>
 	</form>
 	</div>

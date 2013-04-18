@@ -154,7 +154,7 @@ class AdminHelper extends Helper {
 			}
 			
 			$content .= '</select>
-							<noscript><span class="button"><input onclick="return confirm(\'' . __('Are you sure? You may not be able to undo this action.', true) . '\');" type="submit" value="' . __('Submit', true) . '"/></span></noscript>';
+							<noscript><input class="btn" onclick="return confirm(\'' . __('Are you sure? You may not be able to undo this action.', true) . '\');" type="submit" value="' . __('Submit', true) . '"/></noscript>';
 
 		}
 		$content .= '</div><div class="clear"></div>';		

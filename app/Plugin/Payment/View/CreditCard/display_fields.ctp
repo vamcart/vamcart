@@ -24,4 +24,4 @@
 	</div>
 </div>
 </div>
-<span class="button"><button type="submit" value="{lang}Confirm Order{/lang}">{lang}Confirm Order{/lang}</button></span>
+<button class="btn" type="submit" value="{lang}Confirm Order{/lang}"><i class="cus-tick"></i> {lang}Confirm Order{/lang}</button>

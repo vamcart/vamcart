@@ -8,7 +8,7 @@
 
 function smarty_function_purchase_button($params, $template)
 {
-	$result = '<span class="button"><button type="submit" value="'. __('Add To Cart', true) .'"><img src="'.BASE.'/img/icons/buttons/cart_add.png" width="12" height="12" alt="" />&nbsp;'. __('Add To Cart', true) .'</button></span>';
+	$result = '<button class="btn" type="submit" value="'. __('Add To Cart', true) .'"><i class="cus-cart-add"></i> '. __('Add To Cart', true) .'</button>';
 	return $result;
 }
 
