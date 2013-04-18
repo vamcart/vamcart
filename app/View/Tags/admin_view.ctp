@@ -39,7 +39,7 @@ if(isset($default_template))
 					)
 				));
 
-	echo $this->Admin->formButton(__('Create Micro Template From Tag'), 'submit.png', array('type' => 'submit', 'name' => 'submit'));
+	echo $this->Admin->formButton(__('Create Micro Template From Tag'), 'cus-tick', array('class' => 'btn', 'type' => 'submit', 'name' => 'submit'));
 	echo '<div class="clear"></div>';
 	echo $this->Form->end();
 	
