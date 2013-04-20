@@ -33,13 +33,55 @@ echo $this->Form->input('db_host', array(
 												'value' => $values['Install']['db_host']
 												));
 												
-echo $this->Form->input('db_name', array('label' => __('Database Name'), 'tooltip' => __('Database Name'), 'div' => 'input input-prepend', 'before' => '<span class="add-on"><i class="icon-briefcase"></i></span>', 'value' => $values['Install']['db_name']));
-echo $this->Form->input('db_username', array('label' => __('Database Username'), 'tooltip' => __('Database Username'), 'div' => 'input input-prepend', 'before' => '<span class="add-on"><i class="icon-user"></i></span>', 'value' => $values['Install']['db_username']));
-echo $this->Form->input('db_password', array('label' => __('Database Password'), 'tooltip' => __('Database Password'), 'div' => 'input input-prepend', 'before' => '<span class="add-on"><i class="icon-pencil"></i></span>', 'value' => $values['Install']['db_password']));
+echo $this->Form->input('db_name', array(
+												'label' => __('Database Name'), 
+												'tooltip' => __('Database Name'), 
+												'div' => 'input input-prepend', 
+												'before' => '<span class="add-on"><i class="icon-briefcase"></i></span>', 
+												'value' => $values['Install']['db_name']
+												));
+												
+echo $this->Form->input('db_username', array(
+												'label' => __('Database Username'), 
+												'tooltip' => __('Database Username'), 
+												'div' => 'input input-prepend', 
+												'before' => '<span class="add-on"><i class="icon-user"></i></span>', 
+												'value' => $values['Install']['db_username']
+												));
+												
+echo $this->Form->input('db_password', array(
+												'label' => __('Database Password'), 
+												'tooltip' => __('Database Password'), 
+												'div' => 'input input-prepend', 
+												'before' => '<span class="add-on"><i class="icon-pencil"></i></span>', 
+												'value' => $values['Install']['db_password']
+												));
+												
 echo '<div>'.__('Admin Credentials').'</div>';
-echo $this->Form->input('username', array('label' => __('Username'), 'tooltip' => __('Username'), 'div' => 'input input-prepend', 'before' => '<span class="add-on"><i class="icon-user"></i></span>', 'value' => $values['Install']['username']));
-echo $this->Form->input('email', array('label' => __('Email'), 'tooltip' => __('Email'), 'div' => 'input input-prepend', 'before' => '<span class="add-on"><i class="icon-envelope"></i></span>', 'value' => $values['Install']['email']));
-echo $this->Form->input('password', array('label' => __('Password'), 'tooltip' => __('Password'), 'div' => 'input input-prepend', 'before' => '<span class="add-on"><i class="icon-pencil"></i></span>', 'value' => $values['Install']['password']));
+
+echo $this->Form->input('username', array(
+												'label' => __('Username'), 
+												'tooltip' => __('Username'), 
+												'div' => 'input input-prepend', 
+												'before' => '<span class="add-on"><i class="icon-user"></i></span>', 
+												'value' => $values['Install']['username']
+												));
+												
+echo $this->Form->input('email', array(
+												'label' => __('Email'), 
+												'tooltip' => __('Email'), 
+												'div' => 'input input-prepend', 
+												'before' => '<span class="add-on"><i class="icon-envelope"></i></span>', 
+												'value' => $values['Install']['email']
+												));
+
+echo $this->Form->input('password', array(
+												'label' => __('Password'), 
+												'tooltip' => __('Password'), 
+												'div' => 'input input-prepend', 
+												'before' => '<span class="add-on"><i class="icon-pencil"></i></span>', 
+												'value' => $values['Install']['password']
+												));
 
 echo '<br />';
 
