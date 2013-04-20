@@ -27,6 +27,12 @@
 											'bootstrap/bootstrap.min.js'
 												),
 											array('inline' => true)); ?>
+<?php echo $this->Html->scriptBlock('
+//<![CDATA[
+$(document).ready(function () {$(\'[rel=tooltip],input[data-title]\').tooltip();});
+//]]>
+', array('allowCache'=>false,'safe'=>false,'inline'=>true)); ?>			
+								
 <?php echo $scripts_for_layout; ?>
 </head>
 
