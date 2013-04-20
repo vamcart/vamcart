@@ -31,7 +31,17 @@
  */
 class AppController extends Controller {
 	
-	public $helpers = array('Html', 'Js', 'Ajax', 'Form', 'Admin', 'Session');
+	public $helpers = array(
+	
+	'Html', 
+	'Js', 
+	'Ajax', 
+	'Form' => array('className' => 'VamcartForm'), 	
+	'Admin', 
+	'Session'
+	
+	);
+	 
 	public $components = array(
 		'RequestHandler',
 		'ConfigurationBase',

@@ -1,22 +1,10 @@
 <?php
-/**
- *
- * PHP 5
- *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       Cake.View.Layouts
- * @since         CakePHP(tm) v 0.10.0.1076
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
- */
-
-
+/* -----------------------------------------------------------------------------------------
+   VamCart - http://vamcart.com
+   -----------------------------------------------------------------------------------------
+   Copyright (c) 2011 VamSoft Ltd.
+   License - http://vamcart.com/license.html
+   ---------------------------------------------------------------------------------------*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,11 +21,18 @@
 										'bootstrap/cus-icons.css',
 										'bootstrap/bootstrap-responsive.css',
 											), null, array('inline' => true)); ?>
+
 <?php echo $this->Html->script(array(
 											'jquery/jquery.min.js',
 											'bootstrap/bootstrap.min.js'
 												),
 											array('inline' => true)); ?>
+<?php echo $this->Html->scriptBlock('
+//<![CDATA[
+$(document).ready(function () {$(\'[rel=tooltip],input[data-title]\').tooltip();});
+//]]>
+', array('allowCache'=>false,'safe'=>false,'inline'=>true)); ?>											
+											
 <?php echo $scripts_for_layout; ?>
 </head>
 
@@ -47,13 +42,21 @@
 
 <!-- Header -->
 <div id="header">
-<?php echo $this->Html->image('admin/logo.png', array('alt' => __('VamCart',true)))?>
+<div class="header-left">
+<?php echo $this->Html->link($this->Html->image('admin/logo.png', array('alt' => __('VamCart',true))), '/admin/admin_top/', array('escape'=>false));?>
+</div>
+<div class="clear"></div>
 </div>
 <!-- /Header -->
 
 <div id="menu">
 &nbsp;
 </div>
+ 
+<!-- Navigation -->
+<div id="navigation">
+</div>
+<!-- /Navigation -->
 
 <!-- Content -->
 <div id="wrapper">

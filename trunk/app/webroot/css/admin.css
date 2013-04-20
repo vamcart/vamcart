@@ -486,58 +486,19 @@ div.input label
 
 div.input
 	{
-		margin-bottom: .5em;
+		padding: 0 0 5px 0;
 		clear: both;
-	}
-	
-div.input input 
-	{
-		border: 1px solid; 
-		border-color: #666 #ccc #ccc #666; 
-		padding: .2em;
-		margin: 0;
-		border-top-left-radius: 4px;
-		border-top-right-radius: 4px;
-		border-bottom-left-radius: 4px;
-		border-bottom-right-radius: 4px;
-	}
-
-form#contentform div.input.text input, 
-form#contentform div.input.email input, 
-form#contentform div.input.password input 
-	{
-		border: 1px solid; 
-		border-color: #666 #ccc #ccc #666; 
-		padding: .2em;
-		margin: 0;
-		width: 300px;
-		border-top-left-radius: 4px;
-		border-top-right-radius: 4px;
-		border-bottom-left-radius: 4px;
-		border-bottom-right-radius: 4px;
 	}
 
 div.input select 
 	{
-		margin-left: .5em;
-		border-top-left-radius: 4px;
-		border-top-right-radius: 4px;
-		border-bottom-left-radius: 4px;
-		border-bottom-right-radius: 4px;
 	}
 
 div.input textarea 
 	{
-		overflow: auto; 
 		width: 70%; 
 		height: 20em; 
-		border: 1px solid; 
-		border-color: #666 #ccc #ccc #666; 
 		padding: .3em; 
-		border-top-left-radius: 4px;
-		border-top-right-radius: 4px;
-		border-bottom-left-radius: 4px;
-		border-bottom-right-radius: 4px;
 	}
 
 div.input textarea:focus, div.input input:focus, .sffocus, .sffocus 
