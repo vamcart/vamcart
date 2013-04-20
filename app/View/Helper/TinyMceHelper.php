@@ -22,8 +22,6 @@ class TinyMceHelper extends Helper {
 		} else {
 	$code .= $this->Html->scriptBlock('
 
-	$().ready(function() {
-	
 		$("textarea.pagesmalltextarea").tinymce({
 			// Location of TinyMCE script
 			script_url : "'.BASE.'/js/tiny_mce/tiny_mce.js",
@@ -54,8 +52,6 @@ class TinyMceHelper extends Helper {
 
 
 		    });
-
-	});
 	
 		function toggleHTMLEditor(id) {
 			if (!tinyMCE.get(id))
