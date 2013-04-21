@@ -26,7 +26,7 @@ echo $this->requestAction(array('controller' => 'install', 'action' => 'check_pe
 <?php
 echo $this->Form->create('Install', array('id' => 'contentform', 'action' => '/install/create/', 'url' => '/install/create/'));
 echo $this->Form->input('db_host', array(
-												'label' => __('Host'), 
+												'label' => false, 
 												'tooltip' => __('Host'), 
 												'div' => 'input input-prepend', 
 												'before' => '<span class="add-on"><i class="icon-home"></i></span>',  
@@ -34,7 +34,7 @@ echo $this->Form->input('db_host', array(
 												));
 												
 echo $this->Form->input('db_name', array(
-												'label' => __('Database Name'), 
+												'label' => false, 
 												'tooltip' => __('Database Name'), 
 												'div' => 'input input-prepend', 
 												'before' => '<span class="add-on"><i class="icon-briefcase"></i></span>', 
@@ -42,7 +42,7 @@ echo $this->Form->input('db_name', array(
 												));
 												
 echo $this->Form->input('db_username', array(
-												'label' => __('Database Username'), 
+												'label' => false, 
 												'tooltip' => __('Database Username'), 
 												'div' => 'input input-prepend', 
 												'before' => '<span class="add-on"><i class="icon-user"></i></span>', 
@@ -50,7 +50,7 @@ echo $this->Form->input('db_username', array(
 												));
 												
 echo $this->Form->input('db_password', array(
-												'label' => __('Database Password'), 
+												'label' => false, 
 												'tooltip' => __('Database Password'), 
 												'div' => 'input input-prepend', 
 												'before' => '<span class="add-on"><i class="icon-pencil"></i></span>', 
@@ -60,7 +60,7 @@ echo $this->Form->input('db_password', array(
 echo '<div>'.__('Admin Credentials').'</div>';
 
 echo $this->Form->input('username', array(
-												'label' => __('Username'), 
+												'label' => false, 
 												'tooltip' => __('Username'), 
 												'div' => 'input input-prepend', 
 												'before' => '<span class="add-on"><i class="icon-user"></i></span>', 
@@ -68,7 +68,7 @@ echo $this->Form->input('username', array(
 												));
 												
 echo $this->Form->input('email', array(
-												'label' => __('Email'), 
+												'label' => false, 
 												'tooltip' => __('Email'), 
 												'div' => 'input input-prepend', 
 												'before' => '<span class="add-on"><i class="icon-envelope"></i></span>', 
@@ -76,7 +76,7 @@ echo $this->Form->input('email', array(
 												));
 
 echo $this->Form->input('password', array(
-												'label' => __('Password'), 
+												'label' => false, 
 												'tooltip' => __('Password'), 
 												'div' => 'input input-prepend', 
 												'before' => '<span class="add-on"><i class="icon-pencil"></i></span>', 

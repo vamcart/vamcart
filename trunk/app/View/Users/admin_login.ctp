@@ -15,14 +15,14 @@
 	
 	echo $this->Form->create('User', array('id' => 'contentform', 'action' => '/users/admin_login/', 'url' => '/users/admin_login/'));
 	echo $this->Form->input('username', array(
-													'label' => __('Username'), 
+													'label' => false, 
 													'tooltip' => __('Username'), 
 													'div' => 'input input-prepend', 
 													'before' => '<span class="add-on"><i class="icon-user"></i></span>'
 													));
 													
 	echo $this->Form->input('password', array(
-													'label' => __('Password'), 
+													'label' => false, 
 													'tooltip' => __('Password'), 
 													'div' => 'input input-prepend', 
 													'before' => '<span class="add-on"><i class="icon-pencil"></i></span>'
