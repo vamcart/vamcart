@@ -42,21 +42,13 @@ $(document).ready(function () {$(\'[rel=tooltip],input[data-title]\').tooltip();
 
 <!-- Header -->
 <div id="header">
-<div class="header-left">
-<?php echo $this->Html->link($this->Html->image('admin/logo.png', array('alt' => __('VamCart',true))), '/admin/admin_top/', array('escape'=>false));?>
-</div>
-<div class="clear"></div>
+<?php echo $this->Html->image('admin/logo.png', array('alt' => __('VamCart',true)))?>
 </div>
 <!-- /Header -->
 
 <div id="menu">
 &nbsp;
 </div>
- 
-<!-- Navigation -->
-<div id="navigation">
-</div>
-<!-- /Navigation -->
 
 <!-- Content -->
 <div id="wrapper">
