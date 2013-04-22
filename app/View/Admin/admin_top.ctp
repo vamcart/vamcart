@@ -23,7 +23,7 @@ $(document).ready(function () {
 <?php
 	echo $this->Html->css('ui.tabs', null, array('inline' => false));
 	
-	echo $this->admin->ShowPageHeaderStart(__('Home',true), 'home.png');
+	echo $this->admin->ShowPageHeaderStart(__('Home',true), 'cus-house');
 
 	echo '<div id="news"></div>';
 

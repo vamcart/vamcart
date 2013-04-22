@@ -358,8 +358,8 @@ $("#myTabLang a:first").tab("show"); // Select first tab
 		$content .= '<div id="page">';
 		$content .= '<h2>';
 
-		if (!empty($icon) && file_exists(IMAGES . 'admin/icons/page/' . $icon)) {
-			$content .= $this->Html->image('admin/icons/page/'.$icon, array('alt' => '')).'&nbsp;' . $page_name;
+		if (!empty($icon)) {
+			$content .= '<i class="'.$icon.'"></i>'.' ' . $page_name;
 		} else {
 			$content .= $page_name;
 		}
