@@ -247,7 +247,7 @@ class AdminHelper extends Helper {
 	
 	public function DrawMenu ($navigation_walk)
 	{
-		$navigation .= '<ul class="nav">'."\n";
+		$navigation .= '<ul class="nav">';
 		foreach($navigation_walk AS $nav)
 		{
 			if(!empty($nav['children'])) {	
@@ -258,19 +258,18 @@ class AdminHelper extends Helper {
 									
 			if(!empty($nav['children']))	
 			{
-		$navigation .= "\n".'<ul class="dropdown-menu">'."\n";
+			$navigation .= '<ul class="dropdown-menu">';
 				foreach($nav['children'] AS $navchild)
 				{
-					$navigation .= '<li>' . $this->MenuLink($navchild, array('escape' => false)) . '</li>'."\n";
+					$navigation .= '<li>' . $this->MenuLink($navchild, array('escape' => false)) . '</li>';
 				}
-		$navigation .= '</ul>'."\n";
+			$navigation .= '</ul>';
 			}
 			if(!empty($nav['children'])) {	
-			$navigation .= '</li>'."\n";
+			$navigation .= '</li>';
 			}
 		}
-		$navigation .= '</ul>'."\n";
-		//$navigation .= $this->Html->image('admin/transparency.png', array('class' => 'menu')).'</div>' . "\n";
+		$navigation .= '</ul>';
 		
 		return($navigation);
 	}
