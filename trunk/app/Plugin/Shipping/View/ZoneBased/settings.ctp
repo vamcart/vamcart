@@ -19,33 +19,32 @@ $types = array('weight' => __('Weight'),
 $geo_zones[-1] = __('Select zone');
 ksort($geo_zones);
 
-$fields['key_values.zone_based_type'] = array(
+echo $this->Form->input($fields['key_values.zone_based_type'], array(
             'type'      => 'select',
             'selected'  => $data['ShippingMethodValue'][0]['value'],
             'label'     => __('Based Off'),
             'options'   => $types
-            );
+            ));
 
 for ($i = 0; $i < $num_zones; $i++) {
-    $fields['key_values.zone_based_zone_' . ($i + 1)] = array(
+echo $this->Form->input($fields['key_values.zone_based_zone_' . ($i + 1)], array(
         'type'     => 'select',
         'label'    => __('Geo Zone') . ' ' . ($i + 1),
         'selected' => $data['ShippingMethodValue'][$i*3 + 1]['value'],
         'options'  => $geo_zones
-    );
+    ));
 
-    $fields['key_values.zone_based_cost_' . ($i + 1)] = array(
+echo $this->Form->input($fields['key_values.zone_based_cost_' . ($i + 1)], array(
         'type'  => 'text',
         'label' => __('Shipping Cost for Zone') . ' ' . ($i + 1),
         'value' => $data['ShippingMethodValue'][$i*3 + 2]['value']
-    );
+    ));
 
-    $fields['key_values.zone_based_handling_' . ($i + 1)] = array(
+echo $this->Form->input($fields['key_values.zone_based_handling_' . ($i + 1)], array(
         'type'  => 'text',
         'label' => __('Shipping Handling Cost for Zone') . ' ' . ($i + 1),
         'value' => $data['ShippingMethodValue'][$i*3 + 3]['value']
-    );
+    ));
 }
 
-echo $this->Form->inputs($fields);
 ?>

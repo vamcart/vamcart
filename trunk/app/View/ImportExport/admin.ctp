@@ -10,15 +10,12 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'import.png');
 
 	echo $this->Form->create('ImportExport', array('enctype' => 'multipart/form-data', 'id' => 'contentform', 'action' => '/import_export/import/', 'url' => '/import_export/import/'));
 
-	echo $this->Form->inputs(array(
-					'legend' => null,
-					'fieldset' => __('YML Import'),
-				   'ImportExport.submittedfile' => array(
-				   	'type' => 'file',
-				   	'label' => __('YML Import'),
-						'between'=>'<br />'
-	               )
-		 ));
+	echo $this->Form->input('ImportExport.submittedfile', 
+						array(
+				   		'type' => 'file',
+				   		'label' => __('YML Import'),
+							'between'=>'<br />'
+	               ));
 
 	echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn', 'type' => 'submit', 'name' => 'submit')) . $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn', 'type' => 'submit', 'name' => 'cancelbutton'));
 	

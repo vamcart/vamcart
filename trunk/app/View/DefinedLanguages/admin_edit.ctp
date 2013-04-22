@@ -15,14 +15,11 @@ $this->Html->script(array(
 	
 	echo $this->Form->create('DefinedLanguage', array('id' => 'contentform', 'action' => '/defined_languages/admin_edit/'.$defined_key, 'url' => '/defined_languages/admin_edit/'.$defined_key));
 	
-		echo $this->Form->inputs(array(
-					'legend' => null,
-					'fieldset' => __('Defined Language Details'),
-	               'DefinedLanguage.key' => array(
-   				   		'label' => __('Alias'),				   
+		echo $this->Form->input('DefinedLanguage.key', 
+						array(
+   				   	'label' => __('Alias'),				   
    						'value' => $defined_key
-	               )
-				));
+	               ));
 	
 			echo '<ul id="myTabLang" class="nav nav-tabs">';
 	foreach($languages AS $language)
@@ -44,14 +41,13 @@ $this->Html->script(array(
 		if(!isset($data[$language_key]['DefinedLanguage']['value']))
 			$data[$language_key]['DefinedLanguage']['value'] = "";
 			
-		echo $this->Form->inputs(array(
-					'legend' => null,
-					'DefinedLanguage]['.$language['Language']['id'].'][value' => array(
-			   	'label' => $this->Admin->ShowFlag($language['Language']) . '&nbsp;' . __('Value'),
-					'type' => 'textarea',
-					'class' => 'pagesmalltextarea',											
-					'value' => $data[$language_key]['DefinedLanguage']['value']
-            	  )));
+		echo $this->Form->input('DefinedLanguage]['.$language['Language']['id'].'][value', 
+					array(
+			   		'label' => $this->Admin->ShowFlag($language['Language']) . '&nbsp;' . __('Value'),
+						'type' => 'textarea',
+						'class' => 'pagesmalltextarea',											
+						'value' => $data[$language_key]['DefinedLanguage']['value']
+            	  ));
             	  
 	echo $this->Admin->EndTabContent();
 	

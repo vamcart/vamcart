@@ -26,24 +26,24 @@ $this->Html->css(array(
 
 	echo $this->Form->create('MicroTemplate', array('id' => 'contentform', 'action' => '/micro_templates/admin_edit/'.$id, 'url' => '/micro_templates/admin_edit/'.$id));
 		
-		echo $this->Form->inputs(array(
-					'legend' => null,
-					'fieldset' => __('Micro Template Details'),
-					'MicroTemplate.id' => array(
+		echo $this->Form->input('MicroTemplate.id', 
+							array(
    				   		'type' => 'hidden'
-	                ),  
-					'MicroTemplate.alias' => array(
+							));  
+		echo $this->Form->input('MicroTemplate.alias', 
+							array(
    				   		'label' => __('Alias')
-	                ),
-	                'MicroTemplate.tag_name' => array(
+							));
+		echo $this->Form->input('MicroTemplate.tag_name', 
+							array(
    				   		'label' => __('Tag Name')
-	                ),
-					'MicroTemplate.template' => array(
-						'type' => 'textarea',
+	                	));
+		echo $this->Form->input('MicroTemplate.template', 
+							array(
+								'type' => 'textarea',
    				   		'id' => 'code',
    				   		'label' => __('Template')
-	                ),
-				));
+	                	));
 
 	echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn', 'type' => 'submit', 'name' => 'submit')) . $this->Admin->formButton(__('Apply'), 'cus-disk', array('class' => 'btn', 'type' => 'submit', 'name' => 'apply')) . $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn', 'type' => 'submit', 'name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';

@@ -6,12 +6,10 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $this->Form->inputs(array(
-	'legend' => null,
-	'paypal.paypal_email' => array(
+echo $this->Form->input('paypal.paypal_email', array(
 	'label' => __('Paypal Email'),
 	'type' => 'text',
 	'value' => $data['PaymentMethodValue'][0]['value']
-)));
+));
 
 ?>

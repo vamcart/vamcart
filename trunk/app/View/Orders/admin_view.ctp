@@ -193,37 +193,40 @@ echo '</table>';
 
 echo $this->Form->create('OrderComment', array('id' => 'contentform', 'action' => '/orders/admin_new_comment/', 'url' => '/orders/admin_new_comment/'));
 
-	echo $this->Form->inputs(array(
-			'legend' => null,
-			'Order.id' => array(
+	echo $this->Form->input('Order.id', 
+			array(
 				'type' => 'hidden',
 				'value' => $data['Order']['id']
-			),	
-			'Order.order_status_id' => array(
+			));	
+	echo $this->Form->input('Order.order_status_id', 
+			array(
 				'type' => 'select',
 				'options' => $order_status_list,
 				'selected' => $data['Order']['order_status_id'],
 				'label' => __('Update Status')
-			),
-			'OrderComment.order_id' => array(
+			));
+	echo $this->Form->input('OrderComment.order_id', 
+			array(
 				'type' => 'hidden',
 				'value' => $data['Order']['id']
-			),				
-			'OrderComment.user_id' => array(
+			));				
+	echo $this->Form->input('OrderComment.user_id', 
+			array(
 				'type' => 'hidden',
 				'value' => $_SESSION['User']['id']
-			),	
-			'OrderComment.sent_to_customer' => array(
+			));	
+	echo $this->Form->input('OrderComment.sent_to_customer', 
+			array(
 				'type' => 'checkbox',
 				'label' => __('Send To Customer'),
 				'class' => 'checkbox_group'
-			)									,
-			'OrderComment.comment' => array(
+			));
+	echo $this->Form->input('OrderComment.comment', 
+			array(
 				'type' => 'textarea',
 				'label' => __('Comment'),
 				'class' => 'pagesmallesttextarea'
-			)
-		));
+			));
 
 	echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn', 'type' => 'submit', 'name' => 'submit', 'id' => 'submit'));
 	echo '<div class="clear"></div>';

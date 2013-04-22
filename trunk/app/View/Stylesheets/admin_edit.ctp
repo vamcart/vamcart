@@ -32,40 +32,38 @@ $this->Html->css(array(
 	echo $this->Admin->StartTabs();
 
 	echo $this->Admin->StartTabContent('main');
-	echo $this->Form->inputs(array(
-					'legend' => null,
-					'fieldset' => __('Stylesheet Details'),
-				   'Stylesheet.id' => array(
+
+	echo $this->Form->input('Stylesheet.id', array(
 				   		'type' => 'hidden',
 						'value' => $data['Stylesheet']['id']
-	               ),
-	               'Stylesheet.name' => array(
+	               ));
+
+	echo $this->Form->input('Stylesheet.name', array(
    				   		'label' => __('Name'),				   
    						'value' => $data['Stylesheet']['name']
-	               ),
-				   'Stylesheet.stylesheet' => array(
+	               ));
+
+	echo $this->Form->input('Stylesheet.stylesheet', array(
    				   		'label' => __('Stylesheets'),				   
    						'id' => 'code',
    						'value' => $data['Stylesheet']['stylesheet']
-	               )																										
-			));
+	               ));
+
 	echo $this->Admin->EndTabContent();
 
 	echo $this->Admin->StartTabContent('options');			
-		echo $this->Form->inputs(array(
-					'legend' => null,
-					'fieldset' => __('Stylesheet Details'),
-					'Stylesheet.alias' => array(
+		
+	echo $this->Form->input('Stylesheet.alias', array(
 			   		'label' => __('Alias'),				   
 					'value' => $data['Stylesheet']['alias']
-                	),
-				   'Stylesheet.active' => array(
+                	));
+                	
+	echo $this->Form->input('Stylesheet.active', array(
 				   		'label' => __('Active'),
 				   		'type' => 'checkbox',
 						'class' => 'checkbox_group',						
    						'checked' => $active_checked
-	               )																										
-			));
+	               )	);
 			
 	echo $this->Admin->EndTabContent();			
 

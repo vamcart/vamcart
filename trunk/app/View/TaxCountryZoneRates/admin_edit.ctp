@@ -14,18 +14,16 @@ $this->Html->script(array(
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
         echo $this->Form->create('TaxCountryZoneRate', array('id' => 'contentform', 'action' => '/tax_country_zone_rates/admin_edit/' . $data['Tax']['id'] . '/' . $data['TaxCountryZoneRate']['id'], 'url' => '/tax_country_zone_rates/admin_edit/' . $data['Tax']['id'] . '/' . $data['TaxCountryZoneRate']['id']));
-	echo $this->Form->inputs(array(
-					'legend' => null,
-					'fieldset' => __('Tax Zone Rates Details'),
-				   'TaxCountryZoneRate.id' => array(
+	echo $this->Form->input('TaxCountryZoneRate.id', 
+						array(
 				   		'type' => 'hidden',
-						'value' => $data['TaxCountryZoneRate']['id']
-	               ),
-	               'TaxCountryZoneRate.rate' => array(
+							'value' => $data['TaxCountryZoneRate']['id']
+	               ));
+	echo $this->Form->input('TaxCountryZoneRate.rate', 
+						array(
 				   		'label' => __('Tax Rate'),
    						'value' => $data['TaxCountryZoneRate']['rate']
-	               )		     				   	   																									
-			));
+	               ));
 	echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn', 'type' => 'submit', 'name' => 'submit')) . $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn', 'type' => 'submit', 'name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';
 	echo $this->Form->end();

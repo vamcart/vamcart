@@ -24,29 +24,25 @@ $this->Html->script(array(
 	echo $this->Admin->StartTabs();
 	
 	echo $this->Admin->StartTabContent('main');
-		echo $this->Form->inputs(array(
-					'legend' => null,
-					'fieldset' => __('User Tag Details'),
-				   'UserTag.id' => array(
+		echo $this->Form->input('UserTag.id', 
+						array(
 				   		'type' => 'hidden'
-	               ),
-	               'UserTag.name' => array(
-   				   		'label' => __('Name')
-	               ),
-				   'UserTag.content' => array(
-   				   		'label' => __('Content')
-	               )																										
-			));
+	               ));
+		echo $this->Form->input('UserTag.name', 
+						array(
+   				   	'label' => __('Name')
+	               ));
+		echo $this->Form->input('UserTag.content', 
+						array(
+   				   	'label' => __('Content')
+	               ));
 	echo $this->Admin->EndTabContent();
 
 	echo $this->Admin->StartTabContent('options');
-		echo $this->Form->inputs(array(
-					'legend' => null,
-					'fieldset' => __('User Tag Details'),
-	                'UserTag.alias' => array(
-   				   		'label' => __('Alias')
-	                )																								
-			));
+		echo $this->Form->input('UserTag.alias', 
+						array(
+   				   	'label' => __('Alias')
+	                ));
 	echo $this->Admin->EndTabContent();
 	
 	echo $this->Admin->EndTabs();

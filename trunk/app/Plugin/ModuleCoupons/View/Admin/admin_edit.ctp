@@ -24,52 +24,44 @@ $this->Html->script(array(
 	echo $this->Admin->StartTabs();
 	
 echo $this->Admin->StartTabContent('main');
-	echo $this->Form->inputs(array(
-		'legend' => null,
-		'fieldset' => __('Coupon Details'),
-			'ModuleCoupon.id' => array(
+	echo $this->Form->input('ModuleCoupon.id', array(
 				'type' => 'hidden'
-             ),
-			'ModuleCoupon.name' => array(
+             ));
+	echo $this->Form->input('ModuleCoupon.name', array(
 				'label' => __('Name')
-             ),			 
-			'ModuleCoupon.code' => array(
+             ));			 
+	echo $this->Form->input('ModuleCoupon.code', array(
 				'label' => __('Coupon Code')
-             ),
-			'ModuleCoupon.free_shipping' => array(
+             ));
+	echo $this->Form->input('ModuleCoupon.free_shipping', array(
 				'label' => __('Free Shipping'),
 				'options' => $free_shipping_options
-             ),
-			'ModuleCoupon.percent_off_total' => array(
+             ));
+	echo $this->Form->input('ModuleCoupon.percent_off_total', array(
 				'label' => __('Percent Off Total')
-             ),
-			'ModuleCoupon.amount_off_total' => array(
+             ));
+	echo $this->Form->input('ModuleCoupon.amount_off_total', array(
 				'label' => __('Amount Off Total')
-             )
-   ));
+             ));
 echo $this->Admin->EndTabContent();   
 
 echo $this->Admin->StartTabContent('restrictions');
-	echo $this->Form->inputs(array(
-			'legend' => null,
-			'fieldset' => __('Coupon Details'),
-			'ModuleCoupon.max_uses' => array(
+	echo $this->Form->input('ModuleCoupon.max_uses', array(
 				'label' => __('Max Uses'),
 				'value' => (empty($this->data)?1000:$this->data['ModuleCoupon']['max_uses'])
-             ),
-			'ModuleCoupon.min_product_count' => array(
+             ));
+	echo $this->Form->input('ModuleCoupon.min_product_count', array(
 				'label' => __('Min Product Count')
-             ),
-			'ModuleCoupon.max_product_count' => array(
+             ));
+	echo $this->Form->input('ModuleCoupon.max_product_count', array(
 				'label' => __('Max Product Count')
-             ),
-			'ModuleCoupon.min_order_total' => array(
+             ));
+	echo $this->Form->input('ModuleCoupon.min_order_total', array(
 				'label' => __('Min Order Total')
-             ),
-			'ModuleCoupon.max_order_total' => array(
+             ));
+	echo $this->Form->input('ModuleCoupon.max_order_total', array(
 				'label' => __('Max Order Total')
-             )
-	));
+             ));
 echo $this->Admin->EndTabContent();   
 
 	echo $this->Admin->EndTabs();

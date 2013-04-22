@@ -51,31 +51,29 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 	echo $this->Admin->StartTabs();
 	
 	echo $this->Admin->StartTabContent('main');
-		echo $this->Form->inputs(array(
-				'fieldset' => false,
-				'legend' => false,
-				'Content.id' => array(
-					'type' => 'hidden',
-					'value' => $data['Content']['id']
-	               ),
-				'Content.parent_id' => array(
-					'type' => 'hidden',
-					'value' => $parent_id
-	               ),
-				'Content.order' => array(
-					'type' => 'hidden',
-					'value' => $data['Content']['order']
-	               )
-				   ));
+		echo $this->Form->input('Content.id', 
+						array(
+							'type' => 'hidden',
+							'value' => $data['Content']['id']
+	               ));
+		echo $this->Form->input('Content.parent_id', 
+						array(
+							'type' => 'hidden',
+							'value' => $parent_id
+	               ));
+		echo $this->Form->input('Content.order', 
+						array(
+							'type' => 'hidden',
+							'value' => $data['Content']['order']
+	               ));
 			
-   		echo $this->Form->inputs(array(
-						'legend' => false,
-   					'Content.content_type_id' => array(
-						'type' => 'select',
-				   	'label' => __('Content Type'),
-						'options' => $content_types,
-						'selected' => (!isset($data['Content']['content_type_id'])? 2 : $data['Content']['content_type_id'])
-	               )));
+   		echo $this->Form->input('Content.content_type_id', 
+   					array(
+							'type' => 'select',
+				   		'label' => __('Content Type'),
+							'options' => $content_types,
+							'selected' => (!isset($data['Content']['content_type_id'])? 2 : $data['Content']['content_type_id'])
+	               ));
 
 		echo '<div id="content_type_fields">';
 			echo $this->requestAction( '/contents/admin_edit_type/' . (!isset($data['Content']['content_type_id'])? 2 : $data['Content']['content_type_id']) . '/' . $data['Content']['id'], array('return'));
@@ -83,15 +81,13 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 	
 	echo '<div class="template_required" id="template_required_template_picker" style="display:' . $tpl_req_style . ';">';
 	
-		echo $this->Form->inputs(array(
-					'legend' => false,
-					'Content.template_id' => array(
-						'type' => 'select',
-						'label' => __('Template'),
-						'options' => $templates,
-						'selected' => $data['Content']['template_id']
-					)
-		));
+		echo $this->Form->input('Content.template_id', 
+						array(
+							'type' => 'select',
+							'label' => __('Template'),
+							'options' => $templates,
+							'selected' => $data['Content']['template_id']
+						));
 	echo '</div>';	
 
 
@@ -111,47 +107,42 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
 	echo $this->Admin->StartTabContent('language_'.$language_key);
 			
-		echo $this->Form->inputs(array(
-						'legend' => false,
-						'ContentDescription]['.$language['Language']['id'].'][name.' . $language['Language']['id'] => array(
-				   	'label' => $this->Admin->ShowFlag($language['Language']) . '&nbsp;' . __('Title'),
-						'value' => $data['ContentDescription'][$language_key]['name']
-	            	  )));																								
+		echo $this->Form->input('ContentDescription]['.$language['Language']['id'].'][name.' . $language['Language']['id'], 
+						array(
+				   		'label' => $this->Admin->ShowFlag($language['Language']) . '&nbsp;' . __('Title'),
+							'value' => $data['ContentDescription'][$language_key]['name']
+						));																								
 	
 		echo '<div id="template_required_' . $language['Language']['id'] . '" class="template_required" style="display:' . $tpl_req_style . ';">';
-			echo $this->Form->inputs(array(
-						'legend' => false,
-						'ContentDescription]['.$language['Language']['id'].'][description.' . $language['Language']['id'] => array(
-				   	'label' => $this->Admin->ShowFlag($language['Language']) . '&nbsp;' . __('Description'),
-						'type' => 'textarea',
-						'class' => 'pagesmalltextarea',
-						'id' => 'content_description_'.$language['Language']['id'],						
-						'value' => $data['ContentDescription'][$language_key]['description']
-	            	  )));
+			echo $this->Form->input('ContentDescription]['.$language['Language']['id'].'][description.' . $language['Language']['id'], 
+						array(
+				   		'label' => $this->Admin->ShowFlag($language['Language']) . '&nbsp;' . __('Description'),
+				   		'type' => 'textarea',
+				   		'class' => 'pagesmalltextarea',
+				   		'id' => 'content_description_'.$language['Language']['id'],						
+				   		'value' => $data['ContentDescription'][$language_key]['description']
+						));
 		echo '</div>';						  
 		
 		echo $this->TinyMce->toggleEditor('content_description_'.$language['Language']['id']);						  
 		
-		echo $this->Form->inputs(array(
-						'legend' => false,
-						'ContentDescription]['.$language['Language']['id'].'][meta_title.' . $language['Language']['id'] => array(
-				   	'label' => $this->Admin->ShowFlag($language['Language']) . '&nbsp;' . __('Meta Title'),
-						'value' => $data['ContentDescription'][$language_key]['meta_title']
-	            	  )));																								
+		echo $this->Form->input('ContentDescription]['.$language['Language']['id'].'][meta_title.' . $language['Language']['id'], 
+						array(
+				   		'label' => $this->Admin->ShowFlag($language['Language']) . '&nbsp;' . __('Meta Title'),
+				   		'value' => $data['ContentDescription'][$language_key]['meta_title']
+						));																								
 
-		echo $this->Form->inputs(array(
-						'legend' => false,
-						'ContentDescription]['.$language['Language']['id'].'][meta_description.' . $language['Language']['id'] => array(
-				   	'label' => $this->Admin->ShowFlag($language['Language']) . '&nbsp;' . __('Meta Description'),
-						'value' => $data['ContentDescription'][$language_key]['meta_description']
-	            	  )));																								
+		echo $this->Form->input('ContentDescription]['.$language['Language']['id'].'][meta_description.' . $language['Language']['id'], 
+						array(
+				   		'label' => $this->Admin->ShowFlag($language['Language']) . '&nbsp;' . __('Meta Description'),
+				   		'value' => $data['ContentDescription'][$language_key]['meta_description']
+						));																								
 
-		echo $this->Form->inputs(array(
-						'legend' => false,
-						'ContentDescription]['.$language['Language']['id'].'][meta_keywords.' . $language['Language']['id'] => array(
-				   	'label' => $this->Admin->ShowFlag($language['Language']) . '&nbsp;' . __('Meta Keywords'),
-						'value' => $data['ContentDescription'][$language_key]['meta_keywords']
-	            	  )));																								
+		echo $this->Form->input('ContentDescription]['.$language['Language']['id'].'][meta_keywords.' . $language['Language']['id'], 
+						array(
+				   		'label' => $this->Admin->ShowFlag($language['Language']) . '&nbsp;' . __('Meta Keywords'),
+				   		'value' => $data['ContentDescription'][$language_key]['meta_keywords']
+						));																								
 
 	echo $this->Admin->EndTabContent();
 	}
@@ -241,34 +232,34 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 	echo $this->Admin->EndTabContent();
 
 	echo $this->Admin->StartTabContent('options');
-			echo $this->Form->inputs(array(
-					'legend' => false,
-					'fieldset' => __('Content Details'),
-                'Content.alias' => array(
+			echo $this->Form->input('Content.alias', 
+					array(
 			   		'label' => __('Alias'),				   
-					'value' => $data['Content']['alias']
-                ),
-				'Content.head_data' => array(
-					'label' => __('Head Data'),
-					'type' => 'textarea',
-					'class' => 'notinymce',
-					'value' => $data['Content']['head_data']
-	             ),				
-			    'Content.active' => array(
-					'type' => 'checkbox',
+						'value' => $data['Content']['alias']
+					));
+			echo $this->Form->input('Content.head_data', 
+					array(
+						'label' => __('Head Data'),
+						'type' => 'textarea',
+						'class' => 'notinymce',
+						'value' => $data['Content']['head_data']
+	            ));				
+			echo $this->Form->input('Content.active', 
+					array(
+						'type' => 'checkbox',
 			   		'label' => __('Active'),
-					'value' => '1',
-					'class' => 'checkbox_group',
-					'checked' => $active_checked
-                ),
-			    'Content.show_in_menu' => array(
-					'type' => 'checkbox',
+						'value' => '1',
+						'class' => 'checkbox_group',
+						'checked' => $active_checked
+					));
+			echo $this->Form->input('Content.show_in_menu', 
+					array(
+						'type' => 'checkbox',
 			   		'label' => __('Show in menu'),
-					'value' => '1',
-					'class' => 'checkbox_group',
-					'checked' => $menu_checked
-                )
-		));
+						'value' => '1',
+						'class' => 'checkbox_group',
+						'checked' => $menu_checked
+					));
 	echo $this->Admin->EndTabContent();
 
 	echo $this->Admin->EndTabs();
