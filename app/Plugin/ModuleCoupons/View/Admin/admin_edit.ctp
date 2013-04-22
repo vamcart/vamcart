@@ -18,7 +18,7 @@ $this->Html->script(array(
 
 			echo '<ul id="myTab" class="nav nav-tabs">';
 			echo $this->Admin->CreateTab('main',__('Main'), 'cus-application');
-			echo $this->Admin->CreateTab('restrictions',__('Restrictions'), 'restrictions.png');			
+			echo $this->Admin->CreateTab('restrictions',__('Restrictions'), 'cus-key');			
 			echo '</ul>';
 
 	echo $this->Admin->StartTabs();

@@ -14,10 +14,10 @@ $this->Html->script(array(
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'view.png');
 
 			echo '<ul id="myTab" class="nav nav-tabs">';
-			echo $this->Admin->CreateTab('customer',__('Customer'), 'customer.png');
-			echo $this->Admin->CreateTab('order',__('Products'), 'products.png');	
-			echo $this->Admin->CreateTab('comments',__('Order Comments'), 'comment.png');
-			echo $this->Admin->CreateTab('status',__('New Comment'), 'comment_add.png');	
+			echo $this->Admin->CreateTab('customer',__('Customer'), 'cus-user');
+			echo $this->Admin->CreateTab('order',__('Products'), 'cus-cart');	
+			echo $this->Admin->CreateTab('comments',__('Order Comments'), 'cus-comment');
+			echo $this->Admin->CreateTab('status',__('New Comment'), 'cus-comment-add');	
 			echo '</ul>';
 
 	echo $this->Admin->StartTabs();

@@ -14,9 +14,9 @@ CREATE TABLE `configuration_groups` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `configuration_groups` (`id`, `key`, `name`, `description`, `group_icon`, `visible`, `sort_order`) VALUES 
-(1, 'main', 'Main','','main.png','1','1'),
-(2, 'cache', 'Caching','','cache.png','1','2'),
-(3, 'email', 'Email Settings','','email.png','1','3');
+(1, 'main', 'Main','','cus-application','1','1'),
+(2, 'cache', 'Caching','','cus-compress','1','2'),
+(3, 'email', 'Email Settings','','cus-email','1','3');
 
 DROP TABLE IF EXISTS configurations;
 CREATE TABLE `configurations` (
