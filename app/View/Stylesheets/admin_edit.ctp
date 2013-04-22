@@ -8,8 +8,6 @@
 
 $this->Html->script(array(
 	'modified.js',
-	'jquery/plugins/jquery-ui-min.js',
-	'tabs.js',
 	'focus-first-input.js',
 	'codemirror/lib/codemirror.js',
 	'codemirror/mode/javascript/javascript.js',
@@ -19,7 +17,6 @@ $this->Html->script(array(
 ), array('inline' => false));
 
 $this->Html->css(array(
-	'ui.tabs',
 	'codemirror/codemirror'
 ), null, array('inline' => false));
 
@@ -27,11 +24,12 @@ $this->Html->css(array(
 
 	echo $this->Form->create('Stylesheet', array('id' => 'contentform', 'action' => '/stylesheets/admin_edit/'.$data['Stylesheet']['id'], 'url' => '/stylesheets/admin_edit/'.$data['Stylesheet']['id']));
 
-	echo $this->Admin->StartTabs();
-			echo '<ul>';
-			echo $this->Admin->CreateTab('main',__('Main'), 'main.png');
-			echo $this->Admin->CreateTab('options',__('Options'), 'options.png');			
+			echo '<ul id="myTab" class="nav nav-tabs">';
+			echo $this->Admin->CreateTab('main',__('Main'), 'cus-application');
+			echo $this->Admin->CreateTab('options',__('Options'), 'cus-cog');			
 			echo '</ul>';
+
+	echo $this->Admin->StartTabs();
 
 	echo $this->Admin->StartTabContent('main');
 	echo $this->Form->inputs(array(

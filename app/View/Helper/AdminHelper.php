@@ -24,7 +24,11 @@ class AdminHelper extends Helper {
 	*/
 	public function StartTabContent ($tab_alias)
 	{
-		return('<div id="' . $tab_alias . '">');		
+   static $count = 0;
+   $count++;
+   $active = '';
+   if ($count==1) $active= ' in active';
+		return('<div id="' . $tab_alias . '" class="tab-pane fade'.$active.'">');		
 	}
 	
 	
@@ -47,9 +51,9 @@ class AdminHelper extends Helper {
 	public function StartTabs ($id = null)
 	{
 		if (isset($id)) {
-			$content = '<div id="'.$id.'">';
+			$content = '<div id="'.$id.'" class="tab-content">';
 		} else {
-			$content = '<div id="tabs">';
+			$content = '<div id="myTabContent" class="tab-content">';
 		}
 		return $content;
 	}
@@ -62,10 +66,10 @@ class AdminHelper extends Helper {
 	*/	
 	public function CreateTab ($tab_alias, $tab_name = null, $icon = null)
 	{
-		if (!empty($icon) && file_exists(IMAGES . 'admin/icons/tabs/' . $icon)) {
-			$content = '<li><a href ="#' . $tab_alias . '"><span>' . $this->Html->image('admin/icons/tabs/'.$icon, array('alt' => '')).'&nbsp;' . $tab_name . '</span></a></li>';
+		if (!empty($icon)) {
+			$content = '<li><a href ="#' . $tab_alias . '" data-toggle="tab"><i class="'.$icon.'"></i> ' . $tab_name . '</a></li>';
 		} else {
-			$content = '<li><a href ="#' . $tab_alias . '"><span>' . $tab_name . '</span></a></li>';
+			$content = '<li><a href ="#' . $tab_alias . '" data-toggle="tab">' . $tab_name . '</a></li>';
 		}
 		return $content;
 	}	
@@ -77,7 +81,18 @@ class AdminHelper extends Helper {
 	*/	
 	public function EndTabs ()
 	{
-		return('</div>');
+		
+	$content = $this->Html->scriptBlock('
+$(document).ready(function () {
+
+$("#myTab a:first").tab("show"); // Select first tab	
+	
+});
+', array('allowCache'=>false,'safe'=>false,'inline'=>true));			
+
+	$content .= '</div>';
+		
+		return $content;
 	}
 	
 	public function TableCells ($cell_array)
