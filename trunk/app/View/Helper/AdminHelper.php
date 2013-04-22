@@ -24,11 +24,10 @@ class AdminHelper extends Helper {
 	*/
 	public function StartTabContent ($tab_alias)
 	{
-   static $count = 0;
-   $count++;
-   $active = '';
-   if ($count==1) $active= ' in active';
-		return('<div id="' . $tab_alias . '" class="tab-pane fade'.$active.'">');		
+		static $count = 0;
+		$count++;
+		
+		return('<div id="' . $tab_alias . '" class="tab-pane fade'.(($count==1) ? ' in active' : '').'">');		
 	}
 	
 	
