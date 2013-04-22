@@ -17,13 +17,6 @@ html,body
 		background-repeat: repeat-x; 
 	}
 
-body
-	{
-		font-family: 'Lucida Grande', Helvetica, Arial, Verdana, sans-serif;
-		font-size: 11pt;
-		line-height: 1;
-	}
-
 img
 	{
 		border: 0;
@@ -603,7 +596,6 @@ div.error input
 		margin-top: 2px;
 		width: 337px;
 		font-size: 7pt;
-		font-family: Arial;
 		text-align: left;
 		white-space: nowrap;
 	}
