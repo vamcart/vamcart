@@ -85,6 +85,7 @@ class AdminHelper extends Helper {
 $(document).ready(function () {
 
 $("#myTab a:first").tab("show"); // Select first tab	
+$("#myTabLang a:first").tab("show"); // Select first tab	
 	
 });
 ', array('allowCache'=>false,'safe'=>false,'inline'=>true));			

@@ -8,23 +8,19 @@
 
 $this->Html->script(array(
 	'modified.js',
-	'jquery/plugins/jquery-ui-min.js',
-	'tabs.js',
 	'focus-first-input.js'
 ), array('inline' => false));
 
-	echo $this->Html->css('ui.tabs', null, array('inline' => false));
-
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'view.png');
 
-	echo $this->Admin->StartTabs();
-			echo '<ul>';
+			echo '<ul id="myTab" class="nav nav-tabs">';
 			echo $this->Admin->CreateTab('customer',__('Customer'), 'customer.png');
 			echo $this->Admin->CreateTab('order',__('Products'), 'products.png');	
 			echo $this->Admin->CreateTab('comments',__('Order Comments'), 'comment.png');
 			echo $this->Admin->CreateTab('status',__('New Comment'), 'comment_add.png');	
 			echo '</ul>';
 
+	echo $this->Admin->StartTabs();
 		   		   
 	echo $this->Admin->StartTabContent('customer');
 

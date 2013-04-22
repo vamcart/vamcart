@@ -8,8 +8,6 @@
 
 $this->Html->script(array(
 	'modified.js',
-	'jquery/plugins/jquery-ui-min.js',
-	'tabs.js',
 	'focus-first-input.js'
 ), array('inline' => false));
 
@@ -19,8 +17,6 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'content.png');
 
 echo $this->Form->create('Configuration', array('id' => 'contentform', 'action' => '/configuration/admin_edit/', 'url' => '/configuration/admin_edit/'));
 
-	echo $this->Admin->StartTabs();
-	
 		$gr = '';	
 		$st = '';	
 
@@ -41,7 +37,10 @@ echo $this->Form->create('Configuration', array('id' => 'contentform', 'action' 
 			
 		}
 
-			echo '<ul>'.$gr.'</ul>';
+			echo '<ul id="myTab" class="nav nav-tabs">'.$gr.'</ul>';
+
+			echo $this->Admin->StartTabs();
+
 			echo $st;
 
 	echo $this->Admin->EndTabs();

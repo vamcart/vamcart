@@ -8,13 +8,9 @@
 
 $this->Html->script(array(
 	'modified.js',
-	'jquery/plugins/jquery-ui-min.js',
-	'tabs.js',
 	'focus-first-input.js'
 ), array('inline' => false));
 
-	echo $this->Html->css('ui.tabs', null, array('inline' => false));
-	
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 	
 	echo $this->Form->create('DefinedLanguage', array('id' => 'contentform', 'action' => '/defined_languages/admin_edit/'.$defined_key, 'url' => '/defined_languages/admin_edit/'.$defined_key));
@@ -28,13 +24,14 @@ $this->Html->script(array(
 	               )
 				));
 	
-	echo $this->Admin->StartTabs();
-			echo '<ul>';
+			echo '<ul id="myTabLang" class="nav nav-tabs">';
 	foreach($languages AS $language)
 	{
-			echo $this->Admin->CreateTab('language_'.$language['Language']['id'],$language['Language']['name'],$language['Language']['iso_code_2'].'.png');
+			echo $this->Admin->CreateTab('language_'.$language['Language']['id'],$language['Language']['name'],'cus-page');
 	}
 			echo '</ul>';
+
+	echo $this->Admin->StartTabs();
 	
 	// Loop through the languages and display a name and descrition for each
 	foreach($languages AS $language)

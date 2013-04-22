@@ -8,22 +8,19 @@
 
 $this->Html->script(array(
 	'modified.js',
-	'jquery/plugins/jquery-ui-min.js',
-	'tabs.js',
 	'focus-first-input.js'
 ), array('inline' => false));
-
-	echo $this->Html->css('ui.tabs', null, array('inline' => false));
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
 	echo $this->Form->create('Country', array('id' => 'contentform', 'action' => '/countries/admin_edit/' . $data['Country']['id'], 'url' => '/countries/admin_edit/' . $data['Country']['id']));
 	
-	echo $this->Admin->StartTabs();
-			echo '<ul>';
-			echo $this->Admin->CreateTab('main',__('Main'), 'main.png');
-			echo $this->Admin->CreateTab('options',__('Options'), 'options.png');			
+			echo '<ul id="myTab" class="nav nav-tabs">';
+			echo $this->Admin->CreateTab('main',__('Main'), 'cus-application');
+			echo $this->Admin->CreateTab('options',__('Options'), 'cus-cog');			
 			echo '</ul>';
+
+	echo $this->Admin->StartTabs();
 	
 	echo $this->Admin->StartTabContent('main');
 		echo $this->Form->inputs(array(
