@@ -8,23 +8,20 @@
 
 $this->Html->script(array(
 	'modified.js',
-	'jquery/plugins/jquery-ui-min.js',
-	'tabs.js',
 	'focus-first-input.js'
 ), array('inline' => false));
-
-	echo $this->Html->css('ui.tabs', null, array('inline' => false));
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
 	$user_tag_id = $this->data['UserTag']['id'];
 	echo $this->Form->create('UserTag', array('id' => 'contentform', 'action' => '/user_tags/admin_edit/'.$user_tag_id, 'url' => '/user_tags/admin_edit/'.$user_tag_id));
 	
-	echo $this->Admin->StartTabs();
-			echo '<ul>';
-			echo $this->Admin->CreateTab('main',__('Main'), 'main.png');
-			echo $this->Admin->CreateTab('options',__('Options'), 'options.png');			
+			echo '<ul id="myTab" class="nav nav-tabs">';
+			echo $this->Admin->CreateTab('main',__('Main'), 'cus-application');
+			echo $this->Admin->CreateTab('options',__('Options'), 'cus-cog');			
 			echo '</ul>';
+
+	echo $this->Admin->StartTabs();
 	
 	echo $this->Admin->StartTabContent('main');
 		echo $this->Form->inputs(array(

@@ -8,13 +8,9 @@
 
 $this->Html->script(array(
 	'modified.js',
-	'jquery/plugins/jquery-ui-min.js',
-	'tabs.js',
 	'focus-first-input.js'
 ), array('inline' => false));
 	
-	echo $this->Html->css('ui.tabs', null, array('inline' => false));
-
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
 	echo $this->Form->create('OrderStatus', array('id' => 'contentform', 'action' => '/order_status/admin_edit/' . $data['OrderStatus']['id'], 'url' => '/order_status/admin_edit/' . $data['OrderStatus']['id']));
@@ -27,13 +23,14 @@ $this->Html->script(array(
 	               )
 		 ));
 	
-	echo $this->Admin->StartTabs();
-			echo '<ul>';
+			echo '<ul id="myTabLang" class="nav nav-tabs">';
 	foreach($languages AS $language)
 	{
-			echo $this->Admin->CreateTab('language_'.$language['Language']['id'],$language['Language']['name'],$language['Language']['iso_code_2'].'.png');
+			echo $this->Admin->CreateTab('language_'.$language['Language']['id'],$language['Language']['name'],'cus-page');
 	}
 			echo '</ul>';
+
+	echo $this->Admin->StartTabs();
 			
 	foreach($languages AS $language)
 	{

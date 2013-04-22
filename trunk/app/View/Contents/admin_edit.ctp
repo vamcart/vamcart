@@ -10,8 +10,6 @@
 
 $this->Html->script(array(
 	'modified.js',
-	'jquery/plugins/jquery-ui-min.js',
-	'tabs.js',
 	'swfupload/swfupload.js',
 	'swfupload/swfupload.queue.js',
 	'swfupload/fileprogress.js',
@@ -19,7 +17,6 @@ $this->Html->script(array(
 	'focus-first-input.js'
 ), array('inline' => false));
 	
-	echo $this->Html->css('ui.tabs', null, array('inline' => false));
 	echo $this->TinyMce->init();
 ?>
 <?php echo $this->Html->scriptBlock('
@@ -44,13 +41,14 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
 	echo $this->Form->create('Content', array('id' => 'contentform', 'name' => 'contentform','enctype' => 'multipart/form-data', 'action' => '/contents/admin_edit/'.$data['Content']['id'], 'url' => '/contents/admin_edit/'.$data['Content']['id']));
 	
-	echo $this->Admin->StartTabs();
-			echo '<ul>';
-			echo $this->Admin->CreateTab('main',__('Main'), 'main.png');
+			echo '<ul id="myTab" class="nav nav-tabs">';
+			echo $this->Admin->CreateTab('main',__('Main'), 'cus-application');
 			echo $this->Admin->CreateTab('view_images',__('View Images'), 'images.png');	
 			echo $this->Admin->CreateTab('upload_images',__('Upload Images'), 'image_add.png');			
-			echo $this->Admin->CreateTab('options',__('Options'), 'options.png');			
+			echo $this->Admin->CreateTab('options',__('Options'), 'cus-cog');			
 			echo '</ul>';
+
+	echo $this->Admin->StartTabs();
 	
 	echo $this->Admin->StartTabContent('main');
 		echo $this->Form->inputs(array(
@@ -97,13 +95,14 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 	echo '</div>';	
 
 
-	echo $this->Admin->StartTabs('sub-tabs');
-			echo '<ul>';
+			echo '<ul id="myTabLang" class="nav nav-tabs">';
 	foreach($languages AS $language)
 	{
-			echo $this->Admin->CreateTab('language_'.$language['Language']['id'],$language['Language']['name'],$language['Language']['iso_code_2'].'.png');
+			echo $this->Admin->CreateTab('language_'.$language['Language']['id'],$language['Language']['name'],'cus-page');
 	}
 			echo '</ul>';
+
+	echo $this->Admin->StartTabs('sub-tabs');
 	
 	// Loop through the languages and display a name and descrition for each
 	foreach($languages AS $language)

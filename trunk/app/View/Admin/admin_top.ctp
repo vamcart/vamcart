@@ -9,7 +9,6 @@
 $this->Html->script(array(
 	'jquery/plugins/jquery-ui-min.js',
 	'jquery/plugins/jquery.zrssfeed.min.js',
-	'tabs.js'
 ), array('inline' => false));
 ?>
 <?php echo $this->Html->scriptBlock('
@@ -28,13 +27,14 @@ $(document).ready(function () {
 
 	echo '<div id="news"></div>';
 
-	echo $this->admin->StartTabs();
-			echo '<ul>';
-			echo $this->admin->CreateTab('home',__('Menu',true), 'menu.png');
+			echo '<ul id="myTab" class="nav nav-tabs">';
+			echo $this->admin->CreateTab('home',__('Menu',true), 'cus-chart-organisation');
 			if($level == 1) {
-			echo $this->admin->CreateTab('orders',__('Orders',true), 'orders.png');
+			echo $this->admin->CreateTab('orders',__('Orders',true), 'cus-chart-bar');
 			}			
 			echo '</ul>';
+
+	echo $this->admin->StartTabs();
 	
 	echo $this->admin->StartTabContent('home');
 
