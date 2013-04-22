@@ -62,7 +62,7 @@ $this->Html->script(array(
 			echo '<ul id="myTabLang" class="nav nav-tabs">';
 	foreach($languages AS $language)
 	{
-			echo $this->Admin->CreateTab('language_'.$language['Language']['id'],$language['Language']['name'],'cus-page');
+			echo $this->Admin->CreateTab('language_'.$language['Language']['id'],$language['Language']['name'],'cus-page-white');
 	}
 			echo '</ul>';
 

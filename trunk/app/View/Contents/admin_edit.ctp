@@ -43,8 +43,8 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 	
 			echo '<ul id="myTab" class="nav nav-tabs">';
 			echo $this->Admin->CreateTab('main',__('Main'), 'cus-application');
-			echo $this->Admin->CreateTab('view_images',__('View Images'), 'images.png');	
-			echo $this->Admin->CreateTab('upload_images',__('Upload Images'), 'image_add.png');			
+			echo $this->Admin->CreateTab('view_images',__('View Images'), 'cus-pictures');	
+			echo $this->Admin->CreateTab('upload_images',__('Upload Images'), 'cus-picture-add');			
 			echo $this->Admin->CreateTab('options',__('Options'), 'cus-cog');			
 			echo '</ul>';
 
@@ -98,7 +98,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 			echo '<ul id="myTabLang" class="nav nav-tabs">';
 	foreach($languages AS $language)
 	{
-			echo $this->Admin->CreateTab('language_'.$language['Language']['id'],$language['Language']['name'],'cus-page');
+			echo $this->Admin->CreateTab('language_'.$language['Language']['id'],$language['Language']['name'],'cus-page-white');
 	}
 			echo '</ul>';
 
