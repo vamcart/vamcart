@@ -2,14 +2,10 @@
 <div id="credit_card_details">
 	<div>
 		<?php 
-		echo $this->Form->inputs(array(
-		'legend' => false,
-		'fieldset' => false,
-		   'CreditCard.cc_number' => array(
+		echo $this->Form->input('CreditCard.cc_number', array(
    		'label' => '{lang}Credit Card Number{/lang}: ',
 			'type' => 'text'
-			)
-		));
+			));
 		?>
 	</div>
 	<div>

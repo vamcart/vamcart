@@ -6,13 +6,9 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $this->Form->inputs(array(
-	'legend' => null,
-	'assist.assist_shop_id' => array(
+echo $this->Form->input('assist.assist_shop_id', array(
 	'label' => __('Assist Shop ID'),
 	'type' => 'text',
 	'value' => $data['PaymentMethodValue'][0]['value']
-	)
-	
-));
+	));
 ?>

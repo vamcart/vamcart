@@ -262,6 +262,7 @@ $("#myTabLang a:first").tab("show"); // Select first tab
 	
 	public function DrawMenu ($navigation_walk)
 	{
+		$navigation = '';
 		$navigation .= '<ul class="nav">';
 		foreach($navigation_walk AS $nav)
 		{
@@ -294,6 +295,7 @@ $("#myTabLang a:first").tab("show"); // Select first tab
 		// Get the breadcrumb divider
 		$divider = '<span class="divider">/</span>';
 		
+		$breadcrumbs = '';
 		$breadcrumbs .= '<ul class="breadcrumb">';
 
 		// Loop through to generage the child breadcrumb, then the top level

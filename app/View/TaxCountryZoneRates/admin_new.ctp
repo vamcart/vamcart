@@ -26,30 +26,29 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'new.png');
 
 echo $this->Form->create('TaxCountryZoneRate', array('id' => 'contentform', 'action' => '/tax_country_zone_rates/admin_new/' . $tax['Tax']['id'], 'url' => '/tax_country_zone_rates/admin_new/' . $tax['Tax']['id']));
 	
-	echo $this->Form->inputs(array(
-				'legend' => null,
-				'fieldset' => __('Tax Zone Rates Details'),
-				'TaxCountryZoneRate.tax_id' => array(
-					'type' => 'hidden',
-					'value' => $tax['Tax']['id']
-	              ),
-				'TaxCountryZoneRate.country_id' => array(
+	echo $this->Form->input('TaxCountryZoneRate.tax_id', 
+					array(
+						'type' => 'hidden',
+						'value' => $tax['Tax']['id']
+	              ));
+	              
+	echo $this->Form->input('TaxCountryZoneRate.country_id', 
+					array(
 			   		'label' => __('Country'),
-					'type' => 'select',
-					'options' => $country_list,
-					'selected' => '223'
-	              )));
+						'type' => 'select',
+						'options' => $country_list,
+						'selected' => '223'
+	              ));
 				  
 	echo '<div id="zones_by_country">';
 		echo $this->requestAction('/tax_country_zone_rates/list_zones_by_country/223', array('return'));	
 	echo '</div>';
 
-	echo $this->Form->inputs(array(
-					'legend' => null,
-					'TaxCountryZoneRate.rate' => array(
-			   	'label' => __('Tax Rate'),
-					'type' => 'text'
-				)));
+	echo $this->Form->input('TaxCountryZoneRate.rate', 
+					array(
+			   		'label' => __('Tax Rate'),
+						'type' => 'text'
+				));
 	
 	
 echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn', 'type' => 'submit', 'name' => 'submit',  'id' => 'submitbutton')) . $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn', 'type' => 'submit', 'name' => 'cancelbutton'));

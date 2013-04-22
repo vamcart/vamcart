@@ -14,24 +14,23 @@ $this->Html->script(array(
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
         echo $this->Form->create('ShippingMethod', array('id' => 'contentform', 'name' => 'contentform', 'action' => '/shipping_methods/admin_edit/'.$data['ShippingMethod']['id'], 'url' => '/shipping_methods/admin_edit/'.$data['ShippingMethod']['id']));
-		echo $this->Form->inputs(array(
-				'legend' => null,
-				'fieldset' => __('Shipping Method Details'),
-				'ShippingMethod.id' => array(
-					'type' => 'hidden',
-					'value' => $data['ShippingMethod']['id']
-					),
-				'ShippingMethod.name' => array(
-					'type' => 'text',
-					'label' => __('Name'),
-					'value' => $data['ShippingMethod']['name']
-					),					
-				'ShippingMethod.order' => array(
-					'type' => 'text',
-					'label' => __('Sort Order'),
-					'value' => $data['ShippingMethod']['order']
-					)					
-	               ));
+		echo $this->Form->input('ShippingMethod.id', 
+					array(
+						'type' => 'hidden',
+						'value' => $data['ShippingMethod']['id']
+					));
+		echo $this->Form->input('ShippingMethod.name', 
+					array(
+						'type' => 'text',
+						'label' => __('Name'),
+						'value' => $data['ShippingMethod']['name']
+					));					
+		echo $this->Form->input('ShippingMethod.order', 
+					array(
+						'type' => 'text',
+						'label' => __('Sort Order'),
+						'value' => $data['ShippingMethod']['order']
+					));
 				  
 	echo $this->requestAction( '/shipping/'.$data['ShippingMethod']['code'].'/settings/', array('return'));	
 	

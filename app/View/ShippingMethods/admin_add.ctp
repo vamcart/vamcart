@@ -10,15 +10,12 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'payment-methods.png');
 
 	echo $this->Form->create('AddModule', array('enctype' => 'multipart/form-data', 'id' => 'contentform', 'action' => '/shipping_methods/admin_upload/', 'url' => '/shipping_methods/admin_upload/'));
 
-	echo $this->Form->inputs(array(
-					'legend' => null,
-					'fieldset' => __('Upload New Module'),
-				   'AddModule.submittedfile' => array(
-				   	'type' => 'file',
-				   	'label' => __('Upload New Module'),
-						'between'=>'<br />'
-	               )
-		 ));
+	echo $this->Form->input('AddModule.submittedfile', 
+						array(
+				   		'type' => 'file',
+				   		'label' => __('Upload New Module'),
+							'between'=>'<br />'
+	               ));
 
 	echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn', 'type' => 'submit', 'name' => 'submit')) . $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn', 'type' => 'submit', 'name' => 'cancelbutton'));
 	

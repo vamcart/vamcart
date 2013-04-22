@@ -6,13 +6,12 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-	echo $this->Form->inputs(array(
-					'legend' => null,
-					'TaxCountryZoneRate.country_zone_id' => array(
-		   		'label' => __('Country Zones'),
-					'type' => 'select',
-					'options' => $zones,
-					'selected' => 'ALL'
-	              )));
+	echo $this->Form->input('TaxCountryZoneRate.country_zone_id', 
+					array(
+		   			'label' => __('Country Zones'),
+						'type' => 'select',
+						'options' => $zones,
+						'selected' => 'ALL'
+					));
 
 ?>

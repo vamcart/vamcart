@@ -12,22 +12,18 @@ $types = array('weight' => __('Weight'),
 			   'total' => __('Total'),
 			   'products' => __('Products'));
 
-echo $this->Form->inputs(array(
-	'legend' => null,
-	'key_values.table_based_type' => array(
+echo $this->Form->input('key_values.table_based_type', array(
 		'type' => 'select',
 		'selected' => $data['ShippingMethodValue'][0]['value'],
 		'label' => __('Based Off'),
 		'options' => $types
-	),
-	'key_values.table_based_rates' => array(
+	));
+echo $this->Form->input('key_values.table_based_rates', array(
 		'type' => 'textarea',
 		'class' => 'pagesmalltextarea',
 		'label' => __('Rates'),
 		'type' => 'text',
 		'value' => $data['ShippingMethodValue'][1]['value']
-	)
-	
-));
+	));
 
 ?>

@@ -23,50 +23,50 @@ $this->Html->script(array(
 	echo $this->Admin->StartTabs();
 	
 	echo $this->Admin->StartTabContent('main');
-		echo $this->Form->inputs(array(
-					'legend' => null,
-					'fieldset' => __('Country Details'),
-				   'Country.id' => array(
+		echo $this->Form->input('Country.id', 
+						array(
 				   		'type' => 'hidden',
-						'value' => $data['Country']['id']
-	               ),
-	               'Country.name' => array(
+							'value' => $data['Country']['id']
+	               ));
+		echo $this->Form->input('Country.name', 
+	               array(
 				   		'label' => __('Name'),
    						'value' => $data['Country']['name']
-	               ),
-	               'Country.iso_code_2' => array(
+	               ));
+		echo $this->Form->input('Country.iso_code_2', 
+	               array(
 				   		'label' => __('ISO Code 2'),
    						'value' => $data['Country']['name']
-	               ),
-	               'Country.iso_code_3' => array(
+	               ));
+		echo $this->Form->input('Country.iso_code_3', 
+						array(
 				   		'label' => __('ISO Code 3'),
    						'value' => $data['Country']['iso_code_3']
-	               ),
-                       'Country.eu' => array(
+	               ));
+		echo $this->Form->input('Country.eu', 
+						array(
 				   		'label' => __('EU Country'),
    						'value' => $data['Country']['eu']
-	               ),
-                       'Country.private' => array(
+	               ));
+		echo $this->Form->input('Country.private', 
+						array(
 				   		'label' => __('Private person VAT'),
    						'value' => $data['Country']['privat']
-	               ),
-                       'Country.firm' => array(
+	               ));
+		echo $this->Form->input('Country.firm', 
+						array(
 				   		'label' => __('Firm VAT'),
    						'value' => $data['Country']['pravna']
-	               )
-			));
+	               ));
 		echo $this->Admin->EndTabContent();
 
 		echo $this->Admin->StartTabContent('options');
-						echo $this->Form->inputs(array(
-					'legend' => null,
-					'fieldset' => __('Country Details'),
-	               'Country.address_format' => array(
-				   		'type' => 'textarea',
-				   		'label' => __('Address Format'),
-   						'value' => $data['Country']['address_format']
-	               )		
-				  ));	
+						echo $this->Form->input('Country.address_format', 
+							array(
+				   			'type' => 'textarea',
+				   			'label' => __('Address Format'),
+   							'value' => $data['Country']['address_format']
+	               	));	
 		echo $this->Admin->EndTabContent();
 
 	echo $this->Admin->EndTabs();

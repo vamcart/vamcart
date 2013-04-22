@@ -14,14 +14,11 @@ $this->Html->script(array(
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
 
 	echo $this->Form->create('OrderStatus', array('id' => 'contentform', 'action' => '/order_status/admin_edit/' . $data['OrderStatus']['id'], 'url' => '/order_status/admin_edit/' . $data['OrderStatus']['id']));
-	echo $this->Form->inputs(array(
-					'legend' => null,
-					'fieldset' => __('Order Status Details'),
-				   'OrderStatus.id' => array(
+	echo $this->Form->input('OrderStatus.id', 
+						array(
 				   		'type' => 'hidden',
-						'value' => $data['OrderStatus']['id']
-	               )
-		 ));
+							'value' => $data['OrderStatus']['id']
+	               ));
 	
 			echo '<ul id="myTabLang" class="nav nav-tabs">';
 	foreach($languages AS $language)
@@ -38,13 +35,11 @@ $this->Html->script(array(
 		
 		echo $this->Admin->StartTabContent('language_'.$language_key);
 		
-	   	echo $this->Form->inputs(array(
-						'legend' => null,
-	   				'OrderStatusDescription.' . $language['Language']['id'] => array(
-				   	'label' => $this->Admin->ShowFlag($language['Language']) . '&nbsp;' . $language['Language']['name'],
-						'value' => $data['OrderStatusDescription'][$language_key]['name']
-	            	  ) 	   																									
-				));
+	   	echo $this->Form->input('OrderStatusDescription.' . $language['Language']['id'], 
+	   					array(
+								'label' => $this->Admin->ShowFlag($language['Language']) . '&nbsp;' . $language['Language']['name'],
+								'value' => $data['OrderStatusDescription'][$language_key]['name']
+							));
 				
 	echo $this->Admin->EndTabContent();
 	

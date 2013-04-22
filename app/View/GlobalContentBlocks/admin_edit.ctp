@@ -24,35 +24,33 @@ $this->Html->script(array(
 	echo $this->Admin->StartTabs();
 	
 	echo $this->Admin->StartTabContent('main');
-		echo $this->Form->inputs(array(
-					'legend' => null,
-					'fieldset' => __('Global Content Block Details'),
-				   'GlobalContentBlock.id' => array(
+		echo $this->Form->input('GlobalContentBlock.id', 
+						array(
 				   		'type' => 'hidden'
-	               ),
-	               'GlobalContentBlock.name' => array(
-   				   		'label' => __('Name')
-	               ),
-				   'GlobalContentBlock.content' => array(
-   				   		'label' => __('Contents')
-	               )																										
-			));
+	               ));
+		echo $this->Form->input('GlobalContentBlock.name', 
+						array(
+   				   	'label' => __('Name')
+	               ));
+		echo $this->Form->input('GlobalContentBlock.content', 
+						array(
+   				   	'label' => __('Contents')
+	               ));
 	echo $this->Admin->EndTabContent();
 
 	echo $this->Admin->StartTabContent('options');
-		echo $this->Form->inputs(array(
-					'legend' => null,
-					'fieldset' => __('Global Content Block Details'),
-	                'GlobalContentBlock.alias' => array(
-   				   		'label' => __('Alias')
-	                ),
-				    'GlobalContentBlock.active' => array(
-						'type' => 'checkbox',
-   				   		'label' => __('Active'),
-						'value' => '1',
-						'class' => 'checkbox_group'
-	                )																										
-			));
+		echo $this->Form->input('GlobalContentBlock.alias', 
+						array(
+   				   	'label' => __('Alias')
+						));
+		echo $this->Form->input('GlobalContentBlock.active', 
+						array(
+							'type' => 'checkbox',
+   				   	'label' => __('Active'),
+							'value' => '1',
+							'class' => 'checkbox_group'
+	                ));
+	                
 	echo $this->Admin->EndTabContent();
 	
 	echo $this->Admin->EndTabs();
