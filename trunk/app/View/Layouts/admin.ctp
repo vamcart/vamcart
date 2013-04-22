@@ -56,13 +56,9 @@ $(document).ready(function () {$(\'[rel=tooltip],input[data-title]\').tooltip();
 	<div class="navbar">
 	  <div class="navbar-inner">
 	    <div class="container">
-	      <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </a>
-	      <div class="nav-collapse collapse navbar-responsive-collapse">
-	<?php echo $this->admin->DrawMenu($navigation); ?>
+			
+			<?php echo $this->admin->DrawMenu($navigation); ?>
+
 	        <ul class="nav pull-right">
 				<?php 
 				echo $this->form->create('Search', array('class' => 'navbar-search pull-left', 'action' => '/search/admin_global_search/', 'url' => '/search/admin_global_search/'));
@@ -71,7 +67,7 @@ $(document).ready(function () {$(\'[rel=tooltip],input[data-title]\').tooltip();
 				echo $this->form->end();
 				?>                    
 	        </ul>
-	      </div><!-- /.nav-collapse -->
+	        
 	    </div>
 	  </div><!-- /navbar-inner -->
 	</div><!-- /navbar -->
