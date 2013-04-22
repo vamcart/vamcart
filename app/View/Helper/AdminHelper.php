@@ -377,7 +377,7 @@ class AdminHelper extends Helper {
 	*/	
 	public function getHelpPage()
 	{
-			$content = '<a href ="http://vamcart.com/modules/wiki/index.php?page=' . (!isset($this->params['plugin']) ? null : $this->params['plugin'].'/') . $this->params['controller'].'/'.$this->params['action'] . '" target="_blank"><img src="' . BASE . '/img/admin/icons/help.png" alt="'.__('Help',true) .'" /> '.__('Help for this page',true).'</a>';
+			$content = '<a href ="http://vamcart.com/modules/wiki/index.php?page=' . (!isset($this->params['plugin']) ? null : $this->params['plugin'].'/') . $this->params['controller'].'/'.$this->params['action'] . '" target="_blank"><i class="cus-help"></i> ' .__('Help for this page',true).'</a>';
 			
 		return $content;
 	}
