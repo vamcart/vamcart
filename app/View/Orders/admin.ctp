@@ -11,7 +11,7 @@ $search_form .= $this->Form->input('Search.term',array('label' => __('Search'),'
 $search_form .= $this->Form->submit( __('Submit'));
 $search_form .= $this->Form->end();
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'orders.png', $search_form);
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-cart', $search_form);
 
 echo $this->Form->create('Order', array('action' => '/orders/admin_modify_selected/', 'url' => '/orders/admin_modify_selected/'));
 

@@ -29,7 +29,7 @@ $this->Html->script(array(
 	});
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
 <?php
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 ?>
 <?php
 	

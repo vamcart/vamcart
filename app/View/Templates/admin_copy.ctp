@@ -11,7 +11,7 @@ $this->Html->script(array(
 	'focus-first-input.js'
 ), array('inline' => false));
 
-	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'copy.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-table-multiple');
 
 	echo $this->Form->create('Template', array('id' => 'contentform', 'action' => '/templates/admin_copy/' . $template['Template']['id'], 'url' => '/templates/admin_copy/' . $template['Template']['id']));
 	echo $this->Form->input('Template.id', 

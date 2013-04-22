@@ -11,7 +11,7 @@ $this->Html->script(array(
 	'focus-first-input.js'
 ), array('inline' => false));
 
-	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'new.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-add');
 
 	echo $this->Form->create('Template', array('id' => 'contentform', 'action' => '/templates/admin_new/', 'url' => '/templates/admin_new/'));
 	echo $this->Form->input('Template.name', 

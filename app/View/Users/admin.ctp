@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'users.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-group');
 
 echo '<table class="contentTable">';
 

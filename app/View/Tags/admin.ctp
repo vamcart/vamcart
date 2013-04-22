@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'tags.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-tag-blue');
 
 echo '<table class="contentTable">';
 

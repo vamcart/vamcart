@@ -8,7 +8,7 @@
 
 echo $this->Html->script('jquery/jquery.min', array('inline' => false));
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'update.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-arrow-refresh');
 
 echo '<p>'.__('Your VamCart Version:').' <strong>'.$update_data->current_version.'</strong></p>';
 

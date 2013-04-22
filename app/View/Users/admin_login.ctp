@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'login.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-lock');
 	
 	$this->Html->script(array(
 			'focus-first-input.js',

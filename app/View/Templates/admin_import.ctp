@@ -1,5 +1,5 @@
 <?php
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'import.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-arrow-in');
 
 echo $this->Form->create('Templates', array('action' => '/templates/admin_upload/', 'url' => '/templates/admin_upload/', 'enctype' => 'multipart/form-data', 'id' => 'templatesImportForm'));
 echo $this->Form->file('submittedfile');

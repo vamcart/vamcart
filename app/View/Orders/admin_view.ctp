@@ -11,7 +11,7 @@ $this->Html->script(array(
 	'focus-first-input.js'
 ), array('inline' => false));
 
-	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'view.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-table');
 
 			echo '<ul id="myTab" class="nav nav-tabs">';
 			echo $this->Admin->CreateTab('customer',__('Customer'), 'cus-user');

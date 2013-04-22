@@ -13,7 +13,7 @@ $this->Html->script(array(
 
 echo $this->Html->css('ui.tabs', null, array('inline' => false));
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'content.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-cog');
 
 echo $this->Form->create('Configuration', array('id' => 'contentform', 'action' => '/configuration/admin_edit/', 'url' => '/configuration/admin_edit/'));
 

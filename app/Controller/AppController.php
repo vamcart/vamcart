@@ -225,7 +225,7 @@ class AppController extends Controller {
 					1 => array('icon' => 'cus-cart-go', 'text' => __('All Orders', true), 'path' => '/orders/admin/')
 				)			
 			),				
-			3 => array('icon' => 'cus-book-open', 'text' => __('Contents', true), 'path' => '/admin/admin_top/3',
+			3 => array('icon' => 'cus-table', 'text' => __('Contents', true), 'path' => '/admin/admin_top/3',
 				'children' => array(
 					1 => array('icon' => 'cus-book-add', 'text' => __('Categories/Products', true), 'path' => '/contents/admin/'),
 					2 => array('icon' => 'cus-database-refresh', 'text' => __('Import/Export', true), 'path' => '/import_export/admin/'),

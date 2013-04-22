@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'reviews.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-user-comment');
 
 echo '<table class="contentTable">';
 echo $this->Html->tableHeaders(array( __('Author'), __('Date'), __('Product'), __('Action')));

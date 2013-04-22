@@ -8,7 +8,7 @@
 
 echo $this->Html->script('selectall', array('inline' => false));
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'user-tags.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-tag-blue-add');
 
 echo $this->Form->create('UserTag', array('action' => '/UserTags/admin_modify_selected/', 'url' => '/UserTags/admin_modify_selected/'));
 

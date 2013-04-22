@@ -1,5 +1,5 @@
 <?php
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'import.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-arrow-in');
 
 echo $this->Form->create('DefinedLanguages', array('action' => '/defined_languages/admin_upload/', 'url' => '/defined_languages/admin_upload/', 'enctype' => 'multipart/form-data', 'id' => 'languagesImportForm'));
 echo $this->Form->file('submittedfile');

@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 ?>
 <?php
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'install.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-lightbulb');
 ?>
 <p>
 <?php echo __('Database successfully imported.') ?>

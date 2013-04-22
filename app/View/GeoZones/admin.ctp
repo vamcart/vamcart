@@ -10,7 +10,7 @@ $this->Html->script(array(
 	'selectall.js'
 ), array('inline' => false));
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'geo-zones.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-page-white-world');
 
 echo $this->Form->create('GeoZone', array('action' => '/geo_zones/admin_modify_selected/', 'url' => '/geo_zones/admin_modify_selected/'));
 
