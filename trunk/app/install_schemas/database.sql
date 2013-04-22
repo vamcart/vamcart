@@ -976,16 +976,17 @@ INSERT INTO `micro_templates` VALUES (18, 'login-box', '<!-- Login box -->\r\n<d
 DROP TABLE IF EXISTS modules;
 CREATE TABLE `modules` (
   `id` int(10) NOT NULL auto_increment,
-  `name` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `alias` varchar(50) collate utf8_unicode_ci NOT NULL,
+  `name` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `icon` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `alias` varchar(255) collate utf8_unicode_ci NOT NULL,
   `version` varchar(10) collate utf8_unicode_ci NOT NULL,
   `nav_level` int(4) NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `modules` (`id`, `name`, `alias`, `version`, `nav_level`) VALUES 
-(1, 'reviews', 'reviews', '1.0', 3),
-(2, 'coupons', 'coupons', '2', 3);
+INSERT INTO `modules` (`id`, `name`, `icon`, `alias`, `version`, `nav_level`) VALUES 
+(1, 'reviews', 'cus-user-comment', 'reviews', '1.0', 3),
+(2, 'coupons', 'cus-calculator', 'coupons', '2', 3);
 
 DROP TABLE IF EXISTS module_coupons;
 CREATE TABLE `module_coupons` (

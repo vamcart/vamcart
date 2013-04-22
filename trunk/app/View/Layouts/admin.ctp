@@ -46,12 +46,6 @@ $(document).ready(function () {$(\'[rel=tooltip],input[data-title]\').tooltip();
 <?php echo $this->Html->link($this->Html->image('admin/logo.png', array('alt' => __('VamCart',true))), '/admin/admin_top/', array('escape'=>false));?>
 </div>
 <div class="header-right">
-<?php 
-echo $this->form->create('Search', array('action' => '/search/admin_global_search/', 'url' => '/search/admin_global_search/'));
-echo $this->form->input('Search.term',array('label' => __('Search',true),'value' => __('Global Record Search',true),"onblur" => "if(this.value=='') this.value=this.defaultValue;","onfocus" => "if(this.value==this.defaultValue) this.value='';"));
-echo $this->form->submit( __('Submit', true));
-echo $this->form->end();
-?>
 <?php echo $this->admin->getHelpPage(); ?>
 </div>
 <div class="clear"></div>
@@ -59,9 +53,30 @@ echo $this->form->end();
 <!-- /Header -->
 
 <div id="menu">
-<?php echo $this->admin->DrawMenu($navigation); ?>
+	<div class="navbar">
+	  <div class="navbar-inner">
+	    <div class="container">
+	      <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </a>
+	      <div class="nav-collapse collapse navbar-responsive-collapse">
+	<?php echo $this->admin->DrawMenu($navigation); ?>
+	        <ul class="nav pull-right">
+				<?php 
+				echo $this->form->create('Search', array('class' => 'navbar-search pull-left', 'action' => '/search/admin_global_search/', 'url' => '/search/admin_global_search/'));
+				echo $this->form->input('Search.term',array('class' => 'search-query span2', 'label' => false,'value' => __('Global Record Search',true),"onblur" => "if(this.value=='') this.value=this.defaultValue;","onfocus" => "if(this.value==this.defaultValue) this.value='';"));
+				//echo $this->form->submit( __('Submit', true));
+				echo $this->form->end();
+				?>                    
+	        </ul>
+	      </div><!-- /.nav-collapse -->
+	    </div>
+	  </div><!-- /navbar-inner -->
+	</div><!-- /navbar -->
 </div>
- 
+
 <!-- Navigation -->
 <div id="navigation">
 <?php

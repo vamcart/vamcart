@@ -25,6 +25,7 @@ class SetupController extends ModuleAbandonedCartsAppController {
 		// Create the new module record		
 		$new_module = array();
 		$new_module['Module']['name'] = __('Abandoned Carts');
+		$new_module['Module']['icon'] = 'cus-cart-error';
 		$new_module['Module']['alias'] = 'abandoned_carts';
 		$new_module['Module']['version'] = $this->ModuleBase->get_version();
 		$new_module['Module']['nav_level'] = '2';				

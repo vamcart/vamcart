@@ -25,6 +25,7 @@ class SetupController extends ModuleCouponsAppController {
 		// Create the new module record		
 		$new_module = array();
 		$new_module['Module']['name'] = __('Coupons');
+		$new_module['Module']['icon'] = 'cus-calculator';
 		$new_module['Module']['alias'] = 'coupons';
 		$new_module['Module']['version'] = $this->ModuleBase->get_version();
 		$new_module['Module']['nav_level'] = '3';				
