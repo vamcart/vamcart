@@ -186,10 +186,12 @@ div#footer p
 
 /* Navigation */
 
-div#navigation
+div#navigation,
+div#navigation ul
 	{
 		padding: 0;
 		margin: 0;
+		background: transparent;
 	}
 
 div#navigation div.breadCrumbs

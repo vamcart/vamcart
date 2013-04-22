@@ -277,9 +277,9 @@ class AdminHelper extends Helper {
 	public function GenerateBreadcrumbs ($navigation_walk, $current_crumb)
 	{
 		// Get the breadcrumb divider
-		$divider = '<span class="separator"> > </span>';
+		$divider = '<span class="divider">/</span>';
 		
-		$breadcrumbs = '';
+		$breadcrumbs .= '<ul class="breadcrumb">';
 
 		// Loop through to generage the child breadcrumb, then the top level
 		foreach($navigation_walk AS $walk_key => $navigation)
@@ -294,9 +294,9 @@ class AdminHelper extends Helper {
 					if(substr($current_page,0,strlen($child['path'])-1) == substr($child['path'],0,strlen($child['path'])-1))
 					{
 						// Top level link
-						$breadcrumbs .= $this->MenuLink($navigation_walk[$walk_key], array('escape' => false)) . $divider;			
+						$breadcrumbs .= '<li>'.$this->MenuLink($navigation_walk[$walk_key], array('escape' => false)) . $divider.'</li>';			
 						// Child link
-						$breadcrumbs .= $this->MenuLink($child, array('escape' => false)) . $divider;			
+						$breadcrumbs .= '<li>'.$this->MenuLink($child, array('escape' => false)) . $divider.'</li>';			
 					}
 				}
 			}
@@ -304,6 +304,8 @@ class AdminHelper extends Helper {
 		
 		// Set the current breadcrumb
 		$breadcrumbs .= __($current_crumb, true);
+
+		$breadcrumbs .= '</ul>';
 		
 		return($breadcrumbs);
 	
