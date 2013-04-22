@@ -8,7 +8,7 @@
 
 echo $this->Html->script('modified', array('inline' => false));
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'view.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-table');
 
 echo $help_content;
 

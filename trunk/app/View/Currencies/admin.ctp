@@ -10,7 +10,7 @@ $this->Html->script(array(
 	'selectall.js'
 ), array('inline' => false));
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'currencies.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-table-edit');
 
 echo $this->Form->create('Currency', array('action' => '/currencies/admin_modify_selected/', 'url' => '/currencies/admin_modify_selected/'));
 

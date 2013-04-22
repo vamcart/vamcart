@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'payment-methods.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-plugin-add');
 
 	echo $this->Form->create('AddModule', array('enctype' => 'multipart/form-data', 'id' => 'contentform', 'action' => '/shipping_methods/admin_upload/', 'url' => '/shipping_methods/admin_upload/'));
 

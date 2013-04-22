@@ -74,7 +74,7 @@ function categorySelection(form)
 
 echo $this->Html->css('jquery-ui.css', null, array('inline' => false));
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'content.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-table');
 
 echo $this->Form->create('Content', array('action' => '/contents/admin_modify_selected/', 'url' => '/contents/admin_modify_selected/', 'onsubmit' => 'return beforeSubmit(this);'));
 

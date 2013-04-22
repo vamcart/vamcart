@@ -11,7 +11,7 @@ $this->Html->script(array(
 	'focus-first-input.js'
 ), array('inline' => false));
 
-	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'new.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-add');
 
 	echo $this->Form->create('MicroTemplate', array('id' => 'contentform', 'action' => '/micro_templates/admin_edit/', 'url' => '/micro_templates/admin_edit/'));
 		

@@ -11,7 +11,7 @@ $this->Html->script(array(
 	'focus-first-input.js'
 ), array('inline' => false));
 
-	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'account.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-group-edit');
 
 	echo $this->Form->create('User', array('id' => 'contentform', 'action' => '/users/admin_user_account/', 'url' => '/users/admin_user_account/'));
 	echo $this->Form->input('User.id', 

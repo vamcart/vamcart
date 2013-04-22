@@ -11,7 +11,7 @@ $this->Html->script(array(
 	'focus-first-input.js'
 ), array('inline' => false));
 
-	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'license.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-lock');
 
 	echo $this->Form->create('License', array('id' => 'contentform', 'action' => '/license/admin_edit/', 'url' => '/license/admin_edit/'));
 	echo $this->Form->input('License.id', 

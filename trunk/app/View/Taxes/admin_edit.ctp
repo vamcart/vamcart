@@ -11,7 +11,7 @@ $this->Html->script(array(
 	'focus-first-input.js'
 ), array('inline' => false));
 
-	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 
 	echo $this->Form->create('Tax', array('id' => 'contentform', 'action' => '/taxes/admin_edit/', 'url' => '/taxes/admin_edit/'));
 	echo $this->Form->input('Tax.id', 

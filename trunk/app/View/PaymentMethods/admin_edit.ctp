@@ -11,7 +11,7 @@ $this->Html->script(array(
 	'focus-first-input.js'
 ), array('inline' => false));
 
-	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 
 	echo $this->Form->create('PaymentMethod', array('id' => 'contentform', 'action' => '/payment_methods/admin_edit/' . $data['PaymentMethod']['id'], 'url' => '/payment_methods/admin_edit/' . $data['PaymentMethod']['id']));
 	echo $this->Form->input('PaymentMethod.id', 

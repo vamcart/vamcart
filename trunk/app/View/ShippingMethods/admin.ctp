@@ -8,7 +8,7 @@
 
 echo $this->Html->script('jquery/jquery.min', array('inline' => false));
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'shipping-methods.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-box');
 
 echo '<table class="contentTable">';
 

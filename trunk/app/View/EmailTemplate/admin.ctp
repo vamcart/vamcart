@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'email.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-email-open');
 
 echo '<table class="contentTable">';
 

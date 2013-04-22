@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'import.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-arrow-in');
 
 	echo $this->Form->create('ImportExport', array('enctype' => 'multipart/form-data', 'id' => 'contentform', 'action' => '/import_export/import/', 'url' => '/import_export/import/'));
 

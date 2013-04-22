@@ -20,7 +20,7 @@ $this->Html->css(array(
 	'codemirror/codemirror'
 ), null, array('inline' => false));
 
-	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'stylesheets.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-palette');
 
 	echo $this->Form->create('Stylesheet', array('id' => 'contentform', 'action' => '/stylesheets/admin_edit/'.$data['Stylesheet']['id'], 'url' => '/stylesheets/admin_edit/'.$data['Stylesheet']['id']));
 

@@ -10,7 +10,7 @@ $this->Html->script(array(
 	'selectall.js'
 ), array('inline' => false));
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'stylesheets.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-palette');
 
 echo $this->Form->create('Stylesheet', array('action' => '/stylesheets/admin_modify_selected/', 'url' => '/stylesheets/admin_modify_selected/'));
 

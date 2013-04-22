@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'defined.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-world-edit');
 
 echo '<table class="contentTable">';
 echo $this->Html->tableHeaders(array( __('Title'), __('Call (Template Placeholder)'),__('Action')));

@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'search.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-magnifier');
 
 $total_results = 0;
 

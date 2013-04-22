@@ -10,7 +10,7 @@ $this->Html->script(array(
 	'selectall.js'
 ), array('inline' => false));
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'languages.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-flag-green');
 
 echo $this->Form->create('Language', array('action' => '/languages/admin_modify_selected/', 'url' => '/languages/admin_modify_selected/'));
 

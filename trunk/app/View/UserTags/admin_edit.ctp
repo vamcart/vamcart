@@ -11,7 +11,7 @@ $this->Html->script(array(
 	'focus-first-input.js'
 ), array('inline' => false));
 
-	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 
 	$user_tag_id = $this->data['UserTag']['id'];
 	echo $this->Form->create('UserTag', array('id' => 'contentform', 'action' => '/user_tags/admin_edit/'.$user_tag_id, 'url' => '/user_tags/admin_edit/'.$user_tag_id));

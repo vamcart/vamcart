@@ -8,7 +8,7 @@
 
 echo $this->Html->script('jquery/jquery.min', array('inline' => false));
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'blocks.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-cascade');
 
 echo $this->Form->create('GlobalContentBlock', array('action' => '/global_content_blocks/admin_modify_selected/', 'url' => '/global_content_blocks/admin_modify_selected/'));
 

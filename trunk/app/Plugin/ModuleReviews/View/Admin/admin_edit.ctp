@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 
 echo __('Date: ') . $this->Time->niceShort($data['ModuleReview']['created']);
 echo '<br /><br />';

@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'zones.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-page-white-world');
 
 echo '<table class="contentTable">';
 

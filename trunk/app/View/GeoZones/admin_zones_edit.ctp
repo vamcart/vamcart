@@ -104,7 +104,7 @@ function onCountriesChanged()
 echo $this->Html->css('jquery-ui.css', null, array('inline' => false));
 echo $this->Html->css('multi-select.css', null, array('inline' => false));
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, '');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-page-white-world');
 echo $this->Form->create('GeoZoneZones', array('action' => '/geo_zones/admin_modify_country_zones_selected/', 'url' => '/geo_zones/admin_modify_country_zones_selected/'));
 echo '<table class="contentTable">';
 echo $this->Html->tableHeaders(array( __('Code'), __('Name'), __('Country'), __('Action'), '<input type="checkbox" onclick="checkAll(this)" />'));

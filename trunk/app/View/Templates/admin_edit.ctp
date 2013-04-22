@@ -22,7 +22,7 @@ $this->Html->css(array(
 
 	$template_id = $this->data['Template']['id'];
 
-	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'edit.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 
 	echo $this->Form->create('Template', array('id' => 'contentform', 'action' => '/templates/admin_edit/'.$template_id, 'url' => '/templates/admin_edit/'.$template_id));
 	echo $this->Form->input('Template.id', 

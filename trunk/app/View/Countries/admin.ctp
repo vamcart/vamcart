@@ -10,7 +10,7 @@ $this->Html->script(array(
 	'selectall.js'
 ), array('inline' => false));
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'countries.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-world');
 
 echo $this->Form->create('Country', array('action' => '/countries/admin_modify_selected/', 'url' => '/countries/admin_modify_selected/'));
 

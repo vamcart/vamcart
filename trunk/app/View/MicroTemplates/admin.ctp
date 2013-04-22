@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'micro-templates.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-layout-content');
 
 echo '<table class="contentTable">';
 echo $this->Html->tableHeaders(array( __('Alias'), __('Call (Template Placeholder)'),  __('Action')));

@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'coupons.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-calculator');
 
 echo '<table class="contentTable">';
 echo $this->Html->tableHeaders(array( __('Name'), __('Code'), __('Action')));

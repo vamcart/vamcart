@@ -8,7 +8,7 @@
 
 echo $this->Html->script('selectall', array('inline' => false));
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'zones.png');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-calculator-edit');
 
 echo $this->Form->create('TaxCountryZoneRate', array('action' => '/tax_country_zone_rates/admin_modify_selected/' . $tax['Tax']['id'], 'url' => '/tax_country_zone_rates/admin_modify_selected/' . $tax['Tax']['id']));
 

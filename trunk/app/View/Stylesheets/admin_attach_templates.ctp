@@ -8,7 +8,7 @@
 
 	echo $this->Html->script('modified', array('inline' => false));
 	
-	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'attach_templates.png');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-layers');
         
  echo __('Stylesheet');  echo ': ' . $this->Html->link($stylesheet['Stylesheet']['name'],'/stylesheets/admin_edit/' . $stylesheet['Stylesheet']['id']); ?>
 
