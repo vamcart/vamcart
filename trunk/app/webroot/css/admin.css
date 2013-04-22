@@ -266,6 +266,15 @@ div#pageContent
 
 /* /Page content */
 
+/* Tabs */
+
+.nav-tabs > .active > a, .nav-tabs > .active > a:hover 
+	{
+		outline:none;
+	}
+
+/* /Tabs */
+
 /* Forms */
 
 form
