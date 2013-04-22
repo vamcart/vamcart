@@ -26,6 +26,7 @@ class SetupController extends ModuleReviewsAppController {
 		// Create the new module record		
 		$new_module = array();
 		$new_module['Module']['name'] = __('Reviews');
+		$new_module['Module']['icon'] = 'cus-user-comment';
 		$new_module['Module']['alias'] = 'reviews';
 		$new_module['Module']['version'] = $this->ModuleBase->get_version();
 		$new_module['Module']['nav_level'] = '3';				

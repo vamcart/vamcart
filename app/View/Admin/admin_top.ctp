@@ -60,13 +60,13 @@ $(document).ready(function () {
 				foreach($level_navigation AS $nav)
 				{
 					echo '<div class="page_menu_item" class="">
-							<p class="heading">' . $this->admin->MenuLink($nav) . '</p>';
+							<p class="heading">' . $this->admin->MenuLink($nav, array('escape' => false)) . '</p>';
 					if(!empty($nav['children']))
 					{
 						$sub_items = '';
 						foreach($nav['children'] AS $child)
 						{
-							$sub_items .= $this->admin->MenuLink($child) . ', ';
+							$sub_items .= $this->admin->MenuLink($child, array('escape' => false)) . ', ';
 						}
 						$sub_items = rtrim($sub_items, ', ');
 						echo $sub_items;

@@ -215,43 +215,62 @@ class AdminHelper extends Helper {
 	########################################################
 	# Functions for menu & breadcrumbs
 	########################################################		
-	public function MenuLink ($menuitem)
+	public function MenuLink ($menuitem, $parameters = null)
 	{
 		// Set a an empty value for attribues if it's not set.
 		if(!isset($menuitem['attributes']))
 			$menuitem['attributes'] = "";
 			
 		if(isset($menuitem['icon'])) {
-			$link =  $this->Html->link($this->Html->image('admin/icons/menu/'.$menuitem['icon'], array('width' => 16, 'height' => 16, 'alt' => '')).'&nbsp;'.__($menuitem['text'], true), $menuitem['path'], array('escape' => false));
+			$link =  $this->Html->link('<i class="'.$menuitem['icon'].'"></i> ' .__($menuitem['text'], true), $menuitem['path'], $parameters);
 		} else {
-			$link =  $this->Html->link(__($menuitem['text'], true),$menuitem['path'], array('escape' => false));
+			$link =  $this->Html->link(__($menuitem['text'], true),$menuitem['path'], $parameters);
 		}
 			
 		return($link);
 	}
 	
+	public function MenuLinkDropdown ($menuitem, $parameters = null)
+	{
+		// Set a an empty value for attribues if it's not set.
+		if(!isset($menuitem['attributes']))
+			$menuitem['attributes'] = "";
+			
+		if(isset($menuitem['icon'])) {
+			$link =  $this->Html->link('<i class="'.$menuitem['icon'].'"></i> ' .__($menuitem['text'], true).' <b class="caret"></b>', $menuitem['path'], $parameters);
+		} else {
+			$link =  $this->Html->link(__($menuitem['text'], true).' <b class="caret"></b>',$menuitem['path'], $parameters);
+		}
+			
+		return($link);
+	}
 	
 	public function DrawMenu ($navigation_walk)
 	{
-		$navigation = "";
-		$navigation .= '<ul>';
+		$navigation .= '<ul class="nav">'."\n";
 		foreach($navigation_walk AS $nav)
 		{
-			$navigation .= '<li>' . $this->MenuLink($nav);
-					
+			if(!empty($nav['children'])) {	
+			$navigation .= '<li class="dropdown">' . $this->MenuLinkDropdown($nav, array('class' => 'dropdown-toggle', 'data-toggle' => 'dropdown', 'escape' => false));
+			} else {
+			$navigation .= '<li>' . $this->MenuLink($nav, array('escape' => false)).'</li>';
+			}
+									
 			if(!empty($nav['children']))	
 			{
-		$navigation .= '<ul>';
+		$navigation .= "\n".'<ul class="dropdown-menu">'."\n";
 				foreach($nav['children'] AS $navchild)
 				{
-					$navigation .= '<li>' . $this->MenuLink($navchild) . '</li>';
+					$navigation .= '<li>' . $this->MenuLink($navchild, array('escape' => false)) . '</li>'."\n";
 				}
-		$navigation .= '</ul>';
+		$navigation .= '</ul>'."\n";
 			}
-			$navigation .= '</li>';
+			if(!empty($nav['children'])) {	
+			$navigation .= '</li>'."\n";
+			}
 		}
-		$navigation .= '</ul>';
-		$navigation .= $this->Html->image('admin/transparency.png', array('class' => 'menu')).'</div>' . "\n";
+		$navigation .= '</ul>'."\n";
+		//$navigation .= $this->Html->image('admin/transparency.png', array('class' => 'menu')).'</div>' . "\n";
 		
 		return($navigation);
 	}
@@ -276,9 +295,9 @@ class AdminHelper extends Helper {
 					if(substr($current_page,0,strlen($child['path'])-1) == substr($child['path'],0,strlen($child['path'])-1))
 					{
 						// Top level link
-						$breadcrumbs .= $this->MenuLink($navigation_walk[$walk_key]) . $divider;			
+						$breadcrumbs .= $this->MenuLink($navigation_walk[$walk_key], array('escape' => false)) . $divider;			
 						// Child link
-						$breadcrumbs .= $this->MenuLink($child) . $divider;			
+						$breadcrumbs .= $this->MenuLink($child, array('escape' => false)) . $divider;			
 					}
 				}
 			}
