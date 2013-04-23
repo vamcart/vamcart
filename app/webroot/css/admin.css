@@ -243,6 +243,18 @@ div#pageContent
 
 /* Tabs */
 
+ul#myTab
+	{
+		padding: 0;
+		margin: 0;	
+	}
+
+#myTabContent
+	{
+		padding: .5em 0 0 0;
+		background: #fff;
+	}
+	
 .nav-tabs > .active > a, .nav-tabs > .active > a:hover 
 	{
 		outline:none;
