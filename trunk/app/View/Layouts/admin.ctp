@@ -68,7 +68,9 @@ $(document).ready(function () {$(\'[rel=tooltip],input[data-title]\').tooltip();
 
 	<div class="row-fluid">
 		<div class="span12">
-
+<?php
+if(isset($navigation)) { 
+?>
 	<div class="navbar">
 	  <div class="navbar-inner">
 	    <div class="container">
@@ -78,7 +80,9 @@ $(document).ready(function () {$(\'[rel=tooltip],input[data-title]\').tooltip();
 	    </div>
 	  </div><!-- /navbar-inner -->
 	</div><!-- /navbar -->
-
+<?php
+} 
+?>
 <?php
 if(isset($current_crumb)) { 
 ?>
