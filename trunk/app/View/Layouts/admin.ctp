@@ -38,30 +38,31 @@ $(document).ready(function () {$(\'[rel=tooltip],input[data-title]\').tooltip();
 
 <body>
 
-
 <div class="container-fluid">
 
 <!-- Header -->
 <div class="row-fluid">
-  <div class="span4">
+	<div class="span4">
+		<?php echo $this->Html->link($this->Html->image('admin/logo.png', array('alt' => __('VamCart',true))), '/admin/admin_top/', array('escape'=>false));?>  
+	</div>
+	
+	<div class="span8">
+  
+		<?php 
+		echo $this->form->create('Search', array('class' => 'navbar-search pull-right', 'action' => '/search/admin_global_search/', 'url' => '/search/admin_global_search/'));
+		echo $this->form->input('Search.term',array('class' => 'span12', 'label' => false,'value' => __('Global Record Search',true),"onblur" => "if(this.value=='') this.value=this.defaultValue;","onfocus" => "if(this.value==this.defaultValue) this.value='';"));
+		//echo $this->form->submit( __('Submit', true));
+		echo $this->form->end();
+		?>   
 
-<?php echo $this->Html->link($this->Html->image('admin/logo.png', array('alt' => __('VamCart',true))), '/admin/admin_top/', array('escape'=>false));?>  
+	<div class="clear"></div>          
+
+	<span class="pull-right">       
+		<?php echo $this->admin->getHelpPage(); ?>
+	</span>  
   
-  </div>
-  <div class="span8">
-  
-<?php 
-echo $this->form->create('Search', array('class' => 'navbar-search pull-right', 'action' => '/search/admin_global_search/', 'url' => '/search/admin_global_search/'));
-echo $this->form->input('Search.term',array('class' => 'span12', 'label' => false,'value' => __('Global Record Search',true),"onblur" => "if(this.value=='') this.value=this.defaultValue;","onfocus" => "if(this.value==this.defaultValue) this.value='';"));
-//echo $this->form->submit( __('Submit', true));
-echo $this->form->end();
-?>   
-<div class="clear"></div>          
-<span class="pull-right">       
-<?php echo $this->admin->getHelpPage(); ?>
-</span>  
-  
-  </div>
+	</div>
+	
 </div>
 <!-- /Header -->
 

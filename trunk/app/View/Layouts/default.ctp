@@ -37,18 +37,19 @@ $(document).ready(function () {$(\'[rel=tooltip],input[data-title]\').tooltip();
 </head>
 
 <body>
-<!-- Container -->
-<div id="container">
+
+<div class="container-fluid">
 
 <!-- Header -->
-<div id="header">
-<?php echo $this->Html->image('admin/logo.png', array('alt' => __('VamCart',true)))?>
+<div class="row-fluid">
+	<div class="span4">
+		<?php echo $this->Html->image('admin/logo.png', array('alt' => __('VamCart',true)))?>
+	</div>
 </div>
 <!-- /Header -->
 
-<div id="menu">
-&nbsp;
-</div>
+	<div class="row-fluid">
+		<div class="span12">
 
 <!-- Content -->
 <div id="wrapper">
@@ -62,16 +63,6 @@ $(document).ready(function () {$(\'[rel=tooltip],input[data-title]\').tooltip();
 </div>
 <!-- /Content -->
 
-<!-- Left column -->
-<div id="left">
-</div>
-<!-- /Left column -->
-
-<!-- Right column -->
-<div id="right">
-</div>
-<!-- /Right column -->
-
 <!-- Footer -->
 <div id="footer">
 <p>
@@ -80,8 +71,10 @@ $(document).ready(function () {$(\'[rel=tooltip],input[data-title]\').tooltip();
 </div>
 <!-- /Footer -->
 
+		</div>
+	</div>
+	
 </div>
-<!-- /Container -->
 
 </body>
 </html>
