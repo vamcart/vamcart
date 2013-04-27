@@ -37,44 +37,47 @@ $(document).ready(function () {$(\'[rel=tooltip],input[data-title]\').tooltip();
 </head>
 
 <body>
-<!-- Container -->
-<div id="container">
+
+
+<div class="container-fluid">
 
 <!-- Header -->
-<div id="header">
-<div class="header-left">
-<?php echo $this->Html->link($this->Html->image('admin/logo.png', array('alt' => __('VamCart',true))), '/admin/admin_top/', array('escape'=>false));?>
-</div>
-<div class="header-right">
+<div class="row-fluid">
+  <div class="span4">
+
+<?php echo $this->Html->link($this->Html->image('admin/logo.png', array('alt' => __('VamCart',true))), '/admin/admin_top/', array('escape'=>false));?>  
+  
+  </div>
+  <div class="span8">
+  
+<?php 
+echo $this->form->create('Search', array('class' => 'navbar-search pull-right', 'action' => '/search/admin_global_search/', 'url' => '/search/admin_global_search/'));
+echo $this->form->input('Search.term',array('class' => 'span12', 'label' => false,'value' => __('Global Record Search',true),"onblur" => "if(this.value=='') this.value=this.defaultValue;","onfocus" => "if(this.value==this.defaultValue) this.value='';"));
+//echo $this->form->submit( __('Submit', true));
+echo $this->form->end();
+?>   
+<div class="clear"></div>          
+<span class="pull-right">       
 <?php echo $this->admin->getHelpPage(); ?>
-</div>
-<div class="clear"></div>
+</span>  
+  
+  </div>
 </div>
 <!-- /Header -->
 
-<div id="menu">
+	<div class="row-fluid">
+		<div class="span12">
+
 	<div class="navbar">
 	  <div class="navbar-inner">
 	    <div class="container">
 			
 			<?php echo $this->admin->DrawMenu($navigation); ?>
 
-	        <ul class="nav pull-right">
-				<?php 
-				echo $this->form->create('Search', array('class' => 'navbar-search pull-left', 'action' => '/search/admin_global_search/', 'url' => '/search/admin_global_search/'));
-				echo $this->form->input('Search.term',array('class' => 'search-query span2', 'label' => false,'value' => __('Global Record Search',true),"onblur" => "if(this.value=='') this.value=this.defaultValue;","onfocus" => "if(this.value==this.defaultValue) this.value='';"));
-				//echo $this->form->submit( __('Submit', true));
-				echo $this->form->end();
-				?>                    
-	        </ul>
-	        
 	    </div>
 	  </div><!-- /navbar-inner -->
 	</div><!-- /navbar -->
-</div>
 
-<!-- Navigation -->
-<div id="navigation">
 <?php
 if(isset($current_crumb)) { 
 ?>
@@ -86,8 +89,6 @@ echo $this->admin->GenerateBreadcrumbs($navigation, $current_crumb);
 <?php
 } 
 ?>
-</div>
-<!-- /Navigation -->
 
 <!-- Content -->
 <div id="wrapper">
@@ -101,16 +102,6 @@ echo $this->admin->GenerateBreadcrumbs($navigation, $current_crumb);
 </div>
 <!-- /Content -->
 
-<!-- Left column -->
-<div id="left">
-</div>
-<!-- /Left column -->
-
-<!-- Right column -->
-<div id="right">
-</div>
-<!-- /Right column -->
-
 <!-- Footer -->
 <div id="footer">
 <p>
@@ -119,8 +110,10 @@ echo $this->admin->GenerateBreadcrumbs($navigation, $current_crumb);
 </div>
 <!-- /Footer -->
 
+		</div>
+	</div>
+	
 </div>
-<!-- /Container -->
 
 </body>
 </html>
