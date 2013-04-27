@@ -36,35 +36,6 @@ a:hover
 
 /* Content */
 
-div#container
-	{
-	}
-
-div#wrapper
-	{
-	}
-
-div#content
-	{
-		padding: .5em;
-	}
-
-div#content a, 
-div#content a:visited,
-div#content a:hover  
-	{
-		color: #494a4e;
-		text-decoration: none;
-	}
-
-div#header a, 
-div#header a:visited, 
-div#header a:hover 
-	{
-		color: #494a4e;
-		text-decoration: none;
-	}
-	
 /* /Content */
 
 /* Left column */
@@ -87,11 +58,6 @@ div#right
 
 #header 
 	{
-		background-color: #fff;
-		background-image: url(../img/admin/bg.png);
-		background-position: 0 0;
-		background-repeat: repeat-x; 
-		height: 100px;
 	}
 
 #header div.header-left 
@@ -145,34 +111,30 @@ div#footer p
 /* /Footer */
 
 /* Menu */
-
-#menu 
+		
+div.navbar
 	{
-		border-top: 2px solid #ff7b08;
-		background-color: #fff;
-		background-image: url(../img/admin/bg.png);
-		background-position: 0 -100px;
-		background-repeat: repeat-x; 
-		padding: 0;
+		padding: 0 0 1em 0;
 		margin: 0;
+		background: transparent;
 	}
-			 
+	
 /* /Menu */
 
 /* Navigation */
 
-div#navigation,
-div#navigation ul
+div.breadCrumbs
 	{
-		padding: 0;
+		padding: 0 0 1em 0;
 		margin: 0;
 		background: transparent;
 	}
 
-div#navigation div.breadCrumbs
+div.breadCrumbs ul
 	{
 		padding: 0;
-		margin: 5px 0 0 10px;
+		margin: 0;
+		background: transparent;
 	}
 
 div.breadCrumbs a, 
@@ -290,7 +252,7 @@ div.input label
 	{
 		display: inline-block; 
 		float: left; 
-		width: 10%; 
+		width: 15%; 
 		margin: 5px 0 0; 
 		padding: 0 10px 0 10px; 
 		border: 0px solid black; 
