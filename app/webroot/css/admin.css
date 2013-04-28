@@ -262,6 +262,14 @@ div.input label
 		text-align: right;
 	}
 
+div.input.textarea label 
+	{
+		clear: both; 
+		text-align: left;
+		float: none;
+		width: auto;
+	}
+
 div.input.checkbox label 
 	{
 		display: inline-block; 
