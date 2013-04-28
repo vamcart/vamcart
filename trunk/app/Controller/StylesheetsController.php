@@ -189,18 +189,21 @@ class StylesheetsController extends AppController {
 	{
 		$this->set('current_crumb', __('Stylesheet', true));
 		$this->set('title_for_layout', __('Stylesheet', true));
+		$this->set('active_checked', true);
 		if(($stylesheet_id == null) && (empty($this->data)))
 		{	// We're creating a stylesheet
 			$this->set('new_stylesheet', true);
 			$this->set('data', null);
-			$this->set('active_checked', 'checked'); // For the active checkbox
 		}
 		elseif(empty($this->data))	
 		{	// Otherwise we're editing a stylesheet
 			$this->Stylesheet->id = $stylesheet_id;
 			$data = $this->Stylesheet->read();
-			if($data['Stylesheet']['active'] = 1)
-				$this->set('active_checked', 'checked');
+			if($data['Stylesheet']['active'] == 1) {
+				$this->set('active_checked', true);
+			} else {
+				$this->set('active_checked', false);
+			}
 			$this->set('data',$data);
 		}
 		else

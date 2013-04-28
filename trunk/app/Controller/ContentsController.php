@@ -236,14 +236,14 @@ class ContentsController extends AppController {
 
 		
 				if($data['Content']['active'] == 1)
-					$this->set('active_checked','checked');
+					$this->set('active_checked',true);
 				else
-					$this->set('active_checked',' ');
+					$this->set('active_checked',false);
 
 				if($data['Content']['show_in_menu'] == 1)
-					$this->set('menu_checked','checked');
+					$this->set('menu_checked',true);
 				else
-					$this->set('menu_checked',' ');					
+					$this->set('menu_checked',false);					
 		
 			$this->set('data',$data);
 			$this->set('content_types',$this->Content->ContentType->find('list'));
@@ -454,20 +454,20 @@ class ContentsController extends AppController {
 			if($content_id == 0)
 			{
 				// If it's a new content item set some default checked values
-				$this->set('active_checked','checked');
-				$this->set('menu_checked','checked');	
+				$this->set('active_checked',true);
+				$this->set('menu_checked',true);	
 			}
 			else
 			{
 				if($data['Content']['active'] == 1)
-					$this->set('active_checked','checked');
+					$this->set('active_checked',true);
 				else
-					$this->set('active_checked',' ');
+					$this->set('active_checked',false);
 
 				if($data['Content']['show_in_menu'] == 1)
-					$this->set('menu_checked','checked');
+					$this->set('menu_checked',true);
 				else
-					$this->set('menu_checked',' ');					
+					$this->set('menu_checked',false);					
 			}
 		
 			$this->set('content_id',$content_id);
