@@ -49,7 +49,7 @@ class TinyMceHelper extends Helper {
 	return $code;
 	}
 	public function toggleEditor($options){
-	$code = '<a href="javascript:toggleHTMLEditor(\''.$options.'\');">' . __('Show/Hide editor') . '</a>'; 
+	//$code = '<a href="javascript:toggleHTMLEditor(\''.$options.'\');">' . __('Show/Hide editor') . '</a>'; 
 	return $code;
 	}
 }
