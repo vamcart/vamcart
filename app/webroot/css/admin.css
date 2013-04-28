@@ -261,12 +261,29 @@ div.input label
 		text-align: right;
 	}
 
-div.input input
+div.input.checkbox label 
 	{
-		padding: 0 0 5px 0;
+		display: inline-block; 
+		float: left; 
+		width: auto; 
+		margin: 5px 0 0; 
+		padding: 0 10px 0 10px; 
+		color: #545452; 
+		font-weight: normal; 
+		text-align: right;
+	}
+
+div.input.checkbox 
+	{
+		margin: 0 0 0 14%; 
+	}
+
+div.input input,
+div.input.textarea
+	{
 		clear: both;
 	}
-	
+		
 div.input select 
 	{
 	}
