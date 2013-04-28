@@ -61,7 +61,7 @@ $this->Html->css(array(
 	echo $this->Form->input('Stylesheet.active', array(
 				   		'label' => __('Active'),
 				   		'type' => 'checkbox',
-						'class' => 'checkbox_group',						
+							'class' => 'checkbox_group',	
    						'checked' => $active_checked
 	               )	);
 			

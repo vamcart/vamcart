@@ -261,12 +261,12 @@ div.input label
 		text-align: right;
 	}
 
-div.input
+div.input input
 	{
 		padding: 0 0 5px 0;
 		clear: both;
 	}
-
+	
 div.input select 
 	{
 	}
