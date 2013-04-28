@@ -11,8 +11,6 @@ $this->Html->script(array(
 	'focus-first-input.js'
 ), array('inline' => false));
 
-echo $this->Html->css('ui.tabs', null, array('inline' => false));
-
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-cog');
 
 echo $this->Form->create('Configuration', array('id' => 'contentform', 'action' => '/configuration/admin_edit/', 'url' => '/configuration/admin_edit/'));

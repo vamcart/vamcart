@@ -7,7 +7,6 @@
    ---------------------------------------------------------------------------------------*/
 
 $this->Html->script(array(
-	'jquery/plugins/jquery-ui-min.js',
 	'jquery/plugins/jquery.zrssfeed.min.js',
 ), array('inline' => false));
 ?>
@@ -21,8 +20,6 @@ $(document).ready(function () {
 	});
 });', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
 <?php
-	echo $this->Html->css('ui.tabs', null, array('inline' => false));
-	
 	echo $this->admin->ShowPageHeaderStart(__('Home',true), 'cus-house');
 
 	echo '<div id="news"></div>';
