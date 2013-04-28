@@ -21,7 +21,7 @@ class TinyMceHelper extends Helper {
 	', array('allowCache'=> false,'safe'=> false,'inline'=> false));
 		} else {
 	$code .= $this->Html->scriptBlock('
-//$().ready(function() {
+$().ready(function() {
 		$("textarea.pagesmalltextarea").tinymce({
 			// Location of TinyMCE script
 			script_url : "'.BASE.'/js/tiny_mce/tiny_mce.js",
@@ -52,7 +52,7 @@ class TinyMceHelper extends Helper {
 
 
 		    });
-	//});
+	});
 		function toggleHTMLEditor(id) {
 			if (!tinyMCE.get(id))
 				tinyMCE.execCommand("mceAddControl", false, id);
