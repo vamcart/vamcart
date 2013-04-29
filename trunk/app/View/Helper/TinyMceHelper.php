@@ -33,6 +33,7 @@ class TinyMceHelper extends Helper {
 					max_height: 200,
 					min_height: 160,
 					height : 180,
+					convert_urls : false,
 					'.('ru' == $this->Session->read('Customer.language') ? 'language : "ru"' : '').'
 				});
  	
