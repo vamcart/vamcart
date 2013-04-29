@@ -1352,7 +1352,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `created`, `modified`) VALUES 
-(1, 'admin', 'vam@test.com', '5f4dcc3b5aa765d61d8327deb882cf99', '0000-00-00 00:00:00', '2009-07-23 15:34:53');
+(1, 'admin', 'vam@test.com', '4e825adacc62644d112a2f4e41d395bfb31f55a9', '0000-00-00 00:00:00', '2009-07-23 15:34:53');
 
 DROP TABLE IF EXISTS user_prefs;
 CREATE TABLE `user_prefs` (
