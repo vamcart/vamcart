@@ -335,7 +335,7 @@ class AppController extends Controller {
 			$this->Auth->logoutAction = array('admin' => false, 'controller' => 'site', 'action' => 'logout');
 			$this->Auth->authenticate = ClassRegistry::init('Customer');
 
-			if(!isset($_SESSION['Customer']))
+			if(!$this->Session->check('Customer'))
 			{
 				// Set the default language
 				$new_customer = array();
@@ -347,9 +347,7 @@ class AppController extends Controller {
 
 				$new_customer['language_id'] = $languages['Language']['id'];
 				$new_customer['language'] = $languages['Language']['iso_code_2'];
-				
-				//$this->Session->write('Config.language', $languages['Language']['code']);
-				
+			
 				// Get the default currency
 				App::import('Model', 'Currency');
 				$this->Currency = new Currency();		
@@ -358,8 +356,12 @@ class AppController extends Controller {
 				$new_customer['currency_id'] = $default_currency['Currency']['id']; 
 				$new_customer['currency_code'] = $default_currency['Currency']['code'];
 				
-				if (!$this->Session->check('Customer'))
+				if(!isset($_SESSION['Customer']))
 				$this->Session->write('Customer', $new_customer);
+				if(!isset($_SESSION['Config']['language']))
+				$this->Session->write('Config.language', $languages['Language']['iso_code_2']); 
+				if(!isset($_SESSION['UserPref']['language']))
+				$this->Session->write('UserPref.language', $languages['Language']['iso_code_2']); 			
 			}
 			else
 			{

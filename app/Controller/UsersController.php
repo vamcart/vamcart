@@ -75,13 +75,21 @@ class UsersController extends AppController {
 			}
 			
 			//pr($this->data);
+
+			$languages = $this->Language->find('first', array('conditions' => array('Language.iso_code_2' => $this->data['UserPref']['language'])));
+
+			$this->Session->write('Customer.language', $this->data['UserPref']['language']); 
+			$this->Session->write('Customer.language_id', $languages['Language']['id']); 
 			$this->Session->write('Config.language', $this->data['UserPref']['language']); 
 			$this->Session->write('UserPref.language', $this->data['UserPref']['language']); 			
+
+
 			$user_prefs = $this->User->UserPref->find('first', array('conditions' => array('user_id' => $_SESSION['User']['id'], 'name' => 'language')));
-			$user_prefs['UserPref']['language'] = $this->data['UserPref']['language'];
+			$user_prefs['UserPref']['value'] = $this->data['UserPref']['language'];
+
 			$this->User->UserPref->save($user_prefs);
 			$this->Session->setFlash(__('Record saved.', true));
-			
+			//echo var_dump($this->data['UserPref']['language']);
 			$this->redirect('/users/admin_user_preferences/');
 			die();
 		}		
@@ -107,6 +115,7 @@ class UsersController extends AppController {
 		$this->layout = 'default';
 	
 		$this->Session->delete('User');
+		$this->Session->delete('Customer');
 		$this->Session->setFlash(__('You have logged out.', true));
 		$this->redirect('/users/admin_login');
 	
