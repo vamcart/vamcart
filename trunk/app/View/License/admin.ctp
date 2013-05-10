@@ -6,8 +6,6 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $this->Html->script('jquery/jquery.min', array('inline' => false));
-
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-lock');
 
 echo '<p>'.__('Key:').' <strong>'. $license_data['licenseKey'] .'</strong> '. $this->Admin->ActionButton('edit','/license/admin_edit/' . $license_data['id'],__('Edit')) .'</p>';

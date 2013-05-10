@@ -9,7 +9,6 @@
 function default_template_contact_us()
 {
 $template =
-'<script type="text/javascript" src="{base_path}/js/jquery/jquery.min.js"></script>' .
 '<script type="text/javascript" src="{base_path}/js/modified.js"></script>' .
 '<script type="text/javascript" src="{base_path}/js/focus-first-input.js"></script>';
 	$template .= '<form method="post" action="' . BASE . '/contact_us/send_email/" id="contentform">';
