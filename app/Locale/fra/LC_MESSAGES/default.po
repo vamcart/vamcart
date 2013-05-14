@@ -1,0 +1,3548 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# No version information was available in the source files.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2012-01-10 14:22+0400\n"
+"PO-Revision-Date: 2013-05-08 14:26+0100\n"
+"Last-Translator: \n"
+"Language-Team: French <fradeff@akademia.ch>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#: /app_controller.php:183
+msgid "Home"
+msgstr "Accueil"
+
+#: /app_controller.php:185
+msgid "Orders"
+msgstr "Commandes"
+
+#: /app_controller.php:187
+msgid "All Orders"
+msgstr "Toutes les commandes"
+
+#: /app_controller.php:190
+#: /views/global_content_blocks/admin_edit.ctp:33
+msgid "Contents"
+msgstr "Contenus"
+
+#: /app_controller.php:192
+#: /views/contents/admin_edit.ctp:43
+msgid "Categories/Products"
+msgstr "Catégories et produits"
+
+#: /app_controller.php:193
+msgid "Import/Export"
+msgstr "Import/Export"
+
+#: /app_controller.php:193
+msgid "Pages"
+msgstr "Pages"
+
+#: /app_controller.php:194
+msgid "Content Blocks"
+msgstr "Blocs de contenus"
+
+#: /app_controller.php:197
+msgid "Layout"
+msgstr "Mise en page"
+
+#: /app_controller.php:199
+msgid "Templates"
+msgstr "Modèles"
+
+#: /app_controller.php:200
+#: /views/stylesheets/admin_edit.ctp:34
+msgid "Stylesheets"
+msgstr "Feuilles de style"
+
+#: /app_controller.php:201
+msgid "Micro Templates"
+msgstr "Mini modèles"
+
+#: /app_controller.php:204
+msgid "Configurations"
+msgstr "Configurations"
+
+#: /app_controller.php:206
+msgid "Store Settings"
+msgstr "Magasin (valeurs)"
+
+#: /app_controller.php:206
+msgid "License"
+msgstr "Licence"
+
+#: /app_controller.php:206
+msgid "Update"
+msgstr "Mise à jour"
+
+#: /app_controller.php:207
+msgid "Order status"
+msgstr "Statut de la commande"
+
+#: /app_controller.php:208
+msgid "Payment Methods"
+msgstr "Méthodes de paiement"
+
+#: /app_controller.php:209
+msgid "Shipping Methods"
+msgstr "Méthodes d'expédition"
+
+#: /app_controller.php:210
+msgid "Tax Classes"
+msgstr "Classes de taxes"
+
+#: /app_controller.php:211
+msgid "Tax Rates"
+msgstr "Taux de taxes"
+
+#: /app_controller.php:212
+#: /controllers/email_template_controller.php:28
+msgid "Email Templates"
+msgstr "Modèles de courriels"
+
+#: /app_controller.php:214
+msgid "Locale"
+msgstr "Locale"
+
+#: /app_controller.php:216
+msgid "Currencies"
+msgstr "Devises"
+
+#: /app_controller.php:217
+msgid "Languages"
+msgstr "Langues"
+
+#: /app_controller.php:218
+msgid "Countries"
+msgstr "Pays"
+
+#: /app_controller.php:219
+msgid "Defined Languages"
+msgstr "Langues définies"
+
+#: /app_controller.php:219
+msgid "Geo Zones"
+msgstr "Zones géographiques"
+
+#: /app_controller.php:222
+msgid "Extensions"
+msgstr "Extensions"
+
+#: /app_controller.php:224
+msgid "Modules"
+msgstr "Modules"
+
+#: /app_controller.php:225
+msgid "Tags"
+msgstr "Tags"
+
+#: /app_controller.php:226
+msgid "User Tags"
+msgstr "Tags utilisateurs"
+
+#: /app_controller.php:227
+msgid "Events"
+msgstr "Événements"
+
+#: /app_controller.php:230
+msgid "Account"
+msgstr "Comptes"
+
+#: /app_controller.php:232
+msgid "Manage Accounts"
+msgstr "Gérer les comptes"
+
+#: /app_controller.php:233
+msgid "My Account"
+msgstr "Mon compte"
+
+#: /app_controller.php:234
+msgid "Prefences"
+msgstr "Préférences"
+
+#: /app_controller.php:235
+msgid "Logout"
+msgstr "Déconnexion"
+
+#: /app_controller.php:235
+msgid "Tools"
+msgstr "Outils"
+
+#: /app_controller.php:235
+msgid "Database Backup"
+msgstr "Backup base de données"
+
+#: /app_controller.php:235
+msgid "Database Manager"
+msgstr "Gestion base de données"
+
+#: /app_controller.php:238
+msgid "Launch Site"
+msgstr "Catalogue"
+
+#: /app_controller.php:290
+msgid "Login Error."
+msgstr "Erreur de login"
+
+#: /controllers/configuration_controller.php:20
+msgid "Cache cleared."
+msgstr "Cache vidé"
+
+#: /controllers/configuration_controller.php:26
+msgid "Store Configuration"
+msgstr "Enregistrer configuration"
+
+#: /controllers/configuration_controller.php:41
+#: /controllers/contents_controller.php:339
+#: /controllers/countries_controller.php:40
+#: /controllers/country_zones_controller.php:47
+#: /controllers/currencies_controller.php:79
+#: /controllers/global_content_blocks_controller.php:64
+#: /controllers/order_status_controller.php:110
+#: /controllers/payment_methods_controller.php:60
+#: /controllers/shipping_methods_controller.php:60
+#: /controllers/tax_country_zone_rates_controller.php:50;93
+#: /controllers/templates_controller.php:213;239
+#: /controllers/users_controller.php:88
+msgid "Record saved."
+msgstr "Enregistrement sauvé"
+
+#: /controllers/contents_controller.php:127
+#: /controllers/currencies_controller.php:50;111
+#: /controllers/languages_controller.php:52;113
+#: /controllers/order_status_controller.php:37
+msgid "Error: Could not delete default record."
+msgstr "Erreur: impossible de suprimer l'enregistrement par défaut"
+
+#: /controllers/contents_controller.php:132
+msgid "You have deleted a record."
+msgstr "Vous avez supprimé un enregistrement"
+
+#: /controllers/contents_controller.php:189
+#: /views/contents/admin.ctp:44
+#: /views/contents/admin_core_pages.ctp:27
+#: /views/countries/admin.ctp:30
+#: /views/country_zones/admin.ctp:24
+#: /views/currencies/admin.ctp:28
+#: /views/defined_languages/admin.ctp:23
+#: /views/global_content_blocks/admin.ctp:26
+#: /views/languages/admin.ctp:29
+#: /views/micro_templates/admin.ctp:23
+#: /views/order_status/admin.ctp:25
+#: /views/payment_methods/admin.ctp:25
+#: /views/shipping_methods/admin.ctp:26
+#: /views/stylesheets/admin.ctp:27
+#: /views/tax_country_zone_rates/admin.ctp:26
+#: /views/taxes/admin.ctp:26
+#: /views/templates/admin.ctp:38
+#: /views/user_tags/admin.ctp:25
+msgid "Edit"
+msgstr "Éditer"
+
+#: /controllers/contents_controller.php:233
+#: /views/contents/admin_core_pages_edit.ctp:80
+#: /views/contents/admin_edit.ctp:166
+msgid "Content Details"
+msgstr "Détails du contenu"
+
+#: /controllers/contents_controller.php:446
+msgid "Unable to delete content item with children."
+msgstr "Impossible de détruire du contenu avec enfants"
+
+#: /controllers/contents_controller.php:451
+msgid "Deleted a content item."
+msgstr "Supprimé un item de contenu"
+
+#: /controllers/contents_controller.php:457
+msgid "Now showing in menu."
+msgstr "Maintenant affiché dans le menu"
+
+#: /controllers/contents_controller.php:457
+msgid "Export to YML"
+msgstr "Exporter en YML"
+
+#: /controllers/contents_controller.php:457
+msgid "Not export to YML"
+msgstr "Ne pas exporter en YML"
+
+#: /controllers/contents_controller.php:462
+msgid "Now hiding from menu."
+msgstr "Maintenant caché dans le menu"
+
+#: /controllers/contents_controller.php:467
+#, fuzzy
+msgid "Activated content item."
+msgstr "Item de contenu activé."
+
+#: /controllers/contents_controller.php:472
+msgid "Inactivated content item."
+msgstr "Item de contenu désactivé."
+
+#: /controllers/contents_controller.php:488
+msgid "Pages Listing"
+msgstr "Liste des pages"
+
+#: /controllers/contents_controller.php:519
+msgid "Listing"
+msgstr "Liste"
+
+#: /controllers/countries_controller.php:21
+#: /views/countries/admin_edit.ctp:24;46
+msgid "Country Details"
+msgstr "Détails pays"
+
+#: /controllers/countries_controller.php:38
+#: /controllers/country_zones_controller.php:45
+#: /controllers/global_content_blocks_controller.php:62
+#: /controllers/languages_controller.php:81
+#: /controllers/order_status_controller.php:106
+#: /controllers/taxes_controller.php:61
+#: /controllers/templates_controller.php:276
+#: /controllers/users_controller.php:190
+msgid "Record created."
+msgstr "Enregistrement créé."
+
+#: /controllers/countries_controller.php:61;73
+#: /controllers/country_zones_controller.php:22
+#: /controllers/currencies_controller.php:56;107
+#: /controllers/defined_languages_controller.php:28
+#: /controllers/global_content_blocks_controller.php:25;102
+#: /controllers/languages_controller.php:58;109
+#: /controllers/micro_templates_controller.php:26
+#: /controllers/order_status_controller.php:41;57
+#: /controllers/orders_controller.php:49
+#: /controllers/tax_country_zone_rates_controller.php:28;115
+#: /controllers/taxes_controller.php:40
+#: /controllers/user_tags_controller.php:20
+#: /controllers/users_controller.php:29
+msgid "Record deleted."
+msgstr "Enregistrement supprimé."
+
+#: /controllers/countries_controller.php:83
+msgid "Countries Listing"
+msgstr "Liste des pays"
+
+#: /controllers/country_zones_controller.php:28
+#: /views/country_zones/admin_edit.ctp:16
+msgid "Country Zone Details"
+msgstr "Détail des zones de pays"
+
+#: /controllers/country_zones_controller.php:60
+msgid "Country Zones Listing"
+msgstr "Liste des zones de pays"
+
+#: /controllers/currencies_controller.php:64
+#: /views/currencies/admin_edit.ctp:16
+msgid "Currency Details"
+msgstr "Détail devise"
+
+#: /controllers/currencies_controller.php:117
+#: /controllers/global_content_blocks_controller.php:107
+#: /controllers/languages_controller.php:119
+msgid "Record activated."
+msgstr "Enregistrement activé."
+
+#: /controllers/currencies_controller.php:123
+#: /controllers/languages_controller.php:125
+msgid "Error: Could not deactivate default record."
+msgstr "Erreur: impossible de désactiver l'enregistrement par défaut"
+
+#: /controllers/currencies_controller.php:129
+#: /controllers/global_content_blocks_controller.php:112
+#: /controllers/languages_controller.php:131
+msgid "Record deactivated."
+msgstr "Enregistrement désactivé."
+
+#: /controllers/currencies_controller.php:141
+msgid "Currencies Listing"
+msgstr "Liste des devises"
+
+#: /controllers/defined_languages_controller.php:35
+#: /views/defined_languages/admin_edit.ctp:17
+msgid "Defined Language Details"
+msgstr "Détails sur le langage défini"
+
+#: /controllers/defined_languages_controller.php:93
+msgid "Defined Language Listing"
+msgstr "Liste des langages définis"
+
+#: /controllers/email_template_controller.php:117
+msgid "Email Templates Listing"
+msgstr "Liste de modèle de mails"
+
+#: /controllers/events_controller.php:20
+msgid "Event Details"
+msgstr "Détail événement"
+
+#: /controllers/events_controller.php:31
+msgid "Events Listing"
+msgstr "Liste événements"
+
+#: /controllers/global_content_blocks_controller.php:31
+#: /views/global_content_blocks/admin_edit.ctp:25;40
+msgid "Global Content Block Details"
+msgstr "Информация о блоках"
+
+#: /controllers/global_content_blocks_controller.php:123
+msgid "Global Content Blocks Listing"
+msgstr "Liste globale des blocs de contenu"
+
+#: /controllers/install_controller.php:76
+msgid "Install VamCart"
+msgstr "Installer VamCart"
+
+#: /controllers/install_controller.php:103
+#: /controllers/install_controller.php:104
+msgid "VamCart Installed"
+msgstr "VamCart installé"
+
+#: /controllers/install_controller.php:108
+msgid "Unable to connect to database."
+msgstr "Impossible de se connecter à la base de données."
+
+#: /controllers/install_controller.php:115
+msgid "Could not select database. Are you sure you created it?"
+msgstr "Impossible de sélectionner la base de données. Êtes-vous sûr de l'avoir créée?"
+
+#: /controllers/install_controller.php:122
+msgid "Can't open config.php. Please check you have proper permissions to write to that file."
+msgstr "Impossible d'ouvrir config.php. Vérifier les permissions."
+
+#: /controllers/languages_controller.php:66
+#: /views/languages/admin_edit.ctp:16
+msgid "Language Details"
+msgstr "Détails sur la langue"
+
+#: /controllers/languages_controller.php:143
+msgid "Languages Listing"
+msgstr "Liste des langues"
+
+#: /controllers/micro_templates_controller.php:19
+msgid "Enter an alias to use"
+msgstr "Entrer l'alias à utiliser"
+
+#: /controllers/micro_templates_controller.php:32
+msgid "Micro Template"
+msgstr "Micro Template"
+
+#: /controllers/micro_templates_controller.php:52
+msgid "Micro Template Saved."
+msgstr "Micro Template enregistré."
+
+#: /controllers/micro_templates_controller.php:74
+msgid "Micro Templates Listing"
+msgstr "Liste Micro Template"
+
+#: /controllers/modules_controller.php:19
+msgid "Modules Listing"
+msgstr "Liste  modules"
+
+#: /controllers/order_status_controller.php:65
+msgid "Order Status"
+msgstr "Statut de la commande"
+
+#: /controllers/order_status_controller.php:153
+msgid "Order Status Listing"
+msgstr "Liste des statuts des commandes"
+
+#: /controllers/orders_controller.php:70
+msgid "Order View"
+msgstr "Voir commande"
+
+#: /controllers/orders_controller.php:105
+msgid "Orders Listing"
+msgstr "Liste des commandes"
+
+#: /controllers/payment_methods_controller.php:30
+msgid "Edit Payment Method"
+msgstr "Modifier la méthode de paiement"
+
+#: /controllers/payment_methods_controller.php:68
+msgid "Payment Methods Listing"
+msgstr "Liste des modes de paiement"
+
+#: /controllers/payment_methods_controller.php:68
+msgid "Add module"
+msgstr "Ajouter un module"
+
+#: /controllers/payment_methods_controller.php:68
+msgid "Module Upload"
+msgstr "Uploader un module"
+
+#: /controllers/payment_methods_controller.php:68
+msgid "Upload New Module"
+msgstr "Uploader un nouveau module"
+
+#: /controllers/payment_methods_controller.php:68
+msgid "Module Uploaded"
+msgstr "Module uploadé"
+
+#: /controllers/payment_methods_controller.php:68
+msgid "Error : Unable to unzip archive"
+msgstr "Erreur : impossible de dézipper l'archive"
+
+#: /controllers/payment_methods_controller.php:68
+msgid "Module Not Uploaded"
+msgstr "Module pas uploadé"
+
+#: /controllers/search_controller.php:19
+msgid "Search Results"
+msgstr "Résultats de la recherche"
+
+#: /controllers/shipping_methods_controller.php:29
+msgid "Edit Shipping Method"
+msgstr "Modifier modes d'expédition"
+
+#: /controllers/shipping_methods_controller.php:67
+msgid "Shipping Methods Listing"
+msgstr "Liste des modes d'expédition"
+
+#: /controllers/stylesheets_controller.php:42
+msgid "You have deleted a template association."
+msgstr "Vous avez supprimé une association à un modèle."
+
+#: /controllers/stylesheets_controller.php:65
+#: /views/stylesheets/admin.ctp:27
+#: /views/stylesheets/admin_attach_templates.ctp:42
+msgid "Attach Template"
+msgstr "Attacher modèle"
+
+#: /controllers/stylesheets_controller.php:94
+#: /views/stylesheets/admin_copy.ctp:16
+msgid "Copy Stylesheet"
+msgstr "Copier modèle"
+
+#: /controllers/stylesheets_controller.php:129
+msgid "Could not delete stylesheet. Stylesheet is in use."
+msgstr "Impossible de supprimer la feuille de style, qui est active."
+
+#: /controllers/stylesheets_controller.php:135
+msgid "You deleted a stylesheet."
+msgstr "Feuille de style supprimée."
+
+#: /controllers/stylesheets_controller.php:142
+#: /views/stylesheets/admin_attach_templates.ctp:14
+msgid "Stylesheet"
+msgstr "Feuille de style"
+
+#: /controllers/stylesheets_controller.php:183
+msgid "You have created a new stylesheet."
+msgstr "Nouvelle feuille de style créée."
+
+#: /controllers/stylesheets_controller.php:187
+msgid "You have updated a stylesheet."
+msgstr "Feuille de style modifiée."
+
+#: /controllers/stylesheets_controller.php:219
+msgid "You have deleted multiple stylesheets."
+msgstr "Plusieurs feuilles de styles supprimées."
+
+#: /controllers/stylesheets_controller.php:224
+msgid "You have activated multiple stylesheets."
+msgstr "Plusieurs feuilles de style activées."
+
+#: /controllers/stylesheets_controller.php:229
+msgid "You have inactivated multiple stylesheets."
+msgstr "Plusieurs feuilles de style désactivées."
+
+#: /controllers/stylesheets_controller.php:239
+msgid "Stylesheets Listing"
+msgstr "Liste des feuilles de style"
+
+#: /controllers/tags_controller.php:20
+msgid "Tag Details"
+msgstr "Détails tag"
+
+#: /controllers/tags_controller.php:55
+msgid "Tags Listing"
+msgstr "Liste tags"
+
+#: /controllers/tax_country_zone_rates_controller.php:20
+msgid "All Country Zones"
+msgstr "Toutes les zones de pays"
+
+#: /controllers/tax_country_zone_rates_controller.php:34
+msgid "Tax Edit"
+msgstr "Modifier taxe"
+
+#: /controllers/tax_country_zone_rates_controller.php:57
+msgid "New Tax Zone"
+msgstr "Nouvelle zone de taxe"
+
+#: /controllers/tax_country_zone_rates_controller.php:121
+msgid "Tax Zones"
+msgstr "Zones de taxe"
+
+#: /controllers/tax_country_zone_rates_controller.php:124
+msgid "Please select a tax class."
+msgstr "Choisir une classe de taxe."
+
+#: /controllers/taxes_controller.php:28
+msgid "You have updated multiple records."
+msgstr "Plusieurs enregistrements modifiés."
+
+#: /controllers/taxes_controller.php:46
+msgid "Tax"
+msgstr "Taxe"
+
+#: /controllers/taxes_controller.php:73
+msgid "Taxes Listing"
+msgstr "Liste taxes"
+
+#: /controllers/templates_controller.php:69
+msgid "You have deleted a stylesheet association."
+msgstr "Association à feuille de style supprimée."
+
+#: /controllers/templates_controller.php:76
+#: /views/templates/admin.ctp:38
+msgid "Attach Stylesheets"
+msgstr "Attacher feuilles de style"
+
+#: /views/templates/admin.ctp:38
+msgid "Are you sure you want to set all products to this template?"
+msgstr "Confirmer la liaison de tous les produits à ce modèle?"
+
+#: /controllers/templates_controller.php:121
+#: /views/templates/admin_copy.ctp:16
+msgid "Copy Template"
+msgstr "Copier modèle"
+
+#: /controllers/templates_controller.php:149
+msgid "Record copied."
+msgstr "Enregistrement copié."
+
+#: /controllers/templates_controller.php:165
+msgid "Could not delete template. Template is in use."
+msgstr "Impossible de supprimer le modèle. Modèle actif."
+
+#: /controllers/templates_controller.php:178
+msgid "You deleted a template."
+msgstr "Modèle supprimé."
+
+#: /controllers/templates_controller.php:185
+msgid "Template Content"
+msgstr "Modèle de contenu"
+
+#: /controllers/templates_controller.php:229
+msgid "Edit Template"
+msgstr "Modifier modèle"
+
+#: /controllers/templates_controller.php:246
+msgid "New Template"
+msgstr "Nouveau modèle"
+
+#: /controllers/templates_controller.php:283
+msgid "Templates Listing"
+msgstr "Liste modèles"
+
+#: /controllers/user_tags_controller.php:26
+msgid "User Tag"
+msgstr "Tag utilisateur"
+
+#: /controllers/user_tags_controller.php:61
+msgid "Invalid Tag Code"
+msgstr "Code de tag invalide"
+
+#: /controllers/user_tags_controller.php:77
+msgid "User tag created."
+msgstr "Tag utilisateur créé."
+
+#: /controllers/user_tags_controller.php:82
+msgid "User tag updated."
+msgstr "Tag utilisateur modifié."
+
+#: /controllers/user_tags_controller.php:119
+msgid "User tag deleted."
+msgstr "Tag utilisateur supprimé."
+
+#: /controllers/user_tags_controller.php:130
+msgid "User Tags Listing"
+msgstr "Liste tags utilisateur"
+
+#: /controllers/users_controller.php:24
+msgid "Could not delete that account."
+msgstr "Impossible de supprimer ce compte."
+
+#: /controllers/users_controller.php:36
+msgid "My Account Details"
+msgstr "Détails de mon compte"
+
+#: /controllers/users_controller.php:50
+msgid "Sorry, passwords did not match."
+msgstr "Désolé, les mots de passe ne concordent pas."
+
+#: /controllers/users_controller.php:60
+msgid "Your account settings have been updated."
+msgstr "Les modifications de votre compte ont été enregistrées."
+
+#: /controllers/users_controller.php:73
+msgid "My Prefences"
+msgstr "Mes préférences"
+
+#: /controllers/users_controller.php:114
+msgid "You have logged out."
+msgstr "Vous êtes déconnecté."
+
+#: /controllers/users_controller.php:135
+msgid "No match for Username and/or Password."
+msgstr "Pas de correspondance pour ce nom d'utilisateur et/ou ce mot de passe."
+
+#: /controllers/users_controller.php:146
+#: /views/users/admin_new.ctp:16
+msgid "New Admin"
+msgstr "Nouvel administrateur"
+
+#: /controllers/users_controller.php:164
+msgid "Could not create user account. User exists."
+msgstr "Impossible de créer ce compte d'utilisateur. L'utilisateur existe."
+
+#: /controllers/users_controller.php:197
+msgid "Admins Listing"
+msgstr "Liste administrateurs"
+
+#: /controllers/components/module_base.php:48
+msgid "Could not install module."
+msgstr "Impossible d'installer le module."
+
+#: /controllers/components/module_base.php:129
+msgid "module exists."
+msgstr "le module existe"
+
+#: /plugins/module_abandoned_carts/controllers/admin_controller.php:28
+msgid "Abandoned carts have been purged."
+msgstr "Les paniers abandonnées ont été purgées."
+
+#: /plugins/module_abandoned_carts/controllers/admin_controller.php:37
+#: /plugins/module_abandoned_carts/controllers/setup_controller.php:34
+msgid "Abandoned Carts"
+msgstr "Cartes abandonnées"
+
+#: /plugins/module_abandoned_carts/controllers/setup_controller.php:21
+#: /plugins/module_coupons/controllers/setup_controller.php:21
+#: /plugins/module_reviews/controllers/setup_controller.php:21
+msgid "Module Upgraded"
+msgstr "Module mis à jour"
+
+#: /plugins/module_abandoned_carts/controllers/setup_controller.php:42
+#: /plugins/module_coupons/controllers/setup_controller.php:91
+#: /plugins/module_reviews/controllers/setup_controller.php:64
+msgid "Module Installed"
+msgstr "Module установлен"
+
+#: /plugins/module_abandoned_carts/controllers/setup_controller.php:56
+#: /plugins/module_coupons/controllers/setup_controller.php:125
+#: /plugins/module_reviews/controllers/setup_controller.php:91
+msgid "Module Uninstalled"
+msgstr "Module supprimé"
+
+#: /plugins/module_abandoned_carts/views/admin/admin_help.ctp:15
+#: /plugins/module_coupons/views/admin/admin_help.ctp:15
+#: /plugins/module_reviews/views/admin/admin_help.ctp:14
+msgid "What does this do?"
+msgstr "Que fait ce module?"
+
+#: /plugins/module_abandoned_carts/views/admin/admin_help.ctp:16
+msgid "The Abandoned Carts module allows you to view the contents of customer's carts who did not complete checkout."
+msgstr "Le module paniers abandonnés vous permet de voir les contenus des commandes des utilisateurs qui n'ont pas finalisé leur commande."
+
+#: /plugins/module_abandoned_carts/views/admin/admin_help.ctp:17
+#: /plugins/module_coupons/views/admin/admin_help.ctp:17
+#: /plugins/module_reviews/views/admin/admin_help.ctp:16
+msgid "How do I use this?"
+msgstr "Comment utiliser ce module?"
+
+#: /plugins/module_abandoned_carts/views/admin/admin_help.ctp:18
+msgid "Simply navigate to Orders -> Abandoned Carts to use this module."
+msgstr "Naviguer à Commandes -> paniers abandonnés pour utiliser ce module."
+
+#: /plugins/module_abandoned_carts/views/admin/admin_index.ctp:16
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:19
+#: /views/configuration/admin_edit.ctp:22
+#: /views/contents/admin_core_pages_edit.ctp:18
+#: /views/contents/admin_edit.ctp:35
+#: /views/countries/admin_edit.ctp:18
+#: /views/global_content_blocks/admin_edit.ctp:19
+#: /views/stylesheets/admin_edit.ctp:18
+#: /views/user_tags/admin_edit.ctp:19
+msgid "Main"
+msgstr "Principal"
+
+#: /views/admin/admin_top.ctp:24
+msgid "Menu"
+msgstr "Menu"
+
+#: /plugins/module_abandoned_carts/views/admin/admin_index.ctp:17
+#: /views/admin/admin_top.ctp:40
+#: /views/contents/admin_core_pages_edit.ctp:19
+#: /views/contents/admin_edit.ctp:38
+#: /views/countries/admin_edit.ctp:19
+#: /views/global_content_blocks/admin_edit.ctp:20
+#: /views/stylesheets/admin_edit.ctp:19
+#: /views/user_tags/admin_edit.ctp:20
+msgid "Options"
+msgstr "Options"
+
+#: /plugins/module_abandoned_carts/views/admin/admin_index.ctp:23
+msgid "Order Id"
+msgstr "Id commande"
+
+#: /plugins/module_abandoned_carts/views/admin/admin_index.ctp:23
+msgid "Number of Products"
+msgstr "Nombre de produits"
+
+#: /plugins/module_abandoned_carts/views/admin/admin_index.ctp:23
+msgid "Date Placed"
+msgstr "Date de la commande"
+
+#: /plugins/module_abandoned_carts/views/admin/admin_index.ctp:41
+msgid "Click here to purge all Abandoned Carts."
+msgstr "Cliquer ici pour purger tous les paniers abandonnées."
+
+#: /plugins/module_abandoned_carts/views/admin/admin_index.ctp:41
+#: /views/modules/admin.ctp:27;31
+msgid "Are you sure?"
+msgstr "Êtes-vous sûr(e)?"
+
+#: /plugins/module_coupons/controllers/admin_controller.php:21
+msgid "You have deleted a coupon."
+msgstr "Coupon supprimé."
+
+#: /plugins/module_coupons/controllers/admin_controller.php:29
+msgid "Edit Coupon"
+msgstr "Modifier coupon"
+
+#: /plugins/module_coupons/controllers/admin_controller.php:31
+#: /views/configuration/admin_edit.ctp:17
+msgid "no"
+msgstr "non"
+
+#: /plugins/module_coupons/controllers/admin_controller.php:31
+#: /views/configuration/admin_edit.ctp:18
+msgid "yes"
+msgstr "oui"
+
+#: /plugins/module_coupons/controllers/admin_controller.php:44
+msgid "You have updated a coupon."
+msgstr "Coupon modifié."
+
+#: /plugins/module_coupons/controllers/admin_controller.php:64
+msgid "Manage Coupons"
+msgstr "Gérer les coupons"
+
+#: /plugins/module_coupons/controllers/event_controller.php:30
+msgid "Not enough products in cart for coupon. Requires: "
+msgstr "Pas assez de produits dans le panier pour un coupon. Requis: "
+
+#: /plugins/module_coupons/controllers/event_controller.php:30;32
+msgid " products."
+msgstr " produits."
+
+#: /plugins/module_coupons/controllers/event_controller.php:32
+msgid "Too many products in cart for coupon. Requires less than: "
+msgstr "Trop de produits dans le panier pour un coupon. Requis moins de: "
+
+#: /plugins/module_coupons/controllers/event_controller.php:34
+msgid "Order total not enough. Requires at least: "
+msgstr "Commande totale insuffisante. Requis au minimum: "
+
+#: /plugins/module_coupons/controllers/event_controller.php:36
+msgid "Order total too high. Requires less than: "
+msgstr "Commande totale trop importante. Requis moins de: "
+
+#: /plugins/module_coupons/controllers/event_controller.php:74
+msgid "Error: Coupon already used."
+msgstr "Erreur: coupon déjà utilisé."
+
+#: /plugins/module_coupons/controllers/setup_controller.php:34
+msgid "Coupons"
+msgstr "Coupons"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:20
+msgid "Restrictions"
+msgstr "Restrictions"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:25;50
+msgid "Coupon Details"
+msgstr "Détails coupon"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:30
+#: /plugins/module_coupons/views/admin/admin_index.ctp:15
+#: /views/countries/admin_edit.ctp:30
+#: /views/country_zones/admin_edit.ctp:25
+#: /views/currencies/admin_edit.ctp:21
+#: /views/events/admin.ctp:16
+#: /views/global_content_blocks/admin_edit.ctp:30
+#: /views/languages/admin_edit.ctp:21
+#: /views/modules/admin.ctp:16
+#: /views/order_status/admin.ctp:16
+#: /views/payment_methods/admin.ctp:16
+#: /views/payment_methods/admin_edit.ctp:22
+#: /views/shipping_methods/admin.ctp:16
+#: /views/shipping_methods/admin_edit.ctp:23
+#: /views/stylesheets/admin_edit.ctp:30
+#: /views/tax_country_zone_rates/admin.ctp:18
+#: /views/taxes/admin.ctp:16
+#: /views/taxes/admin_edit.ctp:21
+#: /views/templates/admin_edit_details.ctp:22
+#: /views/templates/admin_new.ctp:18
+#: /views/user_tags/admin_edit.ctp:30
+msgid "Name"
+msgstr "Nom"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:33
+msgid "Coupon Code"
+msgstr "Code coupon"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:36
+msgid "Free Shipping"
+msgstr "Envoi gratuit"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:40
+msgid "Percent Off Total"
+msgstr "Pourcentage total réducation"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:43
+msgid "Amount Off Total"
+msgstr "Total montant réduction"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:52
+msgid "Max Uses"
+msgstr "Nombre maximum d'utilisations"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:56
+msgid "Min Product Count"
+msgstr "Minimum décompte produit"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:59
+msgid "Max Product Count"
+msgstr "Maximum décompte produit"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:62
+msgid "Min Order Total"
+msgstr "Minimum total commande"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:65
+msgid "Max Order Total"
+msgstr "Maximum total commande"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:72
+#: /views/helpers/admin.php:120
+#: /views/contents/admin_core_pages_edit.ctp:100
+#: /views/contents/admin_edit.ctp:196
+#: /views/countries/admin_edit.ctp:57
+#: /views/country_zones/admin_edit.ctp:31
+#: /views/currencies/admin_edit.ctp:45
+#: /views/defined_languages/admin_edit.ctp:41
+#: /views/global_content_blocks/admin_edit.ctp:55
+#: /views/install/start.ctp:31
+#: /views/languages/admin_edit.ctp:30
+#: /views/layouts/admin.ctp:44
+#: /views/micro_templates/admin_create_from_tag.ctp:33
+#: /views/micro_templates/admin_edit.ctp:34
+#: /views/order_status/admin_edit.ctp:34
+#: /views/orders/admin_view.ctp:211
+#: /views/payment_methods/admin_edit.ctp:29
+#: /views/shipping_methods/admin_edit.ctp:30
+#: /views/stylesheets/admin_copy.ctp:26
+#: /views/stylesheets/admin_edit.ctp:59
+#: /views/tax_country_zone_rates/admin_edit.ctp:26
+#: /views/tax_country_zone_rates/admin_new.ctp:49
+#: /views/taxes/admin_edit.ctp:24
+#: /views/templates/admin_copy.ctp:26
+#: /views/templates/admin_edit.ctp:25
+#: /views/templates/admin_edit_details.ctp:26
+#: /views/user_tags/admin_edit.ctp:49
+#: /views/users/admin_new.ctp:28
+#: /views/users/admin_user_account.ctp:35
+msgid "Submit"
+msgstr "Soumettre"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:72
+#: /views/configuration/admin_edit.ctp:45
+#: /views/contents/admin_core_pages_edit.ctp:100
+#: /views/contents/admin_edit.ctp:196
+#: /views/global_content_blocks/admin_edit.ctp:55
+#: /views/micro_templates/admin_create_from_tag.ctp:33
+#: /views/micro_templates/admin_edit.ctp:34
+#: /views/stylesheets/admin_edit.ctp:59
+#: /views/templates/admin_edit.ctp:25
+#: /views/user_tags/admin_edit.ctp:49
+#: /views/users/admin_user_preferences.ctp:26
+msgid "Apply"
+msgstr "Soumettre"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:72
+#: /views/configuration/admin_edit.ctp:45
+#: /views/contents/admin_core_pages_edit.ctp:100
+#: /views/contents/admin_edit.ctp:196
+#: /views/countries/admin_edit.ctp:57
+#: /views/country_zones/admin_edit.ctp:31
+#: /views/currencies/admin_edit.ctp:45
+#: /views/defined_languages/admin_edit.ctp:41
+#: /views/global_content_blocks/admin_edit.ctp:55
+#: /views/languages/admin_edit.ctp:30
+#: /views/micro_templates/admin_create_from_tag.ctp:33
+#: /views/micro_templates/admin_edit.ctp:34
+#: /views/order_status/admin_edit.ctp:34
+#: /views/payment_methods/admin_edit.ctp:29
+#: /views/shipping_methods/admin_edit.ctp:30
+#: /views/stylesheets/admin_copy.ctp:26
+#: /views/stylesheets/admin_edit.ctp:59
+#: /views/tax_country_zone_rates/admin_edit.ctp:26
+#: /views/tax_country_zone_rates/admin_new.ctp:49
+#: /views/taxes/admin_edit.ctp:24
+#: /views/templates/admin_copy.ctp:26
+#: /views/templates/admin_edit.ctp:25
+#: /views/templates/admin_edit_details.ctp:26
+#: /views/templates/admin_new.ctp:21
+#: /views/user_tags/admin_edit.ctp:49
+#: /views/users/admin_new.ctp:28
+#: /views/users/admin_user_account.ctp:35
+#: /views/users/admin_user_preferences.ctp:26
+msgid "Cancel"
+msgstr "Annuler"
+
+#: /plugins/module_coupons/views/admin/admin_help.ctp:16
+msgid "The coupons module allows you to create promotional discounts and coupons for your customers to use."
+msgstr "Le module de coupon permet de créer des discount promotionnel et des coupons à l'intention des clients."
+
+#: /plugins/module_coupons/views/admin/admin_help.ctp:18
+msgid "Once installed there will be a new menu item under Content called Coupons. Here you can create coupons for your customers to use. They will be presented with a box during checkout to enter any promotional coupons they have."
+msgstr "Une fois installé, il y aura un nouvel élément de menu sous Contenu appelé Coupons. Ici, vous pouvez créer des coupons pour vos clients. Ils seront présentés avec une boîte lors de la commande."
+
+#: /plugins/module_coupons/views/admin/admin_help.ctp:19
+msgid "To use during checkout:"
+msgstr "A utiliser pendant le checkout:"
+
+#: /plugins/module_coupons/views/admin/admin_index.ctp:15
+#: /views/countries/admin.ctp:20;20
+#: /views/country_zones/admin.ctp:16
+#: /views/country_zones/admin_edit.ctp:28
+#: /views/currencies/admin.ctp:18
+#: /views/currencies/admin_edit.ctp:24
+#: /views/languages/admin.ctp:18
+#: /views/languages/admin_edit.ctp:24
+#: /views/shipping_methods/admin.ctp:16
+msgid "Code"
+msgstr "Code"
+
+#: /plugins/module_coupons/views/admin/admin_index.ctp:15
+#: /plugins/module_reviews/views/admin/admin_index.ctp:15
+#: /views/contents/admin.ctp:18
+#: /views/contents/admin_core_pages.ctp:16
+#: /views/countries/admin.ctp:20
+#: /views/country_zones/admin.ctp:16
+#: /views/currencies/admin.ctp:18
+#: /views/defined_languages/admin.ctp:15
+#: /views/events/admin_view.ctp:16
+#: /views/global_content_blocks/admin.ctp:17
+#: /views/languages/admin.ctp:18
+#: /views/micro_templates/admin.ctp:15
+#: /views/modules/admin.ctp:16
+#: /views/order_status/admin.ctp:16
+#: /views/orders/admin.ctp:18
+#: /views/payment_methods/admin.ctp:16
+#: /views/shipping_methods/admin.ctp:16
+#: /views/stylesheets/admin.ctp:18
+#: /views/stylesheets/admin_attach_templates.ctp:22
+#: /views/tax_country_zone_rates/admin.ctp:18
+#: /views/taxes/admin.ctp:16
+#: /views/templates/admin.ctp:16
+#: /views/templates/admin_attach_stylesheets.ctp:21
+#: /views/user_tags/admin.ctp:17
+#: /views/users/admin.ctp:16
+msgid "Action"
+msgstr "Action"
+
+#: /plugins/module_reviews/controllers/admin_controller.php:21
+msgid "Record Deleted."
+msgstr "Enregistrement effacé."
+
+#: /plugins/module_reviews/controllers/admin_controller.php:27
+msgid "Read Review"
+msgstr "Lire commentaires"
+
+#: /plugins/module_reviews/controllers/admin_controller.php:33
+msgid "Manage Reviews"
+msgstr "Gérer les commentaires"
+
+#: /plugins/module_reviews/controllers/setup_controller.php:32
+msgid "Reviews"
+msgstr "Commentaire"
+
+#: /plugins/module_reviews/views/admin/admin_edit.ctp:14
+msgid "Date: "
+msgstr "Date: "
+
+#: /plugins/module_reviews/views/admin/admin_edit.ctp:16
+msgid "Author: "
+msgstr "Auteur: "
+
+#: /plugins/module_reviews/views/admin/admin_edit.ctp:18
+msgid "Review: "
+msgstr "Avis: "
+
+#: /plugins/module_reviews/views/admin/admin_edit.ctp:20
+msgid "Return to menu"
+msgstr "Retour au menu"
+
+#: /plugins/module_reviews/views/admin/admin_help.ctp:15
+msgid "The reviews module will allow customers to publish reviews and rate your products."
+msgstr "Le module de commentaires permettra aux clients de publier des commentaires et noter vos produits."
+
+#: /plugins/module_reviews/views/admin/admin_help.ctp:17
+msgid "Upon installation the Reviews Module will create a new Core Page for your store called Product Reviews."
+msgstr "Lors de l'installation du module de commentaires, une nouvelle rubrique nommée Commentaires produits sera créée."
+
+#: /plugins/module_reviews/views/admin/admin_help.ctp:18
+msgid "To create a link to a products reviews:"
+msgstr "Pour créer un lien pour des commentaires sur les produits:"
+
+#: /plugins/module_reviews/views/admin/admin_help.ctp:20
+msgid "This call will create two links in your page/template. One to read reviews of the current content, and the other to publish your own review."
+msgstr "Cet appel va créer deux liens dans ta page / template. Un de lire les commentaires sur le contenu actuel, et l'autre pour publier votre critique"
+
+#: /plugins/module_reviews/views/admin/admin_help.ctp:21
+msgid "To create a listing of reviews:"
+msgstr "Pour créer une liste de commentaires:"
+
+#: /plugins/module_reviews/views/admin/admin_help.ctp:23
+msgid "Generally called from the core page. If called from a template will display a listing of reviews for that content item."
+msgstr "Généralement appelé à partir de la page de base. Si appelé à partir d'un modèle, affichera une liste de commentaires pour cet élément de contenu."
+
+#: /plugins/module_reviews/views/admin/admin_index.ctp:15
+msgid "Author"
+msgstr "Auteur"
+
+#: /plugins/module_reviews/views/admin/admin_index.ctp:15
+#: /views/orders/admin.ctp:18
+#: /views/orders/admin_view.ctp:160
+msgid "Date"
+msgstr "Date"
+
+#: /plugins/module_reviews/views/admin/admin_index.ctp:15
+msgid "Product"
+msgstr "Produit"
+
+#: /plugins/payment/views/admin/authorize.ctp:15
+msgid "Authorize.Net ID"
+msgstr "Authorize.Net ID"
+
+#: /plugins/payment/views/admin/google_html.ctp:15
+msgid "Merchant ID"
+msgstr "Merchant ID"
+
+#: /plugins/payment/views/admin/paypal.ctp:15
+msgid "Paypal Email"
+msgstr "Courriel Paypal"
+
+#: /plugins/shipping/views/admin/flat_rate.ctp:16
+msgid "Shipping Cost"
+msgstr "Frais d'expédition"
+
+#: /plugins/shipping/views/admin/free_shipping.ctp:14
+msgid "Free shipping is just that, FREE! No configuration is needed."
+msgstr "Expédition gratuite: pas de configuration."
+
+#: /plugins/shipping/views/admin/per_item.ctp:16
+msgid "Per Item Amount"
+msgstr "Montant par item"
+
+#: /plugins/shipping/views/admin/per_item.ctp:20
+msgid "Handling"
+msgstr "Manipulation"
+
+#: /plugins/shipping/views/admin/table_based.ctp:14
+msgid "Table based shipping can be set to work off of number of products in cart, weight of products, or total price of products. In the textarea below specify value to cost pairs with a colon followed by a comma. Example: 0:1.00,1:2.50,2:3.00. Units of measure must be integers."
+msgstr "L'expédition basée sur une table peut être réglée pour travailler en-dehors du nombre de produits dans le panier, le poids des produits, ou le prix total des produits. Dans la zone de texte ci-dessous, spécifier la valeur par paires, séparées par des deux points suivies de virgules. Exemple: 0:1.00,1:2.50,2:3.00. Les unités de mesure doivent être des entiers."
+
+#: /plugins/shipping/views/admin/table_based.ctp:16
+#: /views/contents/admin_edit_type.ctp:54
+msgid "Weight"
+msgstr "Poids"
+
+#: /plugins/shipping/views/admin/table_based.ctp:17
+#: /views/orders/admin.ctp:18
+#: /views/orders/admin_view.ctp:125
+msgid "Total"
+msgstr "Total"
+
+#: /plugins/shipping/views/admin/table_based.ctp:18
+#: /views/orders/admin_view.ctp:17
+msgid "Products"
+msgstr "Produits"
+
+#: /plugins/shipping/views/admin/table_based.ctp:24
+msgid "Based Off"
+msgstr "Basé sur"
+
+#: /plugins/shipping/views/admin/table_based.ctp:30
+msgid "Rates"
+msgstr "Tarifs"
+
+#: /vendors/smarty/vam_plugins/block.lang.php:60
+#: /vendors/smarty/vam_plugins/block.product_form.php:41
+#: /vendors/smarty/vam_plugins/function.admin_area_link.php:35
+#: /vendors/smarty/vam_plugins/function.admin_edit_link.php:37
+#: /vendors/smarty/vam_plugins/function.checkout.php:218
+#: /vendors/smarty/vam_plugins/function.content.php:53
+#: /vendors/smarty/vam_plugins/function.content_images.php:99
+#: /vendors/smarty/vam_plugins/function.content_listing.php:173
+#: /vendors/smarty/vam_plugins/function.currency_box.php:86
+#: /vendors/smarty/vam_plugins/function.description.php:35
+#: /vendors/smarty/vam_plugins/function.get_template_vars.php:44
+#: /vendors/smarty/vam_plugins/function.global_content.php:56
+#: /vendors/smarty/vam_plugins/function.headdata.php:32
+#: /vendors/smarty/vam_plugins/function.language_box.php:83
+#: /vendors/smarty/vam_plugins/function.metadata.php:35
+#: /vendors/smarty/vam_plugins/function.module.php:77
+#: /vendors/smarty/vam_plugins/function.page_name.php:32
+#: /vendors/smarty/vam_plugins/function.payment.php:63
+#: /vendors/smarty/vam_plugins/function.payment_content.php:43
+#: /vendors/smarty/vam_plugins/function.product_price.php:35
+#: /vendors/smarty/vam_plugins/function.product_quantity.php:57
+#: /vendors/smarty/vam_plugins/function.purchase_button.php:29
+#: /vendors/smarty/vam_plugins/function.repeat.php:29
+#: /vendors/smarty/vam_plugins/function.shopping_cart.php:116
+#: /vendors/smarty/vam_plugins/function.site_name.php:32
+#: /vendors/smarty/vam_plugins/function.stylesheet.php:52
+#: /vendors/smarty/vam_plugins/function.user_tag.php:33
+msgid "What does this tag do?"
+msgstr "Que fait ce tag?"
+
+#: /vendors/smarty/vam_plugins/function.base_path.php:23
+msgid "Displays the base program path."
+msgstr "Montre le répertoire par défaut du programme."
+
+#: /vendors/smarty/vam_plugins/function.google_analytics.php:23
+msgid "Displays the google analytics code."
+msgstr "Afficher le code Google Analytics."
+
+#: /vendors/smarty/vam_plugins/function.yandex_metrika.php:23
+msgid "Displays the yandex metrika code."
+msgstr "Affiche le code métrique Yandex."
+
+#: /vendors/smarty/vam_plugins/block.lang.php:61
+msgid "Outputs the correct language value specified by the key between the brackets."
+msgstr "Sort la valeur de la langue correcte spécifié par la clé entre parenthèses."
+
+#: /vendors/smarty/vam_plugins/block.lang.php:62
+#: /vendors/smarty/vam_plugins/block.product_form.php:43
+#: /vendors/smarty/vam_plugins/function.admin_area_link.php:38
+#: /vendors/smarty/vam_plugins/function.admin_edit_link.php:40
+#: /vendors/smarty/vam_plugins/function.checkout.php:220
+#: /vendors/smarty/vam_plugins/function.content.php:55
+#: /vendors/smarty/vam_plugins/function.content_images.php:101
+#: /vendors/smarty/vam_plugins/function.content_listing.php:175
+#: /vendors/smarty/vam_plugins/function.currency_box.php:88
+#: /vendors/smarty/vam_plugins/function.description.php:37
+#: /vendors/smarty/vam_plugins/function.get_template_vars.php:46
+#: /vendors/smarty/vam_plugins/function.global_content.php:58
+#: /vendors/smarty/vam_plugins/function.headdata.php:34
+#: /vendors/smarty/vam_plugins/function.language_box.php:85
+#: /vendors/smarty/vam_plugins/function.metadata.php:37
+#: /vendors/smarty/vam_plugins/function.page_name.php:34
+#: /vendors/smarty/vam_plugins/function.payment.php:65
+#: /vendors/smarty/vam_plugins/function.payment_content.php:45
+#: /vendors/smarty/vam_plugins/function.product_price.php:37
+#: /vendors/smarty/vam_plugins/function.product_quantity.php:59
+#: /vendors/smarty/vam_plugins/function.purchase_button.php:31
+#: /vendors/smarty/vam_plugins/function.repeat.php:31
+#: /vendors/smarty/vam_plugins/function.shopping_cart.php:118
+#: /vendors/smarty/vam_plugins/function.site_name.php:34
+#: /vendors/smarty/vam_plugins/function.stylesheet.php:54
+#: /vendors/smarty/vam_plugins/function.user_tag.php:35
+msgid "How do I use it?"
+msgstr "Comment l'utiliser?"
+
+#: /vendors/smarty/vam_plugins/block.lang.php:63
+#: /vendors/smarty/vam_plugins/function.admin_area_link.php:39
+#: /vendors/smarty/vam_plugins/function.admin_edit_link.php:41
+#: /vendors/smarty/vam_plugins/function.content.php:56
+#: /vendors/smarty/vam_plugins/function.content_listing.php:176
+#: /vendors/smarty/vam_plugins/function.currency_box.php:89
+#: /vendors/smarty/vam_plugins/function.description.php:38
+#: /vendors/smarty/vam_plugins/function.get_template_vars.php:47
+#: /vendors/smarty/vam_plugins/function.global_content.php:59
+#: /vendors/smarty/vam_plugins/function.headdata.php:35
+#: /vendors/smarty/vam_plugins/function.language_box.php:86
+#: /vendors/smarty/vam_plugins/function.metadata.php:38
+#: /vendors/smarty/vam_plugins/function.page_name.php:35
+#: /vendors/smarty/vam_plugins/function.product_price.php:38
+#: /vendors/smarty/vam_plugins/function.repeat.php:32
+#: /vendors/smarty/vam_plugins/function.site_name.php:35
+#: /vendors/smarty/vam_plugins/function.user_tag.php:36
+msgid "Just insert the tag into your template like:"
+msgstr "Insérer le tag dans votre modèle de la manière suivante:"
+
+#: /vendors/smarty/vam_plugins/block.lang.php:63
+msgid "Language Text"
+msgstr "Texte traduit"
+
+#: /vendors/smarty/vam_plugins/block.lang.php:64
+msgid "Make sure you define the language key in the admin area."
+msgstr "Vérifiez que vous avez défini le code de la langue dans le backend."
+
+#: /vendors/smarty/vam_plugins/block.product_form.php:42
+msgid "Wraps the product purchase button with a form."
+msgstr "Entoure le bouton d'achat d'un formulaire."
+
+#: /vendors/smarty/vam_plugins/block.product_form_ajax.php:42
+msgid "Wraps the product purchase button with a ajax form."
+msgstr "Entoure le bouton d'achat d'un formulaire ajax."
+
+#: /vendors/smarty/vam_plugins/block.product_form.php:44
+msgid "Just wrap your product purchase with:"
+msgstr "Juste entourer l'achat de votre produit avec:"
+
+#: /vendors/smarty/vam_plugins/block.product_form.php:44
+msgid "stuff"
+msgstr "affaires"
+
+#: /vendors/smarty/vam_plugins/function.admin_area_link.php:27
+msgid "Administration"
+msgstr "Administration"
+
+#: /vendors/smarty/vam_plugins/function.admin_area_link.php:36
+msgid "Creates a link to the admin area inside of the front end template."
+msgstr "Crée un lien vers la zone d'administration depuis un modèle front-end."
+
+#: /vendors/smarty/vam_plugins/function.admin_area_link.php:37
+msgid "The link will only be displayed if the user has an active admin session."
+msgstr "Le lien ne sera montré que si l'utilisateur a une session d'administration active."
+
+#: /vendors/smarty/vam_plugins/function.admin_area_link.php:40
+#: /vendors/smarty/vam_plugins/function.admin_edit_link.php:42
+#: /vendors/smarty/vam_plugins/function.checkout.php:222
+#: /vendors/smarty/vam_plugins/function.content.php:57
+#: /vendors/smarty/vam_plugins/function.content_images.php:103
+#: /vendors/smarty/vam_plugins/function.content_listing.php:177
+#: /vendors/smarty/vam_plugins/function.currency_box.php:90
+#: /vendors/smarty/vam_plugins/function.description.php:39
+#: /vendors/smarty/vam_plugins/function.get_template_vars.php:48
+#: /vendors/smarty/vam_plugins/function.global_content.php:60
+#: /vendors/smarty/vam_plugins/function.headdata.php:36
+#: /vendors/smarty/vam_plugins/function.language_box.php:87
+#: /vendors/smarty/vam_plugins/function.metadata.php:39
+#: /vendors/smarty/vam_plugins/function.module.php:80
+#: /vendors/smarty/vam_plugins/function.page_name.php:36
+#: /vendors/smarty/vam_plugins/function.payment.php:67
+#: /vendors/smarty/vam_plugins/function.payment_content.php:47
+#: /vendors/smarty/vam_plugins/function.product_price.php:39
+#: /vendors/smarty/vam_plugins/function.product_quantity.php:61
+#: /vendors/smarty/vam_plugins/function.purchase_button.php:33
+#: /vendors/smarty/vam_plugins/function.repeat.php:33
+#: /vendors/smarty/vam_plugins/function.shopping_cart.php:120
+#: /vendors/smarty/vam_plugins/function.site_name.php:36
+#: /vendors/smarty/vam_plugins/function.stylesheet.php:56
+#: /vendors/smarty/vam_plugins/function.user_tag.php:37
+msgid "What parameters does it take?"
+msgstr "Quels paramètres à prendre en compte?"
+
+#: /vendors/smarty/vam_plugins/function.admin_edit_link.php:29
+msgid "Edit Content"
+msgstr "Modifier le contenu"
+
+#: /vendors/smarty/vam_plugins/function.admin_edit_link.php:38
+msgid "Creates a link to edit the current content page."
+msgstr "Créer un lien pour modifier le contenu de la page courante."
+
+#: /vendors/smarty/vam_plugins/function.admin_edit_link.php:39
+msgid "Links are only shown if you have an active admin session and the page is not a core page."
+msgstr "Les liens ne s'affichent que si vous avez une session d'administration actif et que la page n'est pas une page de base."
+
+#: /vendors/smarty/vam_plugins/function.checkout.php:219
+msgid "This plugin handles the entire checkout process."
+msgstr "Ce plugin gère l'ensemble du processus de commande."
+
+#: /vendors/smarty/vam_plugins/function.checkout.php:221
+#: /vendors/smarty/vam_plugins/function.content_images.php:102
+#: /vendors/smarty/vam_plugins/function.shopping_cart.php:119
+msgid "Just insert the tag into your template/page like:"
+msgstr "Il suffit d'insérer la balise dans votre modèle/page ainsi:"
+
+#: /vendors/smarty/vam_plugins/function.content.php:54
+msgid "This is where the content for your page will be displayed. It's inserted into the template and changed based on the current page being displayed. This tag will call any sub-templates that are required to display the page."
+msgstr "C'est là que le contenu de votre page sera affichée. Il est inséré dans le modèle et modifié en fonction de la page en cours s'affiche. Cette balise va appeler tous les sous-modèles qui sont nécessaires pour afficher la page."
+
+#: /vendors/smarty/vam_plugins/function.content_images.php:100
+msgid "Displays an unordered list of images for the current content page."
+msgstr "Affiche une liste non ordonnée d'images pour le contenu de la page en cours."
+
+#: /vendors/smarty/vam_plugins/function.content_images.php:105
+msgid "(number)"
+msgstr "(nombre)"
+
+#: /vendors/smarty/vam_plugins/function.content_images.php:105
+msgid "Number of images to display."
+msgstr "Nombre d'images à afficher."
+
+#: /vendors/smarty/vam_plugins/function.content_images.php:106
+msgid "(height)"
+msgstr "(hauteur)"
+
+#: /vendors/smarty/vam_plugins/function.content_images.php:106
+msgid "Maximum height of thumbnails."
+msgstr "Hauteur maximale de vignettes."
+
+#: /vendors/smarty/vam_plugins/function.content_images.php:107
+msgid "(width)"
+msgstr "(largeur)"
+
+#: /vendors/smarty/vam_plugins/function.content_images.php:107
+msgid "Maximum width of thumbnails."
+msgstr "Largeur maximale de vignettes."
+
+#: /vendors/smarty/vam_plugins/function.content_images.php:108
+msgid "(thumbnail)"
+msgstr "(vignette)"
+
+#: /vendors/smarty/vam_plugins/function.content_images.php:108
+msgid "Set to false to disable thumbnailing of images. Defaults to true."
+msgstr "Mettre à false pour désactiver thumbnailing des images. Par défaut à true"
+
+#: /vendors/smarty/vam_plugins/function.content_listing.php:174
+msgid "Displays a list of content items depending on the parent of those items."
+msgstr "Affiche une liste des éléments de contenu en fonction du parent de ces articles."
+
+#: /vendors/smarty/vam_plugins/function.content_listing.php:179
+msgid "(type)"
+msgstr "(type)"
+
+#: /vendors/smarty/vam_plugins/function.content_listing.php:179
+msgid "Type of content to display. Seperate multiple values with commas, example:"
+msgstr "Type de sortie de contenu. Plusieurs valeurs séparées par une virgule, par exemple: "
+
+#: /vendors/smarty/vam_plugins/function.content_listing.php:179
+msgid "Defaults to"
+msgstr "Valeur par défaut:"
+
+#: /vendors/smarty/vam_plugins/function.content_listing.php:180
+msgid "(parent)"
+msgstr "(parent)"
+
+#: /vendors/smarty/vam_plugins/function.content_listing.php:180
+msgid "The parent of the content items to be shown. Accepts an alias or id, defaults to 0."
+msgstr "Contenu parent de l'item à afficher. Vous pouvez spécifier un alias ou un numéro d'identification, par défaut: 0."
+
+#: /vendors/smarty/vam_plugins/function.content_listing.php:181
+#: /vendors/smarty/vam_plugins/function.currency_box.php:92
+#: /vendors/smarty/vam_plugins/function.language_box.php:89
+#: /vendors/smarty/vam_plugins/function.module.php:84
+#: /vendors/smarty/vam_plugins/function.payment.php:69
+#: /vendors/smarty/vam_plugins/function.shopping_cart.php:122
+msgid "(template)"
+msgstr "(template)"
+
+#: /vendors/smarty/vam_plugins/function.content_listing.php:181
+msgid "Useful if you want to override the default content listing template. Setting this will utilize the template that matches this alias."
+msgstr "Cette option est utile si vous souhaitez modifier le Modèle d'affichage de liste par défaut. La valeur de ce paramètre modifie le modèle lié à l'alias."
+
+#: /vendors/smarty/vam_plugins/function.content_listing.php:182
+msgid "(page)"
+msgstr "(page)"
+
+#: /vendors/smarty/vam_plugins/function.content_listing.php:183
+msgid "Current page."
+msgstr "Page courante."
+
+#: /vendors/smarty/vam_plugins/function.content_listing.php:182
+msgid "(on_page)"
+msgstr "(on_page)"
+
+#: /vendors/smarty/vam_plugins/function.content_listing.php:183
+msgid "Items per page."
+msgstr "Items par page."
+
+#: /vendors/smarty/vam_plugins/function.currency_box.php:87
+msgid "Allows the user to select a currency."
+msgstr "Permet à l'utilisateur de choisir une devise."
+
+#: /vendors/smarty/vam_plugins/function.currency_box.php:92
+msgid "Overrides the default template for the currency_box plugin."
+msgstr "Remplace le modèle par défaut pour le plugin currency_box."
+
+#: /vendors/smarty/vam_plugins/function.description.php:36
+msgid "Outputs the description of the current page, product, or category depending on the user's default selected language."
+msgstr "Sorties de la description de la page courante, produit ou catégorie en fonction de la langue choisie par défaut de l'utilisateur."
+
+#: /vendors/smarty/vam_plugins/function.get_template_vars.php:45
+msgid "Dumps all available smarty template variables onto the page. If you wanted to use one you would use it like:"
+msgstr "Affiche toutes les variables des modèles smarty sur la page. Si vous voulez utiliser, insérer quelque chose comme:"
+
+#: /vendors/smarty/vam_plugins/function.global_content.php:57
+msgid "Outputs the global_content of the current page, product, or category depending on the user's default selected language."
+msgstr "Affiche le global_content de la page courante, produit ou catégorie en fonction de la langue choisie par défaut par l'utilisateur."
+
+#: /vendors/smarty/vam_plugins/function.global_content.php:62
+#: /vendors/smarty/vam_plugins/function.user_tag.php:39
+msgid "(alias)"
+msgstr "(alias)"
+
+#: /vendors/smarty/vam_plugins/function.global_content.php:62
+msgid "Alias of the global content block to display."
+msgstr "Alias ​​du bloc de contenu global à afficher."
+
+#: /vendors/smarty/vam_plugins/function.headdata.php:33
+msgid "Displays the head data for this content. Edit the head data for each content item under the options tab."
+msgstr "Indique le titre du contenu actuel. Les en-têtes peuvent être réglés dans l'admin - Catégories et Produits, création / édition de contenu."
+
+#: /vendors/smarty/vam_plugins/function.language_box.php:84
+msgid "Allows the user to select a language."
+msgstr "Permet à l'utilisateur de choisir la langue."
+
+#: /vendors/smarty/vam_plugins/function.language_box.php:89
+msgid "Overrides the default template for the language_box plugin."
+msgstr "Remplace le modèle par défaut pour le plugin language_box."
+
+#: /vendors/smarty/vam_plugins/function.meta_description.php:30
+msgid "Displays the current meta description."
+msgstr "Affiche la meta description actuelle."
+
+#: /vendors/smarty/vam_plugins/function.meta_keywords.php:30
+msgid "Displays the current meta keywords."
+msgstr "Affiche les meta keywords actuelles."
+
+#: /vendors/smarty/vam_plugins/function.metadata.php:36
+msgid "Displays the metadata for this content. Edit the metadata under the options tab."
+msgstr "Affiche les métadonnées pour ce contenu. Modifier les métadonnées sous l'onglet Options."
+
+#: /vendors/smarty/vam_plugins/function.module.php:78
+msgid "Makes a call to the installed module.  If the module is not found, this does nothing."
+msgstr "Fait un appel au module installé. Si le module n'est pas trouvé, cela ne fait rien."
+
+#: /vendors/smarty/vam_plugins/function.module.php:79
+msgid "See the specific module documentation for more information."
+msgstr "Consultez la documentation du module spécifique pour plus d'informations."
+
+#: /vendors/smarty/vam_plugins/function.module.php:82
+msgid "(controller)"
+msgstr "(controller)"
+
+#: /vendors/smarty/vam_plugins/function.module.php:82
+msgid "Controller to call.  Defaults to action"
+msgstr "Contrôleur à appeler. Par défaut: action"
+
+#: /vendors/smarty/vam_plugins/function.module.php:83
+msgid "(action)"
+msgstr "(action)"
+
+#: /vendors/smarty/vam_plugins/function.module.php:83
+msgid "Method to call of the action controller."
+msgstr "Méthode à appeler pour l'action du contrôleur."
+
+#: /vendors/smarty/vam_plugins/function.module.php:84
+msgid "Overrides the module's default template for the action specified."
+msgstr "Remplace le modèle par défaut du module pour l'action spécifiée."
+
+#: /vendors/smarty/vam_plugins/function.page_name.php:33
+msgid "Displays the current page name."
+msgstr "Affiche le nom de la page courante."
+
+#: /vendors/smarty/vam_plugins/function.payment.php:64
+msgid "This plugin handles the payment process."
+msgstr "Ce plugin gère le processus de paiement."
+
+#: /vendors/smarty/vam_plugins/function.shipping.php:50
+msgid "This plugin returns the shipping info text."
+msgstr "Ce plugin renvoie le texte d'information d'expédition."
+
+#: /vendors/smarty/vam_plugins/function.shipping_content.php:37
+msgid "Displays any necessary shipping text before sending the user off to process the order."
+msgstr "Affiche les informations d'expédition nécessaires avant d'envoyer l'utilisateur à la validation de la commande."
+
+#: /vendors/smarty/vam_plugins/function.payment.php:66
+msgid "You should only use this tag in the confirmation core page. Just insert the tag into your page like:"
+msgstr "Utiliser cette balise (tag) uniquement dans la page principale de confirmation. Il suffit d'insérer la balise dans votre page comme:"
+
+#: /vendors/smarty/vam_plugins/function.payment.php:69
+msgid "overrides the default payment template."
+msgstr "substitue le modèle de paiement par défaut."
+
+#: /vendors/smarty/vam_plugins/function.payment_content.php:44
+msgid "Displays any necessary payment fields before sending the user off to process the order."
+msgstr "Affiche tous les champs de paiement nécessaires avant de l'envoyer l'utilisateur à la validation de la commande."
+
+#: /vendors/smarty/vam_plugins/function.payment_content.php:46
+msgid "This tag is called from the confirmation page like:"
+msgstr "Ce tag est appelé à partir de la page de confirmation ainsi:"
+
+#: /vendors/smarty/vam_plugins/function.product_price.php:36
+msgid "Displays the product price for the current content."
+msgstr "Affiche le prix du produit pour le contenu actuel."
+
+#: /vendors/smarty/vam_plugins/function.product_quantity.php:58
+msgid "Creates a product quantity box."
+msgstr "Crée une boîte pour la quantité du produit."
+
+#: /vendors/smarty/vam_plugins/function.product_quantity.php:60
+#: /vendors/smarty/vam_plugins/function.purchase_button.php:32
+msgid "Just insert the tag into your product_info template like:"
+msgstr "Il suffit d'insérer le tag dans votre modèle product_info ainsi: "
+
+#: /vendors/smarty/vam_plugins/function.purchase_button.php:16
+msgid "Add To Cart"
+msgstr "Ajouter au panier"
+
+#: /vendors/smarty/vam_plugins/function.purchase_button.php:30
+msgid "Creates a purchase button for the product."
+msgstr "Crée un bouton d'achat du produit."
+
+#: /vendors/smarty/vam_plugins/function.purchase_button.php:35
+msgid "(product_id)"
+msgstr "(product_id)"
+
+#: /vendors/smarty/vam_plugins/function.purchase_button.php:35
+msgid "Overrides the current global content_id. Useful if you want to place a purchase button in product listing pages."
+msgstr "Remplace le content_id mondiale actuelle. Utile si vous voulez placer un bouton d'achat dans les pages de la liste des produits."
+
+#: /vendors/smarty/vam_plugins/function.repeat.php:30
+msgid "Repeats a given string a certain number of times."
+msgstr "Répéter une chaîne donnée un certain nombre de fois."
+
+#: /vendors/smarty/vam_plugins/function.repeat.php:32
+msgid "Hello!"
+msgstr "Hello!"
+
+#: /vendors/smarty/vam_plugins/function.repeat.php:35
+msgid "(string)"
+msgstr "(string)"
+
+#: /vendors/smarty/vam_plugins/function.repeat.php:35
+msgid "String to repeat."
+msgstr "Chaîne à répéter"
+
+#: /vendors/smarty/vam_plugins/function.repeat.php:36
+msgid "(times)"
+msgstr "(fois)"
+
+#: /vendors/smarty/vam_plugins/function.repeat.php:36
+msgid "Number of times to repeat the specified string."
+msgstr "Nombre de répétitions de la chaîne spécifiée."
+
+#: /vendors/smarty/vam_plugins/function.shopping_cart.php:117
+msgid "Displays a more detailed version of the user's cart."
+msgstr "Affiche une version plus détaillée du panier de l'utilisateur."
+
+#: /vendors/smarty/vam_plugins/function.shopping_cart.php:122
+msgid "Overrides the default template."
+msgstr "Remplace le modèle par défaut."
+
+#: /vendors/smarty/vam_plugins/function.shopping_cart.php:123
+msgid "(showempty)"
+msgstr "(showempty)"
+
+#: /vendors/smarty/vam_plugins/function.shopping_cart.php:123
+msgid "(true or false) If set to false does not display the cart if the user has not added any items.  Defaults to false."
+msgstr "(true ou false) Si valeur false, ne pas afficher le panier, si l'utilisateur n'a pas ajouté d'articles. Par défaut à false"
+
+#: /vendors/smarty/vam_plugins/function.site_name.php:33
+msgid "Displays the site name."
+msgstr "Affiche le nom du site."
+
+#: /vendors/smarty/vam_plugins/function.stylesheet.php:53
+msgid "Gets stylesheet information from the system. By default, it grabs all of the stylesheets attached to the current template."
+msgstr "Retourne des informations de feuille de stype du système. Par défaut, il saisit toutes les feuilles de style attachés au modèle actuel."
+
+#: /vendors/smarty/vam_plugins/function.stylesheet.php:55
+msgid "Just insert the tag into your template/page's head section like:"
+msgstr "Il suffit d'insérer la balise dans votre template / section de tête de page ainsi:"
+
+#: /vendors/smarty/vam_plugins/function.stylesheet.php:58;59
+msgid "(optional)"
+msgstr "(optionnel)"
+
+#: /vendors/smarty/vam_plugins/function.stylesheet.php:58
+msgid "Instead of getting all stylesheets for the given page, it will only get one spefically named one, whether it's attached to the current template or not. Set the alias to be the ID or alias of the stylesheet."
+msgstr "Au lieu d'obtenir toutes les feuilles de style pour la page donnée, retourner seulement un feuille de style spécifiée, qu'elle soit attachée au modèle courant ou non. Définissez l'alias comme l'ID ou l'alias de la feuille de style."
+
+#: /vendors/smarty/vam_plugins/function.stylesheet.php:59
+msgid "If name is defined, this allows you set a different media type for that stylesheet."
+msgstr "Si le nom est défini, vous permet de définir un type de support différent de ce style."
+
+#: /vendors/smarty/vam_plugins/function.user_tag.php:34
+msgid "Calls the user tag specified by alias"
+msgstr "Appelle le tag d'utilisateur spécifié par alias."
+
+#: /vendors/smarty/vam_plugins/function.user_tag.php:39
+msgid "Alias of the user tag to call."
+msgstr "Alias ​​du tag utilisateur à appeler."
+
+#: /vendors/smarty/vam_plugins/function.user_tag.php:40
+msgid "(var)"
+msgstr "(var)"
+
+#: /vendors/smarty/vam_plugins/function.user_tag.php:40
+msgid "Pass any other smarty variables or information to the user tag like:"
+msgstr "Passez toutes autres variables de Smarty ou des informations à la balise utilisateur ainsi:"
+
+#: /vendors/smarty/vam_plugins/function.user_tag.php:40
+msgid "These will be available for the user tag to use in the $params array."
+msgstr "Ceux-ci seront disponibles pour le tag de l'utilisateur à utiliser dans le tableau $params."
+
+#: /views/helpers/admin.php:93
+msgid "Create New"
+msgstr "Créer nouveau"
+
+#: /views/helpers/admin.php:93
+msgid "Export"
+msgstr "Export"
+
+#: /views/helpers/admin.php:93
+msgid "Import"
+msgstr "Import"
+
+#: /views/helpers/admin.php:113
+msgid "With Selected:"
+msgstr "Avec sélectionnés:"
+
+#: /views/helpers/admin.php:120
+msgid "Are you sure? You may not be able to undo this action."
+msgstr "Etes-vous sûr? Vous ne pourrez pas annuler cette action."
+
+#: /views/helpers/admin.php:139
+msgid "Down"
+msgstr "En Bas"
+
+#: /views/helpers/admin.php:147
+msgid "Up"
+msgstr "En haut"
+
+#: /views/helpers/admin.php:156
+#: /views/contents/admin.ctp:40;41
+#: /views/currencies/admin.ctp:26
+#: /views/global_content_blocks/admin.ctp:25
+#: /views/languages/admin.ctp:27
+#: /views/modules/admin.ctp:37
+#: /views/orders/admin_view.ctp:168
+#: /views/payment_methods/admin.ctp:23
+#: /views/shipping_methods/admin.ctp:24
+#: /views/stylesheets/admin.ctp:25
+msgid "True"
+msgstr "Vrai"
+
+#: /views/helpers/admin.php:160
+#: /views/contents/admin.ctp:40;41
+#: /views/currencies/admin.ctp:26
+#: /views/global_content_blocks/admin.ctp:25
+#: /views/languages/admin.ctp:27
+#: /views/modules/admin.ctp:37
+#: /views/orders/admin_view.ctp:168
+#: /views/payment_methods/admin.ctp:23
+#: /views/shipping_methods/admin.ctp:24
+#: /views/stylesheets/admin.ctp:25
+msgid "False"
+msgstr "Faux"
+
+#: /views/helpers/admin.php:168
+msgid "Confirm delete action?"
+msgstr "Confirmer la suppression?"
+
+#: /views/helpers/admin.php:179
+#: /views/images/admin_view_content_images.ctp:29
+msgid "No Data"
+msgstr "Pas de données"
+
+#: /views/helpers/tiny_mce.php:67
+msgid "Show/Hide editor"
+msgstr "Montrer/cacher éditeur"
+
+#: /views/configuration/admin_edit.ctp:23
+msgid "Caching"
+msgstr "Caching"
+
+#: /views/configuration/admin_edit.ctp:23
+msgid "Email Settings"
+msgstr "Settings courriel"
+
+#: /views/configuration/admin_edit.ctp:28
+msgid "Site Name"
+msgstr "Nom du site"
+
+#: /views/configuration/admin_edit.ctp:29
+msgid "Metadata"
+msgstr "Metadata"
+
+#: /views/configuration/admin_edit.ctp:30
+msgid "URL Extension"
+msgstr "Extension URL"
+
+#: /views/configuration/admin_edit.ctp:31
+msgid "GD Library Enabled"
+msgstr "GD Library Enabled"
+
+#: /views/configuration/admin_edit.ctp:32
+msgid "Image Thumbnail Size"
+msgstr "Taille vignette"
+
+#: /views/configuration/admin_edit.ctp:28
+msgid "Google Analytics ID"
+msgstr "Google Analytics ID"
+
+#: /views/configuration/admin_edit.ctp:28
+msgid "Yandex.Metrika ID"
+msgstr "Yandex.Metrika ID"
+
+#: /views/configuration/admin_edit.ctp:28
+msgid "Products Per Page"
+msgstr "Produits par page"
+
+#: /views/configuration/admin_edit.ctp:28
+msgid "Ajax Enable"
+msgstr "Autoriser Ajax"
+
+#: /views/configuration/admin_edit.ctp:38
+msgid "Cache Time in Seconds"
+msgstr "Temps Cache en secondes"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "Reset Cache"
+msgstr "Reset Cache"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "Click here to clear cache"
+msgstr "Cliquer ici pour Reset Cache"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "Send extra order emails to"
+msgstr "Envoyer des emails de commandes supplémentaires pour"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "New Order: From"
+msgstr "Nouvelle commande: De"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "New Order: From Name"
+msgstr "Nouvelle commande: De Nom"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "New Order Status: From"
+msgstr "Nouvelle commande statut: De"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "New Order Status: From Name"
+msgstr "Nouvelle commande statut: De Nom"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "Send contact us emails to"
+msgstr "Envoyer Contactez-nous (courriel) à"
+
+#: /views/contents/admin.ctp:18
+#: /views/contents/admin_core_pages.ctp:16
+#: /views/countries/admin.ctp:20
+#: /views/country_zones/admin.ctp:16
+#: /views/defined_languages/admin.ctp:15
+#: /views/global_content_blocks/admin.ctp:17
+#: /views/micro_templates/admin.ctp:15
+#: /views/stylesheets/admin.ctp:18
+#: /views/tags/admin.ctp:16
+#: /views/templates/admin.ctp:16
+#: /views/user_tags/admin.ctp:17
+#: /views/users/admin.ctp:16
+msgid "Title"
+msgstr "Titre"
+
+#: /views/contents/admin.ctp:18
+msgid "Type"
+msgstr "Type"
+
+#: /views/contents/admin.ctp:18
+#: /views/contents/admin_core_pages.ctp:16
+#: /views/contents/admin_core_pages_edit.ctp:50
+#: /views/contents/admin_edit.ctp:73
+#: /views/micro_templates/admin_create_from_tag.ctp:29
+#: /views/micro_templates/admin_edit.ctp:30
+#: /views/tags/admin_view.ctp:37
+#: /views/templates/admin_attach_stylesheets.ctp:14
+#: /views/templates/admin_edit.ctp:22
+msgid "Template"
+msgstr "Modèle"
+
+#: /views/contents/admin.ctp:18
+#: /views/contents/admin_edit.ctp:179
+#: /views/currencies/admin.ctp:18
+#: /views/global_content_blocks/admin.ctp:17
+#: /views/global_content_blocks/admin_edit.ctp:46
+#: /views/languages/admin.ctp:18
+#: /views/payment_methods/admin.ctp:16
+#: /views/shipping_methods/admin.ctp:16
+#: /views/stylesheets/admin.ctp:18
+#: /views/stylesheets/admin_edit.ctp:48
+msgid "Active"
+msgstr "Actif"
+
+#: /views/contents/admin.ctp:18
+#: /views/contents/admin_edit.ctp:186
+msgid "Show in menu"
+msgstr "Montrer dans le menu"
+
+#: /views/contents/admin.ctp:18
+#: /views/currencies/admin.ctp:18
+#: /views/languages/admin.ctp:18
+#: /views/order_status/admin.ctp:16
+#: /views/payment_methods/admin.ctp:16
+#: /views/shipping_methods/admin.ctp:16
+#: /views/taxes/admin.ctp:16
+#: /views/templates/admin.ctp:16
+msgid "Default"
+msgstr "Par défaut"
+
+#: /views/contents/admin.ctp:18
+msgid "Sort Order"
+msgstr "Trier commandes"
+
+#: /views/contents/admin.ctp:44;58
+#: /views/countries/admin.ctp:30;36
+#: /views/country_zones/admin.ctp:24
+#: /views/currencies/admin.ctp:28;36
+#: /views/defined_languages/admin.ctp:23
+#: /views/global_content_blocks/admin.ctp:26;33
+#: /views/images/admin_view_content_images.ctp:22;22
+#: /views/languages/admin.ctp:29;37
+#: /views/micro_templates/admin.ctp:23
+#: /views/order_status/admin.ctp:25
+#: /views/orders/admin.ctp:29
+#: /views/stylesheets/admin.ctp:27;34
+#: /views/stylesheets/admin_attach_templates.ctp:30
+#: /views/tax_country_zone_rates/admin.ctp:26;34
+#: /views/taxes/admin.ctp:26
+#: /views/templates/admin.ctp:38
+#: /views/templates/admin_attach_stylesheets.ctp:29
+#: /views/user_tags/admin.ctp:25;31
+#: /views/users/admin.ctp:23
+msgid "Delete"
+msgstr "Effacer"
+
+#: /views/contents/admin.ctp:53
+msgid "Up One Level"
+msgstr "Remonter d'un niveau"
+
+#: /views/contents/admin.ctp:58
+#: /views/currencies/admin.ctp:36
+#: /views/global_content_blocks/admin.ctp:33
+#: /views/languages/admin.ctp:37
+#: /views/stylesheets/admin.ctp:34
+msgid "Activate"
+msgstr "Activer"
+
+#: /views/contents/admin.ctp:58
+#: /views/currencies/admin.ctp:36
+#: /views/global_content_blocks/admin.ctp:33
+#: /views/languages/admin.ctp:37
+#: /views/stylesheets/admin.ctp:34
+msgid "Deactivate"
+msgstr "Désactiver"
+
+#: /views/contents/admin.ctp:58
+msgid "Show In Menu"
+msgstr "Monter dans le menu"
+
+#: /views/contents/admin.ctp:58
+msgid "Hide From Menu"
+msgstr "Cacher dans le menu"
+
+#: /views/contents/admin_core_pages_edit.ctp:24
+msgid "Edit Page"
+msgstr "Modifier page"
+
+#: /views/contents/admin_core_pages_edit.ctp:38
+#: /views/contents/admin_edit.ctp:60
+msgid "Content Type"
+msgstr "Content Type"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "category"
+msgstr "catégorie"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "product"
+msgstr "produit"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "page"
+msgstr "page"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "link"
+msgstr "lien (url)"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "news"
+msgstr "nouveautés"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "article"
+msgstr "article"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "downloadable"
+msgstr "téléchargeable"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "Default Theme"
+msgstr "Modèle par défaut"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "Main Layout"
+msgstr "Modèle principal"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "Content Page"
+msgstr "Page de contenu"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "Product Info"
+msgstr "Informations sur le produit"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "Category Info"
+msgstr "Infos catégorie"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "News Page"
+msgstr "Page des nouveautés"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "Article Page"
+msgstr "Page article"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "Downloadable Product Info"
+msgstr "Infos sur produit téléchargeable"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "Non-Taxable"
+msgstr "Non-taxable"
+
+#: /views/contents/admin_core_pages_edit.ctp:62
+#: /views/contents/admin_edit.ctp:85
+msgid "Title"
+msgstr "Titre"
+
+#: /views/contents/admin_core_pages_edit.ctp:68
+#: /views/contents/admin_edit.ctp:91
+msgid "Description"
+msgstr "Description"
+
+#: /views/contents/admin_core_pages_edit.ctp:68
+#: /views/contents/admin_edit.ctp:91
+msgid "Meta Title"
+msgstr "Meta Title"
+
+#: /views/contents/admin_core_pages_edit.ctp:68
+#: /views/contents/admin_edit.ctp:91
+msgid "Meta Description"
+msgstr "Meta Description"
+
+#: /views/contents/admin_core_pages_edit.ctp:68
+#: /views/contents/admin_edit.ctp:91
+msgid "Meta Keywords"
+msgstr "Meta Keywords"
+
+#: /views/contents/admin_core_pages_edit.ctp:86
+#: /views/contents/admin_edit.ctp:172
+msgid "Head Data"
+msgstr "Head Data"
+
+#: /views/contents/admin_edit.ctp:36
+msgid "View Images"
+msgstr "Vignettes"
+
+#: /views/contents/admin_edit.ctp:37;133
+msgid "Upload Images"
+msgstr "Upload vignettes"
+
+#: /views/contents/admin_edit.ctp:53
+msgid "Parent"
+msgstr "Parent"
+
+#: /views/contents/admin_edit.ctp:55
+msgid "Top Level"
+msgstr "Niveau principal"
+
+#: /views/contents/admin_edit.ctp:114
+msgid "Press 'Upload Images' and choose images from your computer to upload. Select as many files as you would like. Images will upload right after you select them."
+msgstr "Appuyez sur «Télécharger des images» et choisir des images à partir de votre ordinateur à télécharger. Sélectionnez autant de fichiers que vous le souhaitez. Les images seront téléchargées juste après la sélection."
+
+#: /views/contents/admin_edit.ctp:115
+msgid "TIP: Hold the 'control' button to select more than one image."
+msgstr "Astuce: Maintenez la touche «contrôle» enfoncée pour sélectionner plus d'une image."
+
+#: /views/contents/admin_edit.ctp:132
+msgid "Browse Images"
+msgstr "Parcourir les vignettes"
+
+#: /views/contents/admin_edit.ctp:134
+msgid "Files Uploaded:"
+msgstr "Fichier uploadé:"
+
+#: /views/contents/admin_edit.ctp:136
+msgid "Cancel All Uploads"
+msgstr "Supprimer tous les uploads"
+
+#: /views/contents/admin_edit.ctp:168
+#: /views/defined_languages/admin_edit.ctp:19
+#: /views/global_content_blocks/admin_edit.ctp:42
+#: /views/micro_templates/admin_create_from_tag.ctp:22
+#: /views/micro_templates/admin_edit.ctp:23
+#: /views/stylesheets/admin_edit.ctp:44
+#: /views/user_tags/admin_edit.ctp:42
+msgid "Alias"
+msgstr "Alias"
+
+#: /views/contents/admin_edit_type.ctp:33
+#: /views/orders/admin_view.ctp:125
+msgid "Price"
+msgstr "Prix"
+
+#: /views/contents/admin_edit_type.ctp:38
+msgid "Tax Class"
+msgstr "Classe de taxe"
+
+#: /views/contents/admin_edit_type.ctp:44
+msgid "Stock"
+msgstr "Stock"
+
+#: /views/contents/admin_edit_type.ctp:49
+msgid "Model"
+msgstr "Modèle"
+
+#: /views/contents/admin_edit_type.ctp:74
+msgid "Link Details"
+msgstr "Lien détails"
+
+#: /views/contents/admin_edit_type.ctp:77
+msgid "URL"
+msgstr "Lien (URL)"
+
+#: /views/contents/admin_edit_type.ctp:90
+msgid "There are no available content records. Please select a different content type."
+msgstr "Il n'y a pas des enregistrements correspondants. S'il vous plaît choisir un type de contenu différent."
+
+#: /views/contents/admin_edit_type.ctp:97
+msgid "Link To"
+msgstr "Lien à"
+
+#: /views/contents/admin_edit_type.ctp:99
+msgid "Select Internal Page"
+msgstr "Choisir une page interne"
+
+#: /views/contents/admin_edit_type.ctp:99
+msgid "Required order status to download"
+msgstr "Statut de la commande nécessaire pour télécharger"
+
+#: /views/contents/admin_edit_type.ctp:99
+msgid "File: "
+msgstr "Fichier: "
+
+#: /views/contents/admin_edit_type.ctp:99
+msgid "delete "
+msgstr "effacer"
+
+#: /views/contents/admin_edit_type.ctp:99
+msgid "Max. downloads"
+msgstr "Max. téléchargements"
+
+#: /views/contents/admin_edit_type.ctp:99
+msgid "Max. days for download"
+msgstr "Max. jour pour téléchargements"
+
+#: /views/countries/admin.ctp:42
+#: /views/orders/admin.ctp:41
+msgid "<< Previous"
+msgstr "<< Précédent"
+
+#: /views/countries/admin.ctp:44
+#: /views/orders/admin.ctp:43
+msgid "Next >>"
+msgstr "Suivant >>"
+
+#: /views/countries/admin_edit.ctp:34
+msgid "ISO Code 2"
+msgstr "ISO Code 2"
+
+#: /views/countries/admin_edit.ctp:38
+msgid "ISO Code 3"
+msgstr "ISO Code 3"
+
+#: /views/countries/admin_edit.ctp:49
+msgid "Address Format"
+msgstr "Format d'adresse"
+
+#: /views/currencies/admin.ctp:18
+msgid "Currency"
+msgstr "Devise"
+
+#: /views/currencies/admin_edit.ctp:27
+msgid "Symbol Left"
+msgstr "Symbole gauche"
+
+#: /views/currencies/admin_edit.ctp:30
+msgid "Symbol Right"
+msgstr "Symbole droite"
+
+#: /views/currencies/admin_edit.ctp:33
+msgid "Decimal Point"
+msgstr "Point/Virgule décimal"
+
+#: /views/currencies/admin_edit.ctp:36
+msgid "Thousands Point"
+msgstr "Séparateur milliers"
+
+#: /views/currencies/admin_edit.ctp:39
+msgid "Decimal Places"
+msgstr "Ordre décimales"
+
+#: /views/currencies/admin_edit.ctp:42
+msgid "Value"
+msgstr "Valeur"
+
+#: /views/defined_languages/admin.ctp:15
+#: /views/global_content_blocks/admin.ctp:17
+#: /views/micro_templates/admin.ctp:15
+#: /views/user_tags/admin.ctp:17
+msgid "Call (Template Placeholder)"
+msgstr "Appeler (Modèle Placeholder)"
+
+#: /views/defined_languages/admin_edit.ctp:34
+msgid "Value"
+msgstr "Valeur"
+
+#: /views/email_template/admin.ctp:16
+#: /views/email_template/admin_edit.ctp:35
+msgid "Subject"
+msgstr "Sujet"
+
+#: /views/email_template/admin_edit.ctp:16
+msgid "Email Templates Details"
+msgstr "Détail modèle courrier"
+
+#: /views/email_template/admin_edit.ctp:40
+#: /views/user_tags/admin_edit.ctp:33
+msgid "Content"
+msgstr "Contenu"
+
+#: /views/errors/missing_connection.ctp:15
+msgid "Either you are missing a database table, or you have not yet installed the software."
+msgstr "Il vous manque une table de base de données, ou si vous n'avez pas encore installé le logiciel."
+
+#: /views/errors/missing_connection.ctp:16
+msgid "Click here to install the software."
+msgstr "Cliquer ici pour installer le software."
+
+#: /views/errors/missing_table.ctp:16
+msgid "Database table %1$s for model %2$s was not found."
+msgstr "La table %1$s de le base de données pour le modèle %2$s n'a pas été trouvée."
+
+#: /views/events/admin.ctp:16
+#: /views/events/admin_view.ctp:16
+msgid "Originator"
+msgstr "Originator"
+
+#: /views/images/admin_view_content_images.ctp:14
+msgid "Current Images For This Content Item"
+msgstr "Vignettes pour cet item de contenu"
+
+#: /views/images/admin_view_content_images.ctp:15
+msgid "Uploaded new images? Press apply to view them."
+msgstr "Nouvelles images uploadées? Soumettre pour les voir."
+
+#: /views/images/admin_view_content_images.ctp:21
+msgid "Click to Enlarge"
+msgstr "Cliquer pour agrandir"
+
+#: /views/install/check_permissions.ctp:20
+msgid "Can\'t write to: "
+msgstr "Ne peux pas écrire sur: "
+
+#: /views/install/check_permissions.ctp:25
+msgid "An error has occured. Please correct the error and refresh the page."
+msgstr "Une erreur s'est produite. S'il vous plaît corriger l'erreur et actualiser la page."
+
+#: /views/install/create.ctp:15
+msgid "Database successfully imported."
+msgstr "Base de données importée avec succès."
+
+#: /views/install/create.ctp:15
+msgid "VamCart Newsletter"
+msgstr "VamCart Newsletter"
+
+#: /views/install/create.ctp:15
+msgid "Your Name"
+msgstr "Votre nom"
+
+#: /views/install/create.ctp:15
+msgid "Your Email"
+msgstr "Votre email"
+
+#: /views/install/create.ctp:15
+msgid "Subscribe"
+msgstr "S'enregistrer"
+
+#: /views/install/create.ctp:15
+msgid "We at VamCart value your privacy, we will never sell or distribute your information. You will only receive information regarding VamCart or its affiliates."
+msgstr "VamCart respecte votre vie privée, nous ne pourrons jamais vendre ou distribuer vos informations. Vous recevrez uniquement des informations concernant VamCart ou ses filiales."
+
+#: /views/install/create.ctp:15
+msgid "At anytime you may remove yourself from the list if you think you joined in error."
+msgstr "A tout moment, vous pouvez vous retirer de la liste si vous pensez que vous avez rejoint en erreur."
+
+#: /views/install/create.ctp:17
+msgid "Click here to visit your live store."
+msgstr "Cliquez ici pour visiter votre boutique en direct."
+
+#: /views/install/start.ctp:14
+msgid "Welcome to the VamCart installation."
+msgstr "Bienvenue à l'installation de VamCart."
+
+#: /views/install/start.ctp:15
+msgid "Installing version:"
+msgstr "Installe la version:"
+
+#: /views/install/start.ctp:24
+msgid "Host"
+msgstr "Host"
+
+#: /views/install/start.ctp:25
+msgid "Database Name"
+msgstr "Nom de la base de données"
+
+#: /views/install/start.ctp:26
+msgid "Database Username"
+msgstr "Nom de l'utilisateur de la base de données"
+
+#: /views/install/start.ctp:27
+msgid "Database Password"
+msgstr "Mot de passe de la base de données"
+
+#: /views/install/start.ctp:27
+msgid "Admin Credentials"
+msgstr "Infos admin"
+
+#: /views/install/start.ctp:27
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+#: /views/install/start.ctp:27
+msgid "Email"
+msgstr "Courriel"
+
+#: /views/install/start.ctp:27
+msgid "Password"
+msgstr "Mot de passe"
+
+#: /views/languages/admin.ctp:18
+#: /views/users/admin_user_preferences.ctp:19
+msgid "Language"
+msgstr "Langue"
+
+#: /views/countries/admin.ctp:20
+#: /views/languages/admin.ctp:18
+msgid "Flag"
+msgstr "Drapeau"
+
+#: /views/languages/admin_edit.ctp:27
+msgid "Flag Code"
+msgstr "Code drapeau"
+
+#: /views/layouts/admin.ctp:19
+msgid "VamCart Admin"
+msgstr "VamCart Admin"
+
+#: /views/layouts/admin.ctp:38
+#: /views/layouts/default.ctp:19;28
+#: /views/layouts/error.ctp:19;28
+msgid "VamCart"
+msgstr "VamCart"
+
+#: /views/layouts/admin.ctp:43
+msgid "Search"
+msgstr "Chercher"
+
+#: /views/layouts/admin.ctp:43
+msgid "Global Record Search"
+msgstr "Recherche générale"
+
+#: /views/layouts/admin.ctp:45
+msgid "Help"
+msgstr "Aide"
+
+#: /views/layouts/admin.ctp:45
+msgid "Help for this page"
+msgstr "Aide pour cette page"
+
+#: /views/layouts/admin.ctp:97
+#: /views/layouts/default.ctp:66
+#: /views/layouts/error.ctp:66
+msgid "PHP Shopping Cart"
+msgstr "PHP Shopping Cart"
+
+#: /views/micro_templates/admin_create_from_tag.ctp:17
+#: /views/micro_templates/admin_edit.ctp:18
+msgid "Micro Template Details"
+msgstr "Détails Micro Template"
+
+#: /views/micro_templates/admin_create_from_tag.ctp:25
+#: /views/micro_templates/admin_edit.ctp:26
+msgid "Tag Name"
+msgstr "Nom du tag"
+
+#: /views/modules/admin.ctp:16
+msgid "Installed"
+msgstr "Installé"
+
+#: /views/modules/admin.ctp:16
+msgid "Version"
+msgstr "Version"
+
+#: /views/modules/admin.ctp:23
+msgid "Install"
+msgstr "Installe"
+
+#: /views/modules/admin.ctp:27
+msgid "Upgrade"
+msgstr "Mise à jour"
+
+#: /views/modules/admin.ctp:31
+msgid "Uninstall"
+msgstr "Désinstaller"
+
+#: /views/order_status/admin.ctp:16
+msgid "Order"
+msgstr "Commande"
+
+#: /views/order_status/admin_edit.ctp:16
+msgid "Order Status Details"
+msgstr "Détails statut commande"
+
+#: /views/orders/admin.ctp:18
+#: /views/orders/admin_view.ctp:16
+msgid "Customer"
+msgstr "Client"
+
+#: /views/orders/admin.ctp:18
+msgid "Order Number"
+msgstr "Numéro de commande"
+
+#: /views/orders/admin.ctp:18
+msgid "Status"
+msgstr "Statut"
+
+#: /views/orders/admin.ctp:29
+msgid "View"
+msgstr "Voir"
+
+#: /views/orders/admin_view.ctp:18
+msgid "Order Comments"
+msgstr "Commentaires à la commande"
+
+#: /views/orders/admin_view.ctp:19
+msgid "New Comment"
+msgstr "Nouveau commentaire"
+
+#: /views/orders/admin_view.ctp:30
+msgid "Billing Information"
+msgstr "Informations de facturation"
+
+#: /views/orders/admin_view.ctp:33;63
+msgid "Customer Name"
+msgstr "Nom du client"
+
+#: /views/orders/admin_view.ctp:37;67
+msgid "Address Line 1"
+msgstr "Adresse ligne 1"
+
+#: /views/orders/admin_view.ctp:41;71
+msgid "Address Line 2"
+msgstr "Adresse ligne 2"
+
+#: /views/orders/admin_view.ctp:45;75
+msgid "City"
+msgstr "Ville"
+
+#: /views/orders/admin_view.ctp:49;79
+msgid "State"
+msgstr "Région/Etat"
+
+#: /views/orders/admin_view.ctp:58;92
+msgid "Country"
+msgstr "Pays"
+
+#: /views/orders/admin_view.ctp:53;83
+msgid "Zip"
+msgstr "Code postal"
+
+#: /views/orders/admin_view.ctp:60
+msgid "Shipping Information"
+msgstr "Informations sur la livraison"
+
+#: /views/orders/admin_view.ctp:91
+msgid "Contact Information"
+msgstr "Information contact"
+
+#: /views/orders/admin_view.ctp:94
+#: /views/users/admin_new.ctp:21
+#: /views/users/admin_user_account.ctp:24
+msgid "Email"
+msgstr "Courriel"
+
+#: /views/orders/admin_view.ctp:98
+msgid "Phone"
+msgstr "Téléphone"
+
+#: /views/orders/admin_view.ctp:98
+msgid "Phone"
+msgstr "Téléphone"
+
+#: /views/orders/admin_view.ctp:115
+msgid "Company"
+msgstr "Société"
+
+#: /views/orders/admin_view.ctp:115
+msgid "Payment Information"
+msgstr "Informations de paiement"
+
+#: /views/orders/admin_view.ctp:109
+msgid "Credit Card"
+msgstr "Carte de crédit"
+
+#: /views/orders/admin_view.ctp:113
+msgid "Expiration"
+msgstr "Expiration"
+
+#: /views/orders/admin_view.ctp:125
+msgid "Product Name"
+msgstr "Nom du produit"
+
+#: /views/orders/admin_view.ctp:125
+msgid "Quantity"
+msgstr "Quantité"
+
+#: /views/orders/admin_view.ctp:146
+msgid "Order Total"
+msgstr "Total"
+
+#: /views/orders/admin_view.ctp:160
+msgid "User"
+msgstr "Utilisateur"
+
+#: /views/orders/admin_view.ctp:160
+msgid "Sent To Customer"
+msgstr "Envoyé au client"
+
+#: /views/orders/admin_view.ctp:160;206
+msgid "Comment"
+msgstr "Commentaire"
+
+#: /views/orders/admin_view.ctp:189
+msgid "Update Status"
+msgstr "Statut mise à jour"
+
+#: /views/orders/admin_view.ctp:201
+msgid "Send To Customer"
+msgstr "Envoyer au client"
+
+#: /views/payment_methods/admin_edit.ctp:16
+msgid "Payment Method Details"
+msgstr "Détail méthodes de paiement"
+
+#: /views/search/admin_global_search.ctp:47
+msgid "Results: "
+msgstr "Résultats: "
+
+#: /views/shipping_methods/admin_edit.ctp:16
+msgid "Shipping Method Details"
+msgstr "Détail méthodes d'expédition"
+
+#: /views/stylesheets/admin.ctp:18
+msgid "Media Type"
+msgstr "Type de média"
+
+#: /views/stylesheets/admin.ctp:27
+#: /views/templates/admin.ctp:38
+msgid "Copy"
+msgstr "Copier"
+
+#: /views/stylesheets/admin_attach_templates.ctp:22
+msgid "Current Template Associations"
+msgstr "Associations de modèles courants"
+
+#: /views/stylesheets/admin_copy.ctp:19
+msgid "Name the copy:"
+msgstr "Nom de la copie:"
+
+#: /views/stylesheets/admin_edit.ctp:24;42
+msgid "Stylesheet Details"
+msgstr "Détails de la feuille de style"
+
+#: /views/tags/admin_view.ctp:21
+msgid "Default Template"
+msgstr "Modèle par défaut"
+
+#: /views/tags/admin_view.ctp:26
+#: /views/templates/admin_edit.ctp:17
+#: /views/templates/admin_edit_details.ctp:16
+#: /views/templates/admin_new.ctp:16
+msgid "Template Details"
+msgstr "Détails Modèle"
+
+#: /views/tags/admin_view.ctp:43
+msgid "Create Micro Template From Tag"
+msgstr "Créer un micro modèle à partir du tag"
+
+#: /views/tax_country_zone_rates/admin.ctp:18
+#: /views/tax_country_zone_rates/admin_edit.ctp:22
+#: /views/tax_country_zone_rates/admin_new.ctp:44
+msgid "Tax Rate"
+msgstr "Taux"
+
+#: /views/tax_country_zone_rates/admin_edit.ctp:16
+#: /views/tax_country_zone_rates/admin_new.ctp:27
+msgid "Tax Zone Rates Details"
+msgstr "Détail Taux par zones"
+
+#: /views/tax_country_zone_rates/admin_new.ctp:33
+msgid "Country"
+msgstr "Pays"
+
+#: /views/tax_country_zone_rates/list_zones_by_country.ctp:15
+msgid "Country Zones"
+msgstr "Zones pays"
+
+#: /views/taxes/admin.ctp:20
+msgid "Are you sure you want to set all products to this tax class?"
+msgstr "Etes-vous sûr que vous voulez définir pour tous les produits cette classe de taxe?"
+
+#: /views/taxes/admin.ctp:27
+msgid "Set All Products"
+msgstr "Modifier tous les produits"
+
+#: /views/taxes/admin_edit.ctp:16
+msgid "Tax Details"
+msgstr "Détails taxe"
+
+#: /views/templates/admin.ctp:22
+msgid "Expand"
+msgstr "Étendre"
+
+#: /views/templates/admin.ctp:28
+msgid "Collapse"
+msgstr "Réduire"
+
+#: /views/templates/admin_attach_stylesheets.ctp:21
+msgid "Current Stylesheet Associations"
+msgstr "Associations feuilles de styles courantes"
+
+#: /views/templates/admin_attach_stylesheets.ctp:41
+msgid "Attach Stylesheet"
+msgstr "Attacher feuille de style"
+
+#: /views/templates/admin_copy.ctp:23
+msgid "Template Copy Name"
+msgstr "Nom de la copie du modèle"
+
+#: /views/templates/admin_new.ctp:21
+msgid "Create Template Set"
+msgstr "Créer un set de modèle"
+
+#: /views/user_tags/admin_edit.ctp:25;40
+msgid "User Tag Details"
+msgstr "Détail Tag utilisateur"
+
+#: /views/users/admin_login.ctp:15
+#: /views/users/admin_new.ctp:18
+#: /views/users/admin_user_account.ctp:21
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+#: /views/users/admin_login.ctp:16
+#: /views/users/admin_new.ctp:25
+msgid "Password"
+msgstr "Mot de passe"
+
+#: /views/users/admin_login.ctp:17
+msgid "Login"
+msgstr "S'enregistrer"
+
+#: /views/users/admin_user_account.ctp:16
+msgid "Account Details"
+msgstr "Mon compte"
+
+#: /views/users/admin_user_account.ctp:28
+msgid "New Password"
+msgstr "Nouveau mot de passe"
+
+#: /views/users/admin_user_account.ctp:32
+msgid "Confirm Password"
+msgstr "Confirmer le mot de passe"
+
+#: /views/users/admin_user_preferences.ctp:17
+msgid "User Prefences"
+msgstr "Préférences utilisateur"
+
+#: /controllers/contact_us_controller.php:38
+msgid "Contact Us"
+msgstr "Nous contacter"
+
+#: /vendors/smarty/vam_plugins/function.contact_us.php:53
+msgid "Creates a contact us form."
+msgstr "Créer un formulaire 'Nous contacter'."
+
+#: /plugins/payment/views/webmoney/settings.ctp:17
+msgid "WebMoney Purse"
+msgstr "WebMoney Purse"
+
+#: /plugins/payment/views/webmoney/settings.ctp:22
+msgid "WebMoney Secret Key"
+msgstr "WebMoney Secret Key"
+
+#: /plugins/payment/views/rbkmoney/settings.ctp:17
+msgid "RBKMoney Store ID"
+msgstr "RBKMoney Store ID"
+
+#: /plugins/payment/views/rbkmoney/settings.ctp:22
+msgid "RBKMoney Secret Key"
+msgstr "RBKMoney Secret Key"
+
+#: /plugins/payment/views/prochange/settings.ctp:17
+msgid "Prochange ID 1"
+msgstr "Prochange ID 1"
+
+#: /plugins/payment/views/prochange/settings.ctp:22
+msgid "Prochange ID 2"
+msgstr "Prochange ID 2"
+
+#: /plugins/payment/views/prochange/settings.ctp:27
+msgid "Prochange Secret Key"
+msgstr "Prochange Secret Key"
+
+#: /plugins/payment/views/zpayment/settings.ctp:17
+msgid "Zpayment Purse"
+msgstr "Zpayment Purse"
+
+#: /plugins/payment/views/zpayment/settings.ctp:22
+msgid "Zpayment Secret Key"
+msgstr "Zpayment Secret Key"
+
+#: /plugins/payment/views/robokassa/settings.ctp:17
+msgid "Robokassa Login"
+msgstr "Robokassa Login"
+
+#: /plugins/payment/views/robokassa/settings.ctp:22
+msgid "Robokassa Password 1"
+msgstr "Robokassa Password 1"
+
+#: /plugins/payment/views/robokassa/settings.ctp:27
+msgid "Robokassa Password 2"
+msgstr "Robokassa Password 2"
+
+#: /plugins/payment/views/assist/settings.ctp:17
+msgid "Assist Shop ID"
+msgstr "Assist Shop ID"
+
+#: /plugins/payment/views/interkassa/settings.ctp:17
+msgid "InterKassa ID"
+msgstr "InterKassa ID"
+
+#: /plugins/payment/views/interkassa/settings.ctp:22
+msgid "InterKassa Secret Key"
+msgstr "InterKassa Secret Key"
+
+#: /plugins/payment/views/liqpay/settings.ctp:17
+msgid "LiqPay ID"
+msgstr "LiqPay ID"
+
+#: /plugins/payment/views/liqpay/settings.ctp:22
+msgid "LiqPay Secret Key"
+msgstr "LiqPay Secret Key"
+
+#: /plugins/payment/views/qiwi/settings.ctp:17
+msgid "Qiwi ID"
+msgstr "Qiwi ID"
+
+#: /plugins/payment/views/qiwi/settings.ctp:22
+msgid "Qiwi Password"
+msgstr "Qiwi mot de passe"
+
+#: Time Helper
+msgid "Today, %s"
+msgstr "Aujourd'hui, %s"
+
+#: Time Helper
+msgid "Yesterday, %s"
+msgstr "Hier, %s"
+
+#: Time Helper
+msgid "on %s"
+msgstr "%s"
+
+#: Time Helper
+msgid "%s ago"
+msgstr "%s avant"
+
+#: Time Helper
+msgid "days"
+msgstr "jours"
+
+#: Time Helper
+msgid "year"
+msgid_plural "years"
+msgstr[0] "an"
+msgstr[1] "ans"
+msgstr[2] "année"
+
+#: Time Helper
+msgid "month"
+msgid_plural "months"
+msgstr[0] "mois"
+msgstr[1] "mois"
+msgstr[2] "mois"
+
+#: Time Helper
+msgid "week"
+msgid_plural "weeks"
+msgstr[0] "semaine"
+msgstr[1] "semaines"
+msgstr[2] "semaines"
+
+#: Time Helper
+msgid "day"
+msgid_plural "days"
+msgstr[0] "jour"
+msgstr[1] "jours"
+msgstr[2] "jours"
+
+#: Time Helper
+msgid "hour"
+msgid_plural "hours"
+msgstr[0] "heure"
+msgstr[1] "heures"
+msgstr[2] "heures"
+
+#: Time Helper
+msgid "minute"
+msgid_plural "minutes"
+msgstr[0] "minute"
+msgstr[1] "minutes"
+msgstr[2] "minutes"
+
+#: Time Helper
+msgid "second"
+msgid_plural "seconds"
+msgstr[0] "seconde"
+msgstr[1] "secondes"
+msgstr[2] "secondes"
+
+#: Time Helper
+msgid "January"
+msgstr "Janvier"
+
+#: Time Helper
+msgid "February"
+msgstr "Février"
+
+#: Time Helper
+msgid "March"
+msgstr "Mars"
+
+#: Time Helper
+msgid "April"
+msgstr "Avril"
+
+#: Time Helper
+msgid "May"
+msgstr "Mai"
+
+#: Time Helper
+msgid "June"
+msgstr "Juin"
+
+#: Time Helper
+msgid "July"
+msgstr "Juillet"
+
+#: Time Helper
+msgid "August"
+msgstr "Août"
+
+#: Time Helper
+msgid "September"
+msgstr "Septembre"
+
+#: Time Helper
+msgid "October"
+msgstr "Octobre"
+
+#: Time Helper
+msgid "November"
+msgstr "Novembre"
+
+#: Time Helper
+msgid "December"
+msgstr "Décembre"
+
+#: /plugins/payment/views/kvitancia/settings.ctp:17
+msgid "Bank Name"
+msgstr "Nom de la banque"
+
+#: /plugins/payment/views/kvitancia/settings.ctp:22
+msgid "Account Number 1"
+msgstr "Compte numéro 1"
+
+#: /plugins/payment/views/kvitancia/settings.ctp:27
+msgid "BIK"
+msgstr "BIC"
+
+#: /plugins/payment/views/kvitancia/settings.ctp:32
+msgid "Account Number 2"
+msgstr "Compte numéro 2"
+
+#: /plugins/payment/views/kvitancia/settings.ctp:37
+msgid "INN"
+msgstr "INN"
+
+#: /plugins/payment/views/kvitancia/settings.ctp:42
+msgid "Recipient"
+msgstr "Destinataire"
+
+#: /plugins/payment/views/kvitancia/settings.ctp:47
+msgid "KPP"
+msgstr "KPP"
+
+#: /plugins/payment/views/kvitancia/settings.ctp:52
+msgid "Payment Text"
+msgstr "Texte paiement"
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "Notice"
+msgstr "Notice"
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "Receipt"
+msgstr "Reçu"
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "Teller"
+msgstr "Caissier"
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "Form #PD-4"
+msgstr "Form #PD-4"
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "recipient"
+msgstr "destinataire"
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "bank info"
+msgstr "informations bancaires"
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "Payeer Name"
+msgstr "Payeer Name"
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "Payeer Address"
+msgstr "Payeer Address"
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "rub."
+msgstr "rub."
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "Signature"
+msgstr "Signature"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "Company Address"
+msgstr "Adresse compagnie"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "Company Phone"
+msgstr "Téléphone"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "OGRN"
+msgstr "OGRN"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "OKPO"
+msgstr "OKPO"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "Supplier"
+msgstr "Fournisseur"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "in bank"
+msgstr "à la banque"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "Invoice #"
+msgstr "Reçu no"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "on"
+msgstr "à"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "#"
+msgstr "#"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "Summa:"
+msgstr "Somme:"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "without tax."
+msgstr "sans taxe."
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "CEO"
+msgstr "Directeur"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "Accountant"
+msgstr "Comptable"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "Last Name"
+msgstr "Nom de famille"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "MP"
+msgstr "MP"
+
+#: /views/helpers/summa.php:1
+msgid "zero"
+msgstr "zéro"
+
+#: /views/helpers/summa.php:1
+msgid "three"
+msgstr "trois"
+
+#: /views/helpers/summa.php:1
+msgid "four"
+msgstr "quatre"
+
+#: /views/helpers/summa.php:1
+msgid "five"
+msgstr "cinq"
+
+#: /views/helpers/summa.php:1
+msgid "six"
+msgstr "six"
+
+#: /views/helpers/summa.php:1
+msgid "seven"
+msgstr "sept"
+
+#: /views/helpers/summa.php:1
+msgid "eight"
+msgstr "huit"
+
+#: /views/helpers/summa.php:1
+msgid "nine"
+msgstr "neuf"
+
+#: /views/helpers/summa.php:1
+msgid "ten"
+msgstr "dix"
+
+#: /views/helpers/summa.php:1
+msgid "eleven"
+msgstr "onze"
+
+#: /views/helpers/summa.php:1
+msgid "twelve"
+msgstr "douze"
+
+#: /views/helpers/summa.php:1
+msgid "thirteen"
+msgstr "treize"
+
+#: /views/helpers/summa.php:1
+msgid "fourteen"
+msgstr "quatorze"
+
+#: /views/helpers/summa.php:1
+msgid "fifteen"
+msgstr "quinze"
+
+#: /views/helpers/summa.php:1
+msgid "sixteen"
+msgstr "seize"
+
+#: /views/helpers/summa.php:1
+msgid "seventeen"
+msgstr "dix-sept"
+
+#: /views/helpers/summa.php:1
+msgid "eighteen"
+msgstr "dix-huit"
+
+#: /views/helpers/summa.php:1
+msgid "nineteen"
+msgstr "dix-neuf"
+
+#: /views/helpers/summa.php:1
+msgid "twenty"
+msgstr "vingt"
+
+#: /views/helpers/summa.php:1
+msgid "thirty"
+msgstr "trente"
+
+#: /views/helpers/summa.php:1
+msgid "forty"
+msgstr "quarante"
+
+#: /views/helpers/summa.php:1
+msgid "fifty"
+msgstr "cinquante"
+
+#: /views/helpers/summa.php:1
+msgid "sixty"
+msgstr "soixante"
+
+#: /views/helpers/summa.php:1
+msgid "seventy"
+msgstr "soixante-dix"
+
+#: /views/helpers/summa.php:1
+msgid "eighty"
+msgstr "quatre-vingt"
+
+#: /views/helpers/summa.php:1
+msgid "ninety"
+msgstr "quatre-vingt-dix"
+
+#: /views/helpers/summa.php:1
+msgid "hundred"
+msgstr "cent"
+
+#: /views/helpers/summa.php:1
+msgid "two hundred"
+msgstr "deux cent"
+
+#: /views/helpers/summa.php:1
+msgid "three hundred"
+msgstr "trois cent"
+
+#: /views/helpers/summa.php:1
+msgid "four hundred"
+msgstr "quatre cent"
+
+#: /views/helpers/summa.php:1
+msgid "five hundred"
+msgstr "cinq cent"
+
+#: /views/helpers/summa.php:1
+msgid "six hundred"
+msgstr "six cent"
+
+#: /views/helpers/summa.php:1
+msgid "seven hundred"
+msgstr "sept cent"
+
+#: /views/helpers/summa.php:1
+msgid "eight hundred"
+msgstr "huit cent"
+
+#: /views/helpers/summa.php:1
+msgid "nine hundred"
+msgstr "neuf cent"
+
+#: /views/helpers/summa.php:1
+msgid "penny"
+msgstr "cent"
+
+#: /views/helpers/summa.php:1
+msgid "kopecks"
+msgstr "cents"
+
+#: /views/helpers/summa.php:1
+msgid "single kopek"
+msgstr "un cent"
+
+#: /views/helpers/summa.php:1
+msgid "two penny"
+msgstr "deux cent"
+
+#: /views/helpers/summa.php:1
+msgid "ruble"
+msgstr "rouble"
+
+#: /views/helpers/summa.php:1
+msgid "rubles"
+msgstr "roubles"
+
+#: /views/helpers/summa.php:1
+msgid "one ruble"
+msgstr "un rouble"
+
+#: /views/helpers/summa.php:1
+msgid "two rubles"
+msgstr "deux roubles"
+
+#: /views/helpers/summa.php:1
+msgid "thousands"
+msgstr "milliers"
+
+#: /views/helpers/summa.php:1
+msgid "thousand"
+msgstr "millier"
+
+#: /views/helpers/summa.php:1
+msgid "one thousand"
+msgstr "un millier"
+
+#: /views/helpers/summa.php:1
+msgid "two thousand"
+msgstr "deux milliers"
+
+#: /views/helpers/summa.php:1
+msgid "million"
+msgstr "million"
+
+#: /views/helpers/summa.php:1
+msgid "millions"
+msgstr "millions"
+
+#: /views/helpers/summa.php:1
+msgid "one million"
+msgstr "un million"
+
+#: /views/helpers/summa.php:1
+msgid "two million"
+msgstr "deux millions"
+
+#: /views/helpers/summa.php:1
+msgid "billion"
+msgstr "milliard"
+
+#: /views/helpers/summa.php:1
+msgid "milliards"
+msgstr "миллиардов"
+
+#: /views/helpers/summa.php:1
+msgid "one billion"
+msgstr "un milliard"
+
+#: /views/helpers/summa.php:1
+msgid "two billion"
+msgstr "deux milliards"
+
+#: /views/helpers/summa.php:1
+msgid "trillion"
+msgstr "trillion"
+
+#: /views/helpers/summa.php:1
+msgid "trillions"
+msgstr "trillions"
+
+#: /views/helpers/summa.php:1
+msgid "one trillion"
+msgstr "un trillion"
+
+#: /views/helpers/summa.php:1
+msgid "two trillion"
+msgstr "deux trillions"
+
+#: /views/helpers/validation.php:71
+msgid "There was a problem with the field"
+msgstr "Il y a eu un problème avec le champs"
+
+#: /app/controllers/components/check.php
+msgid "License invalid!"
+msgstr "Licence invalide!"
+
+#: /app/controllers/components/check.php
+msgid "Go to Admin - Configurations -"
+msgstr "Aller à Admin - Configurations -"
+
+#: /app/controllers/components/check.php
+msgid "License"
+msgstr "Licence"
+
+#: /app/controllers/components/check.php
+msgid "and check your key."
+msgstr "et vérifiez votre clé."
+
+#: /app/controllers/components/check.php
+msgid "Close"
+msgstr "Fermer"
+
+#: /app/controllers/components/check.php
+msgid "New version available. VamCart"
+msgstr "Nouvelle version disponible VamCart"
+
+#: /app/controllers/components/check.php
+msgid "Update"
+msgstr "Mise à jour"
+
+#: /app/controllers/components/check.php
+msgid "and update your store."
+msgstr "et mettre à jour votre magasin."
+
+#: /app/controllers/license_controller.php
+msgid "License Key"
+msgstr "Clé de licence"
+
+#: /app/controllers/license_controller.php
+msgid "Key:"
+msgstr "Clé:"
+
+#: /app/views/license/admin.ctp
+msgid "Domain:"
+msgstr "Domaine:"
+
+#: /app/views/license/admin.ctp
+msgid "Start Date:"
+msgstr "Date de début:"
+
+#: /app/views/license/admin.ctp
+msgid "End Date:"
+msgstr "Date de fin:"
+
+#: /app/views/license/admin.ctp
+msgid "License is invalid. Check your key."
+msgstr "Licence invalide. Vérifiez votre clé."
+
+#: /app/views/update/admin.ctp
+msgid "Your VamCart Version:"
+msgstr "Votre version de Vamcart:"
+
+#: /app/views/update/admin.ctp
+msgid "Current VamCart Version:"
+msgstr "Version actuelle Vamcart:"
+
+#: /app/views/update/admin_update.ctp
+msgid "Click Update button to start VamCart AutoUpdate."
+msgstr "Cliquer mise à jour pour commencer la mise à jour automatique de Vamcart."
+
+#: /app/views/update/admin_update.ctp
+msgid "You currently use latest version of VamCart."
+msgstr "Vous utilisez la dernière version de Vamcart."
+
+#: /app/views/update/admin.ctp
+msgid "Mise à jour effectuée avec succès."
+msgstr "Обновление успешно завершено."
+
+#: /views/contents/admin_categories_tree.ctp:186
+msgid "Select target category"
+msgstr "Choisir la catégorie cible"
+
+#: /views/contents/admin.ctp:186
+msgid "Move"
+msgstr "Déplacer"
+
+#: /controllers/contents_controller.php:472
+msgid "Copied content item."
+msgstr "Item de contenu copié."
+
+#: /controllers/contents_controller.php:472
+msgid "Moved content item."
+msgstr "Item de contenu déplacé."
+
+#: /controllers/geo_zones_controller.php:472
+msgid "Country Zones linked."
+msgstr "Zone pays liée."
+
+#: /controllers/geo_zones_controller.php:472
+msgid "Country Zones unlinked."
+msgstr "Zone pays détachée."
+
+#: /controllers/geo_zones_controller.php:472
+msgid "Geo Zone Details"
+msgstr "Détails zone géo"
+
+#: /controllers/geo_zones_controller.php:472
+msgid "Edit Zones for Geo Zone"
+msgstr "Modifier zone pour zone géo"
+
+#: /controllers/geo_zones_controller.php:472
+msgid "Geo Zones Listing"
+msgstr "Liste géo zones"
+
+#: /views/geo_zones/admin_country_zones.ctp:472
+msgid "Select country"
+msgstr "Choisir pays"
+
+#: /views/geo_zones/admin_country_zones.ctp:472
+msgid "Select regions"
+msgstr "Choisir régions"
+
+#: /views/geo_zones/admin_country_zones_getzones.ctp:472
+msgid "Select All"
+msgstr "Tout selectionner"
+
+#: /views/geo_zones/admin_country_zones_getzones.ctp:472
+msgid "Deselect All"
+msgstr "Tout déselectionner"
+
+#: /vendors/smarty/vam_plugins/function.state_list.php:23
+msgid "None"
+msgstr "Aucun"
+
+#: /vendors/smarty/vam_plugins/function.state_list.php:23
+msgid "Generates States list."
+msgstr "Générer la listbillionse des régions"
+
+#: /vendors/smarty/vam_plugins/function.country_list.php:23
+msgid "Generates Country list."
+msgstr "Générer la liste des pays"
+
+#: /plugins/shipping/views/zone_based/settings.ctp:16
+msgid "Select zone"
+msgstr "Choisir zone"
+
+#: /plugins/shipping/views/zone_based/settings.ctp:16
+msgid "Based Off"
+msgstr "Méthode de calcul de la prestation"
+
+#: /plugins/shipping/views/zone_based/settings.ctp:16
+msgid "Geo Zone"
+msgstr "Zone géo"
+
+#: /plugins/shipping/views/zone_based/settings.ctp:16
+msgid "Shipping Cost for Zone"
+msgstr "Cout d'expédition pour la zone"
+
+#: /plugins/shipping/views/zone_based/settings.ctp:16
+msgid "Shipping Handling Cost for Zone"
+msgstr "Frais de prise en charge d'expédition pour la zone"
+
+#: /app/models/customer.php:16
+msgid "Firstname must only contain letters and numbers."
+msgstr "Le prénom ne doit contenir que des chiffres et des lettres"
+
+#: /app/models/customer.php:16
+msgid "Lastname must only contain letters and numbers."
+msgstr "Le nom ne doit contenir que des chiffres et des lettres"
+
+#: /app/models/customer.php:16
+msgid "Password can not be blank"
+msgstr "Le mot de passe ne doit pas être vide"
+
+#: /app/models/customer.php:16
+msgid "Passwords don\'t match"
+msgstr "Les mots de passe ne concordent pas"
+
+#: /app/models/customer.php:16
+msgid "Please, input correct e-mail address"
+msgstr "Renseignez une adresse courriel valide"
+
+#: /app/models/customer.php:16
+msgid "This email has already been taken."
+msgstr "Ce courriel est déjà utilisé."
+
+#: /app/controllers/stylesheets_controller.php:331
+msgid "Style name or style alias is empty."
+msgstr "Le nom ou l'alias du style est vide."
+
+#: /app/controllers/stylesheets_controller.php:355
+msgid "Styles has been imported."
+msgstr "Style importé."
+
+#: /app/controllers/stylesheets_controller.php:361
+msgid "Invalid XML file stylesheets.xml."
+msgstr "Feuille de style XML stylesheets.xml invalide."
+
+#: /app/controllers/stylesheets_controller.php:368
+msgid "Error extracting stylesheets.xml."
+msgstr "Erreur à l'extraction de stylesheets.xml."
+
+#: /app/controllers/stylesheets_controller.php:382
+msgid "Please, select the file for import."
+msgstr "Choisir le fichier à importer."
+
+#: /app/controllers/defined_languages_controller.php:173
+msgid "Key or language_id empty."
+msgstr "La clé ou language_id vide."
+
+#: /app/controllers/defined_languages_controller.php:197
+msgid "Defined languages has been imported."
+msgstr "Les langues définies ont été importées."
+
+#: /app/controllers/defined_languages_controller.php:202
+msgid "Invalid XML file defined_languages.xml."
+msgstr "Fichier XML defined_languages.xml invalide."
+
+#: /app/controllers/defined_languages_controller.php:208
+msgid "Error extracting defined_languages.xml."
+msgstr "Erreur à l'extraction de defined_languages.xml."
+
+#: /app/controllers/templates_controller.php:377
+msgid "Templates name is empty."
+msgstr "Le nom du modèle est vide."
+
+#: /app/controllers/templates_controller.php:434
+msgid "Templates has been imported."
+msgstr "Modèle importé."
+
+#: /app/controllers/templates_controller.php:439
+msgid "Invalid XML file templates.xml."
+msgstr "Fichier XML templates.xml invalide."
+
+#: /app/controllers/templates_controller.php:445
+msgid "Error extracting templates.xml."
+msgstr "Erreur à l'extraction templates.xml."
+
+#: /app/controllers/micro_templates_controller.php:148
+msgid "MicroTemplates alias is empty."
+msgstr "MicroTemplates alias vide."
+
+#: /app/controllers/micro_templates_controller.php:168
+msgid "MicroTemplates has been imported."
+msgstr "MicroTemplates importés."
+
+#: /app/controllers/micro_templates_controller.php:173
+msgid "Invalid XML file micro_templates.xml."
+msgstr "Fichier XML micro_templates.xml invalide."
+
+#: /app/controllers/micro_templates_controller.php:179
+msgid "Error extracting micro_templates.xml."
+msgstr "Erreur d\'extraction micro_templates.xml."
+
+#: /app/controllers/orders_controller.php:307
+msgid "Search Result"
+msgstr "Résultat de la recherche"
+
+#: /app/controllers/orders_controller.php:121
+msgid "Download link: "
+msgstr "Télécharger lien: "
+
+#: /app/views/orders/admin.ctp:10
+msgid "Order Search"
+msgstr "Recherche commande"
+
+#: /vendors/smarty/vam_plugins/function.downloadable_prices.php:36
+msgid "Displays the product prices for the current content."
+msgstr "Affiche le prix des produits pour le contenu courant."
+
+#: /app/controllers/download_controller.php:49
+msgid "Last allowed download date is reached."
+msgstr "Dernière date de téléchargement autorisée atteinte."
+
+#: /app/controllers/download_controller.php:53
+msgid "The number of downloads is exceeded."
+msgstr "Le nombre de téléchargements est dépassé."
+
+#: /app/controllers/download_controller.php:57
+msgid "Order is not payed."
+msgstr "La commande n\'a pas été payée."
+
+#: /app/controllers/download_controller.php:61
+msgid "Product is not found."
+msgstr "Produit introuvable."
+
+#: /app/controllers/download_controller.php:65
+msgid "Order is not found."
+msgstr "Commande introuvable."
