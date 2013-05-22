@@ -191,7 +191,21 @@ echo '</table>';
 
 	echo $this->Admin->StartTabContent('status');
 
-echo $this->Form->create('OrderComment', array('id' => 'contentform', 'action' => '/orders/admin_new_comment/', 'url' => '/orders/admin_new_comment/'));
+echo $this->Form->create('OrderComment', array('id' => 'contentform', 'name' => 'contentform', 'action' => '/orders/admin_new_comment/', 'url' => '/orders/admin_new_comment/'));
+
+?>
+
+<select name="menu" onClick="var textarea = document.getElementById('comment'); textarea.value=document.contentform.menu.options[document.contentform.menu.selectedIndex].value;">
+<option value="#">Quick Links ...</option>
+<option value="This is for value no.1">Value No. 1</option>
+<option value="This is for value no.2">Value No. 2</option>
+<option value="This is for value no.3">Value No. 3</option>
+<option value="This is for value no.4">Value No. 4</option>
+<option value="This is for value no.5">Value No. 5</option>
+<option value="This is for value no.6">Value No. 6</option>
+</select>
+
+<?php
 
 	echo $this->Form->input('Order.id', 
 			array(
@@ -225,7 +239,8 @@ echo $this->Form->create('OrderComment', array('id' => 'contentform', 'action' =
 			array(
 				'type' => 'textarea',
 				'label' => __('Comment'),
-				'class' => 'pagesmallesttextarea'
+				'class' => 'pagesmallesttextarea',
+				'id' => 'comment'
 			));
 
 	echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn', 'type' => 'submit', 'name' => 'submit', 'id' => 'submit'));
