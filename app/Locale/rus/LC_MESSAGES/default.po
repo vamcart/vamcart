@@ -2549,6 +2549,18 @@ msgstr "Покупатель уведомлён"
 msgid "Comment"
 msgstr "Комментарий"
 
+#: /views/orders/admin_view.ctp:160;206
+msgid "Answer Template"
+msgstr "Шаблон ответа"
+
+#: /views/orders/admin_view.ctp:160;206
+msgid "Add Answer Template"
+msgstr "Добавить шаблон ответа"
+
+#: /views/orders/admin_view.ctp:160;206
+msgid "Select"
+msgstr "Выберите"
+
 #: /views/orders/admin_view.ctp:189
 msgid "Update Status"
 msgstr "Статус заказа"
