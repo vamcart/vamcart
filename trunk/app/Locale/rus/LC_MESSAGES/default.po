@@ -376,6 +376,10 @@ msgstr "Список языковых строк"
 msgid "Email Templates Listing"
 msgstr "Список шаблонов писем"
 
+#: /controllers/answer_template_controller.php:117
+msgid "Answer Templates Listing"
+msgstr "Список шаблонов ответов"
+
 #: /controllers/events_controller.php:20
 msgid "Event Details"
 msgstr "Информация о событии"
