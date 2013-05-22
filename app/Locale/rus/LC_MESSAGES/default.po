@@ -107,6 +107,11 @@ msgstr "Ставки налогов"
 msgid "Email Templates"
 msgstr "Шаблоны писем"
 
+#: /app_controller.php:212
+#: /controllers/answer_template_controller.php:28
+msgid "Answer Templates"
+msgstr "Шаблоны ответов"
+
 #: /app_controller.php:214
 msgid "Locale"
 msgstr "Локализация"
