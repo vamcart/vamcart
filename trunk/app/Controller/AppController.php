@@ -250,7 +250,8 @@ class AppController extends Controller {
 					6 => array('icon' => 'cus-box', 'text' => __('Shipping Methods', true), 'path' => '/shipping_methods/admin/'),
 					7 => array('icon' => 'cus-calculator-add', 'text' => __('Tax Classes', true), 'path' => '/taxes/admin/'),
 					8 => array('icon' => 'cus-calculator-edit', 'text' => __('Tax Rates', true), 'path' => '/tax_country_zone_rates/admin/0'),
-					9 => array('icon' => 'cus-email-open', 'text' => __('Email Templates', true), 'path' => '/email_template/admin/')
+					9 => array('icon' => 'cus-email-open', 'text' => __('Email Templates', true), 'path' => '/email_template/admin/'),
+					10 => array('icon' => 'cus-comment-edit', 'text' => __('Email Templates', true), 'path' => '/answer_template/admin/')
 				)
 			),	
 			6 => array('icon' => 'cus-world', 'text' => __('Locale', true), 'path' => '/admin/admin_top/6',
