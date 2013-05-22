@@ -833,7 +833,7 @@ INSERT INTO `defined_languages` (`id`, `language_id`, `key`, `value`, `created`,
 DROP TABLE IF EXISTS email_templates;
 CREATE TABLE `email_templates` (
   `id` int(10) NOT NULL auto_increment,
-  `alias` varchar(50) collate utf8_unicode_ci NOT NULL,
+  `alias` varchar(255) collate utf8_unicode_ci NOT NULL,
   `default` int(4) NOT NULL,
   `order` int(4) NOT NULL,
   PRIMARY KEY  (`id`)
@@ -849,7 +849,7 @@ CREATE TABLE `email_template_descriptions` (
   `id` int(10) NOT NULL auto_increment,
   `email_template_id` int(10) NOT NULL,
   `language_id` int(10) NOT NULL,
-  `subject` varchar(50) collate utf8_unicode_ci NOT NULL,
+  `subject` varchar(255) collate utf8_unicode_ci NOT NULL,
   `content` text collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -861,7 +861,24 @@ INSERT INTO `email_template_descriptions` VALUES (4, 2, 2, 'Изменён ст�
 INSERT INTO `email_template_descriptions` VALUES (5, 3, 1, 'Registration', 'Thank you for registration!');
 INSERT INTO `email_template_descriptions` VALUES (6, 3, 2, 'Регистрация', 'Благодарим за регистрацию!');
 
+DROP TABLE IF EXISTS answer_templates;
+CREATE TABLE `answer_templates` (
+  `id` int(10) NOT NULL auto_increment,
+  `alias` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `default` int(4) NOT NULL,
+  `order` int(4) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+DROP TABLE IF EXISTS answer_template_descriptions;
+CREATE TABLE `answer_template_descriptions` (
+  `id` int(10) NOT NULL auto_increment,
+  `answer_template_id` int(10) NOT NULL,
+  `language_id` int(10) NOT NULL,
+  `name` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `content` text collate utf8_unicode_ci NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS events;
 CREATE TABLE `events` (
