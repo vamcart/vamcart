@@ -1080,7 +1080,7 @@ CREATE TABLE `order_comments` (
   `user_id` int(10) NOT NULL,
   `order_id` int(10) NOT NULL,
   `sent_to_customer` tinyint(4) NOT NULL,
-  `comment` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `comment` text collate utf8_unicode_ci NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY  (`id`)
