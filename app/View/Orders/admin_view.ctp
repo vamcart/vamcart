@@ -182,7 +182,7 @@ foreach($data['OrderComment'] AS $comment)
 		  array(
 				$this->Time->timeAgoInWords($comment['created']),
 				($comment['sent_to_customer'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False')))),
-				$comment['comment']
+				'<pre>'.$comment['comment'].'</pre>'
 		   ));
 }
 echo '</table>';
@@ -192,20 +192,6 @@ echo '</table>';
 	echo $this->Admin->StartTabContent('status');
 
 echo $this->Form->create('OrderComment', array('id' => 'contentform', 'name' => 'contentform', 'action' => '/orders/admin_new_comment/', 'url' => '/orders/admin_new_comment/'));
-
-?>
-
-<select name="menu" onClick="var textarea = document.getElementById('comment'); textarea.value=document.contentform.menu.options[document.contentform.menu.selectedIndex].value;">
-<option value="#">Quick Links ...</option>
-<option value="This is for value no.1">Value No. 1</option>
-<option value="This is for value no.2">Value No. 2</option>
-<option value="This is for value no.3">Value No. 3</option>
-<option value="This is for value no.4">Value No. 4</option>
-<option value="This is for value no.5">Value No. 5</option>
-<option value="This is for value no.6">Value No. 6</option>
-</select>
-
-<?php
 
 	echo $this->Form->input('Order.id', 
 			array(
@@ -229,11 +215,15 @@ echo $this->Form->create('OrderComment', array('id' => 'contentform', 'name' => 
 				'type' => 'hidden',
 				'value' => $_SESSION['User']['id']
 			));	
-	echo $this->Form->input('OrderComment.sent_to_customer', 
+	echo $this->Form->input('Order.answer_template_id', 
 			array(
-				'type' => 'checkbox',
-				'label' => __('Send To Customer'),
-				'class' => 'checkbox_group'
+				'type' => 'select',
+				'options' => $answer_template_list,
+				'label' => __('Answer Template'),
+				'name' => 'menu',
+				'empty' => __('Select'),
+				'onclick' => 'var textarea = document.getElementById("comment"); textarea.value=document.contentform.menu.options[document.contentform.menu.selectedIndex].value;',
+				'after' => ' '.$this->Html->link($this->Html->image("admin/icons/page/new.png", array("alt" => "Add Answer Template")),'/answer_template/admin/', array('escape' => false, 'target' => '_blank'))
 			));
 	echo $this->Form->input('OrderComment.comment', 
 			array(
@@ -242,7 +232,13 @@ echo $this->Form->create('OrderComment', array('id' => 'contentform', 'name' => 
 				'class' => 'pagesmallesttextarea',
 				'id' => 'comment'
 			));
-
+	echo $this->Form->input('OrderComment.sent_to_customer', 
+			array(
+				'type' => 'checkbox',
+				'label' => __('Send To Customer'),
+				'class' => 'checkbox_group'
+			));
+	echo '<div class="clear"></div>';
 	echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn', 'type' => 'submit', 'name' => 'submit', 'id' => 'submit'));
 	echo '<div class="clear"></div>';
 	echo $this->Form->end();
