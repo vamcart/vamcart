@@ -40,7 +40,7 @@ switch($content_type_id) {
 				'label' => __('Tax Class'),
 				'type' => 'select',
 				'options' => $tax_options,
-				'selected' => $data['ContentProduct']['tax_id']
+				'selected' => isset($data['ContentProduct']['tax_id']) ? $data['ContentProduct']['tax_id']: ''
 			));
 		echo $this->Form->input('ContentProduct.stock', 
 			array(
@@ -52,7 +52,7 @@ switch($content_type_id) {
 			array(
 				'label' => __('Model'),
 				'type' => 'text',
-				'value' => $data['ContentProduct']['model']
+				'value' => isset($data['ContentProduct']['model']) ? $data['ContentProduct']['model']: ''
 			));
 		echo $this->Form->input('ContentProduct.weight', 
 			array(
@@ -73,7 +73,7 @@ switch($content_type_id) {
 			array(
 				'type' => 'text',
 				'label' => __('URL'),
-				'value' => $data['ContentLink']['url']
+				'value' => isset($data['ContentLink']['url']) ? $data['ContentLink']['url'] : ''
 			));
 		break;
 	case '5':
@@ -105,26 +105,26 @@ switch($content_type_id) {
 				'label' => __('Tax Class'),
 				'type' => 'select',
 				'options' => $tax_options,
-				'selected' => $data['ContentDownloadable']['tax_id']
+				'selected' => isset($data['ContentDownloadable']['tax_id']) ? $data['ContentDownloadable']['tax_id'] : ''
 			));
 		echo $this->Form->input('ContentDownloadable.order_status_id', 
 			array(
 				'label' => __('Required order status to download'),
 				'type' => 'select',
 				'options' => $order_statuses,
-				'selected' => $data['ContentDownloadable']['order_status_id']
+				'selected' => isset($data['ContentDownloadable']['order_status_id']) ? $data['ContentDownloadable']['order_status_id'] : ''
 			));
 		echo $this->Form->input('ContentDownloadable.model', 
 			array(
 				'label' => __('Model'),
 				'type' => 'text',
-				'value' => $data['ContentDownloadable']['model']
+				'value' => isset($data['ContentDownloadable']['model']) ? $data['ContentDownloadable']['model'] : ''
 			));
 		echo $this->Form->input('ContentDownloadable.file', 
 			array(
-				'label' => __('File: ') . $data['ContentDownloadable']['filename'],
+				'label' => __('File: ') . (isset($data['ContentDownloadable']['filename']) ? $data['ContentDownloadable']['filename'] : ''),
 				'type' => 'file',
-				'value' => $data['ContentDownloadable']['filename']
+				'value' => isset($data['ContentDownloadable']['filename']) ? $data['ContentDownloadable']['filename'] : ''
 			));
 		echo $this->Form->input('ContentDownloadable.delete', 
 			array(
@@ -135,13 +135,13 @@ switch($content_type_id) {
 			array(
 				'label' => __('Max. downloads'),
 				'type' => 'text',
-				'value' => $data['ContentDownloadable']['max_downloads']
+				'value' => isset($data['ContentDownloadable']['max_downloads']) ? $data['ContentDownloadable']['max_downloads'] : ''
 			));
 		echo $this->Form->input('ContentDownloadable.max_days_for_download', 
 			array(
 				'label' => __('Max. days for download'),
 				'type' => 'text',
-				'value' => $data['ContentDownloadable']['max_days_for_download']
+				'value' => isset($data['ContentDownloadable']['max_days_for_download']) ? $data['ContentDownloadable']['max_days_for_download'] : ''
 			));
 		break;
 }

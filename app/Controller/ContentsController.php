@@ -373,10 +373,10 @@ class ContentsController extends AppController {
 				$new_description['ContentDescription']['content_id'] = $content_id;
 				$new_description['ContentDescription']['language_id'] = $id;
 				$new_description['ContentDescription']['name'] = $value['name'][$id];
-				$new_description['ContentDescription']['description'] = $value['description'][$id];				
-				$new_description['ContentDescription']['meta_title'] = $value['meta_title'][$id];				
-				$new_description['ContentDescription']['meta_description'] = $value['meta_description'][$id];				
-				$new_description['ContentDescription']['meta_keywords'] = $value['meta_keywords'][$id];				
+				$new_description['ContentDescription']['description'] = $value['description'][$id];
+				$new_description['ContentDescription']['meta_title'] = $value['meta_title'][$id];
+				$new_description['ContentDescription']['meta_description'] = $value['meta_description'][$id];
+				$new_description['ContentDescription']['meta_keywords'] = $value['meta_keywords'][$id];
 
 				$this->Content->ContentDescription->create();
 				$this->Content->ContentDescription->save($new_description);
@@ -459,12 +459,12 @@ class ContentsController extends AppController {
 			}
 			else
 			{
-				if($data['Content']['active'] == 1)
+				if(isset($data['Content']['active']) && $data['Content']['active'] == 1)
 					$this->set('active_checked',true);
 				else
 					$this->set('active_checked',false);
 
-				if($data['Content']['show_in_menu'] == 1)
+				if(isset($data['Content']['show_in_menu']) && $data['Content']['show_in_menu'] == 1)
 					$this->set('menu_checked',true);
 				else
 					$this->set('menu_checked',false);					
@@ -697,7 +697,7 @@ class ContentsController extends AppController {
 		$categories = $this->Content->find('threaded', array('conditions' => array('Content.content_type_id' => 1)));
 		$tree = array();
 		foreach ($categories as $category) {
-			$this->_add_tree_node(&$tree, $category, 0);
+			$this->_add_tree_node($tree, $category, 0);
 		}
 		$this->set('content_data', $tree);
 	}
@@ -710,7 +710,7 @@ class ContentsController extends AppController {
 				'tree_prefix' => str_repeat('&nbsp;&nbsp;', $level));
 				
 		foreach ($node['children'] as $child) {
-			$this->_add_tree_node(&$tree, $child, $level + 1);
+			$this->_add_tree_node($tree, $child, $level + 1);
 		}
 	}
 	

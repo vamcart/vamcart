@@ -56,7 +56,7 @@ class AjaxHelper extends Helper {
  */
 	public $__ajaxBuffer = array();
 	
-	public function beforeRender() {
+	public function beforeRender($viewFile = '') {
 //	   if ( ClassRegistry::getObject('view') ) {
 //		$this->Html->script('jquery/jquery.min', false);
 //		$this->Html->script('jquery/plugins/jquery.form', false);
@@ -522,7 +522,7 @@ class AjaxHelper extends Helper {
  *
  * @access public
  */
-	public function afterRender() {
+	public function afterRender($viewFile = '') {
 		if (env('HTTP_X_UPDATE') != null && !empty($this->__ajaxBuffer)) {
 			@ob_end_clean();
 

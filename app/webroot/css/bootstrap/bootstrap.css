@@ -1086,7 +1086,7 @@ input[type="color"],
 input,
 textarea,
 .uneditable-input {
-  width: 206px;
+  width: 182px;
 }
 
 textarea {
@@ -1176,7 +1176,7 @@ input[type="file"] {
 }
 
 select {
-  width: 220px;
+  width: 196px;
   background-color: #ffffff;
   border: 1px solid #cccccc;
 }
@@ -6036,4 +6036,9 @@ a.badge:hover {
 
 .affix {
   position: fixed;
+}
+
+dl.xsell-product {
+    width: 48%;
+    float: left;
 }
