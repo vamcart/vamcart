@@ -34,18 +34,19 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 <?php
 	
 	// Set default div styling for template_requured container divs
-	if(($data['ContentType']['template_type_id'] > 0)||(empty($data)))
+	if((isset($data['ContentType']['template_type_id']) && $data['ContentType']['template_type_id'] > 0)||(empty($data)))
 		$tpl_req_style = "block";
 	else
 		$tpl_req_style = "none";
 
-	echo $this->Form->create('Content', array('id' => 'contentform', 'name' => 'contentform','enctype' => 'multipart/form-data', 'action' => '/contents/admin_edit/'.$data['Content']['id'], 'url' => '/contents/admin_edit/'.$data['Content']['id']));
+	echo $this->Form->create('Content', array('id' => 'contentform', 'name' => 'contentform','enctype' => 'multipart/form-data', 'action' => '/contents/admin_edit/'.  (isset($data['Content']['id']) ? $data['Content']['id'] : '')   , 'url' => '/contents/admin_edit/' . (isset($data['Content']['id']) ? $data['Content']['id'] : '')));
 	
 			echo '<ul id="myTab" class="nav nav-tabs">';
 			echo $this->Admin->CreateTab('main',__('Main'), 'cus-application');
-			echo $this->Admin->CreateTab('view_images',__('View Images'), 'cus-pictures');	
-			echo $this->Admin->CreateTab('upload_images',__('Upload Images'), 'cus-picture-add');			
-			echo $this->Admin->CreateTab('options',__('Options'), 'cus-cog');			
+			echo $this->Admin->CreateTab('view_images',__('View Images'), 'cus-pictures');
+			echo $this->Admin->CreateTab('upload_images',__('Upload Images'), 'cus-picture-add');
+			echo $this->Admin->CreateTab('options',__('Options'), 'cus-cog');
+			echo $this->Admin->CreateTab('relations', __('Relations'), 'cus-relations');
 			echo '</ul>';
 
 	echo $this->Admin->StartTabs();
@@ -54,7 +55,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 		echo $this->Form->input('Content.id', 
 						array(
 							'type' => 'hidden',
-							'value' => $data['Content']['id']
+							'value' => isset($data['Content']['id']) ? $data['Content']['id'] : ''
 	               ));
 		echo $this->Form->input('Content.parent_id', 
 						array(
@@ -64,7 +65,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 		echo $this->Form->input('Content.order', 
 						array(
 							'type' => 'hidden',
-							'value' => $data['Content']['order']
+							'value' => isset($data['Content']['order']) ? $data['Content']['order'] : ''
 	               ));
 			
    		echo $this->Form->input('Content.content_type_id', 
@@ -76,7 +77,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 	               ));
 
 		echo '<div id="content_type_fields">';
-			echo $this->requestAction( '/contents/admin_edit_type/' . (!isset($data['Content']['content_type_id'])? 2 : $data['Content']['content_type_id']) . '/' . $data['Content']['id'], array('return'));
+			echo $this->requestAction( '/contents/admin_edit_type/' . (!isset($data['Content']['content_type_id'])? 2 : $data['Content']['content_type_id']) . '/' . (isset($data['Content']['id']) ? $data['Content']['id'] : '' ), array('return'));
 		echo '</div>';
 	
 	echo '<div class="template_required" id="template_required_template_picker" style="display:' . $tpl_req_style . ';">';
@@ -86,7 +87,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 							'type' => 'select',
 							'label' => __('Template'),
 							'options' => $templates,
-							'selected' => $data['Content']['template_id']
+							'selected' => isset($data['Content']['template_id']) ?$data['Content']['template_id'] : ''
 						));
 	echo '</div>';	
 
@@ -110,7 +111,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 		echo $this->Form->input('ContentDescription]['.$language['Language']['id'].'][name.' . $language['Language']['id'], 
 						array(
 				   		'label' => $this->Admin->ShowFlag($language['Language']) . '&nbsp;' . __('Title'),
-							'value' => $data['ContentDescription'][$language_key]['name']
+							'value' => isset($data['ContentDescription'][$language_key]['name']) ? $data['ContentDescription'][$language_key]['name'] : ''
 						));																								
 	
 		echo '<div id="template_required_' . $language['Language']['id'] . '" class="template_required" style="display:' . $tpl_req_style . ';">';
@@ -120,7 +121,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 				   		'type' => 'textarea',
 				   		'class' => 'pagesmalltextarea',
 				   		'id' => 'content_description_'.$language['Language']['id'],						
-				   		'value' => $data['ContentDescription'][$language_key]['description']
+				   		'value' => isset($data['ContentDescription'][$language_key]['description']) ? $data['ContentDescription'][$language_key]['description'] : ''
 						));
 		echo '</div>';						  
 		
@@ -129,19 +130,19 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 		echo $this->Form->input('ContentDescription]['.$language['Language']['id'].'][meta_title.' . $language['Language']['id'], 
 						array(
 				   		'label' => $this->Admin->ShowFlag($language['Language']) . '&nbsp;' . __('Meta Title'),
-				   		'value' => $data['ContentDescription'][$language_key]['meta_title']
+				   		'value' => isset($data['ContentDescription'][$language_key]['meta_title']) ? $data['ContentDescription'][$language_key]['meta_title'] : ''
 						));																								
 
 		echo $this->Form->input('ContentDescription]['.$language['Language']['id'].'][meta_description.' . $language['Language']['id'], 
 						array(
 				   		'label' => $this->Admin->ShowFlag($language['Language']) . '&nbsp;' . __('Meta Description'),
-				   		'value' => $data['ContentDescription'][$language_key]['meta_description']
+				   		'value' => isset($data['ContentDescription'][$language_key]['meta_description']) ? $data['ContentDescription'][$language_key]['meta_description'] : ''
 						));																								
 
 		echo $this->Form->input('ContentDescription]['.$language['Language']['id'].'][meta_keywords.' . $language['Language']['id'], 
 						array(
 				   		'label' => $this->Admin->ShowFlag($language['Language']) . '&nbsp;' . __('Meta Keywords'),
-				   		'value' => $data['ContentDescription'][$language_key]['meta_keywords']
+				   		'value' => isset($data['ContentDescription'][$language_key]['meta_keywords']) ? $data['ContentDescription'][$language_key]['meta_keywords'] : ''
 						));																								
 
 	echo $this->Admin->EndTabContent();
@@ -235,14 +236,14 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 			echo $this->Form->input('Content.alias', 
 					array(
 			   		'label' => __('Alias'),				   
-						'value' => $data['Content']['alias']
+						'value' => isset($data['Content']['alias']) ? $data['Content']['alias'] : ''
 					));
 			echo $this->Form->input('Content.head_data', 
 					array(
 						'label' => __('Head Data'),
 						'type' => 'textarea',
 						'class' => 'notinymce',
-						'value' => $data['Content']['head_data']
+						'value' => isset($data['Content']['head_data']) ? $data['Content']['head_data'] : ''
 	            ));				
 			echo $this->Form->input('Content.active', 
 					array(
@@ -260,6 +261,9 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 						'class' => 'checkbox_group',
 						'checked' => $menu_checked
 					));
+	echo $this->Admin->EndTabContent();
+
+	echo $this->Admin->StartTabContent('relations');
 	echo $this->Admin->EndTabContent();
 
 	echo $this->Admin->EndTabs();

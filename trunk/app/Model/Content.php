@@ -11,6 +11,17 @@ class Content extends AppModel {
 	public $belongsTo = array('ContentType','Template');
 	public $hasMany = array('ContentImage','ContentDescription' => array('dependent' => true));
 	public $hasOne = array('ContentLink' => array('dependent' => true),'ContentProduct' => array('dependent' => true),'ContentPage' => array('dependent' => true),'ContentCategory' => array('dependent' => true),'ContentArticle' => array('dependent' => true),'ContentNews' => array('dependent' => true),'ContentDownloadable' => array('dependent' => true));
+	
+	public $hasAndBelongsToMany = array(
+	    'xsell' =>
+		array(
+		    'className' => 'Content',
+		    'join_table' => 'contents_contents',
+		    'associationForeignKey' => 'related_id',
+		    'foreignKey' => 'product_id',
+		    'unique' => true
+		)
+	);
 
 	public $validate = array(
 		'parent_id' => array(

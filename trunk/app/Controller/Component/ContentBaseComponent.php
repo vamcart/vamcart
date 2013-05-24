@@ -111,6 +111,15 @@ class ContentBaseComponent extends Object
 		return $content;
 	}
 
+	public function get_content_relations($content_id)
+	{
+		$this->load_models();
+		
+		$content_conditions = "Content.id = '" . $content_id . "'";
+		$conditions = array("Content.id" => $content_id, "Content.content_type_id" => 2);
+		$content = $this->Content->find('first', array('conditions' => $content_conditions));
+		return $content['xsell'];
+	}
 
 	/**
 	* Returns a list of all content in $key => $value format

@@ -8,7 +8,7 @@
 class TinyMceHelper extends Helper {
 	public $helpers=array('Html', 'Session');
 	
-	public function beforeRender(){
+	public function beforeRender($viewFile = ''){
 	}
 	public function init($options=false){
 	$code = '';
@@ -50,6 +50,7 @@ class TinyMceHelper extends Helper {
 	return $code;
 	}
 	public function toggleEditor($options){
+	$code = '';
 	//$code = '<a href="javascript:toggleHTMLEditor(\''.$options.'\');">' . __('Show/Hide editor') . '</a>'; 
 	return $code;
 	}

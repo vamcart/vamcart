@@ -79,7 +79,7 @@ class FlashHelper extends AppHelper {
 			$this->options = am($this->options, $options);
 		}
 		$this->initialized = true;
-        $view =& ClassRegistry::getObject('view'); 
+        $view = ClassRegistry::getObject('view'); 
         if (is_object($view)) { 
             $view->addScript($this->Html->script('swfobject')); 
             return true;
