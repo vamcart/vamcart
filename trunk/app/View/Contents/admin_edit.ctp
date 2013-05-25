@@ -9,6 +9,9 @@
 <?php
 
 $this->Html->script(array(
+	'jquery/plugins/jquery.cookie.js',
+	'jquery/plugins/jquery-ui.custom.min.js',
+	'jquery/plugins/dynatree/jquery.dynatree.js',
 	'modified.js',
 	'swfupload/swfupload.js',
 	'swfupload/swfupload.queue.js',
@@ -26,6 +29,30 @@ $this->Html->script(array(
 			$("div#content_type_fields").load("'. BASE . '/contents/admin_edit_type/"+$("select#ContentContentTypeId").val());
 		})
 
+		$("#products-tree").dynatree({
+			checkbox: true,
+			selectMode: 3,
+			initAjax: {
+				url: "' . BASE . '/contents/admin_products_tree/0/' . $data['Content']['id'] . '" ,
+			},
+			onLazyRead: function(node){
+				node.appendAjax({
+					url: "' . BASE . '/contents/admin_products_tree/" + node.data.key + "/" + node.data.products_id,
+				});
+			},
+			onSelect: function(select, node) {
+
+				if (select) {
+					var selection = 1;
+				} else {
+					var selection = 0;
+				}
+
+				$.ajax({
+					url: "' . BASE . '/contents/admin_set_relation/" + node.data.products_id + "/" + node.data.key + "/" + selection,
+				});
+			}
+		});
 	});
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
 <?php
@@ -264,6 +291,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 	echo $this->Admin->EndTabContent();
 
 	echo $this->Admin->StartTabContent('relations');
+	echo '<div id="products-tree" name="relations"></div>';
 	echo $this->Admin->EndTabContent();
 
 	echo $this->Admin->EndTabs();
