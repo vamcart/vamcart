@@ -20,6 +20,7 @@
 										'bootstrap/bootstrap.css',
 										'bootstrap/cus-icons.css',
 										'bootstrap/bootstrap-responsive.css',
+										'dynatree/ui.dynatree.css',
 											), null, array('inline' => true)); ?>
 
 <?php echo $this->Html->script(array(
@@ -29,7 +30,8 @@
 											array('inline' => true)); ?>
 <?php echo $this->Html->scriptBlock('
 //<![CDATA[
-$(document).ready(function () {$(\'[rel=tooltip],input[data-title]\').tooltip();});
+$(document).ready(function () {$(\'[rel=tooltip],input[data-title]\').tooltip();
+});
 //]]>
 ', array('allowCache'=>false,'safe'=>false,'inline'=>true)); ?>			
 								

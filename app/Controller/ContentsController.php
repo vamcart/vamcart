@@ -89,7 +89,7 @@ class ContentsController extends AppController {
 		}
 		$this->Content->save($content);
 
-		$this->redirect('/contents/admin/0/' . $content['Content']['parent_id'] . '/' . $this->RequestHandler->isAjax());		
+		$this->redirect('/contents/admin/0/' . $content['Content']['parent_id'] . '/' . $this->RequestHandler->isAjax());
 	}
 
 	public function admin_change_yml_export_status ($content_id) 
@@ -702,6 +702,77 @@ class ContentsController extends AppController {
 		$this->set('content_data', $tree);
 	}
 
+
+	public function admin_products_tree($parent_node_id, $products_id)
+	{
+		$product = $this->Content->find('first', array('conditions' => array('Content.id' => (int)$products_id)));
+		$related = array();
+
+		foreach ($product['xsell'] as $relation) {
+			$releated[] = $relation['id'];
+		}
+
+		$this->Content->unbindModel(array('hasMany' => array('ContentDescription')));
+
+		$this->Content->bindModel(array('hasOne' => array(
+								'ContentDescription' => array(
+									'className' => 'ContentDescription',
+									'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
+									)
+								)
+						)
+		);
+
+		$categories = $this->Content->find('all', array('conditions' => array('Content.content_type_id' => array(1, 2, 7), 'Content.parent_id' => (int)$parent_node_id, 'Content.show_in_menu' => 1)));
+
+		$nodes = array();
+
+		foreach ($categories as $category) {
+			$node = new stdClass;
+			$node->title = $category['ContentDescription']['name'];
+
+			if (1 == $category['Content']['content_type_id']) {
+				$node->isFolder = true;
+				$node->isLazy = true;
+				$node->hideCheckbox = true;
+			} else {
+			
+				if (in_array($category['Content']['id'], $related) && ((int)$products_id != $category['Content']['id'])) {
+					$node->select = true;
+				}
+
+				if ((int)$products_id == $category['Content']['id']) {
+					$node->hideCheckbox = true;
+				}
+			}
+
+			$node->key = $category['Content']['id'];
+			$node->products_id = (int)$products_id;
+
+			$nodes[] = $node;
+		}
+
+		$this->set('content_data', $nodes);
+	}
+
+	public function admin_set_relation($products_id, $related_id, $relation)
+	{
+		$products_id = (int)$products_id;
+		$related_id = (int)$related_id;
+		$relation = (int)$relation;
+
+		$content = $this->Content->find('first', array('conditions' => array('Content.id' => $products_id)));
+
+		if ($relation) {
+			$content['xsell'][] = array('related_id' => $related_id);
+			$this->Content->save($content);
+		} else {
+			$this->Content->query("DELETE FROM contents_contents WHERE product_id=" . $products_id . " and related_id=" . $related_id);
+		}
+
+		
+	}
+
 	public function _add_tree_node($tree, $node, $level)
 	{
 		$tree[] = array('id' => $node['Content']['id'],
@@ -767,7 +838,7 @@ class ContentsController extends AppController {
 			$this->Content->ContentImage->save($image);
 		}
 	}
-	
+
 	public function _random_string()
 	{
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
