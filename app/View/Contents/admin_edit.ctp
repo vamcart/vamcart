@@ -10,7 +10,7 @@
 
 $this->Html->script(array(
 	'jquery/plugins/jquery.cookie.js',
-	'jquery/plugins/jquery-ui.custom.min.js',
+	'jquery/plugins/jquery-ui-min.js',
 	'jquery/plugins/dynatree/jquery.dynatree.js',
 	'modified.js',
 	'swfupload/swfupload.js',
