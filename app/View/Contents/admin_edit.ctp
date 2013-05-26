@@ -73,7 +73,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 			echo $this->Admin->CreateTab('view_images',__('View Images'), 'cus-pictures');
 			echo $this->Admin->CreateTab('upload_images',__('Upload Images'), 'cus-picture-add');
 			echo $this->Admin->CreateTab('options',__('Options'), 'cus-cog');
-			if (isset($data['Content']['id'])) echo $this->Admin->CreateTab('relations', __('Relations'), 'cus-cart-put');
+			if (isset($data['Content']['id']) && ($data['Content']['content_type_id'] == 2 or $data['Content']['content_type_id'] == 7)) echo $this->Admin->CreateTab('relations', __('Relations'), 'cus-cart-put');
 			echo '</ul>';
 
 	echo $this->Admin->StartTabs();
@@ -290,7 +290,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 					));
 	echo $this->Admin->EndTabContent();
 
-	if (isset($data['Content']['id'])) {
+	if (isset($data['Content']['id']) && ($data['Content']['content_type_id'] == 2 or $data['Content']['content_type_id'] == 7)) {
 	echo $this->Admin->StartTabContent('relations');
 	echo '<div id="products-tree" name="relations"></div>';
 	echo $this->Admin->EndTabContent();
