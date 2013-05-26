@@ -709,7 +709,7 @@ class ContentsController extends AppController {
 		$related = array();
 
 		foreach ($product['xsell'] as $relation) {
-			$releated[] = $relation['id'];
+			$related[] = $relation['id'];
 		}
 
 		$this->Content->unbindModel(array('hasMany' => array('ContentDescription')));
