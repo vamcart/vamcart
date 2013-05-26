@@ -73,7 +73,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 			echo $this->Admin->CreateTab('view_images',__('View Images'), 'cus-pictures');
 			echo $this->Admin->CreateTab('upload_images',__('Upload Images'), 'cus-picture-add');
 			echo $this->Admin->CreateTab('options',__('Options'), 'cus-cog');
-			echo $this->Admin->CreateTab('relations', __('Relations'), 'cus-relations');
+			echo $this->Admin->CreateTab('relations', __('Relations'), 'cus-cart-put');
 			echo '</ul>';
 
 	echo $this->Admin->StartTabs();

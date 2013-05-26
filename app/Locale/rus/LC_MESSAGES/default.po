@@ -1229,6 +1229,10 @@ msgstr "Что делает данный тэг?"
 msgid "Displays the base program path."
 msgstr "Выводит базовый путь программы."
 
+#: /vendors/smarty/vam_plugins/function.xsell.php:23
+msgid "Displays also purchased products for the current content."
+msgstr "Выводит сопутствующие товары текущего товара."
+
 #: /vendors/smarty/vam_plugins/function.google_analytics.php:23
 msgid "Displays the google analytics code."
 msgstr "Выводит код счётчика Google Analytics."
@@ -2066,6 +2070,10 @@ msgstr "Картинки"
 #: /views/contents/admin_edit.ctp:37;133
 msgid "Upload Images"
 msgstr "Загрузить картинки"
+
+#: /views/contents/admin_edit.ctp:37;133
+msgid "Relations"
+msgstr "Сопутствующие"
 
 #: /views/contents/admin_edit.ctp:53
 msgid "Parent"
