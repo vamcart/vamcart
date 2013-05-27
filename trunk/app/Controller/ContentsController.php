@@ -697,7 +697,7 @@ class ContentsController extends AppController {
 		$categories = $this->Content->find('threaded', array('conditions' => array('Content.content_type_id' => 1)));
 		$tree = array();
 		foreach ($categories as $category) {
-			$this->_add_tree_node(&$tree, $category, 0);
+			$this->_add_tree_node($tree, $category, 0);
 		}
 		$this->set('content_data', $tree);
 	}
@@ -773,7 +773,7 @@ class ContentsController extends AppController {
 		
 	}
 
-	public function _add_tree_node($tree, $node, $level)
+	public function _add_tree_node(&$tree, $node, $level)
 	{
 		$tree[] = array('id' => $node['Content']['id'],
 				'name' => $node['ContentDescription']['name'],
@@ -781,7 +781,7 @@ class ContentsController extends AppController {
 				'tree_prefix' => str_repeat('&nbsp;&nbsp;', $level));
 				
 		foreach ($node['children'] as $child) {
-			$this->_add_tree_node(&$tree, $child, $level + 1);
+			$this->_add_tree_node($tree, $child, $level + 1);
 		}
 	}
 	
