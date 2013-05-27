@@ -31,9 +31,7 @@ class GeoZonesController extends AppController {
 	public function admin_country_zone_link()
 	{
 		$geo_zone_id = $this->data['geo_zone_id'];
-		$countries_id = explode(',', $this->data['country_zones_id']);
-
-		foreach ($countries_id as $country_id) {
+		foreach ($this->data['country_zones_id'][0] as $country_id) {
 			$this->CountryZone->id = $country_id;
 			$country_zone = $this->CountryZone->read();
 			$country_zone['CountryZone']['geo_zone_id'] = $geo_zone_id;
