@@ -27,8 +27,15 @@ $this->Html->script(array(
 ), array('inline' => false));
 ?>
 <?php echo $this->Html->scriptBlock('
+
+var submit_flag = false;
+
 function beforeSubmit(form)
 {
+	if (submit_flag) {
+		return true;
+	}
+
 	var action = form.multiaction.value;
 
 	$(\'#categories-dialog\').dialog(\'destroy\');
@@ -53,6 +60,7 @@ function categorySelection(form)
 		buttons: [{
 			text: i18n.Select,
 			click: function () {
+				submit_flag = true;
 				var val = $("#category").val();
 				$(form).append(\'<input type="hidden" name="target_category" />\');
 				$("input[name=target_category]").val(val);
