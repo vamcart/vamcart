@@ -2072,7 +2072,7 @@ msgid "Upload Images"
 msgstr "Загрузить картинки"
 
 #: /views/contents/admin_edit.ctp:37;133
-msgid "Relations"
+msgid "Cross-Sell"
 msgstr "Сопутствующие"
 
 #: /views/contents/admin_edit.ctp:53
