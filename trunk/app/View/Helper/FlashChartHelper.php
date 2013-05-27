@@ -457,9 +457,29 @@ class FlashChartHelper extends AppHelper {
 				foreach ($options as $key => $setting) {
 					switch ($key) {
 						case 'line_style':
-							$line_style = new line_style($setting[0],$setting[1]);
-		            		$element->line_style($line_style);
+/*begin 26052013 crafter*/
+							/*$line_style = new line_style($setting[0],$setting[1]);
+		            		$element->line_style($line_style);*/
+                                                    switch ($setting) 
+                                                    {
+                                                        case 'solid-dot':
+                                                            $d = new solid_dot();
+                                                            //$d->size(3)->halo_size(1)->colour('#3D5C56');
+                                                            $element->set_default_dot_style($d);
+                                                        break;
+                                                        default:
+                                                        break;
+                                                    }
+/*end*/
 						break;
+/*begin 26052013 crafter*/
+                                                case 'set_key':  
+                                                    $element->set_key($setting[0],$setting[1]);
+                                                break;
+                                                case 'right':
+                                                  $element->attach_to_right_y_axis(); 
+                                                break;
+/*end*/
 						default:
 			                $set_method = 'set_' . $key;
 			                if (is_array($setting)) {
@@ -877,8 +897,11 @@ class FlashChartHelper extends AppHelper {
 			}
 		} elseif (isset($options['labels']) && is_array($options['labels']) && $axis == 'x') {
             if (isset($labelsOptions['vertical']) && $labelsOptions['vertical'] == true) {            
-                $x_axis_label = new x_axis_labels;           
-                $x_axis_label->set_vertical();          
+                $x_axis_label = new x_axis_labels;
+/*begin 26052013 crafter*/
+                //$x_axis_label->set_vertical();
+                $x_axis_label->rotate(315);
+/*end*/
                 $x_axis_label->set_labels($options['labels']); 
                 $axis_object->set_labels($x_axis_label);
             } else {
@@ -908,7 +931,13 @@ class FlashChartHelper extends AppHelper {
 				$set = 'set_' . $key;
 				if (is_array($setting) && sizeof($setting) == 2) {
 					$y->$set($setting[0], $setting[1]);
-				} else {
+				}
+/*begin 26052013 crafter*/
+                                elseif (is_array($setting) && sizeof($setting) == 3) {
+					$y->$set($setting[0], $setting[1] , $setting[2]);
+				}
+/*end*/
+                                else {
 					$y->$set($setting);
 				}
 			

@@ -281,7 +281,8 @@ class AppController extends Controller {
 			),						
 			9 => array('icon' => 'cus-wrench', 'text' => __('Tools', true), 'path' => '/admin/admin_top/9',
 				'children' => array(
-					1 => array('icon' => 'cus-database-save', 'text' => __('Database Backup', true), 'path' => '/tools/admin_backup/')
+					1 => array('icon' => 'cus-database-save', 'text' => __('Database Backup', true), 'path' => '/tools/admin_backup/'),
+					2 => array('icon' => 'cus-chart-curve', 'text' => __('Reports', true), 'path' => '/reports/admin/')
 				)
 			),
 			10 => array('icon' => 'cus-application-go', 'text' => __('Launch Site', true), 'path' => '/', 'attributes' => array('target' => 'blank'))
