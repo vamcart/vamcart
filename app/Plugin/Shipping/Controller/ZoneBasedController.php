@@ -17,8 +17,9 @@ class ZoneBasedController extends ShippingAppController {
                 $this->set('data', $this->ShippingMethod->findByCode($this->module_name));
                 $this->set('num_zones', $this->num_zones);
                 $this->set('geo_zones', $this->GeoZone->find('list', array(
-                        'fields' => array('GeoZone.id', 'GeoZone.description')
+                        'fields' => array('GeoZone.id', 'GeoZone.name', 'GeoZone.description')
                 )));
+                
         }
 
         function install()
