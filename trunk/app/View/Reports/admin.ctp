@@ -1,8 +1,14 @@
 <?php
+/* -----------------------------------------------------------------------------------------
+   VamCart - http://vamcart.com
+   -----------------------------------------------------------------------------------------
+   Copyright (c) 2013 VamSoft Ltd.
+   License - http://vamcart.com/license.html
+   ---------------------------------------------------------------------------------------*/
 
 //var_dump($this->session);
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-report');
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-chart-curve');
 
 echo '<table class="orderTable">';
     echo '<tr>';
@@ -41,8 +47,8 @@ echo $this->admin->StartTabs();
         $this->flashChart->axis('y',array('range' => array(0,max($result['summ']),max($result['summ'])/10), 'colour'=>'#0077cc'));
         $this->flashChart->rightAxis(array('range' => array(0,max($result['cnt']),max($result['cnt'])/10), 'colour'=>'#ff9900'));
 
-        echo $this->flashChart->chart('line',array('colour'=>'#0077cc','width'=>'2','line_style' => 'solid-dot','set_key' => array(__('Sum', true),14)),'Sum');
-        echo $this->flashChart->chart('line',array('colour'=>'#ff9900','width'=>'2','right' => 'true','set_key' => array(__('Amount', true),14)),'Count');
+        echo $this->flashChart->chart('line',array('colour'=>'#0077cc','width'=>'3','line_style' => 'solid-dot','set_key' => array(__('Sum', true),14)),'Sum');
+        echo $this->flashChart->chart('line',array('colour'=>'#ff9900','width'=>'3','right' => 'true','set_key' => array(__('Amount', true),14)),'Count');
     }
     else 
     {
