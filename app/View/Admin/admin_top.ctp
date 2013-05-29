@@ -119,8 +119,8 @@ $(document).ready(function () {
                         $this->flashChart->rightAxis(array('range' => array(0,max($result['month']['summ']),max($result['month']['summ'])/10), 'colour'=>'#0077cc'));
                         if(isset($result['month']['dat']))
                         {
-                            echo $this->flashChart->chart('bar',array('colour'=>'#ff9900','set_key' => array(__('Total', true),14)),'Count_2','stat_month');
-                            echo $this->flashChart->chart('line',array('colour'=>'#0077cc','width'=>'3','line_style' => 'solid-dot','right' => 'true','set_key' => array(__('Number of Orders', true),14)),'Sum_2','stat_month');	
+                            echo $this->flashChart->chart('bar',array('colour'=>'#ff9900','set_key' => array(__('Number of Orders', true),14)),'Count_2','stat_month');
+                            echo $this->flashChart->chart('line',array('colour'=>'#0077cc','width'=>'3','line_style' => 'solid-dot','right' => 'true','set_key' => array(__('Total', true),14)),'Sum_2','stat_month');	
                         } 
                         else echo $this->flashChart->chart('line',array('colour'=>'#0077cc','width'=>'2'),'null','stat_month');
 			echo $this->flashChart->render('100%','300','stat_month','stat_month');
