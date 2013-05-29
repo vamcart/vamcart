@@ -1,10 +1,16 @@
 <?php
+/* -----------------------------------------------------------------------------------------
+   VamCart - http://vamcart.com
+   -----------------------------------------------------------------------------------------
+   Copyright (c) 2013 VamSoft Ltd.
+   License - http://vamcart.com/license.html
+   ---------------------------------------------------------------------------------------*/
 
 class ReportsController extends AppController {
     public $name = 'Reports';
-    public $uses = array('Report','Html','Admin','Form');
-    public $helpers = array('FlashChart');
-
+    public $uses = array('Report'); 
+    public $helpers = array('Html','Js','Admin','Form', 'FlashChart');
+   
     public function admin($action = 'new')
     {
  
@@ -18,11 +24,11 @@ class ReportsController extends AppController {
         if (NULL == $l) {
             $l = $this->Session->read('Customer.language');
         }
-        
+  
         if($action == 'new')
         {
             $this->loadModel('OrderStatusDescription');
-            /*‚ÏÂÒÚÓ ÒÚ‡ÚË˜ÂÒÍÓ„Ó rus ÏÓÊÌÓ ËÒÔÓÎ¸ÁÓ‚‡Ú¸ $l(ÒÓ‰ÂÊËÚ ÚÂÍÛ˘ËÈ ÍÓ‰ ˇÁ˚Í‡)*/
+            /*–≤–º–µ—Å—Ç–æ —Å—Ç–∞—Ç–∏—á–µ—Å–∫–æ–≥–æ rus –º–æ–∂–Ω–æ –∏—Å–ø–æ–ª—å–∑–æ–≤–∞—Ç—å $l(—Å–æ–¥–µ—Ä–∂–∏—Ç —Ç–µ–∫—É—â–∏–π –∫–æ–¥ —è–∑—ã–∫–∞)*/
             $order_status = $this->OrderStatusDescription->find('all',  array('conditions' => array('Language.code' => 'rus')));
             foreach ($order_status as $k => $status) 
             {
@@ -50,24 +56,28 @@ class ReportsController extends AppController {
             switch ($options['period'])
             {
                 case 'hour':
-                    $options['stamp_dat'] = date("Y-m-d H:i:s",time()-(3600));
-                    $options['group_dat'] = '%d %H:%i';
+                    $options['stamp_dat'] = date("Y-m-d H:i:s",time()-(24*3600));
+                    $options['group_dat'] = '%m/%d %H:00';
                 break;
                 case 'day':
-                    $options['stamp_dat'] = date("Y-m-d H:i:s",time()-(24*3600));
-                    $options['group_dat'] = '%d %H:00';
-                break;
-                case 'week':
                     $options['stamp_dat'] = date("Y-m-d H:i:s",time()-(7*24*3600));
                     $options['group_dat'] = '%m/%d';
                 break;
-                case 'month':
+                case 'week':
                     $options['stamp_dat'] = date("Y-m-d H:i:s",time()-(30*24*3600));
-                    $options['group_dat'] = '%m/%d';
+                    $options['group_dat'] = '%Y/%m   %u '.__('week');
                 break;
-                case 'year':
+                case 'month':
                     $options['stamp_dat'] = date("Y-m-d H:i:s",time()-(365*24*3600));
                     $options['group_dat'] = '%Y/%m';
+                break;
+                case 'year':
+                    /*
+                     –û—Ç –æ–ø—Ä–µ–¥–µ–ª–µ–Ω–Ω–æ–π –¥–∞—Ç—ã
+                     $options['stamp_dat'] = date("Y-m-d H:i:s",time()-((date('Y')-2013)*365*24*3600));
+                    */
+                    $options['stamp_dat'] = date("Y-m-d H:i:s",time()-(10*365*24*3600));
+                    $options['group_dat'] = '%Y';
                 break;
                 default :
                 break;
