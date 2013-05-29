@@ -14,13 +14,14 @@ class ReportsController extends AppController {
     public function admin($action = 'new')
     {
  
-        $this->set('current_crumb', __('Sales statistics', true));
-        $this->set('title_for_layout', __('Reports', true));
+        $this->set('current_crumb', __('Sales Report', true));
+        $this->set('title_for_layout', __('Sales Report', true));
 
         $order_status = array();
         $options = array();
         
         $l = $this->Session->read('Config.language');
+        
         if (NULL == $l) {
             $l = $this->Session->read('Customer.language');
         }
@@ -28,8 +29,7 @@ class ReportsController extends AppController {
         if($action == 'new')
         {
             $this->loadModel('OrderStatusDescription');
-            /*вместо статического rus можно использовать $l(содержит текущий код языка)*/
-            $order_status = $this->OrderStatusDescription->find('all',  array('conditions' => array('Language.code' => 'rus')));
+            $order_status = $this->OrderStatusDescription->find('all',  array('conditions' => array('Language.code' => $l)));
             foreach ($order_status as $k => $status) 
             {
                 $status['OrderStatus']['default'] = '1';
