@@ -185,6 +185,10 @@ msgid "Database Backup"
 msgstr "Резервное копирование"
 
 #: /app_controller.php:235
+msgid "Sales Report"
+msgstr "Статистика продаж"
+
+#: /app_controller.php:235
 msgid "Database Manager"
 msgstr "Управление базой данных"
 
@@ -785,6 +789,10 @@ msgstr "Основные"
 #: /views/admin/admin_top.ctp:24
 msgid "Menu"
 msgstr "Меню"
+
+#: /views/admin/admin_top.ctp:24
+msgid "Top Products"
+msgstr "Лучшие товары"
 
 #: /plugins/module_abandoned_carts/views/admin/admin_index.ctp:17
 #: /views/admin/admin_top.ctp:40
@@ -3575,3 +3583,43 @@ msgstr "Товар не найден."
 #: /app/controllers/download_controller.php:65
 msgid "Order is not found."
 msgstr "Заказ не найден."
+
+#: /View/Reports/admin.ctp:25
+msgid "Chart"
+msgstr "График"
+
+#: /View/Reports/admin.ctp:25
+msgid "Table"
+msgstr "Таблица"
+
+#: /View/Reports/admin.ctp:25
+msgid "Number of Orders"
+msgstr "Количество заказов"
+
+#: /View/Reports/admin.ctp:25
+msgid "Total"
+msgstr "Общая сумма заказов"
+
+#: /View/Reports/admin.ctp:25
+msgid "Average Sum"
+msgstr "Средняя стоимость"
+
+#: /View/Admin/admin_top.ctp:25
+msgid "Top 10 Viewed"
+msgstr "Лучшие товары: 10 самых просматриваемых"
+
+#: /View/Admin/admin_top.ctp:25
+msgid "Top 10 Ordered"
+msgstr "Лучшие товары: 10 самых покупаемых"
+
+#: /View/Admin/admin_top.ctp:25
+msgid "Viewed"
+msgstr "Просмотров"
+
+#: /View/Admin/admin_top.ctp:25
+msgid "Ordered"
+msgstr "Заказов"
+
+#: /View/Admin/admin_top.ctp:25
+msgid "Image"
+msgstr "Картинка"

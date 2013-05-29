@@ -14,10 +14,10 @@ echo '<table class="orderTable">';
     echo '<tr>';
     echo '<td align="right">'
         .$this->Html->link(__('hour',true),'/reports/admin_change_date/hour')
-        .'|'.$this->Html->link(__('day',true),'/reports/admin_change_date/day')
-        .'|'.$this->Html->link(__('week',true),'/reports/admin_change_date/week')
-        .'|'.$this->Html->link(__('month',true),'/reports/admin_change_date/month')
-        .'|'.$this->Html->link(__('year',true),'/reports/admin_change_date/year')
+        .' | '.$this->Html->link(__('day',true),'/reports/admin_change_date/day')
+        .' | '.$this->Html->link(__('week',true),'/reports/admin_change_date/week')
+        .' | '.$this->Html->link(__('month',true),'/reports/admin_change_date/month')
+        .' | '.$this->Html->link(__('year',true),'/reports/admin_change_date/year')
         .'</td>';
     echo '</tr>';
 echo '</table>';
@@ -26,7 +26,7 @@ echo '<ul id="myTab_Reports" class="nav nav-tabs">';
         
 	echo $this->admin->CreateTab('chart',__('Chart',true), 'cus-chart-curve');
         echo $this->admin->CreateTab('table',__('Table',true), 'cus-table');
-	echo $this->admin->CreateTab('options',__('Order Status Listing',true), 'cus-tick');
+	echo $this->admin->CreateTab('options',__('Order Status',true), 'cus-cart-edit');
 
 echo '</ul>';
 
@@ -36,7 +36,7 @@ echo $this->admin->StartTabs();
     echo '<table class="contentTable">';
           
     echo $this->flashChart->begin(); 
-    $this->flashChart->setTitle(__('Sales statistics', true).': '.__($period, true),'{color:#000;font-size:18px;}');
+    $this->flashChart->setTitle(__('Sales Report', true).': '.__($period, true),'{color:#000;font-size:18px;}');
     //var_dump($result);
     if(isset($result['dat']))
     {
@@ -47,8 +47,8 @@ echo $this->admin->StartTabs();
         $this->flashChart->axis('y',array('range' => array(0,max($result['summ']),max($result['summ'])/10), 'colour'=>'#0077cc'));
         $this->flashChart->rightAxis(array('range' => array(0,max($result['cnt']),max($result['cnt'])/10), 'colour'=>'#ff9900'));
 
-        echo $this->flashChart->chart('line',array('colour'=>'#0077cc','width'=>'3','line_style' => 'solid-dot','set_key' => array(__('Sum', true),14)),'Sum');
-        echo $this->flashChart->chart('line',array('colour'=>'#ff9900','width'=>'3','right' => 'true','set_key' => array(__('Amount', true),14)),'Count');
+        echo $this->flashChart->chart('line',array('colour'=>'#0077cc','width'=>'3','line_style' => 'solid-dot','set_key' => array(__('Total', true),14)),'Sum');
+        echo $this->flashChart->chart('line',array('colour'=>'#ff9900','width'=>'3','right' => 'true','set_key' => array(__('Number of Orders', true),14)),'Count');
     }
     else 
     {
@@ -62,8 +62,8 @@ echo $this->admin->StartTabs();
    
     echo $this->admin->StartTabContent('table');
     echo '<table class="contentTable">';
-    echo $this->Html->tableHeaders(array( __('Date'), __('Amount'),  __('Avg_Sum'), __('Total')));
-    $summ = array('Avg_Sum' => 0
+    echo $this->Html->tableHeaders(array( __('Date'), __('Number of Orders'),  __('Average Sum'), __('Total')));
+    $summ = array('Average Sum' => 0
                 ,'Total' => 0 );
     if(isset($result['dat']))
     {
@@ -72,14 +72,14 @@ echo $this->admin->StartTabs();
             echo $this->Admin->TableCells(array($dat,$result['cnt'][$k],round($result['summ'][$k]/$result['cnt'][$k],2),$result['summ'][$k]));
         }
         $summ['Total'] = array_sum($result['summ']);
-        $summ['Avg_Sum'] = round(array_sum($result['summ'])/array_sum($result['cnt']),2);
+        $summ['Average Sum'] = round(array_sum($result['summ'])/array_sum($result['cnt']),2);
     }
     echo '</table>';
     
     echo '<table class="orderTable">';
     foreach ($summ AS $k => $sum)
     {
-        echo '<tr><td align="right"><b>'.__($k).' '.__($period, true).': '.$sum.'</b></td></tr>';
+        echo '<tr><td align="right"><b>'.__($k).' ('.__($period, true).'): '.$sum.'</b></td></tr>';
     }
     echo '</table>';
     
