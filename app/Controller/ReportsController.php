@@ -29,7 +29,7 @@ class ReportsController extends AppController {
         if($action == 'new')
         {
             $this->loadModel('OrderStatusDescription');
-            $order_status = $this->OrderStatusDescription->find('all',  array('conditions' => array('Language.code' => $l)));
+            $order_status = $this->OrderStatusDescription->find('all',  array('conditions' => array('language_id' => $this->Session->read('Customer.language_id'))));
             foreach ($order_status as $k => $status) 
             {
                 $status['OrderStatus']['default'] = '1';
