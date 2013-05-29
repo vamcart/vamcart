@@ -62,13 +62,13 @@ class AdminController extends AppController {
             $content_viewed = $this->Content->find('all',array('fields' => array('Content.alias','Content.viewed')
                                                        ,'conditions' => array('Content.content_type_id = 2')
                                                        ,'order' => array('viewed DESC LIMIT 10')
-                                                       ,'contain' => array('ContentDescription' => array('conditions' => array('ContentDescription.language_id = 2')),'ContentImage')
+                                                       ,'contain' => array('ContentDescription' => array('conditions' => array('ContentDescription.language_id = '.$this->Session->read('Customer.language_id').'')),'ContentImage')
                                                                 ));
             $result['content_viewed'] = $content_viewed;
             $content_ordered = $this->Content->find('all',array('fields' => array('Content.alias','ContentProduct.ordered')
                                                        ,'conditions' => array('Content.content_type_id = 2')
                                                        ,'order' => array('ordered DESC LIMIT 10')
-                                                       ,'contain' => array('ContentDescription' => array('conditions' => array('ContentDescription.language_id = 2')), 'ContentProduct','ContentImage')
+                                                       ,'contain' => array('ContentDescription' => array('conditions' => array('ContentDescription.language_id = '.$this->Session->read('Customer.language_id').'')), 'ContentProduct','ContentImage')
                                                                 ));
             $result['content_ordered'] = $content_ordered;
 
