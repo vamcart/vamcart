@@ -19,7 +19,7 @@ class OrdersController extends AppController {
 		global $order;
 
 		if (isset($_SESSION['Customer']['order_id'])) {
-					
+
 		foreach($_POST AS $key => $value)
 			$order['Order'][$key] = $value;
 		

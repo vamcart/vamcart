@@ -48,11 +48,11 @@ echo $this->Html->tableHeaders(array(__('Billing Information')));
 		   ));
 	echo $this->Admin->TableCells(
 		  array(
-				__('State') . ': ' . $data['Order']['bill_state']
+				__('State') . ': ' . $data['BillState']['name']
 		   ));
 	echo $this->Admin->TableCells(
 		  array(
-				__('Country') . ': ' . $data['Order']['bill_country']
+				__('Country') . ': ' . $data['BillCountry']['name']
 		   ));
 	echo $this->Admin->TableCells(
 		  array(
@@ -82,11 +82,11 @@ echo $this->Html->tableHeaders(array(__('Shipping Information')));
 		   ));
 	echo $this->Admin->TableCells(
 		  array(
-				__('State') . ': ' . $data['Order']['ship_state']
+				__('State') . ': ' . $data['ShipState']['name']
 		   ));
 	echo $this->Admin->TableCells(
 		  array(
-				__('Country') . ': ' . $data['Order']['ship_country']
+				__('Country') . ': ' . $data['ShipCountry']['name']
 		   ));
 	echo $this->Admin->TableCells(
 		  array(

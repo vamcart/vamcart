@@ -8,7 +8,7 @@
 App::uses('ShippingAppController', 'Shipping.Controller');
 
 class ZoneBasedController extends ShippingAppController {
-        var $uses = array('ShippingMethod', 'GeoZone');
+        var $uses = array('ShippingMethod', 'GeoZone', 'CountryZone');
         var $module_name = 'ZoneBased';
         var $num_zones = 10;
 
@@ -19,7 +19,6 @@ class ZoneBasedController extends ShippingAppController {
                 $this->set('geo_zones', $this->GeoZone->find('list', array(
                         'fields' => array('GeoZone.id', 'GeoZone.name', 'GeoZone.description')
                 )));
-                
         }
 
         function install()
@@ -80,22 +79,17 @@ class ZoneBasedController extends ShippingAppController {
                 // Calculate the unit of measure depending on what's set in the database
                 global $order;
                 $shipping_country = $order['Order']['bill_country'];
-//echo print_r($order['Order']); die;
+
+                $country_zone = $this->CountryZone->find('first', array('conditions' => array('CountryZone.id' => $order['Order']['bill_state'])));
+
+
+                $geo_zone = $country_zone['GeoZone']['id'];
                 $shipping_price = 0;
-                for ($i = 1; $i <= $num_zones; $i++) {
-                        $countries = explode(',', $data['zone_based_zone_' . $i]);
 
-                        if (in_array($shipping_country, $countries)) {
-                                $cost     = $data['zone_based_cost_' . $i];
-                                $handling = $data['zone_based_handling_' . $i];
-                                // добавит расчет по таблице
-                                $shipping_price = $cost + $handling;
-                                break;
-                        }
-                }
+                $cost     = $data['zone_based_cost_' . $geo_zone];
+                $handling = $data['zone_based_handling_' . $geo_zone];
 
-/*
-		switch($data['table_based_type'])
+		switch($data['zone_based_type'])
 		{
 			case 'products':
 				$units = count($order['OrderProduct']);
@@ -104,6 +98,7 @@ class ZoneBasedController extends ShippingAppController {
 				$units = $order['Order']['total'];
 			break;		
 			case 'weight':
+				$units = 0;
 				foreach($order['OrderProduct'] AS $product)				
 				{
 					$units += ($product['weight'] * $product['quantity']);
@@ -111,12 +106,11 @@ class ZoneBasedController extends ShippingAppController {
 			break;				
 		}
 		
-		// Loop through the rates value
-$newline = 
+$newline =
 '
 ';	
-		$rates = str_replace($newline,'',$data['table_based_rates']);
-		$rates = explode(',',$rates);
+		$rates = str_replace($newline, '', $cost);
+		$rates = explode(',', $rates);
 		
 		$keyed_rates = array();
 		foreach($rates AS $key => $value)
@@ -127,9 +121,9 @@ $newline =
 		}
 		
 		$keyed_rates = array_reverse($keyed_rates,true);
-*/
-//		$shipping_price = 0;
-/*
+
+		$shipping_price = 0;
+
 		foreach($keyed_rates AS $key => $value)
 		{
 			if(($key < $units)&&($shipping_price == 0))
@@ -137,9 +131,8 @@ $newline =
 				$shipping_price = $value;
 			}
 		}
-		
-*/
-                return $shipping_price;
+
+                return $shipping_price + $handling;
         }
 
         function before_process()

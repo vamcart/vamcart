@@ -7,6 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 class CountriesController extends AppController {
 	public $name = 'Countries';
+	public $uses = array('Country', 'CountryZone');
 	public $components = array('RequestHandler');
 	public $paginate = array();
 	
@@ -82,5 +83,18 @@ class CountriesController extends AppController {
 		$this->set(compact('data'));
 		
 	}
+	
+	public function billing_regions($id = null)
+	{
+		$this->layout = 'ajax';
+		$zones = $this->CountryZone->find('list', array('conditions' => array('CountryZone.country_id' => (int)$id), 'fields' => array('CountryZone.id', 'CountryZone.name')));
+		$this->set('zones', $zones);
+	}
+
+	public function shipping_regions($id = null)
+	{
+		$this->billing_regions($id);
+	}
+
 }
 ?>

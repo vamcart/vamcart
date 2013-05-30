@@ -11,7 +11,23 @@ class Order extends AppModel {
 
 	public $belongsTo = array('OrderStatus',
 				'ShippingMethod',
-				'PaymentMethod');
+				'PaymentMethod',
+				'BillCountry' => array(
+					'className' => 'Country',
+					'foreignKey' => 'bill_country'
+				),
+				'BillState' => array(
+					'className' => 'CountryZone',
+					'foreignKey' => 'bill_state'
+				),
+				'ShipCountry' => array(
+					'className' => 'Country',
+					'foreignKey' => 'ship_country'
+				),
+				'ShipState' => array(
+					'className' => 'CountryZone',
+					'foreignKey' => 'ship_state'
+				));
 
 	public $hasMany = array('OrderProduct' => array('dependent' => true),
 						 'OrderComment' => array('dependent' => true));
