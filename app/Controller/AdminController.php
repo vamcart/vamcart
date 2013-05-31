@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 class AdminController extends AppController {
 	public $name = 'Admin';
-	public $uses = array('User');
+	public $uses = array('User', 'Order');
 	//public $components = array('Check');
 	public $helpers = array('Html','Js','Admin','Form', 'FlashChart');
 
@@ -74,7 +74,26 @@ class AdminController extends AppController {
 
             $this->set('result',$result);	
             $this->set('level', $level);
+
+		// Last orders
+		
+		$this->Order->OrderStatus->unbindModel(array('hasMany' => array('OrderStatusDescription')));
+		$this->Order->OrderStatus->bindModel(
+	        array('hasOne' => array(
+				'OrderStatusDescription' => array(
+                    'className' => 'OrderStatusDescription',
+					'conditions'   => 'OrderStatusDescription.language_id = ' . $this->Session->read('Customer.language_id')
+                )
+            )
+           	)
+	    );			
 	
+
+		$this->Order->recursive = 2;
+		$data = $this->Order->find('all', array('order' => array('Order.id DESC'), 'limit' => 20));
+
+		$this->set('data',$data);
+			
 	}
 }
 ?>
