@@ -26,60 +26,16 @@ $(document).ready(function () {
 	echo '<div id="news"></div>';
 
 			echo '<ul id="myTab" class="nav nav-tabs">';
-			echo $this->admin->CreateTab('home',__('Menu',true), 'cus-chart-organisation');
 			if($level == 1) {
 			echo $this->admin->CreateTab('orders',__('Orders',true), 'cus-cart');
 			echo $this->admin->CreateTab('sales',__('Sales Report',true), 'cus-chart-bar');
 			echo $this->admin->CreateTab('top',__('Top Products',true), 'cus-chart-pie');
 			}
-
-                        
-
+			echo $this->admin->CreateTab('home',__('Menu',true), 'cus-chart-organisation');
 			echo '</ul>';
 
 	echo $this->admin->StartTabs();
 	
-	echo $this->admin->StartTabContent('home');
-
-			// If we're on the top level then assign the rest of the elements as menu children
-			if($level == 1)
-			{
-				$tmp_navigation = array();
-			
-				$navigation[1] = null; // Removes the home page from being displayed below
-				
-				foreach($navigation AS $tmp_nav)
-				{
-					if(!empty($tmp_nav))
-						$tmp_navigation[$level]['children'][] = $tmp_nav;
-				}
-				$navigation = $tmp_navigation;
-			
-			}
-			
-			if(!empty($navigation[$level]['children']))
-			{
-				$level_navigation = $navigation[$level]['children'];
-				foreach($level_navigation AS $nav)
-				{
-					echo '<div class="page_menu_item" class="">
-							<p class="heading">' . $this->admin->MenuLink($nav, array('escape' => false)) . '</p>';
-					if(!empty($nav['children']))
-					{
-						$sub_items = '';
-						foreach($nav['children'] AS $child)
-						{
-							$sub_items .= $this->admin->MenuLink($child, array('escape' => false)) . ', ';
-						}
-						$sub_items = rtrim($sub_items, ', ');
-						echo $sub_items;
-					}
-					echo '</div>';
-				}
-			}
-
-		echo $this->admin->EndTabContent();
-
 		if($level == 1) {
 
 		echo $this->admin->StartTabContent('orders');
@@ -187,6 +143,48 @@ $(document).ready(function () {
                 echo $this->admin->EndTabContent();
 		
 		}
+		
+	echo $this->admin->StartTabContent('home');
+
+			// If we're on the top level then assign the rest of the elements as menu children
+			if($level == 1)
+			{
+				$tmp_navigation = array();
+			
+				$navigation[1] = null; // Removes the home page from being displayed below
+				
+				foreach($navigation AS $tmp_nav)
+				{
+					if(!empty($tmp_nav))
+						$tmp_navigation[$level]['children'][] = $tmp_nav;
+				}
+				$navigation = $tmp_navigation;
+			
+			}
+			
+			if(!empty($navigation[$level]['children']))
+			{
+				$level_navigation = $navigation[$level]['children'];
+				foreach($level_navigation AS $nav)
+				{
+					echo '<div class="page_menu_item" class="">
+							<p class="heading">' . $this->admin->MenuLink($nav, array('escape' => false)) . '</p>';
+					if(!empty($nav['children']))
+					{
+						$sub_items = '';
+						foreach($nav['children'] AS $child)
+						{
+							$sub_items .= $this->admin->MenuLink($child, array('escape' => false)) . ', ';
+						}
+						$sub_items = rtrim($sub_items, ', ');
+						echo $sub_items;
+					}
+					echo '</div>';
+				}
+			}
+
+		echo $this->admin->EndTabContent();
+		
 	echo $this->admin->EndTabs();
 	
 	echo $this->admin->ShowPageHeaderEnd();
