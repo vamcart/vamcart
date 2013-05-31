@@ -28,7 +28,8 @@ $(document).ready(function () {
 			echo '<ul id="myTab" class="nav nav-tabs">';
 			echo $this->admin->CreateTab('home',__('Menu',true), 'cus-chart-organisation');
 			if($level == 1) {
-			echo $this->admin->CreateTab('orders',__('Sales Report',true), 'cus-chart-bar');
+			echo $this->admin->CreateTab('orders',__('Orders',true), 'cus-cart');
+			echo $this->admin->CreateTab('sales',__('Sales Report',true), 'cus-chart-bar');
 			echo $this->admin->CreateTab('top',__('Top Products',true), 'cus-chart-pie');
 			}
 
@@ -80,8 +81,31 @@ $(document).ready(function () {
 		echo $this->admin->EndTabContent();
 
 		if($level == 1) {
-				
+
 		echo $this->admin->StartTabContent('orders');
+
+			echo '<table class="contentTable">';
+			
+			echo $this->Html->tableHeaders(array(__('Customer'),__('Order Number'),__('Total'), __('Date'), __('Status'), __('Action')));
+			
+			foreach ($data AS $order)
+			{
+				echo $this->Admin->TableCells(
+					  array(
+							$this->Html->link($order['Order']['bill_name'],'/orders/admin_view/' . $order['Order']['id']),
+							$order['Order']['id'],
+							$order['Order']['total'],
+							$this->Time->timeAgoInWords($order['Order']['created']),
+							$order['OrderStatus']['OrderStatusDescription']['name'],
+							array($this->Admin->ActionButton('view','/orders/admin_view/' . $order['Order']['id'],__('View')), array('align'=>'center'))
+					   ));
+					   	
+			}
+			echo '</table>';
+
+		echo $this->admin->EndTabContent();
+				
+		echo $this->admin->StartTabContent('sales');
 
                 echo $this->flashChart->begin(); 
                 if(isset($result['day']['dat']))
@@ -127,8 +151,7 @@ $(document).ready(function () {
                 echo '</div></td></tr></table>';
                 
 		echo $this->admin->EndTabContent();
-                
-                
+                                
                 echo $this->admin->StartTabContent('top');
                 
                     echo '<table class="orderTable"><tr><td>';

@@ -3597,10 +3597,6 @@ msgid "Number of Orders"
 msgstr "Количество заказов"
 
 #: /View/Reports/admin.ctp:25
-msgid "Total"
-msgstr "Общая сумма заказов"
-
-#: /View/Reports/admin.ctp:25
 msgid "Average Sum"
 msgstr "Средняя стоимость"
 
