@@ -67,7 +67,7 @@ class GeoZonesController extends AppController {
 				$this->Session->setFlash(__('Record saved.', true));
 			}
 
-			$this->redirect('/geo_zones/admin_edit/');
+			$this->redirect('/geo_zones/admin/');
 			die();
 		
 		}
