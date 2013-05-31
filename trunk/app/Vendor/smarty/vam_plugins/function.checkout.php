@@ -11,142 +11,177 @@ function default_template_checkout ()
 $template = '
 <script type="text/javascript" src="{base_path}/js/modified.js"></script>
 <script type="text/javascript" src="{base_path}/js/focus-first-input.js"></script>
-
+<script type="text/javascript" src="{base_path}/js/jquery/plugins/validate/jquery.validate.pack.js"></script>
+  
 <script type="text/javascript">
-	$(document).ready(function() {
-		$("div#ship_information").hide();
-			$("div#diff_shipping").click(function (){
-				$("div#ship_information").show();
-				$("div#diff_shipping").hide();
-			});
-	});
+$(document).ready(function() {
+  // validate checkout form
+  $("#contentform").validate({
+    rules: {
+      bill_name: {
+        required: true,
+        minlength: 2      
+     },
+      agree: {
+        required: true
+     },
+    },
+    messages: {
+      bill_name: {
+        required: "Required field",
+        minlength: "Required field. Min length: 2"
+      },
+      agree: {
+        required: "Required field"
+      }
+    }
+  });
+});
+</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("div#ship_information").hide();
+    $("div#diff_shipping").click(function (){
+        $("div#ship_information").show();
+        $("div#diff_shipping").hide();
+    });
+    $("#bill_country").change(function () {
+      $("#bill_state_div").load(\'/countries/billing_regions/\' + $(this).val());
+    });
+    $("#ship_country").change(function () {
+      $("#ship_state_div").load(\'/countries/shipping_regions/\' + $(this).val());
+    });
+  });
 </script>
 
 <div id="checkout">
 <form action="{$checkout_form_action}" method="post" id="contentform">
-	<div id="shipping_method">
-		<div>
-			<h3>{lang}Shipping Method{/lang}</h3>
-		</div>	
-		{foreach from=$ship_methods item=ship_method}
-			<div>
-				<input type="radio" name="shipping_method_id" value="{$ship_method.id}" id="ship_{$ship_method.id}" 
-				{if $ship_method.id == $order.shipping_method_id}
-				  checked="checked"
-				 {/if}
-				/>
-				<label for="ship_{$ship_method.id}">{if $ship_method.icon}<img src="{base_path}/img/icons/shipping/{$ship_method.icon}" alt="{$ship_method.name}" title="{$ship_method.name}" />&nbsp;{/if}{lang}{$ship_method.name}{/lang}</label>
-			</div>
-		{/foreach}
-	</div>
-	<div id="payment_method">
-		<div>
-			<h3>{lang}Payment Method{/lang}</h3>
-		</div>		
-		{foreach from=$payment_methods item=payment_method}
-			<div>
-				<input type="radio" name="payment_method_id" value="{$payment_method.id}" id="payment_{$payment_method.id}" 
-				{if $payment_method.id == $order.payment_method_id}
-				  checked="checked"
-				 {/if}				
-				/>
-				<label for="payment_{$payment_method.id}">
-				{if $payment_method.icon}<img src="{base_path}/img/icons/payment/{$payment_method.icon}" alt="{$payment_method.name}" title="{$payment_method.name}" />&nbsp;{/if}
-				{lang}{$payment_method.name}{/lang}
-				</label>
-			</div>
-		{/foreach}		
-	</div>
-	<div id="bill_information">
-		<div>
-			<h3>{lang}Billing Information{/lang}</h3>
-		</div>
-		<div>	
-			<label for="bill_name">{lang}Name{/lang}</label>
-			<input type="text" name="bill_name" id="bill_name" value="{$order.bill_name}"/>
-		</div>
-		<div>	
-			<label for="bill_line_1">{lang}Address Line 1{/lang}</label>
-			<input type="text" name="bill_line_1" id="bill_line_1" value="{$order.bill_line_1}" />
-		</div>		
-		<div>	
-			<label for="bill_line_2">{lang}Address Line 2{/lang}</label>
-			<input type="text" name="bill_line_2" id="bill_line_2" value="{$order.bill_line_2}" />
-		</div>		
-		<div>	
-			<label for="bill_city">{lang}City{/lang}</label>
-			<input type="text" name="bill_city" id="bill_city" value="{$order.bill_city}" />
-		</div>		
-		<div>	
-			<label for="bill_country">{lang}Country{/lang}</label>
-			<input type="text" name="bill_country" id="bill_country" value="{$order.bill_country}" />
-		</div>		
-		<div>	
-			<label for="bill_state">{lang}State{/lang}</label>
-			<input type="text" name="bill_state" id="bill_state" value="{$order.bill_state}" />
-		</div>		
-		<div>	
-			<label for="bill_zip">{lang}Zipcode{/lang}</label>
-			<input type="text" name="bill_zip" id="bill_zip" value="{$order.bill_zip}" />
-		</div>	
-	</div>		
-	<div id="diff_shipping">
-		<div>
-			<h3>{lang}Shipping Information{/lang}</h3>
-		</div>
-		<div>
-			<label for="diff_shipping"><input type="checkbox" name="diff_shipping" id="diff_shipping" value="1" /> {lang}Different from billing address{/lang}</label>
-		</div>
-	</div>
-	<div id="ship_information">
-		<div>
-			<h3>{lang}Shipping Information{/lang}</h3>
-		</div>
-		<div>	
-			<label for="ship_name">{lang}Name{/lang}</label>
-			<input type="text" name="ship_name" id="ship_name" value="{$order.ship_name}" />
-		</div>
-		<div>	
-			<label for="ship_line_1">{lang}Address Line 1{/lang}</label>
-			<input type="text" name="ship_line_1" id="ship_line_1" value="{$order.ship_line_1}" />
-		</div>		
-		<div>	
-			<label for="ship_line_2">{lang}Address Line 1{/lang}</label>
-			<input type="text" name="ship_line_2" id="ship_line_2" value="{$order.ship_line_2}" />
-		</div>		
-		<div>	
-			<label for="ship_city">{lang}City{/lang}</label>
-			<input type="text" name="ship_city" id="ship_city" value="{$order.ship_city}" />
-		</div>		
-		<div>	
-			<label for="ship_country">{lang}Country{/lang}</label>
-			<input type="text" name="ship_country" id="ship_country" value="{$order.ship_country}" />
-		</div>		
-		<div>	
-			<label for="ship_state">{lang}State{/lang}</label>
-			<input type="text" name="ship_state" id="ship_state" value="{$order.ship_state}" />
-		</div>		
-		<div>	
-			<label for="ship_zip">{lang}Zipcode{/lang}</label>
-			<input type="text" name="ship_zip" id="ship_zip" value="{$order.ship_zip}" />
-		</div>								
-	</div>
-	<div id="contact_information">
-		<div>
-			<h3>{lang}Contact Information{/lang}</h3>
-		</div>
-		<div>	
-			<label for="email">{lang}Email{/lang}</label>
-			<input type="text" name="email" id="email" value="{$order.email}" />
-		</div>
-		<div>	
-			<label for="phone">{lang}Phone{/lang}</label>
-			<input type="text" name="phone" id="phone" value="{$order.phone}" />
-		</div>		
-		<div>	
-			<label for="company_name">{lang}Company{/lang}</label>
-			<input type="text" name="company_name" id="company_name" value="{$order.company_name}" />
-		</div>		
+  <div id="shipping_method">
+    <div>
+      <h3>{lang}Shipping Method{/lang}</h3>
+    </div>  
+    {foreach from=$ship_methods item=ship_method}
+      <div>
+        <input type="radio" name="shipping_method_id" value="{$ship_method.id}" id="ship_{$ship_method.id}" 
+        {if $ship_method.id == $order.shipping_method_id}
+          checked="checked"
+         {/if}
+        />
+        <label for="ship_{$ship_method.id}">
+          {if $ship_method.icon}<img src="{base_path}/img/icons/shipping/{$ship_method.icon}" alt="{$ship_method.name}" title="{$ship_method.name}" />&nbsp;{/if}
+          {lang}{$ship_method.name}{/lang}
+          </label>
+      </div>
+    {/foreach}
+  </div>
+  <div id="payment_method">
+    <div>
+      <h3>{lang}Payment Method{/lang}</h3>
+    </div>    
+    {foreach from=$payment_methods item=payment_method}
+      <div>
+        <input type="radio" name="payment_method_id" value="{$payment_method.id}" id="payment_{$payment_method.id}" 
+        {if $payment_method.id == $order.payment_method_id}
+          checked="checked"
+         {/if}        
+        />
+        <label for="payment_{$payment_method.id}">
+{if $payment_method.icon}<img src="{base_path}/img/icons/payment/{$payment_method.icon}" alt="{$payment_method.name}" title="{$payment_method.name}" />&nbsp;{/if}
+{lang}{$payment_method.name}{/lang}
+</label>
+      </div>
+    {/foreach}    
+  </div>
+  <div id="bill_information">
+    <div>
+      <h3>{lang}Billing Information{/lang}</h3>
+    </div>
+    <div>  
+      <label for="bill_name">{lang}Name{/lang}</label>
+      <input type="text" name="bill_name" id="bill_name" value="{$order.bill_name}"/>
+    </div>
+    <div>  
+      <label for="bill_line_1">{lang}Address Line 1{/lang}</label>
+      <input type="text" name="bill_line_1" id="bill_line_1" value="{$order.bill_line_1}" />
+    </div>    
+    <div>  
+      <label for="bill_line_2">{lang}Address Line 2{/lang}</label>
+      <input type="text" name="bill_line_2" id="bill_line_2" value="{$order.bill_line_2}" />
+    </div>    
+    <div>  
+      <label for="bill_city">{lang}City{/lang}</label>
+      <input type="text" name="bill_city" id="bill_city" value="{$order.bill_city}" />
+    </div>    
+    <div>  
+      <label for="bill_country">{lang}Country{/lang}</label>
+      <select name="bill_country" id="bill_country">{country_list selected=$order.bill_country}</select>
+    </div>    
+    <div id="bill_state_div">  
+      <label for="bill_state">{lang}State{/lang}</label>
+      <select name="bill_state" id="bill_state">{state_list country=$order.bill_country selected=$order.bill_state}</select>
+    </div>    
+    <div>  
+      <label for="bill_zip">{lang}Zipcode{/lang}</label>
+      <input type="text" name="bill_zip" id="bill_zip" value="{$order.bill_zip}" />
+    </div>  
+  </div>    
+  <div id="diff_shipping">
+    <div>
+      <h3>{lang}Shipping Information{/lang}</h3>
+    </div>
+    <div>
+      <label for="diff_shipping"><input type="checkbox" name="diff_shipping" id="diff_shipping" value="1" /> {lang}Different from billing address{/lang}</label>
+    </div>
+  </div>
+  <div id="ship_information">
+    <div>
+      <h3>{lang}Shipping Information{/lang}</h3>
+    </div>
+    <div>  
+      <label for="ship_name">{lang}Name{/lang}</label>
+      <input type="text" name="ship_name" id="ship_name" value="{$order.ship_name}" />
+    </div>
+    <div>  
+      <label for="ship_line_1">{lang}Address Line 1{/lang}</label>
+      <input type="text" name="ship_line_1" id="ship_line_1" value="{$order.ship_line_1}" />
+    </div>    
+    <div>  
+      <label for="ship_line_2">{lang}Address Line 1{/lang}</label>
+      <input type="text" name="ship_line_2" id="ship_line_2" value="{$order.ship_line_2}" />
+    </div>    
+    <div>  
+      <label for="ship_city">{lang}City{/lang}</label>
+      <input type="text" name="ship_city" id="ship_city" value="{$order.ship_city}" />
+    </div>    
+    <div>  
+      <label for="ship_country">{lang}Country{/lang}</label>
+      <select name="ship_country" id="ship_country">{country_list selected=$order.ship_country}</select>
+    </div>    
+    <div id="ship_state_div">  
+      <label for="ship_state">{lang}State{/lang}</label>
+      <select name="ship_state" id="ship_state">{state_list country=$order.ship_country selected=$order.ship_state}</select>
+    </div>    
+    <div>  
+      <label for="ship_zip">{lang}Zipcode{/lang}</label>
+      <input type="text" name="ship_zip" id="ship_zip" value="{$order.ship_zip}" />
+    </div>                
+  </div>
+  <div id="contact_information">
+    <div>
+      <h3>{lang}Contact Information{/lang}</h3>
+    </div>
+    <div>  
+      <label for="email">{lang}Email{/lang}</label>
+      <input type="text" name="email" id="email" value="{$order.email}" />
+    </div>
+    <div>  
+      <label for="phone">{lang}Phone{/lang}</label>
+      <input type="text" name="phone" id="phone" value="{$order.phone}" />
+    </div>    
+    <div>  
+      <label for="company_name">{lang}Company{/lang}</label>
+      <input type="text" name="company_name" id="company_name" value="{$order.company_name}" />
+    </div>    
     <div>  
       <label for="company_vat">{lang}VAT number{/lang}</label>
       <input type="text" name="company_vat" id="company_vat" value="{$order.company_vat}" />
@@ -155,11 +190,11 @@ $template = '
       <label for="agree">{lang}Please agree to our policy.{/lang} <a href="{base_path}/page/conditions-of-use.html">{lang}Terms & Conditions.{/lang}</a></label>
       <input type="checkbox" class="checkbox" id="agree" name="agree" />
     </div>    
-	</div>
-	<div>
-	{module alias="coupons" action="checkout_box"}
-	</div>
-	<button class="btn" type="submit" value="{lang}Continue{/lang}"><i class="cus-tick"></i> {lang}Continue{/lang}</button>
+  </div>
+  <div>
+  {module alias="coupons" action="checkout_box"}
+  </div>
+  <button class="btn" type="submit" value="{lang}Continue{/lang}"><i class="cus-tick"></i> {lang}Continue{/lang}</button>
 </form>
 </div>
 ';		
