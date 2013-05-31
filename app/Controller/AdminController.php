@@ -90,7 +90,11 @@ class AdminController extends AppController {
 	
 
 		$this->Order->recursive = 2;
-		$data = $this->Order->find('all', array('order' => array('Order.id DESC'), 'limit' => 20));
+		
+		$data = $this->Order->find('all', array(	'conditions' => array('Order.order_status_id >' => '0'), 
+																'order' => array('Order.id DESC'), 
+																'limit' => 20
+															));
 
 		$this->set('data',$data);
 			
