@@ -22,7 +22,7 @@ echo '<table class="orderTable">';
     echo '</tr>';
 echo '</table>';
 
-echo '<ul id="myTab_Reports" class="nav nav-tabs">';
+echo '<ul id="myTab" class="nav nav-tabs">';
         
 	echo $this->admin->CreateTab('chart',__('Chart',true), 'cus-chart-curve');
         echo $this->admin->CreateTab('table',__('Table',true), 'cus-table');
