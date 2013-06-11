@@ -41,7 +41,7 @@ function smarty_function_registration_form($params, $template)
 
 	if (isset($_SESSION['loginFormErrors'])) {
 		foreach ($_SESSION['loginFormErrors'] as $key => $value) {
-			$errors[] = $value;
+			$errors[] = $value[0];
 		}
 		unset($_SESSION['loginFormErrors']);
 	}
