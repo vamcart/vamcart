@@ -1,0 +1,141 @@
+<?php
+
+    $this->Html->script(array(
+            'jquery/plugins/jquery.jeditable.js'
+    ), array('inline' => false));
+    
+    echo $this->Html->scriptBlock('function changeContentTable(id,row,column_1,column_2,column_sum){
+                                    var rows = document.getElementById(id).rows;
+                                    var old_sum = rows[row].cells[column_sum].innerHTML;
+                                    var new_sum = Math.round((rows[row].cells[column_1].innerHTML*rows[row].cells[column_2].innerHTML)*100)/100;
+                                    rows[row].cells[column_sum].innerHTML = new_sum;
+                                    var total_sum = 0;
+                                    for(i=1;i<rows.length - 2;i++) total_sum += Number(rows[i].cells[column_sum].innerHTML);
+                                    total_sum = Math.round(total_sum *100)/100;
+                                    rows[rows.length - 1].cells[column_sum].innerHTML = "<strong>"+total_sum+"</strong>";
+                                   }'
+                                , array('allowCache'=>false,'safe'=>false,'inline'=>false));
+
+    echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-table');
+    
+    echo '<strong>' . __('Order Number') . ' : ' . $order['id'] . '</strong>';
+    
+    echo '<table class="orderTable"><tr><td width="50%">';
+    echo '<table class="contentTable">';
+    echo $this->Html->tableHeaders(array('',__('Billing Information')));
+    if(isset($order['bill_inf']))
+    {
+        foreach ($order['bill_inf'] AS $k => $bill_inf)
+        {
+            echo $this->Admin->TableCells(array(__($k),array(__($bill_inf),array('id' => $k,'class' => 'edit','width' => '80%'))));
+            echo $this->Ajax->editor($k,'/orders_un/edit_field/bill_inf/',  array('callback' => 'function(value,settings){nextBox=$("td.edit").eq($("td.edit").index(this)+1);$(nextBox).click();}'
+                                                                      ,'tooltip' => __($k)
+                                                                      ,'placeholder' => '_'));
+        }
+    }
+    echo '</table>'; 
+    echo '</td><td width="50%">';
+    
+    echo '<table class="contentTable">';
+    echo $this->Html->tableHeaders(array('',__('Shipping Information')));
+    if(isset($order['ship_inf']))
+    {
+        foreach ($order['ship_inf'] AS $k => $ship_inf)
+        {
+            echo $this->Admin->TableCells(array(__($k),array(__($ship_inf),array('id' => $k,'class' => 'edit','width' => '80%'))));
+            echo $this->Ajax->editor($k,'/orders_un/edit_field/ship_inf/',  array('callback' => 'function(value,settings){nextBox=$("td.edit").eq($("td.edit").index(this)+1);$(nextBox).click();}'
+                                                                      ,'tooltip' => __($k)
+                                                                      ,'placeholder' => '_'));
+        }
+    }
+    echo '</table>';
+    echo '</td></tr>';
+    echo '<tr><td  width="50%">';
+    
+    echo '<table class="contentTable">';
+    echo $this->Html->tableHeaders(array('',__('Contact Information')));
+    if(isset($order['contact_inf']))
+    {
+        foreach ($order['contact_inf'] AS $k => $contact_inf)
+        {
+            echo $this->Admin->TableCells(array(__($k),array(__($contact_inf),array('id' => $k,'class' => 'edit','width' => '80%'))));
+            echo $this->Ajax->editor($k,'/orders_un/edit_field/contact_inf/',  array('callback' => 'function(value,settings){nextBox=$("td.edit").eq($("td.edit").index(this)+1);$(nextBox).click();}'
+                                                                      ,'tooltip' => __($k)
+                                                                      ,'placeholder' => '_'));
+        }
+    }
+    echo '</table>';
+    echo '</td><td  width="50%">';
+    
+    echo '<table class="contentTable">';
+    echo $this->Html->tableHeaders(array('',__('Payment Information')));
+    if(isset($order['pay_inf']))
+    {
+        foreach ($order['pay_inf'] AS $k => $pay_inf)
+        {
+            echo $this->Admin->TableCells(array(__($k),array(__($pay_inf),array('id' => $k,'class' => 'edit','width' => '80%'))));
+            echo $this->Ajax->editor($k,'/orders_un/edit_field/pay_inf/',  array('callback' => 'function(value,settings){nextBox=$("td.edit").eq($("td.edit").index(this)+1);$(nextBox).click();}'
+                                                                      ,'tooltip' => __($k)
+                                                                      ,'placeholder' => '_'));
+        }
+    }
+    echo '</table>';
+    echo '</td></tr>';
+    
+    echo '<tr><td colspan="2">';
+    echo '<table class = "contentTable" id = "content_t">';
+    echo $this->Html->tableHeaders(array( __('Product Name'), __('Model'), __('Price'), __('Quantity'), __('Total'),''));
+    if(isset($order['OrderProduct']))
+    {
+        foreach($order['OrderProduct'] AS $k => $product) 
+        {
+            echo $this->Admin->TableCells(
+                      array(
+                                    $product['name'],
+                                    $product['model'],
+                                    $product['price'],
+                                    array($product['quantity'],array('id' => 'quantity' . $k,'class' => 'edit')),
+                                    $product['quantity']*$product['price'],
+                                    $this->Ajax->link($this->Html->tag('i', '',array('class' => 'cus-bin-empty')), 'null', $options = array('escape' => false, 'url' => '/orders_un/admin_delete_product/' . $k, 'update' => 'content'), null, false),
+                       ));
+            echo $this->Ajax->editor('quantity' . $k,'/orders_un/edit_field/OrderProduct/' . $k . '/quantity/',  array('callback' => 'function(value,settings){nextBox=$("td.edit").eq($("td.edit").index(this)+1);$(nextBox).click();
+                                                                                     changeContentTable("content_t",' . ($k + 1) . ',2,3,4)}'
+                                                                  ,'tooltip' => __('quantity')
+                                                                  ,'placeholder' => '_'));
+        }
+    }
+        echo $this->Admin->TableCells(
+                      array(
+                                    $this->Ajax->link($this->Html->tag('i', '',array('class' => 'cus-add')), 'null', $options = array('escape' => false, 'url' => '/orders_un/admin_add_product/group/', 'update' => 'content'), null, false),
+                                    '_',
+                                    '_',
+                                    '_',
+                                    '_',
+                                    ''
+                      ));
+    if(isset($order['OrderProduct']))
+    {
+        echo $this->Admin->TableCells(
+                      array(
+                                    '<strong>' . __('Order Total') . '</strong>',
+                                    '&nbsp;',
+                                    '&nbsp;',
+                                    '&nbsp;',
+                                    '<strong>' . $order['total'] .'</strong>',
+                                    ''
+                      ));		  
+
+    }
+    echo '</table>';
+    echo '</td></tr>';
+    
+    echo '</table>';
+    
+    echo $this->Form->create('Order', array('action' => '/orders_un/save_order/', 'url' => '/orders_un/save_order/'));
+    echo $this->Admin->formButton(__('Save'), 'cus-tick', array('class' => 'btn', 'type' => 'submit', 'name' => 'submit')) . $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn', 'type' => 'submit', 'name' => 'cancelbutton'));
+    echo $this->Form->end();
+
+    echo $this->Admin->ShowPageHeaderEnd();
+
+	
+?>
