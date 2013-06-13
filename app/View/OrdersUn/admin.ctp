@@ -28,9 +28,10 @@
         foreach ($order['bill_inf'] AS $k => $bill_inf)
         {
             echo $this->Admin->TableCells(array(__($k),array(__($bill_inf),array('id' => $k,'class' => 'edit','width' => '80%'))));
-            echo $this->Ajax->editor($k,'/orders_un/edit_field/bill_inf/',  array('callback' => 'function(value,settings){nextBox=$("td.edit").eq($("td.edit").index(this)+1);$(nextBox).click();}'
-                                                                      ,'tooltip' => __($k)
-                                                                      ,'placeholder' => '_'));
+            echo $this->Ajax->editor($k,'/orders_un/edit_field/bill_inf/',  array(/*'callback' => 'function(value,settings){nextBox=$("td.edit").eq($("td.edit").index(this)+1);$(nextBox).click();}'
+                                                                      ,*/'tooltip' => __($k)
+                                                                      ,'placeholder' => '_'
+                                                                      ,'onblur' => 'submit'));
         }
     }
     echo '</table>'; 
@@ -43,9 +44,10 @@
         foreach ($order['ship_inf'] AS $k => $ship_inf)
         {
             echo $this->Admin->TableCells(array(__($k),array(__($ship_inf),array('id' => $k,'class' => 'edit','width' => '80%'))));
-            echo $this->Ajax->editor($k,'/orders_un/edit_field/ship_inf/',  array('callback' => 'function(value,settings){nextBox=$("td.edit").eq($("td.edit").index(this)+1);$(nextBox).click();}'
-                                                                      ,'tooltip' => __($k)
-                                                                      ,'placeholder' => '_'));
+            echo $this->Ajax->editor($k,'/orders_un/edit_field/ship_inf/',  array(/*'callback' => 'function(value,settings){nextBox=$("td.edit").eq($("td.edit").index(this)+1);$(nextBox).click();}'
+                                                                      ,*/'tooltip' => __($k)
+                                                                      ,'placeholder' => '_'
+                                                                      ,'onblur' => 'submit'));
         }
     }
     echo '</table>';
@@ -59,9 +61,10 @@
         foreach ($order['contact_inf'] AS $k => $contact_inf)
         {
             echo $this->Admin->TableCells(array(__($k),array(__($contact_inf),array('id' => $k,'class' => 'edit','width' => '80%'))));
-            echo $this->Ajax->editor($k,'/orders_un/edit_field/contact_inf/',  array('callback' => 'function(value,settings){nextBox=$("td.edit").eq($("td.edit").index(this)+1);$(nextBox).click();}'
-                                                                      ,'tooltip' => __($k)
-                                                                      ,'placeholder' => '_'));
+            echo $this->Ajax->editor($k,'/orders_un/edit_field/contact_inf/',  array(/*'callback' => 'function(value,settings){nextBox=$("td.edit").eq($("td.edit").index(this)+1);$(nextBox).click();}'
+                                                                      ,*/'tooltip' => __($k)
+                                                                      ,'placeholder' => '_'
+                                                                      ,'onblur' => 'submit'));
         }
     }
     echo '</table>';
@@ -74,9 +77,10 @@
         foreach ($order['pay_inf'] AS $k => $pay_inf)
         {
             echo $this->Admin->TableCells(array(__($k),array(__($pay_inf),array('id' => $k,'class' => 'edit','width' => '80%'))));
-            echo $this->Ajax->editor($k,'/orders_un/edit_field/pay_inf/',  array('callback' => 'function(value,settings){nextBox=$("td.edit").eq($("td.edit").index(this)+1);$(nextBox).click();}'
-                                                                      ,'tooltip' => __($k)
-                                                                      ,'placeholder' => '_'));
+            echo $this->Ajax->editor($k,'/orders_un/edit_field/pay_inf/',  array(/*'callback' => 'function(value,settings){nextBox=$("td.edit").eq($("td.edit").index(this)+1);$(nextBox).click();}'
+                                                                      ,*/'tooltip' => __($k)
+                                                                      ,'placeholder' => '_'
+                                                                      ,'onblur' => 'submit'));
         }
     }
     echo '</table>';
@@ -98,10 +102,10 @@
                                     $product['quantity']*$product['price'],
                                     $this->Ajax->link($this->Html->tag('i', '',array('class' => 'cus-bin-empty')), 'null', $options = array('escape' => false, 'url' => '/orders_un/admin_delete_product/' . $k, 'update' => 'content'), null, false),
                        ));
-            echo $this->Ajax->editor('quantity' . $k,'/orders_un/edit_field/OrderProduct/' . $k . '/quantity/',  array('callback' => 'function(value,settings){nextBox=$("td.edit").eq($("td.edit").index(this)+1);$(nextBox).click();
-                                                                                     changeContentTable("content_t",' . ($k + 1) . ',2,3,4)}'
+            echo $this->Ajax->editor('quantity' . $k,'/orders_un/edit_field/OrderProduct/' . $k . '/quantity/',  array('callback' => 'function(value,settings){changeContentTable("content_t",' . ($k + 1) . ',2,3,4)}'
                                                                   ,'tooltip' => __('quantity')
-                                                                  ,'placeholder' => '_'));
+                                                                  ,'placeholder' => '_'
+                                                                  ,'onblur' => 'submit'));
         }
     }
         echo $this->Admin->TableCells(
