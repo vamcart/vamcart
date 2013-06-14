@@ -278,7 +278,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 			   		'label' => __('Active'),
 						'value' => '1',
 						'class' => 'checkbox_group',
-						'checked' => $active_checked
+						'checked' => isset($data['Content']['active']) ? $data['Content']['active'] : '1'
 					));
 			echo $this->Form->input('Content.show_in_menu', 
 					array(
@@ -286,7 +286,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 			   		'label' => __('Show in menu'),
 						'value' => '1',
 						'class' => 'checkbox_group',
-						'checked' => $menu_checked
+						'checked' => isset($data['Content']['show_in_menu']) ? $data['Content']['show_in_menu'] : '1'
 					));
 	echo $this->Admin->EndTabContent();
 
