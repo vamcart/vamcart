@@ -10,7 +10,7 @@
         for($c = 0;$c <= 9;$c++)
         {
             if(isset($data['content'][$c+$r]['ContentDescription']))
-                echo '<td width="10%"><div>' . $this->Html->link($data['content'][$c+$r]['ContentDescription'][0]['name'], '/orders_un/admin_add_product/' . $data['category'] . '/' . $data['content'][$c+$r]['Content']['id']) . '</div></td>';
+                echo '<td width="10%"><div>' . $this->Ajax->link($data['content'][$c+$r]['ContentDescription'][0]['name'], 'null', $options = array('escape' => false, 'url' => '/orders_un/admin_add_product/'  . $data['category'] . '/' . $data['content'][$c+$r]['Content']['id'], 'update' => 'content'), null, false) . '</div></td>';
             else echo '<td width="10%"></td>';
         }
         echo '</tr>';

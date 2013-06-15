@@ -3,18 +3,18 @@
 class OrdersUnController extends AppController 
 {
     public $name = 'OrdersUn';
+    public $components = array('DebugKit.Toolbar');
     public $paginate = null;
     
     
     public function admin ($act = 'new', $id = 0)
     {
-        $order = array( 'id' => 0
-                       ,'bill_inf' => array());
+        $order = array();
         
         if($act == 'new')
         {
             $this->loadModel('Order');
-            $this->Order->unbindAll();
+            //$this->Order->unbindAll();
             $max_id = $this->Order->find('first',array('fields' => array('MAX(Order.id) as id')));
             $order['id'] = $max_id[0]['id'] + 1;
             $order['bill_inf'] = array('Customer_Name' => '','Address_Line_1' => '','Address_Line_2' => '','City' => '','State' => '','Country' => '','Zip' => '');
@@ -22,21 +22,37 @@ class OrdersUnController extends AppController
             $order['contact_inf'] = array('Email' => '','Phone' => '','Company' => '0');
             $order['pay_inf'] = array('Credit_Card' => '0','Expiration' => '0');
             $order['total'] = 0;
+            $order['OrderProduct'] = array();
+            $pay_metd = $this->Order->PaymentMethod->find('all',array('conditions' => array('PaymentMethod.active = 1')));            
+            $pay_metd = Set::combine($pay_metd,'{n}.PaymentMethod.id','{n}.PaymentMethod.name');          
+            $order['pay_metd'] = array('data' => $pay_metd
+                                      ,'json_data' => array()
+                                      ,'id_selected' => '0'
+                                      ,'selected' => '_');
+            $order['pay_metd']['json_data'] = json_encode($order['pay_metd']['data']);
             
-            $this->Session->write('OrdersUn.order', $order);
+            $ship_metd = $this->Order->ShippingMethod->find('all',array('conditions' => array('ShippingMethod.active = 1')));
+            $ship_metd = Set::combine($ship_metd,'{n}.ShippingMethod.id','{n}.ShippingMethod.name');
+            $order['ship_metd'] = array('data' => $ship_metd
+                                      ,'json_data' => array()
+                                      ,'id_selected' => '0'
+                                      ,'selected' => '_');
+            $order['ship_metd']['json_data'] = json_encode($order['ship_metd']['data']);
+            
+            $this->Session->write('orders_un.order', $order);
         }
         elseif ($act == 'redirect') 
         {
-            $order = $this->Session->read('OrdersUn.order');
+            $order = $this->Session->read('orders_un.order');
         }
         elseif ($act == 'edit') 
         {
             $this->loadModel('Order');
             $this->Order->Behaviors->attach('Containable');
-            $o = $this->Order->find('all',array('fields' => array('Order.*')
+            $o = $this->Order->find('all',array('fields' => array('Order.*','ShippingMethod.*','PaymentMethod.*')
                                                        ,'conditions' => array('Order.id = '.$id)
-                                                       ,'order' => 'id DESC LIMIT 1'
-                                                       ,'contain' => array('OrderProduct')
+                                                       ,'order' => 'Order.id DESC LIMIT 1'
+                                                       ,'contain' => array('OrderProduct','ShippingMethod','PaymentMethod')
                                                                 ));
             if(isset($o[0]['Order']))
             {
@@ -69,7 +85,26 @@ class OrdersUnController extends AppController
                 $order['OrderProduct'] = $o[0]['OrderProduct'];
                 $order['total'] = $o[0]['Order']['total'];
                 
-                $this->Session->write('OrdersUn.order', $order);
+                
+                if(!isset($o[0]['PaymentMethod']['id'])) {$o[0]['PaymentMethod']['id'] = '0'; $o[0]['PaymentMethod']['name'] = '_';}
+                    
+                $order['pay_metd'] = array('data' => array($o[0]['PaymentMethod']['id'] => $o[0]['PaymentMethod']['name'])
+                                          ,'json_data' => array()
+                                          ,'id_selected' => $o[0]['PaymentMethod']['id']
+                                          ,'selected' => $o[0]['PaymentMethod']['name']);
+                $order['pay_metd']['json_data'] = json_encode($order['pay_metd']['data']);
+
+                if(!isset($o[0]['ShippingMethod']['id'])) {$o[0]['ShippingMethod']['id'] = '0'; $o[0]['ShippingMethod']['name'] = '_';}
+                
+                $order['ship_metd'] = array('data' => array($o[0]['ShippingMethod']['id'] => $o[0]['ShippingMethod']['name'])
+                                          ,'json_data' => array()
+                                          ,'id_selected' => $o[0]['ShippingMethod']['id']
+                                          ,'selected' => $o[0]['ShippingMethod']['name']);
+                $order['ship_metd']['json_data'] = json_encode($order['ship_metd']['data']);
+                
+                
+                
+                $this->Session->write('orders_un.order', $order);
             }
             else 
             {
@@ -86,13 +121,24 @@ class OrdersUnController extends AppController
         $this->set('order',$order);
     }
     
+    public function change_shipORpay_method ()
+    { 
+        $order = $this->Session->read('orders_un.order');
+        $order[$this->data['id']]['id_selected'] = $this->data['value'];
+        $order[$this->data['id']]['selected'] = $order[$this->data['id']]['data'][$this->data['value']];
+        $this->set('return',$order[$this->data['id']]['selected']);
+        $this->Session->write('orders_un.order', $order);
+        $this->render('/Elements/ajaxreturn');
+    }
+    
     public function edit_field ($key_1 = 'nl', $key_2 = 'nl', $key_3 = 'nl')
     {
         /*if ($this->RequestHandler->isAjax()) 
         {
             $this->layout = 'ajax_empty';
         }*/ 
-        $order = $this->Session->read('OrdersUn.order');
+        
+        $order = $this->Session->read('orders_un.order');
         if($key_1 != 'nl' && $key_2 == 'nl')
         {
             $order[$key_1][$this->data['id']] = $this->data['value'];
@@ -107,7 +153,7 @@ class OrdersUnController extends AppController
         }
         else $order[$this->data['id']] = $this->data['value'];
             
-        $this->Session->write('OrdersUn.order', $order);
+        $this->Session->write('orders_un.order', $order);
         $this->set('return',$this->data['value']);
 
         $this->render('/Elements/ajaxreturn');
@@ -143,7 +189,7 @@ class OrdersUnController extends AppController
         }
         elseif ($category == 'add') 
         {
-            $order = $this->Session->read('OrdersUn.order');
+            $order = $this->Session->read('orders_un.order');
             
             if(isset($order['OrderProduct']))
             {
@@ -159,7 +205,8 @@ class OrdersUnController extends AppController
                                                  ));
 
             $order['OrderProduct'][$index]['id'] = 'nl';
-            $order['OrderProduct'][$index]['order_id'] = $content[0]['Content']['id'];
+            $order['OrderProduct'][$index]['order_id'] = $order['id'];
+            $order['OrderProduct'][$index]['content_id'] = $content[0]['Content']['id'];
             $order['OrderProduct'][$index]['name'] = $content[0]['ContentDescription'][0]['name'];
             $order['OrderProduct'][$index]['model'] = $content[0]['ContentProduct']['model'];
             $order['OrderProduct'][$index]['price'] = $content[0]['ContentProduct']['price'];
@@ -181,7 +228,7 @@ class OrdersUnController extends AppController
                 $order['total'] += $value['price'] * $value['quantity'];
             }
             
-            $this->Session->write('OrdersUn.order', $order);
+            $this->Session->write('orders_un.order', $order);
             $this->redirect('/orders_un/admin/redirect/');
         }
         else
@@ -194,7 +241,7 @@ class OrdersUnController extends AppController
     
     public function admin_delete_product ($index = 0)
     {
-        $order = $this->Session->read('OrdersUn.order');
+        $order = $this->Session->read('orders_un.order');
         
         //unset($order['OrderProduct'][$index]);
         array_splice($order['OrderProduct'],$index,1);
@@ -209,7 +256,7 @@ class OrdersUnController extends AppController
         }
         else $order['total'] = 0;
         
-        $this->Session->write('OrdersUn.order', $order);
+        $this->Session->write('orders_un.order', $order);
         $this->redirect('/orders_un/admin/redirect/');
     }
     
@@ -224,18 +271,22 @@ class OrdersUnController extends AppController
             }
             
             $this->loadModel('Order');
-            $order = $this->Session->read('OrdersUn.order');
+            $this->loadModel('ContentProduct');
+            $this->ContentProduct->UnbindAll();
+            $order = $this->Session->read('orders_un.order');
             
             $order['total'] = 0;
-            foreach ($order['OrderProduct'] as $value) 
-            {
-                $order['total'] += $value['price'] * $value['quantity'];
+            if(!empty($order['OrderProduct']))
+            {    
+                foreach ($order['OrderProduct'] as $value) 
+                {
+                    $order['total'] += $value['price'] * $value['quantity'];
+                }   
             }
-            
             $temp_order = array('Order' => array( 'id' => $order['id']
                             ,'order_status_id' => '1'
-                            ,'shipping_method_id' => '0'
-                            ,'payment_method_id' => '0'
+                            ,'shipping_method_id' => $order['ship_metd']['id_selected']
+                            ,'payment_method_id' => $order['pay_metd']['id_selected']
                             ,'shipping' => '0'
                             ,'tax' => '0'
                             ,'total' => $order['total']
@@ -271,7 +322,7 @@ class OrdersUnController extends AppController
                     if($orderproduct['id'] == 'nl'){ $max_id++; $id = $max_id;} else $id = $orderproduct['id'];
                     $temp_order_product[$k] = array('OrderProduct' => array('id' => $id
                                ,'order_id' => $order['id']
-                               ,'content_id' => $orderproduct['order_id']
+                               ,'content_id' => $orderproduct['content_id']
                                ,'name' => $orderproduct['name']
                                ,'model' => $orderproduct['model']
                                ,'quantity' => $orderproduct['quantity']
@@ -286,37 +337,57 @@ class OrdersUnController extends AppController
                                ,'download_key' => $orderproduct['download_key']
                                ,'order_status_id' => $orderproduct['order_status_id']
                         ));
+                    //Изменение кол-во. товара в заказе
+                    $save_order = $this->Order->OrderProduct->find('first',array('fields' => array('OrderProduct.quantity')
+                                                        ,'conditions' => array('OrderProduct.id'=> $id, 'OrderProduct.order_id' => $order['id']/*,'OrderProduct.quantity <>' => $orderproduct['quantity']*/)));
+                    if(!empty($save_order) && $save_order['OrderProduct']['quantity'] != $orderproduct['quantity'])
+                    {
+                        $temp_order_product[$k]['rotate_product'] = $orderproduct['quantity'] - $save_order['OrderProduct']['quantity'];
+                    } elseif(!empty($save_order) && $save_order['OrderProduct']['quantity'] == $orderproduct['quantity'])  
+                        $temp_order_product[$k]['rotate_product'] = 0;                                                   
+                    else $temp_order_product[$k]['rotate_product'] = $orderproduct['quantity'];
             }
             
-            $msg = null;
-            $add_id = 0;
+            $list_id = 0;
             if(!empty($temp_order_product))
             {
-                foreach ($temp_order_product AS $orderproduct)
-                {
-                    $this->Order->OrderProduct->save($orderproduct);
-                }
-                $add_id = Set::Extract($temp_order_product,'{n}.OrderProduct.id');
-            }
-            
+                $list_id = Set::Extract($temp_order_product,'{n}.OrderProduct.id');
 
-            $del_id = $this->Order->OrderProduct->find('all',array('fields' => array('OrderProduct.id')
-                                                        ,'conditions' => array('OrderProduct.id NOT' => $add_id, 'OrderProduct.order_id=' . $order['id'])
-                                                        ));
-            $del_id = Set::Extract($del_id,'{n}.OrderProduct.id');
-            if(!empty($del_id))
-            {
-                foreach ($del_id as $id) 
+                foreach ($temp_order_product AS $k => $orderproduct)
                 {
-                  $this->Order->OrderProduct->delete($id);
+                    $this->Order->OrderProduct->save(array('OrderProduct' => $orderproduct['OrderProduct']));    
+                    
+                    $content = $this->ContentProduct->find('first',array('conditions' => array('ContentProduct.content_id' => $orderproduct['OrderProduct']['content_id'])));
+                    $this->ContentProduct->updateAll(array('ContentProduct.stock' => $content['ContentProduct']['stock'] - $orderproduct['rotate_product'])
+                                                    ,array('ContentProduct.content_id' => $orderproduct['OrderProduct']['content_id']));
                 }
-            }
+
+                $del_id = $this->Order->OrderProduct->find('all',array('fields' => array('OrderProduct.id')
+                                                            ,'conditions' => array('OrderProduct.id NOT' => $list_id, 'OrderProduct.order_id=' . $order['id'])
+                                                            ));
+                $del_id = Set::Extract($del_id,'{n}.OrderProduct.id');
+                if(!empty($del_id))
+                {
+                    foreach ($del_id as $id) 
+                    {
+                      
+                      $orderproduct = $this->Order->OrderProduct->find('first',array('fields' => array('OrderProduct.content_id','OrderProduct.quantity')
+                                                                                    ,'conditions' => array('OrderProduct.id' => $id)));
+                      
+                      $content = $this->ContentProduct->find('first',array('conditions' => array('ContentProduct.content_id' => $orderproduct['OrderProduct']['content_id'])));
+                      $this->ContentProduct->updateAll(array('ContentProduct.stock' => $content['ContentProduct']['stock'] + $orderproduct['OrderProduct']['quantity'])
+                                                        ,array('ContentProduct.id' => $content['ContentProduct']['id']));
+                      $this->Order->OrderProduct->delete($id);
+
+                    }
+                }
+            }  
 
             if($this->Order->save($temp_order))
             {
                 $msg = __('Order saved.');
             } else $msg = __('Order not saved!');
-            $this->Session->write('OrdersUn.order', $order);     
+            $this->Session->write('orders_un.order', $order);     
             $this->Session->setFlash($msg);
             $this->redirect('/orders_un/admin/redirect/');
         }
