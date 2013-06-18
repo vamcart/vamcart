@@ -2,6 +2,7 @@
 
     $this->Html->script(array(
             'jquery/plugins/jquery.jeditable.js'
+           ,'jquery/plugins/jquery.form.js'
     ), array('inline' => false));
     
     echo $this->Html->scriptBlock('
