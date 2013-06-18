@@ -86,17 +86,23 @@ class OrdersUnController extends AppController
                 $order['total'] = $o[0]['Order']['total'];
                 
                 
+                $pay_metd = $this->Order->PaymentMethod->find('all',array('conditions' => array('PaymentMethod.active = 1')));            
+                $pay_metd = Set::combine($pay_metd,'{n}.PaymentMethod.id','{n}.PaymentMethod.name');
+                
                 if(!isset($o[0]['PaymentMethod']['id'])) {$o[0]['PaymentMethod']['id'] = '0'; $o[0]['PaymentMethod']['name'] = '_';}
                     
-                $order['pay_metd'] = array('data' => array($o[0]['PaymentMethod']['id'] => $o[0]['PaymentMethod']['name'])
+                $order['pay_metd'] = array('data' => $pay_metd
                                           ,'json_data' => array()
                                           ,'id_selected' => $o[0]['PaymentMethod']['id']
                                           ,'selected' => $o[0]['PaymentMethod']['name']);
                 $order['pay_metd']['json_data'] = json_encode($order['pay_metd']['data']);
 
+                $ship_metd = $this->Order->ShippingMethod->find('all',array('conditions' => array('ShippingMethod.active = 1')));
+                $ship_metd = Set::combine($ship_metd,'{n}.ShippingMethod.id','{n}.ShippingMethod.name');
+                
                 if(!isset($o[0]['ShippingMethod']['id'])) {$o[0]['ShippingMethod']['id'] = '0'; $o[0]['ShippingMethod']['name'] = '_';}
                 
-                $order['ship_metd'] = array('data' => array($o[0]['ShippingMethod']['id'] => $o[0]['ShippingMethod']['name'])
+                $order['ship_metd'] = array('data' => $ship_metd
                                           ,'json_data' => array()
                                           ,'id_selected' => $o[0]['ShippingMethod']['id']
                                           ,'selected' => $o[0]['ShippingMethod']['name']);
@@ -159,38 +165,51 @@ class OrdersUnController extends AppController
         $this->render('/Elements/ajaxreturn');
     }
         
-    public function admin_add_product ($category = 'group', $id = 1)
+    public function admin_add_product ($category = 'group', $id = 0)
     {
+        $order = $this->Session->read('orders_un.order');
+                
         $this->loadModel('Content');
-        //$this->Content->recursive = 2;
         $this->Content->Behaviors->attach('Containable');
+        
+        $filter = array();
+         
+        if(isset($this->data['Search']['term']))
+        {
+            $id_d = $this->Content->ContentDescription->findAllByName($this->data['Search']['term']);
+            $id_d = Set::Extract($id_d,'{n}.ContentDescription.content_id');
+            if($id_d == null) $id_d = array();
+            $id_p = $this->Content->ContentProduct->findAllByModel($this->data['Search']['term']);
+            $id_p = Set::Extract($id_p,'{n}.ContentProduct.content_id');
+            if($id_p == null) $id_p = array();
+            $filter = array('Content.id' => array_merge($id_d,$id_p));
+        }
         
         if($category == 'group')
         {
-          
-            $this->paginate['Content'] = array('fields' => array('Content.alias')
-                                              ,'conditions' => array('Content.content_type_id = 1','Content.show_in_menu = 1')
+            $this->paginate['Content'] = array('fields' => array('Content.alias')                                         
+                                              ,'conditions' => array('Content.content_type_id = 1','Content.show_in_menu = 1',$filter)
                                               ,'limit' => '50'
-                                              ,'contain' => array('ContentDescription' => array('conditions' => array('ContentDescription.language_id = ' . $this->Session->read('Customer.language_id'))),'ContentImage')
+                                              ,'contain' => array('ContentDescription' => array('conditions' => array('ContentDescription.language_id' => $this->Session->read('Customer.language_id'))),'ContentImage')
                                               );
             $data['content'] = $this->paginate('Content');
             $data['category'] = 'product';
+            $data['type_filter'] = array('group',0);
       
         }
         elseif ($category == 'product') 
         {
             $this->paginate['Content'] = array('fields' => array('Content.alias')
-                                              ,'conditions' => array('Content.parent_id = ' . $id,'Content.show_in_menu = 1')
+                                              ,'conditions' => array('Content.parent_id = ' . $id,'Content.show_in_menu = 1',$filter)
                                               ,'limit' => '50'
-                                              ,'contain' => array('ContentDescription' => array('conditions' => array('ContentDescription.language_id = ' . $this->Session->read('Customer.language_id'))),'ContentImage')
+                                              ,'contain' => array('ContentDescription' => array('conditions' => array('ContentDescription.language_id' => $this->Session->read('Customer.language_id'))),'ContentImage')
                                               );
             $data['content'] = $this->paginate('Content');
             $data['category'] = 'add';
+            $data['type_filter'] = array('product',$id);
         }
         elseif ($category == 'add') 
         {
-            $order = $this->Session->read('orders_un.order');
-            
             if(isset($order['OrderProduct']))
             {
                 $index = count($order['OrderProduct']);
@@ -393,5 +412,14 @@ class OrdersUnController extends AppController
         }
 
     }
+    
+  /*  public function admin_search($category = 'group', $id = 0) 
+    {
+        $order = $this->Session->read('orders_un.order');
+        $order['filter'] = $this->data['Search']['term'];  
+        $this->Session->write('orders_un.order', $order); 
+        $this->redirect('/orders_un/admin_add_product/' . $category . '/' . $id);
+    }*/
+   
 }
 ?>
