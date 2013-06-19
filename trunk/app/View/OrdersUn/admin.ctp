@@ -11,8 +11,10 @@
             window.onbeforeunload = function () {  
             if (my_global_formNavigate == true) {return null;} else{return "Data change!";}
                                                 }
+            $(document).on("change","#pay_metd select",function(){$(this).blur();});
+            $(document).on("change","#ship_metd select",function(){$(this).blur();});
+            
             	});
-
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false));
 
     
@@ -173,7 +175,7 @@
     echo '</table>';
     
     echo $this->Form->create('OrdersUn', array('id' => 'saveForm','action' => '/orders_un/save_order/', 'url' => '/orders_un/save_order/'));
-    echo $this->Admin->formButton(__('Save'), 'cus-tick', array('class' => 'btn', 'type' => 'submit', 'name' => 'submit','onclick' => 'saveform();')) . $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn', 'type' => 'submit', 'name' => 'cancelbutton','onclick' => 'saveform();'));
+    echo $this->Admin->formButton(__('Save'), 'cus-tick', array('id' => 'saveButton', 'name' => 'saveButton', 'class' => 'btn', 'type' => 'submit', 'name' => 'submit','onclick' =>  'saveform();')) . $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn', 'type' => 'submit', 'name' => 'cancelbutton','onclick' => 'saveform();'));
     echo $this->Form->end();
 
     echo $this->Admin->ShowPageHeaderEnd();
