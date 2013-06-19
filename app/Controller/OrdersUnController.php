@@ -176,13 +176,16 @@ class OrdersUnController extends AppController
          
         if(isset($this->data['Search']['term']))
         {
-            $id_d = $this->Content->ContentDescription->findAllByName($this->data['Search']['term']);
+            //$id_d = $this->Content->ContentDescription->findAllByName($this->data['Search']['term']);
+            $id_d = $this->Content->ContentDescription->find('all',array('conditions' => array('ContentDescription.name LIKE' => '%' . $this->data['Search']['term'] . '%')));
             $id_d = Set::Extract($id_d,'{n}.ContentDescription.content_id');
             if($id_d == null) $id_d = array();
-            $id_p = $this->Content->ContentProduct->findAllByModel($this->data['Search']['term']);
+            //$id_p = $this->Content->ContentProduct->findAllByModel($this->data['Search']['term']);
+            $id_p = $this->Content->ContentProduct->find('all',array('conditions' => array('ContentProduct.model LIKE' => '%' . $this->data['Search']['term'] . '%')));
             $id_p = Set::Extract($id_p,'{n}.ContentProduct.content_id');
             if($id_p == null) $id_p = array();
             $filter = array('Content.id' => array_merge($id_d,$id_p));
+
         }
         
         if($category == 'group')
@@ -194,19 +197,19 @@ class OrdersUnController extends AppController
                                               );
             $data['content'] = $this->paginate('Content');
             $data['category'] = 'product';
-            $data['type_filter'] = array('group',0);
       
         }
         elseif ($category == 'product') 
         {
             $this->paginate['Content'] = array('fields' => array('Content.alias')
-                                              ,'conditions' => array('Content.parent_id = ' . $id,'Content.show_in_menu = 1',$filter)
+                                              ,'conditions' => array('Content.show_in_menu = 1',$filter,'(Content.parent_id = ' . $id . ' OR '. $id . ' = 0)','Content.content_type_id != 1')
                                               ,'limit' => '50'
                                               ,'contain' => array('ContentDescription' => array('conditions' => array('ContentDescription.language_id' => $this->Session->read('Customer.language_id'))),'ContentImage')
                                               );
+
             $data['content'] = $this->paginate('Content');
+
             $data['category'] = 'add';
-            $data['type_filter'] = array('product',$id);
         }
         elseif ($category == 'add') 
         {
