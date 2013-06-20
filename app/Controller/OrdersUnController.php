@@ -196,7 +196,8 @@ class OrdersUnController extends AppController
                                               ,'contain' => array('ContentDescription' => array('conditions' => array('ContentDescription.language_id' => $this->Session->read('Customer.language_id'))),'ContentImage')
                                               );
             $data['content'] = $this->paginate('Content');
-            $data['category'] = 'product';
+            $data['next_category'] = 'product';
+            $data['prev_category'] = 'ret';
       
         }
         elseif ($category == 'product') 
@@ -209,7 +210,8 @@ class OrdersUnController extends AppController
 
             $data['content'] = $this->paginate('Content');
 
-            $data['category'] = 'add';
+            $data['next_category'] = 'add';
+            $data['prev_category'] = 'group';
         }
         elseif ($category == 'add') 
         {
@@ -251,6 +253,10 @@ class OrdersUnController extends AppController
             }
             
             $this->Session->write('orders_un.order', $order);
+            $this->redirect('/orders_un/admin/redirect/');
+        }
+        elseif ($category == 'ret') 
+        {
             $this->redirect('/orders_un/admin/redirect/');
         }
         else
