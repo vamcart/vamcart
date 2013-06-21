@@ -1,9 +1,14 @@
 <?php
+/* -----------------------------------------------------------------------------------------
+   VamCart - http://vamcart.com
+   -----------------------------------------------------------------------------------------
+   Copyright (c) 2013 VamSoft Ltd.
+   License - http://vamcart.com/license.html
+   ---------------------------------------------------------------------------------------*/
 
-class OrdersUnController extends AppController 
+class OrdersEditController extends AppController 
 {
-    public $name = 'OrdersUn';
-    public $components = array('DebugKit.Toolbar');
+    public $name = 'OrdersEdit';
     public $paginate = null;
     
     
@@ -39,11 +44,11 @@ class OrdersUnController extends AppController
                                       ,'selected' => '_');
             $order['ship_metd']['json_data'] = json_encode($order['ship_metd']['data']);
             
-            $this->Session->write('orders_un.order', $order);
+            $this->Session->write('order_edit.order', $order);
         }
         elseif ($act == 'redirect') 
         {
-            $order = $this->Session->read('orders_un.order');
+            $order = $this->Session->read('order_edit.order');
         }
         elseif ($act == 'edit') 
         {
@@ -110,12 +115,12 @@ class OrdersUnController extends AppController
                 
                 
                 
-                $this->Session->write('orders_un.order', $order);
+                $this->Session->write('order_edit.order', $order);
             }
             else 
             {
                 $this->Session->setFlash(__('Record not found!', true));
-                $this->redirect('/orders_un/admin/new/');
+                $this->redirect('/orders_edit/admin/new/');
             }
             
         }
@@ -129,11 +134,11 @@ class OrdersUnController extends AppController
     
     public function change_shipORpay_method ()
     { 
-        $order = $this->Session->read('orders_un.order');
+        $order = $this->Session->read('order_edit.order');
         $order[$this->data['id']]['id_selected'] = $this->data['value'];
         $order[$this->data['id']]['selected'] = $order[$this->data['id']]['data'][$this->data['value']];
         $this->set('return',$order[$this->data['id']]['selected']);
-        $this->Session->write('orders_un.order', $order);
+        $this->Session->write('order_edit.order', $order);
         $this->render('/Elements/ajaxreturn');
     }
     
@@ -144,7 +149,7 @@ class OrdersUnController extends AppController
             $this->layout = 'ajax_empty';
         }*/ 
         
-        $order = $this->Session->read('orders_un.order');
+        $order = $this->Session->read('order_edit.order');
         if($key_1 != 'nl' && $key_2 == 'nl')
         {
             $order[$key_1][$this->data['id']] = $this->data['value'];
@@ -159,7 +164,7 @@ class OrdersUnController extends AppController
         }
         else $order[$this->data['id']] = $this->data['value'];
             
-        $this->Session->write('orders_un.order', $order);
+        $this->Session->write('order_edit.order', $order);
         $this->set('return',$this->data['value']);
 
         $this->render('/Elements/ajaxreturn');
@@ -167,7 +172,7 @@ class OrdersUnController extends AppController
         
     public function admin_add_product ($category = 'group', $id = 0)
     {
-        $order = $this->Session->read('orders_un.order');
+        $order = $this->Session->read('order_edit.order');
                 
         $this->loadModel('Content');
         $this->Content->Behaviors->attach('Containable');
@@ -252,12 +257,12 @@ class OrdersUnController extends AppController
                 $order['total'] += $value['price'] * $value['quantity'];
             }
             
-            $this->Session->write('orders_un.order', $order);
-            $this->redirect('/orders_un/admin/redirect/');
+            $this->Session->write('order_edit.order', $order);
+            $this->redirect('/orders_edit/admin/redirect/');
         }
         elseif ($category == 'ret') 
         {
-            $this->redirect('/orders_un/admin/redirect/');
+            $this->redirect('/orders_edit/admin/redirect/');
         }
         else
         {
@@ -269,7 +274,7 @@ class OrdersUnController extends AppController
     
     public function admin_delete_product ($index = 0)
     {
-        $order = $this->Session->read('orders_un.order');
+        $order = $this->Session->read('order_edit.order');
         
         //unset($order['OrderProduct'][$index]);
         array_splice($order['OrderProduct'],$index,1);
@@ -284,8 +289,8 @@ class OrdersUnController extends AppController
         }
         else $order['total'] = 0;
         
-        $this->Session->write('orders_un.order', $order);
-        $this->redirect('/orders_un/admin/redirect/');
+        $this->Session->write('order_edit.order', $order);
+        $this->redirect('/orders_edit/admin/redirect/');
     }
     
     public function save_order ()
@@ -294,14 +299,14 @@ class OrdersUnController extends AppController
 	{
             if(isset($this->data['cancelbutton']))
             {
-                $this->redirect('/orders_un/admin/new/');
+                $this->redirect('/orders_edit/admin/new/');
                 die();
             }
             
             $this->loadModel('Order');
             $this->loadModel('ContentProduct');
             $this->ContentProduct->UnbindAll();
-            $order = $this->Session->read('orders_un.order');
+            $order = $this->Session->read('order_edit.order');
             
             $order['total'] = 0;
             if(!empty($order['OrderProduct']))
@@ -415,19 +420,19 @@ class OrdersUnController extends AppController
             {
                 $msg = __('Order saved.');
             } else $msg = __('Order not saved!');
-            $this->Session->write('orders_un.order', $order);     
+            $this->Session->write('order_edit.order', $order);     
             $this->Session->setFlash($msg);
-            $this->redirect('/orders_un/admin/redirect/');
+            $this->redirect('/orders_edit/admin/redirect/');
         }
 
     }
     
   /*  public function admin_search($category = 'group', $id = 0) 
     {
-        $order = $this->Session->read('orders_un.order');
+        $order = $this->Session->read('order_edit.order');
         $order['filter'] = $this->data['Search']['term'];  
-        $this->Session->write('orders_un.order', $order); 
-        $this->redirect('/orders_un/admin_add_product/' . $category . '/' . $id);
+        $this->Session->write('order_edit.order', $order); 
+        $this->redirect('/orders_edit/admin_add_product/' . $category . '/' . $id);
     }*/
    
 }
