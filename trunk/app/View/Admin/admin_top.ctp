@@ -53,7 +53,7 @@ $(document).ready(function () {
 							$order['Order']['total'],
 							$this->Time->timeAgoInWords($order['Order']['created']),
 							$order['OrderStatus']['OrderStatusDescription']['name'],
-							array($this->Admin->ActionButton('view','/orders/admin_view/' . $order['Order']['id'],__('View')), array('align'=>'center'))
+							array($this->Admin->ActionButton('view','/orders/admin_view/' . $order['Order']['id'],__('View')).$this->Admin->ActionButton('edit','/orders_edit/admin/edit/' . $order['Order']['id'],__('Edit')), array('align'=>'center'))
 					   ));
 					   	
 			}
