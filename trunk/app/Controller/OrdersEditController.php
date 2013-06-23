@@ -23,7 +23,7 @@ class OrdersEditController extends AppController
             $max_id = $this->Order->find('first',array('fields' => array('MAX(Order.id) as id')));
             $order['id'] = $max_id[0]['id'] + 1;
             $order['bill_inf'] = array('Customer_Name' => '','Address_Line_1' => '','Address_Line_2' => '','City' => '','State' => '','Country' => '','Zip' => '');
-            $order['ship_inf'] = array('_Customer_Name' => '','_Address_Line_1' => '','_Address_Line_2' => '','_City' => '','_State' => '','_Country' => '','_Zip' => '');
+            $order['ship_inf'] = array('Ship_Customer_Name' => '','Ship_Address_Line_1' => '','Ship_Address_Line_2' => '','Ship_City' => '','Ship_State' => '','Ship_Country' => '','Ship_Zip' => '');
             $order['contact_inf'] = array('Email' => '','Phone' => '','Company' => '0');
             $order['pay_inf'] = array('Credit_Card' => '0','Expiration' => '0');
             $order['total'] = 0;
@@ -71,13 +71,13 @@ class OrdersEditController extends AppController
                                           ,'Zip' => $o[0]['Order']['bill_zip']
                                           );
 
-                $order['ship_inf'] = array('_Customer_Name' => $o[0]['Order']['ship_name']
-                                          ,'_Address_Line_1' => $o[0]['Order']['ship_line_1']
-                                          ,'_Address_Line_2' => $o[0]['Order']['ship_line_2']
-                                          ,'_City' => $o[0]['Order']['ship_city']
-                                          ,'_State' => $o[0]['Order']['ship_state']
-                                          ,'_Country' => $o[0]['Order']['ship_country']
-                                          ,'_Zip' => $o[0]['Order']['ship_zip']
+                $order['ship_inf'] = array('Ship_Customer_Name' => $o[0]['Order']['ship_name']
+                                          ,'Ship_Address_Line_1' => $o[0]['Order']['ship_line_1']
+                                          ,'Ship_Address_Line_2' => $o[0]['Order']['ship_line_2']
+                                          ,'Ship_City' => $o[0]['Order']['ship_city']
+                                          ,'Ship_State' => $o[0]['Order']['ship_state']
+                                          ,'Ship_Country' => $o[0]['Order']['ship_country']
+                                          ,'Ship_Zip' => $o[0]['Order']['ship_zip']
                                           );
                 $order['contact_inf'] = array('Email' => $o[0]['Order']['email']
                                              ,'Phone' => $o[0]['Order']['phone']
@@ -119,7 +119,7 @@ class OrdersEditController extends AppController
             }
             else 
             {
-                $this->Session->setFlash(__('Record not found!', true));
+                $this->Session->setFlash(__('Order is not found.', true));
                 $this->redirect('/orders_edit/admin/new/');
             }
             
@@ -330,13 +330,13 @@ class OrdersEditController extends AppController
                             ,'bill_state' => $order['bill_inf']['State']
                             ,'bill_country' => $order['bill_inf']['Country']
                             ,'bill_zip' => $order['bill_inf']['Zip']
-                            ,'ship_name' => $order['ship_inf']['_Customer_Name']
-                            ,'ship_line_1' => $order['ship_inf']['_Address_Line_1']
-                            ,'ship_line_2' => $order['ship_inf']['_Address_Line_2']
-                            ,'ship_city' => $order['ship_inf']['_City']
-                            ,'ship_state' => $order['ship_inf']['_State']
-                            ,'ship_country' => $order['ship_inf']['_Country']
-                            ,'ship_zip' => $order['ship_inf']['_Zip']
+                            ,'ship_name' => $order['ship_inf']['Ship__Customer_Name']
+                            ,'ship_line_1' => $order['ship_inf']['Ship__Address_Line_1']
+                            ,'ship_line_2' => $order['ship_inf']['Ship__Address_Line_2']
+                            ,'ship_city' => $order['ship_inf']['Ship__City']
+                            ,'ship_state' => $order['ship_inf']['Ship__State']
+                            ,'ship_country' => $order['ship_inf']['Ship__Country']
+                            ,'ship_zip' => $order['ship_inf']['Ship__Zip']
                             ,'email' => $order['contact_inf']['Email']
                             ,'phone' => $order['contact_inf']['Phone']
                             ,'cc_number' => $order['pay_inf']['Credit_Card']
@@ -418,7 +418,7 @@ class OrdersEditController extends AppController
 
             if($this->Order->save($temp_order))
             {
-                $msg = __('Order saved.');
+                $msg = __('Order saved!');
             } else $msg = __('Order not saved!');
             $this->Session->write('order_edit.order', $order);     
             $this->Session->setFlash($msg);
