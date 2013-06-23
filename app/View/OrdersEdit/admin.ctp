@@ -41,7 +41,7 @@
                                    }'
     , array('allowCache'=>false,'safe'=>false,'inline'=>false));
 
-    echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-table');
+    echo $this->Admin->ShowPageHeaderStart(__('Order Edit'), 'cus-cart-edit');
     
     echo '<strong>' . __('Order Number') . ' : ' . $order['id'] . '</strong>';
     

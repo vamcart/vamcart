@@ -3619,3 +3619,19 @@ msgstr "Заказов"
 #: /View/Admin/admin_top.ctp:25
 msgid "Image"
 msgstr "Картинка"
+
+#: /View/Order/admin.ctp:61
+msgid "New Order"
+msgstr "Новый заказ"
+
+#: /View/Order/admin_view.ctp:61
+msgid "Edit Order"
+msgstr "Редактировать заказ"
+
+#: /app/controllers/OrdersEditController.php:61
+msgid "Order Edit"
+msgstr "Редактирование заказа"
+
+#: /app/controllers/OrdersEditController.php:61
+msgid "Add Product"
+msgstr "Добавление товара"
