@@ -36,7 +36,7 @@ echo '</table>';
 echo $this->Admin->EmptyResults($data);
 
 echo '<div class="clear"></div>';
-echo $this->Admin->formButton(__('New'), 'cus-page-white-add', array('class' => 'btn', 'type' => 'submit', 'name' => 'submit'));
+echo $this->Admin->formButton(__('New Order'), 'cus-cart-add', array('class' => 'btn', 'type' => 'submit', 'name' => 'submit'));
 echo $this->Form->end();
 
 echo $this->Admin->ShowPageHeaderEnd();

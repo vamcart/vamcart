@@ -11,7 +11,7 @@
     $search_form .= $this->Form->input('Search.term',array('id' => 'search_my','label' => __('Search'),'value' => __('Category Search'),"onblur" => "if(this.value=='') this.value=this.defaultValue;","onfocus" => "if(this.value==this.defaultValue) this.value='';"));
     $search_form .= $this->Form->end();
 
-    echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-table', $search_form);
+    echo $this->Admin->ShowPageHeaderStart(__('Add Product'), 'cus-cart-add', $search_form);
     
     echo '<table class="contentTable">';
     for($r = 0;$r <= 36;$r+=9)
