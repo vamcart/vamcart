@@ -44,8 +44,6 @@ echo $this->Admin->ShowPageHeaderEnd();
 ?>
 <table class="contentPagination">
 	<tr>
-		<td><?php echo $this->Paginator->prev(__('<< Previous')); ?></td>
-		<td>&nbsp;<?php echo $this->Paginator->numbers(array('separator'=>' - ')); ?>&nbsp;</td>
-		<td><?php echo $this->Paginator->next(__('Next >>')); ?></td>
+		<td><?php echo $this->Paginator->numbers(array('separator'=>' - ')); ?></td>
 	</tr>
 </table>

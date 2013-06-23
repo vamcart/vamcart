@@ -15,7 +15,7 @@
         var my_global_formNavigate = true;
 	$(document).ready(function(){
             window.onbeforeunload = function () {  
-            if (my_global_formNavigate == true) {return null;} else{return "Data change!";}
+            if (my_global_formNavigate == true) {return null;} else{return "' . __('Order Changed! Click Save button to save your order!') . '";}
                                                 }
             $(document).on("change","#pay_metd select",function(){$(this).blur();});
             $(document).on("change","#ship_metd select",function(){$(this).blur();});
@@ -41,19 +41,17 @@
                                    }'
     , array('allowCache'=>false,'safe'=>false,'inline'=>false));
 
-    echo $this->Admin->ShowPageHeaderStart(__('Order Edit'), 'cus-cart-edit');
-    
-    echo '<strong>' . __('Order Number') . ' : ' . $order['id'] . '</strong>';
+    echo $this->Admin->ShowPageHeaderStart(__('Edit Order #').' '.$order['id'], 'cus-cart-edit');
     
     echo '<table class="orderTable"><tr><td width="50%">';
     echo '<table class="contentTable">';
-    echo $this->Html->tableHeaders(array('',__('Billing Information')));
-    if(isset($order['bill_inf']))
+    echo $this->Html->tableHeaders(array('',__('Shipping Information')));
+    if(isset($order['ship_inf']))
     {
-        foreach ($order['bill_inf'] AS $k => $bill_inf)
+        foreach ($order['ship_inf'] AS $k => $ship_inf)
         {
-            echo $this->Admin->TableCells(array(__($k),array(__($bill_inf),array('id' => $k,'class' => 'edit','width' => '80%'))));
-            echo $this->Ajax->editor($k,'/orders_edit/edit_field/bill_inf/',  array('callback' => 'function(value,settings){my_global_formNavigate = false;}'
+            echo $this->Admin->TableCells(array(__(str_replace('_', ' ', str_replace('Ship_', '', $k))),array(__($ship_inf),array('id' => $k,'class' => 'edit','width' => '80%'))));
+            echo $this->Ajax->editor($k,'/orders_edit/edit_field/ship_inf/',  array('callback' => 'function(value,settings){my_global_formNavigate = false;}'
                                                                       ,'tooltip' => __($k)
                                                                       ,'placeholder' => '_'
                                                                       ,'onblur' => 'submit'));
@@ -63,13 +61,13 @@
     echo '</td><td width="50%">';
     
     echo '<table class="contentTable">';
-    echo $this->Html->tableHeaders(array('',__('Shipping Information')));
-    if(isset($order['ship_inf']))
+    echo $this->Html->tableHeaders(array('',__('Billing Information')));
+    if(isset($order['bill_inf']))
     {
-        foreach ($order['ship_inf'] AS $k => $ship_inf)
+        foreach ($order['bill_inf'] AS $k => $bill_inf)
         {
-            echo $this->Admin->TableCells(array(__($k),array(__($ship_inf),array('id' => $k,'class' => 'edit','width' => '80%'))));
-            echo $this->Ajax->editor($k,'/orders_edit/edit_field/ship_inf/',  array('callback' => 'function(value,settings){my_global_formNavigate = false;}'
+            echo $this->Admin->TableCells(array(__(str_replace('_', ' ', $k)),array(__($bill_inf),array('id' => $k,'class' => 'edit','width' => '80%'))));
+            echo $this->Ajax->editor($k,'/orders_edit/edit_field/bill_inf/',  array('callback' => 'function(value,settings){my_global_formNavigate = false;}'
                                                                       ,'tooltip' => __($k)
                                                                       ,'placeholder' => '_'
                                                                       ,'onblur' => 'submit'));
@@ -85,7 +83,7 @@
     {
         foreach ($order['contact_inf'] AS $k => $contact_inf)
         {
-            echo $this->Admin->TableCells(array(__($k),array(__($contact_inf),array('id' => $k,'class' => 'edit','width' => '80%'))));
+            echo $this->Admin->TableCells(array(__(str_replace('_', ' ', $k)),array(__($contact_inf),array('id' => $k,'class' => 'edit','width' => '80%'))));
             echo $this->Ajax->editor($k,'/orders_edit/edit_field/contact_inf/',  array('callback' => 'function(value,settings){my_global_formNavigate = false;}'
                                                                       ,'tooltip' => __($k)
                                                                       ,'placeholder' => '_'
@@ -101,7 +99,7 @@
     {
         foreach ($order['pay_inf'] AS $k => $pay_inf)
         {
-            echo $this->Admin->TableCells(array(__($k),array(__($pay_inf),array('id' => $k,'class' => 'edit','width' => '80%'))));
+            echo $this->Admin->TableCells(array(__(str_replace('_', ' ', $k)),array(__($pay_inf),array('id' => $k,'class' => 'edit','width' => '80%'))));
             echo $this->Ajax->editor($k,'/orders_edit/edit_field/pay_inf/',  array('callback' => 'function(value,settings){my_global_formNavigate = false;}'
                                                                       ,'tooltip' => __($k)
                                                                       ,'placeholder' => '_'
@@ -155,7 +153,7 @@
     }
         echo $this->Admin->TableCells(
                       array(
-                                    $this->Ajax->link($this->Html->tag('i', '',array('class' => 'cus-add')), 'null', $options = array('escape' => false, 'url' => '/orders_edit/admin_add_product/group/', 'update' => 'content'), null, false),
+                                    $this->Ajax->link($this->Html->tag('i', '',array('class' => 'cus-add')).__('Add Product'), 'null', $options = array('escape' => false, 'url' => '/orders_edit/admin_add_product/group/', 'update' => 'content'), null, false),
                                     '_',
                                     '_',
                                     '_',
@@ -181,7 +179,7 @@
     echo '</table>';
     
     echo $this->Form->create('OrdersEdit', array('id' => 'saveForm','action' => '/orders_edit/save_order/', 'url' => '/orders_edit/save_order/'));
-    echo $this->Admin->formButton(__('Save'), 'cus-tick', array('id' => 'saveButton', 'name' => 'saveButton', 'class' => 'btn', 'type' => 'submit', 'name' => 'submit','onclick' =>  'saveform();')) . $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn', 'type' => 'submit', 'name' => 'cancelbutton','onclick' => 'saveform();'));
+    echo $this->Admin->formButton(__('Save'), 'cus-disk', array('id' => 'saveButton', 'name' => 'saveButton', 'class' => 'btn', 'type' => 'submit', 'name' => 'submit','onclick' =>  'saveform();')) . $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn', 'type' => 'submit', 'name' => 'cancelbutton','onclick' => 'saveform();'));
     echo $this->Form->end();
 
     echo $this->Admin->ShowPageHeaderEnd();

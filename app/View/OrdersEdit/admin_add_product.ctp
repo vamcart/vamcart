@@ -8,7 +8,7 @@
 
     $search_form  = $this->Ajax->form(null,'post',$options = array('escape' => false, 'url' => '/orders_edit/admin_add_product/product/0'
                                                                  , 'update' => 'content','before' => 'var temp_ = window.onbeforeunload; window.onbeforeunload = null','after' => 'window.onbeforeunload = temp_'));
-    $search_form .= $this->Form->input('Search.term',array('id' => 'search_my','label' => __('Search'),'value' => __('Category Search'),"onblur" => "if(this.value=='') this.value=this.defaultValue;","onfocus" => "if(this.value==this.defaultValue) this.value='';"));
+    $search_form .= $this->Form->input('Search.term',array('id' => 'search_my','label' => __('Search'),'value' => __('Search'),"onblur" => "if(this.value=='') this.value=this.defaultValue;","onfocus" => "if(this.value==this.defaultValue) this.value='';"));
     $search_form .= $this->Form->end();
 
     echo $this->Admin->ShowPageHeaderStart(__('Add Product'), 'cus-cart-add', $search_form);
@@ -31,14 +31,12 @@
     ?>
     <table class="contentPagination">
         <tr>               
-               <td><?php echo $this->Ajax->link($this->Html->tag('i', '',array('class' => 'cus-arrow-undo')) . __('Up'), 'null', $options = array('escape' => false, 'url' => '/orders_edit/admin_add_product/'  . $data['prev_category'], 'update' => 'content'), null, false); ?></td>
+               <td><?php echo $this->Ajax->link($this->Html->tag('i', '',array('class' => 'cus-arrow-up')) . __('Up One Level'), 'null', $options = array('escape' => false, 'url' => '/orders_edit/admin_add_product/'  . $data['prev_category'], 'update' => 'content'), null, false); ?></td>
                <td></td>
                <td></td>
         </tr>
 	<tr>
-		<td><?php echo $this->Paginator->prev(__('<< Previous')); ?></td>
-		<td>&nbsp;<?php echo $this->Paginator->numbers(array('separator'=>' - ')); ?>&nbsp;</td>
-		<td><?php echo $this->Paginator->next(__('Next >>')); ?></td>
+		<td><?php echo $this->Paginator->numbers(array('separator'=>' - ')); ?></td>
 	</tr>
     </table>
 
