@@ -49,6 +49,7 @@ class OrdersEditController extends AppController
         elseif ($act == 'redirect') 
         {
             $order = $this->Session->read('order_edit.order');
+            $this->redirect('/orders/admin/');
         }
         elseif ($act == 'edit') 
         {
@@ -330,13 +331,13 @@ class OrdersEditController extends AppController
                             ,'bill_state' => $order['bill_inf']['State']
                             ,'bill_country' => $order['bill_inf']['Country']
                             ,'bill_zip' => $order['bill_inf']['Zip']
-                            ,'ship_name' => $order['ship_inf']['Ship__Customer_Name']
-                            ,'ship_line_1' => $order['ship_inf']['Ship__Address_Line_1']
-                            ,'ship_line_2' => $order['ship_inf']['Ship__Address_Line_2']
-                            ,'ship_city' => $order['ship_inf']['Ship__City']
-                            ,'ship_state' => $order['ship_inf']['Ship__State']
-                            ,'ship_country' => $order['ship_inf']['Ship__Country']
-                            ,'ship_zip' => $order['ship_inf']['Ship__Zip']
+                            ,'ship_name' => $order['ship_inf']['Ship_Customer_Name']
+                            ,'ship_line_1' => $order['ship_inf']['Ship_Address_Line_1']
+                            ,'ship_line_2' => $order['ship_inf']['Ship_Address_Line_2']
+                            ,'ship_city' => $order['ship_inf']['Ship_City']
+                            ,'ship_state' => $order['ship_inf']['Ship_State']
+                            ,'ship_country' => $order['ship_inf']['Ship_Country']
+                            ,'ship_zip' => $order['ship_inf']['Ship_Zip']
                             ,'email' => $order['contact_inf']['Email']
                             ,'phone' => $order['contact_inf']['Phone']
                             ,'cc_number' => $order['pay_inf']['Credit_Card']
