@@ -71,9 +71,39 @@ class SiteController extends AppController {
 			$this->redirect('/customer/register'  . $config['URL_EXTENSION']);
 		}
 	}
+
+	public function account_edit()
+	{
+		global $config;
+
+		App::uses('Sanitize', 'Utility');
+		$clean = new Sanitize();
+		$clean->clean($_POST);
+		if (isset($_POST['customer'])) {
+			$customer = new Customer();
+			$customer->set($_POST['customer']);
+			if ($customer->validates()) {
+				$_POST['customer']['password'] = Security::hash($_POST['customer']['password'], 'sha1', true);
+				$_POST['customer']['retype'] = Security::hash($_POST['customer']['retype'], 'sha1', true);
+				$ret = $customer->save($_POST['customer']);
+
+				$this->redirect('/customer/account_edit'  . $config['URL_EXTENSION']);
+				
+			} else {
+				$errors = $customer->invalidFields();
+				$this->Session->write('loginFormErrors', $errors);
+				$this->Session->write('loginFormData', $customer->data['Customer']);
+				$this->redirect('/customer/account_edit'  . $config['URL_EXTENSION']);
+			}
+		} else {
+			$this->redirect('/customer/account_edit'  . $config['URL_EXTENSION']);
+		}
+	}
 	
 	public function login()
 	{
+		$this->Session->write('customer_id', $_POST['customer_id']);
+		$this->redirect($_SERVER['HTTP_REFERER']);
 	}
 
 	public function logout()
