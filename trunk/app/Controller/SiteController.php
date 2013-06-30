@@ -102,21 +102,34 @@ class SiteController extends AppController {
 	
 	public function login()
 	{
-		$this->Session->write('customer_id', $_POST['customer_id']);
+		App::uses('Sanitize', 'Utility');
+		$clean = new Sanitize();
+		$clean->clean($_POST);
+
+		$customer_id = $this->Customer->find('first', array('conditions' => array('email' => $_POST['data']['Customer']['email'])));
+
+		if ($customer_id['Customer']['password'] == Security::hash( $_POST['data']['Customer']['password'], 'sha1', true)) {
+
+		$this->Session->write('customer_id', $customer_id['Customer']['id']);
+
+		} else {
+
+		$this->Session->delete('customer_id');
+			
+		}
+
 		$this->redirect($_SERVER['HTTP_REFERER']);
+
 	}
 
 	public function logout()
 	{
-		$this->Auth->logout();
 
-		if (isset($this->params['url']['return_url'])) {
-			$return_url = urldecode(base64_decode($this->params['url'][return_url]));
-		} else {
-			$return_url = '/';
-		}
+		$this->Session->delete('customer_id');
 
-		$this->redirect($return_url);
+		//$this->Auth->logout();
+
+		$this->redirect($_SERVER['HTTP_REFERER']);
 	}
 
 }

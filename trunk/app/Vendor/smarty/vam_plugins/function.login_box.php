@@ -9,18 +9,30 @@
 function default_template_login_box()
 {
 $template = '
-<div class="info_box">
-	<div class="box_heading">{lang}Login{/lang}</div>
-	<div class="box_content">
-		<form action="{$login_form_action}" method="post">
-		<select name="currency_picker">
-	 	{foreach from=$currencies item=currency}
-	<option value="{$currency.id}" {if $currency.id == $smarty.session.Customer.currency_id}selected="selected"{/if}>{$currency.name}</option>
-		{/foreach}
-		</select>
-		<button class="btn" type="submit" value="{lang}Go{/lang}"><i class="cus-tick"></i> {lang}Go{/lang}</button>
-		</form>
-	</div>
+<div class="box">
+<h5>&nbsp;{lang}Login{/lang}</h5>
+<div class="boxContent">
+{if not $is_logged_in }
+<form action="{base_path}/site/login?return_url={$return_url}" method="post">
+<label>{lang}E-mail{/lang}</label>
+<input type="text" name="data[Customer][email]" />
+<br />
+<label>{lang}Password{/lang}</label>
+<input type="password" name="data[Customer][password]" />
+<br />
+<button class="btn" type="submit" value="{lang}Login{/lang}"><i class="cus-tick"></i> {lang}Login{/lang}</button>
+</form>
+<br />
+  <a href="{base_path}/customer/register.html">{lang}Registration{/lang}</a>
+{else}
+<ul>
+  <li><a href="{base_path}/customer/account.html">{lang}My Account{/lang}</a></li>
+</ul>
+<form action="{base_path}/site/logout?return_url={$return_url}" method="post">
+<button class="btn" type="submit" value="{lang}Logout{/lang}"><i class="cus-tick"></i> {lang}Logout{/lang}</button>
+</form>
+{/if}
+</div>
 </div>
 ';
 
@@ -32,7 +44,7 @@ function smarty_function_login_box($params, $template)
 	App::uses('SmartyComponent', 'Controller/Component');
 	$Smarty =& new SmartyComponent(new ComponentCollection());
 
-	if (isset($_SESSION['Auth']) && isset($_SESSION['Auth']['Customer'])) {
+	if (isset($_SESSION['customer_id'])) {
 		$isLoggedIn = true;
 	} else {
 		$isLoggedIn = false;
