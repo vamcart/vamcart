@@ -8,6 +8,7 @@
 App::uses('Model', 'AppModel');
 class Customer extends AppModel {
 	public $name = 'Customer';
+	public $hasMany = array('AddressBook');
 
 	public function _validationRules() 
 	{
