@@ -129,7 +129,7 @@ class SiteController extends AppController {
 
 		//$this->Auth->logout();
 
-		$this->redirect($_SERVER['HTTP_REFERER']);
+		$this->redirect('/');
 	}
 
 }
