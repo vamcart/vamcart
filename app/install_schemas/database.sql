@@ -1444,6 +1444,24 @@ CREATE TABLE IF NOT EXISTS `customers` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+DROP TABLE IF EXISTS address_book;
+CREATE TABLE `address_book` (
+  `id` int(10) NOT NULL auto_increment,
+  `customer_id` int(10) NOT NULL,
+  `address_name` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `address_line_1` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `address_line_2` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `address_city` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `address_state` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `address_country` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `address_zip` varchar(20) collate utf8_unicode_ci NOT NULL,
+  `address_email` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `address_phone` varchar(15) collate utf8_unicode_ci NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 DROP TABLE IF EXISTS contents_contents;
 CREATE TABLE IF NOT EXISTS `contents_contents` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
