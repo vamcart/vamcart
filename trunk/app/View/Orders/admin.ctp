@@ -23,7 +23,7 @@ foreach ($data AS $order)
 {
 	echo $this->Admin->TableCells(
 		  array(
-				$this->Html->link($order['Order']['bill_name'],'/orders/admin_view/' . $order['Order']['id']),
+				$this->Html->link($order['Order']['ship_name'],'/orders/admin_view/' . $order['Order']['id']),
 				$order['Order']['id'],
 				$order['Order']['total'],
 				$this->Time->timeAgoInWords($order['Order']['created']),
