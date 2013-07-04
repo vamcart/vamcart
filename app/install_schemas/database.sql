@@ -1092,7 +1092,7 @@ CREATE TABLE `orders` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `orders` (`id`, `customer_id`, `order_status_id`, `shipping_method_id`, `payment_method_id`, `shipping`, `tax`, `total`, `bill_name`, `bill_line_1`, `bill_line_2`, `bill_city`, `bill_state`, `bill_country`, `bill_zip`, `ship_name`, `ship_line_1`, `ship_line_2`, `ship_city`, `ship_state`, `ship_country`, `ship_zip`, `email`, `phone`, `cc_number`, `cc_expiration_month`, `cc_expiration_year`, `company_name`, `company_info`, `created`) VALUES 
-(1, 0, 1, 2, 2, 0, 0, 25.79, 'Test Order', 'asdfasf', 'asdfasdf', '', '', '', '', '', '', '', '', '', '', '', 'vam@test.com', '', 0, 0, 0, '', '', '2009-08-28 11:06:18');
+(1, 0, 1, 2, 2, 0, 0, 25.79, 'Test Order', 'asdfasf', 'asdfasdf', '', '', '', '', 'Test Order', '', '', '', '', '', '', 'vam@test.com', '', 0, 0, 0, '', '', '2009-08-28 11:06:18');
 
 DROP TABLE IF EXISTS order_comments;
 CREATE TABLE `order_comments` (
