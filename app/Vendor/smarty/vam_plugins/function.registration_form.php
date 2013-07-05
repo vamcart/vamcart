@@ -10,7 +10,9 @@ function default_template_registration_form()
 {
 $template = '
 {foreach from=$errors item=error}
-<div class="error">{$error}</div>
+{if $error}
+<div class="alert alert-error"><i class="cus-error"></i> {$error}</div>
+{/if}
 {/foreach}
 <form id="login-form" name="login-form" action="{base_path}/site/register" method="post">
 <div class="label"><label for="firstname">{lang}Firstname{/lang}:</label></div><input id="firstname" name="customer[firstname]" type="text" value="{$form_data.firstname}" />
