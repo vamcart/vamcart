@@ -3659,3 +3659,7 @@ msgstr "Заказ был изменён! Нажмите кнопку Сохра
 #: /vendors/smarty/vam_plugins/function.account_edit.php:33
 msgid "Your account has been updated successfully."
 msgstr "Ваши данные обновлены!"
+
+#: /app/controllers/OrdersEditController.php:61
+msgid "Login error. Check your email and/or password!"
+msgstr "Ошибка. Указанный email и/или пароль неверный!"

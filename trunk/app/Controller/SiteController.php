@@ -119,6 +119,8 @@ class SiteController extends AppController {
 
 		} else {
 
+		$this->Session->setFlash(__('Login error. Check your email and/or password!'));
+
 		$this->Session->delete('customer_id');
 			
 		}
