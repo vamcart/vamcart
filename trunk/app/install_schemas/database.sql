@@ -96,9 +96,9 @@ INSERT INTO `contents` VALUES(87, -1, 7, 0, 3, 1, 0, 'register', '', 1, 0, 0, 10
 INSERT INTO `contents` VALUES(88, -1, 8, 0, 3, 1, 0, 'register-success', '', 1, 0, 0, 3, '2012-08-19 00:00:00', '2012-08-19 21:19:37');
 
 INSERT INTO `contents` VALUES(89, -1, 7, 0, 3, 1, 0, 'account', '', 1, 0, 0, 106, '2012-08-19 00:00:00', '2012-08-19 21:18:34');
-INSERT INTO `contents` VALUES(90, -1, 8, 0, 3, 1, 0, 'account-edit', '', 1, 0, 0, 3, '2012-08-19 00:00:00', '2012-08-19 21:19:37');
-INSERT INTO `contents` VALUES(91, -1, 8, 0, 3, 1, 0, 'my-orders', '', 1, 0, 0, 3, '2012-08-19 00:00:00', '2012-08-19 21:19:37');
-INSERT INTO `contents` VALUES(92, -1, 8, 0, 3, 1, 0, 'address-book', '', 1, 0, 0, 3, '2012-08-19 00:00:00', '2012-08-19 21:19:37');
+INSERT INTO `contents` VALUES(90, -1, 8, 0, 3, 1, 0, 'account_edit', '', 1, 0, 0, 3, '2012-08-19 00:00:00', '2012-08-19 21:19:37');
+INSERT INTO `contents` VALUES(91, -1, 8, 0, 3, 1, 0, 'my_orders', '', 1, 0, 0, 3, '2012-08-19 00:00:00', '2012-08-19 21:19:37');
+INSERT INTO `contents` VALUES(92, -1, 8, 0, 3, 1, 0, 'address_book', '', 1, 0, 0, 3, '2012-08-19 00:00:00', '2012-08-19 21:19:37');
 
 DROP TABLE IF EXISTS content_categories;
 CREATE TABLE `content_categories` (
@@ -174,8 +174,8 @@ INSERT INTO `content_descriptions` VALUES(516, 87, 2, 'Регистрация', 
 INSERT INTO `content_descriptions` VALUES(517, 88, 1, 'Register success', 'Thak you for registration', '', '', '');
 INSERT INTO `content_descriptions` VALUES(518, 88, 2, 'Успешная регистрация', 'Благодарим Вас за регистрацию в нашем магазине!', '', '', '');
 
-INSERT INTO `content_descriptions` VALUES(519, 89, 1, 'Account', '{if $smarty.session.customer_id}\r\n<ul>\r\n  <li><a href="{base_path}/customer/account_edit.html">{lang}Account Edit{/lang}</a></li>\r\n  <li><a href="{base_path}/customer/address_book.html">{lang}Address Book{/lang}</a></li>\r\n  <li><a href="{base_path}/customer/my_orders.html">{lang}My Orders{/lang}</a></li>\r\n</ul>\r\n{else}\r\n{lang}Permission Denied.{/lang}\r\n{/if}', '', '', '');
-INSERT INTO `content_descriptions` VALUES(520, 89, 2, 'Личный кабинет', '{if $smarty.session.customer_id}\r\n<ul>\r\n  <li><a href="{base_path}/customer/account_edit.html">{lang}Account Edit{/lang}</a></li>\r\n  <li><a href="{base_path}/customer/address_book.html">{lang}Address Book{/lang}</a></li>\r\n  <li><a href="{base_path}/customer/my_orders.html">{lang}My Orders{/lang}</a></li>\r\n</ul>\r\n{else}\r\n{lang}Permission Denied.{/lang}\r\n{/if}', '', '', '');
+INSERT INTO `content_descriptions` VALUES(519, 89, 1, 'Account', '{if $smarty.session.Message.flash.message}<div class="alert alert-success"><i class="cus-lightbulb"></i> {$smarty.session.Message.flash.message}</div>{/if}\r\n{if $smarty.session.customer_id}\r\n<ul>\r\n  <li><a href="{base_path}/customer/account_edit.html">{lang}Account Edit{/lang}</a></li>\r\n  <li><a href="{base_path}/customer/address_book.html">{lang}Address Book{/lang}</a></li>\r\n  <li><a href="{base_path}/customer/my_orders.html">{lang}My Orders{/lang}</a></li>\r\n</ul>\r\n{else}\r\n{lang}Permission Denied.{/lang}\r\n{/if}', '', '', '');
+INSERT INTO `content_descriptions` VALUES(520, 89, 2, 'Личный кабинет', '{if $smarty.session.Message.flash.message}<div class="alert alert-success"><i class="cus-lightbulb"></i> {$smarty.session.Message.flash.message}</div>{/if}\r\n{if $smarty.session.customer_id}\r\n<ul>\r\n  <li><a href="{base_path}/customer/account_edit.html">{lang}Account Edit{/lang}</a></li>\r\n  <li><a href="{base_path}/customer/address_book.html">{lang}Address Book{/lang}</a></li>\r\n  <li><a href="{base_path}/customer/my_orders.html">{lang}My Orders{/lang}</a></li>\r\n</ul>\r\n{else}\r\n{lang}Permission Denied.{/lang}\r\n{/if}', '', '', '');
 INSERT INTO `content_descriptions` VALUES(521, 90, 1, 'Account Edit', '{account_edit}', '', '', '');
 INSERT INTO `content_descriptions` VALUES(522, 90, 2, 'Редактирование данных', '{account_edit}', '', '', '');
 
@@ -847,7 +847,18 @@ INSERT INTO `defined_languages` (`id`, `language_id`, `key`, `value`, `created`,
 (165, 1, 'Also purchased', 'Also purchased', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
 (166, 2, 'Also purchased', 'Сопутствующие товары', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
 (167, 1, 'ZoneBased', 'ZoneBased', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
-(168, 2, 'ZoneBased', 'Зональный тариф', '2009-09-12 20:08:49', '2009-09-12 20:08:49');
+(168, 2, 'ZoneBased', 'Зональный тариф', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(169, 1, 'Save', 'Save', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(170, 2, 'Save', 'Сохранить', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(171, 1, 'Account Edit', 'Account Edit', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(172, 2, 'Account Edit', 'Редактирование данных', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(173, 1, 'Address Book', 'Address Book', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(174, 2, 'Address Book', 'Адресная книга', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(175, 1, 'My Orders', 'My Orders', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(176, 2, 'My Orders', 'Мои заказы', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(177, 1, 'My Account', 'My Account', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(178, 2, 'My Account', 'Личный кабинет', '2009-09-12 20:08:49', '2009-09-12 20:08:49');
+
 
 DROP TABLE IF EXISTS email_templates;
 CREATE TABLE `email_templates` (

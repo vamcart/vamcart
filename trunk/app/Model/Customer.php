@@ -42,10 +42,10 @@ class Customer extends AppModel {
 				'allowEmpty' => false,
 				'message' => __('Please, input correct e-mail address', true)
 			),
-			'unique' => array (
-				'rule' => 'isUnique',
-				'message' => __('This email has already been taken.', true)
-			),
+			//'unique' => array (
+				//'rule' => 'isUnique',
+				//'message' => __('This email has already been taken.', true)
+			//),
 		),
 	);
 	}

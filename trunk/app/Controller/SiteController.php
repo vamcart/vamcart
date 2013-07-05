@@ -83,20 +83,25 @@ class SiteController extends AppController {
 			$customer = new Customer();
 			$customer->set($_POST['customer']);
 			if ($customer->validates()) {
+				
+				$_POST['customer']['id'] = $_SESSION['customer_id'];
+				
 				$_POST['customer']['password'] = Security::hash($_POST['customer']['password'], 'sha1', true);
 				$_POST['customer']['retype'] = Security::hash($_POST['customer']['retype'], 'sha1', true);
 				$ret = $customer->save($_POST['customer']);
 
-				$this->redirect('/customer/account_edit'  . $config['URL_EXTENSION']);
+				$this->Session->setFlash(__('Your account has been updated successfully.'));
+
+				$this->redirect('/customer/account'  . $config['URL_EXTENSION']);
 				
 			} else {
 				$errors = $customer->invalidFields();
-				$this->Session->write('loginFormErrors', $errors);
-				$this->Session->write('loginFormData', $customer->data['Customer']);
+				$this->Session->write('FormErrors', $errors);
+				$this->Session->write('FormData', $customer->data['Customer']);
 				$this->redirect('/customer/account_edit'  . $config['URL_EXTENSION']);
 			}
 		} else {
-			$this->redirect('/customer/account_edit'  . $config['URL_EXTENSION']);
+			$this->redirect('/customer/account'  . $config['URL_EXTENSION']);
 		}
 	}
 	

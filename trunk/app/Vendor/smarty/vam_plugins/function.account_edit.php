@@ -10,20 +10,20 @@ function default_template_account_edit()
 {
 $template = '
 {foreach from=$errors item=error}
-<div class="error">{$error}</div>
+{if $error}
+<div class="alert alert-error"><i class="cus-error"></i> {$error}</div>
+{/if}
 {/foreach}
-<form id="login-form" name="login-form" action="{base_path}/site/account_edit" method="post">
-<div class="label"><label for="firstname">{lang}Firstname{/lang}:</label></div><input id="firstname" name="customer[firstname]" type="text" value="{$form_data.firstname}" />
+<form id="account-edit" name="account-edit" action="{base_path}/site/account_edit" method="post">
+<div class="label"><label for="firstname">{lang}Firstname{/lang}:</label></div><input id="firstname" name="customer[firstname]" type="text" value="{$form_data.Customer.firstname}" />
 <br />
-<div class="label"><label for="lastname">{lang}Lastname{/lang}:</label></div><input id="lastname" name="customer[lastname]" type="text" value="{$form_data.lastname}" />
+<div class="label"><label for="lastname">{lang}Lastname{/lang}:</label></div><input id="lastname" name="customer[lastname]" type="text" value="{$form_data.Customer.lastname}" />
 <br />
-<div class="label"><label for="email">{lang}E-mail{/lang}:</label></div><input id="email" name="customer[email]" type="text" value="{$form_data.email}" />
+<div class="label"><label for="email">{lang}E-mail{/lang}:</label></div><input id="email" name="customer[email]" type="text" value="{$form_data.Customer.email}" />
 <br />
 <div class="label"><label for="password">{lang}Password{/lang}:</label></div><input id="password" name="customer[password]" type="password" />
 <br />
 <div class="label"><label for="retype">{lang}Retype Password{/lang}:</label></div><input id="retype" name="customer[retype]" type="password" />
-<br />
-<input name="customer_id" type="hidden" value="{$smarty.session.customer_id}" />
 <br />
 <button class="btn" type="submit" value="{lang}Save{/lang}"><i class="cus-tick"></i> {lang}Save{/lang}</button>
 </form>
@@ -38,30 +38,24 @@ function smarty_function_account_edit($params, $template)
 	App::uses('SmartyComponent', 'Controller/Component');
 	$Smarty =& new SmartyComponent(new ComponentCollection());
 
+	App::import('Model', 'Customer');
+	$Customer =& new Customer();
+
+	$customer_data = $Customer->find('first', array('conditions' => array('id' => $_SESSION['customer_id'])));
+
 	$errors = array();
 
-	if (isset($_SESSION['loginFormErrors'])) {
-		foreach ($_SESSION['loginFormErrors'] as $key => $value) {
+	if (isset($_SESSION['FormErrors'])) {
+		foreach ($_SESSION['FormErrors'] as $key => $value) {
 			$errors[] = $value[0];
 		}
-		unset($_SESSION['loginFormErrors']);
-	}
-
-	if (isset($_SESSION['loginFormData'])) {
-		$form_data = $_SESSION['loginFormData'];
-		unset($_SESSION['loginFormData']);
-	} else {
-		$form_data = array(
-			'firstname' => '',
-			'lastname' => '',
-			'email' => '',
-		);
+		unset($_SESSION['FormErrors']);
 	}
 
 	$display_template = $Smarty->load_template($params, 'account_edit');
 	$assignments = array(
 		'errors' => $errors,
-		'form_data' => $form_data,
+		'form_data' => $customer_data,
 	);
 
 	$Smarty->display($display_template, $assignments);

@@ -3655,3 +3655,7 @@ msgstr "Редактирование заказа номер "
 #: /View/OrdersEdit/admin.ctp:61
 msgid "Order Changed! Click Save button to save your order!"
 msgstr "Заказ был изменён! Нажмите кнопку Сохранить для сохранения изменённых в заказе данных!"
+
+#: /vendors/smarty/vam_plugins/function.account_edit.php:33
+msgid "Your account has been updated successfully."
+msgstr "Ваши данные обновлены!"
