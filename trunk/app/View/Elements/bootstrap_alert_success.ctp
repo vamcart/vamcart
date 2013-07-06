@@ -1,0 +1,1 @@
+<div class="alert alert-success"><i class="cus-lightbulb"></i> <?php echo $message; ?></div>

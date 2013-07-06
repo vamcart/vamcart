@@ -1,0 +1,1 @@
+<div class="alert alert-error"><i class="cus-error"></i> <?php echo $message; ?></div>

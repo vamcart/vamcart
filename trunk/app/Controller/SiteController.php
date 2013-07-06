@@ -90,7 +90,7 @@ class SiteController extends AppController {
 				$_POST['customer']['retype'] = Security::hash($_POST['customer']['retype'], 'sha1', true);
 				$ret = $customer->save($_POST['customer']);
 
-				$this->Session->setFlash(__('Your account has been updated successfully.'));
+				$this->Session->setFlash(__('Your account has been updated successfully.'), 'bootstrap_alert_success');
 
 				$this->redirect('/customer/account'  . $config['URL_EXTENSION']);
 				
@@ -119,7 +119,7 @@ class SiteController extends AppController {
 
 		} else {
 
-		$this->Session->setFlash(__('Login error. Check your email and/or password!'));
+		$this->Session->setFlash(__('Login error. Check your email and/or password!'), 'bootstrap_alert_error');
 
 		$this->Session->delete('customer_id');
 			
