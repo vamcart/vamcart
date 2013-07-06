@@ -14,9 +14,7 @@ class Customer extends AppModel {
 	{
 	$this->validate = array(
 		'name' => array(
-			'rule' => 'alphaNumeric',
-			'required' => true,
-			'allowEmpty' => false,
+			'rule'    => 'notEmpty',
 			'message' => __('Name must only contain letters and numbers.', true)
 		),
 		'password' => array(
