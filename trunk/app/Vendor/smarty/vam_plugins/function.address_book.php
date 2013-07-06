@@ -10,20 +10,35 @@ function default_template_address_book()
 {
 $template = '
 {foreach from=$errors item=error}
-<div class="error">{$error}</div>
+{if $error}
+<div class="alert alert-error"><i class="cus-error"></i> {$error}</div>
+{/if}
 {/foreach}
-<form id="login-form" name="login-form" action="{base_path}/site/address_book" method="post">
-<div class="label"><label for="firstname">{lang}Firstname{/lang}:</label></div><input id="firstname" name="customer[firstname]" type="text" value="{$form_data.firstname}" />
+<form id="address-book" name="address-book" action="{base_path}/site/address_book" method="post">
+<div class="label"><label for="name">{lang}Name{/lang}:</label></div><input id="name" name="Customer[name]" type="text" value="{$form_data.Customer.name}" />
 <br />
-<div class="label"><label for="lastname">{lang}Lastname{/lang}:</label></div><input id="lastname" name="customer[lastname]" type="text" value="{$form_data.lastname}" />
+<div class="label"><label for="email">{lang}E-mail{/lang}:</label></div><input id="email" name="Customer[email]" type="text" value="{$form_data.Customer.email}" />
 <br />
-<div class="label"><label for="email">{lang}E-mail{/lang}:</label></div><input id="email" name="customer[email]" type="text" value="{$form_data.email}" />
+<div class="label"><label for="password">{lang}Password{/lang}:</label></div><input id="password" name="Customer[password]" type="password" />
 <br />
-<div class="label"><label for="password">{lang}Password{/lang}:</label></div><input id="password" name="customer[password]" type="password" />
+<div class="label"><label for="retype">{lang}Retype Password{/lang}:</label></div><input id="retype" name="Customer[retype]" type="password" />
 <br />
-<div class="label"><label for="retype">{lang}Retype Password{/lang}:</label></div><input id="retype" name="customer[retype]" type="password" />
+<div>{lang}Shipping Information{/lang}</div>
+<div class="label"><label for="name">{lang}Name{/lang}:</label></div><input id="ship_name" name="AddressBook[ship_name]" type="text" value="{$form_data.AddressBook.ship_name}" />
 <br />
-<input name="customer_id" type="hidden" value="{$smarty.session.customer_id}" />
+<div class="label"><label for="name">{lang}Address Line 1{/lang}:</label></div><input id="ship_line_1" name="AddressBook[ship_line_1]" type="text" value="{$form_data.AddressBook.ship_line_1}" />
+<br />
+<div class="label"><label for="name">{lang}Address Line 2{/lang}:</label></div><input id="ship_line_2" name="AddressBook[ship_line_2]" type="text" value="{$form_data.AddressBook.ship_line_2}" />
+<br />
+<div class="label"><label for="name">{lang}City{/lang}:</label></div><input id="ship_city" name="AddressBook[ship_city]" type="text" value="{$form_data.AddressBook.ship_city}" />
+<br />
+<div class="label"><label for="name">{lang}Country{/lang}:</label></div><input id="ship_country" name="AddressBook[ship_country]" type="text" value="{$form_data.AddressBook.ship_country}" />
+<br />
+<div class="label"><label for="name">{lang}State{/lang}:</label></div><input id="ship_state" name="AddressBook[ship_state]" type="text" value="{$form_data.AddressBook.ship_state}" />
+<br />
+<div class="label"><label for="name">{lang}Zipcode{/lang}:</label></div><input id="ship_zip" name="AddressBook[ship_zip]" type="text" value="{$form_data.AddressBook.ship_zip}" />
+<br />
+<div class="label"><label for="name">{lang}Phone{/lang}:</label></div><input id="ship_phone" name="AddressBook[ship_phone]" type="text" value="{$form_data.AddressBook.ship_phone}" />
 <br />
 <button class="btn" type="submit" value="{lang}Save{/lang}"><i class="cus-tick"></i> {lang}Save{/lang}</button>
 </form>
@@ -38,30 +53,23 @@ function smarty_function_address_book($params, $template)
 	App::uses('SmartyComponent', 'Controller/Component');
 	$Smarty =& new SmartyComponent(new ComponentCollection());
 
+	App::import('Model', 'Customer');
+	$Customer =& new Customer();
+
+	$customer_data = $Customer->find('first', array('conditions' => array('id' => $_SESSION['customer_id'])));
 	$errors = array();
 
-	if (isset($_SESSION['loginFormErrors'])) {
-		foreach ($_SESSION['loginFormErrors'] as $key => $value) {
+	if (isset($_SESSION['FormErrors'])) {
+		foreach ($_SESSION['FormErrors'] as $key => $value) {
 			$errors[] = $value[0];
 		}
-		unset($_SESSION['loginFormErrors']);
-	}
-
-	if (isset($_SESSION['loginFormData'])) {
-		$form_data = $_SESSION['loginFormData'];
-		unset($_SESSION['loginFormData']);
-	} else {
-		$form_data = array(
-			'firstname' => '',
-			'lastname' => '',
-			'email' => '',
-		);
+		unset($_SESSION['FormErrors']);
 	}
 
 	$display_template = $Smarty->load_template($params, 'address_book');
 	$assignments = array(
 		'errors' => $errors,
-		'form_data' => $form_data,
+		'form_data' => $customer_data,
 	);
 
 	$Smarty->display($display_template, $assignments);

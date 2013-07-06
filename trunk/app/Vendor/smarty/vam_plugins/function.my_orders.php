@@ -13,9 +13,7 @@ $template = '
 <div class="error">{$error}</div>
 {/foreach}
 <form id="login-form" name="login-form" action="{base_path}/site/my_orders" method="post">
-<div class="label"><label for="firstname">{lang}Firstname{/lang}:</label></div><input id="firstname" name="customer[firstname]" type="text" value="{$form_data.firstname}" />
-<br />
-<div class="label"><label for="lastname">{lang}Lastname{/lang}:</label></div><input id="lastname" name="customer[lastname]" type="text" value="{$form_data.lastname}" />
+<div class="label"><label for="name">{lang}Name{/lang}:</label></div><input id="name" name="customer[name]" type="text" value="{$form_data.name}" />
 <br />
 <div class="label"><label for="email">{lang}E-mail{/lang}:</label></div><input id="email" name="customer[email]" type="text" value="{$form_data.email}" />
 <br />
@@ -52,8 +50,7 @@ function smarty_function_my_orders($params, $template)
 		unset($_SESSION['loginFormData']);
 	} else {
 		$form_data = array(
-			'firstname' => '',
-			'lastname' => '',
+			'name' => '',
 			'email' => '',
 		);
 	}

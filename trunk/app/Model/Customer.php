@@ -13,17 +13,11 @@ class Customer extends AppModel {
 	public function _validationRules() 
 	{
 	$this->validate = array(
-		'firstname' => array(
+		'name' => array(
 			'rule' => 'alphaNumeric',
 			'required' => true,
 			'allowEmpty' => false,
-			'message' => __('Firstname must only contain letters and numbers.', true)
-		),
-		'lastname' => array(
-			'rule' => 'alphaNumeric',
-			'required' => true,
-			'allowEmpty' => false,
-			'message' => __('Lastname must only contain letters and numbers.', true)
+			'message' => __('Name must only contain letters and numbers.', true)
 		),
 		'password' => array(
 			'passwordlength' => array(

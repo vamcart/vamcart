@@ -3457,12 +3457,8 @@ msgid "Shipping Handling Cost for Zone"
 msgstr "Надбавка к стоимости для зоны"
 
 #: /app/models/customer.php:16
-msgid "Firstname must only contain letters and numbers."
+msgid "Name must only contain letters and numbers."
 msgstr "Поле Имя должно содержать только буквы и цифры"
-
-#: /app/models/customer.php:16
-msgid "Lastname must only contain letters and numbers."
-msgstr "Поле Фамилия должно содержать только буквы и цифры"
 
 #: /app/models/customer.php:16
 msgid "Password can not be blank"
