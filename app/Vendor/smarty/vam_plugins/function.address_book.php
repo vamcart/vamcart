@@ -38,7 +38,7 @@ $template = '
 <br />
 <div class="label"><label for="name">{lang}Zipcode{/lang}:</label></div><input id="ship_zip" name="AddressBook[ship_zip]" type="text" value="{$form_data.AddressBook.ship_zip}" />
 <br />
-<div class="label"><label for="name">{lang}Phone{/lang}:</label></div><input id="ship_phone" name="AddressBook[ship_phone]" type="text" value="{$form_data.AddressBook.ship_phone}" />
+<div class="label"><label for="name">{lang}Phone{/lang}:</label></div><input id="ship_phone" name="AddressBook[phone]" type="text" value="{$form_data.AddressBook.phone}" />
 <br />
 <button class="btn" type="submit" value="{lang}Save{/lang}"><i class="cus-tick"></i> {lang}Save{/lang}</button>
 </form>
@@ -56,7 +56,8 @@ function smarty_function_address_book($params, $template)
 	App::import('Model', 'Customer');
 	$Customer =& new Customer();
 
-	$customer_data = $Customer->find('first', array('conditions' => array('id' => $_SESSION['customer_id'])));
+	$customer_data = $Customer->find('first', array('conditions' => array('Customer.id' => $_SESSION['customer_id'])));
+	
 	$errors = array();
 
 	if (isset($_SESSION['FormErrors'])) {
