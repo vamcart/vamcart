@@ -133,8 +133,8 @@ class SiteController extends AppController {
 				$ret = $customer->save($_POST);
 
 				$this->Session->setFlash(__('Your account has been updated successfully.'), 'bootstrap_alert_success');
-echo var_dump($_POST).'--';
-				//$this->redirect('/customer/account'  . $config['URL_EXTENSION']);
+
+				$this->redirect('/customer/account'  . $config['URL_EXTENSION']);
 				
 			} else {
 				$errors = $customer->invalidFields();
