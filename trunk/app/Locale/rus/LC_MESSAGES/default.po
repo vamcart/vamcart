@@ -3663,3 +3663,7 @@ msgstr "Ваши данные обновлены!"
 #: /app/controllers/OrdersEditController.php:61
 msgid "Login error. Check your email and/or password!"
 msgstr "Ошибка. Указанный email и/или пароль неверный!"
+
+#: /vendors/smarty/vam_plugins/function.flash_message.php:33
+msgid "Displays $this->Session->flash() message."
+msgstr "Выводит сообщения из $this->Session->flash()."

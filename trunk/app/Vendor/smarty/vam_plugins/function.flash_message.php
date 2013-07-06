@@ -14,14 +14,13 @@ function smarty_function_flash_message($params, $template)
 
 	$result = $Session->flash();
 
-
 	return $result;
 }
 
 function smarty_help_function_flash_message() {
 	?>
 	<h3><?php echo __('What does this tag do?') ?></h3>
-	<p><?php echo __('Displays $this->Sesion->flash message.') ?></p>
+	<p><?php echo __('Displays $this->Session->flash() message.') ?></p>
 	<h3><?php echo __('How do I use it?') ?></h3>
 	<p><?php echo __('Just insert the tag into your template like:') ?> <code>{flash_message}</code></p>
 	<h3><?php echo __('What parameters does it take?') ?></h3>
