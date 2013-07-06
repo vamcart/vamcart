@@ -104,7 +104,49 @@ class SiteController extends AppController {
 			$this->redirect('/customer/account'  . $config['URL_EXTENSION']);
 		}
 	}
-	
+
+	public function address_book()
+	{
+		global $config;
+
+		App::uses('Sanitize', 'Utility');
+		$clean = new Sanitize();
+		$clean->clean($_POST);
+
+		if (isset($_POST)) {
+			$customer = new Customer();
+			$customer->set($_POST);
+
+			$add = new AddressBook();
+			$add->set($_POST['AddressBook']);
+			$add->save($_POST['AddressBook']);
+
+
+			if ($customer->validates()) {
+				
+				$_POST['Customer']['id'] = $_SESSION['customer_id'];
+				$_POST['AddressBook']['id'] = 1;
+				$_POST['AddressBook']['customer_id'] = $_SESSION['customer_id'];
+				
+				$_POST['Customer']['password'] = Security::hash($_POST['Customer']['password'], 'sha1', true);
+				$_POST['Customer']['retype'] = Security::hash($_POST['Customer']['retype'], 'sha1', true);
+				$ret = $customer->save($_POST);
+
+				$this->Session->setFlash(__('Your account has been updated successfully.'), 'bootstrap_alert_success');
+echo var_dump($_POST).'--';
+				//$this->redirect('/customer/account'  . $config['URL_EXTENSION']);
+				
+			} else {
+				$errors = $customer->invalidFields();
+				$this->Session->write('FormErrors', $errors);
+				$this->Session->write('FormData', $customer->data);
+				$this->redirect('/customer/address_book'  . $config['URL_EXTENSION']);
+			}
+		} else {
+			$this->redirect('/customer/account'  . $config['URL_EXTENSION']);
+		}
+	}
+		
 	public function login()
 	{
 		App::uses('Sanitize', 'Utility');

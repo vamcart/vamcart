@@ -15,9 +15,7 @@ $template = '
 {/if}
 {/foreach}
 <form id="account-edit" name="account-edit" action="{base_path}/site/account_edit" method="post">
-<div class="label"><label for="firstname">{lang}Firstname{/lang}:</label></div><input id="firstname" name="customer[firstname]" type="text" value="{$form_data.Customer.firstname}" />
-<br />
-<div class="label"><label for="lastname">{lang}Lastname{/lang}:</label></div><input id="lastname" name="customer[lastname]" type="text" value="{$form_data.Customer.lastname}" />
+<div class="label"><label for="name">{lang}Name{/lang}:</label></div><input id="name" name="customer[name]" type="text" value="{$form_data.Customer.name}" />
 <br />
 <div class="label"><label for="email">{lang}E-mail{/lang}:</label></div><input id="email" name="customer[email]" type="text" value="{$form_data.Customer.email}" />
 <br />
