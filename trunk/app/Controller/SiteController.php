@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 class SiteController extends AppController {
 	public $name = 'Site';
-	public $uses = array('Customer', 'EmailTemplate');
+	public $uses = array('Customer', 'EmailTemplate', 'AddressBook');
 	public $components = array('Email', 'Smarty', 'ConfigurationBase');
 
 	public function register()
@@ -115,22 +115,29 @@ class SiteController extends AppController {
 
 		if (isset($_POST)) {
 			$customer = new Customer();
+
 			$customer->set($_POST);
-
-			$add = new AddressBook();
-			$add->set($_POST['AddressBook']);
-			$add->save($_POST['AddressBook']);
-
 
 			if ($customer->validates()) {
 				
 				$_POST['Customer']['id'] = $_SESSION['customer_id'];
-				$_POST['AddressBook']['id'] = 1;
-				$_POST['AddressBook']['customer_id'] = $_SESSION['customer_id'];
-				
+
 				$_POST['Customer']['password'] = Security::hash($_POST['Customer']['password'], 'sha1', true);
 				$_POST['Customer']['retype'] = Security::hash($_POST['Customer']['retype'], 'sha1', true);
-				$ret = $customer->save($_POST);
+
+				$ret = $customer->save($_POST['Customer']);
+
+				$_POST['AddressBook']['customer_id'] = $_SESSION['customer_id'];
+
+				// Check if we already have a record for this type of special content, if so delete it.
+				// I'm sure there's a better way to do this
+				$check_specified_type = $customer->AddressBook->find('first', array('conditions' => array('customer_id' => $_SESSION['customer_id'])));
+			
+				if(!empty($check_specified_type))
+					$_POST['AddressBook']['id']= $check_specified_type['AddressBook']['id'];
+			
+				$customer->AddressBook->save($_POST['AddressBook']);
+
 
 				$this->Session->setFlash(__('Your account has been updated successfully.'), 'bootstrap_alert_success');
 
