@@ -8,7 +8,7 @@
 App::uses('Model', 'AppModel');
 class Customer extends AppModel {
 	public $name = 'Customer';
-	public $hasOne = array('AddressBook');
+	public $hasOne = array('AddressBook' => array('dependent' => true));
 
 	public function _validationRules() 
 	{
