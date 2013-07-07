@@ -47,9 +47,4 @@ class AddressBook extends AppModel {
 	);
 	}
 
-
-	public function login()
-	{
-	}
-
 }
