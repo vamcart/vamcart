@@ -15,14 +15,6 @@ $template = '
 {/if}
 {/foreach}
 <form id="address-book" name="address-book" action="{base_path}/site/address_book" method="post">
-<div class="label"><label for="name">{lang}Name{/lang}:</label></div><input id="name" name="Customer[name]" type="text" value="{$form_data.Customer.name}" />
-<br />
-<div class="label"><label for="email">{lang}E-mail{/lang}:</label></div><input id="email" name="Customer[email]" type="text" value="{$form_data.Customer.email}" />
-<br />
-<div class="label"><label for="password">{lang}Password{/lang}:</label></div><input id="password" name="Customer[password]" type="password" />
-<br />
-<div class="label"><label for="retype">{lang}Retype Password{/lang}:</label></div><input id="retype" name="Customer[retype]" type="password" />
-<br />
 <div>{lang}Shipping Information{/lang}</div>
 <div class="label"><label for="name">{lang}Name{/lang}:</label></div><input id="ship_name" name="AddressBook[ship_name]" type="text" value="{$form_data.AddressBook.ship_name}" />
 <br />
@@ -56,8 +48,7 @@ function smarty_function_address_book($params, $template)
 	App::import('Model', 'Customer');
 	$Customer =& new Customer();
 
-	$customer_data = $Customer->find('first', array('conditions' => array('Customer.id' => $_SESSION['customer_id'])));
-	
+	$customer_data = $Customer->AddressBook->find('first', array('conditions' => array('AddressBook.customer_id' => $_SESSION['customer_id'])));
 	$errors = array();
 
 	if (isset($_SESSION['FormErrors'])) {

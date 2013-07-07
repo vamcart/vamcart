@@ -3663,3 +3663,27 @@ msgstr "Ошибка. Указанный email и/или пароль невер
 #: /vendors/smarty/vam_plugins/function.flash_message.php:33
 msgid "Displays $this->Session->flash() message."
 msgstr "Выводит сообщения из $this->Session->flash()."
+
+#: /app/models/AddressBook.php:16
+msgid "Address Line 1 must only contain letters and numbers."
+msgstr "Поле Адрес не должно быть пустым"
+
+#: /app/models/AddressBook.php:16
+msgid "City must only contain letters and numbers."
+msgstr "Поле Город не должно быть пустым"
+
+#: /app/models/AddressBook.php:16
+msgid "State must only contain letters and numbers."
+msgstr "Поле Регион не должно быть пустым"
+
+#: /app/models/AddressBook.php:16
+msgid "Country must only contain letters and numbers."
+msgstr "Поле Страна не должно быть пустым"
+
+#: /app/models/AddressBook.php:16
+msgid "Zipcode must only contain numbers."
+msgstr "Поле Почтовый индекс должно содержать только цифры"
+
+#: /app/models/AddressBook.php:16
+msgid "Phone must only contain numbers."
+msgstr "Поле Телефон должно содержать только цифры"
