@@ -4,7 +4,7 @@ class ImportExportController extends AppController {
 
 	public $name = 'ImportExport';
 	public $uses = null;
-        public $helpers = array('Html','Admin','PhpExcel');
+    public $helpers = array('Html','Admin');
 
 	public function admin ($ajax = false)
 	{
