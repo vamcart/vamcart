@@ -23,7 +23,6 @@ echo $this->Admin->StartTabContent('import');
 echo $this->Admin->EndTabContent();
 
 echo $this->Admin->StartTabContent('export');
-    //var_dump($table_names);
     echo $this->Form->create('form_Export', array('id' => 'contentform_export', 'action' => '/import_export/export/', 'url' => '/import_export/export/'));
     
     echo '<table class="contentTable">';
