@@ -4,7 +4,7 @@ class ImportExportController extends AppController {
 
 	public $name = 'ImportExport';
 	public $uses = null;
-    public $helpers = array('Html','Admin');
+        public $helpers = array('Html','Admin');
 
 	public function admin ($ajax = false)
 	{
@@ -12,7 +12,7 @@ class ImportExportController extends AppController {
             $tmp_table_name = array();
             $this->loadModel('Content');
             $this->Content->Behaviors->attach('Containable');
-            $contents = $this->Content->find('first',array('contain' => array('ContentType','ContentDescription','ContentImage','ContentProduct')));	
+            $contents = $this->Content->find('first',array('contain' => array('ContentType','ContentDescription','ContentImage','ContentProduct','ContentNews')));	
             foreach ($contents AS $k_c => $content)
             {
                 $myModelname = $k_c;
@@ -20,6 +20,7 @@ class ImportExportController extends AppController {
                 $this->myModel = new $myModelname();
                 $tmp_table_name[$k_c ] = $this->myModel->getColumnTypes();
             }
+
             $this->Session->write('import_export.table_name', $tmp_table_name);
             $this->set('table_names', $tmp_table_name);
             
@@ -33,6 +34,7 @@ class ImportExportController extends AppController {
 			&& $this->data['form_Import']['submittedfile']['error'] == 0
 			&& is_uploaded_file($this->data['form_Import']['submittedfile']['tmp_name'])) 
             {
+                $tmp_table_name = $this->Session->read('import_export.table_name');
                 $file_name = $this->data['form_Import']['submittedfile']['name'];
                 @unlink('./files/' . $file_name); 
                 move_uploaded_file($this->data['form_Import']['submittedfile']['tmp_name'], './files/' . $file_name);
@@ -40,16 +42,20 @@ class ImportExportController extends AppController {
                 if($f_inf['extension'] == 'zip')
                 {
                     $zip = new ZipArchive();
-                    $zip->open('./files/' . $file_name);
-                    $res = $zip->extractTo('./files/','vc_content.xls');
-                    $zip->close();
-                    @unlink('./files/' . $file_name); 
+                    $res = $zip->open('./files/' . $file_name);
+                    if ($res === TRUE) 
+                    {
+                        $zip->extractTo('./files/','vc_content.xls');
+                        $zip->close();
+                        @unlink('./files/' . $file_name); 
+                    }
+                    else 
+                    {
+                        $this->Session->setFlash(__('Error extracting.',true));
+                        $this->redirect('/import_export/admin');  
+                    }
                 }
-                else 
-                {
-                    $this->Session->setFlash(__('Error extracting.',true));
-                    $this->redirect('/import_export/admin');  
-                }
+
                 App::import('Vendor', 'PHPExcel/Classes/PHPExcel');
                 try {
                 $xls = PHPExcel_IOFactory::load('./files/' . 'vc_content.xls');
@@ -60,28 +66,31 @@ class ImportExportController extends AppController {
                 foreach($worksheetIterator as $worksheet_name => $worksheet)
                 {
                     $table_name = $worksheet->getTitle();
-                    $rowIterator = $worksheet->getRowIterator();
-                    $rowIterator->resetStart();
-                    $cellIterator = $rowIterator->current()->getCellIterator();
-                    foreach($cellIterator as $k_cell => $cell)
+                    if(isset($tmp_table_name[$table_name]))
                     {
-                        $tmp_head[$k_cell] = $cell->getValue();
-                    }
-                    $rowIterator->resetStart(2);
-                    foreach($rowIterator as $k_row => $row)
-                    {
-                        $cellIterator = $row->getCellIterator();
+                        $rowIterator = $worksheet->getRowIterator();
+                        $rowIterator->resetStart();
+                        $cellIterator = $rowIterator->current()->getCellIterator();
                         foreach($cellIterator as $k_cell => $cell)
                         {
-                            $tmp_row[$tmp_head[$k_cell]] = $cell->getValue();
+                            $tmp_head[$k_cell] = $cell->getValue();
                         }
-                        $tmp[$table_name][$k_row - 2][$table_name] = $tmp_row;
-                    }
-                    App::import('Model', $table_name);
-                    $this->myModel = new $table_name();
-                    foreach($tmp[$table_name] AS $table_row)
-                    {
-                        $this->myModel->save($table_row);
+                        $rowIterator->resetStart(2);
+                        foreach($rowIterator as $k_row => $row)
+                        {
+                            $cellIterator = $row->getCellIterator();
+                            foreach($cellIterator as $k_cell => $cell)
+                            {
+                                $tmp_row[$tmp_head[$k_cell]] = $cell->getValue();
+                            }
+                            $tmp[$table_name][$k_row - 2][$table_name] = $tmp_row;
+                        }
+                        App::import('Model', $table_name);
+                        $this->myModel = new $table_name();
+                        foreach($tmp[$table_name] AS $table_row)
+                        {
+                            $this->myModel->save($table_row);
+                        }
                     }
                 }
 
