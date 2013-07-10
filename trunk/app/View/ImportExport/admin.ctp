@@ -34,10 +34,21 @@ echo $this->Admin->StartTabContent('export');
                                       ));
     }
     echo '</table>';
+    
+    echo '<div class="input text">';
+        echo '<label for = "selected_content">' . __('Filter') . ' :</label> <select name="data[form_Export][sel_content]" id="selected_content">';
+        echo '<option value="0">' .  __('all category') . '</option>';
+        foreach ($sel_content AS $k => $sel_category)
+        {
+            echo '<option value="' . $k . '">' . __($sel_category) . '</option>';
+        }
+        echo '</select>';
+        //echo $this->Admin->TableCells(array(__('Check export content'),$this->Form->select('sel_content', $sel_content,  array('id' => 'selected_content', 'escape' => false, 'empty' => array( 0 => __('all content'))))));
+    echo '</div>';
 
     echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn', 'type' => 'submit', 'name' => 'submit'));// . $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn', 'type' => 'submit', 'name' => 'cancelbutton'));	
     echo $this->Form->end();
-
+    
 echo $this->Admin->EndTabContent();
 
 echo $this->Admin->EndTabs();
