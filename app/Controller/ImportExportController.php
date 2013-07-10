@@ -5,6 +5,7 @@ class ImportExportController extends AppController {
 	public $name = 'ImportExport';
 	public $uses = null;
         public $helpers = array('Html','Admin');
+        public $contain_table = array('ContentType','ContentDescription','ContentImage','ContentProduct','ContentNews');
 
 	public function admin ($ajax = false)
 	{
@@ -12,14 +13,18 @@ class ImportExportController extends AppController {
             $tmp_table_name = array();
             $this->loadModel('Content');
             $this->Content->Behaviors->attach('Containable');
-            $contents = $this->Content->find('first',array('contain' => array('ContentType','ContentDescription','ContentImage','ContentProduct','ContentNews')));	
-            foreach ($contents AS $k_c => $content)
+            $contents = $this->Content->find('all',array('contain' => $this->contain_table
+                                                        ,'conditions' => array('Content.content_type_id = 1')));	
+            foreach ($contents[0] AS $k_c => $content)
             {
                 $myModelname = $k_c;
                 App::import('Model', $myModelname);
                 $this->myModel = new $myModelname();
-                $tmp_table_name[$k_c ] = $this->myModel->getColumnTypes();
+                $tmp_table_name[$k_c ]['fields'] = $this->myModel->getColumnTypes();
+                $tmp_table_name[$k_c ]['export_id'] = array_unique(Set::extract($contents, '{n}.' . $k_c . '.id'));
             }
+            $sel_content = Set::combine($contents,'{n}.Content.id', '{n}.Content.alias');
+            $this->set('sel_content', $sel_content);
 
             $this->Session->write('import_export.table_name', $tmp_table_name);
             $this->set('table_names', $tmp_table_name);
@@ -101,12 +106,25 @@ class ImportExportController extends AppController {
         }
         
         public function export ()
-	{
+	{    
             App::import('Vendor', 'PHPExcel/Classes/PHPExcel');
             if (!class_exists('PHPExcel')) 
             {
 		throw new CakeException('Vendor class PHPExcel not found!');
             }
+            $tmp_table_name = $this->Session->read('import_export.table_name');
+            if($this->data['form_Export']['sel_content'] != 0)
+            {
+                $this->loadModel('Content');
+                $this->Content->Behaviors->attach('Containable');
+                $contents = $this->Content->find('all',array('contain' => $this->contain_table
+                                                            ,'conditions' => array('Content.id' => $this->data['form_Export']['sel_content'])));	
+                foreach ($contents[0] AS $k_c => $content)
+                {
+                    $tmp_table_name[$k_c ]['export_id'] = array_unique(Set::extract($contents, '{n}.' . $k_c . '.id'));
+                }
+            }
+            
             $sfx = rand();
             $zip = new ZipArchive();
             $res = $zip->open('./files/vc_content' . $sfx . '.zip', ZIPARCHIVE::CREATE | ZIPARCHIVE::OVERWRITE);
@@ -115,7 +133,6 @@ class ImportExportController extends AppController {
                 $xls = new PHPExcel();
                 $xls->removeSheetByIndex(0);
                 $index = 0;
-                $tmp_table_name = $this->Session->read('import_export.table_name');
                 foreach ($tmp_table_name AS $k_name_table => $fields)
                 {
                     if($this->data['form_Export'][$k_name_table] == 1)
@@ -125,9 +142,9 @@ class ImportExportController extends AppController {
                         App::import('Model', $myModelname);
                         $this->myModel = new $myModelname();
                         $this->myModel->unbindAll();
-                        $rows = $this->myModel->find('all');
+                        $rows = $this->myModel->find('all',array('conditions' => array('id' => $fields['export_id'])));
                         $k_cell = 0;
-                        foreach ($fields AS $field_name => $field_type)
+                        foreach ($fields['fields'] AS $field_name => $field_type)
                         {
                                 $myWorkSheet->setCellValueByColumnAndRow($k_cell++, 1, $field_name);    
                         }
@@ -158,7 +175,7 @@ class ImportExportController extends AppController {
                 $this->redirect('/import_export/admin');*/
             }
             else {}            
-            die();          
+            die();        
         }
         
 }
