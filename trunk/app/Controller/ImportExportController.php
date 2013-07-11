@@ -5,25 +5,31 @@ class ImportExportController extends AppController {
 	public $name = 'ImportExport';
 	public $uses = null;
         public $helpers = array('Html','Admin');
-        public $contain_table = array('ContentType','ContentDescription','ContentImage','ContentProduct','ContentNews');
+        public $contain_table = array('ContentDescription' => null/*<-эта модель обязательна*/,'ContentType','ContentImage','ContentProduct','ContentNews');
 
 	public function admin ($ajax = false)
 	{
+            //$tmp = $this->Session->read('import_export.tmp');
+            //var_dump($tmp);
             //Все связанные с контентом таблицы
             $tmp_table_name = array();
             $this->loadModel('Content');
             $this->Content->Behaviors->attach('Containable');
-            $contents = $this->Content->find('all',array('contain' => $this->contain_table
-                                                        ,'conditions' => array('Content.content_type_id = 1')));	
+            $this->contain_table['ContentDescription'] = array('conditions' => array('ContentDescription.language_id' => $this->Session->read('Customer.language_id')));    
+            $contents = $this->Content->find('all',array('contain' => $this->contain_table 
+                                                        ,'conditions' => array('Content.content_type_id = 1')));
+            //$hasMany = $this->Content->hasMany;
+            $tmp_table_name['Content']['export_id'] = array_unique(Set::extract($contents, '/Content/id'));
+
             foreach ($contents[0] AS $k_c => $content)
             {
                 $myModelname = $k_c;
                 App::import('Model', $myModelname);
                 $this->myModel = new $myModelname();
                 $tmp_table_name[$k_c ]['fields'] = $this->myModel->getColumnTypes();
-                $tmp_table_name[$k_c ]['export_id'] = array_unique(Set::extract($contents, '{n}.' . $k_c . '.id'));
+
             }
-            $sel_content = Set::combine($contents,'{n}.Content.id', '{n}.Content.alias');
+            $sel_content = Set::combine($contents,'{n}.Content.id', '{n}.ContentDescription.{n}.name');
             $this->set('sel_content', $sel_content);
 
             $this->Session->write('import_export.table_name', $tmp_table_name);
@@ -115,15 +121,25 @@ class ImportExportController extends AppController {
             $tmp_table_name = $this->Session->read('import_export.table_name');
             if($this->data['form_Export']['sel_content'] != 0)
             {
-                $this->loadModel('Content');
-                $this->Content->Behaviors->attach('Containable');
-                $contents = $this->Content->find('all',array('contain' => $this->contain_table
-                                                            ,'conditions' => array('Content.id' => $this->data['form_Export']['sel_content'])));	
-                foreach ($contents[0] AS $k_c => $content)
-                {
-                    $tmp_table_name[$k_c ]['export_id'] = array_unique(Set::extract($contents, '{n}.' . $k_c . '.id'));
-                }
+                $tmp_table_name['Content']['export_id'] = $this->data['form_Export']['sel_content'];
             }
+            $this->loadModel('Content');
+            $this->Content->Behaviors->attach('Containable');
+            $this->contain_table['ContentDescription'] = array('conditions' => array('1 = 1'));
+            $contents = $this->Content->find('all',array('contain' => $this->contain_table
+                                                        ,'conditions' => array('OR' => array(array('Content.parent_id' => $tmp_table_name['Content']['export_id']), array('Content.id' => $tmp_table_name['Content']['export_id'])))
+                                                        ));           
+            
+            //$this->render('/ImportExpor/export');
+            
+            
+            foreach ($contents[0] AS $k_c => $content)
+            {
+                $tmp_table_name[$k_c ]['export_id'] = array_unique(Set::extract($contents, '/' . $k_c . '/id'));
+            }
+                //$this->Session->write('import_export.tmp', $contents);
+                //$this->redirect('/import_export/admin');
+            
             
             $sfx = rand();
             $zip = new ZipArchive();
@@ -176,6 +192,23 @@ class ImportExportController extends AppController {
             }
             else {}            
             die();        
+        }
+        
+        private function normalize_array ($arr_in = array())
+        {
+            $arr_out = array();
+             foreach ($arr_in AS $k_first => $first_lev)
+             {
+                 if(count($first_lev) > 1)
+                 {                     
+                     foreach ($first_lev AS $k_next => $next_lev)
+                     {
+                         $arr_out[$k_first . '_' . $k_next] = $next_lev;
+                     }
+                 }
+                 else $arr_out[$k_first] = $first_lev;
+             }
+             return $arr_out;
         }
         
 }
