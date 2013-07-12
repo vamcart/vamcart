@@ -70,6 +70,14 @@ function smarty_function_address_book($params, $template)
 
 function smarty_help_function_address_book() {
 	?>
+	<h3><?php echo __('What does this tag do?') ?></h3>
+	<p><?php echo __('Displays address book page.') ?></p>
+	<h3><?php echo __('How do I use it?') ?></h3>
+	<p><?php echo __('Just insert the tag into your template like:') ?> <code>{address_book}</code></p>
+	<h3><?php echo __('What parameters does it take?') ?></h3>
+	<ul>
+		<li><em>(<?php echo __('None') ?>)</em></li>
+	</ul>
 	<?php
 }
 

@@ -112,21 +112,17 @@ class SiteController extends AppController {
 		App::uses('Sanitize', 'Utility');
 		$clean = new Sanitize();
 		$clean->clean($_POST);
-
 		if (isset($_POST)) {
 			$customer = new Customer();
-
 			$customer->set($_POST);
+			$customer->AddressBook->set($_POST['AddressBook']);
 
-			if ($customer->validates()) {
-				
+			if ($customer->AddressBook->validates()) {
+
 				$_POST['Customer']['id'] = $_SESSION['customer_id'];
 
-				$_POST['Customer']['password'] = Security::hash($_POST['Customer']['password'], 'sha1', true);
-				$_POST['Customer']['retype'] = Security::hash($_POST['Customer']['retype'], 'sha1', true);
-
 				$ret = $customer->save($_POST['Customer']);
-
+				
 				$_POST['AddressBook']['customer_id'] = $_SESSION['customer_id'];
 
 				// Check if we already have a record for this type of special content, if so delete it.
@@ -144,7 +140,7 @@ class SiteController extends AppController {
 				$this->redirect('/customer/account'  . $config['URL_EXTENSION']);
 				
 			} else {
-				$errors = $customer->invalidFields();
+				$errors = $customer->AddressBook->invalidFields();
 				$this->Session->write('FormErrors', $errors);
 				$this->Session->write('FormData', $customer->data);
 				$this->redirect('/customer/address_book'  . $config['URL_EXTENSION']);
