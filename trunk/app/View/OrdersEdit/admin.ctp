@@ -75,7 +75,7 @@
     }
     echo '</table>';
     echo '</td></tr>';
-    echo '<tr><td  width="50%">';
+    echo '<tr><td colspan="2">';
     
     echo '<table class="contentTable">';
     echo $this->Html->tableHeaders(array('',__('Contact Information')));
@@ -85,22 +85,6 @@
         {
             echo $this->Admin->TableCells(array(__(str_replace('_', ' ', $k)),array(__($contact_inf),array('id' => $k,'class' => 'edit','width' => '80%'))));
             echo $this->Ajax->editor($k,'/orders_edit/edit_field/contact_inf/',  array('callback' => 'function(value,settings){my_global_formNavigate = false;}'
-                                                                      ,'tooltip' => __($k)
-                                                                      ,'placeholder' => '_'
-                                                                      ,'onblur' => 'submit'));
-        }
-    }
-    echo '</table>';
-    echo '</td><td  width="50%">';
-    
-    echo '<table class="contentTable">';
-    echo $this->Html->tableHeaders(array('',__('Payment Information')));
-    if(isset($order['pay_inf']))
-    {
-        foreach ($order['pay_inf'] AS $k => $pay_inf)
-        {
-            echo $this->Admin->TableCells(array(__(str_replace('_', ' ', $k)),array(__($pay_inf),array('id' => $k,'class' => 'edit','width' => '80%'))));
-            echo $this->Ajax->editor($k,'/orders_edit/edit_field/pay_inf/',  array('callback' => 'function(value,settings){my_global_formNavigate = false;}'
                                                                       ,'tooltip' => __($k)
                                                                       ,'placeholder' => '_'
                                                                       ,'onblur' => 'submit'));

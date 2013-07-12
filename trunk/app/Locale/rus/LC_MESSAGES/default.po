@@ -2533,14 +2533,6 @@ msgstr "Компания"
 msgid "Payment Information"
 msgstr "Информация об оплате"
 
-#: /views/orders/admin_view.ctp:109
-msgid "Credit Card"
-msgstr "Карточка"
-
-#: /views/orders/admin_view.ctp:113
-msgid "Expiration"
-msgstr "Активна до"
-
 #: /views/orders/admin_view.ctp:125
 msgid "Product Name"
 msgstr "Наименование товара"
