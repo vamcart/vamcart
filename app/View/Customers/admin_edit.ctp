@@ -65,7 +65,7 @@ $this->Html->script(array(
 						array(
    				   		'label' => __('Zip')
 	               ));	
-	echo $this->Form->input('AddressBook.ship_phone', 
+	echo $this->Form->input('AddressBook.phone', 
 						array(
    				   		'label' => __('Phone')
 	               ));	

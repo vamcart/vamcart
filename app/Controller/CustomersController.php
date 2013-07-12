@@ -60,18 +60,17 @@ class CustomersController extends AppController {
 
 			}
 						
-			$this->Customer->save($this->data);
+        $user = $this->Customer->save($this->request->data);
 
-			$this->request->data['AddressBook']['customer_id'] = $this->Customer->getLastInsertId();
+			$address = array();
+			$address['AddressBook'] = $this->data['AddressBook'];
+			$address['AddressBook']['customer_id'] = $this->Customer->id;
 
-			// Check if we already have a record for this type of special content, if so delete it.
-			// I'm sure there's a better way to do this
-			$check_specified_type = $this->Customer->AddressBook->find('first', array('conditions' => array('customer_id' => $this->Customer->getLastInsertId())));
-		
-			if(!empty($check_specified_type))
-				$this->request->data['AddressBook']['id']= $check_specified_type['AddressBook']['id'];
-		
-			$this->Customer->AddressBook->save($this->request->data['AddressBook']);
+			$check = $this->Customer->AddressBook->find('first', array('conditions' => array('customer_id' => $this->Customer->id)));
+			if(!empty($check))
+				$address['AddressBook']['id']= $check['AddressBook']['id'];
+
+			$this->Customer->AddressBook->save($address);
 			
 			$this->Session->setFlash(__('Record saved.', true));
 			$this->redirect('/customers/admin');
