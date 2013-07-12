@@ -3679,3 +3679,15 @@ msgstr "Поле Почтовый индекс должно содержать �
 #: /app/models/AddressBook.php:16
 msgid "Phone must only contain numbers."
 msgstr "Поле Телефон должно содержать только цифры"
+
+#: /vendors/smarty/vam_plugins/function.account_edit.php:33
+msgid "Displays account edit page."
+msgstr "Выводит страницу редактирования данных пользователя."
+
+#: /vendors/smarty/vam_plugins/function.address_book.php:33
+msgid "Displays address book page."
+msgstr "Выводит страницу редактирования данных для доставки заказа."
+
+#: /vendors/smarty/vam_plugins/function.my_orders.php:33
+msgid "Displays orders page."
+msgstr "Выводит страницу со списком заказов пользователя."
