@@ -877,7 +877,9 @@ INSERT INTO `defined_languages` (`id`, `language_id`, `key`, `value`, `created`,
 (197, 1, 'Order Status', 'Order Status', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
 (198, 2, 'Order Status', 'Статус заказа', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
 (199, 1, 'Orders Not Found!', 'Orders Not Found!', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
-(200, 2, 'Orders Not Found!', 'Заказы не найдены!', '2009-09-12 20:08:49', '2009-09-12 20:08:49');
+(200, 2, 'Orders Not Found!', 'Заказы не найдены!', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(201, 1, 'Permission Denied.', 'Permission Denied.', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(202, 2, 'Permission Denied.', 'Нет доступа.', '2009-09-12 20:08:49', '2009-09-12 20:08:49');
 
 
 DROP TABLE IF EXISTS email_templates;
@@ -1467,7 +1469,6 @@ DROP TABLE IF EXISTS customers;
 CREATE TABLE IF NOT EXISTS `customers` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(32) NOT NULL,
-  `lastname` varchar(32) NOT NULL,
   `email` varchar(96) NOT NULL,
   `password` varchar(40) NOT NULL,
   PRIMARY KEY (`id`)

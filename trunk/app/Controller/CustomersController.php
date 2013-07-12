@@ -5,144 +5,113 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
-class CurrenciesController extends AppController {
-	public $name = 'Currencies';
-	public $components = array('EventBase');
+class CustomersController extends AppController {
+	public $name = 'Customers';
 
-	public function pick_currency ()
+	public function admin_delete ($customer_id)
 	{
-		$this->Session->write('Customer.currency_id', $_POST['currency_picker']);
+		// Get the customer and make sure it's not the default
+		$this->Customer->id = $customer_id;
+		$customer = $this->Customer->read();
 		
-		// Get the currency data		
-		App::uses('Model', 'Currency');		
-		$currency_data = $this->Currency->find('first', array('conditions' => array('Currency.id' => $_POST['currency_picker'])));
-		
-		$this->Session->write('Customer.currency_code', $currency_data['Currency']['code']);
-		
-		$this->EventBase->ProcessEvent('SwitchCurrency');
-
-		// Delete the cache.
-		if(file_exists(CACHE . 'cake_vam_currency_output'))
-		{
-			Cache::delete('vam_currency_output');
-		}
-		$this->redirect($_SERVER['HTTP_REFERER']);
-	}
-		
-	public function admin_change_active_status ($id) 
-	{
-		$this->changeActiveStatus($id);	
-	}
-	
-	public function admin_set_as_default ($currency_id)
-	{
-		$this->setDefaultItem($currency_id);
-	}
-
-	public function admin_delete ($currency_id)
-	{
-		// Get the currency and make sure it's not the default
-		$this->Currency->id = $currency_id;
-		$currency = $this->Currency->read();
-		
-		if($currency['Currency']['default'] == 1)
+		if($customer['Customer']['default'] == 1)
 		{
 			$this->Session->setFlash( __('Error: Could not delete default record.', true));		
 		}
 		else
 		{
-			// Ok, delete the currency
-			$this->Currency->delete($currency_id);	
+			// Ok, delete the customer
+			$this->Customer->delete($customer_id);	
 			$this->Session->setFlash( __('Record deleted.', true));		
 		}
-		$this->redirect('/currencies/admin/');
+		$this->redirect('/customers/admin/');
 	}
 	
 	
-	public function admin_edit ($currency_id = null)
+	public function admin_edit ($customer_id = null)
 	{
-		$this->set('current_crumb', __('Currency Details', true));
-		$this->set('title_for_layout', __('Currency Details', true));
+		$this->set('current_crumb', __('Customer Details', true));
+		$this->set('title_for_layout', __('Customer Details', true));
 		// If they pressed cancel
 		if(isset($this->data['cancelbutton']))
 		{
-			$this->redirect('/currencies/admin/');
+			$this->redirect('/customers/admin/');
 			die();
 		}
 		
 		if(empty($this->data))
 		{
-			$this->request->data = $this->Currency->read(null,$currency_id);
+			$this->request->data = $this->Customer->read(null,$customer_id);
 		}
 		else
 		{
-			$this->Currency->save($this->data);		
+			
+			// Check if we set a new password, and if so make sure they match.
+			if($this->data['Customer']['password'] != "")
+			{
+				if($this->data['Customer']['password'] != $this->data['Customer']['retype'])
+				{
+					$this->Session->setFlash(__('Sorry, passwords did not match.', true));
+					$this->redirect('/customers/admin/');
+					die();
+				}
+				
+				//$this->request->data['Customer']['password'] = Security::hash($this->data['Customer']['password'], 'sha1', true);
+
+			}
+						
+			$this->Customer->save($this->data);
+
+			$this->request->data['AddressBook']['customer_id'] = $this->Customer->getLastInsertId();
+
+			// Check if we already have a record for this type of special content, if so delete it.
+			// I'm sure there's a better way to do this
+			$check_specified_type = $this->Customer->AddressBook->find('first', array('conditions' => array('customer_id' => $this->Customer->getLastInsertId())));
+		
+			if(!empty($check_specified_type))
+				$this->request->data['AddressBook']['id']= $check_specified_type['AddressBook']['id'];
+		
+			$this->Customer->AddressBook->save($this->request->data['AddressBook']);
+			
 			$this->Session->setFlash(__('Record saved.', true));
-			$this->redirect('/currencies/admin');
+			$this->redirect('/customers/admin');
 		}		
 	}
-	
+
 	public function admin_new() 
 	{
-		$this->redirect('/currencies/admin_edit/');
+		$this->redirect('/customers/admin_edit/');
 	}
-	
+
 	public function admin_modify_selected() 	
 	{
 		$build_flash = "";
-		foreach($this->params['data']['Currency']['modify'] AS $value)
+		foreach($this->params['data']['Customer']['modify'] AS $value)
 		{
 			// Make sure the id is valid
 			if($value > 0)
 			{
-				$this->Currency->id = $value;
-				$currency = $this->Currency->read();
+				$this->Customer->id = $value;
+				$customer = $this->Customer->read();
 		
 				switch ($this->data['multiaction']) 
 				{
 					case "delete":
-						// Make sure it's not the default currency
-						if($currency['Currency']['default'] == 0)
-						{
-						    $this->Currency->delete($value);
-							$build_flash .= __('Record deleted.', true) . ' (' . $currency['Currency']['name'] . ')<br />';									
-						}
-						else
-						{	
-							$build_flash .= __('Error: Could not delete default record.', true) . ' (' . $currency['Currency']['name'] . ')<br />';								
-						}
+						   $this->Customer->delete($value);
+							$build_flash .= __('Record deleted.', true) . ' (' . $customer['Customer']['name'] . ')<br />';									
 					break;
-					case "activate":
-						$currency['Currency']['active'] = 1;
-						$this->Currency->save($currency);
-						$build_flash .= __('Record activated.', true) . ' (' . $currency['Currency']['name'] . ')<br />';								
-					break;					
-					case "deactivate":
-						// Don't let them deactivate the default currency
-						if($currency['Currency']['default'] == 1)
-						{
-							$build_flash .=  __('Error: Could not deactivate default record.', true) .' (' . $currency['Currency']['name'] . ')<br />';								
-						}
-						else
-						{
-							$currency['Currency']['active'] = 0;
-							$this->Currency->save($currency);
-							$build_flash .= __('Record deactivated.', true) . ' (' . $currency['Currency']['name'] . ')<br />';								
-						}
-					break;										
 				}
 			}
 		}
 		$this->Session->setFlash($build_flash);
-		$this->redirect('/currencies/admin/');
+		$this->redirect('/customers/admin/');
 	}	
 	
 	public function admin ($ajax = false)
 	{
-		$this->set('current_crumb', __('Currencies Listing', true));
-		$this->set('title_for_layout', __('Currencies Listing', true));
-		$this->set('currency_data',$this->Currency->find('all', array('order' => array('Currency.name ASC'))));
+		$this->set('current_crumb', __('Customers Listing', true));
+		$this->set('title_for_layout', __('Customers Listing', true));
+		$this->set('customer_data',$this->Customer->find('all', array('order' => array('Customer.id ASC'))));
 	}	
 	
 }
-?>

@@ -3691,3 +3691,15 @@ msgstr "Выводит страницу редактирования данны�
 #: /vendors/smarty/vam_plugins/function.my_orders.php:33
 msgid "Displays orders page."
 msgstr "Выводит страницу со списком заказов пользователя."
+
+#: /app/controllers/AppController.php:61
+msgid "Customers"
+msgstr "Покупатели"
+
+#: /app/controllers/CustomersController.php:61
+msgid "Customers Listing"
+msgstr "Список покупателей"
+
+#: /app/controllers/CustomersController.php:61
+msgid "Customer Details"
+msgstr "Данные покупателя"
