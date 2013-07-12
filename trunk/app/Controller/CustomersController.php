@@ -7,6 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 class CustomersController extends AppController {
 	public $name = 'Customers';
+	public $paginate = array();
 
 	public function admin_delete ($customer_id)
 	{
@@ -110,7 +111,10 @@ class CustomersController extends AppController {
 	{
 		$this->set('current_crumb', __('Customers Listing', true));
 		$this->set('title_for_layout', __('Customers Listing', true));
-		$this->set('customer_data',$this->Customer->find('all', array('order' => array('Customer.id ASC'))));
+		$this->paginate['Model'] = array('limit' => 20, 'order' => 'Customer.id ASC'); 
+		$data = $this->paginate('Customer');
+		$this->set(compact('data'));
+
 	}	
 	
 }
