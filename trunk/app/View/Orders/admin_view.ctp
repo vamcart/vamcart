@@ -114,21 +114,32 @@ echo $this->Html->tableHeaders(array(__('Contact Information')));
 echo '</table>';
 
 echo '</td></tr>';
-echo '<tr><td colspan="2">';
+
+echo '<tr>';
+echo '<td>';
 
 echo '<table class="contentTable">';
-echo $this->Html->tableHeaders(array(__('Payment Information')));
+echo $this->Html->tableHeaders(array(__('Payment Method Details')));
 	echo $this->Admin->TableCells(
 		  array(
-				__('Credit Card') . ': ' . $data['Order']['cc_number']
-		   ));
-	echo $this->Admin->TableCells(
-		  array(
-				__('Expiration') . ': ' . $data['Order']['cc_expiration_month'] . '-' . $data['Order']['cc_expiration_year']
+				__($data['PaymentMethod']['name'])
 		   ));
 echo '</table>';
+echo '</td>';
 
-echo '</td></tr>';
+echo '<td>';
+
+echo '<table class="contentTable">';
+echo $this->Html->tableHeaders(array(__('Shipping Method Details')));
+	echo $this->Admin->TableCells(
+		  array(
+				__($data['ShippingMethod']['name'])
+		   ));
+echo '</table>';
+echo '</td>';
+
+echo '</tr>';
+
 echo '</table>';
 
 	echo $this->Admin->EndTabContent();
