@@ -9,6 +9,9 @@
 function default_template_my_orders()
 {
 $template = '
+{if !$orders}
+{lang}Orders Not Found!{/lang}
+{else}
 {foreach from=$orders item=order}
 <div>{lang}Order number{/lang}: {$order.Order.id}</div>
 
@@ -171,7 +174,7 @@ $("#myTab{$order.Order.id} a:first").tab("show"); // Select first tab
 });
 </script>
 {/foreach}
-
+{/if}
 ';
 
 return $template;
