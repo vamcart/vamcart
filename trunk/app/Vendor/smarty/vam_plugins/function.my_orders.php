@@ -113,7 +113,7 @@ $template = '
 			<td>{$products.model}</td>
 			<td>{$products.price}</td>
 			<td>{$products.quantity}</td>
-			<td>{$products.quantity*$product.price}</td>
+			<td>{$products.quantity*$products.price}</td>
 		<tr>
 		{/foreach}
 		
