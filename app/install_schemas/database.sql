@@ -855,7 +855,16 @@ INSERT INTO `defined_languages` (`id`, `language_id`, `key`, `value`, `created`,
 (175, 1, 'My Orders', 'My Orders', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
 (176, 2, 'My Orders', 'Мои заказы', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
 (177, 1, 'My Account', 'My Account', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
-(178, 2, 'My Account', 'Личный кабинет', '2009-09-12 20:08:49', '2009-09-12 20:08:49');
+(178, 2, 'My Account', 'Личный кабинет', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+
+(179, 1, 'Order number', 'Order number', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(180, 2, 'Order number', 'Номер заказа', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(181, 1, 'Customer', 'Customer', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(182, 2, 'Customer', 'Покупатель', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(183, 1, 'Products', 'Products', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(184, 2, 'Products', 'Товары', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(185, 1, 'Order Comments', 'Order Comments', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(186, 2, 'Order Comments', 'Комментарии к заказу', '2009-09-12 20:08:49', '2009-09-12 20:08:49');
 
 
 DROP TABLE IF EXISTS email_templates;
@@ -1090,9 +1099,6 @@ CREATE TABLE `orders` (
   `ship_zip` varchar(20) collate utf8_unicode_ci NOT NULL,
   `email` varchar(255) collate utf8_unicode_ci NOT NULL,
   `phone` varchar(15) collate utf8_unicode_ci NOT NULL,
-  `cc_number` int(20) NOT NULL,
-  `cc_expiration_month` int(2) NOT NULL,
-  `cc_expiration_year` int(4) NOT NULL,
   `company_name` varchar(255) collate utf8_unicode_ci NOT NULL,
   `company_info` varchar(255) collate utf8_unicode_ci NOT NULL,
   `company_vat` varchar(20) collate utf8_unicode_ci DEFAULT NULL,
@@ -1100,8 +1106,8 @@ CREATE TABLE `orders` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `orders` (`id`, `customer_id`, `order_status_id`, `shipping_method_id`, `payment_method_id`, `shipping`, `tax`, `total`, `bill_name`, `bill_line_1`, `bill_line_2`, `bill_city`, `bill_state`, `bill_country`, `bill_zip`, `ship_name`, `ship_line_1`, `ship_line_2`, `ship_city`, `ship_state`, `ship_country`, `ship_zip`, `email`, `phone`, `cc_number`, `cc_expiration_month`, `cc_expiration_year`, `company_name`, `company_info`, `created`) VALUES 
-(1, 0, 1, 2, 2, 0, 0, 25.79, 'Test Order', 'asdfasf', 'asdfasdf', '', '', '', '', 'Test Order', '', '', '', '', '', '', 'vam@test.com', '', 0, 0, 0, '', '', '2009-08-28 11:06:18');
+INSERT INTO `orders` (`id`, `customer_id`, `order_status_id`, `shipping_method_id`, `payment_method_id`, `shipping`, `tax`, `total`, `bill_name`, `bill_line_1`, `bill_line_2`, `bill_city`, `bill_state`, `bill_country`, `bill_zip`, `ship_name`, `ship_line_1`, `ship_line_2`, `ship_city`, `ship_state`, `ship_country`, `ship_zip`, `email`, `phone`, `company_name`, `company_info`, `created`) VALUES 
+(1, 0, 1, 2, 2, 0, 0, 25.79, 'Test Order', 'asdfasf', 'asdfasdf', '', '', '', '', 'Test Order', '', '', '', '', '', '', 'vam@test.com', '', '', '', '2009-08-28 11:06:18');
 
 DROP TABLE IF EXISTS order_comments;
 CREATE TABLE `order_comments` (

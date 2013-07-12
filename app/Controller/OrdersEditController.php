@@ -25,7 +25,6 @@ class OrdersEditController extends AppController
             $order['bill_inf'] = array('Customer_Name' => '','Address_Line_1' => '','Address_Line_2' => '','City' => '','State' => '','Country' => '','Zip' => '');
             $order['ship_inf'] = array('Ship_Customer_Name' => '','Ship_Address_Line_1' => '','Ship_Address_Line_2' => '','Ship_City' => '','Ship_State' => '','Ship_Country' => '','Ship_Zip' => '');
             $order['contact_inf'] = array('Email' => '','Phone' => '','Company' => '0');
-            $order['pay_inf'] = array('Credit_Card' => '0','Expiration' => '0');
             $order['total'] = 0;
             $order['OrderProduct'] = array();
             $pay_metd = $this->Order->PaymentMethod->find('all',array('conditions' => array('PaymentMethod.active = 1')));            
@@ -84,9 +83,6 @@ class OrdersEditController extends AppController
                                              ,'Phone' => $o[0]['Order']['phone']
                                              ,'Company' => $o[0]['Order']['company_name']
                                              );
-                $order['pay_inf'] = array('Credit_Card' => $o[0]['Order']['cc_number']
-                                         ,'Expiration' => $o[0]['Order']['cc_expiration_month']
-                                         );
                     
                 $order['OrderProduct'] = $o[0]['OrderProduct'];
                 $order['total'] = $o[0]['Order']['total'];
@@ -340,9 +336,6 @@ class OrdersEditController extends AppController
                             ,'ship_zip' => $order['ship_inf']['Ship_Zip']
                             ,'email' => $order['contact_inf']['Email']
                             ,'phone' => $order['contact_inf']['Phone']
-                            ,'cc_number' => $order['pay_inf']['Credit_Card']
-                            ,'cc_expiration_month' => $order['pay_inf']['Expiration']
-                            ,'cc_expiration_year' => '1'
                             ,'company_name' => $order['contact_inf']['Company']
                             ,'company_info' => ''
                             ,'company_vat' => null
