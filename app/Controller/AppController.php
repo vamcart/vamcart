@@ -223,7 +223,8 @@ class AppController extends Controller {
 			//1 => array('icon' => 'cus-house', 'text' => __('Home', true), 'path' => '/admin/admin_top/'),	
 			2 => array('icon' => 'cus-cart', 'text' => __('Orders', true), 'path' => '/admin/admin_top/2', 
 				'children' => array(
-					1 => array('icon' => 'cus-cart-go', 'text' => __('All Orders', true), 'path' => '/orders/admin/')
+					1 => array('icon' => 'cus-cart-go', 'text' => __('All Orders', true), 'path' => '/orders/admin/'),
+					2 => array('icon' => 'cus-user', 'text' => __('Customers', true), 'path' => '/customers/admin/')
 				)			
 			),				
 			3 => array('icon' => 'cus-table', 'text' => __('Contents', true), 'path' => '/admin/admin_top/3',
