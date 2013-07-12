@@ -18,7 +18,7 @@ echo '<table class="contentTable">';
 
 echo $this->Html->tableHeaders(array( __('Customer Name'), __('Email'), __('Action'), '<input type="checkbox" onclick="checkAll(this)" />'));
 
-foreach ($customer_data AS $customer)
+foreach ($data AS $customer)
 {
 	echo $this->Admin->TableCells(
 		  array(
@@ -33,5 +33,12 @@ foreach ($customer_data AS $customer)
 echo '</table>';
 
 echo $this->Admin->ActionBar(array('delete'=>__('Delete')));
+?>
 
+<table class="contentPagination">
+	<tr>
+		<td><?php echo $this->Paginator->numbers(array('separator'=>' - ')); ?></td>
+	</tr>
+</table>
+<?php
 echo $this->Admin->ShowPageHeaderEnd();
