@@ -17,16 +17,16 @@ class Customer extends AppModel {
 			'rule'    => 'notEmpty',
 			'message' => __('Name must only contain letters and numbers.', true)
 		),
-		'password' => array(
-			'passwordlength' => array(
-				'rule' => 'notEmpty',
-				'message' => __('Password can not be blank', true)
-			),
-			'passwordequal' => array(
-				'rule' => 'checkpasswords',
-				'message' => __('Passwords don\'t match', true)
-			),
-		),
+		//'password' => array(
+			//'passwordlength' => array(
+				//'rule' => 'notEmpty',
+				//'message' => __('Password can not be blank', true)
+			//),
+			//'passwordequal' => array(
+				//'rule' => 'checkpasswords',
+				//'message' => __('Passwords don\'t match', true)
+			//),
+		//),
 		'email' => array (
 			'email' => array(
 				'rule' => array('email', true),

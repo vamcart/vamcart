@@ -56,7 +56,7 @@ class CustomersController extends AppController {
 					die();
 				}
 				
-				//$this->request->data['Customer']['password'] = Security::hash($this->data['Customer']['password'], 'sha1', true);
+				$this->request->data['Customer']['password'] = Security::hash($this->data['Customer']['password'], 'sha1', true);
 
 			}
 						

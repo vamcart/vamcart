@@ -3692,6 +3692,10 @@ msgstr "Выводит страницу редактирования данны�
 msgid "Displays orders page."
 msgstr "Выводит страницу со списком заказов пользователя."
 
+#: /vendors/smarty/vam_plugins/function.registration_form.php:33
+msgid "Displays registration page."
+msgstr "Выводит страницу регистрации пользователя."
+
 #: /app/controllers/AppController.php:61
 msgid "Customers"
 msgstr "Покупатели"
