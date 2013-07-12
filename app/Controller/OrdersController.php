@@ -23,7 +23,7 @@ class OrdersController extends AppController {
 		foreach($_POST AS $key => $value)
 			$order['Order'][$key] = $value;
 
-		$order['Order']['customer_id'] = (!isset($_SESSION['customer_id'])) ? 0 : $_SESSION['customer_id'];
+		$order['Order']['customer_id'] = (!isset($_SESSION['Customer']['customer_id'])) ? 0 : $_SESSION['Customer']['customer_id'];
 		
 		$this->Order->save($order);
 		
@@ -45,7 +45,7 @@ class OrdersController extends AppController {
 				$order['Order'][$key] = $value;
 			}
 
-			$order['Order']['customer_id'] = (!isset($_SESSION['customer_id'])) ? 0 : $_SESSION['customer_id'];
+			$order['Order']['customer_id'] = (!isset($_SESSION['Customer']['customer_id'])) ? 0 : $_SESSION['Customer']['customer_id'];
 
 			// Update products ordered 
 			foreach($order['OrderProduct'] as $order_data) {

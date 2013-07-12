@@ -25,7 +25,7 @@ class CartController extends AppController {
 		if (!isset($_SESSION['Customer']['order_id'])) {
 			$new_order = array();
 			$new_order['Order']['order_status_id'] = 0;
-			$new_order['Order']['customer_id'] = (!isset($_SESSION['customer_id'])) ? 0 : $_SESSION['customer_id'];
+			$new_order['Order']['customer_id'] = (!isset($_SESSION['Customer']['customer_id'])) ? 0 : $_SESSION['Customer']['customer_id'];
 
 			// Get default shipping & payment methods and assign them to the order
 			$default_payment = $this->Order->PaymentMethod->find('first', array('conditions' => array('default' => '1')));

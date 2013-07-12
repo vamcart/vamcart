@@ -48,7 +48,7 @@ function smarty_function_address_book($params, $template)
 	App::import('Model', 'Customer');
 	$Customer =& new Customer();
 
-	$customer_data = $Customer->AddressBook->find('first', array('conditions' => array('AddressBook.customer_id' => $_SESSION['customer_id'])));
+	$customer_data = $Customer->AddressBook->find('first', array('conditions' => array('AddressBook.customer_id' => $_SESSION['Customer']['customer_id'])));
 	$errors = array();
 
 	if (isset($_SESSION['FormErrors'])) {
