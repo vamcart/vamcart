@@ -200,7 +200,7 @@ function smarty_function_my_orders($params, $template)
            	)
 	    );			
 
-	$order_data = $Order->find('all', array('recursive' => 2, 'conditions' => array('Order.customer_id' => $_SESSION['customer_id'], 'Order.order_status_id >' => '0'), 'order' => 'Order.id DESC'));
+	$order_data = $Order->find('all', array('recursive' => 2, 'conditions' => array('Order.customer_id' => $_SESSION['Customer']['customer_id'], 'Order.order_status_id >' => '0'), 'order' => 'Order.id DESC'));
 
 	$display_template = $Smarty->load_template($params, 'my_orders');
 	$assignments = array(

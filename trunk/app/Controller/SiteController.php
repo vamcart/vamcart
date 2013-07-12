@@ -84,7 +84,7 @@ class SiteController extends AppController {
 			$customer->set($_POST['customer']);
 			if ($customer->validates()) {
 				
-				$_POST['customer']['id'] = $_SESSION['customer_id'];
+				$_POST['customer']['id'] = $_SESSION['Customer']['customer_id'];
 				
 				$_POST['customer']['password'] = Security::hash($_POST['customer']['password'], 'sha1', true);
 				$_POST['customer']['retype'] = Security::hash($_POST['customer']['retype'], 'sha1', true);
@@ -119,15 +119,15 @@ class SiteController extends AppController {
 
 			if ($customer->AddressBook->validates()) {
 
-				$_POST['Customer']['id'] = $_SESSION['customer_id'];
+				$_POST['Customer']['id'] = $_SESSION['Customer']['customer_id'];
 
 				$ret = $customer->save($_POST['Customer']);
 				
-				$_POST['AddressBook']['customer_id'] = $_SESSION['customer_id'];
+				$_POST['AddressBook']['customer_id'] = $_SESSION['Customer']['customer_id'];
 
 				// Check if we already have a record for this type of special content, if so delete it.
 				// I'm sure there's a better way to do this
-				$check_specified_type = $customer->AddressBook->find('first', array('conditions' => array('customer_id' => $_SESSION['customer_id'])));
+				$check_specified_type = $customer->AddressBook->find('first', array('conditions' => array('customer_id' => $_SESSION['Customer']['customer_id'])));
 			
 				if(!empty($check_specified_type))
 					$_POST['AddressBook']['id']= $check_specified_type['AddressBook']['id'];
@@ -160,13 +160,13 @@ class SiteController extends AppController {
 
 		if ($customer_id['Customer']['password'] == Security::hash( $_POST['data']['Customer']['password'], 'sha1', true)) {
 
-		$this->Session->write('customer_id', $customer_id['Customer']['id']);
+		$this->Session->write('Customer.customer_id', $customer_id['Customer']['id']);
 
 		} else {
 
 		$this->Session->setFlash(__('Login error. Check your email and/or password!'), 'bootstrap_alert_error');
 
-		$this->Session->delete('customer_id');
+		$this->Session->delete('Customer.customer_id');
 			
 		}
 
@@ -177,7 +177,7 @@ class SiteController extends AppController {
 	public function logout()
 	{
 
-		$this->Session->delete('customer_id');
+		$this->Session->delete('Customer.customer_id');
 
 		//$this->Auth->logout();
 
