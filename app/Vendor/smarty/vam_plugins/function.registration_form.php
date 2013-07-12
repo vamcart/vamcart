@@ -68,6 +68,14 @@ function smarty_function_registration_form($params, $template)
 
 function smarty_help_function_registration_form() {
 	?>
+	<h3><?php echo __('What does this tag do?') ?></h3>
+	<p><?php echo __('Displays registration page.') ?></p>
+	<h3><?php echo __('How do I use it?') ?></h3>
+	<p><?php echo __('Just insert the tag into your template like:') ?> <code>{registration_form}</code></p>
+	<h3><?php echo __('What parameters does it take?') ?></h3>
+	<ul>
+		<li><em>(<?php echo __('None') ?>)</em></li>
+	</ul>
 	<?php
 }
 
