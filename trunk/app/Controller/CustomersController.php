@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 class CustomersController extends AppController {
 	public $name = 'Customers';
-	public $paginate = array();
+	public $paginate = array('limit' => 20, 'order' => array('Customer.id' => 'asc'));
 
 	public function admin_delete ($customer_id)
 	{
@@ -53,8 +53,8 @@ class CustomersController extends AppController {
 				if($this->data['Customer']['password'] != $this->data['Customer']['retype'])
 				{
 					$this->Session->setFlash(__('Sorry, passwords did not match.', true));
-					$this->redirect('/customers/admin/');
-					die();
+					//$this->redirect('/customers/admin/');
+					//die();
 				}
 				
 				$this->request->data['Customer']['password'] = Security::hash($this->data['Customer']['password'], 'sha1', true);
@@ -111,9 +111,8 @@ class CustomersController extends AppController {
 	{
 		$this->set('current_crumb', __('Customers Listing', true));
 		$this->set('title_for_layout', __('Customers Listing', true));
-		$this->paginate['Model'] = array('limit' => 20, 'order' => 'Customer.id ASC'); 
 		$data = $this->paginate('Customer');
-		$this->set(compact('data'));
+		$this->set('data',$data);
 
 	}	
 	

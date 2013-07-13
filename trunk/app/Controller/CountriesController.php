@@ -9,7 +9,7 @@ class CountriesController extends AppController {
 	public $name = 'Countries';
 	public $uses = array('Country', 'CountryZone');
 	public $components = array('RequestHandler');
-	public $paginate = array();
+	public $paginate = array('limit' => 20, 'order' => array('Country.name' => 'asc'));
 	
 	public function admin_edit ($country_id = null)
 	{
@@ -78,9 +78,8 @@ class CountriesController extends AppController {
 	{
 		$this->set('current_crumb', __('Countries Listing', true));
 		$this->set('title_for_layout', __('Countries Listing', true));
-		$this->paginate['Model'] = array('limit' => 25, 'order' => 'Country.name ASC'); 
 		$data = $this->paginate('Country');
-		$this->set(compact('data'));
+		$this->set('data',$data);
 		
 	}
 	

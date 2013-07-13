@@ -10,7 +10,7 @@ class OrdersController extends AppController {
 	public $helpers = array('Time');
 	public $uses = array('EmailTemplate', 'AnswerTemplate', 'Order');
 	public $components = array('EventBase', 'Email', 'Smarty','ConfigurationBase');
-	public $paginate = array('limit' => 25, 'order' => array('Order.created' => 'desc'));
+	public $paginate = array('limit' => 20, 'order' => array('Order.created' => 'desc'));
 
 	public function confirmation ()
 	{
@@ -317,7 +317,6 @@ class OrdersController extends AppController {
 
 		$this->Order->recursive = 2;
 		$data = $this->paginate('Order',"Order.order_status_id > 0");
-
 		$this->set('data',$data);
 
 	}	
