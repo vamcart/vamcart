@@ -8,7 +8,7 @@
 class GeoZonesController extends AppController {
 	public $name = 'GeoZones';
 	public $uses = array('Country', 'GeoZone','CountryZone');
-	public $paginate = array();
+	public $paginate = array('limit' => 20, 'order' => array('GeoZone.name' => 'asc'));
 
 	public function admin_delete ($geo_zone_id)
 	{
@@ -144,9 +144,8 @@ class GeoZonesController extends AppController {
 	{
 		$this->set('current_crumb', __('Geo Zones Listing', true));
 		$this->set('title_for_layout', __('Geo Zones Listing', true));
-		$this->paginate['Model'] = array('limit' => 25, 'order' => 'GeoZone.name ASC');
 		$data = $this->paginate('GeoZone');
-		$this->set(compact('data'));
+		$this->set('data',$data);
 	}
 	
 	public function admin_country_zones()
