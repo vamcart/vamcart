@@ -45,13 +45,13 @@
     
     echo '<table class="orderTable"><tr><td width="50%">';
     echo '<table class="contentTable">';
-    echo $this->Html->tableHeaders(array('',__('Shipping Information')));
-    if(isset($order['ship_inf']))
+    echo $this->Html->tableHeaders(array('',__('Billing Information')));
+    if(isset($order['bill_inf']))
     {
-        foreach ($order['ship_inf'] AS $k => $ship_inf)
+        foreach ($order['bill_inf'] AS $k => $bill_inf)
         {
-            echo $this->Admin->TableCells(array(__(str_replace('_', ' ', str_replace('Ship_', '', $k))),array(__($ship_inf),array('id' => $k,'class' => 'edit','width' => '80%'))));
-            echo $this->Ajax->editor($k,'/orders_edit/edit_field/ship_inf/',  array('callback' => 'function(value,settings){my_global_formNavigate = false;}'
+            echo $this->Admin->TableCells(array(__(str_replace('_', ' ', $k)),array(__($bill_inf),array('id' => $k,'class' => 'edit','width' => '80%'))));
+            echo $this->Ajax->editor($k,'/orders_edit/edit_field/bill_inf/',  array('callback' => 'function(value,settings){my_global_formNavigate = false;}'
                                                                       ,'tooltip' => __($k)
                                                                       ,'placeholder' => '_'
                                                                       ,'onblur' => 'submit'));
@@ -61,13 +61,13 @@
     echo '</td><td width="50%">';
     
     echo '<table class="contentTable">';
-    echo $this->Html->tableHeaders(array('',__('Billing Information')));
-    if(isset($order['bill_inf']))
+    echo $this->Html->tableHeaders(array('',__('Shipping Information')));
+    if(isset($order['ship_inf']))
     {
-        foreach ($order['bill_inf'] AS $k => $bill_inf)
+        foreach ($order['ship_inf'] AS $k => $ship_inf)
         {
-            echo $this->Admin->TableCells(array(__(str_replace('_', ' ', $k)),array(__($bill_inf),array('id' => $k,'class' => 'edit','width' => '80%'))));
-            echo $this->Ajax->editor($k,'/orders_edit/edit_field/bill_inf/',  array('callback' => 'function(value,settings){my_global_formNavigate = false;}'
+            echo $this->Admin->TableCells(array(__(str_replace('_', ' ', str_replace('Ship_', '', $k))),array(__($ship_inf),array('id' => $k,'class' => 'edit','width' => '80%'))));
+            echo $this->Ajax->editor($k,'/orders_edit/edit_field/ship_inf/',  array('callback' => 'function(value,settings){my_global_formNavigate = false;}'
                                                                       ,'tooltip' => __($k)
                                                                       ,'placeholder' => '_'
                                                                       ,'onblur' => 'submit'));
