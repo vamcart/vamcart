@@ -3707,3 +3707,23 @@ msgstr "Список покупателей"
 #: /app/controllers/CustomersController.php:61
 msgid "Customer Details"
 msgstr "Данные покупателя"
+
+#: /app/controllers/ImportExportController.php:61
+msgid "Error extracting."
+msgstr "Ошибка распаковки архива."
+
+#: /app/controllers/ImportExportController.php:61
+msgid "Import suсcess!"
+msgstr "Импорт успешно завершён!"
+
+#: /View/OrdersEdit/admin.ctp:61
+msgid "Data"
+msgstr "Данные"
+
+#: /View/OrdersEdit/admin.ctp:61
+msgid "Filter"
+msgstr "Фильтр"
+
+#: /View/OrdersEdit/admin.ctp:61
+msgid "All Categories"
+msgstr "Все категории"

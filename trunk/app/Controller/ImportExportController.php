@@ -1,4 +1,10 @@
 <?php
+/* -----------------------------------------------------------------------------------------
+   VamCart - http://vamcart.com
+   -----------------------------------------------------------------------------------------
+   Copyright (c) 2013 VamSoft Ltd.
+   License - http://vamcart.com/license.html
+   ---------------------------------------------------------------------------------------*/
 
 class ImportExportController extends AppController {
 
@@ -9,8 +15,6 @@ class ImportExportController extends AppController {
 
 	public function admin ($ajax = false)
 	{
-            //$tmp = $this->Session->read('import_export.tmp');
-            //var_dump($tmp);
             //Все связанные с контентом таблицы
             $tmp_table_name = array();
             $this->loadModel('Content');
@@ -105,7 +109,7 @@ class ImportExportController extends AppController {
                     }
                 }
 
-                $this->Session->setFlash(__('Import sucess!', true));
+                $this->Session->setFlash(__('Import suсcess!', true));
                 $this->redirect('/import_export/admin');
             }
             die();
@@ -130,16 +134,10 @@ class ImportExportController extends AppController {
                                                         ,'conditions' => array('OR' => array(array('Content.parent_id' => $tmp_table_name['Content']['export_id']), array('Content.id' => $tmp_table_name['Content']['export_id'])))
                                                         ));           
             
-            //$this->render('/ImportExpor/export');
-            
-            
             foreach ($contents[0] AS $k_c => $content)
             {
                 $tmp_table_name[$k_c ]['export_id'] = array_unique(Set::extract($contents, '/' . $k_c . '/id'));
             }
-                //$this->Session->write('import_export.tmp', $contents);
-                //$this->redirect('/import_export/admin');
-            
             
             $sfx = rand();
             $zip = new ZipArchive();
@@ -187,8 +185,6 @@ class ImportExportController extends AppController {
                 readfile('./files/vc_content' . $sfx . '.zip');
                 @unlink('./files/vc_content' . $sfx . '.zip');
                 @unlink('./files/vc_content' . $sfx . '.xls');
-                /*$this->Session->setFlash(__('Export sucess!', true));
-                $this->redirect('/import_export/admin');*/
             }
             else {}            
             die();        
