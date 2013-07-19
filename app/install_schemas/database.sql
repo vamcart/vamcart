@@ -4,13 +4,13 @@ SET NAMES 'utf8';
 
 DROP TABLE IF EXISTS configuration_groups;
 CREATE TABLE `configuration_groups` (
-  `id` int(10) NOT NULL auto_increment,
-  `key` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `name` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `description` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `group_icon` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `visible` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `sort_order` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `id` int(10) auto_increment,
+  `key` varchar(50) collate utf8_unicode_ci,
+  `name` varchar(255) collate utf8_unicode_ci,
+  `description` varchar(255) collate utf8_unicode_ci,
+  `group_icon` varchar(255) collate utf8_unicode_ci,
+  `visible` varchar(255) collate utf8_unicode_ci,
+  `sort_order` varchar(255) collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -21,15 +21,15 @@ INSERT INTO `configuration_groups` (`id`, `key`, `name`, `description`, `group_i
 
 DROP TABLE IF EXISTS configurations;
 CREATE TABLE `configurations` (
-  `id` int(10) NOT NULL auto_increment,
-  `configuration_group_id` int(10) NOT NULL,
-  `key` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `value` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `type` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `options` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `name` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `description` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `sort_order` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `id` int(10) auto_increment,
+  `configuration_group_id` int(10),
+  `key` varchar(50) collate utf8_unicode_ci,
+  `value` varchar(255) collate utf8_unicode_ci,
+  `type` varchar(255) collate utf8_unicode_ci,
+  `options` varchar(255) collate utf8_unicode_ci,
+  `name` varchar(255) collate utf8_unicode_ci,
+  `description` varchar(255) collate utf8_unicode_ci,
+  `sort_order` varchar(255) collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -53,21 +53,21 @@ INSERT INTO `configurations` (`id`, `configuration_group_id`, `key`, `value`, `t
 
 DROP TABLE IF EXISTS contents;
 CREATE TABLE `contents` (
-  `id` int(10) NOT NULL auto_increment,
-  `parent_id` int(10) NOT NULL,
-  `order` int(10) NOT NULL,
-  `hierarchy` int(10) NOT NULL,
-  `content_type_id` int(10) NOT NULL,
-  `template_id` int(10) NOT NULL,
-  `default` tinyint(4) NOT NULL,
-  `alias` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `head_data` text collate utf8_unicode_ci NOT NULL,
-  `active` tinyint(4) NOT NULL,
-  `show_in_menu` tinyint(4) NOT NULL,
-  `yml_export` tinyint(4) NOT NULL,
-  `viewed` int(10) NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
+  `id` int(10) auto_increment,
+  `parent_id` int(10),
+  `order` int(10),
+  `hierarchy` int(10),
+  `content_type_id` int(10),
+  `template_id` int(10),
+  `default` tinyint(4),
+  `alias` varchar(50) collate utf8_unicode_ci,
+  `head_data` text collate utf8_unicode_ci,
+  `active` tinyint(4),
+  `show_in_menu` tinyint(4),
+  `yml_export` tinyint(4),
+  `viewed` int(10),
+  `created` datetime,
+  `modified` datetime,
  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -103,9 +103,9 @@ INSERT INTO `contents` VALUES(92, -1, 8, 0, 3, 1, 0, 'address_book', '', 1, 0, 0
 
 DROP TABLE IF EXISTS content_categories;
 CREATE TABLE `content_categories` (
-  `id` int(10) NOT NULL auto_increment,
-  `content_id` int(10) NOT NULL,
-  `extra` varchar(1) collate utf8_unicode_ci NOT NULL,
+  `id` int(10) auto_increment,
+  `content_id` int(10),
+  `extra` varchar(1) collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -116,14 +116,14 @@ INSERT INTO `content_categories` (`id`, `content_id`, `extra`) VALUES
 
 DROP TABLE IF EXISTS content_descriptions;
 CREATE TABLE `content_descriptions` (
-  `id` int(10) NOT NULL auto_increment,
-  `content_id` int(10) NOT NULL,
-  `language_id` int(10) NOT NULL,
-  `name` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `description` text collate utf8_unicode_ci NOT NULL,
-  `meta_title` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `meta_description` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `meta_keywords` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `id` int(10) auto_increment,
+  `content_id` int(10),
+  `language_id` int(10),
+  `name` varchar(255) collate utf8_unicode_ci,
+  `description` text collate utf8_unicode_ci,
+  `meta_title` varchar(255) collate utf8_unicode_ci,
+  `meta_description` varchar(255) collate utf8_unicode_ci,
+  `meta_keywords` varchar(255) collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -188,12 +188,12 @@ INSERT INTO `content_descriptions` VALUES(526, 92, 2, 'Адресная книг
 
 DROP TABLE IF EXISTS content_images;
 CREATE TABLE `content_images` (
-  `id` int(10) NOT NULL auto_increment,
-  `content_id` int(10) NOT NULL,
-  `order` int(10) NOT NULL,
-  `image` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
+  `id` int(10) auto_increment,
+  `content_id` int(10),
+  `order` int(10),
+  `image` varchar(255) collate utf8_unicode_ci,
+  `created` datetime,
+  `modified` datetime,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -204,17 +204,17 @@ INSERT INTO `content_images` VALUES (4, 48, 1, 'email.png', '2010-02-05 16:29:21
 
 DROP TABLE IF EXISTS content_links;
 CREATE TABLE `content_links` (
-  `id` int(10) NOT NULL auto_increment,
-  `content_id` int(10) NOT NULL,
-  `url` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `id` int(10) auto_increment,
+  `content_id` int(10),
+  `url` varchar(255) collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS content_pages;
 CREATE TABLE `content_pages` (
-  `id` int(10) NOT NULL auto_increment,
-  `content_id` int(10) NOT NULL,
-  `extra` varchar(1) collate utf8_unicode_ci NOT NULL,
+  `id` int(10) auto_increment,
+  `content_id` int(10),
+  `extra` varchar(1) collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -236,16 +236,16 @@ INSERT INTO `content_pages` VALUES(36, 88, '1');
 
 DROP TABLE IF EXISTS content_products;
 CREATE TABLE `content_products` (
-  `id` int(10) NOT NULL auto_increment,
-  `content_id` int(10) NOT NULL,
-  `stock` int(10) NOT NULL,
-  `model` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `price` double NOT NULL,
-  `tax_id` int(10) NOT NULL,
-  `weight` double NOT NULL,
-  `moq` int(8) NOT NULL DEFAULT '1' COMMENT 'Minimum order quantity',
-  `pf` int(8) NOT NULL DEFAULT '1' COMMENT 'Price For',
-  `ordered` int(10) NOT NULL,
+  `id` int(10) auto_increment,
+  `content_id` int(10),
+  `stock` int(10),
+  `model` varchar(50) collate utf8_unicode_ci,
+  `price` double,
+  `tax_id` int(10),
+  `weight` double,
+  `moq` int(8) DEFAULT '1' COMMENT 'Minimum order quantity',
+  `pf` int(8) DEFAULT '1' COMMENT 'Price For',
+  `ordered` int(10),
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -255,10 +255,10 @@ INSERT INTO `content_products` (`id`, `content_id`, `stock`, `model`, `price`, `
 
 DROP TABLE IF EXISTS content_product_prices;
 CREATE TABLE IF NOT EXISTS `content_product_prices` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `content_product_id` int(10) NOT NULL,
-  `quantity` int(10) NOT NULL,
-  `price` double NOT NULL,
+  `id` int(10) AUTO_INCREMENT,
+  `content_product_id` int(10),
+  `quantity` int(10),
+  `price` double,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -267,9 +267,9 @@ INSERT INTO `content_product_prices` (`id`, `content_product_id`, `quantity`, `p
 
 DROP TABLE IF EXISTS content_news;
 CREATE TABLE `content_news` (
-  `id` int(10) NOT NULL auto_increment,
-  `content_id` int(1) NOT NULL,
-  `extra` varchar(1) collate utf8_unicode_ci NOT NULL,
+  `id` int(10) auto_increment,
+  `content_id` int(1),
+  `extra` varchar(1) collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -279,9 +279,9 @@ INSERT INTO `content_news` (`id`, `content_id`, `extra`) VALUES
 
 DROP TABLE IF EXISTS content_articles;
 CREATE TABLE `content_articles` (
-  `id` int(10) NOT NULL auto_increment,
-  `content_id` int(1) NOT NULL,
-  `extra` varchar(1) collate utf8_unicode_ci NOT NULL,
+  `id` int(10) auto_increment,
+  `content_id` int(1),
+  `extra` varchar(1) collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -291,10 +291,10 @@ INSERT INTO `content_articles` (`id`, `content_id`, `extra`) VALUES
 
 DROP TABLE IF EXISTS content_types;
 CREATE TABLE `content_types` (
-  `id` int(10) NOT NULL auto_increment,
-  `template_type_id` tinyint(4) NOT NULL,
-  `name` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `type` varchar(50) collate utf8_unicode_ci NOT NULL,
+  `id` int(10) auto_increment,
+  `template_type_id` tinyint(4),
+  `name` varchar(50) collate utf8_unicode_ci,
+  `type` varchar(50) collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -309,14 +309,14 @@ INSERT INTO `content_types` (`id`, `template_type_id`, `name`, `type`) VALUES
 
 DROP TABLE IF EXISTS `content_downloadables`;
 CREATE TABLE IF NOT EXISTS `content_downloadables` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `content_id` int(10) NOT NULL,
-  `filename` varchar(256) NOT NULL,
-  `filestorename` varchar(256) NOT NULL,
-  `price` double NOT NULL,
-  `model` varchar(50) NOT NULL,
-  `tax_id` int(10) NOT NULL,
-  `order_status_id` int(10) NOT NULL,
+  `id` int(10) AUTO_INCREMENT,
+  `content_id` int(10),
+  `filename` varchar(256),
+  `filestorename` varchar(256),
+  `price` double,
+  `model` varchar(50),
+  `tax_id` int(10),
+  `order_status_id` int(10),
   `max_downloads` int(10) DEFAULT '0',
   `max_days_for_download` int(10) DEFAULT '0',
   PRIMARY KEY (`id`)
@@ -324,14 +324,14 @@ CREATE TABLE IF NOT EXISTS `content_downloadables` (
 
 DROP TABLE IF EXISTS countries;
 CREATE TABLE IF NOT EXISTS `countries` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
-  `iso_code_2` char(2) COLLATE utf8_unicode_ci NOT NULL,
-  `iso_code_3` char(3) COLLATE utf8_unicode_ci NOT NULL,
+  `id` int(11) AUTO_INCREMENT,
+  `name` varchar(64) COLLATE utf8_unicode_ci,
+  `iso_code_2` char(2) COLLATE utf8_unicode_ci,
+  `iso_code_3` char(3) COLLATE utf8_unicode_ci,
   `address_format` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `eu` int(2) NOT NULL DEFAULT '0',
-  `private` int(2) NOT NULL DEFAULT '0',
-  `firm` int(2) NOT NULL DEFAULT '0',
+  `eu` int(2) DEFAULT '0',
+  `private` int(2) DEFAULT '0',
+  `firm` int(2) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `IDX_NAME` (`name`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -579,11 +579,11 @@ INSERT INTO `countries` (`id`, `name`, `iso_code_2`, `iso_code_3`, `address_form
 
 DROP TABLE IF EXISTS country_zones;
 CREATE TABLE `country_zones` (
-  `id` int(10) NOT NULL auto_increment,
-  `country_id` int(10) NOT NULL,
-  `geo_zone_id` int(11) NOT NULL,
-  `code` varchar(32) collate utf8_unicode_ci NOT NULL,
-  `name` varchar(64) collate utf8_unicode_ci NOT NULL,
+  `id` int(10) auto_increment,
+  `country_id` int(10),
+  `geo_zone_id` int(11),
+  `code` varchar(32) collate utf8_unicode_ci,
+  `name` varchar(64) collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -648,19 +648,19 @@ INSERT INTO `country_zones` (`id`, `country_id`, `geo_zone_id`, `code`, `name`) 
 
 DROP TABLE IF EXISTS currencies;
 CREATE TABLE `currencies` (
-  `id` int(10) NOT NULL auto_increment,
-  `active` tinyint(4) NOT NULL default '1',
-  `default` tinyint(4) NOT NULL default '0',
-  `name` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `code` varchar(3) collate utf8_unicode_ci NOT NULL,
-  `symbol_left` varchar(24) collate utf8_unicode_ci NOT NULL,
-  `symbol_right` varchar(24) collate utf8_unicode_ci NOT NULL,
-  `decimal_point` char(1) collate utf8_unicode_ci NOT NULL,
-  `thousands_point` char(1) collate utf8_unicode_ci NOT NULL,
-  `decimal_places` char(1) collate utf8_unicode_ci NOT NULL,
-  `value` float NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
+  `id` int(10) auto_increment,
+  `active` tinyint(4) default '1',
+  `default` tinyint(4) default '0',
+  `name` varchar(50) collate utf8_unicode_ci,
+  `code` varchar(3) collate utf8_unicode_ci,
+  `symbol_left` varchar(24) collate utf8_unicode_ci,
+  `symbol_right` varchar(24) collate utf8_unicode_ci,
+  `decimal_point` char(1) collate utf8_unicode_ci,
+  `thousands_point` char(1) collate utf8_unicode_ci,
+  `decimal_places` char(1) collate utf8_unicode_ci,
+  `value` float,
+  `created` datetime,
+  `modified` datetime,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -671,12 +671,12 @@ INSERT INTO `currencies` (`id`, `active`, `default`, `name`, `code`, `symbol_lef
 
 DROP TABLE IF EXISTS defined_languages;
 CREATE TABLE `defined_languages` (
-  `id` int(10) NOT NULL auto_increment,
-  `language_id` int(10) NOT NULL,
-  `key` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `value` text collate utf8_unicode_ci NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
+  `id` int(10) auto_increment,
+  `language_id` int(10),
+  `key` varchar(50) collate utf8_unicode_ci,
+  `value` text collate utf8_unicode_ci,
+  `created` datetime,
+  `modified` datetime,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -885,10 +885,10 @@ INSERT INTO `defined_languages` (`id`, `language_id`, `key`, `value`, `created`,
 
 DROP TABLE IF EXISTS email_templates;
 CREATE TABLE `email_templates` (
-  `id` int(10) NOT NULL auto_increment,
-  `alias` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `default` int(4) NOT NULL,
-  `order` int(4) NOT NULL,
+  `id` int(10) auto_increment,
+  `alias` varchar(255) collate utf8_unicode_ci,
+  `default` int(4),
+  `order` int(4),
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -899,11 +899,11 @@ INSERT INTO `email_templates` VALUES (3, 'new-customer', 1, 3);
 
 DROP TABLE IF EXISTS email_template_descriptions;
 CREATE TABLE `email_template_descriptions` (
-  `id` int(10) NOT NULL auto_increment,
-  `email_template_id` int(10) NOT NULL,
-  `language_id` int(10) NOT NULL,
-  `subject` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `content` text collate utf8_unicode_ci NOT NULL,
+  `id` int(10) auto_increment,
+  `email_template_id` int(10),
+  `language_id` int(10),
+  `subject` varchar(255) collate utf8_unicode_ci,
+  `content` text collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -916,31 +916,31 @@ INSERT INTO `email_template_descriptions` VALUES (6, 3, 2, 'Регистраци
 
 DROP TABLE IF EXISTS answer_templates;
 CREATE TABLE `answer_templates` (
-  `id` int(10) NOT NULL auto_increment,
-  `alias` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `default` int(4) NOT NULL,
-  `order` int(4) NOT NULL,
+  `id` int(10) auto_increment,
+  `alias` varchar(255) collate utf8_unicode_ci,
+  `default` int(4),
+  `order` int(4),
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS answer_template_descriptions;
 CREATE TABLE `answer_template_descriptions` (
-  `id` int(10) NOT NULL auto_increment,
-  `answer_template_id` int(10) NOT NULL,
-  `language_id` int(10) NOT NULL,
-  `name` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `content` text collate utf8_unicode_ci NOT NULL,
+  `id` int(10) auto_increment,
+  `answer_template_id` int(10),
+  `language_id` int(10),
+  `name` varchar(255) collate utf8_unicode_ci,
+  `content` text collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS events;
 CREATE TABLE `events` (
-  `id` int(10) NOT NULL auto_increment,
-  `alias` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `originator` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `description` varchar(200) collate utf8_unicode_ci NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
+  `id` int(10) auto_increment,
+  `alias` varchar(50) collate utf8_unicode_ci,
+  `originator` varchar(50) collate utf8_unicode_ci,
+  `description` varchar(200) collate utf8_unicode_ci,
+  `created` datetime,
+  `modified` datetime,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -960,12 +960,12 @@ INSERT INTO `events` (`id`, `alias`, `originator`, `description`, `created`, `mo
 
 DROP TABLE IF EXISTS event_handlers;
 CREATE TABLE `event_handlers` (
-  `id` int(10) NOT NULL auto_increment,
-  `event_id` int(10) NOT NULL,
-  `originator` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `action` varchar(200) collate utf8_unicode_ci NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
+  `id` int(10) auto_increment,
+  `event_id` int(10),
+  `originator` varchar(50) collate utf8_unicode_ci,
+  `action` varchar(200) collate utf8_unicode_ci,
+  `created` datetime,
+  `modified` datetime,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -974,24 +974,24 @@ INSERT INTO `event_handlers` (`id`, `event_id`, `originator`, `action`, `created
 
 DROP TABLE IF EXISTS `geo_zones`;
 CREATE TABLE IF NOT EXISTS `geo_zones` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(64) NOT NULL,
-  `description` text NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
+  `id` int(11) AUTO_INCREMENT,
+  `name` varchar(64),
+  `description` text,
+  `created` datetime,
+  `modified` datetime,
   PRIMARY KEY (`id`),
   KEY `IDX_NAME` (`name`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS global_content_blocks;
 CREATE TABLE `global_content_blocks` (
-  `id` int(10) NOT NULL auto_increment,
-  `name` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `content` text collate utf8_unicode_ci NOT NULL,
-  `alias` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `active` tinyint(4) NOT NULL default '1',
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
+  `id` int(10) auto_increment,
+  `name` varchar(255) collate utf8_unicode_ci,
+  `content` text collate utf8_unicode_ci,
+  `alias` varchar(50) collate utf8_unicode_ci,
+  `active` tinyint(4) default '1',
+  `created` datetime,
+  `modified` datetime,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1000,13 +1000,13 @@ INSERT INTO `global_content_blocks` (`id`, `name`, `content`, `alias`, `active`,
 
 DROP TABLE IF EXISTS languages;
 CREATE TABLE `languages` (
-  `id` int(10) NOT NULL auto_increment,
-  `default` tinyint(4) NOT NULL,
-  `name` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `code` varchar(5) collate utf8_unicode_ci NOT NULL,
-  `iso_code_2` varchar(2) collate utf8_unicode_ci NOT NULL,
-  `active` tinyint(4) NOT NULL default '1',
-  `sort_order` int(3) NOT NULL,
+  `id` int(10) auto_increment,
+  `default` tinyint(4),
+  `name` varchar(50) collate utf8_unicode_ci,
+  `code` varchar(5) collate utf8_unicode_ci,
+  `iso_code_2` varchar(2) collate utf8_unicode_ci,
+  `active` tinyint(4) default '1',
+  `sort_order` int(3),
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1016,12 +1016,12 @@ INSERT INTO `languages` (`id`, `default`, `name`, `code`, `iso_code_2`, `active`
 
 DROP TABLE IF EXISTS micro_templates;
 CREATE TABLE `micro_templates` (
-  `id` int(10) NOT NULL auto_increment,
-  `alias` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `template` text collate utf8_unicode_ci NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
-  `tag_name` varchar(20) collate utf8_unicode_ci NOT NULL,
+  `id` int(10) auto_increment,
+  `alias` varchar(50) collate utf8_unicode_ci,
+  `template` text collate utf8_unicode_ci,
+  `created` datetime,
+  `modified` datetime,
+  `tag_name` varchar(20) collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1045,12 +1045,12 @@ INSERT INTO `micro_templates` VALUES (18, 'login-box', '<div class="box">\r\n<h5
 
 DROP TABLE IF EXISTS modules;
 CREATE TABLE `modules` (
-  `id` int(10) NOT NULL auto_increment,
-  `name` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `icon` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `alias` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `version` varchar(10) collate utf8_unicode_ci NOT NULL,
-  `nav_level` int(4) NOT NULL,
+  `id` int(10) auto_increment,
+  `name` varchar(255) collate utf8_unicode_ci,
+  `icon` varchar(255) collate utf8_unicode_ci,
+  `alias` varchar(255) collate utf8_unicode_ci,
+  `version` varchar(10) collate utf8_unicode_ci,
+  `nav_level` int(4),
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1060,65 +1060,65 @@ INSERT INTO `modules` (`id`, `name`, `icon`, `alias`, `version`, `nav_level`) VA
 
 DROP TABLE IF EXISTS module_coupons;
 CREATE TABLE `module_coupons` (
-  `id` int(10) NOT NULL auto_increment,
-  `name` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `code` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `free_shipping` varchar(10) collate utf8_unicode_ci NOT NULL,
-  `percent_off_total` double NOT NULL,
-  `amount_off_total` double NOT NULL,
-  `max_uses` int(10) NOT NULL,
-  `min_product_count` int(10) NOT NULL,
-  `max_product_count` int(10) NOT NULL,
-  `min_order_total` int(10) NOT NULL,
-  `max_order_total` int(10) NOT NULL,
-  `start_date` datetime NOT NULL,
-  `expiration_date` datetime NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
+  `id` int(10) auto_increment,
+  `name` varchar(50) collate utf8_unicode_ci,
+  `code` varchar(50) collate utf8_unicode_ci,
+  `free_shipping` varchar(10) collate utf8_unicode_ci,
+  `percent_off_total` double,
+  `amount_off_total` double,
+  `max_uses` int(10),
+  `min_product_count` int(10),
+  `max_product_count` int(10),
+  `min_order_total` int(10),
+  `max_order_total` int(10),
+  `start_date` datetime,
+  `expiration_date` datetime,
+  `created` datetime,
+  `modified` datetime,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS module_reviews;
 CREATE TABLE `module_reviews` (
-  `id` int(10) NOT NULL auto_increment,
-  `content_id` int(10) NOT NULL,
-  `name` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `content` text collate utf8_unicode_ci NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
+  `id` int(10) auto_increment,
+  `content_id` int(10),
+  `name` varchar(50) collate utf8_unicode_ci,
+  `content` text collate utf8_unicode_ci,
+  `created` datetime,
+  `modified` datetime,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS orders;
 CREATE TABLE `orders` (
-  `id` int(10) NOT NULL auto_increment,
-  `customer_id` int(10) NOT NULL,
-  `order_status_id` int(10) NOT NULL,
-  `shipping_method_id` int(10) NOT NULL,
-  `payment_method_id` int(10) NOT NULL,
-  `shipping` double NOT NULL,
-  `tax` double NOT NULL,
-  `total` double NOT NULL,
-  `bill_name` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `bill_line_1` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `bill_line_2` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `bill_city` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `bill_state` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `bill_country` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `bill_zip` varchar(20) collate utf8_unicode_ci NOT NULL,
-  `ship_name` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `ship_line_1` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `ship_line_2` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `ship_city` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `ship_state` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `ship_country` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `ship_zip` varchar(20) collate utf8_unicode_ci NOT NULL,
-  `email` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `phone` varchar(15) collate utf8_unicode_ci NOT NULL,
-  `company_name` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `company_info` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `id` int(10) auto_increment,
+  `customer_id` int(10),
+  `order_status_id` int(10),
+  `shipping_method_id` int(10),
+  `payment_method_id` int(10),
+  `shipping` double,
+  `tax` double,
+  `total` double,
+  `bill_name` varchar(255) collate utf8_unicode_ci,
+  `bill_line_1` varchar(255) collate utf8_unicode_ci,
+  `bill_line_2` varchar(255) collate utf8_unicode_ci,
+  `bill_city` varchar(255) collate utf8_unicode_ci,
+  `bill_state` varchar(255) collate utf8_unicode_ci,
+  `bill_country` varchar(255) collate utf8_unicode_ci,
+  `bill_zip` varchar(20) collate utf8_unicode_ci,
+  `ship_name` varchar(255) collate utf8_unicode_ci,
+  `ship_line_1` varchar(255) collate utf8_unicode_ci,
+  `ship_line_2` varchar(255) collate utf8_unicode_ci,
+  `ship_city` varchar(255) collate utf8_unicode_ci,
+  `ship_state` varchar(255) collate utf8_unicode_ci,
+  `ship_country` varchar(255) collate utf8_unicode_ci,
+  `ship_zip` varchar(20) collate utf8_unicode_ci,
+  `email` varchar(255) collate utf8_unicode_ci,
+  `phone` varchar(15) collate utf8_unicode_ci,
+  `company_name` varchar(255) collate utf8_unicode_ci,
+  `company_info` varchar(255) collate utf8_unicode_ci,
   `company_vat` varchar(20) collate utf8_unicode_ci DEFAULT NULL,
-  `created` datetime NOT NULL,
+  `created` datetime,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1127,13 +1127,13 @@ INSERT INTO `orders` (`id`, `customer_id`, `order_status_id`, `shipping_method_i
 
 DROP TABLE IF EXISTS order_comments;
 CREATE TABLE `order_comments` (
-  `id` int(10) NOT NULL auto_increment,
-  `user_id` int(10) NOT NULL,
-  `order_id` int(10) NOT NULL,
-  `sent_to_customer` tinyint(4) NOT NULL,
-  `comment` text collate utf8_unicode_ci NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
+  `id` int(10) auto_increment,
+  `user_id` int(10),
+  `order_id` int(10),
+  `sent_to_customer` tinyint(4),
+  `comment` text collate utf8_unicode_ci,
+  `created` datetime,
+  `modified` datetime,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1142,22 +1142,22 @@ INSERT INTO `order_comments` (`id`, `user_id`, `order_id`, `sent_to_customer`, `
 
 DROP TABLE IF EXISTS order_products;
 CREATE TABLE `order_products` (
-  `id` int(10) NOT NULL auto_increment,
-  `order_id` int(10) NOT NULL,
-  `content_id` int(10) NOT NULL,
-  `name` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `model` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `quantity` int(10) NOT NULL,
-  `price` double NOT NULL,
-  `weight` varchar(10) collate utf8_unicode_ci NOT NULL,
-  `tax` double NOT NULL,
-  `filename` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `filestorename` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `download_count` int(11) NOT NULL,
-  `max_downloads` int(10) NOT NULL DEFAULT '0',
-  `max_days_for_download` int(10) NOT NULL DEFAULT '0',
-  `download_key` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
-  `order_status_id` int(10) NOT NULL,
+  `id` int(10) auto_increment,
+  `order_id` int(10),
+  `content_id` int(10),
+  `name` varchar(255) collate utf8_unicode_ci,
+  `model` varchar(255) collate utf8_unicode_ci,
+  `quantity` int(10),
+  `price` double,
+  `weight` varchar(10) collate utf8_unicode_ci,
+  `tax` double,
+  `filename` varchar(255) COLLATE utf8_unicode_ci,
+  `filestorename` varchar(255) COLLATE utf8_unicode_ci,
+  `download_count` int(11),
+  `max_downloads` int(10) DEFAULT '0',
+  `max_days_for_download` int(10) DEFAULT '0',
+  `download_key` varchar(256) COLLATE utf8_unicode_ci,
+  `order_status_id` int(10),
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1167,9 +1167,9 @@ INSERT INTO `order_products` (`id`, `order_id`, `content_id`, `name`, `model`, `
 
 DROP TABLE IF EXISTS order_statuses;
 CREATE TABLE `order_statuses` (
-  `id` int(10) NOT NULL auto_increment,
-  `default` tinyint(4) NOT NULL,
-  `order` int(4) NOT NULL,
+  `id` int(10) auto_increment,
+  `default` tinyint(4),
+  `order` int(4),
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1181,11 +1181,11 @@ INSERT INTO `order_statuses` (`id`, `default`, `order`) VALUES
 
 DROP TABLE IF EXISTS order_status_descriptions;
 CREATE TABLE `order_status_descriptions` (
-  `id` int(10) NOT NULL auto_increment,
-  `order_status_id` int(10) NOT NULL,
-  `language_id` int(10) NOT NULL,
-  `name` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `description` text collate utf8_unicode_ci NOT NULL,
+  `id` int(10) auto_increment,
+  `order_status_id` int(10),
+  `language_id` int(10),
+  `name` varchar(50) collate utf8_unicode_ci,
+  `description` text collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1201,14 +1201,14 @@ INSERT INTO `order_status_descriptions` (`id`, `order_status_id`, `language_id`,
 
 DROP TABLE IF EXISTS payment_methods;
 CREATE TABLE `payment_methods` (
-  `id` int(10) NOT NULL auto_increment,
-  `active` tinyint(4) NOT NULL,
-  `default` tinyint(4) NOT NULL,
-  `name` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `icon` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `alias` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `order` int(10) NOT NULL,
-  `order_status_id` int(10) NOT NULL,
+  `id` int(10) auto_increment,
+  `active` tinyint(4),
+  `default` tinyint(4),
+  `name` varchar(255) collate utf8_unicode_ci,
+  `icon` varchar(255) collate utf8_unicode_ci,
+  `alias` varchar(255) collate utf8_unicode_ci,
+  `order` int(10),
+  `order_status_id` int(10),
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1222,10 +1222,10 @@ INSERT INTO `payment_methods` (`id`, `active`, `default`, `name`, `icon`, `alias
 
 DROP TABLE IF EXISTS payment_method_values;
 CREATE TABLE `payment_method_values` (
-  `id` int(10) NOT NULL auto_increment,
-  `payment_method_id` int(10) NOT NULL,
-  `key` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `value` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `id` int(10) auto_increment,
+  `payment_method_id` int(10),
+  `key` varchar(50) collate utf8_unicode_ci,
+  `value` varchar(255) collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1236,12 +1236,12 @@ INSERT INTO `payment_method_values` (`id`, `payment_method_id`, `key`, `value`) 
 
 DROP TABLE IF EXISTS search_tables;
 CREATE TABLE `search_tables` (
-  `id` int(10) NOT NULL auto_increment,
-  `model` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `field` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `url` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `edit_field` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `alternate_anchor` varchar(50) collate utf8_unicode_ci NOT NULL,
+  `id` int(10) auto_increment,
+  `model` varchar(50) collate utf8_unicode_ci,
+  `field` varchar(50) collate utf8_unicode_ci,
+  `url` varchar(50) collate utf8_unicode_ci,
+  `edit_field` varchar(50) collate utf8_unicode_ci,
+  `alternate_anchor` varchar(50) collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1261,13 +1261,13 @@ INSERT INTO `search_tables` (`id`, `model`, `field`, `url`, `edit_field`, `alter
 
 DROP TABLE IF EXISTS shipping_methods;
 CREATE TABLE `shipping_methods` (
-  `id` int(10) NOT NULL auto_increment,
-  `name` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `icon` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `code` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `default` tinyint(4) NOT NULL default '0',
-  `active` tinyint(4) NOT NULL,
-  `order` int(10) NOT NULL,
+  `id` int(10) auto_increment,
+  `name` varchar(255) collate utf8_unicode_ci,
+  `icon` varchar(255) collate utf8_unicode_ci,
+  `code` varchar(255) collate utf8_unicode_ci,
+  `default` tinyint(4) default '0',
+  `active` tinyint(4),
+  `order` int(10),
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1279,10 +1279,10 @@ INSERT INTO `shipping_methods` (`id`, `name`, `icon`, `code`, `default`, `active
 
 DROP TABLE IF EXISTS shipping_method_values;
 CREATE TABLE `shipping_method_values` (
-  `id` int(10) NOT NULL auto_increment,
-  `shipping_method_id` int(10) NOT NULL,
-  `key` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `value` varchar(255) collate utf8_unicode_ci NOT NULL,
+  `id` int(10) auto_increment,
+  `shipping_method_id` int(10),
+  `key` varchar(50) collate utf8_unicode_ci,
+  `value` varchar(255) collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1295,25 +1295,25 @@ INSERT INTO `shipping_method_values` (`id`, `shipping_method_id`, `key`, `value`
 
 DROP TABLE IF EXISTS stylesheets;
 CREATE TABLE `stylesheets` (
-  `id` int(10) NOT NULL auto_increment,
-  `active` tinyint(4) NOT NULL,
-  `name` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `alias` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `stylesheet` text collate utf8_unicode_ci NOT NULL,
-  `stylesheet_media_type_id` int(10) NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
+  `id` int(10) auto_increment,
+  `active` tinyint(4),
+  `name` varchar(50) collate utf8_unicode_ci,
+  `alias` varchar(255) collate utf8_unicode_ci,
+  `stylesheet` text collate utf8_unicode_ci,
+  `stylesheet_media_type_id` int(10),
+  `created` datetime,
+  `modified` datetime,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `stylesheets` (`id`, `active`, `name`, `alias`, `stylesheet`, `stylesheet_media_type_id`, `created`, `modified`) VALUES
-(1, 1, 'VamCart', 'vamcart', '/* -----------------------------------------------------------------------------------------\r\n   VamCart - http://vamcart.com\r\n   -----------------------------------------------------------------------------------------\r\n   Copyright (c) 2013 VamSoft Ltd.\r\n   License - http://vamcart.com/license.html\r\n   ---------------------------------------------------------------------------------------*/\r\n\r\nhtml,body\r\n  {\r\n    margin: 0;\r\n    padding: 0;\r\n    background-color: #fff;\r\n    background-image: url(../../img/bg.png);\r\n    background-position: 0 -221px;\r\n    background-repeat: repeat-x;\r\n  }\r\n\r\nbody\r\n  {\r\n    font-family: ''Lucida Grande'', Helvetica, Arial, Verdana, sans-serif;\r\n    font-size: 11pt;\r\n  }\r\n\r\nimg\r\n	{\r\n		border: 0;\r\n	}\r\n\r\nh2 img\r\n	{\r\n		border: 0;\r\n		padding: 0;\r\n		margin: 0 0 5px 0;\r\n	}\r\n\r\nul, li\r\n  {\r\n    list-style: none;\r\n    margin: 0;\r\n    padding: 0;\r\n  }\r\n\r\n/* Links color */\r\na\r\n  {\r\n    color: #000;\r\n    text-decoration: underline;\r\n  }\r\n\r\na:hover\r\n  {\r\n    color: #990000;\r\n    text-decoration: none;\r\n  }\r\n/* /Links color */\r\n\r\n/* Content */\r\ndiv#wrapper\r\n  {\r\n    float: left;\r\n    width: 100%;\r\n  }\r\n\r\ndiv#content\r\n  {\r\n    margin: 0 19%;\r\n  }\r\n\r\ndiv#content a, \r\ndiv#content a:visited,\r\ndiv#content a:hover  \r\n	{\r\n		color: #494a4e;\r\n		text-decoration: none;\r\n	}\r\n\r\ndiv#header a, \r\ndiv#header a:visited, \r\ndiv#header a:hover \r\n	{\r\n		color: #494a4e;\r\n		text-decoration: none;\r\n	}\r\n	\r\n/* /Content */\r\n\r\n/* Left column */\r\ndiv#left\r\n  {\r\n    float: left;\r\n    width: 18%;\r\n    margin-left: -100%;\r\n    background: transparent;\r\n  }\r\n/* /Left column */\r\n\r\n/* Right column */\r\ndiv#right\r\n  {\r\n    float: left;\r\n    overflow: auto;\r\n    width: 18%;\r\n    margin-left: -18%;\r\n    background: transparent;\r\n  }\r\n/* /Right column */\r\n\r\n/* Header */\r\n\r\n#header\r\n  {\r\n    background-color: #fff;\r\n    background-image: url(../../img/bg.png);\r\n    background-position: 0 0;\r\n    background-repeat: repeat-x;\r\n    height: 100px;\r\n  }\r\n\r\n\r\n#header div.header-left\r\n  {\r\n    float: left;\r\n    margin: 0;\r\n    padding: 0;\r\n  }\r\n\r\n\r\n#header div.header-right\r\n  {\r\n    float: right;\r\n    margin: 0;\r\n    padding: .3em;\r\n  }\r\n\r\n/* /Header */\r\n\r\n/* Footer */\r\ndiv#footer\r\n  {\r\n    clear: left;\r\n    height: 50px;\r\n    width: 100%;\r\n    background: transparent;\r\n    border-top: 0px solid #67748B;\r\n    text-align: center;\r\n    color: #000;\r\n  }\r\n   \r\ndiv#footer p\r\n  {\r\n    margin: 0;\r\n    padding: 5px 10px;\r\n  }\r\n   \r\n/* /Footer */\r\n\r\n/* Navigation */\r\n/* /Navigation */\r\n   \r\n/* Page header */\r\n\r\n#content h1,\r\n#content h2,\r\n#content h3\r\n  {\r\n    color: #ff7b08;\r\n    font-weight: bold;\r\n    font-size: 12pt;\r\n  }\r\n\r\n/* /Page header */\r\n\r\n/* Page content */\r\n\r\ndiv.page\r\n  {\r\n    margin: 0;\r\n    padding: 0;\r\n  }\r\n\r\ndiv.page h2\r\n  {\r\n    margin: 0;\r\n    padding: 7px 0 7px 10px;\r\n    background-color: #f4f4f4;\r\n    background-image: url(../../img/bg.png);\r\n    background-position: 0 -135px;\r\n    background-repeat: repeat-x;\r\n    border-top: 1px solid #c0c1c2;\r\n    border-left: 1px solid #c0c1c2;\r\n    border-right: 1px solid #c0c1c2;\r\n    border-bottom: 1px solid #c0c1c2;\r\n    border-top-left-radius: 8px;\r\n    border-top-right-radius: 8px;\r\n    vertical-align: middle;\r\n  }\r\n  \r\ndiv.pageContent\r\n  {\r\n    margin: 0;\r\n    padding: .5em;\r\n    background-color: #fff;\r\n    background-image: url(../../img/bg.png);\r\n    background-position: 0 -602px;\r\n    background-repeat: repeat-x;\r\n    border-top: 0px;\r\n    border-left: 1px solid #c0c1c2;\r\n    border-right: 1px solid #c0c1c2;\r\n    border-bottom: 1px solid #c0c1c2;\r\n    border-bottom-left-radius: 8px;\r\n    border-bottom-right-radius: 8px;\r\n  }\r\n\r\n/* /Page content */\r\n\r\n/*- Menu */\r\n\r\ndiv#menu\r\n  {\r\n    border-top: 3px solid #ff7b08;\r\n    background-color: #fff;\r\n    background-image: url(../../img/bg.png);\r\n    background-position: 0 -100px;\r\n    background-repeat: repeat-x;\r\n    padding: 0;\r\n    margin: 0 auto;\r\n  }\r\n\r\n#menu ul, #menu ul li\r\n  {\r\n    list-style: none;\r\n    margin: 0;\r\n    padding: 0;\r\n  }\r\n\r\n#menu ul\r\n  {\r\n    padding: 3px 0 3px;\r\n    text-align: center;\r\n  }\r\n\r\n#menu ul li\r\n  {\r\n    display: inline;\r\n    margin-right: .3em;\r\n  }\r\n\r\n#menu ul li.current a\r\n  {\r\n    display: inline;\r\n    color: #fff;\r\n    background: #ff7b08;\r\n    margin-right: .3em;\r\n  }\r\n\r\n#menu ul li a\r\n  {\r\n    color: #000;\r\n    padding: 5px 0;\r\n    text-decoration: none;\r\n  }\r\n\r\n#menu ul li a span\r\n  {\r\n    padding: 5px .5em;\r\n  }\r\n\r\n#menu ul li a:hover span\r\n  {\r\n    color: #fff;\r\n    text-decoration: none;\r\n  }\r\n\r\n#menu ul li a:hover\r\n  {\r\n    color: #69C;\r\n    background: #ff7b08;\r\n    text-decoration: none;\r\n  }\r\n\r\n/*\\*//*/\r\n#menu ul li a\r\n  {\r\n    display: inline-block;\r\n    white-space: nowrap;\r\n    width: 1px;\r\n  }\r\n\r\n#menu ul\r\n  {\r\n    padding-bottom: 0;\r\n    margin-bottom: -1px;\r\n  }\r\n/**/\r\n\r\n/*\\*/\r\n* html #menu ul li a\r\n  {\r\n    padding: 0;\r\n  }\r\n/**/\r\n    \r\n/*- /Menu */\r\n\r\n/*- Boxes */\r\n\r\n/*- Box */\r\n.box\r\n  {\r\n    margin: 0 .5em .5em .5em;\r\n    padding: 0;\r\n  }\r\n\r\n/*- Box Header */\r\n.box h5\r\n  {\r\n    color: #ff7b08;\r\n    font-weight: bold;\r\n    font-size: 12pt;\r\n    margin: 0;\r\n    padding: 7px 0 7px 10px;\r\n    background-color: #f4f4f4;\r\n    background-image: url(../../img/bg.png);\r\n    background-position: 0 -135px;\r\n    background-repeat: repeat-x;\r\n    border-top: 1px solid #c0c1c2;\r\n    border-left: 1px solid #c0c1c2;\r\n    border-right: 1px solid #c0c1c2;\r\n    border-bottom: 1px solid #c0c1c2;\r\n    border-top-left-radius: 8px;\r\n    border-top-right-radius: 8px;\r\n    vertical-align: middle;\r\n  }\r\n\r\n.box h5 a\r\n  {\r\n    color: #ff7b08;\r\n    font-weight: bold;\r\n    font-size: 12pt;\r\n    text-decoration: none;\r\n  }\r\n/*- /Box Header */\r\n\r\n/*- Box Content */\r\n.boxContent\r\n  {\r\n    margin: 0;\r\n    padding: .5em;\r\n    background-color: #fff;\r\n    background-image: url(../../img/bg.png);\r\n    background-position: 0 -602px;\r\n    background-repeat: repeat-x;\r\n    border-top: 0px;\r\n    border-left: 1px solid #c0c1c2;\r\n    border-right: 1px solid #c0c1c2;\r\n    border-bottom: 1px solid #c0c1c2;\r\n    border-bottom-left-radius: 8px;\r\n    border-bottom-right-radius: 8px;\r\n  }\r\n\r\n.boxContent.center\r\n  {\r\n    margin: 0 auto;\r\n    text-align: center;\r\n    padding: .5em;\r\n    background-color: #fff;\r\n    background-image: url(../../img/bg.png);\r\n    background-position: 0 -602px;\r\n    background-repeat: repeat-x;\r\n    border-top: 0px;\r\n    border-left: 1px solid #c0c1c2;\r\n    border-right: 1px solid #c0c1c2;\r\n    border-bottom: 1px solid #c0c1c2;\r\n    border-bottom-left-radius: 8px;\r\n    border-bottom-right-radius: 8px;\r\n  }\r\n  \r\n#boxContent p\r\n  {\r\n    margin: 0;\r\n    padding: 0;\r\n  }\r\n\r\n/*- /Box Content */\r\n\r\n/*- /Box */\r\n\r\n/*- /Boxes */\r\n\r\n/* Buttons */\r\n\r\n.btn\r\n	{\r\n		margin: 2px;\r\n	}\r\n\r\n/* /Buttons */\r\n\r\n/* Forms */\r\n\r\nform\r\n  {\r\n    padding: 0;\r\n    margin: 0;\r\n  }\r\n\r\nfieldset\r\n  {\r\n    border: 0px;\r\n  }\r\n\r\nlegend\r\n  {\r\n    font-size: 12pt;\r\n    font-weight: bold;\r\n    color: #ff9c0f;\r\n    margin-bottom: .5em;\r\n    padding: 0;\r\n  }\r\n\r\nlabel\r\n  {\r\n    color: #545452;\r\n    padding: 0 10px 0 10px;\r\n    margin-bottom: 0;\r\n  }\r\n\r\n  \r\ninput\r\n  {\r\n    border: 1px solid;\r\n    border-color: #666 #ccc #ccc #666;\r\n    padding: .2em;\r\n    margin: .2em;\r\n    border-top-left-radius: 4px;\r\n    border-top-right-radius: 4px;\r\n    border-bottom-left-radius: 4px;\r\n    border-bottom-right-radius: 4px;\r\n  }\r\n\r\n\r\nselect\r\n  {\r\n    margin-left: .5em;\r\n    border-top-left-radius: 4px;\r\n    border-top-right-radius: 4px;\r\n    border-bottom-left-radius: 4px;\r\n    border-bottom-right-radius: 4px;\r\n  }\r\n\r\ntextarea\r\n  {\r\n    overflow: auto;\r\n    width: 80%;\r\n    height: 25em;\r\n    border: 1px solid;\r\n    border-color: #666 #ccc #ccc #666;\r\n    padding: .3em;\r\n    border-top-left-radius: 4px;\r\n    border-top-right-radius: 4px;\r\n    border-bottom-left-radius: 4px;\r\n    border-bottom-right-radius: 4px;\r\n  }\r\n\r\ntextarea:focus, input:focus, .sffocus, .sffocus\r\n  {\r\n    background-color: #ffc;\r\n  }\r\n\r\nlabel.error \r\n  {\r\n    margin-left: 10px;\r\n    width: auto;\r\n    display: inline;\r\n    color: red;\r\n    font-weight: normal;\r\n    background: transparent;\r\n}\r\n\r\n.error\r\n   {\r\n    background: #fcc;\r\n   }\r\n     \r\n/* /Forms */\r\n\r\n/* Tables */\r\n\r\ndiv#content table.contentTable\r\n	{\r\n		width: 100%;\r\n		padding: 0 0 0 0;\r\n		margin: 0 0 .2em 0;\r\n		border: 1px solid #97a5b0;\r\n		border-top-left-radius: 4px;\r\n		border-top-right-radius: 4px;\r\n		border-bottom-left-radius: 4px;\r\n		border-bottom-right-radius: 4px;\r\n	}\r\n\r\ndiv#content table.contentTable tr\r\n	{\r\n		padding: 0;\r\n		margin: 0;\r\n	}\r\n\r\ndiv#content table.contentTable tr.contentRowEven\r\n	{\r\n		padding: 0;\r\n		margin: 0;\r\n		background: #f7f7f7;\r\n	}\r\n\r\ndiv#content table.contentTable tr.contentRowOdd\r\n	{\r\n		padding: 0;\r\n		margin: 0;\r\n		background: #fff;\r\n	}\r\n\r\ndiv#content table.contentTable tr.contentRowEvenHover,\r\ndiv#content table.contentTable tr.contentRowOddHover\r\n	{\r\n		padding: 0;\r\n		margin: 0;\r\n		background: #ffc;\r\n	}\r\n\r\ndiv#content table.contentTable th\r\n	{\r\n		color: #000;\r\n		font-weight: normal;\r\n		padding: .9em;\r\n		margin: 0;\r\n		background-color: #e3eff7;\r\n		background-image: url(../../img/bg.png);\r\n		background-position: 0 0;\r\n		background-repeat: repeat-x; \r\n		border: 1px solid #97a5b0;\r\n		border-top-left-radius: 4px;\r\n		border-top-right-radius: 4px;\r\n		border-bottom-left-radius: 4px;\r\n		border-bottom-right-radius: 4px;\r\n	}\r\n\r\ndiv#content table.contentTable td\r\n	{\r\n		padding: .3em .3em .3em .3em;\r\n		margin: 0;\r\n	}\r\n\r\n/* Pagination */\r\n	\r\ndiv#content table.contentPagination\r\n	{\r\n		padding: 0;\r\n		margin: 0;\r\n	}\r\n\r\ndiv#content table.contentPagination tr\r\n	{\r\n		padding: 0;\r\n		margin: 0;\r\n	}\r\n\r\ndiv#content table.contentPagination td\r\n	{\r\n		padding: 0;\r\n		margin: 0;\r\n	}\r\n\r\n/* /Pagination */\r\n\r\n/* Orders */\r\n	\r\ndiv#content table.orderTable\r\n	{\r\n		width: 100%;\r\n		padding: 0;\r\n		margin: 0;\r\n	}\r\n\r\ndiv#content table.orderTable tr\r\n	{\r\n		padding: 0;\r\n		margin: 0;\r\n	}\r\n\r\ndiv#content table.orderTable td\r\n	{\r\n		padding: .3em .3em .3em .3em;\r\n		margin: 0;\r\n	}\r\n\r\ndiv.search-f {\r\n	float: right;\r\n	margin: 0 9px;\r\n}\r\n\r\ndiv.search-f label {\r\n	display: none;\r\n}\r\n\r\ndiv.search-f .submit {\r\n	display: none;\r\n}\r\n/* /Orders */\r\n\r\ndiv#content .noData\r\n	{\r\n		padding: .5em;\r\n		margin: 0;\r\n		background: transparent;\r\n	}\r\n	\r\n\r\n/* /Tables */\r\n\r\n/* Pagination */\r\n.paginator ul\r\n  {\r\n    list-style:none;\r\n  }\r\n\r\n.paginator ul li\r\n  {\r\n    display:inline;\r\n  }\r\n\r\n.paginator ul li a.current\r\n  {\r\n    font-weight:bold;\r\n  }\r\n/* /Pagination */\r\n.back {  float: right;\r\n}\r\n\r\ninput.button {\r\n  margin: 0 5px;\r\n  cursor: pointer;\r\n}\r\n\r\n.total-value {\r\n  float: right;\r\n}\r\n\r\n#login-form .label {\r\n  float: left;\r\n  width: 200px;\r\n}', 0, '2009-07-14 18:44:00', '2013-07-12 14:12:17');
+(1, 1, 'VamCart', 'vamcart', '/* -----------------------------------------------------------------------------------------\r\n   VamCart - http://vamcart.com\r\n   -----------------------------------------------------------------------------------------\r\n   Copyright (c) 2013 VamSoft Ltd.\r\n   License - http://vamcart.com/license.html\r\n   ---------------------------------------------------------------------------------------*/\r\n\r\nhtml,body\r\n  {\r\n    margin: 0;\r\n    padding: 0;\r\n    background-color: #fff;\r\n    background-image: url(../../img/bg.png);\r\n    background-position: 0 -221px;\r\n    background-repeat: repeat-x;\r\n  }\r\n\r\nbody\r\n  {\r\n    font-family: ''Lucida Grande'', Helvetica, Arial, Verdana, sans-serif;\r\n    font-size: 11pt;\r\n  }\r\n\r\nimg\r\n	{\r\n		border: 0;\r\n	}\r\n\r\nh2 img\r\n	{\r\n		border: 0;\r\n		padding: 0;\r\n		margin: 0 0 5px 0;\r\n	}\r\n\r\nul, li\r\n  {\r\n    list-style: none;\r\n    margin: 0;\r\n    padding: 0;\r\n  }\r\n\r\n/* Links color */\r\na\r\n  {\r\n    color: #000;\r\n    text-decoration: underline;\r\n  }\r\n\r\na:hover\r\n  {\r\n    color: #990000;\r\n    text-decoration: none;\r\n  }\r\n/* /Links color */\r\n\r\n/* Content */\r\ndiv#wrapper\r\n  {\r\n    float: left;\r\n    width: 100%;\r\n  }\r\n\r\ndiv#content\r\n  {\r\n    margin: 0 19%;\r\n  }\r\n\r\ndiv#content a, \r\ndiv#content a:visited,\r\ndiv#content a:hover  \r\n	{\r\n		color: #494a4e;\r\n		text-decoration: none;\r\n	}\r\n\r\ndiv#header a, \r\ndiv#header a:visited, \r\ndiv#header a:hover \r\n	{\r\n		color: #494a4e;\r\n		text-decoration: none;\r\n	}\r\n	\r\n/* /Content */\r\n\r\n/* Left column */\r\ndiv#left\r\n  {\r\n    float: left;\r\n    width: 18%;\r\n    margin-left: -100%;\r\n    background: transparent;\r\n  }\r\n/* /Left column */\r\n\r\n/* Right column */\r\ndiv#right\r\n  {\r\n    float: left;\r\n    overflow: auto;\r\n    width: 18%;\r\n    margin-left: -18%;\r\n    background: transparent;\r\n  }\r\n/* /Right column */\r\n\r\n/* Header */\r\n\r\n#header\r\n  {\r\n    background-color: #fff;\r\n    background-image: url(../../img/bg.png);\r\n    background-position: 0 0;\r\n    background-repeat: repeat-x;\r\n    height: 100px;\r\n  }\r\n\r\n\r\n#header div.header-left\r\n  {\r\n    float: left;\r\n    margin: 0;\r\n    padding: 0;\r\n  }\r\n\r\n\r\n#header div.header-right\r\n  {\r\n    float: right;\r\n    margin: 0;\r\n    padding: .3em;\r\n  }\r\n\r\n/* /Header */\r\n\r\n/* Footer */\r\ndiv#footer\r\n  {\r\n    clear: left;\r\n    height: 50px;\r\n    width: 100%;\r\n    background: transparent;\r\n    border-top: 0px solid #67748B;\r\n    text-align: center;\r\n    color: #000;\r\n  }\r\n   \r\ndiv#footer p\r\n  {\r\n    margin: 0;\r\n    padding: 5px 10px;\r\n  }\r\n   \r\n/* /Footer */\r\n\r\n/* Navigation */\r\n/* /Navigation */\r\n   \r\n/* Page header */\r\n\r\n#content h1,\r\n#content h2,\r\n#content h3\r\n  {\r\n    color: #ff7b08;\r\n    font-weight: bold;\r\n    font-size: 12pt;\r\n  }\r\n\r\n/* /Page header */\r\n\r\n/* Page content */\r\n\r\ndiv.page\r\n  {\r\n    margin: 0;\r\n    padding: 0;\r\n  }\r\n\r\ndiv.page h2\r\n  {\r\n    margin: 0;\r\n    padding: 7px 0 7px 10px;\r\n    background-color: #f4f4f4;\r\n    background-image: url(../../img/bg.png);\r\n    background-position: 0 -135px;\r\n    background-repeat: repeat-x;\r\n    border-top: 1px solid #c0c1c2;\r\n    border-left: 1px solid #c0c1c2;\r\n    border-right: 1px solid #c0c1c2;\r\n    border-bottom: 1px solid #c0c1c2;\r\n    border-top-left-radius: 8px;\r\n    border-top-right-radius: 8px;\r\n    vertical-align: middle;\r\n  }\r\n  \r\ndiv.pageContent\r\n  {\r\n    margin: 0;\r\n    padding: .5em;\r\n    background-color: #fff;\r\n    background-image: url(../../img/bg.png);\r\n    background-position: 0 -602px;\r\n    background-repeat: repeat-x;\r\n    border-top: 0px;\r\n    border-left: 1px solid #c0c1c2;\r\n    border-right: 1px solid #c0c1c2;\r\n    border-bottom: 1px solid #c0c1c2;\r\n    border-bottom-left-radius: 8px;\r\n    border-bottom-right-radius: 8px;\r\n  }\r\n\r\n/* /Page content */\r\n\r\n/*- Menu */\r\n\r\ndiv#menu\r\n  {\r\n    border-top: 3px solid #ff7b08;\r\n    background-color: #fff;\r\n    background-image: url(../../img/bg.png);\r\n    background-position: 0 -100px;\r\n    background-repeat: repeat-x;\r\n    padding: 0;\r\n    margin: 0 auto;\r\n  }\r\n\r\n#menu ul, #menu ul li\r\n  {\r\n    list-style: none;\r\n    margin: 0;\r\n    padding: 0;\r\n  }\r\n\r\n#menu ul\r\n  {\r\n    padding: 3px 0 3px;\r\n    text-align: center;\r\n  }\r\n\r\n#menu ul li\r\n  {\r\n    display: inline;\r\n    margin-right: .3em;\r\n  }\r\n\r\n#menu ul li.current a\r\n  {\r\n    display: inline;\r\n    color: #fff;\r\n    background: #ff7b08;\r\n    margin-right: .3em;\r\n  }\r\n\r\n#menu ul li a\r\n  {\r\n    color: #000;\r\n    padding: 5px 0;\r\n    text-decoration: none;\r\n  }\r\n\r\n#menu ul li a span\r\n  {\r\n    padding: 5px .5em;\r\n  }\r\n\r\n#menu ul li a:hover span\r\n  {\r\n    color: #fff;\r\n    text-decoration: none;\r\n  }\r\n\r\n#menu ul li a:hover\r\n  {\r\n    color: #69C;\r\n    background: #ff7b08;\r\n    text-decoration: none;\r\n  }\r\n\r\n/*\\*//*/\r\n#menu ul li a\r\n  {\r\n    display: inline-block;\r\n    white-space: nowrap;\r\n    width: 1px;\r\n  }\r\n\r\n#menu ul\r\n  {\r\n    padding-bottom: 0;\r\n    margin-bottom: -1px;\r\n  }\r\n/**/\r\n\r\n/*\\*/\r\n* html #menu ul li a\r\n  {\r\n    padding: 0;\r\n  }\r\n/**/\r\n    \r\n/*- /Menu */\r\n\r\n/*- Boxes */\r\n\r\n/*- Box */\r\n.box\r\n  {\r\n    margin: 0 .5em .5em .5em;\r\n    padding: 0;\r\n  }\r\n\r\n/*- Box Header */\r\n.box h5\r\n  {\r\n    color: #ff7b08;\r\n    font-weight: bold;\r\n    font-size: 12pt;\r\n    margin: 0;\r\n    padding: 7px 0 7px 10px;\r\n    background-color: #f4f4f4;\r\n    background-image: url(../../img/bg.png);\r\n    background-position: 0 -135px;\r\n    background-repeat: repeat-x;\r\n    border-top: 1px solid #c0c1c2;\r\n    border-left: 1px solid #c0c1c2;\r\n    border-right: 1px solid #c0c1c2;\r\n    border-bottom: 1px solid #c0c1c2;\r\n    border-top-left-radius: 8px;\r\n    border-top-right-radius: 8px;\r\n    vertical-align: middle;\r\n  }\r\n\r\n.box h5 a\r\n  {\r\n    color: #ff7b08;\r\n    font-weight: bold;\r\n    font-size: 12pt;\r\n    text-decoration: none;\r\n  }\r\n/*- /Box Header */\r\n\r\n/*- Box Content */\r\n.boxContent\r\n  {\r\n    margin: 0;\r\n    padding: .5em;\r\n    background-color: #fff;\r\n    background-image: url(../../img/bg.png);\r\n    background-position: 0 -602px;\r\n    background-repeat: repeat-x;\r\n    border-top: 0px;\r\n    border-left: 1px solid #c0c1c2;\r\n    border-right: 1px solid #c0c1c2;\r\n    border-bottom: 1px solid #c0c1c2;\r\n    border-bottom-left-radius: 8px;\r\n    border-bottom-right-radius: 8px;\r\n  }\r\n\r\n.boxContent.center\r\n  {\r\n    margin: 0 auto;\r\n    text-align: center;\r\n    padding: .5em;\r\n    background-color: #fff;\r\n    background-image: url(../../img/bg.png);\r\n    background-position: 0 -602px;\r\n    background-repeat: repeat-x;\r\n    border-top: 0px;\r\n    border-left: 1px solid #c0c1c2;\r\n    border-right: 1px solid #c0c1c2;\r\n    border-bottom: 1px solid #c0c1c2;\r\n    border-bottom-left-radius: 8px;\r\n    border-bottom-right-radius: 8px;\r\n  }\r\n  \r\n#boxContent p\r\n  {\r\n    margin: 0;\r\n    padding: 0;\r\n  }\r\n\r\n/*- /Box Content */\r\n\r\n/*- /Box */\r\n\r\n/*- /Boxes */\r\n\r\n/* Buttons */\r\n\r\n.btn\r\n	{\r\n		margin: 2px;\r\n	}\r\n\r\n/* /Buttons */\r\n\r\n/* Forms */\r\n\r\nform\r\n  {\r\n    padding: 0;\r\n    margin: 0;\r\n  }\r\n\r\nfieldset\r\n  {\r\n    border: 0px;\r\n  }\r\n\r\nlegend\r\n  {\r\n    font-size: 12pt;\r\n    font-weight: bold;\r\n    color: #ff9c0f;\r\n    margin-bottom: .5em;\r\n    padding: 0;\r\n  }\r\n\r\nlabel\r\n  {\r\n    color: #545452;\r\n    padding: 0 10px 0 10px;\r\n    margin-bottom: 0;\r\n  }\r\n\r\n  \r\ninput\r\n  {\r\n    border: 1px solid;\r\n    border-color: #666 #ccc #ccc #666;\r\n    padding: .2em;\r\n    margin: .2em;\r\n    border-top-left-radius: 4px;\r\n    border-top-right-radius: 4px;\r\n    border-bottom-left-radius: 4px;\r\n    border-bottom-right-radius: 4px;\r\n  }\r\n\r\n\r\nselect\r\n  {\r\n    margin-left: .5em;\r\n    border-top-left-radius: 4px;\r\n    border-top-right-radius: 4px;\r\n    border-bottom-left-radius: 4px;\r\n    border-bottom-right-radius: 4px;\r\n  }\r\n\r\ntextarea\r\n  {\r\n    overflow: auto;\r\n    width: 80%;\r\n    height: 25em;\r\n    border: 1px solid;\r\n    border-color: #666 #ccc #ccc #666;\r\n    padding: .3em;\r\n    border-top-left-radius: 4px;\r\n    border-top-right-radius: 4px;\r\n    border-bottom-left-radius: 4px;\r\n    border-bottom-right-radius: 4px;\r\n  }\r\n\r\ntextarea:focus, input:focus, .sffocus, .sffocus\r\n  {\r\n    background-color: #ffc;\r\n  }\r\n\r\nlabel.error \r\n  {\r\n    margin-left: 10px;\r\n    width: auto;\r\n    display: inline;\r\n    color: red;\r\n    font-weight: normal;\r\n    background: transparent;\r\n}\r\n\r\n.error\r\n   {\r\n    background: #fcc;\r\n   }\r\n     \r\n/* /Forms */\r\n\r\n/* Tables */\r\n\r\ndiv#content table.contentTable\r\n	{\r\n		width: 100%;\r\n		padding: 0 0 0 0;\r\n		margin: 0 0 .2em 0;\r\n		border: 1px solid #97a5b0;\r\n		border-top-left-radius: 4px;\r\n		border-top-right-radius: 4px;\r\n		border-bottom-left-radius: 4px;\r\n		border-bottom-right-radius: 4px;\r\n	}\r\n\r\ndiv#content table.contentTable tr\r\n	{\r\n		padding: 0;\r\n		margin: 0;\r\n	}\r\n\r\ndiv#content table.contentTable tr.contentRowEven\r\n	{\r\n		padding: 0;\r\n		margin: 0;\r\n		background: #f7f7f7;\r\n	}\r\n\r\ndiv#content table.contentTable tr.contentRowOdd\r\n	{\r\n		padding: 0;\r\n		margin: 0;\r\n		background: #fff;\r\n	}\r\n\r\ndiv#content table.contentTable tr.contentRowEvenHover,\r\ndiv#content table.contentTable tr.contentRowOddHover\r\n	{\r\n		padding: 0;\r\n		margin: 0;\r\n		background: #ffc;\r\n	}\r\n\r\ndiv#content table.contentTable th\r\n	{\r\n		color: #000;\r\n		font-weight: normal;\r\n		padding: .9em;\r\n		margin: 0;\r\n		background-color: #e3eff7;\r\n		background-image: url(../img/admin/bg.png);\r\n		background-position: 0 0;\r\n		background-repeat: repeat-x; \r\n		border: 1px solid #97a5b0;\r\n		border-top-left-radius: 4px;\r\n		border-top-right-radius: 4px;\r\n		border-bottom-left-radius: 4px;\r\n		border-bottom-right-radius: 4px;\r\n	}\r\n\r\ndiv#content table.contentTable td\r\n	{\r\n		padding: .3em .3em .3em .3em;\r\n		margin: 0;\r\n	}\r\n\r\n/* Pagination */\r\n	\r\ndiv#content table.contentPagination\r\n	{\r\n		padding: 0;\r\n		margin: 0;\r\n	}\r\n\r\ndiv#content table.contentPagination tr\r\n	{\r\n		padding: 0;\r\n		margin: 0;\r\n	}\r\n\r\ndiv#content table.contentPagination td\r\n	{\r\n		padding: 0;\r\n		margin: 0;\r\n	}\r\n\r\n/* /Pagination */\r\n\r\n/* Orders */\r\n	\r\ndiv#content table.orderTable\r\n	{\r\n		width: 100%;\r\n		padding: 0;\r\n		margin: 0;\r\n	}\r\n\r\ndiv#content table.orderTable tr\r\n	{\r\n		padding: 0;\r\n		margin: 0;\r\n	}\r\n\r\ndiv#content table.orderTable td\r\n	{\r\n		padding: .3em .3em .3em .3em;\r\n		margin: 0;\r\n	}\r\n\r\ndiv.search-f {\r\n	float: right;\r\n	margin: 0 9px;\r\n}\r\n\r\ndiv.search-f label {\r\n	display: none;\r\n}\r\n\r\ndiv.search-f .submit {\r\n	display: none;\r\n}\r\n/* /Orders */\r\n\r\ndiv#content .noData\r\n	{\r\n		padding: .5em;\r\n		margin: 0;\r\n		background: transparent;\r\n	}\r\n	\r\n\r\n/* /Tables */\r\n\r\n/* Pagination */\r\n.paginator ul\r\n  {\r\n    list-style:none;\r\n  }\r\n\r\n.paginator ul li\r\n  {\r\n    display:inline;\r\n  }\r\n\r\n.paginator ul li a.current\r\n  {\r\n    font-weight:bold;\r\n  }\r\n/* /Pagination */\r\n.back {  float: right;\r\n}\r\n\r\ninput.button {\r\n  margin: 0 5px;\r\n  cursor: pointer;\r\n}\r\n\r\n.total-value {\r\n  float: right;\r\n}\r\n\r\n#login-form .label {\r\n  float: left;\r\n  width: 200px;\r\n}', 0, '2009-07-14 18:44:00', '2013-07-12 14:12:17');
 
 DROP TABLE IF EXISTS stylesheet_media_types;
 CREATE TABLE `stylesheet_media_types` (
-  `id` int(10) NOT NULL auto_increment,
-  `name` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `type` varchar(50) collate utf8_unicode_ci NOT NULL,
+  `id` int(10) auto_increment,
+  `name` varchar(50) collate utf8_unicode_ci,
+  `type` varchar(50) collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1332,11 +1332,11 @@ INSERT INTO `stylesheet_media_types` (`id`, `name`, `type`) VALUES
 
 DROP TABLE IF EXISTS taxes;
 CREATE TABLE `taxes` (
-  `id` int(10) NOT NULL auto_increment,
-  `default` tinyint(4) NOT NULL,
-  `name` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
+  `id` int(10) auto_increment,
+  `default` tinyint(4),
+  `name` varchar(255) collate utf8_unicode_ci,
+  `created` datetime,
+  `modified` datetime,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1346,10 +1346,10 @@ INSERT INTO `taxes` (`id`, `default`, `name`, `created`, `modified`) VALUES
 
 DROP TABLE IF EXISTS tax_country_zone_rates;
 CREATE TABLE `tax_country_zone_rates` (
-  `id` int(10) NOT NULL auto_increment,
-  `tax_id` int(10) NOT NULL,
-  `country_zone_id` int(10) NOT NULL,
-  `rate` double NOT NULL,
+  `id` int(10) auto_increment,
+  `tax_id` int(10),
+  `country_zone_id` int(10),
+  `rate` double,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1358,14 +1358,14 @@ INSERT INTO `tax_country_zone_rates` (`id`, `tax_id`, `country_zone_id`, `rate`)
 
 DROP TABLE IF EXISTS templates;
 CREATE TABLE `templates` (
-  `id` int(10) NOT NULL auto_increment,
-  `parent_id` int(10) NOT NULL,
-  `template_type_id` int(10) NOT NULL,
-  `default` tinyint(4) NOT NULL default '0',
-  `name` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `template` text collate utf8_unicode_ci NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
+  `id` int(10) auto_increment,
+  `parent_id` int(10),
+  `template_type_id` int(10),
+  `default` tinyint(4) default '0',
+  `name` varchar(50) collate utf8_unicode_ci,
+  `template` text collate utf8_unicode_ci,
+  `created` datetime,
+  `modified` datetime,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1383,8 +1383,8 @@ INSERT INTO `templates` (`id`, `parent_id`, `template_type_id`, `default`, `name
 
 DROP TABLE IF EXISTS templates_stylesheets;
 CREATE TABLE `templates_stylesheets` (
-  `template_id` int(10) unsigned NOT NULL default '0',
-  `stylesheet_id` int(10) unsigned NOT NULL default '0',
+  `template_id` int(10) unsigned default '0',
+  `stylesheet_id` int(10) unsigned default '0',
   PRIMARY KEY  (`template_id`,`stylesheet_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -1393,9 +1393,9 @@ INSERT INTO `templates_stylesheets` (`template_id`, `stylesheet_id`) VALUES
 
 DROP TABLE IF EXISTS template_types;
 CREATE TABLE `template_types` (
-  `id` int(10) NOT NULL auto_increment,
-  `name` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `default_template` text collate utf8_unicode_ci NOT NULL,
+  `id` int(10) auto_increment,
+  `name` varchar(50) collate utf8_unicode_ci,
+  `default_template` text collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1410,12 +1410,12 @@ INSERT INTO `template_types` (`id`, `name`, `default_template`) VALUES
 
 DROP TABLE IF EXISTS users;
 CREATE TABLE `users` (
-  `id` int(10) NOT NULL auto_increment,
-  `username` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `email` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `password` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
+  `id` int(10) auto_increment,
+  `username` varchar(50) collate utf8_unicode_ci,
+  `email` varchar(50) collate utf8_unicode_ci,
+  `password` varchar(255) collate utf8_unicode_ci,
+  `created` datetime,
+  `modified` datetime,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1424,10 +1424,10 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `created`, `modified
 
 DROP TABLE IF EXISTS user_prefs;
 CREATE TABLE `user_prefs` (
-  `id` int(10) NOT NULL auto_increment,
-  `user_id` int(10) NOT NULL,
-  `name` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `value` text collate utf8_unicode_ci NOT NULL,
+  `id` int(10) auto_increment,
+  `user_id` int(10),
+  `name` varchar(50) collate utf8_unicode_ci,
+  `value` text collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1438,12 +1438,12 @@ INSERT INTO `user_prefs` (`id`, `user_id`, `name`, `value`) VALUES
 
 DROP TABLE IF EXISTS user_tags;
 CREATE TABLE `user_tags` (
-  `id` int(10) NOT NULL auto_increment,
-  `name` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `alias` varchar(50) collate utf8_unicode_ci NOT NULL,
-  `content` text collate utf8_unicode_ci NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
+  `id` int(10) auto_increment,
+  `name` varchar(50) collate utf8_unicode_ci,
+  `alias` varchar(50) collate utf8_unicode_ci,
+  `content` text collate utf8_unicode_ci,
+  `created` datetime,
+  `modified` datetime,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1452,8 +1452,8 @@ INSERT INTO `user_tags` (`id`, `name`, `alias`, `content`, `created`, `modified`
 
 DROP TABLE IF EXISTS licenses;
 CREATE TABLE IF NOT EXISTS `licenses` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `licenseKey` varchar(255) NOT NULL,
+  `id` int(11) AUTO_INCREMENT,
+  `licenseKey` varchar(255),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1462,40 +1462,40 @@ INSERT INTO `licenses` (`id`, `licenseKey`) VALUES
 
 DROP TABLE IF EXISTS updates;
 CREATE TABLE IF NOT EXISTS `updates` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) AUTO_INCREMENT,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS customers;
 CREATE TABLE IF NOT EXISTS `customers` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `name` varchar(32) NOT NULL,
-  `email` varchar(96) NOT NULL,
-  `password` varchar(40) NOT NULL,
+  `id` int(10) AUTO_INCREMENT,
+  `name` varchar(32),
+  `email` varchar(96),
+  `password` varchar(40),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS address_books;
 CREATE TABLE `address_books` (
-  `id` int(10) NOT NULL auto_increment,
-  `customer_id` int(10) NOT NULL,
-  `ship_name` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `ship_line_1` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `ship_line_2` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `ship_city` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `ship_state` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `ship_country` varchar(255) collate utf8_unicode_ci NOT NULL,
-  `ship_zip` varchar(20) collate utf8_unicode_ci NOT NULL,
-  `phone` varchar(15) collate utf8_unicode_ci NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
+  `id` int(10) auto_increment,
+  `customer_id` int(10),
+  `ship_name` varchar(255) collate utf8_unicode_ci,
+  `ship_line_1` varchar(255) collate utf8_unicode_ci,
+  `ship_line_2` varchar(255) collate utf8_unicode_ci,
+  `ship_city` varchar(255) collate utf8_unicode_ci,
+  `ship_state` varchar(255) collate utf8_unicode_ci,
+  `ship_country` varchar(255) collate utf8_unicode_ci,
+  `ship_zip` varchar(20) collate utf8_unicode_ci,
+  `phone` varchar(15) collate utf8_unicode_ci,
+  `created` datetime,
+  `modified` datetime,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS contents_contents;
 CREATE TABLE IF NOT EXISTS `contents_contents` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `product_id` int(10) NOT NULL,
-  `related_id` int(10) NOT NULL,
+  `id` int(10) AUTO_INCREMENT,
+  `product_id` int(10),
+  `related_id` int(10),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
