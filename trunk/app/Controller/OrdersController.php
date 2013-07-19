@@ -167,6 +167,30 @@ class OrdersController extends AppController {
 		$this->redirect('/page/success' . $config['URL_EXTENSION']);
 	}
 
+	public function admin_modify_selected() 	
+	{
+		$build_flash = "";
+		foreach($this->params['data']['Order']['modify'] AS $value)
+		{
+			// Make sure the id is valid
+			if($value > 0)
+			{
+				$this->Order->id = $value;
+				$order = $this->Order->read();
+		
+				switch ($this->data['multiaction']) 
+				{
+					case "delete":
+						$this->Order->delete($value);
+						$build_flash .= __('Record deleted.', true) . ' ' . __('Order Id', true) . ' ' . $order['Order']['id'] . '<br />';									
+					break;								
+				}
+			}
+		}
+		$this->Session->setFlash($build_flash);
+		$this->redirect('/orders/admin/');
+	}	
+
 	public function admin_delete ($id)
 	{
 		$this->Order->delete($id,true);
@@ -292,11 +316,6 @@ class OrdersController extends AppController {
 		
 		$this->set('answer_template_list',$answer_template_list);
 
-	}
-	
-	public function admin_modify_selected ()
-	{
-		$this->redirect('/orders/admin/');
 	}
 	
 	public function admin ($ajax = false)
