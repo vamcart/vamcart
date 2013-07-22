@@ -220,7 +220,7 @@ class AppController extends Controller {
 	{
 		// Navigation Menu Array
 		$navigation = array(
-			//1 => array('icon' => 'cus-house', 'text' => __('Home', true), 'path' => '/admin/admin_top/'),	
+			//1 => array('icon' => 'cus-house', 'text' => __('Dashboard', true), 'path' => '/admin/admin_top/'),	
 			2 => array('icon' => 'cus-cart', 'text' => __('Orders', true), 'path' => '/admin/admin_top/2', 
 				'children' => array(
 					1 => array('icon' => 'cus-cart-go', 'text' => __('All Orders', true), 'path' => '/orders/admin/'),
