@@ -21,7 +21,7 @@ $(document).ready(function () {
 });
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
 <?php
-	echo $this->admin->ShowPageHeaderStart(__('Home',true), 'cus-house');
+	echo $this->admin->ShowPageHeaderStart(__('Dashboard',true), 'cus-house');
 
 	echo '<div id="news"></div>';
 
