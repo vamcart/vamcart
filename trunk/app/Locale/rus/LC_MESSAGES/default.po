@@ -3727,3 +3727,11 @@ msgstr "Фильтр"
 #: /View/OrdersEdit/admin.ctp:61
 msgid "All Categories"
 msgstr "Все категории"
+
+#: /View/Orders/admin.ctp:61
+msgid "Change Order Status"
+msgstr "Изменить статус заказа"
+
+#: /app/controllers/OrdersController.php:61
+msgid "Order status changed."
+msgstr "Статус заказа изменён."

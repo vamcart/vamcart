@@ -177,6 +177,7 @@ class OrdersController extends AppController {
 			{
 				$this->Order->id = $value;
 				$order = $this->Order->read();
+				//echo var_dump($order);
 		
 				switch ($this->data['multiaction']) 
 				{
@@ -184,6 +185,14 @@ class OrdersController extends AppController {
 						$this->Order->delete($value);
 						$build_flash .= __('Record deleted.', true) . ' ' . __('Order Id', true) . ' ' . $order['Order']['id'] . '<br />';									
 					break;								
+					case "change_status":
+						$status_id = $this->data['status'];
+						$comment = $this->data['comment'];
+						$notify = $this->data['notify'];
+						$this->_change_status($order, $status_id, $comment, $notify);
+						$build_flash .= __('Order status changed.', true);
+						$target_page = '/orders/admin/';
+						break;
 				}
 			}
 		}
@@ -191,6 +200,96 @@ class OrdersController extends AppController {
 		$this->redirect('/orders/admin/');
 	}	
 
+	public function _change_status($order, $status_id, $comment, $notify)
+	{
+		$order['Order']['order_status_id'] = $status_id;
+
+		$order['OrderComment']['order_id'] = $order['Order']['id'];
+		$order['OrderComment']['comment'] = $comment;
+		$order['OrderComment']['sent_to_customer'] = $notify;
+				
+		
+		$this->Order->save($order['Order']);
+		$this->Order->OrderComment->save($order['OrderComment']);
+		
+		if ($notify == 1) {
+		
+		global $config;
+		$config = $this->ConfigurationBase->load_configuration();
+		
+		// Retrieve email template
+		$this->EmailTemplate->unbindModel(array('hasMany' => array('EmailTemplateDescription')));
+		$this->EmailTemplate->bindModel(
+	        array('hasOne' => array(
+				'EmailTemplateDescription' => array(
+                    'className' => 'EmailTemplateDescription',
+					'conditions'   => 'language_id = ' . $this->Session->read('Customer.language_id')
+                )
+            )
+           	)
+	    );
+		
+		// Get email template
+		$email_template = $this->EmailTemplate->findByAlias('new-order-status');
+		// Get current order status
+		$current_order_status = $this->Order->OrderStatus->OrderStatusDescription->find('first', array('conditions' => array('OrderStatusDescription.order_status_id =' => $status_id, 'OrderStatusDescription.language_id =' => $this->Session->read('Customer.language_id'))));
+		
+		if ($order['Order']['email'] != '') {
+		// Set up mail
+		$this->Email->init();
+		$this->Email->From = $config['NEW_ORDER_STATUS_FROM_EMAIL'];
+		$this->Email->FromName = __($config['NEW_ORDER_STATUS_FROM_NAME'],true);
+		$this->Email->AddAddress($order['Order']['email']);
+		
+		// Email Subject
+		$subject = $email_template['EmailTemplateDescription']['subject'];
+		$subject = str_replace('{$order_number}', $order['Order']['id'], $subject);
+		$subject = $config['SITE_NAME'] . ' - ' . $subject;
+		$this->Email->Subject = $subject;
+		
+		$body = $email_template['EmailTemplateDescription']['content'];
+		$body = str_replace('{$name}', $order['Order']['bill_name'], $body);
+		$body = str_replace('{$order_number}', $order['Order']['id'], $body);
+		$body = str_replace('{$order_status}', $current_order_status['OrderStatusDescription']['name'], $body);
+		$body = str_replace('{$comments}', $order['OrderComment']['comment'], $body);
+		
+		// Email Body
+		$this->Email->Body = $body;
+		
+		// Sending mail
+		$this->Email->send();
+		}
+		
+		}
+	}
+
+	public function admin_order_statuses()
+	{
+		// Bind and set the order status select list
+		$this->Order->OrderStatus->unbindModel(array('hasMany' => array('OrderStatusDescription')));
+		$this->Order->OrderStatus->bindModel(
+	        array('hasOne' => array(
+				'OrderStatusDescription' => array(
+                    'className' => 'OrderStatusDescription',
+					'conditions'   => 'language_id = ' . $this->Session->read('Customer.language_id')
+                )
+            )
+           	)
+	    );		
+		
+		$status_list = $this->Order->OrderStatus->find('all', array('order' => array('OrderStatus.order ASC')));
+		$order_status_list = array();
+		
+		foreach($status_list AS $status)
+		{
+			$status_key = $status['OrderStatus']['id'];
+			$order_status_list[$status_key] = $status['OrderStatusDescription']['name'];
+		}
+		
+		$this->set('order_status_list',$order_status_list);
+		
+	}
+		
 	public function admin_delete ($id)
 	{
 		$this->Order->delete($id,true);
