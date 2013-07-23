@@ -11,7 +11,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-world-edit');
 echo '<table class="contentTable">';
 echo $this->Html->tableHeaders(array( __('Title'), __('Call (Template Placeholder)'),__('Action')));
 
-foreach ($defined_languages AS $defined_language)
+foreach ($data AS $defined_language)
 {
 	echo $this->Admin->TableCells(
 		  array(
@@ -21,7 +21,15 @@ foreach ($defined_languages AS $defined_language)
 		   ));
 }
 echo '</table>';
-echo $this->Admin->EmptyResults($defined_languages);
+
+?>
+<table class="contentPagination">
+	<tr>
+		<td><?php echo $this->Paginator->numbers(array('separator'=>' - ')); ?></td>
+	</tr>
+</table>
+
+<?php
 
 echo $this->Admin->CreateNewLink();
 echo $this->Admin->CreateExportLink();

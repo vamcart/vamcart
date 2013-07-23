@@ -7,6 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 class DefinedLanguagesController extends AppController {
 	public $name = 'DefinedLanguages';
+	public $paginate = array('limit' => 20, 'order' => array('DefinedLanguage.id' => 'asc'),'group' => array('DefinedLanguage.key'));
 	
 	/*
 	* Delets all language definitions with key = $key 
@@ -226,7 +227,9 @@ class DefinedLanguagesController extends AppController {
 	{
 		$this->set('current_crumb', __('Defined Language Listing', true));
 		$this->set('title_for_layout', __('Defined Language Listing', true));
-		$this->set('defined_languages', $this->DefinedLanguage->find('all', array('group' => array('DefinedLanguage.key'))));
+		$data = $this->paginate('DefinedLanguage');
+		$this->set('data',$data);
+		
 	}
 }
 ?>
