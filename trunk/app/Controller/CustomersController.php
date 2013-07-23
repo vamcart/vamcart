@@ -53,12 +53,17 @@ class CustomersController extends AppController {
 				if($this->data['Customer']['password'] != $this->data['Customer']['retype'])
 				{
 					$this->Session->setFlash(__('Sorry, passwords did not match.', true));
-					//$this->redirect('/customers/admin/');
-					//die();
+					$this->redirect('/customers/admin/');
+					die();
 				}
-				
-				$this->request->data['Customer']['password'] = Security::hash($this->data['Customer']['password'], 'sha1', true);
 
+					$this->request->data['Customer']['password'] = Security::hash($this->data['Customer']['password'], 'sha1', true);
+
+			} else {
+
+				$current_customer_data = $this->Customer->find('first', array('conditions' => array('customer_id' => $this->data['Customer']['id'])));
+				$this->request->data['Customer']['password'] = $current_customer_data['Customer']['password'];
+				
 			}
 						
         $user = $this->Customer->save($this->request->data);

@@ -880,7 +880,11 @@ INSERT INTO `defined_languages` (`id`, `language_id`, `key`, `value`, `created`,
 (199, 1, 'Orders Not Found!', 'Orders Not Found!', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
 (200, 2, 'Orders Not Found!', 'Заказы не найдены!', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
 (201, 1, 'Permission Denied.', 'Permission Denied.', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
-(202, 2, 'Permission Denied.', 'Нет доступа.', '2009-09-12 20:08:49', '2009-09-12 20:08:49');
+(202, 2, 'Permission Denied.', 'Нет доступа.', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(203, 1, 'New Password', 'New Password', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(204, 2, 'New Password', 'Новый пароль', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(205, 1, 'Leave empty to use current password.', 'Leave empty to use current password.', '2009-09-12 20:08:49', '2009-09-12 20:08:49'),
+(206, 2, 'Leave empty to use current password.', 'Оставьте поле пустым, если Вы не хотите менять текущий пароль.', '2009-09-12 20:08:49', '2009-09-12 20:08:49');
 
 
 DROP TABLE IF EXISTS email_templates;
