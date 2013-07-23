@@ -6,8 +6,6 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-	echo $this->Form->create('OrderComment', array('id' => 'contentform', 'name' => 'contentform'));
-
 	echo $this->Form->input('Order.order_status_id', 
 			array(
 				'type' => 'select',
@@ -22,7 +20,7 @@
 				'label' => __('Answer Template'),
 				'name' => 'menu',
 				'empty' => __('Select'),
-				'onclick' => 'var textarea = document.getElementById("OrderCommentComment"); textarea.value=document.contentform.menu.options[document.contentform.menu.selectedIndex].value;',
+				'onclick' => 'var textarea = document.getElementById("OrderCommentComment"); textarea.value=document.getElementById("OrderAnswerTemplateId").value;',
 				'after' => ' '.$this->Html->link($this->Html->image("admin/icons/new.png", array("alt" => "Add Answer Template")),'/answer_template/admin/', array('escape' => false, 'target' => '_blank'))
 			));
 	echo $this->Form->input('OrderComment.comment', 
@@ -37,6 +35,5 @@
 				'label' => __('Send To Customer'),
 				'class' => 'checkbox_group'
 			));
-	
-	echo $this->Form->end();	
+
 ?>
