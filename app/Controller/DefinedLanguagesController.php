@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 class DefinedLanguagesController extends AppController {
 	public $name = 'DefinedLanguages';
-	public $paginate = array('limit' => 20, 'order' => array('DefinedLanguage.id' => 'asc'),'group' => array('DefinedLanguage.key'));
+	public $paginate = array('limit' => 20, 'order' => array('DefinedLanguage.key' => 'asc'),'group' => array('DefinedLanguage.key'));
 	
 	/*
 	* Delets all language definitions with key = $key 
