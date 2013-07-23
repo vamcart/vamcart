@@ -19,9 +19,9 @@ $template = '
 <br />
 <div class="label"><label for="email">{lang}E-mail{/lang}:</label></div><input id="email" name="customer[email]" type="text" value="{$form_data.Customer.email}" />
 <br />
-<div class="label"><label for="password">{lang}Password{/lang}:</label></div><input id="password" name="customer[password]" type="password" />
+<div class="label"><label for="password">{lang}New Password{/lang}:</label></div><input id="password" name="customer[password]" type="password" /> {lang}Leave empty to use current password.{/lang}
 <br />
-<div class="label"><label for="retype">{lang}Retype Password{/lang}:</label></div><input id="retype" name="customer[retype]" type="password" />
+<div class="label"><label for="retype">{lang}Retype Password{/lang}:</label></div><input id="retype" name="customer[retype]" type="password" /> {lang}Leave empty to use current password.{/lang}
 <br />
 <button class="btn" type="submit" value="{lang}Save{/lang}"><i class="cus-tick"></i> {lang}Save{/lang}</button>
 </form>

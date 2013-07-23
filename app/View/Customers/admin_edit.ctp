@@ -29,12 +29,16 @@ $this->Html->script(array(
 	echo $this->Form->input('Customer.password', 
 						array(
 				   		'type' => 'password',
-   				   	'label' => __('New Password')
+				   		'value' => '',				   
+   				   	'label' => __('New Password'),
+   				   	'after' => ' '.__('Leave empty to use current password.')
 	               ));
 	echo $this->Form->input('Customer.retype', 
 						array(
 				   		'type' => 'password',				   
-   				   	'label' => __('Confirm Password')
+				   		'value' => '',				   
+   				   	'label' => __('Confirm Password'),
+   				   	'after' => ' '.__('Leave empty to use current password.')
 	               ));
 	echo '<div>'.__('Shipping Information').'</div>';	               
 	echo $this->Form->input('AddressBook.ship_name', 

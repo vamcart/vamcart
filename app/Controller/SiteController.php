@@ -85,9 +85,15 @@ class SiteController extends AppController {
 			if ($customer->validates()) {
 				
 				$_POST['customer']['id'] = $_SESSION['Customer']['customer_id'];
+
+				$current_customer_data = $customer->find('first', array('conditions' => array('customer_id' => $_SESSION['Customer']['customer_id'])));
 				
-				$_POST['customer']['password'] = Security::hash($_POST['customer']['password'], 'sha1', true);
-				$_POST['customer']['retype'] = Security::hash($_POST['customer']['retype'], 'sha1', true);
+				if ($_POST['customer']['password'] == '') {
+					$_POST['customer']['password'] = $current_customer_data['Customer']['password'];
+				} else {
+					$_POST['customer']['password'] = Security::hash($_POST['customer']['password'], 'sha1', true);
+				}
+				
 				$ret = $customer->save($_POST['customer']);
 
 				$this->Session->setFlash(__('Your account has been updated successfully.'), 'bootstrap_alert_success');

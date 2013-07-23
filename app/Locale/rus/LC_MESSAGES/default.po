@@ -3735,3 +3735,7 @@ msgstr "Изменить статус заказа"
 #: /app/controllers/OrdersController.php:61
 msgid "Order status changed."
 msgstr "Статус заказа изменён."
+
+#: /app/controllers/CustomersController.php:61
+msgid "Leave empty to use current password."
+msgstr "Оставьте поле пустым, если Вы не хотите менять текущий пароль."
