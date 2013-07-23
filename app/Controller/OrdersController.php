@@ -208,7 +208,6 @@ class OrdersController extends AppController {
 		$order['OrderComment']['comment'] = $comment;
 		$order['OrderComment']['sent_to_customer'] = $notify;
 				
-		
 		$this->Order->save($order['Order']);
 		$this->Order->OrderComment->save($order['OrderComment']);
 		
@@ -287,6 +286,28 @@ class OrdersController extends AppController {
 		}
 		
 		$this->set('order_status_list',$order_status_list);
+
+			// Retrieve answer template
+			$this->AnswerTemplate->unbindModel(array('hasMany' => array('AnswerTemplateDescription')));
+			$this->AnswerTemplate->bindModel(
+				array('hasOne' => array(
+					'AnswerTemplateDescription' => array(
+						'className'  => 'AnswerTemplateDescription',
+						'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
+					)
+				))
+			);
+
+		$answer_status_list = $this->AnswerTemplate->find('all', array('order' => array('AnswerTemplate.order ASC')));
+		$answer_template_list = array();
+
+		foreach($answer_status_list AS $answer_status)
+		{
+			$answer_status_key = $answer_status['AnswerTemplateDescription']['content'];
+			$answer_template_list[$answer_status_key] = $answer_status['AnswerTemplateDescription']['name'];
+		}
+		
+		$this->set('answer_template_list',$answer_template_list);
 		
 	}
 		
