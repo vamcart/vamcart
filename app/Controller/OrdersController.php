@@ -204,12 +204,17 @@ class OrdersController extends AppController {
 	{
 		$order['Order']['order_status_id'] = $status_id;
 
+		if ($comment != '') {
 		$order['OrderComment']['order_id'] = $order['Order']['id'];
 		$order['OrderComment']['comment'] = $comment;
 		$order['OrderComment']['sent_to_customer'] = $notify;
-				
+		}
+		
 		$this->Order->save($order['Order']);
-		$this->Order->OrderComment->save($order['OrderComment']);
+
+		if ($comment != '') {
+		$this->Order->OrderComment->saveAll($order['OrderComment']);
+		}
 		
 		if ($notify == 1) {
 		
