@@ -64,7 +64,7 @@ function statusSelection(form)
 				submit_flag = true;
 				var val = $("#OrderOrderStatusId").val();
 				var comment = $("#OrderCommentComment").val();
-				var notify = $("#OrderCommentSentToCustomer").val();
+				var notify = $("#OrderCommentSentToCustomer:checked").val();
 				$(form).append(\'<input type="hidden" name="status" />\');
 				$("input[name=status]").val(val);
 				$(form).append(\'<input type="hidden" name="comment" />\');
