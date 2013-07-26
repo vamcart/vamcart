@@ -208,6 +208,8 @@ class OrdersController extends AppController {
 		$order['OrderComment']['order_id'] = $order['Order']['id'];
 		$order['OrderComment']['comment'] = $comment;
 		$order['OrderComment']['sent_to_customer'] = $notify;
+		$order['OrderComment']['created'] = date("Y-m-d H:i:s");
+		$order['OrderComment']['modified'] = date("Y-m-d H:i:s");
 		}
 		
 		$this->Order->save($order['Order']);
