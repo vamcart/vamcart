@@ -49,7 +49,6 @@ class AppController extends Controller {
 		'OrderBase',
 		'Translit',
 		'Session',
-		'DebugKit.Toolbar',
 		'Auth' => array(
 		)
 	);
