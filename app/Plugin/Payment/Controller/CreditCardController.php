@@ -57,12 +57,9 @@ class CreditCardController extends PaymentAppController {
 	function before_process () 
 	{
 	
-		$content = '<form action="' . BASE . '/payment/credit_card/process_payment/" method="post">';
-
-			$content .= $this->credit_card_fields();
-		
-		$content .= '
-		
+		$content = '
+		<form action="' . BASE . '/orders/place_order/" method="post">
+		<button class="btn" type="submit" value="{lang}Confirm Order{/lang}"><i class="cus-tick"></i> {lang}Confirm Order{/lang}</button>
 		</form>';
 		return $content;	
 	}
