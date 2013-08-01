@@ -64,13 +64,11 @@ class AuthorizeController extends PaymentAppController {
 		$authorize_login = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'authorize_login')));
 		$login = $authorize_login['PaymentMethodValue']['value'];
 	
-		$content = '<form action="' . BASE . '/payment/authorize/process_payment/" method="post">';
-
-			$content .= $this->credit_card_fields();
-		
-		$content .= '
+		$content = '
+		<form action="' . BASE . '/orders/place_order/" method="post">
+		<button class="btn" type="submit" value="{lang}Confirm Order{/lang}"><i class="cus-tick"></i> {lang}Confirm Order{/lang}</button>
 		</form>';
-		return $content;		
+		return $content;	
 		
 	}
 
