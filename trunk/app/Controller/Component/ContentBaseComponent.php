@@ -100,10 +100,18 @@ class ContentBaseComponent extends Object
 		$this->Content->bindModel(array('belongsTo' => array('Template' => array('className' => 'Template'))));
 
 		$this->Content->bindModel(array('belongsTo' => array('ContentType' => array('className' => 'ContentType'))));
-
+/*->***************************************************************/
+                $this->Content->bindModel(array('hasMany' => array(
+				'Attribute' => array(
+                    'className' => 'Attribute'
+                   ,'conditions' =>array('Attribute.is_active' => '1' ,'Attribute.is_show_flt' => '1')
+                   ,'order' => array('Attribute.order ASC')
+					))));
+                $this->Content->Attribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
+                $this->Content->Attribute->ValAttribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
+/***************************************************************<-*/
 		$content_conditions = "Content.id = '" . $content_alias . "' OR BINARY Content.alias = '" . $content_alias . "' AND Content.active ='1'";
 		$content = $this->Content->find('first', array('recursive' => 2, 'conditions' => $content_conditions));
-
 		if ($content === false) {
 			$this->cakeError('error404');
 		}

@@ -96,7 +96,8 @@ function smarty_function_content_listing($params, $template)
 		$Content->bindModel(array('hasOne' => array(
 				'ContentProduct' => array(
                     'className' => 'ContentProduct'
-					))));		
+					))));
+		
 	// Make sure parent is valid, if it's not a number get the correct parent number
 	if(!isset($params['parent']))
 		$params['parent'] = 0;
@@ -105,6 +106,16 @@ function smarty_function_content_listing($params, $template)
 		$get_content = $Content->findByAlias($params['parent']);
 		$params['parent'] = $get_content['Content']['id'];
 	}
+
+
+/***************************************************************/
+                $Content->bindModel(array('hasMany' => array(
+				'Attribute' => array(
+                    'className' => 'Attribute'
+					))));
+                $is_compare = $Content->Attribute->find('first',array('conditions' => array('Attribute.content_id' => $params['parent'] ,'Attribute.is_show_cmp' => '1')));
+/***************************************************************/
+
 
         if(!isset ($params['on_page']))
             $params['on_page'] = $config['PRODUCTS_PER_PAGE'];
@@ -136,7 +147,76 @@ function smarty_function_content_listing($params, $template)
 
         // Applying pagination for products only
         if(strpos($params['type'],'product') !== false){
-            if($params['page'] == 'all'){
+/*->***************************************************************/
+        global $filter_list;
+        if(!empty($filter_list))
+        {
+            $ContentFiltered =& new Content();
+            $ContentFiltered->recursive = -1;
+            $content_list_data_joins = array(array('table' => 'attributes'
+                                                  ,'alias' => 'Attribute'
+                                                  ,'type' => 'inner'
+                                                  ,'conditions' => array('Content.parent_id = Attribute.content_id'))
+                                            ,array('table' => 'attributes'
+                                                  ,'alias' => 'AttributeDefValue'
+                                                  ,'type' => 'inner'
+                                                  ,'conditions' => array('Attribute.id = AttributeDefValue.parent_id'))
+                                            ,array('table' => 'attributes'
+                                                  ,'alias' => 'AttributeValue'
+                                                  ,'type' => 'left'
+                                                  ,'conditions' => array('Content.id = AttributeValue.content_id' ,'AttributeDefValue.id = AttributeValue.parent_id'))
+                                            );
+            $attribute_conditions = array();
+            foreach($filter_list AS $k => $filter_value)
+            {
+                if($filter_value['is_active'] == '1')
+                {
+                    $tmp_val = array();
+                    switch ($filter_value['type_attr']) 
+                    {
+                        case 'max':
+                            if(trim($filter_value['value']) != '')
+                            $tmp_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val >= ' . $filter_value['value'] . ' OR (AttributeDefValue.val >= ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
+                        break;
+                        case 'min':
+                            if(trim($filter_value['value']) != '')
+                            $tmp_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val <= ' . $filter_value['value'] . ' OR (AttributeDefValue.val <= ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
+                        break;
+                        case 'like':
+                            $filter_value['value'] = "'%" . $filter_value['value'] . "%'";
+                            $tmp_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val not like ' . $filter_value['value'] . ' OR (AttributeDefValue.val not like ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
+                        break;
+                        case 'value':
+                            if(trim($filter_value['value']) != '' && is_numeric($filter_value['value']))
+                            $tmp_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val != ' . $filter_value['value'] . ' OR (AttributeDefValue.val != ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
+                        break;
+                        default:
+                            $filter_value['value'] = $filter_value['value'] + 0;
+                            $tmp_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val != ' . $filter_value['value'] . ' OR (AttributeDefValue.val != ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
+                        break;
+                    }
+                    array_push($attribute_conditions, $tmp_val);
+                }
+            }
+            if(!empty($attribute_conditions))
+            {    
+                $attribute_conditions = array('OR' => $attribute_conditions);
+
+                $tmp_content_list_data_conditions = array_merge($content_list_data_conditions, $attribute_conditions);
+                $content_filtered_list_data = $ContentFiltered->find('all', array('conditions' => $tmp_content_list_data_conditions, 'order' => array('Content.order ASC') ,'joins' => $content_list_data_joins ,'group' => array('Content.id')));
+
+                if(!empty($content_filtered_list_data))
+                {
+                    foreach($content_filtered_list_data AS $k => $content_filtered)
+                    {
+                        $tmp_filter_list[$k] = $content_filtered['Content']['id'];
+                    }
+                    $content_list_data_conditions = array_merge($content_list_data_conditions, array('NOT' => array('Content.id' => $tmp_filter_list)));
+                }
+            }
+        }
+/***************************************************************<-*/          
+            if($params['page'] == 'all'){          
                 $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'order' => array('Content.order ASC')));
                 $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
             }
@@ -144,13 +224,11 @@ function smarty_function_content_listing($params, $template)
                 $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => $params['on_page'],'page' => $params['page'], 'order' => array('Content.order ASC')));
                 $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
             }
-            
         }
         else{
             $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'order' => array('Content.order ASC')));
         }
 	
-
 	// Loop through the content list and create a new array with only what the template needs
 	$content_list = array();
 	$count = 0;
@@ -207,7 +285,10 @@ function smarty_function_content_listing($params, $template)
 	if($config['GD_LIBRARY'] == 0)
 		$vars['thumbnail_width'] = $config['THUMBNAIL_SIZE'];
 
-        
+/***************************************************************/
+	if(!empty($is_compare))$vars['is_compare'] = 1;
+/***************************************************************/
+
 
 	$display_template = $Smarty->load_template($params,'content_listing');	
 	$Smarty->display($display_template,$vars);

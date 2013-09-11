@@ -219,11 +219,10 @@ class AppController extends Controller {
 	{
 		// Navigation Menu Array
 		$navigation = array(
-			//1 => array('icon' => 'cus-house', 'text' => __('Dashboard', true), 'path' => '/admin/admin_top/'),	
+			//1 => array('icon' => 'cus-house', 'text' => __('Home', true), 'path' => '/admin/admin_top/'),	
 			2 => array('icon' => 'cus-cart', 'text' => __('Orders', true), 'path' => '/admin/admin_top/2', 
 				'children' => array(
-					1 => array('icon' => 'cus-cart-go', 'text' => __('All Orders', true), 'path' => '/orders/admin/'),
-					2 => array('icon' => 'cus-user', 'text' => __('Customers', true), 'path' => '/customers/admin/')
+					1 => array('icon' => 'cus-cart-go', 'text' => __('All Orders', true), 'path' => '/orders/admin/')
 				)			
 			),				
 			3 => array('icon' => 'cus-table', 'text' => __('Contents', true), 'path' => '/admin/admin_top/3',
@@ -231,7 +230,8 @@ class AppController extends Controller {
 					1 => array('icon' => 'cus-book-add', 'text' => __('Categories/Products', true), 'path' => '/contents/admin/'),
 					2 => array('icon' => 'cus-database-refresh', 'text' => __('Import/Export', true), 'path' => '/import_export/admin/'),
 					3 => array('icon' => 'cus-page', 'text' => __('Pages', true), 'path' => '/contents/admin_core_pages/'),
-					4 => array('icon' => 'cus-application-cascade', 'text' => __('Content Blocks', true), 'path' => '/global_content_blocks/admin/')
+					4 => array('icon' => 'cus-application-cascade', 'text' => __('Content Blocks', true), 'path' => '/global_content_blocks/admin/'),
+					6 => array('icon' => 'cus-tag-green', 'text' => __('Attributes', true), 'path' => '/attributes/admin/')
 				)
 			),
 			4 => array('icon' => 'cus-paintbrush', 'text' => __('Layout', true), 'path' => '/admin/admin_top/4',
@@ -269,7 +269,8 @@ class AppController extends Controller {
 					1 => array('icon' => 'cus-plugin-add', 'text' => __('Modules', true), 'path' => '/modules/admin/'),
 					2 => array('icon' => 'cus-tag-blue', 'text' => __('Tags', true), 'path' => '/tags/admin/'),
 					3 => array('icon' => 'cus-tag-blue-add', 'text' => __('User Tags', true), 'path' => '/user_tags/admin/'),
-					4 => array('icon' => 'cus-page-gear', 'text' => __('Events', true), 'path' => '/events/admin/')
+					4 => array('icon' => 'cus-page-gear', 'text' => __('Events', true), 'path' => '/events/admin/'),
+					5 => array('icon' => 'cus-tag-blue-edit', 'text' => __('Attribute Templates', true), 'path' => '/attribute_templates/admin/')
 				)
 			),									
 			8 => array('icon' => 'cus-group', 'text' => __('Account', true), 'path' => '/admin/admin_top/8',
@@ -396,7 +397,7 @@ class AppController extends Controller {
 			$Locale =& new LocaleComponent(new ComponentCollection ());
 			
 			// Set a current breadcrumb from the locale based on the current controller/action		
-			//$this->set('current_crumb',$Locale->set_crumb($this->params['action'],$this->params['controller']));	
+			$this->set('current_crumb',$Locale->set_crumb($this->params['action'],$this->params['controller']));	
 		
 			// Check the admin login credentials against the database
 			// ToDo: Make this more secure, possibly change to a requestaction in users controller
@@ -419,4 +420,12 @@ class AppController extends Controller {
 		}
 
 	}
+
+/*	function redirect($url, $status = null, $exit = true) 
+	{
+	
+		if(isset($this->params['named']) && $this->params['named'])
+		$url = array_merge($url, $this->params['named']);
+		parent::redirect($url, $status, $exit);
+	} */
 }
