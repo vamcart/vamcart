@@ -9,7 +9,7 @@ App::uses('Model', 'AppModel');
 class Content extends AppModel {
 	public $name = 'Content';
 	public $belongsTo = array('ContentType','Template');
-	public $hasMany = array('ContentImage','ContentDescription' => array('dependent' => true));
+	public $hasMany = array('ContentImage','ContentDescription' => array('dependent' => true),'Attribute' => array('dependent' => true));
 	public $hasOne = array('ContentLink' => array('dependent' => true),'ContentProduct' => array('dependent' => true),'ContentPage' => array('dependent' => true),'ContentCategory' => array('dependent' => true),'ContentArticle' => array('dependent' => true),'ContentNews' => array('dependent' => true),'ContentDownloadable' => array('dependent' => true));
 	
 	public $hasAndBelongsToMany = array(
@@ -28,6 +28,12 @@ class Content extends AppModel {
 			'rule' => 'notEmpty'
 		)
 	);
+        
+       /* public function find($type = 'all', $query = array())
+	{
+            parent::log(" -------------- myFind - ");
+            return parent::find($type, $query);
+        }*/
 
 }
 

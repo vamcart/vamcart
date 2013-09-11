@@ -75,6 +75,51 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty', 'Gzip.G
 		$this->Content = new Content();
 
 		$alias = $this->getAliasFromParams($this->params);
+                
+/*->***************************************************************/
+                global $compare_list;
+                $compare_list = $this->Session->read('compare_list.' . $alias);
+                if(!isset($compare_list)) $compare_list = array();
+                if(isset($this->params['add_alias']))
+                {
+                    $compare_content = $this->ContentBase->get_content_information($this->params['add_alias']);
+                    $compare_list[$this->params['add_alias']] = $compare_content['Content']['id'];
+                    //array_push($compare_list,$compare_content['Content']['id']);
+                    $this->Session->write('compare_list.' . $alias ,$compare_list);
+                    //$this->redirect($this->referer());
+                }
+                if(isset($this->params['del_alias']))
+                {
+                    unset($compare_list[$this->params['del_alias']]); 
+                    $this->Session->write('compare_list.' . $alias ,$compare_list);
+                    //$this->redirect($this->referer());
+                }
+                
+                global $filter_list;
+                $filter_list = $this->Session->read('filter_list.' . $alias);//текущее состояние
+                
+                if(isset($this->params['filtered']) && $this->params['filtered'] == 'set')
+                {
+                    App::import('Model', 'Attribute');
+                    $Attribute = new Attribute;
+                    $filter_data = $Attribute->getFilterFromFormData($this->data);
+                    if(!empty($filter_data))
+                    {
+                        foreach ($filter_data AS $k => $opt_filter)
+                        {
+                            $filter_list[$k]['type_attr'] = $opt_filter['type_attr'];
+                            $filter_list[$k]['value'] = $opt_filter['value'];
+                            $filter_list[$k]['is_active'] = $opt_filter['is_active'];
+                        }
+                        $this->Session->write('filter_list.' . $alias ,$filter_list);//сохраняем состояние для пагинации
+                    }
+                }
+                if(isset($this->params['filtered']) && $this->params['filtered'] == 'set' && isset($this->data['cancelbutton']))
+                {
+                    $filter_list = array();
+                    $this->Session->delete('filter_list.' . $alias);
+                }
+/***************************************************************<-*/
 
 		// Pull the content out of cache or generate it if it doesn't exist
 		// Cache is based on language_id and alias of the page.
@@ -131,7 +176,7 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty', 'Gzip.G
 		if (!isset($this->params['page'])) {
 			$this->params['page'] = 1;
 		}
-
+                
 		if ($template_vars === false) {
 			$template_vars = array(
 				'content_id' => $content['Content']['id'],
@@ -151,7 +196,7 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty', 'Gzip.G
 				'created' => $content['Content']['created'],
 				'modified' => $content['Content']['modified'],
 				'page' => $this->params['page'],
-				'ajax_enable' => $config['AJAX_ENABLE'],
+				'ajax_enable' => $config['AJAX_ENABLE']
 			);
 
 			Cache::write($cache_name, $template_vars);
