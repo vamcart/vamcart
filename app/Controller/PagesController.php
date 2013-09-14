@@ -86,13 +86,13 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty', 'Gzip.G
                     $compare_list[$this->params['add_alias']] = $compare_content['Content']['id'];
                     //array_push($compare_list,$compare_content['Content']['id']);
                     $this->Session->write('compare_list.' . $alias ,$compare_list);
-                    //$this->redirect($this->referer());
+                    //$this->redirect($_SERVER['HTTP_REFERER']);
                 }
                 if(isset($this->params['del_alias']))
                 {
                     unset($compare_list[$this->params['del_alias']]); 
                     $this->Session->write('compare_list.' . $alias ,$compare_list);
-                    //$this->redirect($this->referer());
+                    //$this->redirect($_SERVER['HTTP_REFERER']);
                 }
                 
                 global $filter_list;

@@ -6,10 +6,10 @@ function default_template_filter()
     <div class="box">
         <h5><img src="{base_path}/img/icons/menu/blocks.png" alt="" />&nbsp;{lang}Filter{/lang}</h5>
         <div class="boxContent">
-            <form name="" action="{$url}" method="post">
+            <form name="" action="{$base_url}/filtered/set/{$base_content}" method="post">
                 <div class="">
                     {foreach from=$element_list item=element}
-                        {value_filter template=$element["template"] params=$element["value_list"]}
+                        {value_filter template=$element["template_attribute"] id_attribute=$element["id_attribute"] name_attribute=$element["name_attribute"] values_attribute=$element["values_attribute"]}
                     {/foreach}
                     <button class="btn" name="applybutton" type="submit"><i class="cus-tick"></i>
                     {lang}Apply{/lang}
@@ -38,33 +38,34 @@ function smarty_function_filter($params)
     App::import('Model', 'Attribute');
     $Attribute =& new Attribute();		
     
-    if (empty($content['Attribute'])||$content['ContentType']['name'] != 'category') 
+    if (empty($content['FilteredAttribute'])||$content['ContentType']['name'] != 'category') 
     {
 	echo '<div></div>';
 	return;
     }
 
-    //на будущее убрать в модель
     $element_list = array();
-    foreach($content['Attribute'] AS $k => $attribute)
+    foreach($content['FilteredAttribute'] AS $k => $attribute)
     {
-        $element_list[$k]['template'] = $attribute['AttributeTemplate']['template'];
+        $element_list[$k]['id_attribute'] = $attribute['id']; //id атрибута
+        $element_list[$k]['name_attribute'] = $attribute['name'];
+        $element_list[$k]['template_attribute'] = $attribute['AttributeTemplate']['template_filter'];
+        $element_list[$k]['values_attribute'] = array();
         foreach($attribute['ValAttribute'] AS $k_v => $value)
-        {
-            if(isset($value['type_attr'])&&$value['type_attr']!=''&&$value['type_attr']!='def')$k_v = $value['type_attr'];//передаем тип в качестве ключа
-            $element_list[$k]['value_list']['val_attribute'][$k_v]['id'] = $value['id'];
-            $element_list[$k]['value_list']['val_attribute'][$k_v]['parent_id'] = $value['id'];
-            $element_list[$k]['value_list']['val_attribute'][$k_v]['name'] = $value['name'];
-            $element_list[$k]['value_list']['val_attribute'][$k_v]['type_attr'] = $value['type_attr'];
-            if(isset($filter_list[$value['id']])) $element_list[$k]['value_list']['val_attribute'][$k_v]['val'] = $filter_list[$value['id']]['value'];
-            else $element_list[$k]['value_list']['val_attribute'][$k_v]['val'] = '0';
+        {                        
+            if(isset($value['type_attr'])&&$value['type_attr']!=''&&$value['type_attr']!='def')$k_v = $value['type_attr'];//Если задан тип то передаем его качестве ключа
+            $element_list[$k]['values_attribute'][$k_v]['id'] = $value['id']; //id default значения атрибута
+            $element_list[$k]['values_attribute'][$k_v]['name'] = $value['name'];
+            $element_list[$k]['values_attribute'][$k_v]['type_attr'] = $value['type_attr'];
+            //Если задан фильтр установим его в соответствующие значения
+            if(isset($filter_list[$value['id']])) $element_list[$k]['values_attribute'][$k_v]['val'] = $filter_list[$value['id']]['value'];
+            else $element_list[$k]['values_attribute'][$k_v]['val'] = '0';            
         }
-        $element_list[$k]['value_list']['id_attribute'] = $attribute['id'];
-        $element_list[$k]['value_list']['name_attribute'] = $attribute['name'];
     }
     $assignments = array();
     $assignments = array('element_list' => $element_list
-                        ,'url' => BASE . '/' . $content['ContentType']['name']. '/filtered/set/' . $content['Content']['alias'] . $config['URL_EXTENSION']
+                        ,'base_url' => BASE . '/' . $content['ContentType']['name']
+                        ,'base_content' => $content['Content']['alias'] . $config['URL_EXTENSION']
                         );
     $display_template = $Smarty->load_template($params, 'filter');
     $Smarty->display($display_template, $assignments);

@@ -108,13 +108,12 @@ function smarty_function_content_listing($params, $template)
 	}
 
 
-/***************************************************************/
+/*->***************************************************************/
                 $Content->bindModel(array('hasMany' => array(
 				'Attribute' => array(
                     'className' => 'Attribute'
 					))));
-                $is_compare = $Content->Attribute->find('first',array('conditions' => array('Attribute.content_id' => $params['parent'] ,'Attribute.is_show_cmp' => '1')));
-/***************************************************************/
+/***************************************************************<-*/  
 
 
         if(!isset ($params['on_page']))
@@ -232,7 +231,6 @@ function smarty_function_content_listing($params, $template)
 	// Loop through the content list and create a new array with only what the template needs
 	$content_list = array();
 	$count = 0;
-
 	foreach($content_list_data AS $raw_data)
 	{
 		if(in_array(strtolower($raw_data['ContentType']['name']),$allowed_types))
@@ -243,7 +241,14 @@ function smarty_function_content_listing($params, $template)
 			$content_list[$count]['stock']	= $raw_data['ContentProduct']['stock'];	
 			$content_list[$count]['model']	= $raw_data['ContentProduct']['model'];	
 			$content_list[$count]['weight']	= $raw_data['ContentProduct']['weight'];	
-		
+/*->***************************************************************/
+                        $content_list[$count]['atributes'] = array();
+                        foreach($raw_data['Attribute'] AS $atribute)
+                        {
+                            $content_list[$count]['atributes'][$atribute['parent_id']]['id'] = $atribute['id'];
+                            $content_list[$count]['atributes'][$atribute['parent_id']]['value'] = $atribute['val'];
+                        }
+/***************************************************************<-*/      
 		if (isset($raw_data['ContentImage']['image']) && file_exists(IMAGES . 'content/' . $raw_data['Content']['id'] . '/' . $raw_data['ContentImage']['image'])) {
 			$content_list[$count]['icon']	= BASE . '/img/content/' . $raw_data['Content']['id'] . '/' . $raw_data['ContentImage']['image'];
 		}
@@ -285,9 +290,9 @@ function smarty_function_content_listing($params, $template)
 	if($config['GD_LIBRARY'] == 0)
 		$vars['thumbnail_width'] = $config['THUMBNAIL_SIZE'];
 
-/***************************************************************/
-	if(!empty($is_compare))$vars['is_compare'] = 1;
-/***************************************************************/
+/*->***************************************************************/
+	if(!empty($content['CompareAttribute']))$vars['is_compare'] = 1;
+/***************************************************************<-*/  
 
 
 	$display_template = $Smarty->load_template($params,'content_listing');	

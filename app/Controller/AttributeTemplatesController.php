@@ -16,7 +16,7 @@ class AttributeTemplatesController extends AppController {
                 $this->request->data = array('AttributeTemplate' => array('id' => 0));
             break;
             case 'save':
-                if(isset($this->data['cancelbutton']))$this->redirect('/attributetemplates/admin');
+                if(isset($this->data['cancelbutton']))$this->redirect('/attribute_templates/admin');
                 if(!empty($this->data))
                     if($this->AttributeTemplate->save($this->data['AttributeTemplate']))
                     {
@@ -27,12 +27,12 @@ class AttributeTemplatesController extends AppController {
                     if($id == null) $id = $this->AttributeTemplate->getLastInsertId();
                     $this->redirect('/attributetemplates/admin_edit/edit/' . $id);
                 }
-                else $this->redirect('/attributetemplates/admin');
+                else $this->redirect('/attribute_templates/admin');
             break;
             case 'delete':
                 $this->AttributeTemplate->delete($id);	
                 $this->Session->setFlash(__('Record deleted.', true));		
-                $this->redirect('/attributetemplates/admin/');
+                $this->redirect('/attribute_templates/admin/');
             break;
             default:
                 die();
@@ -43,11 +43,7 @@ class AttributeTemplatesController extends AppController {
 	$this->set('title_for_layout', __('Template', true));
                  
     }	
-	
-    public function admin_new ()
-    {
-    	$this->redirect('/attributetemplates/admin_edit/');
-    }   
+	 
    
     public function admin ()
     {

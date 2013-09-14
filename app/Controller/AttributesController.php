@@ -89,6 +89,10 @@ class AttributesController extends AppController
                 if($attribute['Attribute']['id'] == 0) $this->Attribute->create();
                 if($this->Attribute->saveAll($attribute))
                 {
+                    if ($type == 'attr')//для атрибута создадим значения по умолчанию
+                    {
+                        $this->constructDefValue($attribute['Attribute']['attribute_template_id'], $attribute['Attribute']['id']);
+                    }
                     $this->Session->setFlash('Attribute saved.');
                 } else $this->Session->setFlash('Attribute not saved!', 'default', array('class' => 'error-message red'));  
 
@@ -158,12 +162,9 @@ class AttributesController extends AppController
     
     public function admin_editor_value($action = 'init' ,$content_id = 0) 
     {   
-        $data = array();
         $this->loadModel('Content');
         $this->Content->Attribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
         $content_data = $this->Content->find('first',array('conditions' => array('Content.id' => $content_id)));
-        $data['content_id'] = $content_id;
-        $data['parent_id'] = $content_data['Content']['parent_id'];
         
         switch ($action) 
 	{
@@ -175,54 +176,58 @@ class AttributesController extends AppController
                 $this->Attribute->ValAttribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
                 $attr_data = $this->Attribute->find('all',array('conditions' => array('Attribute.content_id' => $content_data['Content']['parent_id'])
                                                                ,'order' => array('Attribute.order ASC')));
-                
                 $this->Attribute->recursive = -1;
-                //на будущее убрать в модель
+                
+                $element_list = array();
                 foreach($attr_data AS $k => $attr)
                 {
-                    $list_val = array();
+                    $element_list[$k]['id_attribute'] = $attr['Attribute']['id'];
+                    $element_list[$k]['name_attribute'] = $attr['Attribute']['name'];
+                    $element_list[$k]['template_attribute'] = $attr['AttributeTemplate']['template_editor'];
+                    $element_list[$k]['values_attribute'] = array();   
                     foreach($attr['ValAttribute'] AS $k_v => $def_val)
-                    {
+                    {   
                         $val = $this->Attribute->find('first',array('conditions' => array('Attribute.content_id' => $content_id
                                                                               ,'Attribute.parent_id' => $def_val['id']
                                                                                )));
-                        if(isset($def_val['type_attr'])&&$def_val['type_attr']!=''&&$def_val['type_attr']!='def')$k_v = $def_val['type_attr'];//передаем тип в качестве ключа
+                        if(isset($def_val['type_attr'])&&$def_val['type_attr']!=''&&$def_val['type_attr']!='def')$k_v = $def_val['type_attr'];//Если задан тип то передаем его качестве ключа
+                        $element_list[$k]['values_attribute'][$k_v]['name'] = $def_val['name']; //наследуем от родителя
+                        $element_list[$k]['values_attribute'][$k_v]['type_attr'] = $def_val['type_attr']; //наследуем от родителя
                         if(empty($val))
                         {
                             $def_val['parent_id'] = $def_val['id']; //свой id ,так как родитель
-                            $def_val['id'] = 0;
-                            $list_val[$k_v] = $def_val; //данные родителя
+                            $element_list[$k]['values_attribute'][$k_v]['id'] = '0';
+                            $element_list[$k]['values_attribute'][$k_v]['parent_id'] = $def_val['id'];
+                            $element_list[$k]['values_attribute'][$k_v]['val'] = $def_val['val']; //данные родителя
                         }
                         else 
                         {
-                            $val['Attribute']['name'] = $def_val['name']; //наследуем от родителя
-                            $val['Attribute']['type_attr'] = $def_val['type_attr']; //наследуем от родителя
-                            $list_val[$k_v] = $val['Attribute'];
+                            $element_list[$k]['values_attribute'][$k_v]['id'] = $val['Attribute']['id'];//id берем свой для сохранения
+                            $element_list[$k]['values_attribute'][$k_v]['parent_id'] = $val['Attribute']['parent_id'];
+                            $element_list[$k]['values_attribute'][$k_v]['val'] = $val['Attribute']['val'];
                         }
-                    }
-                    
-                    $data['values'][$k]['id'] = $attr['Attribute']['id'];
-                    $data['values'][$k]['name'] = $attr['Attribute']['name'];
-                    $data['values'][$k]['template'] = $attr['AttributeTemplate']['template'];
-                    $data['values'][$k]['value'] = $list_val;                    
-                    
+                    }                                    
                 }
+                
             break;
             case 'save':
                 if(isset($this->data['cancelbutton']))
                 {
                     $this->redirect('/attributes/admin/' . $this->data['Attribute']['parent_id']);
                 }
-                
-                $tmp_data = $this->Attribute->getFilterFromFormData($this->data);
                 $save_data = array();
-                foreach ($tmp_data as $k => $value) 
+                foreach ($this->data['values_s'] as $def_value) 
                 {
-                    array_push($save_data, array('id' => $value['id']
-                                                ,'parent_id' => $k
-                                                ,'content_id' => $this->data['Attribute']['content_id']
-                                                ,'val' => $value['value']
-                                                ));
+                    if(isset($def_value['set'])) $def_value['data'][$def_value['set']]['value'] = '1'; 
+                    foreach ($def_value['data'] as $value) 
+                    {
+                        if(!isset($value['value'])) $value['value'] = '0'; 
+                        array_push($save_data, array('id' => $value['id']
+                                                    ,'parent_id' => $value['parent_id']
+                                                    ,'content_id' => $this->data['Attribute']['content_id']
+                                                    ,'val' => $value['value']
+                                                    ));
+                    }
                 }
                 
                 if($this->Attribute->saveAll($save_data))
@@ -239,11 +244,19 @@ class AttributesController extends AppController
         
         $this->loadModel('Language');
         $this->set('languages', $this->Language->find('all', array('conditions' => array('active' => '1'), 'order' => array('Language.id ASC'))));
-        $this->set('data',$data);
+        $this->set('element_list',$element_list);
+        $this->set('content_id', $content_id);
+        $this->set('parent_id', $content_data['Content']['parent_id']); 
         $this->set('current_crumb', __('Value editor', true));
 	$this->set('title_for_layout', __('Value editor', true)); 
 
     }    
+    
+    public function constructDefValue($type_attr, $id_attr) 
+    { 
+        
+    }
+    
          
 }
 
