@@ -937,6 +937,48 @@ CREATE TABLE `answer_template_descriptions` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+DROP TABLE IF EXISTS attributes;
+CREATE TABLE `attributes` (
+  `id` int(10) auto_increment,
+  `parent_id` int(10),
+  `content_id` int(10),
+  `type_attr` varchar(32) collate utf8_unicode_ci,
+  `val` varchar(256) collate utf8_unicode_ci,
+  `order` int(10),
+  `attribute_template_id` int(10),
+  `price_modificator` varchar(1) collate utf8_unicode_ci,
+  `price_value` double,
+  `is_active` tinyint(4),
+  `is_show_flt` tinyint(4),
+  `is_show_cmp` tinyint(4),
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+DROP TABLE IF EXISTS attribute_descriptions;
+CREATE TABLE `attribute_descriptions` (
+  `dsc_id` int(10) auto_increment,
+  `attribute_id` int(10),
+  `language_id` int(10),
+  `name` varchar(255) collate utf8_unicode_ci,
+  `description` text collate utf8_unicode_ci,
+  `meta_title` varchar(255) collate utf8_unicode_ci,
+  `meta_description` varchar(255) collate utf8_unicode_ci,
+  `meta_keywords` varchar(255) collate utf8_unicode_ci,
+  PRIMARY KEY  (`dsc_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+DROP TABLE IF EXISTS attribute_templates;
+CREATE TABLE `attribute_templates` (
+  `id` int(10) auto_increment,
+  `name` varchar(255) collate utf8_unicode_ci,
+  `default` tinyint(4),
+  `template_filter` text COLLATE utf8_unicode_ci,
+  `template_editor` text COLLATE utf8_unicode_ci,
+  `template_catalog` text COLLATE utf8_unicode_ci,
+  `template_product` text COLLATE utf8_unicode_ci,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 DROP TABLE IF EXISTS events;
 CREATE TABLE `events` (
   `id` int(10) auto_increment,
