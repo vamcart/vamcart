@@ -3,22 +3,22 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-table');
 echo $this->Form->create('Attribute', array('id' => 'valueform', 'name' => 'valueform','enctype' => 'multipart/form-data', 'action' => '/admin_editor_value/save'));
 
 echo $this->Form->input('content_id',array('type' => 'hidden',
-                                           'value' => $data['content_id']
+                                           'value' => $content_id
 	               ));
 echo $this->Form->input('parent_id',array('type' => 'hidden',
-                                           'value' => $data['parent_id']
+                                           'value' => $parent_id
 	               ));
 
-foreach ($data['values'] AS $k => $attribute)
+foreach ($element_list AS $k => $element)
 {
-    echo $attribute['name'];
+    //echo $attribute['name'];
     /*echo $this->Form->input('values.' . $k . '.value_id',array('type' => 'text',
                                            'value' => isset($value['value']['id']) ? $value['value']['id'] : 0
                         ));*/
-    $this->Smarty->display($attribute['template'],array('id_attribute' => $attribute['id']
-                                                       ,'val_attribute' => $attribute['value']
-                                                       ,'name_attribute' => $attribute['name']
-                                                       ,'is_editor' => '1'));
+    $this->Smarty->display($element['template_attribute'],array('id_attribute' => $element['id_attribute']
+                                                       ,'values_attribute' => $element['values_attribute']
+                                                       ,'name_attribute' => $element['name_attribute']
+                                                     ));
 
 }
 

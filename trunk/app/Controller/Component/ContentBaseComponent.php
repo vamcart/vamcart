@@ -101,10 +101,29 @@ class ContentBaseComponent extends Object
 
 		$this->Content->bindModel(array('belongsTo' => array('ContentType' => array('className' => 'ContentType'))));
 /*->***************************************************************/
+                //Атрибуты для фильтрации
+                $this->Content->bindModel(array('hasMany' => array(
+				'FilteredAttribute' => array(
+                    'className' => 'Attribute'
+                   ,'conditions' =>array('FilteredAttribute.is_active' => '1' ,'FilteredAttribute.is_show_flt' => '1')
+                   ,'order' => array('FilteredAttribute.order ASC')
+					))));
+                $this->Content->FilteredAttribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
+                $this->Content->FilteredAttribute->ValAttribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
+                //Атрибуты для сравнения
+                $this->Content->bindModel(array('hasMany' => array(
+				'CompareAttribute' => array(
+                    'className' => 'Attribute'
+                   ,'conditions' =>array('CompareAttribute.is_active' => '1' ,'CompareAttribute.is_show_cmp' => '1')
+                   ,'order' => array('CompareAttribute.order ASC')
+					))));
+                $this->Content->CompareAttribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
+                $this->Content->CompareAttribute->ValAttribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
+                //Атрибуты для отображения
                 $this->Content->bindModel(array('hasMany' => array(
 				'Attribute' => array(
                     'className' => 'Attribute'
-                   ,'conditions' =>array('Attribute.is_active' => '1' ,'Attribute.is_show_flt' => '1')
+                   ,'conditions' =>array('Attribute.is_active' => '1')
                    ,'order' => array('Attribute.order ASC')
 					))));
                 $this->Content->Attribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));

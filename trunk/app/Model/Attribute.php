@@ -41,18 +41,18 @@ class Attribute extends AppModel {
         {            
             $ret_data = array();
             if(isset($data['values_f']))
-            foreach ($data['values_f'] as $value) 
+            foreach ($data['values_f'] as $def_value) 
             {
-                foreach ($value['data'] as $key => $val_attr) 
+                if(isset($def_value['set'])) $def_value['data'][$def_value['set']]['value'] = '1'; 
+                foreach ($def_value['data'] as $value) 
                 {
-                    if(isset($val_attr['value'])) $ret_data[$key]['value'] = $val_attr['value'];
-                    else $ret_data[$key]['value'] = '0';
-                    $ret_data[$key]['type_attr'] = $val_attr['type_attr'];
-                    $ret_data[$key]['id'] = $val_attr['id'];
-                    if(isset($value['is_active']))$ret_data[$key]['is_active'] = $value['is_active'];
-                    else $ret_data[$key]['is_active'] = '0';
+                    if(!isset($value['value'])) $value['value'] = '0'; 
+                    //$ret_data[$key]['id'] = $value['id'];
+                    $ret_data[$value['id']]['type_attr'] = $value['type_attr'];                    
+                    $ret_data[$value['id']]['value'] = $value['value'];
+                    if(isset($def_value['is_active']))$ret_data[$value['id']]['is_active'] = $def_value['is_active'];
+                    else $ret_data[$value['id']]['is_active'] = '0';
                 }
-                if(isset($value['set'])) $ret_data[$value['set']]['value'] = '1';
             }        
             return $ret_data;
         }
