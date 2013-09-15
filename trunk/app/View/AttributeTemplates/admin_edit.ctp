@@ -23,7 +23,8 @@ $this->Html->css(array(
         echo $this->Admin->CreateTab('template_filter',__('Template to filter'),'cus-application-edit');
         echo $this->Admin->CreateTab('template_editor',__('Template to editor'),'cus-application-edit');
         echo $this->Admin->CreateTab('template_catalog',__('Template to catalog'),'cus-application-edit');
-        echo $this->Admin->CreateTab('template_cart',__('Template to cart'),'cus-application-edit');
+        echo $this->Admin->CreateTab('template_cart',__('Template to product'),'cus-application-edit');
+        echo $this->Admin->CreateTab('template_cart',__('Template to compare'),'cus-application-edit');
         echo '</ul>';*/
                
         //echo $this->Admin->StartTabs('sub-tabs');
@@ -52,11 +53,19 @@ $this->Html->css(array(
                                 ));
         //echo $this->Admin->EndTabContent();
         
-        //echo $this->Admin->StartTabContent('template_cart');
+        //echo $this->Admin->StartTabContent('template_product');
         echo $this->Form->input('AttributeTemplate.template_product', 
 					array('type' => 'textarea',
    				   		'id' => 'code_template_product',
-                                             'label' => __('Template to cart')
+                                             'label' => __('Template to product')
+                                ));
+        //echo $this->Admin->EndTabContent();
+        
+        //echo $this->Admin->StartTabContent('template_compare');
+        echo $this->Form->input('AttributeTemplate.template_compare', 
+					array('type' => 'textarea',
+   				   		'id' => 'code_template_compare',
+                                             'label' => __('Template to compare')
                                 ));
         //echo $this->Admin->EndTabContent();
         
@@ -68,22 +77,27 @@ $this->Html->css(array(
 	echo $this->Admin->ShowPageHeaderEnd(); 
 	
 	echo $this->Html->scriptBlock('
-        var editor_1 = CodeMirror.fromTextArea(document.getElementById("code_template_filter"), {
+        CodeMirror.fromTextArea(document.getElementById("code_template_filter"), {
           mode: "text/html",
           lineNumbers: true,
           lineWrapping: true
         });
-        var editor_2 = CodeMirror.fromTextArea(document.getElementById("code_template_editor"), {
+        CodeMirror.fromTextArea(document.getElementById("code_template_editor"), {
           mode: "text/html",
           lineNumbers: true,
           lineWrapping: true
         });
-        var editor_3 = CodeMirror.fromTextArea(document.getElementById("code_template_catalog"), {
+        CodeMirror.fromTextArea(document.getElementById("code_template_catalog"), {
           mode: "text/html",
           lineNumbers: true,
           lineWrapping: true
         });
-        var editor_4 = CodeMirror.fromTextArea(document.getElementById("code_template_product"), {
+        CodeMirror.fromTextArea(document.getElementById("code_template_product"), {
+          mode: "text/html",
+          lineNumbers: true,
+          lineWrapping: true
+        });
+        CodeMirror.fromTextArea(document.getElementById("code_template_compare"), {
           mode: "text/html",
           lineNumbers: true,
           lineWrapping: true

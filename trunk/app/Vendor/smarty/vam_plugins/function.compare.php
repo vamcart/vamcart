@@ -6,7 +6,7 @@ $template = '
 <div class="box">
     <h5><img src="{base_path}/img/icons/menu/blocks.png" alt="" />&nbsp;{lang}Compare{/lang}</h5>
     <div class="boxContent">
-        <form name="" action="{$base_url}" method="post">
+        <form name="" action="{$base_url}/compared/done/{$base_content}" method="post">
         <div class="">
             <ul>
             {foreach from=$element_list item=element}
@@ -34,6 +34,12 @@ function smarty_function_compare($params, $template)
         global $compare_list;
         global $content;
         global $config;
+
+	if (empty($content['CompareAttribute'])||$content['ContentType']['name'] != 'category') 
+    	{
+		echo '<div></div>';
+		return;
+    	}
     
 	App::uses('SmartyComponent', 'Controller/Component');
 	$Smarty =& new SmartyComponent(new ComponentCollection());
@@ -69,7 +75,6 @@ function smarty_help_function_compare() {
 	<h3><?php echo __('What parameters does it take?') ?></h3>
 	<ul>
 		<li><em><?php echo __('(template)') ?></em> - <?php echo __('Overrides the default template.') ?></li>
-		<li><em><?php echo __('(showempty)') ?></em> - <?php echo __('(true or false) If set to false does not display the cart if the user has not added any items.  Defaults to false.') ?></li>		
 	</ul>
 	<?php
 }
