@@ -134,7 +134,6 @@ class ContentBaseComponent extends Object
 		if ($content === false) {
 			$this->cakeError('error404');
 		}
-
 		return $content;
 	}
 

@@ -94,6 +94,7 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty', 'Gzip.G
                     $this->Session->write('compare_list.' . $alias ,$compare_list);
                     //$this->redirect($_SERVER['HTTP_REFERER']);
                 }
+                if(isset($this->params['compared'])) $is_compared = 1; else $is_compared = null;
                 
                 global $filter_list;
                 $filter_list = $this->Session->read('filter_list.' . $alias);//текущее состояние
@@ -196,7 +197,10 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty', 'Gzip.G
 				'created' => $content['Content']['created'],
 				'modified' => $content['Content']['modified'],
 				'page' => $this->params['page'],
-				'ajax_enable' => $config['AJAX_ENABLE']
+				'ajax_enable' => $config['AJAX_ENABLE'],
+/*->***************************************************************/                            
+                                'is_compared' => $is_compared
+/***************************************************************<-*/                                
 			);
 
 			Cache::write($cache_name, $template_vars);

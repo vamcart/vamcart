@@ -215,6 +215,7 @@ class AttributesController extends AppController
                 {
                     $this->redirect('/attributes/admin/' . $this->data['Attribute']['parent_id']);
                 }
+//var_dump($this->data['values_s']);
                 $save_data = array();
                 foreach ($this->data['values_s'] as $def_value) 
                 {
