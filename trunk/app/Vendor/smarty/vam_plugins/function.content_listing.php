@@ -173,20 +173,24 @@ function smarty_function_content_listing($params, $template)
                     $tmp_val = array();
                     switch ($filter_value['type_attr']) 
                     {
-                        case 'max':
+                        case 'max_value':
                             if(trim($filter_value['value']) != '')
                             $tmp_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val >= ' . $filter_value['value'] . ' OR (AttributeDefValue.val >= ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
                         break;
-                        case 'min':
+                        case 'min_value':
                             if(trim($filter_value['value']) != '')
                             $tmp_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val <= ' . $filter_value['value'] . ' OR (AttributeDefValue.val <= ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
                         break;
-                        case 'like':
+                        case 'like_value':
                             $filter_value['value'] = "'%" . $filter_value['value'] . "%'";
                             $tmp_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val not like ' . $filter_value['value'] . ' OR (AttributeDefValue.val not like ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
                         break;
-                        case 'value':
+                        case 'dig_value':
                             if(trim($filter_value['value']) != '' && is_numeric($filter_value['value']))
+                            $tmp_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val != ' . $filter_value['value'] . ' OR (AttributeDefValue.val != ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
+                        break;
+                        case 'list_value':
+                            $filter_value['value'] = $filter_value['value'] + 0;
                             $tmp_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val != ' . $filter_value['value'] . ' OR (AttributeDefValue.val != ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
                         break;
                         default:

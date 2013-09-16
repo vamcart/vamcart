@@ -10,7 +10,9 @@ class AttributeTemplatesController extends AppController {
                 
             break;
             case 'edit':
-                $this->request->data = $this->AttributeTemplate->read(null,$id);
+                $ret = $this->AttributeTemplate->read(null,$id);
+                $ret['DefaulValue'] = unserialize($ret['AttributeTemplate']['setting']);
+                $this->request->data = $ret;
             break;
             case 'new':
                 $this->request->data = array('AttributeTemplate' => array('id' => 0));
@@ -18,16 +20,20 @@ class AttributeTemplatesController extends AppController {
             case 'save':
                 if(isset($this->data['cancelbutton']))$this->redirect('/attribute_templates/admin');
                 if(!empty($this->data))
-                    if($this->AttributeTemplate->save($this->data['AttributeTemplate']))
+                {
+                    $save = $this->data['AttributeTemplate'];
+                    $save['setting'] = serialize($this->data['DefaulValue']);
+                    if($this->AttributeTemplate->save($save))
                     {
                         $this->Session->setFlash('Record saved.');
                     } else $this->Session->setFlash('Record not saved!', 'default', array('class' => 'error-message red'));  
-                if(isset($this->data['apply'])) 
-                {
-                    if($id == null) $id = $this->AttributeTemplate->getLastInsertId();
-                    $this->redirect('/attributetemplates/admin_edit/edit/' . $id);
+                    if(isset($this->data['apply'])) 
+                    {
+                        if($id == null) $id = $this->AttributeTemplate->getLastInsertId();
+                        $this->redirect('/attributetemplates/admin_edit/edit/' . $id);
+                    }
                 }
-                else $this->redirect('/attribute_templates/admin');
+                $this->redirect('/attribute_templates/admin');
             break;
             case 'delete':
                 $this->AttributeTemplate->delete($id);	
