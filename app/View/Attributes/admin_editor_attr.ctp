@@ -43,7 +43,7 @@ if($type != 'attr')
     echo $this->Form->input('Attribute.type_attr',array(
 				'type' => 'select',
 				'label' => __('Type value'),
-				'options' => array('def' => 'default value','max' => 'max value','min' => 'min value','value' => 'numeric value','like' => 'mask value'),
+				'options' => $template,//array('list_value' => 'list value','max' => 'max value','min' => 'min value','value' => 'numeric value','like' => 'mask value'),
 				'selected' => isset($attribute['Attribute']['type_attr']) ? $attribute['Attribute']['type_attr'] : ''
 			));
     echo $this->Form->input('Attribute.val',array(

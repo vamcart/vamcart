@@ -7,19 +7,19 @@ $template = '
 	<table class="contentTable">
 	<tbody>
 	<tr>
-		<th>{lang}Product{/lang}</th>
-		{foreach from=$element_list[0]["atributes_product"] item=atribute}
+		<th>{lang}Atribute{/lang}</th>
+		{foreach from=$element_list[0]["atributes_product"] item=product}
 			<th>
-			{$atribute.name_attribute}
+			{$product.name_product}
 			</th>
 		{/foreach}
         </tr>   
-	{foreach from=$element_list item=product}
+	{foreach from=$element_list item=atribute}
 		<tr>
-	       	<td>{$product.name_product}</td>
-		{foreach from=$product["atributes_product"] item=atribute}
+	       	<td>{$atribute.name_attribute}</td>
+		{foreach from=$atribute["atributes_product"] item=product}
 			<td>
-               	        {value_filter template=$atribute["template_attribute"] id_attribute=$atribute["id_attribute"] name_attribute=$atribute["name_attribute"] values_attribute=$atribute["values_attribute"]}
+               	        {value_filter template=$atribute["template_attribute"] id_attribute=$atribute["id_attribute"] name_attribute=$atribute["name_attribute"] values_attribute=$product["values_attribute"]}
 			</td>
 		{/foreach}
 		</tr>
@@ -65,30 +65,29 @@ function smarty_function_compared($params)
         $content_list = $Content->find('all',array('conditions' => array('Content.id' => $content_compre_list)));
 
 	$element_list = array();
-	foreach ($content_list as $k => $product) 
+        foreach ($attr as $k_a => $attribute) 
         {
-		$element_list[$k]['name_product'] = $product['ContentDescription']['name'];
-		$element_list[$k]['atributes_product'] = array();
-	       	$val_attr = Set::combine($product['Attribute'],'{n}.parent_id','{n}.val');
-        	foreach ($attr as $k_a => $attribute) 
-        	{
-            		$element_list[$k]['atributes_product'][$k_a]['id_attribute'] = $attribute['Attribute']['id']; //id атрибута
-            		$element_list[$k]['atributes_product'][$k_a]['name_attribute'] = $attribute['Attribute']['name'];
-            		$element_list[$k]['atributes_product'][$k_a]['template_attribute'] = $attribute['AttributeTemplate']['template_compare'];
-            		$element_list[$k]['atributes_product'][$k_a]['values_attribute'] = array();
-            		foreach($attribute['ValAttribute'] AS $k_v => $value)
-            		{               
-		                if(isset($value['type_attr'])&&$value['type_attr']!=''&&$value['type_attr']!='def')$k_v = $value['type_attr'];//≈сли задан тип то передаем его качестве ключа
-                		$element_list[$k]['atributes_product'][$k_a]['values_attribute'][$k_v]['id'] = $value['id']; //id default значени€ атрибута
-                		$element_list[$k]['atributes_product'][$k_a]['values_attribute'][$k_v]['name'] = $value['name'];
-                		$element_list[$k]['atributes_product'][$k_a]['values_attribute'][$k_v]['type_attr'] = $value['type_attr'];
-                		if(isset($val_attr[$value['id']])) $element_list[$k]['atributes_product'][$k_a]['values_attribute'][$k_v]['val'] = $val_attr[$value['id']];
-                		else $element_list[$k]['atributes_product'][$k_a]['values_attribute'][$k_v]['val'] = $value['val'];   
-            		}
-        	}
+            	$element_list[$k_a]['id_attribute'] = $attribute['Attribute']['id'];
+            	$element_list[$k_a]['name_attribute'] = $attribute['Attribute']['name'];
+            	$element_list[$k_a]['template_attribute'] = $attribute['AttributeTemplate']['template_compare'];
+                $element_list[$k_a]['atributes_product'] = array();
+                foreach ($content_list as $k_p => $product) 
+                {
+                    $element_list[$k_a]['atributes_product'][$k_p]['name_product'] = $product['ContentDescription']['name'];
+                    $element_list[$k_a]['atributes_product'][$k_p]['values_attribute'] = array();
+                    $val_attr = Set::combine($product['Attribute'],'{n}.parent_id','{n}.val');
+                    foreach($attribute['ValAttribute'] AS $k_v => $value)
+                    {               
+		        if(isset($value['type_attr'])&&$value['type_attr']!=''&&$value['type_attr']!='list_value')$k_v = $value['type_attr'];
+                	$element_list[$k_a]['atributes_product'][$k_p]['values_attribute'][$k_v]['id'] = $value['id']; 
+                	$element_list[$k_a]['atributes_product'][$k_p]['values_attribute'][$k_v]['name'] = $value['name'];
+                	$element_list[$k_a]['atributes_product'][$k_p]['values_attribute'][$k_v]['type_attr'] = $value['type_attr'];
+                	if(isset($val_attr[$value['id']])) $element_list[$k_a]['atributes_product'][$k_p]['values_attribute'][$k_v]['val'] = $val_attr[$value['id']];
+                	else $element_list[$k_a]['atributes_product'][$k_p]['values_attribute'][$k_v]['val'] = $value['val'];   
+                    }
+                }
         }
-	
-//	var_dump($element_list);
+
 	$assignments = array();
     	$assignments = array('element_list' => $element_list);
 	$display_template = $Smarty->load_template($params, 'compared');

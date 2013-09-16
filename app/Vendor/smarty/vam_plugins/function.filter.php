@@ -53,7 +53,7 @@ function smarty_function_filter($params)
         $element_list[$k]['values_attribute'] = array();
         foreach($attribute['ValAttribute'] AS $k_v => $value)
         {                        
-            if(isset($value['type_attr'])&&$value['type_attr']!=''&&$value['type_attr']!='def')$k_v = $value['type_attr'];//Если задан тип то передаем его качестве ключа
+            if(isset($value['type_attr'])&&$value['type_attr']!=''&&$value['type_attr']!='list_value')$k_v = $value['type_attr'];//Если задан тип то передаем его качестве ключа
             $element_list[$k]['values_attribute'][$k_v]['id'] = $value['id']; //id default значения атрибута
             $element_list[$k]['values_attribute'][$k_v]['name'] = $value['name'];
             $element_list[$k]['values_attribute'][$k_v]['type_attr'] = $value['type_attr'];
