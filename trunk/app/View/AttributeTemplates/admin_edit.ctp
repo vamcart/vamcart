@@ -89,6 +89,8 @@ $this->Html->css(array(
             echo $this->Form->input('DefaulValue.min_value',array('label' => 'Default value -> (min_value)' ,'type' => 'checkbox'));
             echo $this->Form->input('DefaulValue.like_value',array('label' => 'Default value - >(like_value)' ,'type' => 'checkbox'));            
             echo $this->Form->input('DefaulValue.list_value',array('label' => 'Default value - >(list_value)' ,'type' => 'checkbox'));            
+            echo $this->Form->input('DefaulValue.checked_list',array('label' => 'Default value - >(checked_list)' ,'type' => 'checkbox'));            
+            echo $this->Form->input('DefaulValue.any_value',array('label' => 'Default value - >(any_value)' ,'type' => 'checkbox'));            
         echo $this->Admin->EndTabContent();
         echo $this->Admin->EndTabs();
         

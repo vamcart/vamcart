@@ -11,7 +11,7 @@ class ImportExportController extends AppController {
 	public $name = 'ImportExport';
 	public $uses = null;
         public $helpers = array('Html','Admin');
-        public $contain_table = array('ContentDescription' => null/*<-эта модель обязательна*/,'ContentType','ContentImage','ContentProduct','ContentNews','ContentArticle');
+        public $contain_table = array('ContentDescription' => null/*<-эта модель обязательна*/,'ContentType','ContentImage','ContentProduct','ContentNews','ContentArticle','Attribute');
 
 	public function admin ($ajax = false)
 	{
@@ -102,10 +102,13 @@ class ImportExportController extends AppController {
                         }
                         App::import('Model', $table_name);
                         $this->myModel = new $table_name();
-                        foreach($tmp[$table_name] AS $table_row)
-                        {
-                            $this->myModel->save($table_row);
-                        }
+                        
+                        if(method_exists($this->myModel,'import'))$rows = $this->myModel->import($tmp[$table_name]);
+                        else
+                            foreach($tmp[$table_name] AS $table_row)
+                            {
+                                $this->myModel->save($table_row);
+                            }
                     }
                 }
 
@@ -152,13 +155,15 @@ class ImportExportController extends AppController {
                     if($this->data['form_Export'][$k_name_table] == 1)
                     {
                         $myWorkSheet = new PHPExcel_Worksheet($xls, $k_name_table);
-                        $myModelname = $k_name_table;
-                        App::import('Model', $myModelname);
-                        $this->myModel = new $myModelname();
+                        App::import('Model', $k_name_table);
+                        $this->myModel = new $k_name_table();
                         $this->myModel->unbindAll();
-                        $rows = $this->myModel->find('all',array('conditions' => array('id' => $fields['export_id'])));
+                        if(method_exists($this->myModel,'export'))$rows = $this->myModel->export($fields['export_id']);
+                        else $rows = $this->myModel->find('all',array('conditions' => array('id' => $fields['export_id'])));
                         $k_cell = 0;
-                        foreach ($fields['fields'] AS $field_name => $field_type)
+                        $flds = end($rows);
+                        $flds = array_keys($flds[$k_name_table]);
+                        foreach ($flds AS $field_name)
                         {
                                 $myWorkSheet->setCellValueByColumnAndRow($k_cell++, 1, $field_name);    
                         }
@@ -190,7 +195,7 @@ class ImportExportController extends AppController {
             die();        
         }
         
-        private function normalize_array ($arr_in = array())
+        /*private function normalize_array ($arr_in = array())
         {
             $arr_out = array();
              foreach ($arr_in AS $k_first => $first_lev)
@@ -205,7 +210,7 @@ class ImportExportController extends AppController {
                  else $arr_out[$k_first] = $first_lev;
              }
              return $arr_out;
-        }
+        }*/
         
 }
 

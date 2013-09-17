@@ -19,6 +19,7 @@ function smarty_function_value_filter($params)
     $assignments = array('id_attribute' => $params['id_attribute']
                         ,'name_attribute' => $params['name_attribute']
                         ,'values_attribute' => $params['values_attribute']);
+    if(isset($params['is_active']))$assignments['is_active'] = $params['is_active'];
     if(isset($params['alias_micro_template']))
     {
         $params['template'] = $params['alias_micro_template'];

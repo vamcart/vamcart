@@ -12,7 +12,7 @@ $template = '
             {foreach from=$element_list item=element}
                 <li>{$element.ContentDescription.name} 
 
-                <a href="{$base_url}/delcmp/{$element.Content.alias}/{$base_content}"><img alt="del" src="/vamcart_new/img/admin/icons/false.png?1374004929"></img></a>
+                <a href="{$base_url}/delcmp/{$element.Content.alias}/{$base_content}"><img alt="del" src="{base_path}/img/admin/icons/false.png"></img></a>
 
                 </li>
             {/foreach}

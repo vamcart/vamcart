@@ -98,20 +98,13 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty', 'Gzip.G
                 
                 global $filter_list;
                 $filter_list = $this->Session->read('filter_list.' . $alias);//текущее состояние
-                
                 if(isset($this->params['filtered']) && $this->params['filtered'] == 'set')
                 {
                     App::import('Model', 'Attribute');
                     $Attribute = new Attribute;
-                    $filter_data = $Attribute->getFilterFromFormData($this->data);
-                    if(!empty($filter_data))
+                    $filter_list = $Attribute->getFilterFromFormData($this->data);
+                    if(!empty($filter_list))
                     {
-                        foreach ($filter_data AS $k => $opt_filter)
-                        {
-                            $filter_list[$k]['type_attr'] = $opt_filter['type_attr'];
-                            $filter_list[$k]['value'] = $opt_filter['value'];
-                            $filter_list[$k]['is_active'] = $opt_filter['is_active'];
-                        }
                         $this->Session->write('filter_list.' . $alias ,$filter_list);//сохраняем состояние для пагинации
                     }
                 }

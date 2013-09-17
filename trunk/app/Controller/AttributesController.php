@@ -202,7 +202,8 @@ class AttributesController extends AppController
                         $val = $this->Attribute->find('first',array('conditions' => array('Attribute.content_id' => $content_id
                                                                               ,'Attribute.parent_id' => $def_val['id']
                                                                                )));
-                        if(isset($def_val['type_attr'])&&$def_val['type_attr']!=''&&$def_val['type_attr']!='list_value')$k_v = $def_val['type_attr'];//Если задан тип то передаем его качестве ключа
+                        if(isset($def_val['type_attr'])&&$def_val['type_attr']!=''
+				&&$def_val['type_attr']!='list_value'&&$def_val['type_attr']!='checked_list')$k_v = $def_val['type_attr'];//Если задан тип то передаем его качестве ключа
                         $element_list[$k]['values_attribute'][$k_v]['name'] = $def_val['name']; //наследуем от родителя
                         $element_list[$k]['values_attribute'][$k_v]['type_attr'] = $def_val['type_attr']; //наследуем от родителя
                         if(empty($val))

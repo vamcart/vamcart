@@ -19,7 +19,9 @@ $template = '
 	       	<td>{$atribute.name_attribute}</td>
 		{foreach from=$atribute["atributes_product"] item=product}
 			<td>
-               	        {value_filter template=$atribute["template_attribute"] id_attribute=$atribute["id_attribute"] name_attribute=$atribute["name_attribute"] values_attribute=$product["values_attribute"]}
+               	        {value_filter template=$atribute["template_attribute"] id_attribute=$atribute["id_attribute"] 
+                                                                               name_attribute=$atribute["name_attribute"] 
+                                                                               values_attribute=$product["values_attribute"]}
 			</td>
 		{/foreach}
 		</tr>
@@ -78,7 +80,8 @@ function smarty_function_compared($params)
                     $val_attr = Set::combine($product['Attribute'],'{n}.parent_id','{n}.val');
                     foreach($attribute['ValAttribute'] AS $k_v => $value)
                     {               
-		        if(isset($value['type_attr'])&&$value['type_attr']!=''&&$value['type_attr']!='list_value')$k_v = $value['type_attr'];
+		        if(isset($value['type_attr'])&&$value['type_attr']!=''
+				&&$value['type_attr']!='list_value'&&$value['type_attr']!='checked_list')$k_v = $value['type_attr'];
                 	$element_list[$k_a]['atributes_product'][$k_p]['values_attribute'][$k_v]['id'] = $value['id']; 
                 	$element_list[$k_a]['atributes_product'][$k_p]['values_attribute'][$k_v]['name'] = $value['name'];
                 	$element_list[$k_a]['atributes_product'][$k_p]['values_attribute'][$k_v]['type_attr'] = $value['type_attr'];

@@ -6,7 +6,9 @@ function default_template_atribute_list()
                 <div>
                 <ul>
                     {foreach from=$element_list item=element}
-                        {value_filter template=$element["template_attribute"] id_attribute=$element["id_attribute"] name_attribute=$element["name_attribute"] values_attribute=$element["values_attribute"]}
+                        {value_filter template=$element["template_attribute"] id_attribute=$element["id_attribute"] 
+                                                                              name_attribute=$element["name_attribute"] 
+                                                                              values_attribute=$element["values_attribute"]}
                     {/foreach}
                 </ul>
                 </div>
@@ -33,7 +35,8 @@ function smarty_function_atribute_list($params)
             $element_list[$k]['values_attribute'] = array();
             foreach($attribute['ValAttribute'] AS $k_v => $value)
             {                        
-                if(isset($value['type_attr'])&&$value['type_attr']!=''&&$value['type_attr']!='list_value')$k_v = $value['type_attr'];//Если задан тип то передаем его качестве ключа
+                if(isset($value['type_attr'])&&$value['type_attr']!=''
+			&&$value['type_attr']!='list_value'&&$value['type_attr']!='checked_list')$k_v = $value['type_attr'];//Если задан тип то передаем его качестве ключа
                 $element_list[$k]['values_attribute'][$k_v]['id'] = $value['id']; //id default значения атрибута
                 $element_list[$k]['values_attribute'][$k_v]['name'] = $value['name'];
                 $element_list[$k]['values_attribute'][$k_v]['type_attr'] = $value['type_attr'];
@@ -59,7 +62,8 @@ function smarty_function_atribute_list($params)
             $element_list[$k]['values_attribute'] = array();
             foreach($attribute['ValAttribute'] AS $k_v => $value)
             {
-                if(isset($value['type_attr'])&&$value['type_attr']!=''&&$value['type_attr']!='list_value')$k_v = $value['type_attr'];//Если задан тип то передаем его качестве ключа
+                if(isset($value['type_attr'])&&$value['type_attr']!=''
+			&&$value['type_attr']!='list_value'&&$value['type_attr']!='checked_list')$k_v = $value['type_attr'];//Если задан тип то передаем его качестве ключа
                 $element_list[$k]['values_attribute'][$k_v]['id'] = $value['id']; //id default значения атрибута
                 $element_list[$k]['values_attribute'][$k_v]['name'] = $value['name'];
                 $element_list[$k]['values_attribute'][$k_v]['type_attr'] = $value['type_attr'];
