@@ -939,45 +939,53 @@ CREATE TABLE `answer_template_descriptions` (
 
 DROP TABLE IF EXISTS attributes;
 CREATE TABLE `attributes` (
-  `id` int(10) auto_increment,
-  `parent_id` int(10),
-  `content_id` int(10),
-  `type_attr` varchar(32) collate utf8_unicode_ci,
-  `val` varchar(256) collate utf8_unicode_ci,
-  `order` int(10),
-  `attribute_template_id` int(10),
-  `price_modificator` varchar(1) collate utf8_unicode_ci,
-  `price_value` double,
-  `is_active` tinyint(4),
-  `is_show_flt` tinyint(4),
-  `is_show_cmp` tinyint(4),
-  PRIMARY KEY  (`id`)
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `parent_id` int(10) DEFAULT NULL,
+  `content_id` int(10) DEFAULT NULL,
+  `type_attr` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `val` varchar(256) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `order` int(10) DEFAULT NULL,
+  `attribute_template_id` int(10) DEFAULT NULL,
+  `price_modificator` varchar(1) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `price_value` double DEFAULT NULL,
+  `is_active` tinyint(4) DEFAULT NULL,
+  `is_show_flt` tinyint(4) DEFAULT NULL,
+  `is_show_cmp` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS attribute_descriptions;
 CREATE TABLE `attribute_descriptions` (
-  `dsc_id` int(10) auto_increment,
-  `attribute_id` int(10),
-  `language_id` int(10),
-  `name` varchar(255) collate utf8_unicode_ci,
-  `description` text collate utf8_unicode_ci,
-  `meta_title` varchar(255) collate utf8_unicode_ci,
-  `meta_description` varchar(255) collate utf8_unicode_ci,
-  `meta_keywords` varchar(255) collate utf8_unicode_ci,
-  PRIMARY KEY  (`dsc_id`)
+  `dsc_id` int(10) NOT NULL AUTO_INCREMENT,
+  `attribute_id` int(10) DEFAULT NULL,
+  `language_id` int(10) DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8_unicode_ci,
+  `meta_title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `meta_description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `meta_keywords` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`dsc_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS attribute_templates;
 CREATE TABLE `attribute_templates` (
-  `id` int(10) auto_increment,
-  `name` varchar(255) collate utf8_unicode_ci,
-  `default` tinyint(4),
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `default` tinyint(4) DEFAULT NULL,
   `template_filter` text COLLATE utf8_unicode_ci,
   `template_editor` text COLLATE utf8_unicode_ci,
   `template_catalog` text COLLATE utf8_unicode_ci,
   `template_product` text COLLATE utf8_unicode_ci,
-  PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `template_compare` text COLLATE utf8_unicode_ci,
+  `setting` text COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `attribute_templates` VALUES 
+(1,'value',\N,'<input id=\"activebox{$id_attribute}\" {if $is_active == 1} checked=\"checked\" {/if} type=\"checkbox\" disabled>\r\n<input id=\"activeval{$id_attribute}\" name=\"data[values_f][{$id_attribute}][is_active]\" {if $is_active == 1} value=\"1\" {/if} type=\"hidden\">\r\n\r\n<div class=\"input text\">\r\n<label for=\"value{$id_attribute}\">{$name_attribute}</label>\r\n  <input name=\"data[values_f][{$id_attribute}][data][{$values_attribute.dig_value.id}][value]\" value=\"{$values_attribute.dig_value.val}\" id=\"value{$id_attribute}\" type=\"text\">\r\n<input name=\"data[values_f][{$id_attribute}][data][{$values_attribute.dig_value.id}][type_attr]\" value=\"{$values_attribute.dig_value.type_attr}\" type=\"hidden\">\r\n<input name=\"data[values_f][{$id_attribute}][data][{$values_attribute.dig_value.id}][id]\" value=\"{$values_attribute.dig_value.id}\" type=\"hidden\">\r\n</div>\r\n\r\n<script type=\"text/javascript\">\r\n  $(\"#value{$id_attribute}\").change(function() {\r\n    $(\"#activebox{$id_attribute}\").attr(\"checked\",true);\r\n    $(\"#activeval{$id_attribute}\").attr(\"value\",\"1\");\r\n  });\r\n  \r\n</script>\r\n','<div class=\"input text\">\r\n  <label for=\"value{$id_attribute}\">{$name_attribute}</label>\r\n  <input name=\"data[values_s][{$id_attribute}][data][{$values_attribute.dig_value.parent_id}][value]\" value=\"{$values_attribute.dig_value.val}\" id=\"value{$id_attribute}\" type=\"text\">\r\n  <input name=\"data[values_s][{$id_attribute}][data][{$values_attribute.dig_value.parent_id}][type_attr]\" value=\"{$values_attribute.dig_value.type_attr}\" type=\"hidden\">\r\n  <input name=\"data[values_s][{$id_attribute}][data][{$values_attribute.dig_value.parent_id}][id]\" value=\"{$values_attribute.dig_value.id}\" type=\"hidden\">\r\n  <input name=\"data[values_s][{$id_attribute}][data][{$values_attribute.dig_value.parent_id}][parent_id]\" value=\"{$values_attribute.dig_value.parent_id}\" type=\"hidden\">\r\n</div>','<li>\r\n  {$values_attribute.dig_value.name}	{$values_attribute.dig_value.val}\r\n</li>','<li>\r\n  {$values_attribute.dig_value.name}	{$values_attribute.dig_value.val}\r\n</li>','{$values_attribute.dig_value.val}','a:6:{s:9:\"dig_value\";s:1:\"1\";s:9:\"max_value\";s:1:\"0\";s:9:\"min_value\";s:1:\"0\";s:10:\"like_value\";s:1:\"0\";s:10:\"list_value\";s:1:\"0\";s:12:\"checked_list\";s:1:\"0\";}'),
+(2,'radio',\N,'<input id=\"activebox{$id_attribute}\" {if $is_active == 1} checked=\"checked\" {/if} type=\"checkbox\" disabled>\r\n<input id=\"activeval{$id_attribute}\" name=\"data[values_f][{$id_attribute}][is_active]\" {if $is_active == 1} value=\"1\" {/if} type=\"hidden\">\r\n<br>{$name_attribute}\r\n<div class=\"radio\">\r\n{foreach from=$values_attribute item=val}\r\n<div>\r\n  <input type=\"radio\" {if $val.val == 1} checked=\"checked\" {/if} name=\"data[values_f][{$id_attribute}][set]\" value=\"{$val.id}\" id=\"value{$val.id}\" class=\"radio{$id_attribute}\">\r\n<label for=\"value{$val.id}\">{$val.name}</label>\r\n<input name=\"data[values_f][{$id_attribute}][data][{$val.id}][type_attr]\" value=\"{$val.type_attr}\" type=\"hidden\">\r\n<input name=\"data[values_f][{$id_attribute}][data][{$val.id}][id]\" value=\"{$val.id}\" type=\"hidden\">\r\n</div>\r\n{/foreach}\r\n</div>\r\n\r\n<script type=\"text/javascript\">\r\n  $(\".radio{$id_attribute}\").change(function() {\r\n    $(\"#activebox{$id_attribute}\").attr(\"checked\",true);\r\n    $(\"#activeval{$id_attribute}\").attr(\"value\",\"1\");\r\n  });\r\n</script>\r\n','<div class=\"radio\">\r\n{foreach from=$values_attribute item=val}\r\n  <div>\r\n    <input type=\"radio\" {if $val.val == 1} checked=\"checked\" {/if} name=\"data[values_s][{$id_attribute}][set]\" value=\"{$val.parent_id}\" id=\"value{$val.id}\">\r\n    <label for=\"value{$val.id}\">{$val.name}</label>\r\n    <input name=\"data[values_s][{$id_attribute}][data][{$val.parent_id}][type_attr]\" value=\"{$val.type_attr}\" type=\"hidden\">\r\n    <input name=\"data[values_s][{$id_attribute}][data][{$val.parent_id}][id]\" value=\"{$val.id}\" type=\"hidden\">\r\n    <input name=\"data[values_s][{$id_attribute}][data][{$val.parent_id}][parent_id]\" value=\"{$val.parent_id}\" type=\"hidden\">\r\n  </div>\r\n{/foreach}\r\n</div>','{foreach from=$values_attribute item=val}\r\n<li>\r\n  {if $val.val == 1} {$name_attribute}	{$val.name} {/if}\r\n</li>\r\n{/foreach}\r\n','{foreach from=$values_attribute item=val}\r\n<li>\r\n  {if $val.val == 1} {$name_attribute}	{$val.name} {/if}\r\n</li>\r\n{/foreach}','{foreach from=$values_attribute item=val}\r\n  {if $val.val == 1} {$val.name} {/if}\r\n{/foreach}','a:6:{s:9:\"dig_value\";s:1:\"0\";s:9:\"max_value\";s:1:\"0\";s:9:\"min_value\";s:1:\"0\";s:10:\"like_value\";s:1:\"0\";s:10:\"list_value\";s:1:\"1\";s:12:\"checked_list\";s:1:\"0\";}'),
+(3,'check',\N,'<input id=\"activebox{$id_attribute}\" {if $is_active == 1} checked=\"checked\" {/if} type=\"checkbox\" disabled>\r\n<input id=\"activeval{$id_attribute}\" name=\"data[values_f][{$id_attribute}][is_active]\" {if $is_active == 1} value=\"1\" {/if} type=\"hidden\">\r\n<br>{$name_attribute}\r\n<div class=\"checkbox\">\r\n{foreach from=$values_attribute item=val}\r\n<div>\r\n<input type=\"checkbox\" {if $val.val == 1} checked=\"checked\" {/if} name=\"data[values_f][{$id_attribute}][data][{$val.id}][value]\" value=\"1\" id=\"value{$val.id}\" class=\"checkbox{$id_attribute}\">\r\n<label for=\"value{$val.id}\">{$val.name}</label>\r\n<input name=\"data[values_f][{$id_attribute}][data][{$val.id}][type_attr]\" value=\"{$val.type_attr}\" type=\"hidden\">\r\n<input name=\"data[values_f][{$id_attribute}][data][{$val.id}][id]\" value=\"{$val.id}\" type=\"hidden\">\r\n</div>\r\n{/foreach}\r\n</div>\r\n\r\n<script type=\"text/javascript\">\r\n  $(\".checkbox{$id_attribute}\").change(function() {\r\n    $(\"#activebox{$id_attribute}\").attr(\"checked\",true);\r\n    $(\"#activeval{$id_attribute}\").attr(\"value\",\"1\");\r\n  });\r\n</script>\r\n','<div class=\"checkbox\">\r\n{foreach from=$values_attribute item=val}\r\n  <div>\r\n    <input type=\"checkbox\" {if $val.val == 1} checked=\"checked\" {/if} name=\"data[values_s][{$id_attribute}][data][{$val.parent_id}][value]\" value=\"1\" id=\"value{$val.id}\">\r\n    <label for=\"value{$val.id}\">{$val.name}</label>\r\n    <input name=\"data[values_s][{$id_attribute}][data][{$val.parent_id}][type_attr]\" value=\"{$val.type_attr}\" type=\"hidden\">\r\n    <input name=\"data[values_s][{$id_attribute}][data][{$val.parent_id}][id]\" value=\"{$val.id}\" type=\"hidden\">\r\n    <input name=\"data[values_s][{$id_attribute}][data][{$val.parent_id}][parent_id]\" value=\"{$val.parent_id}\" type=\"hidden\">\r\n  </div>\r\n{/foreach}\r\n</div>','<li>\r\n{$name_attribute} :\r\n<ul>\r\n{foreach from=$values_attribute item=val}\r\n{if $val.val == 1} <li> > {$val.name} </li> {/if}\r\n{/foreach}\r\n</ul>\r\n</li>','<li>\r\n{$name_attribute} :\r\n<ul>\r\n{foreach from=$values_attribute item=val}\r\n{if $val.val == 1} <li> > {$val.name} </li> {/if}\r\n{/foreach}\r\n</ul>\r\n</li>','<ul>\r\n  {foreach from=$values_attribute item=val}\r\n  <li>\r\n    {if $val.val == 1} {$val.name} {/if}\r\n  </li>\r\n  {/foreach}\r\n</ul>\r\n','a:6:{s:9:\"dig_value\";s:1:\"0\";s:9:\"max_value\";s:1:\"0\";s:9:\"min_value\";s:1:\"0\";s:10:\"like_value\";s:1:\"0\";s:10:\"list_value\";s:1:\"1\";s:12:\"checked_list\";s:1:\"1\";}'),
+(4,'list',\N,'<input id=\"activebox{$id_attribute}\" {if $is_active == 1} checked=\"checked\" {/if} type=\"checkbox\" disabled>\r\n<input id=\"activeval{$id_attribute}\" name=\"data[values_f][{$id_attribute}][is_active]\" {if $is_active == 1} value=\"1\" {/if} type=\"hidden\">\r\n\r\n<div class=\"input select\">\r\n  <label for=\"listvalue{$id_attribute}\">{$name_attribute}</label>\r\n  <select name=\"data[values_f][{$id_attribute}][set]\" id=\"listvalue{$id_attribute}\">\r\n  {foreach from=$values_attribute item=val}\r\n  <option value=\"{$val.id}\" {if $val.val == 1} selected {/if}>{$val.name}</option>\r\n  {/foreach}\r\n  </select>\r\n  {foreach from=$values_attribute item=val}\r\n    <input name=\"data[values_f][{$id_attribute}][data][{$val.id}][type_attr]\" value=\"{$val.type_attr}\" type=\"hidden\">\r\n    <input name=\"data[values_f][{$id_attribute}][data][{$val.id}][id]\" value=\"{$val.id}\" type=\"hidden\">\r\n  {/foreach}\r\n</div>\r\n\r\n<script type=\"text/javascript\">\r\n  $(\"#listvalue{$id_attribute}\").change(function() {\r\n    $(\"#activebox{$id_attribute}\").attr(\"checked\",true);\r\n    $(\"#activeval{$id_attribute}\").attr(\"value\",\"1\");\r\n  });\r\n</script>\r\n','<div class=\"input select\">\r\n  <label for=\"listvalue{$id_attribute}\">{$name_attribute}</label>\r\n  <select name=\"data[values_s][{$id_attribute}][set]\" id=\"listvalue{$id_attribute}\">\r\n  {foreach from=$values_attribute item=val}\r\n  <option value=\"{$val.parent_id}\" {if $val.val == 1} selected {/if}>{$val.name}</option>\r\n  {/foreach}\r\n  </select>\r\n  {foreach from=$values_attribute item=val}\r\n    <input name=\"data[values_s][{$id_attribute}][data][{$val.parent_id}][id]\" value=\"{$val.id}\" type=\"hidden\">\r\n    <input name=\"data[values_s][{$id_attribute}][data][{$val.parent_id}][parent_id]\" value=\"{$val.parent_id}\" type=\"hidden\">\r\n  {/foreach}\r\n</div>','{foreach from=$values_attribute item=val}\r\n<li>\r\n  {if $val.val == 1} {$name_attribute}	{$val.name} {/if}\r\n</li>\r\n{/foreach}','{foreach from=$values_attribute item=val}\r\n<li>\r\n  {if $val.val == 1} {$name_attribute}	{$val.name} {/if}\r\n</li>\r\n{/foreach}','{foreach from=$values_attribute item=val}\r\n  {if $val.val == 1} {$val.name} {/if}\r\n{/foreach}','a:7:{s:9:\"dig_value\";s:1:\"0\";s:9:\"max_value\";s:1:\"0\";s:9:\"min_value\";s:1:\"0\";s:10:\"like_value\";s:1:\"0\";s:10:\"list_value\";s:1:\"1\";s:12:\"checked_list\";s:1:\"0\";s:9:\"any_value\";s:1:\"0\";}');
 
 DROP TABLE IF EXISTS events;
 CREATE TABLE `events` (
