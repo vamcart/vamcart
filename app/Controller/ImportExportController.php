@@ -23,19 +23,19 @@ class ImportExportController extends AppController {
             $contents = $this->Content->find('all',array('contain' => $this->contain_table 
                                                         ,'conditions' => array('Content.content_type_id = 1')));
             //$hasMany = $this->Content->hasMany;
-            $tmp_table_name['Content']['export_id'] = array_unique(Set::extract($contents, '/Content/id'));
 
             foreach ($contents[0] AS $k_c => $content)
             {
                 $myModelname = $k_c;
                 App::import('Model', $myModelname);
                 $this->myModel = new $myModelname();
-                $tmp_table_name[$k_c ]['fields'] = $this->myModel->getColumnTypes();
+                $tmp_table_name[$k_c ] = array();//['fields'] = $this->myModel->getColumnTypes();
 
             }
+            $tmp_table_name['Content']['export_id'] = array_unique(Set::extract($contents, '/Content/id'));
+            
             $sel_content = Set::combine($contents,'{n}.Content.id', '{n}.ContentDescription.{n}.name');
             $this->set('sel_content', $sel_content);
-
             $this->Session->write('import_export.table_name', $tmp_table_name);
             $this->set('table_names', $tmp_table_name);
             
@@ -126,22 +126,24 @@ class ImportExportController extends AppController {
 		throw new CakeException('Vendor class PHPExcel not found!');
             }
             $tmp_table_name = $this->Session->read('import_export.table_name');
-            if($this->data['form_Export']['sel_content'] != 0)
+
+            if($this->data['sel_content'] != 0)
             {
                 $tmp_table_name['Content']['export_id'] = $this->data['form_Export']['sel_content'];
             }
+            
             $this->loadModel('Content');
             $this->Content->Behaviors->attach('Containable');
             $this->contain_table['ContentDescription'] = array('conditions' => array('1 = 1'));
             $contents = $this->Content->find('all',array('contain' => $this->contain_table
                                                         ,'conditions' => array('OR' => array(array('Content.parent_id' => $tmp_table_name['Content']['export_id']), array('Content.id' => $tmp_table_name['Content']['export_id'])))
-                                                        ));           
-            
+                                                        ));    
+
             foreach ($contents[0] AS $k_c => $content)
             {
                 $tmp_table_name[$k_c ]['export_id'] = array_unique(Set::extract($contents, '/' . $k_c . '/id'));
             }
-            
+
             $sfx = rand();
             $zip = new ZipArchive();
             $res = $zip->open('./files/vc_content' . $sfx . '.zip', ZIPARCHIVE::CREATE | ZIPARCHIVE::OVERWRITE);

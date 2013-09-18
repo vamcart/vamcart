@@ -59,22 +59,76 @@ class Attribute extends AppModel {
             return $ret_data;
         }
         
-  /*      public function export($data)
+        public function export($data)
         {
-            foreach ($data as $key => $value) 
-            {
-                $this->id = $value; 
-                $attr = $this->read();
-                if(empty($attr['']))
-                //$tmp = $this->AttributeDescription->find('all',array('conditions' => array('id' => $data)));
-                var_dump($tmp);
+            $ret_data = array();
+            $fields_attribute_description = array();
+            $this->resetAssociations();
+            foreach ($data as $value) 
+            {    
+                $attr = $this->find('first', array('conditions' => array('Attribute.id' => $value)));
+
+                if(!empty($attr['ValAttribute']))
+                {
+                    foreach ($attr['ValAttribute'] as $key_def => $value_def) 
+                    {
+                        $val = $this->AttributeDescription->find('all',array('conditions' => array('attribute_id' => $value_def['id'])));
+                        
+                        $language = array();
+                        foreach ($val AS $k => $attribute_description)
+                             foreach ($attribute_description['AttributeDescription'] AS $k_d => $dsc)
+                                $language['expimpdsc#' . $k . '#' . $k_d] = $dsc;
+                        
+                        $line = array('Attribute' => array_merge(array('table_name' => 'ValAttribute'),$value_def,$language));
+                        array_push($ret_data,$line);
+                        
+                    }
+                }
+                $language = array();
+                foreach ($attr['AttributeDescription'] AS $k => $attribute_description)
+                {
+                     foreach ($attribute_description AS $k_d => $dsc)
+                     {
+                        $language['expimpdsc#' . $k . '#' . $k_d] = $dsc;
+                        if(!isset($fields_attribute_description['expimpdsc#' . $k . '#' . $k_d]))
+                                $fields_attribute_description['expimpdsc#' . $k . '#' . $k_d] = null;
+                     }
+                }
+                if(empty($language))$language = $fields_attribute_description;
+                $line = array('Attribute' => array_merge(array('table_name' => 'Attribute'),$attr['Attribute'],$language));
+                array_push($ret_data,$line);
             }
+            return $ret_data;
         }
         
         public function import($data)
         {
-            
+            $attribute_data = array();
+            $attribute_description_data = array();
+            foreach ($data as $k_r => $row) 
+            {
+                foreach ($row['Attribute'] as $k_c => $cell) 
+                {
+                    if(stripos($k_c, '#') !== false)
+                    {
+                        list($pr_fld ,$dsc ,$fld) = explode('#', $k_c);
+                        $attribute_description_data[$pr_fld][$dsc . '_' . $k_r][$fld] = $cell;
+                    }
+                    else 
+                    {
+                        $attribute_data[$k_r][$k_c] = $cell;
+                    }
+                }
+            }
+            foreach($attribute_description_data['expimpdsc'] AS $table_row)
+            {
+               $this->AttributeDescription->save($table_row);
+            }
+            foreach($attribute_data AS $table_row)
+            {
+               $this->save($table_row);
+            }
         }
-*/
+
 }
 ?>
