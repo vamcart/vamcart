@@ -46,6 +46,8 @@ function smarty_function_attribute_list($params)
                 $element_list[$k]['values_attribute'][$k_v]['id'] = $value['id']; //id default значения атрибута
                 $element_list[$k]['values_attribute'][$k_v]['name'] = $value['name'];
                 $element_list[$k]['values_attribute'][$k_v]['type_attr'] = $value['type_attr'];
+                $element_list[$k]['values_attribute'][$k_v]['price_modificator'] = $value['price_modificator'];
+                $element_list[$k]['values_attribute'][$k_v]['price_value'] = $value['price_value'];
                 if(isset($params['value_attributes'][$value['id']])) $element_list[$k]['values_attribute'][$k_v]['val'] = $params['value_attributes'][$value['id']]['value'];
                 else $element_list[$k]['values_attribute'][$k_v]['val'] = $value['val'];           
             }
@@ -73,6 +75,8 @@ function smarty_function_attribute_list($params)
                 $element_list[$k]['values_attribute'][$k_v]['id'] = $value['id']; //id default значения атрибута
                 $element_list[$k]['values_attribute'][$k_v]['name'] = $value['name'];
                 $element_list[$k]['values_attribute'][$k_v]['type_attr'] = $value['type_attr'];
+                $element_list[$k]['values_attribute'][$k_v]['price_modificator'] = $value['price_modificator'];
+                $element_list[$k]['values_attribute'][$k_v]['price_value'] = $value['price_value'];
                 if(isset($val_attr[$value['id']])) $element_list[$k]['values_attribute'][$k_v]['val'] = $val_attr[$value['id']];
                 else $element_list[$k]['values_attribute'][$k_v]['val'] = $value['val'];   
             }
