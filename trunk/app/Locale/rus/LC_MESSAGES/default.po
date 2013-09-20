@@ -3763,3 +3763,11 @@ msgstr "Выводит бокс фильтрации товаров."
 #: /vendors/smarty/vam_plugins/function.value_filter.php:33
 msgid "Displays a filter value."
 msgstr "Выводит значения фильтров."
+
+#: /app/controllers/AppController.php:61
+msgid "Attributes"
+msgstr "Атрибуты"
+
+#: /app/controllers/AppController.php:61
+msgid "Attribute Templates"
+msgstr "Шаблоны атрибутов"

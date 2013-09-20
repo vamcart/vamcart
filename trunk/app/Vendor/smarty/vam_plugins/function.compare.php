@@ -10,7 +10,7 @@ function default_template_compare()
 {
 $template = '
 <div class="box">
-    <h5><img src="{base_path}/img/icons/menu/blocks.png" alt="" />&nbsp;{lang}Compare{/lang}</h5>
+    <h5><img src="{base_path}/img/icons/menu/blocks.png" alt="" />&nbsp;{lang}Comparison{/lang}</h5>
     <div class="boxContent">
         <form name="" action="{$base_url}/compared/done/{$base_content}" method="post">
         <div class="">
@@ -18,7 +18,7 @@ $template = '
             {foreach from=$element_list item=element}
                 <li>{$element.ContentDescription.name} 
 
-                <a href="{$base_url}/delcmp/{$element.Content.alias}/{$base_content}"><img alt="del" src="{base_path}/img/admin/icons/false.png"></img></a>
+                <a href="{$base_url}/delcmp/{$element.Content.alias}/{$base_content}"><img alt="{lang}Remove{/lang}" title="{lang}Remove{/lang}" src="{base_path}/img/admin/icons/false.png"></img></a>
 
                 </li>
             {/foreach}
