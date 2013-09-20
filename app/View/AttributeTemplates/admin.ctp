@@ -1,4 +1,11 @@
 <?php
+/* -----------------------------------------------------------------------------------------
+   VamCart - http://vamcart.com
+   -----------------------------------------------------------------------------------------
+   Copyright (c) 2013 VamSoft Ltd.
+   License - http://vamcart.com/license.html
+   ---------------------------------------------------------------------------------------*/
+
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-tag-blue-add');
 
 echo $this->Form->create('AttributeTemplate', array('action' => '/admin_edit/new/'));
@@ -14,7 +21,7 @@ foreach ($templates AS $template)
 }
 echo '</table>';
 
-echo $this->Admin->formButton(__('New'), 'cus-add', array('class' => 'btn', 'type' => 'submit', 'name' => 'applybutton'));
+echo $this->Admin->formButton(__('Create New'), 'cus-add', array('class' => 'btn', 'type' => 'submit', 'name' => 'applybutton'));
 echo $this->Form->end(); 
 
 echo $this->Admin->ShowPageHeaderEnd();
