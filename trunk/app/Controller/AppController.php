@@ -253,7 +253,8 @@ class AppController extends Controller {
 					7 => array('icon' => 'cus-calculator-add', 'text' => __('Tax Classes', true), 'path' => '/taxes/admin/'),
 					8 => array('icon' => 'cus-calculator-edit', 'text' => __('Tax Rates', true), 'path' => '/tax_country_zone_rates/admin/0'),
 					9 => array('icon' => 'cus-email-open', 'text' => __('Email Templates', true), 'path' => '/email_template/admin/'),
-					10 => array('icon' => 'cus-comment-edit', 'text' => __('Answer Templates', true), 'path' => '/answer_template/admin/')
+					10 => array('icon' => 'cus-comment-edit', 'text' => __('Answer Templates', true), 'path' => '/answer_template/admin/'),
+					11 => array('icon' => 'cus-tag-blue-edit', 'text' => __('Attribute Templates', true), 'path' => '/attribute_templates/admin/')
 				)
 			),	
 			6 => array('icon' => 'cus-world', 'text' => __('Locale', true), 'path' => '/admin/admin_top/6',
@@ -271,7 +272,6 @@ class AppController extends Controller {
 					2 => array('icon' => 'cus-tag-blue', 'text' => __('Tags', true), 'path' => '/tags/admin/'),
 					3 => array('icon' => 'cus-tag-blue-add', 'text' => __('User Tags', true), 'path' => '/user_tags/admin/'),
 					4 => array('icon' => 'cus-page-gear', 'text' => __('Events', true), 'path' => '/events/admin/'),
-					5 => array('icon' => 'cus-tag-blue-edit', 'text' => __('Attribute Templates', true), 'path' => '/attribute_templates/admin/')
 				)
 			),									
 			8 => array('icon' => 'cus-group', 'text' => __('Account', true), 'path' => '/admin/admin_top/8',
