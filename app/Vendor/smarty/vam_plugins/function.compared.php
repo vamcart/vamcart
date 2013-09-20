@@ -13,7 +13,7 @@ $template = '
 	<table class="contentTable">
 	<tbody>
 	<tr>
-		<th>{lang}Compare{/lang}</th>
+		<th>{lang}Comparison{/lang}</th>
 		{foreach from=$element_list[0]["attributes_product"] item=product}
 			<th>
 			{$product.name_product}

@@ -24,7 +24,7 @@ function default_template_filter()
                     {lang}Apply{/lang}
                     </button>
                     <button class="btn" name="cancelbutton" type="submit"><i class="cus-cancel"></i>
-                       Reset
+                    {lang}Reset{/lang}
                     </button>
                 </div>
             </form>

@@ -21,6 +21,7 @@ $template = '<div>
     </div>
   {/if}  
 <ul class="listing">
+
 {foreach from=$content_list item=node}
 	<li
 	{if $node.alias == $content_alias}
@@ -33,11 +34,22 @@ $template = '<div>
 	{/if}
 	/></a></div>
 	<div><a href="{$node.url}">{$node.name}</a></div></li>
-{foreachelse}
+
+  <div>
+    {attribute_list value_attributes=$node.attributes}
+	</div>
+
+  {if isset($is_compare)}
+  <div><a class="btn" href="{base_path}/category/addcmp/{$node.alias}/{$content_alias->value}{$ext}"><i class="cus-add"></i> {lang}Add to compare{/lang}</a></div>
+	{/if}
+
+  {foreachelse}
 	<li class="no_items">{lang}No Items Found{/lang}</li>
 {/foreach}
+
 </ul>
-<div class="clear"></div>
+<div class="clear"></div> 
+
   {if $pages_number > 1 || $page=="all"}
     <div class="paginator">
           <ul>
@@ -49,6 +61,7 @@ $template = '<div>
           </ul>
     </div>
   {/if}  
+  
 </div>
 ';		
 
@@ -108,12 +121,10 @@ function smarty_function_content_listing($params, $template)
 	}
 
 
-/*->***************************************************************/
                 $Content->bindModel(array('hasMany' => array(
 				'Attribute' => array(
                     'className' => 'Attribute'
 					))));
-/***************************************************************<-*/  
 
 
         if(!isset ($params['on_page']))
@@ -146,7 +157,7 @@ function smarty_function_content_listing($params, $template)
 
         // Applying pagination for products only
         if(strpos($params['type'],'product') !== false){
-/*->***************************************************************/
+
         global $filter_list;
         if(!empty($filter_list))
         {
@@ -222,7 +233,7 @@ function smarty_function_content_listing($params, $template)
                 }
             }
         }
-/***************************************************************<-*/          
+
             if($params['page'] == 'all'){          
                 $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'order' => array('Content.order ASC')));
                 $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
@@ -249,14 +260,14 @@ function smarty_function_content_listing($params, $template)
 			$content_list[$count]['stock']	= $raw_data['ContentProduct']['stock'];	
 			$content_list[$count]['model']	= $raw_data['ContentProduct']['model'];	
 			$content_list[$count]['weight']	= $raw_data['ContentProduct']['weight'];	
-/*->***************************************************************/
+
                         $content_list[$count]['attributes'] = array();
                         foreach($raw_data['Attribute'] AS $attribute)
                         {
                             $content_list[$count]['attributes'][$attribute['parent_id']]['id'] = $attribute['id'];
                             $content_list[$count]['attributes'][$attribute['parent_id']]['value'] = $attribute['val'];
                         }
-/***************************************************************<-*/      
+
 		if (isset($raw_data['ContentImage']['image']) && file_exists(IMAGES . 'content/' . $raw_data['Content']['id'] . '/' . $raw_data['ContentImage']['image'])) {
 			$content_list[$count]['icon']	= BASE . '/img/content/' . $raw_data['Content']['id'] . '/' . $raw_data['ContentImage']['image'];
 		}
@@ -298,10 +309,7 @@ function smarty_function_content_listing($params, $template)
 	if($config['GD_LIBRARY'] == 0)
 		$vars['thumbnail_width'] = $config['THUMBNAIL_SIZE'];
 
-/*->***************************************************************/
 	if(!empty($content['CompareAttribute']))$vars['is_compare'] = 1;
-/***************************************************************<-*/  
-
 
 	$display_template = $Smarty->load_template($params,'content_listing');	
 	$Smarty->display($display_template,$vars);
