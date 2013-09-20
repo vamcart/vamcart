@@ -3739,3 +3739,11 @@ msgstr "Статус заказа изменён."
 #: /app/controllers/CustomersController.php:61
 msgid "Leave empty to use current password."
 msgstr "Оставьте поле пустым, если Вы не хотите менять текущий пароль."
+
+#: /vendors/smarty/vam_plugins/function.attribute_list.php:33
+msgid "Displays attributes list."
+msgstr "Выводит атрибуты товара."
+
+#: /vendors/smarty/vam_plugins/function.attribute_list.php:33
+msgid "Attributes values."
+msgstr "Атрибуты товара."

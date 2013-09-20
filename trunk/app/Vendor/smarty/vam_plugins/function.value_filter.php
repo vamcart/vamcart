@@ -1,14 +1,10 @@
 <?php
-
-function default_template_value_filter()
-{
-    $template = '
-    <div>
-    </div>
-    ';
-    return $template;
-}
-
+/* -----------------------------------------------------------------------------------------
+   VamCart - http://vamcart.com
+   -----------------------------------------------------------------------------------------
+   Copyright (c) 2013 VamSoft Ltd.
+   License - http://vamcart.com/license.html
+   ---------------------------------------------------------------------------------------*/
 
 function smarty_function_value_filter($params)
 {

@@ -1,4 +1,10 @@
 <?php
+/* -----------------------------------------------------------------------------------------
+   VamCart - http://vamcart.com
+   -----------------------------------------------------------------------------------------
+   Copyright (c) 2013 VamSoft Ltd.
+   License - http://vamcart.com/license.html
+   ---------------------------------------------------------------------------------------*/
 
 function default_template_compared()
 {
@@ -7,20 +13,20 @@ $template = '
 	<table class="contentTable">
 	<tbody>
 	<tr>
-		<th>{lang}Atribute{/lang}</th>
-		{foreach from=$element_list[0]["atributes_product"] item=product}
+		<th>{lang}Compare{/lang}</th>
+		{foreach from=$element_list[0]["attributes_product"] item=product}
 			<th>
 			{$product.name_product}
 			</th>
 		{/foreach}
         </tr>   
-	{foreach from=$element_list item=atribute}
+	{foreach from=$element_list item=attribute}
 		<tr>
-	       	<td>{$atribute.name_attribute}</td>
-		{foreach from=$atribute["atributes_product"] item=product}
+	       	<td>{$attribute.name_attribute}</td>
+		{foreach from=$attribute["attributes_product"] item=product}
 			<td>
-               	        {value_filter template=$atribute["template_attribute"] id_attribute=$atribute["id_attribute"] 
-                                                                               name_attribute=$atribute["name_attribute"] 
+               	        {value_filter template=$attribute["template_attribute"] id_attribute=$attribute["id_attribute"] 
+                                                                               name_attribute=$attribute["name_attribute"] 
                                                                                values_attribute=$product["values_attribute"]}
 			</td>
 		{/foreach}
@@ -72,21 +78,21 @@ function smarty_function_compared($params)
             	$element_list[$k_a]['id_attribute'] = $attribute['Attribute']['id'];
             	$element_list[$k_a]['name_attribute'] = $attribute['Attribute']['name'];
             	$element_list[$k_a]['template_attribute'] = $attribute['AttributeTemplate']['template_compare'];
-                $element_list[$k_a]['atributes_product'] = array();
+                $element_list[$k_a]['attributes_product'] = array();
                 foreach ($content_list as $k_p => $product) 
                 {
-                    $element_list[$k_a]['atributes_product'][$k_p]['name_product'] = $product['ContentDescription']['name'];
-                    $element_list[$k_a]['atributes_product'][$k_p]['values_attribute'] = array();
+                    $element_list[$k_a]['attributes_product'][$k_p]['name_product'] = $product['ContentDescription']['name'];
+                    $element_list[$k_a]['attributes_product'][$k_p]['values_attribute'] = array();
                     $val_attr = Set::combine($product['Attribute'],'{n}.parent_id','{n}.val');
                     foreach($attribute['ValAttribute'] AS $k_v => $value)
                     {               
 		        if(isset($value['type_attr'])&&$value['type_attr']!=''
 				&&$value['type_attr']!='list_value'&&$value['type_attr']!='checked_list')$k_v = $value['type_attr'];
-                	$element_list[$k_a]['atributes_product'][$k_p]['values_attribute'][$k_v]['id'] = $value['id']; 
-                	$element_list[$k_a]['atributes_product'][$k_p]['values_attribute'][$k_v]['name'] = $value['name'];
-                	$element_list[$k_a]['atributes_product'][$k_p]['values_attribute'][$k_v]['type_attr'] = $value['type_attr'];
-                	if(isset($val_attr[$value['id']])) $element_list[$k_a]['atributes_product'][$k_p]['values_attribute'][$k_v]['val'] = $val_attr[$value['id']];
-                	else $element_list[$k_a]['atributes_product'][$k_p]['values_attribute'][$k_v]['val'] = $value['val'];   
+                	$element_list[$k_a]['attributes_product'][$k_p]['values_attribute'][$k_v]['id'] = $value['id']; 
+                	$element_list[$k_a]['attributes_product'][$k_p]['values_attribute'][$k_v]['name'] = $value['name'];
+                	$element_list[$k_a]['attributes_product'][$k_p]['values_attribute'][$k_v]['type_attr'] = $value['type_attr'];
+                	if(isset($val_attr[$value['id']])) $element_list[$k_a]['attributes_product'][$k_p]['values_attribute'][$k_v]['val'] = $val_attr[$value['id']];
+                	else $element_list[$k_a]['attributes_product'][$k_p]['values_attribute'][$k_v]['val'] = $value['val'];   
                     }
                 }
         }
