@@ -132,8 +132,8 @@ class AttributesController extends AppController
         else $this->set('template', $this->AttributeTemplate->find('list'));
         $this->set('attribute',$attribute);
         $this->set('type',$type);
-        $this->set('current_crumb', __('Atribute editor', true));
-	$this->set('title_for_layout', __('Atribute editor', true)); 
+        $this->set('current_crumb', __('Attribute editor', true));
+	$this->set('title_for_layout', __('Attribute editor', true)); 
     }
     
     public function admin_viewer_attr($content_id = 0) 
@@ -152,8 +152,8 @@ class AttributesController extends AppController
         $this->Content->Attribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
         $content_data = $this->Content->find('first',array('conditions' => array('Content.id' => $content_id)));
         $this->set('content_data',$content_data);
-        $this->set('current_crumb', __('List atributes', true));
-	$this->set('title_for_layout', __('List atributes', true)); 
+        $this->set('current_crumb', __('List attributes', true));
+	$this->set('title_for_layout', __('List attributes', true)); 
     }
     
     public function change_field_status($field = 'is_active' ,$id) 

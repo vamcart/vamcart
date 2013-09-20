@@ -64,7 +64,7 @@ if($type == 'attr')
     
     echo $this->Form->input('Attribute.attribute_template_id',array(
 				'type' => 'select',
-				'label' => __('Type atribute'),
+				'label' => __('Type attribute'),
 				'options' => $template,
 				'selected' => isset($attribute['Attribute']['attribute_template_id']) ? $attribute['Attribute']['attribute_template_id'] : ''
 			));

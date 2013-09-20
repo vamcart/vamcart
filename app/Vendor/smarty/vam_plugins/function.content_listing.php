@@ -250,11 +250,11 @@ function smarty_function_content_listing($params, $template)
 			$content_list[$count]['model']	= $raw_data['ContentProduct']['model'];	
 			$content_list[$count]['weight']	= $raw_data['ContentProduct']['weight'];	
 /*->***************************************************************/
-                        $content_list[$count]['atributes'] = array();
-                        foreach($raw_data['Attribute'] AS $atribute)
+                        $content_list[$count]['attributes'] = array();
+                        foreach($raw_data['Attribute'] AS $attribute)
                         {
-                            $content_list[$count]['atributes'][$atribute['parent_id']]['id'] = $atribute['id'];
-                            $content_list[$count]['atributes'][$atribute['parent_id']]['value'] = $atribute['val'];
+                            $content_list[$count]['attributes'][$attribute['parent_id']]['id'] = $attribute['id'];
+                            $content_list[$count]['attributes'][$attribute['parent_id']]['value'] = $attribute['val'];
                         }
 /***************************************************************<-*/      
 		if (isset($raw_data['ContentImage']['image']) && file_exists(IMAGES . 'content/' . $raw_data['Content']['id'] . '/' . $raw_data['ContentImage']['image'])) {

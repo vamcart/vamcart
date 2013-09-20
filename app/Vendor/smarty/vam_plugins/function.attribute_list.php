@@ -1,6 +1,12 @@
 <?php
+/* -----------------------------------------------------------------------------------------
+   VamCart - http://vamcart.com
+   -----------------------------------------------------------------------------------------
+   Copyright (c) 2013 VamSoft Ltd.
+   License - http://vamcart.com/license.html
+   ---------------------------------------------------------------------------------------*/
 
-function default_template_atribute_list()
+function default_template_attribute_list()
 {
     $template = '
                 <div>
@@ -17,7 +23,7 @@ function default_template_atribute_list()
 }
 
 
-function smarty_function_atribute_list($params)
+function smarty_function_attribute_list($params)
 {
     global $content;
     App::uses('SmartyComponent', 'Controller/Component');
@@ -40,7 +46,7 @@ function smarty_function_atribute_list($params)
                 $element_list[$k]['values_attribute'][$k_v]['id'] = $value['id']; //id default значения атрибута
                 $element_list[$k]['values_attribute'][$k_v]['name'] = $value['name'];
                 $element_list[$k]['values_attribute'][$k_v]['type_attr'] = $value['type_attr'];
-                if(isset($params['value_atributes'][$value['id']])) $element_list[$k]['values_attribute'][$k_v]['val'] = $params['value_atributes'][$value['id']]['value'];
+                if(isset($params['value_attributes'][$value['id']])) $element_list[$k]['values_attribute'][$k_v]['val'] = $params['value_attributes'][$value['id']]['value'];
                 else $element_list[$k]['values_attribute'][$k_v]['val'] = $value['val'];           
             }
         }
@@ -80,27 +86,27 @@ function smarty_function_atribute_list($params)
     
     $assignments = array();
     $assignments = array('element_list' => $element_list);
-    $display_template = $Smarty->load_template($params, 'atribute_list');
+    $display_template = $Smarty->load_template($params, 'attribute_list');
     $Smarty->display($display_template, $assignments);
 
 }
 
-function smarty_help_function_atribute_list() 
+function smarty_help_function_attribute_list() 
 {
     ?>
     <h3><?php echo __('What does this tag do?') ?></h3>
-    <p><?php echo __('Displays a more detailed version of the user\'s cart.') ?></p>
+    <p><?php echo __('Displays attributes list.') ?></p>
     <h3><?php echo __('How do I use it?') ?></h3>
-    <p><?php echo __('Just insert the tag into your template/page like:') ?> <code>{value_filter}</code></p>
+    <p><?php echo __('Just insert the tag into your template/page like:') ?> <code>{attribute_list}</code></p>
     <h3><?php echo __('What parameters does it take?') ?></h3>
     <ul>
-        <li><em><?php echo __('(template)') ?></em> - <?php echo __('Тело шаблона.') ?></li>
-    	<li><em><?php echo __('(values_attribute)') ?></em> - <?php echo __('Значения атрибута.') ?></li>
+        <li><em><?php echo __('(template)') ?></em> - <?php echo __('Useful if you want to override the default content listing template. Setting this will utilize the template that matches this alias.') ?></li>
+    	<li><em><?php echo __('(value_attributes)') ?></em> - <?php echo __('Attributes values.') ?></li>
       </ul>
     <?php
 }
 
-function smarty_about_function_atribute_list() 
+function smarty_about_function_attribute_list() 
 {
 }
 ?>
