@@ -91,13 +91,13 @@ $this->Html->css(array(
             echo $this->Admin->EndTabContent();
         
         echo $this->Admin->StartTabContent('settings');
-            echo $this->Form->input('DefaulValue.dig_value',array('label' => __('Default value') . ' -> (dig_value)' ,'type' => 'checkbox'));
-            echo $this->Form->input('DefaulValue.max_value',array('label' => __('Default value') . ' -> (max_value)' ,'type' => 'checkbox'));
-            echo $this->Form->input('DefaulValue.min_value',array('label' => __('Default value') . ' -> (min_value)' ,'type' => 'checkbox'));
-            echo $this->Form->input('DefaulValue.like_value',array('label' => __('Default value') . ' -> (like_value)' ,'type' => 'checkbox'));            
-            echo $this->Form->input('DefaulValue.list_value',array('label' => __('Default value') . ' -> (list_value)' ,'type' => 'checkbox'));            
-            echo $this->Form->input('DefaulValue.checked_list',array('label' => __('Default value') . ' -> (checked_list)' ,'type' => 'checkbox'));            
-            echo $this->Form->input('DefaulValue.any_value',array('label' => __('Default value') . ' -> (any_value)' ,'type' => 'checkbox'));            
+            echo $this->Form->input('DefaulValue.dig_value',array('label' => __('Default value') . ' » (dig_value)' ,'type' => 'checkbox'));
+            echo $this->Form->input('DefaulValue.max_value',array('label' => __('Default value') . ' » (max_value)' ,'type' => 'checkbox'));
+            echo $this->Form->input('DefaulValue.min_value',array('label' => __('Default value') . ' » (min_value)' ,'type' => 'checkbox'));
+            echo $this->Form->input('DefaulValue.like_value',array('label' => __('Default value') . ' » (like_value)' ,'type' => 'checkbox'));            
+            echo $this->Form->input('DefaulValue.list_value',array('label' => __('Default value') . ' » (list_value)' ,'type' => 'checkbox'));            
+            echo $this->Form->input('DefaulValue.checked_list',array('label' => __('Default value') . ' » (checked_list)' ,'type' => 'checkbox'));            
+            echo $this->Form->input('DefaulValue.any_value',array('label' => __('Default value') . ' » (any_value)' ,'type' => 'checkbox'));            
         echo $this->Admin->EndTabContent();
         echo $this->Admin->EndTabs();
         
