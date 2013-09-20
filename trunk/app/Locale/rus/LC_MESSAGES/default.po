@@ -3771,3 +3771,35 @@ msgstr "Атрибуты"
 #: /app/controllers/AppController.php:61
 msgid "Attribute Templates"
 msgstr "Шаблоны атрибутов"
+
+#: /app/controllers/AttributeTemplatesController.php:61
+msgid "Settings"
+msgstr "Настройки"
+
+#: /app/controllers/AttributeTemplatesController.php:61
+msgid "Template for filter"
+msgstr "Шаблон для бокса фильтр"
+
+#: /app/controllers/AttributeTemplatesController.php:61
+msgid "Template for editor"
+msgstr "Шаблон для редактора атрибутов"
+
+#: /app/controllers/AttributeTemplatesController.php:61
+msgid "Template for catalog"
+msgstr "Шаблон для вывода в списке товара"
+
+#: /app/controllers/AttributeTemplatesController.php:61
+msgid "Template for product"
+msgstr "Шаблон для карточки товара"
+
+#: /app/controllers/AttributeTemplatesController.php:61
+msgid "Template for compare"
+msgstr "Шаблон для страницы сравнения"
+
+#: /app/controllers/AttributeTemplatesController.php:61
+msgid "Default value"
+msgstr "Значение по умолчанию"
+
+#: /app/controllers/AttributeTemplatesController.php:61
+msgid "Record not saved!"
+msgstr "Запись не сохранена!"

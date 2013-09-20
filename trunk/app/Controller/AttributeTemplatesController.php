@@ -1,4 +1,11 @@
 <?php
+/* -----------------------------------------------------------------------------------------
+   VamCart - http://vamcart.com
+   -----------------------------------------------------------------------------------------
+   Copyright (c) 2013 VamSoft Ltd.
+   License - http://vamcart.com/license.html
+   ---------------------------------------------------------------------------------------*/
+
 class AttributeTemplatesController extends AppController {
     public $name = 'AttributeTemplates';
 	
@@ -25,12 +32,12 @@ class AttributeTemplatesController extends AppController {
                     $save['setting'] = serialize($this->data['DefaulValue']);
                     if($this->AttributeTemplate->save($save))
                     {
-                        $this->Session->setFlash('Record saved.');
-                    } else $this->Session->setFlash('Record not saved!', 'default', array('class' => 'error-message red'));  
+                        $this->Session->setFlash(__('Record saved.'));
+                    } else $this->Session->setFlash(__('Record not saved!'), 'default', array('class' => 'error-message red'));  
                     if(isset($this->data['apply'])) 
                     {
                         if($id == null) $id = $this->AttributeTemplate->getLastInsertId();
-                        $this->redirect('/attributetemplates/admin_edit/edit/' . $id);
+                        $this->redirect('/attribute_templates/admin_edit/edit/' . $id);
                     }
                 }
                 $this->redirect('/attribute_templates/admin');
