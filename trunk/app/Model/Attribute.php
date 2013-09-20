@@ -1,4 +1,10 @@
 <?php
+/* -----------------------------------------------------------------------------------------
+   VamCart - http://vamcart.com
+   -----------------------------------------------------------------------------------------
+   Copyright (c) 2013 VamSoft Ltd.
+   License - http://vamcart.com/license.html
+   ---------------------------------------------------------------------------------------*/
 
 App::uses('Model', 'AppModel');
 class Attribute extends AppModel {
@@ -8,6 +14,7 @@ class Attribute extends AppModel {
                                ,'ValAttribute' => array('className' => 'Attribute'
                                                     ,'foreignKey'    => 'parent_id'
 						    ,'dependent' => true
+                                                    ,'order' => array('order ASC')
                                 ));
 	public $validate = array(
 	'price_value' => array(

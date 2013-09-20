@@ -47,11 +47,12 @@ foreach($languages AS $language)
     echo $this->Admin->EndTabContent();
 }
 echo $this->Admin->EndTabs();
+
 if($type != 'attr')   
 {
     echo $this->Form->input('Attribute.type_attr',array(
 				'type' => 'select',
-				'label' => __('Type'),
+				'label' => __('Attribute Type'),
 				'options' => $template,//array('list_value' => 'list value','max' => 'max value','min' => 'min value','value' => 'numeric value','like' => 'mask value'),
 				'selected' => isset($attribute['Attribute']['type_attr']) ? $attribute['Attribute']['type_attr'] : ''
 			));
@@ -59,21 +60,6 @@ if($type != 'attr')
 				'type' => 'text',
 				'label' => __('Default value'),
 				'value' => isset($attribute['Attribute']['val']) ? $attribute['Attribute']['val'] : ''
-			));
-    echo $this->Form->input('Attribute.price_value',array(
-				'type' => 'hidden',
-				'value' => '0'
-			));
-}
-
-if($type == 'attr')
-{
-    
-    echo $this->Form->input('Attribute.attribute_template_id',array(
-				'type' => 'select',
-				'label' => __('Attribute Type'),
-				'options' => $template,
-				'selected' => isset($attribute['Attribute']['attribute_template_id']) ? $attribute['Attribute']['attribute_template_id'] : ''
 			));
     echo $this->Form->input('Attribute.price_modificator',array(
 				'type' => 'select',
@@ -84,13 +70,29 @@ if($type == 'attr')
     echo $this->Form->input('Attribute.price_value',array(
 				'type' => 'text',
 				'label' => __('Modificator Value'),
-				'value' => isset($attribute['Attribute']['price_value']) ? $attribute['Attribute']['price_value'] : ''
+				'value' => isset($attribute['Attribute']['price_value']) ? $attribute['Attribute']['price_value'] : '0'
+			));
+}
+else if($type == 'attr')
+{
+        
+    echo $this->Form->input('Attribute.price_value',array(
+				'type' => 'hidden',
+				'value' => '0'
 			));
     
-    echo __('Attribute Values');
+    echo $this->Form->input('Attribute.attribute_template_id',array(
+				'type' => 'select',
+				'label' => __('Type'),
+				'options' => $template,
+				'selected' => isset($attribute['Attribute']['attribute_template_id']) ? $attribute['Attribute']['attribute_template_id'] : ''
+			));
+    
     echo '<table class="contentTable">';
     echo $this->Html->tableHeaders(array(__('Name'),__('Action')));
-    //var_dump($attribute);
+    $count_attr = count($attribute['ValAttribute']);
+    //var_dump($attribute['ValAttribute']);
+    //die();
     foreach ($attribute['ValAttribute'] AS $val_ttribute)
     {
         echo $this->Admin->TableCells(array($val_ttribute['name'],
