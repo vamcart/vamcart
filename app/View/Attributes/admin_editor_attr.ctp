@@ -1,4 +1,11 @@
 <?php
+/* -----------------------------------------------------------------------------------------
+   VamCart - http://vamcart.com
+   -----------------------------------------------------------------------------------------
+   Copyright (c) 2013 VamSoft Ltd.
+   License - http://vamcart.com/license.html
+   ---------------------------------------------------------------------------------------*/
+
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-table');
 echo $this->Form->create('Attribute', array('id' => 'attributeform', 'name' => 'attributeform','enctype' => 'multipart/form-data', 'action' => '/admin_editor_attr/save/' . $type));
 
@@ -44,7 +51,7 @@ if($type != 'attr')
 {
     echo $this->Form->input('Attribute.type_attr',array(
 				'type' => 'select',
-				'label' => __('Type value'),
+				'label' => __('Type'),
 				'options' => $template,//array('list_value' => 'list value','max' => 'max value','min' => 'min value','value' => 'numeric value','like' => 'mask value'),
 				'selected' => isset($attribute['Attribute']['type_attr']) ? $attribute['Attribute']['type_attr'] : ''
 			));
@@ -64,39 +71,35 @@ if($type == 'attr')
     
     echo $this->Form->input('Attribute.attribute_template_id',array(
 				'type' => 'select',
-				'label' => __('Type attribute'),
+				'label' => __('Attribute Type'),
 				'options' => $template,
 				'selected' => isset($attribute['Attribute']['attribute_template_id']) ? $attribute['Attribute']['attribute_template_id'] : ''
 			));
     echo $this->Form->input('Attribute.price_modificator',array(
 				'type' => 'select',
-				'label' => __('Price modificator'),
-				'options' => array('0' => '(   )','=' => '( = )','+' => '( + )','-' => '( - )','/' => '( / )','*' => '( * )'),
+				'label' => __('Price Modificator'),
+				'options' => array('0' => __('no'),'=' => '=','+' => '+','-' => '-','/' => '/','*' => '*'),
 				'selected' => isset($attribute['Attribute']['price_modificator']) ? $attribute['Attribute']['price_modificator'] : ''
 			));
     echo $this->Form->input('Attribute.price_value',array(
 				'type' => 'text',
-				'label' => __('Modificator value'),
+				'label' => __('Modificator Value'),
 				'value' => isset($attribute['Attribute']['price_value']) ? $attribute['Attribute']['price_value'] : ''
 			));
     
-    
+    echo __('Attribute Values');
     echo '<table class="contentTable">';
-    echo $this->Html->tableHeaders(array(__('Name'),__('Alias'),__('Value'),__('Action')));
+    echo $this->Html->tableHeaders(array(__('Name'),__('Action')));
     //var_dump($attribute);
     foreach ($attribute['ValAttribute'] AS $val_ttribute)
     {
-        echo $this->Admin->TableCells(array($val_ttribute['name']
-                                           ,''
-                                           ,''
-                                           ,array($this->Admin->ActionButton('edit','/attributes/admin_editor_attr/' . 'edit/val/' . $val_ttribute['id'],__('Edit')) . $this->Admin->ActionButton('delete','/attributes/admin_editor_attr/' . 'delete/val/' . $val_ttribute['id'],__('Delete')),array('align'=>'center'))
+        echo $this->Admin->TableCells(array($val_ttribute['name'],
+                                           array($this->Admin->ActionButton('edit','/attributes/admin_editor_attr/' . 'edit/val/' . $val_ttribute['id'],__('Edit')) . $this->Admin->ActionButton('delete','/attributes/admin_editor_attr/' . 'delete/val/' . $val_ttribute['id'],__('Delete')),array('align'=>'center'))
                                           ));  
     }
     if($attribute['Attribute']['id'] != 0)
-        echo $this->Admin->TableCells(array(''
-                                           ,''
-                                           ,''
-                                           ,array($this->Html->link($this->Html->image('admin/icons/new.png'),'/attributes/admin_editor_attr/' . 'add/val/' . $attribute['Attribute']['id'], array('escape' => false)),array('align'=>'center'))
+        echo $this->Admin->TableCells(array('',
+                                           array($this->Html->link($this->Html->image('admin/icons/new.png', array('title' => __('Add'), 'alt' => __('Add'))),'/attributes/admin_editor_attr/' . 'add/val/' . $attribute['Attribute']['id'], array('escape' => false)),array('align'=>'center'))
                                            ));
     echo '</table>';
 

@@ -10,7 +10,6 @@ class AttributesController extends AppController
 {
     public $name = 'Attributes';
     public $paginate = null;
-//    public $components = array('DebugKit.Toolbar');
     public $helpers = array('Smarty');
     
     public function admin ($id = 0 ,$parent_id = 0)
@@ -35,11 +34,12 @@ class AttributesController extends AppController
                                            );
         $content_data = $this->paginate('Content');
 
+        $this->set('prev',$id);
         $this->set('prev_level',$parent_id);
         $this->set('content_data',$content_data);
         
-        $this->set('current_crumb', __('List content', true));
-	$this->set('title_for_layout', __('List content', true));
+        $this->set('current_crumb', __('Listing', true));
+        $this->set('title_for_layout', __('Listing', true));
         
     } 
     
@@ -61,7 +61,6 @@ class AttributesController extends AppController
                 $attribute['Attribute']['price_value'] = 0;
                 $attribute['Attribute']['order'] = 0;
                 $attribute['ValAttribute'] = array();
-//                $this->Session->write('Attributes.tmp_Attribute',$attribute);
             break;
             case 'edit':
                 $this->Attribute->ValAttribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
@@ -78,7 +77,6 @@ class AttributesController extends AppController
                     }
                 }
                 $id = $attribute['Attribute']['parent_id'];
- //               $this->Session->write('Attributes.tmp_Attribute',$attribute);
             break;
             case 'save':
                 if(isset($this->data['cancelbutton']))
@@ -102,8 +100,8 @@ class AttributesController extends AppController
                     {
                         $this->constructDefValue($attribute['Attribute']['attribute_template_id'], $attribute['Attribute']['id']);
                     }
-                    $this->Session->setFlash('Attribute saved.');
-                } else $this->Session->setFlash('Attribute not saved!', 'default', array('class' => 'error-message red'));  
+                    $this->Session->setFlash(__('Attributes saved.'));
+                } else $this->Session->setFlash(__('Attributes not saved!'), 'default', array('class' => 'error-message red'));  
 
                 if ($type == 'attr') $this->redirect('/attributes/admin_viewer_attr/' . $this->data['Attribute']['content_id']);
                 else if ($type == 'val') $this->redirect('/attributes/admin_editor_attr/edit/attr/' . $this->data['Attribute']['parent_id']);
@@ -111,8 +109,8 @@ class AttributesController extends AppController
             case 'delete':
                 if($this->Attribute->delete($id))
                 {
-                    $this->Session->setFlash('Attribute deleted.');
-                } else $this->Session->setFlash('Failed attribute deleted!', 'default', array('class' => 'error-message red'));
+                    $this->Session->setFlash(__('Attributes deleted.'));
+                } else $this->Session->setFlash(__('Attributes not deleted!'), 'default', array('class' => 'error-message red'));
                 $this->redirect($this->referer());
             break;
             default:
@@ -138,8 +136,8 @@ class AttributesController extends AppController
         else $this->set('template', $this->AttributeTemplate->find('list'));
         $this->set('attribute',$attribute);
         $this->set('type',$type);
-        $this->set('current_crumb', __('Attribute editor', true));
-	$this->set('title_for_layout', __('Attribute editor', true)); 
+        $this->set('current_crumb', __('Attribute Editor', true));
+	$this->set('title_for_layout', __('Attribute Editor', true)); 
     }
     
     public function admin_viewer_attr($content_id = 0) 
@@ -158,8 +156,8 @@ class AttributesController extends AppController
         $this->Content->Attribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
         $content_data = $this->Content->find('first',array('conditions' => array('Content.id' => $content_id)));
         $this->set('content_data',$content_data);
-        $this->set('current_crumb', __('List attributes', true));
-	$this->set('title_for_layout', __('List attributes', true)); 
+        $this->set('current_crumb', __('Attributes Listing', true));
+	$this->set('title_for_layout', __('Attributes Listing', true)); 
     }
     
     public function change_field_status($field = 'is_active' ,$id) 
@@ -254,8 +252,8 @@ class AttributesController extends AppController
                 
                 if($this->Attribute->saveAll($save_data))
                 {
-                    $this->Session->setFlash('Value attributes saved.');
-                } else $this->Session->setFlash('Value attributes not saved!', 'default', array('class' => 'error-message red'));  
+                    $this->Session->setFlash(__('Attributes Value Saved.'));
+                } else $this->Session->setFlash(__('Attributes Value Not Saved!'), 'default', array('class' => 'error-message red'));  
 
                 $this->redirect('/attributes/admin/' . $this->data['Attribute']['parent_id']);
             break;
@@ -269,8 +267,8 @@ class AttributesController extends AppController
         $this->set('element_list',$element_list);
         $this->set('content_id', $content_id);
         $this->set('parent_id', $content_data['Content']['parent_id']); 
-        $this->set('current_crumb', __('Value editor', true));
-	$this->set('title_for_layout', __('Value editor', true)); 
+        $this->set('current_crumb', __('Attributes Value Editor', true));
+	$this->set('title_for_layout', __('Attributes Value Editor', true)); 
 
     }    
     
