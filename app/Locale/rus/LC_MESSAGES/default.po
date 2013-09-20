@@ -3803,3 +3803,71 @@ msgstr "Значение по умолчанию"
 #: /app/controllers/AttributeTemplatesController.php:61
 msgid "Record not saved!"
 msgstr "Запись не сохранена!"
+
+#: /app/controllers/AttributeController.php:61
+msgid "Attribute"
+msgstr "Атрибут"
+
+#: /app/controllers/AttributeController.php:61
+msgid "Attributes"
+msgstr "Атрибуты"
+
+#: /app/controllers/AttributeController.php:61
+msgid "Attributes saved."
+msgstr "Атрибуты сохранены."
+
+#: /app/controllers/AttributeController.php:61
+msgid "Attributes not saved!"
+msgstr "Атрибуты не сохранены!"
+
+#: /app/controllers/AttributeController.php:61
+msgid "Attributes deleted."
+msgstr "Атрибуты удалены."
+
+#: /app/controllers/AttributeController.php:61
+msgid "Attributes not deleted!"
+msgstr "Атрибуты не удалены!"
+
+#: /app/controllers/AttributeController.php:61
+msgid "Attribute Editor"
+msgstr "Редактор атрибутов"
+
+#: /app/controllers/AttributeController.php:61
+msgid "Attributes Listing"
+msgstr "Список атрибутов"
+
+#: /app/controllers/AttributeController.php:61
+msgid "Attributes Value Saved."
+msgstr "Значения атрибутов сохранены."
+
+#: /app/controllers/AttributeController.php:61
+msgid "Attributes Value Not Saved!"
+msgstr "Значения атрибутов не сохранены!"
+
+#: /app/controllers/AttributeController.php:61
+msgid "Attributes Value Editor"
+msgstr "Редактор значений атрибутов"
+
+#: /app/View/Attributes/admin_viewer_attr.ctp:61
+msgid "Attribute Values"
+msgstr "Значения атрибута"
+
+#: /app/View/Attributes/admin_viewer_attr.ctp:61
+msgid "Add"
+msgstr "Добавить"
+
+#: /app/View/Attributes/admin_viewer_attr.ctp:61
+msgid "Compare"
+msgstr "Сравнение"
+
+#: /app/View/Attributes/admin_viewer_attr.ctp:61
+msgid "Attribute Type"
+msgstr "Тип атрибута"
+
+#: /app/View/Attributes/admin_viewer_attr.ctp:61
+msgid "Price Modificator"
+msgstr "Модификатор цены"
+
+#: /app/View/Attributes/admin_viewer_attr.ctp:61
+msgid "Modificator Value"
+msgstr "Значение модификатора"
