@@ -1,4 +1,11 @@
 <?php
+/* -----------------------------------------------------------------------------------------
+   VamCart - http://vamcart.com
+   -----------------------------------------------------------------------------------------
+   Copyright (c) 2013 VamSoft Ltd.
+   License - http://vamcart.com/license.html
+   ---------------------------------------------------------------------------------------*/
+
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-table');
 echo $this->Form->create('Attribute', array('id' => 'valueform', 'name' => 'valueform','enctype' => 'multipart/form-data', 'action' => '/admin_editor_value/save'));
 

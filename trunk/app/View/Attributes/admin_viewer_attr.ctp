@@ -1,7 +1,14 @@
 <?php
+/* -----------------------------------------------------------------------------------------
+   VamCart - http://vamcart.com
+   -----------------------------------------------------------------------------------------
+   Copyright (c) 2013 VamSoft Ltd.
+   License - http://vamcart.com/license.html
+   ---------------------------------------------------------------------------------------*/
+
 echo $this->Admin->ShowPageHeaderStart($content_data['ContentDescription']['name'], 'cus-table');
 echo '<table class="contentTable">';
-echo $this->Html->tableHeaders(array(__('Name'),__('Type'),__('is_active'),__('is_filter'),__('is_compare'),__('Sort Order'),__('Action')));
+echo $this->Html->tableHeaders(array(__('Name'),__('Type'),__('Status'),__('Filter'),__('Compare'),__('Sort Order'),__('Action')));
 $count_attr = count($content_data['Attribute']);
 foreach ($content_data['Attribute'] AS $attribute)
 {
@@ -20,10 +27,10 @@ echo $this->Admin->TableCells(array(''
                                    ,''
                                    ,''
                                    ,''
-                                   ,array($this->Html->link($this->Html->image('admin/icons/new.png'),'/attributes/admin_editor_attr/' . 'add/attr/' . $content_data['Content']['id'], array('escape' => false)),array('align'=>'center'))
+                                   ,array($this->Html->link($this->Html->image('admin/icons/new.png', array('title' => __('Add'), 'alt' => __('Add'))),'/attributes/admin_editor_attr/' . 'add/attr/' . $content_data['Content']['id'], array('escape' => false)),array('align'=>'center'))
                               ));
 
 echo '</table>';
-echo $this->Html->link($this->Html->tag('i', '',array('class' => 'cus-arrow-undo')) . __('Up'), '/attributes/admin/' . $content_data['Content']['parent_id'] , array('escape' => false));
+echo $this->Html->link($this->Html->tag('i', '',array('class' => 'cus-arrow-up')) . ' ' . __('Up One Level'), '/attributes/admin/' . $content_data['Content']['parent_id'] , array('class' => 'btn', 'escape' => false));
 echo $this->Admin->ShowPageHeaderEnd();
 ?>
