@@ -75,7 +75,7 @@ function smarty_function_compare($params, $template)
 function smarty_help_function_compare() {
 	?>
 	<h3><?php echo __('What does this tag do?') ?></h3>
-	<p><?php echo __('Displays a more detailed version of the user\'s cart.') ?></p>
+	<p><?php echo __('Displays compare box.') ?></p>
 	<h3><?php echo __('How do I use it?') ?></h3>
 	<p><?php echo __('Just insert the tag into your template/page like:') ?> <code>{compare}</code></p>
 	<h3><?php echo __('What parameters does it take?') ?></h3>

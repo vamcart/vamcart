@@ -3747,3 +3747,19 @@ msgstr "Выводит атрибуты товара."
 #: /vendors/smarty/vam_plugins/function.attribute_list.php:33
 msgid "Attributes values."
 msgstr "Атрибуты товара."
+
+#: /vendors/smarty/vam_plugins/function.compare.php:33
+msgid "Displays compare box."
+msgstr "Выводит бокс сравнения товаров."
+
+#: /vendors/smarty/vam_plugins/function.compared.php:33
+msgid "Displays compare page data."
+msgstr "Выводит данные для сравнения товаров."
+
+#: /vendors/smarty/vam_plugins/function.filter.php:33
+msgid "Displays filter box."
+msgstr "Выводит бокс фильтрации товаров."
+
+#: /vendors/smarty/vam_plugins/function.value_filter.php:33
+msgid "Displays a filter value."
+msgstr "Выводит значения фильтров."
