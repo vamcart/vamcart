@@ -100,7 +100,7 @@ function smarty_help_function_attribute_list()
     <p><?php echo __('Just insert the tag into your template/page like:') ?> <code>{attribute_list}</code></p>
     <h3><?php echo __('What parameters does it take?') ?></h3>
     <ul>
-        <li><em><?php echo __('(template)') ?></em> - <?php echo __('Useful if you want to override the default content listing template. Setting this will utilize the template that matches this alias.') ?></li>
+        <li><em><?php echo __('(template)') ?></em> - <?php echo __('Overrides the default template.') ?></li>
     	<li><em><?php echo __('(value_attributes)') ?></em> - <?php echo __('Attributes values.') ?></li>
       </ul>
     <?php

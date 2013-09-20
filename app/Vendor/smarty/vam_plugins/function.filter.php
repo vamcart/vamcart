@@ -90,13 +90,12 @@ function smarty_help_function_filter()
 {
     ?>
     <h3><?php echo __('What does this tag do?') ?></h3>
-    <p><?php echo __('Displays a more detailed version of the user\'s cart.') ?></p>
+    <p><?php echo __('Displays filter box.') ?></p>
     <h3><?php echo __('How do I use it?') ?></h3>
     <p><?php echo __('Just insert the tag into your template/page like:') ?> <code>{filter}</code></p>
     <h3><?php echo __('What parameters does it take?') ?></h3>
     <ul>
     	<li><em><?php echo __('(template)') ?></em> - <?php echo __('Overrides the default template.') ?></li>
-    	<li><em><?php echo __('(showempty)') ?></em> - <?php echo __('(true or false) If set to false does not display the cart if the user has not added any items.  Defaults to false.') ?></li>		
     </ul>
     <?php
 }
