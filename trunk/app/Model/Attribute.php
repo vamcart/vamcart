@@ -9,6 +9,10 @@ class Attribute extends AppModel {
                                                     ,'foreignKey'    => 'parent_id'
 						    ,'dependent' => true
                                 ));
+	public $validate = array(
+	'price_value' => array(
+		'rule' => 'numeric'
+	));
         public $language__descriptor = 0;
 
         public function afterFind($results, $primary = false)

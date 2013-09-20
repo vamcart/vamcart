@@ -30,7 +30,7 @@ class AttributeTemplatesController extends AppController {
                     if(isset($this->data['apply'])) 
                     {
                         if($id == null) $id = $this->AttributeTemplate->getLastInsertId();
-                        $this->redirect('/attribute_templates/admin_edit/edit/' . $id);
+                        $this->redirect('/attributetemplates/admin_edit/edit/' . $id);
                     }
                 }
                 $this->redirect('/attribute_templates/admin');

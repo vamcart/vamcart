@@ -19,9 +19,9 @@ foreach ($content_data AS $content)
                                         ));
     }
     else 
-    {
+    {        
         echo $this->Admin->TableCells(array(($content['ContentDescription']['name'] )
-                                       ,''
+                                       ,' -> '
                                        ,array($this->Html->link($this->Html->tag('i', '',array('class' => 'cus-sitemap-color')), '/attributes/admin_editor_value/edit/' . $content['Content']['id'] , array('escape' => false)),array('align'=>'center'))
                                         ));
     }

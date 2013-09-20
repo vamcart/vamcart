@@ -2,6 +2,7 @@
 echo $this->Admin->ShowPageHeaderStart($content_data['ContentDescription']['name'], 'cus-table');
 echo '<table class="contentTable">';
 echo $this->Html->tableHeaders(array(__('Name'),__('Type'),__('is_active'),__('is_filter'),__('is_compare'),__('Sort Order'),__('Action')));
+$count_attr = count($content_data['Attribute']);
 foreach ($content_data['Attribute'] AS $attribute)
 {
     echo $this->Admin->TableCells(array($attribute['name']
@@ -9,7 +10,7 @@ foreach ($content_data['Attribute'] AS $attribute)
                                        ,array($this->Ajax->link(($attribute['is_active'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False')))), 'null', $options = array('escape' => false, 'url' => '/attributes/change_field_status/is_active/' . $attribute['id'], 'update' => 'content'), null, false), array('align'=>'center'))                                               
                                        ,array($this->Ajax->link(($attribute['is_show_flt'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False')))), 'null', $options = array('escape' => false, 'url' => '/attributes/change_field_status/is_show_flt/' . $attribute['id'], 'update' => 'content'), null, false), array('align'=>'center'))                                               
                                        ,array($this->Ajax->link(($attribute['is_show_cmp'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False')))), 'null', $options = array('escape' => false, 'url' => '/attributes/change_field_status/is_show_cmp/' . $attribute['id'], 'update' => 'content'), null, false), array('align'=>'center'))                                               
-                                       ,array($this->Admin->MoveButtons($attribute, count($content_data['Attribute'])), array('align'=>'center'))
+                                       ,array($this->Admin->MoveButtons($attribute, $count_attr), array('align'=>'center'))
                                        ,array($this->Admin->ActionButton('edit','/attributes/admin_editor_attr/' . 'edit/attr/' . $attribute['id'],__('Edit')) . $this->Admin->ActionButton('delete','/attributes/admin_editor_attr/' . 'delete/attr/' . $attribute['id'],__('Delete')),array('align'=>'center'))
                                   ));
 }

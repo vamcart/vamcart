@@ -122,7 +122,7 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty', 'Gzip.G
 
 		if($content === false)
 		{
-			$content = $this->ContentBase->get_content_information($alias);
+			$content = $this->ContentBase->get_content_information($alias);                      
 			$content_description = $this->ContentBase->get_content_description($content['Content']['id']);
 			$content_relations = $this->ContentBase->get_content_relations($content['Content']['id']);
 
@@ -135,7 +135,9 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty', 'Gzip.G
 			foreach($specific_content as $key=>$value) {
 				$content[$key] = $value;
 			}
-
+/*->***************************************************************/                
+//if(isset($content['ContentProduct']))$content['ContentProduct']['price'] = 1;    
+/***************************************************************<-*/  
 			Cache::write($cache_name, $content);
 
 			// Update content viewed
@@ -198,6 +200,7 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty', 'Gzip.G
 
 			Cache::write($cache_name, $template_vars);
 		}
+
 		echo '<!-- Powered by: VamCart (http://vamcart.com) -->' . "\n";
 		$this->Smarty->display($template['Template']['template'], $template_vars);
 		die();
