@@ -52,6 +52,8 @@ class AttributesController extends AppController
                 else if ($type == 'val') $attribute['Attribute']['content_id'] = 0;
                 if ($type == 'attr') $attribute['Attribute']['parent_id'] = 0;
                 else if ($type == 'val') $attribute['Attribute']['parent_id'] = $id;
+                $attribute['Attribute']['price_value'] = 0;
+                $attribute['Attribute']['order'] = 0;
                 $attribute['ValAttribute'] = array();
 //                $this->Session->write('Attributes.tmp_Attribute',$attribute);
             break;
@@ -86,7 +88,7 @@ class AttributesController extends AppController
                     $attribute['AttributeDescription'][$k]['name'] = $value['name'];
                     $attribute['AttributeDescription'][$k]['language_id'] = $k;
                 }
-
+                if ($type == 'attr' && (!isset($attribute['Attribute']['order']) || $attribute['Attribute']['order'] == 0)) $attribute['Attribute']['order'] = $this->Attribute->find('count',array('conditions' => array('Attribute.content_id' => $attribute['Attribute']['content_id']))) + 1;
                 if($attribute['Attribute']['id'] == 0) $this->Attribute->create();
                 if($this->Attribute->saveAll($attribute))
                 {
@@ -271,6 +273,30 @@ class AttributesController extends AppController
         
     }
     
+    public function admin_move ($id, $direction)
+    {
+
+	$current_model = $this->modelClass;
+	$current_controller = $this->params['controller'];
+
+	$this->$current_model->id = $id;
+	$current = $this->$current_model->read();
+	if($direction == 'up')
+		$new = $this->$current_model->find('first', array('conditions' => array($current_model.'.order < ' . $current[$current_model]['order'])
+                                                                 ,'order' => $current_model.'.order DESC')); 
+	else
+		$new = $this->$current_model->find('first', array('conditions' => array($current_model.'.order > ' . $current[$current_model]['order'])
+                                                                 ,'order' => $current_model.'.order ASC')); 
+
+	$temp_order = $new[$current_model]['order'];
+	$new[$current_model]['order'] = $current[$current_model]['order'];
+	$current[$current_model]['order'] = $temp_order;
+
+	$this->$current_model->save($new);
+	$this->$current_model->save($current);
+        
+	$this->redirect('/' . $current_controller . '/admin_viewer_attr/' . $current[$current_model]['content_id'] . '/' . $this->RequestHandler->isAjax());
+    }
          
 }
 

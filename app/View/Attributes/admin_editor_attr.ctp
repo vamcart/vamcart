@@ -11,7 +11,9 @@ echo $this->Form->input('parent_id',array('type' => 'hidden',
 echo $this->Form->input('content_id',array('type' => 'hidden',
                                            'value' => $attribute['Attribute']['content_id']
 	               ));
-
+echo $this->Form->input('order',array('type' => 'hidden',
+                                           'value' => $attribute['Attribute']['order']
+	               ));
 
 
 echo '<ul id="myTabLang" class="nav nav-tabs">';
@@ -51,6 +53,10 @@ if($type != 'attr')
 				'label' => __('Default value'),
 				'value' => isset($attribute['Attribute']['val']) ? $attribute['Attribute']['val'] : ''
 			));
+    echo $this->Form->input('Attribute.price_value',array(
+				'type' => 'hidden',
+				'value' => '0'
+			));
 }
 
 if($type == 'attr')
@@ -65,7 +71,7 @@ if($type == 'attr')
     echo $this->Form->input('Attribute.price_modificator',array(
 				'type' => 'select',
 				'label' => __('Price modificator'),
-				'options' => array('=' => '( = )','+' => '( + )','-' => '( - )','/' => '( / )','*' => '( * )'),
+				'options' => array('0' => '(   )','=' => '( = )','+' => '( + )','-' => '( - )','/' => '( / )','*' => '( * )'),
 				'selected' => isset($attribute['Attribute']['price_modificator']) ? $attribute['Attribute']['price_modificator'] : ''
 			));
     echo $this->Form->input('Attribute.price_value',array(
