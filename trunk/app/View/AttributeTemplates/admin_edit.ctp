@@ -34,6 +34,8 @@ $this->Html->css(array(
         echo $this->Admin->StartTabs('sub-tabs');
         echo $this->Admin->StartTabContent('templates');
         
+        echo '<br />';
+        
             echo $this->Form->input('AttributeTemplate.name',array('label' => __('Name')));
 
             /*echo '<ul id="myTabLang" class="nav nav-tabs">';
@@ -88,9 +90,14 @@ $this->Html->css(array(
 
             //echo $this->Admin->EndTabs();
 
+        echo '<br />';
+
             echo $this->Admin->EndTabContent();
         
         echo $this->Admin->StartTabContent('settings');
+
+        echo '<br />';
+
             echo $this->Form->input('DefaulValue.dig_value',array('label' => __('Default value') . ' » (dig_value)' ,'type' => 'checkbox'));
             echo $this->Form->input('DefaulValue.max_value',array('label' => __('Default value') . ' » (max_value)' ,'type' => 'checkbox'));
             echo $this->Form->input('DefaulValue.min_value',array('label' => __('Default value') . ' » (min_value)' ,'type' => 'checkbox'));
@@ -98,6 +105,9 @@ $this->Html->css(array(
             echo $this->Form->input('DefaulValue.list_value',array('label' => __('Default value') . ' » (list_value)' ,'type' => 'checkbox'));            
             echo $this->Form->input('DefaulValue.checked_list',array('label' => __('Default value') . ' » (checked_list)' ,'type' => 'checkbox'));            
             echo $this->Form->input('DefaulValue.any_value',array('label' => __('Default value') . ' » (any_value)' ,'type' => 'checkbox'));            
+
+        echo '<br />';
+
         echo $this->Admin->EndTabContent();
         echo $this->Admin->EndTabs();
         
