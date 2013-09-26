@@ -176,64 +176,59 @@ function smarty_function_content_listing($params, $template)
                                                   ,'type' => 'left'
                                                   ,'conditions' => array('Content.id = AttributeValue.content_id' ,'AttributeDefValue.id = AttributeValue.parent_id'))
                                             );
-            $attribute_conditions = array();    
+            $attribute_conditions = array();  
+
             foreach($filter_list['values_attribute'] AS $k => $filter_value)
             {
                 if($filter_list['is_active'][$filter_value['parent_id']] == '1')
                 {
-                    $or_val = array();
+                    if(!isset($attribute_conditions[$filter_value['parent_id']]))$attribute_conditions[$filter_value['parent_id']] = array();
+                    $not_val = $in_val = array();
                     switch ($filter_value['type_attr']) 
                     {
                         case 'max_value':
                             if(trim($filter_value['value']) != '')
-                            $or_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val >= ' . $filter_value['value'] . ' OR (AttributeDefValue.val >= ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
+                            $not_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val <= ' . $filter_value['value'] . ' OR (AttributeDefValue.val <= ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
                         break;
                         case 'min_value':
                             if(trim($filter_value['value']) != '')
-                            $or_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val <= ' . $filter_value['value'] . ' OR (AttributeDefValue.val <= ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
+                            $not_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val >= ' . $filter_value['value'] . ' OR (AttributeDefValue.val >= ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
                         break;
                         case 'like_value':
                             $filter_value['value'] = "'%" . $filter_value['value'] . "%'";
-                            $or_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val not like ' . $filter_value['value'] . ' OR (AttributeDefValue.val not like ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
+                            $not_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val like ' . $filter_value['value'] . ' OR (AttributeDefValue.val like ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
                         break;
                         case 'dig_value':
                             if(trim($filter_value['value']) != '' && is_numeric($filter_value['value']))
-                            $or_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val != ' . $filter_value['value'] . ' OR (AttributeDefValue.val != ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
-                        break;
-                        case 'list_value':
-                            $filter_value['value'] = $filter_value['value'] + 0;
-                            $or_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val != ' . $filter_value['value'] . ' OR (AttributeDefValue.val != ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
+                            $not_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val = ' . $filter_value['value'] . ' OR (AttributeDefValue.val = ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
                         break;
                         case 'checked_list':
                             $filter_value['value'] = $filter_value['value'] + 0;
-                            if($filter_value['value'] != 0)$or_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val != ' . $filter_value['value'] . ' OR (AttributeDefValue.val != ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
+                            if($filter_value['value'] != 0)$not_val = array("AttributeDefValue.id = " . $k ,"AttributeValue.val = '" . $filter_value['value'] . "' OR (AttributeDefValue.val = '" . $filter_value['value'] . "' AND AttributeValue.val IS NULL)");
+                        break;
+                        case 'list_value':
+                            $filter_value['value'] = $filter_value['value'] + 0;
+                            if($filter_value['value'] != 0)$not_val = array("AttributeDefValue.id = " . $k ,"AttributeValue.val = '" . $filter_value['value'] . "' OR (AttributeDefValue.val = '" . $filter_value['value'] . "' AND AttributeValue.val IS NULL)");
                         break;
                         default:
                             $filter_value['value'] = $filter_value['value'] + 0;
-                            $or_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val != ' . $filter_value['value'] . ' OR (AttributeDefValue.val != ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
+                            $not_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val != ' . $filter_value['value'] . ' OR (AttributeDefValue.val != ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
                         break;
                     }
-                    if(!empty($or_val))array_push($attribute_conditions, $or_val);
+                    if(!empty($not_val))array_push($attribute_conditions[$filter_value['parent_id']], $not_val);
                 }
             }
-            if(!empty($attribute_conditions))
-            {    
-                $attribute_conditions = array('OR' => $attribute_conditions);
-
-                $tmp_content_list_data_conditions = array_merge($content_list_data_conditions, $attribute_conditions);
-                $content_filtered_list_data = $ContentFiltered->find('all', array('conditions' => $tmp_content_list_data_conditions, 'order' => array('Content.order ASC') ,'joins' => $content_list_data_joins ,'group' => array('Content.id')));
-
-                if(!empty($content_filtered_list_data))
-                {
-                    foreach($content_filtered_list_data AS $k => $content_filtered)
-                    {
-                        $tmp_filter_list[$k] = $content_filtered['Content']['id'];
-                    }
-                    $content_list_data_conditions = array_merge($content_list_data_conditions, array('NOT' => array('Content.id' => $tmp_filter_list)));
-                }
+            
+            $next_flt = $content_list_data_conditions;
+            foreach ($attribute_conditions as $key => $value) 
+            {
+                $value = array('OR' => $value);
+                $tmp_content_list_data_conditions = array_merge($next_flt, $value);
+                $content_filtered_list_data = $ContentFiltered->find('list', array('fields' => 'id','conditions' => $tmp_content_list_data_conditions, 'order' => array('Content.order ASC') ,'joins' => $content_list_data_joins ,'group' => array('Content.id')));
+                $next_flt = array('Content.id' => $content_filtered_list_data);
             }
+            $content_list_data_conditions = array_merge($content_list_data_conditions,$next_flt);
         }
-
             if($params['page'] == 'all'){          
                 $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'order' => array('Content.order ASC')));
                 $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
