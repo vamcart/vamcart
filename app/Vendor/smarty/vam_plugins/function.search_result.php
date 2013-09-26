@@ -15,11 +15,12 @@ $template = '<div>
             {for $pg=1 to $pages_number}
             <li><a href="{base_path}/page/search-result{$ext}?page={$pg}&keyword={$keyword}" {if $pg == $page}class="current"{/if}>{$pg}</a></li>
             {/for}
-            <li><a href="{base_path}/page/search-result{$ext}?page=all&keyword={$keyword}" {if "all" == $page}class="current"{/if}>{lang}All{/lang}</a></li>
+            <li><a href="{base_path}/page/search-result{$ext}?page={$pg}&keyword={$keyword}" {if "all" == $page}class="current"{/if}>{lang}All{/lang}</a></li>
           </ul>
     </div>
   {/if}  
 <ul class="listing">
+
 {foreach from=$content_list item=node}
 	<li
 	{if $node.alias == $content_alias}
@@ -32,11 +33,22 @@ $template = '<div>
 	{/if}
 	/></a></div>
 	<div><a href="{$node.url}">{$node.name}</a></div></li>
-{foreachelse}
+
+  <div>
+    {attribute_list value_attributes=$node.attributes}
+	</div>
+
+  {if isset($is_compare)}
+  <div><a class="btn" href="{base_path}/category/addcmp/{$node.alias}/{$content_alias->value}{$ext}"><i class="cus-add"></i> {lang}Add to compare{/lang}</a></div>
+	{/if}
+
+  {foreachelse}
 	<li class="no_items">{lang}No Items Found{/lang}</li>
 {/foreach}
+
 </ul>
-<div class="clear"></div>
+<div class="clear"></div> 
+
   {if $pages_number > 1 || $page=="all"}
     <div class="paginator">
           <ul>
@@ -44,10 +56,11 @@ $template = '<div>
             {for $pg=1 to $pages_number}
             <li><a href="{base_path}/page/search-result{$ext}?page={$pg}&keyword={$keyword}" {if $pg == $page}class="current"{/if}>{$pg}</a></li>
             {/for}
-            <li><a href="{base_path}/page/search-result{$ext}?page=all&keyword={$keyword}" {if "all" == $page}class="current"{/if}>{lang}All{/lang}</a></li>
+            <li><a href="{base_path}/page/search-result{$ext}?page={$pg}&keyword={$keyword}" {if "all" == $page}class="current"{/if}>{lang}All{/lang}</a></li>
           </ul>
     </div>
   {/if}  
+  
 </div>
 ';		
 
