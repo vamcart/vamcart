@@ -5,6 +5,55 @@
    Copyright (c) 2011 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
+function default_template_search_result()
+{
+$template = '<div>
+ {if $pages_number > 1 || $page=="all"}
+    <div class="paginator">
+          <ul>
+            <li>{lang}Pages{/lang}:</li>
+            {for $pg=1 to $pages_number}
+            <li><a href="{base_path}/page/search-result{$ext}?page={$pg}&keyword={$keyword}" {if $pg == $page}class="current"{/if}>{$pg}</a></li>
+            {/for}
+            <li><a href="{base_path}/page/search-result{$ext}?page=all&keyword={$keyword}" {if "all" == $page}class="current"{/if}>{lang}All{/lang}</a></li>
+          </ul>
+    </div>
+  {/if}  
+<ul class="listing">
+{foreach from=$content_list item=node}
+	<li
+	{if $node.alias == $content_alias}
+		class="active"
+	{/if}
+	>
+	<div><a href="{$node.url}"><img src="{$node.image}" alt="{$node.name}" 
+	{if isset($thumbnail_width)}
+	 width="{$thumbnail_width}"
+	{/if}
+	/></a></div>
+	<div><a href="{$node.url}">{$node.name}</a></div></li>
+{foreachelse}
+	<li class="no_items">{lang}No Items Found{/lang}</li>
+{/foreach}
+</ul>
+<div class="clear"></div>
+  {if $pages_number > 1 || $page=="all"}
+    <div class="paginator">
+          <ul>
+            <li>{lang}Pages{/lang}:</li>
+            {for $pg=1 to $pages_number}
+            <li><a href="{base_path}/page/search-result{$ext}?page={$pg}&keyword={$keyword}" {if $pg == $page}class="current"{/if}>{$pg}</a></li>
+            {/for}
+            <li><a href="{base_path}/page/search-result{$ext}?page=all&keyword={$keyword}" {if "all" == $page}class="current"{/if}>{lang}All{/lang}</a></li>
+          </ul>
+    </div>
+  {/if}  
+</div>
+';		
+
+return $template;
+}
+
 function smarty_function_search_result($params, $template)
 {
 	global $config;
@@ -130,12 +179,22 @@ function smarty_function_search_result($params, $template)
 		$vars['thumbnail_width'] = $config['THUMBNAIL_SIZE'];
         }
 
-	$display_template = $Smarty->load_template($params, 'content_listing_search');
+	$display_template = $Smarty->load_template($params, 'search_result');
 	$Smarty->display($display_template, $vars);
 
 }
 
 function smarty_help_function_search_result() {
+	?>
+	<h3><?php echo __('What does this tag do?') ?></h3>
+	<p><?php echo __('Displays a list of search result content.') ?></p>
+	<h3><?php echo __('How do I use it?') ?></h3>
+	<p><?php echo __('Just insert the tag into your template like:') ?> <code>{search_result}</code></p>
+	<h3><?php echo __('What parameters does it take?') ?></h3>
+	<ul>
+		<li><em><?php echo __('(template)') ?></em> - <?php echo __('Useful if you want to override the default content listing template. Setting this will utilize the template that matches this alias.') ?></li>
+	</ul>
+	<?php
 }
 
 function smarty_about_function_search_result() {
