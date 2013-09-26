@@ -5,7 +5,7 @@ SET NAMES 'utf8';
 DROP TABLE IF EXISTS configuration_groups;
 CREATE TABLE `configuration_groups` (
   `id` int(10) auto_increment,
-  `key` varchar(50) collate utf8_unicode_ci,
+  `key` varchar(255) collate utf8_unicode_ci,
   `name` varchar(255) collate utf8_unicode_ci,
   `description` varchar(255) collate utf8_unicode_ci,
   `group_icon` varchar(255) collate utf8_unicode_ci,
@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS configurations;
 CREATE TABLE `configurations` (
   `id` int(10) auto_increment,
   `configuration_group_id` int(10),
-  `key` varchar(50) collate utf8_unicode_ci,
+  `key` varchar(255) collate utf8_unicode_ci,
   `value` varchar(255) collate utf8_unicode_ci,
   `type` varchar(255) collate utf8_unicode_ci,
   `options` varchar(255) collate utf8_unicode_ci,
@@ -60,7 +60,7 @@ CREATE TABLE `contents` (
   `content_type_id` int(10),
   `template_id` int(10),
   `default` tinyint(4),
-  `alias` varchar(50) collate utf8_unicode_ci,
+  `alias` varchar(255) collate utf8_unicode_ci,
   `head_data` text collate utf8_unicode_ci,
   `active` tinyint(4),
   `show_in_menu` tinyint(4),
@@ -239,7 +239,7 @@ CREATE TABLE `content_products` (
   `id` int(10) auto_increment,
   `content_id` int(10),
   `stock` int(10),
-  `model` varchar(50) collate utf8_unicode_ci,
+  `model` varchar(255) collate utf8_unicode_ci,
   `price` double,
   `tax_id` int(10),
   `weight` double,
@@ -293,8 +293,8 @@ DROP TABLE IF EXISTS content_types;
 CREATE TABLE `content_types` (
   `id` int(10) auto_increment,
   `template_type_id` tinyint(4),
-  `name` varchar(50) collate utf8_unicode_ci,
-  `type` varchar(50) collate utf8_unicode_ci,
+  `name` varchar(255) collate utf8_unicode_ci,
+  `type` varchar(255) collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -314,7 +314,7 @@ CREATE TABLE IF NOT EXISTS `content_downloadables` (
   `filename` varchar(256),
   `filestorename` varchar(256),
   `price` double,
-  `model` varchar(50),
+  `model` varchar(255),
   `tax_id` int(10),
   `order_status_id` int(10),
   `max_downloads` int(10) DEFAULT '0',
@@ -325,7 +325,7 @@ CREATE TABLE IF NOT EXISTS `content_downloadables` (
 DROP TABLE IF EXISTS countries;
 CREATE TABLE IF NOT EXISTS `countries` (
   `id` int(11) AUTO_INCREMENT,
-  `name` varchar(64) COLLATE utf8_unicode_ci,
+  `name` varchar(255) COLLATE utf8_unicode_ci,
   `iso_code_2` char(2) COLLATE utf8_unicode_ci,
   `iso_code_3` char(3) COLLATE utf8_unicode_ci,
   `address_format` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -582,8 +582,8 @@ CREATE TABLE `country_zones` (
   `id` int(10) auto_increment,
   `country_id` int(10),
   `geo_zone_id` int(11),
-  `code` varchar(32) collate utf8_unicode_ci,
-  `name` varchar(64) collate utf8_unicode_ci,
+  `code` varchar(255) collate utf8_unicode_ci,
+  `name` varchar(255) collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -651,7 +651,7 @@ CREATE TABLE `currencies` (
   `id` int(10) auto_increment,
   `active` tinyint(4) default '1',
   `default` tinyint(4) default '0',
-  `name` varchar(50) collate utf8_unicode_ci,
+  `name` varchar(255) collate utf8_unicode_ci,
   `code` varchar(3) collate utf8_unicode_ci,
   `symbol_left` varchar(24) collate utf8_unicode_ci,
   `symbol_right` varchar(24) collate utf8_unicode_ci,
@@ -666,14 +666,14 @@ CREATE TABLE `currencies` (
 
 INSERT INTO `currencies` (`id`, `active`, `default`, `name`, `code`, `symbol_left`, `symbol_right`, `decimal_point`, `thousands_point`, `decimal_places`, `value`, `created`, `modified`) VALUES 
 (1, 1, 1, 'US Dollar', 'USD', '$', '', '.', ',', '2', 1, '2009-07-15 11:39:15', '2009-07-15 13:08:23'),
-(2, 1, 0, 'Рубль', 'RUB', '', 'руб.', '.', ',', '0.0312', 1, '2009-07-15 11:39:15', '2009-07-15 13:08:23'),
+(2, 1, 0, 'Рубль', 'RUR', '', 'руб.', '.', ',', '0.0312', 1, '2009-07-15 11:39:15', '2009-07-15 13:08:23'),
 (3, 1, 0, 'Euro', 'EUR', '&euro;', '', '.', ',', '2', 0.7811, '2009-07-15 13:09:23', '2009-07-15 13:09:23');
 
 DROP TABLE IF EXISTS defined_languages;
 CREATE TABLE `defined_languages` (
   `id` int(10) auto_increment,
   `language_id` int(10),
-  `key` varchar(50) collate utf8_unicode_ci,
+  `key` varchar(255) collate utf8_unicode_ci,
   `value` text collate utf8_unicode_ci,
   `created` datetime,
   `modified` datetime,
@@ -1005,9 +1005,9 @@ INSERT INTO `attribute_templates` VALUES
 DROP TABLE IF EXISTS events;
 CREATE TABLE `events` (
   `id` int(10) auto_increment,
-  `alias` varchar(50) collate utf8_unicode_ci,
-  `originator` varchar(50) collate utf8_unicode_ci,
-  `description` varchar(200) collate utf8_unicode_ci,
+  `alias` varchar(255) collate utf8_unicode_ci,
+  `originator` varchar(255) collate utf8_unicode_ci,
+  `description` varchar(255) collate utf8_unicode_ci,
   `created` datetime,
   `modified` datetime,
   PRIMARY KEY  (`id`)
@@ -1031,8 +1031,8 @@ DROP TABLE IF EXISTS event_handlers;
 CREATE TABLE `event_handlers` (
   `id` int(10) auto_increment,
   `event_id` int(10),
-  `originator` varchar(50) collate utf8_unicode_ci,
-  `action` varchar(200) collate utf8_unicode_ci,
+  `originator` varchar(255) collate utf8_unicode_ci,
+  `action` varchar(255) collate utf8_unicode_ci,
   `created` datetime,
   `modified` datetime,
   PRIMARY KEY  (`id`)
@@ -1044,7 +1044,7 @@ INSERT INTO `event_handlers` (`id`, `event_id`, `originator`, `action`, `created
 DROP TABLE IF EXISTS `geo_zones`;
 CREATE TABLE IF NOT EXISTS `geo_zones` (
   `id` int(11) AUTO_INCREMENT,
-  `name` varchar(64),
+  `name` varchar(255),
   `description` text,
   `created` datetime,
   `modified` datetime,
@@ -1057,7 +1057,7 @@ CREATE TABLE `global_content_blocks` (
   `id` int(10) auto_increment,
   `name` varchar(255) collate utf8_unicode_ci,
   `content` text collate utf8_unicode_ci,
-  `alias` varchar(50) collate utf8_unicode_ci,
+  `alias` varchar(255) collate utf8_unicode_ci,
   `active` tinyint(4) default '1',
   `created` datetime,
   `modified` datetime,
@@ -1071,7 +1071,7 @@ DROP TABLE IF EXISTS languages;
 CREATE TABLE `languages` (
   `id` int(10) auto_increment,
   `default` tinyint(4),
-  `name` varchar(50) collate utf8_unicode_ci,
+  `name` varchar(255) collate utf8_unicode_ci,
   `code` varchar(5) collate utf8_unicode_ci,
   `iso_code_2` varchar(2) collate utf8_unicode_ci,
   `active` tinyint(4) default '1',
@@ -1086,11 +1086,11 @@ INSERT INTO `languages` (`id`, `default`, `name`, `code`, `iso_code_2`, `active`
 DROP TABLE IF EXISTS micro_templates;
 CREATE TABLE `micro_templates` (
   `id` int(10) auto_increment,
-  `alias` varchar(50) collate utf8_unicode_ci,
+  `alias` varchar(255) collate utf8_unicode_ci,
   `template` text collate utf8_unicode_ci,
   `created` datetime,
   `modified` datetime,
-  `tag_name` varchar(20) collate utf8_unicode_ci,
+  `tag_name` varchar(255) collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1130,8 +1130,8 @@ INSERT INTO `modules` (`id`, `name`, `icon`, `alias`, `version`, `nav_level`) VA
 DROP TABLE IF EXISTS module_coupons;
 CREATE TABLE `module_coupons` (
   `id` int(10) auto_increment,
-  `name` varchar(50) collate utf8_unicode_ci,
-  `code` varchar(50) collate utf8_unicode_ci,
+  `name` varchar(255) collate utf8_unicode_ci,
+  `code` varchar(255) collate utf8_unicode_ci,
   `free_shipping` varchar(10) collate utf8_unicode_ci,
   `percent_off_total` double,
   `amount_off_total` double,
@@ -1151,7 +1151,7 @@ DROP TABLE IF EXISTS module_reviews;
 CREATE TABLE `module_reviews` (
   `id` int(10) auto_increment,
   `content_id` int(10),
-  `name` varchar(50) collate utf8_unicode_ci,
+  `name` varchar(255) collate utf8_unicode_ci,
   `content` text collate utf8_unicode_ci,
   `created` datetime,
   `modified` datetime,
@@ -1174,19 +1174,19 @@ CREATE TABLE `orders` (
   `bill_city` varchar(255) collate utf8_unicode_ci,
   `bill_state` varchar(255) collate utf8_unicode_ci,
   `bill_country` varchar(255) collate utf8_unicode_ci,
-  `bill_zip` varchar(20) collate utf8_unicode_ci,
+  `bill_zip` varchar(255) collate utf8_unicode_ci,
   `ship_name` varchar(255) collate utf8_unicode_ci,
   `ship_line_1` varchar(255) collate utf8_unicode_ci,
   `ship_line_2` varchar(255) collate utf8_unicode_ci,
   `ship_city` varchar(255) collate utf8_unicode_ci,
   `ship_state` varchar(255) collate utf8_unicode_ci,
   `ship_country` varchar(255) collate utf8_unicode_ci,
-  `ship_zip` varchar(20) collate utf8_unicode_ci,
+  `ship_zip` varchar(255) collate utf8_unicode_ci,
   `email` varchar(255) collate utf8_unicode_ci,
   `phone` varchar(15) collate utf8_unicode_ci,
   `company_name` varchar(255) collate utf8_unicode_ci,
   `company_info` varchar(255) collate utf8_unicode_ci,
-  `company_vat` varchar(20) collate utf8_unicode_ci DEFAULT NULL,
+  `company_vat` varchar(255) collate utf8_unicode_ci DEFAULT NULL,
   `created` datetime,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -1253,7 +1253,7 @@ CREATE TABLE `order_status_descriptions` (
   `id` int(10) auto_increment,
   `order_status_id` int(10),
   `language_id` int(10),
-  `name` varchar(50) collate utf8_unicode_ci,
+  `name` varchar(255) collate utf8_unicode_ci,
   `description` text collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -1293,7 +1293,7 @@ DROP TABLE IF EXISTS payment_method_values;
 CREATE TABLE `payment_method_values` (
   `id` int(10) auto_increment,
   `payment_method_id` int(10),
-  `key` varchar(50) collate utf8_unicode_ci,
+  `key` varchar(255) collate utf8_unicode_ci,
   `value` varchar(255) collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -1306,11 +1306,11 @@ INSERT INTO `payment_method_values` (`id`, `payment_method_id`, `key`, `value`) 
 DROP TABLE IF EXISTS search_tables;
 CREATE TABLE `search_tables` (
   `id` int(10) auto_increment,
-  `model` varchar(50) collate utf8_unicode_ci,
-  `field` varchar(50) collate utf8_unicode_ci,
-  `url` varchar(50) collate utf8_unicode_ci,
-  `edit_field` varchar(50) collate utf8_unicode_ci,
-  `alternate_anchor` varchar(50) collate utf8_unicode_ci,
+  `model` varchar(255) collate utf8_unicode_ci,
+  `field` varchar(255) collate utf8_unicode_ci,
+  `url` varchar(255) collate utf8_unicode_ci,
+  `edit_field` varchar(255) collate utf8_unicode_ci,
+  `alternate_anchor` varchar(255) collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1350,7 +1350,7 @@ DROP TABLE IF EXISTS shipping_method_values;
 CREATE TABLE `shipping_method_values` (
   `id` int(10) auto_increment,
   `shipping_method_id` int(10),
-  `key` varchar(50) collate utf8_unicode_ci,
+  `key` varchar(255) collate utf8_unicode_ci,
   `value` varchar(255) collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -1366,7 +1366,7 @@ DROP TABLE IF EXISTS stylesheets;
 CREATE TABLE `stylesheets` (
   `id` int(10) auto_increment,
   `active` tinyint(4),
-  `name` varchar(50) collate utf8_unicode_ci,
+  `name` varchar(255) collate utf8_unicode_ci,
   `alias` varchar(255) collate utf8_unicode_ci,
   `stylesheet` text collate utf8_unicode_ci,
   `stylesheet_media_type_id` int(10),
@@ -1381,8 +1381,8 @@ INSERT INTO `stylesheets` (`id`, `active`, `name`, `alias`, `stylesheet`, `style
 DROP TABLE IF EXISTS stylesheet_media_types;
 CREATE TABLE `stylesheet_media_types` (
   `id` int(10) auto_increment,
-  `name` varchar(50) collate utf8_unicode_ci,
-  `type` varchar(50) collate utf8_unicode_ci,
+  `name` varchar(255) collate utf8_unicode_ci,
+  `type` varchar(255) collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1431,7 +1431,7 @@ CREATE TABLE `templates` (
   `parent_id` int(10),
   `template_type_id` int(10),
   `default` tinyint(4) default '0',
-  `name` varchar(50) collate utf8_unicode_ci,
+  `name` varchar(255) collate utf8_unicode_ci,
   `template` text collate utf8_unicode_ci,
   `created` datetime,
   `modified` datetime,
@@ -1463,7 +1463,7 @@ INSERT INTO `templates_stylesheets` (`template_id`, `stylesheet_id`) VALUES
 DROP TABLE IF EXISTS template_types;
 CREATE TABLE `template_types` (
   `id` int(10) auto_increment,
-  `name` varchar(50) collate utf8_unicode_ci,
+  `name` varchar(255) collate utf8_unicode_ci,
   `default_template` text collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -1480,8 +1480,8 @@ INSERT INTO `template_types` (`id`, `name`, `default_template`) VALUES
 DROP TABLE IF EXISTS users;
 CREATE TABLE `users` (
   `id` int(10) auto_increment,
-  `username` varchar(50) collate utf8_unicode_ci,
-  `email` varchar(50) collate utf8_unicode_ci,
+  `username` varchar(255) collate utf8_unicode_ci,
+  `email` varchar(255) collate utf8_unicode_ci,
   `password` varchar(255) collate utf8_unicode_ci,
   `created` datetime,
   `modified` datetime,
@@ -1495,7 +1495,7 @@ DROP TABLE IF EXISTS user_prefs;
 CREATE TABLE `user_prefs` (
   `id` int(10) auto_increment,
   `user_id` int(10),
-  `name` varchar(50) collate utf8_unicode_ci,
+  `name` varchar(255) collate utf8_unicode_ci,
   `value` text collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -1508,8 +1508,8 @@ INSERT INTO `user_prefs` (`id`, `user_id`, `name`, `value`) VALUES
 DROP TABLE IF EXISTS user_tags;
 CREATE TABLE `user_tags` (
   `id` int(10) auto_increment,
-  `name` varchar(50) collate utf8_unicode_ci,
-  `alias` varchar(50) collate utf8_unicode_ci,
+  `name` varchar(255) collate utf8_unicode_ci,
+  `alias` varchar(255) collate utf8_unicode_ci,
   `content` text collate utf8_unicode_ci,
   `created` datetime,
   `modified` datetime,
@@ -1554,7 +1554,7 @@ CREATE TABLE `address_books` (
   `ship_city` varchar(255) collate utf8_unicode_ci,
   `ship_state` varchar(255) collate utf8_unicode_ci,
   `ship_country` varchar(255) collate utf8_unicode_ci,
-  `ship_zip` varchar(20) collate utf8_unicode_ci,
+  `ship_zip` varchar(255) collate utf8_unicode_ci,
   `phone` varchar(15) collate utf8_unicode_ci,
   `created` datetime,
   `modified` datetime,
