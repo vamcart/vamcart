@@ -66,7 +66,7 @@ function smarty_function_login_box($params, $template)
 function smarty_help_function_login_box() {
 	?>
 	<h3><?php echo __('What does this tag do?') ?></h3>
-	<p><?php echo __('Allows the user to login.') ?></p>
+	<p><?php echo __('Displays login box.') ?></p>
 	<h3><?php echo __('How do I use it?') ?></h3>
 	<p><?php echo __('Just insert the tag into your template like:') ?> <code>{login_box}</code></p>
 	<h3><?php echo __('What parameters does it take?') ?></h3>

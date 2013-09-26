@@ -3752,6 +3752,34 @@ msgstr "Атрибуты товара."
 msgid "Displays compare box."
 msgstr "Выводит бокс сравнения товаров."
 
+#: /vendors/smarty/vam_plugins/function.product_prices.php:33
+msgid "Displays the product discount prices for the current content."
+msgstr "Выводит условия скидки на текущий товар."
+
+#: /vendors/smarty/vam_plugins/function.product_pfq.php:33
+msgid "Displays the product packet quantity."
+msgstr "Выводит количество единиц товара в упаковке."
+
+#: /vendors/smarty/vam_plugins/function.product_pfq.php:33
+msgid "Packet quantity"
+msgstr "Количество единиц товара в упаковке."
+
+#: /vendors/smarty/vam_plugins/function.product_moq.php:33
+msgid "Displays the product minimum order quantity."
+msgstr "Выводит минимальное количество единиц товара для заказа."
+
+#: /vendors/smarty/vam_plugins/function.product_moq.php:33
+msgid "Minimum order required"
+msgstr "Минимальное количество единиц товара для заказа"
+
+#: /vendors/smarty/vam_plugins/function.login_box.php:33
+msgid "Displays login box."
+msgstr "Выводит бокс авторизации пользователя."
+
+#: /vendors/smarty/vam_plugins/function.search_result.php:33
+msgid "Displays a list of search result content."
+msgstr "Выводит результаты поиска."
+
 #: /vendors/smarty/vam_plugins/function.compared.php:33
 msgid "Displays compare page data."
 msgstr "Выводит данные для сравнения товаров."
