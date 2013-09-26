@@ -168,8 +168,8 @@ INSERT INTO `content_descriptions` (`id`, `content_id`, `language_id`, `name`, `
 (400, 71, 2, 'Заголовок новости', 'Текст новости','', '', ''),
 (401, 72, 1, 'Article', 'Description','', '', ''),
 (402, 72, 2, 'Статья', 'Текст статьи','', '', ''),
-(403, 73, 1, 'Search results', '{content_listing_search}{search_result}','', '', ''),
-(404, 73, 2, 'Результаты поиска', '{content_listing_search}{search_result}','', '', '');
+(403, 73, 1, 'Search results', '{search_result}','', '', ''),
+(404, 73, 2, 'Результаты поиска', '{search_result}','', '', '');
 INSERT INTO `content_descriptions` VALUES(515, 87, 1, 'Register', '{registration_form}', '', '', '');
 INSERT INTO `content_descriptions` VALUES(516, 87, 2, 'Регистрация', '{registration_form}', '', '', '');
 INSERT INTO `content_descriptions` VALUES(517, 88, 1, 'Register success', 'Thak you for registration', '', '', '');
