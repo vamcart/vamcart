@@ -390,18 +390,6 @@ $("#myTabLang a:first").tab("show"); // Select first tab
 	}
 
 	/**
-	* Returns wiki help url for current page
-	*
-	* @return string	Wiki Help Page.
-	*/	
-	public function getHelpPage()
-	{
-			$content = '<a href ="http://vamcart.com/modules/wiki/index.php?page=' . (!isset($this->params['plugin']) ? null : $this->params['plugin'].'/') . $this->params['controller'].'/'.$this->params['action'] . '" target="_blank"><i class="cus-help"></i> ' .__('Help for this page',true).'</a>';
-			
-		return $content;
-	}
-
-	/**
 	* Returns html form button
 	*
 	* @param  string  $name Alias of the tab.
