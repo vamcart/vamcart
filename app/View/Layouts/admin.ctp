@@ -56,13 +56,7 @@ $(document).ready(function () {$(\'[rel=tooltip],input[data-title]\').tooltip();
 		//echo $this->form->submit( __('Submit', true));
 		echo $this->form->end();
 		?>   
-
-	<div class="clear"></div>          
-
-	<span class="pull-right">       
-		<?php echo $this->admin->getHelpPage(); ?>
-	</span>  
-  
+ 
 	</div>
 	
 </div>
