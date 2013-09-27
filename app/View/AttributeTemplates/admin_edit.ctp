@@ -38,57 +38,31 @@ $this->Html->css(array(
         
             echo $this->Form->input('AttributeTemplate.name',array('label' => __('Name')));
 
-            /*echo '<ul id="myTabLang" class="nav nav-tabs">';
-            echo $this->Admin->CreateTab('template_filter',__('Template for filter'),'cus-application-edit');
-            echo $this->Admin->CreateTab('template_editor',__('Template for editor'),'cus-application-edit');
-            echo $this->Admin->CreateTab('template_catalog',__('Template for catalog'),'cus-application-edit');
-            echo $this->Admin->CreateTab('template_cart',__('Template for product'),'cus-application-edit');
-            echo $this->Admin->CreateTab('template_cart',__('Template for compare'),'cus-application-edit');
-            echo '</ul>';*/
-
-            //echo $this->Admin->StartTabs('sub-tabs');
-
-            //echo $this->Admin->StartTabContent('template_filter');
             echo $this->Form->input('AttributeTemplate.template_filter', 
                                             array('type' => 'textarea',
                                                     'id' => 'code_template_filter',
                                                  'label' => __('Template for filter')
                                     ));
-            //echo $this->Admin->EndTabContent();
-
-            //echo $this->Admin->StartTabContent('template_editor');
             echo $this->Form->input('AttributeTemplate.template_editor', 
                                             array('type' => 'textarea',
                                                     'id' => 'code_template_editor',
                                                  'label' => __('Template for editor')
                                     ));
-            //echo $this->Admin->EndTabContent();
-
-            //echo $this->Admin->StartTabContent('template_catalog');
             echo $this->Form->input('AttributeTemplate.template_catalog', 
                                             array('type' => 'textarea',
                                                     'id' => 'code_template_catalog',
                                                  'label' => __('Template for catalog')
                                     ));
-            //echo $this->Admin->EndTabContent();
-
-            //echo $this->Admin->StartTabContent('template_product');
             echo $this->Form->input('AttributeTemplate.template_product', 
                                             array('type' => 'textarea',
                                                     'id' => 'code_template_product',
                                                  'label' => __('Template for product')
                                     ));
-            //echo $this->Admin->EndTabContent();
-
-            //echo $this->Admin->StartTabContent('template_compare');
             echo $this->Form->input('AttributeTemplate.template_compare', 
                                             array('type' => 'textarea',
                                                     'id' => 'code_template_compare',
                                                  'label' => __('Template for compare')
                                     ));
-            //echo $this->Admin->EndTabContent();
-
-            //echo $this->Admin->EndTabs();
 
         echo '<br />';
 
