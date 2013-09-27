@@ -3881,6 +3881,10 @@ msgid "Attribute Values"
 msgstr "Значения атрибута"
 
 #: /app/View/Attributes/admin_viewer_attr.ctp:61
+msgid "Value Type"
+msgstr "Тип значения атрибута"
+
+#: /app/View/Attributes/admin_viewer_attr.ctp:61
 msgid "Add"
 msgstr "Добавить"
 

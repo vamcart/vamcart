@@ -52,7 +52,7 @@ if($type != 'attr')
 {
     echo $this->Form->input('Attribute.type_attr',array(
 				'type' => 'select',
-				'label' => __('Attribute Type'),
+				'label' => __('Value Type'),
 				'options' => $template,//array('list_value' => 'list value','max' => 'max value','min' => 'min value','value' => 'numeric value','like' => 'mask value'),
 				'selected' => isset($attribute['Attribute']['type_attr']) ? $attribute['Attribute']['type_attr'] : ''
 			));
@@ -83,9 +83,10 @@ else if($type == 'attr')
     
     echo $this->Form->input('Attribute.attribute_template_id',array(
 				'type' => 'select',
-				'label' => __('Type'),
+				'label' => __('Attribute Type'),
 				'options' => $template,
-				'selected' => isset($attribute['Attribute']['attribute_template_id']) ? $attribute['Attribute']['attribute_template_id'] : ''
+				'selected' => isset($attribute['Attribute']['attribute_template_id']) ? $attribute['Attribute']['attribute_template_id'] : '',
+				'after' => ' '.$this->Html->link($this->Html->image("admin/icons/new.png", array('alt' => __('Attribute Templates'), 'title' => __('Attribute Templates'))),'/attribute_templates/admin/', array('escape' => false, 'target' => '_blank'))
 			));
     
     echo __('Attribute Values');
