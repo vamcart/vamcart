@@ -246,7 +246,7 @@ echo $this->Form->create('OrderComment', array('id' => 'contentform', 'name' => 
 				'name' => 'menu',
 				'empty' => __('Select'),
 				'onclick' => 'var textarea = document.getElementById("comment"); textarea.value=document.contentform.menu.options[document.contentform.menu.selectedIndex].value;',
-				'after' => ' '.$this->Html->link($this->Html->image("admin/icons/new.png", array("alt" => "Add Answer Template")),'/answer_template/admin/', array('escape' => false, 'target' => '_blank'))
+				'after' => ' '.$this->Html->link($this->Html->image("admin/icons/new.png", array('alt' => __('Add Answer Template'), 'title' => __('Add Answer Template'))),'/answer_template/admin/', array('escape' => false, 'target' => '_blank'))
 			));
 	echo $this->Form->input('OrderComment.comment', 
 			array(
