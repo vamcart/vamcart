@@ -27,11 +27,7 @@ class Attribute extends AppModel {
             if($this->language__descriptor != 0)
             {
                 $tmp_results = array();
-    /*            $this->unbindModel(array('hasMany' => array('AttributeDescription')));
-                $this->bindModel(array('hasOne' => array('AttributeDescription' => array(
-                                                    'className' => 'AttributeDescription',
-                                                    'conditions' => 'language_id = ' . $this->language__descriptor
-                                            ))));*/
+
                 foreach ($results AS $k => $attribute)
                 {
                     $tmp_results = $this->AttributeDescription->find('first',array('conditions' => array('language_id = ' . $this->language__descriptor
