@@ -6,7 +6,7 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class SmartyComponent extends Object
+class SmartyComponent extends Component
 {
 	public function beforeFilter () {
 	}
@@ -68,8 +68,8 @@ class SmartyComponent extends Object
 			'../Vendor/smarty/vam_plugins'
 		);
 
-		$smarty->setCompileDir(CACHE.'/smarty_cache');
-		$smarty->setCacheDir(CACHE.'/smarty_templates_c');
+		$smarty->setCacheDir(CACHE.'/smarty_cache');
+		$smarty->setCompileDir(CACHE.'/smarty_templates_c');
 
 		//$smarty->setCaching(Smarty::CACHING_LIFETIME_SAVED);
 
@@ -77,8 +77,6 @@ class SmartyComponent extends Object
 		
 		//$smarty->setCompileCheck(false);
 				
-		//$smarty->debugging = true;
-
 		return $smarty;
 	}
 
