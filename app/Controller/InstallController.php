@@ -28,6 +28,8 @@ class InstallController extends AppController {
 		WWW_ROOT . 'sxd/cfg.php', 
 		TMP, 
 		CACHE, 
+		CACHE . '/smarty_cache', 
+		CACHE . '/smarty_templates_c', 
 		TMP . 'updates/', 
 		TMP . 'modules/');
 		$install_checks = array();
