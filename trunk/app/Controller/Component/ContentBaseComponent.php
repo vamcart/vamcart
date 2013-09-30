@@ -2,7 +2,7 @@
 /* -----------------------------------------------------------------------------------------
    VamCart - http://vamcart.com
    -----------------------------------------------------------------------------------------
-   Copyright (c) 2011 VamSoft Ltd.
+   Copyright (c) 2013 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
@@ -131,9 +131,12 @@ class ContentBaseComponent extends Object
 
 		$content_conditions = "Content.id = '" . $content_alias . "' OR BINARY Content.alias = '" . $content_alias . "' AND Content.active ='1'";
 		$content = $this->Content->find('first', array('recursive' => 2, 'conditions' => $content_conditions));
-		if ($content === false) {
-			$this->cakeError('error404');
-		}
+
+		// Error page
+	    if (!$content) {
+   	     throw new NotFoundException();
+    	}		
+		
 		return $content;
 	}
 
