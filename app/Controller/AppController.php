@@ -422,11 +422,4 @@ class AppController extends Controller {
 
 	}
 
-/*	function redirect($url, $status = null, $exit = true) 
-	{
-	
-		if(isset($this->params['named']) && $this->params['named'])
-		$url = array_merge($url, $this->params['named']);
-		parent::redirect($url, $status, $exit);
-	} */
 }
