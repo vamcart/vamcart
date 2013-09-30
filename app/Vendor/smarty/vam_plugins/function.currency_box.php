@@ -9,18 +9,21 @@
 function default_template_currency_box()
 {
 $template = '
-<div class="info_box">
-	<div class="box_heading">{lang}Currency{/lang}</div>
-	<div class="box_content">
-		<form action="{$currency_form_action}" method="post">
-		<select name="currency_picker">
-	 	{foreach from=$currencies item=currency}
-	<option value="{$currency.id}" {if $currency.id == $smarty.session.Customer.currency_id}selected="selected"{/if}>{$currency.name}</option>
-		{/foreach}
-		</select>
-		<button class="btn" type="submit" value="{lang}Go{/lang}"><i class="cus-tick"></i> {lang}Go{/lang}</button>
-		</form>
-	</div>
+<div class="box">
+<h5><img src="{base_path}/img/icons/menu/payment-methods.png" alt="" />&nbsp;{lang}Currency{/lang}</h5>
+<div class="boxContent">
+
+<form action="{base_path}/currencies/pick_currency/" method="post">
+<select name="currency_picker">
+{foreach from=$currencies item=currency}
+<option value="{$currency.id}" {if $currency.id == $smarty.session.Customer.currency_id}selected="selected"{/if}>{$currency.name}</option>
+{/foreach}
+</select>
+<button class="btn" type="submit" value="{lang}Go{/lang}"><i class="cus-tick"></i> {lang}Go{/lang}</button>
+</form>
+		
+</p>
+</div>
 </div>
 ';		
 

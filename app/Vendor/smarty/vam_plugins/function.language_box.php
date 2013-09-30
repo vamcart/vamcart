@@ -8,14 +8,18 @@
 
 function default_template_language_box()
 {
-$template = '<div class="info_box">
-								<div class="box_heading">{lang}Language{/lang}</div>
-								<div class="box_content">
-									{foreach from=$languages item=language}
-										<a href="{$language.url}"><img src="{$language.image}" alt="{$language.name}" title="{$language.name}"/></a>
-									{/foreach}
-								</div>
-							 </div>';		
+$template = '
+<div class="box">
+<h5><img src="{base_path}/img/icons/menu/locale.png" alt="" />&nbsp;{lang}Language{/lang}</h5>
+<div class="boxContent">
+
+{foreach from=$languages item=language}
+<a href="{$language.url}"><img src="{$language.image}" alt="{$language.name}" title="{$language.name}"/></a>
+{/foreach}
+
+</div>
+</div>
+';		
 
 return $template;
 }
