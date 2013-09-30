@@ -30,7 +30,7 @@ function smarty_function_product_prices($params, &$smarty)
 	}
 
 	$stock = '';
-	$stock_text = $content['ContentProduct']['stock'] . ' ' . __('available', true);
+	$stock_text = __('Available', true) . ': ' . $content['ContentProduct']['stock'] . ' ';
 
 	if ($content['ContentProduct']['stock'] > 5) {
 		$stock .= 'full';

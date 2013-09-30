@@ -3903,3 +3903,7 @@ msgstr "Модификатор цены"
 #: /app/View/Attributes/admin_viewer_attr.ctp:61
 msgid "Modificator Value"
 msgstr "Значение модификатора"
+
+#: /vendors/smarty/vam_plugins/function.product_prices.php:33
+msgid "Available"
+msgstr "Доступно"
