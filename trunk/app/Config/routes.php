@@ -30,7 +30,8 @@
  * Load all plugin routes.  See the CakePlugin documentation on
  * how to customize the loading of plugin routes.
  */
- Router::parseExtensions('rss','xml');
+
+	Router::parseExtensions('rss','xml');
 
 	Router::connect('/', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/pages/*', array('controller' => 'pages'));
@@ -40,12 +41,10 @@
 	Router::connect('/download/:order_id/:content_id/:download_key', array('controller' => 'download', 'action' => 'get'));
 	Router::connect('/category/:content_alias', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/category/:content_alias/page/:page', array('controller' => 'pages', 'action' => 'index'));
-/*->***************************************************************/
 	Router::connect('/category/addcmp/:add_alias/:content_alias', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/category/delcmp/:del_alias/:content_alias', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/category/compared/:compared/:content_alias', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/category/filtered/:filtered/:content_alias', array('controller' => 'pages', 'action' => 'index'));
-/***************************************************************<-*/
 	Router::connect('/page/:content_alias', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/news/:content_alias', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/article/:content_alias', array('controller' => 'pages', 'action' => 'index'));
