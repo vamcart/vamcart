@@ -146,7 +146,7 @@ $(document).ready(function() {
       <input type="text" name="ship_line_1" id="ship_line_1" value="{$order.ship_line_1}" />
     </div>    
     <div>  
-      <label for="ship_line_2">{lang}Address Line 2{/lang}</label>
+      <label for="ship_line_2">{lang}Address Line 1{/lang}</label>
       <input type="text" name="ship_line_2" id="ship_line_2" value="{$order.ship_line_2}" />
     </div>    
     <div>  
