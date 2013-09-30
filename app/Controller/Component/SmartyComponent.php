@@ -69,14 +69,8 @@ class SmartyComponent extends Component
 			'../Vendor/smarty/vam_plugins'
 		);
 
-		$smarty->setCacheDir(CACHE.'/smarty_cache');
-		$smarty->setCompileDir(CACHE.'/smarty_templates_c');
-
-		//$smarty->setCaching(Smarty::CACHING_LIFETIME_SAVED);
-
-		//$smarty->setCacheLifetime(86400);
-		
-		//$smarty->setCompileCheck(false);
+		$smarty->setCacheDir(CACHE . '/smarty_cache');
+		$smarty->setCompileDir(CACHE . '/smarty_templates_c');
 				
 		return $smarty;
 	}
