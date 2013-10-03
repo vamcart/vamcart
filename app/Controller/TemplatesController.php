@@ -139,6 +139,7 @@ class TemplatesController extends AppController {
 			
 			$new_template = $old_template;
 			$new_template['Template']['id'] = null;
+			$new_template['Template']['default'] = 0;
 			$new_template['Template']['name'] = $this->data['Template']['name'];
 			
 			$this->Template->save($new_template);
