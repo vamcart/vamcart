@@ -92,8 +92,7 @@ echo $this->admin->StartTabs();
     {   
         echo $this->Admin->TableCells(array(
               $status['OrderStatusDescription']['name']
-           //,array($this->Ajax->link(($status['OrderStatus']['default'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False')))), 'null', $options = array('escape' => false, 'url' => '/reports/admin_change_active_status/' . $status['OrderStatus']['id'], 'update' => 'content'), null, false), array('align'=>'center')), 
-             ,array($this->Html->link(($status['OrderStatus']['default'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False')))), '/reports/admin_change_active_status/' . $k, array('escape' => false)), array('align'=>'left')),
+             ,array($this->Html->link(($status['OrderStatus']['default'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'),'title' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False'),'title' => __('False')))), '/reports/admin_change_active_status/' . $k, array('escape' => false)), array('align'=>'left')),
              ));
     }
     echo '</table>';

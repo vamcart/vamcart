@@ -24,7 +24,7 @@ foreach ($currency_data AS $currency)
 		  array(
 				$this->Html->link($currency['Currency']['name'], '/currencies/admin_edit/' . $currency['Currency']['id']),
 				array($currency['Currency']['code'], array('align'=>'center')),
-				array($this->Ajax->link(($currency['Currency']['active'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False')))), 'null', $options = array('escape' => false, 'url' => '/currencies/admin_change_active_status/' . $currency['Currency']['id'], 'update' => 'content'), null, false), array('align'=>'center')),
+				array($this->Ajax->link(($currency['Currency']['active'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'),'title' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False'),'title' => __('False')))), 'null', $options = array('escape' => false, 'url' => '/currencies/admin_change_active_status/' . $currency['Currency']['id'], 'update' => 'content'), null, false), array('align'=>'center')),
 				array($this->Admin->DefaultButton($currency['Currency']), array('align'=>'center')),
 				array($this->Admin->ActionButton('edit','/currencies/admin_edit/' . $currency['Currency']['id'],__('Edit')) . $this->Admin->ActionButton('delete','/currencies/admin_delete/' . $currency['Currency']['id'],__('Delete')), array('align'=>'center')),
 				array($this->Form->checkbox('modify][', array('value' => $currency['Currency']['id'])), array('align'=>'center'))

@@ -19,7 +19,7 @@ foreach ($global_content_blocks AS $global_content_block)
 		  array(
 			$this->Html->link($global_content_block['GlobalContentBlock']['name'],'/global_content_blocks/admin_edit/' . $global_content_block['GlobalContentBlock']['id']),
 			'{global_content alias="' . $global_content_block['GlobalContentBlock']['alias'] . '"}',
-			array($this->Ajax->link(($global_content_block['GlobalContentBlock']['active'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False')))), 'null', $options = array('escape' => false, 'url' => '/global_content_blocks/admin_change_active_status/' . $global_content_block['GlobalContentBlock']['id'], 'update' => 'content'), null, false), array('align'=>'center')),
+			array($this->Ajax->link(($global_content_block['GlobalContentBlock']['active'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'),'title' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False'),'title' => __('False')))), 'null', $options = array('escape' => false, 'url' => '/global_content_blocks/admin_change_active_status/' . $global_content_block['GlobalContentBlock']['id'], 'update' => 'content'), null, false), array('align'=>'center')),
 			array($this->Admin->ActionButton('edit','/global_content_blocks/admin_edit/' . $global_content_block['GlobalContentBlock']['id'],__('Edit')) . $this->Admin->ActionButton('delete','/global_content_blocks/admin_delete/' . $global_content_block['GlobalContentBlock']['id'],__('Delete')), array('align'=>'center')),
 			array($this->Form->checkbox('modify][', array('value' => $global_content_block['GlobalContentBlock']['id'])), array('align'=>'center'))
 		   ));

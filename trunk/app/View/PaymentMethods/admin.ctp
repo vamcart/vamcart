@@ -28,7 +28,7 @@ foreach ($modules AS $module)
 		  array(
 		  	(isset($module['id'])?$this->Html->link($module['name'],'/payment_methods/admin_edit/' . $module['id']):$module['name']),
 		  	$module['alias'],
-			array(($module['installed'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False')))), array('align'=>'center')),
+			array(($module['installed'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'),'title' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False'),'title' => __('False')))), array('align'=>'center')),
 			array((isset($module['id'])?$this->Admin->DefaultButton($module):''), array('align'=>'center')),
 		  	array((isset($module['order'])?$module['order']:''), array('align'=>'center')),
 			array($action_button, array('align'=>'center'))	
