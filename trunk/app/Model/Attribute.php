@@ -33,7 +33,7 @@ class Attribute extends AppModel {
                     $tmp_results = $this->AttributeDescription->find('first',array('conditions' => array('language_id = ' . $this->language__descriptor
                                                                                                       ,'attribute_id' => $attribute[$this->alias]['id'])));
                     if(!empty($tmp_results))$results[$k][$this->alias] = array_merge($attribute[$this->alias],array('name' => $tmp_results['AttributeDescription']['name']));
-                    else $results[$k][$this->alias] = array_merge($attribute[$this->alias],array('name' => 'nill'));
+                    else $results[$k][$this->alias] = array_merge($attribute[$this->alias],array('name' => 'n/a'));
                 }
             }
             return $results;/*parent::afterFind($results, $primary);*/
