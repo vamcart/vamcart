@@ -204,7 +204,7 @@ foreach($data['OrderComment'] AS $comment)
 	echo $this->Admin->TableCells(
 		  array(
 				$this->Time->timeAgoInWords($comment['created']),
-				($comment['sent_to_customer'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False')))),
+				($comment['sent_to_customer'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'),'title' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False'),'title' => __('False')))),
 				'<pre>'.$comment['comment'].'</pre>'
 		   ));
 }

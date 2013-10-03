@@ -185,7 +185,7 @@ $("#myTabLang a:first").tab("show"); // Select first tab
 
 		if($data['order'] < $count)
 		{
-			$button .= $this->Ajax->link($this->Html->image('admin/icons/down.png', array('alt' => __('Down', true))),'null', $options = array('escape' => false, 'url' => 'admin_move/' . $data['id'] . '/down', 'update' => 'content'),null,false);		
+			$button .= $this->Ajax->link($this->Html->image('admin/icons/down.png', array('alt' => __('Down', true),'title' => __('Down', true))),'null', $options = array('escape' => false, 'url' => 'admin_move/' . $data['id'] . '/down', 'update' => 'content'),null,false);		
 		}
 		else
 		{
@@ -193,7 +193,7 @@ $("#myTabLang a:first").tab("show"); // Select first tab
 		}
 		if($data['order'] > 1)
 		{
-			$button .= $this->Ajax->link($this->Html->image('admin/icons/up.png', array('alt' => __('Up', true))),'null', $options = array('escape' => false, 'url' => 'admin_move/' . $data['id'] . '/up', 'update' => 'content'),null,false);		
+			$button .= $this->Ajax->link($this->Html->image('admin/icons/up.png', array('alt' => __('Up', true),'title' => __('Up', true))),'null', $options = array('escape' => false, 'url' => 'admin_move/' . $data['id'] . '/up', 'update' => 'content'),null,false);		
 		}
 		return($button);
 	}
@@ -202,11 +202,11 @@ $("#myTabLang a:first").tab("show"); // Select first tab
 	{
 		if($data['default'] == 1)
 		{
-			$button = $this->Html->image('admin/icons/true.png', array('alt' => __('True', true)));
+			$button = $this->Html->image('admin/icons/true.png', array('alt' => __('True', true),'title' => __('True', true)));
 		}
 		else
 		{
-			$button = $this->Ajax->link($this->Html->image('admin/icons/false.png', array('alt' => __('False', true))),'null', $options = array('escape' => false, 'url' => 'admin_set_as_default/' . $data['id'], 'update' => 'content'),null,false);		
+			$button = $this->Ajax->link($this->Html->image('admin/icons/false.png', array('alt' => __('False', true),'title' => __('False', true))),'null', $options = array('escape' => false, 'url' => 'admin_set_as_default/' . $data['id'], 'update' => 'content'),null,false);		
 		}
 		return($button);
 	}
@@ -218,7 +218,7 @@ $("#myTabLang a:first").tab("show"); // Select first tab
 		else
 			$confirm_text = null;
 			
-		$button = $this->Html->link($this->Html->image('admin/icons/' . $action . '.png', array('alt' => $alt)), $path, array('escape' => false), $confirm_text);
+		$button = $this->Html->link($this->Html->image('admin/icons/' . $action . '.png', array('alt' => $alt,'title' => $alt)), $path, array('escape' => false), $confirm_text);
 		return($button);		
 	}
 	

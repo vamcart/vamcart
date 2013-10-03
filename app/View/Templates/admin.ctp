@@ -16,13 +16,13 @@ foreach ($templates AS $template)
 
 	if(in_array($template['Template']['id'], $user_prefs))
 	{
-		$arrow_link = $this->Ajax->link($this->Html->image('admin/icons/expand.png', array('alt' => __('Expand'))), 'null', $options = array('escape' => false, 'url' => '/templates/expand_section/' . $template['Template']['id'], 'update' => 'content'), null, false);
+		$arrow_link = $this->Ajax->link($this->Html->image('admin/icons/expand.png', array('alt' => __('Expand'),'title' => __('Expand'))), 'null', $options = array('escape' => false, 'url' => '/templates/expand_section/' . $template['Template']['id'], 'update' => 'content'), null, false);
 		$collapse_style = "display:none;";
 	}
 	else
 	{
 		$collapse_style = " ";
-		$arrow_link = $this->Ajax->link($this->Html->image('admin/icons/collapse.png', array('alt' => __('Collapse'))), 'null', $options = array('escape' => false, 'url' => '/templates/contract_section/' . $template['Template']['id'], 'update' => 'content'), null, false);
+		$arrow_link = $this->Ajax->link($this->Html->image('admin/icons/collapse.png', array('alt' => __('Collapse'),'title' => __('Collapse'))), 'null', $options = array('escape' => false, 'url' => '/templates/contract_section/' . $template['Template']['id'], 'update' => 'content'), null, false);
 	}
 
 	$set_all_bug_fix =  __('Are you sure you want to set all products to this template?');
