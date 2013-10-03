@@ -15,7 +15,6 @@ class SmartyComponent extends Component
 	}
     
 	public function startup(Controller $controller) {
-		$this->_controller = $controller;
 	}
 
 	public function shutdown(Controller $controller) {
