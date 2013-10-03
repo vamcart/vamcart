@@ -106,11 +106,11 @@ foreach ($content_data AS $content)
 		$name_link .= $this->Html->link($content['ContentDescription']['name'], '/contents/admin_edit/' . $content['Content']['id'].'/'.(isset($parent_content) ? $parent_content['Content']['id'] : 0));
 	}
 	
-	if ($content['ContentType']['name']=='product' || $content['ContentType']['name']=='downloadable') {
-		$discounts = $this->Admin->ActionButton('discounts', '/discounts/admin/' . $content['ContentProduct']['id'],__('Discounts')); 
-	} else {
+	//if ($content['ContentType']['name']=='product' || $content['ContentType']['name']=='downloadable') {
+		//$discounts = $this->Admin->ActionButton('discounts', '/discounts/admin/' . $content['ContentProduct']['id'],__('Discounts')); 
+	//} else {
 		$discounts = null; 
-	}
+	//}
 	
 	echo $this->Admin->TableCells(
 		array(
@@ -130,7 +130,7 @@ foreach ($content_data AS $content)
 if(isset($parent_content))
 {
 	$parent_link = $this->Admin->linkButton(__('Up One Level'),'/contents/admin/0/' . $parent_content['Content']['parent_id'],'cus-arrow-up',array('escape' => false, 'class' => 'btn'));
-	echo '<tr><td colspan="8">' . $parent_link . '</td></tr>';	
+	echo '<tr><td colspan="9">' . $parent_link . '</td></tr>';	
 }
 echo '</table>';
 
