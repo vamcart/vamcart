@@ -43,21 +43,14 @@ $this->Html->script(array(
 				   		'label' => __('ISO Code 3'),
    						'value' => $data['Country']['iso_code_3']
 	               ));
-		echo $this->Form->input('Country.eu', 
-						array(
-				   		'label' => __('EU Country'),
-   						'value' => $data['Country']['eu']
-	               ));
-		echo $this->Form->input('Country.private', 
-						array(
-				   		'label' => __('Private person VAT'),
-   						'value' => $data['Country']['privat']
-	               ));
-		echo $this->Form->input('Country.firm', 
-						array(
-				   		'label' => __('Firm VAT'),
-   						'value' => $data['Country']['pravna']
-	               ));
+
+		echo $this->Form->input('Country.active', array(
+				   		'label' => __('Active'),
+				   		'type' => 'checkbox',
+							'class' => 'checkbox_group',	
+   						'checked' => $active_checked
+	               )	);
+
 		echo $this->Admin->EndTabContent();
 
 		echo $this->Admin->StartTabContent('options');

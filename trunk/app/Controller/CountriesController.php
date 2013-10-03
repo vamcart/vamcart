@@ -15,6 +15,7 @@ class CountriesController extends AppController {
 	{
 		$this->set('current_crumb', __('Country Details', true));
 		$this->set('title_for_layout', __('Edit', true));
+		$this->set('active_checked', true);
 		// If they pressed cancel
 		if(isset($this->data['cancelbutton']))
 		{
@@ -25,7 +26,14 @@ class CountriesController extends AppController {
 		if(empty($this->data))
 		{
 			$this->Country->id = $country_id;
-			$this->set('data', $this->Country->read());
+			$data = $this->Country->read();
+			if($data['Country']['active'] == 1) {
+				$this->set('active_checked', true);
+			} else {
+				$this->set('active_checked', false);
+			}
+
+			$this->set('data', $data);
 		}
 		else
 		{
@@ -38,7 +46,12 @@ class CountriesController extends AppController {
 			die();
 		}		
 	}
-	
+
+	public function admin_change_active_status ($id) 
+	{
+		$this->changeActiveStatus($id);	
+	}
+		
 	public function admin_modify_selected() 	
 	{
 		$build_flash = "";
@@ -56,6 +69,16 @@ class CountriesController extends AppController {
 						$this->Country->delete($value);
 						$build_flash .= __('Record deleted.', true) . ' ' . $country['Country']['name'] . '<br />';									
 					break;								
+					case "activate":
+					   $country['Country']['active'] = 1;
+						$this->Country->save($country);
+						$build_flash = __('You have activated multiple countries.',true);		
+				    	break;
+					case "deactivate":
+					   $country['Country']['active'] = 0;
+						$this->Country->save($country);
+						$build_flash = __('You have inactivated multiple countries.',true);		
+					    break;
 				}
 			}
 		}

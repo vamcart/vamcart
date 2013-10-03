@@ -16,7 +16,7 @@ echo $this->Form->create('Country', array('action' => '/countries/admin_modify_s
 
 echo '<table class="contentTable">';
 
-echo $this->Html->tableHeaders(array( __('Title'), __('Flag'), __('Code') . ' 2', __('Code') . ' 3', __('EU'), __('Private'), __('Firm'), __('Action'), '<input type="checkbox" onclick="checkAll(this)" />'));
+echo $this->Html->tableHeaders(array( __('Title'), __('Flag'), __('Code') . ' 2', __('Code') . ' 3', __('Active'), __('Action'), '<input type="checkbox" onclick="checkAll(this)" />'));
 
 foreach ($data AS $country)
 {
@@ -26,16 +26,14 @@ foreach ($data AS $country)
 			array($this->Html->link($this->Html->image('flags/' . strtolower($country['Country']['iso_code_2']) . '.png', array('alt' => $country['Country']['name'])), '/countries/admin_edit/' . $country['Country']['id'], array('escape' => false)), array('align'=>'center')),
 			array($country['Country']['iso_code_2'], array('align'=>'center')),
 			array($country['Country']['iso_code_3'], array('align'=>'center')),
-                        array($country['Country']['eu'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False'))), array('align'=>'center')),
-			array($country['Country']['private'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False'))), array('align'=>'center')),
-                        array($country['Country']['firm'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False'))), array('align'=>'center')),
+				array($this->Ajax->link(($country['Country']['active'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False')))), 'null', $options = array('escape' => false, 'url' => '/countries/admin_change_active_status/' . $country['Country']['id'], 'update' => 'content'), null, false), array('align'=>'center')),
 			array($this->Admin->ActionButton('edit','/countries/admin_edit/' . $country['Country']['id'],__('Edit')) . $this->Admin->ActionButton('delete','/countries/admin_delete/' . $country['Country']['id'],__('Delete')), array('align'=>'center')),
 			array($this->Form->checkbox('modify][', array('value' => $country['Country']['id'])), array('align'=>'center'))
 		   ));
 }
 echo '</table>';
 
-echo $this->Admin->ActionBar(array('delete'=>__('Delete')));
+echo $this->Admin->ActionBar(array('activate'=>__('Activate'),'deactivate'=>__('Deactivate'),'delete'=>__('Delete')));
 echo $this->Form->end();
 
 ?>
