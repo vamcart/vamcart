@@ -24,7 +24,7 @@ foreach ($attached_template AS $template)
 
 	echo $this->Admin->TableCells(
 		  array(
-			$this->Html->link($template['name'],'/templates/admin_edit/' . $template['id']),
+			$this->Html->link(__($template['name']),'/templates/admin_edit/' . $template['id']),
 			array($this->Admin->ActionButton('delete','/stylesheets/admin_delete_template_association/' . $template['id'] . '/' . $stylesheet['Stylesheet']['id'],__('Delete')), array('align'=>'center'))
 		   ));
 }

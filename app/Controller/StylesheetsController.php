@@ -97,7 +97,7 @@ class StylesheetsController extends AppController {
 				$this->request->data['Template']['Template'][] = $value['id'];
 			}
 			$this->Stylesheet->save($this->data);
-			
+
 			// Get the template again
 			$stylesheet = $this->Stylesheet->read();
 		
@@ -105,11 +105,14 @@ class StylesheetsController extends AppController {
 		$this->set('current_crumb',__('Attach Template',true));
 		$this->set('title_for_layout', __('Attach Template', true));
 		$this->set('stylesheet', $stylesheet);
-		
+
 		// First get a list of all stylesheets
 		$all_templates = $this->Stylesheet->Template->find('list', array('parent_id' => '0'));
 		
-		
+		foreach($all_templates AS $key => $value) {
+			$all_templates[$key] = __($value);	
+		}
+					
 		// Loop through the template stylesheets, removing any that are already associatied
 		// Figure out a cleaner way for this later
 		foreach($stylesheet['Template'] AS $value)
@@ -120,7 +123,7 @@ class StylesheetsController extends AppController {
 				unset($all_templates[$key]);
 			}
 		}
-		
+
 		$this->set('available_templates', $all_templates);
 		
 	}
