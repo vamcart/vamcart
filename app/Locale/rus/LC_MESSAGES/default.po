@@ -3907,3 +3907,11 @@ msgstr "Значение модификатора"
 #: /vendors/smarty/vam_plugins/function.product_prices.php:33
 msgid "Available"
 msgstr "Доступно"
+
+#: /app/controllers/CountriesController.php:224
+msgid "You have activated multiple countries."
+msgstr "Страны активированы."
+
+#: /app/controllers/CountriesController.php:229
+msgid "You have inactivated multiple countries."
+msgstr "Страны деактивированы."
