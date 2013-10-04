@@ -8,7 +8,6 @@
 class CountryZonesController extends AppController {
 	public $name = 'CountryZones';
 	public $uses = array('Country','CountryZone');
-	
 
 	public function admin_delete ($country_id, $zone_id)
 	{
@@ -61,5 +60,31 @@ class CountryZonesController extends AppController {
 		$this->set('country', $country);
 		$this->set('zones', $this->CountryZone->find('all', array('conditions' => array('country_id' => $country_id))));
 	}
+	
+	public function admin_modify_selected() 	
+	{
+		$build_flash = "";
+		foreach($this->params['data']['CountryZone']['modify'] AS $value)
+		{
+			// Make sure the id is valid
+			if($value > 0)
+			{
+				$this->CountryZone->id = $value;
+				$country_zone = $this->CountryZone->read();
+				$country_zone_id = $country_zone['CountryZone']['country_id'];
+		
+				switch ($this->data['multiaction']) 
+				{
+					case "delete":
+						$this->CountryZone->delete($value);
+						$build_flash .= __('Record deleted.', true) . ' ' . $country_zone['CountryZone']['name'] . '<br />';									
+					break;								
+				}
+			}
+		}
+		$this->Session->setFlash($build_flash);
+		$this->redirect('/country_zones/admin/'.$country_zone_id);
+	}	
+		
 }
 ?>
