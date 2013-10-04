@@ -8,7 +8,8 @@
 class CountryZonesController extends AppController {
 	public $name = 'CountryZones';
 	public $uses = array('Country','CountryZone');
-
+	public $paginate = array('limit' => 20, 'order' => array('CountryZone.name' => 'asc'));
+	
 	public function admin_delete ($country_id, $zone_id)
 	{
 		$this->CountryZone->delete($zone_id);
@@ -55,10 +56,12 @@ class CountryZonesController extends AppController {
 		$this->set('title_for_layout', __('Country Zones Listing', true));
 		$this->Country->id = $country_id;
 		$country = $this->Country->read();
-		$this->set('current_crumb_info', $country['Country']['name']);
 		
 		$this->set('country', $country);
-		$this->set('zones', $this->CountryZone->find('all', array('conditions' => array('country_id' => $country_id))));
+
+		$data = $this->paginate('CountryZone', array('CountryZone.country_id' => $country_id));
+		$this->set('zones',$data);
+		
 	}
 	
 	public function admin_modify_selected() 	
