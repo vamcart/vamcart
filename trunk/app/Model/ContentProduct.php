@@ -25,8 +25,8 @@ class ContentProduct extends AppModel {
         	
         public function afterFind($results, $primary = false)
         {
-           if(isset($results['content_id'])) //$results['price'] = 2;
-           //else
+           if(isset($results['content_id']))
+
             foreach ($results as $key => $value) 
             {
                  if(isset($results[$key]['ContentProduct']['content_id']))
