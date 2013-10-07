@@ -10,7 +10,7 @@ function default_template_currency_box()
 {
 $template = '
 <div class="box">
-<h5><img src="{base_path}/img/icons/menu/payment-methods.png" alt="" />&nbsp;{lang}Currency{/lang}</h5>
+<h5>{lang}Currency{/lang}</h5>
 <div class="boxContent">
 
 <form action="{base_path}/currencies/pick_currency/" method="post">
