@@ -15,10 +15,12 @@ class ImagesController extends AppController {
                 die("No source image");
             }
             
+            global $config;
+            
             //width
-            $width = (!isset($_GET['w'])) ? 100 : $_GET['w'];
+            $width = (!isset($_GET['w'])) ? $config['THUMBNAIL_SIZE'] : $_GET['w'];
             //height
-            $height = (!isset($_GET['h'])) ? 150 : $_GET['h'];
+            $height = (!isset($_GET['h'])) ? $config['THUMBNAIL_SIZE'] : $_GET['h'];
             //quality    
             $quality = (!isset($_GET['q'])) ? 75 : $_GET['q'];
             
