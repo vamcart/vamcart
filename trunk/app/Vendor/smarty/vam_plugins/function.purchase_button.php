@@ -20,7 +20,7 @@ function smarty_help_function_purchase_button() {
 	<p><?php echo __('Just insert the tag into your product_info template like:') ?> <code>{purchase_button}</code></p>
 	<h3><?php echo __('What parameters does it take?') ?></h3>
 	<ul>
-		<li><em><?php echo __('(product_id)') ?></em> - <?php echo __('Overrides the current global content_id. Useful if you want to place a purchase button in product listing pages.') ?></li>
+		<li><em>(<?php echo __('None') ?>)</em></li>?></li>
 	</ul>
 	<?php
 }

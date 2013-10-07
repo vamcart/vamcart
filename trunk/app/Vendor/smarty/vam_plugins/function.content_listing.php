@@ -245,13 +245,18 @@ function smarty_function_content_listing($params, $template)
 	// Loop through the content list and create a new array with only what the template needs
 	$content_list = array();
 	$count = 0;
+	
+	$CurrencyBase =& new CurrencyBaseComponent(new ComponentCollection());
+	
 	foreach($content_list_data AS $raw_data)
 	{
 		if(in_array(strtolower($raw_data['ContentType']['name']),$allowed_types))
 		{
 			$content_list[$count]['name']	= $raw_data['ContentDescription']['name'];
+			$content_list[$count]['description']	= $raw_data['ContentDescription']['description'];
+			$content_list[$count]['id']	= $raw_data['Content']['id'];
 			$content_list[$count]['alias']	= $raw_data['Content']['alias'];
-			$content_list[$count]['price']	= $raw_data['ContentProduct']['price'];	
+			$content_list[$count]['price']	= $CurrencyBase->display_price($raw_data['ContentProduct']['price']);	
 			$content_list[$count]['stock']	= $raw_data['ContentProduct']['stock'];	
 			$content_list[$count]['model']	= $raw_data['ContentProduct']['model'];	
 			$content_list[$count]['weight']	= $raw_data['ContentProduct']['weight'];	
