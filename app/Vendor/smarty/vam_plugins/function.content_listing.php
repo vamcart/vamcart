@@ -254,6 +254,9 @@ function smarty_function_content_listing($params, $template)
 		{
 			$content_list[$count]['name']	= $raw_data['ContentDescription']['name'];
 			$content_list[$count]['description']	= $raw_data['ContentDescription']['description'];
+			$content_list[$count]['meta_title']	= $raw_data['ContentDescription']['meta_title'];
+			$content_list[$count]['meta_description']	= $raw_data['ContentDescription']['meta_description'];
+			$content_list[$count]['meta_keywords']	= $raw_data['ContentDescription']['meta_keywords'];
 			$content_list[$count]['id']	= $raw_data['Content']['id'];
 			$content_list[$count]['alias']	= $raw_data['Content']['alias'];
 			$content_list[$count]['price']	= $CurrencyBase->display_price($raw_data['ContentProduct']['price']);	
