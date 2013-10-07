@@ -43,6 +43,7 @@ class ContentBaseComponent extends Object
 		$this->Content = new Content();
 
 		$this->ContentDescription = new ContentDescription();
+
 	}
 
 
@@ -150,6 +151,18 @@ class ContentBaseComponent extends Object
 		return $content['xsell'];
 	}
 
+	public function get_content_image($content_id)
+	{
+		$this->load_models();
+		
+		App::uses('Model', 'ContentImage');
+		$this->ContentImage = new ContentImage();
+		
+		$content_description = $this->ContentImage->find('first', array('conditions' => array('content_id' => $content_id)));
+
+		return $content_description['ContentImage']['image'];
+	}
+	
 	/**
 	* Returns a list of all content in $key => $value format
 	*

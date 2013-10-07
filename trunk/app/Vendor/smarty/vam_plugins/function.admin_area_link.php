@@ -10,7 +10,7 @@ function smarty_function_admin_area_link($params, $template)
 {
 	if(!empty($_SESSION['User']))
 	{
-		echo '<li><a href="' . BASE . '/admin/">&nbsp;<span>'.__('Administration', true).'</span></a></li>';
+		echo '<li><a href="' . BASE . '/admin/">'.__('Administration', true).'</a></li>';
 	}
 
 }

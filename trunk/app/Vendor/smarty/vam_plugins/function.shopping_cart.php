@@ -66,6 +66,9 @@ function smarty_function_shopping_cart($params, $template)
 	App::uses('CurrencyBaseComponent', 'Controller/Component');
 	$CurrencyBase =& new CurrencyBaseComponent(new ComponentCollection());
 
+	App::uses('ContentBaseComponent', 'Controller/Component');
+	$ContentBase =& new ContentBaseComponent(new ComponentCollection());
+
 	global $order;
 	global $config;
 
@@ -85,10 +88,23 @@ function smarty_function_shopping_cart($params, $template)
 	foreach($order['OrderProduct'] AS $cart_item)
 	{
 		$content_id = $cart_item['content_id'];
+		$image = array();
+		$content_image = $ContentBase->get_content_image($cart_item['content_id']);
+		if ($content_image != '') {
+			$image['image'] = true;
+			$image['image_path'] = BASE . '/img/content/' . $content_id . '/' . $content_image;
+			$image['image_thumb'] = BASE . '/images/thumb?src=/content/' . $content_id . '/' . $content_image . '&w=40&h=40';
+		} else {
+			$image['image'] = false;
+			$image['image_path'] = BASE . '/img/noimage.png';
+			$image['image_thumb'] = BASE . '/images/thumb?src=/noimage.png&w=40&h=40';
+		}
+		
 		$order_items[$content_id] = array(
 			'id' => $cart_item['content_id'],
 			'link' => BASE . '/product/' . $content_id . $config['URL_EXTENSION'],
 			'name' => $cart_item['name'],
+			'image' => $image,
 			'price' => $CurrencyBase->display_price($cart_item['price']),
 			'qty' => $cart_item['quantity'],
 			'url' => BASE . '/product/' . $cart_item['content_id'] . $config['URL_EXTENSION'],
