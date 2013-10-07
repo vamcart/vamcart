@@ -9,31 +9,34 @@
 function default_template_login_box()
 {
 $template = '
-<div class="box">
-<h5>&nbsp;{lang}Login{/lang}</h5>
-<div class="boxContent">
-{if not $is_logged_in }
-<form action="{base_path}/site/login?return_url={$return_url}" method="post">
-<label>{lang}E-mail{/lang}</label>
-<input type="text" name="data[Customer][email]" />
-<br />
-<label>{lang}Password{/lang}</label>
-<input type="password" name="data[Customer][password]" />
-<br />
-<button class="btn" type="submit" value="{lang}Login{/lang}"><i class="cus-tick"></i> {lang}Login{/lang}</button>
-</form>
-<br />
-  <a href="{base_path}/customer/register.html">{lang}Registration{/lang}</a>
-{else}
-<ul>
-  <li><a href="{base_path}/customer/account.html">{lang}My Account{/lang}</a></li>
-</ul>
-<form action="{base_path}/site/logout?return_url={$return_url}" method="post">
-<button class="btn" type="submit" value="{lang}Logout{/lang}"><i class="cus-tick"></i> {lang}Logout{/lang}</button>
-</form>
-{/if}
-</div>
-</div>
+<section class="widget inner">
+	<h3 class="widget-title">{lang}Login{/lang}</h3>
+
+		{if not $is_logged_in }
+
+		<form action="{base_path}/site/login?return_url={$return_url}" method="post" class="form">
+			<label>{lang}E-mail{/lang}</label>
+			<input type="text" name="data[Customer][email]" />
+			<label>{lang}Password{/lang}</label>
+			<input type="password" name="data[Customer][password]" />
+			<button type="submit" class="btn btn-inverse">{lang}Login{/lang}</button>
+		</form>
+		
+		<p><a href="{base_path}/customer/register.html">{lang}Registration{/lang}</a></p>
+
+		{else}
+
+		<ul class="icons clearfix">
+			<li><a href="{base_path}/customer/account.html">{lang}My Account{/lang}</a></li>
+		</ul>
+
+		<form action="{base_path}/site/logout?return_url={$return_url}" method="post">
+			<button type="submit" class="btn btn-inverse">{lang}Logout{/lang}</button>
+		</form>
+
+		{/if}
+
+</section>
 ';
 
 return $template;

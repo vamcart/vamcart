@@ -9,27 +9,19 @@
 function default_template_compare()
 {
 $template = '
-<div class="box">
-    <h5>{lang}Comparison{/lang}</h5>
-    <div class="boxContent">
-        <form name="" action="{$base_url}/compared/done/{$base_content}" method="post">
-        <div class="">
-            <ul>
-            {foreach from=$element_list item=element}
-                <li>{$element.ContentDescription.name} 
-
-                <a href="{$base_url}/delcmp/{$element.Content.alias}/{$base_content}"><img alt="{lang}Remove{/lang}" title="{lang}Remove{/lang}" src="{base_path}/img/icons/delete.png"></img></a>
-
-                </li>
-            {/foreach}
-            </ul>
-        </div>
-            <button class="btn" name="applybutton" type="submit"><i class="cus-tick"></i>
-            {lang}Compare{/lang}
-            </button>
-        </form>
-    </div>
-</div>
+<section class="widget inner">
+	<h3 class="widget-title">{lang}Comparison{/lang}</h3>
+	<form name="" action="{$base_url}/compared/done/{$base_content}" method="post">
+		<ul class="icons clearfix">
+			{foreach from=$element_list item=element}
+				<li>{$element.ContentDescription.name} 
+					<a href="{$base_url}/delcmp/{$element.Content.alias}/{$base_content}"><img alt="{lang}Remove{/lang}" title="{lang}Remove{/lang}" src="{base_path}/img/icons/delete.png"></img></a>
+				</li>
+         {/foreach}
+		</ul>
+	<button type="submit" class="btn btn-inverse">{lang}Compare{/lang}</button>
+	</form>
+</section>
 ';
 return $template;
 }

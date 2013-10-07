@@ -9,28 +9,22 @@
 function default_template_filter()
 {
     $template = '
-    <div class="box">
-        <h5>{lang}Filter{/lang}</h5>
-        <div class="boxContent">
-            <form name="" action="{$base_url}/filtered/set/{$base_content}" method="post">
-                <div class="">
-                    {foreach from=$element_list item=element}
-                        {value_filter template=$element["template_attribute"] id_attribute=$element["id_attribute"] 
-                                                                              name_attribute=$element["name_attribute"] 
-                                                                              values_attribute=$element["values_attribute"]
-                                                                              is_active=$element["is_active"]}
-                    {/foreach}
-                    <button class="btn" name="applybutton" type="submit"><i class="cus-tick"></i>
-                    {lang}Apply{/lang}
-                    </button>
-                    <button class="btn" name="cancelbutton" type="submit"><i class="cus-cancel"></i>
-                    {lang}Reset{/lang}
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-    ';
+<section class="widget inner">
+	<h3 class="widget-title">{lang}Filter{/lang}</h3>
+		<form name="filter" action="{$base_url}/filtered/set/{$base_content}" method="post">
+			<div class="filter">
+				{foreach from=$element_list item=element}
+					{value_filter template=$element["template_attribute"] id_attribute=$element["id_attribute"] 
+										name_attribute=$element["name_attribute"] 
+										values_attribute=$element["values_attribute"]
+										is_active=$element["is_active"]}
+				{/foreach}
+				<button class="btn btn-inverse" name="applybutton" type="submit">{lang}Apply{/lang}</button>
+				<button class="btn btn-inverse" name="cancelbutton" type="submit">{lang}Reset{/lang}</button>
+			</div>
+		</form>
+</section>
+';
     return $template;
 }
 
