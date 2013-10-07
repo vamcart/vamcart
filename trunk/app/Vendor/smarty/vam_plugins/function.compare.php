@@ -10,7 +10,7 @@ function default_template_compare()
 {
 $template = '
 <div class="box">
-    <h5><img src="{base_path}/img/icons/menu/blocks.png" alt="" />&nbsp;{lang}Comparison{/lang}</h5>
+    <h5>{lang}Comparison{/lang}</h5>
     <div class="boxContent">
         <form name="" action="{$base_url}/compared/done/{$base_content}" method="post">
         <div class="">

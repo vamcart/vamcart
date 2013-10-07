@@ -10,7 +10,7 @@ function default_template_language_box()
 {
 $template = '
 <div class="box">
-<h5><img src="{base_path}/img/icons/menu/locale.png" alt="" />&nbsp;{lang}Language{/lang}</h5>
+<h5>{lang}Language{/lang}</h5>
 <div class="boxContent">
 
 {foreach from=$languages item=language}
