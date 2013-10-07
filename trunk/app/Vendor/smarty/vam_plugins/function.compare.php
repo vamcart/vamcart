@@ -18,7 +18,7 @@ $template = '
             {foreach from=$element_list item=element}
                 <li>{$element.ContentDescription.name} 
 
-                <a href="{$base_url}/delcmp/{$element.Content.alias}/{$base_content}"><img alt="{lang}Remove{/lang}" title="{lang}Remove{/lang}" src="{base_path}/img/admin/icons/false.png"></img></a>
+                <a href="{$base_url}/delcmp/{$element.Content.alias}/{$base_content}"><img alt="{lang}Remove{/lang}" title="{lang}Remove{/lang}" src="{base_path}/img/icons/delete.png"></img></a>
 
                 </li>
             {/foreach}
