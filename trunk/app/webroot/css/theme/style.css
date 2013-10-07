@@ -120,7 +120,6 @@ hr.transparent {
 .topbar {
   background-image: url(../../img/theme/noise.png);
   background-position: 0 50%;
-  background-color: #333333;
   font-size: 11px;
 }
 @media (max-width: 767px) {
@@ -132,7 +131,7 @@ hr.transparent {
   color: #909090;
 }
 .topbar a:hover {
-  color: #ffffff;
+  color: #000;
 }
 .topbar .nav-pills > li > a {
   padding: 5px 10px;
@@ -3536,9 +3535,9 @@ hr.transparent {
 .shop-products .btn-add-to-cart {
   font-size: 14px;
   font-weight: bold;
-  padding: 10px 20px;
+  padding: 5px 12px;
   color: #ffffff;
-  background-color: #ff6633;
+  background-color: #333333;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -ms-transition: all 0.3s ease-out;
@@ -3546,25 +3545,44 @@ hr.transparent {
   transition: all 0.3s ease-out;
 }
 .shop-products .btn-add-to-cart i {
-  margin-left: 10px;
+  margin-left: 0;
+  margin-right: 0;
 }
 .shop-products .btn-add-to-cart:hover {
-  background-color: #333333;
+  background-color: #ff6633;
 }
 .shop-products .thumbnail {
-  color: #333333;
   border: none;
   padding: 0;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
 }
 .shop-products .thumbnail .image {
   overflow: hidden;
   position: relative;
   display: block;
-  border: solid 1px #fbfbfb;
-  border-bottom: 0;
+  -webkit-border-top-right-radius: 6px;
+  -webkit-border-bottom-right-radius: 0;
+  -webkit-border-bottom-left-radius: 0;
+  -webkit-border-top-left-radius: 6px;
+  -moz-border-radius-topright: 6px;
+  -moz-border-radius-bottomright: 0;
+  -moz-border-radius-bottomleft: 0;
+  -moz-border-radius-topleft: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 6px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
 }
 .shop-products .thumbnail .image img {
   -webkit-transition: all 0.3s ease-out;
@@ -3575,24 +3593,29 @@ hr.transparent {
 }
 .shop-products .thumbnail .price {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
-  width: 60px;
-  height: 60px;
-  vertical-align: middle;
-  text-align: center;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  border-radius: 30px;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  background-color: #555555;
+  top: 48%;
+  left: -30px;
+  padding: 10px 15px 10px 50px;
+  background-color: #f37324;
   color: #ffffff;
   font-size: 16px;
   font-weight: bold;
-  line-height: 60px;
   z-index: 5;
+  -webkit-border-top-right-radius: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+  -webkit-border-bottom-left-radius: 0;
+  -webkit-border-top-left-radius: 0;
+  -moz-border-radius-topright: 10px;
+  -moz-border-radius-bottomright: 10px;
+  -moz-border-radius-bottomleft: 0;
+  -moz-border-radius-topleft: 0;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
   -ms-transition: all 0.2s ease-out;
@@ -3600,7 +3623,7 @@ hr.transparent {
   transition: all 0.2s ease-out;
 }
 .shop-products .thumbnail .zoom {
-  background-color: #ff6633;
+  background-color: #364245;
   color: #ffffff;
   position: absolute;
   left: 50%;
@@ -3654,7 +3677,7 @@ hr.transparent {
   transform: scale(1.1);
 }
 .shop-products .thumbnail:hover .price {
-  background-color: #ff6633;
+  left: 0;
 }
 .shop-products .thumbnail:hover .zoom {
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=40);
@@ -3667,7 +3690,7 @@ hr.transparent {
   transform: scale(1);
 }
 .shop-products .thumbnail:hover .title {
-  color: #ff6633;
+  color: #f37324;
 }
 .product-images {
   margin-bottom: 30px;
