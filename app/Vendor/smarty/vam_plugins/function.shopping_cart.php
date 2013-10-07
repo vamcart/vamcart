@@ -23,7 +23,7 @@ $template = '
 
 {foreach from=$order_items item=product}
 		<tr>
-			<td><a href="{base_path}/cart/remove_product/{$product.id}" class="remove">x</a></td>
+			<td><a href="{base_path}/cart/remove_product/{$product.id}/1" class="remove" title="{lang}Remove{/lang}"><i class="icon-trash"></i></a></td>
 			<td><a href="{$product.link}">{$product.name}</a></td>
 			<td>{$product.price}</td>
 			<td><input type="text" name="qty[{$product.id}]" value="{$product.qty}" size="3" /></td>
