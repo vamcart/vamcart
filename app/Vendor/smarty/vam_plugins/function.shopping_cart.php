@@ -9,8 +9,9 @@
 function default_template_shopping_cart()
 {
 $template = '
-<form name="cart_qty" action="{base_path}/cart/update_cart_qty" method="post">
 <div class="cart">
+{if $order_items}
+<form name="cart_qty" action="{base_path}/cart/update_cart_qty" method="post">
 	<table style="width:100%;">
 		<tr>
 			<th></th>
@@ -47,8 +48,11 @@ $template = '
 	</table>
 	<a class="btn" href="{$checkout_link}"><i class="cus-cart-go"></i> &nbsp;{lang}Checkout{/lang}</a>
 		<button class="btn" type="submit" name="updatebutton"><i class="cus-tick"></i> {lang}Update{/lang}</button>
-</div>
 </form>
+{else}
+	{lang}No Cart Items{/lang}
+{/if}
+</div>
 ';
 
 return $template;
@@ -88,6 +92,8 @@ function smarty_function_shopping_cart($params, $template)
 	foreach($order['OrderProduct'] AS $cart_item)
 	{
 		$content_id = $cart_item['content_id'];
+		$total_quantity += $cart_item['quantity'];
+		$total_weight += $cart_item['weight']*$cart_item['quantity'];
 		$image = array();
 		$content_image = $ContentBase->get_content_image($cart_item['content_id']);
 		if ($content_image != '') {
@@ -115,6 +121,8 @@ function smarty_function_shopping_cart($params, $template)
 	$assignments = array(
 		'checkout_link' => BASE . '/page/checkout' . $config['URL_EXTENSION'],
 		'order_total' => $CurrencyBase->display_price($order['Order']['total']),
+		'total_quantity' => $total_quantity,
+		'total_weight' => $total_weight,
 		'shipping_total' => $CurrencyBase->display_price($order['Order']['shipping']),
 		'order_items' => $order_items,
 		'cart_link' => BASE . '/page/cart-contents' . $config['URL_EXTENSION']
