@@ -77,7 +77,7 @@ function smarty_function_search_result($params, $template)
 	App::uses('SmartyComponent', 'Controller/Component');
 	$Smarty =& new SmartyComponent(new ComponentCollection());
 
-	$params['on_page'] = $config['PRODUCTS_PER_PAGE'];
+	$params['limit'] = $config['PRODUCTS_PER_PAGE'];
 
 	$vars = $template->smarty->tpl_vars;
 	
@@ -142,7 +142,7 @@ function smarty_function_search_result($params, $template)
 		if ($vars['page'] == 'all') {
 			$content_list_data = $Content->find('all', array('conditions' => $search_conditions));
 		} else {
-			$content_list_data = $Content->find('all', array('conditions' => $search_conditions, 'limit' => $params['on_page'], 'page' => $vars['page']));
+			$content_list_data = $Content->find('all', array('conditions' => $search_conditions, 'limit' => $params['limit'], 'page' => $vars['page']));
 		}
 
 		$content_list = array();
@@ -186,7 +186,7 @@ function smarty_function_search_result($params, $template)
 	$vars['keyword'] = urlencode($_GET['keyword']);
 
 	$vars['ext'] = $config['URL_EXTENSION'];
-	$vars['pages_number'] = ceil($content_total/$params['on_page']);
+	$vars['pages_number'] = ceil($content_total/$params['limit']);
 
 	if($config['GD_LIBRARY'] == 0) {
 		$vars['thumbnail_width'] = $config['THUMBNAIL_SIZE'];

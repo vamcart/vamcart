@@ -127,8 +127,8 @@ function smarty_function_content_listing($params, $template)
 					))));
 
 
-        if(!isset ($params['on_page']))
-            $params['on_page'] = $config['PRODUCTS_PER_PAGE'];
+        if(!isset ($params['limit']))
+            $params['limit'] = $config['PRODUCTS_PER_PAGE'];
 
         if(!isset ($params['page']))
             $params['page'] = 1;
@@ -234,7 +234,7 @@ function smarty_function_content_listing($params, $template)
                 $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
             }
             else{
-                $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => $params['on_page'],'page' => $params['page'], 'order' => array('Content.order ASC')));
+                $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => $params['limit'],'page' => $params['page'], 'order' => array('Content.order ASC')));
                 $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
             }
         }
@@ -306,7 +306,7 @@ function smarty_function_content_listing($params, $template)
         
         // Calculating the number of pages
          if(strpos($params['type'],'product') !== false){
-             $vars['pages_number'] = ceil($content_total/$params['on_page']);
+             $vars['pages_number'] = ceil($content_total/$params['limit']);
          }
          
 	if($config['GD_LIBRARY'] == 0)
@@ -338,7 +338,7 @@ function smarty_help_function_content_listing() {
 		<li><em><?php echo __('(parent)') ?></em> - <?php echo __('The parent of the content items to be shown. Accepts an alias or id, defaults to 0.') ?></li>
 		<li><em><?php echo __('(template)') ?></em> - <?php echo __('Useful if you want to override the default content listing template. Setting this will utilize the template that matches this alias.') ?></li>
 		<li><em><?php echo __('(page)') ?></em> - <?php echo __('Current page.') ?></li>
-		<li><em><?php echo __('(on_page)') ?></em> - <?php echo __('Items per page.') ?></li>
+		<li><em><?php echo __('(limit)') ?></em> - <?php echo __('Items per page.') ?></li>
 	</ul>
 	<?php
 }

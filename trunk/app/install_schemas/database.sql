@@ -35,24 +35,25 @@ CREATE TABLE `configurations` (
 
 INSERT INTO `configurations` (`id`, `configuration_group_id`, `key`, `value`, `type`, `options`, `name`, `description`, `sort_order`) VALUES 
 (1,'1','SITE_NAME', 'VamCart','text', '', 'Site Name','','1'),
-(2,'1','TELEPHONE', '','text', '', 'Telephone','','2'),
-(3,'1','FACEBOOK', '','text', '', 'Facebook','','3'),
-(4,'1','TWITTER', '','text', '', 'Twitter','','4'),
-(5,'1','METADATA', '<meta name="generator" content="Bluefish 2.2.2" />','textarea', '', 'Metadata','','5'),
-(6,'1','URL_EXTENSION', '.html','text', '', 'URL Extension','','6'),
-(7,'1','GD_LIBRARY', '1','select', '0,1', 'GD Library Enabled','','7'),
-(8,'1','THUMBNAIL_SIZE', '470','text', '', 'Image Thumbnail Size','','8'),
-(9,'1','GOOGLE_ANALYTICS', '','text', '', 'Google Analytics ID','','9'),
-(10,'1','YANDEX_METRIKA', '','text', '', 'Yandex.Metrika ID','','10'),
-(11,'1','PRODUCTS_PER_PAGE', '20','text', '', 'Products Per Page','','11'),
-(12,'2','CACHE_TIME', '3600','text', '', 'Cache Time in Seconds','','12'),
-(13,'3','SEND_EXTRA_EMAIL', 'vam@test.com','text', '', 'Send extra order emails to','','13'),
-(14,'3','NEW_ORDER_FROM_EMAIL', 'vam@test.com','text', '', 'New Order: From','','14'),
-(15,'3','NEW_ORDER_FROM_NAME', 'VamCart','text', '', 'New Order: From Name','','15'),
-(16,'3','NEW_ORDER_STATUS_FROM_EMAIL', 'vam@test.com','text', '', 'New Order Status: From','','16'),
-(17,'3','NEW_ORDER_STATUS_FROM_NAME', 'VamCart','text', '', 'New Order Status: From Name','','17'),
-(18,'3','SEND_CONTACT_US_EMAIL', 'vam@test.com','text', '', 'Send contact us emails to','','18'),
-(19,'1','AJAX_ENABLE', '0', 'select', '0,1', 'Ajax Enable', '', '19');
+(2,'1','TELEPHONE', '+1 800 123-45-67','text', '', 'Telephone','','2'),
+(3,'1','FACEBOOK', 'http://facebook.com/your-account','text', '', 'Facebook','','3'),
+(4,'1','TWITTER', 'http://twitter.com/your-account','text', '', 'Twitter','','4'),
+(5,'1','GOOGLE', 'http://plus.google.com/your-account','text', '', 'Google+','','5'),
+(6,'1','METADATA', '<meta name="generator" content="Bluefish 2.2.2" />','textarea', '', 'Metadata','','6'),
+(7,'1','URL_EXTENSION', '.html','text', '', 'URL Extension','','7'),
+(8,'1','GD_LIBRARY', '1','select', '0,1', 'GD Library Enabled','','8'),
+(9,'1','THUMBNAIL_SIZE', '470','text', '', 'Image Thumbnail Size','','9'),
+(10,'1','GOOGLE_ANALYTICS', '','text', '', 'Google Analytics ID','','10'),
+(11,'1','YANDEX_METRIKA', '','text', '', 'Yandex.Metrika ID','','11'),
+(12,'1','PRODUCTS_PER_PAGE', '20','text', '', 'Products Per Page','','12'),
+(13,'2','CACHE_TIME', '3600','text', '', 'Cache Time in Seconds','','13'),
+(14,'3','SEND_EXTRA_EMAIL', 'vam@test.com','text', '', 'Send extra order emails to','','14'),
+(15,'3','NEW_ORDER_FROM_EMAIL', 'vam@test.com','text', '', 'New Order: From','','15'),
+(16,'3','NEW_ORDER_FROM_NAME', 'VamCart','text', '', 'New Order: From Name','','16'),
+(17,'3','NEW_ORDER_STATUS_FROM_EMAIL', 'vam@test.com','text', '', 'New Order Status: From','','17'),
+(18,'3','NEW_ORDER_STATUS_FROM_NAME', 'VamCart','text', '', 'New Order Status: From Name','','18'),
+(19,'3','SEND_CONTACT_US_EMAIL', 'vam@test.com','text', '', 'Send contact us emails to','','19'),
+(20,'1','AJAX_ENABLE', '0', 'select', '0,1', 'Ajax Enable', '', '20');
 
 DROP TABLE IF EXISTS contents;
 CREATE TABLE `contents` (
