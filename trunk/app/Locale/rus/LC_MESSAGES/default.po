@@ -1227,7 +1227,6 @@ msgstr "Таблица тарифов"
 #: /vendors/smarty/vam_plugins/function.purchase_button.php:29
 #: /vendors/smarty/vam_plugins/function.repeat.php:29
 #: /vendors/smarty/vam_plugins/function.shopping_cart.php:116
-#: /vendors/smarty/vam_plugins/function.site_name.php:32
 #: /vendors/smarty/vam_plugins/function.stylesheet.php:52
 #: /vendors/smarty/vam_plugins/function.user_tag.php:33
 msgid "What does this tag do?"
@@ -1276,7 +1275,6 @@ msgstr "Выводит значение строки между тэгами н�
 #: /vendors/smarty/vam_plugins/function.purchase_button.php:31
 #: /vendors/smarty/vam_plugins/function.repeat.php:31
 #: /vendors/smarty/vam_plugins/function.shopping_cart.php:118
-#: /vendors/smarty/vam_plugins/function.site_name.php:34
 #: /vendors/smarty/vam_plugins/function.stylesheet.php:54
 #: /vendors/smarty/vam_plugins/function.user_tag.php:35
 msgid "How do I use it?"
@@ -1297,7 +1295,6 @@ msgstr "Как использовать данный тэг?"
 #: /vendors/smarty/vam_plugins/function.page_name.php:35
 #: /vendors/smarty/vam_plugins/function.product_price.php:38
 #: /vendors/smarty/vam_plugins/function.repeat.php:32
-#: /vendors/smarty/vam_plugins/function.site_name.php:35
 #: /vendors/smarty/vam_plugins/function.user_tag.php:36
 msgid "Just insert the tag into your template like:"
 msgstr "Просто вставьте тэг в шаблон, к примеру:"
@@ -1360,7 +1357,6 @@ msgstr "Ссылка будет видна только если Вы вошли
 #: /vendors/smarty/vam_plugins/function.purchase_button.php:33
 #: /vendors/smarty/vam_plugins/function.repeat.php:33
 #: /vendors/smarty/vam_plugins/function.shopping_cart.php:120
-#: /vendors/smarty/vam_plugins/function.site_name.php:36
 #: /vendors/smarty/vam_plugins/function.stylesheet.php:56
 #: /vendors/smarty/vam_plugins/function.user_tag.php:37
 msgid "What parameters does it take?"
@@ -1662,10 +1658,6 @@ msgstr "(showempty)"
 #: /vendors/smarty/vam_plugins/function.shopping_cart.php:123
 msgid "(true or false) If set to false does not display the cart if the user has not added any items.  Defaults to false."
 msgstr "(true или false) Если установлено в false, то корзина не будет показываться до тех пор пока не будет добавлен в корзину хотя бы один товар. Значение по умолчанию: false."
-
-#: /vendors/smarty/vam_plugins/function.site_name.php:33
-msgid "Displays the site name."
-msgstr "Показывает название магазина."
 
 #: /vendors/smarty/vam_plugins/function.stylesheet.php:53
 msgid "Gets stylesheet information from the system. By default, it grabs all of the stylesheets attached to the current template."
