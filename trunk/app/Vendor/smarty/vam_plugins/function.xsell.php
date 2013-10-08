@@ -111,7 +111,7 @@ function smarty_function_xsell($params, &$smarty)
 		$product = $Content->ContentDescription->find('first', array('conditions' => array('content_id' => $content['ContentRelations'][$key]['id'], 
 									       'ContentDescription.language_id' => $language_id)));
 		$content['ContentRelations'][$key]['name'] = $product['ContentDescription']['name'];
-		$content['ContentRelations'][$key]['button'] = '<button class="btn" type="submit" value="'. __('Add To Cart', true) .'"><i class="cus-cart-add"></i> '. __('Add To Cart', true) .'</button>';
+		$content['ContentRelations'][$key]['description'] = $product['ContentDescription']['description'];
 	}
 
 	$assignments = array('relations' => $content['ContentRelations'],
