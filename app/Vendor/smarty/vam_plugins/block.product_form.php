@@ -15,7 +15,7 @@ function smarty_block_product_form($params, $product_form, $template, &$repeat)
 
 	global $content;
 
-	$output = '<form method="post" action="' . BASE . '/cart/purchase_product/">
+	$output = '<form class="form-inline" method="post" action="' . BASE . '/cart/purchase_product/">
 			<input type="hidden" name="product_id" value="' . $content['Content']['id'] . '">';
 	$output .= $product_form;
 	$output .= '</form>';
