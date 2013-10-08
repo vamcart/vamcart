@@ -9,35 +9,44 @@
 function default_template_xsell()
 {
     $template = '
-<div id="xsell">
-	<div id="xsell-title"><h1>{lang}Also purchased{/lang}:</h1></div>
-	{foreach from=$relations item=xsell_product}
-		<dl class="xsell-product">
-			<dt class="xsell-product-name">{$xsell_product.name}</dt>
-			{if sizeof($xsell_product.image) > 0 }
-			<dt class="xsell-product-image>
-			{if $thumbnail == "true"}
-				<a href="{$xsell_product.image.image_path}" class="zoom" rel="group" title="{$xsell_product.image.image}"><img src="{$xsell_product.image.image_thumb}" alt="{$xsell_product.image.image}" /></a>
-			{else}
-				<img src="{$xsell_product.image.image_path}" width="{$thumbnail_size}" alt="{$xsell_product.image.image}" />
-			{/if}
-			</dt>
-			{else}
+<div class="row-fluid">
+	<h3>{lang}Also purchased{/lang}</h3>
+</div>
+
+<div class="row-fluid shop-products">
+	<ul class="thumbnails">
+		{foreach from=$relations item=node}
+      <li class="item span4 {if $node@index is div by 3}first{/if}">
+			<div class="thumbnail">
+
+				{if sizeof($node.image) > 0 }
 				{if $thumbnail == "true"}
-					<li><img src="{$noimg_thumb}" alt="{lang}No Image{/lang}" /></li>
+				<a href="{$node.url}"><img src="{$node.image.image_thumb}" alt="{$node.image.image}" /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
 				{else}
-					<li><img src="{$noimg_path}" width="{$thumbnail_size}" alt="{lang}No Image{/lang}" /></li>
+				<a href="{$node.url}"><img src="{$node_product.image.image_path}" width="{$thumbnail_size}" alt="{$node.image.image}" /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
 				{/if}
-			{/if}
-			<dl class="pricing"><b>{$xsell_product.price}</b></dl>
-			<form method="post" action="/cart/purchase_product/">
-				<input name="product_id" type="hidden" value="{$xsell_product.id}" />
-				<input name="product_quantity" type="hidden" value="1" />
-				{$xsell_product.button}
-			</form>
-		</dl>
-	{/foreach}
-	<br style="clear: both" />
+				{else}
+				{if $thumbnail == "true"}
+				<a href="{$node.url}"><img src="{$noimg_thumb}" alt="{lang}No Image{/lang}" /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
+				{else}
+				<a href="{$node.url}"><img src="{$noimg_path}" width="{$thumbnail_size}" alt="{lang}No Image{/lang}" /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
+				{/if}
+				{/if}
+				
+			<div class="inner notop nobottom">
+				<h4 class="title">{$node.name}</h4>
+				<p class="description">{$node.description|strip_tags|truncate:30:"...":true}</p>
+              </div>
+			</div>
+			<form method="post" action="{base_path}/cart/purchase_product/"><input type="hidden" name="product_id" value="{$node.id}"><input id="product_quantity" name="product_quantity" type="hidden" value="1" size="3" />
+			<div class="inner darken notop">
+              <a href="{$node.url}" class="btn btn-add-to-cart" data-original-title="{lang}Details{/lang}" data-placement="top" rel="tooltip"><i class="icon-eye-open"></i></a>
+              <button class="btn btn-add-to-cart" type="submit" value="{lang}Add to cart{/lang}" data-original-title="{lang}Add to cart{/lang}" data-placement="top" rel="tooltip"><i class="icon-shopping-cart"></i></button>
+			</div>
+            </form>
+		</li>
+		{/foreach}
+	</ul>
 </div>
 ';
     return $template;
@@ -95,7 +104,9 @@ function smarty_function_xsell($params, &$smarty)
 		}
 		
 		$product = $Content->find('first', array('conditions' => array('Content.id' => $content['ContentRelations'][$key]['id'])));
+		$content['ContentRelations'][$key]['id'] = $content['ContentRelations'][$key]['id'];
 		$content['ContentRelations'][$key]['price'] = $CurrencyBase->display_price($product['ContentProduct']['price']);
+		$content['ContentRelations'][$key]['url'] = BASE . '/' . $product['ContentType']['name'] . '/' . $product['Content']['alias'] . $config['URL_EXTENSION'];
 
 		$product = $Content->ContentDescription->find('first', array('conditions' => array('content_id' => $content['ContentRelations'][$key]['id'], 
 									       'ContentDescription.language_id' => $language_id)));

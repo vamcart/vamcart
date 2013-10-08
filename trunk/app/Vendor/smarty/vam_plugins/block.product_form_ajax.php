@@ -15,7 +15,7 @@ function smarty_block_product_form_ajax($params, $product_form, $template, &$rep
 
 	global $content;
 
-	$output = '<form name ="product-form" id="product-form" method="post" action="' . BASE . '/cart/purchase_product/" onsubmit="onProductFormSubmit(); return false;">
+	$output = '<form class="form-inline" name ="product-form" id="product-form" method="post" action="' . BASE . '/cart/purchase_product/" onsubmit="onProductFormSubmit(); return false;">
 			<input type="hidden" name="product_id" value="' . $content['Content']['id'] . '">';
 	$output .= $product_form;
 	$output .= '</form>';
