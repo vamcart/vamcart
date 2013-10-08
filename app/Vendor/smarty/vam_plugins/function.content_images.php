@@ -2,7 +2,7 @@
 /* -----------------------------------------------------------------------------------------
    VamCart - http://vamcart.com
    -----------------------------------------------------------------------------------------
-   Copyright (c) 2011 VamSoft Ltd.
+   Copyright (c) 2013 VamSoft Ltd.
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
@@ -18,9 +18,9 @@ $template = '
 		<div class="span4 thumbnail">
 {/if}
 			{if $thumbnail == "true"}
-			<a href="{$image.image_path}" class="image" rel="prettyPhoto[product]"><img src="{$image.image_thumb}" alt="{$image.image}" title="{$image.image}" />
+			<a href="{$image.image_path}" class="image" rel="prettyPhoto[product]"><img src="{$image.image_thumb}" alt="{$image.name}" title="{$image.name}" />
 			{else}
-			<img src="{$image.image_path}" width="{$thumbnail_size}" alt="{$image.image}" title="{$image.image}" />
+			<img src="{$image.image_path}" width="{$thumbnail_size}" alt="{$image.name}" title="{$image.name}" />
 			{/if}
 			<span class="frame-overlay"></span>
 			<span class="zoom"><i class="icon-zoom-in"></i></span>
@@ -86,6 +86,7 @@ function smarty_function_content_images($params, $template)
 	{
 		$content_id = $content['Content']['id'];
 		$keyed_images[$key] = $value['ContentImage'];
+		$keyed_images[$key]['name'] = $content['ContentDescription']['name'];
 		$keyed_images[$key]['image_path'] = BASE . '/img/content/' . $content_id . '/' . $value['ContentImage']['image'];
 		$keyed_images[$key]['image_thumb'] = BASE . '/images/thumb?src=/content/' . $content_id . '/' . $value['ContentImage']['image'] . '&w=' . $params['width'];
 	}	
