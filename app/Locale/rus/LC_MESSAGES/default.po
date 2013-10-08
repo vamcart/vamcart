@@ -1223,8 +1223,6 @@ msgstr "Таблица тарифов"
 #: /vendors/smarty/vam_plugins/function.payment.php:63
 #: /vendors/smarty/vam_plugins/function.payment_content.php:43
 #: /vendors/smarty/vam_plugins/function.product_price.php:35
-#: /vendors/smarty/vam_plugins/function.product_quantity.php:57
-#: /vendors/smarty/vam_plugins/function.purchase_button.php:29
 #: /vendors/smarty/vam_plugins/function.repeat.php:29
 #: /vendors/smarty/vam_plugins/function.shopping_cart.php:116
 #: /vendors/smarty/vam_plugins/function.stylesheet.php:52
@@ -1271,8 +1269,6 @@ msgstr "Выводит значение строки между тэгами н�
 #: /vendors/smarty/vam_plugins/function.payment.php:65
 #: /vendors/smarty/vam_plugins/function.payment_content.php:45
 #: /vendors/smarty/vam_plugins/function.product_price.php:37
-#: /vendors/smarty/vam_plugins/function.product_quantity.php:59
-#: /vendors/smarty/vam_plugins/function.purchase_button.php:31
 #: /vendors/smarty/vam_plugins/function.repeat.php:31
 #: /vendors/smarty/vam_plugins/function.shopping_cart.php:118
 #: /vendors/smarty/vam_plugins/function.stylesheet.php:54
@@ -1353,8 +1349,6 @@ msgstr "Ссылка будет видна только если Вы вошли
 #: /vendors/smarty/vam_plugins/function.payment.php:67
 #: /vendors/smarty/vam_plugins/function.payment_content.php:47
 #: /vendors/smarty/vam_plugins/function.product_price.php:39
-#: /vendors/smarty/vam_plugins/function.product_quantity.php:61
-#: /vendors/smarty/vam_plugins/function.purchase_button.php:33
 #: /vendors/smarty/vam_plugins/function.repeat.php:33
 #: /vendors/smarty/vam_plugins/function.shopping_cart.php:120
 #: /vendors/smarty/vam_plugins/function.stylesheet.php:56
@@ -1593,31 +1587,6 @@ msgstr "Вы должны использовать данный тэг на ст
 #: /vendors/smarty/vam_plugins/function.product_price.php:36
 msgid "Displays the product price for the current content."
 msgstr "Показывает стоимость товара в текущей странице."
-
-#: /vendors/smarty/vam_plugins/function.product_quantity.php:58
-msgid "Creates a product quantity box."
-msgstr "Создаёт поле количество."
-
-#: /vendors/smarty/vam_plugins/function.product_quantity.php:60
-#: /vendors/smarty/vam_plugins/function.purchase_button.php:32
-msgid "Just insert the tag into your product_info template like:"
-msgstr "Просто вставляйте данный тэг в шаблон страницы карточки товара, например: "
-
-#: /vendors/smarty/vam_plugins/function.purchase_button.php:16
-msgid "Add To Cart"
-msgstr "Добавить в корзину"
-
-#: /vendors/smarty/vam_plugins/function.purchase_button.php:30
-msgid "Creates a purchase button for the product."
-msgstr "Создаёт кнопку купить."
-
-#: /vendors/smarty/vam_plugins/function.purchase_button.php:35
-msgid "(product_id)"
-msgstr "(product_id)"
-
-#: /vendors/smarty/vam_plugins/function.purchase_button.php:35
-msgid "Overrides the current global content_id. Useful if you want to place a purchase button in product listing pages."
-msgstr "Перезаписывает текущее значение content_id. Полезно в случае если Вы хотите вставить кнопку купить на страницу списка товара."
 
 #: /vendors/smarty/vam_plugins/function.repeat.php:30
 msgid "Repeats a given string a certain number of times."
