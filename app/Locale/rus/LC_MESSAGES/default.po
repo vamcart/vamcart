@@ -1474,8 +1474,8 @@ msgid "Current page."
 msgstr "Текущая страница."
 
 #: /vendors/smarty/vam_plugins/function.content_listing.php:182
-msgid "(on_page)"
-msgstr "(on_page)"
+msgid "(limit)"
+msgstr "(limit)"
 
 #: /vendors/smarty/vam_plugins/function.content_listing.php:183
 msgid "Items per page."
@@ -1797,6 +1797,10 @@ msgstr "Facebook"
 #: /views/configuration/admin_edit.ctp:28
 msgid "Twitter"
 msgstr "Twitter"
+
+#: /views/configuration/admin_edit.ctp:28
+msgid "Google+"
+msgstr "Google+"
 
 #: /views/configuration/admin_edit.ctp:29
 msgid "Metadata"
