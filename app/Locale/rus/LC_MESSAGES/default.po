@@ -3562,7 +3562,7 @@ msgstr "Поиск заказов"
 
 #: /vendors/smarty/vam_plugins/function.downloadable_prices.php:36
 msgid "Displays the product prices for the current content."
-msgstr "Показывает стоимость товара в текущей странице."
+msgstr "Показывает стоимость товара."
 
 #: /app/controllers/download_controller.php:49
 msgid "Last allowed download date is reached."
@@ -3927,3 +3927,7 @@ msgstr "Страны активированы."
 #: /app/controllers/CountriesController.php:229
 msgid "You have inactivated multiple countries."
 msgstr "Страны деактивированы."
+
+#: /vendors/smarty/vam_plugins/function.config.php:33
+msgid "Displays the configuration values."
+msgstr "Показывает настройки магазина."
