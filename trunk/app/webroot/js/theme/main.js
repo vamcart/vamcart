@@ -131,7 +131,7 @@ $(document).ready(function(){
     // -----------------------------------------------------------------------------
     (function() {
 		var $menu = $('.navbar-inner ul.nav'),
-			optionsList = '<option value="" selected>Menu...</option>';
+			optionsList = '<option value="" selected>...</option>';
 		$menu.find('li').each(function() {
 			var $this   = $(this),
 				$anchor = $this.children('a'),
@@ -144,7 +144,7 @@ $(document).ready(function(){
 				}
 			}
 			optionsList += '<option value="' + $anchor.attr('href') + '">' + indent + ' ' + $anchor.text() + '</option>';
-		}).end().after('<div class="res-menu-wrap"><select class="res-menu">' + optionsList + '</select><div class="res-menu-title">Menu</div></div>');
+		}).end().after('<div class="res-menu-wrap"><select class="res-menu">' + optionsList + '</select><div class="res-menu-title"></div></div>');
 
 		$('.res-menu').on('change', function() {
 			window.location = $(this).val();
