@@ -9,23 +9,42 @@
 function default_template_content_images()
 {
 $template = '
-<ul class="content_images">
-	{foreach from=$images item=image}		
-		<li>
+<div class="span6 product-images">
+{foreach from=$images item=image}
+{if $image@first}
+	<div class="thumbnail big">
+{/if}
+{if $image@index > 0}
+		<div class="span4 thumbnail">
+{/if}
 			{if $thumbnail == "true"}
-				<a href="{$image.image_path}" class="zoom" rel="group" title="{$image.image}"><img src="{$image.image_thumb}" alt="{$image.image}" /></a>	
+			<a href="{$image.image_path}" class="image" rel="prettyPhoto[product]"><img src="{$image.image_thumb}" alt="{$image.image}" title="{$image.image}" />
 			{else}
-				<img src="{$image.image_path}" width="{$thumbnail_size}" alt="{$image.image}" />			
+			<img src="{$image.image_path}" width="{$thumbnail_size}" alt="{$image.image}" title="{$image.image}" />
 			{/if}
-		</li>			
-	{foreachelse}	
-		{if $thumbnail == "true"}
-			<li><img src="{$noimg_thumb}" alt="{lang}No Image{/lang}" /></li>
-		{else}
-			<li><img src="{$noimg_path}" width="{$thumbnail_size}" alt="{lang}No Image{/lang}" /></li>
-		{/if}		
-	{/foreach}				
-</ul>
+			<span class="frame-overlay"></span>
+			<span class="zoom"><i class="icon-zoom-in"></i></span>
+			{if $thumbnail == "true"}
+			</a>
+			{/if}
+{if $image@index > 0}
+		</div>
+{/if}
+{if $image@first}
+	</div>
+	<div class="row-fluid small">
+{/if}
+{if $image@last}
+	</div>
+{/if}
+{foreachelse}   
+			{if $thumbnail == "true"}
+			<img src="{$noimg_thumb}" alt="{lang}No Image{/lang}" title="{lang}No Image{/lang}" />
+			{else}
+			<img src="{$noimg_path}" width="{$thumbnail_size}" alt="{lang}No Image{/lang}" title="{lang}No Image{/lang}" />
+			{/if}           
+{/foreach}    
+</div>
 ';		
 
 return $template;
