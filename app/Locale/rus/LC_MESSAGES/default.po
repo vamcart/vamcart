@@ -1786,6 +1786,18 @@ msgstr "Настройка email"
 msgid "Site Name"
 msgstr "Название магазина"
 
+#: /views/configuration/admin_edit.ctp:28
+msgid "Telephone"
+msgstr "Телефон"
+
+#: /views/configuration/admin_edit.ctp:28
+msgid "Facebook"
+msgstr "Facebook"
+
+#: /views/configuration/admin_edit.ctp:28
+msgid "Twitter"
+msgstr "Twitter"
+
 #: /views/configuration/admin_edit.ctp:29
 msgid "Metadata"
 msgstr "Мета тэги"
