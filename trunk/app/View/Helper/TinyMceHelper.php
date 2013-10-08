@@ -31,6 +31,7 @@ class TinyMceHelper extends Helper {
 					toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
 					autosave_ask_before_unload: false,
 					max_height: 200,
+					forced_root_block : false,
 					min_height: 160,
 					height : 180,
 					convert_urls : false,
