@@ -126,10 +126,6 @@ function smarty_function_content_listing($params, $template)
                     'className' => 'Attribute'
 					))));
 
-
-        if(!isset ($params['limit']))
-            $params['limit'] = $config['PRODUCTS_PER_PAGE'];
-
         if(!isset ($params['page']))
             $params['page'] = 1;
 
@@ -230,16 +226,21 @@ function smarty_function_content_listing($params, $template)
             $content_list_data_conditions = array_merge($content_list_data_conditions,$next_flt);
         }
             if($params['page'] == 'all'){          
+
                 $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'order' => array('Content.order ASC')));
                 $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
             }
             else{
+            	
+	  	        if(!isset ($params['limit']))
+   	         $params['limit'] = $config['PRODUCTS_PER_PAGE'];
+            
                 $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => $params['limit'],'page' => $params['page'], 'order' => array('Content.order ASC')));
                 $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
             }
         }
         else{
-            $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'order' => array('Content.order ASC')));
+            $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => $params['limit'], 'order' => array('Content.order ASC')));
         }
 	
 	// Loop through the content list and create a new array with only what the template needs
