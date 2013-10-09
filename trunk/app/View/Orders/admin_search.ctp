@@ -26,7 +26,7 @@ foreach ($data AS $order)
 				$this->Html->link($order['Order']['bill_name'],'/orders/admin_view/' . $order['Order']['id']),
 				$order['Order']['id'],
 				$order['Order']['total'],
-				$this->Time->i18nFormat($order['Order']['created'],'%d %b %Y'),
+				$this->Time->i18nFormat($order['Order']['created']),
 				$order['OrderStatus']['OrderStatusDescription'][0]['name'],
 				array($this->Admin->ActionButton('view','/orders/admin_view/' . $order['Order']['id'],__('View')) . $this->Admin->ActionButton('delete','/orders/admin_delete/' . $order['Order']['id'],__('Delete')), array('align'=>'center'))
 		   ));
