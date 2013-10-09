@@ -1,6 +1,6 @@
 {if $reviews}
 <div class="row-fluid reviews-title">
-	<div class="span8 title"><h3>{lang}Reviews{/lang}: {$total}.</h3></div>
+	<div class="span8 title"><h3>{lang}Reviews{/lang}: {$total}</h3></div>
 </div>
 
 {foreach from=$reviews item=review}
