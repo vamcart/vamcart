@@ -30,7 +30,7 @@ function smarty_function_downloadable_prices($params, &$smarty)
 	}
 
 	$stock = 'full';
-	$stock_text = $content['ContentDownloadable']['stock'] . ' ' . __('available', true);
+	$stock_text = __('Available', true) . ': ' . $content['ContentDownloadable']['stock'] . ' ';
 
 	echo '<p class="left"><img src="/img/icons/stock/'.$stock.'.png" title="'.$stock_text.'" class="stock_image" /><br /><br />';
 
