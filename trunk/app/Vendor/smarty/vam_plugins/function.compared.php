@@ -9,33 +9,38 @@
 function default_template_compared()
 {
 $template = '
-<div>
-	<table class="contentTable">
-	<tbody>
-	<tr>
-		<th>{lang}Comparison{/lang}</th>
-		{foreach from=$element_list[0]["attributes_product"] item=product}
-			<th>
-			{$product.name_product}
-			</th>
-		{/foreach}
-        </tr>   
-	{foreach from=$element_list item=attribute}
-		<tr>
-	       	<td>{$attribute.name_attribute}</td>
-		{foreach from=$attribute["attributes_product"] item=product}
-			<td>
-               	        {value_filter template=$attribute["template_attribute"] id_attribute=$attribute["id_attribute"] 
-                                                                               name_attribute=$attribute["name_attribute"] 
-                                                                               values_attribute=$product["values_attribute"]}
-			</td>
-		{/foreach}
-		</tr>
-	{/foreach}
-	</tr>
-	</tbody>
-	</table>
-</div>
+<!-- start: Page section -->
+	<section class="span9 page-sidebar pull-right">
+		<h2>{page_name}</h2>  
+
+			<table class="contentTable">
+			<tbody>
+			<tr>
+				<th>{lang}Comparison{/lang}</th>
+				{foreach from=$element_list[0]["attributes_product"] item=product}
+					<th>
+					{$product.name_product}
+					</th>
+				{/foreach}
+		        </tr>   
+			{foreach from=$element_list item=attribute}
+				<tr>
+			       	<td>{$attribute.name_attribute}</td>
+				{foreach from=$attribute["attributes_product"] item=product}
+					<td>
+		               	        {value_filter template=$attribute["template_attribute"] id_attribute=$attribute["id_attribute"] 
+		                                                                               name_attribute=$attribute["name_attribute"] 
+		                                                                               values_attribute=$product["values_attribute"]}
+					</td>
+				{/foreach}
+				</tr>
+			{/foreach}
+			</tr>
+			</tbody>
+			</table>
+
+	</section>
+<!-- end: Page section -->
 ';
 return $template;
 }
