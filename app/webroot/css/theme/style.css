@@ -3554,6 +3554,7 @@ hr.transparent {
 .shop-products .thumbnail {
   border: none;
   padding: 0;
+  margin-bottom: 15px;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -3980,6 +3981,7 @@ hr.transparent {
 .featured-products .thumbnail {
   border: none;
   padding: 0;
+  margin-bottom: 15px;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -4151,7 +4153,7 @@ hr.transparent {
 }
 .featured-categories .thumbnail {
   border: solid 1px #eeeeee;
-  margin-bottom: 0;
+  margin-bottom: 15px;
   padding: 0;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
