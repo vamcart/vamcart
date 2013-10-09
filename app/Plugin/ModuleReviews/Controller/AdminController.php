@@ -8,7 +8,7 @@
 App::uses('ModuleReviewsAppController', 'ModuleReviews.Controller');
 
 class AdminController extends ModuleReviewsAppController {
-	var $uses = array('ModuleReview');
+	var $uses = array('ModuleReviews.ModuleReview');
 	var $helpers = array('Time','Admin');
 	
 	function admin_delete ($id)

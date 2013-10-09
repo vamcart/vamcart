@@ -8,6 +8,6 @@
 
 class ModuleReview extends AppModel {
 	var $name = 'ModuleReview';
-	var $belongsTo = array('Content');
+	//var $belongsTo = array('Content');
 }
 ?>
