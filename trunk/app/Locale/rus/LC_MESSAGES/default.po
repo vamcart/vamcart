@@ -1586,7 +1586,11 @@ msgstr "Вы должны использовать данный тэг на ст
 
 #: /vendors/smarty/vam_plugins/function.product_price.php:36
 msgid "Displays the product price for the current content."
-msgstr "Показывает стоимость товара в текущей странице."
+msgstr "Показывает стоимость товара."
+
+#: /vendors/smarty/vam_plugins/function.product_price.php:36
+msgid "Displays the product price for the current downloadable content."
+msgstr "Показывает стоимость скачиваемого товара."
 
 #: /vendors/smarty/vam_plugins/function.repeat.php:30
 msgid "Repeats a given string a certain number of times."
