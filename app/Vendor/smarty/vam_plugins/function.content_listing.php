@@ -284,7 +284,7 @@ function smarty_function_content_listing($params, $template)
 			if($config['GD_LIBRARY'] == 0)
 				$content_list[$count]['image'] =  BASE . '/img/' . $image_url;
 			else
-				$content_list[$count]['image'] = BASE . '/images/thumb?src=/' . $image_url . '&w=' . $config['THUMBNAIL_SIZE'];
+				$content_list[$count]['image'] = BASE . '/images/thumb?src=/' . $image_url . '&amp;w=' . $config['THUMBNAIL_SIZE'];
 			
 			if($raw_data['ContentType']['name'] == 'link')
 			{

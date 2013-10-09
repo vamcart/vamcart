@@ -99,11 +99,11 @@ function smarty_function_shopping_cart($params, $template)
 		if ($content_image != '') {
 			$image['image'] = true;
 			$image['image_path'] = BASE . '/img/content/' . $content_id . '/' . $content_image;
-			$image['image_thumb'] = BASE . '/images/thumb?src=/content/' . $content_id . '/' . $content_image . '&w=40&h=40';
+			$image['image_thumb'] = BASE . '/images/thumb?src=/content/' . $content_id . '/' . $content_image . '&amp;w=40&amp;h=40';
 		} else {
 			$image['image'] = false;
 			$image['image_path'] = BASE . '/img/noimage.png';
-			$image['image_thumb'] = BASE . '/images/thumb?src=/noimage.png&w=40&h=40';
+			$image['image_thumb'] = BASE . '/images/thumb?src=/noimage.png&amp;w=40&amp;h=40';
 		}
 		
 		$order_items[$content_id] = array(
