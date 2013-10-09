@@ -16,7 +16,7 @@ foreach ($reviews AS $review)
 	echo $this->Admin->TableCells(
 		  array(
 			$this->Html->link($review['ModuleReview']['name'],'/module_reviews/admin/admin_edit/' . $review['ModuleReview']['id']),
-			$this->Time->niceShort($review['ModuleReview']['created']),
+			$this->Time->i18nFormat($review['ModuleReview']['created'],'%d %b %Y'),
 			$this->Admin->ActionButton('edit','/module_reviews/admin/admin_edit/' . $review['ModuleReview']['id']) . $this->Admin->ActionButton('delete','/module_reviews/admin/admin_delete/' . $review['ModuleReview']['id'])
 		   ));
 }

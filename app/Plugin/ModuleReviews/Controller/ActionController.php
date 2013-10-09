@@ -100,7 +100,7 @@ class ActionController extends ModuleReviewsAppController {
 		foreach($reviews AS $review)
 		{
 			$col++;
-			$review['ModuleReview']['created'] = CakeTime::timeAgoInWords($review['ModuleReview']['created']);
+			$review['ModuleReview']['created'] = CakeTime::i18nFormat($review['ModuleReview']['created'],'%d %b %Y');
 			$assigned_reviews[] = $review['ModuleReview'];
 		}
 
