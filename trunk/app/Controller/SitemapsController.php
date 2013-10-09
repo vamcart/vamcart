@@ -186,7 +186,7 @@ class SitemapsController extends AppController {
 					if ($config['GD_LIBRARY'] == 0) {
 						$content_list_products[$count_products]['image'] =  BASE . '/img/' . $image_url;
 					} else {
-						$content_list_products[$count_products]['image'] = BASE . '/images/thumb?src=/' . $image_url . '&w=' . $config['THUMBNAIL_SIZE'];
+						$content_list_products[$count_products]['image'] = BASE . '/images/thumb?src=/' . $image_url . '&amp;w=' . $config['THUMBNAIL_SIZE'];
 					}
 
 					$count_products++;
