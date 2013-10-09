@@ -9,7 +9,7 @@
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-user-comment');
 
 echo '<table class="contentTable">';
-echo $this->Html->tableHeaders(array( __('Author'), __('Date'), __('Product'), __('Action')));
+echo $this->Html->tableHeaders(array( __('Author'), __('Date'), __('Action')));
 
 foreach ($reviews AS $review)
 {
@@ -17,7 +17,6 @@ foreach ($reviews AS $review)
 		  array(
 			$this->Html->link($review['ModuleReview']['name'],'/module_reviews/admin/admin_edit/' . $review['ModuleReview']['id']),
 			$this->Time->niceShort($review['ModuleReview']['created']),
-			$review['Content']['alias'],
 			$this->Admin->ActionButton('edit','/module_reviews/admin/admin_edit/' . $review['ModuleReview']['id']) . $this->Admin->ActionButton('delete','/module_reviews/admin/admin_delete/' . $review['ModuleReview']['id'])
 		   ));
 }
