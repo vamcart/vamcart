@@ -8,7 +8,7 @@
 
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 
-echo __('Date: ') . $this->Time->i18nFormat($data['ModuleReview']['created'],'%d %b %Y');
+echo __('Date: ') . $this->Time->i18nFormat($data['ModuleReview']['created']);
 echo '<br /><br />';
 echo __('Author: ') . $data['ModuleReview']['name'];
 echo '<br /><br />';
