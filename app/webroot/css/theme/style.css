@@ -3551,6 +3551,7 @@ hr.transparent {
 .shop-products .btn-add-to-cart:hover {
   background-color: #ff6633;
 }
+
 .shop-products .thumbnail {
   border: none;
   padding: 0;
@@ -5049,4 +5050,11 @@ select:focus {
 .last {
   margin-bottom: 0 !important;
   margin-right: 0 !important;
+}
+
+.content-data-row
+{
+overflow: hidden;	
+margin: 0;
+padding: 0;
 }

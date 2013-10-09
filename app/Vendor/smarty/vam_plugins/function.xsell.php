@@ -16,20 +16,21 @@ function default_template_xsell()
 <div class="row-fluid shop-products">
 	<ul class="thumbnails">
 		{foreach from=$relations item=node}
+		{if $node@index is div by 3}<div class="content-data-row">{/if}
       <li class="item span4 {if $node@index is div by 3}first{/if}">
 			<div class="thumbnail">
 
 				{if sizeof($node.image) > 0 }
 				{if $thumbnail == "true"}
-				<a href="{$node.url}"><img src="{$node.image.image_thumb}" alt="{$node.image.image}" /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
+				<a href="{$node.url}" class="image"><img src="{$node.image.image_thumb}" alt="{$node.image.image}" /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
 				{else}
-				<a href="{$node.url}"><img src="{$node_product.image.image_path}" width="{$thumbnail_size}" alt="{$node.image.image}" /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
+				<a href="{$node.url}" class="image"><img src="{$node_product.image.image_path}" width="{$thumbnail_size}" alt="{$node.image.image}" /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
 				{/if}
 				{else}
 				{if $thumbnail == "true"}
-				<a href="{$node.url}"><img src="{$noimg_thumb}" alt="{lang}No Image{/lang}" /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
+				<a href="{$node.url}" class="image"><img src="{$noimg_thumb}" alt="{lang}No Image{/lang}" /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
 				{else}
-				<a href="{$node.url}"><img src="{$noimg_path}" width="{$thumbnail_size}" alt="{lang}No Image{/lang}" /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
+				<a href="{$node.url}" class="image"><img src="{$noimg_path}" width="{$thumbnail_size}" alt="{lang}No Image{/lang}" /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
 				{/if}
 				{/if}
 				
@@ -45,6 +46,7 @@ function default_template_xsell()
 			</div>
             </form>
 		</li>
+		{if $node@iteration is div by 3}</div>{else}{if $node@last}</div>{/if}{/if}
 		{/foreach}
 	</ul>
 </div>
