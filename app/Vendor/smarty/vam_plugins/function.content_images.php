@@ -18,7 +18,7 @@ $template = '
 		<div class="span4 thumbnail">
 {/if}
 			{if $thumbnail == "true"}
-			<a href="{$image.image_path}" class="image" rel="prettyPhoto[product]"><img src="{$image.image_thumb}" alt="{$image.name}" title="{$image.name}" />
+			<a href="{$image.image_path}" class="lightbox" rel="group"><img src="{$image.image_thumb}" alt="{$image.name}" title="{$image.name}" />
 			{else}
 			<img src="{$image.image_path}" width="{$thumbnail_size}" alt="{$image.name}" title="{$image.name}" />
 			{/if}
