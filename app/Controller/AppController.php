@@ -36,7 +36,7 @@ class AppController extends Controller {
 	'Html', 
 	'Js', 
 	'Ajax', 
-	'Form' => array('className' => 'VamcartForm'), 	
+	'Form', 	
 	'Admin', 
 	'Session'
 	
