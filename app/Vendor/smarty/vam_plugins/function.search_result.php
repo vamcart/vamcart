@@ -152,6 +152,8 @@ function smarty_function_search_result($params, $template)
 		$content_list = array();
 		$count = 0;
 
+		$CurrencyBase =& new CurrencyBaseComponent(new ComponentCollection());
+	
 		foreach($content_list_data AS $raw_data) {
 			$content_list[$count]['name']   = $raw_data['ContentDescription']['name'];
 			$content_list[$count]['description']	= $raw_data['ContentDescription']['description'];
@@ -160,7 +162,7 @@ function smarty_function_search_result($params, $template)
 			$content_list[$count]['meta_keywords']	= $raw_data['ContentDescription']['meta_keywords'];
 			$content_list[$count]['id']	= $raw_data['Content']['id'];
 			$content_list[$count]['alias']  = $raw_data['Content']['alias'];
-			$content_list[$count]['price']  = $raw_data['ContentProduct']['price'];
+			$content_list[$count]['price']  = $CurrencyBase->display_price($raw_data['ContentProduct']['price']);
 			$content_list[$count]['stock']  = $raw_data['ContentProduct']['stock'];
 			$content_list[$count]['model']  = $raw_data['ContentProduct']['model'];
 			$content_list[$count]['weight'] = $raw_data['ContentProduct']['weight'];
