@@ -7,61 +7,65 @@
    ---------------------------------------------------------------------------------------*/
 function default_template_search_result()
 {
-$template = '<div>
- {if $pages_number > 1 || $page=="all"}
-    <div class="paginator">
-          <ul>
-            <li>{lang}Pages{/lang}:</li>
-            {for $pg=1 to $pages_number}
-            <li><a href="{base_path}/page/search-result{$ext}?page={$pg}&keyword={$keyword}" {if $pg == $page}class="current"{/if}>{$pg}</a></li>
-            {/for}
-            <li><a href="{base_path}/page/search-result{$ext}?page={$pg}&keyword={$keyword}" {if "all" == $page}class="current"{/if}>{lang}All{/lang}</a></li>
-          </ul>
-    </div>
-  {/if}  
-<ul class="listing">
+$template = '
+{if $content_list}
 
-{foreach from=$content_list item=node}
-	<li
-	{if $node.alias == $content_alias}
-		class="active"
-	{/if}
-	>
-	<div><a href="{$node.url}"><img src="{$node.image}" alt="{$node.name}" 
-	{if isset($thumbnail_width)}
-	 width="{$thumbnail_width}"
-	{/if}
-	/></a></div>
-	<div><a href="{$node.url}">{$node.name}</a></div></li>
-
-  <div>
-    {attribute_list value_attributes=$node.attributes}
-	</div>
-
-  {if isset($is_compare)}
-  <div><a class="btn" href="{base_path}/category/addcmp/{$node.alias}/{$content_alias->value}{$ext}"><i class="cus-add"></i> {lang}Add to compare{/lang}</a></div>
-	{/if}
-
-  {foreachelse}
-	<li class="no_items">{lang}No Items Found{/lang}</li>
-{/foreach}
-
-</ul>
-<div class="clear"></div> 
-
-  {if $pages_number > 1 || $page=="all"}
-    <div class="paginator">
-          <ul>
-            <li>{lang}Pages{/lang}:</li>
-            {for $pg=1 to $pages_number}
-            <li><a href="{base_path}/page/search-result{$ext}?page={$pg}&keyword={$keyword}" {if $pg == $page}class="current"{/if}>{$pg}</a></li>
-            {/for}
-            <li><a href="{base_path}/page/search-result{$ext}?page={$pg}&keyword={$keyword}" {if "all" == $page}class="current"{/if}>{lang}All{/lang}</a></li>
-          </ul>
-    </div>
-  {/if}  
-  
+{if $pages_number > 1 || $page=="all"}
+<!-- start: Pagination -->
+<div class="pagination pagination-centered">
+	<ul>
+		{for $pg=1 to $pages_number}
+		<li{if $pg == $page} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}">{$pg}</a></li>
+		{/for}
+		<li><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all" {if "all" == $page}class="current"{/if}>{lang}All{/lang}</a></li>
+	</ul>
 </div>
+<!-- end: Pagination -->
+{/if}  
+  
+<!-- start: products listing -->
+<div class="row-fluid shop-products">
+	<ul class="thumbnails">
+		{foreach from=$content_list item=node}
+        {if $node@index is div by 3}<div class="content-data-row">{/if}
+      <li class="item span4 {if $node@index is div by 3}first{/if}">
+			<div class="thumbnail">
+				<a href="{$node.url}" class="image"><img src="{$node.image}" alt="{$node.name}"{if isset($thumbnail_width)} width="{$thumbnail_width}"{/if} /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
+			<div class="inner notop nobottom">
+				<h4 class="title">{$node.name}</h4>
+				<p class="description">{$node.description|strip_tags|truncate:30:"...":true}</p>
+              </div>
+			</div>
+			<form method="post" action="{base_path}/cart/purchase_product/"><input type="hidden" name="product_id" value="{$node.id}"><input name="product_quantity" type="hidden" value="1" size="3" />
+			<div class="inner darken notop">
+              <a href="{$node.url}" class="btn btn-add-to-cart" data-original-title="{lang}Details{/lang}" data-placement="top" rel="tooltip"><i class="icon-eye-open"></i></a>
+              <button class="btn btn-add-to-cart" type="submit" value="{lang}Add to cart{/lang}" data-original-title="{lang}Add to cart{/lang}" data-placement="top" rel="tooltip"><i class="icon-shopping-cart"></i></button>
+              {if isset($is_compare)}<a href="{base_path}/category/addcmp/{$node.alias}/{$content_alias->value}{$ext}" class="btn btn-add-to-cart" data-original-title="{lang}Add to compare{/lang}" data-placement="top" rel="tooltip"><i class="icon-bookmark"></i></a>{/if}
+			</div>
+            </form>
+		</li>
+		{if $node@iteration is div by 3}</div>{else}{if $node@last}</div>{/if}{/if}
+		{/foreach}
+	</ul>
+<!-- end: products listing -->
+
+{if $pages_number > 1 || $page=="all"}
+<!-- start: Pagination -->
+<div class="pagination pagination-centered">
+	<ul>
+		{for $pg=1 to $pages_number}
+		<li{if $pg == $page} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}">{$pg}</a></li>
+		{/for}
+		<li><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all" {if "all" == $page}class="current"{/if}>{lang}All{/lang}</a></li>
+	</ul>
+</div>
+<!-- end: Pagination -->
+{/if}
+
+{else}
+{lang}No Items Found{/lang}
+
+{/if}
 ';		
 
 return $template;
@@ -150,6 +154,11 @@ function smarty_function_search_result($params, $template)
 
 		foreach($content_list_data AS $raw_data) {
 			$content_list[$count]['name']   = $raw_data['ContentDescription']['name'];
+			$content_list[$count]['description']	= $raw_data['ContentDescription']['description'];
+			$content_list[$count]['meta_title']	= $raw_data['ContentDescription']['meta_title'];
+			$content_list[$count]['meta_description']	= $raw_data['ContentDescription']['meta_description'];
+			$content_list[$count]['meta_keywords']	= $raw_data['ContentDescription']['meta_keywords'];
+			$content_list[$count]['id']	= $raw_data['Content']['id'];
 			$content_list[$count]['alias']  = $raw_data['Content']['alias'];
 			$content_list[$count]['price']  = $raw_data['ContentProduct']['price'];
 			$content_list[$count]['stock']  = $raw_data['ContentProduct']['stock'];

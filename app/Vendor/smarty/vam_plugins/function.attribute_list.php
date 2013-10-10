@@ -9,15 +9,17 @@
 function default_template_attribute_list()
 {
     $template = '
-                <div>
-                <ul>
                     {foreach from=$element_list item=element}
+                    {if $element@first}
+                    	<ul>
+                    {/if}
                         {value_filter template=$element["template_attribute"] id_attribute=$element["id_attribute"] 
                                                                               name_attribute=$element["name_attribute"] 
                                                                               values_attribute=$element["values_attribute"]}
+                    {if $element@last}
+                    	</ul>
+                    {/if}
                     {/foreach}
-                </ul>
-                </div>
     ';
     return $template;
 }
