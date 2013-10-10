@@ -2973,6 +2973,7 @@ hr.transparent {
 .sidebar .nav-tabs > .active > a:hover,
 .page-sidebar .nav-tabs > .active > a:focus,
 .sidebar .nav-tabs > .active > a:focus {
+  color: #ff6633;
   background-color: #e9e9e9;
   border-color: #ffffff;
   border-bottom-color: #e1e1e1;
@@ -4154,7 +4155,7 @@ hr.transparent {
 }
 .featured-categories .thumbnail {
   border: solid 1px #eeeeee;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   padding: 0;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
