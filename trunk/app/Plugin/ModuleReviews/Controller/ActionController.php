@@ -25,7 +25,7 @@ class ActionController extends ModuleReviewsAppController {
 
 		if(!empty($_POST))
 		{
-
+			
 			if(empty($_POST['content_id']))
 			{
 				global $content;
@@ -35,7 +35,6 @@ class ActionController extends ModuleReviewsAppController {
 			}
 
 			$content = $this->ContentBase->get_content_information($content_id);			
-			$content_description = $this->ContentBase->get_content_description($content_id);			
 			
 			$new_review = array();
 			$new_review['ModuleReview']['content_id'] = $_POST['content_id'];
@@ -48,8 +47,8 @@ class ActionController extends ModuleReviewsAppController {
 			$Clean->paranoid($new_review);
 			
 			$this->ModuleReview->save($new_review);
-
-			$this->redirect($content['ContentType']['name'] . '/' . $content['Content']['alias'] . $config['URL_EXTENSION']);
+		
+			$this->redirect('/' . $content['ContentType']['name'] . '/' . $content['Content']['alias'] . $config['URL_EXTENSION']);
 		}
 		else
 		{
@@ -109,7 +108,7 @@ class ActionController extends ModuleReviewsAppController {
 
 		// Assign some content vars
 		$content_description = $this->ContentBase->get_content_description($content_id);			
-
+			
 		$assignments = array();
 		$assignments['content_id'] = $content_id;
 		$assignments['content_alias'] = $content['Content']['alias'];
