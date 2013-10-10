@@ -118,7 +118,7 @@ hr.transparent {
 /* Header, Logo, Navigation & Menus
 /* ========================================================================== */
 .topbar {
-  background-image: url(../img/vamcart/noise.png);
+  background-image: url(../img/bg.png);
   background-position: 0 50%;
   font-size: 11px;
 }
@@ -1533,7 +1533,7 @@ hr.transparent {
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  background: #555555 url('../img/vamcart/search-bt.png') no-repeat center center;
+  background: #555555 url('../img/button.png') no-repeat center center;
 }
 #search .search-bt:before {
   content: "\f096";
@@ -2432,7 +2432,7 @@ hr.transparent {
 /* Back to Top
 /* ========================================================================== */
 #toTop {
-  background: rgba(0, 0, 0, 0.7) url('../img/vamcart/totop.png') no-repeat scroll 50% 50%;
+  background: rgba(0, 0, 0, 0.7) url('../img/up.png') no-repeat scroll 50% 50%;
   color: #ffffff;
   position: fixed;
   right: 10px;
@@ -2451,7 +2451,7 @@ hr.transparent {
   background-color: #ff6633;
 }
 #toTopHover {
-  background: #ff6633 url('../img/vamcart/totop.png') no-repeat scroll 50% 50%;
+  background: #ff6633;
   display: block;
   overflow: hidden;
   float: left;
@@ -2608,9 +2608,6 @@ table.contentTable th
 		padding: .9em;
 		margin: 0;
 		background-color: #e3eff7;
-		background-image: url(../img/bg.png);
-		background-position: 0 0;
-		background-repeat: repeat-x; 
 		border: 1px solid #97a5b0;
 		border-top-left-radius: 4px;
 		border-top-right-radius: 4px;
