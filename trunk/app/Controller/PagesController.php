@@ -180,8 +180,8 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty', 'Gzip.G
 			Cache::write($cache_name, $template_vars);
 		}
 
-		echo '<!-- Powered by: VamCart (http://vamcart.com) -->' . "\n";
 		$this->Smarty->display($template['Template']['template'], $template_vars);
+		echo '<!-- Powered by: VamCart (http://vamcart.com) -->' . "\n";
 		die();
 	}
 }
