@@ -106,7 +106,7 @@ function admin_categories_tree($content_id)
 						)
 		);
 		
-		$categories = $Content->find('threaded', array());
+		$categories = $Content->find('threaded', array('conditions' => array('Content.content_type_id' => 1)));
 		$tree = array();
 		foreach ($categories as $category) {
 			_add_tree_node($tree, $category, 0);
