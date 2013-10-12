@@ -1334,7 +1334,6 @@ hr.transparent {
 /* SHOP products
 /* ========================================================================== */
 .shop-products .thumbnails .item {
-	display: block;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -ms-transition: all 0.3s ease-out;
