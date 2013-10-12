@@ -27,8 +27,7 @@ $template = '
 <div class="row-fluid shop-products">
 	<ul class="thumbnails">
 		{foreach from=$content_list item=node}
-        {if $node@index is div by 3}<div class="content-data-row">{/if}
-      <li class="item span4 {if $node@index is div by 3}first{/if}">
+		<li class="item span4 {if $node@index is div by 3}first{/if}">
 			<div class="thumbnail">
 				<a href="{$node.url}" class="image"><img src="{$node.image}" alt="{$node.name}"{if isset($thumbnail_width)} width="{$thumbnail_width}"{/if} /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
 			<div class="inner notop nobottom">
@@ -38,13 +37,11 @@ $template = '
 			</div>
 			<form method="post" action="{base_path}/cart/purchase_product/"><input type="hidden" name="product_id" value="{$node.id}"><input name="product_quantity" type="hidden" value="1" size="3" />
 			<div class="inner darken notop">
-              <a href="{$node.url}" class="btn btn-add-to-cart" data-original-title="{lang}Details{/lang}" data-placement="top" rel="tooltip"><i class="icon-eye-open"></i></a>
-              <button class="btn btn-add-to-cart" type="submit" value="{lang}Add to cart{/lang}" data-original-title="{lang}Add to cart{/lang}" data-placement="top" rel="tooltip"><i class="icon-shopping-cart"></i></button>
-              {if isset($is_compare)}<a href="{base_path}/category/addcmp/{$node.alias}/{$content_alias->value}{$ext}" class="btn btn-add-to-cart" data-original-title="{lang}Add to compare{/lang}" data-placement="top" rel="tooltip"><i class="icon-bookmark"></i></a>{/if}
+              <button class="btn btn-add-to-cart" type="submit"><i class="icon-shopping-cart"></i> {lang}Buy{/lang}</button>
+              {if isset($is_compare)}<a href="{base_path}/category/addcmp/{$node.alias}/{$content_alias->value}{$ext}" class="btn btn-add-to-cart"><i class="icon-bookmark"></i> {lang}Compare{/lang}</a>{/if}
 			</div>
-            </form>
+			</form>
 		</li>
-		{if $node@iteration is div by 3}</div>{else}{if $node@last}</div>{/if}{/if}
 		{/foreach}
 	</ul>
 <!-- end: products listing -->
