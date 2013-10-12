@@ -16,7 +16,6 @@ function default_template_xsell()
 <div class="row-fluid shop-products">
 	<ul class="thumbnails">
 		{foreach from=$relations item=node}
-		{if $node@index is div by 3}<div class="content-data-row">{/if}
       <li class="item span4 {if $node@index is div by 3}first{/if}">
 			<div class="thumbnail">
 
@@ -41,12 +40,10 @@ function default_template_xsell()
 			</div>
 			<form method="post" action="{base_path}/cart/purchase_product/"><input type="hidden" name="product_id" value="{$node.id}"><input id="product_quantity" name="product_quantity" type="hidden" value="1" size="3" />
 			<div class="inner darken notop">
-              <a href="{$node.url}" class="btn btn-add-to-cart" data-original-title="{lang}Details{/lang}" data-placement="top" rel="tooltip"><i class="icon-eye-open"></i></a>
-              <button class="btn btn-add-to-cart" type="submit" value="{lang}Add to cart{/lang}" data-original-title="{lang}Add to cart{/lang}" data-placement="top" rel="tooltip"><i class="icon-shopping-cart"></i></button>
+              <button class="btn btn-add-to-cart" type="submit"><i class="icon-shopping-cart"></i> {lang}Buy{/lang}</button>
 			</div>
             </form>
 		</li>
-		{if $node@iteration is div by 3}</div>{else}{if $node@last}</div>{/if}{/if}
 		{/foreach}
 	</ul>
 </div>

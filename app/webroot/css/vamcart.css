@@ -1334,6 +1334,7 @@ hr.transparent {
 /* SHOP products
 /* ========================================================================== */
 .shop-products .thumbnails .item {
+	display: block;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -ms-transition: all 0.3s ease-out;
@@ -1363,27 +1364,23 @@ hr.transparent {
 .shop-products .btn-add-to-cart {
   font-size: 14px;
   font-weight: bold;
-  padding: 5px 12px;
+  padding: 10px 20px;
   color: #ffffff;
   background-color: #333333;
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -ms-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .shop-products .btn-add-to-cart i {
   margin-left: 0;
-  margin-right: 0;
 }
 .shop-products .btn-add-to-cart:hover {
   background-color: #ff6633;
 }
-
 .shop-products .thumbnail {
   border: none;
   padding: 0;
   margin-bottom: 15px;
+  overflow: hidden;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -1394,6 +1391,7 @@ hr.transparent {
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
 }
+
 .shop-products .thumbnail .image {
   overflow: hidden;
   position: relative;
@@ -1777,6 +1775,8 @@ hr.transparent {
   padding: 10px 20px;
   color: #ffffff;
   background-color: #333333;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .featured-products .btn-add-to-cart i {
   margin-left: 10px;
@@ -1788,6 +1788,7 @@ hr.transparent {
   border: none;
   padding: 0;
   margin-bottom: 15px;
+  overflow: hidden;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -1959,7 +1960,8 @@ hr.transparent {
 }
 .featured-categories .thumbnail {
   border: solid 1px #eeeeee;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  overflow: hidden;
   padding: 0;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -2203,13 +2205,6 @@ select:focus {
 .last {
   margin-bottom: 0 !important;
   margin-right: 0 !important;
-}
-
-.content-data-row
-{
-overflow: hidden;	
-margin: 0;
-padding: 0;
 }
 
 /* Tables */

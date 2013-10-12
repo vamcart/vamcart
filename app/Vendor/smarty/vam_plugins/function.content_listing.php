@@ -8,61 +8,63 @@
 
 function default_template_content_listing()
 {
-$template = '<div>
- {if $pages_number > 1 || $page=="all"}
-    <div class="paginator">
-          <ul>
-            <li>{lang}Pages{/lang}:</li>
-            {for $pg=1 to $pages_number}
-            <li><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}" {if $pg == $page}class="current"{/if}>{$pg}</a></li>
-            {/for}
-            <li><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all" {if "all" == $page}class="current"{/if}>{lang}All{/lang}</a></li>
-          </ul>
-    </div>
-  {/if}  
-<ul class="listing">
+$template = '
+{if $content_list}
 
-{foreach from=$content_list item=node}
-	<li
-	{if $node.alias == $content_alias}
-		class="active"
-	{/if}
-	>
-	<div><a href="{$node.url}"><img src="{$node.image}" alt="{$node.name}" 
-	{if isset($thumbnail_width)}
-	 width="{$thumbnail_width}"
-	{/if}
-	/></a></div>
-	<div><a href="{$node.url}">{$node.name}</a></div></li>
-
-  <div>
-    {attribute_list value_attributes=$node.attributes}
-	</div>
-
-  {if isset($is_compare)}
-  <div><a class="btn" href="{base_path}/category/addcmp/{$node.alias}/{$content_alias->value}{$ext}"><i class="cus-add"></i> {lang}Add to compare{/lang}</a></div>
-	{/if}
-
-  {foreachelse}
-	<li class="no_items">{lang}No Items Found{/lang}</li>
-{/foreach}
-
-</ul>
-<div class="clear"></div> 
-
-  {if $pages_number > 1 || $page=="all"}
-    <div class="paginator">
-          <ul>
-            <li>{lang}Pages{/lang}:</li>
-            {for $pg=1 to $pages_number}
-            <li><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}" {if $pg == $page}class="current"{/if}>{$pg}</a></li>
-            {/for}
-            <li><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all" {if "all" == $page}class="current"{/if}>{lang}All{/lang}</a></li>
-          </ul>
-    </div>
-  {/if}  
-  
+{if $pages_number > 1 || $page=="all"}
+<!-- start: Pagination -->
+<div class="pagination pagination-centered">
+	<ul>
+		{for $pg=1 to $pages_number}
+		<li{if $pg == $page} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}">{$pg}</a></li>
+		{/for}
+		<li><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all" {if "all" == $page}class="current"{/if}>{lang}All{/lang}</a></li>
+	</ul>
 </div>
+<!-- end: Pagination -->
+{/if}  
+  
+<!-- start: products listing -->
+<div class="row-fluid shop-products">
+	<ul class="thumbnails">
+		{foreach from=$content_list item=node}
+		<li class="item span4 {if $node@index is div by 3}first{/if}">
+			<div class="thumbnail">
+				<a href="{$node.url}" class="image"><img src="{$node.image}" alt="{$node.name}"{if isset($thumbnail_width)} width="{$thumbnail_width}"{/if} /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
+			<div class="inner notop nobottom">
+				<h4 class="title">{$node.name}</h4>
+				<p class="description">{$node.description|strip_tags|truncate:30:"...":true}</p>
+				<p class="description">{attribute_list value_attributes=$node.attributes}</p>
+              </div>
+			</div>
+			<form method="post" action="{base_path}/cart/purchase_product/"><input type="hidden" name="product_id" value="{$node.id}"><input name="product_quantity" type="hidden" value="1" size="3" />
+			<div class="inner darken notop">
+              <button class="btn btn-add-to-cart" type="submit"><i class="icon-shopping-cart"></i> {lang}Buy{/lang}</button>
+              {if isset($is_compare)}<a href="{base_path}/category/addcmp/{$node.alias}/{$content_alias->value}{$ext}" class="btn btn-add-to-cart"><i class="icon-bookmark"></i> {lang}Compare{/lang}</a>{/if}
+			</div>
+            </form>
+		</li>
+		{/foreach}
+	</ul>
+<!-- end: products listing -->
+
+{if $pages_number > 1 || $page=="all"}
+<!-- start: Pagination -->
+<div class="pagination pagination-centered">
+	<ul>
+		{for $pg=1 to $pages_number}
+		<li{if $pg == $page} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}">{$pg}</a></li>
+		{/for}
+		<li><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all" {if "all" == $page}class="current"{/if}>{lang}All{/lang}</a></li>
+	</ul>
+</div>
+<!-- end: Pagination -->
+{/if}
+
+{else}
+{lang}No Items Found{/lang}
+
+{/if}
 ';		
 
 return $template;
