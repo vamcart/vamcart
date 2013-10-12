@@ -32,14 +32,15 @@ var currentTallest = 0,
  });
 }
 
+if ($(window).width() > 767) {
 $(window).load(function() {
   equalheight('.thumbnails .thumbnail');
 });
 
-
 $(window).resize(function(){
   equalheight('.thumbnails .thumbnail');
 });
+}
 
 /*
 |--------------------------------------------------------------------------
@@ -132,8 +133,6 @@ $(function(){
 // ON DOCUMENT READY
 // -----------------------------------------------------------------------------
 $(document).ready(function(){
-
-//$(".thumbnail").equalHeights();
 
     // footer widget hide/show on mobile devices
     // -----------------------------------------------------------------------------
