@@ -94,6 +94,8 @@ function admin_categories_tree($content_id)
 		
 	App::import('Model', 'Content');
 		$Content =& new Content();		
+		
+		$Content->unbindModel(array('hasMany' => array('Attribute')));
 	
 		$Content->unbindModel(array('hasMany' => array('ContentDescription')));
 
@@ -106,12 +108,13 @@ function admin_categories_tree($content_id)
 						)
 		);
 		
-		$categories = $Content->find('threaded', array('conditions' => array('Content.content_type_id' => 1)));
+		$categories =  $Content->find('threaded', array('conditions' => array('Content.content_type_id' => 1)
+    ));
 		$tree = array();
 		foreach ($categories as $category) {
 			_add_tree_node($tree, $category, 0);
 		}
-		return $tree;
+		return $categories;
 	}
 
 function _add_tree_node(&$tree, $node, $level)
