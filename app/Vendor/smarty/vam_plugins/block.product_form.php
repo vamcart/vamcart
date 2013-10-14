@@ -13,10 +13,13 @@ function smarty_block_product_form($params, $product_form, $template, &$repeat)
 		return;
 	}
 
+	if(!isset ($params['product_id']))
+		$params['product_id'] = null;
+
 	global $config, $content;
 
-	$output = '<form class="form-inline" name ="product-form" id="product-form" method="post" action="' . BASE . '/cart/purchase_product/"'.(($config['AJAX_ENABLE'] == '1') ? ' onsubmit="onProductFormSubmit(); return false;"' : '').'>
-			<input type="hidden" name="product_id" value="' . $content['Content']['id'] . '">';
+	$output = '<form class="form-inline" name="product-form '.(($params['product_id'] > 0) ? $params['product_id'] : $content['Content']['id']).'" id="product-form '.(($params['product_id'] > 0) ? $params['product_id'] : $content['Content']['id']).'" method="post" action="' . BASE . '/cart/purchase_product/"'.(($config['AJAX_ENABLE'] == '1') ? ' onsubmit="onProductFormSubmit(); return false;"' : '').'>
+			<input type="hidden" name="product_id" value="' . (($params['product_id'] > 0) ? $params['product_id'] : $content['Content']['id']) . '">';
 	$output .= $product_form;
 	$output .= '</form>';
 
@@ -29,6 +32,10 @@ function smarty_help_function_product_form() {
 	<p><?php echo __('Wraps the product purchase button with a form.') ?></p>
 	<h3><?php echo __('How do I use it?') ?></h3>
 	<p><?php echo __('Just wrap your product purchase with:') ?> <code>{product_form}<?php echo __('stuff') ?>{/product_form}</code></p>
+	<h3><?php echo __('What parameters does it take?') ?></h3>
+	<ul>
+		<li><em><?php echo __('(product_id)') ?></em> - <?php echo __('Product ID.') ?></li>
+	</ul>
 	<?php
 }
 

@@ -37,12 +37,12 @@ $template = '
 				<p class="description">{attribute_list value_attributes=$node.attributes}</p>
               </div>
 			</div>
-			<form method="post" action="{base_path}/cart/purchase_product/"><input type="hidden" name="product_id" value="{$node.id}"><input name="product_quantity" type="hidden" value="1" size="3" />
+			{product_form product_id={$node.id}}			
 			<div class="inner darken notop">
-              <button class="btn btn-add-to-cart" type="submit"><i class="icon-shopping-cart"></i> {lang}Buy{/lang}</button>
-              {if isset($is_compare)}<a href="{base_path}/category/addcmp/{$node.alias}/{$content_alias->value}{$ext}" class="btn btn-add-to-cart"><i class="icon-bookmark"></i> {lang}Compare{/lang}</a>{/if}
+				<button class="btn btn-add-to-cart" type="submit"><i class="icon-shopping-cart"></i> {lang}Buy{/lang}</button>
+				{if isset($is_compare)}<a href="{base_path}/category/addcmp/{$node.alias}/{$content_alias->value}{$ext}" class="btn btn-add-to-cart"><i class="icon-bookmark"></i> {lang}Compare{/lang}</a>{/if}
 			</div>
-            </form>
+			{/product_form}
 		</li>
 		{/foreach}
 	</ul>

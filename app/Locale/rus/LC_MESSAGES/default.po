@@ -1307,6 +1307,18 @@ msgstr "Не забудьте добавить перевод для строк�
 msgid "Wraps the product purchase button with a form."
 msgstr "Вставляет форму с кнопкой купить."
 
+#: /vendors/smarty/vam_plugins/block.product_form.php:42
+msgid "Wraps the product purchase button with a form."
+msgstr "Вставляет форму с кнопкой купить."
+
+#: /vendors/smarty/vam_plugins/block.product_form.php:42
+msgid "(product_id)"
+msgstr "(product_id)"
+
+#: /vendors/smarty/vam_plugins/block.product_form.php:42
+msgid "Product ID"
+msgstr "ID номер товара"
+
 #: /vendors/smarty/vam_plugins/block.product_form_ajax.php:42
 msgid "Wraps the product purchase button with a ajax form."
 msgstr "Вставляет ajax форму с кнопкой купить."
