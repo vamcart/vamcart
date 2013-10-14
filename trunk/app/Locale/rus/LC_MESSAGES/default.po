@@ -1308,10 +1308,6 @@ msgid "Wraps the product purchase button with a form."
 msgstr "Вставляет форму с кнопкой купить."
 
 #: /vendors/smarty/vam_plugins/block.product_form.php:42
-msgid "Wraps the product purchase button with a form."
-msgstr "Вставляет форму с кнопкой купить."
-
-#: /vendors/smarty/vam_plugins/block.product_form.php:42
 msgid "(product_id)"
 msgstr "(product_id)"
 
