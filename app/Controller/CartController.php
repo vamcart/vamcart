@@ -42,6 +42,8 @@ class CartController extends AppController {
 			$order = $new_order;
 		}
 
+		if (!isset($_POST['product_quantity']) && sizeof($_POST['product_quantity'] < 0)) $_POST['product_quantity'] = 1;
+
 		// Add the product to the order from the component
 		$this->OrderBase->add_product($_POST['product_id'], $_POST['product_quantity']);
 
