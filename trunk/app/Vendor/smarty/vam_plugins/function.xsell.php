@@ -38,11 +38,11 @@ function default_template_xsell()
 				<p class="description">{$node.description|strip_tags|truncate:30:"...":true}</p>
               </div>
 			</div>
-			<form method="post" action="{base_path}/cart/purchase_product/"><input type="hidden" name="product_id" value="{$node.id}"><input id="product_quantity" name="product_quantity" type="hidden" value="1" size="3" />
+			{product_form product_id={$node.id}}
 			<div class="inner darken notop">
-              <button class="btn btn-add-to-cart" type="submit"><i class="icon-shopping-cart"></i> {lang}Buy{/lang}</button>
+				<button class="btn btn-add-to-cart" type="submit"><i class="icon-shopping-cart"></i> {lang}Buy{/lang}</button>
 			</div>
-            </form>
+			{/product_form}
 		</li>
 		{/foreach}
 	</ul>
