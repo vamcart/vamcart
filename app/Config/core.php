@@ -50,8 +50,9 @@
  */
 	Configure::write('Error', array(
 		'handler' => 'ErrorHandler::handleError',
-		'level' => E_ALL & ~E_DEPRECATED,
-		'trace' => true
+		//'level' => E_ALL & ~E_DEPRECATED,
+		'level' => 0,
+		'trace' => false
 	));
 
 /**
@@ -73,7 +74,7 @@
 	Configure::write('Exception', array(
 		'handler' => 'ErrorHandler::handleException',
 		'renderer' => 'MyExceptionRenderer',
-		'log' => true
+		'log' => false
 	));
 
 /**
