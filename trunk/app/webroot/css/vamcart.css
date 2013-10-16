@@ -1783,7 +1783,7 @@ hr.transparent {
 .featured-products .btn-add-to-cart:hover {
   background-color: #ff6633;
 }
-.shop-products .thumbnail {
+.featured-products .thumbnail {
   border: none;
   padding: 0;
   margin-bottom: 15px;
