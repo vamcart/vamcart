@@ -15,11 +15,23 @@ $template = '
 		{if not $is_logged_in }
 
 		<form action="{base_path}/site/login?return_url={$return_url}" method="post" class="form">
-			<label>{lang}E-mail{/lang}</label>
-			<input type="text" name="data[Customer][email]" />
-			<label>{lang}Password{/lang}</label>
-			<input type="password" name="data[Customer][password]" />
-			<button type="submit" class="btn btn-inverse"><i class="icon-signin"></i> {lang}Login{/lang}</button>
+			<div class="control-group">
+			<label class="control-label" for="inputEmail">{lang}E-mail{/lang}</label>
+				<div class="controls">
+					<input type="text" name="data[Customer][email]" id="inputEmail" placeholder="{lang}E-mail{/lang}">
+				</div>
+			</div>
+			<div class="control-group">
+			<label class="control-label" for="inputPassword">{lang}Password{/lang}</label>
+				<div class="controls">
+					<input type="password" name="data[Customer][password]" id="inputPassword" placeholder="{lang}Password{/lang}">
+				</div>
+			</div>
+			<div class="control-group">
+				<div class="controls">
+					<button type="submit" class="btn btn-inverse"><i class="icon-signin"></i> {lang}Login{/lang}</button>
+				</div>
+			</div>
 		</form>
 		
 		<p><a href="{base_path}/customer/register.html">{lang}Registration{/lang}</a></p>
