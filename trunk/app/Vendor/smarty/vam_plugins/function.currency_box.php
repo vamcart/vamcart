@@ -17,7 +17,7 @@ $template = '
 				<option value="{$currency.id}" {if $currency.id == $smarty.session.Customer.currency_id}selected="selected"{/if}>{$currency.name}</option>
 			{/foreach}
 		</select>
-	<button type="submit" class="btn btn-inverse">{lang}Go{/lang}</button>
+	<button type="submit" class="btn btn-inverse"><i class="icon-ok"></i> {lang}Go{/lang}</button>
 	</form>
 </section>
 ';		

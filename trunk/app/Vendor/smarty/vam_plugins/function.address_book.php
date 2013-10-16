@@ -64,7 +64,7 @@ $template = '
 			<input id="ship_phone" name="AddressBook[phone]" type="text" value="{$form_data.AddressBook.phone}" />
 		</div>
 	</div>    
-	<button class="btn" type="submit" value="{lang}Save{/lang}"><i class="cus-tick"></i> {lang}Save{/lang}</button>
+	<button class="btn btn-inverse" type="submit" value="{lang}Save{/lang}"><i class="icon-ok"></i> {lang}Save{/lang}</button>
 </form>
 ';
 

@@ -19,7 +19,7 @@ $template = '
 			<input type="text" name="data[Customer][email]" />
 			<label>{lang}Password{/lang}</label>
 			<input type="password" name="data[Customer][password]" />
-			<button type="submit" class="btn btn-inverse">{lang}Login{/lang}</button>
+			<button type="submit" class="btn btn-inverse"><i class="icon-signin"></i> {lang}Login{/lang}</button>
 		</form>
 		
 		<p><a href="{base_path}/customer/register.html">{lang}Registration{/lang}</a></p>
@@ -31,7 +31,7 @@ $template = '
 		</ul>
 
 		<form action="{base_path}/site/logout?return_url={$return_url}" method="post">
-			<button type="submit" class="btn btn-inverse">{lang}Logout{/lang}</button>
+			<button type="submit" class="btn btn-inverse"><i class="icon-signout"></i> {lang}Logout{/lang}</button>
 		</form>
 
 		{/if}
