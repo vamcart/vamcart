@@ -1768,6 +1768,9 @@ hr.transparent {
     margin-left: 0 !important;
   }
 }
+.featured-products .inner.darken {
+  border-top: solid 1px #e1e1e1;
+}
 .featured-products .btn-add-to-cart {
   font-size: 14px;
   font-weight: bold;
