@@ -19,7 +19,7 @@ $template = '
 				</li>
          {/foreach}
 		</ul>
-	<button type="submit" class="btn btn-inverse">{lang}Compare{/lang}</button>
+	<button type="submit" class="btn btn-inverse"><i class="icon-bookmark"></i> {lang}Compare{/lang}</button>
 	</form>
 </section>
 ';
