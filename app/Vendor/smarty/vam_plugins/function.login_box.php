@@ -11,10 +11,8 @@ function default_template_login_box()
 $template = '
 <section class="widget inner">
 	<h3 class="widget-title">{lang}Login{/lang}</h3>
-
 		{if not $is_logged_in }
-
-		<form action="{base_path}/site/login?return_url={$return_url}" method="post" class="form">
+		<form action="{base_path}/site/login?return_url={$return_url}" method="post">
 			<div class="control-group">
 			<label class="control-label" for="inputEmail">{lang}E-mail{/lang}</label>
 				<div class="controls">
@@ -33,21 +31,15 @@ $template = '
 				</div>
 			</div>
 		</form>
-		
 		<p><a href="{base_path}/customer/register.html">{lang}Registration{/lang}</a></p>
-
 		{else}
-
 		<ul class="icons clearfix">
 			<li><a href="{base_path}/customer/account.html">{lang}My Account{/lang}</a></li>
 		</ul>
-
 		<form action="{base_path}/site/logout?return_url={$return_url}" method="post">
 			<button type="submit" class="btn btn-inverse"><i class="icon-signout"></i> {lang}Logout{/lang}</button>
 		</form>
-
 		{/if}
-
 </section>
 ';
 

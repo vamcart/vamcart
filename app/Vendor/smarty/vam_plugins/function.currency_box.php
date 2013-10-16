@@ -11,14 +11,20 @@ function default_template_currency_box()
 $template = '
 <section class="widget inner">
 	<h3 class="widget-title">{lang}Currency{/lang}</h3>
-	<form action="{base_path}/currencies/pick_currency/" method="post">
-		<select name="currency_picker">
-			{foreach from=$currencies item=currency}
-				<option value="{$currency.id}" {if $currency.id == $smarty.session.Customer.currency_id}selected="selected"{/if}>{$currency.name}</option>
-			{/foreach}
-		</select>
-	<button type="submit" class="btn btn-inverse"><i class="icon-ok"></i> {lang}Go{/lang}</button>
-	</form>
+		<form action="{base_path}/currencies/pick_currency/" method="post">
+			<div class="control-group">
+				<div class="controls">
+					<label class="select">				
+					<select name="currency_picker">
+						{foreach from=$currencies item=currency}
+							<option value="{$currency.id}" {if $currency.id == $smarty.session.Customer.currency_id}selected="selected"{/if}>{$currency.name}</option>
+						{/foreach}
+					</select>
+					</label>
+					<button type="submit" class="btn btn-inverse"><i class="icon-ok"></i> {lang}Go{/lang}</button>
+				</div>
+			</div>
+		</form>
 </section>
 ';		
 
