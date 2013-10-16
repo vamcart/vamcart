@@ -41,11 +41,6 @@ function smarty_function_filter($params)
     App::import('Model', 'Attribute');
     $Attribute =& new Attribute();		
     
-    if (empty($content['FilteredAttribute'])||$content['ContentType']['name'] != 'category') 
-    {
-	return;
-    }
-
     $element_list = array();
     foreach($content['FilteredAttribute'] AS $k => $attribute)
     {
@@ -65,8 +60,6 @@ function smarty_function_filter($params)
             //Если задан фильтр установим его в соответствующие значения
             if(isset($filter_list['values_attribute'][$value['id']])) $element_list[$k]['values_attribute'][$k_v]['val'] = $filter_list['values_attribute'][$value['id']]['value'];
             else $element_list[$k]['values_attribute'][$k_v]['val'] = '0';   
-/*                        if(isset($filter_list[$k]['is_active'])) $element_list[$k]['is_active'] = $filter_list[$k]['is_active'];
-            else $element_list[$k]['is_active'] = '0';*/
         }
     }
     $assignments = array();

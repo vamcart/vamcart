@@ -33,11 +33,6 @@ function smarty_function_compare($params, $template)
         global $content;
         global $config;
 
-	if (empty($content['CompareAttribute'])||$content['ContentType']['name'] != 'category') 
-    	{
-		return;
-    	}
-    
 	App::uses('SmartyComponent', 'Controller/Component');
 	$Smarty =& new SmartyComponent(new ComponentCollection());
         
@@ -50,8 +45,6 @@ function smarty_function_compare($params, $template)
 						'conditions' => 'language_id = ' . $_SESSION['Customer']['language_id']
                                         ))));
         $content_list_data = $Content->find('all', array('conditions' => array('Content.id' => $compare_list)));
-
-	//var_dump($content_list_data);
 
 	$assignments = array();
         $assignments = array('element_list' => $content_list_data
