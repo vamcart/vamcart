@@ -14,16 +14,32 @@ $template = '
 <div class="alert alert-error"><i class="cus-error"></i> {$error}</div>
 {/if}
 {/foreach}
-<form id="account-edit" name="account-edit" action="{base_path}/site/account_edit" method="post">
-<div class="label"><label for="name">{lang}Name{/lang}:</label></div><input id="name" name="customer[name]" type="text" value="{$form_data.Customer.name}" />
-<br />
-<div class="label"><label for="email">{lang}E-mail{/lang}:</label></div><input id="email" name="customer[email]" type="text" value="{$form_data.Customer.email}" />
-<br />
-<div class="label"><label for="password">{lang}New Password{/lang}:</label></div><input id="password" name="customer[password]" type="password" /> {lang}Leave empty to use current password.{/lang}
-<br />
-<div class="label"><label for="retype">{lang}Retype Password{/lang}:</label></div><input id="retype" name="customer[retype]" type="password" /> {lang}Leave empty to use current password.{/lang}
-<br />
-<button class="btn" type="submit" value="{lang}Save{/lang}"><i class="cus-tick"></i> {lang}Save{/lang}</button>
+<form id="account-edit" class="form-horizontal" name="account-edit" action="{base_path}/site/account_edit" method="post">
+	<div class="control-group">
+		<label class="control-label" for="name">{lang}Name{/lang}:</label>
+		<div class="controls">
+			<input id="name" name="customer[name]" type="text" value="{$form_data.Customer.name}" />
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="email">{lang}E-mail{/lang}:</label>
+		<div class="controls">
+			<input id="email" name="customer[email]" type="text" value="{$form_data.Customer.email}" />
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="password">{lang}New Password{/lang}:</label>
+		<div class="controls">
+			<input id="password" name="customer[password]" type="password" /> {lang}Leave empty to use current password.{/lang}
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="retype">{lang}Retype Password{/lang}:</label>
+		<div class="controls">
+			<input id="retype" name="customer[retype]" type="password" /> {lang}Leave empty to use current password.{/lang}
+		</div>
+	</div>    
+	<button class="btn" type="submit" value="{lang}Save{/lang}"><i class="cus-tick"></i> {lang}Save{/lang}</button>
 </form>
 ';
 

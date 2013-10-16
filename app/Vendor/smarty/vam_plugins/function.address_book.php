@@ -14,25 +14,57 @@ $template = '
 <div class="alert alert-error"><i class="cus-error"></i> {$error}</div>
 {/if}
 {/foreach}
-<form id="address-book" name="address-book" action="{base_path}/site/address_book" method="post">
+<form id="address-book" class="form-horizontal" name="address-book" action="{base_path}/site/address_book" method="post">
 <div>{lang}Shipping Information{/lang}</div>
-<div class="label"><label for="name">{lang}Name{/lang}:</label></div><input id="ship_name" name="AddressBook[ship_name]" type="text" value="{$form_data.AddressBook.ship_name}" />
-<br />
-<div class="label"><label for="name">{lang}Address Line 1{/lang}:</label></div><input id="ship_line_1" name="AddressBook[ship_line_1]" type="text" value="{$form_data.AddressBook.ship_line_1}" />
-<br />
-<div class="label"><label for="name">{lang}Address Line 2{/lang}:</label></div><input id="ship_line_2" name="AddressBook[ship_line_2]" type="text" value="{$form_data.AddressBook.ship_line_2}" />
-<br />
-<div class="label"><label for="name">{lang}City{/lang}:</label></div><input id="ship_city" name="AddressBook[ship_city]" type="text" value="{$form_data.AddressBook.ship_city}" />
-<br />
-<div class="label"><label for="name">{lang}Country{/lang}:</label></div><input id="ship_country" name="AddressBook[ship_country]" type="text" value="{$form_data.AddressBook.ship_country}" />
-<br />
-<div class="label"><label for="name">{lang}State{/lang}:</label></div><input id="ship_state" name="AddressBook[ship_state]" type="text" value="{$form_data.AddressBook.ship_state}" />
-<br />
-<div class="label"><label for="name">{lang}Zipcode{/lang}:</label></div><input id="ship_zip" name="AddressBook[ship_zip]" type="text" value="{$form_data.AddressBook.ship_zip}" />
-<br />
-<div class="label"><label for="name">{lang}Phone{/lang}:</label></div><input id="ship_phone" name="AddressBook[phone]" type="text" value="{$form_data.AddressBook.phone}" />
-<br />
-<button class="btn" type="submit" value="{lang}Save{/lang}"><i class="cus-tick"></i> {lang}Save{/lang}</button>
+	<div class="control-group">
+		<label class="control-label" for="ship_name">{lang}Name{/lang}:</label>
+		<div class="controls">
+			<input id="ship_name" name="AddressBook[ship_name]" type="text" value="{$form_data.AddressBook.ship_name}" />
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="ship_line_1">{lang}Address Line 1{/lang}:</label>
+		<div class="controls">
+			<input id="ship_line_1" name="AddressBook[ship_line_1]" type="text" value="{$form_data.AddressBook.ship_line_1}" />
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="ship_line_2">{lang}Address Line 2{/lang}:</label>
+		<div class="controls">
+			<input id="ship_line_2" name="AddressBook[ship_line_2]" type="text" value="{$form_data.AddressBook.ship_line_2}" />
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="ship_city">{lang}City{/lang}:</label>
+		<div class="controls">
+			<input id="ship_city" name="AddressBook[ship_city]" type="text" value="{$form_data.AddressBook.ship_city}" />
+		</div>
+	</div>    
+	<div class="control-group">
+		<label class="control-label" for="ship_country">{lang}Country{/lang}:</label>
+		<div class="controls">
+			<input id="ship_country" name="AddressBook[ship_country]" type="text" value="{$form_data.AddressBook.ship_country}" />
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="ship_state">{lang}State{/lang}:</label>
+		<div class="controls">
+			<input id="ship_state" name="AddressBook[ship_state]" type="text" value="{$form_data.AddressBook.ship_state}" />
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="ship_zip">{lang}Zipcode{/lang}:</label>
+		<div class="controls">
+			<input id="ship_zip" name="AddressBook[ship_zip]" type="text" value="{$form_data.AddressBook.ship_zip}" />
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="ship_phone">{lang}Phone{/lang}:</label>
+		<div class="controls">
+			<input id="ship_phone" name="AddressBook[phone]" type="text" value="{$form_data.AddressBook.phone}" />
+		</div>
+	</div>    
+	<button class="btn" type="submit" value="{lang}Save{/lang}"><i class="cus-tick"></i> {lang}Save{/lang}</button>
 </form>
 ';
 
