@@ -598,6 +598,8 @@ hr.transparent {
 }
 #navigation .shopping-cart .cart-dropdown .buttons .btn {
   padding: 6px 12px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 #navigation .shopping-cart .cart-dropdown .buttons .btn:hover {
   background-color: #ff6633;
@@ -1120,6 +1122,8 @@ hr.transparent {
 .shopping-cart-widget .buttons .btn {
   font-size: 13px;
   padding: 6px 12px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .shopping-cart-widget .buttons .btn:hover {
   background-color: #ff6633;
