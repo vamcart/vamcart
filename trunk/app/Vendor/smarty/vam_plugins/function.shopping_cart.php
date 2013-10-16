@@ -9,10 +9,10 @@
 function default_template_shopping_cart()
 {
 $template = '
-<div class="cart">
 {if $order_items}
+<div class="cart">
 <form name="cart_qty" action="{base_path}/cart/update_cart_qty" method="post">
-	<table style="width:100%;">
+	<table class="contentTable">
 		<tr>
 			<th></th>
 			<th>{lang}Product{/lang}</th>
@@ -49,10 +49,10 @@ $template = '
 	<a class="btn btn-inverse" href="{$checkout_link}"><i class="icon-shopping-cart"></i> {lang}Checkout{/lang}</a>
 		<button class="btn btn-inverse" type="submit" name="updatebutton"><i class="icon-ok"></i> {lang}Update{/lang}</button>
 </form>
+</div>
 {else}
 	{lang}No Cart Items{/lang}
 {/if}
-</div>
 ';
 
 return $template;
