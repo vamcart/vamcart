@@ -1778,12 +1778,12 @@ hr.transparent {
   margin-bottom: 5px;
 }
 .featured-products .btn-add-to-cart i {
-  margin-left: 10px;
+  margin-left: 0;
 }
 .featured-products .btn-add-to-cart:hover {
   background-color: #ff6633;
 }
-.featured-products .thumbnail {
+.shop-products .thumbnail {
   border: none;
   padding: 0;
   margin-bottom: 15px;
