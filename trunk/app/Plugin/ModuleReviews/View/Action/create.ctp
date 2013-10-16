@@ -6,6 +6,6 @@
 			<input class="span4" name="name" type="text" placeholder="{lang}Name{/lang}"/>
 			</div>
 			<textarea class="span12" name="content" id="content" cols="30" rows="10" placeholder="{lang}Review{/lang}"></textarea>
-			<button class="btn btn-inverse btn-submit-review" type="submit" value="{lang}Submit{/lang}"><i class="cus-tick"></i> {lang}Submit{/lang}</button>
+			<button class="btn btn-inverse btn-submit-review" type="submit" value="{lang}Submit{/lang}"><i class="icon-ok"></i> {lang}Submit{/lang}</button>
 		</form>
 </div>
