@@ -33,6 +33,11 @@ function smarty_function_compare($params, $template)
         global $content;
         global $config;
 
+	if (empty($content['CompareAttribute'])||$content['ContentType']['name'] != 'category') 
+    	{
+		return;
+    	}
+    
 	App::uses('SmartyComponent', 'Controller/Component');
 	$Smarty =& new SmartyComponent(new ComponentCollection());
         

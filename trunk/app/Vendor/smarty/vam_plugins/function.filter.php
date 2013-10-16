@@ -41,6 +41,11 @@ function smarty_function_filter($params)
     App::import('Model', 'Attribute');
     $Attribute =& new Attribute();		
     
+    if (empty($content['FilteredAttribute'])||$content['ContentType']['name'] != 'category') 
+    {
+	return;
+    }
+
     $element_list = array();
     foreach($content['FilteredAttribute'] AS $k => $attribute)
     {
