@@ -35,7 +35,6 @@ function smarty_function_compare($params, $template)
 
 	if (empty($content['CompareAttribute'])||$content['ContentType']['name'] != 'category') 
     	{
-		echo '<div></div>';
 		return;
     	}
     
