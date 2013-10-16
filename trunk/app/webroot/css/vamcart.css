@@ -2298,9 +2298,11 @@ label.error
 
 /* Buttons */
 
-.btn {
+.btn.btn-inverse {
   font-size: 13px;
   padding: 6px 12px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .btn:hover {
   background-color: #ff6633;
