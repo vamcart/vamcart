@@ -43,7 +43,6 @@ function smarty_function_filter($params)
     
     if (empty($content['FilteredAttribute'])||$content['ContentType']['name'] != 'category') 
     {
-	echo '<div></div>';
 	return;
     }
 
