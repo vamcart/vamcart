@@ -223,7 +223,7 @@ $(document).ready(function() {
   <div>
   {module alias="coupons" action="checkout_box"}
   </div>
-  <button class="btn" type="submit" value="{lang}Continue{/lang}"><i class="cus-tick"></i> {lang}Continue{/lang}</button>
+  <button class="btn btn-inverse" type="submit" value="{lang}Continue{/lang}"><i class="icon-ok"></i> {lang}Continue{/lang}</button>
 </form>
 </div>
 ';		

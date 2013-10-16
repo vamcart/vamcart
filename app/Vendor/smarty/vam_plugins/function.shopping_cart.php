@@ -46,8 +46,8 @@ $template = '
 			<td class="total-value"><nobr>{$order_total}</nobr></td>
 		</tr>
 	</table>
-	<a class="btn" href="{$checkout_link}"><i class="cus-cart-go"></i> &nbsp;{lang}Checkout{/lang}</a>
-		<button class="btn" type="submit" name="updatebutton"><i class="cus-tick"></i> {lang}Update{/lang}</button>
+	<a class="btn btn-inverse" href="{$checkout_link}"><i class="icon-shopping-cart"></i> &nbsp;{lang}Checkout{/lang}</a>
+		<button class="btn btn-inverse" type="submit" name="updatebutton"><i class="icon-ok"></i> {lang}Update{/lang}</button>
 </form>
 {else}
 	{lang}No Cart Items{/lang}

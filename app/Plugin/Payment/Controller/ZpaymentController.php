@@ -69,7 +69,7 @@ class ZpaymentController extends PaymentAppController {
 			<input type="hidden" name="CLIENT_MAIL" value="' . $order['Order']['email'] . '">';
 						
 		$content .= '
-			<button class="btn" type="submit" value="{lang}Process to Payment{/lang}"><i class="cus-tick"></i> {lang}Process to Payment{/lang}</button>
+			<button class="btn btn-inverse" type="submit" value="{lang}Process to Payment{/lang}"><i class="icon-ok"></i> {lang}Process to Payment{/lang}</button>
 			</form>';
 	
 	// Save the order

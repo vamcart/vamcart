@@ -80,7 +80,7 @@ class PaypalController extends PaymentAppController {
 					 <input type="hidden" name="tax_x" value="' . $order['Order']['tax'] . '">';		
 						
 		$content .= '
-			<button class="btn" type="submit" value="{lang}Confirm Order{/lang}"><i class="cus-tick"></i> {lang}Confirm Order{/lang}</button>
+			<button class="btn btn-inverse" type="submit" value="{lang}Confirm Order{/lang}"><i class="icon-ok"></i> {lang}Confirm Order{/lang}</button>
 			</form>';
 		return $content;
 	}

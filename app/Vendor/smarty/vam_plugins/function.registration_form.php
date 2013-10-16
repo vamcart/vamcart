@@ -39,7 +39,7 @@ $template = '
 			<input id="retype" name="customer[retype]" type="password" />
 		</div>
 	</div>    
-	<button class="btn" type="submit" value="{lang}Register{/lang}"><i class="cus-tick"></i> {lang}Register{/lang}</button>
+	<button class="btn btn-inverse" type="submit" value="{lang}Register{/lang}"><i class="icon-ok"></i> {lang}Register{/lang}</button>
 </form>
 ';
 

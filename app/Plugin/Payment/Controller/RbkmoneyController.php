@@ -75,7 +75,7 @@ class RbkmoneyController extends PaymentAppController {
 			<input type="hidden" name="failUrl" value="' . $fail_url . '">';
 						
 		$content .= '
-			<button class="btn" type="submit" value="{lang}Process to Payment{/lang}"><i class="cus-tick"></i> {lang}Process to Payment{/lang}</button>
+			<button class="btn btn-inverse" type="submit" value="{lang}Process to Payment{/lang}"><i class="icon-ok"></i> {lang}Process to Payment{/lang}</button>
 			</form>';
 	
 	// Save the order
