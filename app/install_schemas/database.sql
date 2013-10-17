@@ -1489,7 +1489,7 @@ DROP TABLE IF EXISTS template_types;
 CREATE TABLE `template_types` (
   `id` int(10) auto_increment,
   `name` varchar(255) collate utf8_unicode_ci,
-  `default_template` text collate utf8_unicode_ci,
+  `default_template` longtext collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
