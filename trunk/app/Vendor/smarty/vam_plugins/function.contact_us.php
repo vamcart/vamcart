@@ -8,20 +8,31 @@
 
 function default_template_contact_us()
 {
-$template =
-'<script type="text/javascript" src="{base_path}/js/modified.js"></script>' .
-'<script type="text/javascript" src="{base_path}/js/focus-first-input.js"></script>';
-	$template .= '<form method="post" action="' . BASE . '/contact_us/send_email/" id="contentform">';
-	$template .= '
-<fieldset class="form">
-<legend>{lang}Contact Us{/lang}</legend>
-	<p><label for="name">{lang}Your Name{/lang}:</label> <input type="text" name="name" id="name" /></p>
-	<p><label for="email">{lang}Your Email{/lang}:</label> <input type="text" name="email" id="email" /></p>
-	<p><label for="message">{lang}Message{/lang}:</label> <textarea name="message" id="message"></textarea></p>
-</fieldset>
-<button class="btn btn-inverse" type="submit" value="{lang}Send{/lang}"><i class="icon-ok"></i> {lang}Send{/lang}</button>
-	';		
-	$template .= '</form>';
+$template = '
+<script type="text/javascript" src="{base_path}/js/modified.js"></script>
+<script type="text/javascript" src="{base_path}/js/focus-first-input.js"></script>
+<form id="contact-us" class="form-horizontal" name="contact-us" action="' . BASE . '/contact_us/send_email/" method="post">
+	<div class="control-group">
+		<label class="control-label" for="name">{lang}Your Name{/lang}:</label>
+		<div class="controls">
+			<input id="name" name="name" type="text" />
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="name">{lang}Your Email{/lang}:</label>
+		<div class="controls">
+			<input id="email" name="email" type="text" />
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="name">{lang}Message{/lang}:</label>
+		<div class="controls">
+			<textarea name="message" id="message" rows="9"></textarea>
+		</div>
+	</div>
+	<button class="btn btn-inverse" type="submit" value="{lang}Send{/lang}"><i class="icon-ok"></i> {lang}Send{/lang}</button>
+</form>
+';
 		
 return $template;
 }
