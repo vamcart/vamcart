@@ -10,14 +10,14 @@ function default_template_search_result()
 $template = '
 {if $content_list}
 
-{if $pages_number > 1 || $page=="all"}
+{if $pages_number > 1}
 <!-- start: Pagination -->
 <div class="pagination pagination-centered">
 	<ul>
 		{for $pg=1 to $pages_number}
 		<li{if $pg == $page} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}">{$pg}</a></li>
 		{/for}
-		<li><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all" {if "all" == $page}class="current"{/if}>{lang}All{/lang}</a></li>
+		<li{if "all" == $page} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all">{lang}All{/lang}</a></li>
 	</ul>
 </div>
 <!-- end: Pagination -->
@@ -33,27 +33,28 @@ $template = '
 			<div class="inner notop nobottom">
 				<h4 class="title">{$node.name}</h4>
 				<p class="description">{$node.description|strip_tags|truncate:30:"...":true}</p>
+				<p class="description">{attribute_list value_attributes=$node.attributes}</p>
               </div>
 			</div>
-			{product_form product_id={$node.id}}			
+			{product_form product_id={$node.id}}
 			<div class="inner darken notop">
-				<button class="btn btn-add-to-cart" type="submit"><i class="icon-shopping-cart"></i> {lang}Buy{/lang}</button>
-				{if isset($is_compare)}<a href="{base_path}/category/addcmp/{$node.alias}/{$content_alias->value}{$ext}" class="btn btn-add-to-cart"><i class="icon-bookmark"></i> {lang}Compare{/lang}</a>{/if}
+              <button class="btn btn-add-to-cart" type="submit"><i class="icon-shopping-cart"></i> {lang}Buy{/lang}</button>
+              {if isset($is_compare)}<a href="{base_path}/category/addcmp/{$node.alias}/{$content_alias->value}{$ext}" class="btn btn-add-to-cart"><i class="icon-bookmark"></i> {lang}Compare{/lang}</a>{/if}
 			</div>
-			{/product_form}
+            {/product_form}
 		</li>
 		{/foreach}
 	</ul>
 <!-- end: products listing -->
 
-{if $pages_number > 1 || $page=="all"}
+{if $pages_number > 1}
 <!-- start: Pagination -->
 <div class="pagination pagination-centered">
 	<ul>
 		{for $pg=1 to $pages_number}
 		<li{if $pg == $page} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}">{$pg}</a></li>
 		{/for}
-		<li><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all" {if "all" == $page}class="current"{/if}>{lang}All{/lang}</a></li>
+		<li{if "all" == $page} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all">{lang}All{/lang}</a></li>
 	</ul>
 </div>
 <!-- end: Pagination -->
@@ -62,7 +63,7 @@ $template = '
 {else}
 {lang}No Items Found{/lang}
 
-{/if}
+{/if}  
 ';		
 
 return $template;
