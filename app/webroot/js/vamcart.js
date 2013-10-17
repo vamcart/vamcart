@@ -186,8 +186,7 @@ $(document).ready(function(){
 
     // tooltip
     // -----------------------------------------------------------------------------
-    $("a[rel^='tooltip']").tooltip();
-    $("button[rel^='tooltip']").tooltip();
+    $("a[data-toggle=tooltip]").tooltip();
 
     // Main menu
     // -----------------------------------------------------------------------------
