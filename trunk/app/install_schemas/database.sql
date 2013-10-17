@@ -1117,7 +1117,7 @@ DROP TABLE IF EXISTS micro_templates;
 CREATE TABLE `micro_templates` (
   `id` int(10) auto_increment,
   `alias` varchar(255) collate utf8_unicode_ci,
-  `template` text collate utf8_unicode_ci,
+  `template` longtext collate utf8_unicode_ci,
   `created` datetime,
   `modified` datetime,
   `tag_name` varchar(255) collate utf8_unicode_ci,
@@ -1395,7 +1395,7 @@ CREATE TABLE `stylesheets` (
   `active` tinyint(4),
   `name` varchar(255) collate utf8_unicode_ci,
   `alias` varchar(255) collate utf8_unicode_ci,
-  `stylesheet` text collate utf8_unicode_ci,
+  `stylesheet` longtext collate utf8_unicode_ci,
   `stylesheet_media_type_id` int(10),
   `created` datetime,
   `modified` datetime,
@@ -1459,7 +1459,7 @@ CREATE TABLE `templates` (
   `template_type_id` int(10),
   `default` tinyint(4) default '0',
   `name` varchar(255) collate utf8_unicode_ci,
-  `template` text collate utf8_unicode_ci,
+  `template` longtext collate utf8_unicode_ci,
   `created` datetime,
   `modified` datetime,
   PRIMARY KEY  (`id`)
