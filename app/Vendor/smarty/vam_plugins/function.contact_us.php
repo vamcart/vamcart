@@ -11,6 +11,7 @@ function default_template_contact_us()
 $template = '
 <script type="text/javascript" src="{base_path}/js/modified.js"></script>
 <script type="text/javascript" src="{base_path}/js/focus-first-input.js"></script>
+<h3>{lang}Contact Us{/lang}</h3>
 <form id="contact-us" class="form-horizontal" name="contact-us" action="' . BASE . '/contact_us/send_email/" method="post">
 	<div class="control-group">
 		<label class="control-label" for="name">{lang}Your Name{/lang}:</label>
