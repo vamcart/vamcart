@@ -13,6 +13,8 @@ class StylesheetsController extends AppController {
 		$alias = str_replace(".css","",$alias);
 		$stylesheet = $this->Stylesheet->find('first', array('conditions' => "Stylesheet.id = '".$alias."' OR Stylesheet.alias = '".$alias."'"));
 
+		$output = $stylesheet['Stylesheet']['stylesheet'];		
+		
 		// Minify css
 		$output = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $stylesheet['Stylesheet']['stylesheet']);
 		$output = str_replace(array("\r\n", "\r", "\n", "\t", '/\s\s+/', '  ', '   '), '', $output);
@@ -27,9 +29,9 @@ class StylesheetsController extends AppController {
 		$ExpStr = "Expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";
 		header($ExpStr); 
 
-		echo '/* Begin Stylesheet: ' . $stylesheet['Stylesheet']['name'] . ' */';		
+		echo '/* Begin Stylesheet: ' . $stylesheet['Stylesheet']['name'] . ' */'."\n";		
 		echo $output;
-		echo '/* End Stylesheet: ' . $stylesheet['Stylesheet']['name'] . ' */';				
+		echo "\n".'/* End Stylesheet: ' . $stylesheet['Stylesheet']['name'] . ' */'."\n";				
 		die();
 
 	}
