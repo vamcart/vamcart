@@ -33,7 +33,6 @@ $template = '
 			<div class="inner notop nobottom">
 				<h4 class="title">{$node.name}</h4>
 				<div class="description">{$node.description|strip_tags|truncate:30:"...":true}</div>
-				<div class="description">{attribute_list value_attributes=$node.attributes}</div>
 			</div>
 			</div>
 			{product_form product_id={$node.id}}
