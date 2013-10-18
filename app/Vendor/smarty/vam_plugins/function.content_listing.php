@@ -33,8 +33,8 @@ $template = '
 				<a href="{$node.url}" class="image"><img src="{$node.image}" alt="{$node.name}"{if isset($thumbnail_width)} width="{$thumbnail_width}"{/if} /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
 			<div class="inner notop nobottom">
 				<h4 class="title">{$node.name}</h4>
-				<p class="description">{$node.description|strip_tags|truncate:30:"...":true}</p>
-				<p class="description">{attribute_list value_attributes=$node.attributes}</p>
+				<div class="description">{$node.description|strip_tags|truncate:30:"...":true}</div>
+				<div class="description">{attribute_list value_attributes=$node.attributes}</div>
 			</div>
 			</div>
 			{product_form product_id={$node.id}}
@@ -46,6 +46,7 @@ $template = '
 		</li>
 		{/foreach}
 	</ul>
+</div>  
 <!-- end: products listing -->
 
 {if $pages_number > 1}
@@ -64,7 +65,7 @@ $template = '
 {else}
 {lang}No Items Found{/lang}
 
-{/if} 
+{/if}
 ';		
 
 return $template;
