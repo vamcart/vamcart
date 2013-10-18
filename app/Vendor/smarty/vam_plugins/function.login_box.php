@@ -35,6 +35,9 @@ $template = '
 		{else}
 		<ul class="icons clearfix">
 			<li><a href="{base_path}/customer/account.html">{lang}My Account{/lang}</a></li>
+			<li><a href="{base_path}/customer/account_edit.html">{lang}Account Edit{/lang}</a></li>
+			<li><a href="{base_path}/customer/address_book.html">{lang}Address Book{/lang}</a></li>
+			<li><a href="{base_path}/customer/my_orders.html">{lang}My Orders{/lang}</a></li>
 		</ul>
 		<form action="{base_path}/site/logout?return_url={$return_url}" method="post">
 			<button type="submit" class="btn btn-inverse"><i class="icon-signout"></i> {lang}Logout{/lang}</button>
