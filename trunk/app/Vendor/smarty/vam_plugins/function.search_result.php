@@ -45,6 +45,7 @@ $template = '
 		</li>
 		{/foreach}
 	</ul>
+</div>	
 <!-- end: products listing -->
 
 {if $pages_number > 1}
