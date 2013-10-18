@@ -9,12 +9,14 @@
 function default_template_registration_form()
 {
 $template = '
+<script type="text/javascript" src="{base_path}/js/modified.js"></script>
+<script type="text/javascript" src="{base_path}/js/focus-first-input.js"></script>
 {foreach from=$errors item=error}
 {if $error}
 <div class="alert alert-error"><i class="cus-error"></i> {$error}</div>
 {/if}
 {/foreach}
-<form id="login-form" class="form-horizontal" name="login-form" action="{base_path}/site/register" method="post">
+<form id="contentform" class="form-horizontal" name="login-form" action="{base_path}/site/register" method="post">
 	<div class="control-group">
 		<label class="control-label" for="name">{lang}Name{/lang}:</label>
 		<div class="controls">

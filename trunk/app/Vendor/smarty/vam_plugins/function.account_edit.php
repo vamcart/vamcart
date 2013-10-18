@@ -9,12 +9,14 @@
 function default_template_account_edit()
 {
 $template = '
+<script type="text/javascript" src="{base_path}/js/modified.js"></script>
+<script type="text/javascript" src="{base_path}/js/focus-first-input.js"></script>
 {foreach from=$errors item=error}
 {if $error}
 <div class="alert alert-error"><i class="cus-error"></i> {$error}</div>
 {/if}
 {/foreach}
-<form id="account-edit" class="form-horizontal" name="account-edit" action="{base_path}/site/account_edit" method="post">
+<form id="contentform" class="form-horizontal" name="account-edit" action="{base_path}/site/account_edit" method="post">
 	<div class="control-group">
 		<label class="control-label" for="name">{lang}Name{/lang}:</label>
 		<div class="controls">
