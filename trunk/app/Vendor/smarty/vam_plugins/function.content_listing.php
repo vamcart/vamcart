@@ -243,7 +243,7 @@ function smarty_function_content_listing($params, $template)
             }
         }
         else{
-            $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => $params['limit'], 'order' => array('Content.id ASC, Content.order ASC')));
+            $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => $params['limit'], 'order' => array('Content.order ASC, Content.id ASC')));
         }
 	
 	// Loop through the content list and create a new array with only what the template needs
