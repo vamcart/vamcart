@@ -44,31 +44,29 @@ $(window).resize(function(){
 
 /*
 |--------------------------------------------------------------------------
-| UItoTop jQuery Plugin 1.1
+| UItoTop jQuery Plugin 1.2 by Matt Varone
 | http://www.mattvarone.com/web-design/uitotop-jquery-plugin/
 |--------------------------------------------------------------------------
 */
-
 (function($){
 	$.fn.UItoTop = function(options) {
 
  		var defaults = {
-			text: '',
-			min: 200,
-			inDelay:600,
-			outDelay:400,
-  			containerID: 'toTop',
-			containerHoverID: 'toTopHover',
-			scrollSpeed: 1200,
-			easingType: 'linear'
- 		};
-
- 		var settings = $.extend(defaults, options);
-		var containerIDhash = '#' + settings.containerID;
-		var containerHoverIDHash = '#'+settings.containerHoverID;
+    			text: '',
+    			min: 200,
+    			inDelay:600,
+    			outDelay:400,
+      		containerID: 'toTop',
+    			containerHoverID: 'toTopHover',
+    			scrollSpeed: 1200,
+    			easingType: 'linear'
+ 		    },
+            settings = $.extend(defaults, options),
+            containerIDhash = '#' + settings.containerID,
+            containerHoverIDHash = '#'+settings.containerHoverID;
 		
 		$('body').append('<a href="#" id="'+settings.containerID+'">'+settings.text+'</a>');
-		$(containerIDhash).hide().click(function(){
+		$(containerIDhash).hide().on('click.UItoTop',function(){
 			$('html, body').animate({scrollTop:0}, settings.scrollSpeed, settings.easingType);
 			$('#'+settings.containerHoverID, this).stop().animate({'opacity': 0 }, settings.inDelay, settings.easingType);
 			return false;
@@ -89,7 +87,7 @@ $(window).resize(function(){
 			if(typeof document.body.style.maxHeight === "undefined") {
 				$(containerIDhash).css({
 					'position': 'absolute',
-					'top': $(window).scrollTop() + $(window).height() - 50
+					'top': sd + $(window).height() - 50
 				});
 			}
 			if ( sd > settings.min ) 
@@ -97,7 +95,6 @@ $(window).resize(function(){
 			else 
 				$(containerIDhash).fadeOut(settings.Outdelay);
 		});
-
 };
 })(jQuery);
 
