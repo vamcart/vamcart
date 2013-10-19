@@ -55,8 +55,8 @@ $(window).resize(function(){
     			text: '',
     			min: 200,
     			inDelay:600,
-    			outDelay:400,
-      		containerID: 'toTop',
+				outDelay:400,
+				containerID: 'toTop',
     			containerHoverID: 'toTopHover',
     			scrollSpeed: 1200,
     			easingType: 'linear'
