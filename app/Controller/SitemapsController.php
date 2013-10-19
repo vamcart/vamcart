@@ -62,7 +62,7 @@ class SitemapsController extends AppController {
 				if ($raw_data['ContentType']['name'] == 'link') {
 					$content_list[$count]['url'] = $raw_data['ContentLink']['url'];
 				} else {
-					$content_list[$count]['url']    = BASE . '/' . $raw_data['ContentType']['name'] . '/' . $raw_data['Content']['alias'] . $config['URL_EXTENSION'];
+					$content_list[$count]['url']    = '/' . $raw_data['ContentType']['name'] . '/' . $raw_data['Content']['alias'] . $config['URL_EXTENSION'];
 				}
 
 				switch ($raw_data['ContentType']['name']) {
@@ -172,7 +172,7 @@ class SitemapsController extends AppController {
 				} elseif($raw_data['ContentType']['name'] == 'product') {
 					$content_list_products[$count_products]['id']     = $raw_data['Content']['id'];
 					$content_list_products[$count_products]['parentId'] = $raw_data['Content']['parent_id'];
-					$content_list_products[$count_products]['url']    = BASE . '/' . $raw_data['ContentType']['name'] . '/' . $raw_data['Content']['alias'] . $config['URL_EXTENSION'];
+					$content_list_products[$count_products]['url']    = '/' . $raw_data['ContentType']['name'] . '/' . $raw_data['Content']['alias'] . $config['URL_EXTENSION'];
 					$content_list_products[$count_products]['price'] = $raw_data['ContentProduct']['price'];
 					$content_list_products[$count_products]['name'] = $raw_data['ContentDescription']['name'];
 					$content_list_products[$count_products]['description'] = strip_tags($raw_data['ContentDescription']['description']);
@@ -184,9 +184,9 @@ class SitemapsController extends AppController {
 					}
 
 					if ($config['GD_LIBRARY'] == 0) {
-						$content_list_products[$count_products]['image'] =  BASE . '/img/' . $image_url;
+						$content_list_products[$count_products]['image'] =  '/img/' . $image_url;
 					} else {
-						$content_list_products[$count_products]['image'] = BASE . '/images/thumb?src=/' . $image_url . '&amp;w=' . $config['THUMBNAIL_SIZE'];
+						$content_list_products[$count_products]['image'] = '/images/thumb?src=/' . $image_url . '&amp;w=' . $config['THUMBNAIL_SIZE'];
 					}
 
 					$count_products++;
