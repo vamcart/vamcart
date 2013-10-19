@@ -76,11 +76,11 @@ CREATE TABLE `contents` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `contents` VALUES 
-(35,0,1,0,3,1,1,'home-page','',1,0,0,45,'2009-07-28 21:11:18','2013-10-19 19:59:03'),
-(36,0,2,0,1,1,0,'tablets','',1,1,0,0,'2009-07-28 21:11:49','2013-10-19 21:02:02'),
-(38,36,2,0,2,1,0,'elk-horns','',1,1,0,0,'2009-07-29 18:54:37','2009-09-11 11:20:29'),
-(39,0,3,0,1,1,0,'smartphones','',1,1,0,0,'2009-07-29 22:02:10','2013-10-19 21:02:11'),
-(43,0,1,0,1,1,0,'notebooks','',1,1,0,0,'2013-10-19 19:26:12','2013-10-19 21:01:54'),
+(35,0,1,0,3,1,1,'home-page','',1,0,0,106,'2009-07-28 21:11:18','2013-10-19 23:21:28'),
+(36,0,2,0,1,1,0,'tablets','',1,1,0,14,'2009-07-28 21:11:49','2013-10-19 21:02:02'),
+(38,36,2,0,2,1,0,'samsung-galaxy-tab-3','',1,1,1,18,'2009-07-29 18:54:37','2013-10-19 22:35:47'),
+(39,0,3,0,1,1,0,'smartphones','',1,1,0,9,'2009-07-29 22:02:10','2013-10-19 21:02:11'),
+(43,0,1,0,1,1,0,'notebooks','',1,1,0,12,'2013-10-19 19:26:12','2013-10-19 21:01:54'),
 (44,0,4,0,1,1,0,'information','',1,0,0,0,'2009-07-30 15:34:48','2009-07-30 15:35:02'),
 (45,44,1,0,3,1,0,'shipping--returns','',1,1,0,0,'2009-07-30 15:36:30','2009-08-06 14:53:16'),
 (46,44,1,0,3,1,0,'privacy-policy','',1,1,0,0,'2009-07-30 15:36:54','2009-07-30 15:37:09'),
@@ -98,12 +98,20 @@ INSERT INTO `contents` VALUES
 (71,69,1,0,5,1,0,'sample-news','',1,1,0,0,'2009-11-10 20:20:08','2009-11-10 20:20:08'),
 (72,70,1,0,6,1,0,'sample-article','',1,1,0,0,'2009-11-10 20:20:51','2009-11-10 20:20:51'),
 (73,-1,6,0,3,1,0,'search-result','',1,0,0,0,'2009-11-10 20:20:51','2009-11-10 20:20:51'),
-(87,-1,7,0,3,1,0,'register','',1,0,0,106,'2012-08-19 00:00:00','2012-08-19 21:18:34'),
+(87,-1,7,0,3,1,0,'register','',1,0,0,107,'2012-08-19 00:00:00','2012-08-19 21:18:34'),
 (88,-1,8,0,3,1,0,'register-success','',1,0,0,3,'2012-08-19 00:00:00','2012-08-19 21:19:37'),
 (89,-1,7,0,3,1,0,'account','',1,0,0,106,'2012-08-19 00:00:00','2012-08-19 21:18:34'),
 (90,-1,8,0,3,1,0,'account_edit','',1,0,0,3,'2012-08-19 00:00:00','2012-08-19 21:19:37'),
 (91,-1,8,0,3,1,0,'my_orders','',1,0,0,3,'2012-08-19 00:00:00','2012-08-19 21:19:37'),
-(92,-1,8,0,3,1,0,'address_book','',1,0,0,3,'2012-08-19 00:00:00','2012-08-19 21:19:37')	;
+(92,-1,8,0,3,1,0,'address_book','',1,0,0,3,'2012-08-19 00:00:00','2012-08-19 21:19:37'),
+(93,36,3,0,2,1,0,'samsung-galaxy-note-10-1','',1,1,\N,7,'2013-10-19 22:29:17','2013-10-19 23:05:33'),
+(94,36,3,0,2,1,0,'samsung-galaxy-note-8','',1,1,\N,4,'2013-10-19 22:42:55','2013-10-19 22:48:15'),
+(95,39,1,0,2,1,0,'samsung-galaxy-note-3','',1,1,\N,3,'2013-10-19 22:58:43','2013-10-19 23:17:52'),
+(96,39,2,0,2,1,0,'samsung-galaxy-s4','',1,1,\N,2,'2013-10-19 22:59:55','2013-10-19 23:18:23'),
+(97,39,2,0,2,1,0,'samsung-galaxy-ace-3','',1,1,\N,2,'2013-10-19 23:00:57','2013-10-19 23:18:42'),
+(98,43,1,0,2,1,0,'samsung-ativ-book-9','',1,1,\N,3,'2013-10-19 23:32:11','2013-10-19 23:44:14'),
+(99,43,2,0,2,1,0,'samsung-ativ-smart-pc','',1,1,\N,1,'2013-10-19 23:34:33','2013-10-19 23:52:11'),
+(100,43,2,0,2,1,0,'samsung-ativ-book-4','',1,1,\N,2,'2013-10-19 23:35:52','2013-10-19 23:52:26')	;
 
 DROP TABLE IF EXISTS content_categories;
 CREATE TABLE `content_categories` (
@@ -113,10 +121,10 @@ CREATE TABLE `content_categories` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `content_categories` (`id`, `content_id`, `extra`) VALUES 
-(8, 36, '1'),
-(9, 39, '1'),
-(12, 51, '1'),
+INSERT INTO `content_categories` VALUES 
+(8,36,'1'),
+(9,39,'1'),
+(12,51,'1'),
 (13,43,'1')	;
 
 DROP TABLE IF EXISTS content_descriptions;
@@ -155,8 +163,6 @@ INSERT INTO `content_descriptions` VALUES
 (326,59,2,'Добавить отзыв','{module alias=\'reviews\' action=\'create\'}','','',''),
 (359,51,1,'Confirmation','{payment}\r\n{shipping}\r\n{shopping_cart template=\'cart-confirm-view\'}','','',''),
 (360,51,2,'Подтверждение заказа','{payment}\r\n{shipping}\r\n{shopping_cart template=\'cart-confirm-view\'}','','',''),
-(385,38,1,'Elk Horns','Product description.','','',''),
-(386,38,2,'Рога лося','Дешевле не найдёте, отличные лосиные рога.','','',''),
 (393,68,1,'Voucher Details','{module alias=\'coupons\' action=\'show_info\'}','','',''),
 (394,68,2,'Информация о купоне','{module alias=\'coupons\' action=\'show_info\'}','','',''),
 (395,69,1,'News','','','',''),
@@ -181,14 +187,32 @@ INSERT INTO `content_descriptions` VALUES
 (524,91,2,'Мои заказы','{my_orders}','','',''),
 (525,92,1,'Address Book','{address_book}','','',''),
 (526,92,2,'Адресная книга','{address_book}','','',''),
-(543,35,1,'Home','<a href=\"{base_path}/admin/\">Click here to go to the admin area.</a> {content_listing template=\'slider\' parent=\'36\' type=\'product\' limit=\'3\'} {content_listing template=\'subcategory-listing\' parent=\'0\' type=\'category\' limit=\'3\'} {content_listing template=\'featured-products\' parent=\'36\' type=\'product\' limit=\'3\'}','','',''),
-(544,35,2,'Главная страница','<a href=\"{base_path}/admin/\">Вход в админку.</a> {content_listing template=\'slider\' parent=\'36\' type=\'product\' limit=\'3\'} {content_listing template=\'subcategory-listing\' parent=\'0\' type=\'category\' limit=\'3\'} {content_listing template=\'featured-products\' parent=\'36\' type=\'product\' limit=\'3\'}','','',''),
 (603,43,1,'Notebooks','','','',''),
 (604,43,2,'Ноутбуки','','','',''),
 (605,36,1,'Tablets','','','',''),
 (606,36,2,'Планшеты','','','',''),
 (607,39,1,'Smartphones','','','',''),
-(608,39,2,'Смартфоны','','','','')	;
+(608,39,2,'Смартфоны','','','',''),
+(703,38,1,'Samsung GALAXY Tab 3','Product description.','','',''),
+(704,38,2,'Samsung GALAXY Tab 3','Исключительная плавность работы и почти безграничный технический потенциал Samsung GALAXY Tab 3 воплотились в элегантном и современном дизайне. Легкий и тонкий корпус делает этот планшет эргономичным и удобным в управлении. Вы непременно оцените его преимущества!','','',''),
+(715,94,1,'Samsung GALAXY Note 8','Product description.','','',''),
+(716,94,2,'Samsung GALAXY Note 8','Поприветствуйте новый Samsung GALAXY Note 8.0, вашего друга и помощника во всех делах. Быстрый, функциональный и компактный, с поддержкой рукописного ввода с помощью S Pen, он всегда будет под рукой, когда вам необходимо.','','',''),
+(733,93,1,'Samsung GALAXY Note 10.1','Product description.','','',''),
+(734,93,2,'Samsung GALAXY Note 10.1','Новый планшет Samsung GALAXY Note 10.1 2014 Edition отличается исключительно высоким разрешением WQXGA, кристально четким изображением и большим экраном. Высочайшее разрешение обеспечивает комфортные условия для просмотра любого контента, причем фильмы в формате Full HD будут воспроизводиться без малейшей потери качества, а фотоснимки приобретут удивительную детальность.','','',''),
+(735,95,1,'Samsung GALAXY Note 3','Product description.','','',''),
+(736,95,2,'Samsung GALAXY Note 3','Смартфон премиум-класса с большим и ярким дисплеем 5,7 дюйма.','','',''),
+(737,96,1,'Samsung GALAXY S4','Product description.','','',''),
+(738,96,2,'Samsung GALAXY S4','Новый смартфон Samsung GALAXY S4 станет твоим истинным компаньоном, который поможет упростить общение с людьми и сохранить самые радостные моменты жизни. Каждая его функция призвана сделать твою жизнь насыщенней и интересней. Кроме того, он может следить за твоим здоровьем и самочувствием. Samsung GALAXY S4 &mdash; твой незаменимый помощник.','','',''),
+(739,97,1,'Samsung GALAXY Ace 3','Product description.','','',''),
+(740,97,2,'Samsung GALAXY Ace 3','Samsung GALAXY Ace 3 - ваш проводник в мир высоких технологий и производительности. Смартфон оснащен мощным процессором, поддерживает быстрые подключения и работает на новейшей версии платформы Android с первоклассным пользовательским интерфейсом. Игровой портал, облачное хранилище, навигация с поддержкой GPS и ГЛОНАСС - у этой модели есть все, чтобы претендовать на звание совершенного смартфона.','','',''),
+(741,35,1,'Home','<a href=\"{base_path}/admin/\">Click here to go to the admin area.</a> {content_listing template=\'slider\' parent=\'36\' type=\'product\' limit=\'3\'} {content_listing template=\'subcategory-listing\' parent=\'0\' type=\'category\' limit=\'3\'} {content_listing template=\'featured-products\' parent=\'39\' type=\'product\' limit=\'3\'}','','',''),
+(742,35,2,'Главная страница','<a href=\"{base_path}/admin/\">Вход в админку.</a> {content_listing template=\'slider\' parent=\'36\' type=\'product\' limit=\'3\'} {content_listing template=\'subcategory-listing\' parent=\'0\' type=\'category\' limit=\'3\'} {content_listing template=\'featured-products\' parent=\'39\' type=\'product\' limit=\'3\'}','','',''),
+(757,98,1,'Samsung ATIV Book 9','Product description.','','',''),
+(758,98,2,'Samsung ATIV Book 9','Уникальный тонкий 15,0\" ноутбук.','','',''),
+(759,99,1,'Samsung ATIV Smart PC','Product description.','','',''),
+(760,99,2,'Samsung ATIV Smart PC','Инновационная конструкция сочетает в себе функциональность ноутбука с удобством планшета: с ней вы получаете исключительную мобильность и удобство для работы на ходу, включая серфинг по Интернету, широкие возможности коммуникации, просмотра видео и игровых приложений. Если же вам требуется поработать - подключите к ATIV Smart PC полноразмерную клавиатуру, и ваш планшет приобретет функциональность полноценного ноутбука.','','',''),
+(761,100,1,'Samsung ATIV Book 4','Product description.','','',''),
+(762,100,2,'Samsung ATIV Book 4','При весе 1,99 кг и толщине 22,9 мм ноутбук отличается стильным дизайном. Он настолько компактен, что его можно всегда иметь при себе. ATIV Book 4 настолько легкий, что вы не сможете себя представить без него. Тем не менее, этот ноутбук отличается высокой функциональностью и производительностью.','','','')	;
 
 DROP TABLE IF EXISTS content_images;
 CREATE TABLE `content_images` (
@@ -204,7 +228,43 @@ CREATE TABLE `content_images` (
 INSERT INTO `content_images` VALUES 
 (23,39,1,'smartphones.png','2013-10-19 20:44:16','2013-10-19 20:44:16'),
 (26,36,1,'tablets.png','2013-10-19 20:50:28','2013-10-19 20:50:28'),
-(30,43,1,'notebooks.png','2013-10-19 20:57:10','2013-10-19 20:57:10')	;
+(30,43,1,'notebooks.png','2013-10-19 20:57:10','2013-10-19 20:57:10'),
+(79,93,1,'samsung-galaxy-note-10-1.png','2013-10-19 22:34:00','2013-10-19 22:34:00'),
+(80,93,2,'samsung-galaxy-note-10-2.jpg','2013-10-19 22:34:00','2013-10-19 22:34:00'),
+(81,93,2,'samsung-galaxy-note-10-3.jpg','2013-10-19 22:34:00','2013-10-19 22:34:00'),
+(82,93,2,'samsung-galaxy-note-10-4.jpg','2013-10-19 22:34:01','2013-10-19 22:34:01'),
+(83,38,1,'samsung-galaxy-tab-3-1.png','2013-10-19 22:35:45','2013-10-19 22:35:45'),
+(84,38,2,'samsung-galaxy-tab-3-2.jpg','2013-10-19 22:35:45','2013-10-19 22:35:45'),
+(85,38,2,'samsung-galaxy-tab-3-3.jpg','2013-10-19 22:35:45','2013-10-19 22:35:45'),
+(86,38,2,'samsung-galaxy-tab-3-4.jpg','2013-10-19 22:35:45','2013-10-19 22:35:45'),
+(89,94,1,'samsung-galaxy-note-8-1.png','2013-10-19 22:48:13','2013-10-19 22:48:13'),
+(90,94,2,'samsung-galaxy-note-8-2.jpg','2013-10-19 22:48:13','2013-10-19 22:48:13'),
+(91,94,2,'samsung-galaxy-note-8-3.jpg','2013-10-19 22:48:13','2013-10-19 22:48:13'),
+(92,94,2,'samsung-galaxy-note-8-4.jpg','2013-10-19 22:48:14','2013-10-19 22:48:14'),
+(93,95,1,'samsung-galaxy-note-3-1.png','2013-10-19 23:17:50','2013-10-19 23:17:50'),
+(94,95,2,'samsung-galaxy-note-3-2.jpg','2013-10-19 23:17:50','2013-10-19 23:17:50'),
+(95,95,2,'samsung-galaxy-note-3-3.jpg','2013-10-19 23:17:50','2013-10-19 23:17:50'),
+(96,95,2,'samsung-galaxy-note-3-4.jpg','2013-10-19 23:17:50','2013-10-19 23:17:50'),
+(97,96,1,'samsung-galaxy-s4-1.png','2013-10-19 23:18:22','2013-10-19 23:18:22'),
+(98,96,2,'samsung-galaxy-s4-2.jpg','2013-10-19 23:18:22','2013-10-19 23:18:22'),
+(99,96,2,'samsung-galaxy-s4-3.jpg','2013-10-19 23:18:22','2013-10-19 23:18:22'),
+(100,96,2,'samsung-galaxy-s4-4.jpg','2013-10-19 23:18:22','2013-10-19 23:18:22'),
+(101,97,1,'samsung-galaxy-ace-3-1.png','2013-10-19 23:18:41','2013-10-19 23:18:41'),
+(102,97,2,'samsung-galaxy-ace-3-2.jpg','2013-10-19 23:18:41','2013-10-19 23:18:41'),
+(103,97,2,'samsung-galaxy-ace-3-3.jpg','2013-10-19 23:18:41','2013-10-19 23:18:41'),
+(104,97,2,'samsung-galaxy-ace-3-4.jpg','2013-10-19 23:18:41','2013-10-19 23:18:41'),
+(105,98,1,'samsung-ativ-book-9-1.png','2013-10-19 23:44:13','2013-10-19 23:44:13'),
+(106,98,2,'samsung-ativ-book-9-2.jpg','2013-10-19 23:44:13','2013-10-19 23:44:13'),
+(107,98,2,'samsung-ativ-book-9-3.jpg','2013-10-19 23:44:13','2013-10-19 23:44:13'),
+(108,98,2,'samsung-ativ-book-9-4.jpg','2013-10-19 23:44:13','2013-10-19 23:44:13'),
+(109,99,1,'samsung-ativ-smart-pc-1.png','2013-10-19 23:52:10','2013-10-19 23:52:10'),
+(110,99,2,'samsung-ativ-smart-pc-2.jpg','2013-10-19 23:52:10','2013-10-19 23:52:10'),
+(111,99,2,'samsung-ativ-smart-pc-3.jpg','2013-10-19 23:52:10','2013-10-19 23:52:10'),
+(112,99,2,'samsung-ativ-smart-pc-4.jpg','2013-10-19 23:52:10','2013-10-19 23:52:10'),
+(113,100,1,'samsung-ativ-book-4-1.png','2013-10-19 23:52:25','2013-10-19 23:52:25'),
+(114,100,2,'samsung-ativ-book-4-2.jpg','2013-10-19 23:52:25','2013-10-19 23:52:25'),
+(115,100,2,'samsung-ativ-book-4-3.jpg','2013-10-19 23:52:25','2013-10-19 23:52:25'),
+(116,100,2,'samsung-ativ-book-4-4.jpg','2013-10-19 23:52:25','2013-10-19 23:52:25')	;
 
 DROP TABLE IF EXISTS content_links;
 CREATE TABLE `content_links` (
@@ -222,21 +282,21 @@ CREATE TABLE `content_pages` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `content_pages` (`id`, `content_id`, `extra`) VALUES 
-(23, 35, '1'),
-(24, 36, '1'),
-(25, 44, '1'),
-(26, 45, '1'),
-(27, 46, '1'),
-(28, 47, '1'),
-(29, 48, '1'),
-(30, 49, '1'),
-(31, 50, '1'),
-(32, 51, '1'),
-(33, 53, '1'),
-(34, 73, '1');
-INSERT INTO `content_pages` VALUES(35, 87, '1');
-INSERT INTO `content_pages` VALUES(36, 88, '1');
+INSERT INTO `content_pages` VALUES 
+(23,35,'1'),
+(24,36,'1'),
+(25,44,'1'),
+(26,45,'1'),
+(27,46,'1'),
+(28,47,'1'),
+(29,48,'1'),
+(30,49,'1'),
+(31,50,'1'),
+(32,51,'1'),
+(33,53,'1'),
+(34,73,'1'),
+(35,87,'1'),
+(36,88,'1')	;
 
 DROP TABLE IF EXISTS content_products;
 CREATE TABLE `content_products` (
@@ -253,9 +313,16 @@ CREATE TABLE `content_products` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `content_products` (`id`, `content_id`, `stock`, `model`, `price`, `tax_id`, `weight`, `moq`, `pf`, `ordered`) VALUES 
-(16, 37, 12, '123456', 10.99, 2, 0, 1, 1, 0),
-(17, 38, 22, 'sample', 4.95, 2, 3, 1, 1, 0);
+INSERT INTO `content_products` VALUES 
+(17,38,22,'',399,2,3,1,1,0),
+(18,93,0,'',299,1,0,1,1,0),
+(19,94,0,'',199,1,0,1,1,0),
+(20,95,0,'',499,1,0,1,1,0),
+(21,96,0,'',399,1,0,1,1,0),
+(22,97,0,'',299,1,0,1,1,0),
+(23,98,0,'',999,1,0,1,1,0),
+(24,99,0,'',899,1,0,1,1,0),
+(25,100,0,'',799,1,0,1,1,0)	;
 
 DROP TABLE IF EXISTS content_product_prices;
 CREATE TABLE IF NOT EXISTS `content_product_prices` (
@@ -265,9 +332,6 @@ CREATE TABLE IF NOT EXISTS `content_product_prices` (
   `price` double,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-INSERT INTO `content_product_prices` (`id`, `content_product_id`, `quantity`, `price`) VALUES
-(1, 16, 5, 10.50);
 
 DROP TABLE IF EXISTS content_news;
 CREATE TABLE `content_news` (
@@ -1142,7 +1206,7 @@ INSERT INTO `micro_templates` VALUES
 (10,'cart-confirm-view','{if $order_items}\r\n<div class=\"cart\">\r\n<h3>{lang}Cart Contents{/lang}</h3>\r\n  <table class=\"contentTable\">\r\n		<tr>\r\n			<th>{lang}Product{/lang}</th>\r\n			<th>{lang}Price Ea.{/lang}</th>\r\n			<th>{lang}Qty{/lang}</th>\r\n			<th>{lang}Total{/lang}</th>\r\n		</tr>\r\n\r\n{foreach from=$order_items item=product}\r\n		<tr>\r\n			<td><a href=\"{$product.link}\">{$product.name}</a></td>\r\n			<td>{$product.price}</td>\r\n			<td>{$product.qty}</td>\r\n			<td>{$product.line_total}</td>\r\n		</tr>\r\n{foreachelse}\r\n		<tr>\r\n			<td colspan=\"4\">{lang}No Cart Items{/lang}</td>\r\n		</tr>\r\n{/foreach}\r\n\r\n		<tr class=\"cart_total\">\r\n			<td colspan=\"2\" width=\"100%\">&nbsp;</td>\r\n			<td class=\"total-name\">{lang}Shipping{/lang}:</td>\r\n			<td class=\"total-value\"><nobr>{$shipping_total}</nobr></td>\r\n		</tr>\r\n		<tr class=\"cart_total\">\r\n			<td colspan=\"2\">&nbsp;</td>\r\n			<td class=\"total-name\"><strong>{lang}Total{/lang}:</strong></td>\r\n			<td class=\"total-value\"><nobr>{$order_total}</nobr></td>\r\n		</tr>\r\n	</table>\r\n</div>\r\n{else}\r\n	{lang}No Cart Items{/lang}\r\n{/if}','2013-10-16 21:54:14','2013-10-16 22:08:18','shopping_cart'),
 (11,'footer-links','<ul class=\"unstyled\">\r\n	{foreach from=$content_list item=node}\r\n		<li{if $node.alias == $content_alias} class=\"active\"{/if}><a href=\"{$node.url}\">{$node.name}</a></li>\r\n	{/foreach}\r\n</ul>','2013-10-08 12:52:16','2013-10-08 21:00:45','content_listing'),
 (12,'featured-products','{if $content_list}\r\n<h2>{lang}Featured Products{/lang}</h2>\r\n<div class=\"row-fluid featured-products\">\r\n	<ul class=\"thumbnails\">\r\n	{foreach from=$content_list item=node}\r\n		<li class=\"span4 item\">\r\n			<div class=\"thumbnail\">\r\n				<a href=\"{$node.url}\" class=\"image\">\r\n					<img src=\"{$node.image}\" alt=\"{$node.name}\"{if isset($thumbnail_width)} width=\"{$thumbnail_width}\"{/if} />\r\n					<span class=\"frame-overlay\"></span>\r\n					<span class=\"price\">{$node.price}</span>\r\n				</a>\r\n				<div class=\"inner notop nobottom\">\r\n					<h4 class=\"title\">{$node.name}</h4>\r\n					<div class=\"description\">{$node.description|strip_tags|truncate:30:\"...\":true}</div>\r\n				</div>\r\n			</div>\r\n			{product_form product_id={$node.id}}\r\n			<div class=\"inner darken notop\">\r\n				<button class=\"btn btn-add-to-cart\" type=\"submit\" value=\"{lang}Buy{/lang}\"><i class=\"icon-shopping-cart\"></i> {lang}Buy{/lang}</button>\r\n			</div>\r\n			{/product_form}\r\n		</li>\r\n	{/foreach}\r\n	</ul>\r\n</div>\r\n{/if}  ','2013-10-08 18:09:58','2013-10-18 11:39:57','content_listing'),
-(13,'slider','{if $content_list}\r\n<script type=\"text/javascript\" src=\"{base_path}/js/jquery/plugins/sequence.jquery-min.js\"></script>\r\n<script type=\"text/javascript\" src=\"{base_path}/js/jquery/plugins/sequencejs-options.js\"></script>\r\n\r\n<section id=\"slider\">\r\n	<div id=\"sequence-theme\">\r\n		<div id=\"sequence\">\r\n			<div class=\"prev\"><i class=\"icon-chevron-left\"></i></div>\r\n			<div class=\"next\"><i class=\"icon-chevron-right\"></i></div>\r\n				<ul>\r\n				{foreach from=$content_list item=node}\r\n					<li>\r\n						<div class=\"text\">\r\n							<h2 class=\"title\"><span>{$node.name|strip_tags|truncate:20:\"...\":true}</span></h2>\r\n							<h3 class=\"subtitle\"><span>{lang}best buy!{/lang}</span></h3>\r\n							<div class=\"description\">{$node.description|strip_tags|truncate:120:\"...\":true}</div>\r\n							<a href=\"{$node.url}\" class=\"btn\">{lang}read more{/lang}</a>\r\n						</div>\r\n						<img class=\"image\" src=\"{$node.image}\" alt=\"{$node.name}\" />\r\n					</li>\r\n				{/foreach}\r\n				</ul>\r\n		</div>\r\n	</div>\r\n</section>\r\n{/if}','2013-10-08 18:39:12','2013-10-18 11:40:06','content_listing')	;
+(13,'slider','{if $content_list}\r\n<script type=\"text/javascript\" src=\"{base_path}/js/jquery/plugins/sequence.jquery-min.js\"></script>\r\n<script type=\"text/javascript\" src=\"{base_path}/js/jquery/plugins/sequencejs-options.js\"></script>\r\n\r\n<section id=\"slider\">\r\n	<div id=\"sequence-theme\">\r\n		<div id=\"sequence\">\r\n			<div class=\"prev\"><i class=\"icon-chevron-left\"></i></div>\r\n			<div class=\"next\"><i class=\"icon-chevron-right\"></i></div>\r\n				<ul>\r\n				{foreach from=$content_list item=node}\r\n					<li>\r\n						<div class=\"text\">\r\n							<h2 class=\"title\"><span>{$node.name|strip_tags|truncate:30:\"...\":true}</span></h2>\r\n							<h3 class=\"subtitle\"><span>{lang}best buy!{/lang}</span></h3>\r\n							<div class=\"description\">{$node.description|strip_tags|truncate:120:\"...\":true}</div>\r\n							<a href=\"{$node.url}\" class=\"btn\">{lang}read more{/lang}</a>\r\n						</div>\r\n						<img class=\"image\" src=\"{$node.image}\" alt=\"{$node.name}\" />\r\n					</li>\r\n				{/foreach}\r\n				</ul>\r\n		</div>\r\n	</div>\r\n</section>\r\n{/if}','2013-10-08 18:39:12','2013-10-19 23:54:34','content_listing')	;
 
 DROP TABLE IF EXISTS modules;
 CREATE TABLE `modules` (
