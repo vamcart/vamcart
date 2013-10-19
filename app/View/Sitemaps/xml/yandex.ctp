@@ -18,7 +18,7 @@
         <offers>
 <?php foreach ($products as $product) { ?>
             <offer id="<?php echo $product['id'] ?>" available="true">
-                <url><?php echo Router::url($product['parentId'], true) ?></url>
+                <url><?php echo Router::url($product['url'], true) ?></url>
                 <price><?php echo $product['price'] ?></price>
                 <currencyId><?php echo $default_currency ?></currencyId>
                 <categoryId><?php echo $product['parentId'] ?></categoryId>
