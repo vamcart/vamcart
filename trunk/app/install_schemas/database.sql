@@ -75,35 +75,35 @@ CREATE TABLE `contents` (
  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `contents` (`id`, `parent_id`, `order`, `hierarchy`, `content_type_id`, `template_id`, `default`, `alias`, `head_data`, `active`, `show_in_menu`, `yml_export`, `viewed`, `created`, `modified`) VALUES 
-(35, 0, 1, 0, 3, 1, 1, 'home-page', '', 1, 1, 0, 0, '2009-07-28 21:11:18', '2009-09-12 12:30:17'),
-(36, 0, 3, 0, 1, 1, 0, 'horns', '', 1, 1, 0, 0, '2009-07-28 21:11:49', '2009-08-01 14:56:05'),
-(38, 36, 2, 0, 2, 1, 0, 'elk-horns', '', 1, 1, 0, 0, '2009-07-29 18:54:37', '2009-09-11 11:20:29'),
-(39, 0, 2, 0, 1, 1, 0, 'hoofs', '', 1, 1, 0, 0, '2009-07-29 22:02:10', '2009-08-01 14:55:54'),
-(44, 0, 4, 0, 1, 1, 0, 'information', '', 1, 0, 0, 0, '2009-07-30 15:34:48', '2009-07-30 15:35:02'),
-(45, 44, 1, 0, 3, 1, 0, 'shipping--returns', '', 1, 1, 0, 0, '2009-07-30 15:36:30', '2009-08-06 14:53:16'),
-(46, 44, 1, 0, 3, 1, 0, 'privacy-policy', '', 1, 1, 0, 0, '2009-07-30 15:36:54', '2009-07-30 15:37:09'),
-(47, 44, 2, 0, 3, 1, 0, 'conditions-of-use', '', 1, 1, 0, 0, '2009-07-30 15:37:33', '2009-07-30 15:37:33'),
-(48, 44, 3, 0, 3, 1, 0, 'contact-us', '', 1, 1, 0, 0, '2009-07-30 15:38:03', '2009-07-30 15:38:03'),
-(49, -1, 5, 0, 3, 1, 0, 'cart-contents', '', 1, 1, 0, 0, '2009-07-30 20:40:14', '2009-08-09 16:23:47'),
-(50, -1, 6, 0, 3, 1, 0, 'checkout', '', 1, 1, 0, 0, '2009-07-30 20:52:36', '2009-08-01 16:54:56'),
-(51, -1, 5, 0, 3, 1, 0, 'confirmation', '', 1, 1, 0, 0, '2009-08-07 11:16:28', '2009-09-01 16:22:10'),
-(53, -1, 5, 0, 3, 1, 0, 'success', '', 1, 1, 0, 0, '2009-08-07 11:58:21', '2009-08-15 16:00:40'),
-(58, -1, 0, 0, 3, 1, 0, 'read-reviews', '', 1, 0, 0, 0, '2009-08-20 09:37:04', '2009-08-20 09:37:04'),
-(59, -1, 0, 0, 3, 1, 0, 'create-review', '', 1, 0, 0, 0, '2009-08-20 09:37:04', '2009-08-20 09:37:04'),
-(68, -1, 0, 0, 3, 1, 0, 'coupon-details', '', 1, 0, 0, 0, '2009-09-13 11:11:08', '2009-09-13 11:11:08'),
-(69, 0, 5, 0, 1, 1, 0, 'news', '', 1, 0, 0, 0, '2009-11-10 20:18:22', '2009-11-10 20:18:22'),
-(70, 0, 6, 0, 1, 1, 0, 'articles', '', 1, 0, 0, 0, '2009-11-10 20:18:45', '2009-11-10 20:18:45'),
-(71, 69, 1, 0, 5, 1, 0, 'sample-news', '', 1, 1, 0, 0, '2009-11-10 20:20:08', '2009-11-10 20:20:08'),
-(72, 70, 1, 0, 6, 1, 0, 'sample-article', '', 1, 1, 0, 0, '2009-11-10 20:20:51', '2009-11-10 20:20:51'),
-(73, -1, 6, 0, 3, 1, 0, 'search-result', '', 1, 0, 0, 0, '2009-11-10 20:20:51', '2009-11-10 20:20:51');
-INSERT INTO `contents` VALUES(87, -1, 7, 0, 3, 1, 0, 'register', '', 1, 0, 0, 106, '2012-08-19 00:00:00', '2012-08-19 21:18:34');
-INSERT INTO `contents` VALUES(88, -1, 8, 0, 3, 1, 0, 'register-success', '', 1, 0, 0, 3, '2012-08-19 00:00:00', '2012-08-19 21:19:37');
-
-INSERT INTO `contents` VALUES(89, -1, 7, 0, 3, 1, 0, 'account', '', 1, 0, 0, 106, '2012-08-19 00:00:00', '2012-08-19 21:18:34');
-INSERT INTO `contents` VALUES(90, -1, 8, 0, 3, 1, 0, 'account_edit', '', 1, 0, 0, 3, '2012-08-19 00:00:00', '2012-08-19 21:19:37');
-INSERT INTO `contents` VALUES(91, -1, 8, 0, 3, 1, 0, 'my_orders', '', 1, 0, 0, 3, '2012-08-19 00:00:00', '2012-08-19 21:19:37');
-INSERT INTO `contents` VALUES(92, -1, 8, 0, 3, 1, 0, 'address_book', '', 1, 0, 0, 3, '2012-08-19 00:00:00', '2012-08-19 21:19:37');
+INSERT INTO `contents` VALUES 
+(35,0,1,0,3,1,1,'home-page','',1,0,0,45,'2009-07-28 21:11:18','2013-10-19 19:59:03'),
+(36,0,2,0,1,1,0,'tablets','',1,1,0,0,'2009-07-28 21:11:49','2013-10-19 21:02:02'),
+(38,36,2,0,2,1,0,'elk-horns','',1,1,0,0,'2009-07-29 18:54:37','2009-09-11 11:20:29'),
+(39,0,3,0,1,1,0,'smartphones','',1,1,0,0,'2009-07-29 22:02:10','2013-10-19 21:02:11'),
+(43,0,1,0,1,1,0,'notebooks','',1,1,0,0,'2013-10-19 19:26:12','2013-10-19 21:01:54'),
+(44,0,4,0,1,1,0,'information','',1,0,0,0,'2009-07-30 15:34:48','2009-07-30 15:35:02'),
+(45,44,1,0,3,1,0,'shipping--returns','',1,1,0,0,'2009-07-30 15:36:30','2009-08-06 14:53:16'),
+(46,44,1,0,3,1,0,'privacy-policy','',1,1,0,0,'2009-07-30 15:36:54','2009-07-30 15:37:09'),
+(47,44,2,0,3,1,0,'conditions-of-use','',1,1,0,0,'2009-07-30 15:37:33','2009-07-30 15:37:33'),
+(48,44,3,0,3,1,0,'contact-us','',1,1,0,0,'2009-07-30 15:38:03','2009-07-30 15:38:03'),
+(49,-1,5,0,3,1,0,'cart-contents','',1,1,0,0,'2009-07-30 20:40:14','2009-08-09 16:23:47'),
+(50,-1,6,0,3,1,0,'checkout','',1,1,0,0,'2009-07-30 20:52:36','2009-08-01 16:54:56'),
+(51,-1,5,0,3,1,0,'confirmation','',1,1,0,0,'2009-08-07 11:16:28','2009-09-01 16:22:10'),
+(53,-1,5,0,3,1,0,'success','',1,1,0,0,'2009-08-07 11:58:21','2009-08-15 16:00:40'),
+(58,-1,0,0,3,1,0,'read-reviews','',1,0,0,0,'2009-08-20 09:37:04','2009-08-20 09:37:04'),
+(59,-1,0,0,3,1,0,'create-review','',1,0,0,0,'2009-08-20 09:37:04','2009-08-20 09:37:04'),
+(68,-1,0,0,3,1,0,'coupon-details','',1,0,0,0,'2009-09-13 11:11:08','2009-09-13 11:11:08'),
+(69,0,5,0,1,1,0,'news','',1,0,0,0,'2009-11-10 20:18:22','2009-11-10 20:18:22'),
+(70,0,6,0,1,1,0,'articles','',1,0,0,0,'2009-11-10 20:18:45','2009-11-10 20:18:45'),
+(71,69,1,0,5,1,0,'sample-news','',1,1,0,0,'2009-11-10 20:20:08','2009-11-10 20:20:08'),
+(72,70,1,0,6,1,0,'sample-article','',1,1,0,0,'2009-11-10 20:20:51','2009-11-10 20:20:51'),
+(73,-1,6,0,3,1,0,'search-result','',1,0,0,0,'2009-11-10 20:20:51','2009-11-10 20:20:51'),
+(87,-1,7,0,3,1,0,'register','',1,0,0,106,'2012-08-19 00:00:00','2012-08-19 21:18:34'),
+(88,-1,8,0,3,1,0,'register-success','',1,0,0,3,'2012-08-19 00:00:00','2012-08-19 21:19:37'),
+(89,-1,7,0,3,1,0,'account','',1,0,0,106,'2012-08-19 00:00:00','2012-08-19 21:18:34'),
+(90,-1,8,0,3,1,0,'account_edit','',1,0,0,3,'2012-08-19 00:00:00','2012-08-19 21:19:37'),
+(91,-1,8,0,3,1,0,'my_orders','',1,0,0,3,'2012-08-19 00:00:00','2012-08-19 21:19:37'),
+(92,-1,8,0,3,1,0,'address_book','',1,0,0,3,'2012-08-19 00:00:00','2012-08-19 21:19:37')	;
 
 DROP TABLE IF EXISTS content_categories;
 CREATE TABLE `content_categories` (
@@ -116,7 +116,8 @@ CREATE TABLE `content_categories` (
 INSERT INTO `content_categories` (`id`, `content_id`, `extra`) VALUES 
 (8, 36, '1'),
 (9, 39, '1'),
-(12, 51, '1');
+(12, 51, '1'),
+(13,43,'1')	;
 
 DROP TABLE IF EXISTS content_descriptions;
 CREATE TABLE `content_descriptions` (
@@ -131,64 +132,63 @@ CREATE TABLE `content_descriptions` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `content_descriptions` (`id`, `content_id`, `language_id`, `name`, `description`, `meta_title`, `meta_description`, `meta_keywords`) VALUES 
-(179, 44, 1, 'Information', 'Information about our site can be found by visiting the following links:','', '', ''),
-(180, 44, 2, 'Информация', 'Информация о магазине доступна по следующим ссылкам:','', '', ''),
-(185, 46, 1, 'Payment methods', 'Enter your payment methods on this page.','', '', ''),
-(186, 46, 2, 'Оплата', 'Укажите информацию о способах оплаты товара на данной странице.','', '', ''),
-(187, 47, 1, 'About Us', 'About us page.','', '', ''),
-(188, 47, 2, 'О магазине', 'Информация о магазине.','', '', ''),
-(189, 48, 1, 'Contact Us', 'Enter your contact information on this page.\r\n{contact_us}','', '', ''),
-(190, 48, 2, 'Контакты', 'Контактная информация.\r\n{contact_us}','', '', ''),
-(225, 39, 1, 'Hoofs', 'Description','', '', ''),
-(226, 39, 2, 'Копыта', 'Описание категории!','', '', ''),
-(227, 36, 1, 'Horns', 'Description','', '', ''),
-(228, 36, 2, 'Рога', 'Рога оленей, лосей и других животных!','', '', ''),
-(241, 50, 1, 'Checkout', '{checkout}','', '', ''),
-(242, 50, 2, 'Оформление', '{checkout}','', '', ''),
-(245, 45, 1, 'Shipping and Returns', 'Enter your Shipping & Return information on this page.','', '', ''),
-(246, 45, 2, 'Доставка', 'Укажите информацию о способах доставки товара на данной странице.','', '', ''),
-(269, 49, 1, 'Cart Contents', '{shopping_cart}','', '', ''),
-(270, 49, 2, 'Корзина', '{shopping_cart}','', '', ''),
-(313, 53, 1, 'Thank You', 'Thanks for shopping!','', '', ''),
-(314, 53, 2, 'Спасибо', 'Спасибо за покупки!','', '', ''),
-(323, 58, 1, 'Read Reviews', '{module alias=''reviews'' action=''display''}','', '', ''),
-(324, 58, 2, 'Читать отзывы', '{module alias=''reviews'' action=''display''}','', '', ''),
-(325, 59, 1, 'Write Review', '{module alias=''reviews'' action=''create''}','', '', ''),
-(326, 59, 2, 'Добавить отзыв', '{module alias=''reviews'' action=''create''}','', '', ''),
-(359, 51, 1, 'Confirmation', '{payment}\r\n{shipping}\r\n{shopping_cart template=\'cart-confirm-view\'}','', '', ''),
-(360, 51, 2, 'Подтверждение заказа', '{payment}\r\n{shipping}\r\n{shopping_cart template=\'cart-confirm-view\'}','', '', ''),
-(385, 38, 1, 'Elk Horns', 'Product description.','', '', ''),
-(386, 38, 2, 'Рога лося', 'Дешевле не найдёте, отличные лосиные рога.','', '', ''),
-(391, 35, 1, 'Home', '<a href=\"{base_path}/admin/\">Click here to go to the admin area.</a>\r\n{content_listing template=\'slider\' parent=\'36\' type=\'product\' limit=\'5\'}\r\n {content_listing template=\'subcategory-listing\' parent=\'0\' type=\'category\' limit=\'3\'}\r\n{content_listing template=\'featured-products\' parent=\'36\' type=\'product\' limit=\'3\'}','', '', ''),
-(392, 35, 2, 'Главная страница', '<a href=\"{base_path}/admin/\">Вход в админку.</a>\r\n{content_listing template=\'slider\' parent=\'36\' type=\'product\' limit=\'5\'}\r\n{content_listing template=\'subcategory-listing\' parent=\'0\' type=\'category\' limit=\'3\'}\r\n{content_listing template=\'featured-products\' parent=\'36\' type=\'product\' limit=\'3\'}','', '', ''),
-(393, 68, 1, 'Voucher Details', '{module alias=''coupons'' action=''show_info''}','', '', ''),
-(394, 68, 2, 'Информация о купоне', '{module alias=''coupons'' action=''show_info''}','', '', ''),
-(395, 69, 1, 'News', '', '', '', ''),
-(396, 69, 2, 'Новости', '', '', '', ''),
-(397, 70, 1, 'Articles', '', '', '', ''),
-(398, 70, 2, 'Статьи', '', '', '', ''),
-(399, 71, 1, 'News heading', 'News content','', '', ''),
-(400, 71, 2, 'Заголовок новости', 'Текст новости','', '', ''),
-(401, 72, 1, 'Article', 'Description','', '', ''),
-(402, 72, 2, 'Статья', 'Текст статьи','', '', ''),
-(403, 73, 1, 'Search results', '{search_result}','', '', ''),
-(404, 73, 2, 'Результаты поиска', '{search_result}','', '', '');
-INSERT INTO `content_descriptions` VALUES(515, 87, 1, 'Register', '{registration_form}', '', '', '');
-INSERT INTO `content_descriptions` VALUES(516, 87, 2, 'Регистрация', '{registration_form}', '', '', '');
-INSERT INTO `content_descriptions` VALUES(517, 88, 1, 'Register success', 'Thak you for registration', '', '', '');
-INSERT INTO `content_descriptions` VALUES(518, 88, 2, 'Успешная регистрация', 'Благодарим Вас за регистрацию в нашем магазине!', '', '', '');
-
-INSERT INTO `content_descriptions` VALUES(519, 89, 1, 'Account', '{if $smarty.session.Customer.customer_id}\r\n<ul>\r\n  <li><a href="{base_path}/customer/account_edit.html">{lang}Account Edit{/lang}</a></li>\r\n  <li><a href="{base_path}/customer/address_book.html">{lang}Address Book{/lang}</a></li>\r\n  <li><a href="{base_path}/customer/my_orders.html">{lang}My Orders{/lang}</a></li>\r\n</ul>\r\n{else}\r\n{lang}Permission Denied.{/lang}\r\n{login_box}\r\n{/if}', '', '', '');
-INSERT INTO `content_descriptions` VALUES(520, 89, 2, 'Личный кабинет', '{if $smarty.session.Customer.customer_id}\r\n<ul>\r\n  <li><a href="{base_path}/customer/account_edit.html">{lang}Account Edit{/lang}</a></li>\r\n  <li><a href="{base_path}/customer/address_book.html">{lang}Address Book{/lang}</a></li>\r\n  <li><a href="{base_path}/customer/my_orders.html">{lang}My Orders{/lang}</a></li>\r\n</ul>\r\n{else}\r\n{lang}Permission Denied.{/lang}\r\n{login_box}\r\n{/if}', '', '', '');
-INSERT INTO `content_descriptions` VALUES(521, 90, 1, 'Account Edit', '{account_edit}', '', '', '');
-INSERT INTO `content_descriptions` VALUES(522, 90, 2, 'Редактирование данных', '{account_edit}', '', '', '');
-
-INSERT INTO `content_descriptions` VALUES(523, 91, 1, 'My Orders', '{my_orders}', '', '', '');
-INSERT INTO `content_descriptions` VALUES(524, 91, 2, 'Мои заказы', '{my_orders}', '', '', '');
-
-INSERT INTO `content_descriptions` VALUES(525, 92, 1, 'Address Book', '{address_book}', '', '', '');
-INSERT INTO `content_descriptions` VALUES(526, 92, 2, 'Адресная книга', '{address_book}', '', '', '');
+INSERT INTO `content_descriptions` VALUES 
+(179,44,1,'Information','Information about our site can be found by visiting the following links:','','',''),
+(180,44,2,'Информация','Информация о магазине доступна по следующим ссылкам:','','',''),
+(185,46,1,'Payment methods','Enter your payment methods on this page.','','',''),
+(186,46,2,'Оплата','Укажите информацию о способах оплаты товара на данной странице.','','',''),
+(187,47,1,'About Us','About us page.','','',''),
+(188,47,2,'О магазине','Информация о магазине.','','',''),
+(189,48,1,'Contact Us','Enter your contact information on this page.\r\n{contact_us}','','',''),
+(190,48,2,'Контакты','Контактная информация.\r\n{contact_us}','','',''),
+(241,50,1,'Checkout','{checkout}','','',''),
+(242,50,2,'Оформление','{checkout}','','',''),
+(245,45,1,'Shipping and Returns','Enter your Shipping & Return information on this page.','','',''),
+(246,45,2,'Доставка','Укажите информацию о способах доставки товара на данной странице.','','',''),
+(269,49,1,'Cart Contents','{shopping_cart}','','',''),
+(270,49,2,'Корзина','{shopping_cart}','','',''),
+(313,53,1,'Thank You','Thanks for shopping!','','',''),
+(314,53,2,'Спасибо','Спасибо за покупки!','','',''),
+(323,58,1,'Read Reviews','{module alias=\'reviews\' action=\'display\'}','','',''),
+(324,58,2,'Читать отзывы','{module alias=\'reviews\' action=\'display\'}','','',''),
+(325,59,1,'Write Review','{module alias=\'reviews\' action=\'create\'}','','',''),
+(326,59,2,'Добавить отзыв','{module alias=\'reviews\' action=\'create\'}','','',''),
+(359,51,1,'Confirmation','{payment}\r\n{shipping}\r\n{shopping_cart template=\'cart-confirm-view\'}','','',''),
+(360,51,2,'Подтверждение заказа','{payment}\r\n{shipping}\r\n{shopping_cart template=\'cart-confirm-view\'}','','',''),
+(385,38,1,'Elk Horns','Product description.','','',''),
+(386,38,2,'Рога лося','Дешевле не найдёте, отличные лосиные рога.','','',''),
+(393,68,1,'Voucher Details','{module alias=\'coupons\' action=\'show_info\'}','','',''),
+(394,68,2,'Информация о купоне','{module alias=\'coupons\' action=\'show_info\'}','','',''),
+(395,69,1,'News','','','',''),
+(396,69,2,'Новости','','','',''),
+(397,70,1,'Articles','','','',''),
+(398,70,2,'Статьи','','','',''),
+(399,71,1,'News heading','News content','','',''),
+(400,71,2,'Заголовок новости','Текст новости','','',''),
+(401,72,1,'Article','Description','','',''),
+(402,72,2,'Статья','Текст статьи','','',''),
+(403,73,1,'Search results','{search_result}','','',''),
+(404,73,2,'Результаты поиска','{search_result}','','',''),
+(515,87,1,'Register','{registration_form}','','',''),
+(516,87,2,'Регистрация','{registration_form}','','',''),
+(517,88,1,'Register success','Thak you for registration','','',''),
+(518,88,2,'Успешная регистрация','Благодарим Вас за регистрацию в нашем магазине!','','',''),
+(519,89,1,'Account','{if $smarty.session.Customer.customer_id}\r\n<ul>\r\n  <li><a href=\"{base_path}/customer/account_edit.html\">{lang}Account Edit{/lang}</a></li>\r\n  <li><a href=\"{base_path}/customer/address_book.html\">{lang}Address Book{/lang}</a></li>\r\n  <li><a href=\"{base_path}/customer/my_orders.html\">{lang}My Orders{/lang}</a></li>\r\n</ul>\r\n{else}\r\n{lang}Permission Denied.{/lang}\r\n{login_box}\r\n{/if}','','',''),
+(520,89,2,'Личный кабинет','{if $smarty.session.Customer.customer_id}\r\n<ul>\r\n  <li><a href=\"{base_path}/customer/account_edit.html\">{lang}Account Edit{/lang}</a></li>\r\n  <li><a href=\"{base_path}/customer/address_book.html\">{lang}Address Book{/lang}</a></li>\r\n  <li><a href=\"{base_path}/customer/my_orders.html\">{lang}My Orders{/lang}</a></li>\r\n</ul>\r\n{else}\r\n{lang}Permission Denied.{/lang}\r\n{login_box}\r\n{/if}','','',''),
+(521,90,1,'Account Edit','{account_edit}','','',''),
+(522,90,2,'Редактирование данных','{account_edit}','','',''),
+(523,91,1,'My Orders','{my_orders}','','',''),
+(524,91,2,'Мои заказы','{my_orders}','','',''),
+(525,92,1,'Address Book','{address_book}','','',''),
+(526,92,2,'Адресная книга','{address_book}','','',''),
+(543,35,1,'Home','<a href=\"{base_path}/admin/\">Click here to go to the admin area.</a> {content_listing template=\'slider\' parent=\'36\' type=\'product\' limit=\'3\'} {content_listing template=\'subcategory-listing\' parent=\'0\' type=\'category\' limit=\'3\'} {content_listing template=\'featured-products\' parent=\'36\' type=\'product\' limit=\'3\'}','','',''),
+(544,35,2,'Главная страница','<a href=\"{base_path}/admin/\">Вход в админку.</a> {content_listing template=\'slider\' parent=\'36\' type=\'product\' limit=\'3\'} {content_listing template=\'subcategory-listing\' parent=\'0\' type=\'category\' limit=\'3\'} {content_listing template=\'featured-products\' parent=\'36\' type=\'product\' limit=\'3\'}','','',''),
+(603,43,1,'Notebooks','','','',''),
+(604,43,2,'Ноутбуки','','','',''),
+(605,36,1,'Tablets','','','',''),
+(606,36,2,'Планшеты','','','',''),
+(607,39,1,'Smartphones','','','',''),
+(608,39,2,'Смартфоны','','','','')	;
 
 DROP TABLE IF EXISTS content_images;
 CREATE TABLE `content_images` (
@@ -200,6 +200,11 @@ CREATE TABLE `content_images` (
   `modified` datetime,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `content_images` VALUES 
+(23,39,1,'smartphones.png','2013-10-19 20:44:16','2013-10-19 20:44:16'),
+(26,36,1,'tablets.png','2013-10-19 20:50:28','2013-10-19 20:50:28'),
+(30,43,1,'notebooks.png','2013-10-19 20:57:10','2013-10-19 20:57:10')	;
 
 DROP TABLE IF EXISTS content_links;
 CREATE TABLE `content_links` (
