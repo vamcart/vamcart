@@ -265,6 +265,11 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 			   		'label' => __('Alias'),				   
 						'value' => isset($data['Content']['alias']) ? $data['Content']['alias'] : ''
 					));
+			echo $this->Form->input('Content.order', 
+					array(
+			   		'label' => __('Sort Order'),				   
+						'value' => isset($data['Content']['order']) ? $data['Content']['order'] : '0'
+					));
 			echo $this->Form->input('Content.head_data', 
 					array(
 						'label' => __('Head Data'),
