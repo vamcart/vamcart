@@ -46,10 +46,10 @@ $(document).ready(function() {
         $("div#diff_shipping").hide();
     });
     $("#bill_country").change(function () {
-      $("#bill_state_div").load(\'/countries/billing_regions/\' + $(this).val());
+      $("#bill_state_div").load(\'{base_path}/countries/billing_regions/\' + $(this).val());
     });
     $("#ship_country").change(function () {
-      $("#ship_state_div").load(\'/countries/shipping_regions/\' + $(this).val());
+      $("#ship_state_div").load(\'{base_path}/countries/shipping_regions/\' + $(this).val());
     });
   });
 </script>
