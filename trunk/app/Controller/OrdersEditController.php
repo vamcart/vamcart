@@ -14,12 +14,14 @@ class OrdersEditController extends AppController
     
     public function admin ($act = 'new', $id = 0)
     {
+		$this->set('current_crumb', __('Order Edit', true));
+		$this->set('title_for_layout', __('Order Edit', true));
+
         $order = array();
         
         if($act == 'new')
         {
             $this->loadModel('Order');
-            //$this->Order->unbindAll();
             $max_id = $this->Order->find('first',array('fields' => array('MAX(Order.id) as id')));
             $order['id'] = $max_id[0]['id'] + 1;
             $order['bill_inf'] = array('Customer_Name' => '','Address_Line_1' => '','Address_Line_2' => '','City' => '','State' => '','Country' => '','Zip' => '');
@@ -141,11 +143,6 @@ class OrdersEditController extends AppController
     
     public function edit_field ($key_1 = 'nl', $key_2 = 'nl', $key_3 = 'nl')
     {
-        /*if ($this->RequestHandler->isAjax()) 
-        {
-            $this->layout = 'ajax_empty';
-        }*/ 
-        
         $order = $this->Session->read('order_edit.order');
         if($key_1 != 'nl' && $key_2 == 'nl')
         {
@@ -169,6 +166,9 @@ class OrdersEditController extends AppController
         
     public function admin_add_product ($category = 'group', $id = 0)
     {
+		$this->set('current_crumb', __('Add Product', true));
+		$this->set('title_for_layout', __('Add Product', true));
+
         $order = $this->Session->read('order_edit.order');
                 
         $this->loadModel('Content');
@@ -247,7 +247,6 @@ class OrdersEditController extends AppController
             $order['OrderProduct'][$index]['download_key'] = '0';
             $order['OrderProduct'][$index]['order_status_id'] = '1';
             
-            //$order['total'] = round(array_sum(Set::Extract($order['OrderProduct'],'{n}.price')),2);
             $order['total'] = 0;
             foreach ($order['OrderProduct'] as $value) 
             {
@@ -273,11 +272,9 @@ class OrdersEditController extends AppController
     {
         $order = $this->Session->read('order_edit.order');
         
-        //unset($order['OrderProduct'][$index]);
         array_splice($order['OrderProduct'],$index,1);
         if(!empty($order['OrderProduct']))
         {
-            //$order['total'] = round(array_sum(Set::Extract($order['OrderProduct'],'{n}.price')),2);
             $order['total'] = 0;
             foreach ($order['OrderProduct'] as $value) 
             {
@@ -420,14 +417,6 @@ class OrdersEditController extends AppController
         }
 
     }
-    
-  /*  public function admin_search($category = 'group', $id = 0) 
-    {
-        $order = $this->Session->read('order_edit.order');
-        $order['filter'] = $this->data['Search']['term'];  
-        $this->Session->write('order_edit.order', $order); 
-        $this->redirect('/orders_edit/admin_add_product/' . $category . '/' . $id);
-    }*/
    
 }
 ?>
