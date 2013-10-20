@@ -3,7 +3,7 @@
 			<select name="ship_state" id="ship_state">
 			<?php if (sizeof($zones) > 0) { ?>
 			<?php foreach ($zones as $key => $value) { ?>
-			    <option value="<?php echo $key ?>"><?php echo $value ?></option>
+			    <option value="<?php echo $key ?>"><?php echo __($value); ?></option>
 			<?php } ?>
 			<?php } else { ?>
 			    <option value="0"><?php echo __('Empty') ?></option>

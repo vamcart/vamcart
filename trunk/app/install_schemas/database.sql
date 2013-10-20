@@ -582,7 +582,7 @@ INSERT INTO `countries` (`id`, `name`, `iso_code_2`, `iso_code_3`, `address_form
 (173, 'Qatar', 'QA', 'QAT', '', 1),
 (174, 'Reunion', 'RE', 'REU', '', 1),
 (175, 'Romania', 'RO', 'ROM', '', 1),
-(176, 'Russia', 'RU', 'RUS', ':name\n:street_address\n:postcode :city\n:country', 1),
+(176, 'Russian Federation', 'RU', 'RUS', ':name\n:street_address\n:postcode :city\n:country', 1),
 (177, 'Rwanda', 'RW', 'RWA', '', 1),
 (178, 'Saint Kitts and Nevis', 'KN', 'KNA', '', 1),
 (179, 'Saint Lucia', 'LC', 'LCA', '', 1),
@@ -642,7 +642,7 @@ INSERT INTO `countries` (`id`, `name`, `iso_code_2`, `iso_code_3`, `address_form
 (233, 'Wallis and Futuna Islands', 'WF', 'WLF', '', 1),
 (234, 'Western Sahara', 'EH', 'ESH', '', 1),
 (235, 'Yemen', 'YE', 'YEM', '', 1),
-(236, 'Yugoslavia', 'YU', 'YUG', '', 1),
+(236, 'Serbia', 'RS', 'SRB', '', 1),
 (237, 'Zaire', 'ZR', 'ZAR', '', 1),
 (238, 'Zambia', 'ZM', 'ZMB', '', 1),
 (239, 'Zimbabwe', 'ZW', 'ZWE', '', 1);
