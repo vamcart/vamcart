@@ -13,8 +13,7 @@ function smarty_function_country_list($params, &$smarty)
     App::import('Model', 'Country');
         $Country =& new Country();
     
-    //$options = $Country->find('list', array('fields'=>'iso_code_2, name'));
-    $options = $Country->find('list', array('conditions' => array('active' => '1'),'fields'=>'id, name'));
+    $options = $Country->find('list', array('conditions' => array('active' => '1'),'order' => array('Country.name'), 'fields'=>'id, name'));
     $List = '';
 
     foreach($options as $key=>$value)
@@ -25,7 +24,7 @@ function smarty_function_country_list($params, &$smarty)
             if ($key == $params['selected'])
                 $List .= 'selected ';
         }
-        $List .= ">$value</option>";
+        $List .= ">".__($value)."</option>";
     }
     
     echo $List;
