@@ -33,6 +33,7 @@ class TaxesController extends AppController {
 	{
 		$this->Session->setFlash(__('Record deleted.',true));	
 		$this->Tax->delete($id);
+		$this->redirect('/taxes/admin/');
 	}
 		
 	public function admin_edit ($id = null)
