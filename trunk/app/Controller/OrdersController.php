@@ -177,7 +177,6 @@ class OrdersController extends AppController {
 			{
 				$this->Order->id = $value;
 				$order = $this->Order->read();
-				//echo var_dump($order);
 		
 				switch ($this->data['multiaction']) 
 				{

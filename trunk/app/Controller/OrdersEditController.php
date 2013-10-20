@@ -56,10 +56,10 @@ class OrdersEditController extends AppController
         {
             $this->loadModel('Order');
             $this->Order->Behaviors->attach('Containable');
-            $o = $this->Order->find('all',array('fields' => array('Order.*','ShippingMethod.*','PaymentMethod.*')
+            $o = $this->Order->find('all',array('fields' => array('Order.*','ShippingMethod.*','PaymentMethod.*', 'BillState.*', 'BillCountry.*', 'ShipState.*', 'ShipCountry.*')
                                                        ,'conditions' => array('Order.id = '.$id)
                                                        ,'order' => 'Order.id DESC LIMIT 1'
-                                                       ,'contain' => array('OrderProduct','ShippingMethod','PaymentMethod')
+                                                       ,'contain' => array('OrderProduct','ShippingMethod','PaymentMethod', 'BillCountry', 'BillState', 'ShipCountry', 'ShipState')
                                                                 ));
             if(isset($o[0]['Order']))
             {
@@ -68,8 +68,8 @@ class OrdersEditController extends AppController
                                           ,'Address_Line_1' => $o[0]['Order']['bill_line_1']
                                           ,'Address_Line_2' => $o[0]['Order']['bill_line_2']
                                           ,'City' => $o[0]['Order']['bill_city']
-                                          ,'State' => $o[0]['Order']['bill_state']
-                                          ,'Country' => $o[0]['Order']['bill_country']
+                                          ,'State' => $o[0]['BillState']['name']
+                                          ,'Country' => $o[0]['BillCountry']['name']
                                           ,'Zip' => $o[0]['Order']['bill_zip']
                                           );
 
@@ -77,8 +77,8 @@ class OrdersEditController extends AppController
                                           ,'Ship_Address_Line_1' => $o[0]['Order']['ship_line_1']
                                           ,'Ship_Address_Line_2' => $o[0]['Order']['ship_line_2']
                                           ,'Ship_City' => $o[0]['Order']['ship_city']
-                                          ,'Ship_State' => $o[0]['Order']['ship_state']
-                                          ,'Ship_Country' => $o[0]['Order']['ship_country']
+                                          ,'Ship_State' => $o[0]['ShipState']['name']
+                                          ,'Ship_Country' => $o[0]['ShipCountry']['name']
                                           ,'Ship_Zip' => $o[0]['Order']['ship_zip']
                                           );
                 $order['contact_inf'] = array('Email' => $o[0]['Order']['email']
