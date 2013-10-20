@@ -52,7 +52,7 @@ echo $this->Html->tableHeaders(array(__('Billing Information')));
 		   ));
 	echo $this->Admin->TableCells(
 		  array(
-				__('Country') . ': ' . $data['BillCountry']['name']
+				__('Country') . ': ' . __($data['BillCountry']['name'])
 		   ));
 	echo $this->Admin->TableCells(
 		  array(
@@ -86,7 +86,7 @@ echo $this->Html->tableHeaders(array(__('Shipping Information')));
 		   ));
 	echo $this->Admin->TableCells(
 		  array(
-				__('Country') . ': ' . $data['ShipCountry']['name']
+				__('Country') . ': ' . __($data['ShipCountry']['name'])
 		   ));
 	echo $this->Admin->TableCells(
 		  array(
