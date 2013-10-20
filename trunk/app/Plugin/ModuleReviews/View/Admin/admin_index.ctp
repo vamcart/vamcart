@@ -23,7 +23,7 @@ foreach ($reviews AS $review)
 		  array(
 			$this->Html->link($review['ModuleReview']['name'],'/module_reviews/admin/admin_edit/' . $review['ModuleReview']['id']),
 			$this->Time->i18nFormat($review['ModuleReview']['created']),
-			$this->Admin->ActionButton('edit','/module_reviews/admin/admin_edit/' . $review['ModuleReview']['id']) . $this->Admin->ActionButton('delete','/module_reviews/admin/admin_delete/' . $review['ModuleReview']['id']),
+			$this->Admin->ActionButton('view','/module_reviews/admin/admin_edit/' . $review['ModuleReview']['id'], __('View')) . $this->Admin->ActionButton('delete','/module_reviews/admin/admin_delete/' . $review['ModuleReview']['id'], __('Delete')),
 			array($this->Form->checkbox('modify][', array('value' => $review['ModuleReview']['id'])), array('align'=>'center'))
 		   ));
 }
