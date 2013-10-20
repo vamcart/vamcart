@@ -14,7 +14,7 @@ class OrdersEditController extends AppController
     
     public function admin ($act = 'new', $id = 0)
     {
-		$this->set('current_crumb', __('Order Edit', true));
+		//$this->set('current_crumb', __('Order Edit', true));
 		$this->set('title_for_layout', __('Order Edit', true));
 
         $order = array();
@@ -166,7 +166,7 @@ class OrdersEditController extends AppController
         
     public function admin_add_product ($category = 'group', $id = 0)
     {
-		$this->set('current_crumb', __('Add Product', true));
+		//$this->set('current_crumb', __('Add Product', true));
 		$this->set('title_for_layout', __('Add Product', true));
 
         $order = $this->Session->read('order_edit.order');
