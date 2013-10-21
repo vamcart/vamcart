@@ -21,8 +21,6 @@ class SetupController extends ModuleReviewsAppController {
 	function install()
 	{
 
-		$this->loadModels();
-		
 		// Create the new module record		
 		$new_module = array();
 		$new_module['Module']['name'] = __('Reviews');
@@ -65,8 +63,6 @@ class SetupController extends ModuleReviewsAppController {
 	
 	function uninstall()
 	{
-		$this->loadModels();
-		
 		// Delete the module record
 		$module = $this->Module->findByAlias('reviews');
 		$this->Module->delete($module['Module']['id']);
