@@ -1927,9 +1927,6 @@ CREATE TABLE `orders` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `orders` (`id`, `customer_id`, `order_status_id`, `shipping_method_id`, `payment_method_id`, `shipping`, `tax`, `total`, `bill_name`, `bill_line_1`, `bill_line_2`, `bill_city`, `bill_state`, `bill_country`, `bill_zip`, `ship_name`, `ship_line_1`, `ship_line_2`, `ship_city`, `ship_state`, `ship_country`, `ship_zip`, `email`, `phone`, `company_name`, `company_info`, `created`) VALUES 
-(1, 0, 1, 2, 2, 0, 0, 25.79, 'Test Order', 'asdfasf', 'asdfasdf', '', '', '', '', 'Test Order', '', '', '', '', '', '', 'vam@test.com', '', '', '', '2009-08-28 11:06:18');
-
 DROP TABLE IF EXISTS order_comments;
 CREATE TABLE `order_comments` (
   `id` int(10) auto_increment,
@@ -1941,9 +1938,6 @@ CREATE TABLE `order_comments` (
   `modified` datetime,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-INSERT INTO `order_comments` (`id`, `user_id`, `order_id`, `sent_to_customer`, `comment`, `created`, `modified`) VALUES 
-(1, 1, 1, 0, 'asdf', '2009-08-28 11:06:18', '2009-08-28 11:06:18');
 
 DROP TABLE IF EXISTS order_products;
 CREATE TABLE `order_products` (
@@ -1965,10 +1959,6 @@ CREATE TABLE `order_products` (
   `order_status_id` int(10),
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-INSERT INTO `order_products` (`id`, `order_id`, `content_id`, `name`, `model`, `quantity`, `price`, `weight`, `tax`) VALUES 
-(1, 1, 38, 'Mozilla Firefox', '', 3, 4.95, '', 0),
-(2, 1, 37, 'Internet Explorer', '', 2, 10.99, '', 0);
 
 DROP TABLE IF EXISTS order_statuses;
 CREATE TABLE `order_statuses` (
