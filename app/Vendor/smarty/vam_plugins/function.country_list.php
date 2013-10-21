@@ -16,6 +16,9 @@ function smarty_function_country_list($params, &$smarty)
     $options = $Country->find('list', array('conditions' => array('active' => '1'),'order' => array('Country.name'), 'fields'=>'id, name'));
     $List = '';
 
+		if(!isset ($params['selected']))
+			$params['selected'] = 176;
+
     foreach($options as $key=>$value)
     {
         $List .= "<option value=\"$key\"";

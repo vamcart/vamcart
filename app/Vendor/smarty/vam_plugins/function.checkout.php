@@ -119,14 +119,14 @@ $(document).ready(function() {
 	<div class="control-group">
 		<label class="control-label" for="bill_country">{lang}Country{/lang}:</label>
 		<div class="controls">
-			<select name="bill_country" id="bill_country">{country_list selected=$order.bill_country}</select>
+			<select name="bill_country" id="bill_country">{country_list selected=176}</select>
 		</div>
 	</div>
 	<div class="control-group">
 	<div id="bill_state_div">
 		<label class="control-label" for="bill_state">{lang}State{/lang}:</label>
 		<div class="controls">
-			<select name="bill_state" id="bill_state">{state_list country=$order.bill_country selected=$order.bill_state}</select>
+			<select name="bill_state" id="bill_state">{state_list country=176 selected=99}</select>
 		</div>
 	</div>
 	</div>
@@ -177,14 +177,14 @@ $(document).ready(function() {
 	<div class="control-group">
 		<label class="control-label" for="ship_country">{lang}Country{/lang}:</label>
 		<div class="controls">
-			<select name="ship_country" id="ship_country">{country_list selected=$order.ship_country}</select>
+			<select name="ship_country" id="ship_country">{country_list selected=176}</select>
 		</div>
 	</div>
 	<div class="control-group">
 	<div id="ship_state_div">
 		<label class="control-label" for="ship_state">{lang}State{/lang}:</label>
 		<div class="controls">
-			<select name="ship_state" id="ship_state">{state_list country=$order.ship_country selected=$order.ship_state}</select>
+			<select name="ship_state" id="ship_state">{state_list country=176 selected=99}</select>
 		</div>
 	</div>
 	</div>
