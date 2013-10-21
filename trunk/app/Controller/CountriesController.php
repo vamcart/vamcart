@@ -118,5 +118,10 @@ class CountriesController extends AppController {
 		$this->billing_regions($id);
 	}
 
+	public function address_book_regions($id = null)
+	{
+		$this->billing_regions($id);
+	}
+	
 }
 ?>

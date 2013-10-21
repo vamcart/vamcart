@@ -10,10 +10,16 @@ function smarty_function_state_list($params, &$smarty)
 {
         global $content;
 
+			if(!isset ($params['country']))
+				$params['country'] = 176;
+
+			if(!isset ($params['selected']))
+				$params['selected'] = 99;
+
         App::import('Model', 'CountryZone');
         $CountryZone =& new CountryZone();
         $options = $CountryZone->find('all', array('fields' => array('id', 'name'),
-                                                   'conditions' => array('iso_code_2' => $params['country'])
+                                                   'conditions' => array('country_id' => $params['country'])
                                                   ));
         $List = '';
 

@@ -11,6 +11,13 @@ function default_template_address_book()
 $template = '
 <script type="text/javascript" src="{base_path}/js/modified.js"></script>
 <script type="text/javascript" src="{base_path}/js/focus-first-input.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#ship_country").change(function () {
+      $("#ship_state_div").load(\'{base_path}/countries/address_book_regions/\' + $(this).val());
+    });
+  });
+</script>
 {foreach from=$errors item=error}
 {if $error}
 <div class="alert alert-error"><i class="cus-error"></i> {$error}</div>
@@ -45,14 +52,16 @@ $template = '
 	<div class="control-group">
 		<label class="control-label" for="ship_country">{lang}Country{/lang}:</label>
 		<div class="controls">
-			<input id="ship_country" name="AddressBook[ship_country]" type="text" value="{$form_data.AddressBook.ship_country}" />
+			<select name="AddressBook[ship_country]" id="ship_country">{country_list selected={$form_data.AddressBook.ship_country}}</select>
 		</div>
 	</div>
 	<div class="control-group">
+	<div id="ship_state_div">
 		<label class="control-label" for="ship_state">{lang}State{/lang}:</label>
 		<div class="controls">
-			<input id="ship_state" name="AddressBook[ship_state]" type="text" value="{$form_data.AddressBook.ship_state}" />
+			<select name="AddressBook[ship_state]" id="ship_state">{state_list country={$form_data.AddressBook.ship_country} selected={$form_data.AddressBook.ship_state}}</select>
 		</div>
+	</div>
 	</div>
 	<div class="control-group">
 		<label class="control-label" for="ship_zip">{lang}Zipcode{/lang}:</label>
