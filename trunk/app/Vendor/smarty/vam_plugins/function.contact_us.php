@@ -11,6 +11,43 @@ function default_template_contact_us()
 $template = '
 <script type="text/javascript" src="{base_path}/js/modified.js"></script>
 <script type="text/javascript" src="{base_path}/js/focus-first-input.js"></script>
+<script type="text/javascript" src="{base_path}/js/jquery/plugins/validate/jquery.validate.pack.js"></script>
+  
+<script type="text/javascript">
+$(document).ready(function() {
+  // validate checkout form
+  $("#contentform").validate({
+    rules: {
+      name: {
+        required: true,
+        minlength: 3      
+     },
+      email: {
+        required: true,
+        minlength: 3      
+     },
+      message: {
+        required: true,
+        minlength: 3      
+     },
+    },
+    messages: {
+      name: {
+        required: "{lang}Required field{/lang}",
+        minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 3"
+      },
+      email: {
+        required: "{lang}Required field{/lang}",
+        minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 3"
+      },
+      message: {
+        required: "{lang}Required field{/lang}",
+        minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 3"
+      }
+    }
+  });
+});
+</script>
 <h3>{lang}Contact Us{/lang}</h3>
 <form id="contentform" class="form-horizontal" name="contact-us" action="' . BASE . '/contact_us/send_email/" method="post">
 	<div class="control-group">
