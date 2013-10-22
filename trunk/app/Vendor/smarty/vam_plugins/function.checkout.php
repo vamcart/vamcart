@@ -22,6 +22,11 @@ $(document).ready(function() {
         required: true,
         minlength: 2      
      },
+      email: {
+        required: true,
+        minlength: 6,
+        email: true      
+     },
       agree: {
         required: true
      },
@@ -30,6 +35,10 @@ $(document).ready(function() {
       bill_name: {
         required: "{lang}Required field{/lang}",
         minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 2"
+      },
+      email: {
+        required: "{lang}Required field{/lang}",
+        minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 6"
       },
       agree: {
         required: "{lang}Required field{/lang}"
