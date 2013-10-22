@@ -15,7 +15,7 @@ $template = '
   
 <script type="text/javascript">
 $(document).ready(function() {
-  // validate checkout form
+  // validate form
   $("#contentform").validate({
     rules: {
       name: {
