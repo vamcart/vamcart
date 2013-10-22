@@ -32,10 +32,14 @@ $(document).ready(function() {
 	<h3>{lang}Add Review{/lang}</h3>
 		<form action="{base_path}/module_reviews/action/create/" method="post" id="contentform">
 		<input type="hidden" name="content_id" value="{$content_id}" />
+		<div class="control-group">
 			<div class="controls controls-row">
 			<input class="span4" name="name" id="name" type="text" placeholder="{lang}Name{/lang}"/>
 			</div>
-			<textarea class="span12" name="content" id="content" cols="30" rows="10" placeholder="{lang}Review{/lang}"></textarea>
+			<div class="controls controls-row">
+			<textarea class="span10" name="content" id="content" cols="30" rows="10" placeholder="{lang}Review{/lang}"></textarea>
+			</div>
 			<button class="btn btn-inverse btn-submit-review" type="submit" value="{lang}Submit{/lang}"><i class="icon-ok"></i> {lang}Submit{/lang}</button>
+		</div>
 		</form>
 </div>
