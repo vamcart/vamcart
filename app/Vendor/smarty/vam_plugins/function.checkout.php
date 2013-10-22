@@ -28,11 +28,11 @@ $(document).ready(function() {
     },
     messages: {
       bill_name: {
-        required: "Required field",
-        minlength: "Required field. Min length: 2"
+        required: "{lang}Required field{/lang}",
+        minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 2"
       },
       agree: {
-        required: "Required field"
+        required: "{lang}Required field{/lang}"
       }
     }
   });
