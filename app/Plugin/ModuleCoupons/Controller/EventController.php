@@ -13,23 +13,31 @@ class EventController extends ModuleCouponsAppController {
 	function utilize_coupon()
 	{
 		global $order;
-				
-		if(empty($_POST['module_coupon_code']))
+		$coupon_code = $_SESSION['module_coupon_code'];
+
+		if(empty($coupon_code))
 			return;
 		
 		App::import('Model', 'ModuleCoupons.ModuleCoupon');
-		$this->ModuleCoupon =& new ModuleCoupon();			
-		
-		$coupon = $this->ModuleCoupon->find('first', array('conditions' => array('code' => $_POST['module_coupon_code'])));
+		$this->ModuleCoupon = new ModuleCoupon();			
+
+		$coupon = $this->ModuleCoupon->find('first', array('conditions' => array('code' => $coupon_code)));
+
+		if($coupon) {
+
+		foreach($order['OrderProduct'] AS $product) {
+			
 		// Check restrictions
-		if(count($order['OrderProduct']) < $coupon['ModuleCoupon']['min_product_count'])
+		if($product['quantity'] < $coupon['ModuleCoupon']['min_product_count'])
 			$invalid_msg = __('Not enough products in cart for coupon. Requires: ') . $coupon['ModuleCoupon']['min_product_count'] . __(' products.');
-		elseif(count($order['OrderProduct']) > $coupon['ModuleCoupon']['max_product_count'])
+		elseif($product['quantity'] > $coupon['ModuleCoupon']['max_product_count'])
 			$invalid_msg = __('Too many products in cart for coupon. Requires less than: ') . $coupon['ModuleCoupon']['min_product_count'] . __(' products.');
 		elseif($order['Order']['total'] < $coupon['ModuleCoupon']['min_order_total'])
 			$invalid_msg = __('Order total not enough. Requires at least: ') . $coupon['ModuleCoupon']['min_order_total'] . '.';	
 		elseif($order['Order']['total'] > $coupon['ModuleCoupon']['max_order_total'])
-			$invalid_msg = __('Order total too high. Requires less than: ') . $coupon['ModuleCoupon']['min_order_total'] . '.';				
+			$invalid_msg = __('Order total too high. Requires less than: ') . $coupon['ModuleCoupon']['min_order_total'] . '.';	
+			
+		}			
 	
 		if(isset($invalid_msg))
 		{
@@ -55,13 +63,13 @@ class EventController extends ModuleCouponsAppController {
 
 		// Get the content_id for the new product
 		App::import('Model', 'Content');
-		$this->Content =& new Content();
+		$this->Content = new Content();
 		$content_page = $this->Content->findByAlias('coupon-details');
 		$coupon_product['OrderProduct']['content_id'] = $content_page['Content']['id'];
 	
 		// Load the OrderProduct model for saving and error checking
 		App::import('Model', 'OrderProduct');
-		$this->OrderProduct =& new OrderProduct();
+		$this->OrderProduct = new OrderProduct();
 		
 		// Make sure this coupon isn't already in our 'cart'	
 		$coupon_count = $this->OrderProduct->find('count', array('conditions' => array('order_id' => $order['Order']['id'], 'name' => $coupon_product['OrderProduct']['name'])));
@@ -76,12 +84,16 @@ class EventController extends ModuleCouponsAppController {
 		
 		// Save the new order totals
 		App::import('Model', 'Order');
-		$this->Order =& new Order();
+		$this->Order = new Order();
 		
 		$order = $this->Order->read(null,$_SESSION['Customer']['order_id']);
 		$order['Order']['total'] = 	$order['Order']['total'] + $discount;
 
 		$this->Order->save($order);
+		unset($_SESSION['module_coupon_code']);
+		
+		}
+		
 	}
 	
 }
