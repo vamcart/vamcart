@@ -24,6 +24,7 @@ class OrdersController extends AppController {
 			$order['Order'][$key] = $value;
 
 		$order['Order']['customer_id'] = (!isset($_SESSION['Customer']['customer_id'])) ? 0 : $_SESSION['Customer']['customer_id'];
+		if ($_POST['module_coupon_code'] != '') $_SESSION['module_coupon_code'] = $_POST['module_coupon_code'];
 		
 		$this->Order->save($order);
 		
