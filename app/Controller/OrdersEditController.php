@@ -19,31 +19,62 @@ class OrdersEditController extends AppController
 
         $order = array();
         
+        $this->loadModel('Order');
+        
+        $bill_state = $this->Order->BillState->find('list',array('fields' => array('id','name')));            
+        $order['bill_state'] = array('data' => $bill_state
+                                          ,'json_data' => array()
+                                          ,'id_selected' => '0'
+                                          ,'selected' => '_');
+        $order['bill_state']['json_data'] = json_encode($order['bill_state']['data']);
+                
+        $bill_country = $this->Order->BillCountry->find('list',array('fields' => array('id','name')));            
+        $order['bill_country'] = array('data' => $bill_country
+                                          ,'json_data' => array()
+                                          ,'id_selected' => '0'
+                                          ,'selected' => '_');
+        $order['bill_country']['json_data'] = json_encode($order['bill_country']['data']);
+                
+        $ship_state = $this->Order->ShipState->find('list',array('fields' => array('id','name')));            
+        $order['ship_state'] = array('data' => $ship_state
+                                          ,'json_data' => array()
+                                          ,'id_selected' => '0'
+                                          ,'selected' => '_');
+        $order['ship_state']['json_data'] = json_encode($order['ship_state']['data']);
+                
+        $ship_country = $this->Order->ShipCountry->find('list',array('fields' => array('id','name')));            
+        $order['ship_country'] = array('data' => $ship_country
+                                          ,'json_data' => array()
+                                          ,'id_selected' => '0'
+                                          ,'selected' => '_');
+        $order['ship_country']['json_data'] = json_encode($order['ship_country']['data']);
+                
+        $pay_metd = $this->Order->PaymentMethod->find('all',array('conditions' => array('PaymentMethod.active = 1')));            
+        $pay_metd = Set::combine($pay_metd,'{n}.PaymentMethod.id','{n}.PaymentMethod.name');
+        $order['pay_metd'] = array('data' => $pay_metd
+                                          ,'json_data' => array()
+                                          ,'id_selected' => '0'
+                                          ,'selected' => '_');
+        $order['pay_metd']['json_data'] = json_encode($order['pay_metd']['data']);
+
+        $ship_metd = $this->Order->ShippingMethod->find('all',array('conditions' => array('ShippingMethod.active = 1')));
+        $ship_metd = Set::combine($ship_metd,'{n}.ShippingMethod.id','{n}.ShippingMethod.name');
+        $order['ship_metd'] = array('data' => $ship_metd
+                                          ,'json_data' => array()
+                                          ,'id_selected' => '0'
+                                          ,'selected' => '_');
+        $order['ship_metd']['json_data'] = json_encode($order['ship_metd']['data']);       
+        
+        
         if($act == 'new')
         {
-            $this->loadModel('Order');
             $max_id = $this->Order->find('first',array('fields' => array('MAX(Order.id) as id')));
             $order['id'] = $max_id[0]['id'] + 1;
-            $order['bill_inf'] = array('Customer_Name' => '','Address_Line_1' => '','Address_Line_2' => '','City' => '','State' => '','Country' => '','Zip' => '');
-            $order['ship_inf'] = array('Ship_Customer_Name' => '','Ship_Address_Line_1' => '','Ship_Address_Line_2' => '','Ship_City' => '','Ship_State' => '','Ship_Country' => '','Ship_Zip' => '');
+            $order['bill_inf'] = array('Customer_Name' => '','Address_Line_1' => '','Address_Line_2' => '','City' => '','Zip' => '');
+            $order['ship_inf'] = array('Ship_Customer_Name' => '','Ship_Address_Line_1' => '','Ship_Address_Line_2' => '','Ship_City' => '','Ship_Zip' => '');
             $order['contact_inf'] = array('Email' => '','Phone' => '','Company' => '0');
             $order['total'] = 0;
             $order['OrderProduct'] = array();
-            $pay_metd = $this->Order->PaymentMethod->find('all',array('conditions' => array('PaymentMethod.active = 1')));            
-            $pay_metd = Set::combine($pay_metd,'{n}.PaymentMethod.id','{n}.PaymentMethod.name');          
-            $order['pay_metd'] = array('data' => $pay_metd
-                                      ,'json_data' => array()
-                                      ,'id_selected' => '0'
-                                      ,'selected' => '_');
-            $order['pay_metd']['json_data'] = json_encode($order['pay_metd']['data']);
-            
-            $ship_metd = $this->Order->ShippingMethod->find('all',array('conditions' => array('ShippingMethod.active = 1')));
-            $ship_metd = Set::combine($ship_metd,'{n}.ShippingMethod.id','{n}.ShippingMethod.name');
-            $order['ship_metd'] = array('data' => $ship_metd
-                                      ,'json_data' => array()
-                                      ,'id_selected' => '0'
-                                      ,'selected' => '_');
-            $order['ship_metd']['json_data'] = json_encode($order['ship_metd']['data']);
             
             $this->Session->write('order_edit.order', $order);
         }
@@ -56,61 +87,74 @@ class OrdersEditController extends AppController
         {
             $this->loadModel('Order');
             $this->Order->Behaviors->attach('Containable');
-            $o = $this->Order->find('all',array('fields' => array('Order.*','ShippingMethod.*','PaymentMethod.*', 'BillState.*', 'BillCountry.*', 'ShipState.*', 'ShipCountry.*')
-                                                       ,'conditions' => array('Order.id = '.$id)
+            $o = $this->Order->find('all',array('conditions' => array('Order.id = '.$id)
                                                        ,'order' => 'Order.id DESC LIMIT 1'
                                                        ,'contain' => array('OrderProduct','ShippingMethod','PaymentMethod', 'BillCountry', 'BillState', 'ShipCountry', 'ShipState')
                                                                 ));
-            if(isset($o[0]['Order']))
+            $o = $o[0];
+            if(isset($o['Order']))
             {
                 $order['id'] = $id;
-                $order['bill_inf'] = array('Customer_Name' => $o[0]['Order']['bill_name']
-                                          ,'Address_Line_1' => $o[0]['Order']['bill_line_1']
-                                          ,'Address_Line_2' => $o[0]['Order']['bill_line_2']
-                                          ,'City' => $o[0]['Order']['bill_city']
-                                          ,'State' => $o[0]['BillState']['name']
-                                          ,'Country' => $o[0]['BillCountry']['name']
-                                          ,'Zip' => $o[0]['Order']['bill_zip']
+                $order['bill_inf'] = array('Customer_Name' => $o['Order']['bill_name']
+                                          ,'Address_Line_1' => $o['Order']['bill_line_1']
+                                          ,'Address_Line_2' => $o['Order']['bill_line_2']
+                                          ,'City' => $o['Order']['bill_city']
+                                          //,'State' => $o['BillState']['name']
+                                          //,'Country' => $o['BillCountry']['name']
+                                          ,'Zip' => $o['Order']['bill_zip']
                                           );
 
-                $order['ship_inf'] = array('Ship_Customer_Name' => $o[0]['Order']['ship_name']
-                                          ,'Ship_Address_Line_1' => $o[0]['Order']['ship_line_1']
-                                          ,'Ship_Address_Line_2' => $o[0]['Order']['ship_line_2']
-                                          ,'Ship_City' => $o[0]['Order']['ship_city']
-                                          ,'Ship_State' => $o[0]['ShipState']['name']
-                                          ,'Ship_Country' => $o[0]['ShipCountry']['name']
-                                          ,'Ship_Zip' => $o[0]['Order']['ship_zip']
+                $order['ship_inf'] = array('Ship_Customer_Name' => $o['Order']['ship_name']
+                                          ,'Ship_Address_Line_1' => $o['Order']['ship_line_1']
+                                          ,'Ship_Address_Line_2' => $o['Order']['ship_line_2']
+                                          ,'Ship_City' => $o['Order']['ship_city']
+                                          //,'Ship_State' => $o['ShipState']['name']
+                                          //,'Ship_Country' => $o['ShipCountry']['name']
+                                          ,'Ship_Zip' => $o['Order']['ship_zip']
                                           );
-                $order['contact_inf'] = array('Email' => $o[0]['Order']['email']
-                                             ,'Phone' => $o[0]['Order']['phone']
-                                             ,'Company' => $o[0]['Order']['company_name']
+                $order['contact_inf'] = array('Email' => $o['Order']['email']
+                                             ,'Phone' => $o['Order']['phone']
+                                             ,'Company' => $o['Order']['company_name']
                                              );
                     
-                $order['OrderProduct'] = $o[0]['OrderProduct'];
-                $order['total'] = $o[0]['Order']['total'];
-                
-                
-                $pay_metd = $this->Order->PaymentMethod->find('all',array('conditions' => array('PaymentMethod.active = 1')));            
-                $pay_metd = Set::combine($pay_metd,'{n}.PaymentMethod.id','{n}.PaymentMethod.name');
-                
-                if(!isset($o[0]['PaymentMethod']['id'])) {$o[0]['PaymentMethod']['id'] = '0'; $o[0]['PaymentMethod']['name'] = '_';}
-                    
-                $order['pay_metd'] = array('data' => $pay_metd
-                                          ,'json_data' => array()
-                                          ,'id_selected' => $o[0]['PaymentMethod']['id']
-                                          ,'selected' => $o[0]['PaymentMethod']['name']);
-                $order['pay_metd']['json_data'] = json_encode($order['pay_metd']['data']);
+                $order['OrderProduct'] = $o['OrderProduct'];
+                $order['total'] = $o['Order']['total'];
+          
+                if(isset($o['BillState']['id']))
+                $order['bill_state'] = array('data' => $order['bill_state']['data']
+                                          ,'json_data' => $order['bill_state']['json_data']
+                                          ,'id_selected' => $o['BillState']['id']
+                                          ,'selected' => $o['BillState']['name']);
+                          
+                if(isset($o['BillCountry']['id']))
+                $order['bill_country'] = array('data' => $order['bill_country']['data']
+                                          ,'json_data' => $order['bill_country']['json_data']
+                                          ,'id_selected' => $o['BillCountry']['id']
+                                          ,'selected' => $o['BillCountry']['name']);
+                          
+                if(isset($o['ShipState']['id']))
+                $order['ship_state'] = array('data' => $order['ship_state']['data']
+                                          ,'json_data' => $order['ship_state']['json_data']
+                                          ,'id_selected' => $o['ShipState']['id']
+                                          ,'selected' => $o['ShipState']['name']);
+                           
+                if(isset($o['ShipCountry']['id']))
+                $order['ship_country'] = array('data' => $order['ship_country']['data']
+                                          ,'json_data' => $order['ship_country']['json_data']
+                                          ,'id_selected' => $o['ShipCountry']['id']
+                                          ,'selected' => $o['ShipCountry']['name']);
+                           
+                if(isset($o['PaymentMethod']['id']))
+                $order['pay_metd'] = array('data' => $order['pay_metd']['data']
+                                          ,'json_data' => $order['pay_metd']['json_data']
+                                          ,'id_selected' => $o['PaymentMethod']['id']
+                                          ,'selected' => $o['PaymentMethod']['name']);
 
-                $ship_metd = $this->Order->ShippingMethod->find('all',array('conditions' => array('ShippingMethod.active = 1')));
-                $ship_metd = Set::combine($ship_metd,'{n}.ShippingMethod.id','{n}.ShippingMethod.name');
-                
-                if(!isset($o[0]['ShippingMethod']['id'])) {$o[0]['ShippingMethod']['id'] = '0'; $o[0]['ShippingMethod']['name'] = '_';}
-                
-                $order['ship_metd'] = array('data' => $ship_metd
-                                          ,'json_data' => array()
-                                          ,'id_selected' => $o[0]['ShippingMethod']['id']
-                                          ,'selected' => $o[0]['ShippingMethod']['name']);
-                $order['ship_metd']['json_data'] = json_encode($order['ship_metd']['data']);
+                if(isset($o['ShippingMethod']['id']))
+                $order['ship_metd'] = array('data' => $order['ship_metd']['data']
+                                          ,'json_data' => $order['ship_metd']['json_data']
+                                          ,'id_selected' => $o['ShippingMethod']['id']
+                                          ,'selected' => $o['ShippingMethod']['name']);
                 
                 
                 
@@ -321,15 +365,15 @@ class OrdersEditController extends AppController
                             ,'bill_line_1' => $order['bill_inf']['Address_Line_1']
                             ,'bill_line_2' => $order['bill_inf']['Address_Line_2']
                             ,'bill_city' => $order['bill_inf']['City']
-                            ,'bill_state' => $order['bill_inf']['State']
-                            ,'bill_country' => $order['bill_inf']['Country']
+                            ,'bill_state' => $order['bill_state']['id_selected']
+                            ,'bill_country' => $order['bill_country']['id_selected']
                             ,'bill_zip' => $order['bill_inf']['Zip']
                             ,'ship_name' => $order['ship_inf']['Ship_Customer_Name']
                             ,'ship_line_1' => $order['ship_inf']['Ship_Address_Line_1']
                             ,'ship_line_2' => $order['ship_inf']['Ship_Address_Line_2']
                             ,'ship_city' => $order['ship_inf']['Ship_City']
-                            ,'ship_state' => $order['ship_inf']['Ship_State']
-                            ,'ship_country' => $order['ship_inf']['Ship_Country']
+                            ,'ship_state' => $order['ship_state']['id_selected']
+                            ,'ship_country' => $order['ship_country']['id_selected']
                             ,'ship_zip' => $order['ship_inf']['Ship_Zip']
                             ,'email' => $order['contact_inf']['Email']
                             ,'phone' => $order['contact_inf']['Phone']
@@ -361,7 +405,7 @@ class OrdersEditController extends AppController
                                ,'download_key' => $orderproduct['download_key']
                                ,'order_status_id' => $orderproduct['order_status_id']
                         ));
-                    //Изменение кол-во. товара в заказе
+                    
                     $save_order = $this->Order->OrderProduct->find('first',array('fields' => array('OrderProduct.quantity')
                                                         ,'conditions' => array('OrderProduct.id'=> $id, 'OrderProduct.order_id' => $order['id']/*,'OrderProduct.quantity <>' => $orderproduct['quantity']*/)));
                     if(!empty($save_order) && $save_order['OrderProduct']['quantity'] != $orderproduct['quantity'])

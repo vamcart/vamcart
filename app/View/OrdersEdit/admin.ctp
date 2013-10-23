@@ -56,6 +56,22 @@
                                                                       ,'placeholder' => '_'
                                                                       ,'onblur' => 'submit'));
         }
+        
+        echo $this->Admin->TableCells(array(__('State')
+                                 ,array($order['bill_state']['selected'],array('id' => 'bill_state','class' => 'edit','width' => '50%'))
+                                    ));
+        echo $this->Ajax->editor('bill_state','/orders_edit/change_shipORpay_method/',  array('tooltip' => 'bill_state'
+                                                                                    ,'type' => 'select'
+                                                                                    ,'onblur' => 'submit'
+                                                                                    ,'data' => $order['bill_state']['json_data']));
+        echo $this->Admin->TableCells(array(__('Country')
+                                 ,array($order['bill_country']['selected'],array('id' => 'bill_country','class' => 'edit','width' => '50%'))
+                                    ));
+        echo $this->Ajax->editor('bill_country','/orders_edit/change_shipORpay_method/',  array('tooltip' => 'bill_country'
+                                                                                    ,'type' => 'select'
+                                                                                    ,'onblur' => 'submit'
+                                                                                    ,'data' => $order['bill_country']['json_data']));
+       
     }
     echo '</table>'; 
     echo '</td><td width="50%">';
@@ -72,6 +88,23 @@
                                                                       ,'placeholder' => '_'
                                                                       ,'onblur' => 'submit'));
         }
+        
+        echo $this->Admin->TableCells(array(__('Ship State')
+                                 ,array($order['ship_state']['selected'],array('id' => 'ship_state','class' => 'edit','width' => '50%'))
+                                    ));
+        echo $this->Ajax->editor('ship_state','/orders_edit/change_shipORpay_method/',  array('tooltip' => 'ship_state'
+                                                                                    ,'type' => 'select'
+                                                                                    ,'onblur' => 'submit'
+                                                                                    ,'data' => $order['ship_state']['json_data']));
+        echo $this->Admin->TableCells(array(__('Ship Country')
+                                 ,array($order['ship_country']['selected'],array('id' => 'ship_country','class' => 'edit','width' => '50%'))
+                                    ));
+        echo $this->Ajax->editor('ship_country','/orders_edit/change_shipORpay_method/',  array('tooltip' => 'ship_country'
+                                                                                    ,'type' => 'select'
+                                                                                    ,'onblur' => 'submit'
+                                                                                    ,'data' => $order['ship_country']['json_data']));
+       
+        
     }
     echo '</table>';
     echo '</td></tr>';
