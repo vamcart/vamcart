@@ -31,8 +31,6 @@ class SetupController extends ModuleAbandonedCartsAppController {
 		$new_module['Module']['nav_level'] = '2';				
 		$this->Module->save($new_module);
 		
-		
-			
 		$this->Session->setFlash(__('Module Installed'));
 		$this->redirect('/modules/admin/');
 	}

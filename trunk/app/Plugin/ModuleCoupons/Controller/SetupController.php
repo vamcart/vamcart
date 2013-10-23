@@ -54,23 +54,25 @@ class SetupController extends ModuleCouponsAppController {
 		$install_query = array();
 
 		$install_query[] = "
+		DROP TABLE IF EXISTS module_coupons;
 		CREATE TABLE `module_coupons` (
-		`id` INT( 10 ) NOT NULL AUTO_INCREMENT PRIMARY KEY ,
-		`name` VARCHAR( 50 ) NOT NULL ,
-		`code` VARCHAR( 50 ) NOT NULL ,
-		`free_shipping` VARCHAR( 10 ) NOT NULL ,
-		`percent_off_total` double NOT NULL ,
-		`amount_off_total` double NOT NULL ,		
-		`max_uses` INT( 10 ) NOT NULL ,
-		`min_product_count` INT( 10 ) NOT NULL ,
-		`max_product_count` INT( 10 ) NOT NULL ,
-		`min_order_total` INT( 10 ) NOT NULL ,
-		`max_order_total` INT( 10 ) NOT NULL ,		
-		`start_date` DATETIME NOT NULL ,
-		`expiration_date` DATETIME NOT NULL ,
-		`created` DATETIME NOT NULL ,
-		`modified` DATETIME NOT NULL
-		) ENGINE = innodb;
+		  `id` int(10) auto_increment,
+		  `name` varchar(255) collate utf8_unicode_ci,
+		  `code` varchar(255) collate utf8_unicode_ci,
+		  `free_shipping` varchar(10) collate utf8_unicode_ci,
+		  `percent_off_total` double,
+		  `amount_off_total` double,
+		  `max_uses` int(10),
+		  `min_product_count` int(10),
+		  `max_product_count` int(10),
+		  `min_order_total` int(10),
+		  `max_order_total` int(10),
+		  `start_date` datetime,
+		  `expiration_date` datetime,
+		  `created` datetime,
+		  `modified` datetime,
+		  PRIMARY KEY  (`id`)
+		) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 		";
 				
 		foreach($install_query AS $query)
