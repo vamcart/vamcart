@@ -6,8 +6,8 @@
    License - http://vamcart.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-$this->Html->script('modified', array('inline' => false));
-
+if(isset($default_template))
+{
 $this->Html->script(array(
 	'modified.js',
 	'focus-first-input.js',
@@ -21,6 +21,7 @@ $this->Html->script(array(
 $this->Html->css(array(
 	'codemirror/codemirror',
 ), null, array('inline' => false));
+}
 
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-table');
 
@@ -61,6 +62,8 @@ if(isset($default_template))
 
 echo $this->Admin->ShowPageHeaderEnd();
 
+if(isset($default_template))
+{
 echo $this->Html->scriptBlock('
 var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   mode: "text/html",
@@ -76,5 +79,6 @@ editor.on("cursorActivity", function() {
   }
 });
 ', array('allowCache'=>false,'safe'=>false,'inline'=>true));	
+}
 
 ?>
