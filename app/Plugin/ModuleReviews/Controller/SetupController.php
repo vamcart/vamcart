@@ -45,15 +45,17 @@ class SetupController extends ModuleReviewsAppController {
 		
 		// Create the database table
 		$install_query = "
+		DROP TABLE IF EXISTS module_reviews;
 		CREATE TABLE `module_reviews` (
-		`id` INT( 10 ) NOT NULL AUTO_INCREMENT PRIMARY KEY ,
-		`content_id` INT( 10 ) NOT NULL ,
-		`name` VARCHAR( 50 ) NOT NULL ,
-		`content` TEXT NOT NULL ,
-		`created` DATETIME NOT NULL ,
-		`modified` DATETIME NOT NULL
-		) ENGINE = innodb;";
-		
+		  `id` int(10) auto_increment,
+		  `content_id` int(10),
+		  `name` varchar(255) collate utf8_unicode_ci,
+		  `content` text collate utf8_unicode_ci,
+		  `created` datetime,
+		  `modified` datetime,
+		  PRIMARY KEY  (`id`)
+		) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+		";		
 		$this->Module->query($install_query);
 		
 		$this->Session->setFlash(__('Module Installed'));
