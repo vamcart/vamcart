@@ -29,7 +29,8 @@ foreach($data AS $order)
 {
 	echo $this->Admin->TableCells(
 		  array(
-			$this->Html->link($order['Order']['id'],'/module_abandoned_carts/admin/admin_manage/' . $order['Order']['id']),
+			$order['Order']['id'],
+			//$this->Html->link($order['Order']['id'],'/module_abandoned_carts/admin/admin_manage/' . $order['Order']['id']),
 			count($order['OrderProduct']),
 			$this->Time->i18nFormat($order['Order']['created'])
 		   ));
