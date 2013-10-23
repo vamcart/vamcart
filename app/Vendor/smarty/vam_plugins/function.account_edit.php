@@ -11,6 +11,52 @@ function default_template_account_edit()
 $template = '
 <script type="text/javascript" src="{base_path}/js/modified.js"></script>
 <script type="text/javascript" src="{base_path}/js/focus-first-input.js"></script>
+<script type="text/javascript" src="{base_path}/js/jquery/plugins/validate/jquery.validate.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  // validate form
+  $("#contentform").validate({
+    rules: {
+      "customer[name]": {
+        required: true,
+        minlength: 2      
+     },
+      "customer[email]": {
+        required: true,
+        minlength: 6,
+        email: true      
+     },
+		"customer[password]": {
+			required: true,
+			minlength: 5,
+		},
+		"customer[retype]": {
+			required: true,
+			minlength: 5,
+			equalTo: "#password"
+		}
+    },
+    messages: {
+      "customer[name]": {
+        required: "{lang}Required field{/lang}",
+        minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 2"
+      },
+      "customer[email]": {
+        required: "{lang}Required field{/lang}",
+        minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 6"
+      },
+      "customer[password]": {
+        required: "{lang}Required field{/lang}",
+        minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 5"
+      },
+      "customer[retype]": {
+        required: "{lang}Required field{/lang}",
+        minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 5"
+      }
+    }
+  });
+});
+</script>
 {foreach from=$errors item=error}
 {if $error}
 <div class="alert alert-error"><i class="cus-error"></i> {$error}</div>

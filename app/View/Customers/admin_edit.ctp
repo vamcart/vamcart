@@ -43,7 +43,7 @@ $this->Html->script(array(
 	echo '<div>'.__('Shipping Information').'</div>';	               
 	echo $this->Form->input('AddressBook.ship_name', 
 						array(
-   				   		'label' => __('Name')
+   				   		'label' => __('Customer Name')
 	               ));	
 	echo $this->Form->input('AddressBook.ship_line_1', 
 						array(
