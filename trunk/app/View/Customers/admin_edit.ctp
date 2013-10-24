@@ -29,13 +29,15 @@ $this->Html->script(array(
 	echo $this->Form->input('Customer.password', 
 						array(
 				   		'type' => 'password',
+				   		'autocomplete' => 'off',
 				   		'value' => '',				   
    				   	'label' => __('New Password'),
    				   	'after' => ' '.__('Leave empty to use current password.')
 	               ));
 	echo $this->Form->input('Customer.retype', 
 						array(
-				   		'type' => 'password',				   
+				   		'type' => 'password',
+				   		'autocomplete' => 'off',				   
 				   		'value' => '',				   
    				   	'label' => __('Confirm Password'),
    				   	'after' => ' '.__('Leave empty to use current password.')
