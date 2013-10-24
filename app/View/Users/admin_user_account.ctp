@@ -29,11 +29,13 @@ $this->Html->script(array(
 	echo $this->Form->input('User.password', 
 						array(
 				   		'type' => 'password',
+				   		'autocomplete' => 'off',
    				   	'label' => __('New Password')
 	               ));
 	echo $this->Form->input('User.confirm_password', 
 						array(
-				   		'type' => 'password',				   
+				   		'type' => 'password',
+				   		'autocomplete' => 'off',				   
    				   	'label' => __('Confirm Password')
 	               ));
 	echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn', 'type' => 'submit', 'name' => 'submit')) . $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn', 'type' => 'submit', 'name' => 'cancelbutton'));
