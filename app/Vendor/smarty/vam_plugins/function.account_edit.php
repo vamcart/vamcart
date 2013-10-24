@@ -78,13 +78,13 @@ $(document).ready(function() {
 	<div class="control-group">
 		<label class="control-label" for="password">{lang}New Password{/lang}:</label>
 		<div class="controls">
-			<input id="password" name="customer[password]" type="password" /> {lang}Leave empty to use current password.{/lang}
+			<input id="password" name="customer[password]" type="password" autocomplete="off" /> {lang}Leave empty to use current password.{/lang}
 		</div>
 	</div>
 	<div class="control-group">
 		<label class="control-label" for="retype">{lang}Retype Password{/lang}:</label>
 		<div class="controls">
-			<input id="retype" name="customer[retype]" type="password" /> {lang}Leave empty to use current password.{/lang}
+			<input id="retype" name="customer[retype]" type="password" autocomplete="off" /> {lang}Leave empty to use current password.{/lang}
 		</div>
 	</div>    
 	<button class="btn btn-inverse" type="submit" value="{lang}Save{/lang}"><i class="icon-ok"></i> {lang}Save{/lang}</button>

@@ -22,7 +22,7 @@ $template = '
 			<div class="control-group">
 			<label class="control-label" for="inputPassword">{lang}Password{/lang}</label>
 				<div class="controls">
-					<input type="password" name="data[Customer][password]" id="inputPassword" placeholder="{lang}Password{/lang}">
+					<input type="password" name="data[Customer][password]" id="inputPassword" placeholder="{lang}Password{/lang}" autocomplete="off">
 				</div>
 			</div>
 			<div class="control-group">
