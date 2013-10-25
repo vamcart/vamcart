@@ -178,12 +178,42 @@ class OrdersEditController extends AppController
     public function change_shipORpay_method ()
     { 
         $order = $this->Session->read('order_edit.order');
-        $order[$this->data['id']]['id_selected'] = $this->data['value'];
-        $order[$this->data['id']]['selected'] = $order[$this->data['id']]['data'][$this->data['value']];
-        $this->set('return',$order[$this->data['id']]['selected']);
+        if(isset($order[$this->data['id']]['data'][$this->data['value']]))
+        {
+            $order[$this->data['id']]['id_selected'] = $this->data['value'];
+            $order[$this->data['id']]['selected'] = $order[$this->data['id']]['data'][$this->data['value']];
+            $this->set('return',$order[$this->data['id']]['selected']);
+            $this->Session->write('order_edit.order', $order);
+        }else $this->set('return',null);
+        $this->render('/Elements/ajaxreturn');
+    }
+    
+    public function change_country ($key_country, $key_state)
+    { 
+        $this->loadModel('CountryZone');
+        
+        $order = $this->Session->read('order_edit.order');
+        $order[$key_country]['id_selected'] = $this->data['value'];
+        $order[$key_country]['selected'] = $order[$key_country]['data'][$this->data['value']];
+
+        $bill_state = $this->CountryZone->find('list',array('fields' => array('id','name') 
+                                                         ,'conditions' => array('country_id' => $this->data['value'])));
+        $order[$key_state]['data'] = $bill_state;
+        $order[$key_state]['json_data'] = json_encode($bill_state);
+ 
+        $this->set('return',$order[$key_country]['selected']);
         $this->Session->write('order_edit.order', $order);
         $this->render('/Elements/ajaxreturn');
     }
+
+    public function ret_state_data ($key_state)
+    {
+        $order = $this->Session->read('order_edit.order');
+        $this->set('return',$order[$key_state]['json_data']);
+        $this->render('/Elements/ajaxreturn');
+    }
+    
+    
     
     public function edit_field ($key_1 = 'nl', $key_2 = 'nl', $key_3 = 'nl')
     {
