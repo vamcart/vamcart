@@ -2394,8 +2394,8 @@ msgstr "Помощь по странице"
 #: /views/layouts/admin.ctp:97
 #: /views/layouts/default.ctp:66
 #: /views/layouts/error.ctp:66
-msgid "PHP Shopping Cart"
-msgstr "Скрипты интернет-магазина"
+msgid "Powered by"
+msgstr "Работает на основе"
 
 #: /views/micro_templates/admin_create_from_tag.ctp:17
 #: /views/micro_templates/admin_edit.ctp:18
