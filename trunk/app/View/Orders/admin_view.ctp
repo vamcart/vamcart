@@ -48,7 +48,7 @@ echo $this->Html->tableHeaders(array(__('Billing Information')));
 		   ));
 	echo $this->Admin->TableCells(
 		  array(
-				__('State') . ': ' . $data['BillState']['name']
+				__('Zip') . ': ' . $data['Order']['bill_zip']
 		   ));
 	echo $this->Admin->TableCells(
 		  array(
@@ -56,7 +56,7 @@ echo $this->Html->tableHeaders(array(__('Billing Information')));
 		   ));
 	echo $this->Admin->TableCells(
 		  array(
-				__('Zip') . ': ' . $data['Order']['bill_zip']
+				__('State') . ': ' . $data['BillState']['name']
 		   ));
 echo '</table>';
 
@@ -82,7 +82,7 @@ echo $this->Html->tableHeaders(array(__('Shipping Information')));
 		   ));
 	echo $this->Admin->TableCells(
 		  array(
-				__('State') . ': ' . $data['ShipState']['name']
+				__('Zip') . ': ' . $data['Order']['ship_zip']
 		   ));
 	echo $this->Admin->TableCells(
 		  array(
@@ -90,7 +90,7 @@ echo $this->Html->tableHeaders(array(__('Shipping Information')));
 		   ));
 	echo $this->Admin->TableCells(
 		  array(
-				__('Zip') . ': ' . $data['Order']['ship_zip']
+				__('State') . ': ' . $data['ShipState']['name']
 		   ));
 echo '</table>';
 echo '</td></tr>';
