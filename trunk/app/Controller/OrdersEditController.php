@@ -28,12 +28,14 @@ class OrdersEditController extends AppController
                                           ,'selected' => '_');
         $order['bill_state']['json_data'] = json_encode($order['bill_state']['data']);
                 
-        $bill_country = $this->Order->BillCountry->find('list',array('fields' => array('id','name')));            
+        $bill_country = $this->Order->BillCountry->find('list',array('fields' => array('id','name')));
+        $bill_country = array_map(function($v){return __($v);},$bill_country);            
         $order['bill_country'] = array('data' => $bill_country
                                           ,'json_data' => array()
                                           ,'id_selected' => '0'
                                           ,'selected' => '_');
-        $order['bill_country']['json_data'] = json_encode($order['bill_country']['data']);
+        $bill_country = array_map(function($v){return __($v);},$bill_country);
+        $order['bill_country']['json_data'] = json_encode($bill_country);
                 
         $ship_state = $this->Order->ShipState->find('list',array('fields' => array('id','name')));            
         $order['ship_state'] = array('data' => $ship_state
@@ -43,11 +45,12 @@ class OrdersEditController extends AppController
         $order['ship_state']['json_data'] = json_encode($order['ship_state']['data']);
                 
         $ship_country = $this->Order->ShipCountry->find('list',array('fields' => array('id','name')));            
+        $ship_country = array_map(function($v){return __($v);},$ship_country);
         $order['ship_country'] = array('data' => $ship_country
                                           ,'json_data' => array()
                                           ,'id_selected' => '0'
                                           ,'selected' => '_');
-        $order['ship_country']['json_data'] = json_encode($order['ship_country']['data']);
+        $order['ship_country']['json_data'] = json_encode($ship_country);
                 
         $pay_metd = $this->Order->PaymentMethod->find('all',array('conditions' => array('PaymentMethod.active = 1')));            
         $pay_metd = Set::combine($pay_metd,'{n}.PaymentMethod.id','{n}.PaymentMethod.name');
@@ -130,7 +133,7 @@ class OrdersEditController extends AppController
                 $order['bill_country'] = array('data' => $order['bill_country']['data']
                                           ,'json_data' => $order['bill_country']['json_data']
                                           ,'id_selected' => $o['BillCountry']['id']
-                                          ,'selected' => $o['BillCountry']['name']);
+                                          ,'selected' => __($o['BillCountry']['name']));
                           
                 if(isset($o['ShipState']['id']))
                 $order['ship_state'] = array('data' => $order['ship_state']['data']
@@ -142,7 +145,7 @@ class OrdersEditController extends AppController
                 $order['ship_country'] = array('data' => $order['ship_country']['data']
                                           ,'json_data' => $order['ship_country']['json_data']
                                           ,'id_selected' => $o['ShipCountry']['id']
-                                          ,'selected' => $o['ShipCountry']['name']);
+                                          ,'selected' => __($o['ShipCountry']['name']));
                            
                 if(isset($o['PaymentMethod']['id']))
                 $order['pay_metd'] = array('data' => $order['pay_metd']['data']
