@@ -13,16 +13,41 @@ $template = '
 	<section class="span9 page-sidebar pull-right">
 		<h2>{page_name}</h2>  
 
+		<!-- start: products listing -->
+		<div class="row-fluid shop-products">
+			<ul class="thumbnails">
+				{foreach from=$element_list[0]["attributes_product"] item=node}
+				<li class="item span4 {if $node@index is div by 3}first{/if}">
+					<div class="thumbnail">
+						<a href="{$node.url}" class="image"><img src="{$node.image}" alt="{$node.name}"{if isset($thumbnail_width)} width="{$thumbnail_width}"{/if} /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
+					<div class="inner notop nobottom">
+						<h4 class="title">{$node.name}</h4>
+						<div class="description">{$node.description|strip_tags|truncate:30:"...":true}</div>
+					</div>
+					</div>
+					{product_form product_id={$node.id}}
+					<div class="inner darken notop">
+						<button class="btn btn-add-to-cart" type="submit"><i class="icon-shopping-cart"></i> {lang}Buy{/lang}</button>
+						{if isset($is_compare)}<a href="{base_path}/category/addcmp/{$node.alias}/{$content_alias->value}{$ext}" class="btn btn-add-to-cart"><i class="icon-bookmark"></i> {lang}Compare{/lang}</a>{/if}
+					</div>
+					{/product_form}
+				</li>
+				{/foreach}
+			</ul>
+		</div>  
+		<!-- end: products listing -->
+
+			<!-- start: compare_table -->
 			<table class="contentTable">
 			<tbody>
 			<tr>
 				<th>{lang}Comparison{/lang}</th>
 				{foreach from=$element_list[0]["attributes_product"] item=product}
 					<th>
-					{$product.name_product}
+					{$product.name}
 					</th>
 				{/foreach}
-		        </tr>   
+			</tr>   
 			{foreach from=$element_list item=attribute}
 				<tr>
 			       	<td>{$attribute.name_attribute}</td>
@@ -35,9 +60,9 @@ $template = '
 				{/foreach}
 				</tr>
 			{/foreach}
-			</tr>
 			</tbody>
 			</table>
+			<!-- end: compare_table -->
 
 	</section>
 <!-- end: Page section -->
@@ -65,19 +90,41 @@ function smarty_function_compared($params)
         $attr = $Attribute->find('all',array('conditions' => array('Attribute.content_id' => $content['Content']['id'] ,'Attribute.is_active' => '1' ,'Attribute.is_show_cmp' => '1')));
 
 
-        $Content->unbindAll();
-	$Content->bindModel(array('hasOne' => array('ContentDescription' => array(
-						'className' => 'ContentDescription',
-						'conditions' => 'language_id = ' . $_SESSION['Customer']['language_id']
+		$Content->unbindAll();
+
+		$Content->bindModel(array('hasOne' => array(
+				'ContentDescription' => array(
+                    'className' => 'ContentDescription',
+					'conditions'   => 'language_id = '.$_SESSION['Customer']['language_id']
+                ))));
+		$Content->bindModel(array('belongsTo' => array(
+				'ContentType' => array(
+                    'className' => 'ContentType'
+					))));			
+		$Content->bindModel(array('hasOne' => array(
+				'ContentImage' => array(
+                    'className' => 'ContentImage',
+                    'conditions'=>array('ContentImage.order' => '1')
+					))));						
+		$Content->bindModel(array('hasOne' => array(
+				'ContentLink' => array(
+                    'className' => 'ContentLink'
+					))));		
+		$Content->bindModel(array('hasOne' => array(
+				'ContentProduct' => array(
+                    'className' => 'ContentProduct'
 					))));
-	$Content->bindModel(array('hasMany' => array('Attribute' => array(
+
+		$Content->bindModel(array('hasMany' => array('Attribute' => array(
 						'className' => 'Attribute'
                                                ,'order' => array('Attribute.order ASC')
 					))));
 
-        $content_list = $Content->find('all',array('conditions' => array('Content.id' => $content_compre_list)));
+        $content_list = $Content->find('all',array('recursive' => 2, 'conditions' => array('Content.id' => $content_compre_list)));
 
 	$element_list = array();
+	$CurrencyBase =& new CurrencyBaseComponent(new ComponentCollection());
+
         foreach ($attr as $k_a => $attribute) 
         {
             	$element_list[$k_a]['id_attribute'] = $attribute['Attribute']['id'];
@@ -86,7 +133,41 @@ function smarty_function_compared($params)
                 $element_list[$k_a]['attributes_product'] = array();
                 foreach ($content_list as $k_p => $product) 
                 {
-                    $element_list[$k_a]['attributes_product'][$k_p]['name_product'] = $product['ContentDescription']['name'];
+                    $element_list[$k_a]['attributes_product'][$k_p]['name'] = $product['ContentDescription']['name'];
+                    $element_list[$k_a]['attributes_product'][$k_p]['description']	= $product['ContentDescription']['description'];
+                    $element_list[$k_a]['attributes_product'][$k_p]['meta_title']	= $product['ContentDescription']['meta_title'];
+                    $element_list[$k_a]['attributes_product'][$k_p]['meta_description']	= $product['ContentDescription']['meta_description'];
+                    $element_list[$k_a]['attributes_product'][$k_p]['meta_keywords']	= $product['ContentDescription']['meta_keywords'];
+                    $element_list[$k_a]['attributes_product'][$k_p]['id']	= $product['Content']['id'];
+                    $element_list[$k_a]['attributes_product'][$k_p]['alias']	= $product['Content']['alias'];
+                    $element_list[$k_a]['attributes_product'][$k_p]['price']	= $CurrencyBase->display_price($product['ContentProduct']['price']);	
+                    $element_list[$k_a]['attributes_product'][$k_p]['stock']	= $product['ContentProduct']['stock'];	
+                    $element_list[$k_a]['attributes_product'][$k_p]['model']	= $product['ContentProduct']['model'];	
+                    $element_list[$k_a]['attributes_product'][$k_p]['weight']	= $product['ContentProduct']['weight'];	
+
+							if (isset($product['ContentImage']['image']) && file_exists(IMAGES . 'content/' . $product['Content']['id'] . '/' . $product['ContentImage']['image'])) {
+								$element_list[$k_a]['attributes_product'][$k_p]['icon']	= BASE . '/img/content/' . $product['Content']['id'] . '/' . $product['ContentImage']['image'];
+							}
+							
+								if($product['ContentImage']['image'] != "")
+									$image_url = 'content/' . $product['Content']['id'] . '/' . $product['ContentImage']['image'];
+								else 
+									$image_url = 'noimage.png';
+									
+								if($config['GD_LIBRARY'] == 0)
+									$element_list[$k_a]['attributes_product'][$k_p]['image'] =  BASE . '/img/' . $image_url;
+								else
+									$element_list[$k_a]['attributes_product'][$k_p]['image'] = BASE . '/images/thumb?src=/' . $image_url . '&amp;w=' . $config['THUMBNAIL_SIZE'];
+								
+								if($product['ContentType']['name'] == 'link')
+								{
+									$element_list[$k_a]['attributes_product'][$k_p]['url'] = $product['ContentLink']['url'];
+								}
+								else
+								{
+									$element_list[$k_a]['attributes_product'][$k_p]['url']	= BASE . '/' . $product['ContentType']['name'] . '/' . $product['Content']['alias'] . $config['URL_EXTENSION'];
+								}
+                    
                     $element_list[$k_a]['attributes_product'][$k_p]['values_attribute'] = array();
                     $val_attr = Set::combine($product['Attribute'],'{n}.parent_id','{n}.val');
                     foreach($attribute['ValAttribute'] AS $k_v => $value)
