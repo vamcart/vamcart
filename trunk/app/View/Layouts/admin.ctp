@@ -106,7 +106,7 @@ echo $this->admin->GenerateBreadcrumbs($navigation, $current_crumb);
 <!-- Footer -->
 <div id="footer">
 <p>
-<a href="http://vamcart.com/"><?php echo __('PHP Shopping Cart') ?></a> <a href="http://vamcart.com/"><?php echo __('VamCart') ?></a>
+<a href="http://vamcart.com/"><?php echo __('Powered by') ?></a> <a href="http://vamcart.com/"><?php echo __('VamCart') ?></a>
 </p>
 </div>
 <!-- /Footer -->
