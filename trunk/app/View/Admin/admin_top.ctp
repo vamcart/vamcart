@@ -113,7 +113,7 @@ $(document).ready(function () {
                     echo '<table class="orderTable"><tr><td>';
                         echo '<table class="contentTable"><tr><td colspan="3">';
                         echo __('Top 10 Viewed');
-                        echo $this->Html->tableHeaders(array( __('Image'), __('Name'),  __('Viewed')));
+                        echo $this->Html->tableHeaders(array( __('Image').$this->Html->image('http://img.vamcart.com/vamcart.png'), __('Name'),  __('Viewed')));
                         foreach ($result['content_viewed'] AS $k => $viewed)
                         {
                             echo $this->Admin->TableCells(array(
@@ -188,5 +188,3 @@ $(document).ready(function () {
 	echo $this->admin->EndTabs();
 	
 	echo $this->admin->ShowPageHeaderEnd();
-	
-?>
