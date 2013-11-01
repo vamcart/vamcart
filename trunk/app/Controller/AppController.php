@@ -270,7 +270,7 @@ class AppController extends Controller {
 				'children' => array(
 					1 => array('icon' => 'cus-plugin-add', 'text' => __('Modules', true), 'path' => '/modules/admin/'),
 					2 => array('icon' => 'cus-tag-blue', 'text' => __('Tags', true), 'path' => '/tags/admin/'),
-					3 => array('icon' => 'cus-tag-blue-add', 'text' => __('User Tags', true), 'path' => '/user_tags/admin/'),
+					//3 => array('icon' => 'cus-tag-blue-add', 'text' => __('User Tags', true), 'path' => '/user_tags/admin/'),
 					4 => array('icon' => 'cus-page-gear', 'text' => __('Events', true), 'path' => '/events/admin/'),
 				)
 			),									
