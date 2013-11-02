@@ -542,8 +542,7 @@ box-shadow:         0px 1px 0px rgba(50, 50, 50, 0.31);
 	
 	.red-panel-bottom{
 
-		background: #b94a48 url(../../images/bg.jpg) 0% 0% fixed repeat-y;
-		/*background:#2b2b2b;*/
+		background: #e5e5e5 url(../../images/bg.jpg) 0% 0% fixed repeat-y;
 		-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
 			-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
 				box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
@@ -737,7 +736,7 @@ box-shadow:         0px 1px 0px rgba(50, 50, 50, 0.31);
 				overflow:hidden;
 			}
 			#header-section .innerbg{
-				background: #b94a48 url(../../images/bg.jpg) 0% 0%  fixed; /*url(../../images/bgipad.jpg) 0% 0%  fixed;*/
+				background: #e5e5e5 url(../../images/bg.jpg) 0% 0%  fixed;
 				min-height:650px;
 				width:100%;
 				display:inline-block;
