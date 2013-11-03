@@ -1329,9 +1329,7 @@ INSERT INTO `defined_languages` (`id`, `language_id`, `key`, `value`, `created`,
 (251, 1, 'Required field', 'Required field', '2013-10-10 20:08:49', '2013-10-10 20:08:49'),
 (252, 2, 'Required field', 'Обязательное поле', '2013-10-10 20:08:49', '2013-10-10 20:08:49'),
 (253, 1, 'Min length', 'Min length', '2013-10-10 20:08:49', '2013-10-10 20:08:49'),
-(254, 2, 'Min length', 'Минимум символов', '2013-10-10 20:08:49', '2013-10-10 20:08:49'),
-(255, 1, 'I am not a spam bot', 'I am not a spam bot', '2013-10-10 20:08:49', '2013-10-10 20:08:49'),
-(256, 2, 'I am not a spam bot', 'Я не спам бот', '2013-10-10 20:08:49', '2013-10-10 20:08:49');
+(254, 2, 'Min length', 'Минимум символов', '2013-10-10 20:08:49', '2013-10-10 20:08:49');
 
 DROP TABLE IF EXISTS email_templates;
 CREATE TABLE `email_templates` (

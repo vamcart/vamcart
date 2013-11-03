@@ -12,12 +12,6 @@ $template = '
 <script type="text/javascript" src="{base_path}/js/modified.js"></script>
 <script type="text/javascript" src="{base_path}/js/focus-first-input.js"></script>
 <script type="text/javascript" src="{base_path}/js/jquery/plugins/validate/jquery.validate.pack.js"></script>
-<script type="text/javascript"> 
-function AuthorizeValidation(regform) { 
-if(regform.iagree.checked == true) { regform.submit.disabled = false; } 
-if(regform.iagree.checked == false) { regform.submit.disabled = true; } 
-} 
-</script>
 <script type="text/javascript">
 $(document).ready(function() {
   // validate form
@@ -93,8 +87,7 @@ $(document).ready(function() {
 			<input id="retype" name="customer[retype]" type="password" autocomplete="off" />
 		</div>
 	</div>   
-	<label class="checkbox"><input type="checkbox" name="iagree" value="valeur" onclick="AuthorizeValidation(this.form)" /> {lang}I am not a spam bot{/lang}</label> 
-	<button class="btn btn-inverse" type="submit" name="submit" value="{lang}Register{/lang}" disabled><i class="icon-ok"></i> {lang}Register{/lang}</button>
+	<button class="btn btn-inverse" type="submit" name="submit" value="{lang}Register{/lang}"><i class="icon-ok"></i> {lang}Register{/lang}</button>
 </form>
 ';
 
