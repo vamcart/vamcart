@@ -1,11 +1,5 @@
 <script type="text/javascript" src="{base_path}/js/modified.js"></script>
 <script type="text/javascript" src="{base_path}/js/jquery/plugins/validate/jquery.validate.pack.js"></script>
-<script type="text/javascript"> 
-function AuthorizeValidation(regform) { 
-if(regform.iagree.checked == true) { regform.submit.disabled = false; } 
-if(regform.iagree.checked == false) { regform.submit.disabled = true; } 
-} 
-</script>
 <script type="text/javascript">
 $(document).ready(function() {
   // validate form
@@ -44,8 +38,7 @@ $(document).ready(function() {
 			<div class="controls controls-row">
 			<textarea class="span10" name="content" id="content" cols="30" rows="10" placeholder="{lang}Review{/lang}"></textarea>
 			</div>
-			<label class="checkbox"><input type="checkbox" name="iagree" value="valeur" onclick="AuthorizeValidation(this.form)" /> {lang}I am not a spam bot{/lang}</label>
-			<button class="btn btn-inverse btn-submit-review" type="submit" name="submit" value="{lang}Submit{/lang}" disabled><i class="icon-ok"></i> {lang}Submit{/lang}</button>
+			<button class="btn btn-inverse btn-submit-review" type="submit" name="submit" value="{lang}Submit{/lang}"><i class="icon-ok"></i> {lang}Submit{/lang}</button>
 		</div>
 		</form>
 </div>
