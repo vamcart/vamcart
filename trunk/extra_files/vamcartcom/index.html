@@ -470,7 +470,7 @@
 						<input class="subscribe-input span2" name="user_nick" type="text" placeholder="Name">
 						<input class="subscribe-input span2" name="user_mail" type="text" placeholder="Email">
 						<input type="hidden" name="action" value="subscribe_conf">
-						<button class="btn btn-large btn-danger">Subscribe!</button>
+						<button class="btn btn-large btn-danger" type="submit" name="submit">Subscribe!</button>
 						</form>
 					</div>					
 
@@ -499,7 +499,8 @@
 				<input class="subscribe-input input-medium" name="customer[email]" type="text" placeholder="Email" />
 				<input class="subscribe-input input-medium" name="customer[password]" type="password" placeholder="Пароль" autocomplete="off" />
 				<input class="subscribe-input input-medium" name="customer[retype]" type="password" placeholder="Повторите пароль" autocomplete="off" />
-				<button class="btn btn-info btn-large"><i class="fa-icon-play-circle"></i> СОЗДАТЬ МАГАЗИН!</button>
+				<label class="checkbox"><input type="checkbox" name="iagree" value="valeur" onclick="AuthorizeValidation(this.form)" /> I am not a spam bot</label>
+				<button class="btn btn-info btn-large" type="submit" name="submit" disabled><i class="fa-icon-play-circle"></i> СОЗДАТЬ МАГАЗИН!</button>
 				</form>
 			</div>		
 		</div>
@@ -683,6 +684,13 @@ var yaParams = {/*Здесь параметры визита*/};
 <script src="assets/js/jquery.localscroll-1.2.7-min.js" type="text/javascript" ></script>
 <script src="assets/js/jquery.scrollTo-1.4.2-min.js" type="text/javascript" ></script>
 <script type="text/javascript" src="assets/js/custom.js"></script>
+
+<script type="text/javascript"> 
+function AuthorizeValidation(regform) { 
+if(regform.iagree.checked == true) { regform.submit.disabled = false; } 
+if(regform.iagree.checked == false) { regform.submit.disabled = true; } 
+} 
+</script>
 
 </body>
 </html>
