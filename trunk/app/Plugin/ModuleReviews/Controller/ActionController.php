@@ -25,7 +25,7 @@ class ActionController extends ModuleReviewsAppController {
 
 		if(!empty($_POST))
 		{
-			
+
 			if(empty($_POST['content_id']))
 			{
 				global $content;
@@ -35,6 +35,26 @@ class ActionController extends ModuleReviewsAppController {
 			}
 
 			$content = $this->ContentBase->get_content_information($content_id);			
+
+			$spam_flag = false;
+	
+			if ( trim( $_POST['anti-bot-q'] ) != date('Y') ) { // answer is wrong - maybe spam
+				$spam_flag = true;
+				if ( empty( $_POST['anti-bot-q'] ) ) { // empty answer - maybe spam
+					$antispam_error_message .= 'Error: empty answer. ['.$_POST['anti-bot-q'].']<br> ';
+				} else {
+					$antispam_error_message .= 'Error: answer is wrong. ['.$_POST['anti-bot-q'].']<br> ';
+				}
+			}
+			if ( ! empty( $_POST['anti-bot-e-email-url'] ) ) { // field is not empty - maybe spam
+				$spam_flag = true;
+				$antispam_error_message .= 'Error: field should be empty. ['.$_POST['anti-bot-e-email-url'].']<br> ';
+			}
+	
+			if($spam_flag == true)
+			{
+				$this->redirect('/' . $content['ContentType']['name'] . '/' . $content['Content']['alias'] . $config['URL_EXTENSION']);
+			}
 			
 			$new_review = array();
 			$new_review['ModuleReview']['content_id'] = $_POST['content_id'];
