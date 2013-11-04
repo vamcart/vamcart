@@ -16,11 +16,26 @@ class ContactUsController extends AppController {
 		App::uses('Sanitize', 'Utility');
 		$clean = new Sanitize();
 		$clean->paranoid($_POST);
+
+		$spam_flag = false;
+
+		if ( trim( $_POST['anti-bot-q'] ) != date('Y') ) { // answer is wrong - maybe spam
+			$spam_flag = true;
+			if ( empty( $_POST['anti-bot-q'] ) ) { // empty answer - maybe spam
+				$antispam_error_message .= 'Error: empty answer. ['.$_POST['anti-bot-q'].']<br> ';
+			} else {
+				$antispam_error_message .= 'Error: answer is wrong. ['.$_POST['anti-bot-q'].']<br> ';
+			}
+		}
+		if ( ! empty( $_POST['anti-bot-e-email-url'] ) ) { // field is not empty - maybe spam
+			$spam_flag = true;
+			$antispam_error_message .= 'Error: field should be empty. ['.$_POST['anti-bot-e-email-url'].']<br> ';
+		}
 		
 		$config = $this->ConfigurationBase->load_configuration();
 		
 		// Send to admin
-		if($config['SEND_CONTACT_US_EMAIL'] != '')
+		if($config['SEND_CONTACT_US_EMAIL'] != '' && $spam_flag == false)
 		{
 		
 		// Set up mail
