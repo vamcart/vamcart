@@ -72,7 +72,7 @@ jQuery(document).ready(function(){
 	jQuery('#main-nav select').localScroll(400);
 	jQuery('.camein').localScroll(400);
 	jQuery('.scrollto').localScroll(400);
-	
+	jQuery('.plans').localScroll(400);
 })
 //  COMMENT 
 
