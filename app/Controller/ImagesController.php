@@ -44,12 +44,12 @@ class ImagesController extends AppController {
                 $phpThumb->config_cache_directory = CACHE.'thumbs'.DS;
                 $phpThumb->config_cache_disable_warning = true;
                 
-                $cacheFilename = md5($_SERVER['REQUEST_URI']);
+                $cacheFilename = md5($_GET['src'].$_GET['w']);
                 
                 $phpThumb->cache_filename = $phpThumb->config_cache_directory.$cacheFilename;
                 
 				// Check if image is already cached.
-                if(!is_file($phpThumb->cache_filename))
+                if(!file_exists($phpThumb->cache_filename))
 				{ 
                     if ($phpThumb->GenerateThumbnail()) 
 					{
@@ -59,9 +59,32 @@ class ImagesController extends AppController {
                     }
                 }
             
-            if(is_file($phpThumb->cache_filename)){ // If thumb was already generated we want to use cached version
+            if(file_exists($phpThumb->cache_filename)){ // If thumb was already generated we want to use cached version
                 $cachedImage = getimagesize($phpThumb->cache_filename);
                 header('Content-Type: '.$cachedImage['mime']);
+
+                $stat = @stat($phpThumb->cache_filename);
+                $etag = sprintf('%x-%x-%x', $stat['ino'], $stat['size'], $stat['mtime'] * 1000000);
+
+                header('Expires: ');
+                header('Cache-Control: ');
+                header('Pragma: ');
+
+                if(isset($_SERVER['HTTP_IF_NONE_MATCH']) && $_SERVER['HTTP_IF_NONE_MATCH'] == $etag) {
+
+                header('Etag: "' . $etag . '"');
+                header('HTTP/1.0 304 Not Modified');
+
+                } elseif(isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) && strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE']) >= $stat['mtime']) {
+
+                header('Last-Modified: ' . date('r', $stat['mtime']));
+                header('HTTP/1.0 304 Not Modified');
+
+                }
+
+                header('Last-Modified: ' . date('r', $stat['mtime']));
+                header('Etag: "' . $etag . '"');
+
                 readfile($phpThumb->cache_filename);
                 exit;
             }
