@@ -118,7 +118,6 @@ hr.transparent {
 /* Header, Logo, Navigation & Menus
 /* ========================================================================== */
 .topbar {
-  background-image: url(../img/bg.png);
   background-position: 0 50%;
   font-size: 11px;
 }
