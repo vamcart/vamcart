@@ -13,8 +13,6 @@
  * Input:
  *         - src    = path to javascript or css file (can be an array)
  *         - output = path to output js / css file (optional)
- *         - dev    = development mode (js / css "as is", no joining / compression)
- *         - minify = true | false - minify results (default is true)
  *
  * Examples:<br>
  * <pre>
@@ -34,7 +32,7 @@
  * @return string|null
  */
 
-function smarty_function_bender( $params, &$smarty )
+function smarty_function_bender($params, $template)
 {
 	
 	App::import('Vendor', 'Bender', array('file' => 'Bender'.DS.'Bender.class.php'));
@@ -56,5 +54,34 @@ function smarty_function_bender( $params, &$smarty )
     {
         return $bender->output($output);
     }
+}
+
+function smarty_help_function_bender() {
+	?>
+	<h3><?php echo __('What does this tag do?') ?></h3>
+	<p><?php echo __('Сombines and compress javascript & css.') ?></p>
+	<h3><?php echo __('How do I use it?') ?></h3>
+	<p><?php echo __('Just insert the tag into your template like:') ?></p> 
+	<pre>
+		{bender src="{base_path}/css/bootstrap/bootstrap.css"}
+		{bender src="{base_path}/css/style.css"}
+
+		{bender output="{base_path}/css/vamcart-packed.css"}
+
+		{bender src="{base_path}/js/bootstrap/bootstrap.min.js"}
+		{bender src="{base_path}/js/vamcart.js"}
+
+		{bender output="{base_path}/js/vamcart-packed.js"}
+	</pre>	
+	
+	<h3><?php echo __('What parameters does it take?') ?></h3>
+	<ul>
+		<li><em><?php echo __('(src)') ?></em> - <?php echo __('Path to js / css file.') ?></li>
+		<li><em><?php echo __('(output)') ?></em> - <?php echo __('Path to output js / css file.') ?></li>
+	</ul>
+	<?php
+}
+
+function smarty_about_function_bender() {
 }
 ?>

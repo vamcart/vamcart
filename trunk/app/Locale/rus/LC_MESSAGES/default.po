@@ -4676,3 +4676,15 @@ msgstr "Ямайка"
 
 msgid "Japan" 
 msgstr "Япония"
+
+#: /vendors/smarty/vam_plugins/function.bender.php:53
+msgid "Сombines and compress javascript & css."
+msgstr "Объединяет и сжимает javascript и css файлы."
+
+#: /vendors/smarty/vam_plugins/function.bender.php:53
+msgid "Path to js / css file."
+msgstr "Путь до js / css файла."
+
+#: /vendors/smarty/vam_plugins/function.bender.php:53
+msgid "Path to output js / css file."
+msgstr "Путь до сгенерированного js / css файла."
