@@ -68,7 +68,7 @@ class SiteController extends AppController {
 				// Send to customer
 				$this->Email->AddAddress($_POST['customer']['email']);
 				// Send to admin
-				$this->Email->AddCC($config['SEND_EXTRA_EMAIL']);
+				//$this->Email->AddCC($config['SEND_EXTRA_EMAIL']);
 				$this->Email->Subject = $subject;
 
 				// Email Body
