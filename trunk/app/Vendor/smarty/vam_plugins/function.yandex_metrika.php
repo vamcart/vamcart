@@ -17,9 +17,7 @@ function smarty_function_yandex_metrika($params, $template)
 	
 	if ($config['YANDEX_METRIKA'] != '') {
 
-	$_SERVER['QUERY_STRING'] = str_replace('url=','',$_SERVER['QUERY_STRING']);
-	
-	if (($_SERVER['QUERY_STRING'] == 'page/confirmation' . $config['URL_EXTENSION'])) {
+	if (($_SERVER['REQUEST_URI'] == BASE.'/page/confirmation' . $config['URL_EXTENSION'])) {
 
 // Prepare the Analytics "Transaction line" string
 

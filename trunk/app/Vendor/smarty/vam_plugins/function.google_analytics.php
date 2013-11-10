@@ -14,44 +14,61 @@ function smarty_function_google_analytics($params, $template)
 	
 	$params['checkout_success'] = (!isset($params['checkout_success'])) ? false : true;
 	$result = '';
-	
+
 	if ($config['GOOGLE_ANALYTICS'] != '') {
 
-	$_SERVER['QUERY_STRING'] = str_replace('url=','',$_SERVER['QUERY_STRING']);
-	
-	if (($_SERVER['QUERY_STRING'] == 'page/confirmation' . $config['URL_EXTENSION'])) {
+	if (($_SERVER['REQUEST_URI'] == BASE.'/page/confirmation' . $config['URL_EXTENSION'])) {
 
 // Prepare the Analytics "Transaction line" string
 
-	$transaction_string = '\'' . $order['Order']['id'] . '\','."\n".'\'' . $config['SITE_NAME'] . '\','."\n".'\'' . $order['Order']['total'] . '\','."\n".'\'' . $order['Order']['tax'] . '\','."\n".'\'' . $order['Order']['shipping'] . '\','."\n".'\'' . $order['Order']['bill_city'] . '\','."\n".'\'' . $order['Order']['bill_state'] . '\','."\n".'\'' . $order['Order']['bill_country'] . '\'';
+	$transaction_string = '
+	
+    \'id\': \'' . $order['Order']['id'] . '\','."\n".
+    '\'affiliation\': \'' . $config['SITE_NAME'] . '\','."\n".
+    '\'revenue\': \'' . $order['Order']['total'] . '\','."\n".
+    '\'shipping\': \'' . $order['Order']['shipping'] . '\','."\n".
+    '\'tax\': \'' . $order['Order']['tax'] . '\'
+	
+	';
 
 // Get products info for Analytics "Item lines"
 
 	$item_string = '';
     foreach($order['OrderProduct'] AS $items) {
-	  $item_string .=  '_gaq.push([\'_addItem\','."\n".'\'' . $order['Order']['id'] . '\','."\n".'\'' . $items['id'] . '\','."\n".'\'' . htmlspecialchars($items['name']) . '\','."\n".'\'' . htmlspecialchars($items['Content']['parent_id']) . '\','."\n".'\'' . $items['price'] . '\','."\n".'\'' . $items['quantity'] . '\''."\n".']);'."\n";
+	  $item_string .=  
+	  
+  'ga(\'ecommerce:addItem\', {'."\n".
+	  
+    '\'id\': \'' . $order['Order']['id'] . '\','."\n".
+    '\'name\': \'' . htmlspecialchars($items['name']) . '\','."\n".
+    '\'sku\': \'' . htmlspecialchars($items['model']) . '\','."\n".
+    '\'category\': \'' . htmlspecialchars($items['Content']['parent_id']) . '\','."\n".
+    '\'price\': \'' . $items['price'] . '\','."\n".
+    '\'quantity\': \'' . $items['quantity'] . '\''."\n".
+	  
+  '});'."\n";
+  
     }
 
 			$result = '
-			
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push([\'_setAccount\', \'' . $config['GOOGLE_ANALYTICS'] . '\']);
-  _gaq.push([\'_trackPageview\']);
-  _gaq.push([\'_trackPageLoadTime\']);
 
-   _gaq.push([\'_addTrans\',
+<script>
+  (function(i,s,o,g,r,a,m){i[\'GoogleAnalyticsObject\']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,\'script\',\'//www.google-analytics.com/analytics.js\',\'ga\');
+
+  ga(\'create\', \'' . $config['GOOGLE_ANALYTICS'] . '\', \'' . $_SERVER['HTTP_HOST'] . '\');
+  ga(\'send\', \'pageview\');
+  ga(\'require\', \'ecommerce\', \'ecommerce.js\');
+
+  ga(\'ecommerce:addTransaction\', {
 ' . $transaction_string . '
-]);
+});
 
 ' . $item_string . '
-  _gaq.push([\'_trackTrans\']); //submits transaction to the Analytics servers
 
-  (function() {
-    var ga = document.createElement(\'script\'); ga.type = \'text/javascript\'; ga.async = true;
-    ga.src = (\'https:\' == document.location.protocol ? \'https://ssl\' : \'http://www\') + \'.google-analytics.com/ga.js\';
-    var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  ga(\'ecommerce:send\');
 
 </script>
 			
@@ -59,21 +76,16 @@ function smarty_function_google_analytics($params, $template)
 	} else {
 			$result = '
 
-<script type="text/javascript">
+<script>
+  (function(i,s,o,g,r,a,m){i[\'GoogleAnalyticsObject\']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,\'script\',\'//www.google-analytics.com/analytics.js\',\'ga\');
 
-  var _gaq = _gaq || [];
-  _gaq.push([\'_setAccount\', \''.$config['GOOGLE_ANALYTICS'].'\']);
-  _gaq.push([\'_trackPageview\']);
-  _gaq.push([\'_trackPageLoadTime\']);
+  ga(\'create\', \'' . $config['GOOGLE_ANALYTICS'] . '\', \'' . $_SERVER['HTTP_HOST'] . '\');
+  ga(\'send\', \'pageview\');
 
-  (function() {
-    var ga = document.createElement(\'script\'); ga.type = \'text/javascript\'; ga.async = true;
-    ga.src = (\'https:\' == document.location.protocol ? \'https://ssl\' : \'http://www\') + \'.google-analytics.com/ga.js\';
-    var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>			
-			
+</script>
 			';
 	}
 	}
