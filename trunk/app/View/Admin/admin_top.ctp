@@ -12,7 +12,7 @@ $this->Html->script(array(
 ?>
 <?php echo $this->Html->scriptBlock('
 $(document).ready(function () {
-	$("#news").rssfeed("http://support.vamcart.com/modules/news/backendt.php?topicid=2", {
+	$("#news").rssfeed("http://support.'.__('vamcart.com',true).'/modules/news/backendt.php?topicid=2", {
 		header: false,
 		date: false,
 		content: false,

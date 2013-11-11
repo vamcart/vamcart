@@ -2397,6 +2397,10 @@ msgstr "Помощь по странице"
 msgid "Powered by"
 msgstr "Работает на основе"
 
+#: /app/View/Admin/admin_top.ctp:53
+msgid "vamcart.com"
+msgstr "vamcart.ru"
+
 #: /views/micro_templates/admin_create_from_tag.ctp:17
 #: /views/micro_templates/admin_edit.ctp:18
 msgid "Micro Template Details"
