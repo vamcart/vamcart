@@ -42,7 +42,7 @@ INSERT INTO `configurations` (`id`, `configuration_group_id`, `key`, `value`, `t
 (6,'1','METADATA', '<meta name="generator" content="Bluefish 2.2.2" />','textarea', '', 'Metadata','','6'),
 (7,'1','URL_EXTENSION', '.html','text', '', 'URL Extension','','7'),
 (8,'1','GD_LIBRARY', '1','select', '0,1', 'GD Library Enabled','','8'),
-(9,'1','THUMBNAIL_SIZE', '470','text', '', 'Image Thumbnail Size','','9'),
+(9,'1','THUMBNAIL_SIZE', '250','text', '', 'Image Thumbnail Size','','9'),
 (10,'1','GOOGLE_ANALYTICS', '','text', '', 'Google Analytics ID','','10'),
 (11,'1','YANDEX_METRIKA', '','text', '', 'Yandex.Metrika ID','','11'),
 (12,'1','PRODUCTS_PER_PAGE', '20','text', '', 'Products Per Page','','12'),
