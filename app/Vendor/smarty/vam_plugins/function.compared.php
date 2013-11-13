@@ -157,7 +157,7 @@ function smarty_function_compared($params)
 								if($config['GD_LIBRARY'] == 0)
 									$element_list[$k_a]['attributes_product'][$k_p]['image'] =  BASE . '/img/' . $image_url;
 								else
-									$element_list[$k_a]['attributes_product'][$k_p]['image'] = BASE . '/images/thumb?src=/' . $image_url . '&amp;w=' . $config['THUMBNAIL_SIZE'];
+									$element_list[$k_a]['attributes_product'][$k_p]['image'] = BASE . '/images/thumb?src=/' . $image_url;
 								
 								if($product['ContentType']['name'] == 'link')
 								{

@@ -178,7 +178,7 @@ function smarty_function_search_result($params, $template)
 			if ($config['GD_LIBRARY'] == 0) {
 				$content_list[$count]['image'] =  BASE . '/img/' . $image_url;
 			} else {
-				$content_list[$count]['image'] = BASE . '/images/thumb?src=/' . $image_url . '&amp;w=' . $config['THUMBNAIL_SIZE'];
+				$content_list[$count]['image'] = BASE . '/images/thumb?src=/' . $image_url;
 			}
 
 			$content_list[$count]['url']    = BASE . '/' . $raw_data['ContentType']['name'] . '/' . $raw_data['Content']['alias'] . $config['URL_EXTENSION'];
