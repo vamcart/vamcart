@@ -66,7 +66,7 @@ class ImagesController extends AppController {
                 $stat = @stat($phpThumb->cache_filename);
                 $etag = sprintf('%x-%x-%x', $stat['ino'], $stat['size'], $stat['mtime'] * 1000000);
 
-                header('Expires: ');
+                header('Expires: Thu, 31 Dec 2037 23:55:55 GMT');
                 header('Cache-Control: ');
                 header('Pragma: ');
 
