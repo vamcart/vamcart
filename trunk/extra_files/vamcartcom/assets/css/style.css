@@ -785,7 +785,7 @@ box-shadow:         0px 1px 0px rgba(50, 50, 50, 0.31);
 			
 		
 			hr.half {
-			margin: 12px 0;
+			margin: 14px 0;
 			border: 0;
 			border-top: 1px solid #ECF0F1;
 			border-bottom: 1px solid #ffffff;
@@ -1293,7 +1293,7 @@ text-align:center;
  
 }
 .plan-price > span {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: normal;
   color: rgba(255, 255, 255, 0.9);
 }
@@ -1301,7 +1301,7 @@ text-align:center;
 .plan-features {
   margin-bottom: 20px;
   line-height: 2;
-  font-size: 12px;
+  font-size: 14px;
   color: #999;
   text-align: center;
 }
@@ -1456,7 +1456,7 @@ border-top: 4px solid #2fe2bf;
 	float:left;
 	display:inline-block;
 	margin-right:5px;
-	font-size:12px;
+	font-size:14px;
 	font-weight:300;
 	padding-right:5px;
 	
