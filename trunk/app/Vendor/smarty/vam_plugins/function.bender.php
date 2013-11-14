@@ -38,8 +38,8 @@ function smarty_function_bender($params, $template)
 	App::import('Vendor', 'Bender', array('file' => 'Bender'.DS.'Bender.class.php'));
 			
     $bender = new Bender();
-    $bender->cssmin =  "";
-    $bender->jsmin =  "";
+    $bender->cssmin =  "cssmin";
+    $bender->jsmin =  "jsmin";
     $bender->ttl =  8600;
     $bender->root_dir =  WWW_ROOT;
     $src = isset( $params['src'] ) ? $params['src'] : "";
