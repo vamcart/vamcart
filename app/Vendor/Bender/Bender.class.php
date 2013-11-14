@@ -72,7 +72,10 @@ class Bender
                 {
                     case "cssmin":
                         require_once realpath( dirname( __file__ ) . "/cssmin.php" );
-                        $packed = CssMin::minify( $str );
+                        $compressor = new CSSmin();
+                        $compressor->set_memory_limit('256M');
+                        $compressor->set_max_execution_time(120);
+                        $packed = $compressor->run($str);
                         break;
                     default:
                         $packed = $str;
@@ -89,6 +92,10 @@ class Bender
                     case "jshrink":
                         require_once realpath( dirname( __file__ ) ) . "/JShrink.class.php";
                         $packed = Minifier::minify( $str );
+                        break;
+                    case "jsmin":
+                        require_once realpath( dirname( __file__ ) ) . "/jsminplus.php";
+                        $packed = JSMinPlus::minify( $str );
                         break;
                     default:
                         $packed = $str;
