@@ -30,7 +30,7 @@ class Bender
     {
 
         $src = ltrim( $src, '/' );
-        $src = str_replace(ltrim(BASE,'/'),'',$src);
+        $src = preg_replace('/'.ltrim(BASE,'/').'/','',$src,1);
 
         global $_javascripts, $_stylesheets;
         if ( !is_array( $src ) )
@@ -54,7 +54,7 @@ class Bender
     protected function minify( $scripts, $ext, $output )
     {
         $path = $this->root_dir();
-        $output = str_replace(ltrim(BASE,'/'),'',$output);
+        $output = preg_replace('/'.ltrim(BASE,'/').'/','',$output,1);
         $outfile = "{$path}/{$output}";
         if ( file_exists( $outfile ) )
         {
@@ -159,7 +159,7 @@ class Bender
     protected function check_recombine( $output, $files )
     {
         $path = $this->root_dir();
-        $output = str_replace(ltrim(BASE,'/'),'',$output);
+        $output = preg_replace('/'.ltrim(BASE,'/').'/','',$output,1);
         $outfile = "{$path}.{$output}";
         if ( !file_exists( $outfile ) || !is_array( $files ) )
         {
