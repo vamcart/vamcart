@@ -9,24 +9,31 @@ class ImagesController extends AppController {
 	public $name = 'Images';
 	public $uses = array('ContentImage');
 	
-	public function thumb ()
+	public function thumb ($id=null,$src=null,$w=null,$h=null,$q=null)
 	{
-            if(empty($_GET['src'])){
+            if(empty($src)){
                 die("No source image");
             }
-            
+
+				if ($src == 'noimage.png') {
+				$sourceFilename = WWW_ROOT . IMAGES_URL . '/noimage.png';
+				} else {
+				$sourceFilename = WWW_ROOT . IMAGES_URL . '/content/'.$id.'/'.$src;
+				}
+
+				if(!is_readable($sourceFilename)){
+                die("Couldn't read source image");
+				}
+				
             global $config;
             
             //width
-            $width = (!isset($_GET['w'])) ? $config['THUMBNAIL_SIZE'] : $_GET['w'];
+            $width = (!isset($w)) ? $config['THUMBNAIL_SIZE'] : $w;
             //height
-            $height = (!isset($_GET['h'])) ? $config['THUMBNAIL_SIZE'] : $_GET['h'];
+            $height = (!isset($h)) ? $config['THUMBNAIL_SIZE'] : $h;
             //quality    
-            $quality = (!isset($_GET['q'])) ? 75 : $_GET['q'];
+            $quality = (!isset($q)) ? 75 : $q;
             
-			$sourceFilename = WWW_ROOT . IMAGES_URL . $_GET['src'];
-
-	
             if(is_readable($sourceFilename)){
                 App::import('Vendor', 'Phpthumb', array('file' => 'phpthumb'.DS.'phpthumb.class.php'));
                 $phpThumb = new phpThumb();
@@ -44,7 +51,7 @@ class ImagesController extends AppController {
                 $phpThumb->config_cache_directory = CACHE.'thumbs'.DS;
                 $phpThumb->config_cache_disable_warning = true;
                 
-                $cacheFilename = md5($_GET['src'].$width);
+                $cacheFilename = md5($src.$width);
                 
                 $phpThumb->cache_filename = $phpThumb->config_cache_directory.$cacheFilename;
                 
@@ -91,7 +98,7 @@ class ImagesController extends AppController {
             
             
             } else { // Can't read source
-                die("Couldn't read source image ".$sourceFilename);
+                die("Couldn't read source image");
             }
 	}
 

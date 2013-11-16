@@ -88,12 +88,12 @@ function smarty_function_content_images($params, $template)
 		$keyed_images[$key] = $value['ContentImage'];
 		$keyed_images[$key]['name'] = $content['ContentDescription']['name'];
 		$keyed_images[$key]['image_path'] = BASE . '/img/content/' . $content_id . '/' . $value['ContentImage']['image'];
-		$keyed_images[$key]['image_thumb'] = BASE . '/images/thumb?src=/content/' . $content_id . '/' . $value['ContentImage']['image'];
+		$keyed_images[$key]['image_thumb'] = BASE . '/images/thumb/' . $content_id . '/' . $value['ContentImage']['image'];
 	}	
 	
 	$assignments = array('images' => $keyed_images,
 						 'thumbnail' => $params['thumbnail'],
-						 'noimg_thumb' => BASE . '/images/thumb?src=/noimage.png',
+						 'noimg_thumb' => BASE . '/images/thumb/0/noimage.png',
 						 'noimg_path' => BASE . '/img/noimage.png',
 						 'thumbnail_size' => $config['THUMBNAIL_SIZE']);
 

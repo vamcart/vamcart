@@ -97,7 +97,7 @@ function smarty_function_xsell($params, &$smarty)
 			$content_id = $image['ContentImage']['content_id'];
 			$content['ContentRelations'][$key]['image'] = $image['ContentImage'];
 			$content['ContentRelations'][$key]['image']['image_path'] = BASE . '/img/content/' . $content_id . '/' . $image['ContentImage']['image'];
-			$content['ContentRelations'][$key]['image']['image_thumb'] =  BASE . '/images/thumb?src=/content/' . $content_id . '/' . $image['ContentImage']['image'];
+			$content['ContentRelations'][$key]['image']['image_thumb'] =  BASE . '/images/thumb/' . $content_id . '/' . $image['ContentImage']['image'];
 		} else {
 		    $content['ContentRelations'][$key]['image'] = array();
 		}
@@ -115,7 +115,7 @@ function smarty_function_xsell($params, &$smarty)
 
 	$assignments = array('relations' => $content['ContentRelations'],
 			     'thumbnail' => $params['thumbnail'],
-			     'noimg_thumb' => BASE . '/images/thumb?src=/noimage.png',
+			     'noimg_thumb' => BASE . '/images/thumb/0/noimage.png',
 			     'noimg_path' => BASE . '/img/noimage.png',
 			     'thumbnail_size' => $config['THUMBNAIL_SIZE']
 			);

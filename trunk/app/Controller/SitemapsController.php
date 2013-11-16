@@ -178,15 +178,15 @@ class SitemapsController extends AppController {
 					$content_list_products[$count_products]['description'] = strip_tags($raw_data['ContentDescription']['description']);
 
 					if ($raw_data['ContentImage']['image'] != "") {
-						$image_url = 'content/' . $raw_data['Content']['id'] . '/' . $raw_data['ContentImage']['image'];
+						$image_url = $raw_data['Content']['id'] . '/' . $raw_data['ContentImage']['image'];
 					} else {
-						$image_url = 'noimage.png';
+						$image_url = '0/noimage.png';
 					}
 
 					if ($config['GD_LIBRARY'] == 0) {
-						$content_list_products[$count_products]['image'] =  '/img/' . $image_url;
+						$content_list_products[$count_products]['image'] =  '/img/content/' . $image_url;
 					} else {
-						$content_list_products[$count_products]['image'] = '/images/thumb?src=/' . $image_url;
+						$content_list_products[$count_products]['image'] = '/images/thumb/' . $image_url;
 					}
 
 					$count_products++;
