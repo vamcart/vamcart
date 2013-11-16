@@ -28,6 +28,10 @@ class Bender
     // Enqueue CSS or Javascript
     public function enqueue( $src )
     {
+
+        $src = ltrim( $src, '/' );
+        $src = str_replace(ltrim(BASE,'/'),'',$src);
+
         global $_javascripts, $_stylesheets;
         if ( !is_array( $src ) )
         {
@@ -50,6 +54,7 @@ class Bender
     protected function minify( $scripts, $ext, $output )
     {
         $path = $this->root_dir();
+        $output = str_replace(ltrim(BASE,'/'),'',$output);
         $outfile = "{$path}/{$output}";
         if ( file_exists( $outfile ) )
         {
@@ -154,7 +159,8 @@ class Bender
     protected function check_recombine( $output, $files )
     {
         $path = $this->root_dir();
-        $outfile = "{$path}/{$output}";
+        $output = str_replace(ltrim(BASE,'/'),'',$output);
+        $outfile = "{$path}.{$output}";
         if ( !file_exists( $outfile ) || !is_array( $files ) )
         {
             return;
@@ -163,7 +169,7 @@ class Bender
         $last = 0;
         foreach ( $files as $file )
         {
-            if ( ( $_time = filemtime( $path . "/" . $file ) ) > $last )
+            if ( ( $_time = filemtime( $path . $file ) ) > $last )
                 $last = $_time;
         }
         if ( filemtime( $outfile ) < $last )
@@ -183,7 +189,7 @@ class Bender
     protected function get_src( $output )
     {
         $path = $this->root_dir();
-        return '/' . $output . '?' . $this->version_key . '=' . filemtime( $path . "/" . $output );
+        return '/' . $output ;
     }
 
 }
