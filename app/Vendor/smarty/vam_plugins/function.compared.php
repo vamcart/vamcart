@@ -150,14 +150,14 @@ function smarty_function_compared($params)
 							}
 							
 								if($product['ContentImage']['image'] != "")
-									$image_url = 'content/' . $product['Content']['id'] . '/' . $product['ContentImage']['image'];
+									$image_url = $product['Content']['id'] . '/' . $product['ContentImage']['image'];
 								else 
-									$image_url = 'noimage.png';
+									$image_url = '0/noimage.png';
 									
 								if($config['GD_LIBRARY'] == 0)
-									$element_list[$k_a]['attributes_product'][$k_p]['image'] =  BASE . '/img/' . $image_url;
+									$element_list[$k_a]['attributes_product'][$k_p]['image'] =  BASE . '/img/content/' . $image_url;
 								else
-									$element_list[$k_a]['attributes_product'][$k_p]['image'] = BASE . '/images/thumb?src=/' . $image_url;
+									$element_list[$k_a]['attributes_product'][$k_p]['image'] = BASE . '/images/thumb/' . $image_url;
 								
 								if($product['ContentType']['name'] == 'link')
 								{

@@ -280,14 +280,14 @@ function smarty_function_content_listing($params, $template)
 		}
 		
 			if($raw_data['ContentImage']['image'] != "")
-				$image_url = 'content/' . $raw_data['Content']['id'] . '/' . $raw_data['ContentImage']['image'];
+				$image_url = $raw_data['Content']['id'] . '/' . $raw_data['ContentImage']['image'];
 			else 
-				$image_url = 'noimage.png';
+				$image_url = '0/noimage.png';
 				
 			if($config['GD_LIBRARY'] == 0)
-				$content_list[$count]['image'] =  BASE . '/img/' . $image_url;
+				$content_list[$count]['image'] =  BASE . '/img/content/' . $image_url;
 			else
-				$content_list[$count]['image'] = BASE . '/images/thumb?src=/' . $image_url;
+				$content_list[$count]['image'] = BASE . '/images/thumb/' . $image_url;
 			
 			if($raw_data['ContentType']['name'] == 'link')
 			{
