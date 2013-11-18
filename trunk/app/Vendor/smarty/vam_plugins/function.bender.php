@@ -40,7 +40,7 @@ function smarty_function_bender($params, $template)
     $bender = new Bender();
     $bender->cssmin =  "cssmin";
     $bender->jsmin =  "jsmin";
-    $bender->ttl =  8600;
+    $bender->ttl =  -1;
     $bender->root_dir =  WWW_ROOT;
     $src = isset( $params['src'] ) ? $params['src'] : "";
     $output = isset( $params['output'] ) ? $params['output'] : "";

@@ -16,7 +16,7 @@ class Bender
     // JS minifier, can be "packer" or "jshrink"
     public $jsmin = "packer";
     // Packed file time to live in sec (-1 = never recompile, 0 = always recompile, default: 3600)
-    public $ttl = 3600;
+    public $ttl = -1;
     // Project's root dir
     public $root_dir;
     // Constructor
