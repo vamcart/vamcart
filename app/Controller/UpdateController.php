@@ -1,91 +1,108 @@
-<?php
-/* -----------------------------------------------------------------------------------------
-   VamCart - http://vamcart.com
-   -----------------------------------------------------------------------------------------
-   Copyright (c) 2011 VamSoft Ltd.
-   License - http://vamcart.com/license.html
-   ---------------------------------------------------------------------------------------*/
-set_time_limit(3600);
-
-class UpdateController extends AppController {
-	public $name = 'Update';
-	public $components = array('Check');	
-	public $data;
-
-	public function admin_update($ajax_request = false)
-	{
-		$this->data->current_version = file_get_contents('./version.txt');
-		$this->data->latest_version = $this->Check->get_latest_update_version();
-
-     	$this->set('error','0');
-     	$this->set('success','0');
-		$templine = '';
-
-			$this->set('current_crumb', __('Update', true));
-			$this->set('title_for_layout', __('Update', true));
-
-		if($this->data->current_version >= $this->data->latest_version) {
-			$this->set('error','1');
-		} else {            $this->data->versions = $this->Check->get_list_update_version($this->data->current_version);
-            $this->data->versions = explode(';',$this->data->versions);
-            $this->data->current_version = '';
-            foreach($this->data->versions as $version) {            	$this->Check->get_update_archive($version);
-        		App::import('Vendor', 'PclZip', array('file' => 'pclzip'.DS.'zip.php'));
-				$this->data->zip_dir = basename($version);
-            	if(!@mkdir('../tmp/updates/'.$this->data->zip_dir, 0777))
-					die("<font color='red'>Error : Unable to create directory</font><br />");
-				$this->data->archive = new PclZip('../tmp/updates/'.$version.'.zip');
-				if ($this->data->archive->extract(PCLZIP_OPT_PATH,'../tmp/updates/'.$this->data->zip_dir) == 0)
-					die("<font color='red'>Error : Unable to unzip archive</font>");
-                $this->data->description = file_get_contents('../tmp/updates/'.$this->data->zip_dir.'/description.xml');
-                $this->data->description = $this->Check->xml2array($this->data->description);
-                if(isset($this->data->description['files']['file']['value']) && $this->data->description['files']['file']['value'] != '') {                	$this->data->tmp[0]['value'] = $this->data->description['files']['file']['value'];
-                	$this->data->tmp[0]['attr'] = $this->data->description['files']['file']['attr'];
-                	$this->data->description['files']['file'] = $this->data->tmp;
-                }
-
-
-                if(count($this->data->description['files']['file']) > 0) {                	foreach($this->data->description['files']['file'] as $file) {						if($file['attr']['action'] == 'create')							copy('../tmp/updates/'.$this->data->zip_dir.$file['attr']['path'].$file['value'], '../..'.$file['attr']['path'].$file['value']);
-							//chmod('../..'.$file['attr']['path'].$file['value'],0755);
-						if($file['attr']['action'] == 'update') {							@unlink('../..'.$file['attr']['path'].$file['value']);
-							@copy('../tmp/updates/'.$this->data->zip_dir.$file['attr']['path'].$file['value'], '../..'.$file['attr']['path'].$file['value']);
-							//chmod('../..'.$file['attr']['path'].$file['value'],0755);
-						}
-						if($file['attr']['action'] == 'delete')
-							@unlink('../..'.$file['attr']['path'].$file['value']);
-                        if($file['attr']['action'] == 'sql') {
-							$lines = file('../tmp/updates/'.$this->data->zip_dir.'/'.$file['value']);
-							foreach ($lines as $line) {
-    							if (substr($line, 0, 2) == '--' || $line == '')
-        						continue;
-								$templine .= $line;
-								if (substr(trim($line), -1, 1) == ';') {
-									$this->Update->query($templine);
-									$templine = '';
-								}
-							}
-						}
-                	}
-                }
-      		App::import('Vendor', 'DeleteAll', array('file' => 'deleteall'.DS.'deleteall.php'));    
-      		@deleteAll('../tmp/updates/'.$this->data->zip_dir);
-      		@unlink('../tmp/updates/'.$version.'.zip');
-      		$this->data->current_version = $version;
-            }
-            $filename = './version.txt';
-			$handle = fopen($filename, 'w+');
-			fwrite($handle, $this->data->current_version);
-			fclose($handle);         	$this->set('success','1');
-		}
-	}
-
-	public function admin($ajax_request = false)
-	{
-  		$this->set('current_crumb', __('Update', true));
-		$this->set('title_for_layout', __('Update', true));
-		$this->data->current_version = file_get_contents('./version.txt');
-		$this->data->latest_version = $this->Check->get_latest_update_version();
-		$this->set('update_data',$this->data);
-	}
-}
+<?php //0046a
+if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo('Site error: the file <b>'.__FILE__.'</b> requires the ionCube PHP Loader '.basename($__ln).' to be installed by the website operator. If you are the website operator please use the <a href="http://www.ioncube.com/lw/">ionCube Loader Wizard</a> to assist with installation.');exit(199);
 ?>
+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
+CXWXuKliBOJcAcnJ1bP1K2ZkUbBslR/pob8=
