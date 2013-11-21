@@ -217,6 +217,7 @@ class AppController extends Controller {
 	*/				
 	public function beforeFilter()
 	{
+
 		if (isset($_GET['return_url'])) {
 			
 			$this->Auth->loginRedirect = urldecode(base64_decode($_GET['return_url']));
