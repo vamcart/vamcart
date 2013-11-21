@@ -23,7 +23,7 @@ function ioncube_event_handler($err_code,$params) {
 				echo 'License Invalid. Get New License at <a href="http://vamcart.com">http://vamcart.com</a>';
 				break;
 			case '11' :
-				echo 'License Invalid. Get New License at <a href="http://vamcart.com">http://vamcart.com</a>';
+				echo 'License Invalid For This Domain. Get New License at <a href="http://vamcart.com">http://vamcart.com</a>';
 				break;
 		}
 

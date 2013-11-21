@@ -62,7 +62,7 @@ class AppController extends Controller {
 	* @param int $id ID of the database record we are moving
 	* @param int $direction Direction we are moving the record.  Can be 'up' or 'down'
 	*/
-	public function moveItem ($id, $direction)
+	public function moveItem($id, $direction)
 	{
 		// Define the current model and controller
 		$current_model = $this->modelClass;
@@ -101,7 +101,7 @@ class AppController extends Controller {
 	*
 	* @param int $id ID of the database record we are setting as default.
 	*/	
-	public function setDefaultItem ($id)
+	public function setDefaultItem($id)
 	{
 
 		$current_model = $this->modelClass;
@@ -133,7 +133,7 @@ class AppController extends Controller {
 	*
 	* @param int $id ID of the database record we are changing
 	*/	
-	public function changeActiveStatus ($id)
+	public function changeActiveStatus($id)
 	{
 		// Set the model and controller
 		$current_model = $this->modelClass;
@@ -163,7 +163,7 @@ class AppController extends Controller {
 	* @param string $alias String to modify.
 	* @return  string  $alias Modified alias.
 	*/		
-	public function _makeAlias ($alias)
+	public function _makeAlias($alias)
 	{
 		if($alias == "")
 			$alias = rand(1000,9999);
