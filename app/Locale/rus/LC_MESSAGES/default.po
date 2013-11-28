@@ -1596,6 +1596,18 @@ msgstr "Вы должны использовать данный тэг на ст
 msgid "Displays the product price for the current content."
 msgstr "Показывает стоимость товара."
 
+#: /vendors/smarty/vam_plugins/function.product_weight.php:36
+msgid "Displays the product weight for the current content."
+msgstr "Показывает вес товара."
+
+#: /vendors/smarty/vam_plugins/function.product_model.php:36
+msgid "Displays the product model for the current content."
+msgstr "Показывает артикул товара."
+
+#: /vendors/smarty/vam_plugins/function.product_stock.php:36
+msgid "Displays the product stock quantity for the current content."
+msgstr "Показывает количество единиц товара на складе."
+
 #: /vendors/smarty/vam_plugins/function.product_price.php:36
 msgid "Displays the product price for the current downloadable content."
 msgstr "Показывает стоимость скачиваемого товара."
