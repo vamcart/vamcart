@@ -34,7 +34,7 @@ function default_template_xsell()
 				{/if}
 				
 			<div class="inner notop nobottom">
-				<h4 class="title">{$node.name}</h4>
+				<h4 class="title"><a href="{$node.url}">{$node.name}</a></h4>
 				<p class="description">{$node.description|strip_tags|truncate:30:"...":true}</p>
               </div>
 			</div>
