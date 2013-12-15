@@ -24,7 +24,7 @@ $this->Html->script(array(
 	               ));
 	echo $this->Form->input('Customer.email', 
 						array(
-   				   		'label' => __('Code')
+   				   		'label' => __('Email')
 	               ));	
 	echo $this->Form->input('Customer.password', 
 						array(
