@@ -84,7 +84,7 @@ class OrdersEditController extends AppController
         elseif ($act == 'redirect') 
         {
             $order = $this->Session->read('order_edit.order');
-            $this->redirect('/orders/admin/');
+            //$this->redirect('/orders/admin/');
         }
         elseif ($act == 'edit') 
         {
