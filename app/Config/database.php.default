@@ -63,9 +63,9 @@ class DATABASE_CONFIG {
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
 		'host' => 'localhost',
-		'login' => 'vamcart',
+		'login' => 'vamshop',
 		'password' => '123456',
-		'database' => 'vamcart',
+		'database' => 'vamshop',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);

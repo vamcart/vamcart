@@ -49,7 +49,7 @@
 <!-- Header -->
 <div class="row-fluid">
 	<div class="span4">
-		<?php echo $this->Html->image('admin/logo.png', array('alt' => __('VamCart',true)))?>
+		<?php echo $this->Html->image('admin/logo.png', array('alt' => __('VamShop',true)))?>
 	</div>
 </div>
 <!-- /Header -->
@@ -72,7 +72,7 @@
 <!-- Footer -->
 <div id="footer">
 <p>
-<a href="http://<?php echo __('vamcart.com'); ?>/"><?php echo __('Powered by'); ?></a> <a href="http://<?php echo __('vamcart.com'); ?>/"><?php echo __('VamCart'); ?></a>
+<a href="http://<?php echo __('vamshop.com'); ?>/"><?php echo __('Powered by'); ?></a> <a href="http://<?php echo __('vamshop.com'); ?>/"><?php echo __('VamShop'); ?></a>
 </p>
 </div>
 <!-- /Footer -->

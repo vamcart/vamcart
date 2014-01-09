@@ -17,7 +17,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-lightbulb');
 </p>
 <form method="post" action="http://support.vamcart.com/modules/evennews/index.php">
 <fieldset class="form">
-<legend><?php echo __('VamCart Newsletter'); ?></legend>
+<legend><?php echo __('VamShop Newsletter'); ?></legend>
 <div class="input text"><?php echo __('Your Name'); ?>: <input type="text" name="user_nick" /></div>
 <div class="input text"><?php echo __('Your Email'); ?>: <input type="text" name="user_mail" /></div>
 </fieldset>
@@ -25,7 +25,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-lightbulb');
 <?php echo $this->Admin->formButtonCatalog(__('Subscribe'), 'cus-newspaper', array('class' => 'btn', 'type' => 'submit', 'name' => 'submitbutton')); ?>
 </form>
 <p>
-<?php echo __('We at VamCart value your privacy, we will never sell or distribute your information. You will only receive information regarding VamCart or its affiliates.'); ?>
+<?php echo __('We at VamShop value your privacy, we will never sell or distribute your information. You will only receive information regarding VamShop or its affiliates.'); ?>
 </p>
 <p>
 <?php echo __('At anytime you may remove yourself from the list if you think you joined in error.'); ?>
