@@ -15,7 +15,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-lightbulb');
 <p>
 <?php echo $this->Admin->linkButtonCatalog(__('Click here to visit your live store.'),'/','cus-cart-go',array('escape' => false, 'target'=>'_blank', 'class' => 'btn')); ?>
 </p>
-<form method="post" action="http://support.vamcart.com/modules/evennews/index.php">
+<form method="post" action="http://support.vamshop.com/modules/evennews/index.php">
 <fieldset class="form">
 <legend><?php echo __('VamShop Newsletter'); ?></legend>
 <div class="input text"><?php echo __('Your Name'); ?>: <input type="text" name="user_nick" /></div>

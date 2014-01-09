@@ -59,8 +59,8 @@ class InstallController extends AppController {
 	public function start ()
 	{	
 		$this->layout = 'default';
-		$this->set('current_crumb', __('Install VamCart', true));
-		$this->set('title_for_layout', __('Install VamCart', true));
+		$this->set('current_crumb', __('Install VamShop', true));
+		$this->set('title_for_layout', __('Install VamShop', true));
 		$this->set('version',$this->Install->getVersion());
 		
 		$values = array();
@@ -80,9 +80,9 @@ class InstallController extends AppController {
 			$values['Install']['db_host'] = 'localhost';
 			$values['Install']['db_username'] = 'root';
 			$values['Install']['db_password']  = '';
-			$values['Install']['db_name'] = 'vamcart';
+			$values['Install']['db_name'] = 'vamshop';
 			$values['Install']['username'] = 'admin';
-			$values['Install']['email'] = 'admin@vamcart.loc';
+			$values['Install']['email'] = 'admin@vamshop.loc';
 			$values['Install']['password'] = 'password';
 		}	
 		$this->set('values',$values);
@@ -93,8 +93,8 @@ class InstallController extends AppController {
 	{
 		$this->layout = 'default';
 
-		$this->set('current_crumb', __('VamCart Installed', true));
-		$this->set('title_for_layout', __('VamCart Installed', true));
+		$this->set('current_crumb', __('VamShop Installed', true));
+		$this->set('title_for_layout', __('VamShop Installed', true));
 		
 		$username = $this->data['Install']['db_username'];
 		$password = $this->data['Install']['db_password'];

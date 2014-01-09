@@ -12,7 +12,7 @@ $this->Html->script(array(
 ?>
 <?php echo $this->Html->scriptBlock('
 $(document).ready(function () {
-	$("#news").rssfeed("http://support.'.__('vamcart.com',true).'/modules/news/backendt.php?topicid=2", {
+	$("#news").rssfeed("http://support.'.__('vamshop.com',true).'/modules/news/backendt.php?topicid=2", {
 		header: false,
 		date: false,
 		content: false,
@@ -113,7 +113,7 @@ $(document).ready(function () {
                     echo '<table class="orderTable"><tr><td>';
                         echo '<table class="contentTable"><tr><td colspan="3">';
                         echo __('Top 10 Viewed');
-                        echo $this->Html->tableHeaders(array( __('Image').$this->Html->image('http://img.vamcart.com/vamcart.png'), __('Name'),  __('Viewed')));
+                        echo $this->Html->tableHeaders(array( __('Image').$this->Html->image('http://img.vamshop.com/vamshop.png'), __('Name'),  __('Viewed')));
                         foreach ($result['content_viewed'] AS $k => $viewed)
                         {
                             echo $this->Admin->TableCells(array(

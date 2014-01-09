@@ -181,7 +181,7 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty', 'Gzip.G
 		}
 
 		$this->Smarty->display($template['Template']['template'], $template_vars);
-		echo '<!-- Powered by: VamCart (http://vamcart.com) -->' . "\n";
+		echo '<!-- Powered by: VamShop (http://vamshop.com) -->' . "\n";
 		die();
 	}
 }
