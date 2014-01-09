@@ -3350,16 +3350,24 @@ msgid "License is invalid. Check your key."
 msgstr "Ваша лицензия недействительна. Обновите ключ лицензии."
 
 #: /app/views/update/admin.ctp
-msgid "Your VamShop Version:"
+msgid "VamShop Version:"
+msgstr "Версия VamShop:"
+
+#: /app/views/update/admin.ctp
+msgid "You have latest version of VamShop. No update needed."
+msgstr "У Вас установлена текущая версия VamShop, обновление не требуется."
+
+#: /app/views/update/admin.ctp
+msgid "No updates needed for your version."
 msgstr "У Вас установлен VamShop версии:"
 
 #: /app/views/update/admin.ctp
 msgid "Current VamShop Version:"
-msgstr "Последняя версия VamShop:"
+msgstr "Текущая версия VamShop:"
 
 #: /app/views/update/admin_update.ctp
 msgid "Click Update button to start VamShop AutoUpdate."
-msgstr "Нажмите кнопку Обновить для обновления Вашего магазина до последней версии."
+msgstr "Нажмите кнопку Обновить для обновления Вашего магазина до текущей версии."
 
 #: /app/views/update/admin_update.ctp
 msgid "You currently use latest version of VamShop."
