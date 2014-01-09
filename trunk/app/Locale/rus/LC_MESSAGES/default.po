@@ -407,13 +407,13 @@ msgid "Global Content Blocks Listing"
 msgstr "Список блоков"
 
 #: /controllers/install_controller.php:76
-msgid "Install VamCart"
-msgstr "Установка VamCart"
+msgid "Install VamShop"
+msgstr "Установка VamShop"
 
 #: /controllers/install_controller.php:103
 #: /controllers/install_controller.php:104
-msgid "VamCart Installed"
-msgstr "Установка VamCart завершена"
+msgid "VamShop Installed"
+msgstr "Установка VamShop завершена"
 
 #: /controllers/install_controller.php:108
 msgid "Unable to connect to database."
@@ -2296,8 +2296,8 @@ msgid "Database successfully imported."
 msgstr "База данных успешно загружена."
 
 #: /views/install/create.ctp:15
-msgid "VamCart Newsletter"
-msgstr "Рассылка VamCart"
+msgid "VamShop Newsletter"
+msgstr "Рассылка VamShop"
 
 #: /views/install/create.ctp:15
 msgid "Your Name"
@@ -2312,8 +2312,8 @@ msgid "Subscribe"
 msgstr "Подписаться"
 
 #: /views/install/create.ctp:15
-msgid "We at VamCart value your privacy, we will never sell or distribute your information. You will only receive information regarding VamCart or its affiliates."
-msgstr "Мы заботимся о безопасности Вашей информации. Вы будете получать информацию только о новостях VamCart."
+msgid "We at VamShop value your privacy, we will never sell or distribute your information. You will only receive information regarding VamShop or its affiliates."
+msgstr "Мы заботимся о безопасности Вашей информации. Вы будете получать информацию только о новостях VamShop."
 
 #: /views/install/create.ctp:15
 msgid "At anytime you may remove yourself from the list if you think you joined in error."
@@ -2324,8 +2324,8 @@ msgid "Click here to visit your live store."
 msgstr "Перейти в магазин."
 
 #: /views/install/start.ctp:14
-msgid "Welcome to the VamCart installation."
-msgstr "Установка интернет-магазина VamCart."
+msgid "Welcome to the VamShop installation."
+msgstr "Установка интернет-магазина VamShop."
 
 #: /views/install/start.ctp:15
 msgid "Installing version:"
@@ -2378,14 +2378,14 @@ msgid "Flag Code"
 msgstr "Код флага"
 
 #: /views/layouts/admin.ctp:19
-msgid "VamCart Admin"
-msgstr "Админка VamCart"
+msgid "VamShop Admin"
+msgstr "Админка VamShop"
 
 #: /views/layouts/admin.ctp:38
 #: /views/layouts/default.ctp:19;28
 #: /views/layouts/error.ctp:19;28
-msgid "VamCart"
-msgstr "VamCart"
+msgid "VamShop"
+msgstr "VamShop"
 
 #: /views/layouts/admin.ctp:43
 msgid "Search"
@@ -2410,8 +2410,8 @@ msgid "Powered by"
 msgstr "Работает на основе"
 
 #: /app/View/Admin/admin_top.ctp:53
-msgid "vamcart.com"
-msgstr "vamcart.ru"
+msgid "vamshop.com"
+msgstr "vamshop.ru"
 
 #: /views/micro_templates/admin_create_from_tag.ctp:17
 #: /views/micro_templates/admin_edit.ctp:18
@@ -3314,8 +3314,8 @@ msgid "Close"
 msgstr "Закрыть"
 
 #: /app/controllers/components/check.php
-msgid "New version available. VamCart"
-msgstr "Доступна новая версия VamCart"
+msgid "New version available. VamShop"
+msgstr "Доступна новая версия VamShop"
 
 #: /app/controllers/components/check.php
 msgid "Update"
@@ -3350,20 +3350,20 @@ msgid "License is invalid. Check your key."
 msgstr "Ваша лицензия недействительна. Обновите ключ лицензии."
 
 #: /app/views/update/admin.ctp
-msgid "Your VamCart Version:"
-msgstr "У Вас установлен VamCart версии:"
+msgid "Your VamShop Version:"
+msgstr "У Вас установлен VamShop версии:"
 
 #: /app/views/update/admin.ctp
-msgid "Current VamCart Version:"
-msgstr "Последняя версия VamCart:"
+msgid "Current VamShop Version:"
+msgstr "Последняя версия VamShop:"
 
 #: /app/views/update/admin_update.ctp
-msgid "Click Update button to start VamCart AutoUpdate."
+msgid "Click Update button to start VamShop AutoUpdate."
 msgstr "Нажмите кнопку Обновить для обновления Вашего магазина до последней версии."
 
 #: /app/views/update/admin_update.ctp
-msgid "You currently use latest version of VamCart."
-msgstr "У вас самая последняя версия VamCart."
+msgid "You currently use latest version of VamShop."
+msgstr "У вас самая последняя версия VamShop."
 
 #: /app/views/update/admin.ctp
 msgid "Update sucessfully finished."
