@@ -394,13 +394,13 @@ msgid "Global Content Blocks Listing"
 msgstr "Liste globale des blocs de contenu"
 
 #: /controllers/install_controller.php:76
-msgid "Install VamCart"
-msgstr "Installer VamCart"
+msgid "Install VamShop"
+msgstr "Installer VamShop"
 
 #: /controllers/install_controller.php:103
 #: /controllers/install_controller.php:104
-msgid "VamCart Installed"
-msgstr "VamCart installé"
+msgid "VamShop Installed"
+msgstr "VamShop installé"
 
 #: /controllers/install_controller.php:108
 msgid "Unable to connect to database."
@@ -2270,8 +2270,8 @@ msgid "Database successfully imported."
 msgstr "Base de données importée avec succès."
 
 #: /views/install/create.ctp:15
-msgid "VamCart Newsletter"
-msgstr "VamCart Newsletter"
+msgid "VamShop Newsletter"
+msgstr "VamShop Newsletter"
 
 #: /views/install/create.ctp:15
 msgid "Your Name"
@@ -2286,8 +2286,8 @@ msgid "Subscribe"
 msgstr "S'enregistrer"
 
 #: /views/install/create.ctp:15
-msgid "We at VamCart value your privacy, we will never sell or distribute your information. You will only receive information regarding VamCart or its affiliates."
-msgstr "VamCart respecte votre vie privée, nous ne pourrons jamais vendre ou distribuer vos informations. Vous recevrez uniquement des informations concernant VamCart ou ses filiales."
+msgid "We at VamShop value your privacy, we will never sell or distribute your information. You will only receive information regarding VamShop or its affiliates."
+msgstr "VamShop respecte votre vie privée, nous ne pourrons jamais vendre ou distribuer vos informations. Vous recevrez uniquement des informations concernant VamShop ou ses filiales."
 
 #: /views/install/create.ctp:15
 msgid "At anytime you may remove yourself from the list if you think you joined in error."
@@ -2298,8 +2298,8 @@ msgid "Click here to visit your live store."
 msgstr "Cliquez ici pour visiter votre boutique en direct."
 
 #: /views/install/start.ctp:14
-msgid "Welcome to the VamCart installation."
-msgstr "Bienvenue à l'installation de VamCart."
+msgid "Welcome to the VamShop installation."
+msgstr "Bienvenue à l'installation de VamShop."
 
 #: /views/install/start.ctp:15
 msgid "Installing version:"
@@ -2352,14 +2352,14 @@ msgid "Flag Code"
 msgstr "Code drapeau"
 
 #: /views/layouts/admin.ctp:19
-msgid "VamCart Admin"
-msgstr "VamCart Admin"
+msgid "VamShop Admin"
+msgstr "VamShop Admin"
 
 #: /views/layouts/admin.ctp:38
 #: /views/layouts/default.ctp:19;28
 #: /views/layouts/error.ctp:19;28
-msgid "VamCart"
-msgstr "VamCart"
+msgid "VamShop"
+msgstr "VamShop"
 
 #: /views/layouts/admin.ctp:43
 msgid "Search"
@@ -3280,8 +3280,8 @@ msgid "Close"
 msgstr "Fermer"
 
 #: /app/controllers/components/check.php
-msgid "New version available. VamCart"
-msgstr "Nouvelle version disponible VamCart"
+msgid "New version available. VamShop"
+msgstr "Nouvelle version disponible VamShop"
 
 #: /app/controllers/components/check.php
 msgid "Update"
@@ -3316,20 +3316,20 @@ msgid "License is invalid. Check your key."
 msgstr "Licence invalide. Vérifiez votre clé."
 
 #: /app/views/update/admin.ctp
-msgid "Your VamCart Version:"
-msgstr "Votre version de Vamcart:"
+msgid "Your VamShop Version:"
+msgstr "Votre version de VamShop:"
 
 #: /app/views/update/admin.ctp
-msgid "Current VamCart Version:"
-msgstr "Version actuelle Vamcart:"
+msgid "Current VamShop Version:"
+msgstr "Version actuelle VamShop:"
 
 #: /app/views/update/admin_update.ctp
-msgid "Click Update button to start VamCart AutoUpdate."
-msgstr "Cliquer mise à jour pour commencer la mise à jour automatique de Vamcart."
+msgid "Click Update button to start VamShop AutoUpdate."
+msgstr "Cliquer mise à jour pour commencer la mise à jour automatique de VamShop."
 
 #: /app/views/update/admin_update.ctp
-msgid "You currently use latest version of VamCart."
-msgstr "Vous utilisez la dernière version de Vamcart."
+msgid "You currently use latest version of VamShop."
+msgstr "Vous utilisez la dernière version de VamShop."
 
 #: /app/views/update/admin.ctp
 msgid "Mise à jour effectuée avec succès."
