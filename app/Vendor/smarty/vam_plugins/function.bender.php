@@ -66,12 +66,12 @@ function smarty_help_function_bender() {
 		{bender src="{base_path}/css/bootstrap/bootstrap.css"}
 		{bender src="{base_path}/css/style.css"}
 
-		{bender output="{base_path}/css/vamcart-packed.css"}
+		{bender output="{base_path}/css/vamshop-packed.css"}
 
 		{bender src="{base_path}/js/bootstrap/bootstrap.min.js"}
-		{bender src="{base_path}/js/vamcart.js"}
+		{bender src="{base_path}/js/vamshop.js"}
 
-		{bender output="{base_path}/js/vamcart-packed.js"}
+		{bender output="{base_path}/js/vamshop-packed.js"}
 	</pre>	
 	
 	<h3><?php echo __('What parameters does it take?') ?></h3>

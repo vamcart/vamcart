@@ -1,51 +1,43 @@
-<?php
-/* -----------------------------------------------------------------------------------------
-   VamShop - http://vamshop.com
-   -----------------------------------------------------------------------------------------
-   Copyright (c) 2014 VamSoft Ltd.
-   License - http://vamshop.com/license.html
-   ---------------------------------------------------------------------------------------*/
-class LicenseController extends AppController {
-	public $name = 'License';
-	public $components = array('Check', 'Crypt');		
-
-    public function admin_edit ($id = null)
-	{
-		$this->set('current_crumb', __('License Key', true));
-		$this->set('title_for_layout', __('License Key', true));
-		// If they pressed cancel
-		if(isset($this->data['cancelbutton']))
-		{
-			$this->redirect('/license/admin/');
-			die();
-		}
-		
-		if(empty($this->data))
-		{
-			$this->request->data = $this->License->read(null,$id);
-		}
-		else
-		{
-			$this->License->save($this->data);		
-			$this->Session->setFlash(__('Record saved.', true));
-			$this->redirect('/license/admin/');
-		}		
-	}
-
-	public function admin_new ()
-	{
-		$this->redirect('/license/admin_edit/');
-	}
-
-	public function admin($ajax_request = false)
-	{
-  		$this->set('current_crumb', __('License Key', true));
-		$this->set('title_for_layout', __('License Key', true));
-		$data = $this->License->find('first');
-		if($data) $data['License']['check'] = $this->Check->get($data['License']['licenseKey']);
-		$data['License']['license'] = $this->Crypt->decrypt($data['License']['licenseKey'],'VamShop');
-		$data['License']['params'] = explode(';',$data['License']['license']);
-		$this->set('license_data',$data['License']);
-	}
-}
+<?php //0046a
+if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo('Site error: the file <b>'.__FILE__.'</b> requires the ionCube PHP Loader '.basename($__ln).' to be installed by the website operator. If you are the website operator please use the <a href="http://www.ioncube.com/lw/">ionCube Loader Wizard</a> to assist with installation.');exit(199);
 ?>
+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
