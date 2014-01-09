@@ -1,9 +1,9 @@
 <?php
 /* -----------------------------------------------------------------------------------------
-   VamCart - http://vamcart.com
+   VamShop - http://vamshop.com
    -----------------------------------------------------------------------------------------
-   Copyright (c) 2013 VamSoft Ltd.
-   License - http://vamcart.com/license.html
+   Copyright (c) 2014 VamSoft Ltd.
+   License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
 
     $search_form  = $this->Ajax->form(null,'post',$options = array('escape' => false, 'url' => '/orders_edit/admin_add_product/product/0'
