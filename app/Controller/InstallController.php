@@ -1,9 +1,9 @@
 <?php
 /* -----------------------------------------------------------------------------------------
-   VamCart - http://vamcart.com
+   VamShop - http://vamshop.com
    -----------------------------------------------------------------------------------------
-   Copyright (c) 2011 VamSoft Ltd.
-   License - http://vamcart.com/license.html
+   Copyright (c) 2014 VamSoft Ltd.
+   License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
 class InstallController extends AppController {
 	public $name = 'Install';
@@ -134,10 +134,10 @@ class InstallController extends AppController {
 		
 		$configData = '<?php
 /* -----------------------------------------------------------------------------------------
-   VamCart - http://vamcart.com
+   VamShop - http://vamshop.com
    -----------------------------------------------------------------------------------------
-   Copyright (c) 2011 VamSoft Ltd.
-   License - http://vamcart.com/license.html
+   Copyright (c) 2014 VamSoft Ltd.
+   License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
 
 class DATABASE_CONFIG {

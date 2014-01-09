@@ -181,4 +181,4 @@ CakeLog::config('error', array(
 	//Configure::write('Asset.cssPath', 'css-packed');
 
 	if(!defined('CryptKey')) define('CryptKey','VamShop');
-	if(!defined('CheckServer')) define('CheckServer','http://updates.vamshop.ru/');
+	if(!defined('CheckServer')) define('CheckServer','http://updates.vamshop.com/');
