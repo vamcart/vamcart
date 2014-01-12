@@ -56,12 +56,14 @@ class OrdersController extends AppController {
 					$ContentProduct =& new ContentProduct();
 					$product_data = $ContentProduct->findByContentId($order_data['content_id']);
 					$product_data['ContentProduct']['ordered'] = $product_data['ContentProduct']['ordered'] + $order_data['quantity'];
+					$product_data['ContentProduct']['stock'] = $product_data['ContentProduct']['stock'] - $order_data['quantity'];
 					$ContentProduct->save($product_data);
 				} else {
 					App::import('Model', 'ContentDownloadable');
 					$ContentDownloadable =& new ContentDownloadable();
 					$product_data = $ContentDownloadable->findByContentId($order_data['content_id']);
 					$product_data['ContentDownloadable']['ordered'] = $product_data['ContentDownloadable']['ordered'] + $order_data['quantity'];
+					$product_data['ContentDownloadable']['stock'] = $product_data['ContentDownloadable']['stock'] - $order_data['quantity'];
 					$ContentDownloadable->save($product_data);
 				}
 
@@ -182,8 +184,33 @@ class OrdersController extends AppController {
 				switch ($this->data['multiaction']) 
 				{
 					case "delete":
+
+						// Restock 
+						foreach($order['OrderProduct'] as $order_data) {
+			
+							if ('' == $order['OrderProduct']['filename']) {
+								App::import('Model', 'ContentProduct');
+								$ContentProduct =& new ContentProduct();
+								$product_data = $ContentProduct->findByContentId($order_data['content_id']);
+								$product_data['ContentProduct']['ordered'] = $product_data['ContentProduct']['ordered'] - $order_data['quantity'];
+								$product_data['ContentProduct']['stock'] = $product_data['ContentProduct']['stock'] + $order_data['quantity'];
+								$ContentProduct->save($product_data);
+							} else {
+								App::import('Model', 'ContentDownloadable');
+								$ContentDownloadable =& new ContentDownloadable();
+								$product_data = $ContentDownloadable->findByContentId($order_data['content_id']);
+								$product_data['ContentDownloadable']['ordered'] = $product_data['ContentDownloadable']['ordered'] - $order_data['quantity'];
+								$product_data['ContentDownloadable']['stock'] = $product_data['ContentDownloadable']['stock'] + $order_data['quantity'];
+								$ContentDownloadable->save($product_data);
+							}
+			
+						}
+			
+						// Delete the order
 						$this->Order->delete($value);
+
 						$build_flash .= __('Record deleted.', true) . ' ' . __('Order Id', true) . ' ' . $order['Order']['id'] . '<br />';									
+			
 					break;								
 					case "change_status":
 						$status_id = $this->data['status'];
@@ -320,8 +347,34 @@ class OrdersController extends AppController {
 		
 	public function admin_delete ($id)
 	{
-		$this->Order->delete($id,true);
 		$this->Session->setFlash(__('Record deleted.',true));
+
+			$order = $this->Order->read(null,$id);
+
+			// Restock 
+			foreach($order['OrderProduct'] as $order_data) {
+
+				if ('' == $order['OrderProduct']['filename']) {
+					App::import('Model', 'ContentProduct');
+					$ContentProduct =& new ContentProduct();
+					$product_data = $ContentProduct->findByContentId($order_data['content_id']);
+					$product_data['ContentProduct']['ordered'] = $product_data['ContentProduct']['ordered'] - $order_data['quantity'];
+					$product_data['ContentProduct']['stock'] = $product_data['ContentProduct']['stock'] + $order_data['quantity'];
+					$ContentProduct->save($product_data);
+				} else {
+					App::import('Model', 'ContentDownloadable');
+					$ContentDownloadable =& new ContentDownloadable();
+					$product_data = $ContentDownloadable->findByContentId($order_data['content_id']);
+					$product_data['ContentDownloadable']['ordered'] = $product_data['ContentDownloadable']['ordered'] - $order_data['quantity'];
+					$product_data['ContentDownloadable']['stock'] = $product_data['ContentDownloadable']['stock'] + $order_data['quantity'];
+					$ContentDownloadable->save($product_data);
+				}
+
+			}
+
+			// Delete the order
+			$this->Order->delete($id,true);
+
 		$this->redirect('/orders/admin/');
 	}
 
