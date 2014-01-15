@@ -10,3 +10,6 @@ Disallow: /product/68.html
 Disallow: /languages/pick_language/*
 Disallow: /page/read-reviews.html?content_id=*
 Disallow: /page/create-review.html?content_id=*
+Disallow: /customer/register.html
+Disallow: /*addcmp*
+Disallow: /*compared*
