@@ -151,7 +151,7 @@ class QiwiController extends PaymentAppController {
 		
 	function result()
 	{
-		$this->layout = 'empty';
+		$this->layout = false;
 
 			App::import('Vendor', 'Nusoap', array('file' => 'nusoap'.DS.'nusoap.php'));
 				

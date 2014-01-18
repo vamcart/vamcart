@@ -94,7 +94,7 @@ class WebmoneyController extends PaymentAppController {
 	
 	function result()
 	{
-		$this->layout = 'empty';
+		$this->layout = false;
       $webmoney_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'webmoney_secret_key')));
       $webmoney_secret_key = $webmoney_data['PaymentMethodValue']['value'];
 		$order = $this->Order->read(null,$_POST['LMI_PAYMENT_NO']);

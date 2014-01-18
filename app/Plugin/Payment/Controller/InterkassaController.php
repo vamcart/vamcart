@@ -102,7 +102,7 @@ class InterkassaController extends PaymentAppController {
 	
 	function result()
 	{
-		$this->layout = 'empty';
+		$this->layout = false;
       $interkassa_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'interkassa_secret_key')));
       $interkassa_secret_key = $interkassa_data['PaymentMethodValue']['value'];
 		$order = $this->Order->read(null,$_POST['ik_payment_id']);

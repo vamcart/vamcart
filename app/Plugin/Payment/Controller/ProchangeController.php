@@ -100,7 +100,7 @@ class ProchangeController extends PaymentAppController {
 	
 	function result()
 	{
-		$this->layout = 'empty';
+		$this->layout = false;
       $prochange_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'secret_key')));
       $secret_key = $prochange_data['PaymentMethodValue']['value'];
 		$order = $this->Order->read(null,$_POST['PRO_FIELD_1']);

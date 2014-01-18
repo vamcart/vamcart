@@ -94,7 +94,7 @@ class ZpaymentController extends PaymentAppController {
 	
 	function result()
 	{
-		$this->layout = 'empty';
+		$this->layout = false;
       $zpayment_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'zpayment_secret_key')));
       $zpayment_secret_key = $zpayment_data['PaymentMethodValue']['value'];
 		$order = $this->Order->read(null,$_POST['LMI_PAYMENT_NO']);

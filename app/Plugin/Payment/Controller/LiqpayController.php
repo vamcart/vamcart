@@ -103,7 +103,7 @@ class LiqpayController extends PaymentAppController {
 	
 	function result()
 	{
-		$this->layout = 'empty';
+		$this->layout = false;
       $liqpay_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'liqpay_secret_key')));
       $liqpay_secret_key = $liqpay_data['PaymentMethodValue']['value'];
 		$liqpay_settings = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'liqpay_id')));
