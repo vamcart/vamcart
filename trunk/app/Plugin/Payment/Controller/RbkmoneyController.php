@@ -100,7 +100,7 @@ class RbkmoneyController extends PaymentAppController {
 	
 	function result()
 	{
-		$this->layout = 'empty';
+		$this->layout = false;
       $rbkmoney_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'secret_key')));
       $rbkmoney_secret_key = $rbkmoney_data['PaymentMethodValue']['value'];
 		$order = $this->Order->read(null,$_POST['orderId']);

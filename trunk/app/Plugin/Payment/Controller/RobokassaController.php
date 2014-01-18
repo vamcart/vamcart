@@ -103,7 +103,7 @@ class RobokassaController extends PaymentAppController {
 	
 	function result()
 	{
-		$this->layout = 'empty';
+		$this->layout = false;
       $robokassa_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'password2')));
       $password2 = $robokassa_data['PaymentMethodValue']['value'];
 		$order = $this->Order->read(null,$_POST['InvId']);

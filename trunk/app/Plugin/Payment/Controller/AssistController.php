@@ -92,7 +92,7 @@ class AssistController extends PaymentAppController {
 	
 	function result()
 	{
-		$this->layout = 'empty';
+		$this->layout = false;
 	}
 	
 }
