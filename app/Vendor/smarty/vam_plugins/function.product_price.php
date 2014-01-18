@@ -12,8 +12,14 @@ function smarty_function_product_price($params, $template)
 	
 	App::uses('CurrencyBaseComponent', 'Controller/Component');
 	$CurrencyBase =& new CurrencyBaseComponent(new ComponentCollection());
-	
-	$price = $CurrencyBase->display_price($content['ContentProduct']['price']);
+
+	if ($content['Content']['content_type_id'] == 7) {
+		$price = $content['ContentDownloadable']['price'];
+	} else {
+		$price = $content['ContentProduct']['price'];
+	}
+			
+	$price = $CurrencyBase->display_price($price);
 	
 	echo $price;
 }

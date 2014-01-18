@@ -2013,10 +2013,6 @@ msgid "Article Page"
 msgstr "Page article"
 
 #: /views/contents/admin_edit.ctp:60
-msgid "Downloadable Product Info"
-msgstr "Infos sur produit téléchargeable"
-
-#: /views/contents/admin_edit.ctp:60
 msgid "Non-Taxable"
 msgstr "Non-taxable"
 
@@ -3522,10 +3518,6 @@ msgstr "Télécharger lien: "
 #: /app/views/orders/admin.ctp:10
 msgid "Order Search"
 msgstr "Recherche commande"
-
-#: /vendors/smarty/vam_plugins/function.downloadable_prices.php:36
-msgid "Displays the product prices for the current content."
-msgstr "Affiche le prix des produits pour le contenu courant."
 
 #: /app/controllers/download_controller.php:49
 msgid "Last allowed download date is reached."
