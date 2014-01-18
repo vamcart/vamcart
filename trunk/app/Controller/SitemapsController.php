@@ -140,7 +140,16 @@ class SitemapsController extends AppController {
 			)
 		));
 
-		$allowed_types = array('category', 'product');
+		$Content->bindModel(array(
+			'hasOne' => array(
+				'ContentDownloadable' => array(
+					'className' => 'ContentDownloadable'
+				)
+			)
+		));
+
+
+		$allowed_types = array('category', 'product', 'downloadable');
 
 		$content_list_data_conditions = array(
 			'Content.yml_export' => '1'
@@ -169,11 +178,11 @@ class SitemapsController extends AppController {
 					$content_list_categories[$count_categories]['parentId'] = $raw_data['Content']['parent_id'];
 					$content_list_categories[$count_categories]['name'] = $raw_data['ContentDescription']['name'];
 					$count_categories++;
-				} elseif($raw_data['ContentType']['name'] == 'product') {
+				} elseif($raw_data['ContentType']['name'] == 'product' or $raw_data['ContentType']['name'] == 'downloadable') {
 					$content_list_products[$count_products]['id']     = $raw_data['Content']['id'];
 					$content_list_products[$count_products]['parentId'] = $raw_data['Content']['parent_id'];
 					$content_list_products[$count_products]['url']    = '/' . $raw_data['ContentType']['name'] . '/' . $raw_data['Content']['alias'] . $config['URL_EXTENSION'];
-					$content_list_products[$count_products]['price'] = $raw_data['ContentProduct']['price'];
+					$content_list_products[$count_products]['price'] = ($raw_data['Content']['content_type_id'] == 7) ? $raw_data['ContentDownloadable']['price'] : $raw_data['ContentProduct']['price'];
 					$content_list_products[$count_products]['name'] = $raw_data['ContentDescription']['name'];
 					$content_list_products[$count_products]['description'] = strip_tags($raw_data['ContentDescription']['description']);
 
