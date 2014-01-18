@@ -134,7 +134,15 @@ function smarty_function_search_result($params, $template)
 			)
 		), false);
 
-		$search_conditions = array('AND' => array('ContentType.name' => 'product',
+		$Content->bindModel(array(
+			'hasOne' => array(
+				'ContentDownloadable' => array(
+					'className' => 'ContentDownloadable'
+				)
+			)
+		), false);
+
+		$search_conditions = array('AND' => array('ContentType.name' => array('product', 'downloadable'),
 						'OR' => array('ContentDescription.name LIKE' => '%' . $_GET['keyword'] . '%',
 							      'ContentDescription.description LIKE' => '%' . $_GET['keyword'] . '%')));
 		$Content->recursive = 2;
@@ -153,6 +161,11 @@ function smarty_function_search_result($params, $template)
 		$CurrencyBase =& new CurrencyBaseComponent(new ComponentCollection());
 	
 		foreach($content_list_data AS $raw_data) {
+			if ($raw_data['Content']['content_type_id'] == 7) {
+				$price = $raw_data['ContentDownloadable']['price'];
+			} else {
+				$price = $raw_data['ContentProduct']['price'];
+			}
 			$content_list[$count]['name']   = $raw_data['ContentDescription']['name'];
 			$content_list[$count]['description']	= $raw_data['ContentDescription']['description'];
 			$content_list[$count]['meta_title']	= $raw_data['ContentDescription']['meta_title'];
@@ -160,7 +173,7 @@ function smarty_function_search_result($params, $template)
 			$content_list[$count]['meta_keywords']	= $raw_data['ContentDescription']['meta_keywords'];
 			$content_list[$count]['id']	= $raw_data['Content']['id'];
 			$content_list[$count]['alias']  = $raw_data['Content']['alias'];
-			$content_list[$count]['price']  = $CurrencyBase->display_price($raw_data['ContentProduct']['price']);
+			$content_list[$count]['price']  = $CurrencyBase->display_price($price);
 			$content_list[$count]['stock']  = $raw_data['ContentProduct']['stock'];
 			$content_list[$count]['model']  = $raw_data['ContentProduct']['model'];
 			$content_list[$count]['weight'] = $raw_data['ContentProduct']['weight'];
