@@ -1608,10 +1608,6 @@ msgstr "Показывает артикул товара."
 msgid "Displays the product stock quantity for the current content."
 msgstr "Показывает количество единиц товара на складе."
 
-#: /vendors/smarty/vam_plugins/function.product_price.php:36
-msgid "Displays the product price for the current downloadable content."
-msgstr "Показывает стоимость скачиваемого товара."
-
 #: /vendors/smarty/vam_plugins/function.repeat.php:30
 msgid "Repeats a given string a certain number of times."
 msgstr "Повторяет строку указанное количество раз."
@@ -2033,10 +2029,6 @@ msgstr "Страница новости"
 #: /views/contents/admin_edit.ctp:60
 msgid "Article Page"
 msgstr "Страница статьи"
-
-#: /views/contents/admin_edit.ctp:60
-msgid "Downloadable Product Info"
-msgstr "Страница карточки скачиваемого товара"
 
 #: /views/contents/admin_edit.ctp:60
 msgid "Non-Taxable"
@@ -3561,10 +3553,6 @@ msgstr "Загрузить: "
 msgid "Order Search"
 msgstr "Поиск заказов"
 
-#: /vendors/smarty/vam_plugins/function.downloadable_prices.php:36
-msgid "Displays the product prices for the current content."
-msgstr "Показывает стоимость товара."
-
 #: /app/controllers/download_controller.php:49
 msgid "Last allowed download date is reached."
 msgstr "Количество дней, в течение которых была разрешена загрузка, истекло."
@@ -3765,10 +3753,6 @@ msgstr "Атрибуты товара."
 msgid "Displays compare box."
 msgstr "Выводит бокс сравнения товаров."
 
-#: /vendors/smarty/vam_plugins/function.product_prices.php:33
-msgid "Displays the product discount prices for the current content."
-msgstr "Выводит условия скидки на текущий товар."
-
 #: /vendors/smarty/vam_plugins/function.product_pfq.php:33
 msgid "Displays the product packet quantity."
 msgstr "Выводит количество единиц товара в упаковке."
@@ -3916,10 +3900,6 @@ msgstr "Модификатор цены"
 #: /app/View/Attributes/admin_viewer_attr.ctp:61
 msgid "Modificator Value"
 msgstr "Значение модификатора"
-
-#: /vendors/smarty/vam_plugins/function.product_prices.php:33
-msgid "Available"
-msgstr "Доступно"
 
 #: /app/controllers/CountriesController.php:224
 msgid "You have activated multiple countries."

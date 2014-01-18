@@ -113,6 +113,10 @@ function smarty_function_content_listing($params, $template)
 				'ContentProduct' => array(
                     'className' => 'ContentProduct'
 					))));
+		$Content->bindModel(array('hasOne' => array(
+				'ContentDownloadable' => array(
+                    'className' => 'ContentDownloadable'
+					))));
 		
 	// Make sure parent is valid, if it's not a number get the correct parent number
 	if(!isset($params['parent']))
@@ -254,6 +258,11 @@ function smarty_function_content_listing($params, $template)
 	
 	foreach($content_list_data AS $raw_data)
 	{
+		if ($raw_data['Content']['content_type_id'] == 7) {
+			$price = $raw_data['ContentDownloadable']['price'];
+		} else {
+			$price = $raw_data['ContentProduct']['price'];
+		}
 		if(in_array(strtolower($raw_data['ContentType']['name']),$allowed_types))
 		{
 			$content_list[$count]['name']	= $raw_data['ContentDescription']['name'];
@@ -263,7 +272,7 @@ function smarty_function_content_listing($params, $template)
 			$content_list[$count]['meta_keywords']	= $raw_data['ContentDescription']['meta_keywords'];
 			$content_list[$count]['id']	= $raw_data['Content']['id'];
 			$content_list[$count]['alias']	= $raw_data['Content']['alias'];
-			$content_list[$count]['price']	= $CurrencyBase->display_price($raw_data['ContentProduct']['price']);	
+			$content_list[$count]['price']	= $CurrencyBase->display_price($price);	
 			$content_list[$count]['stock']	= $raw_data['ContentProduct']['stock'];	
 			$content_list[$count]['model']	= $raw_data['ContentProduct']['model'];	
 			$content_list[$count]['weight']	= $raw_data['ContentProduct']['weight'];	
