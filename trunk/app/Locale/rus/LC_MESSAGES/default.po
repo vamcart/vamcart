@@ -3362,6 +3362,10 @@ msgid "Click Update button to start VamShop AutoUpdate."
 msgstr "Нажмите кнопку Обновить для обновления Вашего магазина до текущей версии."
 
 #: /app/views/update/admin_update.ctp
+msgid "Don\'t forget backup your files and database before update."
+msgstr "Не забудьте сделать резервную копию файлов и базы данных магазина перед обновлением."
+
+#: /app/views/update/admin_update.ctp
 msgid "You currently use latest version of VamShop."
 msgstr "У вас самая последняя версия VamShop."
 
