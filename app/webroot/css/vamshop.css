@@ -8,7 +8,7 @@
 body {
   font-family: "Open Sans", sans-serif !important;
   background-color: #ffffff;
-  color: #909090;
+  color: #000;
   padding: 0;
 }
 .inner {
@@ -36,7 +36,7 @@ a {
   -ms-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
-  color: #222222;
+  color: #555;
   text-decoration: none;
 }
 a:hover {
@@ -127,7 +127,7 @@ hr.transparent {
   }
 }
 .topbar a {
-  color: #909090;
+  color: #000;
 }
 .topbar a:hover {
   color: #000;
@@ -173,8 +173,8 @@ hr.transparent {
   background-clip: padding-box;
 }
 .topbar .dropdown-toggle .caret {
-  border-bottom-color: #909090;
-  border-top-color: #909090;
+  border-bottom-color: #000;
+  border-top-color: #000;
 }
 .topbar .dropdown-toggle:hover .caret {
   border-bottom-color: #ffffff;
@@ -194,7 +194,7 @@ hr.transparent {
 .topbar .dropdown-submenu:focus > a {
   filter: none;
   background-image: none;
-  background-color: #222222;
+  background-color: #555;
 }
 .topbar .nav-pills.top-contacts {
   margin-bottom: 0;
@@ -250,7 +250,7 @@ hr.transparent {
   line-height: 15px;
   height: 15px;
   margin: 0;
-  color: #909090;
+  color: #000;
 }
 #header .form-search {
   margin: 0;
@@ -433,7 +433,7 @@ hr.transparent {
   border-top-color: #ffffff;
 }
 #navigation .navbar .nav > li > a:hover {
-  background-color: #555555;
+  background-color: #000;
   color: #ffffff;
 }
 #navigation .navbar .nav > li > a:hover .caret {
@@ -443,11 +443,11 @@ hr.transparent {
 #navigation .navbar .nav > .active > a,
 #navigation .navbar .nav > .active > a:hover,
 #navigation .navbar .nav > .active > a:focus {
-  background-color: #222222;
+  background-color: #000;
   color: #ffffff;
 }
 #navigation .navbar .nav li.dropdown.open > .dropdown-toggle {
-  background-color: #222222;
+  background-color: #000;
   color: #ffffff;
 }
 #navigation .navbar .nav li.dropdown.active > .dropdown-toggle {
@@ -463,7 +463,7 @@ hr.transparent {
   border-top-color: #ffffff;
 }
 #navigation .navbar .nav > li > .dropdown-menu {
-  background-color: #555555;
+  background-color: #000;
   border: none;
   margin-top: 0;
   padding: 10px 0;
@@ -489,7 +489,7 @@ hr.transparent {
   background-image: none;
 }
 #navigation .dropdown-menu > li > a:hover {
-  background-color: #222222;
+  background-color: #555;
   color: #ffffff;
 }
 #navigation .shopping-cart {
@@ -529,7 +529,7 @@ hr.transparent {
   margin-right: 7px;
 }
 #navigation .shopping-cart .cart .quantity {
-  background-color: #555555;
+  background-color: #000;
 }
 #navigation .shopping-cart .cart:hover {
   -webkit-transition: all 0.3s ease-out;
@@ -549,7 +549,7 @@ hr.transparent {
   color: #ffffff;
 }
 #navigation .shopping-cart .cart:hover .amount {
-  background-color: #555555;
+  background-color: #000;
 }
 #navigation .shopping-cart .cart:hover .quantity {
   background-color: #333333;
@@ -561,7 +561,7 @@ hr.transparent {
   background-color: #ffffff;
   border: solid 1px #eeeeee;
   border-top: 0;
-  color: #909090;
+  color: #000;
   right: 0;
   top: 100%;
   display: none;
@@ -692,7 +692,7 @@ hr.transparent {
   padding-top: 15px;
   font-size: 11px;
   line-height: 11px;
-  color: #909090;
+  color: #000;
 }
 #breadcrumbs .breadcrumbs i {
   margin: 0 5px;
@@ -804,7 +804,7 @@ hr.transparent {
   border: none;
   background-color: transparent;
   border-color: transparent;
-  color: #555555;
+  color: #555;
   padding: 7px 14px;
   margin-left: 1px;
   margin-right: 1px;
@@ -815,8 +815,8 @@ hr.transparent {
   transition: all 0.3s ease-out;
 }
 .pagination ul > li > a:hover {
-  background-color: #555555;
-  border-color: #555555;
+  background-color: #555;
+  border-color: #555;
   color: #ffffff;
 }
 .pagination ul > .active > a,
@@ -849,7 +849,7 @@ hr.transparent {
 #footer {
   padding-top: 40px;
   background-color: #333333;
-  color: #909090;
+  color: #000;
 }
 @media (min-width: 481px) and (max-width: 767px) {
   #footer > .container {
@@ -913,7 +913,7 @@ hr.transparent {
 #footer-menu {
   font-size: 11px;
   background-color: #333333;
-  color: #909090;
+  color: #000;
 }
 @media (max-width: 480px) {
   #footer-menu {
@@ -941,7 +941,7 @@ hr.transparent {
 #footer-menu .privacy li {
   padding: 0 5px 0 0;
   margin: 0 5px 5px 0;
-  border-right: solid 1px #909090;
+  border-right: solid 1px #000;
   line-height: 11px;
 }
 #footer-menu .privacy li:last-child {
@@ -1014,7 +1014,7 @@ hr.transparent {
 .page-sidebar .widget ul.icons.check a,
 .sidebar .widget ul.icons.check a {
   text-decoration: none;
-  color: #555555;
+  color: #555;
 }
 .page-sidebar .widget ul.icons.check a:hover,
 .sidebar .widget ul.icons.check a:hover {
@@ -1051,7 +1051,7 @@ hr.transparent {
   background-color: transparent;
   border-color: transparent;
   font-weight: bold;
-  color: #555555;
+  color: #555;
   border-bottom-color: #e1e1e1;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -1153,7 +1153,7 @@ hr.transparent {
 }
 .categories-widget ul.icons a {
   text-decoration: none;
-  color: #555555;
+  color: #555;
 }
 .categories-widget ul.icons a:hover {
   color: #ff6633;
@@ -1320,7 +1320,7 @@ hr.transparent {
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  background: #555555 url('../img/button.png') no-repeat center center;
+  background: #555 url('../img/button.png') no-repeat center center;
 }
 #search .search-bt:before {
   content: "\f096";
@@ -2011,7 +2011,7 @@ hr.transparent {
   left: -100%;
   top: 48%;
   padding: 10px 15px;
-  background-color: #555555;
+  background-color: #555;
   color: #ffffff;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
@@ -2051,7 +2051,7 @@ hr.transparent {
   border-width: 1px;
   border-color: #e1e1e1;
   background-color: #eeeeee;
-  color: #555555;
+  color: #555;
   padding: 10px 15px;
   height: auto;
   font-size: 13px;
