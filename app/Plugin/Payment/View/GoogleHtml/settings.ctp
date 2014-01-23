@@ -6,7 +6,7 @@
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
 	
-echo $this->Form->input('google_html.google_html_merchant_id', array(
+echo $this->Form->input('googlehtml.google_html_merchant_id', array(
 	'label' => __('Merchant ID'),
 	'type' => 'text',
 	'value' => $data['PaymentMethodValue'][0]['value']
