@@ -318,7 +318,7 @@ class ContentsController extends AppController {
 				// If we're generating the alias by the name we first have to get the name from the default language
 				// TODO: Change the way this gets the default language id for now its jsut set on english
 				$default_language_id = $this->Session->read('Customer.language_id');
-				$content_name = $this->data['ContentDescription'][$default_language_id]['name'][1];
+				$content_name = $this->data['ContentDescription'][$default_language_id]['name'][$default_language_id];
 				$this->request->data['Content']['alias'] = $this->generateAlias($content_name);
 			}
 			else
