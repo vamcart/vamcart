@@ -1064,7 +1064,7 @@ CREATE TABLE `currencies` (
 
 INSERT INTO `currencies` (`id`, `active`, `default`, `name`, `code`, `symbol_left`, `symbol_right`, `decimal_point`, `thousands_point`, `decimal_places`, `value`, `created`, `modified`) VALUES 
 (1, 1, 1, 'US Dollar', 'USD', '$', '', '.', ',', '2', 1, '2009-07-15 11:39:15', '2009-07-15 13:08:23'),
-(2, 1, 0, 'Рубль', 'RUR', '', 'руб.', '.', ',', '0.0312', 1, '2009-07-15 11:39:15', '2009-07-15 13:08:23'),
+(2, 1, 0, 'Рубль', 'RUR', '', 'руб.', '.', ',', '0.0312', 33, '2009-07-15 11:39:15', '2009-07-15 13:08:23'),
 (3, 1, 0, 'Euro', 'EUR', '&euro;', '', '.', ',', '2', 0.7811, '2009-07-15 13:09:23', '2009-07-15 13:09:23');
 
 DROP TABLE IF EXISTS defined_languages;
