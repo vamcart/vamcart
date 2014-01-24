@@ -363,6 +363,7 @@ class ContentsController extends AppController {
 				$new_description['ContentDescription']['language_id'] = $id;
 				$new_description['ContentDescription']['name'] = $value['name'][$id];
 				$new_description['ContentDescription']['description'] = $value['description'][$id];
+				$new_description['ContentDescription']['short_description'] = $value['short_description'][$id];
 				$new_description['ContentDescription']['meta_title'] = $value['meta_title'][$id];
 				$new_description['ContentDescription']['meta_description'] = $value['meta_description'][$id];
 				$new_description['ContentDescription']['meta_keywords'] = $value['meta_keywords'][$id];

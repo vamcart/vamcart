@@ -1491,6 +1491,10 @@ msgstr "Перезаписывает шаблон по умолчанию для
 msgid "Outputs the description of the current page, product, or category depending on the user's default selected language."
 msgstr "Выводит описание текущей страницы, товара или категории в зависимости от выбранного пользователем языка."
 
+#: /vendors/smarty/vam_plugins/function.short_description.php:36
+msgid "Outputs the short description of the current page, product, or category depending on the user's default selected language."
+msgstr "Выводит краткое описание текущей страницы, товара или категории в зависимости от выбранного пользователем языка."
+
 #: /vendors/smarty/vam_plugins/function.get_template_vars.php:45
 msgid "Dumps all available smarty template variables onto the page. If you wanted to use one you would use it like:"
 msgstr "Выводит все доступные метки шаблона на страницу. Если Вы хотите использовать какую-либо метку, вставляйте в шаблон что-то вроде:"
@@ -2043,6 +2047,11 @@ msgstr "Название"
 #: /views/contents/admin_edit.ctp:91
 msgid "Description"
 msgstr "Описание"
+
+#: /views/contents/admin_core_pages_edit.ctp:68
+#: /views/contents/admin_edit.ctp:91
+msgid "Short Description"
+msgstr "Краткое описание"
 
 #: /views/contents/admin_core_pages_edit.ctp:68
 #: /views/contents/admin_edit.ctp:91

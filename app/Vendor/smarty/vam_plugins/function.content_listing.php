@@ -267,6 +267,7 @@ function smarty_function_content_listing($params, $template)
 		{
 			$content_list[$count]['name']	= $raw_data['ContentDescription']['name'];
 			$content_list[$count]['description']	= $raw_data['ContentDescription']['description'];
+			$content_list[$count]['short_description']	= $raw_data['ContentDescription']['short_description'];
 			$content_list[$count]['meta_title']	= $raw_data['ContentDescription']['meta_title'];
 			$content_list[$count]['meta_description']	= $raw_data['ContentDescription']['meta_description'];
 			$content_list[$count]['meta_keywords']	= $raw_data['ContentDescription']['meta_keywords'];

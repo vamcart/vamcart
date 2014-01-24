@@ -91,6 +91,7 @@ class ActionController extends ModuleReviewsAppController {
 			$assignments['content_alias'] = $content['Content']['alias'];
 			$assignments['content_name'] = $content_description['ContentDescription']['name'];
 			$assignments['content_description'] = $content_description['ContentDescription']['description'];
+			$assignments['content_short_description'] = $content_description['ContentDescription']['short_description'];
 			$assignments['content_price'] = $CurrencyBase->display_price($content['ContentProduct']['price']);	
 			$assignments['content_url'] = BASE . '/' . $content_description['ContentDescription']['name'] . '/' . $content['Content']['alias'] . $config['URL_EXTENSION'];
 			
@@ -134,6 +135,7 @@ class ActionController extends ModuleReviewsAppController {
 		$assignments['content_alias'] = $content['Content']['alias'];
 		$assignments['content_name'] = $content_description['ContentDescription']['name'];		
 		$assignments['content_description'] = $content_description['ContentDescription']['description'];
+		$assignments['content_short_description'] = $content_description['ContentDescription']['short_description'];
 		$assignments['content_price'] = $CurrencyBase->display_price($content['ContentProduct']['price']);	
 		$assignments['content_url'] = BASE . '/' . $content_description['ContentDescription']['name'] . '/' . $content['Content']['alias'] . $config['URL_EXTENSION'];
 		
