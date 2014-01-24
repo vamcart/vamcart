@@ -22,7 +22,7 @@ $template = '
 						<a href="{$node.url}" class="image"><img src="{$node.image}" alt="{$node.name}"{if isset($thumbnail_width)} width="{$thumbnail_width}"{/if} /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
 					<div class="inner notop nobottom">
 						<h4 class="title"><a href="{$node.url}">{$node.name}</a></h4>
-						<div class="description">{$node.description|strip_tags|truncate:30:"...":true}</div>
+						<div class="description">{$node.short_description|strip_tags|truncate:30:"...":true}</div>
 					</div>
 					</div>
 					{product_form product_id={$node.id}}
@@ -135,6 +135,7 @@ function smarty_function_compared($params)
                 {
                     $element_list[$k_a]['attributes_product'][$k_p]['name'] = $product['ContentDescription']['name'];
                     $element_list[$k_a]['attributes_product'][$k_p]['description']	= $product['ContentDescription']['description'];
+                    $element_list[$k_a]['attributes_product'][$k_p]['short_description']	= $product['ContentDescription']['short_description'];
                     $element_list[$k_a]['attributes_product'][$k_p]['meta_title']	= $product['ContentDescription']['meta_title'];
                     $element_list[$k_a]['attributes_product'][$k_p]['meta_description']	= $product['ContentDescription']['meta_description'];
                     $element_list[$k_a]['attributes_product'][$k_p]['meta_keywords']	= $product['ContentDescription']['meta_keywords'];

@@ -35,7 +35,7 @@ function default_template_xsell()
 				
 			<div class="inner notop nobottom">
 				<h4 class="title"><a href="{$node.url}">{$node.name}</a></h4>
-				<p class="description">{$node.description|strip_tags|truncate:30:"...":true}</p>
+				<p class="description">{$node.short_description|strip_tags|truncate:30:"...":true}</p>
               </div>
 			</div>
 			{product_form product_id={$node.id}}
@@ -111,6 +111,7 @@ function smarty_function_xsell($params, &$smarty)
 									       'ContentDescription.language_id' => $language_id)));
 		$content['ContentRelations'][$key]['name'] = $product['ContentDescription']['name'];
 		$content['ContentRelations'][$key]['description'] = $product['ContentDescription']['description'];
+		$content['ContentRelations'][$key]['short_description'] = $product['ContentDescription']['short_description'];
 	}
 
 	$assignments = array('relations' => $content['ContentRelations'],

@@ -32,7 +32,7 @@ $template = '
 				<a href="{$node.url}" class="image"><img src="{$node.image}" alt="{$node.name}"{if isset($thumbnail_width)} width="{$thumbnail_width}"{/if} /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
 			<div class="inner notop nobottom">
 				<h4 class="title"><a href="{$node.url}">{$node.name}</a></h4>
-				<div class="description">{$node.description|strip_tags|truncate:30:"...":true}</div>
+				<div class="description">{$node.short_description|strip_tags|truncate:30:"...":true}</div>
 			</div>
 			</div>
 			{product_form product_id={$node.id}}
@@ -168,6 +168,7 @@ function smarty_function_search_result($params, $template)
 			}
 			$content_list[$count]['name']   = $raw_data['ContentDescription']['name'];
 			$content_list[$count]['description']	= $raw_data['ContentDescription']['description'];
+			$content_list[$count]['short_description']	= $raw_data['ContentDescription']['short_description'];
 			$content_list[$count]['meta_title']	= $raw_data['ContentDescription']['meta_title'];
 			$content_list[$count]['meta_description']	= $raw_data['ContentDescription']['meta_description'];
 			$content_list[$count]['meta_keywords']	= $raw_data['ContentDescription']['meta_keywords'];

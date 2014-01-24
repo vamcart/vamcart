@@ -153,6 +153,19 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 		echo '</div>';						  
 		
 		echo $this->TinyMce->toggleEditor('content_description_'.$language['Language']['id']);						  
+
+		echo '<div id="template_required_' . $language['Language']['id'] . '" class="template_required" style="display:' . $tpl_req_style . ';">';
+			echo $this->Form->input('ContentDescription]['.$language['Language']['id'].'][short_description.' . $language['Language']['id'], 
+						array(
+				   		'label' => $this->Admin->ShowFlag($language['Language']) . '&nbsp;' . __('Short Description'),
+				   		'type' => 'textarea',
+				   		'class' => 'pagesmalltextarea',
+				   		'id' => 'content_short_description_'.$language['Language']['id'],						
+				   		'value' => isset($data['ContentDescription'][$language_key]['short_description']) ? $data['ContentDescription'][$language_key]['short_description'] : ''
+						));
+		echo '</div>';						  
+		
+		echo $this->TinyMce->toggleEditor('content_short_description_'.$language['Language']['id']);						  
 		
 		echo $this->Form->input('ContentDescription]['.$language['Language']['id'].'][meta_title.' . $language['Language']['id'], 
 						array(
