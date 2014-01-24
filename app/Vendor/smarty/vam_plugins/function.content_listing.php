@@ -33,7 +33,7 @@ $template = '
 				<a href="{$node.url}" class="image"><img src="{$node.image}" alt="{$node.name}"{if isset($thumbnail_width)} width="{$thumbnail_width}"{/if} /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
 			<div class="inner notop nobottom">
 				<h4 class="title"><a href="{$node.url}">{$node.name}</a></h4>
-				<div class="description">{$node.description|strip_tags|truncate:30:"...":true}</div>
+				<div class="description">{$node.short_description|strip_tags|truncate:30:"...":true}</div>
 				<div class="description">{attribute_list value_attributes=$node.attributes}</div>
 			</div>
 			</div>
