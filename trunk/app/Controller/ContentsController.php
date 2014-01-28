@@ -319,11 +319,11 @@ class ContentsController extends AppController {
 				// TODO: Change the way this gets the default language id for now its jsut set on english
 				$default_language_id = $this->Session->read('Customer.language_id');
 				$content_name = $this->data['ContentDescription'][$default_language_id]['name'][$default_language_id];
-				$this->request->data['Content']['alias'] = $this->generateAlias($content_name);
+				$this->request->data['Content']['alias'] = $this->generateAlias(strtolower($content_name));
 			}
 			else
 			{
-				$this->request->data['Content']['alias'] = $this->generateAlias($this->data['Content']['alias']);
+				$this->request->data['Content']['alias'] = $this->generateAlias(strtolower($this->data['Content']['alias']));
 			}
 			
 			// Get the content with the highest order set with the same parent_id and increase that by 1 if it's new
