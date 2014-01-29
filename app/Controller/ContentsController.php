@@ -323,7 +323,7 @@ class ContentsController extends AppController {
 			}
 			else
 			{
-				$this->request->data['Content']['alias'] = $this->generateAlias(strtolower($this->data['Content']['alias']));
+				$this->request->data['Content']['alias'] = $this->generateAlias($this->data['Content']['alias']);
 			}
 			
 			// Get the content with the highest order set with the same parent_id and increase that by 1 if it's new
