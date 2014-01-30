@@ -60,7 +60,7 @@ class ImportExportController extends AppController {
                     $res = $zip->open('./files/' . $file_name);
                     if ($res === TRUE) 
                     {
-                        $zip->extractTo('./files/','vc_content.xls');
+                        $zip->extractTo('./files/','content.xls');
                         $zip->close();
                         @unlink('./files/' . $file_name); 
                     }
@@ -73,7 +73,7 @@ class ImportExportController extends AppController {
 
                 App::import('Vendor', 'PHPExcel/Classes/PHPExcel');
                 try {
-                $xls = PHPExcel_IOFactory::load('./files/' . 'vc_content.xls');
+                $xls = PHPExcel_IOFactory::load('./files/' . 'content.xls');
                 } catch (Exception $e) {
                 die("Error loading file: ".$e->getMessage() . "<br />\n");
                 }
@@ -146,7 +146,7 @@ class ImportExportController extends AppController {
 
             $sfx = rand();
             $zip = new ZipArchive();
-            $res = $zip->open('./files/vc_content' . $sfx . '.zip', ZIPARCHIVE::CREATE | ZIPARCHIVE::OVERWRITE);
+            $res = $zip->open('./files/content' . $sfx . '.zip', ZIPARCHIVE::CREATE | ZIPARCHIVE::OVERWRITE);
             if ($res === TRUE) 
             {            
                 $xls = new PHPExcel();
@@ -183,15 +183,15 @@ class ImportExportController extends AppController {
                 }
     
                 $objWriter = PHPExcel_IOFactory::createWriter($xls, 'Excel5');//new PHPExcel_Writer_Excel5($xls);
-                $objWriter->save('./files/vc_content' . $sfx . '.xls');
+                $objWriter->save('./files/content' . $sfx . '.xls');
                 $xls->disconnectWorksheets();                
-                $zip->addFile('./files/vc_content' . $sfx . '.xls','vc_content.xls');
+                $zip->addFile('./files/content' . $sfx . '.xls','content.xls');
                 $zip->close();                
                 header('Content-Type: application/octet-stream');
-                header('Content-Disposition: attachment; filename="vc_content.zip"');
-                readfile('./files/vc_content' . $sfx . '.zip');
-                @unlink('./files/vc_content' . $sfx . '.zip');
-                @unlink('./files/vc_content' . $sfx . '.xls');
+                header('Content-Disposition: attachment; filename="content.zip"');
+                readfile('./files/content' . $sfx . '.zip');
+                @unlink('./files/content' . $sfx . '.zip');
+                @unlink('./files/content' . $sfx . '.xls');
             }
             else {}            
             die();        
