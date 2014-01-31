@@ -51,7 +51,7 @@ class CartController extends AppController {
 		$content = $this->Content->read(null, $_POST['product_id']);
 
 		if ($this->RequestHandler->isAjax()) {
-			$this->Smarty->display("{shopping_cart template='cart-content-box-ajax'}");
+			$this->Smarty->display("{shopping_cart template='cart-content-box'}");
 			die();
 		} else {
 			$this->redirect('/product/' . $content['Content']['alias'] . $config['URL_EXTENSION']);
