@@ -315,15 +315,15 @@ CREATE TABLE `content_products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `content_products` VALUES 
-(17,38,22,'',399,2,3,1,1,0),
-(18,93,0,'',299,1,0,1,1,0),
-(19,94,0,'',199,1,0,1,1,0),
-(20,95,0,'',499,1,0,1,1,0),
-(21,96,0,'',399,1,0,1,1,0),
-(22,97,0,'',299,1,0,1,1,0),
-(23,98,0,'',999,1,0,1,1,0),
-(24,99,0,'',899,1,0,1,1,0),
-(25,100,0,'',799,1,0,1,1,0)	;
+(17,38,22,'',12999,2,3,1,1,0),
+(18,93,0,'',9999,1,0,1,1,0),
+(19,94,0,'',6999,1,0,1,1,0),
+(20,95,0,'',15999,1,0,1,1,0),
+(21,96,0,'',12999,1,0,1,1,0),
+(22,97,0,'',9999,1,0,1,1,0),
+(23,98,0,'',29999,1,0,1,1,0),
+(24,99,0,'',27999,1,0,1,1,0),
+(25,100,0,'',24999,1,0,1,1,0)	;
 
 DROP TABLE IF EXISTS content_product_prices;
 CREATE TABLE IF NOT EXISTS `content_product_prices` (
@@ -1063,9 +1063,9 @@ CREATE TABLE `currencies` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `currencies` (`id`, `active`, `default`, `name`, `code`, `symbol_left`, `symbol_right`, `decimal_point`, `thousands_point`, `decimal_places`, `value`, `created`, `modified`) VALUES 
-(1, 1, 1, 'US Dollar', 'USD', '$', '', '.', ',', '2', 1, '2009-07-15 11:39:15', '2009-07-15 13:08:23'),
-(2, 1, 0, 'Рубль', 'RUR', '', 'руб.', '.', ',', '0.0312', 33, '2009-07-15 11:39:15', '2009-07-15 13:08:23'),
-(3, 1, 0, 'Euro', 'EUR', '&euro;', '', '.', ',', '2', 0.7811, '2009-07-15 13:09:23', '2009-07-15 13:09:23');
+(1, 1, 0, 'US Dollar', 'USD', '$', '', '.', ',', '2', 0.03, '2009-07-15 11:39:15', '2009-07-15 13:08:23'),
+(2, 1, 1, 'Рубль', 'RUR', '', 'руб.', '.', ',', '2', 1, '2009-07-15 11:39:15', '2009-07-15 13:08:23'),
+(3, 1, 0, 'Euro', 'EUR', '&euro;', '', '.', ',', '2', 0.02, '2009-07-15 13:09:23', '2009-07-15 13:09:23');
 
 DROP TABLE IF EXISTS defined_languages;
 CREATE TABLE `defined_languages` (
@@ -1828,8 +1828,8 @@ CREATE TABLE `languages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `languages` (`id`, `default`, `name`, `code`, `iso_code_2`, `active`, `sort_order`) VALUES 
-(1, 1, 'English', 'eng', 'en', 1, 1),
-(2, 0, 'Русский', 'rus', 'ru', 1, 0);
+(1, 0, 'English', 'eng', 'en', 1, 1),
+(2, 1, 'Русский', 'rus', 'ru', 1, 0);
 
 DROP TABLE IF EXISTS micro_templates;
 CREATE TABLE `micro_templates` (
