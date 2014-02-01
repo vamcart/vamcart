@@ -51,6 +51,7 @@ class SetupController extends ModuleReviewsAppController {
 		  `content_id` int(10),
 		  `name` varchar(255) collate utf8_unicode_ci,
 		  `content` text collate utf8_unicode_ci,
+		  `rating` int(10),
 		  `created` datetime,
 		  `modified` datetime,
 		  PRIMARY KEY  (`id`)
