@@ -60,6 +60,7 @@ class ActionController extends ModuleReviewsAppController {
 			$new_review['ModuleReview']['content_id'] = $_POST['content_id'];
 			$new_review['ModuleReview']['name'] = $_POST['name'];
 			$new_review['ModuleReview']['content'] = $_POST['content'];
+			$new_review['ModuleReview']['rating'] = $_POST['rating'];
 			
 			App::uses('Sanitize', 'Utility');
 			$Clean = new Sanitize();
@@ -120,9 +121,15 @@ class ActionController extends ModuleReviewsAppController {
 		
 		$assigned_reviews = array();
 		$col = 0;
+		$total_rating = null;
+		$max = null;
+		$min = 99999999; //to make sure it's not below all the values
 		foreach($reviews AS $review)
 		{
 			$col++;
+			$total_rating += (int) $review['ModuleReview']['rating'];
+			$max = (int) max($max, $review['ModuleReview']['rating']);
+			$min = (int) min($min, $review['ModuleReview']['rating']);
 			$review['ModuleReview']['created'] = CakeTime::i18nFormat($review['ModuleReview']['created']);
 			$assigned_reviews[] = $review['ModuleReview'];
 		}
@@ -140,6 +147,10 @@ class ActionController extends ModuleReviewsAppController {
 		$assignments['content_url'] = BASE . '/' . $content_description['ContentDescription']['name'] . '/' . $content['Content']['alias'] . $config['URL_EXTENSION'];
 		
 		$assignments['total'] = $col;
+		$assignments['total_rating'] = $total_rating;
+		$assignments['average_rating'] = number_format($total_rating/$col, 2);
+		$assignments['max_rating'] = $max;
+		$assignments['min_rating'] = $min;
 		$assignments['reviews'] = $assigned_reviews;
 		
 		return $assignments;

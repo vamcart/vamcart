@@ -51,6 +51,24 @@ $(document).ready(function() {
 			<input class="span4" name="name" id="name" type="text" placeholder="{lang}Name{/lang}"/>
 			</div>
 			<div class="controls controls-row">
+			<label>{lang}Rating{/lang}:</label>
+			<label class="radio inline">
+			<input name="rating" type="radio" value="1"/> 1
+			</label>
+			<label class="radio inline">
+			<input name="rating" type="radio" value="2"/> 2
+			</label>
+			<label class="radio inline">
+			<input name="rating" type="radio" value="3"/> 3
+			</label>
+			<label class="radio inline">
+			<input name="rating" type="radio" value="4"/> 4
+			</label>
+			<label class="radio inline">
+			<input name="rating" type="radio" value="5" checked /> 5
+			</label>
+			</div>
+			<div class="controls controls-row">
 			<textarea class="span10" name="content" id="content" cols="30" rows="10" placeholder="{lang}Review{/lang}"></textarea>
 			</div>
 			<button class="btn btn-inverse btn-submit-review" type="submit" name="submit" value="{lang}Submit{/lang}"><i class="icon-ok"></i> {lang}Submit{/lang}</button>
