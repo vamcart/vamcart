@@ -5,10 +5,10 @@
 	
 	{foreach from=$reviews item=review}
 	<div class="media">
-		<div class="media-body">
+		<div class="media-body" itemprop="review" itemscope itemtype="http://schema.org/Review">
 			<div class="inner">
-				<h4 class="media-heading">{$review.name} - {$review.created}:</h4>
-					<div class="description">
+				<h4 class="media-heading"><span itemscope itemtype="http://schema.org/Person" itemprop="author"><span itemprop="name">{$review.name}</span></span> - <span content="{$review.created}" itemprop="datePublished">{$review.created}</span>:</h4>
+					<div class="description" itemprop="reviewBody">
 						{$review.content}
 					</div>
 			</div>
