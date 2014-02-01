@@ -1093,6 +1093,10 @@ msgstr "Управление отзывами"
 msgid "Reviews"
 msgstr "Отзывы"
 
+#: /plugins/module_reviews/controllers/setup_controller.php:32
+msgid "Rating"
+msgstr "Оценка"
+
 #: /plugins/module_reviews/views/admin/admin_edit.ctp:14
 msgid "Date: "
 msgstr "Дата: "
