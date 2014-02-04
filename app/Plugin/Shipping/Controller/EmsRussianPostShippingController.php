@@ -8,16 +8,16 @@
 App::uses('ShippingAppController', 'Shipping.Controller');
 
 class EmsRussianPostShippingController extends ShippingAppController {
-	var $uses = array('ShippingMethod');
-	var $module_name = 'EmsRussianPostShipping';
-	var $icon = 'ems.png';
+	public $uses = array('ShippingMethod');
+	public $module_name = 'EmsRussianPostShipping';
+	public $icon = 'ems.png';
 
-	function settings ()
+	public function settings ()
 	{
 		$this->set('data', $this->ShippingMethod->findByCode($this->module_name));
 	}
 
-	function install()
+	public function install()
 	{
 
 		$new_module = array();
@@ -37,7 +37,7 @@ class EmsRussianPostShippingController extends ShippingAppController {
 		$this->redirect('/shipping_methods/admin/');
 	}
 
-	function uninstall()
+	public function uninstall()
 	{
 
 		$module_id = $this->ShippingMethod->findByCode($this->module_name);
@@ -48,14 +48,16 @@ class EmsRussianPostShippingController extends ShippingAppController {
 		$this->redirect('/shipping_methods/admin/');
 	}
 
-	function calculate ()
+	public function calculate ()
 	{
 		$method = $this->ShippingMethod->findByCode($this->module_name);
 
 			global $order;
+
+			$this->Translit = new TranslitComponent(new ComponentCollection());
 			
         $from_city = strtolower('city--Moskva');
-        $to_city = strtolower('city--'.$order['Order']['bill_city']);
+        $to_city = strtolower('city--'.$this->Translit->convert($order['Order']['bill_city']));
         $shipping_weight = 3;
 
         
@@ -83,7 +85,7 @@ class EmsRussianPostShippingController extends ShippingAppController {
 		return $results['rsp']['price'];
 	}
 
-	function before_process()
+	public function before_process()
 	{
 	}
 	
