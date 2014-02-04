@@ -75,7 +75,7 @@
 	</tr>
 
 </table>
-<p><b><?php echo __('Summa:'); ?> <?php echo $summa->get($data['Order']['total']); ?>. <?php echo __('without tax.'); ?></b></p>
+<p><b><?php echo __('Summa:'); ?> <?php echo $this->Summa->get($data['Order']['total']); ?>. <?php echo __('without tax.'); ?></b></p>
 <p>&nbsp;</p>
 <p><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 <?php echo __('CEO'); ?> _____________________________ /<?php echo __('Last Name'); ?>/</b></p>
