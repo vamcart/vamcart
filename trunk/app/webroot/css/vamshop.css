@@ -1,4 +1,4 @@
-@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic');
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic");
 
 @import "animate.min.css";
 
@@ -7,7 +7,7 @@
 /* ========================================================================== */
 body {
   font-family: "Open Sans", sans-serif !important;
-  background-color: #ffffff;
+  background-color: #fff;
   color: #000;
   padding: 0;
 }
@@ -118,7 +118,6 @@ hr.transparent {
 /* Header, Logo, Navigation & Menus
 /* ========================================================================== */
 .topbar {
-  background-position: 0 50%;
   font-size: 11px;
 }
 @media (max-width: 767px) {
@@ -334,7 +333,7 @@ hr.transparent {
 #navigation .login {
   background-color: #ff6633;
   position: absolute;
-  width: 85px;
+  width: 45px;
   top: -70px;
   right: 0;
 }
@@ -498,7 +497,7 @@ hr.transparent {
 @media (max-width: 767px) {
   #navigation .shopping-cart {
     position: absolute;
-    right: 95px;
+    right: 55px;
     top: 0;
   }
 }
@@ -569,7 +568,7 @@ hr.transparent {
 }
 @media (max-width: 767px) {
   #navigation .shopping-cart .cart-dropdown {
-    right: -90px;
+    right: -50px;
   }
 }
 #navigation .shopping-cart .cart-dropdown .title {
@@ -648,7 +647,7 @@ hr.transparent {
 }
 .res-menu-title:before {
   content: "\f0c9";
-  font-family: 'FontAwesome';
+  font-family: "FontAwesome";
   left: 0;
   position: absolute;
   top: 0;
@@ -882,7 +881,7 @@ hr.transparent {
   position: relative;
 }
 #footer .widget-title.do:before {
-  font-family: 'FontAwesome';
+  font-family: "FontAwesome";
   color: #ff6633;
   content: "\f0c9";
   position: absolute;
@@ -1321,7 +1320,7 @@ hr.transparent {
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  background: #555 url('../img/button.png') no-repeat center center;
+  background: #555 url("../../img/button.png") no-repeat center center;
 }
 #search .search-bt:before {
   content: "\f096";
@@ -2093,7 +2092,7 @@ hr.transparent {
 /* Back to Top
 /* ========================================================================== */
 #toTop {
-  background: rgba(0, 0, 0, 0.7) url('../img/up.png') no-repeat scroll 50% 50%;
+  background: rgba(0, 0, 0, 0.7) url("../../img/up.png") no-repeat scroll 50% 50%;
   color: #ffffff;
   position: fixed;
   right: 10px;
