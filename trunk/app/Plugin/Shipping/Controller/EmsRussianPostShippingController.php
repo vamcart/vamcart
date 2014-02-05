@@ -58,10 +58,15 @@ class EmsRussianPostShippingController extends ShippingAppController {
 			
         $from_city = strtolower('city--Moskva');
         $to_city = strtolower('city--'.$this->Translit->convert($order['Order']['bill_city']));
-        $shipping_weight = 3;
 
+			$total_weight = 0;
+			
+			foreach($order['OrderProduct'] AS $products)
+			{
+				$total_weight += (int) $products['weight']*$products['quantity'];
+			}
         
-        $url = 'http://emspost.ru/api/rest?method=ems.calculate&from='.$from_city.'&to='.$to_city.'&weight='.$shipping_weight;
+        $url = 'http://emspost.ru/api/rest?method=ems.calculate&from='.$from_city.'&to='.$to_city.'&weight='.$total_weight;
 
         // create curl resource
         $ch = curl_init();
