@@ -144,6 +144,7 @@ function smarty_function_search_result($params, $template)
 
 		$search_conditions = array('AND' => array('ContentType.name' => array('product', 'downloadable'),
 						'OR' => array('ContentDescription.name LIKE' => '%' . $_GET['keyword'] . '%',
+						         'ContentProduct.model LIKE' => '%' . $_GET['keyword'] . '%',
 							      'ContentDescription.description LIKE' => '%' . $_GET['keyword'] . '%')));
 		$Content->recursive = 2;
 
