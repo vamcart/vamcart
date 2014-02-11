@@ -28,6 +28,7 @@ class InstallController extends AppController {
 		WWW_ROOT . 'sxd/cfg.php', 
 		WWW_ROOT . 'css/', 
 		WWW_ROOT . 'js/', 
+		WWW_ROOT . 'files/', 
 		TMP, 
 		CACHE, 
 		CACHE . '/smarty_cache', 
