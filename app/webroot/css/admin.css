@@ -795,7 +795,12 @@ ul#myTab,
 		display: block !important; 
 		opacity: 1 !important;
 	}
-	
+
+a[href]:after 
+	{
+		content: none !important;
+	}
+		
 }
 
 /* /Print Order */
