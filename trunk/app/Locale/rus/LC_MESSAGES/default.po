@@ -468,6 +468,10 @@ msgstr "Список статусов заказа"
 msgid "Order View"
 msgstr "Информация о заказе"
 
+#: /controllers/orders_controller.php:70
+msgid "Order ID"
+msgstr "Номер заказа"
+
 #: /controllers/orders_controller.php:105
 msgid "Orders Listing"
 msgstr "Список заказов"

@@ -113,6 +113,10 @@ echo '<table class="contentTable">';
 echo $this->Html->tableHeaders(array(__('Contact Information')));
 	echo $this->Admin->TableCells(
 		  array(
+				__('Order ID') . ': ' . $data['Order']['id']
+		   ));
+	echo $this->Admin->TableCells(
+		  array(
 				__('Email') . ': ' . $data['Order']['email']
 		   ));
 	echo $this->Admin->TableCells(
