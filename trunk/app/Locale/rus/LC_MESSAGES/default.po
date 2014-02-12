@@ -3638,6 +3638,10 @@ msgstr "Новый заказ"
 msgid "Edit Order"
 msgstr "Редактировать заказ"
 
+#: /View/Order/admin_view.ctp:61
+msgid "Print Order"
+msgstr "Распечатать заказ"
+
 #: /app/controllers/OrdersEditController.php:61
 msgid "Order Edit"
 msgstr "Редактирование заказа"
