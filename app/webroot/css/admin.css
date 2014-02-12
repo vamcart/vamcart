@@ -772,5 +772,32 @@ div.rssError
 	}		
 
 /* /jQuery zRSSFeed */
+
+/* Print Order */
+
+@media print {
+
+.navbar,
+.breadCrumbs,
+#footer,
+#comments,
+.input,
+button.btn,
+a.btn,
+ul#myTab,
+.navbar-search.pull-right
+	{
+		display: none;	
+	}	
+
+.tab-content > .tab-pane 
+	{
+		display: block !important; 
+		opacity: 1 !important;
+	}
+	
+}
+
+/* /Print Order */
 			 
 /*]]>*/
