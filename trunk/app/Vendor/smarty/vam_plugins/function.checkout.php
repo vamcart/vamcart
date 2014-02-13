@@ -223,7 +223,7 @@ $(document).ready(function() {
 		<label class="checkbox" for="agree">
 		<div class="controls">
 			<input type="checkbox" class="checkbox" id="agree" name="agree" />
-			{lang}Please agree to our policy.{/lang} <a href="{base_path}/page/conditions-of-use.html">{lang}Terms & Conditions.{/lang}</a>
+			{lang}Please agree to our policy.{/lang} <a href="{base_path}/page/conditions-of-use.html" target="_blank">{lang}Terms & Conditions.{/lang}</a>
 		</div>
 		</label>
 	</div>
