@@ -288,6 +288,7 @@ div.input.checkbox
 	}
 
 div.input input,
+div.input.text,
 div.input.textarea
 	{
 		clear: both;
