@@ -57,6 +57,7 @@ switch($content_type_id) {
 		echo $this->Form->input('ContentProduct.weight', 
 			array(
 				'label' => __('Weight'),
+				'after' => ' '.__('kg.'),
 				'type' => 'text',
 				'value' => !isset($data['ContentProduct']['weight'])? 0 : $data['ContentProduct']['weight']
 			));

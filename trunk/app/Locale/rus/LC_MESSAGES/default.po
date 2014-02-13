@@ -1192,6 +1192,11 @@ msgstr "Расчёт доставки может производиться в �
 msgid "Weight"
 msgstr "Вес"
 
+#: /plugins/shipping/views/admin/table_based.ctp:16
+#: /views/contents/admin_edit_type.ctp:54
+msgid "kg."
+msgstr "кг."
+
 #: /plugins/shipping/views/admin/table_based.ctp:17
 #: /views/orders/admin.ctp:18
 #: /views/orders/admin_view.ctp:125
