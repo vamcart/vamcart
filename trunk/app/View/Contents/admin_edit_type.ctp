@@ -23,18 +23,6 @@ switch($content_type_id) {
 				'type' => 'text',
 				'value' => !isset($data['ContentProduct']['price'])? 0 : $data['ContentProduct']['price']
 			));
-		//echo $this->Form->input('ContentProduct.moq', 
-		//array(
-   	//	'label' => __('Minimum order quantity'),
-		//'type' => 'text',
-		//'value' => !isset($data['ContentProduct']['moq'])? 0 : $data['ContentProduct']['moq']
-	   //));
-		//echo $this->Form->input('ContentProduct.pf', 
-		//array(
-   	//	'label' => __('Packet quantity'),
-		//'type' => 'text',
-		//'value' => !isset($data['ContentProduct']['pf'])? 0 : $data['ContentProduct']['pf']
-	   //));
 		echo $this->Form->input('ContentProduct.tax_id', 
 			array(
 				'label' => __('Tax Class'),
