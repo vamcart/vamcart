@@ -2742,6 +2742,10 @@ msgstr "Связаться с нами"
 msgid "Creates a contact us form."
 msgstr "Создаёт форму обратной связи."
 
+#: /vendors/smarty/vam_plugins/function.breadcrumbs.php:53
+msgid "Creates a breadcrumbs."
+msgstr "Создаёт навигационную цепочку."
+
 #: /plugins/payment/views/webmoney/settings.ctp:17
 msgid "WebMoney Purse"
 msgstr "Номер кошелька WebMoney"
