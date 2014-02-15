@@ -23,8 +23,8 @@ $template = '
 
 {foreach from=$order_items item=product}
 		<tr>
-			<td><a href="{base_path}/cart/remove_product/{$product.id}/1" class="remove" title="{lang}Remove{/lang}"><i class="icon-trash"></i></a></td>
-			<td><a href="{$product.link}">{$product.name}</a></td>
+			<td align="center"><img class="media-object" src="{$product.image.image_thumb}" alt="" title="" /></td>
+			<td><a href="{$product.link}">{$product.name}</a> <a href="{base_path}/cart/remove_product/{$product.id}/1" class="remove" title="{lang}Remove{/lang}"><i class="icon-trash"></i></a></td>
 			<td>{$product.price}</td>
 			<td><input type="text" name="qty[{$product.id}]" class="input-small" value="{$product.qty}" size="3" /></td>
 			<td>{$product.line_total}</td>
@@ -75,6 +75,7 @@ function smarty_function_shopping_cart($params, $template)
 
 	global $order;
 	global $config;
+	global $content;
 
 
 	$order_items = array();
@@ -125,6 +126,7 @@ function smarty_function_shopping_cart($params, $template)
 		'total_weight' => $total_weight,
 		'shipping_total' => $CurrencyBase->display_price($order['Order']['shipping']),
 		'order_items' => $order_items,
+		'page_alias' => $content['Content']['alias'],
 		'cart_link' => BASE . '/page/cart-contents' . $config['URL_EXTENSION']
 	);
 
