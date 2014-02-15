@@ -1,6 +1,7 @@
 User-agent: *
 Disallow: /admin/
 Disallow: /users/admin_login
+Disallow: /page/account.html
 Disallow: /page/home-page.html
 Disallow: /page/cart-contents.html
 Disallow: /page/checkout.html
