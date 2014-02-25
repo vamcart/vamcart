@@ -4730,3 +4730,15 @@ msgstr "Путь до js / css файла."
 #: /vendors/smarty/vam_plugins/function.bender.php:53
 msgid "Path to output js / css file."
 msgstr "Путь до сгенерированного js / css файла."
+
+#: /plugins/payment/views/yandex/settings.ctp:17
+msgid "Yandex.Money ShopID"
+msgstr "Номер магазина в ЦПП (shopID). Выдается ЦПП."
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money scid"
+msgstr "Номер витрины магазина в ЦПП (scid). Выдается ЦПП."
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money shopPassword"
+msgstr "Пароль магазина в ЦПП (shopPassword)."
