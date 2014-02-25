@@ -7,7 +7,7 @@ http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 	<url>
 		<loc><?php echo Router::url($item['url'], true) ?></loc>
 		<priority><?php echo $item['priority'] ?></priority>
-		<lastmod><?php echo $this->Time->toAtom($item['lastmod']) ?></lastmod>
+		<lastmod><?php echo $this->Time->toServer($item['lastmod']) ?></lastmod>
 		<changefreq><?php echo $item['changefreq'] ?></changefreq>
 	</url>
 <?php } ?>
