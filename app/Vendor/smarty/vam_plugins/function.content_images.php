@@ -12,7 +12,7 @@ $template = '
 <div class="span6 product-images">
 {foreach from=$images item=image}
 {if $image@first}
-	<div class="thumbnail big">
+	<div class="thumbnail big text-center">
 {/if}
 {if $image@index > 0}
 		<div class="span4 thumbnail">
