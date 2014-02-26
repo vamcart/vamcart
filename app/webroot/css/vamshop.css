@@ -1587,7 +1587,6 @@ hr.transparent {
   margin-bottom: 7px;
 }
 .product-images .thumbnail.big img {
-  width: 100%;
 }
 @media (min-width: 1200px) {
   .product-images .thumbnail.big {
