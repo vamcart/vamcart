@@ -17,7 +17,7 @@ function default_template_xsell()
 	<ul class="thumbnails">
 		{foreach from=$relations item=node}
       <li class="item span4 {if $node@index is div by 3}first{/if}">
-			<div class="thumbnail">
+			<div class="thumbnail text-center">
 
 				{if sizeof($node.image) > 0 }
 				{if $thumbnail == "true"}
@@ -33,7 +33,7 @@ function default_template_xsell()
 				{/if}
 				{/if}
 				
-			<div class="inner notop nobottom">
+			<div class="inner notop nobottom text-left">
 				<h4 class="title"><a href="{$node.url}">{$node.name}</a></h4>
 				<p class="description">{$node.short_description|strip_tags|truncate:30:"...":true}</p>
               </div>
