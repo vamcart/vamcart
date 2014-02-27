@@ -29,9 +29,9 @@ $template = '
 	<ul class="thumbnails">
 		{foreach from=$content_list item=node}
 		<li class="item span4 {if $node@index is div by 3}first{/if}">
-			<div class="thumbnail">
+			<div class="thumbnail text-center">
 				<a href="{$node.url}" class="image"><img src="{$node.image}" alt="{$node.name}"{if isset($thumbnail_width)} width="{$thumbnail_width}"{/if} /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
-			<div class="inner notop nobottom">
+			<div class="inner notop nobottom text-left">
 				<h4 class="title"><a href="{$node.url}">{$node.name}</a></h4>
 				<div class="description">{$node.short_description|strip_tags|truncate:30:"...":true}</div>
 				<div class="description">{attribute_list value_attributes=$node.attributes}</div>
