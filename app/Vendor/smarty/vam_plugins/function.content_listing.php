@@ -88,6 +88,9 @@ function smarty_function_content_listing($params, $template)
 	App::uses('SmartyComponent', 'Controller/Component');
 		$Smarty =& new SmartyComponent(new ComponentCollection());
 
+	App::uses('TimeHelper', 'View/Helper');
+		$Time =& new TimeHelper(new View());
+
 	App::import('Model', 'Content');
 		$Content =& new Content();		
 		$Content->unbindAll();	
@@ -277,6 +280,7 @@ function smarty_function_content_listing($params, $template)
 			$content_list[$count]['stock']	= $raw_data['ContentProduct']['stock'];	
 			$content_list[$count]['model']	= $raw_data['ContentProduct']['model'];	
 			$content_list[$count]['weight']	= $raw_data['ContentProduct']['weight'];	
+			$content_list[$count]['date_added']	= $Time->i18nFormat($raw_data['Content']['created']);	
 
                         $content_list[$count]['attributes'] = array();
                         foreach($raw_data['Attribute'] AS $attribute)
