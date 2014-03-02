@@ -54,20 +54,58 @@ class AdminController extends AppController {
                 $result['month']['cnt'][$k] = $ord[0]['cnt'];
                 $result['month']['summ'][$k] = $ord[0]['summ'];
             }
-                        
-            $this->loadModel('Content');
-            //$this->Content->recursive = 2;
-            $this->Content->Behaviors->attach('Containable');
-            $content_viewed = $this->Content->find('all',array('fields' => array('Content.alias','Content.viewed')
-                                                       ,'conditions' => array('Content.content_type_id = 2')
-                                                       ,'order' => array('viewed DESC LIMIT 10')
-                                                       ,'contain' => array('ContentDescription' => array('conditions' => array('ContentDescription.language_id = '.$this->Session->read('Customer.language_id').'')),'ContentImage')
+
+				App::import('Model', 'Content');
+				$Content =& new Content();	
+		                        
+				$Content->unbindAll();	
+				$Content->bindModel(array('hasOne' => array(
+						'ContentDescription' => array(
+		                    'className' => 'ContentDescription',
+							'conditions'   => 'language_id = '.$this->Session->read('Customer.language_id')
+		                ))));
+				$Content->bindModel(array('belongsTo' => array(
+						'ContentType' => array(
+		                    'className' => 'ContentType'
+							))));			
+				$Content->bindModel(array('hasOne' => array(
+						'ContentImage' => array(
+		                    'className' => 'ContentImage',
+		                    'conditions'=>array('ContentImage.order' => '1')
+							))));						
+
+
+            $content_viewed = $Content->find('all',array('fields' => array('Content.id', 'Content.alias','Content.viewed', 'ContentDescription.name', 'ContentImage.image')
+                                                       ,'conditions' => array('Content.content_type_id' => 2)
+                                                       , 'limit' => 10
+                                                       ,'order' => array('Content.viewed DESC')
                                                                 ));
             $result['content_viewed'] = $content_viewed;
-            $content_ordered = $this->Content->find('all',array('fields' => array('Content.alias','ContentProduct.ordered')
-                                                       ,'conditions' => array('Content.content_type_id = 2')
-                                                       ,'order' => array('ordered DESC LIMIT 10')
-                                                       ,'contain' => array('ContentDescription' => array('conditions' => array('ContentDescription.language_id = '.$this->Session->read('Customer.language_id').'')), 'ContentProduct','ContentImage')
+
+				$Content->unbindAll();	
+				$Content->bindModel(array('hasOne' => array(
+						'ContentDescription' => array(
+		                    'className' => 'ContentDescription',
+							'conditions'   => 'language_id = '.$this->Session->read('Customer.language_id')
+		                ))));
+				$Content->bindModel(array('belongsTo' => array(
+						'ContentType' => array(
+		                    'className' => 'ContentType'
+							))));			
+				$Content->bindModel(array('hasOne' => array(
+						'ContentImage' => array(
+		                    'className' => 'ContentImage',
+		                    'conditions'=>array('ContentImage.order' => '1')
+							))));						
+				$Content->bindModel(array('hasOne' => array(
+						'ContentProduct' => array(
+		                    'className' => 'ContentProduct'
+							))));
+							
+            $content_ordered = $Content->find('all',array('fields' => array('Content.id', 'Content.alias','ContentProduct.ordered', 'ContentDescription.name', 'ContentImage.image')
+                                                       ,'conditions' => array('Content.content_type_id' => 2)
+                                                       , 'limit' => 10
+                                                       ,'order' => array('ContentProduct.ordered DESC')
                                                                 ));
             $result['content_ordered'] = $content_ordered;
 
