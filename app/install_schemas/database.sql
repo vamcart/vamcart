@@ -72,7 +72,8 @@ CREATE TABLE `contents` (
   `viewed` int(10),
   `created` datetime,
   `modified` datetime,
- PRIMARY KEY  (`id`)
+  PRIMARY KEY  (`id`),
+  INDEX content_id (parent_id,alias,active)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `contents` VALUES 
@@ -118,7 +119,8 @@ CREATE TABLE `content_categories` (
   `id` int(10) auto_increment,
   `content_id` int(10),
   `extra` varchar(1) collate utf8_unicode_ci,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY  (`id`),
+  INDEX content_id (content_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `content_categories` VALUES 
@@ -138,7 +140,8 @@ CREATE TABLE `content_descriptions` (
   `meta_title` varchar(255) collate utf8_unicode_ci,
   `meta_description` varchar(255) collate utf8_unicode_ci,
   `meta_keywords` varchar(255) collate utf8_unicode_ci,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY  (`id`),
+  INDEX content_id (content_id,language_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `content_descriptions` VALUES 
@@ -223,7 +226,8 @@ CREATE TABLE `content_images` (
   `image` varchar(255) collate utf8_unicode_ci,
   `created` datetime,
   `modified` datetime,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY  (`id`),
+  INDEX content_id (content_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `content_images` VALUES 
@@ -272,7 +276,8 @@ CREATE TABLE `content_links` (
   `id` int(10) auto_increment,
   `content_id` int(10),
   `url` varchar(255) collate utf8_unicode_ci,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY  (`id`),
+  INDEX content_id (content_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS content_pages;
@@ -280,7 +285,8 @@ CREATE TABLE `content_pages` (
   `id` int(10) auto_increment,
   `content_id` int(10),
   `extra` varchar(1) collate utf8_unicode_ci,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY  (`id`),
+  INDEX content_id (content_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `content_pages` VALUES 
@@ -311,7 +317,8 @@ CREATE TABLE `content_products` (
   `moq` int(8) DEFAULT '1' COMMENT 'Minimum order quantity',
   `pf` int(8) DEFAULT '1' COMMENT 'Price For',
   `ordered` int(10),
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY  (`id`),
+  INDEX content_id (content_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `content_products` VALUES 
@@ -339,7 +346,8 @@ CREATE TABLE `content_news` (
   `id` int(10) auto_increment,
   `content_id` int(1),
   `extra` varchar(1) collate utf8_unicode_ci,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY  (`id`),
+  INDEX content_id (content_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `content_news` (`id`, `content_id`, `extra`) VALUES 
@@ -351,7 +359,8 @@ CREATE TABLE `content_articles` (
   `id` int(10) auto_increment,
   `content_id` int(1),
   `extra` varchar(1) collate utf8_unicode_ci,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY  (`id`),
+  INDEX content_id (content_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `content_articles` (`id`, `content_id`, `extra`) VALUES 
@@ -364,7 +373,8 @@ CREATE TABLE `content_types` (
   `template_type_id` tinyint(4),
   `name` varchar(255) collate utf8_unicode_ci,
   `type` varchar(255) collate utf8_unicode_ci,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY  (`id`),
+  INDEX template_type_id (template_type_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `content_types` (`id`, `template_type_id`, `name`, `type`) VALUES 
@@ -388,7 +398,8 @@ CREATE TABLE IF NOT EXISTS `content_downloadables` (
   `order_status_id` int(10),
   `max_downloads` int(10) DEFAULT '0',
   `max_days_for_download` int(10) DEFAULT '0',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  INDEX content_id (content_id)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS `countries`;
@@ -1364,7 +1375,8 @@ CREATE TABLE `email_template_descriptions` (
   `language_id` int(10),
   `subject` varchar(255) collate utf8_unicode_ci,
   `content` text collate utf8_unicode_ci,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY  (`id`),
+  INDEX email_template_id (email_template_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `email_template_descriptions` VALUES (1, 1, 1, 'Your order #{$order_number}', 'Dear {$name}!\r\n\r\nYour order confirmed!\r\nOrder number: {$order_number}\r\n\r\nProducts:\r\n{$products}\r\n\r\nThank you!\r\n\r\n');
@@ -1390,7 +1402,8 @@ CREATE TABLE `answer_template_descriptions` (
   `language_id` int(10),
   `name` varchar(255) collate utf8_unicode_ci,
   `content` text collate utf8_unicode_ci,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY  (`id`),
+  INDEX answer_template_id (answer_template_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS attributes;
@@ -1407,7 +1420,8 @@ CREATE TABLE `attributes` (
   `is_active` tinyint(4) DEFAULT NULL,
   `is_show_flt` tinyint(4) DEFAULT NULL,
   `is_show_cmp` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  INDEX content_id (content_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `attributes` VALUES 
@@ -1613,7 +1627,8 @@ CREATE TABLE `attribute_descriptions` (
   `meta_title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `meta_description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `meta_keywords` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`dsc_id`)
+  PRIMARY KEY (`dsc_id`),
+  INDEX attribute_id (attribute_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `attribute_descriptions` VALUES 
@@ -1953,7 +1968,8 @@ CREATE TABLE `order_comments` (
   `comment` text collate utf8_unicode_ci,
   `created` datetime,
   `modified` datetime,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY  (`id`),
+  INDEX order_id (order_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS order_products;
@@ -1974,7 +1990,9 @@ CREATE TABLE `order_products` (
   `max_days_for_download` int(10) DEFAULT '0',
   `download_key` varchar(256) COLLATE utf8_unicode_ci,
   `order_status_id` int(10),
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY  (`id`),
+  INDEX order_id (order_id),
+  INDEX content_id (content_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS order_statuses;
@@ -1998,7 +2016,8 @@ CREATE TABLE `order_status_descriptions` (
   `language_id` int(10),
   `name` varchar(255) collate utf8_unicode_ci,
   `description` text collate utf8_unicode_ci,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY  (`id`),
+  INDEX order_status_id (order_status_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `order_status_descriptions` (`id`, `order_status_id`, `language_id`, `name`, `description`) VALUES 
@@ -2116,7 +2135,8 @@ CREATE TABLE `stylesheets` (
   `stylesheet_media_type_id` int(10),
   `created` datetime,
   `modified` datetime,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY  (`id`),
+  INDEX indx (active,alias)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `stylesheets` VALUES 
@@ -2301,7 +2321,8 @@ CREATE TABLE IF NOT EXISTS `contents_contents` (
   `id` int(10) AUTO_INCREMENT,
   `product_id` int(10),
   `related_id` int(10),
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  INDEX product_id (product_id)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `contents_contents` VALUES 
