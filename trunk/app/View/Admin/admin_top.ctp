@@ -117,8 +117,8 @@ $(document).ready(function () {
                         foreach ($result['content_viewed'] AS $k => $viewed)
                         {
                             echo $this->Admin->TableCells(array(
-                                                                (isset($viewed['ContentImage'][0])?$this->Html->image('/images/thumb/'.$viewed['Content']['id'].'/'.$viewed['ContentImage'][0]['image'].'/40', array('alt' => __('True'))):$this->Html->image('/images/thumb/0/noimage.png/40', array('alt' => __('False'))))
-                                                               ,$viewed['ContentDescription'][0]['name']
+                                                                (isset($viewed['ContentImage'])?$this->Html->image('/images/thumb/'.$viewed['Content']['id'].'/'.$viewed['ContentImage']['image'].'/40', array('alt' => __('True'))):$this->Html->image('/images/thumb/0/noimage.png/40', array('alt' => __('False'))))
+                                                               ,$viewed['ContentDescription']['name']
                                                                ,array($viewed['Content']['viewed'],array('height' => '40'))
                                                                ));
                         }
@@ -131,8 +131,8 @@ $(document).ready(function () {
                         foreach ($result['content_ordered'] AS $k => $ordered)
                         {
                             echo $this->Admin->TableCells(array(
-                                                                (isset($ordered['ContentImage'][0])?$this->Html->image('/images/thumb/'.$ordered['Content']['id'].'/'.$ordered['ContentImage'][0]['image'].'/40', array('alt' => __('True'))):$this->Html->image('/images/thumb/0/noimage.png/40', array('alt' => __('False'))))
-                                                               ,$ordered['ContentDescription'][0]['name']
+                                                                (isset($ordered['ContentImage'])?$this->Html->image('/images/thumb/'.$ordered['Content']['id'].'/'.$ordered['ContentImage']['image'].'/40', array('alt' => __('True'))):$this->Html->image('/images/thumb/0/noimage.png/40', array('alt' => __('False'))))
+                                                               ,$ordered['ContentDescription']['name']
                                                                ,array($ordered['ContentProduct']['ordered'],array('height' => '40'))
                                                                ));
                         }
