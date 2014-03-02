@@ -338,7 +338,8 @@ CREATE TABLE IF NOT EXISTS `content_product_prices` (
   `content_product_id` int(10),
   `quantity` int(10),
   `price` double,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  INDEX content_product_id (content_product_id)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS content_news;
