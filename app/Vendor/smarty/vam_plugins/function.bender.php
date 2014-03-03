@@ -39,7 +39,7 @@ function smarty_function_bender($params, $template)
 			
     $bender = new Bender();
     $bender->cssmin =  "cssmin";
-    $bender->jsmin =  "jsmin";
+    $bender->jsmin =  "jshrink";
     $bender->ttl =  -1;
     $bender->root_dir =  WWW_ROOT;
     $src = isset( $params['src'] ) ? $params['src'] : "";

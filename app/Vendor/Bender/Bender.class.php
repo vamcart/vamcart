@@ -55,7 +55,9 @@ class Bender
     {
         $path = $this->root_dir();
         $output = preg_replace('/'.ltrim(BASE,'/').'/','',$output,1);
-        $outfile = "{$path}/{$output}";
+        $output = str_replace('/',DS,$output);
+        $outfile = $path.$output;
+
         if ( file_exists( $outfile ) )
         {
             if ( $this->ttl == -1 )
@@ -76,7 +78,7 @@ class Bender
                 switch ( $this->cssmin )
                 {
                     case "cssmin":
-                        require_once realpath( dirname( __file__ ) . "/cssmin.php" );
+                        require_once realpath( dirname( __file__ ) . DS . "cssmin.php" );
                         $compressor = new CSSmin();
                         $compressor->set_memory_limit('256M');
                         $compressor->set_max_execution_time(120);
@@ -90,16 +92,16 @@ class Bender
                 switch ( $this->jsmin )
                 {
                     case "packer":
-                        require_once realpath( dirname( __file__ ) ) . "/class.JavaScriptPacker.php";
+                        require_once realpath( dirname( __file__ ) ) . DS . "class.JavaScriptPacker.php";
                         $packer = new JavaScriptPacker( $str, "Normal", true, false );
                         $packed = $packer->pack();
                         break;
                     case "jshrink":
-                        require_once realpath( dirname( __file__ ) ) . "/JShrink.class.php";
-                        $packed = Minifier::minify( $str );
+                        require_once realpath( dirname( __file__ ) ) . DS . "JShrink.class.php";
+                        $packed = JShrink\Minifier::minify( $str );
                         break;
                     case "jsmin":
-                        require_once realpath( dirname( __file__ ) ) . "/jsminplus.php";
+                        require_once realpath( dirname( __file__ ) ) . DS . "jsminplus.php";
                         $packed = JSMinPlus::minify( $str );
                         break;
                     default:
@@ -160,7 +162,8 @@ class Bender
     {
         $path = $this->root_dir();
         $output = preg_replace('/'.ltrim(BASE,'/').'/','',$output,1);
-        $outfile = "{$path}.{$output}";
+        $output = str_replace('/',DS,$output);
+        $outfile = $path.$output;
         if ( !file_exists( $outfile ) || !is_array( $files ) )
         {
             return;
