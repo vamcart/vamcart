@@ -14,7 +14,9 @@ class StylesheetsController extends AppController {
 		$stylesheet = $this->Stylesheet->find('first', array('conditions' => "Stylesheet.id = '".$alias."' OR Stylesheet.alias = '".$alias."'"));
 
 		$output = $stylesheet['Stylesheet']['stylesheet'];		
-		
+
+		App::uses('CakeTime', 'Utility');
+
 		// Minify css
 		$output = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $stylesheet['Stylesheet']['stylesheet']);
 		$output = str_replace(array("\r\n", "\r", "\n", "\t", '/\s\s+/', '  ', '   '), '', $output);
@@ -28,6 +30,8 @@ class StylesheetsController extends AppController {
 		$offset = 720000 ;
 		$ExpStr = "Expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";
 		header($ExpStr); 
+		$LastModified = "Last-Modified: " . gmdate("D, d M Y H:i:s", CakeTime::gmt($stylesheet['Stylesheet']['modified'])) . " GMT";
+		header($LastModified); 
 
 		echo '/* Begin Stylesheet: ' . $stylesheet['Stylesheet']['name'] . ' */'."\n";		
 		echo $output;
