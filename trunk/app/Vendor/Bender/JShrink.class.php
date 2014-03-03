@@ -42,7 +42,7 @@
  * @version    Release: 0.5.1
  */
 
- namespace JShrink;
+ //namespace JShrink;
 
 /**
  * Minifier
