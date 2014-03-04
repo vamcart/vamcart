@@ -41,7 +41,6 @@ public function beforeRedirect(Controller $controller){
 	public function startup(Controller $controller){
 		if (Configure::read('debug') < 2) {
 			@ob_start ('ob_gzhandler');
-			header('Content-type: text/html; charset: UTF-8');
 			header('Cache-Control: must-revalidate');
 			$offset = -1;
 			$ExpStr = "Expires: " . gmdate('D, d M Y H:i:s', time() + $offset) . ' GMT';
