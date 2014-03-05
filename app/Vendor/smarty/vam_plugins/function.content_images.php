@@ -17,16 +17,10 @@ $template = '
 {if $image@index > 0}
 		<div class="span4 thumbnail">
 {/if}
-			{if $thumbnail == "true"}
-			<a href="{$image.image_path}" class="lightbox"><img itemprop="image" src="{$image.image_thumb}" alt="{$image.name}" title="{$image.name}" />
-			{else}
-			<img src="{$image.image_path}" width="{$thumbnail_size}" alt="{$image.name}" title="{$image.name}" />
-			{/if}
+			<a href="{$image.image_path}" class="lightbox"><img itemprop="image" src="{$image.image_thumb}" alt="{$image.name}" title="{$image.name}"{if {$image.image_width} > 0} width="{$image.image_width}"{/if}{if {$image.image_height} > 0} height="{$image.image_height}"{/if} />
 			<span class="frame-overlay"></span>
 			<span class="zoom"><i class="icon-zoom-in"></i></span>
-			{if $thumbnail == "true"}
 			</a>
-			{/if}
 {if $image@index > 0}
 		</div>
 {/if}
@@ -38,11 +32,9 @@ $template = '
 	</div>
 {/if}
 {foreachelse}   
-			{if $thumbnail == "true"}
-			<img src="{$noimg_thumb}" alt="{lang}No Image{/lang}" title="{lang}No Image{/lang}" />
-			{else}
-			<img src="{$noimg_path}" width="{$thumbnail_size}" alt="{lang}No Image{/lang}" title="{lang}No Image{/lang}" />
-			{/if}           
+	<div class="thumbnail big text-center">
+			<img src="{$noimg_thumb}" alt="{lang}No Image{/lang}" title="{lang}No Image{/lang}" width="{$thumbnail_size}" height="{$thumbnail_size}" />
+	</div>
 {/foreach}    
 </div>
 ';		
@@ -65,34 +57,33 @@ function smarty_function_content_images($params, $template)
 	if(!isset($params['number']))
 		$params['number'] = null;		
 	
-	if(!isset($params['width']))
-		$params['width'] = $config['THUMBNAIL_SIZE'];
-	
-	if(!isset($params['height']))
-		$params['height'] = 100;		
-	
-	if(!isset($params['thumbnail']))
-		$params['thumbnail'] = true;
-	elseif($params['thumbnail'] == 'false')
-		$params['thumbnail'] = 'false';
-	
-	if($config['GD_LIBRARY'] == '0')
-		$params['thumbnail'] = 'false';
-	
 	$images = $ContentImage->find('all', array('limit' => $params['number'], 'conditions' => array('content_id' => $content['Content']['id'])));
 	
 	$keyed_images = array();
 	foreach($images AS $key => $value)
 	{
 		$content_id = $content['Content']['id'];
+
 		$keyed_images[$key] = $value['ContentImage'];
 		$keyed_images[$key]['name'] = $content['ContentDescription']['name'];
 		$keyed_images[$key]['image_path'] = BASE . '/img/content/' . $content_id . '/' . $value['ContentImage']['image'];
 		$keyed_images[$key]['image_thumb'] = BASE . '/images/thumb/' . $content_id . '/' . $value['ContentImage']['image'];
+
+		if($value['ContentImage']['image'] != "") {
+		$image_src = $value['ContentImage']['image'];
+		} else {
+		$image_src = 'noimage.png';
+		}
+		$thumb_cache_filename = CACHE.'thumbs'.DS.md5($image_src.$config['THUMBNAIL_SIZE']);
+		if(file_exists($thumb_cache_filename)) {
+		list($width, $height, $type, $attr) = getimagesize($thumb_cache_filename);
+		$keyed_images[$key]['image_width'] = $width;
+		$keyed_images[$key]['image_height'] = $height;
+		}
+
 	}	
 	
 	$assignments = array('images' => $keyed_images,
-						 'thumbnail' => $params['thumbnail'],
 						 'noimg_thumb' => BASE . '/images/thumb/0/noimage.png',
 						 'noimg_path' => BASE . '/img/noimage.png',
 						 'thumbnail_size' => $config['THUMBNAIL_SIZE']);
@@ -111,9 +102,6 @@ function smarty_help_function_content_images() {
 	<h3><?php echo __('What parameters does it take?') ?></h3>
 	<ul>
 		<li><em><?php echo __('(number)') ?></em> - <?php echo __('Number of images to display.') ?></li>
-		<li><em><?php echo __('(height)') ?></em> - <?php echo __('Maximum height of thumbnails.') ?></li>
-		<li><em><?php echo __('(width)') ?></em> - <?php echo __('Maximum width of thumbnails.') ?></li>
-		<li><em><?php echo __('(thumbnail)') ?></em> - <?php echo __('Set to false to disable thumbnailing of images. Defaults to true.') ?></li>		
 		<li><em><?php echo __('(template)') ?></em> - <?php echo __('Useful if you want to override the default content listing template. Setting this will utilize the template that matches this alias.') ?></li>
 	</ul>
 	<?php

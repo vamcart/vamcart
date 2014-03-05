@@ -19,7 +19,7 @@ $template = '
 				{foreach from=$element_list[0]["attributes_product"] item=node}
 				<li class="item span4 {if $node@index is div by 3}first{/if}">
 					<div class="thumbnail text-center">
-						<a href="{$node.url}" class="image"><img src="{$node.image}" alt="{$node.name}"{if isset($thumbnail_width)} width="{$thumbnail_width}"{/if} /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
+						<a href="{$node.url}" class="image"><img src="{$node.image}" alt="{$node.name}"{if {$node.image_width} > 0} width="{$node.image_width}"{/if}{if {$node.image_height} > 0} height="{$node.image_height}"{/if} /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
 					<div class="inner notop nobottom text-left">
 						<h4 class="title"><a href="{$node.url}">{$node.name}</a></h4>
 						<div class="description">{$node.short_description|strip_tags|truncate:30:"...":true}</div>
@@ -155,11 +155,25 @@ function smarty_function_compared($params)
 								else 
 									$image_url = '0/noimage.png';
 									
+								global $config;
+									
 								if($config['GD_LIBRARY'] == 0)
 									$element_list[$k_a]['attributes_product'][$k_p]['image'] =  BASE . '/img/content/' . $image_url;
 								else
 									$element_list[$k_a]['attributes_product'][$k_p]['image'] = BASE . '/images/thumb/' . $image_url;
 								
+								if($product['ContentImage']['image'] != "") {
+								$image_src = $product['ContentImage']['image'];
+								} else {
+								$image_src = 'noimage.png';
+								}
+								$thumb_cache_filename = CACHE.'thumbs'.DS.md5($image_src.$config['THUMBNAIL_SIZE']);
+								if(file_exists($thumb_cache_filename)) {
+								list($width, $height, $type, $attr) = getimagesize($thumb_cache_filename);
+								$element_list[$k_a]['attributes_product'][$k_p]['image_width'] = $width;
+								$element_list[$k_a]['attributes_product'][$k_p]['image_height'] = $height;
+								}
+												
 								if($product['ContentType']['name'] == 'link')
 								{
 									$element_list[$k_a]['attributes_product'][$k_p]['url'] = $product['ContentLink']['url'];

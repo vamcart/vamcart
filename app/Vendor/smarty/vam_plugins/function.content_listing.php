@@ -302,9 +302,18 @@ function smarty_function_content_listing($params, $template)
 				$content_list[$count]['image'] =  BASE . '/img/content/' . $image_url;
 			else
 				$content_list[$count]['image'] = BASE . '/images/thumb/' . $image_url;
-				//list($width, $height, $type, $attr) = getimagesize(Router::url(BASE . '/images/thumb/' . $image_url, true));
-				//$content_list[$count]['image_width'] = $width;
-				//$content_list[$count]['image_height'] = $height;
+
+				if($raw_data['ContentImage']['image'] != "") {
+				$image_src = $raw_data['ContentImage']['image'];
+				} else {
+				$image_src = 'noimage.png';
+				}
+				$thumb_cache_filename = CACHE.'thumbs'.DS.md5($image_src.$config['THUMBNAIL_SIZE']);
+				if(file_exists($thumb_cache_filename)) {
+				list($width, $height, $type, $attr) = getimagesize($thumb_cache_filename);
+				$content_list[$count]['image_width'] = $width;
+				$content_list[$count]['image_height'] = $height;
+				}
 			
 			if($raw_data['ContentType']['name'] == 'link')
 			{

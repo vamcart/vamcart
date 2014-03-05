@@ -18,21 +18,7 @@ function default_template_xsell()
 		{foreach from=$relations item=node}
       <li class="item span4 {if $node@index is div by 3}first{/if}">
 			<div class="thumbnail text-center">
-
-				{if sizeof($node.image) > 0 }
-				{if $thumbnail == "true"}
-				<a href="{$node.url}" class="image"><img src="{$node.image.image_thumb}" alt="{$node.image.image}" /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
-				{else}
-				<a href="{$node.url}" class="image"><img src="{$node_product.image.image_path}" width="{$thumbnail_size}" alt="{$node.image.image}" /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
-				{/if}
-				{else}
-				{if $thumbnail == "true"}
-				<a href="{$node.url}" class="image"><img src="{$noimg_thumb}" alt="{lang}No Image{/lang}" /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
-				{else}
-				<a href="{$node.url}" class="image"><img src="{$noimg_path}" width="{$thumbnail_size}" alt="{lang}No Image{/lang}" /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
-				{/if}
-				{/if}
-				
+				<a href="{$node.url}" class="image"><img src="{$node.image.image_thumb}" alt="{$node.name}"{if {$node.image.image_width} > 0} width="{$node.image.image_width}"{/if}{if {$node.image.image_height} > 0} height="{$node.image.image_height}"{/if} /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
 			<div class="inner notop nobottom text-left">
 				<h4 class="title"><a href="{$node.url}">{$node.name}</a></h4>
 				<p class="description">{$node.short_description|strip_tags|truncate:30:"...":true}</p>
@@ -72,35 +58,32 @@ function smarty_function_xsell($params, &$smarty)
 	App::uses('CurrencyBaseComponent', 'Controller/Component');
 	$CurrencyBase = new CurrencyBaseComponent(new ComponentCollection());
 
-	if(!isset($params['number']))
-		$params['number'] = null;
-
-	if(!isset($params['width']))
-		$params['width'] = $config['THUMBNAIL_SIZE'];
-
-	if(!isset($params['height']))
-		$params['height'] = 100;
-
-	if(!isset($params['thumbnail']))
-		$params['thumbnail'] = 'true';
-	elseif($params['thumbnail'] == 'false')
-		$params['thumbnail'] = 'false';
-
-	if($config['GD_LIBRARY'] == '0')
-		$params['thumbnail'] = 'false';
-
 	$language_id = $content['ContentDescription']['language_id'];
 
 	foreach ($content['ContentRelations'] as $key => $related) {
 		$image = $ContentImage->find('first', array('conditions' => array('content_id' => $content['ContentRelations'][$key]['id'])));
-		if (isset($image['ContentImage'])) {
-			$content_id = $image['ContentImage']['content_id'];
-			$content['ContentRelations'][$key]['image'] = $image['ContentImage'];
-			$content['ContentRelations'][$key]['image']['image_path'] = BASE . '/img/content/' . $content_id . '/' . $image['ContentImage']['image'];
-			$content['ContentRelations'][$key]['image']['image_thumb'] =  BASE . '/images/thumb/' . $content_id . '/' . $image['ContentImage']['image'];
+
+		if (isset($image['ContentImage']))
+			$image_url = $content['ContentRelations'][$key]['id'] . '/' . $image['ContentImage']['image'];
+		else 
+			$image_url = '0/noimage.png';
+			
+		if($config['GD_LIBRARY'] == 0)
+			$content['ContentRelations'][$key]['image']['image_thumb'] =  BASE . '/img/content/' . $image_url;
+		else
+			$content['ContentRelations'][$key]['image']['image_thumb'] = BASE . '/images/thumb/' . $image_url;
+
+		if($image['ContentImage']['image'] != "") {
+		$image_src = $image['ContentImage']['image'];
 		} else {
-		    $content['ContentRelations'][$key]['image'] = array();
+		$image_src = 'noimage.png';
 		}
+		$thumb_cache_filename = CACHE.'thumbs'.DS.md5($image_src.$config['THUMBNAIL_SIZE']);
+		if(file_exists($thumb_cache_filename)) {
+		list($width, $height, $type, $attr) = getimagesize($thumb_cache_filename);
+		$content['ContentRelations'][$key]['image']['image_width'] = $width;
+		$content['ContentRelations'][$key]['image']['image_height'] = $height;
+		}		
 		
 		$product = $Content->find('first', array('conditions' => array('Content.id' => $content['ContentRelations'][$key]['id'])));
 		$content['ContentRelations'][$key]['id'] = $content['ContentRelations'][$key]['id'];

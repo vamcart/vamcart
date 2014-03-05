@@ -15,7 +15,7 @@ $template = '
 		<ul class="icons clearfix">
 			{foreach from=$element_list item=element}
 				<li>{$element.ContentDescription.name} 
-					<a href="{$base_url}/delcmp/{$element.Content.alias}/{$base_content}"><img alt="{lang}Remove{/lang}" title="{lang}Remove{/lang}" src="{base_path}/img/icons/delete.png" /></a>
+					<a href="{$base_url}/delcmp/{$element.Content.alias}/{$base_content}"><img src="{base_path}/img/icons/delete.png" alt="{lang}Remove{/lang}" title="{lang}Remove{/lang}" width="16" height="16" /></a>
 				</li>
          {/foreach}
 		</ul>

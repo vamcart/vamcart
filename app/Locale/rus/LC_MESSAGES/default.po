@@ -1415,30 +1415,6 @@ msgstr "(number)"
 msgid "Number of images to display."
 msgstr "Количество выводимых картинок."
 
-#: /vendors/smarty/vam_plugins/function.content_images.php:106
-msgid "(height)"
-msgstr "(height)"
-
-#: /vendors/smarty/vam_plugins/function.content_images.php:106
-msgid "Maximum height of thumbnails."
-msgstr "Максимальная высота картинки."
-
-#: /vendors/smarty/vam_plugins/function.content_images.php:107
-msgid "(width)"
-msgstr "(width)"
-
-#: /vendors/smarty/vam_plugins/function.content_images.php:107
-msgid "Maximum width of thumbnails."
-msgstr "Максимальная ширина картинки."
-
-#: /vendors/smarty/vam_plugins/function.content_images.php:108
-msgid "(thumbnail)"
-msgstr "(thumbnail)"
-
-#: /vendors/smarty/vam_plugins/function.content_images.php:108
-msgid "Set to false to disable thumbnailing of images. Defaults to true."
-msgstr "Установите в false что б не уменьшать картинку. Значение по умолчанию: true"
-
 #: /vendors/smarty/vam_plugins/function.content_listing.php:174
 msgid "Displays a list of content items depending on the parent of those items."
 msgstr "Выводит список содержимого."
