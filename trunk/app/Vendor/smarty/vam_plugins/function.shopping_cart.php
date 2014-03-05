@@ -23,7 +23,7 @@ $template = '
 
 {foreach from=$order_items item=product}
 		<tr>
-			<td align="center"><img class="media-object" src="{$product.image.image_thumb}" alt="" title="" /></td>
+			<td align="center"><img class="media-object" src="{$product.image.image_thumb}" alt="" title=""{if {$product.image.image_width} > 0} width="{$product.image.image_width}"{/if}{if {$product.image.image_height} > 0} height="{$product.image.image_height}"{/if} /></td>
 			<td><a href="{$product.link}">{$product.name}</a> <a href="{base_path}/cart/remove_product/{$product.id}/1" class="remove" title="{lang}Remove{/lang}"><i class="icon-trash"></i></a></td>
 			<td>{$product.price}</td>
 			<td><input type="text" name="qty[{$product.id}]" class="input-small" value="{$product.qty}" size="3" /></td>
@@ -105,6 +105,18 @@ function smarty_function_shopping_cart($params, $template)
 			$image['image'] = true;
 			$image['image_path'] = BASE . '/img/noimage.png';
 			$image['image_thumb'] = BASE . '/images/thumb/0/noimage.png/40/40';
+		}
+
+		if($content_image != "") {
+		$image_src = $content_image;
+		} else {
+		$image_src = 'noimage.png';
+		}
+		$thumb_cache_filename = CACHE.'thumbs'.DS.md5($image_src.'40');
+		if(file_exists($thumb_cache_filename)) {
+		list($width, $height, $type, $attr) = getimagesize($thumb_cache_filename);
+		$image['image_width'] = $width;
+		$image['image_height'] = $height;
 		}
 		
 		$order_items[$content_id] = array(

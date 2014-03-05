@@ -29,7 +29,7 @@ $template = '
 		{foreach from=$content_list item=node}
 		<li class="item span4 {if $node@index is div by 3}first{/if}">
 			<div class="thumbnail text-center">
-				<a href="{$node.url}" class="image"><img src="{$node.image}" alt="{$node.name}"{if isset($thumbnail_width)} width="{$thumbnail_width}"{/if} /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
+				<a href="{$node.url}" class="image"><img src="{$node.image}" alt="{$node.name}"{if {$node.image_width} > 0} width="{$node.image_width}"{/if}{if {$node.image_height} > 0} height="{$node.image_height}"{/if} /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
 			<div class="inner notop nobottom text-left">
 				<h4 class="title"><a href="{$node.url}">{$node.name}</a></h4>
 				<div class="description">{$node.short_description|strip_tags|truncate:30:"...":true}</div>
@@ -194,6 +194,18 @@ function smarty_function_search_result($params, $template)
 				$content_list[$count]['image'] =  BASE . '/img/content/' . $image_url;
 			} else {
 				$content_list[$count]['image'] = BASE . '/images/thumb/' . $image_url;
+			}
+
+			if($raw_data['ContentImage']['image'] != "") {
+			$image_src = $raw_data['ContentImage']['image'];
+			} else {
+			$image_src = 'noimage.png';
+			}
+			$thumb_cache_filename = CACHE.'thumbs'.DS.md5($image_src.$config['THUMBNAIL_SIZE']);
+			if(file_exists($thumb_cache_filename)) {
+			list($width, $height, $type, $attr) = getimagesize($thumb_cache_filename);
+			$content_list[$count]['image_width'] = $width;
+			$content_list[$count]['image_height'] = $height;
 			}
 
 			$content_list[$count]['url']    = BASE . '/' . $raw_data['ContentType']['name'] . '/' . $raw_data['Content']['alias'] . $config['URL_EXTENSION'];
