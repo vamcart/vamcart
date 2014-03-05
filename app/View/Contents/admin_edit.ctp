@@ -283,13 +283,13 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 			   		'label' => __('Sort Order'),				   
 						'value' => isset($data['Content']['order']) ? $data['Content']['order'] : '0'
 					));
-			echo $this->Form->input('Content.head_data', 
-					array(
-						'label' => __('Head Data'),
-						'type' => 'textarea',
-						'class' => 'notinymce',
-						'value' => isset($data['Content']['head_data']) ? $data['Content']['head_data'] : ''
-	            ));				
+			//echo $this->Form->input('Content.head_data', 
+					//array(
+						//'label' => __('Head Data'),
+						//'type' => 'textarea',
+						//'class' => 'notinymce',
+						//'value' => isset($data['Content']['head_data']) ? $data['Content']['head_data'] : ''
+	            //));				
 			echo $this->Form->input('Content.active', 
 					array(
 						'type' => 'checkbox',

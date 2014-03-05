@@ -15,14 +15,14 @@ $this->Html->script(array(
 
 	echo $this->Form->create('Content', array('id' => 'contentform', 'name' => 'contentform','enctype' => 'multipart/form-data', 'action' => '/contents/admin_edit/'.$data['Content']['id'], 'url' => '/contents/admin_edit/'.$data['Content']['id']));
 	
-			echo '<ul id="myTab" class="nav nav-tabs">';
-			echo $this->Admin->CreateTab('main',__('Main'), 'cus-application');
-			echo $this->Admin->CreateTab('options',__('Options'), 'cus-cog');			
-			echo '</ul>';
+			//echo '<ul id="myTab" class="nav nav-tabs">';
+			//echo $this->Admin->CreateTab('main',__('Main'), 'cus-application');
+			//echo $this->Admin->CreateTab('options',__('Options'), 'cus-cog');			
+			//echo '</ul>';
 
-	echo $this->Admin->StartTabs();
+	//echo $this->Admin->StartTabs();
 	
-	echo $this->Admin->StartTabContent('main');
+	//echo $this->Admin->StartTabContent('main');
 		echo $this->Form->input('Content.id', 
 						array(
 							'type' => 'hidden',
@@ -113,29 +113,29 @@ $this->Html->script(array(
 		
 	echo $this->Admin->EndTabs();
 		
-	echo $this->Admin->EndTabContent();
+	//echo $this->Admin->EndTabContent();
 
-	echo $this->Admin->StartTabContent('options');
+	//echo $this->Admin->StartTabContent('options');
 			echo $this->Form->input('Content.alias', 
 					array(
 			   		'type' => 'hidden',
 						'value' => $data['Content']['alias']
 					));
-			echo $this->Form->input('Content.head_data', 
-					array(
-						'label' => __('Head Data'),
-						'type' => 'textarea',
-						'class' => 'pagesmalltextarea',
-						'value' => $data['Content']['head_data']
-					));				
+			//echo $this->Form->input('Content.head_data', 
+					//array(
+						//'label' => __('Head Data'),
+						//'type' => 'textarea',
+						//'class' => 'pagesmalltextarea',
+						//'value' => $data['Content']['head_data']
+					//));				
 			echo $this->Form->input('Content.active', 
 					array(
 						'type' => 'hidden',
 						'value' => '1'
 					));
-	echo $this->Admin->EndTabContent();
+	//echo $this->Admin->EndTabContent();
 
-	echo $this->Admin->EndTabs();
+	//echo $this->Admin->EndTabs();
 	
 	echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn', 'type' => 'submit', 'name' => 'submitbutton', 'id' => 'submitbutton')) . $this->Admin->formButton(__('Apply'), 'cus-disk', array('class' => 'btn', 'type' => 'submit', 'name' => 'applybutton')) . $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn', 'type' => 'submit', 'name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';
