@@ -8,7 +8,7 @@
 class CartController extends AppController {
 	public $name = 'Cart';
 	public $uses = array('Content','Order');
-	public $components = array('ConfigurationBase', 'ContentBase', 'OrderBase', 'Smarty', 'EventBase', 'Gzip.Gzip');
+	public $components = array('ConfigurationBase', 'ContentBase', 'OrderBase', 'Smarty', 'EventBase');
 
 	public function remove_product ($product_id, $qty = 9999) {
 		$this->OrderBase->remove_product($product_id, $qty);
