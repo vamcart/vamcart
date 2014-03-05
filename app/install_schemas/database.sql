@@ -73,7 +73,9 @@ CREATE TABLE `contents` (
   `created` datetime,
   `modified` datetime,
   PRIMARY KEY  (`id`),
-  INDEX content_id (parent_id,alias,active)
+  INDEX active (active),
+  INDEX content_id (parent_id,alias,active),
+  INDEX yml_export (yml_export)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `contents` VALUES 

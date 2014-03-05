@@ -43,13 +43,11 @@ class SitemapsController extends AppController {
 			'Content.show_in_menu' => '1'
 		);
 
-		$Content->recursive = 2;
+		$Content->recursive = 1;
 
 		$content_list_data = $Content->find('all', array(
+			'fields' => array('Content.id', 'Content.alias','Content.content_type_id', 'Content.modified', 'ContentType.name'),
 			'conditions' => $content_list_data_conditions,
-			'order' => array(
-				'Content.order ASC'
-			)
 		));
 
 		// Loop through the content list and create a new array with only what the template needs
@@ -159,9 +157,6 @@ class SitemapsController extends AppController {
 
 		$content_list_data = $Content->find('all', array(
 			'conditions' => $content_list_data_conditions,
-			'order' => array(
-				'Content.order ASC'
-			)
 		));
 
 		// Loop through the content list and create a new array with only what the template needs
