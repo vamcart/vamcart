@@ -153,7 +153,7 @@ class SitemapsController extends AppController {
 			'Content.yml_export' => '1'
 		);
 
-		$Content->recursive = 2;
+		$Content->recursive = 1;
 
 		$content_list_data = $Content->find('all', array(
 			'conditions' => $content_list_data_conditions,
