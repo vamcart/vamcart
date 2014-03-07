@@ -97,26 +97,48 @@ function smarty_function_shopping_cart($params, $template)
 		$total_weight += $cart_item['weight']*$cart_item['quantity'];
 		$image = array();
 		$content_image = $ContentBase->get_content_image($cart_item['content_id']);
-		if ($content_image != '') {
-			$image['image'] = true;
-			$image['image_path'] = BASE . '/img/content/' . $content_id . '/' . $content_image;
-			$image['image_thumb'] = BASE . '/images/thumb/' . $content_id . '/' . $content_image . '/40/40';
-		} else {
-			$image['image'] = true;
-			$image['image_path'] = BASE . '/img/noimage.png';
-			$image['image_thumb'] = BASE . '/images/thumb/0/noimage.png/40/40';
-		}
 
+		// Content Image
+		
 		if($content_image != "") {
-		$image_src = $content_image;
-		} else {
-		$image_src = 'noimage.png';
-		}
-		$thumb_cache_filename = CACHE.'thumbs'.DS.md5($image_src.'40');
-		if(file_exists($thumb_cache_filename)) {
-		list($width, $height, $type, $attr) = getimagesize($thumb_cache_filename);
-		$image['image_width'] = $width;
-		$image['image_height'] = $height;
+			$image_url = $content_id . '/' . $content_image . '/40';
+			$thumb_name = substr_replace($content_image , '', strrpos($content_image , '.')).'-40.png';	
+			$thumb_path = IMAGES . 'content' . '/' . $content_id . '/' . $thumb_name;
+			$thumb_url = BASE . '/img/content/' . $content_id . '/' . $thumb_name;
+
+				if(file_exists($thumb_path) && is_file($thumb_path)) {
+					list($width, $height, $type, $attr) = getimagesize($thumb_path);
+					$image['image'] = true;
+					$image['image_thumb'] =  $thumb_url;
+					$image['image_width'] = $width;
+					$image['image_height'] = $height;
+				} else {
+					$image['image'] = true;
+					$image['image_thumb'] = BASE . '/images/thumb/' . $image_url;
+					$image['image_width'] = null;
+					$image['image_height'] = null;
+				}
+
+		} else { 
+
+			$image_url = '0/noimage.png/40';
+			$thumb_name = 'noimage-40.png';	
+			$thumb_path = IMAGES . 'content' . '/0/' . $thumb_name;
+			$thumb_url = BASE . '/img/content' . '/0/' . $thumb_name;
+
+				if(file_exists($thumb_path) && is_file($thumb_path)) {
+					list($width, $height, $type, $attr) = getimagesize($thumb_path);
+					$image['image'] = true;
+					$image['image_thumb'] =  $thumb_url;
+					$image['image_width'] = $width;
+					$image['image_height'] = $height;
+				} else {
+					$image['image'] = true;
+					$image['image_thumb'] = BASE . '/images/thumb/' . $image_url;
+					$image['image_width'] = null;
+					$image['image_height'] = null;
+				}
+
 		}
 		
 		$order_items[$content_id] = array(

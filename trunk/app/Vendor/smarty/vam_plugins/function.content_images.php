@@ -33,7 +33,7 @@ $template = '
 {/if}
 {foreachelse}   
 	<div class="thumbnail big text-center">
-			<img src="{$noimg_thumb}" alt="{lang}No Image{/lang}" title="{lang}No Image{/lang}" width="{$thumbnail_size}" height="{$thumbnail_size}" />
+			<img src="{$noimg_path}" alt="{lang}No Image{/lang}" title="{lang}No Image{/lang}" width="{$thumbnail_size}" height="{$thumbnail_size}" />
 	</div>
 {/foreach}    
 </div>
@@ -64,23 +64,49 @@ function smarty_function_content_images($params, $template)
 	{
 		$content_id = $content['Content']['id'];
 
-		$keyed_images[$key] = $value['ContentImage'];
-		$keyed_images[$key]['name'] = $content['ContentDescription']['name'];
-		$keyed_images[$key]['image_path'] = BASE . '/img/content/' . $content_id . '/' . $value['ContentImage']['image'];
-		$keyed_images[$key]['image_thumb'] = BASE . '/images/thumb/' . $content_id . '/' . $value['ContentImage']['image'];
+			// Content Image
 
-		if($value['ContentImage']['image'] != "") {
-		$image_src = $value['ContentImage']['image'];
-		} else {
-		$image_src = 'noimage.png';
-		}
-		$thumb_cache_filename = CACHE.'thumbs'.DS.md5($image_src.$config['THUMBNAIL_SIZE']);
-		if(file_exists($thumb_cache_filename)) {
-		list($width, $height, $type, $attr) = getimagesize($thumb_cache_filename);
-		$keyed_images[$key]['image_width'] = $width;
-		$keyed_images[$key]['image_height'] = $height;
-		}
+			if($value['ContentImage']['image'] != "") {
+				$image_url = $content_id . '/' . $value['ContentImage']['image'];
+				$thumb_name = substr_replace($value['ContentImage']['image'] , '', strrpos($value['ContentImage']['image'] , '.')).'-'.$config['THUMBNAIL_SIZE'].'.png';	
+				$thumb_path = IMAGES . 'content' . '/' . $content_id . '/' . $thumb_name;
+				$thumb_url = BASE . '/img/content/' . $content_id . '/' . $thumb_name;
 
+					if(file_exists($thumb_path) && is_file($thumb_path)) {
+						list($width, $height, $type, $attr) = getimagesize($thumb_path);
+						$keyed_images[$key]['image_path'] =  BASE . '/img/content/' . $content_id . '/' . $value['ContentImage']['image'];
+						$keyed_images[$key]['image_thumb'] =  $thumb_url;
+						$keyed_images[$key]['image_width'] = $width;
+						$keyed_images[$key]['image_height'] = $height;
+					} else {
+						$keyed_images[$key]['image'] =  BASE . '/img/content/' . $content_id . '/' . $value['ContentImage']['image'];
+						$keyed_images[$key]['image_thumb'] = BASE . '/images/thumb/' . $image_url;
+						$keyed_images[$key]['image_width'] = null;
+						$keyed_images[$key]['image_height'] = null;
+					}
+
+			} else { 
+
+				$image_url = '0/noimage.png';
+				$thumb_name = 'noimage-'.$config['THUMBNAIL_SIZE'].'.png';	
+				$thumb_path = IMAGES . 'content' . '/0/' . $thumb_name;
+				$thumb_url = BASE . '/img/content' . '/0/' . $thumb_name;
+
+					if(file_exists($thumb_path) && is_file($thumb_path)) {
+						list($width, $height, $type, $attr) = getimagesize($thumb_path);
+						$keyed_images[$key]['image_path'] =  BASE . '/img/noimage.png';
+						$keyed_images[$key]['image_thumb'] =  $thumb_url;
+						$keyed_images[$key]['image_width'] = $width;
+						$keyed_images[$key]['image_height'] = $height;
+					} else {
+						$keyed_images[$key]['image'] =  BASE . '/img/noimage.png';
+						$keyed_images[$key]['image_thumb'] = BASE . '/images/thumb/' . $image_url;
+						$keyed_images[$key]['image_width'] = null;
+						$keyed_images[$key]['image_height'] = null;
+					}
+
+			}
+			
 	}	
 	
 	$assignments = array('images' => $keyed_images,

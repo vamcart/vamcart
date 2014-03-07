@@ -289,15 +289,11 @@ function smarty_function_content_listing($params, $template)
                             $content_list[$count]['attributes'][$attribute['parent_id']]['value'] = $attribute['val'];
                         }
 
-				$content_list[$count]['image'] =  false;
-				$content_list[$count]['image_width'] = 0;
-				$content_list[$count]['image_height'] = 0;
-
+			// Content Image
+			
 			if($raw_data['ContentImage']['image'] != "") {
 				$image_url = $raw_data['Content']['id'] . '/' . $raw_data['ContentImage']['image'];
-				$image_path = IMAGES . 'content' . '/' . $image_url;
-				$image_src = $raw_data['ContentImage']['image'];
-				$thumb_name = str_replace('.png','',$raw_data['ContentImage']['image']).'-'.$config['THUMBNAIL_SIZE'].'.png';	
+				$thumb_name = substr_replace($raw_data['ContentImage']['image'] , '', strrpos($raw_data['ContentImage']['image'] , '.')).'-'.$config['THUMBNAIL_SIZE'].'.png';	
 				$thumb_path = IMAGES . 'content' . '/' . $raw_data['Content']['id'] . '/' . $thumb_name;
 				$thumb_url = BASE . '/img/content/' . $raw_data['Content']['id'] . '/' . $thumb_name;
 
@@ -315,7 +311,6 @@ function smarty_function_content_listing($params, $template)
 			} else { 
 
 				$image_url = '0/noimage.png';
-				$image_path = IMAGES . '/' . $image_url;
 				$thumb_name = 'noimage-'.$config['THUMBNAIL_SIZE'].'.png';	
 				$thumb_path = IMAGES . 'content' . '/0/' . $thumb_name;
 				$thumb_url = BASE . '/img/content' . '/0/' . $thumb_name;

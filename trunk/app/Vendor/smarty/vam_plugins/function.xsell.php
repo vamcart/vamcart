@@ -18,7 +18,7 @@ function default_template_xsell()
 		{foreach from=$relations item=node}
       <li class="item span4 {if $node@index is div by 3}first{/if}">
 			<div class="thumbnail text-center">
-				<a href="{$node.url}" class="image"><img src="{$node.image.image_thumb}" alt="{$node.name}"{if {$node.image.image_width} > 0} width="{$node.image.image_width}"{/if}{if {$node.image.image_height} > 0} height="{$node.image.image_height}"{/if} /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
+				<a href="{$node.url}" class="image"><img src="{$node.image.image}" alt="{$node.name}"{if {$node.image.image_width} > 0} width="{$node.image.image_width}"{/if}{if {$node.image.image_height} > 0} height="{$node.image.image_height}"{/if} /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
 			<div class="inner notop nobottom text-left">
 				<h4 class="title"><a href="{$node.url}">{$node.name}</a></h4>
 				<p class="description">{$node.short_description|strip_tags|truncate:30:"...":true}</p>
@@ -63,27 +63,44 @@ function smarty_function_xsell($params, &$smarty)
 	foreach ($content['ContentRelations'] as $key => $related) {
 		$image = $ContentImage->find('first', array('conditions' => array('content_id' => $content['ContentRelations'][$key]['id'])));
 
-		if (isset($image['ContentImage']))
-			$image_url = $content['ContentRelations'][$key]['id'] . '/' . $image['ContentImage']['image'];
-		else 
-			$image_url = '0/noimage.png';
-			
-		if($config['GD_LIBRARY'] == 0)
-			$content['ContentRelations'][$key]['image']['image_thumb'] =  BASE . '/img/content/' . $image_url;
-		else
-			$content['ContentRelations'][$key]['image']['image_thumb'] = BASE . '/images/thumb/' . $image_url;
-
+		// Content Image
+		
 		if($image['ContentImage']['image'] != "") {
-		$image_src = $image['ContentImage']['image'];
-		} else {
-		$image_src = 'noimage.png';
+			$image_url = $content['ContentRelations'][$key]['id'] . '/' . $image['ContentImage']['image'];
+			$thumb_name = substr_replace($image['ContentImage']['image'] , '', strrpos($image['ContentImage']['image'] , '.')).'-'.$config['THUMBNAIL_SIZE'].'.png';	
+			$thumb_path = IMAGES . 'content' . '/' . $content['ContentRelations'][$key]['id'] . '/' . $thumb_name;
+			$thumb_url = BASE . '/img/content/' . $content['ContentRelations'][$key]['id'] . '/' . $thumb_name;
+
+				if(file_exists($thumb_path) && is_file($thumb_path)) {
+					list($width, $height, $type, $attr) = getimagesize($thumb_path);
+					$content['ContentRelations'][$key]['image']['image'] =  $thumb_url;
+					$content['ContentRelations'][$key]['image']['image_width'] = $width;
+					$content['ContentRelations'][$key]['image']['image_height'] = $height;
+				} else {
+					$content['ContentRelations'][$key]['image']['image'] = BASE . '/images/thumb/' . $image_url;
+					$content['ContentRelations'][$key]['image']['image_width'] = null;
+					$content['ContentRelations'][$key]['image']['image_height'] = null;
+				}
+
+		} else { 
+
+			$image_url = '0/noimage.png';
+			$thumb_name = 'noimage-'.$config['THUMBNAIL_SIZE'].'.png';	
+			$thumb_path = IMAGES . 'content' . '/0/' . $thumb_name;
+			$thumb_url = BASE . '/img/content' . '/0/' . $thumb_name;
+
+				if(file_exists($thumb_path) && is_file($thumb_path)) {
+					list($width, $height, $type, $attr) = getimagesize($thumb_path);
+					$content['ContentRelations'][$key]['image']['image'] =  $thumb_url;
+					$content['ContentRelations'][$key]['image']['image_width'] = $width;
+					$content['ContentRelations'][$key]['image']['image_height'] = $height;
+				} else {
+					$content['ContentRelations'][$key]['image']['image'] = BASE . '/images/thumb/' . $image_url;
+					$content['ContentRelations'][$key]['image']['image_width'] = null;
+					$content['ContentRelations'][$key]['image']['image_height'] = null;
+				}
+
 		}
-		$thumb_cache_filename = CACHE.'thumbs'.DS.md5($image_src.$config['THUMBNAIL_SIZE']);
-		if(file_exists($thumb_cache_filename)) {
-		list($width, $height, $type, $attr) = getimagesize($thumb_cache_filename);
-		$content['ContentRelations'][$key]['image']['image_width'] = $width;
-		$content['ContentRelations'][$key]['image']['image_height'] = $height;
-		}		
 		
 		$product = $Content->find('first', array('conditions' => array('Content.id' => $content['ContentRelations'][$key]['id'])));
 		$content['ContentRelations'][$key]['id'] = $content['ContentRelations'][$key]['id'];
@@ -97,12 +114,7 @@ function smarty_function_xsell($params, &$smarty)
 		$content['ContentRelations'][$key]['short_description'] = $product['ContentDescription']['short_description'];
 	}
 
-	$assignments = array('relations' => $content['ContentRelations'],
-			     'thumbnail' => $params['thumbnail'],
-			     'noimg_thumb' => BASE . '/images/thumb/0/noimage.png',
-			     'noimg_path' => BASE . '/img/noimage.png',
-			     'thumbnail_size' => $config['THUMBNAIL_SIZE']
-			);
+	$assignments = array('relations' => $content['ContentRelations']);
 
 	$display_template = $Smarty->load_template($params, 'xsell');
 	$Smarty->display($display_template, $assignments);

@@ -59,7 +59,7 @@ class ImagesController extends AppController {
                 $phpThumb->config_cache_disable_warning = true;
                 
                 
-                $cacheFilename = str_replace('.png','',$src).'-'.$width.'.'.$phpThumb->config_output_format;
+                $cacheFilename = substr_replace($src , '', strrpos($src , '.')).'-'.$width.'.'.$phpThumb->config_output_format;
                 
                 $phpThumb->cache_filename = $phpThumb->config_cache_directory.$cacheFilename;
                 

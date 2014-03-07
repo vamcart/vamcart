@@ -182,16 +182,35 @@ class SitemapsController extends AppController {
 					$content_list_products[$count_products]['description'] = strip_tags($raw_data['ContentDescription']['description']);
 					$content_list_products[$count_products]['short_description'] = strip_tags($raw_data['ContentDescription']['short_description']);
 
-					if ($raw_data['ContentImage']['image'] != "") {
+					// Content Image
+					
+					if($raw_data['ContentImage']['image'] != "") {
 						$image_url = $raw_data['Content']['id'] . '/' . $raw_data['ContentImage']['image'];
-					} else {
+						$thumb_name = substr_replace($raw_data['ContentImage']['image'] , '', strrpos($raw_data['ContentImage']['image'] , '.')).'-'.$config['THUMBNAIL_SIZE'].'.png';	
+						$thumb_path = IMAGES . 'content' . '/' . $raw_data['Content']['id'] . '/' . $thumb_name;
+						$thumb_url = BASE . '/img/content/' . $raw_data['Content']['id'] . '/' . $thumb_name;
+		
+							if(file_exists($thumb_path) && is_file($thumb_path)) {
+								list($width, $height, $type, $attr) = getimagesize($thumb_path);
+								$content_list_products[$count_products]['image'] =  $thumb_url;
+							} else {
+								$content_list_products[$count_products]['image'] = BASE . '/images/thumb/' . $image_url;
+							}
+		
+					} else { 
+		
 						$image_url = '0/noimage.png';
-					}
-
-					if ($config['GD_LIBRARY'] == 0) {
-						$content_list_products[$count_products]['image'] =  '/img/content/' . $image_url;
-					} else {
-						$content_list_products[$count_products]['image'] = '/images/thumb/' . $image_url;
+						$thumb_name = 'noimage-'.$config['THUMBNAIL_SIZE'].'.png';	
+						$thumb_path = IMAGES . 'content' . '/0/' . $thumb_name;
+						$thumb_url = BASE . '/img/content' . '/0/' . $thumb_name;
+		
+							if(file_exists($thumb_path) && is_file($thumb_path)) {
+								list($width, $height, $type, $attr) = getimagesize($thumb_path);
+								$content_list_products[$count_products]['image'] =  $thumb_url;
+							} else {
+								$content_list_products[$count_products]['image'] = BASE . '/images/thumb/' . $image_url;
+							}
+		
 					}
 
 					$count_products++;
