@@ -31,10 +31,11 @@ class InstallController extends AppController {
 		WWW_ROOT . 'files/', 
 		TMP, 
 		CACHE, 
-		CACHE . '/smarty_cache', 
-		CACHE . '/smarty_templates_c', 
-		TMP . 'updates/', 
-		TMP . 'modules/');
+		CACHE . DS . 'catalog', 
+		CACHE . DS . 'smarty_cache', 
+		CACHE . DS . 'smarty_templates_c', 
+		TMP . 'updates', 
+		TMP . 'modules');
 		$install_checks = array();
 		
 		foreach($dirs_to_check AS $dir)
