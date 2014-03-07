@@ -35,7 +35,7 @@ function smarty_function_currency_box($params, $template)
 {
 		// Cache the output.
    		$cache_name = 'vam_currency_output' . (isset($params['template'])?'_'.$params['template']:'') . '_' . $_SESSION['Customer']['language_id'] . '_' . $_SESSION['Customer']['currency_id'];
-    	$currency_output = Cache::read($cache_name);
+    	$currency_output = Cache::read($cache_name, 'catalog');
    		if($currency_output === false)
     	{
     		ob_start();
@@ -66,7 +66,7 @@ function smarty_function_currency_box($params, $template)
 		// Write the output to cache and echo them
 		$currency_output = @ob_get_contents();
 		ob_end_clean();	
-		Cache::write($cache_name, $currency_output);		
+		Cache::write($cache_name, $currency_output, 'catalog');		
 	}
 	echo $currency_output;
 

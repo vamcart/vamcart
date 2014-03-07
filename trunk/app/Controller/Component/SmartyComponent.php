@@ -31,7 +31,7 @@ class SmartyComponent extends Component
 		if(isset($params['template'])) {
 			// Cache the output.
 			$cache_name = 'vam_plugin_template_' .  $params['template'];
-			$output = Cache::read($cache_name);
+			$output = Cache::read($cache_name, 'catalog');
 			if ($output === false) {
 				ob_start();
 
@@ -46,7 +46,7 @@ class SmartyComponent extends Component
 				// End of cache
 				$output = @ob_get_contents();
 				ob_end_clean();
-				Cache::write($cache_name, $output);
+				Cache::write($cache_name, $output, 'catalog');
 			}
 			$display_template = $output;
 		} else {

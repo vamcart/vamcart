@@ -31,7 +31,7 @@ class CurrencyBaseComponent extends Object
 	public function display_price ($price)
 	{
 		// Start Cache
-		$currency = Cache::read('vam_currency_' . $_SESSION['Customer']['currency_id']);
+		$currency = Cache::read('vam_currency_' . $_SESSION['Customer']['currency_id'], 'catalog');
 		if($currency === false)
 		{
 		
@@ -40,7 +40,7 @@ class CurrencyBaseComponent extends Object
 	
 			$currency = $Currency->read(null, $_SESSION['Customer']['currency_id']);
 
-			Cache::write('vam_currency_' . $_SESSION['Customer']['currency_id'], $currency);
+			Cache::write('vam_currency_' . $_SESSION['Customer']['currency_id'], $currency, 'catalog');
 		}
 
 		$price = $price * $currency['Currency']['value'];
