@@ -289,31 +289,49 @@ function smarty_function_content_listing($params, $template)
                             $content_list[$count]['attributes'][$attribute['parent_id']]['value'] = $attribute['val'];
                         }
 
-		if (isset($raw_data['ContentImage']['image']) && file_exists(IMAGES . 'content/' . $raw_data['Content']['id'] . '/' . $raw_data['ContentImage']['image'])) {
-			$content_list[$count]['icon']	= BASE . '/img/content/' . $raw_data['Content']['id'] . '/' . $raw_data['ContentImage']['image'];
-		}
-		
-			if($raw_data['ContentImage']['image'] != "")
-				$image_url = $raw_data['Content']['id'] . '/' . $raw_data['ContentImage']['image'];
-			else 
-				$image_url = '0/noimage.png';
-				
-			if($config['GD_LIBRARY'] == 0)
-				$content_list[$count]['image'] =  BASE . '/img/content/' . $image_url;
-			else
-				$content_list[$count]['image'] = BASE . '/images/thumb/' . $image_url;
+				$content_list[$count]['image'] =  false;
+				$content_list[$count]['image_width'] = 0;
+				$content_list[$count]['image_height'] = 0;
 
-				if($raw_data['ContentImage']['image'] != "") {
+			if($raw_data['ContentImage']['image'] != "") {
+				$image_url = $raw_data['Content']['id'] . '/' . $raw_data['ContentImage']['image'];
+				$image_path = IMAGES . 'content' . '/' . $image_url;
 				$image_src = $raw_data['ContentImage']['image'];
-				} else {
-				$image_src = 'noimage.png';
-				}
-				$thumb_cache_filename = CACHE.'thumbs'.DS.md5($image_src.$config['THUMBNAIL_SIZE']);
-				if(file_exists($thumb_cache_filename)) {
-				list($width, $height, $type, $attr) = getimagesize($thumb_cache_filename);
-				$content_list[$count]['image_width'] = $width;
-				$content_list[$count]['image_height'] = $height;
-				}
+				$thumb_name = str_replace('.png','',$raw_data['ContentImage']['image']).'-'.$config['THUMBNAIL_SIZE'].'.png';	
+				$thumb_path = IMAGES . 'content' . '/' . $raw_data['Content']['id'] . '/' . $thumb_name;
+				$thumb_url = BASE . '/img/content/' . $raw_data['Content']['id'] . '/' . $thumb_name;
+
+					if(file_exists($thumb_path) && is_file($thumb_path)) {
+						list($width, $height, $type, $attr) = getimagesize($thumb_path);
+						$content_list[$count]['image'] =  $thumb_url;
+						$content_list[$count]['image_width'] = $width;
+						$content_list[$count]['image_height'] = $height;
+					} else {
+						$content_list[$count]['image'] = BASE . '/images/thumb/' . $image_url;
+						$content_list[$count]['image_width'] = null;
+						$content_list[$count]['image_height'] = null;
+					}
+
+			} else { 
+
+				$image_url = '0/noimage.png';
+				$image_path = IMAGES . '/' . $image_url;
+				$thumb_name = 'noimage-'.$config['THUMBNAIL_SIZE'].'.png';	
+				$thumb_path = IMAGES . 'content' . '/0/' . $thumb_name;
+				$thumb_url = BASE . '/img/content' . '/0/' . $thumb_name;
+
+					if(file_exists($thumb_path) && is_file($thumb_path)) {
+						list($width, $height, $type, $attr) = getimagesize($thumb_path);
+						$content_list[$count]['image'] =  $thumb_url;
+						$content_list[$count]['image_width'] = $width;
+						$content_list[$count]['image_height'] = $height;
+					} else {
+						$content_list[$count]['image'] = BASE . '/images/thumb/' . $image_url;
+						$content_list[$count]['image_width'] = null;
+						$content_list[$count]['image_height'] = null;
+					}
+
+			}
 			
 			if($raw_data['ContentType']['name'] == 'link')
 			{
