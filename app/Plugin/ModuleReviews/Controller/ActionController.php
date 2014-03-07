@@ -68,6 +68,8 @@ class ActionController extends ModuleReviewsAppController {
 			$Clean->paranoid($new_review);
 			
 			$this->ModuleReview->save($new_review);
+
+			Cache::clear(false, 'catalog');
 		
 			$this->redirect('/' . $content['ContentType']['name'] . '/' . $content['Content']['alias'] . $config['URL_EXTENSION']);
 		}

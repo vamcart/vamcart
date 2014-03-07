@@ -218,10 +218,12 @@ class TemplatesController extends AppController {
 				$this->redirect('/templates/admin/');
 				die();
 			}
-		
+
 			$this->Template->save($this->data);		
 			$this->Session->setFlash(__('Record saved.', true));
-				
+
+			Cache::clear(false, 'catalog');
+			
 			if(isset($this->data['apply']))
 			{
 				$this->redirect('/templates/admin_edit/' . $template_id);
