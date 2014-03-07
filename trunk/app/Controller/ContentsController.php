@@ -394,9 +394,9 @@ class ContentsController extends AppController {
 			
 			$this->Content->$model->save($special_content);
 
-			Cache::clear(false, 'catalog');
-						
 			$this->Session->setFlash(__('Record saved.', true));
+
+			Cache::clear(false, 'catalog');
 		
 			// Check if we pressed 'apply' otherwise just render
 			if(isset($this->data['applybutton']))

@@ -34,7 +34,11 @@ class ConfigurationController extends AppController {
 				$current_config['Configuration']['value'] = $value;
 				$this->Configuration->save($current_config);
 			}
+
 			$this->Session->setFlash(__('Record saved.', true));
+
+			Cache::clear(false, 'catalog');
+
 			$this->redirect('/configuration/admin/');
 		}
 		
