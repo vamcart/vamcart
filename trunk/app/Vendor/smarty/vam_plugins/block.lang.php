@@ -19,6 +19,8 @@ function smarty_block_lang($params, $content, $template, &$repeat)
 		if(array_key_exists($content,$translate))
 		{
 		echo $translate[$content];
+		} else {
+		echo $content;
 		}	
 	
 }
