@@ -146,33 +146,46 @@ function smarty_function_compared($params)
                     $element_list[$k_a]['attributes_product'][$k_p]['model']	= $product['ContentProduct']['model'];	
                     $element_list[$k_a]['attributes_product'][$k_p]['weight']	= $product['ContentProduct']['weight'];	
 
-							if (isset($product['ContentImage']['image']) && file_exists(IMAGES . 'content/' . $product['Content']['id'] . '/' . $product['ContentImage']['image'])) {
-								$element_list[$k_a]['attributes_product'][$k_p]['icon']	= BASE . '/img/content/' . $product['Content']['id'] . '/' . $product['ContentImage']['image'];
-							}
-							
-								if($product['ContentImage']['image'] != "")
-									$image_url = $product['Content']['id'] . '/' . $product['ContentImage']['image'];
-								else 
-									$image_url = '0/noimage.png';
-									
 								global $config;
-									
-								if($config['GD_LIBRARY'] == 0)
-									$element_list[$k_a]['attributes_product'][$k_p]['image'] =  BASE . '/img/content/' . $image_url;
-								else
-									$element_list[$k_a]['attributes_product'][$k_p]['image'] = BASE . '/images/thumb/' . $image_url;
+
+								// Content Image
 								
 								if($product['ContentImage']['image'] != "") {
-								$image_src = $product['ContentImage']['image'];
-								} else {
-								$image_src = 'noimage.png';
-								}
-								$thumb_cache_filename = CACHE.'thumbs'.DS.md5($image_src.$config['THUMBNAIL_SIZE']);
-								if(file_exists($thumb_cache_filename)) {
-								list($width, $height, $type, $attr) = getimagesize($thumb_cache_filename);
-								$element_list[$k_a]['attributes_product'][$k_p]['image_width'] = $width;
-								$element_list[$k_a]['attributes_product'][$k_p]['image_height'] = $height;
-								}
+									$image_url = $product['Content']['id'] . '/' . $product['ContentImage']['image'];
+									$thumb_name = substr_replace($product['ContentImage']['image'] , '', strrpos($product['ContentImage']['image'] , '.')).'-'.$config['THUMBNAIL_SIZE'].'.png';	
+									$thumb_path = IMAGES . 'content' . '/' . $product['Content']['id'] . '/' . $thumb_name;
+									$thumb_url = BASE . '/img/content/' . $product['Content']['id'] . '/' . $thumb_name;
+					
+										if(file_exists($thumb_path) && is_file($thumb_path)) {
+											list($width, $height, $type, $attr) = getimagesize($thumb_path);
+											$element_list[$k_a]['attributes_product'][$k_p]['image'] =  $thumb_url;
+											$element_list[$k_a]['attributes_product'][$k_p]['image_width'] = $width;
+											$element_list[$k_a]['attributes_product'][$k_p]['image_height'] = $height;
+										} else {
+											$element_list[$k_a]['attributes_product'][$k_p]['image'] = BASE . '/images/thumb/' . $image_url;
+											$element_list[$k_a]['attributes_product'][$k_p]['image_width'] = null;
+											$element_list[$k_a]['attributes_product'][$k_p]['image_height'] = null;
+										}
+					
+								} else { 
+					
+									$image_url = '0/noimage.png';
+									$thumb_name = 'noimage-'.$config['THUMBNAIL_SIZE'].'.png';	
+									$thumb_path = IMAGES . 'content' . '/0/' . $thumb_name;
+									$thumb_url = BASE . '/img/content' . '/0/' . $thumb_name;
+					
+										if(file_exists($thumb_path) && is_file($thumb_path)) {
+											list($width, $height, $type, $attr) = getimagesize($thumb_path);
+											$element_list[$k_a]['attributes_product'][$k_p]['image'] =  $thumb_url;
+											$element_list[$k_a]['attributes_product'][$k_p]['image_width'] = $width;
+											$element_list[$k_a]['attributes_product'][$k_p]['image_height'] = $height;
+										} else {
+											$element_list[$k_a]['attributes_product'][$k_p]['image'] = BASE . '/images/thumb/' . $image_url;
+											$element_list[$k_a]['attributes_product'][$k_p]['image_width'] = null;
+											$element_list[$k_a]['attributes_product'][$k_p]['image_height'] = null;
+										}
+					
+								}									
 												
 								if($product['ContentType']['name'] == 'link')
 								{

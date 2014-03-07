@@ -180,34 +180,45 @@ function smarty_function_search_result($params, $template)
 			$content_list[$count]['model']  = $raw_data['ContentProduct']['model'];
 			$content_list[$count]['weight'] = $raw_data['ContentProduct']['weight'];
 
-			if (isset($raw_data['ContentImage']['image']) && file_exists(IMAGES . 'content/' . $raw_data['Content']['id'] . '/' . $raw_data['ContentImage']['image'])) {
-				$content_list[$count]['icon']   = BASE . '/img/content/' . $raw_data['Content']['id'] . '/' . $raw_data['ContentImage']['image'];
-			}
-
-			if ($raw_data['ContentImage']['image'] != "") {
-				$image_url = $raw_data['Content']['id'] . '/' . $raw_data['ContentImage']['image'];
-			} else {
-				$image_url = '0/noimage.png';
-			}
-
-			if ($config['GD_LIBRARY'] == 0) {
-				$content_list[$count]['image'] =  BASE . '/img/content/' . $image_url;
-			} else {
-				$content_list[$count]['image'] = BASE . '/images/thumb/' . $image_url;
-			}
-
+			// Content Image
+			
 			if($raw_data['ContentImage']['image'] != "") {
-			$image_src = $raw_data['ContentImage']['image'];
-			} else {
-			$image_src = 'noimage.png';
-			}
-			$thumb_cache_filename = CACHE.'thumbs'.DS.md5($image_src.$config['THUMBNAIL_SIZE']);
-			if(file_exists($thumb_cache_filename)) {
-			list($width, $height, $type, $attr) = getimagesize($thumb_cache_filename);
-			$content_list[$count]['image_width'] = $width;
-			$content_list[$count]['image_height'] = $height;
-			}
+				$image_url = $raw_data['Content']['id'] . '/' . $raw_data['ContentImage']['image'];
+				$thumb_name = substr_replace($raw_data['ContentImage']['image'] , '', strrpos($raw_data['ContentImage']['image'] , '.')).'-'.$config['THUMBNAIL_SIZE'].'.png';	
+				$thumb_path = IMAGES . 'content' . '/' . $raw_data['Content']['id'] . '/' . $thumb_name;
+				$thumb_url = BASE . '/img/content/' . $raw_data['Content']['id'] . '/' . $thumb_name;
 
+					if(file_exists($thumb_path) && is_file($thumb_path)) {
+						list($width, $height, $type, $attr) = getimagesize($thumb_path);
+						$content_list[$count]['image'] =  $thumb_url;
+						$content_list[$count]['image_width'] = $width;
+						$content_list[$count]['image_height'] = $height;
+					} else {
+						$content_list[$count]['image'] = BASE . '/images/thumb/' . $image_url;
+						$content_list[$count]['image_width'] = null;
+						$content_list[$count]['image_height'] = null;
+					}
+
+			} else { 
+
+				$image_url = '0/noimage.png';
+				$thumb_name = 'noimage-'.$config['THUMBNAIL_SIZE'].'.png';	
+				$thumb_path = IMAGES . 'content' . '/0/' . $thumb_name;
+				$thumb_url = BASE . '/img/content' . '/0/' . $thumb_name;
+
+					if(file_exists($thumb_path) && is_file($thumb_path)) {
+						list($width, $height, $type, $attr) = getimagesize($thumb_path);
+						$content_list[$count]['image'] =  $thumb_url;
+						$content_list[$count]['image_width'] = $width;
+						$content_list[$count]['image_height'] = $height;
+					} else {
+						$content_list[$count]['image'] = BASE . '/images/thumb/' . $image_url;
+						$content_list[$count]['image_width'] = null;
+						$content_list[$count]['image_height'] = null;
+					}
+
+			}
+			
 			$content_list[$count]['url']    = BASE . '/' . $raw_data['ContentType']['name'] . '/' . $raw_data['Content']['alias'] . $config['URL_EXTENSION'];
 			$count ++;
 		}
@@ -223,10 +234,6 @@ function smarty_function_search_result($params, $template)
 
 	$vars['ext'] = $config['URL_EXTENSION'];
 	$vars['pages_number'] = ceil($content_total/$params['limit']);
-
-	if($config['GD_LIBRARY'] == 0) {
-		$vars['thumbnail_width'] = $config['THUMBNAIL_SIZE'];
-        }
 
 	$display_template = $Smarty->load_template($params, 'search_result');
 	$Smarty->display($display_template, $vars);
