@@ -58,6 +58,7 @@ class GlobalContentBlocksController extends AppController {
 			else
 				$this->Session->setFlash(__('Record saved.', true));
 		
+			Cache::clear(false, 'catalog');
 		
 			if(isset($this->data['apply']))
 			{

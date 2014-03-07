@@ -78,6 +78,7 @@ class CurrenciesController extends AppController {
 		{
 			$this->Currency->save($this->data);		
 			$this->Session->setFlash(__('Record saved.', true));
+			Cache::clear(false, 'catalog');
 			$this->redirect('/currencies/admin');
 		}		
 	}

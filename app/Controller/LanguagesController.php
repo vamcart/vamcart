@@ -80,6 +80,7 @@ class LanguagesController extends AppController {
 		{
 			$this->Language->save($this->data);		
 			$this->Session->setFlash(__('Record created.', true));
+			Cache::clear(false, 'catalog');
 			$this->redirect('/languages/admin/');
 		}		
 	}

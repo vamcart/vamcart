@@ -46,6 +46,8 @@ class MicroTemplatesController extends AppController {
 			$this->MicroTemplate->save($this->data);
 
 			$this->Session->setFlash( __('Micro Template Saved.',true));
+
+			Cache::clear(false, 'catalog');
 			
 			if(isset($this->data['apply']))
 			{
