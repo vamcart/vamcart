@@ -116,8 +116,48 @@ $(document).ready(function () {
                         echo $this->Html->tableHeaders(array( __('Image').$this->Html->image('http://img.vamshop.com/vamshop.png'), __('Name'),  __('Viewed')));
                         foreach ($result['content_viewed'] AS $k => $viewed)
                         {
+
+								// Content Image
+								
+								if($viewed['ContentImage']['image'] != "") {
+									$image_url = $viewed['Content']['id'] . '/' . $viewed['ContentImage']['image'] . '/40';
+									$thumb_name = substr_replace($viewed['ContentImage']['image'] , '', strrpos($viewed['ContentImage']['image'] , '.')).'-40.png';	
+									$thumb_path = IMAGES . 'content' . '/' . $viewed['Content']['id'] . '/' . $thumb_name;
+									$thumb_url = BASE . '/img/content/' . $viewed['Content']['id'] . '/' . $thumb_name;
+					
+										if(file_exists($thumb_path) && is_file($thumb_path)) {
+											list($width, $height, $type, $attr) = getimagesize($thumb_path);
+											$image =  $thumb_url;
+											$image_width = $width;
+											$image_height = $height;
+										} else {
+											$image = BASE . '/images/thumb/' . $image_url;
+											$image_width = null;
+											$image_height = null;
+										}
+					
+								} else { 
+					
+									$image_url = '0/noimage.png/40';
+									$thumb_name = 'noimage-40.png';	
+									$thumb_path = IMAGES . 'content' . '/0/' . $thumb_name;
+									$thumb_url = BASE . '/img/content' . '/0/' . $thumb_name;
+					
+										if(file_exists($thumb_path) && is_file($thumb_path)) {
+											list($width, $height, $type, $attr) = getimagesize($thumb_path);
+											$image =  $thumb_url;
+											$image_width = $width;
+											$image_height = $height;
+										} else {
+											$image = BASE . '/images/thumb/' . $image_url;
+											$image_width = null;
+											$image_height = null;
+										}
+					
+								}
+
                             echo $this->Admin->TableCells(array(
-                                                                (isset($viewed['ContentImage'])?$this->Html->image('/images/thumb/'.$viewed['Content']['id'].'/'.$viewed['ContentImage']['image'].'/40', array('alt' => __('True'))):$this->Html->image('/images/thumb/0/noimage.png/40', array('alt' => __('False'))))
+                                                                $this->Html->image($image, array('alt' => __('True'),'width' => $image_width,'height' => $image_height))
                                                                ,$viewed['ContentDescription']['name']
                                                                ,array($viewed['Content']['viewed'],array('height' => '40'))
                                                                ));
@@ -130,9 +170,49 @@ $(document).ready(function () {
                         echo $this->Html->tableHeaders(array( __('Image'), __('Name'),  __('Ordered')));
                         foreach ($result['content_ordered'] AS $k => $ordered)
                         {
+                        	
+								// Content Image
+								
+								if($ordered['ContentImage']['image'] != "") {
+									$image_url = $ordered['Content']['id'] . '/' . $ordered['ContentImage']['image'] . '/40';
+									$thumb_name = substr_replace($ordered['ContentImage']['image'] , '', strrpos($ordered['ContentImage']['image'] , '.')).'-40.png';	
+									$thumb_path = IMAGES . 'content' . '/' . $ordered['Content']['id'] . '/' . $thumb_name;
+									$thumb_url = BASE . '/img/content/' . $ordered['Content']['id'] . '/' . $thumb_name;
+					
+										if(file_exists($thumb_path) && is_file($thumb_path)) {
+											list($width, $height, $type, $attr) = getimagesize($thumb_path);
+											$image =  $thumb_url;
+											$image_width = $width;
+											$image_height = $height;
+										} else {
+											$image = BASE . '/images/thumb/' . $image_url;
+											$image_width = null;
+											$image_height = null;
+										}
+					
+								} else { 
+					
+									$image_url = '0/noimage.png/40';
+									$thumb_name = 'noimage-40.png';	
+									$thumb_path = IMAGES . 'content' . '/0/' . $thumb_name;
+									$thumb_url = BASE . '/img/content' . '/0/' . $thumb_name;
+					
+										if(file_exists($thumb_path) && is_file($thumb_path)) {
+											list($width, $height, $type, $attr) = getimagesize($thumb_path);
+											$image =  $thumb_url;
+											$image_width = $width;
+											$image_height = $height;
+										} else {
+											$image = BASE . '/images/thumb/' . $image_url;
+											$image_width = null;
+											$image_height = null;
+										}
+					
+								}
+								                        	
                             echo $this->Admin->TableCells(array(
-                                                                (isset($ordered['ContentImage'])?$this->Html->image('/images/thumb/'.$ordered['Content']['id'].'/'.$ordered['ContentImage']['image'].'/40', array('alt' => __('True'))):$this->Html->image('/images/thumb/0/noimage.png/40', array('alt' => __('False'))))
-                                                               ,$ordered['ContentDescription']['name']
+                                                                $this->Html->image($image, array('alt' => __('True'),'width' => $image_width,'height' => $image_height))                                                               
+                                                                ,$ordered['ContentDescription']['name']
                                                                ,array($ordered['ContentProduct']['ordered'],array('height' => '40'))
                                                                ));
                         }
