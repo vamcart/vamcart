@@ -11,6 +11,13 @@ class ImagesController extends AppController {
 	
 	public function thumb ($id=null,$src=null,$w=null,$h=null,$q=null)
 	{
+
+		$this->uses = null;
+		$this->autoLayout = false;
+		$this->autoRender = false;
+		$this->helpers = null;
+		$this->layout = null;	
+
             if(empty($src)){
                 die("No source image");
             }
