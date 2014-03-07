@@ -393,8 +393,9 @@ class ContentsController extends AppController {
 				$special_content[$model]['id']= $check_specified_type[$model]['id'];
 			
 			$this->Content->$model->save($special_content);
-			
-			
+
+			Cache::clear(false, 'catalog');
+						
 			$this->Session->setFlash(__('Record saved.', true));
 		
 			// Check if we pressed 'apply' otherwise just render
