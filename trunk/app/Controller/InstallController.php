@@ -29,6 +29,8 @@ class InstallController extends AppController {
 		WWW_ROOT . 'css/', 
 		WWW_ROOT . 'js/', 
 		WWW_ROOT . 'files/', 
+		WWW_ROOT . 'img/', 
+		WWW_ROOT . 'img/content/', 
 		TMP, 
 		CACHE, 
 		CACHE . DS . 'catalog', 
