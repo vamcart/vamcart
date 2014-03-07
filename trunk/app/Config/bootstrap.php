@@ -113,6 +113,15 @@ Cache::config('default', array(
 	'duration' => $duration
 ));
 
+Cache::config('catalog', array(
+	'engine' => $engine,
+	'prefix' => $prefix,
+	'serialize' => ($engine === 'File'),
+	'duration' => $duration,
+   'path' => CACHE . DS . 'catalog',
+   'mask' => 0666,
+));
+
 /**
  * The settings below can be used to set additional paths to models, views and controllers.
  *
