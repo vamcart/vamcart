@@ -119,7 +119,8 @@ class DefinedLanguagesController extends AppController {
 				$this->DefinedLanguage->save($new_definition);
 			}
 				
-
+			Cache::delete('vam_language'. '_' . $this->Session->read('Customer.language_id'), 'catalog');
+			
 			$this->redirect('/defined_languages/admin/');
 			
 		
