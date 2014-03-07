@@ -153,14 +153,12 @@ class ContentBaseComponent extends Object
 
 	public function get_content_image($content_id)
 	{
-		$this->load_models();
+		App::import('Model', 'ContentImage');
+		$ContentImage = new ContentImage();
 		
-		App::uses('Model', 'ContentImage');
-		$this->ContentImage = new ContentImage();
-		
-		$content_description = $this->ContentImage->find('first', array('conditions' => array('content_id' => $content_id)));
+		$content_image = $ContentImage->find('first', array('conditions' => array('content_id' => $content_id)));
 
-		return $content_description['ContentImage']['image'];
+		return $content_image['ContentImage']['image'];
 	}
 	
 	/**

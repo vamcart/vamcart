@@ -28,8 +28,10 @@ return $template;
 
 function smarty_function_breadcrumbs($params, $template)
 {
+	global $content, $config;
+
 	// Cache the output.
-	$cache_name = 'vam_breadcrumbs_output' . (isset($params['template'])?'_'.$params['template']:'') . '_' . $_SESSION['Customer']['language_id'];
+	$cache_name = 'vam_breadcrumbs_output' . (isset($params['template'])?'_'.$params['template']:'') . '_' . $content['Content']['id'] .'_' . $_SESSION['Customer']['language_id'];
 	$output = Cache::read($cache_name, 'catalog');
 	if($output === false)
 	{
@@ -38,8 +40,6 @@ function smarty_function_breadcrumbs($params, $template)
 	App::uses('SmartyComponent', 'Controller/Component');
 	$Smarty =& new SmartyComponent(new ComponentCollection());
 
-	global $content, $config;
-   	
  	App::import('Model', 'Content');
 	$Content =& new Content();		
 	$Content->unbindAll();	
