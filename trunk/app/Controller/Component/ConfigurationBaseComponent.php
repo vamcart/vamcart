@@ -48,5 +48,28 @@ class ConfigurationBaseComponent extends Object
 		return $config_values;
 		
 	}	
+
+	public function load_translate ()
+	{
+		$translate_values = Cache::read('vam_language'. '_' . $_SESSION['Customer']['language_id'], 'catalog');
+		
+			if($translate_values === false)
+			{
+		
+					App::import('Model', 'DefinedLanguage');
+					$DefinedLanguage =& new DefinedLanguage();
+			
+					$defined_language_values = $DefinedLanguage->find('all', array('conditions' => array('language_id' => $_SESSION['Customer']['language_id'])));
+		
+					$translate_values = array_combine(Set::extract($defined_language_values, '{n}.DefinedLanguage.key'),
+								 		 Set::extract($defined_language_values, '{n}.DefinedLanguage.value'));	
+								 		 
+			Cache::write('vam_language'. '_' . $_SESSION['Customer']['language_id'], $translate_values, 'catalog');
+			}
+		
+		return $translate_values;
+		
+	}
+		
 }
 ?>
