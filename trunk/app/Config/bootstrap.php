@@ -96,7 +96,22 @@
  *		'persistent' => true, // [optional] set this to false for non-persistent connections
  *	));
  */
-Cache::config('default', array('engine' => 'File'));
+
+$engine = 'File';
+$prefix = '';
+ 
+$duration = '+1 days';
+if (Configure::read('debug') >= 1) {
+	$duration = '+10 seconds';
+}
+
+Cache::config('default', array(
+	'engine' => $engine,
+	'prefix' => $prefix,
+	'path' => CACHE,
+	'serialize' => ($engine === 'File'),
+	'duration' => $duration
+));
 
 /**
  * The settings below can be used to set additional paths to models, views and controllers.
