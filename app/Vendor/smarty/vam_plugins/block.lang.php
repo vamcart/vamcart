@@ -13,34 +13,34 @@ function smarty_block_lang($params, $content, $template, &$repeat)
 	{
         return;
     }
-	
-		// Start caching
-		$cache_name = 'vam_lang_' .  $_SESSION['Customer']['language_id'] . '_' . $content;
-		$output = Cache::read($cache_name);
-		if($output === false)
-		{
-			ob_start();	
-	
-	
-	App::import('Model', 'DefinedLanguage');
-	$DefinedLanguage =& new DefinedLanguage();
 
-	$language_content = $DefinedLanguage->find('first', array('conditions' => array('language_id' => $_SESSION['Customer']['language_id'], 'key' => $content)));
-	if(empty($language_content['DefinedLanguage']['value']))
-		//$output = "Error! Empty language value for: " . $content;
-		$lang_output = $content;		
-	else
-		$lang_output = $language_content['DefinedLanguage']['value'];
+		global $config;		
 		
-		echo $lang_output;
-		
-			// End cache
-			$output = @ob_get_contents();
-			ob_end_clean();
-			Cache::write($cache_name, $output);
-		}
-		echo $output;
+	// Cache the output.
+	$text_values_cache_name = 'vam_defined_language' .  '_' . $_SESSION['Customer']['language_id'];
+	$text_values_cache_output = Cache::read($text_values_cache_name, 'catalog');
+
+	if($text_values_cache_output === false)
+	{
+
+			App::import('Model', 'DefinedLanguage');
+			$DefinedLanguage =& new DefinedLanguage();
 	
+			$defined_language_values = $DefinedLanguage->find('all', array('conditions' => array('language_id' => $_SESSION['Customer']['language_id'])));
+
+			$text_values = array_combine(Set::extract($defined_language_values, '{n}.DefinedLanguage.key'),
+						 		 Set::extract($defined_language_values, '{n}.DefinedLanguage.value'));	
+						 		 
+		Cache::write($text_values_cache_name, $text_values, 'catalog');		
+	}
+
+		if(array_key_exists($content,$text_values_cache_output))
+		{
+		echo $text_values_cache_output[$content];
+		}	
+		
+
+
 }
 
 function smarty_help_function_lang() {

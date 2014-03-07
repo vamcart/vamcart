@@ -77,7 +77,7 @@ function smarty_function_content_listing($params, $template)
 	
 	// Cache the output.
 	$cache_name = 'vam_content_listing_output_' . $content['Content']['id'] .  (isset($params['template'])?'_'.$params['template']:'') .  (isset($params['parent'])?'_'.$params['parent']:'') . '_' . $_SESSION['Customer']['language_id'];
-	$output = Cache::read($cache_name);
+	$output = Cache::read($cache_name, 'catalog');
 	if($output === false)
 	{
 		ob_start();
@@ -351,7 +351,7 @@ function smarty_function_content_listing($params, $template)
 		// Write the output to cache and echo them
 		$output = @ob_get_contents();
 		ob_end_clean();	
-		Cache::write($cache_name, $output);		
+		Cache::write($cache_name, $output, 'catalog');		
 	}
 	echo $output;
 }

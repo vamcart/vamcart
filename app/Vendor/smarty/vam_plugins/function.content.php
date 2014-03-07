@@ -11,7 +11,7 @@ function smarty_function_content($params, $template)
 	global $content;
 	// Cache the output... Don't cache core pages.
 	$cache_name = 'vam_page_content_' . $content['Content']['id'] . '_' . $_SESSION['Customer']['language_id']. '_' . $_SESSION['Customer']['currency_id'];
-	$output = Cache::read($cache_name);
+	$output = Cache::read($cache_name, 'catalog');
 
 	if (($output === false)||($content['Content']['parent_id'] == '-1')) {
 		ob_start();
@@ -30,7 +30,7 @@ function smarty_function_content($params, $template)
 		// Write the output to cache and echo them
 		$output = @ob_get_contents();
 		ob_end_clean();
-		Cache::write($cache_name, $output);
+		Cache::write($cache_name, $output, 'catalog');
 	}
 
 	echo $output;

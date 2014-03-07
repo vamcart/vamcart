@@ -10,7 +10,7 @@ function smarty_function_global_content($params, $template)
 {
 	// Cache the output.
 	$cache_name = 'vam_gcb_output_' .  $params['alias'] . '_' . $_SESSION['Customer']['language_id'];
-	$output = Cache::read($cache_name);
+	$output = Cache::read($cache_name, 'catalog');
 	if($output === false)
 	{
 		ob_start();
@@ -33,7 +33,7 @@ function smarty_function_global_content($params, $template)
 		// Write the output to cache and echo them
 		$output = @ob_get_contents();
 		ob_end_clean();	
-		Cache::write($cache_name, $output);		
+		Cache::write($cache_name, $output, 'catalog');		
 	}
 	echo $output;	
 		

@@ -30,7 +30,7 @@ function smarty_function_breadcrumbs($params, $template)
 {
 	// Cache the output.
 	$cache_name = 'vam_breadcrumbs_output' . (isset($params['template'])?'_'.$params['template']:'') . '_' . $_SESSION['Customer']['language_id'];
-	$output = Cache::read($cache_name);
+	$output = Cache::read($cache_name, 'catalog');
 	if($output === false)
 	{
 	ob_start();
@@ -86,7 +86,7 @@ function smarty_function_breadcrumbs($params, $template)
 	// Write the output to cache and echo them	
 	$output = @ob_get_contents();
 	ob_end_clean();	
-	Cache::write($cache_name, $output);		
+	Cache::write($cache_name, $output, 'catalog');		
 	}
 	
 	echo $output;
