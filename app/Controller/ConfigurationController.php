@@ -11,7 +11,7 @@ class ConfigurationController extends AppController {
 	
 	public function admin_clear_cache ()
 	{
-		Cache::clear();
+		Cache::clear(false, 'catalog');
 		$this->Session->setFlash(__('Cache cleared.',true));
 		$this->redirect('/configuration/admin/');
 	}
@@ -36,8 +36,6 @@ class ConfigurationController extends AppController {
 			}
 
 			$this->Session->setFlash(__('Record saved.', true));
-
-			Cache::clear(false, 'catalog');
 
 			$this->redirect('/configuration/admin/');
 		}

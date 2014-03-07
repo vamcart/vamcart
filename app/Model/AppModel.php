@@ -51,10 +51,10 @@ class AppModel extends Model {
 	*/			
 	public function afterSave($created)
 	{
-		$check_models = array('Content','Template','Stylesheet','MicroTemplate','GlobalContentBlock');
+		$check_models = array('Template','Stylesheet','MicroTemplate','Language','UserTag','Currency','Configuration','GlobalContentBlock','ModuleReview');
 		if(in_array($this->name,$check_models))
 		{
-			Cache::clear();
+			Cache::clear(false,'catalog');
 		}
 	}
 

@@ -45,8 +45,6 @@ class UserTagsController extends AppController {
 			// Save the user tag
 			$this->UserTag->save($this->data);		
 
-			Cache::clear(false, 'catalog');
-
 			// Check the user defined tag for errors
 			srand();
 			ob_start();
