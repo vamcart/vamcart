@@ -17,7 +17,7 @@ class ContentsController extends AppController {
 	{
 
 		
-		$directory = WWW_ROOT . IMAGES_URL . '/content/' . $content_id;
+		$directory = IMAGES . '/content/' . $content_id;
 		if(!is_dir($directory)) {
 			mkdir($directory);
 		}
@@ -41,6 +41,54 @@ class ContentsController extends AppController {
 		
 		$this->Content->ContentImage->save($content_image);
 		
+		// Create thumbnail
+
+      global $config;
+      
+      //width
+      $width = (!isset($w)) ? $config['THUMBNAIL_SIZE'] : $w;
+      //height
+      $height = (!isset($h)) ? $config['THUMBNAIL_SIZE'] : $h;
+      //quality    
+      $quality = (!isset($q)) ? 75 : $q;
+      
+      $sourceFilename = $directory.'/'.$filename;
+      $id = $content_id;
+      $src = $filename;
+            
+      if(is_readable($sourceFilename)){
+          App::import('Vendor', 'Phpthumb', array('file' => 'phpthumb'.DS.'phpthumb.class.php'));
+          $phpThumb = new phpThumb();
+
+          $phpThumb->src = $sourceFilename;
+          $phpThumb->w = $width;
+          $phpThumb->h = $height;
+          $phpThumb->q = $quality;
+          $phpThumb->config_imagemagick_path = '/usr/bin/convert';
+          $phpThumb->config_prefer_imagemagick = false;
+          $phpThumb->config_output_format = 'png';
+          $phpThumb->config_error_die_on_error = true;
+          $phpThumb->config_document_root = '';
+          $phpThumb->config_temp_directory = APP . 'tmp';
+          $phpThumb->config_cache_directory = IMAGES . 'content' . DS . $id . DS;
+          $phpThumb->config_cache_disable_warning = true;
+          
+          
+          $cacheFilename = substr_replace($src , '', strrpos($src , '.')).'-'.$width.'.'.$phpThumb->config_output_format;
+          
+          $phpThumb->cache_filename = $phpThumb->config_cache_directory.$cacheFilename;
+          
+		// Check if image thumb is already created.
+          if(!file_exists($phpThumb->cache_filename))
+		{ 
+              if ($phpThumb->GenerateThumbnail()) 
+			{
+                  $phpThumb->RenderToFile($phpThumb->cache_filename);
+              } else {
+                  die('Failed: '.$phpThumb->error);
+              }
+          }
+      }		
 	}
 
 	/**
