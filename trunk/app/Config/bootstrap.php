@@ -160,7 +160,7 @@ Cache::config('catalog', array(
 
  
  
-  CakePlugin::loadAll(); // Loads all plugins at once
+CakePlugin::loadAll(array(array('bootstrap' => true)));
   
  
 
