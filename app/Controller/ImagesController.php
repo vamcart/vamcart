@@ -90,9 +90,14 @@ class ImagesController extends AppController {
 	{
 		if($image_id != null)
 		{
+			global $config;
+			
 			$image = $this->ContentImage->read(null,$image_id);
 			
-			$filename =  WWW_ROOT . IMAGES_URL . 'content/' . $image['ContentImage']['content_id'] . '/' . $image['ContentImage']['image'];
+			$filename =  IMAGES . 'content/' . $image['ContentImage']['content_id'] . '/' . $image['ContentImage']['image'];
+			unlink($filename);
+
+			$filename =  IMAGES . 'content/' . $image['ContentImage']['content_id'] . '/' . substr_replace($image['ContentImage']['image'] , '', strrpos($image['ContentImage']['image'] , '.')).'-'.$config['THUMBNAIL_SIZE'].'.png';
 			unlink($filename);
 			
 			$this->ContentImage->delete($image_id);			
