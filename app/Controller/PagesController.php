@@ -132,7 +132,7 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty');
 			$this->params['page'] = 1;
 		}
 
-		$this->Session->write('Customer.page' ,$this->params['page']);
+		$this->Session->write('Customer.page', $this->params['page']);
 
 		// Save cache based on content_id for template_vars.
 		$cache_name = 'vam_template_vars_' . $content['Content']['id'].'_'.$this->params['page'];
