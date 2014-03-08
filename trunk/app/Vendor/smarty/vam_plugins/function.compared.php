@@ -74,6 +74,14 @@ return $template;
 function smarty_function_compared($params)
 {    
 	global $content;
+	
+	// Cache the output.
+	$cache_name = 'vam_compared' . (isset($params['template'])?'_'.$params['template']:'') . '_' . $content['Content']['id'] . '_' . $_SESSION['Customer']['language_id'] . '_' . $_SESSION['Customer']['compare_list'];
+	$output = Cache::read($cache_name, 'catalog');
+	if($output === false)
+	{
+	ob_start();
+		
 	App::uses('SmartyComponent', 'Controller/Component');
 	$Smarty =& new SmartyComponent(new ComponentCollection());
         
@@ -216,6 +224,12 @@ function smarty_function_compared($params)
 	$display_template = $Smarty->load_template($params, 'compared');
 	$Smarty->display($display_template, $assignments);
 
+	$output = @ob_get_contents();
+	ob_end_clean();	
+	Cache::write($cache_name, $output, 'catalog');		
+	}
+	
+	echo $output;
 }
 
 function smarty_help_function_compared() {
