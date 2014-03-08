@@ -100,7 +100,7 @@
 $engine = 'File';
 $prefix = '';
  
-$duration = '+365 days';
+$duration = '+1 days';
 if (Configure::read('debug') >= 1) {
 	$duration = '+10 seconds';
 }
