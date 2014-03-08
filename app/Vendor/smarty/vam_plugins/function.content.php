@@ -8,9 +8,9 @@
 
 function smarty_function_content($params, $template)
 {
-	global $content;
+	global $content,$filter_list;
 	// Cache the output... Don't cache core pages.
-	$cache_name = 'vam_page_content_' . $content['Content']['id'] . '_' . $_SESSION['Customer']['language_id']. '_' . $_SESSION['Customer']['currency_id']. '_' . $_SESSION['Customer']['page'];
+	$cache_name = 'vam_page_content_' . $content['Content']['id'] . '_' . $_SESSION['Customer']['language_id']. '_' . $_SESSION['Customer']['currency_id']. '_' . $_SESSION['Customer']['page'] . (isset($filter_list)?md5(serialize($filter_list)):'');
 	$output = Cache::read($cache_name, 'catalog');
 
 	if (($output === false)||($content['Content']['parent_id'] == '-1')) {
