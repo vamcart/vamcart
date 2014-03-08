@@ -127,14 +127,17 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty');
 			$template = $this->Content->Template->find('first', array('conditions' => array('template_type_id' => '1', 'parent_id' => $content['Template']['id'])));
 			Cache::write($cache_name, $template, 'catalog');
 		}
-		// Save cache based on content_id for template_vars.
-		$cache_name = 'vam_template_vars_' . $content['Content']['id'];
-		$template_vars = Cache::read($cache_name, 'catalog');
 
 		if (!isset($this->params['page'])) {
 			$this->params['page'] = 1;
 		}
-                
+
+		$this->Session->write('Customer.page' ,$this->params['page']);
+
+		// Save cache based on content_id for template_vars.
+		$cache_name = 'vam_template_vars_' . $content['Content']['id'].'_'.$this->params['page'];
+		$template_vars = Cache::read($cache_name, 'catalog');
+              
 		if ($template_vars === false) {
 			$template_vars = array(
 				'content_id' => $content['Content']['id'],
