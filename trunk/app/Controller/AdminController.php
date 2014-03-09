@@ -73,30 +73,6 @@ class AdminController extends AppController {
 		                    'className' => 'ContentImage',
 		                    'conditions'=>array('ContentImage.order' => '1')
 							))));						
-
-
-            $content_viewed = $Content->find('all',array('fields' => array('Content.id', 'Content.alias','Content.viewed', 'ContentDescription.name', 'ContentImage.image')
-                                                       ,'conditions' => array('Content.content_type_id' => 2)
-                                                       , 'limit' => 10
-                                                       ,'order' => array('Content.viewed DESC')
-                                                                ));
-            $result['content_viewed'] = $content_viewed;
-
-				$Content->unbindAll();	
-				$Content->bindModel(array('hasOne' => array(
-						'ContentDescription' => array(
-		                    'className' => 'ContentDescription',
-							'conditions'   => 'language_id = '.$this->Session->read('Customer.language_id')
-		                ))));
-				$Content->bindModel(array('belongsTo' => array(
-						'ContentType' => array(
-		                    'className' => 'ContentType'
-							))));			
-				$Content->bindModel(array('hasOne' => array(
-						'ContentImage' => array(
-		                    'className' => 'ContentImage',
-		                    'conditions'=>array('ContentImage.order' => '1')
-							))));						
 				$Content->bindModel(array('hasOne' => array(
 						'ContentProduct' => array(
 		                    'className' => 'ContentProduct'

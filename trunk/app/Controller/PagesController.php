@@ -114,9 +114,6 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty');
 
 			Cache::write($cache_name, $content, 'catalog');
 
-			// Update content viewed
-			$content['Content']['viewed'] = $content['Content']['viewed'] + 1; 
-			$this->Content->save($content);
 		}
 
 		// Get the template information.  
