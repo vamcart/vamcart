@@ -75,8 +75,10 @@ function smarty_function_compared($params)
 {    
 	global $content;
 	
+	$compare_elements = implode(".", $_SESSION['compare_list'][$content['Content']['alias']]);
+	
 	// Cache the output.
-	$cache_name = 'vam_compared' . (isset($params['template'])?'_'.$params['template']:'') . '_' . $content['Content']['id'] . '_' . $_SESSION['Customer']['language_id'] . '_' . $_SESSION['Customer']['compare_list'];
+	$cache_name = 'vam_compared' . (isset($params['template'])?'_'.$params['template']:'') . '_' . $content['Content']['id'] . '_' . $_SESSION['Customer']['language_id'] . '_' . $compare_elements;
 	$output = Cache::read($cache_name, 'catalog');
 	if($output === false)
 	{
@@ -92,7 +94,7 @@ function smarty_function_compared($params)
 	$Attribute =& new Attribute();
 
 	
-	$content_compre_list = $_SESSION['compare_list'][$content['Content']['alias']];
+	$content_compare_list = $_SESSION['compare_list'][$content['Content']['alias']];
 	
         $Attribute->setLanguageDescriptor($_SESSION['Customer']['language_id']);
         $attr = $Attribute->find('all',array('conditions' => array('Attribute.content_id' => $content['Content']['id'] ,'Attribute.is_active' => '1' ,'Attribute.is_show_cmp' => '1')));
@@ -128,7 +130,7 @@ function smarty_function_compared($params)
                                                ,'order' => array('Attribute.order ASC')
 					))));
 
-        $content_list = $Content->find('all',array('recursive' => 2, 'conditions' => array('Content.id' => $content_compre_list)));
+        $content_list = $Content->find('all',array('recursive' => 2, 'conditions' => array('Content.id' => $content_compare_list)));
 
 	$element_list = array();
 	$CurrencyBase =& new CurrencyBaseComponent(new ComponentCollection());
