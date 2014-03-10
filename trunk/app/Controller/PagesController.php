@@ -93,10 +93,10 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty');
 
 		// Pull the content out of cache or generate it if it doesn't exist
 		// Cache is based on language_id and alias of the page.
-		$cache_name = 'vam_content_' . $this->Session->read('Customer.language_id') . '_' . $alias.$_SESSION['Customer']['compare_list'];
+		$cache_name = 'vam_content_' . $this->Session->read('Customer.language_id') . '_' . $alias;
 		$content = Cache::read($cache_name, 'catalog');
 
-		if($content === false)
+		if($content === false or $is_compared == 1)
 		{
 			$content = $this->ContentBase->get_content_information($alias);                      
 			$content_description = $this->ContentBase->get_content_description($content['Content']['id']);
@@ -129,7 +129,6 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty');
 			$this->params['page'] = 1;
 		}
 
-		$this->Session->write('Customer.compare_list', count($compare_list));
 		$this->Session->write('Customer.page', $this->params['page']);
 
 		// Save cache based on content_id for template_vars.
