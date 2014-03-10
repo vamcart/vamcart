@@ -21,7 +21,7 @@ class ActionController extends ModuleReviewsAppController {
 	
 	function create ()
 	{
-			global $content, $config;
+			global $content, $config, $filter_list;
 
 		if(!empty($_POST))
 		{
@@ -68,6 +68,8 @@ class ActionController extends ModuleReviewsAppController {
 			$Clean->paranoid($new_review);
 			
 			$this->ModuleReview->save($new_review);
+			
+			Cache::delete('vam_page_content_' . $content['Content']['id'] . '_' . $_SESSION['Customer']['language_id']. '_' . $_SESSION['Customer']['currency_id']. '_' . $_SESSION['Customer']['page'] . (isset($filter_list)?md5(serialize($filter_list)):''), 'catalog');
 
 			$this->redirect('/' . $content['ContentType']['name'] . '/' . $content['Content']['alias'] . $config['URL_EXTENSION']);
 		}
