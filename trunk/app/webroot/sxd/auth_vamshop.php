@@ -7,7 +7,7 @@
     session_start();
     if (isset($_SESSION['User']['username'])) {
       $conf = new DATABASE_CONFIG();
-      $this->CFG['host'] = $conf->default['host'];
+      $this->CFG['my_host'] = $conf->default['host'];
       $this->CFG['my_db'] = $conf->default['database'];
       $this->CFG['my_user'] = $conf->default['login'];
       $this->CFG['my_pass'] = $conf->default['password'];
