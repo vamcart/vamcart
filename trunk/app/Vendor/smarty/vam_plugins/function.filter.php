@@ -19,8 +19,8 @@ function default_template_filter()
 										values_attribute=$element["values_attribute"]
 										is_active=$element["is_active"]}
 				{/foreach}
-				<button class="btn btn-inverse" name="applybutton" type="submit"><i class="icon-ok"></i> {lang}Apply{/lang}</button>
-				<button class="btn btn-inverse" name="cancelbutton" type="submit"><i class="icon-remove"></i> {lang}Reset{/lang}</button>
+				<button class="btn btn-inverse" name="applybutton" type="submit"><i class="fa fa-check"></i> {lang}Apply{/lang}</button>
+				<button class="btn btn-inverse" name="cancelbutton" type="submit"><i class="fa fa-remove"></i> {lang}Reset{/lang}</button>
 			</div>
 		</form>
 </section>

@@ -78,7 +78,7 @@ class LiqpayController extends PaymentAppController {
 			<input type="hidden" name="result_url" value="' . $result_url . '">';
 						
 		$content .= '
-			<button class="btn btn-inverse" type="submit" value="{lang}Process to Payment{/lang}"><i class="icon-ok"></i> {lang}Process to Payment{/lang}</button>
+			<button class="btn btn-inverse" type="submit" value="{lang}Process to Payment{/lang}"><i class="fa fa-check"></i> {lang}Process to Payment{/lang}</button>
 			</form>';
 	
 	// Save the order

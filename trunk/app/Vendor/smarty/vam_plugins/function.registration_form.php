@@ -102,7 +102,7 @@ $(document).ready(function() {
 			<input id="retype" name="customer[retype]" type="password" autocomplete="off" />
 		</div>
 	</div>   
-	<button class="btn btn-inverse" type="submit" name="submit" value="{lang}Register{/lang}"><i class="icon-ok"></i> {lang}Register{/lang}</button>
+	<button class="btn btn-inverse" type="submit" name="submit" value="{lang}Register{/lang}"><i class="fa fa-check"></i> {lang}Register{/lang}</button>
 	<div class="form-anti-bot" style="clear:both;">
 		<strong>Current <span style="display:none;">month</span> <span style="display:inline;">ye@r</span> <span style="display:none;">day</span></strong> <span class="required">*</span>
 		<input type="hidden" name="anti-bot-a" id="anti-bot-a" value="{$smarty.now|date_format:"%Y"}" />

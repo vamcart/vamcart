@@ -21,7 +21,7 @@ $template = '
 						{/foreach}
 					</select>
 					</label>
-					<button type="submit" class="btn btn-inverse"><i class="icon-ok"></i> {lang}Go{/lang}</button>
+					<button type="submit" class="btn btn-inverse"><i class="fa fa-check"></i> {lang}Go{/lang}</button>
 				</div>
 			</div>
 		</form>

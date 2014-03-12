@@ -45,7 +45,7 @@ class MoneyOrderCheckController extends PaymentAppController {
 	{
 		$content = '	
 		<form action="' . BASE . '/orders/place_order/" method="post">
-		<button class="btn btn-inverse" type="submit" value="{lang}Confirm Order{/lang}"><i class="icon-ok"></i> {lang}Confirm Order{/lang}</button>
+		<button class="btn btn-inverse" type="submit" value="{lang}Confirm Order{/lang}"><i class="fa fa-check"></i> {lang}Confirm Order{/lang}</button>
 		</form>';
 		return $content;
 	}
