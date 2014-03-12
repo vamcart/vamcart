@@ -91,7 +91,7 @@ $(document).ready(function() {
 		<strong>Leave this field empty</strong> <span class="required">*</span>
 		<input type="text" name="anti-bot-e-email-url" id="anti-bot-e-email-url" size="30" value=""/>
 	</div>
-	<button class="btn btn-inverse" type="submit" name="submit" value="{lang}Send{/lang}"><i class="icon-ok"></i> {lang}Send{/lang}</button>
+	<button class="btn btn-inverse" type="submit" name="submit" value="{lang}Send{/lang}"><i class="fa fa-check"></i> {lang}Send{/lang}</button>
 </form>
 ';
 		

@@ -24,7 +24,7 @@ $template = '
 {foreach from=$order_items item=product}
 		<tr>
 			<td align="center"><img class="media-object" src="{$product.image.image_thumb}" alt="" title=""{if {$product.image.image_width} > 0} width="{$product.image.image_width}"{/if}{if {$product.image.image_height} > 0} height="{$product.image.image_height}"{/if} /></td>
-			<td><a href="{$product.link}">{$product.name}</a> <a href="{base_path}/cart/remove_product/{$product.id}/1" class="remove" title="{lang}Remove{/lang}"><i class="icon-trash"></i></a></td>
+			<td><a href="{$product.link}">{$product.name}</a> <a href="{base_path}/cart/remove_product/{$product.id}/1" class="remove" title="{lang}Remove{/lang}"><i class="fa fa-trash"></i></a></td>
 			<td>{$product.price}</td>
 			<td><input type="text" name="qty[{$product.id}]" class="input-small" value="{$product.qty}" size="3" /></td>
 			<td>{$product.line_total}</td>
@@ -46,8 +46,8 @@ $template = '
 			<td class="total-value"><nobr>{$order_total}</nobr></td>
 		</tr>
 	</table>
-	<a class="btn btn-inverse" href="{$checkout_link}"><i class="icon-shopping-cart"></i> {lang}Checkout{/lang}</a>
-		<button class="btn btn-inverse" type="submit" name="updatebutton"><i class="icon-ok"></i> {lang}Update{/lang}</button>
+	<a class="btn btn-inverse" href="{$checkout_link}"><i class="fa fa-shopping-cart"></i> {lang}Checkout{/lang}</a>
+		<button class="btn btn-inverse" type="submit" name="updatebutton"><i class="fa fa-check"></i> {lang}Update{/lang}</button>
 </form>
 </div>
 {else}

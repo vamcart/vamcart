@@ -26,7 +26,7 @@ function default_template_xsell()
 			</div>
 			{product_form product_id={$node.id}}
 			<div class="inner darken notop">
-				<button class="btn btn-add-to-cart" type="submit"><i class="icon-shopping-cart"></i> {lang}Buy{/lang}</button>
+				<button class="btn btn-add-to-cart" type="submit"><i class="fa fa-shopping-cart"></i> {lang}Buy{/lang}</button>
 			</div>
 			{/product_form}
 		</li>

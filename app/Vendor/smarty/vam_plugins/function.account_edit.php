@@ -87,7 +87,7 @@ $(document).ready(function() {
 			<input id="retype" name="customer[retype]" type="password" autocomplete="off" /> {lang}Leave empty to use current password.{/lang}
 		</div>
 	</div>    
-	<button class="btn btn-inverse" type="submit" value="{lang}Save{/lang}"><i class="icon-ok"></i> {lang}Save{/lang}</button>
+	<button class="btn btn-inverse" type="submit" value="{lang}Save{/lang}"><i class="fa fa-check"></i> {lang}Save{/lang}</button>
 </form>
 ';
 
