@@ -27,7 +27,7 @@ $template = '
 			</div>
 			<div class="control-group">
 				<div class="controls">
-					<button type="submit" class="btn btn-inverse"><i class="fa fa-signin"></i> {lang}Login{/lang}</button>
+					<button type="submit" class="btn btn-inverse"><i class="fa fa-sign-in"></i> {lang}Login{/lang}</button>
 				</div>
 			</div>
 		</form>
@@ -40,7 +40,7 @@ $template = '
 			<li><a href="{base_path}/customer/my_orders.html">{lang}My Orders{/lang}</a></li>
 		</ul>
 		<form action="{base_path}/site/logout?return_url={$return_url}" method="post">
-			<button type="submit" class="btn btn-inverse"><i class="fa fa-signout"></i> {lang}Logout{/lang}</button>
+			<button type="submit" class="btn btn-inverse"><i class="fa fa-sign-out"></i> {lang}Logout{/lang}</button>
 		</form>
 		{/if}
 </section>
