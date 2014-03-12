@@ -19,7 +19,7 @@ $template = '
 {/if}
 			<a href="{$image.image_path}" class="lightbox"><img itemprop="image" src="{$image.image_thumb}" alt="{$image.name}" title="{$image.name}"{if {$image.image_width} > 0} width="{$image.image_width}"{/if}{if {$image.image_height} > 0} height="{$image.image_height}"{/if} />
 			<span class="frame-overlay"></span>
-			<span class="zoom"><i class="fa fa-zoom-in"></i></span>
+			<span class="zoom"><i class="fa fa-search-plus"></i></span>
 			</a>
 {if $image@index > 0}
 		</div>
