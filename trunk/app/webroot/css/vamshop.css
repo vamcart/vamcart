@@ -519,8 +519,8 @@ hr.transparent {
   margin: 0;
   float: right;
 }
-#navigation .shopping-cart .cart .amount [class^="icon-"],
-#navigation .shopping-cart .cart .amount [class*=" icon-"] {
+#navigation .shopping-cart .cart .amount [class^="fa fa-"],
+#navigation .shopping-cart .cart .amount [class*="fa fa-"] {
   margin-right: 7px;
 }
 #navigation .shopping-cart .cart .quantity {
@@ -856,8 +856,8 @@ hr.transparent {
     padding: 0 20px;
   }
 }
-#footer [class^="icon-"],
-#footer [class*=" icon-"] {
+#footer [class^="fa fa-"],
+#footer [class*="fa fa-"] {
   color: #ff6633;
 }
 #footer .widget-title {
@@ -993,7 +993,7 @@ hr.transparent {
 .page-sidebar .widget ul.icons.check li:after,
 .sidebar .widget ul.icons.check li:after {
   content: "\f096";
-  font-family: fontawesome;
+  font-family: "FontAwesome";
   display: block;
   position: absolute;
   left: 0;
@@ -1004,7 +1004,7 @@ hr.transparent {
 }
 .page-sidebar .widget ul.icons.check li.on:after,
 .sidebar .widget ul.icons.check li.on:after {
-  content: "\f046";
+  content: "\f046;";
   color: #ff6633;
 }
 .page-sidebar .widget ul.icons.check a,
@@ -1138,7 +1138,7 @@ hr.transparent {
 }
 .categories-widget ul.icons li:after {
   content: "\f105";
-  font-family: fontawesome;
+  font-family: "FontAwesome";
   display: block;
   position: absolute;
   left: 3px;
@@ -1319,8 +1319,8 @@ hr.transparent {
   background: #555 url("../../img/button.png") no-repeat center center;
 }
 #search .search-bt:before {
-  content: "\f096";
-  font-family: fontawesome;
+  content: "\f002";
+  font-family: "FontAwesome";
   display: block;
   width: 20px;
   height: 20px;
@@ -2117,6 +2117,9 @@ hr.transparent {
 /* ========================================================================== */
 /* Helpful Classes
 /* ========================================================================== */
+ul.clearfix {
+  list-style-type: none;
+}
 .clear {
   clear: both;
 }
