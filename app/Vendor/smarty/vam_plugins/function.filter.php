@@ -20,7 +20,7 @@ function default_template_filter()
 										is_active=$element["is_active"]}
 				{/foreach}
 				<button class="btn btn-inverse" name="applybutton" type="submit"><i class="fa fa-check"></i> {lang}Apply{/lang}</button>
-				<button class="btn btn-inverse" name="cancelbutton" type="submit"><i class="fa fa-remove"></i> {lang}Reset{/lang}</button>
+				<button class="btn btn-inverse" name="cancelbutton" type="submit"><i class="fa fa-times"></i> {lang}Reset{/lang}</button>
 			</div>
 		</form>
 </section>
