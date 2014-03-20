@@ -106,11 +106,11 @@ foreach ($content_data AS $content)
 		$name_link .= $this->Html->link($content['ContentDescription']['name'], '/contents/admin_edit/' . $content['Content']['id'].'/'.(isset($parent_content) ? $parent_content['Content']['id'] : 0));
 	}
 	
-	//if ($content['ContentType']['name']=='product' || $content['ContentType']['name']=='downloadable') {
-		//$discounts = $this->Admin->ActionButton('discounts', '/discounts/admin/' . $content['ContentProduct']['id'],__('Discounts')); 
-	//} else {
+	if ($content['ContentType']['name']=='product' || $content['ContentType']['name']=='downloadable') {
+		$discounts = $this->Admin->ActionButton('discounts', '/discounts/admin/' . $content['ContentProduct']['id'],__('Discounts')); 
+	} else {
 		$discounts = null; 
-	//}
+	}
 	
 	echo $this->Admin->TableCells(
 		array(
