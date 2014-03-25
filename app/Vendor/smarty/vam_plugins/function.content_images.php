@@ -65,7 +65,7 @@ function smarty_function_content_images($params, $template)
 	$keyed_images = array();
 	foreach($images AS $key => $value)
 	{
-		$content_id = $content['Content']['id'];
+		$content_id = $params['content_id'];
 
 			// Content Image
 
