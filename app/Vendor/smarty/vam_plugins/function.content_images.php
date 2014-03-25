@@ -47,6 +47,9 @@ function smarty_function_content_images($params, $template)
 
 	global $content;
 	global $config;
+
+		if(!isset ($params['content_id']) && $params['content_id'] > 0)
+			$params['content_id'] = $content['Content']['id'];
 	
 	App::uses('SmartyComponent', 'Controller/Component');
 		$Smarty =& new SmartyComponent(new ComponentCollection());
@@ -57,7 +60,7 @@ function smarty_function_content_images($params, $template)
 	if(!isset($params['number']))
 		$params['number'] = null;		
 	
-	$images = $ContentImage->find('all', array('limit' => $params['number'], 'conditions' => array('content_id' => $content['Content']['id'])));
+	$images = $ContentImage->find('all', array('limit' => $params['number'], 'conditions' => array('content_id' => $params['content_id'])));
 	
 	$keyed_images = array();
 	foreach($images AS $key => $value)
@@ -128,6 +131,7 @@ function smarty_help_function_content_images() {
 	<h3><?php echo __('What parameters does it take?') ?></h3>
 	<ul>
 		<li><em><?php echo __('(number)') ?></em> - <?php echo __('Number of images to display.') ?></li>
+		<li><em><?php echo __('(content_id)') ?></em> - <?php echo __('Display images of selected content_id element.') ?></li>
 		<li><em><?php echo __('(template)') ?></em> - <?php echo __('Useful if you want to override the default content listing template. Setting this will utilize the template that matches this alias.') ?></li>
 	</ul>
 	<?php
