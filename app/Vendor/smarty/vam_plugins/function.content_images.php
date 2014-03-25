@@ -48,9 +48,6 @@ function smarty_function_content_images($params, $template)
 	global $content;
 	global $config;
 
-		if(!isset ($params['content_id']) && $params['content_id'] > 0)
-			$params['content_id'] = $content['Content']['id'];
-	
 	App::uses('SmartyComponent', 'Controller/Component');
 		$Smarty =& new SmartyComponent(new ComponentCollection());
 		
@@ -59,6 +56,9 @@ function smarty_function_content_images($params, $template)
 	
 	if(!isset($params['number']))
 		$params['number'] = null;		
+
+	if(!isset ($params['content_id']))
+		$params['content_id'] = $content['Content']['id'];
 	
 	$images = $ContentImage->find('all', array('limit' => $params['number'], 'conditions' => array('content_id' => $params['content_id'])));
 	
