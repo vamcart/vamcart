@@ -117,6 +117,13 @@ class OrdersController extends AppController {
 			$order = $this->Order->find('all', array('conditions' => array('Order.id' => $order['Order']['id'])));
 			$order = $order[0];
 
+			$body = str_replace('{$shipping_method}', $order['ShippingMethod']['name'], $body);
+			$body = str_replace('{$payment_method}', $order['PaymentMethod']['name'], $body);
+			$body = str_replace('{$date}', $order['Order']['created'], $body);
+			$body = str_replace('{$phone}', $order['Order']['email'], $body);
+			$body = str_replace('{$email}', $order['Order']['phone'], $body);
+			$body = str_replace('{$order_total}', $order['Order']['total'], $body);
+
 			$order_products = '';
 			foreach($order['OrderProduct'] AS $product) {
 				$order_products .= $product['quantity'] . ' x ' . $product['name'] . ' = ' . $product['quantity']*$product['price'] . "\n";
