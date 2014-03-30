@@ -49,6 +49,7 @@ class EmailComponent extends Object
 		$this->IsMail();
 		
 		$this->CharSet = 'utf-8';
+		$this->IsHTML = false;
 		// set more PHPMailer vars, for smtp etc.
 //		$this->IsSMTP();
 //		$this->SMTPKeepAlive = true; // set mailer to use SMTP//		$this->SMTPAuth = true; // turn on SMTP authentication true/false//		$this->Username = user; // SMTP username//		$this->Password = password; // SMTP password//		$this-> = server; // specify smtp server		
