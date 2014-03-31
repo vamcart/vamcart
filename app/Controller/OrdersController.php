@@ -120,8 +120,8 @@ class OrdersController extends AppController {
 			$body = str_replace('{$shipping_method}', $order['ShippingMethod']['name'], $body);
 			$body = str_replace('{$payment_method}', $order['PaymentMethod']['name'], $body);
 			$body = str_replace('{$date}', $order['Order']['created'], $body);
-			$body = str_replace('{$phone}', $order['Order']['email'], $body);
-			$body = str_replace('{$email}', $order['Order']['phone'], $body);
+			$body = str_replace('{$phone}', $order['Order']['phone'], $body);
+			$body = str_replace('{$email}', $order['Order']['email'], $body);
 			$body = str_replace('{$order_total}', $order['Order']['total'], $body);
 
 			$order_products = '';
