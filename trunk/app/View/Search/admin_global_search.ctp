@@ -16,7 +16,7 @@ foreach($tables AS $key => $table)
 	if($model_results > 0)
 	{
 		echo '<table class="contentTable">';
-		echo $this->Html->tableHeaders(array($table['Search']['model'] . ' - ' . $table['Search']['field']));
+		echo $this->Html->tableHeaders(array(__($table['Search']['model']) . ' - ' . __($table['Search']['field'])));
 		
 		$model = $table['Search']['model'];
 		$field = $table['Search']['field'];
