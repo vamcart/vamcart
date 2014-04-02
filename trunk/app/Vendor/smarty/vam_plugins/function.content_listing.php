@@ -28,7 +28,7 @@ $template = '
 <div class="row-fluid shop-products">
 	<ul class="thumbnails">
 		{foreach from=$content_list item=node}
-		<li class="item span4 {if $node@index is div by 3}first{/if}">
+		<li class="item span4{if $node@index is div by 3} first{/if}">
 			<div class="thumbnail text-center">
 				<a href="{$node.url}" class="image"><img src="{$node.image}" alt="{$node.name}"{if isset($thumbnail_width)} width="{$thumbnail_width}"{/if} /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
 			<div class="inner notop nobottom text-left">
