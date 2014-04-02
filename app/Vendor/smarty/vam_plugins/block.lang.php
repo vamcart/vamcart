@@ -37,8 +37,9 @@ function smarty_block_lang($params, $content, $template, &$repeat)
 		if(array_key_exists($content,$text_values_cache_output))
 		{
 		echo $text_values_cache_output[$content];
-		}	
-		
+		} else {
+		echo $content;
+		}			
 
 
 }
