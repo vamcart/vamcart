@@ -48,10 +48,6 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty');
 		global $content;
 		global $config;
 
-		// Get translate strings
-		global $translate;
-		$translate = $this->ConfigurationBase->load_translate();	
-
 		App::import('Model', 'Content');
 		$this->Content = new Content();
 
