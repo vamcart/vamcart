@@ -2088,8 +2088,8 @@ INSERT INTO `search_tables` (`id`, `model`, `field`, `url`, `edit_field`, `alter
 (7, 'Language', 'name', '/languages/admin_edit/', 'id', ''),
 (8, 'DefinedLanguage', 'key', '/defined_languages/admin_edit/', 'key', ''),
 (9, 'DefinedLanguage', 'value', '/defined_languages/admin_edit/', 'key', ''),
-(10, 'Template', 'name', '/templates/admin_edit_microplate/', 'id', ''),
-(11, 'Template', 'template', '/templates/admin_edit_microplate/', 'id', 'name'),
+(10, 'Template', 'name', '/templates/admin_edit/', 'id', ''),
+(11, 'Template', 'template', '/templates/admin_edit/', 'id', 'name'),
 (12, 'Stylesheet', 'name', '/stylesheets/admin_edit/', 'id', ''),
 (13, 'Stylesheet', 'stylesheet', '/stylesheets/admin_edit/', 'id', 'name');
 
