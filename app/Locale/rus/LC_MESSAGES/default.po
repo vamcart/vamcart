@@ -4726,3 +4726,55 @@ msgstr "Номер витрины магазина в ЦПП (scid). Выдае�
 #: /plugins/payment/views/yandex/settings.ctp:22
 msgid "Yandex.Money shopPassword"
 msgstr "Пароль магазина в ЦПП (shopPassword)."
+
+#: /app/View/Search/admin_global_search.ctp:22
+msgid "ContentDescription"
+msgstr "Описание"
+
+#: /app/View/Search/admin_global_search.ctp:22
+msgid "ContentLink"
+msgstr "Ссылка"
+
+#: /app/View/Search/admin_global_search.ctp:22
+msgid "DefinedLanguage"
+msgstr "Языковая строка"
+
+#: /app/View/Search/admin_global_search.ctp:22
+msgid "alias"
+msgstr "псевдоним"
+
+#: /app/View/Search/admin_global_search.ctp:22
+msgid "head_data"
+msgstr "заголовок"
+
+#: /app/View/Search/admin_global_search.ctp:22
+msgid "name"
+msgstr "название"
+
+#: /app/View/Search/admin_global_search.ctp:22
+msgid "description"
+msgstr "описание"
+
+#: /app/View/Search/admin_global_search.ctp:22
+msgid "short_description"
+msgstr "краткое описание"
+
+#: /app/View/Search/admin_global_search.ctp:22
+msgid "url"
+msgstr "url"
+
+#: /app/View/Search/admin_global_search.ctp:22
+msgid "key"
+msgstr "ключ"
+
+#: /app/View/Search/admin_global_search.ctp:22
+msgid "value"
+msgstr "значение"
+
+#: /app/View/Search/admin_global_search.ctp:22
+msgid "template"
+msgstr "шаблон"
+
+#: /app/View/Search/admin_global_search.ctp:22
+msgid "stylesheet"
+msgstr "стиль"
