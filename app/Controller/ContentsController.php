@@ -488,6 +488,8 @@ class ContentsController extends AppController {
 			}
 	
 			$this->set('content_id',$content_id);
+			$parent_id = (isset($data['Content']['parent_id']) ? $data['Content']['parent_id'] : $parent_id);
+			$this->set('parent_id', $parent_id);
 			$this->set('data',$data);
 			
 			// Content type
@@ -497,9 +499,7 @@ class ContentsController extends AppController {
 				$content_types_translatable[$key] = __($value, true);
 			}
 			$this->set('content_types',$content_types_translatable);
-			
-			$this->set('parent_id', $parent_id);
-			
+		
 			// Template
 			$templates_translatable =  $this->Content->Template->find('list', array('conditions'=>array('parent_id' => '0')));
 			foreach($templates_translatable AS $key => $value)
