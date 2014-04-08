@@ -26,7 +26,7 @@ function smarty_help_function_admin_edit_link() {
 	<p><?php echo __('Creates a link to edit the current content page.') ?></p>
 	<p><?php echo __('Links are only shown if you have an active admin session and the page is not a core page.') ?></p>
 	<h3><?php echo __('How do I use it?') ?></h3>
-	<p><?php echo __('Just insert the tag into your template like:') ?> <code>{admin_login_link}</code></p>
+	<p><?php echo __('Just insert the tag into your template like:') ?> <code>{admin_edit_link}</code></p>
 	<h3><?php echo __('What parameters does it take?') ?></h3>
 	<ul>
 		<li><em>(<?php echo __('None') ?>)</em></li>		
