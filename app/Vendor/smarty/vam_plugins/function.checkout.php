@@ -280,9 +280,9 @@ function smarty_function_checkout($params, $template)
 		$keyed_ship_methods[$ship_method_id] = array(
 										  'id' => $ship_method_id,
 										  'name' => $method['ShippingMethod']['name'],
-										  'icon' => (isset($method['ShippingMethod']['icon']) && file_exists(IMAGES . 'icons/shipping/' . $method['ShippingMethod']['icon'])) ? $method['ShippingMethod']['icon'] : false
-//										  'cost_plain' => $MethodBase->calculate(),
-//										  'cost' => $CurrencyBase->display_price($MethodBase->calculate())
+										  'icon' => (isset($method['ShippingMethod']['icon']) && file_exists(IMAGES . 'icons/shipping/' . $method['ShippingMethod']['icon'])) ? $method['ShippingMethod']['icon'] : false,
+										  'cost_plain' => $MethodBase->calculate(),
+										  'cost' => $CurrencyBase->display_price($MethodBase->calculate())
 										  );
 
 	}	
