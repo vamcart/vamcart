@@ -364,7 +364,7 @@ hr.transparent {
   line-height: 20px;
   height: 20px;
   display: block;
-  padding: 10px 15px 10px 14px;
+  padding: 10px 16px 10px 14px;
   color: #ffffff;
 }
 #navigation .login .account:hover {
@@ -610,7 +610,7 @@ hr.transparent {
   display: none;
   opacity: 0;
   z-index: 10;
-  height: 50px;
+height: 50px;
   line-height: 50px;
   margin: 0;
 }
@@ -1002,7 +1002,7 @@ hr.transparent {
 }
 .page-sidebar .widget ul.icons.check li.on:after,
 .sidebar .widget ul.icons.check li.on:after {
-  content: "\f046;";
+  content: "\f046";
   color: #ff6633;
 }
 .page-sidebar .widget ul.icons.check a,
@@ -1317,7 +1317,7 @@ hr.transparent {
   background: #555 url("../../img/button.png") no-repeat center center;
 }
 #search .search-bt:before {
-  content: "\f002";
+  content: "\f096";
   font-family: "FontAwesome";
   display: block;
   width: 20px;
@@ -1580,6 +1580,10 @@ hr.transparent {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+}
+.product-images .span4.thumbnail {
+  padding: .5em;
+  margin: 0;
 }
 .product-images .thumbnail.big {
   margin-bottom: 7px;
