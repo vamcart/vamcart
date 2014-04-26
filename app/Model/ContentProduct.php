@@ -5,10 +5,12 @@
    Copyright (c) 2014 VamSoft Ltd.
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
+   
 App::uses('Model', 'AppModel');
 class ContentProduct extends AppModel {
 	public $name = 'ContentProduct';
 	public $belongsTo = array('Tax');
+	public $hasMany = array('ContentProductPrice' => array('dependent' => true));
 	
 	public $validate = array(
 	'price' => array(
@@ -22,15 +24,28 @@ class ContentProduct extends AppModel {
 	)
 	);
         
-        	
+        public $id_customer_discount = null;
+        
         public function afterFind($results, $primary = false)
         {
             foreach ($results as $key => $value) 
             {
-                 if(isset($results[$key]['ContentProduct']['content_id']))
-                 {
-                     $results[$key]['ContentProduct']['price'] = $this->getPriceModificator($value['ContentProduct']['content_id'] ,$results[$key]['ContentProduct']['price']);
-                 }    
+                $price = null;
+                if(isset($results[$key]['ContentProduct']['content_id']))
+                {
+                    $price = $this->getPriceModificator($value['ContentProduct']['content_id'] ,$results[$key]['ContentProduct']['price']);
+                    $id_customer = null;
+                    if(isset($_SESSION['Customer']['customer_id'])) $id_customer = $_SESSION['Customer']['customer_id'];
+                    else if(isset($this->id_customer_discount)) $id_customer = $this->id_customer_discount;
+                    if(isset($id_customer))
+                    {
+                        App::import('Model', 'Customer');
+                        $Customer = new Customer();
+                        $discount_group = $Customer->find('first',array('conditions' => array('Customer.id' => $id_customer)));
+                        if(isset($discount_group['GroupsCustomer']['price'])) $price = $price - ($price * $discount_group['GroupsCustomer']['price'] / 100);
+                    } 
+                    $results[$key]['ContentProduct']['price'] = $price;
+                }
             }
 
             return($results);

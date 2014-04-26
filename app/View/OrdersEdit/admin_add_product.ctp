@@ -1,3 +1,13 @@
+<style>
+.list_column li.column {
+        /*line-height:1.5em;*/
+        /*border-bottom:1px solid #ccc;*/
+        border-left:1px solid #ccc;
+        float:left;
+        display:inline;
+        width:10%;
+}
+</style>
 <?php
 /* -----------------------------------------------------------------------------------------
    VamShop - http://vamshop.com
@@ -13,7 +23,18 @@
 
     echo $this->Admin->ShowPageHeaderStart(__('Add Product'), 'cus-cart-add', $search_form);
     
-    echo '<table class="contentTable">';
+    echo '<ul class="list_column">';
+    foreach ($data['content'] AS $content)
+    {
+        echo '<li class="column">';
+        echo $this->Ajax->link($content['ContentDescription'][0]['name'], 'null', $options = array('escape' => false, 'url' => '/orders_edit/admin_add_product/'  . $data['next_category'] . '/' . $content['Content']['id'], 'update' => 'content'), null, false);
+        echo $this->Smarty->display('<div>{attribute_list product_id=$product_id}</div>',array('product_id' => $content['Content']['id']));
+        echo '</li>';
+        
+        
+    }
+    echo '</ul> <div class="clear"></div>';
+    /*echo '<table class="contentTable">';
     for($r = 0;$r <= 36;$r+=9)
     {
         echo '<tr>';
@@ -26,7 +47,7 @@
         echo '</tr>';
     }
     
-    echo '</table>';
+    echo '</table>';*/
     
     ?>
     <table class="contentPagination">

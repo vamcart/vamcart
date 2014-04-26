@@ -185,12 +185,15 @@ class SiteController extends AppController {
 		if ($customer_id['Customer']['password'] == Security::hash( $_POST['data']['Customer']['password'], 'sha1', true)) {
 
 		$this->Session->write('Customer.customer_id', $customer_id['Customer']['id']);
+                if(isset($customer_id['GroupsCustomer']['id']))$this->Session->write('Customer.customer_group_id', $customer_id['GroupsCustomer']['id']);
+                else $this->Session->write('Customer.customer_group_id', 0);
 
 		} else {
 
 		$this->Session->setFlash(__('Login error. Check your email and/or password!'), 'bootstrap_alert_error');
 
 		$this->Session->delete('Customer.customer_id');
+                $this->Session->delete('Customer.customer_group_id');
 			
 		}
 

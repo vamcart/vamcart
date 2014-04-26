@@ -28,7 +28,7 @@ $template = '
 <div class="row-fluid shop-products">
 	<ul class="thumbnails">
 		{foreach from=$content_list item=node}
-		<li class="item span4{if $node@index is div by 3} first{/if}">
+		<li class="item span4 {if $node@index is div by 3}first{/if}">
 			<div class="thumbnail text-center">
 				<a href="{$node.url}" class="image"><img src="{$node.image}" alt="{$node.name}"{if isset($thumbnail_width)} width="{$thumbnail_width}"{/if} /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
 			<div class="inner notop nobottom text-left">
@@ -76,7 +76,7 @@ function smarty_function_content_listing($params, $template)
 	global $content,$filter_list;
 	
 	// Cache the output.
-	$cache_name = 'vam_content_listing_output_' . $content['Content']['id'] . '_' . (isset($params['template'])?$params['template']:'') . (isset($params['parent'])?'_'.$params['parent']:'') . '_' . $_SESSION['Customer']['language_id'] . '_' . $_SESSION['Customer']['page'] . (isset($filter_list)?md5(serialize($filter_list)):'');
+	$cache_name = 'vam_content_listing_output_' . $_SESSION['Customer']['customer_group_id'] . '_' . $content['Content']['id'] . '_' . (isset($params['template'])?$params['template']:'') . (isset($params['parent'])?'_'.$params['parent']:'') . '_' . $_SESSION['Customer']['language_id'] . '_' . $_SESSION['Customer']['page'] . (isset($filter_list)?md5(serialize($filter_list)):'');
 	$output = Cache::read($cache_name, 'catalog');
 	if($output === false)
 	{
@@ -162,7 +162,15 @@ function smarty_function_content_listing($params, $template)
 
         // Applying pagination for products only
         if(strpos($params['type'],'product') !== false){
-
+//1.Найдем группы        
+        $ContentGroup =& new Content();
+        $ContentGroup->recursive = -1;
+        $content_list_group = $ContentGroup->find('list', array('fields' => array('Content.id_group' ,'COUNT(Content.id) AS grp_cnt')
+                                                         ,'conditions' => $content_list_data_conditions
+                                                         ,'group' => array('Content.id_group HAVING grp_cnt > 1')
+                                                         ,'order' => array('Content.order ASC')));
+        $content_list_group = array_keys($content_list_group);            
+//
         if(!empty($filter_list))
         {
             $ContentFiltered =& new Content();
@@ -228,15 +236,23 @@ function smarty_function_content_listing($params, $template)
             {
                 $value = array('OR' => $value);
                 $tmp_content_list_data_conditions = array_merge($next_flt, $value);
-                $content_filtered_list_data = $ContentFiltered->find('list', array('fields' => 'id','conditions' => $tmp_content_list_data_conditions, 'order' => array('Content.order ASC') ,'joins' => $content_list_data_joins ,'group' => array('Content.id')));
+//Добавляем фильтр (новый вариант с группами)                
+//                $content_filtered_list_data = $ContentFiltered->find('all', array('fields' => array('Content.id','IFNULL(Content.id_group,Content.id) as grp'),'conditions' => $tmp_content_list_data_conditions, 'order' => array('Content.order ASC') ,'joins' => $content_list_data_joins ,'group' => array('Content.id')));
+//                $content_filtered_list_data = Set::combine($content_filtered_list_data,'{n}.Content.id', '{n}.0.grp');//нормализуем в list
+//(старый вариант без групп)
+                $content_filtered_list_data = $ContentFiltered->find('list', array('fields' => 'id','conditions' => $tmp_content_list_data_conditions, 'order' => array('Content.order ASC') ,'joins' => $content_list_data_joins ,'group' => array('Content.id')));                
+//                
                 $next_flt = array('Content.id' => $content_filtered_list_data);
             }
             $content_list_data_conditions = array_merge($content_list_data_conditions,$next_flt);
         }
+//2.Добавим фильтр для групп        
+        $content_list_data_conditions = array_merge($content_list_data_conditions,array('OR' => array('Content.id_group is null','Content.id' => $content_list_group)));
+//               
             if($params['page'] == 'all'){          
 
                 $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'order' => array('Content.order ASC')));
-                $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
+//                $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
             }
             else{
             	
@@ -244,8 +260,9 @@ function smarty_function_content_listing($params, $template)
    	         $params['limit'] = $config['PRODUCTS_PER_PAGE'];
             
                 $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => $params['limit'],'page' => $params['page'], 'order' => array('Content.id ASC, Content.order ASC')));
-                $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
+//                $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
             }
+            $content_total = count($content_list_data);
         }
         else{
             $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => $params['limit'], 'order' => array('Content.order ASC, Content.id ASC')));
@@ -281,6 +298,12 @@ function smarty_function_content_listing($params, $template)
 			$content_list[$count]['date_added']	= CakeTime::i18nFormat($raw_data['Content']['created']);	
 			$content_list[$count]['date_modified']	= CakeTime::i18nFormat($raw_data['Content']['modified']);	
 
+//3.Установим признак если группа
+                        if (in_array($raw_data['Content']['id'],$content_list_group)){ 
+                            $content_list[$count]['is_group'] = true;
+                            //var_dump($Content->getSetAttributesForProduct(96));
+                        }
+//                        
                         $content_list[$count]['attributes'] = array();
                         foreach($raw_data['Attribute'] AS $attribute)
                         {

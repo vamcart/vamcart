@@ -5,6 +5,7 @@
    Copyright (c) 2014 VamSoft Ltd.
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
+   
 class OrdersController extends AppController {
 	public $name = 'Orders';
 	public $helpers = array('Time');
@@ -54,14 +55,20 @@ class OrdersController extends AppController {
 				if ('' == $order['OrderProduct']['filename']) {
 					App::import('Model', 'ContentProduct');
 					$ContentProduct =& new ContentProduct();
-					$product_data = $ContentProduct->findByContentId($order_data['content_id']);
+					//$product_data = $ContentProduct->findByContentId($order_data['content_id']);
+                                        $product_data = $ContentProduct->find('first',array('conditions' => array('ContentProduct.content_id' => $order_data['content_id'])
+                                                                                           ,'fields' => array('ContentProduct.id','ContentProduct.ordered','ContentProduct.stock')
+                                                                                           ));
 					$product_data['ContentProduct']['ordered'] = $product_data['ContentProduct']['ordered'] + $order_data['quantity'];
 					$product_data['ContentProduct']['stock'] = $product_data['ContentProduct']['stock'] - $order_data['quantity'];
 					$ContentProduct->save($product_data);
 				} else {
 					App::import('Model', 'ContentDownloadable');
 					$ContentDownloadable =& new ContentDownloadable();
-					$product_data = $ContentDownloadable->findByContentId($order_data['content_id']);
+					//$product_data = $ContentDownloadable->findByContentId($order_data['content_id']);
+                                        $product_data = $ContentDownloadable->find('first',array('conditions' => array('ContentDownloadable.content_id' => $order_data['content_id'])
+                                                                                           ,'fields' => array('ContentDownloadable.id','ContentDownloadable.ordered','ContentDownloadable.stock')
+                                                                                           ));                                        
 					$product_data['ContentDownloadable']['ordered'] = $product_data['ContentDownloadable']['ordered'] + $order_data['quantity'];
 					$product_data['ContentDownloadable']['stock'] = $product_data['ContentDownloadable']['stock'] - $order_data['quantity'];
 					$ContentDownloadable->save($product_data);
@@ -198,14 +205,20 @@ class OrdersController extends AppController {
 							if ('' == $order['OrderProduct']['filename']) {
 								App::import('Model', 'ContentProduct');
 								$ContentProduct =& new ContentProduct();
-								$product_data = $ContentProduct->findByContentId($order_data['content_id']);
+								//$product_data = $ContentProduct->findByContentId($order_data['content_id']);
+                                                                $product_data = $ContentProduct->find('first',array('conditions' => array('ContentProduct.content_id' => $order_data['content_id'])
+                                                                                           ,'fields' => array('ContentProduct.id','ContentProduct.ordered','ContentProduct.stock')
+                                                                                           ));                                                                
 								$product_data['ContentProduct']['ordered'] = $product_data['ContentProduct']['ordered'] - $order_data['quantity'];
 								$product_data['ContentProduct']['stock'] = $product_data['ContentProduct']['stock'] + $order_data['quantity'];
 								$ContentProduct->save($product_data);
 							} else {
 								App::import('Model', 'ContentDownloadable');
 								$ContentDownloadable =& new ContentDownloadable();
-								$product_data = $ContentDownloadable->findByContentId($order_data['content_id']);
+								//$product_data = $ContentDownloadable->findByContentId($order_data['content_id']);
+                                                                $product_data = $ContentDownloadable->find('first',array('conditions' => array('ContentDownloadable.content_id' => $order_data['content_id'])
+                                                                                           ,'fields' => array('ContentDownloadable.id','ContentDownloadable.ordered','ContentDownloadable.stock')
+                                                                                           ));                                                                 
 								$product_data['ContentDownloadable']['ordered'] = $product_data['ContentDownloadable']['ordered'] - $order_data['quantity'];
 								$product_data['ContentDownloadable']['stock'] = $product_data['ContentDownloadable']['stock'] + $order_data['quantity'];
 								$ContentDownloadable->save($product_data);
@@ -364,14 +377,20 @@ class OrdersController extends AppController {
 				if ('' == $order['OrderProduct']['filename']) {
 					App::import('Model', 'ContentProduct');
 					$ContentProduct =& new ContentProduct();
-					$product_data = $ContentProduct->findByContentId($order_data['content_id']);
+					//$product_data = $ContentProduct->findByContentId($order_data['content_id']);
+                                        $product_data = $ContentProduct->find('first',array('conditions' => array('ContentProduct.content_id' => $order_data['content_id'])
+                                                                                           ,'fields' => array('ContentProduct.id','ContentProduct.ordered','ContentProduct.stock')
+                                                                                           ));                                        
 					$product_data['ContentProduct']['ordered'] = $product_data['ContentProduct']['ordered'] - $order_data['quantity'];
 					$product_data['ContentProduct']['stock'] = $product_data['ContentProduct']['stock'] + $order_data['quantity'];
 					$ContentProduct->save($product_data);
 				} else {
 					App::import('Model', 'ContentDownloadable');
 					$ContentDownloadable =& new ContentDownloadable();
-					$product_data = $ContentDownloadable->findByContentId($order_data['content_id']);
+					//$product_data = $ContentDownloadable->findByContentId($order_data['content_id']);
+                                        $product_data = $ContentDownloadable->find('first',array('conditions' => array('ContentDownloadable.content_id' => $order_data['content_id'])
+                                                                                           ,'fields' => array('ContentDownloadable.id','ContentDownloadable.ordered','ContentDownloadable.stock')
+                                                                                           )); 
 					$product_data['ContentDownloadable']['ordered'] = $product_data['ContentDownloadable']['ordered'] - $order_data['quantity'];
 					$product_data['ContentDownloadable']['stock'] = $product_data['ContentDownloadable']['stock'] + $order_data['quantity'];
 					$ContentDownloadable->save($product_data);

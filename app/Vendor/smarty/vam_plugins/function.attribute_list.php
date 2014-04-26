@@ -8,90 +8,138 @@
 
 function default_template_attribute_list()
 {
-    $template = '
-                    {foreach from=$element_list item=element}
-                    {if $element@first}
-                    	<ul>
-                    {/if}
-                        {value_filter template=$element["template_attribute"] id_attribute=$element["id_attribute"] 
-                                                                              name_attribute=$element["name_attribute"] 
-                                                                              values_attribute=$element["values_attribute"]}
-                    {if $element@last}
-                    	</ul>
-                    {/if}
-                    {/foreach}
+    $template = '   
+
+<!--<STYLE>
+    .sub-menu 
+    { 
+       display: none; 
+    } 
+    .main-item:focus ~ .sub-menu, 
+    .main-item:active ~ .sub-menu, 
+    .sub-menu:hover 
+    { 
+       display: block; 
+    }
+</STYLE>-->
+
+<script type="text/javascript"> 
+    //<![CDATA[
+    $(document).ready(function () { 
+        global_spinner = $("#spinner");
+    });
+    //]]>
+</script> 
+
+    <form id="set_attr_form" method="post" action={$base_content}>
+                {if $attr.target=="CATALOG"}
+                    {foreach from=$attr.element_list item=attr_element}
+                        {if $attr_element@first} <ul> {/if}                
+                            <li>
+                                {value_filter template=$attr_element.template.template_catalog 
+                                              id_attribute=$attr_element.values_attribute.id 
+                                              name_attribute=$attr_element.name 
+                                              values_attribute=$attr_element.values_attribute} 
+                            </li>
+                        {if $attr_element@last} </ul> {/if}
+                    {/foreach}                
+                {else if $attr.target=="PRODUCT"}
+                    {foreach from=$attr.element_list item=attr_element}
+                        {if $attr_element@first} <ul> {/if}                
+                            <li>
+                                {value_filter template=$attr_element.template.template_product 
+                                              id_attribute=$attr_element.values_attribute.id 
+                                              name_attribute=$attr_element.name 
+                                              values_attribute=$attr_element.values_attribute} 
+                            </li>
+                        {if $attr_element@last} </ul> {/if}
+                    {/foreach} 
+                {else if $attr.target=="PRODUCT_GROUP"}
+                    {foreach from=$attr.element_list item=attr_element}
+                        {if $attr_element@first}<ul>{/if}                     
+                        <li>
+                            {if $attr_element.make}<b>{/if}
+                                {$attr_element.name}
+                                {$attr_element.values_attribute.name}
+                                <a class="main-item" href="javascript:void(0);"> + </a>
+                            {if $attr_element.make}</b>{/if}                                
+                        <ul class="sub-menu">
+                        {foreach from=$attr_element.group_attributes item=attr_val}                        
+                            <li>
+                                {if $attr_val.make}<b>{/if}
+                                    <a class="confirm" href={$attr_val.content_chng_url} onclick=\'$("#attr{$attr_val.values_attribute.id}").attr("value","1");\'> {$attr_val.values_attribute.name} </a>
+                                    <input id="attr{$attr_val.values_attribute.id}" name="data[set_attr][{$attr_val.values_attribute.id}]" type="hidden" ></input>
+                                {if $attr_val.make}</b>{/if}
+                            </li>                          
+                        {/foreach}
+                        </ul>
+                        </li>
+                        {if $attr_element@last}</ul>{/if}                      
+                    {/foreach}                      
+                {/if}              
+    </form>
+    <script type="text/javascript">      
+        //<![CDATA[
+        $(".confirm").click(function(){            
+            var http_send = $(this).attr("href");
+            var form_data = $("#set_attr_form").serialize();
+            $.ajax({
+                    type: "POST",
+                    url: http_send,
+                    data: form_data,
+                    async: true,
+                    success: function (data, textStatus) {
+                        $("#ajaxcontent").html(data);},
+                    beforeSend: function () {
+                        global_spinner.fadeIn("fast");
+                        },
+                    complete: function () {
+                        global_spinner.fadeOut("slow");
+                        }                                                    
+                });                            
+            return false;
+        });
+
+        //]]>
+    </script>                
+
     ';
     return $template;
 }
 
 
 function smarty_function_attribute_list($params)
-{
+{  
     global $content;
     App::uses('SmartyComponent', 'Controller/Component');
     $Smarty =& new SmartyComponent(new ComponentCollection());
-
-    if (!empty($content['Attribute'])) 
-    {
     
-        $element_list = array();
-        foreach($content['Attribute'] AS $k => $attribute)
-        {
-            $element_list[$k]['id_attribute'] = $attribute['id']; //id атрибута
-            $element_list[$k]['name_attribute'] = $attribute['name'];
-            $element_list[$k]['template_attribute'] = $attribute['AttributeTemplate']['template_catalog'];
-            $element_list[$k]['values_attribute'] = array();
-            foreach($attribute['ValAttribute'] AS $k_v => $value)
-            {                        
-                if(isset($value['type_attr'])&&$value['type_attr']!=''
-			&&$value['type_attr']!='list_value'&&$value['type_attr']!='checked_list')$k_v = $value['type_attr'];//Если задан тип то передаем его качестве ключа
-                $element_list[$k]['values_attribute'][$k_v]['id'] = $value['id']; //id default значения атрибута
-                $element_list[$k]['values_attribute'][$k_v]['name'] = $value['name'];
-                $element_list[$k]['values_attribute'][$k_v]['type_attr'] = $value['type_attr'];
-                $element_list[$k]['values_attribute'][$k_v]['price_modificator'] = $value['price_modificator'];
-                $element_list[$k]['values_attribute'][$k_v]['price_value'] = $value['price_value'];
-                if(isset($params['value_attributes'][$value['id']])) $element_list[$k]['values_attribute'][$k_v]['val'] = $params['value_attributes'][$value['id']]['value'];
-                else $element_list[$k]['values_attribute'][$k_v]['val'] = $value['val'];           
-            }
-        }
-    }
-    elseif(isset($content['Content']['parent_id'])) 
-    {    
-        App::import('Model', 'Attribute');
-        $Attribute =& new Attribute();
-        $Attribute->setLanguageDescriptor($_SESSION['Customer']['language_id']);
-        $attr = $Attribute->find('all',array('conditions' => array('Attribute.content_id' => $content['Content']['parent_id'] ,'Attribute.is_active' => '1')));
-        $Attribute->recursive = -1;
-        $val_attr = $Attribute->find('all',array('conditions' => array('Attribute.content_id' => $content['Content']['id'])));
-        $val_attr = Set::combine($val_attr,'{n}.Attribute.parent_id','{n}.Attribute.val');
-        foreach ($attr as $k => $attribute) 
-        {
-            $element_list[$k]['id_attribute'] = $attribute['Attribute']['id']; //id атрибута
-            $element_list[$k]['name_attribute'] = $attribute['Attribute']['name'];
-            $element_list[$k]['template_attribute'] = $attribute['AttributeTemplate']['template_product'];
-            $element_list[$k]['values_attribute'] = array();
-            foreach($attribute['ValAttribute'] AS $k_v => $value)
-            {
-                if(isset($value['type_attr'])&&$value['type_attr']!=''
-			&&$value['type_attr']!='list_value'&&$value['type_attr']!='checked_list')$k_v = $value['type_attr'];//Если задан тип то передаем его качестве ключа
-                $element_list[$k]['values_attribute'][$k_v]['id'] = $value['id']; //id default значения атрибута
-                $element_list[$k]['values_attribute'][$k_v]['name'] = $value['name'];
-                $element_list[$k]['values_attribute'][$k_v]['type_attr'] = $value['type_attr'];
-                $element_list[$k]['values_attribute'][$k_v]['price_modificator'] = $value['price_modificator'];
-                $element_list[$k]['values_attribute'][$k_v]['price_value'] = $value['price_value'];
-                if(isset($val_attr[$value['id']])) $element_list[$k]['values_attribute'][$k_v]['val'] = $val_attr[$value['id']];
-                else $element_list[$k]['values_attribute'][$k_v]['val'] = $value['val'];   
-            }
-        }
-    }
-    else
-    {
-        return;
-    }
+    $attr = array();
+    App::import('Model', 'Content');
+    $Content =& new Content();
 
-    
+    if (isset($params['product_id'])) //Для каталога
+    { 
+        $attr['element_list'] = $Content->getSetAttributesForProduct($params['product_id']);
+        $attr['target'] = 'CATALOG';
+        $content_id = $params['product_id'];
+    }
+    else //Для карточки товара
+    {   
+        if($Content->is_group($content['Content']['id']))
+        {
+             $attr['element_list'] = $Content->getSetAttributesForGroup($content['Content']['id'],true);
+             $attr['target'] = 'PRODUCT_GROUP';
+        } else {         
+            $attr['element_list'] = $Content->getSetAttributesForProduct($content['Content']['id']);
+            $attr['target'] = 'PRODUCT';
+        }
+        $content_id = $content['Content']['id'];
+    }                 
+
     $assignments = array();
-    $assignments = array('element_list' => $element_list);
+    $assignments = array('attr' => $attr
+                        ,'base_content' => $Content->getUrlForContent($content_id));
     $display_template = $Smarty->load_template($params, 'attribute_list');
     $Smarty->display($display_template, $assignments);
 
@@ -107,7 +155,7 @@ function smarty_help_function_attribute_list()
     <h3><?php echo __('What parameters does it take?') ?></h3>
     <ul>
         <li><em><?php echo __('(template)') ?></em> - <?php echo __('Overrides the default template.') ?></li>
-    	<li><em><?php echo __('(value_attributes)') ?></em> - <?php echo __('Attributes values.') ?></li>
+    	<li><em><?php echo __('(product_id)') ?></em> - <?php echo __('Product ID.') ?></li>
       </ul>
     <?php
 }

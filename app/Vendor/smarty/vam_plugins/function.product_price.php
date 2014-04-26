@@ -18,6 +18,8 @@ function smarty_function_product_price($params, $template)
 	} else {
 		$price = $content['ContentProduct']['price'];
 	}
+
+	if(isset($params['price'])) $price = $params['price'];
 			
 	$price = $CurrencyBase->display_price($price);
 	
