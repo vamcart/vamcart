@@ -5,10 +5,12 @@
    Copyright (c) 2014 VamSoft Ltd.
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
+   
 App::uses('Model', 'AppModel');
 class Customer extends AppModel {
 	public $name = 'Customer';
 	public $hasOne = array('AddressBook' => array('dependent' => true));
+	public $belongsTo = array('GroupsCustomer');
 
 	public function _validationRules() 
 	{
@@ -27,7 +29,7 @@ class Customer extends AppModel {
 				//'message' => __('Passwords don\'t match', true)
 			//),
 		//),
-		'email' => array (
+		/*'email' => array (
 			'email' => array(
 				'rule' => array('email', true),
 				'required' => true,
@@ -38,7 +40,7 @@ class Customer extends AppModel {
 				//'rule' => 'isUnique',
 				//'message' => __('This email has already been taken.', true)
 			//),
-		),
+		),*/
 	);
 	}
 

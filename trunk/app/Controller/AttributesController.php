@@ -12,9 +12,8 @@ class AttributesController extends AppController
     public $paginate = null;
     public $helpers = array('Smarty');
     
-    public function admin ($id = 0 ,$parent_id = 0)
+    public function admin ($type = 'category' ,$id = 0)
     {              
-        
         $this->loadModel('Content');
 	$this->Content->unbindModel(array('hasMany' => array('ContentDescription')));
 	$this->Content->bindModel(array('hasOne' => array('ContentDescription' => array(
@@ -28,19 +27,35 @@ class AttributesController extends AppController
 					))));
         
         $this->Content->Attribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
-        $this->paginate['Content'] = array('conditions' => array('Content.parent_id' => $id , 'Content.content_type_id IN (1,2)')
+        
+        $this->Content->bindModel(array('belongsTo' => array('ContentGroup' => array('className' => 'Content'
+                                                    ,'foreignKey'    => 'id_group'))));
+        $this->Content->ContentGroup->unbindAll();
+	$this->Content->ContentGroup->bindModel(array('hasOne' => array('ContentDescription' => array(
+						'className' => 'ContentDescription',
+						'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
+					))));
+        $this->Content->recursive = 2;
+        
+        if($type == 'category') $this->paginate['Content'] = array('conditions' => array('Content.content_type_id = 1')
+                                          ,'limit' => '30'
+                                          ,'order' => array('Content.order ASC')
+                                           );
+        else $this->paginate['Content'] = array('conditions' => array('Content.parent_id' => $id , 'Content.content_type_id = 2')
                                           ,'limit' => '30'
                                           ,'order' => array('Content.order ASC')
                                            );
         $content_data = $this->paginate('Content');
-
-        $this->set('prev',$id);
-        $this->set('prev_level',$parent_id);
+       
         $this->set('content_data',$content_data);
-        
         $this->set('current_crumb', __('Listing', true));
         $this->set('title_for_layout', __('Listing', true));
         
+    } 
+    
+    public function admin_attr ($id = 0)
+    {              
+        $this->admin('product' ,$id);        
     } 
     
     public function admin_editor_attr($action = 'init' ,$type = 'attr' ,$id = 0) 
@@ -163,22 +178,69 @@ class AttributesController extends AppController
 	$this->set('title_for_layout', __('Attributes Listing', true)); 
     }
     
-    public function change_field_status($field = 'is_active' ,$id) 
+    public function change_field_status($field = 'is_active' ,$id = 0, $model = 'this')
     {
-        $current_model = $this->modelClass;
-
+        if($model == 'this') {$current_model = $this->modelClass; $current_model_name = $this->modelClass;}
+        else {$this->loadModel($model); $current_model = $model; $current_model_name = $this->$model->name;}
 	$this->$current_model->id = $id;
-	$record = $this->$current_model->read();
-	if($record[$current_model][$field] == 0)
+	$record = $this->$current_model->read();        
+	if($record[$current_model_name][$field] == 0)
 	{
-            $record[$current_model][$field] = 1;
+            $record[$current_model_name][$field] = 1;
 	}
 	else
 	{
-            $record[$current_model][$field] = 0;		
-	}
+            $record[$current_model_name][$field] = 0;		
+	}      
 	$this->$current_model->save($record);
         $this->redirect($this->referer());
+    }
+    
+    public function set_group_content($content_id = 0)
+    {       
+        $this->loadModel('Content');
+        $this->Content->id = $content_id;
+        $content = $this->Content->read();
+        if($content['Content']['id'] != $content['Content']['id_group'])
+            $this->Content->updateAll(array('Content.id_group' => $content_id),array('Content.id' => $content_id));
+        else $this->Content->updateAll(array('Content.id_group' => null),array('Content.id_group' => $content_id));
+        $this->change_field_status('is_group',$content_id,'content');
+    }
+    
+    public function change_group_content($content_id = 0)
+    {
+        $this->loadModel('Content');
+        $this->Content->updateAll(array('Content.id_group' => ($this->data['value']==0)?null:$this->data['value']),array('Content.id' => $content_id));
+        $this->Content->id = $content_id;
+        $this->Content->unbindAll();
+        $this->Content->bindModel(array('belongsTo' => array('ContentGroup' => array('className' => 'Content'
+                                                    ,'foreignKey'    => 'id_group'))));  
+        $this->Content->ContentGroup->unbindAll();
+        $this->Content->ContentGroup->bindModel(array('hasOne' => array('ContentDescription' => array(
+						'className' => 'ContentDescription',
+						'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
+					))));
+        $this->Content->recursive = 2;
+        $content = $this->Content->read();        
+        $this->set('return',(isset($content['ContentGroup']['alias']))?$content['ContentGroup']['ContentDescription']['name']:__('No group'));
+        $this->render('/Elements/ajaxreturn');
+    }
+    
+    public function get_groups_content($parent_content_id = 0)
+    {
+        $this->loadModel('Content');
+        $this->Content->unbindAll();
+	$this->Content->bindModel(array('hasOne' => array('ContentDescription' => array(
+						'className' => 'ContentDescription',
+						'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
+					))));
+        $content = $this->Content->find('all',array('conditions' => array('Content.parent_id' => $parent_content_id
+                                                                                                ,'Content.is_group' => 1)));
+        $content = Set::combine($content,'{n}.Content.id','{n}.ContentDescription.name');
+
+        $content[0] = __('No group');
+        $this->set('return',json_encode($content));
+        $this->render('/Elements/ajaxreturn');
     }
     
     public function admin_editor_value($action = 'init' ,$content_id = 0) 
@@ -235,9 +297,8 @@ class AttributesController extends AppController
             case 'save':
                 if(isset($this->data['cancelbutton']))
                 {
-                    $this->redirect('/attributes/admin/' . $this->data['Attribute']['parent_id']);
+                    $this->redirect('/attributes/admin_attr/' . $this->data['Attribute']['parent_id']);
                 }
-//var_dump($this->data['values_s']);
                 $save_data = array();
                 foreach ($this->data['values_s'] as $def_value) 
                 {
@@ -258,7 +319,7 @@ class AttributesController extends AppController
                     $this->Session->setFlash(__('Attributes Value Saved.'));
                 } else $this->Session->setFlash(__('Attributes Value Not Saved!'), 'default', array('class' => 'error-message red'));  
 
-                $this->redirect('/attributes/admin/' . $this->data['Attribute']['parent_id']);
+                $this->redirect('/attributes/admin_attr/' . $this->data['Attribute']['parent_id']);
             break;
             default:
                 die();

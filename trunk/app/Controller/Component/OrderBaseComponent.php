@@ -5,6 +5,7 @@
    Copyright (c) 2014 VamSoft Ltd.
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
+   
 App::uses('ContentBaseComponent', 'Controller/Component');
 App::uses('EventBaseComponent', 'Controller/Component');
 App::import('Model', 'Content');
@@ -135,6 +136,7 @@ class OrderBaseComponent extends Object
 		$this->load_models();
 
 		$order_product = $this->Order->OrderProduct->find('first', array('conditions' => array('content_id' => $product_id,'order_id' => $_SESSION['Customer']['order_id'])));
+                $prices = $this->get_price_product($product_id);                
 
 		$EventBase =& new EventBaseComponent(new ComponentCollection());
 
@@ -144,6 +146,14 @@ class OrderBaseComponent extends Object
 			$this->Order->OrderProduct->delete($order_product['OrderProduct']['id']);
 		} else {
 			$order_product['OrderProduct']['quantity'] -= $qty;
+                        $order_product['OrderProduct']['price'] = $prices['ContentProduct']['price'];
+                        if (isset($prices['ContentProductPrice'])) {
+				foreach($prices['ContentProductPrice'] as $price) {
+					if ($order_product['OrderProduct']['quantity'] >= $price['quantity']) {
+						$order_product['OrderProduct']['price'] = $price['price'];
+					}
+				}
+			}
 			$this->Order->OrderProduct->save($order_product);
 		}
 
@@ -165,18 +175,7 @@ class OrderBaseComponent extends Object
 		$order_product = $this->Order->OrderProduct->find('first', array('conditions' => array('order_id' => $_SESSION['Customer']['order_id'], 'content_id' => $content_id)));
 
 		// needed for calculating correct discount price
-		switch ($content_type) {
-			case 'product':
-				$prices = $this->ContentProduct->find('first', array(
-					'conditions' => array('content_id' => $content_id)
-				));
-				break;
-			case 'downloadable':
-				$prices = $this->ContentDownloadable->find('first', array(
-					'conditions' => array('content_id' => $content_id)
-				));
-				break;
-		}
+                $prices = $this->get_price_product($content_id);
 
 		if (empty($order_product)) {
 
@@ -236,6 +235,7 @@ class OrderBaseComponent extends Object
 				}
 			}
 
+                        $order_product['OrderProduct']['price'] = $product['ContentProduct']['price'];
 			if (isset($prices['ContentProductPrice'])) {
 				foreach($prices['ContentProductPrice'] as $price) {
 					if ($order_product['OrderProduct']['quantity'] >= $price['quantity']) {
@@ -253,6 +253,26 @@ class OrderBaseComponent extends Object
 
 		$this->update_order_totals();
 	}
+        
+        public function get_price_product($product_id = 0)
+	{
+            $this->load_models();
+            $content = $this->ContentBase->get_content_information($product_id);
+            $prices = null;
+            switch ($content['ContentType']['name']) {
+			case 'product':
+				$prices = $this->ContentProduct->find('first', array(
+					'conditions' => array('content_id' => $product_id)
+				));
+				break;
+			case 'downloadable':
+				$prices = $this->ContentDownloadable->find('first', array(
+					'conditions' => array('content_id' => $product_id)
+				));
+				break;
+		}
+            return $prices;            
+        }
 	
 	public function _random_string()
 	{

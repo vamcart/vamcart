@@ -31,6 +31,6 @@ echo $this->Admin->TableCells(array(''
                               ));
 
 echo '</table>';
-echo $this->Html->link($this->Html->tag('i', '',array('class' => 'cus-arrow-up')) . ' ' . __('Up One Level'), '/attributes/admin/' . $content_data['Content']['parent_id'] , array('class' => 'btn', 'escape' => false));
+echo $this->Html->link($this->Html->tag('i', '',array('class' => 'cus-arrow-up')) . ' ' . __('Up One Level'), '/attributes/admin' , array('class' => 'btn', 'escape' => false));
 echo $this->Admin->ShowPageHeaderEnd();
 ?>

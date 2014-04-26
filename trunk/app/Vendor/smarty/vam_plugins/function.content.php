@@ -10,7 +10,7 @@ function smarty_function_content($params, $template)
 {
 	global $content,$filter_list;
 	// Cache the output... Don't cache core pages.
-	$cache_name = 'vam_page_content_' . $content['Content']['id'] . '_' . $_SESSION['Customer']['language_id']. '_' . $_SESSION['Customer']['currency_id']. '_' . $_SESSION['Customer']['page'] . (isset($filter_list)?md5(serialize($filter_list)):'');
+	$cache_name = 'vam_page_content_' . $_SESSION['Customer']['customer_group_id'] . '_' . $content['Content']['id'] . '_' . $_SESSION['Customer']['language_id']. '_' . $_SESSION['Customer']['currency_id']. '_' . $_SESSION['Customer']['page'] . (isset($filter_list)?md5(serialize($filter_list)):'');
 	$output = Cache::read($cache_name, 'catalog');
 
 	if (($output === false)||($content['Content']['parent_id'] == '-1')) {
@@ -25,7 +25,6 @@ function smarty_function_content($params, $template)
 		$Template =& new Template();
 
 		$contentTemplate = $Template->find('first', array('conditions' => array('parent_id' => $content['Template']['id'], 'template_type_id' => $content['ContentType']['template_type_id'])));
-
 		$Smarty->display($contentTemplate['Template']['template'], $template->smarty->tpl_vars);
 		// Write the output to cache and echo them
 		$output = @ob_get_contents();

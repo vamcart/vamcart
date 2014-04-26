@@ -5,6 +5,7 @@
    Copyright (c) 2014 VamSoft Ltd.
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
+   
 class TagsController extends AppController {
 	public $name = 'Tags';
 	public $uses = null;

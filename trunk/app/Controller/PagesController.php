@@ -89,7 +89,7 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty');
 
 		// Pull the content out of cache or generate it if it doesn't exist
 		// Cache is based on language_id and alias of the page.
-		$cache_name = 'vam_content_' . $this->Session->read('Customer.language_id') . '_' . $alias;
+		$cache_name = 'vam_content_' . $_SESSION['Customer']['customer_group_id'] . '_' . $this->Session->read('Customer.language_id') . '_' . $alias;
 		$content = Cache::read($cache_name, 'catalog');
 
 		if($content === false or $is_compared == 1)
@@ -156,9 +156,23 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty');
 
 			Cache::write($cache_name, $template_vars, 'catalog');
 		}
-
-		$this->Smarty->display($template['Template']['template'], $template_vars);
-		echo '<!-- Powered by: VamShop (http://vamshop.com) -->' . "\n";
+                
+                global $make_attr_product;
+                $make_attr_product = null;
+                if(isset($this->data['set_attr']))
+                {
+                    $attrs = $this->data['set_attr'];
+                    $make_attr_product = key(array_filter($attrs,function($var){return($var == 1);}));
+                    $this->request->is('ajax');
+                    $template_vars['ajax_enable'] = true;
+                    $this->Smarty->display('{content}', $template_vars);     
+                }
+                else 
+                {
+                    $this->Smarty->display($template['Template']['template'], $template_vars);
+                    echo '<!-- Powered by: VamShop (http://vamshop.com) -->' . "\n";
+                }
 		die();
 	}
+        
 }

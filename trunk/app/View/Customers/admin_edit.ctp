@@ -42,6 +42,12 @@ $this->Html->script(array(
    				   	'label' => __('Confirm Password'),
    				   	'after' => ' '.__('Leave empty to use current password.')
 	               ));
+        echo $this->Form->input('Customer.groups_customer_id',array(
+				'type' => 'select',
+				'label' => __('Group')
+				,'options' => $groups
+                                ,'between'=>'<br>'
+                                ));        
 	echo '<div>'.__('Shipping Information').'</div>';	               
 	echo $this->Form->input('AddressBook.ship_name', 
 						array(
@@ -74,7 +80,8 @@ $this->Html->script(array(
 	echo $this->Form->input('AddressBook.phone', 
 						array(
    				   		'label' => __('Phone')
-	               ));	
+	               ));
+
 	echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn', 'type' => 'submit', 'name' => 'submit')) . $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn', 'type' => 'submit', 'name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';
 	echo $this->Form->end();

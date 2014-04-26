@@ -5,6 +5,7 @@
    Copyright (c) 2014 VamSoft Ltd.
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
+   
 class CustomersController extends AppController {
 	public $name = 'Customers';
 	public $paginate = array('limit' => 20, 'order' => array('Customer.id' => 'asc'));
@@ -41,8 +42,20 @@ class CustomersController extends AppController {
 		}
 		
 		if(empty($this->data))
-		{
+		{                        
 			$this->request->data = $this->Customer->read(null,$customer_id);
+                        
+                        $this->loadModel('GroupsCustomer');                    
+                        $this->GroupsCustomer->unbindModel(array('hasMany' => array('GroupsCustomerDescription')));
+                        $this->GroupsCustomer->bindModel(array('hasOne' => array('GroupsCustomerDescription' => array(
+						'className' => 'GroupsCustomerDescription',
+						'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
+					)))); 
+                        $groups = $this->GroupsCustomer->find('all',array('fields' => array('GroupsCustomer.id', 'GroupsCustomerDescription.name')));
+                        $groups = Set::combine($groups,'{n}.GroupsCustomer.id','{n}.GroupsCustomerDescription.name');
+                        $groups[0] = __('No group');
+                        asort($groups);
+                        $this->set('groups',$groups);
 		}
 		else
 		{
@@ -65,8 +78,8 @@ class CustomersController extends AppController {
 				$this->request->data['Customer']['password'] = $current_customer_data['Customer']['password'];
 				
 			}
-						
-        $user = $this->Customer->save($this->request->data);
+                        
+                        $user = $this->Customer->save($this->request->data);
 
 			$address = array();
 			$address['AddressBook'] = $this->data['AddressBook'];

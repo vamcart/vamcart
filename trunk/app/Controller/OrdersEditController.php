@@ -10,6 +10,7 @@ class OrdersEditController extends AppController
 {
     public $name = 'OrdersEdit';
     public $paginate = null;
+    public $helpers = array('Smarty');
     
     
     public function admin ($act = 'new', $id = 0)
@@ -90,14 +91,14 @@ class OrdersEditController extends AppController
         {
             $this->loadModel('Order');
             $this->Order->Behaviors->attach('Containable');
-            $o = $this->Order->find('all',array('conditions' => array('Order.id = '.$id)
-                                                       ,'order' => 'Order.id DESC LIMIT 1'
+            $o = $this->Order->find('first',array('conditions' => array('Order.id' => $id)
+                                                       //,'order' => 'Order.id DESC LIMIT 1'
                                                        ,'contain' => array('OrderProduct','ShippingMethod','PaymentMethod', 'BillCountry', 'BillState', 'ShipCountry', 'ShipState')
                                                                 ));
-            $o = $o[0];
             if(isset($o['Order']))
             {
                 $order['id'] = $id;
+                $order['customer_id'] = $o['Order']['customer_id'];
                 $order['bill_inf'] = array('Customer_Name' => $o['Order']['bill_name']
                                           ,'Address_Line_1' => $o['Order']['bill_line_1']
                                           ,'Address_Line_2' => $o['Order']['bill_line_2']
@@ -300,19 +301,25 @@ class OrdersEditController extends AppController
             }
             else $index = 0;
             
+
+            $this->Content->unbindModel(array('hasMany' => array('ContentDescription')));
+            $this->Content->bindModel(array('hasOne' => array('ContentDescription' => array(
+						'className' => 'ContentDescription',
+						'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
+					))));            
             $this->Content->recursive = 2;
-            $content = $this->Content->find('all',array(
-                                                  'conditions' => array('Content.id = ' . $id)
-                                                 ,'limit' => '1'
+            if(isset($order['customer_id'])&&$order['customer_id']!=0) $this->Content->ContentProduct->id_customer_discount = $order['customer_id'];            
+            $content = $this->Content->find('first',array(
+                                                  'conditions' => array('Content.id' => $id)
                                                  ,'contain' => array('ContentProduct','ContentDescription' => array('conditions' => array('ContentDescription.language_id = ' . $this->Session->read('Customer.language_id'))))
                                                  ));
-
+            
             $order['OrderProduct'][$index]['id'] = 'nl';
             $order['OrderProduct'][$index]['order_id'] = $order['id'];
-            $order['OrderProduct'][$index]['content_id'] = $content[0]['Content']['id'];
-            $order['OrderProduct'][$index]['name'] = $content[0]['ContentDescription'][0]['name'];
-            $order['OrderProduct'][$index]['model'] = $content[0]['ContentProduct']['model'];
-            $order['OrderProduct'][$index]['price'] = $content[0]['ContentProduct']['price'];
+            $order['OrderProduct'][$index]['content_id'] = $content['Content']['id'];
+            $order['OrderProduct'][$index]['name'] = $content['ContentDescription']['name'];
+            $order['OrderProduct'][$index]['model'] = $content['ContentProduct']['model'];
+            $order['OrderProduct'][$index]['price'] = $content['ContentProduct']['price'];
             $order['OrderProduct'][$index]['quantity'] = '1';
             $order['OrderProduct'][$index]['weight'] = '';
             $order['OrderProduct'][$index]['tax'] = '0';
