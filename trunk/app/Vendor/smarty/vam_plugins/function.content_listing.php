@@ -34,7 +34,7 @@ $template = '
 			<div class="inner notop nobottom text-left">
 				<h4 class="title"><a href="{$node.url}">{$node.name}</a></h4>
 				<div class="description">{$node.short_description|strip_tags|truncate:30:"...":true}</div>
-				<div class="description">{attribute_list value_attributes=$node.attributes}</div>
+				<div class="description">{attribute_list product_id=$node.id}</div>
 			</div>
 			</div>
 			{product_form product_id={$node.id}}
