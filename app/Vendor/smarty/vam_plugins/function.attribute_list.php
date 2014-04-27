@@ -34,25 +34,29 @@ function default_template_attribute_list()
     <form id="set_attr_form" method="post" action={$base_content}>
                 {if $attr.target=="CATALOG"}
                     {foreach from=$attr.element_list item=attr_element}
-                        {if $attr_element@first} <ul> {/if}                
-                            <li>
-                                {value_filter template=$attr_element.template.template_catalog 
-                                              id_attribute=$attr_element.values_attribute.id 
-                                              name_attribute=$attr_element.name 
-                                              values_attribute=$attr_element.values_attribute} 
-                            </li>
-                        {if $attr_element@last} </ul> {/if}
+                        {if isset($attr_element.values_attribute)}
+                            {if $attr_element@first} <ul> {/if}                
+                                <li>
+                                    {value_filter template=$attr_element.template.template_catalog 
+                                                  id_attribute=$attr_element.values_attribute.id 
+                                                  name_attribute=$attr_element.name 
+                                                  values_attribute=$attr_element.values_attribute} 
+                                </li>
+                            {if $attr_element@last} </ul> {/if}
+                        {/if}
                     {/foreach}                
                 {else if $attr.target=="PRODUCT"}
                     {foreach from=$attr.element_list item=attr_element}
-                        {if $attr_element@first} <ul> {/if}                
-                            <li>
-                                {value_filter template=$attr_element.template.template_product 
-                                              id_attribute=$attr_element.values_attribute.id 
-                                              name_attribute=$attr_element.name 
-                                              values_attribute=$attr_element.values_attribute} 
-                            </li>
-                        {if $attr_element@last} </ul> {/if}
+                        {if isset($attr_element.values_attribute)}
+                            {if $attr_element@first} <ul> {/if}                
+                                <li>
+                                    {value_filter template=$attr_element.template.template_product 
+                                                  id_attribute=$attr_element.values_attribute.id 
+                                                  name_attribute=$attr_element.name 
+                                                  values_attribute=$attr_element.values_attribute} 
+                                </li>
+                            {if $attr_element@last} </ul> {/if}
+                        {/if}
                     {/foreach} 
                 {else if $attr.target=="PRODUCT_GROUP"}
                     {foreach from=$attr.element_list item=attr_element}
