@@ -9,29 +9,6 @@
 function default_template_attribute_list()
 {
     $template = '   
-
-<!--<STYLE>
-    .sub-menu 
-    { 
-       display: none; 
-    } 
-    .main-item:focus ~ .sub-menu, 
-    .main-item:active ~ .sub-menu, 
-    .sub-menu:hover 
-    { 
-       display: block; 
-    }
-</STYLE>-->
-
-<script type="text/javascript"> 
-    //<![CDATA[
-    $(document).ready(function () { 
-        global_spinner = $("#spinner");
-    });
-    //]]>
-</script> 
-
-    <form id="set_attr_form" method="post" action={$base_content}>
                 {if $attr.target=="CATALOG"}
                     {foreach from=$attr.element_list item=attr_element}
                         {if isset($attr_element.values_attribute)}
@@ -59,13 +36,34 @@ function default_template_attribute_list()
                         {/if}
                     {/foreach} 
                 {else if $attr.target=="PRODUCT_GROUP"}
+                    <!--<STYLE>
+                        .sub-menu 
+                        { 
+                           display: none; 
+                        } 
+                        .main-item:focus ~ .sub-menu, 
+                        .main-item:active ~ .sub-menu, 
+                        .sub-menu:hover 
+                        { 
+                           display: block; 
+                        }
+                    </STYLE>-->
+
+                    <script type="text/javascript"> 
+                        //<![CDATA[
+                        $(document).ready(function () { 
+                            global_spinner = $("#spinner");
+                        });
+                        //]]>
+                    </script> 
+
+                    <form id="set_attr_form" method="post" action={$base_content}>
                     {foreach from=$attr.element_list item=attr_element}
                         {if $attr_element@first}<ul>{/if}                     
                         <li>
                             {if $attr_element.make}<b>{/if}
                                 {$attr_element.name}
                                 {$attr_element.values_attribute.name}
-                                <a class="main-item" href="javascript:void(0);"> + </a>
                             {if $attr_element.make}</b>{/if}                                
                         <ul class="sub-menu">
                         {foreach from=$attr_element.group_attributes item=attr_val}                        
@@ -79,34 +77,33 @@ function default_template_attribute_list()
                         </ul>
                         </li>
                         {if $attr_element@last}</ul>{/if}                      
-                    {/foreach}                      
+                    {/foreach}
+                    <script type="text/javascript">      
+                        //<![CDATA[
+                        $(".confirm").click(function(){            
+                            var http_send = $(this).attr("href");
+                            var form_data = $("#set_attr_form").serialize();
+                            $.ajax({
+                                    type: "POST",
+                                    url: http_send,
+                                    data: form_data,
+                                    async: true,
+                                    success: function (data, textStatus) {
+                                        $("#ajaxcontent").html(data);},
+                                    beforeSend: function () {
+                                        global_spinner.fadeIn("fast");
+                                        },
+                                    complete: function () {
+                                        global_spinner.fadeOut("slow");
+                                        }                                                    
+                                });                            
+                            return false;
+                        });
+
+                        //]]>
+                    </script>                
+                    </form>
                 {/if}              
-    </form>
-    <script type="text/javascript">      
-        //<![CDATA[
-        $(".confirm").click(function(){            
-            var http_send = $(this).attr("href");
-            var form_data = $("#set_attr_form").serialize();
-            $.ajax({
-                    type: "POST",
-                    url: http_send,
-                    data: form_data,
-                    async: true,
-                    success: function (data, textStatus) {
-                        $("#ajaxcontent").html(data);},
-                    beforeSend: function () {
-                        global_spinner.fadeIn("fast");
-                        },
-                    complete: function () {
-                        global_spinner.fadeOut("slow");
-                        }                                                    
-                });                            
-            return false;
-        });
-
-        //]]>
-    </script>                
-
     ';
     return $template;
 }
