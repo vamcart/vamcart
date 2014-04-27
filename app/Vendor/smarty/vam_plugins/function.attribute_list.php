@@ -36,19 +36,6 @@ function default_template_attribute_list()
                         {/if}
                     {/foreach} 
                 {else if $attr.target=="PRODUCT_GROUP"}
-                    <!--<STYLE>
-                        .sub-menu 
-                        { 
-                           display: none; 
-                        } 
-                        .main-item:focus ~ .sub-menu, 
-                        .main-item:active ~ .sub-menu, 
-                        .sub-menu:hover 
-                        { 
-                           display: block; 
-                        }
-                    </STYLE>-->
-
                     <script type="text/javascript"> 
                         //<![CDATA[
                         $(document).ready(function () { 
