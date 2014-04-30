@@ -42,11 +42,10 @@ $this->Html->script(array(
    				   	'label' => __('Confirm Password'),
    				   	'after' => ' '.__('Leave empty to use current password.')
 	               ));
-        echo $this->Form->input('Customer.groups_customer_id',array(
+	echo $this->Form->input('Customer.groups_customer_id',array(
 				'type' => 'select',
 				'label' => __('Group')
 				,'options' => $groups
-                                ,'between'=>'<br>'
                                 ));        
 	echo '<div>'.__('Shipping Information').'</div>';	               
 	echo $this->Form->input('AddressBook.ship_name', 
