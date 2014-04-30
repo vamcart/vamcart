@@ -10,8 +10,8 @@ function default_template_login_box()
 {
 $template = '
 <section class="widget inner">
-	<h3 class="widget-title">{lang}Login{/lang}</h3>
 		{if not $is_logged_in }
+	<h3 class="widget-title">{lang}Login{/lang}</h3>
 		<form action="{base_path}/site/login?return_url={$return_url}" method="post">
 			<div class="control-group">
 			<label class="control-label" for="inputEmail">{lang}E-mail{/lang}</label>
