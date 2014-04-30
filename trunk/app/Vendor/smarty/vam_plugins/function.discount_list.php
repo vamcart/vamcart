@@ -9,13 +9,13 @@
 function default_template_discount_list()
 {
     $template = '
-    			<div class="inner">            
-				<ul>
-            {foreach from=$discounts item=discount}
-					<li>{lang}from{/lang} {$discount.quantity} {lang}qty.{/lang} - <strong>{product_price price=$discount.price}</strong> {lang}per{/lang} {lang}qty.{/lang}</li>
-            {/foreach}
-            </ul>
-            </div>
+		<div class="inner">            
+			<ul>
+			{foreach from=$discounts item=discount}
+				<li>{lang}from{/lang} {$discount.quantity} {lang}qty.{/lang} - <strong>{product_price price=$discount.price}</strong> {lang}per{/lang} {lang}qty.{/lang}</li>
+			{/foreach}
+			</ul>
+		</div>
     ';
     return $template;
 }
@@ -50,7 +50,7 @@ function smarty_help_function_discount_list()
 {
     ?>
     <h3><?php echo __('What does this tag do?') ?></h3>
-    <p><?php echo __('Displays discountes list.') ?></p>
+    <p><?php echo __('Displays quantity discounts.') ?></p>
     <h3><?php echo __('How do I use it?') ?></h3>
     <p><?php echo __('Just insert the tag into your template/page like:') ?> <code>{discount_list}</code></p>
     <h3><?php echo __('What parameters does it take?') ?></h3>

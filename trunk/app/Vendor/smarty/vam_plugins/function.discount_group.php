@@ -43,7 +43,7 @@ function smarty_help_function_discount_group()
 {
     ?>
     <h3><?php echo __('What does this tag do?') ?></h3>
-    <p><?php echo __('Displays discount for group.') ?></p>
+    <p><?php echo __('Displays customers group discount.') ?></p>
     <h3><?php echo __('How do I use it?') ?></h3>
     <p><?php echo __('Just insert the tag into your template/page like:') ?> <code>{discount_group}</code></p>
     <h3><?php echo __('What parameters does it take?') ?></h3>
