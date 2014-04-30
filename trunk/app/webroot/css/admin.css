@@ -805,5 +805,14 @@ a[href]:after
 }
 
 /* /Print Order */
+		
+.list_column li.column 
+	{
+		float:left;
+		border: 1px solid #eee;
+		display:inline;
+		padding: .5em;
+		margin: .5em;
+	}
 			 
 /*]]>*/
