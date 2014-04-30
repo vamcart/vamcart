@@ -53,7 +53,7 @@ class CustomersController extends AppController {
 					)))); 
                         $groups = $this->GroupsCustomer->find('all',array('fields' => array('GroupsCustomer.id', 'GroupsCustomerDescription.name')));
                         $groups = Set::combine($groups,'{n}.GroupsCustomer.id','{n}.GroupsCustomerDescription.name');
-                        $groups[0] = __('No group');
+                        $groups[0] = __('no');
                         asort($groups);
                         $this->set('groups',$groups);
 		}

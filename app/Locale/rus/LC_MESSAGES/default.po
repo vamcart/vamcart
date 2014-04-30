@@ -4806,3 +4806,7 @@ msgstr "Скидка"
 #: /app/View/GroupsCustomers/admin_edit.ctp:22
 msgid "Group Name"
 msgstr "Название группы"
+
+#: /app/View/Customers/admin_edit.ctp:22
+msgid "Group"
+msgstr "Группа"
