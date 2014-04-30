@@ -11,7 +11,7 @@ function default_template_discount_group()
     $template = '    
 		{if $discount != 0}
 		<div class="inner">
-			<b>{lang}Discount{/lang} - {$discount}%</b>
+			{lang}Discount{/lang} - <strong>{$discount}%</strong>
 		</div>
 		{/if}
     ';
