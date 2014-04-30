@@ -4830,3 +4830,11 @@ msgstr "Главный товар"
 #: /app/View/Attributes/admin_attr.ctp:22
 msgid "Slave from product"
 msgstr "Товар, зависимый от"
+
+#: /vendors/smarty/vam_plugins/function.discount_group.php:53
+msgid "Displays customers group discount."
+msgstr "Выводит скидку группы."
+
+#: /vendors/smarty/vam_plugins/function.discount_list.php:53
+msgid "Displays quantity discounts."
+msgstr "Выводит информацию о скидках от количества."
