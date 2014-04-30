@@ -12,7 +12,7 @@ $this->Html->script(array(
 
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-table');
 echo '<table class="contentTable">';
-echo $this->Html->tableHeaders(array(__('Title'),__('Is options group'),__('Group'),__('Action')));
+echo $this->Html->tableHeaders(array(__('Title'),__('Master product'),__('Slave from product'),__('Action')));
 
 //var_dump($content_data);
 
@@ -29,13 +29,11 @@ foreach ($content_data AS $content)
                                         ));
         if($content['Content']['id'] != $content['Content']['id_group'])
         echo $this->Ajax->editor('id_group_' . $content['Content']['id'],'/attributes/change_group_content/' . $content['Content']['id'],  array(
-                                                                       //'callback' => 'function(value,settings){my_global_formNavigate = false;}'
-                                                                      //,'tooltip' => __($k)
                                                                      'type' => 'select'
                                                                     ,'data' => 'function(value, settings){return $.ajax({url: "' 
                                                                                 . $this->Html->url('/attributes/get_groups_content/' . $content['Content']['parent_id']) 
                                                                                 . '",async: false}).responseText;}'
-                                                                     ,'placeholder' => __('No group')
+                                                                     ,'placeholder' => __('-')
                                                                      ,'onblur' => 'submit'
                                                                      ,'style' => 'inherit')
                                 );

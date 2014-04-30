@@ -4822,3 +4822,11 @@ msgstr "Информация о скидках"
 #: /app/Controller/DiscountsController.php:22
 msgid "Discounts Listing"
 msgstr "Скидки от количества"
+
+#: /app/View/Attributes/admin_attr.ctp:22
+msgid "Master product"
+msgstr "Главный товар"
+
+#: /app/View/Attributes/admin_attr.ctp:22
+msgid "Slave from product"
+msgstr "Товар, зависимый от"
