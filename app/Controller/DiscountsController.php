@@ -49,7 +49,7 @@ class DiscountsController extends AppController {
 		$this->redirect('/discounts/admin_edit/'.$content_id);
 	}
 
-	public function admin_modify_selected() 	
+	public function admin_modify_selected($content_id = null) 	
 	{
 	$build_flash = "";
 	foreach($this->params['data']['ContentProductPrice']['modify'] AS $value)
@@ -70,7 +70,7 @@ class DiscountsController extends AppController {
 		}
 	}
 	$this->Session->setFlash($build_flash);
-	$this->redirect('/discounts/admin/');
+	$this->redirect('/discounts/admin/'.$content_id);
 	}
 
 	public function admin($content_id = null, $ajax = false)
