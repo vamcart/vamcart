@@ -4810,3 +4810,15 @@ msgstr "Название группы"
 #: /app/View/Customers/admin_edit.ctp:22
 msgid "Group"
 msgstr "Группа"
+
+#: /app/View/Contents/admin.ctp:22
+msgid "Discounts"
+msgstr "Скидки"
+
+#: /app/Controller/DiscountsController.php:22
+msgid "Discounts Details"
+msgstr "Информация о скидках"
+
+#: /app/Controller/DiscountsController.php:22
+msgid "Discounts Listing"
+msgstr "Скидки от количества"

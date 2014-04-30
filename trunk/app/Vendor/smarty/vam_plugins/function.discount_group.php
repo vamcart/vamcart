@@ -9,11 +9,11 @@
 function default_template_discount_group()
 {
     $template = '    
-        {if $discount != 0}
-            <div class="inner">
-                <b>{lang}Discount{/lang} - {$discount}%</b>
-            </div>
-        {/if}
+		{if $discount != 0}
+		<div class="inner">
+			<b>{lang}Discount{/lang} - {$discount}%</b>
+		</div>
+		{/if}
     ';
     return $template;
 }

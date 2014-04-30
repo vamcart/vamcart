@@ -8,12 +8,14 @@
 
 function default_template_discount_list()
 {
-    $template = '            
+    $template = '
+    			<div class="inner">            
+				<ul>
             {foreach from=$discounts item=discount}
-                {if $discount@first} <div class="inner"> {/if}            
-                      <div> <b>{lang}при заказе от {/lang} {$discount.quantity} - {product_price price=$discount.price} </b> </div>
-                {if $discount@last} </div> {/if}
+					<li>{lang}from{/lang} {$discount.quantity} {lang}qty.{/lang} - <strong>{product_price price=$discount.price}</strong> {lang}per{/lang} {lang}qty.{/lang}</li>
             {/foreach}
+            </ul>
+            </div>
     ';
     return $template;
 }
