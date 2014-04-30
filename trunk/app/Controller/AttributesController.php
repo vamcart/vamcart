@@ -222,7 +222,7 @@ class AttributesController extends AppController
 					))));
         $this->Content->recursive = 2;
         $content = $this->Content->read();        
-        $this->set('return',(isset($content['ContentGroup']['alias']))?$content['ContentGroup']['ContentDescription']['name']:__('No group'));
+        $this->set('return',(isset($content['ContentGroup']['alias']))?$content['ContentGroup']['ContentDescription']['name']:__('-'));
         $this->render('/Elements/ajaxreturn');
     }
     
@@ -238,7 +238,7 @@ class AttributesController extends AppController
                                                                                                 ,'Content.is_group' => 1)));
         $content = Set::combine($content,'{n}.Content.id','{n}.ContentDescription.name');
 
-        $content[0] = __('No group');
+        $content[0] = __('-');
         $this->set('return',json_encode($content));
         $this->render('/Elements/ajaxreturn');
     }
