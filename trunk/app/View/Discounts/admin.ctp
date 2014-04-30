@@ -12,7 +12,7 @@ $this->Html->script(array(
 
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-table-editg');
 
-echo $this->Form->create('Discount', array('action' => '/discounts/admin_modify_selected/', 'url' => '/discounts/admin_modify_selected/'));
+echo $this->Form->create('ContentProductPrice', array('action' => '/discounts/admin_modify_selected/'.$content_product_id, 'url' => '/discounts/admin_modify_selected/'.$content_product_id));
 
 echo '<table class="contentTable">';
 
