@@ -1,13 +1,3 @@
-<style>
-.list_column li.column {
-        /*line-height:1.5em;*/
-        /*border-bottom:1px solid #ccc;*/
-        border-left:1px solid #ccc;
-        float:left;
-        display:inline;
-        width:10%;
-}
-</style>
 <?php
 /* -----------------------------------------------------------------------------------------
    VamShop - http://vamshop.com
