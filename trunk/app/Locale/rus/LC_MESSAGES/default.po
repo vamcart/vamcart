@@ -4778,3 +4778,31 @@ msgstr "шаблон"
 #: /app/View/Search/admin_global_search.ctp:22
 msgid "stylesheet"
 msgstr "стиль"
+
+#: /app/Controller/GroupsCustomersController.php:22
+msgid "Customers Groups"
+msgstr "Группы покупателей"
+
+#: /app/Controller/GroupsCustomersController.php:22
+msgid "Customers groups listing"
+msgstr "Список групп покупателей"
+
+#: /app/Controller/GroupsCustomersController.php:22
+msgid "Group details"
+msgstr "Информация о группе"
+
+#: /app/Controller/GroupsCustomersController.php:22
+msgid "Group Not Saved!"
+msgstr "Группа не сохранена!"
+
+#: /app/Controller/GroupsCustomersController.php:22
+msgid "Validation errors!"
+msgstr "Ошибки при заполнении формы!"
+
+#: /app/View/GroupsCustomers/admin.ctp:22
+msgid "Discount"
+msgstr "Скидка"
+
+#: /app/View/GroupsCustomers/admin_edit.ctp:22
+msgid "Group Name"
+msgstr "Название группы"

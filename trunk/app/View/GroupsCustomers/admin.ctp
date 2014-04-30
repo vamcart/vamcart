@@ -12,11 +12,11 @@ $this->Html->script(array(
 
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-group');
 
-echo $this->Form->create('Customer', array('action' => '/groups_customers/admin_modify_selected/', 'url' => '/groups_customers/admin_modify_selected/'));
+echo $this->Form->create('GroupsCustomer', array('action' => '/groups_customers/admin_modify_selected/', 'url' => '/groups_customers/admin_modify_selected/'));
 
 echo '<table class="contentTable">';
 
-echo $this->Html->tableHeaders(array( __('Group customer Name'),  __('Price Modifer'), __('Action'), '<input type="checkbox" onclick="checkAll(this)" />'));
+echo $this->Html->tableHeaders(array( __('Group Name'),  __('Discount'), __('Action'), '<input type="checkbox" onclick="checkAll(this)" />'));
 
 foreach ($data AS $group)
 {
