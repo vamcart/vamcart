@@ -57,7 +57,7 @@ function default_template_attribute_list()
                             <li>
                                 {if $attr_val.make}<b>{/if}
                                     <a class="confirm" href={$attr_val.content_chng_url} onclick=\'$("#attr{$attr_val.values_attribute.id}").attr("value","1");\'> {$attr_val.values_attribute.name} </a>
-                                    <input id="attr{$attr_val.values_attribute.id}" name="data[set_attr][{$attr_val.values_attribute.id}]" type="hidden" ></input>
+                                    <input id="attr{$attr_val.values_attribute.id}" name="data[set_attr][{$attr_val.values_attribute.id}]" type="hidden" >
                                 {if $attr_val.make}</b>{/if}
                             </li>                          
                         {/foreach}
