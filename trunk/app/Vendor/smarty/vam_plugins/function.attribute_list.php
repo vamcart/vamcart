@@ -9,6 +9,9 @@
 function default_template_attribute_list()
 {
     $template = '   
+        <div id="spinner">
+                <img src="{base_path}/img/ajax-loader.gif" alt="" />
+        </div>
                 {if $attr.target=="CATALOG"}
                     {foreach from=$attr.element_list item=attr_element}
                         {if isset($attr_element.values_attribute)}
@@ -81,7 +84,7 @@ function default_template_attribute_list()
                                         global_spinner.fadeIn("fast");
                                         },
                                     complete: function () {
-                                        global_spinner.fadeOut("slow");
+                                        /*global_spinner.fadeOut("slow");*/
                                         }                                                    
                                 });                            
                             return false;
