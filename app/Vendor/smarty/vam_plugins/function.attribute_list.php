@@ -9,9 +9,6 @@
 function default_template_attribute_list()
 {
     $template = '   
-        <div id="spinner">
-                <img src="{base_path}/img/ajax-loader.gif" alt="" />
-        </div>
                 {if $attr.target=="CATALOG"}
                     {foreach from=$attr.element_list item=attr_element}
                         {if isset($attr_element.values_attribute)}
@@ -39,6 +36,9 @@ function default_template_attribute_list()
                         {/if}
                     {/foreach} 
                 {else if $attr.target=="PRODUCT_GROUP"}
+						<div id="spinner">
+							<img src="{base_path}/img/ajax-loader.gif" alt="" />
+						</div>
                     <script type="text/javascript"> 
                         //<![CDATA[
                         $(document).ready(function () { 
