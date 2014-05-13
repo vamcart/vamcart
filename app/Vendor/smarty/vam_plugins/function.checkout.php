@@ -9,11 +9,68 @@
 function default_template_checkout ()
 {
 $template = '
+<style>
+ul.shipping-methods li,
+ul.payment-methods li
+	{
+		border: 2px solid #eee;
+		border-radius: 0px;
+		margin: 0 0 1.5em 0;
+		padding: 0;
+	}
+
+ul.shipping-methods li:hover,
+ul.payment-methods li:hover,
+ul.shipping-methods .selected,
+ul.payment-methods .selected
+	{
+		border: 2px solid #ff6633;
+		border-radius: 0px;
+	}
+
+ul.shipping-methods li label,
+ul.payment-methods li label
+	{
+		height: 120px;
+		overflow: hidden;
+		display: block;
+	}
+
+ul.shipping-methods li label span.title,
+ul.payment-methods li label span.title,
+ul.shipping-methods li label span.description,
+ul.payment-methods li label span.description,
+ul.shipping-methods li label span.image,
+ul.payment-methods li label span.image
+	{
+		display: block;
+		padding: .5em;
+	}
+
+ul.shipping-methods li label span.title,
+ul.payment-methods li label span.title
+	{
+		background: #eee;
+	}
+
+</style>
 <script type="text/javascript" src="{base_path}/js/modified.js"></script>
 <script type="text/javascript" src="{base_path}/js/focus-first-input.js"></script>
 <script type="text/javascript" src="{base_path}/js/jquery/plugins/validate/jquery.validate.pack.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
+	
+	
+$("label.shipping-method").click(function(){
+$("label.shipping-method").parent().removeClass("selected");
+$(this).parent().addClass("selected");
+});
+
+$("label.payment-method").click(function(){
+$("label.payment-method").parent().removeClass("selected");
+$(this).parent().addClass("selected");
+});
+	
   // validate form
   $("#contentform").validate({
     rules: {
@@ -26,9 +83,6 @@ $(document).ready(function() {
         minlength: 6,
         email: true      
      },
-      agree: {
-        required: true
-     },
     },
     messages: {
       bill_name: {
@@ -38,9 +92,6 @@ $(document).ready(function() {
       email: {
         required: "{lang}Required field{/lang}",
         minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 6"
-      },
-      agree: {
-        required: "{lang}Required field{/lang}"
       }
     }
   });
@@ -49,9 +100,9 @@ $(document).ready(function() {
 <script type="text/javascript">
   $(document).ready(function() {
     $("div#ship_information").hide();
-    $("div#diff_shipping").click(function (){
+    $("div#diff_ship").click(function (){
         $("div#ship_information").show();
-        $("div#diff_shipping").hide();
+        $("div#diff_ship").hide();
     });
     $("#bill_country").change(function () {
       $("#bill_state_div").load(\'{base_path}/countries/billing_regions/\' + $(this).val());
@@ -68,33 +119,57 @@ $(document).ready(function() {
     <div>
       <h3>{lang}Shipping Method{/lang}</h3>
     </div>  
+	<div class="row-fluid">
+	<ul class="shipping-methods">
     {foreach from=$ship_methods item=ship_method}
-      <label class="radio">
+		<li class="item span4 {if $ship_method@index is div by 3}first{/if}">
+      <label class="shipping-method">
+      <span class="title">
         <input type="radio" name="shipping_method_id" value="{$ship_method.id}" id="ship_{$ship_method.id}" 
         {if $ship_method.id == $order.shipping_method_id}
           checked="checked"
          {/if}
         />
-          {if $ship_method.icon}<img src="{base_path}/img/icons/shipping/{$ship_method.icon}" alt="{$ship_method.name}" title="{$ship_method.name}" /> {/if}
-          {lang}{$ship_method.name}{/lang}
-      </label>
+		<span class="name">{lang}{$ship_method.name}{/lang}</span>
+		</span>
+		<span class="image text-center">
+				{if $ship_method.icon}<img src="{base_path}/img/icons/shipping/{$ship_method.icon}" alt="{$ship_method.name}" title="{$ship_method.name}" /> {/if}
+		</span>
+		{if $ship_method.cost_plain > 0}<span class="description">{$ship_method.cost}</span>{/if}
+		{if $ship_method.descripition}<span class="description">{$ship_method.descripition}</span>{/if}
+		</label>	
+		</li>
     {/foreach}
+	</ul>	</div>
+		
   </div>
   <div id="payment_method">
     <div>
       <h3>{lang}Payment Method{/lang}</h3>
     </div>    
+
+	<div class="row-fluid">
+	<ul class="payment-methods">
     {foreach from=$payment_methods item=payment_method}
-      <label class="radio">
+		<li class="item span4 {if $payment_method@index is div by 3}first{/if}">
+      <label class="payment-method">
+      <span class="title">
         <input type="radio" name="payment_method_id" value="{$payment_method.id}" id="payment_{$payment_method.id}" 
         {if $payment_method.id == $order.payment_method_id}
           checked="checked"
          {/if}        
         />
-{if $payment_method.icon}<img src="{base_path}/img/icons/payment/{$payment_method.icon}" alt="{$payment_method.name}" title="{$payment_method.name}" /> {/if}
-{lang}{$payment_method.name}{/lang}
-      </label>
-    {/foreach}    
+		<span class="name">{lang}{$payment_method.name}{/lang}</span>
+		</span>
+		<span class="image text-center">
+				{if $payment_method.icon}<img class="text-center" src="{base_path}/img/icons/payment/{$payment_method.icon}" alt="{$payment_method.name}" title="{$payment_method.name}" /> {/if}
+		</span>
+		{if $payment_method.descripition}<span class="description">{$payment_method.descripition}</span>{/if}
+		</label>	
+		</li>
+    {/foreach}
+	</ul>	</div>
+	    
   </div>
   <div id="bill_information">
     <div>
@@ -146,7 +221,7 @@ $(document).ready(function() {
 	</div>    
   </div>    
 
-  <div id="diff_shipping">
+  <div id="diff_ship">
     <div>
       <h3>{lang}Shipping Information{/lang}</h3>
     </div>
@@ -218,14 +293,6 @@ $(document).ready(function() {
 		<div class="controls">
 			<input type="text" name="phone" id="phone" value="{$order.phone}" />
 		</div>
-	</div>
-	<div class="control-group">
-		<label class="checkbox" for="agree">
-		<div class="controls">
-			<input type="checkbox" class="checkbox" id="agree" name="agree" />
-			{lang}Please agree to our policy.{/lang} <a href="{base_path}/page/conditions-of-use.html" target="_blank">{lang}Terms & Conditions.{/lang}</a>
-		</div>
-		</label>
 	</div>
   </div>
   <div>
