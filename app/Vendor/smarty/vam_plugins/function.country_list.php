@@ -25,7 +25,7 @@ function smarty_function_country_list($params, &$smarty)
         if (isset($params['selected']))
         {
             if ($key == $params['selected'])
-                $List .= 'selected ';
+                $List .= ' selected';
         }
         $List .= ">".__($value)."</option>";
     }

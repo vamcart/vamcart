@@ -27,7 +27,7 @@ function smarty_function_state_list($params, &$smarty)
                 $List .= "<option value=\"" . $option['CountryZone']['id'] . "\"";
                 if (isset($params['selected'])) {
                         if ($option['CountryZone']['id'] == $params['selected']) {
-                                $List .= 'selected ';
+                                $List .= ' selected';
                         }
                 }
                 $List .= ">" . $option['CountryZone']['name'] . "</option>";
