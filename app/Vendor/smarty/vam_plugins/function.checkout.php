@@ -57,10 +57,12 @@ ul.payment-methods li label span.title
 <script type="text/javascript" src="{base_path}/js/modified.js"></script>
 <script type="text/javascript" src="{base_path}/js/focus-first-input.js"></script>
 <script type="text/javascript" src="{base_path}/js/jquery/plugins/validate/jquery.validate.pack.js"></script>
+<script type="text/javascript" src="{base_path}/js/jquery/plugins/maskedinput/jquery.maskedinput.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
 	
-	
+$("#phone").mask("(999) 999-9999");
+      	
 $("label.shipping-method").click(function(){
 $("label.shipping-method").parent().removeClass("selected");
 $(this).parent().addClass("selected");
@@ -83,6 +85,10 @@ $(this).parent().addClass("selected");
         minlength: 6,
         email: true      
      },
+      phone: {
+        required: true,
+        minlength: 10,
+     },
     },
     messages: {
       bill_name: {
@@ -92,6 +98,10 @@ $(this).parent().addClass("selected");
       email: {
         required: "{lang}Required field{/lang}",
         minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 6"
+      },
+      phone: {
+        required: "{lang}Required field{/lang}",
+        minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 10"
       }
     }
   });
