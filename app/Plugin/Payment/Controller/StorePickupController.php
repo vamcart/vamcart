@@ -8,20 +8,22 @@
 App::uses('PaymentAppController', 'Payment.Controller');
 
 class StorePickupController extends PaymentAppController {
-	var $uses = array('PaymentMethod', 'Order');
-	var $module_name = 'StorePickup';
+	public $uses = array('PaymentMethod', 'Order');
+	public $module_name = 'StorePickup';
+	public $icon = 'pickup.png';
 
-	function settings ()
+	public function settings ()
 	{
 	}
 
-	function install()
+	public function install()
 	{
 
 		$new_module = array();
 		$new_module['PaymentMethod']['active'] = '1';
 		$new_module['PaymentMethod']['default'] = '1';
 		$new_module['PaymentMethod']['name'] = Inflector::humanize($this->module_name);
+		$new_module['PaymentMethod']['icon'] = $this->icon;
 		$new_module['PaymentMethod']['alias'] = $this->module_name;
 
 		$this->PaymentMethod->saveAll($new_module);
@@ -30,7 +32,7 @@ class StorePickupController extends PaymentAppController {
 		$this->redirect('/payment_methods/admin/');
 	}
 
-	function uninstall()
+	public function uninstall()
 	{
 
 		$module_id = $this->PaymentMethod->findByAlias($this->module_name);
@@ -41,7 +43,7 @@ class StorePickupController extends PaymentAppController {
 		$this->redirect('/payment_methods/admin/');
 	}
 
-	function before_process () 
+	public function before_process () 
 	{
 		$content = '
 		<form action="' . BASE . '/orders/place_order/" method="post">
@@ -50,7 +52,7 @@ class StorePickupController extends PaymentAppController {
 		return $content;	
 	}
 
-	function after_process()
+	public function after_process()
 	{
 		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 		$order_data = $this->Order->find('first', array('conditions' => array('Order.id' => $_SESSION['Customer']['order_id'])));

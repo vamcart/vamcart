@@ -8,21 +8,23 @@
 App::uses('PaymentAppController', 'Payment.Controller');
 
 class AuthorizeController extends PaymentAppController {
-	var $components = array('OrderBase');
-	var $uses = array('PaymentMethod', 'Order');
-	var $module_name = 'Authorize';
+	public $components = array('OrderBase');
+	public $uses = array('PaymentMethod', 'Order');
+	public $module_name = 'Authorize';
+	public $icon = 'authorize.png';
 
-	function settings ()
+	public function settings ()
 	{
 		$this->set('data', $this->PaymentMethod->findByAlias($this->module_name));
 	}
 
-	function install()
+	public function install()
 	{
 
 		$new_module = array();
 		$new_module['PaymentMethod']['active'] = '1';
 		$new_module['PaymentMethod']['name'] = Inflector::humanize($this->module_name);
+		$new_module['PaymentMethod']['icon'] = $this->icon;
 		$new_module['PaymentMethod']['alias'] = $this->module_name;
 
 		$new_module['PaymentMethodValue'][0]['payment_method_id'] = $this->PaymentMethod->id;
@@ -35,7 +37,7 @@ class AuthorizeController extends PaymentAppController {
 		$this->redirect('/payment_methods/admin/');
 	}
 
-	function uninstall()
+	public function uninstall()
 	{
 
 		$module_id = $this->PaymentMethod->findByAlias($this->module_name);
@@ -46,7 +48,7 @@ class AuthorizeController extends PaymentAppController {
 		$this->redirect('/payment_methods/admin/');
 	}
 	
-	function process_payment ()
+	public function process_payment ()
 	{
 		App::import('Model', 'PaymentMethod');
 		$this->PaymentMethod =& new PaymentMethod();
@@ -57,7 +59,7 @@ class AuthorizeController extends PaymentAppController {
 		$this->redirect('/orders/place_order/');
 	}
 	
-	function before_process ()
+	public function before_process ()
 	{
 		$order = $this->OrderBase->get_order();
 	   	
@@ -72,7 +74,7 @@ class AuthorizeController extends PaymentAppController {
 		
 	}
 
-	function after_process()
+	public function after_process()
 	{
 		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 		$order_data = $this->Order->find('first', array('conditions' => array('Order.id' => $_SESSION['Customer']['order_id'])));

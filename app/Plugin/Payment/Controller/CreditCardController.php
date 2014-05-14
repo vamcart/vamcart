@@ -8,23 +8,25 @@
 App::uses('PaymentAppController', 'Payment.Controller');
 
 class CreditCardController extends PaymentAppController {
-	var $uses = array('PaymentMethod', 'Order');
-	var $module_name = 'CreditCard';
+	public $uses = array('PaymentMethod', 'Order');
+	public $module_name = 'CreditCard';
+	public $icon = 'creditcard.png';
 
-	function settings ()
+	public function settings ()
 	{
 	}
 
-	function display_fields ()
+	public function display_fields ()
 	{
 	}
 
-	function install()
+	public function install()
 	{
 
 		$new_module = array();
 		$new_module['PaymentMethod']['active'] = '1';
 		$new_module['PaymentMethod']['name'] = Inflector::humanize($this->module_name);
+		$new_module['PaymentMethod']['icon'] = $this->icon;
 		$new_module['PaymentMethod']['alias'] = $this->module_name;
 
 		$this->PaymentMethod->saveAll($new_module);
@@ -33,7 +35,7 @@ class CreditCardController extends PaymentAppController {
 		$this->redirect('/payment_methods/admin/');
 	}
 
-	function uninstall()
+	public function uninstall()
 	{
 
 		$module_id = $this->PaymentMethod->findByAlias($this->module_name);
@@ -44,7 +46,7 @@ class CreditCardController extends PaymentAppController {
 		$this->redirect('/payment_methods/admin/');
 	}
 
-	function process_payment ()
+	public function process_payment ()
 	{
 		App::uses('CustomerBaseComponent', 'Controller/Component');	
 		$this->CustomerBase =& new CustomerBaseComponent(new ComponentCollection());
@@ -54,7 +56,7 @@ class CreditCardController extends PaymentAppController {
 		$this->redirect('/orders/place_order/');
 	}
 
-	function before_process () 
+	public function before_process () 
 	{
 	
 		$content = '
@@ -64,7 +66,7 @@ class CreditCardController extends PaymentAppController {
 		return $content;	
 	}
 
-	function after_process()
+	public function after_process()
 	{
 		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 		$order_data = $this->Order->find('first', array('conditions' => array('Order.id' => $_SESSION['Customer']['order_id'])));

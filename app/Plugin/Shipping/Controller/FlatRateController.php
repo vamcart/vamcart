@@ -8,21 +8,23 @@
 App::uses('ShippingAppController', 'Shipping.Controller');
 
 class FlatRateController extends ShippingAppController {
-	var $uses = array('ShippingMethod');
-	var $module_name = 'FlatRate';
+	public $uses = array('ShippingMethod');
+	public $module_name = 'FlatRate';
+	public $icon = 'flat.png';
 
-	function settings ()
+	public function settings ()
 	{
 		$this->set('data', $this->ShippingMethod->findByCode($this->module_name));
 	}
 
-	function install()
+	public function install()
 	{
 
 		$new_module = array();
 		$new_module['ShippingMethod']['active'] = '1';
 		$new_module['ShippingMethod']['default'] = '1';
 		$new_module['ShippingMethod']['name'] = Inflector::humanize($this->module_name);
+		$new_module['ShippingMethod']['icon'] = $this->icon;
 		$new_module['ShippingMethod']['code'] = $this->module_name;
 
 		$new_module['ShippingMethodValue'][0]['shipping_method_id'] = $this->ShippingMethod->id;
@@ -35,7 +37,7 @@ class FlatRateController extends ShippingAppController {
 		$this->redirect('/shipping_methods/admin/');
 	}
 
-	function uninstall()
+	public function uninstall()
 	{
 
 		$module_id = $this->ShippingMethod->findByCode($this->module_name);
@@ -46,14 +48,14 @@ class FlatRateController extends ShippingAppController {
 		$this->redirect('/shipping_methods/admin/');
 	}
 
-	function calculate ()
+	public function calculate ()
 	{
 		$method = $this->ShippingMethod->findByCode($this->module_name);
 
 		return $method['ShippingMethodValue'][0]['value'];
 	}
 
-	function before_process()
+	public function before_process()
 	{
 	}
 	

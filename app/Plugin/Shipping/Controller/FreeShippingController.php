@@ -8,20 +8,22 @@
 App::uses('ShippingAppController', 'Shipping.Controller');
 
 class FreeShippingController extends ShippingAppController {
-	var $uses = array('ShippingMethod');
-	var $module_name = 'FreeShipping';
+	public $uses = array('ShippingMethod');
+	public $module_name = 'FreeShipping';
+	public $icon = 'free.png';
 
-	function settings ()
+	public function settings ()
 	{
 		$this->set('data', $this->ShippingMethod->findByCode($this->module_name));
 	}
 
-	function install()
+	public function install()
 	{
 
 		$new_module = array();
 		$new_module['ShippingMethod']['active'] = '1';
 		$new_module['ShippingMethod']['name'] = Inflector::humanize($this->module_name);
+		$new_module['ShippingMethod']['icon'] = $this->icon;
 		$new_module['ShippingMethod']['code'] = $this->module_name;
 
 		$this->ShippingMethod->saveAll($new_module);
@@ -30,7 +32,7 @@ class FreeShippingController extends ShippingAppController {
 		$this->redirect('/shipping_methods/admin/');
 	}
 
-	function uninstall()
+	public function uninstall()
 	{
 
 		$module_id = $this->ShippingMethod->findByCode($this->module_name);
@@ -41,12 +43,12 @@ class FreeShippingController extends ShippingAppController {
 		$this->redirect('/shipping_methods/admin/');
 	}
 
-	function calculate ()
+	public function calculate ()
 	{
 		return 0;
 	}
 
-	function before_process()
+	public function before_process()
 	{
 	}
 	

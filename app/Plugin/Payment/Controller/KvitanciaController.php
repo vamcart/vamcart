@@ -8,17 +8,17 @@
 App::uses('PaymentAppController', 'Payment.Controller');
 
 class KvitanciaController extends PaymentAppController {
-	var $uses = array('PaymentMethod', 'Order');
-	var $helpers = array('Time');
-	var $module_name = 'Kvitancia';
-	var $icon = 'kvitancia.png';
+	public $uses = array('PaymentMethod', 'Order');
+	public $helpers = array('Time');
+	public $module_name = 'Kvitancia';
+	public $icon = 'kvitancia.png';
 
-	function settings ()
+	public function settings ()
 	{
 		$this->set('data', $this->PaymentMethod->findByAlias($this->module_name));
 	}
 
-	function install()
+	public function install()
 	{
 		$new_module = array();
 		$new_module['PaymentMethod']['active'] = '1';
@@ -65,7 +65,7 @@ class KvitanciaController extends PaymentAppController {
 		$this->redirect('/payment_methods/admin/');
 	}
 
-	function uninstall()
+	public function uninstall()
 	{
 
 		$module_id = $this->PaymentMethod->findByAlias($this->module_name);
@@ -76,7 +76,7 @@ class KvitanciaController extends PaymentAppController {
 		$this->redirect('/payment_methods/admin/');
 	}
 
-	function before_process () 
+	public function before_process () 
 	{
 		$content = '
 		<a class="button" href="http://'.$_SERVER['HTTP_HOST'] .  BASE . '/payment/kvitancia/print_order/' . $_SESSION['Customer']['order_id'] . '" target="_blank"><span>{lang}Print Order{/lang}</span></a><br />
@@ -86,12 +86,12 @@ class KvitanciaController extends PaymentAppController {
 		return $content;	
 	}
 
-	function after_process()
+	public function after_process()
 	{
 	}
 	
 	
-	function print_order($id)
+	public function print_order($id)
 	{
 		$this->layout = 'print';		
 		$this->set('title_for_layout', __('Order Number') . ': ' . $_SESSION['Customer']['order_id']);		
