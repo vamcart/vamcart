@@ -8,17 +8,17 @@
 App::uses('PaymentAppController', 'Payment.Controller');
 
 class PaypalController extends PaymentAppController {
-	var $uses = array('PaymentMethod', 'Order');
-	var $components = array('OrderBase');
-	var $module_name = 'Paypal';
-	var $icon = 'paypal.png';
+	public $uses = array('PaymentMethod', 'Order');
+	public $components = array('OrderBase');
+	public $module_name = 'Paypal';
+	public $icon = 'paypal.png';
 	
-	function settings ()
+	public function settings ()
 	{
 		$this->set('data', $this->PaymentMethod->findByAlias($this->module_name));
 	}
 
-	function install()
+	public function install()
 	{
 
 		$new_module = array();
@@ -37,7 +37,7 @@ class PaypalController extends PaymentAppController {
 		$this->redirect('/payment_methods/admin/');
 	}
 
-	function uninstall()
+	public function uninstall()
 	{
 
 		$module_id = $this->PaymentMethod->findByAlias($this->module_name);
@@ -48,7 +48,7 @@ class PaypalController extends PaymentAppController {
 		$this->redirect('/payment_methods/admin/');
 	}
 	
-	function before_process () 
+	public function before_process () 
 	{
 		$order = $this->OrderBase->get_order();
 		
@@ -85,7 +85,7 @@ class PaypalController extends PaymentAppController {
 		return $content;
 	}
 	
-	function after_process()
+	public function after_process()
 	{
 		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 		$order_data = $this->Order->find('first', array('conditions' => array('Order.id' => $_SESSION['Customer']['order_id'])));

@@ -8,20 +8,22 @@
 App::uses('ShippingAppController', 'Shipping.Controller');
 
 class TableBasedController extends ShippingAppController {
-	var $uses = array('ShippingMethod');
-	var $module_name = 'TableBased';
+	public $uses = array('ShippingMethod');
+	public $module_name = 'TableBased';
+	public $icon = 'table.png';
 
-	function settings ()
+	public function settings ()
 	{
 		$this->set('data', $this->ShippingMethod->findByCode($this->module_name));
 	}
 
-	function install()
+	public function install()
 	{
 
 		$new_module = array();
 		$new_module['ShippingMethod']['active'] = '1';
 		$new_module['ShippingMethod']['name'] = Inflector::humanize($this->module_name);
+		$new_module['ShippingMethod']['icon'] = $this->icon;
 		$new_module['ShippingMethod']['code'] = $this->module_name;
 
 		$new_module['ShippingMethodValue'][0]['shipping_method_id'] = $this->ShippingMethod->id;
@@ -38,7 +40,7 @@ class TableBasedController extends ShippingAppController {
 		$this->redirect('/shipping_methods/admin/');
 	}
 
-	function uninstall()
+	public function uninstall()
 	{
 
 		$module_id = $this->ShippingMethod->findByCode($this->module_name);
@@ -49,7 +51,7 @@ class TableBasedController extends ShippingAppController {
 		$this->redirect('/shipping_methods/admin/');
 	}
 
-	function calculate ()
+	public function calculate ()
 	{
 		$key_values = $this->ShippingMethod->findByCode($this->module_name);
 	
@@ -106,7 +108,7 @@ $newline =
 		return $shipping_price;
 	}
 	
-	function before_process()
+	public function before_process()
 	{
 	}
 		

@@ -8,16 +8,16 @@
 App::uses('PaymentAppController', 'Payment.Controller');
 
 class QiwiController extends PaymentAppController {
-	var $uses = array('PaymentMethod', 'Order');
-	var $module_name = 'Qiwi';
-	var $icon = 'qiwi.png';
+	public $uses = array('PaymentMethod', 'Order');
+	public $module_name = 'Qiwi';
+	public $icon = 'qiwi.png';
 
-	function settings ()
+	public function settings ()
 	{
 		$this->set('data', $this->PaymentMethod->findByAlias($this->module_name));
 	}
 
-	function install()
+	public function install()
 	{
 		$new_module = array();
 		$new_module['PaymentMethod']['active'] = '1';
@@ -40,7 +40,7 @@ class QiwiController extends PaymentAppController {
 		$this->redirect('/payment_methods/admin/');
 	}
 
-	function uninstall()
+	public function uninstall()
 	{
 
 		$module_id = $this->PaymentMethod->findByAlias($this->module_name);
@@ -51,7 +51,7 @@ class QiwiController extends PaymentAppController {
 		$this->redirect('/payment_methods/admin/');
 	}
 
-	function before_process () 
+	public function before_process () 
 	{
 
 		$content = '<form action="' . BASE . '/payment/qiwi/process_payment/" method="post">
@@ -62,7 +62,7 @@ class QiwiController extends PaymentAppController {
 		return $content;	
 	}
 
-	function process_payment ()
+	public function process_payment ()
 	{
 		$order = $this->Order->read(null,$_SESSION['Customer']['order_id']);
 
@@ -133,7 +133,7 @@ class QiwiController extends PaymentAppController {
 		$this->redirect('/orders/place_order/');
 	}
 	
-	function after_process()
+	public function after_process()
 	{
 	// Save the order
 	
@@ -149,7 +149,7 @@ class QiwiController extends PaymentAppController {
 
 	}
 		
-	function result()
+	public function result()
 	{
 		$this->layout = false;
 
@@ -159,8 +159,6 @@ class QiwiController extends PaymentAppController {
 			$server->register('updateBill');
 			$server->service($HTTP_RAW_POST_DATA);
 			
-			function updateBill($login, $password, $txn, $status) {
-
 			$order = $this->Order->read(null,$txn);
 	
 			$qiwi_id_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'qiwi_id')));
@@ -187,10 +185,7 @@ class QiwiController extends PaymentAppController {
 			$order_data['Order']['order_status_id'] = $payment_method['PaymentMethod']['order_status_id'];
 			
 			$this->Order->save($order_data);
-			
 				
-			}
-			
 			}	
 	
 	}

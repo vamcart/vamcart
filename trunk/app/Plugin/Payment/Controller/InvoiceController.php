@@ -8,21 +8,23 @@
 App::uses('PaymentAppController', 'Payment.Controller');
 
 class InvoiceController extends PaymentAppController {
-	var $uses = array('PaymentMethod', 'Order');
-	var $helpers = array('Time', 'Summa');
-	var $module_name = 'Invoice';
+	public $uses = array('PaymentMethod', 'Order');
+	public $helpers = array('Time', 'Summa');
+	public $module_name = 'Invoice';
+	public $icon = 'invoice.png';
 
-	function settings ()
+	public function settings ()
 	{
 		$this->set('data', $this->PaymentMethod->findByAlias($this->module_name));
 	}
 
-	function install()
+	public function install()
 	{
 		$new_module = array();
 		$new_module['PaymentMethod']['active'] = '1';
 		$new_module['PaymentMethod']['default'] = '0';
 		$new_module['PaymentMethod']['name'] = Inflector::humanize($this->module_name);
+		$new_module['PaymentMethod']['icon'] = $this->icon;
 		$new_module['PaymentMethod']['alias'] = $this->module_name;
 
 		$new_module['PaymentMethodValue'][0]['payment_method_id'] = $this->PaymentMethod->id;
@@ -79,7 +81,7 @@ class InvoiceController extends PaymentAppController {
 		$this->redirect('/payment_methods/admin/');
 	}
 
-	function uninstall()
+	public function uninstall()
 	{
 
 		$module_id = $this->PaymentMethod->findByAlias($this->module_name);
@@ -90,7 +92,7 @@ class InvoiceController extends PaymentAppController {
 		$this->redirect('/payment_methods/admin/');
 	}
 
-	function before_process () 
+	public function before_process () 
 	{
 		$content = '
 		<a class="button" href="http://'.$_SERVER['HTTP_HOST'] .  BASE . '/payment/invoice/print_order/' . $_SESSION['Customer']['order_id'] . '" target="_blank"><span>{lang}Print Invoice{/lang}</span></a><br />
@@ -100,12 +102,12 @@ class InvoiceController extends PaymentAppController {
 		return $content;	
 	}
 
-	function after_process()
+	public function after_process()
 	{
 	}
 	
 	
-	function print_order($id)
+	public function print_order($id)
 	{
 		$this->layout = 'print';		
 		$this->set('title_for_layout', __('Order Number') . ': ' . $_SESSION['Customer']['order_id']);		

@@ -8,16 +8,16 @@
 App::uses('PaymentAppController', 'Payment.Controller');
 
 class WebmoneyController extends PaymentAppController {
-	var $uses = array('PaymentMethod', 'Order');
-	var $module_name = 'Webmoney';
-	var $icon = 'webmoney.png';
+	public $uses = array('PaymentMethod', 'Order');
+	public $module_name = 'Webmoney';
+	public $icon = 'webmoney.png';
 
-	function settings ()
+	public function settings ()
 	{
 		$this->set('data', $this->PaymentMethod->findByAlias($this->module_name));
 	}
 
-	function install()
+	public function install()
 	{
 		$new_module = array();
 		$new_module['PaymentMethod']['active'] = '1';
@@ -40,7 +40,7 @@ class WebmoneyController extends PaymentAppController {
 		$this->redirect('/payment_methods/admin/');
 	}
 
-	function uninstall()
+	public function uninstall()
 	{
 
 		$module_id = $this->PaymentMethod->findByAlias($this->module_name);
@@ -51,7 +51,7 @@ class WebmoneyController extends PaymentAppController {
 		$this->redirect('/payment_methods/admin/');
 	}
 
-	function before_process () 
+	public function before_process () 
 	{
 			
 		$order = $this->Order->read(null,$_SESSION['Customer']['order_id']);
@@ -87,12 +87,12 @@ class WebmoneyController extends PaymentAppController {
 		return $content;
 	}
 
-	function after_process()
+	public function after_process()
 	{
 	}
 	
 	
-	function result()
+	public function result()
 	{
 		$this->layout = false;
       $webmoney_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'webmoney_secret_key')));
