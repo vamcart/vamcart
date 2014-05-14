@@ -53,7 +53,7 @@ class ActionController extends ModuleReviewsAppController {
 	
 			if($spam_flag == true)
 			{
-				//$this->redirect('/' . $content['ContentType']['name'] . '/' . $content['Content']['alias'] . $config['URL_EXTENSION']);
+				$this->redirect('/' . $content['ContentType']['name'] . '/' . $content['Content']['alias'] . $config['URL_EXTENSION']);
 			}
 			
 			$new_review = array();
@@ -72,7 +72,7 @@ class ActionController extends ModuleReviewsAppController {
 			Cache::delete('vam_content_' . $_SESSION['Customer']['customer_group_id'] . '_' . $_SESSION['Customer']['language_id'] . '_' . $content['Content']['alias'], 'catalog');
 			Cache::delete('vam_page_content_' . $_SESSION['Customer']['customer_group_id'] . '_' . $content['Content']['id'] . '_' . $_SESSION['Customer']['language_id']. '_' . $_SESSION['Customer']['currency_id']. '_' . $_SESSION['Customer']['page'] . (isset($filter_list)?md5(serialize($filter_list)):''), 'catalog');
 
-			//$this->redirect('/' . $content['ContentType']['name'] . '/' . $content['Content']['alias'] . $config['URL_EXTENSION']);
+			$this->redirect('/' . $content['ContentType']['name'] . '/' . $content['Content']['alias'] . $config['URL_EXTENSION']);
 		}
 		else
 		{
