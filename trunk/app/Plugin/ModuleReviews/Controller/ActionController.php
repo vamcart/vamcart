@@ -23,7 +23,7 @@ class ActionController extends ModuleReviewsAppController {
 	{
 			global $content, $config, $filter_list;
 
-		if(!empty($_POST))
+		if(!empty($_POST) && !$this->request->is('ajax'))
 		{
 
 			if(empty($_POST['content_id']))
