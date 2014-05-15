@@ -9,51 +9,6 @@
 function default_template_checkout ()
 {
 $template = '
-<style>
-ul.shipping-methods li,
-ul.payment-methods li
-	{
-		border: 2px solid #eee;
-		border-radius: 0px;
-		margin: 0 0 1.5em 0;
-		padding: 0;
-	}
-
-ul.shipping-methods li:hover,
-ul.payment-methods li:hover,
-ul.shipping-methods .selected,
-ul.payment-methods .selected
-	{
-		border: 2px solid #ff6633;
-		border-radius: 0px;
-	}
-
-ul.shipping-methods li label,
-ul.payment-methods li label
-	{
-		height: 140px;
-		overflow: auto;
-		display: block;
-	}
-
-ul.shipping-methods li label span.title,
-ul.payment-methods li label span.title,
-ul.shipping-methods li label span.description,
-ul.payment-methods li label span.description,
-ul.shipping-methods li label span.image,
-ul.payment-methods li label span.image
-	{
-		display: block;
-		padding: .5em;
-	}
-
-ul.shipping-methods li label span.title,
-ul.payment-methods li label span.title
-	{
-		background: #eee;
-	}
-
-</style>
 <script type="text/javascript" src="{base_path}/js/modified.js"></script>
 <script type="text/javascript" src="{base_path}/js/focus-first-input.js"></script>
 <script type="text/javascript" src="{base_path}/js/jquery/plugins/validate/jquery.validate.pack.js"></script>
@@ -132,7 +87,7 @@ $(this).parent().addClass("selected");
 	<div class="row-fluid">
 	<ul class="shipping-methods">
     {foreach from=$ship_methods item=ship_method}
-		<li class="item span4 {if $ship_method@index is div by 3}first{/if}">
+		<li class="item span4 {if $ship_method@index is div by 3}first{/if}{if $ship_method.id == $order.shipping_method_id} selected{/if}">
       <label class="shipping-method">
       <span class="title">
         <input type="radio" name="shipping_method_id" value="{$ship_method.id}" id="ship_{$ship_method.id}" 
@@ -161,7 +116,7 @@ $(this).parent().addClass("selected");
 	<div class="row-fluid">
 	<ul class="payment-methods">
     {foreach from=$payment_methods item=payment_method}
-		<li class="item span4 {if $payment_method@index is div by 3}first{/if}">
+		<li class="item span4 {if $payment_method@index is div by 3}first{/if}{if $payment_method.id == $order.payment_method_id} selected{/if}">
       <label class="payment-method">
       <span class="title">
         <input type="radio" name="payment_method_id" value="{$payment_method.id}" id="payment_{$payment_method.id}" 
