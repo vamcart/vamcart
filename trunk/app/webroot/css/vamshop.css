@@ -2279,47 +2279,101 @@ table.contentTable td
 /* Error */
 
 label.error 
-  {
-    margin-left: 10px;
-    width: auto;
-    display: inline;
-    color: red;
-    font-weight: normal;
-    background: transparent;
-}
+    {
+		margin-left: 10px;
+		width: auto;
+		display: inline;
+		color: red;
+		font-weight: normal;
+		background: transparent;
+	}
 
 .error
-   {
-    background: #fcc;
-   }	
+	{
+		background: #fcc;
+	}	
    
 /* /Error */
 
 /* Buttons */
 
-.btn.btn-inverse {
-  font-size: 13px;
-  padding: 6px 12px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-.btn:hover {
-  background-color: #ff6633;
-}
+.btn.btn-inverse 
+	{
+		font-size: 13px;
+		padding: 6px 12px;
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+
+.btn:hover 
+	{
+		background-color: #ff6633;
+	}
 
 /* /Buttons */
 
+/* Ajax Spinner */
+
 div#spinner
-{
-	display: none;
-	width:100px;
-	height: 100px;
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	text-align:center;
-	margin-left: -50px;
-	margin-top: -100px;
-	z-index:555;
-	overflow: auto;
-} 
+	{
+		display: none;
+		width:100px;
+		height: 100px;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		text-align:center;
+		margin-left: -50px;
+		margin-top: -100px;
+		z-index:555;
+		overflow: auto;
+	} 
+
+/* /Ajax Spinner */
+
+/* Checkout */
+
+ul.shipping-methods li,
+ul.payment-methods li
+	{
+		border: 2px solid #eee;
+		border-radius: 0px;
+		margin: 0 0 1.5em 0;
+		padding: 0;
+	}
+
+ul.shipping-methods li:hover,
+ul.payment-methods li:hover,
+ul.shipping-methods .selected,
+ul.payment-methods .selected
+	{
+		border: 2px solid #ff6633;
+		border-radius: 0px;
+	}
+
+ul.shipping-methods li label,
+ul.payment-methods li label
+	{
+		height: 140px;
+		overflow: auto;
+		display: block;
+	}
+
+ul.shipping-methods li label span.title,
+ul.payment-methods li label span.title,
+ul.shipping-methods li label span.description,
+ul.payment-methods li label span.description,
+ul.shipping-methods li label span.image,
+ul.payment-methods li label span.image
+	{
+		display: block;
+		padding: .5em;
+	}
+
+ul.shipping-methods li label span.title,
+ul.payment-methods li label span.title
+	{
+		background: #eee;
+	}
+
+/* /Checkout */
