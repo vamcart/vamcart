@@ -3344,8 +3344,8 @@ msgid "Start Date:"
 msgstr "Дата начала лицензии:"
 
 #: /app/views/license/admin.ctp
-msgid "End Date:"
-msgstr "Дата завершения лицензии:"
+msgid "Updates available until:"
+msgstr "Обновления доступны до:"
 
 #: /app/views/license/admin.ctp
 msgid "License is invalid. Check your key."
