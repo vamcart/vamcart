@@ -13,7 +13,7 @@ $template = '
 	<h3 class="widget-title">{lang}Language{/lang}</h3>
 		<ul class="icons clearfix">
 			{foreach from=$languages item=language}
-				<li><a href="{$language.url}"><img src="{$language.image}" width="18" height="12" alt="{$language.name}" title="{$language.name}"/></a> <a href="{$language.url}">{$language.name}</a></li>
+				<li><img src="{$language.image}" width="18" height="12" alt="{$language.name}" title="{$language.name}"/> <a href="{$language.url}">{$language.name}</a></li>
 			{/foreach}
 		</ul>
 </section>
