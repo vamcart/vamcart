@@ -683,6 +683,7 @@ height: 50px;
 #breadcrumbs .breadcrumbs {
   float: left;
   padding-top: 15px;
+  margin: 15px 0 0 0;
   font-size: 11px;
   line-height: 11px;
   color: #000;
@@ -691,6 +692,10 @@ height: 50px;
   margin: 0 5px;
 }
 #breadcrumbs .breadcrumbs a {
+  display: block;	
+  float: left;
+  height: 36px;
+  padding: 0 5px 0 0;
   font-weight: bold;
   text-decoration: none;
   color: #888888;
@@ -934,7 +939,6 @@ height: 50px;
 #footer-menu .privacy li {
   padding: 0 5px 0 0;
   margin: 0 5px 5px 0;
-  border-right: solid 1px #000;
   line-height: 11px;
 }
 #footer-menu .privacy li:last-child {
@@ -943,6 +947,10 @@ height: 50px;
 #footer-menu .copyright {
   margin-bottom: 0;
   line-height: 16px;
+}
+#footer-menu a {
+  display: block;
+  height: 36px;
 }
 #footer-menu .payment {
   text-align: right;
@@ -1127,9 +1135,18 @@ height: 50px;
   margin-left: 0;
   color: #999999;
 }
+.widget ul.icons li {
+  float: left;
+  width: 130px;
+  height: 36px;
+  position: relative;
+  text-indent: 0;
+  padding-left: 20px;
+}
 .categories-widget ul.icons li {
   float: left;
   width: 130px;
+  height: 36px;
   position: relative;
   text-indent: 0;
   padding-left: 20px;
