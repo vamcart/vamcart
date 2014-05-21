@@ -147,7 +147,7 @@ class AttributesController extends AppController
             $tmpl_id = $this->Attribute->read('attribute_template_id'); 
             $template = $this->AttributeTemplate->find('first',array('conditions' => array('id' => $tmpl_id['Attribute'])));
             $template = unserialize($template['AttributeTemplate']['setting']);
-            $template = array_filter($template,function($var){return($var == 1);});
+            $template = array_filter($template,create_function('$var','return($var == 1);'));
             foreach ($template AS $k => $val) $template[$k] = $k;
             $this->set('template',$template);            
         }
