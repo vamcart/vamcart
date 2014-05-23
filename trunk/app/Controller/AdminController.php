@@ -45,6 +45,8 @@ class AdminController extends AppController {
                 $result['dat'][$k] = $ord[0]['dat'];
                 $result['cnt'][$k] = $ord[0]['cnt'];
                 $result['summ'][$k] = $ord[0]['summ'];
+                $result['jq_plot_cnt'][$k] = '["'.$ord[0]['dat'].'" ,'.$ord[0]['cnt'].']';
+                $result['jq_plot_summ'][$k] = '["'.$ord[0]['dat'].'" ,'.$ord[0]['summ'].']';
             } 
             $result = array('day' => $result
                            ,'month' => array());
@@ -53,6 +55,8 @@ class AdminController extends AppController {
                 $result['month']['dat'][$k] = $ord[0]['dat'];
                 $result['month']['cnt'][$k] = $ord[0]['cnt'];
                 $result['month']['summ'][$k] = $ord[0]['summ'];
+                $result['month']['jq_plot_cnt'][$k] = '["'.$ord[0]['cnt'].'" , '.$ord[0]['summ'].']';
+                $result['month']['jq_plot_summ'][$k] = '["'.$ord[0]['cnt'].'" , '.$ord[0]['summ'].']';
             }
 
 				App::import('Model', 'Content');
