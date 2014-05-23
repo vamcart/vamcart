@@ -119,7 +119,7 @@ class ContentsController extends AppController {
 		  }
 		
 		}
-		$this->set('data', json_encode($ret));
+		//$this->set('data', json_encode($ret));
 	 }
 
 	}
