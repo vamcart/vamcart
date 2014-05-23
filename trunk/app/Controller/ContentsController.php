@@ -93,33 +93,6 @@ class ContentsController extends AppController {
           }
       }		
 
-	$ret = array();
-	
-	//	This is for custom errors;	
-	/*	$custom_error= array();
-		$custom_error['jquery-upload-file-error']="File already exists";
-		echo json_encode($custom_error);
-		die();
-	*/
-		$error =$_FILES["myfile"]["error"];
-		//You need to handle  both cases
-		//If Any browser does not support serializing of multiple files using FormData() 
-		if(!is_array($_FILES["myfile"]["name"])) //single file
-		{
-	 	 	$fileName = $_FILES["myfile"]["name"];
-	    	$ret[]= $fileName;
-		}
-		else  //Multiple files, file[]
-		{
-		  $fileCount = count($_FILES["myfile"]["name"]);
-		  for($i=0; $i < $fileCount; $i++)
-		  {
-		  	$fileName = $_FILES["myfile"]["name"][$i];
-		  	$ret[]= $fileName;
-		  }
-		
-		}
-		//$this->set('data', json_encode($ret));
 	 }
 
 	}
