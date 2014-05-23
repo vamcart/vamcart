@@ -11,12 +11,9 @@
 $this->Html->script(array(
 	'jquery/plugins/jquery.cookie.js',
 	'jquery/plugins/jquery-ui-min.js',
+	'jquery/plugins/uploadfile/jquery.uploadfile.js',
 	'jquery/plugins/dynatree/jquery.dynatree.js',
 	'modified.js',
-	'swfupload/swfupload.js',
-	'swfupload/swfupload.queue.js',
-	'swfupload/fileprogress.js',
-	'swfupload/handlers.js',
 	'focus-first-input.js'
 ), array('inline' => false));
 	
@@ -204,69 +201,38 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 	
 		echo '<p>' . __('Press \'Upload Images\' and choose images from your computer to upload. Select as many files as you would like. Images will upload right after you select them.') . '</p>';
 		echo '<div class="help tip"><p>' . __('TIP: Hold the \'control\' button to select more than one image.') . '</p></div>';		
+		echo '<div class="help tip"><p>' . __('TIP: Also you can Drag &amp; Drop Files to dotted zone.') . '</p></div>';		
 		?>
 <?php echo $this->Html->scriptBlock('
-		var swfu;
-
-		window.onload = function() {
-			var settings = {
-				flash_url : "' . BASE . '/js/swfupload/swfupload.swf",
-				flash9_url : "' . BASE . '/js/swfupload/swfupload_fp9.swf",
-				upload_url: "' . BASE . '/contents/upload_images/' . $content_id . '",
-				post_params: {"PHPSESSID" : "' . session_id() . '"},
-				file_size_limit : "10 MB",
-				file_types : "*.jpg;*.jpeg;*.gif;*.png",
-				file_types_description : "All Files",
-				file_upload_limit : 100,
-				file_queue_limit : 0,
-				custom_settings : {
-					progressTarget : "fsUploadProgress",
-					cancelButtonId : "btnCancel"
-				},
-				debug: false,
-
-				// Button settings
-
-				button_image_url : "' . BASE . '/img/admin/swfupload/browse.png",
-				button_width: "180",
-				button_height: "22",
-				button_placeholder_id: "spanButtonPlaceHolder",
-				button_text: \'<span class="browsebtn">' . __('Browse Images') . '</span>\',
-				button_text_style: ".browsebtn { font-size: 12pt; font-family: Trebuchet MS, Lucida Grande, Verdana, Arial, Sans-Serif; line-height: 1; }",
-				button_text_left_padding: 22,
-				button_text_top_padding: 0,
-
-				button_window_mode: SWFUpload.WINDOW_MODE.TRANSPARENT,
-				button_cursor: SWFUpload.CURSOR.HAND,
-				
-				// The event handler functions are defined in handlers.js
-				swfupload_preload_handler : preLoad,
-				swfupload_load_failed_handler : loadFailed,
-				file_queued_handler : fileQueued,
-				file_queue_error_handler : fileQueueError,
-				file_dialog_complete_handler : fileDialogComplete,
-				upload_start_handler : uploadStart,
-				upload_progress_handler : uploadProgress,
-				upload_error_handler : uploadError,
-				upload_success_handler : uploadSuccess,
-				upload_complete_handler : uploadComplete,
-				queue_complete_handler : queueComplete	// Queue plugin event
-			};
-
-			swfu = new SWFUpload(settings);
-	     };
+$(document).ready(function()
+{
+	$("#fileuploader").uploadFile({
+	url:"' . BASE . '/contents/upload_images/' . $content_id . '",
+	allowedTypes:"png,gif,jpg,jpeg",
+	fileName:"myfile",
+	showDone: false,
+	showPreview: true,
+	statusBarWidth: 250,
+	dragDropStr: "",
+	uploadButtonClass: "btn",
+	showFileCounter: false,
+	dragDropStr: "",
+	abortStr: "'.__('Abort').'",
+	cancelStr: "'.__('Cancel').'",
+	deletelStr: "'.__('Delete').'",
+	doneStr: "'.__('Done').'",
+	multiDragErrorStr: "'.__('Multiple File Drag &amp; Drop is not allowed.').'",
+	extErrorStr: "'.__('is not allowed. Allowed extensions: ').'",
+	sizeErrorStr: "'.__('is not allowed. Allowed Max size: ').'",
+	uploadErrorStr: "'.__('Upload is not allowed').'",
+	maxFileCountErrorStr: "'.__(' is not allowed. Maximum allowed files are: ').'",
+	downloadStr: "'.__('Download').'"	
+	});
+});
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
 		
 
-			<div id="fsUploadProgress"></div>
-			<div class="clear"></div>
-			<div>
-				<span id="spanButtonPlaceHolder"></span>
-			</div>
-			<div id="btnCancel">
-				<input id="btnCancel" type="button" value="<?php echo __('Cancel All Uploads'); ?>" onclick="swfu.cancelQueue();" disabled="disabled" />
-			</div>
-			<div id="divStatus"><?php echo __('Files Uploaded:'); ?> 0</div>
+			<div id="fileuploader"><i class="cus-add"></i> <?php echo __('Upload Images'); ?></div>
 
 		<?php
 		

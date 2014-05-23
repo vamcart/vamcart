@@ -2098,17 +2098,45 @@ msgstr "Нажмите \'Загрузить картинки\' и выберит
 msgid "TIP: Hold the 'control' button to select more than one image."
 msgstr "ПОДСКАЗКА: При выборе картинок на своём компьютере, удерживайте кнопку \'control\', если хотите загрузить сразу несколько картинок."
 
+#: /views/contents/admin_edit.ctp:115
+msgid "TIP: Also you can Drag &amp; Drop Files to dotted zone."
+msgstr "ПОДСКАЗКА: Кроме того, Вы можете добавить картинки перетаскиванием (drag &amp; drop) в выделенную пунктиром зону."
+
 #: /views/contents/admin_edit.ctp:132
 msgid "Browse Images"
 msgstr "Смотреть картинки"
 
 #: /views/contents/admin_edit.ctp:134
-msgid "Files Uploaded:"
-msgstr "Файлов загружено:"
+msgid "Abort"
+msgstr "Прервать"
 
 #: /views/contents/admin_edit.ctp:136
-msgid "Cancel All Uploads"
-msgstr "Отменить загрузку"
+msgid "Done"
+msgstr "Загружено"
+
+#: /views/contents/admin_edit.ctp:136
+msgid "Multiple File Drag &amp; Drop is not allowed."
+msgstr "Загрузка сразу нескольких файлов перетаскиваним (drag &amp; drop) запрещена."
+
+#: /views/contents/admin_edit.ctp:136
+msgid "is not allowed. Allowed extensions: "
+msgstr "не может быть загружен. Разрешённые типы файлов: "
+
+#: /views/contents/admin_edit.ctp:136
+msgid "is not allowed. Allowed Max size: "
+msgstr "не может быть загружен. Разрешенный максимальный размер файла: "
+
+#: /views/contents/admin_edit.ctp:136
+msgid "Upload is not allowed"
+msgstr "Загрузка запрещена"
+
+#: /views/contents/admin_edit.ctp:136
+msgid " is not allowed. Maximum allowed files are: "
+msgstr " не может быть загружен. Максимально разрешённое количество файлов: "
+
+#: /views/contents/admin_edit.ctp:136
+msgid "Download"
+msgstr "Скачать"
 
 #: /views/contents/admin_edit.ctp:168
 #: /views/defined_languages/admin_edit.ctp:19
