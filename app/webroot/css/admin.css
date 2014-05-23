@@ -799,5 +799,26 @@ a[href]:after
 		padding: .5em;
 		margin: .5em;
 	}
+
+#charts 
+	{
+		height:400px;
+		width: 100%;
+		clear: both;
+	}
+
+#chart1 
+	{
+		height:400px;
+		width: 48%;
+		float: left;
+	}
+
+#chart2 
+	{
+		height:400px;
+		width: 48%;
+		float: left;
+	}
 			 
 /*]]>*/

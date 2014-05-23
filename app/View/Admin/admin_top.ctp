@@ -8,8 +8,21 @@
 
 $this->Html->script(array(
 	'jquery/plugins/jquery.zrssfeed.min.js',
+	'jquery/plugins/jqplot/jquery.jqplot.min.js',
+	'jquery/plugins/jqplot/plugins/jqplot.highlighter.min.js',
+	'jquery/plugins/jqplot/plugins/jqplot.cursor.min.js',
+	'jquery/plugins/jqplot/plugins/jqplot.dateAxisRenderer.min.js',
+	'jquery/plugins/jqplot/plugins/jqplot.canvasTextRenderer.min.js',
+	'jquery/plugins/jqplot/plugins/jqplot.canvasAxisTickRenderer.min.js',
+	'jquery/plugins/jqplot/plugins/jqplot.categoryAxisRenderer.min.js',
+	'jquery/plugins/jqplot/plugins/jqplot.barRenderer.min.js',
+	'jquery/plugins/jqplot/plugins/jqplot.dateAxisRenderer.min.js'
 ), array('inline' => false));
 ?>
+<?php echo $this->Html->css(array(
+										'jquery/plugins/jqplot/jquery.jqplot.min.css',
+											), null, array('inline' => true)); ?>
+
 <?php echo $this->Html->scriptBlock('
 $(document).ready(function () {
 	$("#news").rssfeed("http://support.'.__('vamshop.com',true).'/modules/news/backendt.php?topicid=2", {
@@ -20,6 +33,101 @@ $(document).ready(function () {
 	});
 });
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
+
+<?php echo $this->Html->scriptBlock('
+$(document).ready(function(){
+	
+  var line1=['.implode(",",$result['day']['jq_plot_cnt']).'];  
+  var line2=['.implode(",",$result['day']['jq_plot_summ']).'];  
+  var plot1 = $.jqplot("chart1", [line1, line2], {
+		animate: true,
+		animateReplot: true,  	
+      title:"'.__('Sales Report', true).'",
+      axes:{
+        xaxis:{
+          renderer:$.jqplot.DateAxisRenderer,
+          tickOptions:{
+            formatString:"%b&nbsp;%#d"
+          } 
+        },
+        yaxis:{
+        	autoscale:true,
+          tickOptions:{
+            formatString:"$%.2f"
+            }
+        },
+        y2axis:{
+        	autoscale:true,
+          tickOptions:{
+            formatString:"$%.2f"
+            }
+        }
+      },
+      highlighter: {
+        show: true,
+        sizeAdjust: 7.5
+      },
+      cursor: {
+        show: false
+      }
+  });
+  
+$(\'a[href="#sales"]\').on(\'shown\', function(e) {
+            if (plot1._drawCount === 0) {
+                plot1.replot();
+            }
+            if (plot2._drawCount === 0) {
+                plot2.replot();
+            }
+});
+
+$(\'a[href="#chart"]\').on(\'shown\', function(e) {
+            if (plot1._drawCount === 0) {
+                plot1.replot();
+            }
+            if (plot2._drawCount === 0) {
+                plot2.replot();
+            }
+});
+
+});
+', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
+
+<?php echo $this->Html->scriptBlock('
+$(document).ready(function(){
+  var line1 = [["Cup Holder Pinion Bob", 7], ["Generic Fog Lamp", 9], ["HDTV Receiver", 15], 
+  ["8 Track Control Module", 12], [" Sludge Pump Fourier Modulator", 3], 
+  ["Transcender/Spice Rack", 6], ["Hair Spray Danger Indicator", 18]];
+  var line2 = [["Nickle", 28], ["Aluminum", 13], ["Xenon", 54], ["Silver", 47], 
+  ["Sulfer", 16], ["Silicon", 14], ["Vanadium", 23]];
+  
+  var plot2 = $.jqplot("chart2", [line1, line2], {
+    series:[{renderer:$.jqplot.BarRenderer}, {xaxis:"x2axis", yaxis:"y2axis"}],
+    axesDefaults: {
+        tickRenderer: $.jqplot.CanvasAxisTickRenderer ,
+        tickOptions: {
+          angle: 30
+        }
+    },
+    axes: {
+      xaxis: {
+        renderer: $.jqplot.CategoryAxisRenderer
+      },
+      x2axis: {
+        renderer: $.jqplot.CategoryAxisRenderer
+      },
+      yaxis: {
+        autoscale:true
+      },
+      y2axis: {
+        autoscale:true
+      }
+    }
+  });
+  
+});
+', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
+
 <?php
 	echo $this->admin->ShowPageHeaderStart(__('Dashboard',true), 'cus-house');
 
@@ -62,7 +170,19 @@ $(document).ready(function () {
 		echo $this->admin->EndTabContent();
 				
 		echo $this->admin->StartTabContent('sales');
+?>
 
+
+<?php
+
+echo '<div id="charts">';
+echo '<div id="chart1"></div>';
+echo '<div id="chart2"></div>';
+echo '</div>';
+
+?>
+
+<?php
                 echo $this->flashChart->begin(); 
                 if(isset($result['day']['dat']))
                 {
@@ -166,7 +286,7 @@ $(document).ready(function () {
                     echo '</td></tr></table>';
                     
                 echo $this->admin->EndTabContent();
-		
+
 		}
 		
 	echo $this->admin->StartTabContent('home');
