@@ -35,58 +35,42 @@ $(document).ready(function () {
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
 
 <?php echo $this->Html->scriptBlock('
-$(document).ready(function(){
-	
-  var line1=['.implode(",",$result['day']['jq_plot_cnt']).'];  
-  var line2=['.implode(",",$result['day']['jq_plot_summ']).'];  
-  var plot1 = $.jqplot("chart1", [line1, line2], {
-		animate: true,
-		animateReplot: true,  	
-      title:"'.__('Sales Report', true).'",
-      axes:{
-        xaxis:{
-          renderer:$.jqplot.DateAxisRenderer,
-          tickOptions:{
-            formatString:"%b&nbsp;%#d"
-          } 
-        },
-        yaxis:{
-        	autoscale:true,
-          tickOptions:{
-            formatString:"$%.2f"
-            }
-        },
-        y2axis:{
-        	autoscale:true,
-          tickOptions:{
-            formatString:"$%.2f"
-            }
-        }
-      },
-      highlighter: {
-        show: true,
-        sizeAdjust: 7.5
-      },
-      cursor: {
-        show: false
-      }
-  });
+    $(document).ready(function() {
+        $.jqplot.config.enablePlugins = true;
+
+        var l1 = ['.implode(",",$result['day']['summ']).'];
+        var l2 = ['.implode(",",$result['day']['cnt']).'];
+
+        var plot1 = $.jqplot("chart1", [l1, l2],  {
+          animate: true,
+          animateReplot: true,         	
+          title: "'.__('Sales Report', true).': '.__('day', true).'",
+          legend:{show:true,labels:["'.__('Total', true).'","'.__('Number of Orders', true).'"]},
+          series:[
+          {},
+          {yaxis:"y2axis"}, 
+          {yaxis:"y3axis"},
+          ],
+          axesDefaults:{useSeriesColor:true, rendererOptions: { alignTicks: true}},
+          highlighter: {
+          show: true,
+          sizeAdjust: 7.5
+          },
+          cursor: {
+          show: false
+          }          
+        });
+
   
 $(\'a[href="#sales"]\').on(\'shown\', function(e) {
             if (plot1._drawCount === 0) {
                 plot1.replot();
-            }
-            if (plot2._drawCount === 0) {
-                plot2.replot();
             }
 });
 
 $(\'a[href="#chart"]\').on(\'shown\', function(e) {
             if (plot1._drawCount === 0) {
                 plot1.replot();
-            }
-            if (plot2._drawCount === 0) {
-                plot2.replot();
             }
 });
 
@@ -124,6 +108,18 @@ $(document).ready(function(){
       }
     }
   });
+
+$(\'a[href="#sales"]\').on(\'shown\', function(e) {
+            if (plot2._drawCount === 0) {
+                plot2.replot();
+            }
+});
+
+$(\'a[href="#chart"]\').on(\'shown\', function(e) {
+            if (plot2._drawCount === 0) {
+                plot2.replot();
+            }
+});
   
 });
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
