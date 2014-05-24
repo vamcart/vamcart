@@ -201,7 +201,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 	
 		echo '<p>' . __('Press \'Upload Images\' and choose images from your computer to upload. Select as many files as you would like. Images will upload right after you select them.') . '</p>';
 		echo '<div class="help tip"><p>' . __('TIP: Hold the \'control\' button to select more than one image.') . '</p></div>';		
-		echo '<div class="help tip"><p>' . __('TIP: Also you can Drag &amp; Drop Files to dotted zone.') . '</p></div>';		
+		echo '<div class="help tip"><p>' . __('TIP: Also, you can Drag &amp; Drop Files to dotted zone.') . '</p></div>';		
 		?>
 <?php echo $this->Html->scriptBlock('
 $(document).ready(function()
