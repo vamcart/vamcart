@@ -2099,7 +2099,7 @@ msgid "TIP: Hold the 'control' button to select more than one image."
 msgstr "ПОДСКАЗКА: При выборе картинок на своём компьютере, удерживайте кнопку \'control\', если хотите загрузить сразу несколько картинок."
 
 #: /views/contents/admin_edit.ctp:115
-msgid "TIP: Also you can Drag &amp; Drop Files to dotted zone."
+msgid "TIP: Also, you can Drag &amp; Drop Files to dotted zone."
 msgstr "ПОДСКАЗКА: Кроме того, Вы можете добавить картинки перетаскиванием (drag &amp; drop) в выделенную пунктиром зону."
 
 #: /views/contents/admin_edit.ctp:132
