@@ -8,14 +8,9 @@
 
 $this->Html->script(array(
 	'jquery/plugins/jquery.zrssfeed.min.js',
-	'jquery/plugins/jqplot/jquery.jqplot.min.js',
+	'jquery/plugins/jqplot/jquery.jqplot.js',
 	'jquery/plugins/jqplot/plugins/jqplot.highlighter.min.js',
-	'jquery/plugins/jqplot/plugins/jqplot.cursor.min.js',
-	'jquery/plugins/jqplot/plugins/jqplot.dateAxisRenderer.min.js',
 	'jquery/plugins/jqplot/plugins/jqplot.canvasTextRenderer.min.js',
-	'jquery/plugins/jqplot/plugins/jqplot.canvasAxisTickRenderer.min.js',
-	'jquery/plugins/jqplot/plugins/jqplot.categoryAxisRenderer.min.js',
-	'jquery/plugins/jqplot/plugins/jqplot.barRenderer.min.js',
 	'jquery/plugins/jqplot/plugins/jqplot.dateAxisRenderer.min.js'
 ), array('inline' => false));
 ?>
