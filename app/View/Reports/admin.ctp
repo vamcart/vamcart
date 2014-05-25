@@ -6,7 +6,74 @@
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-//var_dump($this->session);
+echo $this->Html->script(array(
+	'jquery/plugins/jqplot/jquery.jqplot.js',
+	'jquery/plugins/jqplot/plugins/jqplot.highlighter.min.js',
+	'jquery/plugins/jqplot/plugins/jqplot.canvasTextRenderer.min.js',
+	'jquery/plugins/jqplot/plugins/jqplot.dateAxisRenderer.min.js'
+), array('inline' => false));
+
+echo $this->Html->css(array(
+	'jquery/plugins/jqplot/jquery.jqplot.min.css',
+), null, array('inline' => true));
+
+echo $this->Html->scriptBlock('
+    $(document).ready(function() {
+        $.jqplot.config.enablePlugins = true;
+
+        var l1 = ['.implode(",",$result['jq_plot_summ']).'];
+        var l2 = ['.implode(",",$result['jq_plot_cnt']).'];
+
+        var plot1 = $.jqplot("report", [l1, l2],  {
+          animate: true,
+          animateReplot: true,         	
+          title: "'.__('Sales Report', true).': '.__($period, true).'",
+          legend:{show:true,location:"se",labels:["'.__('Total', true).'","'.__('Number of Orders', true).'"]},
+          series:[
+          {color:"#0077cc"},
+          {yaxis:"y2axis",color:"#ff9900"} 
+          ],
+          axesDefaults:{padMin: 1.5,useSeriesColor:true, rendererOptions: { alignTicks: true}},
+
+      axes: {
+        xaxis: {
+          renderer: $.jqplot.DateAxisRenderer,
+          labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+          tickRenderer: $.jqplot.CanvasAxisTickRenderer,
+          tickInterval: "1 '.$period.'",
+
+          tickOptions: {
+              formatString: "'.$format.'"
+          }
+           
+        },
+        y2axis: {
+          tickOptions: {
+              formatString: "%01.0f"
+          }
+           
+        }
+      },
+
+          highlighter: {
+          show: true,
+          sizeAdjust: 7.5,
+          tooltipLocation: "ne"
+          },
+          
+          cursor: {
+          show: false
+          }          
+        });
+
+$(\'a[href="#chart"]\').on(\'shown\', function(e) {
+            if (plot1._drawCount === 0) {
+                plot1.replot();
+            }
+});
+
+});
+', array('allowCache'=>false,'safe'=>false,'inline'=>false));
 
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-chart-curve');
 
@@ -33,31 +100,9 @@ echo '</ul>';
 echo $this->admin->StartTabs();
 
     echo $this->admin->StartTabContent('chart');
-    echo '<table class="contentTable">';
-          
-    echo $this->flashChart->begin(); 
-    $this->flashChart->setTitle(__('Sales Report', true).': '.__($period, true),'{color:#000;font-size:18px;}');
-    //var_dump($result);
-    if(isset($result['dat']))
-    {
-        $this->flashChart->setData($result['summ'],'{n}',false,'Sum');
-        $this->flashChart->setData($result['cnt'],'{n}',false,'Count');
-        
-        $this->flashChart->axis('x',array('labels' => $result['dat']),array('vertical' => true));
-        $this->flashChart->axis('y',array('range' => array(0,max($result['summ']),max($result['summ'])/10), 'colour'=>'#0077cc'));
-        $this->flashChart->rightAxis(array('range' => array(0,max($result['cnt']),max($result['cnt'])/10), 'colour'=>'#ff9900'));
 
-        echo $this->flashChart->chart('line',array('colour'=>'#0077cc','width'=>'3','line_style' => 'solid-dot','set_key' => array(__('Total', true),14)),'Sum');
-        echo $this->flashChart->chart('line',array('colour'=>'#ff9900','width'=>'3','right' => 'true','set_key' => array(__('Number of Orders', true),14)),'Count');
-    }
-    else 
-    {
-        $this->flashChart->setData(array('0'),'{n}',false,'null');
-        echo $this->flashChart->chart('line',array('colour'=>'#0077cc','width'=>'2'),'null');
-    }
-    echo $this->flashChart->render('100%','300');
-                        
-    echo '</table>';
+		echo '<div id="report"></div>';
+
     echo $this->admin->EndTabContent();
    
     echo $this->admin->StartTabContent('table');
