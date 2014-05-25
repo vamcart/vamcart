@@ -1969,7 +1969,9 @@ CREATE TABLE `orders` (
   `company_info` varchar(255) collate utf8_unicode_ci,
   `company_vat` varchar(255) collate utf8_unicode_ci DEFAULT NULL,
   `created` datetime,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY  (`id`),
+  INDEX order_status_id (order_status_id),
+  INDEX created (created)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS order_comments;
