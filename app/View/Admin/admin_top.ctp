@@ -84,29 +84,6 @@ $(document).ready(function () {
           }          
         });
 
-        var l1 = ['.implode(",",$result['day']['jq_plot_summ']).'];
-        var l2 = ['.implode(",",$result['day']['jq_plot_cnt']).'];
- 
-    var plot2 = $.jqplot("chart1", [l1, l2], {
-      axes: {
-        xaxis: {
-          renderer: $.jqplot.DateAxisRenderer,
-          label: "Incliment Occurrance",
-          labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
-          tickRenderer: $.jqplot.CanvasAxisTickRenderer,
-          tickOptions: {
-              // labelPosition: "middle",
-              angle: 15
-          }
-           
-        },
-        yaxis: {
-          label: "Incliment Factor",
-          labelRenderer: $.jqplot.CanvasAxisLabelRenderer
-        }
-      }
-    });
-  
 $(\'a[href="#sales"]\').on(\'shown\', function(e) {
             if (plot1._drawCount === 0) {
                 plot1.replot();
@@ -123,89 +100,54 @@ $(\'a[href="#chart"]\').on(\'shown\', function(e) {
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
 
 <?php echo $this->Html->scriptBlock('
-$(document).ready(function () {
-    var s1 = [[2002, 112000], [2003, 122000], [2004, 104000], [2005, 99000], [2006, 121000], 
-    [2007, 148000], [2008, 114000], [2009, 133000], [2010, 161000], [2011, 173000]];
-    var s2 = [[2002, 10200], [2003, 10800], [2004, 11200], [2005, 11800], [2006, 12400], 
-    [2007, 12800], [2008, 13200], [2009, 12600], [2010, 13100]];
- 
-    plot2 = $.jqplot("chart2", [s2, s1], {
-        animate: true,
-        animateReplot: true,
-        title: "'.__('Sales Report', true).': '.__('month', true).'",
-        legend:{show:true,labels:["'.__('Total', true).'","'.__('Number of Orders', true).'"]},
-        cursor: {
-            show: false
+    $(document).ready(function() {
+        $.jqplot.config.enablePlugins = true;
+
+        var l1 = ['.implode(",",$result['month']['jq_plot_summ']).'];
+        var l2 = ['.implode(",",$result['month']['jq_plot_cnt']).'];
+
+        var plot2 = $.jqplot("chart2", [l1, l2],  {
+          animate: true,
+          animateReplot: true,         	
+          title: "'.__('Sales Report', true).': '.__('month', true).'",
+          legend:{show:true,labels:["'.__('Total', true).'","'.__('Number of Orders', true).'"]},
+          series:[
+          {},
+          {yaxis:"y2axis"}, 
+          {yaxis:"y3axis"},
+          ],
+          axesDefaults:{padMin: 1.5,useSeriesColor:true, rendererOptions: { alignTicks: true}},
+
+      axes: {
+        xaxis: {
+          renderer: $.jqplot.DateAxisRenderer,
+          labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+          tickRenderer: $.jqplot.CanvasAxisTickRenderer,
+
+          tickOptions: {
+              // labelPosition: "middle",
+              angle: 15,
+          }
+           
         },
-        series:[
-            {
-                pointLabels: {
-                    show: true
-                },
-                renderer: $.jqplot.BarRenderer,
-                showHighlight: false,
-                yaxis: "y2axis",
-                rendererOptions: {
-                    animation: {
-                        speed: 2500
-                    },
-                    highlightMouseOver: false
-                }
-            }, 
-            {
-                rendererOptions: {
-                    // speed up the animation a little bit.
-                    // This is a number of milliseconds.
-                    // Default for a line series is 2500.
-                    animation: {
-                        speed: 2000
-                    }
-                }
-            }
-        ],
-        axesDefaults: {
-            padMin: 0,
-            useSeriesColor:true, 
-            rendererOptions: { alignTicks: true}
-        },
-        axes: {
-            // These options will set up the x axis like a category axis.
-            xaxis: {
-                tickInterval: 1,
-                drawMajorGridlines: false,
-                drawMinorGridlines: true,
-                drawMajorTickMarks: false,
-                rendererOptions: {
-                tickInset: 0.5,
-                minorTicks: 1
-            }
-            },
-            yaxis: {
-                tickOptions: {
-                    formatString: "$%d"
-                },
-                rendererOptions: {
-                    forceTickAt0: true
-                }
-            },
-            y2axis: {
-                tickOptions: {
-                    formatString: "$%d"
-                },
-                rendererOptions: {
-                    // align the ticks on the y2 axis with the y axis.
-                    alignTicks: true,
-                    forceTickAt0: true
-                }
-            }
-        },
+        y2axis: {
+          tickOptions: {
+              formatString: "%01.0f"
+          }
+           
+        }
+      },
+
           highlighter: {
           show: true,
           sizeAdjust: 7.5,
           tooltipLocation: "ne"
-          }
-    });
-   
+          },
+          
+          cursor: {
+          show: false
+          }          
+        });
 
 $(\'a[href="#sales"]\').on(\'shown\', function(e) {
             if (plot2._drawCount === 0) {
@@ -218,7 +160,7 @@ $(\'a[href="#chart"]\').on(\'shown\', function(e) {
                 plot2.replot();
             }
 });
-  
+
 });
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
 
