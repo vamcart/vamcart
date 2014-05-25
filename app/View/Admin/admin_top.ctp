@@ -205,62 +205,12 @@ $(\'a[href="#chart"]\').on(\'shown\', function(e) {
 		echo $this->admin->EndTabContent();
 				
 		echo $this->admin->StartTabContent('sales');
-?>
 
+		echo '<div id="charts">';
+		echo '<div id="chart1"></div>';
+		echo '<div id="chart2"></div>';
+		echo '</div>';
 
-<?php
-
-echo '<div id="charts">';
-echo '<div id="chart1"></div>';
-echo '<div id="chart2"></div>';
-echo '</div>';
-
-?>
-
-<?php
-                echo $this->flashChart->begin(); 
-                if(isset($result['day']['dat']))
-                {
-                    $this->flashChart->setData($result['day']['summ'],'{n}',false,'Sum_1','stat_day');		
-                    $this->flashChart->setData($result['day']['cnt'],'{n}',false,'Count_1','stat_day');              
-                } 
-                else $this->flashChart->setData(array('0'),'{n}',false,'null','stat_day');
-                if(isset($result['month']['dat']))
-                {
-                    $this->flashChart->setData($result['month']['summ'],'{n}',false,'Sum_2','stat_month');		
-                    $this->flashChart->setData($result['month']['cnt'],'{n}',false,'Count_2','stat_month');
-                }
-                else $this->flashChart->setData(array('0'),'{n}',false,'null','stat_month'); 
-                
-                echo '<table class="contentTable"><tr><td><div id="stat_day">';
-			
-			$this->flashChart->setTitle(__('Sales Report', true).': '.__('day', true),'{color:#000;font-size:18px;}');
-			$this->flashChart->axis('x',array('labels' => $result['day']['dat']),array('vertical' => true));
-                        $this->flashChart->axis('y',array('range' => array(0,max($result['day']['summ']),max($result['day']['summ'])/10), 'colour'=>'#0077cc'));
-                        $this->flashChart->rightAxis(array('range' => array(0,max($result['day']['cnt']),max($result['day']['cnt'])/10), 'colour'=>'#ff9900'));
-			if(isset($result['day']['dat']))
-                        {
-                            echo $this->flashChart->chart('line',array('colour'=>'#0077cc','width'=>'3','line_style' => 'solid-dot','set_key' => array(__('Total', true),14)),'Sum_1','stat_day');
-                            echo $this->flashChart->chart('line',array('colour'=>'#ff9900','width'=>'3','right' => 'true','set_key' => array(__('Number of Orders', true),14)),'Count_1','stat_day');	
-                        }
-                        else echo $this->flashChart->chart('line',array('colour'=>'#0077cc','width'=>'2'),'null','stat_day');
-			echo $this->flashChart->render('100%','300','stat_day','stat_day');
-                        
-                echo '</div></td><td><div id="stat_month">';                       
-			
-                        $this->flashChart->setTitle(__('Sales Report', true).': '.__('month', true),'{color:#000;font-size:18px;}');
-                        $this->flashChart->axis('x',array('labels' => $result['month']['dat']),array('vertical' => true));
-                        $this->flashChart->axis('y',array('range' => array(0,max($result['month']['cnt']),max($result['month']['cnt'])/10), 'colour'=>'#ff9900'));
-                        $this->flashChart->rightAxis(array('range' => array(0,max($result['month']['summ']),max($result['month']['summ'])/10), 'colour'=>'#0077cc'));
-                        if(isset($result['month']['dat']))
-                        {
-                            echo $this->flashChart->chart('bar',array('colour'=>'#ff9900','set_key' => array(__('Number of Orders', true),14)),'Count_2','stat_month');
-                            echo $this->flashChart->chart('line',array('colour'=>'#0077cc','width'=>'3','line_style' => 'solid-dot','right' => 'true','set_key' => array(__('Total', true),14)),'Sum_2','stat_month');	
-                        } 
-                        else echo $this->flashChart->chart('line',array('colour'=>'#0077cc','width'=>'2'),'null','stat_month');
-			echo $this->flashChart->render('100%','300','stat_month','stat_month');
-                echo '</div></td></tr></table>';
-                
 		echo $this->admin->EndTabContent();
                                 
                 echo $this->admin->StartTabContent('top');

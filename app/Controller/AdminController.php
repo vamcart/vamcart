@@ -8,7 +8,7 @@
 class AdminController extends AppController {
 	public $name = 'Admin';
 	public $uses = array('User', 'Order');
-	public $helpers = array('Html','Js','Admin','Form', 'FlashChart');
+	public $helpers = array('Html','Js','Admin','Form');
 
 	public function index() 
 	{
@@ -25,13 +25,9 @@ class AdminController extends AppController {
                 $l = $this->Session->read('Customer.language');
             }
                 
-            //App::import('Model', 'Order');
-            //$this->Order =& new Order();
-            $this->loadModel('Order');
-            
             $order_day = $this->Order->find('all', array('fields' => array('DATE_FORMAT(Order.created, \'%m/%d\') as dat','TRUNCATE(SUM(Order.total),2) as summ','COUNT(Order.id) as cnt')
                                                     ,'conditions' => array(/*'Order.order_status_id' => $listStatuses
-                                                                          ,*/'Order.created >' => date("Y-m-d H:i:s",time()-(30*24*3600)))
+                                                                          ,*/'Order.created >' => date("Y-m-d H:i:s",time()-(14*24*3600)))
                                                     ,'group' => array('dat')
                                                     ,'order' => array('dat')));
             $order_month = $this->Order->find('all', array('fields' => array('DATE_FORMAT(Order.created, \'%Y/%m\') as dat','TRUNCATE(SUM(Order.total),2) as summ','COUNT(Order.id) as cnt')
