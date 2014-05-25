@@ -30,12 +30,12 @@ class OrderStatusController extends AppController {
 		{
 			$this->Session->setFlash( __('Error: Could not delete default record.', true));		
 		}
-		elseif($this->OrderStatus->Order->find('count', array('conditions' => array('Order.order_status_id' => $order_status_id))) > 0)
-		{
-			$this->Session->setFlash( __('Record deleted.', true));				
-		}
-		else
-		{
+		//elseif($this->OrderStatus->Order->find('count', array('conditions' => array('Order.order_status_id' => $order_status_id))) > 0)
+		//{
+			//$this->Session->setFlash( __('Record deleted.', true));				
+		//}
+		//else
+		//{
 			// Ok, delete the order_status and cascade for the description
 			$status = $this->OrderStatus->read(null,$order_status_id);
 			$this->OrderStatus->delete($order_status_id, true);	
@@ -49,7 +49,7 @@ class OrderStatusController extends AppController {
 			}
 			
 			$this->Session->setFlash( __('Record deleted.', true));		
-		}
+		//}
 		$this->redirect('/order_status/admin/');
 
 	}
