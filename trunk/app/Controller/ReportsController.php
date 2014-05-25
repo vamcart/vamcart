@@ -9,7 +9,7 @@
 class ReportsController extends AppController {
     public $name = 'Reports';
     public $uses = array('Report'); 
-    public $helpers = array('Html','Js','Admin','Form', 'FlashChart');
+    public $helpers = array('Html','Js','Admin','Form');
    
     public function admin($action = 'new')
     {
@@ -57,19 +57,19 @@ class ReportsController extends AppController {
             {
                 case 'hour':
                     $options['stamp_dat'] = date("Y-m-d H:i:s",time()-(24*3600));
-                    $options['group_dat'] = '%m/%d %H:00';
+                    $options['group_dat'] = '%H:%i';
                 break;
                 case 'day':
-                    $options['stamp_dat'] = date("Y-m-d H:i:s",time()-(7*24*3600));
-                    $options['group_dat'] = '%m/%d';
+                    $options['stamp_dat'] = date("Y-m-d H:i:s",time()-(14*24*3600));
+                    $options['group_dat'] = '%m-%d-%Y';
                 break;
                 case 'week':
-                    $options['stamp_dat'] = date("Y-m-d H:i:s",time()-(30*24*3600));
-                    $options['group_dat'] = '%Y/%m   %u '.__('week');
+                    $options['stamp_dat'] = date("Y-m-d H:i:s",time()-(7*24*3600));
+                    $options['group_dat'] = '%l';
                 break;
                 case 'month':
                     $options['stamp_dat'] = date("Y-m-d H:i:s",time()-(365*24*3600));
-                    $options['group_dat'] = '%Y/%m';
+                    $options['group_dat'] = '%Y-%m';
                 break;
                 case 'year':
                     /*
@@ -96,11 +96,14 @@ class ReportsController extends AppController {
                 $result['dat'][$k] = $ord[0]['dat'];
                 $result['cnt'][$k] = $ord[0]['cnt'];
                 $result['summ'][$k] = $ord[0]['summ'];
+                $result['jq_plot_cnt'][$k] = '["'.$ord[0]['dat'].'" ,'.$ord[0]['cnt'].']';
+                $result['jq_plot_summ'][$k] = '["'.$ord[0]['dat'].'" ,'.$ord[0]['summ'].']';
             } 
 
            $this->set('result',$result);
            $this->set('statuses',$options['statuses']);
            $this->set('period',$options['period']);
+           $this->set('format',$options['group_dat']);
         }
         else
         {

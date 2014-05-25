@@ -6,19 +6,19 @@
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-$this->Html->script(array(
+echo $this->Html->script(array(
 	'jquery/plugins/jquery.zrssfeed.min.js',
 	'jquery/plugins/jqplot/jquery.jqplot.js',
 	'jquery/plugins/jqplot/plugins/jqplot.highlighter.min.js',
 	'jquery/plugins/jqplot/plugins/jqplot.canvasTextRenderer.min.js',
 	'jquery/plugins/jqplot/plugins/jqplot.dateAxisRenderer.min.js'
 ), array('inline' => false));
-?>
-<?php echo $this->Html->css(array(
-										'jquery/plugins/jqplot/jquery.jqplot.min.css',
-											), null, array('inline' => true)); ?>
 
-<?php echo $this->Html->scriptBlock('
+echo $this->Html->css(array(
+	'jquery/plugins/jqplot/jquery.jqplot.min.css',
+), null, array('inline' => true));
+
+echo $this->Html->scriptBlock('
 $(document).ready(function () {
 	$("#news").rssfeed("http://support.'.__('vamshop.com',true).'/modules/news/backendt.php?topicid=2", {
 		header: false,
@@ -27,9 +27,9 @@ $(document).ready(function () {
 		limit: 1,
 	});
 });
-', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
+', array('allowCache'=>false,'safe'=>false,'inline'=>false));
 
-<?php echo $this->Html->scriptBlock('
+echo $this->Html->scriptBlock('
     $(document).ready(function() {
         $.jqplot.config.enablePlugins = true;
 
@@ -84,16 +84,10 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
             }
 });
 
-$(\'a[href="#chart"]\').on(\'shown\', function(e) {
-            if (plot1._drawCount === 0) {
-                plot1.replot();
-            }
 });
+', array('allowCache'=>false,'safe'=>false,'inline'=>false));
 
-});
-', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
-
-<?php echo $this->Html->scriptBlock('
+echo $this->Html->scriptBlock('
     $(document).ready(function() {
         $.jqplot.config.enablePlugins = true;
 
@@ -149,16 +143,9 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
             }
 });
 
-$(\'a[href="#chart"]\').on(\'shown\', function(e) {
-            if (plot2._drawCount === 0) {
-                plot2.replot();
-            }
 });
+', array('allowCache'=>false,'safe'=>false,'inline'=>false));
 
-});
-', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
-
-<?php
 	echo $this->admin->ShowPageHeaderStart(__('Dashboard',true), 'cus-house');
 
 	echo '<div id="news"></div>';
