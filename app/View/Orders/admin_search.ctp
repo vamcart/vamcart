@@ -27,7 +27,7 @@ foreach ($data AS $order)
 				$order['Order']['id'],
 				$order['Order']['total'],
 				$this->Time->i18nFormat($order['Order']['created']),
-				$order['OrderStatus']['OrderStatusDescription'][0]['name'],
+				$order_status_list[$order['OrderStatus']['id']],
 				array($this->Admin->ActionButton('view','/orders/admin_view/' . $order['Order']['id'],__('View')) . $this->Admin->ActionButton('delete','/orders/admin_delete/' . $order['Order']['id'],__('Delete')), array('align'=>'center'))
 		   ));
 		   	

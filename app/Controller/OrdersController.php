@@ -569,17 +569,6 @@ class OrdersController extends AppController {
 		}
 		$this->set('current_crumb', __('Search Result', true));
 		$this->set('title_for_layout', __('Search Result', true));
-		$this->Order->OrderStatus->unbindModel(array('hasMany' => array('OrderStatusDescription')));
-		$this->Order->OrderStatus->bindModel(array(
-			'hasOne' => array(
-				'OrderStatusDescription' => array(
-					'className'  => 'OrderStatusDescription',
-					'conditions' => 'OrderStatusDescription.language_id = ' . $this->Session->read('Customer.language_id')
-				)
-			)
-		));
-
-		$this->Order->recursive = 2;
 
 		if (isset($_SESSION['Search']['term']) and ($this->RequestHandler->isPost() or isset($this->params['named']['page']) )) {
 			$term = $_SESSION['Search']['term'];
@@ -590,6 +579,30 @@ class OrdersController extends AppController {
 
 		$data = $this->paginate('Order', "Order.order_status_id > 0 and (Order.id='" . (int)$term . "' or Order.bill_name LIKE '%" . $term . "%' or Order.email LIKE '%" . $term . "%' or Order.phone LIKE '%" . $term . "%')");
 		$this->set('data',$data);
+
+		// Bind and set the order status select list
+		$this->Order->OrderStatus->unbindModel(array('hasMany' => array('OrderStatusDescription')));
+		$this->Order->OrderStatus->bindModel(
+	        array('hasOne' => array(
+				'OrderStatusDescription' => array(
+                    'className' => 'OrderStatusDescription',
+					'conditions'   => 'language_id = ' . $this->Session->read('Customer.language_id')
+                )
+            )
+           	)
+	    );		
+		
+		$status_list = $this->Order->OrderStatus->find('all', array('order' => array('OrderStatus.order ASC')));
+		$order_status_list = array();
+		
+		foreach($status_list AS $status)
+		{
+			$status_key = $status['OrderStatus']['id'];
+			$order_status_list[$status_key] = $status['OrderStatusDescription']['name'];
+		}
+		
+		$this->set('order_status_list',$order_status_list);
+
 	}
 }
 ?>
