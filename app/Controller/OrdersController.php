@@ -528,20 +528,33 @@ class OrdersController extends AppController {
 	{
 		$this->set('current_crumb', __('Orders Listing', true));
 		$this->set('title_for_layout', __('Orders Listing', true));
+
+		$data = $this->paginate('Order',"Order.order_status_id > 0");
+
+		// Bind and set the order status select list
 		$this->Order->OrderStatus->unbindModel(array('hasMany' => array('OrderStatusDescription')));
 		$this->Order->OrderStatus->bindModel(
 	        array('hasOne' => array(
 				'OrderStatusDescription' => array(
                     'className' => 'OrderStatusDescription',
-					'conditions'   => 'OrderStatusDescription.language_id = ' . $this->Session->read('Customer.language_id')
+					'conditions'   => 'language_id = ' . $this->Session->read('Customer.language_id')
                 )
             )
            	)
-	    );			
-	
+	    );		
+		
+		$status_list = $this->Order->OrderStatus->find('all', array('order' => array('OrderStatus.order ASC')));
+		$order_status_list = array();
+		
+		foreach($status_list AS $status)
+		{
+			$status_key = $status['OrderStatus']['id'];
+			$order_status_list[$status_key] = $status['OrderStatusDescription']['name'];
+		}
+		
+		$this->set('order_status_list',$order_status_list);
 
-		$this->Order->recursive = 2;
-		$data = $this->paginate('Order',"Order.order_status_id > 0");
+
 		$this->set('data',$data);
 
 	}	
