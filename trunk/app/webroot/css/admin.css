@@ -807,6 +807,12 @@ a[href]:after
 		clear: both;
 	}
 
+#report 
+	{
+		height:400px;
+		width: 98%;
+	}
+
 #chart1 
 	{
 		height:400px;
