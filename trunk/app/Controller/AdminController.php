@@ -93,25 +93,34 @@ class AdminController extends AppController {
             $this->set('level', $level);
 
 		// Last orders
-		
+
+		$data = $this->Order->find('all', array(	'conditions' => array('Order.order_status_id >' => '0'), 
+																'order' => array('Order.id DESC'), 
+																'limit' => 20
+															));
+
+		// Bind and set the order status select list
 		$this->Order->OrderStatus->unbindModel(array('hasMany' => array('OrderStatusDescription')));
 		$this->Order->OrderStatus->bindModel(
 	        array('hasOne' => array(
 				'OrderStatusDescription' => array(
                     'className' => 'OrderStatusDescription',
-					'conditions'   => 'OrderStatusDescription.language_id = ' . $this->Session->read('Customer.language_id')
+					'conditions'   => 'language_id = ' . $this->Session->read('Customer.language_id')
                 )
             )
            	)
-	    );			
-	
-
-		$this->Order->recursive = 2;
+	    );		
 		
-		$data = $this->Order->find('all', array(	'conditions' => array('Order.order_status_id >' => '0'), 
-																'order' => array('Order.id DESC'), 
-																'limit' => 20
-															));
+		$status_list = $this->Order->OrderStatus->find('all', array('order' => array('OrderStatus.order ASC')));
+		$order_status_list = array();
+		
+		foreach($status_list AS $status)
+		{
+			$status_key = $status['OrderStatus']['id'];
+			$order_status_list[$status_key] = $status['OrderStatusDescription']['name'];
+		}
+		
+		$this->set('order_status_list',$order_status_list);
 
 		$this->set('data',$data);
 			
