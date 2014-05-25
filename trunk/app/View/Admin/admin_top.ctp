@@ -45,11 +45,10 @@ $(document).ready(function () {
           animate: true,
           animateReplot: true,         	
           title: "'.__('Sales Report', true).': '.__('day', true).'",
-          legend:{show:true,labels:["'.__('Total', true).'","'.__('Number of Orders', true).'"]},
+          legend:{show:true,location:"se",labels:["'.__('Total', true).'","'.__('Number of Orders', true).'"]},
           series:[
-          {},
-          {yaxis:"y2axis"}, 
-          {yaxis:"y3axis"},
+          {color:"#0077cc"},
+          {yaxis:"y2axis",color:"#ff9900"} 
           ],
           axesDefaults:{padMin: 1.5,useSeriesColor:true, rendererOptions: { alignTicks: true}},
 
@@ -58,10 +57,10 @@ $(document).ready(function () {
           renderer: $.jqplot.DateAxisRenderer,
           labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
           tickRenderer: $.jqplot.CanvasAxisTickRenderer,
+          tickInterval: "1 day",
 
           tickOptions: {
-              // labelPosition: "middle",
-              angle: 15
+              formatString: "%m/%d"
           }
            
         },
@@ -110,11 +109,11 @@ $(\'a[href="#chart"]\').on(\'shown\', function(e) {
           animate: true,
           animateReplot: true,         	
           title: "'.__('Sales Report', true).': '.__('month', true).'",
-          legend:{show:true,labels:["'.__('Total', true).'","'.__('Number of Orders', true).'"]},
+          legend:{show:true,location:"se",labels:["'.__('Total', true).'","'.__('Number of Orders', true).'"]},
+          
           series:[
-          {},
-          {yaxis:"y2axis"}, 
-          {yaxis:"y3axis"},
+          {color:"#0077cc"},
+          {yaxis:"y2axis",color:"#ff9900"} 
           ],
           axesDefaults:{padMin: 1.5,useSeriesColor:true, rendererOptions: { alignTicks: true}},
 
@@ -123,10 +122,10 @@ $(\'a[href="#chart"]\').on(\'shown\', function(e) {
           renderer: $.jqplot.DateAxisRenderer,
           labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
           tickRenderer: $.jqplot.CanvasAxisTickRenderer,
+          tickInterval: "1 month",
 
           tickOptions: {
-              // labelPosition: "middle",
-              angle: 15,
+              formatString: "%Y/%m"
           }
            
         },
