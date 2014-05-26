@@ -1971,6 +1971,7 @@ CREATE TABLE `orders` (
   `created` datetime,
   PRIMARY KEY  (`id`),
   INDEX order_status_id (order_status_id),
+  INDEX customer_id (customer_id),
   INDEX created (created)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -1984,6 +1985,7 @@ CREATE TABLE `order_comments` (
   `created` datetime,
   `modified` datetime,
   PRIMARY KEY  (`id`),
+  INDEX user_id (user_id),
   INDEX order_id (order_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
