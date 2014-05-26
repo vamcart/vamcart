@@ -120,18 +120,22 @@ echo '</table>';
 
 echo $this->Admin->EmptyResults($data);
 
-echo $this->Admin->ActionBar(array('delete'=>__('Delete'), 'change_status'=>__('Change Order Status'),), false);
-echo $this->Form->end();
-
+echo '<table class="contentFooter">';
+echo '<tr><td>';
 echo $this->Form->create('Order', array('action' => '/orders_edit/admin/', 'url' => '/orders_edit/admin/'));
 echo $this->Admin->formButton(__('New Order'), 'cus-cart-add', array('class' => 'btn', 'type' => 'submit', 'name' => 'submit'));
 echo $this->Form->end();
-
-echo $this->Admin->ShowPageHeaderEnd();
-
+echo '</td>';
+echo '<td>';
+echo $this->Admin->ActionBar(array('delete'=>__('Delete'), 'change_status'=>__('Change Order Status'),), false);
+echo $this->Form->end();
+echo '</td></tr>';
+echo '</table>';
 ?>
 <table class="contentPagination">
 	<tr>
 		<td><?php echo $this->Paginator->numbers(array('separator'=>' - ')); ?></td>
 	</tr>
 </table>
+<?php
+echo $this->Admin->ShowPageHeaderEnd();
