@@ -326,6 +326,13 @@ div#content table.contentTable
 		border-bottom-right-radius: 4px;
 	}
 
+div#content table.contentFooter
+	{
+		width: 100%;
+		padding: 0 0 0 0;
+		margin: 0 0 .2em 0;
+	}
+
 div#content table.contentTable tr
 	{
 		padding: 0;
