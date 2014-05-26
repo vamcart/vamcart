@@ -54,7 +54,8 @@ class SetupController extends ModuleReviewsAppController {
 		  `rating` int(10),
 		  `created` datetime,
 		  `modified` datetime,
-		  PRIMARY KEY  (`id`)
+		  PRIMARY KEY  (`id`),
+		  INDEX content_id (content_id)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 		";		
 		$this->Module->query($install_query);
