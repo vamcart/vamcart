@@ -1936,7 +1936,8 @@ CREATE TABLE `module_reviews` (
   `rating` int(10),
   `created` datetime,
   `modified` datetime,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY  (`id`),
+  INDEX content_id (content_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS orders;
