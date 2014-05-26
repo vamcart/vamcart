@@ -2312,7 +2312,8 @@ CREATE TABLE IF NOT EXISTS `customers` (
   `name` varchar(32),
   `email` varchar(96),
   `password` varchar(40),
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  INDEX groups_customer_id (groups_customer_id)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS groups_customers;
@@ -2347,7 +2348,8 @@ CREATE TABLE `address_books` (
   `phone` varchar(15) collate utf8_unicode_ci,
   `created` datetime,
   `modified` datetime,
-  PRIMARY KEY  (`id`)
+  PRIMARY KEY  (`id`),
+  INDEX customer_id (customer_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS contents_contents;
