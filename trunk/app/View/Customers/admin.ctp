@@ -33,6 +33,7 @@ foreach ($data AS $customer)
 echo '</table>';
 
 echo $this->Admin->ActionBar(array('delete'=>__('Delete')));
+echo $this->Form->end();
 ?>
 
 <table class="contentPagination">

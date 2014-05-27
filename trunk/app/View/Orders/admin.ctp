@@ -122,9 +122,7 @@ echo $this->Admin->EmptyResults($data);
 
 echo '<table class="contentFooter">';
 echo '<tr><td>';
-echo $this->Form->create('Order', array('action' => '/orders_edit/admin/', 'url' => '/orders_edit/admin/'));
-echo $this->Admin->formButton(__('New Order'), 'cus-cart-add', array('class' => 'btn', 'type' => 'submit', 'name' => 'submit'));
-echo $this->Form->end();
+echo $this->Admin->linkButton(__('New Order'),'/orders_edit/admin/','cus-cart-add',array('escape' => false, 'class' => 'btn'));
 echo '</td>';
 echo '<td>';
 echo $this->Admin->ActionBar(array('delete'=>__('Delete'), 'change_status'=>__('Change Order Status'),), false);
