@@ -162,7 +162,7 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty');
                 if(isset($this->data['set_attr']))
                 {
                     $attrs = $this->data['set_attr'];
-                    $make_attr_product = key(array_filter($attrs,function($var){return($var == 1);}));
+                    $make_attr_product = key(array_filter($attrs,create_function($var){return($var == 1);}));
                     $this->request->is('ajax');
                     $template_vars['ajax_enable'] = true;
                     $this->Smarty->display('{content}', $template_vars);     
