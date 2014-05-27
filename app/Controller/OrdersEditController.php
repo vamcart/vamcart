@@ -30,12 +30,12 @@ class OrdersEditController extends AppController
         $order['bill_state']['json_data'] = json_encode($order['bill_state']['data']);
                 
         $bill_country = $this->Order->BillCountry->find('list',array('fields' => array('id','name')));
-        $bill_country = array_map(function($v){return __($v);},$bill_country);            
+        $bill_country = array_map(create_function($v){return __($v);},$bill_country);            
         $order['bill_country'] = array('data' => $bill_country
                                           ,'json_data' => array()
                                           ,'id_selected' => '0'
                                           ,'selected' => '_');
-        $bill_country = array_map(function($v){return __($v);},$bill_country);
+        $bill_country = array_map(create_function($v){return __($v);},$bill_country);
         $order['bill_country']['json_data'] = json_encode($bill_country);
                 
         $ship_state = $this->Order->ShipState->find('list',array('fields' => array('id','name')));            
@@ -46,7 +46,7 @@ class OrdersEditController extends AppController
         $order['ship_state']['json_data'] = json_encode($order['ship_state']['data']);
                 
         $ship_country = $this->Order->ShipCountry->find('list',array('fields' => array('id','name')));            
-        $ship_country = array_map(function($v){return __($v);},$ship_country);
+        $ship_country = array_map(create_function($v){return __($v);},$ship_country);
         $order['ship_country'] = array('data' => $ship_country
                                           ,'json_data' => array()
                                           ,'id_selected' => '0'
