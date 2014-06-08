@@ -5,6 +5,10 @@
    Copyright (c) 2014 VamSoft Ltd.
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
+
+error_reporting(E_ALL & ~E_DEPRECATED);
+@ini_set('display_errors', TRUE);
+
 function ioncube_event_handler($err_code,$params) { 
 		switch ($err_code) {
 			case '6' :
