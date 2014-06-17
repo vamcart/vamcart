@@ -149,6 +149,7 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty');
 				'show_in_menu' => $content['Content']['show_in_menu'],
 				'created' => $content['Content']['created'],
 				'modified' => $content['Content']['modified'],
+				'stock' => $content['ContentProduct']['stock'],
 				'page' => $this->params['page'],
 				'ajax_enable' => $config['AJAX_ENABLE'],
 				'is_compared' => $is_compared
