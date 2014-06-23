@@ -163,6 +163,7 @@ class DATABASE_CONFIG {
 		fwrite($fh, $configData);
 		fclose($fh);
 	
+		unlink(ROOT . '/app/Controller/InstallController.php');
 			
 		$file = ROOT . '/app/install_schemas/database.sql';
 
