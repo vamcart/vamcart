@@ -163,8 +163,6 @@ class DATABASE_CONFIG {
 		fwrite($fh, $configData);
 		fclose($fh);
 	
-		unlink(ROOT . '/app/Controller/InstallController.php');
-			
 		$file = ROOT . '/app/install_schemas/database.sql';
 
 		$file_content = file($file);
@@ -188,6 +186,7 @@ class DATABASE_CONFIG {
 		
 	   @mysqli_query($dbh, 'update users set username = "' . trim(stripslashes($admin_username)) . '", email = "' . trim(stripslashes($admin_email)) . '", password = "' . Security::hash(trim(stripslashes($admin_password)), 'sha1', true) . '", created = "now()", modified = "now()" where id = "1"');
 		
+		unlink(ROOT . '/app/Controller/InstallController.php');
 
 	}
 }
