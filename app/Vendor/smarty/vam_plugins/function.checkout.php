@@ -80,62 +80,7 @@ $(this).parent().addClass("selected");
 
 <div id="checkout">
 <form action="{$checkout_form_action}" method="post" id="contentform" class="form-horizontal">
-  <div id="shipping_method">
-    <div>
-      <h3>{lang}Shipping Method{/lang}</h3>
-    </div>  
-	<div class="row-fluid">
-	<ul class="shipping-methods">
-    {foreach from=$ship_methods item=ship_method}
-		<li class="item span4 {if $ship_method@index is div by 3}first{/if}{if $ship_method.id == $order.shipping_method_id} selected{/if}">
-      <label class="shipping-method">
-      <span class="title">
-        <input type="radio" name="shipping_method_id" value="{$ship_method.id}" id="ship_{$ship_method.id}" 
-        {if $ship_method.id == $order.shipping_method_id}
-          checked="checked"
-         {/if}
-        />
-		<span class="name">{lang}{$ship_method.name}{/lang}</span>
-		</span>
-		<span class="image text-center">
-				{if $ship_method.icon}<img src="{base_path}/img/icons/shipping/{$ship_method.icon}" alt="{$ship_method.name}" title="{$ship_method.name}" /> {/if}
-		</span>
-		{if $ship_method.cost_plain > 0}<span class="description">{$ship_method.cost}</span>{/if}
-		{if $ship_method.descripition}<span class="description">{$ship_method.descripition}</span>{/if}
-		</label>	
-		</li>
-    {/foreach}
-	</ul>	</div>
-		
-  </div>
-  <div id="payment_method">
-    <div>
-      <h3>{lang}Payment Method{/lang}</h3>
-    </div>    
 
-	<div class="row-fluid">
-	<ul class="payment-methods">
-    {foreach from=$payment_methods item=payment_method}
-		<li class="item span4 {if $payment_method@index is div by 3}first{/if}{if $payment_method.id == $order.payment_method_id} selected{/if}">
-      <label class="payment-method">
-      <span class="title">
-        <input type="radio" name="payment_method_id" value="{$payment_method.id}" id="payment_{$payment_method.id}" 
-        {if $payment_method.id == $order.payment_method_id}
-          checked="checked"
-         {/if}        
-        />
-		<span class="name">{lang}{$payment_method.name}{/lang}</span>
-		</span>
-		<span class="image text-center">
-				{if $payment_method.icon}<img class="text-center" src="{base_path}/img/icons/payment/{$payment_method.icon}" alt="{$payment_method.name}" title="{$payment_method.name}" /> {/if}
-		</span>
-		{if $payment_method.descripition}<span class="description">{$payment_method.descripition}</span>{/if}
-		</label>	
-		</li>
-    {/foreach}
-	</ul>	</div>
-	    
-  </div>
   <div id="bill_information">
     <div>
       <h3>{lang}Billing Information{/lang}</h3>
@@ -263,6 +208,64 @@ $(this).parent().addClass("selected");
   <div>
   {module alias="coupons" action="checkout_box"}
   </div>
+
+  <div id="shipping_method">
+    <div>
+      <h3>{lang}Shipping Method{/lang}</h3>
+    </div>  
+	<div class="row-fluid">
+	<ul class="shipping-methods">
+    {foreach from=$ship_methods item=ship_method}
+		<li class="item span4 {if $ship_method@index is div by 3}first{/if}{if $ship_method.id == $order.shipping_method_id} selected{/if}">
+      <label class="shipping-method">
+      <span class="title">
+        <input type="radio" name="shipping_method_id" value="{$ship_method.id}" id="ship_{$ship_method.id}" 
+        {if $ship_method.id == $order.shipping_method_id}
+          checked="checked"
+         {/if}
+        />
+		<span class="name">{lang}{$ship_method.name}{/lang}</span>
+		</span>
+		<span class="image text-center">
+				{if $ship_method.icon}<img src="{base_path}/img/icons/shipping/{$ship_method.icon}" alt="{$ship_method.name}" title="{$ship_method.name}" /> {/if}
+		</span>
+		{if $ship_method.cost_plain > 0}<span class="description">{$ship_method.cost}</span>{/if}
+		{if $ship_method.descripition}<span class="description">{$ship_method.descripition}</span>{/if}
+		</label>	
+		</li>
+    {/foreach}
+	</ul>	</div>
+		
+  </div>
+  <div id="payment_method">
+    <div>
+      <h3>{lang}Payment Method{/lang}</h3>
+    </div>    
+
+	<div class="row-fluid">
+	<ul class="payment-methods">
+    {foreach from=$payment_methods item=payment_method}
+		<li class="item span4 {if $payment_method@index is div by 3}first{/if}{if $payment_method.id == $order.payment_method_id} selected{/if}">
+      <label class="payment-method">
+      <span class="title">
+        <input type="radio" name="payment_method_id" value="{$payment_method.id}" id="payment_{$payment_method.id}" 
+        {if $payment_method.id == $order.payment_method_id}
+          checked="checked"
+         {/if}        
+        />
+		<span class="name">{lang}{$payment_method.name}{/lang}</span>
+		</span>
+		<span class="image text-center">
+				{if $payment_method.icon}<img class="text-center" src="{base_path}/img/icons/payment/{$payment_method.icon}" alt="{$payment_method.name}" title="{$payment_method.name}" /> {/if}
+		</span>
+		{if $payment_method.descripition}<span class="description">{$payment_method.descripition}</span>{/if}
+		</label>	
+		</li>
+    {/foreach}
+	</ul>	</div>
+	    
+  </div>
+
   <button class="btn btn-inverse" type="submit" value="{lang}Continue{/lang}"><i class="fa fa-check"></i> {lang}Continue{/lang}</button>
 </form>
 </div>
