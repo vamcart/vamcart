@@ -1187,6 +1187,10 @@ msgstr "Стоимость"
 msgid "Table based shipping can be set to work off of number of products in cart, weight of products, or total price of products. In the textarea below specify value to cost pairs with a colon followed by a comma. Example: 0:1.00,1:2.50,2:3.00. Units of measure must be integers."
 msgstr "Расчёт доставки может производиться в зависимости от веса товаров, суммы заказа, либо количества товаров в корзине. Ниже можно выбрать способ расчёта и указать таблицу расчёта парами (значение:стоимость), разделёнными запятой. Например: 0:1.00,1:2.50,2:3.00."
 
+#: /plugins/shipping/views/admin/zone_based.ctp:14
+msgid "Zone based shipping can be set to work off of number of products in cart, weight of products, or total price of products. In the textarea below specify value to cost pairs with a colon followed by a comma. Example: 0:1.00,1:2.50,2:3.00. Units of measure must be integers."
+msgstr "Расчёт доставки может производиться в зависимости от веса товаров, суммы заказа, либо количества товаров в корзине. Ниже можно выбрать способ расчёта и указать таблицу расчёта парами (значение:стоимость), разделёнными запятой. Например: 0:1.00,1:2.50,2:3.00."
+
 #: /plugins/shipping/views/admin/table_based.ctp:16
 #: /views/contents/admin_edit_type.ctp:54
 msgid "Weight"
