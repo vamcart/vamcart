@@ -120,7 +120,7 @@ foreach ($content_data AS $content)
 			array($this->Ajax->link(($content['Content']['show_in_menu'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'),'title' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False'),'title' => __('False')))), 'null', $options = array('escape' => false, 'url' => '/contents/admin_change_show_in_menu_status/' . $content['Content']['id'], 'update' => 'content'), null, false), array('align'=>'center')),
 			array($this->Ajax->link(($content['Content']['yml_export'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'),'title' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False'),'title' => __('False')))), 'null', $options = array('escape' => false, 'url' => '/contents/admin_change_yml_export_status/' . $content['Content']['id'], 'update' => 'content'), null, false), array('align'=>'center')),
 			array($this->Admin->DefaultButton($content['Content']), array('align'=>'center')),
-			array($this->Admin->MoveButtons($content['Content'], $content_count), array('align'=>'center')),
+			array($content['Content']['order'], array('align'=>'center')),
 			array($this->Admin->ActionButton('edit','/contents/admin_edit/' . $content['Content']['id'].'/'.(isset($parent_content) ? $parent_content['Content']['id'] : 0),__('Edit')) . $this->Admin->ActionButton('delete','/contents/admin_delete/' . $content['Content']['id'],__('Delete')) . $discounts, array('align'=>'center')),
 			array($this->Form->checkbox('modify][', array('value' => $content['Content']['id'])), array('align'=>'center'))
 		));
