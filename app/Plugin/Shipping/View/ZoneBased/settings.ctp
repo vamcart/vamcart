@@ -28,7 +28,8 @@ echo $this->Form->input('key_values.zone_based_zone_' . ($i + 1), array(
         'type'     => 'select',
         'label'    => __('Geo Zone') . ' ' . ($i + 1),
         'selected' => $data['ShippingMethodValue'][$i*3 + 1]['value'],
-        'options'  => $geo_zones
+        'options'  => $geo_zones,
+        'after' => ' '.$this->Html->link($this->Html->image("admin/icons/new.png", array('alt' => __('Geo Zones'), 'title' => __('Geo Zones'))),'/geo_zones/admin/', array('escape' => false, 'target' => '_blank'))
     ));
 echo '<br style="clear:both" />';
 echo $this->Form->input('key_values.zone_based_cost_' . ($i + 1), array(
