@@ -22,8 +22,8 @@ foreach ($data as $geo_zone)
 {
 	echo $this->Admin->TableCells(
 		  array(
-			$this->Html->link($this->Html->image('admin/icons/folder.png') . __($geo_zone['GeoZone']['name']),'/geo_zones/admin_zones_edit/' . $geo_zone['GeoZone']['id'], array('escape' => false)),
-			array($geo_zone['GeoZone']['description'], array('allign' => 'left', 'width' => '100%')),
+			$this->Html->link($this->Html->image('admin/icons/folder.png') . __($geo_zone['GeoZone']['name']),'/geo_zones/admin_zones_edit/' . $geo_zone['GeoZone']['id'], array('escape' => false, 'align' => 'left', 'width' => '100%')),
+			array($geo_zone['GeoZone']['description'], array('align' => 'left')),
 			array($this->Admin->ActionButton('edit','/geo_zones/admin_edit/' . $geo_zone['GeoZone']['id'],__('Edit')) . $this->Admin->ActionButton('delete','/geo_zones/admin_delete/' . $geo_zone['GeoZone']['id'],__('Delete')), array('align'=>'center')),
 			array($this->Form->checkbox('modify][', array('value' => $geo_zone['GeoZone']['id'])), array('align'=>'center'))
 		   ));
