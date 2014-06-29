@@ -123,10 +123,17 @@ foreach ($data['CountryZone'] as $country_zone)
 
 echo '</table>';
 
-echo $this->Admin->ActionBar(array('delete'=>__('Delete')), false);
+echo '<table class="contentFooter">';
+echo '<tr><td>';
 echo $this->Admin->formButton(__('Create New'), 'cus-add', array('class' => 'btn', 'type' => 'button', 'name' => 'addbutton', 'onclick' => 'onCreateNew()'));
-echo $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn', 'type' => 'submit', 'name' => 'cancelbutton'));
+echo $this->Admin->formButton(__('Back'), 'cus-cancel', array('class' => 'btn', 'type' => 'submit', 'name' => 'cancelbutton'));
 echo $this->Form->hidden('geo_zone_id', array('value' => $geo_zone_id));
+echo '</td>';
+echo '<td>';
+echo $this->Admin->ActionBar(array('delete'=>__('Delete')), false);
 echo $this->Form->end();
+echo '</td></tr>';
+echo '</table>';
+
 echo $this->Admin->ShowPageHeaderEnd(); 
 ?>
