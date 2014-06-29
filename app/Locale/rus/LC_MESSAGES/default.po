@@ -4870,3 +4870,11 @@ msgstr "Выводит скидку группы."
 #: /vendors/smarty/vam_plugins/function.discount_list.php:53
 msgid "Displays quantity discounts."
 msgstr "Выводит информацию о скидках от количества."
+
+#: /plugins/shipping/views/admin/per_item.ctp:16
+msgid "RussianPost"
+msgstr "Почта России"
+
+#: /app/View/GeoZones/admin_zones_edit.ctp:16
+msgid "Back"
+msgstr "Вернуться"
