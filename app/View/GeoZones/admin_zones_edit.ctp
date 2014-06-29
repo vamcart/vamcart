@@ -113,8 +113,8 @@ foreach ($data['CountryZone'] as $country_zone)
 {
 	echo $this->Admin->TableCells(
 		array($country_zone['code'],
-			array($country_zone['name'], array('allign' => 'left')),
-			array($country_zone['country_name'], array('allign' => 'left', 'width' => '100%')),
+			array($country_zone['name'], array('align' => 'left', 'width' => '50%')),
+			array($country_zone['country_name'], array('align' => 'left')),
 			array($this->Admin->ActionButton('delete','/geo_zones/admin_country_zone_unlink/' . $country_zone['id'] . '/' . $country_zone['geo_zone_id'], __('Delete')), array('align'=>'center')),
 			array($this->Form->checkbox('modify][', array('value' => $country_zone['id'])), array('align'=>'center'))
 		)
