@@ -2075,7 +2075,7 @@ CREATE TABLE `payment_method_values` (
   `id` int(10) auto_increment,
   `payment_method_id` int(10),
   `key` varchar(255) collate utf8_unicode_ci,
-  `value` varchar(255) collate utf8_unicode_ci,
+  `value` text collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -2133,7 +2133,7 @@ CREATE TABLE `shipping_method_values` (
   `id` int(10) auto_increment,
   `shipping_method_id` int(10),
   `key` varchar(255) collate utf8_unicode_ci,
-  `value` varchar(255) collate utf8_unicode_ci,
+  `value` text collate utf8_unicode_ci,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
