@@ -1380,9 +1380,11 @@ CREATE TABLE `email_templates` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `email_templates` VALUES (1, 'new-order', 1, 1);
-INSERT INTO `email_templates` VALUES (2, 'new-order-status', 1, 2);
-INSERT INTO `email_templates` VALUES (3, 'new-customer', 1, 3);
+INSERT INTO `email_templates` (`id`, `alias`, `default`, `order`) VALUES
+(1, 'new-order', 0, 1),
+(2, 'new-order-status', 0, 2),
+(3, 'new-customer', 0, 3),
+(4, 'abandoned-cart', 0, 4);
 
 DROP TABLE IF EXISTS email_template_descriptions;
 CREATE TABLE `email_template_descriptions` (
@@ -1395,12 +1397,15 @@ CREATE TABLE `email_template_descriptions` (
   INDEX email_template_id (email_template_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `email_template_descriptions` VALUES (1, 1, 1, 'Your order #{$order_number}', 'Dear {$name}!\r\n\r\nYour order confirmed!\r\nOrder number: {$order_number}\r\n\r\nProducts:\r\n{$products}\r\n\r\nThank you!\r\n\r\n');
-INSERT INTO `email_template_descriptions` VALUES (2, 1, 2, 'Ваш заказ №{$order_number}', 'Здравствуйте, {$name}!\r\n\r\nВаш заказ подтверждён.\r\nНомер заказа: {$order_number}\r\n\r\nЗаказанные товары:\r\n{$products}\r\n\r\nСпасибо!');
-INSERT INTO `email_template_descriptions` VALUES (3, 2, 1, 'Order #{$order_number}: Status Changed', 'Dear {$name}!\r\n\r\nThank you!\r\n\r\nOrder number: {$order_number}\r\n\r\nNew Order Status: {$order_status}\r\n\r\n{$comments}');
-INSERT INTO `email_template_descriptions` VALUES (4, 2, 2, 'Изменён статус Вашего заказа №{$order_number}', 'Здравствуйте, {$name}!\r\n\r\nСпасибо за Ваш заказ!\r\n\r\nНомер заказа: {$order_number}\r\n\r\nСтатус Вашего заказа изменён.\r\n\r\nНовый статус заказа: {$order_status}\r\n\r\n{$comments}');
-INSERT INTO `email_template_descriptions` VALUES (5, 3, 1, 'Registration', 'Thank you for registration!');
-INSERT INTO `email_template_descriptions` VALUES (6, 3, 2, 'Регистрация', 'Благодарим за регистрацию!');
+INSERT INTO `email_template_descriptions` (`id`, `email_template_id`, `language_id`, `subject`, `content`) VALUES
+(1, 1, 1, 'Your order #{$order_number}', 'Dear {$name}!\r\n\r\nYour order confirmed!\r\nOrder number: {$order_number}\r\n\r\nProducts:\r\n{$products}\r\n\r\nThank you!\r\n\r\n'),
+(2, 1, 2, 'Ваш заказ №{$order_number}', 'Здравствуйте, {$name}!\r\n\r\nВаш заказ подтверждён.\r\nНомер заказа: {$order_number}\r\n\r\nЗаказанные товары:\r\n{$products}\r\n\r\nСпасибо!'),
+(3, 2, 1, 'Order #{$order_number}: Status Changed', 'Dear {$name}!\r\n\r\nThank you!\r\n\r\nOrder number: {$order_number}\r\n\r\nNew Order Status: {$order_status}\r\n\r\n{$comments}'),
+(4, 2, 2, 'Изменён статус Вашего заказа №{$order_number}', 'Здравствуйте, {$name}!\r\n\r\nСпасибо за Ваш заказ!\r\n\r\nНомер заказа: {$order_number}\r\n\r\nСтатус Вашего заказа изменён.\r\n\r\nНовый статус заказа: {$order_status}\r\n\r\n{$comments}'),
+(5, 3, 1, 'Registration', 'Thank you for registration!'),
+(6, 3, 2, 'Регистрация', 'Благодарим за регистрацию!'),
+(7, 4, 1, 'Abandoned cart', 'Thank you for stopping by {$store_name} and considering us for your purchase.\r\n\r\nWe noticed that during a visit to our store you placed the following item(s) in your shopping cart, but did not complete the transaction.\r\n\r\nShopping Cart Contents:\r\n\r\n{$products}\r\n\r\n{$comments}\r\n\r\nWe are always interested in knowing what happened and if there was a reason that you decided not to purchase at this time. If you could be so kind as to let us know if you had any issues or concerns, we would appreciate it.  We are asking for feedback from you and others as to how we can help make your experience at {$store_name} better.\r\n\r\nPLEASE NOTE: If you believe you completed your purchase and are wondering why it was not delivered, this email is an indication that your order was NOT completed, and that you have NOT been charged! Please return to the store in order to complete your order.\r\n\r\nOur apologies if you already completed your purchase, we try not to send these messages in those cases, but sometimes it is hard for us to tell depending on individual circumstances.\r\n\r\nAgain, thank you for your time and consideration in helping us improve {$store_name}.'),
+(8, 4, 2, 'Незавершённый заказ', 'Вы начинали оформлять заказ в Интернет-магазине {$store_name}, но так и не оформили его до конца!\r\n\r\nНам было бы интересно узнать, почему Вы так и не оформили его до конца?\r\n\r\nЕсли у Вас в процессе оформления заказа возникли какие-либо проблемы, мы всегда готовы Вам помочь с оформлением заказа и с удовольствием ответим на возникшие вопросы. \r\n\r\nЗадайте нам их в ответном письме, мы поможем Вам оформить заказ.\r\n\r\nТовар, который Вы заказывали:\r\n\r\n{$products}\r\n\r\n{$comments}');
 
 DROP TABLE IF EXISTS answer_templates;
 CREATE TABLE `answer_templates` (
@@ -1914,8 +1919,9 @@ CREATE TABLE `modules` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `modules` (`id`, `name`, `icon`, `alias`, `version`, `nav_level`) VALUES 
-(1, 'reviews', 'cus-user-comment', 'reviews', '1.0', 3),
-(2, 'coupons', 'cus-calculator', 'coupons', '2', 3);
+(1, 'Reviews', 'cus-user-comment', 'reviews', '1.0', 3),
+(2, 'Coupons', 'cus-calculator', 'coupons', '2', 3),
+(3, 'Abandoned Carts', 'cus-cart-error', 'abandoned_carts', '1', 2);
 
 DROP TABLE IF EXISTS module_coupons;
 CREATE TABLE `module_coupons` (
