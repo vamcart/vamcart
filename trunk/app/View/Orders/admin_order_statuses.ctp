@@ -33,7 +33,8 @@
 			array(
 				'type' => 'checkbox',
 				'label' => __('Send To Customer'),
-				'class' => 'checkbox_group'
+				'class' => 'checkbox_group',
+				'checked' => true
 			));
 
 ?>
