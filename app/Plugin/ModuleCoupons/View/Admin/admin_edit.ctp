@@ -11,7 +11,7 @@ $this->Html->script(array(
 	'focus-first-input.js'
 ), array('inline' => false));
 
-	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
+	echo $this->Admin->ShowPageHeaderStart($title_for_layout, 'cus-application-edit');
 
 	$coupon_id = $this->data['ModuleCoupon']['id'];
 	echo $this->Form->create('ModuleCoupon', array('id' => 'contentform', 'action' => '/module_coupons/admin/admin_edit/'.$coupon_id, 'url' => '/module_coupons/admin/admin_edit/'.$coupon_id));

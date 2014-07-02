@@ -6,7 +6,7 @@
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-calculator');
+echo $this->Admin->ShowPageHeaderStart($title_for_layout, 'cus-calculator');
 
 echo '<table class="contentTable">';
 echo $this->Html->tableHeaders(array( __('Name'), __('Code'), __('Action')));

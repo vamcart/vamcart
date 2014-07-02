@@ -10,7 +10,7 @@ $this->Html->script(array(
 	'selectall.js'
 ), array('inline' => false));
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-user-comment');
+echo $this->Admin->ShowPageHeaderStart($title_for_layout, 'cus-user-comment');
 
 echo $this->Form->create('ModuleReview', array('action' => '/module_reviews/admin/admin_modify_selected/', 'url' => '/module_reviews/admin/admin_modify_selected/'));
 
