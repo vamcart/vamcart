@@ -24,7 +24,7 @@ class AdminController extends ModuleAbandonedCartsAppController {
 
 	function admin_index ()
 	{
-		$this->set('current_crumb',__('Abandoned Carts'));
+		$this->set('current_crumb', false);
 		$this->set('title_for_layout', __('Abandoned Carts'));
 		$this->set('data',$this->Order->find('all', array('conditions' => array('Order.order_status_id' => '0'))));
 		

@@ -44,21 +44,21 @@ class AdminController extends ModuleReviewsAppController {
 		
 	public function admin_edit ($id)
 	{
-		$this->set('current_crumb',__('Read Review'));
+		$this->set('current_crumb', false);
 		$this->set('title_for_layout', __('Read Review'));
 		$this->set('data',$this->ModuleReview->read(null,$id));
 	}
 	
 	public function admin_index()
 	{
-		$this->set('current_crumb',__('Manage Reviews'));
+		$this->set('current_crumb', false);
 		$this->set('title_for_layout', __('Manage Reviews'));
 		$this->set('reviews',$this->ModuleReview->find('all'));
 	}
 	
 	public function admin_help()
 	{
-		$this->set('current_crumb',__('Reviews'));
+		$this->set('current_crumb', false);
 		$this->set('title_for_layout', __('Reviews'));
 	}
 

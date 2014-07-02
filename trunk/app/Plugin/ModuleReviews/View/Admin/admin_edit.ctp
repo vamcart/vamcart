@@ -6,7 +6,7 @@
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
+echo $this->Admin->ShowPageHeaderStart($title_for_layout, 'cus-application-edit');
 
 echo __('Date: ') . $this->Time->i18nFormat($data['ModuleReview']['created']);
 echo '<br /><br />';
