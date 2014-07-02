@@ -740,6 +740,11 @@ msgstr "Незавершённые заказы очищены."
 msgid "Abandoned Carts"
 msgstr "Незавершённые заказы"
 
+#: /plugins/module_abandoned_carts/controllers/admin_controller.php:37
+#: /plugins/module_abandoned_carts/controllers/setup_controller.php:34
+msgid "No data"
+msgstr "Нет данных"
+
 #: /plugins/module_abandoned_carts/controllers/setup_controller.php:21
 #: /plugins/module_coupons/controllers/setup_controller.php:21
 #: /plugins/module_reviews/controllers/setup_controller.php:21
