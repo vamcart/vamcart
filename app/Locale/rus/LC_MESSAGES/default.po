@@ -733,12 +733,12 @@ msgstr "уже установлен"
 
 #: /plugins/module_abandoned_carts/controllers/admin_controller.php:28
 msgid "Abandoned carts have been purged."
-msgstr "Незавершённые заказы очищены."
+msgstr "Брошенные корзины очищены."
 
 #: /plugins/module_abandoned_carts/controllers/admin_controller.php:37
 #: /plugins/module_abandoned_carts/controllers/setup_controller.php:34
 msgid "Abandoned Carts"
-msgstr "Незавершённые заказы"
+msgstr "Брошенные корзины"
 
 #: /plugins/module_abandoned_carts/controllers/admin_controller.php:37
 #: /plugins/module_abandoned_carts/controllers/setup_controller.php:34
@@ -771,7 +771,7 @@ msgstr "Что делает данный модуль?"
 
 #: /plugins/module_abandoned_carts/views/admin/admin_help.ctp:16
 msgid "The Abandoned Carts module allows you to view the contents of customer's carts who did not complete checkout."
-msgstr "Модуль незавершённые заказы позволяет просматривать корзины покупателей, которые начали оформлять заказ, но не оформили заказ до конца."
+msgstr "Модуль брошенные корзины позволяет просматривать корзины покупателей, которые начали оформлять заказ, но не оформили заказ до конца."
 
 #: /plugins/module_abandoned_carts/views/admin/admin_help.ctp:17
 #: /plugins/module_coupons/views/admin/admin_help.ctp:17
@@ -781,7 +781,7 @@ msgstr "Как использовать данный модуль?"
 
 #: /plugins/module_abandoned_carts/views/admin/admin_help.ctp:18
 msgid "Simply navigate to Orders -> Abandoned Carts to use this module."
-msgstr "Модуль находится в разделе Заказы - Незавершённые заказы."
+msgstr "Модуль находится в разделе Заказы - Брошенные корзины."
 
 #: /plugins/module_abandoned_carts/views/admin/admin_index.ctp:16
 #: /plugins/module_coupons/views/admin/admin_edit.ctp:19
@@ -828,7 +828,7 @@ msgstr "Дата заказа"
 
 #: /plugins/module_abandoned_carts/views/admin/admin_index.ctp:41
 msgid "Click here to purge all Abandoned Carts."
-msgstr "Очистить все незавершённые заказы."
+msgstr "Очистить все брошенные корзины."
 
 #: /plugins/module_abandoned_carts/views/admin/admin_index.ctp:41
 #: /views/modules/admin.ctp:27;31
