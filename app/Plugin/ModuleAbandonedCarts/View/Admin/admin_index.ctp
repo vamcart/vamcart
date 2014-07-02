@@ -111,13 +111,13 @@ foreach($data AS $order)
 {
 	echo $this->Admin->TableCells(
 		  array(
-			$order['Order']['bill_name'],
+			($order['Order']['bill_name'] == '') ? __('No data') : $order['Order']['bill_name'],
 			$order['Order']['id'],
 			$order['Order']['total'],
 			count($order['OrderProduct']),
 			$this->Time->i18nFormat($order['Order']['created']),
-			$order['Order']['phone'],
-			$order['Order']['email'],
+			($order['Order']['phone'] == '') ? __('No data') : $order['Order']['phone'],
+			($order['Order']['email'] == '') ? __('No data') : $order['Order']['email'],
 			array($this->Admin->ActionButton('delete','/module_abandoned_carts/admin/admin_delete/' . $order['Order']['id'],__('Delete')), array('align'=>'center')),
 			array($this->Form->checkbox('modify][', array('value' => $order['Order']['id'])), array('align'=>'center'))
 		   ));
