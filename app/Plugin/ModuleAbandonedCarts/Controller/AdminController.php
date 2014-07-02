@@ -118,7 +118,7 @@ class AdminController extends ModuleAbandonedCartsAppController {
 		// Email Subject
 		$subject = $email_template['EmailTemplateDescription']['subject'];
 		$subject = str_replace('{$order_number}', $order['Order']['id'], $subject);
-		$subject = str_replace('{$store_name}', $config['SITE_NAME'], $subject));
+		$subject = str_replace('{$store_name}', $config['SITE_NAME'], $subject);
 		$subject = $config['SITE_NAME'] . ' - ' . $subject;
 		$this->Email->Subject = $subject;
 		
