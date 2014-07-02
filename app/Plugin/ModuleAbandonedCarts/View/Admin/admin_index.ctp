@@ -6,13 +6,94 @@
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
 
+$l = $this->Session->read('Config.language');
+
+if (NULL == $l) {
+	$l = $this->Session->read('Customer.language');
+}
+
+$l = substr($l, 0, 2);
+
+$fname = 'admin_content_i18n_' . $l . '.js';
+
+if (!file_exists(WWW_ROOT . 'js/' . $fname)) {
+	$fname = 'admin_content_i18n_en.js';
+}
+    
 $this->Html->script(array(
-	'selectall.js'
+	'jquery/plugins/jquery-ui-min.js',
+	'selectall.js',
+	$fname
 ), array('inline' => false));
+?>
+<?php echo $this->Html->scriptBlock('
+
+var submit_flag = false;
+
+function beforeSubmit(form)
+{
+	if (submit_flag) {
+		return true;
+	}
+
+	var action = form.multiaction.value;
+
+	$(\'#statuses-dialog\').dialog(\'destroy\');
+
+	if (\'change_status\' == action) {
+		var dialog = statusSelection(form);
+		return false;
+	} else if (\'move\' == action) {
+		var dialog = statusSelection(form);
+		return false;
+	} else {
+		return true;
+	}
+}
+
+function statusSelection(form)
+{
+	return $(\'<div id="statuses-dialog"></div>\').load(\''. BASE . '/module_abandoned_carts/admin/admin_order_statuses/\').dialog({
+		modal: true,
+		title: i18n.Status,
+		width: 600,
+		height: 600,
+		buttons: [{
+			text: i18n.Submit,
+			click: function () {
+				submit_flag = true;
+				var val = $("#OrderOrderStatusId").val();
+				var comment = $("#OrderCommentComment").val();
+				var notify = $("#OrderCommentSentToCustomer:checked").val();
+				$(form).append(\'<input type="hidden" name="status" />\');
+				$("input[name=status]").val(val);
+				$(form).append(\'<input type="hidden" name="comment" />\');
+				$("input[name=comment]").val(comment);
+				$(form).append(\'<input type="hidden" name="notify" />\');
+				$("input[name=notify]").val(notify);
+				$(form).submit();
+				$(this).dialog("close");
+			}
+		}, {
+			text: i18n.Cancel,
+			click : function () {
+				$(this).dialog("close");
+			}
+		}],
+		close: function () {
+			$("#OrderOrderStatusId").val(\'\');
+			$("#OrderCommentComment").val(\'\');
+			$("#OrderCommentSentToCustomer").val(\'\');
+		}
+	});
+}', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
+<?php
+
+echo $this->Html->css('jquery-ui.css', null, array('inline' => false));
 
 	echo $this->Admin->ShowPageHeaderStart($title_for_layout, 'cus-cart-error');
 
-	echo $this->Form->create('Order', array('action' => '/module_abandoned_carts/admin/admin_modify_selected/', 'url' => '/module_abandoned_carts/admin/admin_modify_selected/'));
+	echo $this->Form->create('Order', array('action' => '/module_abandoned_carts/admin/admin_modify_selected/', 'url' => '/module_abandoned_carts/admin/admin_modify_selected/', 'onsubmit' => 'return beforeSubmit(this);'));
 
 			echo '<ul id="myTab" class="nav nav-tabs">';
 			echo $this->Admin->CreateTab('main',__('Main'), 'cus-application');
@@ -54,7 +135,7 @@ echo $this->Admin->EndTabContent();
 
 echo $this->Admin->EndTabs();
 
-echo $this->Admin->ActionBar(array('delete'=>__('Delete')));
+echo $this->Admin->ActionBar(array('delete'=>__('Delete'), 'change_status'=>__('Notify Customer'),), false);
 
 echo $this->Form->end();
 ?>

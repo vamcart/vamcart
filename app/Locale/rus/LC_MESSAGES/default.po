@@ -2612,6 +2612,14 @@ msgstr "Статус заказа"
 msgid "Send To Customer"
 msgstr "Уведомить покупателя"
 
+#: /views/orders/admin_view.ctp:201
+msgid "Notify Customer"
+msgstr "Уведомить покупателя"
+
+#: /views/orders/admin_view.ctp:201
+msgid "Customer Notified"
+msgstr "Покупатель уведомлён"
+
 #: /views/payment_methods/admin_edit.ctp:16
 msgid "Payment Method Details"
 msgstr "Способы оплаты"
