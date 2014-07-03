@@ -815,6 +815,10 @@ msgid "Options"
 msgstr "Настройки"
 
 #: /plugins/module_abandoned_carts/views/admin/admin_index.ctp:23
+msgid "Report"
+msgstr "Отчёт"
+
+#: /plugins/module_abandoned_carts/views/admin/admin_index.ctp:23
 msgid "Order Id"
 msgstr "Номер заказа"
 
