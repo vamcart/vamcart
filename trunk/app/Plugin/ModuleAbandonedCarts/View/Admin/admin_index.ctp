@@ -96,7 +96,7 @@ echo $this->Html->css('jquery-ui.css', null, array('inline' => false));
 	echo $this->Form->create('Order', array('action' => '/module_abandoned_carts/admin/admin_modify_selected/', 'url' => '/module_abandoned_carts/admin/admin_modify_selected/', 'onsubmit' => 'return beforeSubmit(this);'));
 
 			echo '<ul id="myTab" class="nav nav-tabs">';
-			echo $this->Admin->CreateTab('main',__('Main'), 'cus-application');
+			echo $this->Admin->CreateTab('main',__('Report'), 'cus-application');
 			echo $this->Admin->CreateTab('options',__('Options'), 'cus-cog');			
 			echo '</ul>';
 
@@ -105,8 +105,7 @@ echo $this->Admin->StartTabs();
 echo $this->Admin->StartTabContent('main');
 echo '<table class="contentTable">';
 
-echo $this->Html->tableHeaders(array( __('Customer'), __('Order Number'), __('Total'),__('Number of Products'), __('Date Placed'), __('Phone'), __('Email'), __('Action'), '<input type="checkbox" onclick="checkAll(this)" />'));
-
+echo $this->Html->tableHeaders(array( __('Customer'), __('Order Number'), __('Total'),__('Number of Products'), __('Date Placed'), __('Phone'), __('Email'), __('Customer Notified'), __('Action'), '<input type="checkbox" onclick="checkAll(this)" />'));
 foreach($data AS $order)
 {
 	echo $this->Admin->TableCells(
@@ -118,6 +117,7 @@ foreach($data AS $order)
 			$this->Time->i18nFormat($order['Order']['created']),
 			($order['Order']['phone'] == '') ? __('No data') : $order['Order']['phone'],
 			($order['Order']['email'] == '') ? __('No data') : $order['Order']['email'],
+			array($order['OrderComment'][0]['sent_to_customer'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'),'title' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False'),'title' => __('False'))), array('align'=>'center')),
 			array($this->Admin->ActionButton('delete','/module_abandoned_carts/admin/admin_delete/' . $order['Order']['id'],__('Delete')), array('align'=>'center')),
 			array($this->Form->checkbox('modify][', array('value' => $order['Order']['id'])), array('align'=>'center'))
 		   ));
