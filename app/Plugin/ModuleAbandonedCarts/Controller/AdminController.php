@@ -72,19 +72,15 @@ class AdminController extends ModuleAbandonedCartsAppController {
 	{
 		$order['Order']['order_status_id'] = $status_id;
 
-		if ($comment != '') {
 		$order['OrderComment']['order_id'] = $order['Order']['id'];
 		$order['OrderComment']['comment'] = $comment;
 		$order['OrderComment']['sent_to_customer'] = $notify;
 		$order['OrderComment']['created'] = date("Y-m-d H:i:s");
 		$order['OrderComment']['modified'] = date("Y-m-d H:i:s");
-		}
 		
 		$this->Order->save($order['Order']);
 
-		if ($comment != '') {
 		$this->Order->OrderComment->saveAll($order['OrderComment']);
-		}
 		
 		if ($notify == 1) {
 		
