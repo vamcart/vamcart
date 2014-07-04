@@ -7,8 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 
 $this->Html->script(array(
-	'modified.js',
-	'focus-first-input.js'
+	'modified.js'
 ), array('inline' => false));
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-table');

@@ -6,11 +6,6 @@
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-$this->Html->script(array(
-	'modified.js',
-	'focus-first-input.js'
-), array('inline' => false));
-
 	echo $this->Admin->ShowPageHeaderStart($title_for_layout, 'cus-table');
 
 			echo '<ul id="myTab" class="nav nav-tabs">';
