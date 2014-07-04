@@ -270,6 +270,8 @@ echo $this->Form->create('OrderComment', array('id' => 'contentform', 'name' => 
 	echo '<div class="clear"></div>';
 	echo $this->Form->end();
 
+	echo $this->Admin->EndTabContent();
+
 	echo $this->Admin->EndTabs();
 
 	echo $this->Admin->linkButton(__('Edit Order'), '/orders_edit/admin/edit/' . $data['Order']['id'], 'cus-cart-edit', array('escape' => false, 'class' => 'btn'));
