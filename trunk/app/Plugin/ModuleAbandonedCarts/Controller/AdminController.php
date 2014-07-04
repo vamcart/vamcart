@@ -200,7 +200,15 @@ class AdminController extends ModuleAbandonedCartsAppController {
 		$this->set('answer_template_list',$answer_template_list);
 		
 	}
-		
+
+	public function admin_view ($id)
+	{
+		$this->set('current_crumb', false);
+		$this->set('title_for_layout', __('Order View', true));
+		$order = $this->Order->find('all', array('conditions' => array('Order.id' => $id)));
+		$this->set('data',$order[0]);
+	}
+			
 	public function admin_delete ($id)
 	{
 		$this->Session->setFlash(__('Record deleted.',true));

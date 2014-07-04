@@ -118,7 +118,7 @@ foreach($data AS $order)
 			($order['Order']['phone'] == '') ? __('No data') : $order['Order']['phone'],
 			($order['Order']['email'] == '') ? __('No data') : $order['Order']['email'],
 			array($order['OrderComment'][0]['sent_to_customer'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'),'title' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False'),'title' => __('False'))), array('align'=>'center')),
-			array($this->Admin->ActionButton('delete','/module_abandoned_carts/admin/admin_delete/' . $order['Order']['id'],__('Delete')), array('align'=>'center')),
+			array($this->Admin->ActionButton('view','/module_abandoned_carts/admin/admin_view/' . $order['Order']['id'],__('Ordered Products')) . $this->Admin->ActionButton('delete','/module_abandoned_carts/admin/admin_delete/' . $order['Order']['id'],__('Delete')), array('align'=>'center')),
 			array($this->Form->checkbox('modify][', array('value' => $order['Order']['id'])), array('align'=>'center'))
 		   ));
 }

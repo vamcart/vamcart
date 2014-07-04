@@ -2629,6 +2629,10 @@ msgstr "Уведомить покупателя"
 msgid "Customer Notified"
 msgstr "Покупатель уведомлён"
 
+#: /views/orders/admin_view.ctp:201
+msgid "Ordered Products"
+msgstr "Заказанные товары"
+
 #: /views/payment_methods/admin_edit.ctp:16
 msgid "Payment Method Details"
 msgstr "Способы оплаты"
