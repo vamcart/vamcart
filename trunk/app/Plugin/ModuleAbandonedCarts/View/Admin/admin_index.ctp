@@ -110,7 +110,7 @@ foreach($data AS $order)
 {
 	echo $this->Admin->TableCells(
 		  array(
-			($order['Order']['bill_name'] == '') ? __('No data') : $order['Order']['bill_name'],
+			$this->Html->link(($order['Order']['bill_name'] == '') ? __('No data') : $order['Order']['bill_name'],'/module_abandoned_carts/admin/admin_view/' . $order['Order']['id']),
 			$order['Order']['id'],
 			$order['Order']['total'],
 			count($order['OrderProduct']),
