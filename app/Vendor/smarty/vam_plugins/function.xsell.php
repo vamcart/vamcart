@@ -12,7 +12,6 @@ function default_template_xsell()
 <div class="row-fluid">
 	<h3>{lang}Also purchased{/lang}</h3>
 </div>
-
 <div class="row-fluid shop-products">
 	<ul class="thumbnails">
 		{foreach from=$relations item=node}
@@ -104,6 +103,7 @@ function smarty_function_xsell($params, &$smarty)
 		
 		$product = $Content->find('first', array('conditions' => array('Content.id' => $content['ContentRelations'][$key]['id'])));
 		$content['ContentRelations'][$key]['id'] = $content['ContentRelations'][$key]['id'];
+		$content['ContentRelations'][$key]['stock'] = $product['ContentProduct']['stock'];
 		$content['ContentRelations'][$key]['price'] = $CurrencyBase->display_price($product['ContentProduct']['price']);
 		$content['ContentRelations'][$key]['url'] = BASE . '/' . $product['ContentType']['name'] . '/' . $product['Content']['alias'] . $config['URL_EXTENSION'];
 
