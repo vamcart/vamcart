@@ -103,7 +103,10 @@ function smarty_function_xsell($params, &$smarty)
 		
 		$product = $Content->find('first', array('conditions' => array('Content.id' => $content['ContentRelations'][$key]['id'])));
 		$content['ContentRelations'][$key]['id'] = $content['ContentRelations'][$key]['id'];
+		$content['ContentRelations'][$key]['alias'] = $content['ContentRelations'][$key]['id'];
 		$content['ContentRelations'][$key]['stock'] = $product['ContentProduct']['stock'];
+		$content['ContentRelations'][$key]['model'] = $product['ContentProduct']['model'];
+		$content['ContentRelations'][$key]['weight'] = $product['ContentProduct']['weight'];
 		$content['ContentRelations'][$key]['price'] = $CurrencyBase->display_price($product['ContentProduct']['price']);
 		$content['ContentRelations'][$key]['url'] = BASE . '/' . $product['ContentType']['name'] . '/' . $product['Content']['alias'] . $config['URL_EXTENSION'];
 
@@ -112,6 +115,9 @@ function smarty_function_xsell($params, &$smarty)
 		$content['ContentRelations'][$key]['name'] = $product['ContentDescription']['name'];
 		$content['ContentRelations'][$key]['description'] = $product['ContentDescription']['description'];
 		$content['ContentRelations'][$key]['short_description'] = $product['ContentDescription']['short_description'];
+		$content['ContentRelations'][$key]['meta_title'] = $product['ContentDescription']['meta_title'];
+		$content['ContentRelations'][$key]['meta_description'] = $product['ContentDescription']['meta_description'];
+		$content['ContentRelations'][$key]['meta_keywords'] = $product['ContentDescription']['meta_keywords'];
 	}
 
 	$assignments = array('relations' => $content['ContentRelations']);
