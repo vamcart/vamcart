@@ -165,7 +165,7 @@ class OrdersController extends AppController {
 
 				// Set up mail
 				$this->Email->init();
-				$this->Email->From = $config['NEW_ORDER_FROM_EMAIL'];
+				$this->Email->From = $order['Order']['email'];
 				$this->Email->FromName = __($config['NEW_ORDER_FROM_NAME'],true);
 				$this->Email->AddAddress($config['SEND_EXTRA_EMAIL']);
 				$this->Email->Subject = $subject;
