@@ -88,45 +88,45 @@ $(this).parent().addClass("selected");
 	<div class="control-group">
 		<label class="control-label" for="bill_name">{lang}Name{/lang}:</label>
 		<div class="controls">
-			<input type="text" name="bill_name" id="bill_name" value="{$order.bill_name}"/>
+			<input type="text" name="bill_name" id="bill_name" value="{if $smarty.session.AddressBook.ship_name}{$smarty.session.AddressBook.ship_name}{else}{$order.bill_name}{/if}"/>
 		</div>
 	</div>
 	<div class="control-group">
 		<label class="control-label" for="bill_line_1">{lang}Address Line 1{/lang}:</label>
 		<div class="controls">
-			<input type="text" name="bill_line_1" id="bill_line_1" value="{$order.bill_line_1}" />
+			<input type="text" name="bill_line_1" id="bill_line_1" value="{if $smarty.session.AddressBook.ship_line_1}{$smarty.session.AddressBook.ship_line_1}{else}{$order.bill_line_1}{/if}" />
 		</div>
 	</div>
 	<div class="control-group">
 		<label class="control-label" for="bill_line_2">{lang}Address Line 2{/lang}:</label>
 		<div class="controls">
-			<input type="text" name="bill_line_2" id="bill_line_2" value="{$order.bill_line_2}" />
+			<input type="text" name="bill_line_2" id="bill_line_2" value="{if $smarty.session.AddressBook.ship_line_2}{$smarty.session.AddressBook.ship_line_2}{else}{$order.bill_line_2}{/if}" />
 		</div>
 	</div>
 	<div class="control-group">
 		<label class="control-label" for="bill_city">{lang}City{/lang}:</label>
 		<div class="controls">
-			<input type="text" name="bill_city" id="bill_city" value="{$order.bill_city}" />
+			<input type="text" name="bill_city" id="bill_city" value="{if $smarty.session.AddressBook.ship_city}{$smarty.session.AddressBook.ship_city}{else}{$order.bill_city}{/if}" />
 		</div>
 	</div>    
 	<div class="control-group">
 		<label class="control-label" for="bill_country">{lang}Country{/lang}:</label>
 		<div class="controls">
-			<select name="bill_country" id="bill_country">{country_list selected=176}</select>
+			<select name="bill_country" id="bill_country">{if $smarty.session.AddressBook.ship_country}{country_list selected={$smarty.session.AddressBook.ship_country}}{else}{country_list selected=176}{/if}</select>
 		</div>
 	</div>
 	<div class="control-group">
 	<div id="bill_state_div">
 		<label class="control-label" for="bill_state">{lang}State{/lang}:</label>
 		<div class="controls">
-			<select name="bill_state" id="bill_state">{state_list country=176 selected=99}</select>
+			<select name="bill_state" id="bill_state">{if $smarty.session.AddressBook.ship_state}{state_list country={$smarty.session.AddressBook.ship_country} selected={$smarty.session.AddressBook.ship_state}}{else}{state_list country=176 selected=99}{/if}</select>
 		</div>
 	</div>
 	</div>
 	<div class="control-group">
 		<label class="control-label" for="bill_zip">{lang}Zipcode{/lang}:</label>
 		<div class="controls">
-			<input type="text" name="bill_zip" id="bill_zip" value="{$order.bill_zip}" />
+			<input type="text" name="bill_zip" id="bill_zip" value="{if $smarty.session.AddressBook.ship_zip}{$smarty.session.AddressBook.ship_zip}{else}{$order.bill_zip}{/if}" />
 		</div>
 	</div>    
   </div>    
@@ -195,13 +195,13 @@ $(this).parent().addClass("selected");
 	<div class="control-group">
 		<label class="control-label" for="email">{lang}E-mail{/lang}:</label>
 		<div class="controls">
-			<input type="text" name="email" id="email" value="{$order.email}" />
+			<input type="text" name="email" id="email" value="{if $smarty.session.Customer.email}{$smarty.session.Customer.email}{else}{$order.email}{/if}" />
 		</div>
 	</div>
 	<div class="control-group">
 		<label class="control-label" for="phone">{lang}Phone{/lang}:</label>
 		<div class="controls">
-			<input type="text" name="phone" id="phone" value="{$order.phone}" />
+			<input type="text" name="phone" id="phone" value="{if $smarty.session.AddressBook.phone}{$smarty.session.AddressBook.phone}{else}{$order.phone}{/if}" />
 		</div>
 	</div>
   </div>
