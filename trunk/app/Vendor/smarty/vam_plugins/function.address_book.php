@@ -12,8 +12,12 @@ $template = '
 <script type="text/javascript" src="{base_path}/js/modified.js"></script>
 <script type="text/javascript" src="{base_path}/js/focus-first-input.js"></script>
 <script type="text/javascript" src="{base_path}/js/jquery/plugins/validate/jquery.validate.pack.js"></script>
+<script type="text/javascript" src="{base_path}/js/jquery/plugins/maskedinput/jquery.maskedinput.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
+
+$("#ship_phone").mask("(999) 999-9999");
+
   // validate form
   $("#contentform").validate({
     rules: {
