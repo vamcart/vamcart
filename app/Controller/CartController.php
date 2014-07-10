@@ -27,6 +27,36 @@ class CartController extends AppController {
 			$new_order['Order']['order_status_id'] = 0;
 			$new_order['Order']['customer_id'] = (!isset($_SESSION['Customer']['customer_id'])) ? 0 : $_SESSION['Customer']['customer_id'];
 
+			if ($_SESSION['Customer']['customer_id'] > 0) {
+				
+			App::import('Model', 'Customer');
+			$Customer =& new Customer();
+				
+			if (isset($_SESSION['Customer']['customer_id'])) {
+				$customer = $Customer->find('first', array('conditions' => array('Customer.id' => $_SESSION['Customer']['customer_id'])));
+			}
+			
+			if ($customer['AddressBook']['ship_name'] != '') $new_order['Order']['bill_name'] = $customer['AddressBook']['ship_name'];
+			if ($customer['AddressBook']['ship_line_1'] != '') $new_order['Order']['bill_line_1'] = $customer['AddressBook']['ship_line_1'];
+			if ($customer['AddressBook']['ship_line_2'] != '') $new_order['Order']['bill_line_2'] = $customer['AddressBook']['ship_line_2'];
+			if ($customer['AddressBook']['ship_city'] != '') $new_order['Order']['bill_city'] = $customer['AddressBook']['ship_city'];
+			if ($customer['AddressBook']['ship_country'] != '') $new_order['Order']['bill_country'] = $customer['AddressBook']['ship_country'];
+			if ($customer['AddressBook']['ship_state'] != '') $new_order['Order']['bill_state'] = $customer['AddressBook']['ship_state'];
+			if ($customer['AddressBook']['ship_zip'] != '') $new_order['Order']['bill_zip'] = $customer['AddressBook']['ship_zip'];
+			
+			if ($customer['AddressBook']['ship_name'] != '') $new_order['Order']['ship_name'] = $customer['AddressBook']['ship_name'];
+			if ($customer['AddressBook']['ship_line_1'] != '') $new_order['Order']['ship_line_1'] = $customer['AddressBook']['ship_line_1'];
+			if ($customer['AddressBook']['ship_line_2'] != '') $new_order['Order']['ship_line_2'] = $customer['AddressBook']['ship_line_2'];
+			if ($customer['AddressBook']['ship_city'] != '') $new_order['Order']['ship_city'] = $customer['AddressBook']['ship_city'];
+			if ($customer['AddressBook']['ship_country'] != '') $new_order['Order']['ship_country'] = $customer['AddressBook']['ship_country'];
+			if ($customer['AddressBook']['ship_state'] != '') $new_order['Order']['ship_state'] = $customer['AddressBook']['ship_state'];
+			if ($customer['AddressBook']['ship_zip'] != '') $new_order['Order']['ship_zip'] = $customer['AddressBook']['ship_zip'];
+
+			if ($customer['AddressBook']['phone'] != '') $new_order['Order']['phone'] = $customer['AddressBook']['phone'];
+			if ($customer['Customer']['email'] != '') $new_order['Order']['email'] = $customer['Customer']['email'];
+			
+			}
+		
 			// Get default shipping & payment methods and assign them to the order
 			$default_payment = $this->Order->PaymentMethod->find('first', array('conditions' => array('default' => '1')));
 			$new_order['Order']['payment_method_id'] = $default_payment['PaymentMethod']['id'];
