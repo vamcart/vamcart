@@ -158,7 +158,6 @@ class SiteController extends AppController {
 			
 				$customer->AddressBook->save($_POST['AddressBook']);
 
-
 				$this->Session->setFlash(__('Your account has been updated successfully.'), 'bootstrap_alert_success');
 
 				$this->redirect('/customer/account'  . $config['URL_EXTENSION']);
@@ -189,16 +188,6 @@ class SiteController extends AppController {
 		if(isset($customer_id['GroupsCustomer']['id']))$this->Session->write('Customer.customer_group_id', $customer_id['GroupsCustomer']['id']);
 		else $this->Session->write('Customer.customer_group_id', 0);
 
-		if ($customer_id['AddressBook']['ship_name'] != '') $this->Session->write('AddressBook.ship_name', $customer_id['AddressBook']['ship_name']);
-		if ($customer_id['AddressBook']['ship_line_1'] != '') $this->Session->write('AddressBook.ship_line_1', $customer_id['AddressBook']['ship_line_1']);
-		if ($customer_id['AddressBook']['ship_line_2'] != '') $this->Session->write('AddressBook.ship_line_2', $customer_id['AddressBook']['ship_line_2']);
-		if ($customer_id['AddressBook']['ship_city'] != '') $this->Session->write('AddressBook.ship_city', $customer_id['AddressBook']['ship_city']);
-		if ($customer_id['AddressBook']['ship_country'] != '') $this->Session->write('AddressBook.ship_country', $customer_id['AddressBook']['ship_country']);
-		if ($customer_id['AddressBook']['ship_state'] != '') $this->Session->write('AddressBook.ship_state', $customer_id['AddressBook']['ship_state']);
-		if ($customer_id['AddressBook']['ship_zip'] != '') $this->Session->write('AddressBook.ship_zip', $customer_id['AddressBook']['ship_zip']);
-		if ($customer_id['AddressBook']['phone'] != '') $this->Session->write('AddressBook.phone', $customer_id['AddressBook']['phone']);
-		if ($customer_id['Customer']['email'] != '') $this->Session->write('Customer.email', $customer_id['Customer']['email']);
-
 		} else {
 
 		$this->Session->setFlash(__('Login error. Check your email and/or password!'), 'bootstrap_alert_error');
@@ -216,8 +205,6 @@ class SiteController extends AppController {
 	{
 
 		$this->Session->delete('Customer.customer_id');
-		$this->Session->delete('Customer.email');
-		$this->Session->delete('AddressBook');
 
 		//$this->Auth->logout();
 
