@@ -29,10 +29,10 @@ $("#ship_phone").mask("(999) 999-9999");
         required: true,
         minlength: 3,
      },
-		"AddressBook[ship_line_2]": {
-			required: true,
-			minlength: 3,
-		},
+		//"AddressBook[ship_line_2]": {
+			//required: true,
+			//minlength: 3,
+		//},
 		"AddressBook[ship_city]": {
 			required: true,
 			minlength: 3,
@@ -61,10 +61,10 @@ $("#ship_phone").mask("(999) 999-9999");
         required: "{lang}Required field{/lang}",
         minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 3"
       },
-      "AddressBook[ship_line_2]": {
-        required: "{lang}Required field{/lang}",
-        minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 3"
-      },
+      //"AddressBook[ship_line_2]": {
+        //required: "{lang}Required field{/lang}",
+        //minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 3"
+      //},
       "AddressBook[ship_city]": {
         required: "{lang}Required field{/lang}",
         minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 3"
@@ -128,14 +128,14 @@ $("#ship_phone").mask("(999) 999-9999");
 	<div class="control-group">
 		<label class="control-label" for="ship_country">{lang}Country{/lang}:</label>
 		<div class="controls">
-			<select name="AddressBook[ship_country]" id="ship_country">{country_list selected={$form_data.AddressBook.ship_country}}</select>
+			<select name="AddressBook[ship_country]" id="ship_country">{if $form_data.AddressBook.ship_country}{country_list selected={$form_data.AddressBook.ship_country}}{else}{country_list selected=176}{/if}</select>
 		</div>
 	</div>
 	<div class="control-group">
 	<div id="ship_state_div">
 		<label class="control-label" for="ship_state">{lang}State{/lang}:</label>
 		<div class="controls">
-			<select name="AddressBook[ship_state]" id="ship_state">{state_list country={$form_data.AddressBook.ship_country} selected={$form_data.AddressBook.ship_state}}</select>
+			<select name="AddressBook[ship_state]" id="ship_state">{if $form_data.AddressBook.ship_state}{state_list country={$form_data.AddressBook.ship_country} selected={$form_data.AddressBook.ship_state}}{else}{state_list country=176 selected=99}{/if}</select>
 		</div>
 	</div>
 	</div>
