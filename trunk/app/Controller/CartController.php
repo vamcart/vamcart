@@ -32,9 +32,7 @@ class CartController extends AppController {
 			App::import('Model', 'Customer');
 			$Customer =& new Customer();
 				
-			if (isset($_SESSION['Customer']['customer_id'])) {
-				$customer = $Customer->find('first', array('conditions' => array('Customer.id' => $_SESSION['Customer']['customer_id'])));
-			}
+			$customer = $Customer->find('first', array('conditions' => array('Customer.id' => $_SESSION['Customer']['customer_id'])));
 			
 			if ($customer['AddressBook']['ship_name'] != '') $new_order['Order']['bill_name'] = $customer['AddressBook']['ship_name'];
 			if ($customer['AddressBook']['ship_line_1'] != '') $new_order['Order']['bill_line_1'] = $customer['AddressBook']['ship_line_1'];
