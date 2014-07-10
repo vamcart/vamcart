@@ -252,7 +252,7 @@ function smarty_function_content_listing($params, $template)
             if($params['page'] == 'all'){          
 
                 $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'order' => array('Content.order ASC')));
-//                $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
+                $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
             }
             else{
             	
@@ -260,9 +260,9 @@ function smarty_function_content_listing($params, $template)
    	         $params['limit'] = $config['PRODUCTS_PER_PAGE'];
             
                 $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => $params['limit'],'page' => $params['page'], 'order' => array('Content.id ASC, Content.order ASC')));
-//                $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
+                $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
             }
-            $content_total = count($content_list_data);
+            //$content_total = count($content_list_data);
         }
         else{
             $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => $params['limit'], 'order' => array('Content.order ASC, Content.id ASC')));
