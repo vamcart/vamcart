@@ -19,7 +19,8 @@ function smarty_function_state_list($params, &$smarty)
         App::import('Model', 'CountryZone');
         $CountryZone =& new CountryZone();
         $options = $CountryZone->find('all', array('fields' => array('id', 'name'),
-                                                   'conditions' => array('country_id' => $params['country'])
+                                                   'conditions' => array('country_id' => $params['country']),
+                                                   'order' => 'name'
                                                   ));
         $List = '';
 
