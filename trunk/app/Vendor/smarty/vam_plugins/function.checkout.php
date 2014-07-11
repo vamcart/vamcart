@@ -155,7 +155,7 @@ $(this).parent().addClass("selected");
 
   <div id="diff_ship">
     <div>
-      <label for="diff_shipping"><input type="checkbox" name="diff_shipping" id="diff_shipping" value="1" /> {lang}Different from billing address{/lang}</label>
+      <label for="diff_shipping"><input type="checkbox" name="diff_shipping" id="diff_shipping" value="1" /> {lang}My delivery and billing addresses are not the same.{/lang}</label>
     </div>
   </div>
   <div id="ship_information">
