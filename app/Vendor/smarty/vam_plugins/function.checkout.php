@@ -64,11 +64,33 @@ $(this).parent().addClass("selected");
 </script>
 <script type="text/javascript">
   $(document).ready(function() {
-    $("div#ship_information").hide();
-    $("div#diff_ship").click(function (){
-        $("div#ship_information").show();
-        $("div#diff_ship").hide();
-    });
+	$(hidePay);		
+		function hidePay()	{
+		if ($("#diff_shipping").is(":checked") == "1")
+			{
+		$("#diff_shipping").attr("checked", true);
+		}
+		else
+		{
+		$("#diff_shipping").attr("checked", false);
+		$("#ship_information").css("display","none");
+		}
+		
+	
+		$("#diff_shipping").click(function(){
+	// If checked
+	        if ($("#diff_shipping").is(":checked"))
+			{
+	            //show the hidden div
+	            $("#ship_information").show("fast");
+	        }
+			else
+			{
+			$("#ship_information").hide("fast");
+			}
+		});
+		;}
+
     $("#bill_country").change(function () {
       $("#bill_state_div").load(\'{base_path}/countries/billing_regions/\' + $(this).val());
     });
@@ -132,9 +154,6 @@ $(this).parent().addClass("selected");
   </div>    
 
   <div id="diff_ship">
-    <div>
-      <h3>{lang}Shipping Information{/lang}</h3>
-    </div>
     <div>
       <label for="diff_shipping"><input type="checkbox" name="diff_shipping" id="diff_shipping" value="1" /> {lang}Different from billing address{/lang}</label>
     </div>
