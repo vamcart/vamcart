@@ -163,6 +163,8 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 		echo '</div>';						  
 		
 		echo $this->TinyMce->toggleEditor('content_short_description_'.$language['Language']['id']);						  
+
+		echo '<br />';						  
 		
 		echo $this->Form->input('ContentDescription]['.$language['Language']['id'].'][meta_title.' . $language['Language']['id'], 
 						array(
