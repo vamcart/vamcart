@@ -12,7 +12,7 @@ function default_template_attribute_list()
                 {if $attr.target=="CATALOG"}
                     {foreach from=$attr.element_list item=attr_element}
                         {if isset($attr_element.values_attribute)}
-                            {if $attr_element@first} <ul> {/if}                
+                            {if $attr_element@first} <ul class="specs"> {/if}                
                                 <li>
                                     {value_filter template=$attr_element.template.template_catalog 
                                                   id_attribute=$attr_element.values_attribute.id 
@@ -25,7 +25,7 @@ function default_template_attribute_list()
                 {else if $attr.target=="PRODUCT"}
                     {foreach from=$attr.element_list item=attr_element}
                         {if isset($attr_element.values_attribute)}
-                            {if $attr_element@first} <ul> {/if}                
+                            {if $attr_element@first} <ul class="specs"> {/if}                
                                 <li>
                                     {value_filter template=$attr_element.template.template_product 
                                                   id_attribute=$attr_element.values_attribute.id 
@@ -49,13 +49,13 @@ function default_template_attribute_list()
 
                     <form id="set_attr_form" method="post" action={$base_content}>
                     {foreach from=$attr.element_list item=attr_element}
-                        {if $attr_element@first}<ul>{/if}                     
+                        {if $attr_element@first}<ul class="specs">{/if}                     
                         <li>
                             {if $attr_element.make}<b>{/if}
                                 {$attr_element.name}
                                 {$attr_element.values_attribute.name}
                             {if $attr_element.make}</b>{/if}                                
-                        <ul class="sub-menu">
+                        <ul class="attributes">
                         {foreach from=$attr_element.group_attributes item=attr_val}                        
                             <li>
                                 {if $attr_val.make}<b>{/if}
