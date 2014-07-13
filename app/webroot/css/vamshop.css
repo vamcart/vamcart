@@ -2395,3 +2395,10 @@ ul.payment-methods li label span.title
 	}
 
 /* /Checkout */
+
+ul.attributes li a.confirm
+	{
+		display: block;
+		height: 36px;
+		padding-top: .5em;
+	}
