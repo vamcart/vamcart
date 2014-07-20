@@ -15,9 +15,9 @@ $template = '
 <div class="pagination pagination-centered">
 	<ul>
 		{for $pg=1 to $pages_number}
-		<li{if $pg == $page} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}">{$pg}</a></li>
+		<li{if $pg == $page} class="active"{/if}><a href="{base_path}/page/search-result{$ext}?page={$pg}&keyword={$keyword}">{$pg}</a></li>
 		{/for}
-		<li{if "all" == $page} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all">{lang}All{/lang}</a></li>
+		<li{if "all" == $page} class="active"{/if}><a href="{base_path}/page/search-result{$ext}?page=all&keyword={$keyword}">{lang}All{/lang}</a></li>
 	</ul>
 </div>
 <!-- end: Pagination -->
@@ -52,9 +52,9 @@ $template = '
 <div class="pagination pagination-centered">
 	<ul>
 		{for $pg=1 to $pages_number}
-		<li{if $pg == $page} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}">{$pg}</a></li>
+		<li{if $pg == $page} class="active"{/if}><a href="{base_path}/page/search-result{$ext}?page={$pg}&keyword={$keyword}">{$pg}</a></li>
 		{/for}
-		<li{if "all" == $page} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all">{lang}All{/lang}</a></li>
+		<li{if "all" == $page} class="active"{/if}><a href="{base_path}/page/search-result{$ext}?page=all&keyword={$keyword}">{lang}All{/lang}</a></li>
 	</ul>
 </div>
 <!-- end: Pagination -->
@@ -95,8 +95,9 @@ function smarty_function_search_result($params, $template)
 		$Content =& new Content();
 
 		$Content->unbindModel(array('belongsTo' => array('ContentType', 'Template')), false);
-		$Content->unbindModel(array('hasMany' => array('ContentImage', 'ContentDescription')), false);
+		$Content->unbindModel(array('hasMany' => array('ContentImage', 'ContentDescription', 'Attribute')), false);
 		$Content->unbindModel(array('hasOne' => array('ContentLink', 'ContentProduct', 'ContentPage', 'ContentCategory', 'ContentArticle', 'ContentNews')), false);
+		$Content->unbindModel(array('hasAndBelongsToMany' => array('xsell')), false);
 
 		$Content->bindModel(array(
 			'hasOne' => array(
@@ -146,9 +147,10 @@ function smarty_function_search_result($params, $template)
 						'OR' => array('ContentDescription.name LIKE' => '%' . $_GET['keyword'] . '%',
 						         'ContentProduct.model LIKE' => '%' . $_GET['keyword'] . '%',
 							      'ContentDescription.description LIKE' => '%' . $_GET['keyword'] . '%')));
-		$Content->recursive = 2;
+		$Content->recursive = 1;
 
 		$content_total = $content_list_data = $Content->find('count', array('conditions' => $search_conditions));;
+
 
 		if ($vars['page'] == 'all') {
 			$content_list_data = $Content->find('all', array('conditions' => $search_conditions));
