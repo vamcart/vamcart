@@ -368,7 +368,6 @@ function smarty_function_content_listing($params, $template)
 	$vars['page'] = $params['page'];
 	$vars['ext'] = $config['URL_EXTENSION'];
 
-
 	// Error page
 	if (!$content_list) {
 		throw new NotFoundException();
