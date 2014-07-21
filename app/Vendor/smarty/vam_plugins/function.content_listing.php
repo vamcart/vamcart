@@ -365,9 +365,14 @@ function smarty_function_content_listing($params, $template)
 	$vars['content_list'] = $content_list;
 	$vars['count'] = $count;
 	$vars['pages_number'] = 0;
-        $vars['page'] = $params['page'];
-        $vars['ext'] = $config['URL_EXTENSION'];
+	$vars['page'] = $params['page'];
+	$vars['ext'] = $config['URL_EXTENSION'];
 
+
+	// Error page
+	if (!$content_list) {
+		throw new NotFoundException();
+	}	
         
         // Calculating the number of pages
          if(strpos($params['type'],'product') !== false){
@@ -387,6 +392,7 @@ function smarty_function_content_listing($params, $template)
 		$output = @ob_get_contents();
 		ob_end_clean();	
 		Cache::write($cache_name, $output, 'catalog');		
+
 	}
 	echo $output;
 }
