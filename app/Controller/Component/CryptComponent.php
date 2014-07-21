@@ -116,7 +116,7 @@ class CryptComponent extends Object
    **/
   public function decrypt($str, $key)
   {
-    $str=base64_decode($str);
+    $str=base64_decode(str_replace('/','_',$str));
     $this->r = substr($str,0,10);
     $str=substr($str,10);
     return $this->_cs($str, $key);
