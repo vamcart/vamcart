@@ -76,7 +76,7 @@ class ImagesController extends AppController {
             
             if(file_exists($phpThumb->cache_filename)){ // If thumb was already generated we want to use cached version
                 header('HTTP/1.1 301 Moved Permanently');
-                header('Location: '.Router::url(BASE . '/img/content/' . $id . '/' . $cacheFilename, true).'');
+                header('Location: '.Router::url('/img/content/' . $id . '/' . $cacheFilename, true).'');
                 die();
             }
             
