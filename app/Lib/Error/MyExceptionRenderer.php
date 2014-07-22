@@ -11,7 +11,8 @@
  class MyExceptionRenderer extends ExceptionRenderer 
  {
   protected function _outputMessage($template) {
-    $this->controller->layout = false;
+    $this->controller->layout = 'error';
+    //$this->controller->layout = false;
     parent::_outputMessage($template);
   }
  }

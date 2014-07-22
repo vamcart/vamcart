@@ -237,9 +237,9 @@ function smarty_function_search_result($params, $template)
 	$vars['pages_number'] = ceil($content_total/$params['limit']);
 
 	// Error page
-	if (!$content_list) {
-		throw new NotFoundException();
-	}	
+	//if (!$content_list) {
+		//throw new NotFoundException();
+	//}	
 
 	$display_template = $Smarty->load_template($params, 'search_result');
 	$Smarty->display($display_template, $vars);
