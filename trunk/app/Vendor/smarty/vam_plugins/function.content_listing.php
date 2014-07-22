@@ -369,9 +369,9 @@ function smarty_function_content_listing($params, $template)
 	$vars['ext'] = $config['URL_EXTENSION'];
 
 	// Error page
-	if (!$content_list) {
-		throw new NotFoundException();
-	}	
+	//if (!$content_list) {
+		//throw new NotFoundException();
+	//}	
         
         // Calculating the number of pages
          if(strpos($params['type'],'product') !== false){
