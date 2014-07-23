@@ -130,7 +130,7 @@ function smarty_function_compared($params)
                                                ,'order' => array('Attribute.order ASC')
 					))));
 
-        $content_list = $Content->find('all',array('recursive' => 2, 'conditions' => array('Content.id' => $content_compare_list)));
+        $content_list = $Content->find('all',array('recursive' => 1, 'conditions' => array('Content.id' => $content_compare_list)));
 
 	$element_list = array();
 	$CurrencyBase =& new CurrencyBaseComponent(new ComponentCollection());

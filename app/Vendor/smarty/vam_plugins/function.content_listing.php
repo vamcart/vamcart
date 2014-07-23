@@ -158,7 +158,7 @@ function smarty_function_content_listing($params, $template)
 			$allowed_types[] =  $type;
 	}
 	$content_list_data_conditions = array('Content.parent_id' => $params['parent'],'Content.active' => '1','Content.show_in_menu' => '1');
-	$Content->recursive = 2;
+	$Content->recursive = 1;
 
         // Applying pagination for products only
         if(strpos($params['type'],'product') !== false){
