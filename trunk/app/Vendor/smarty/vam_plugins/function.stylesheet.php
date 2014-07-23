@@ -26,6 +26,7 @@ function smarty_function_stylesheet($params, $template)
 	{
 		foreach ($content['Template']['Stylesheet'] AS $attached_stylesheet)
 		{
+			if ($attached_stylesheet['stylesheet']) {
 			$stylesheet .= '<link type="text/css" ';
 			if (isset($params['media']) && $params['media'] != '')
 			{
@@ -33,6 +34,7 @@ function smarty_function_stylesheet($params, $template)
 			}
 			$stylesheet .= 'href="' . BASE . '/stylesheets/load/'.$attached_stylesheet['alias'] . '.css';
 			$stylesheet .= '" rel="stylesheet" />'; 
+			}
 		}
 	}
 
