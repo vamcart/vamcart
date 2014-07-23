@@ -68,6 +68,8 @@ class SmartyComponent extends Component
 			'../Vendor/smarty/vam_plugins'
 		);
 
+		//$smarty->loadFilter('output','trimwhitespace');
+
 		$smarty->setCacheDir(CACHE . '/smarty_cache');
 		$smarty->setCompileDir(CACHE . '/smarty_templates_c');
 				
