@@ -66,7 +66,7 @@ class OrderBaseComponent extends Object
 		if ($order_id != null) {
 			$this->Order->unbindModel(array('belongsTo' => array('OrderStatus')));
 			$this->Order->unbindModel(array('hasMany' => array('OrderComment')));
-			$order = $this->Order->find('first', array('recursive' => 2, 'conditions' => array('Order.id' => $order_id)));
+			$order = $this->Order->find('first', array('recursive' => 1, 'conditions' => array('Order.id' => $order_id)));
 		} else {
 			$order = array();
 		}
