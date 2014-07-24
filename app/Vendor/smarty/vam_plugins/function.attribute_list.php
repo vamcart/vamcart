@@ -13,12 +13,10 @@ function default_template_attribute_list()
                     {foreach from=$attr.element_list item=attr_element}
                         {if isset($attr_element.values_attribute)}
                             {if $attr_element@first} <ul class="specs"> {/if}                
-                                <li>
-                                    {value_filter template=$attr_element.template.template_catalog 
+                                <li>{value_filter template=$attr_element.template.template_catalog 
                                                   id_attribute=$attr_element.values_attribute.id 
                                                   name_attribute=$attr_element.name 
-                                                  values_attribute=$attr_element.values_attribute} 
-                                </li>
+                                                  values_attribute=$attr_element.values_attribute}</li>
                             {if $attr_element@last} </ul> {/if}
                         {/if}
                     {/foreach}                
@@ -26,12 +24,10 @@ function default_template_attribute_list()
                     {foreach from=$attr.element_list item=attr_element}
                         {if isset($attr_element.values_attribute)}
                             {if $attr_element@first} <ul class="specs"> {/if}                
-                                <li>
-                                    {value_filter template=$attr_element.template.template_product 
+                                <li>{value_filter template=$attr_element.template.template_product 
                                                   id_attribute=$attr_element.values_attribute.id 
                                                   name_attribute=$attr_element.name 
-                                                  values_attribute=$attr_element.values_attribute} 
-                                </li>
+                                                  values_attribute=$attr_element.values_attribute}</li>
                             {if $attr_element@last} </ul> {/if}
                         {/if}
                     {/foreach} 
@@ -40,18 +36,15 @@ function default_template_attribute_list()
 							<img src="{base_path}/img/ajax-loader.gif" alt="" />
 						</div>
                     <script type="text/javascript"> 
-                        //<![CDATA[
                         $(document).ready(function () { 
                             global_spinner = $("#spinner");
                         });
-                        //]]>
                     </script> 
 
                     <form id="set_attr_form" method="post" action={$base_content}>
                     {foreach from=$attr.element_list item=attr_element}
                         {if $attr_element@first}<ul class="specs">{/if}                     
-                        <li>
-                            {if $attr_element.make}<b>{/if}
+                        <li>{if $attr_element.make}<b>{/if}
                                 {$attr_element.name}
                                 {$attr_element.values_attribute.name}
                             {if $attr_element.make}</b>{/if}                                
@@ -69,7 +62,6 @@ function default_template_attribute_list()
                         {if $attr_element@last}</ul>{/if}                      
                     {/foreach}
                     <script type="text/javascript">      
-                        //<![CDATA[
                         $(".confirm").click(function(){            
                             var http_send = $(this).attr("href");
                             var form_data = $("#set_attr_form").serialize();
@@ -90,7 +82,6 @@ function default_template_attribute_list()
                             return false;
                         });
 
-                        //]]>
                     </script>                
                     </form>
                 {/if}              
