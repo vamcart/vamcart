@@ -60,6 +60,9 @@ class SiteController extends AppController {
 				$subject = $config['SITE_NAME'] . ' - ' . $subject;
 
 				$body = $email_template['EmailTemplateDescription']['content'];
+				$body = str_replace('{$name}', $_POST['customer']['name'], $body);
+				$body = str_replace('{$email}', $_POST['customer']['email'], $body);
+				$body = str_replace('{$password}', $_POST['customer']['password'], $body);
 
 				$this->Email->init();
 				$this->Email->From = $config['NEW_ORDER_FROM_EMAIL'];
