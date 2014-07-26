@@ -27,9 +27,6 @@ class OrdersController extends AppController {
 		$order['Order']['customer_id'] = (!isset($_SESSION['Customer']['customer_id'])) ? 0 : $_SESSION['Customer']['customer_id'];
 		if ($_POST['module_coupon_code'] != '') $_SESSION['module_coupon_code'] = $_POST['module_coupon_code'];
 		
-		// Save order data
-		$this->Order->save($order);
-		
 		if ($_POST['email'] != '') {
 
 		App::uses('Sanitize', 'Utility');
@@ -60,6 +57,11 @@ class OrdersController extends AppController {
 
 		// Save customer data
 		$Customer->saveAll($customer_data);
+
+		$order['Order']['customer_id'] = ($Customer->id > 0) ? $Customer->id : 0;
+
+		// Save order data
+		$this->Order->save($order);
 
 		// Send registration email to customer
 		
@@ -123,8 +125,6 @@ class OrdersController extends AppController {
 			foreach($_POST AS $key => $value) {
 				$order['Order'][$key] = $value;
 			}
-
-			$order['Order']['customer_id'] = (!isset($_SESSION['Customer']['customer_id'])) ? 0 : $_SESSION['Customer']['customer_id'];
 
 			// Update products ordered 
 			foreach($order['OrderProduct'] as $order_data) {
