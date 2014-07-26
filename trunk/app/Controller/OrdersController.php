@@ -27,7 +27,84 @@ class OrdersController extends AppController {
 		$order['Order']['customer_id'] = (!isset($_SESSION['Customer']['customer_id'])) ? 0 : $_SESSION['Customer']['customer_id'];
 		if ($_POST['module_coupon_code'] != '') $_SESSION['module_coupon_code'] = $_POST['module_coupon_code'];
 		
+		// Save order data
 		$this->Order->save($order);
+		
+		if ($_POST['email'] != '') {
+
+		App::uses('Sanitize', 'Utility');
+		$clean = new Sanitize();
+		$clean->clean($_POST);
+					
+		App::import('Model', 'Customer');
+		$Customer =& new Customer();					
+			
+		$customer = $Customer->find('count',array('conditions' => array('Customer.email' => $_POST['email'])));
+		
+		if ($customer == 0) {
+			
+		$customer_data = array();
+		$customer_password = $this->RandomString(6);
+		
+		if ($_POST['bill_name'] != '') $customer_data['Customer']['name'] = $_POST['bill_name'];
+		if ($_POST['email'] != '') $customer_data['Customer']['email'] = $_POST['email'];
+		$customer_data['Customer']['password'] = Security::hash($customer_password, 'sha1', true);
+		if ($_POST['bill_name'] != '') $customer_data['AddressBook']['ship_name'] = $_POST['bill_name'];
+		if ($_POST['bill_line_1'] != '') $customer_data['AddressBook']['ship_line_1'] = $_POST['bill_line_1'];
+		if ($_POST['bill_line_2'] != '') $customer_data['AddressBook']['ship_line_2'] = $_POST['bill_line_2'];
+		if ($_POST['bill_city'] != '') $customer_data['AddressBook']['ship_city'] = $_POST['bill_city'];
+		if ($_POST['bill_country'] != '') $customer_data['AddressBook']['ship_country'] = $_POST['bill_country'];
+		if ($_POST['bill_state'] != '') $customer_data['AddressBook']['ship_state'] = $_POST['bill_state'];
+		if ($_POST['bill_zip'] != '') $customer_data['AddressBook']['ship_zip'] = $_POST['bill_zip'];
+		if ($_POST['phone'] != '') $customer_data['AddressBook']['phone'] = $_POST['phone'];
+
+		// Save customer data
+		$Customer->saveAll($customer_data);
+
+		// Send registration email to customer
+		
+		// Retrieve email template
+		$this->EmailTemplate->unbindModel(array('hasMany' => array('EmailTemplateDescription')));
+		$this->EmailTemplate->bindModel(array(
+			'hasOne' => array(
+				'EmailTemplateDescription' => array(
+					'className'  => 'EmailTemplateDescription',
+					'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
+				)
+			)
+		));
+
+		// Get email template
+		$email_template = $this->EmailTemplate->findByAlias('new-customer');
+
+		// Email Subject
+		$subject = $email_template['EmailTemplateDescription']['subject'];
+		$subject = $config['SITE_NAME'] . ' - ' . $subject;
+
+		$body = $email_template['EmailTemplateDescription']['content'];
+		$body = str_replace('{$name}', $_POST['bill_name'], $body);
+		$body = str_replace('{$email}', $_POST['email'], $body);
+		$body = str_replace('{$password}', $customer_password, $body);
+
+		$this->Email->init();
+		$this->Email->From = $config['NEW_ORDER_FROM_EMAIL'];
+		$this->Email->FromName = __($config['NEW_ORDER_FROM_NAME'],true);
+
+		// Send to customer
+		$this->Email->AddAddress($order['Order']['email']);
+		// Send to admin
+		//$this->Email->AddCC($config['SEND_EXTRA_EMAIL']);
+		$this->Email->Subject = $subject;
+
+		// Email Body
+		$this->Email->Body = $body;
+
+		// Sending mail
+		$this->Email->send();
+		
+		
+		}	
+		}	
 		
 		$this->redirect('/page/confirmation' . $config['URL_EXTENSION']);				
 
@@ -165,7 +242,7 @@ class OrdersController extends AppController {
 
 				// Set up mail
 				$this->Email->init();
-				$this->Email->From = $order['Order']['email'];
+				$this->Email->From = $config['NEW_ORDER_FROM_EMAIL'];
 				$this->Email->FromName = __($config['NEW_ORDER_FROM_NAME'],true);
 				$this->Email->AddAddress($config['SEND_EXTRA_EMAIL']);
 				$this->Email->Subject = $subject;
@@ -604,5 +681,22 @@ class OrdersController extends AppController {
 		$this->set('order_status_list',$order_status_list);
 
 	}
+	
+	private function RandomString($length) 
+		{
+		$chars = array( 'a', 'A', 'b', 'B', 'c', 'C', 'd', 'D', 'e', 'E', 'f', 'F', 'g', 'G', 'h', 'H', 'i', 'I', 'j', 'J',  'k', 'K', 'l', 'L', 'm', 'M', 'n','N', 'o', 'O', 'p', 'P', 'q', 'Q', 'r', 'R', 's', 'S', 't', 'T',  'u', 'U', 'v','V', 'w', 'W', 'x', 'X', 'y', 'Y', 'z', 'Z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0');
+		
+		$max_chars = count($chars) - 1;
+		srand( (double) microtime()*1000000);
+		
+		$rand_str = '';
+		for($i=0;$i<$length;$i++)
+		{
+		$rand_str = ( $i == 0 ) ? $chars[rand(0, $max_chars)] : $rand_str . $chars[rand(0, $max_chars)];
+		}
+		
+		return $rand_str;
+		}
+			
 }
 ?>
