@@ -64,17 +64,24 @@ class InterkassaController extends PaymentAppController {
       $interkassa_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'interkassa_secret_key')));
       $interkassa_secret_key = $interkassa_data['PaymentMethodValue']['value'];
       
-      $ik_sign_hash_str = $interkassa_id . ':' . $order['Order']['total'] . ':' . $_SESSION['Customer']['order_id'] . ':' . '' . ':' . $_SESSION['Customer']['order_id'] . ':' . $interkassa_secret_key;
-      $ik_sign_hash = md5($ik_sign_hash_str);
+		$result = array(
+			'ik_am' => $order['Order']['total'], // Сумма платежа
+			'ik_pm_no' => $_SESSION['Customer']['order_id'], // Номер заказа
+			'ik_desc' => 'Order-'.$_SESSION['Customer']['order_id'], // Описание платежа
+			'ik_cur' => 'UAH', // Валюта платежа
+			'ik_co_id' => $interkassa_id, // Идентификатор кассы
+		);
+
+		// Формируем подпись
+		$result['ik_sign'] = $this->getSign($result);
+
+		$process_button_string = '';
+		foreach ($result as $k => $val)
+		{
+			$process_button_string .= '<input type="hidden" name="'. $k . '" value="' . $val . '">';
+		}
       		
-		$content = '<form action="https://interkassa.com/lib/payment.php" method="post">
-			<input type="hidden" name="ik_payment_id" value="' . $_SESSION['Customer']['order_id'] . '">
-			<input type="hidden" name="ik_shop_id" value="'.$interkassa_id.'">
-			<input type="hidden" name="ik_payment_desc" value="' . $_SESSION['Customer']['order_id'] . ' ' . $order['Order']['email'] . '">
-			<input type="hidden" name="ik_payment_amount" value="' . $order['Order']['total'] . '">
-			<input type="hidden" name="ik_paysystem_alias" value="">
-			<input type="hidden" name="ik_baggage_fields" value="' . $_SESSION['Customer']['order_id'] . '">
-			<input type="hidden" name="ik_sign_hash" value="'.$ik_sign_hash.'">';
+		$content = $process_button_string;
 						
 		$content .= '
 			<button class="btn btn-inverse" type="submit" value="{lang}Process to Payment{/lang}"><i class="fa fa-check"></i> {lang}Process to Payment{/lang}</button>
@@ -106,12 +113,12 @@ class InterkassaController extends PaymentAppController {
       $interkassa_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'interkassa_secret_key')));
       $interkassa_secret_key = $interkassa_data['PaymentMethodValue']['value'];
 		$order = $this->Order->read(null,$_POST['ik_payment_id']);
-		$crc = $_POST['ik_sign_hash'];
+		$sign = ikGetSign($_POST);
 		$hash = strtoupper(md5($_POST['ik_shop_id'].":".$_POST['ik_payment_amount'].":".$_POST['ik_payment_id'].":".$_POST['ik_paysystem_alias'].":".$_POST['ik_baggage_fields'].":".$interkassa_secret_key));
 		$merchant_summ = number_format($_POST['amount'], 2);
 		$order_summ = number_format($order['Order']['total'], 2);
 
-		if (($crc == $hash) && ($merchant_summ == $order_summ) && ($_POST['ik_payment_state'] == 'success')) {
+		if (($_POST['ik_sign'] == $sign) && ($merchant_summ == $order_summ) && ($_POST['ik_inv_st'] == 'success')) {
 			
 		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 		$order_data = $this->Order->find('first', array('conditions' => array('Order.id' => $_POST['ik_payment_id'])));
@@ -122,7 +129,36 @@ class InterkassaController extends PaymentAppController {
 		}
 	
 	}
-	
-}
+
+	private function getSign($aParams)
+	{
+		ksort ($aParams, SORT_STRING);
+		array_push($aParams, MODULE_PAYMENT_IK_SECRET_KEY);
+		$signString = implode(':', $aParams);
+		$sign = base64_encode(md5($signString, true));
+		return $sign;
+	}
+
+	private function ikGetSign($post)
+	{
+	$aParams = array();
+	foreach ($post as $key => $value)
+	{
+		if (!preg_match('/ik_/', $key))
+			continue;
+		$aParams[$key] = $value;
+	}
+
+	unset($aParams['ik_sign']);
+
+		$key = MODULE_PAYMENT_IK_SECRET_KEY;
+
+	ksort ($aParams, SORT_STRING);
+	array_push($aParams, $key);
+	$signString = implode(':', $aParams);
+	$sign = base64_encode(md5($signString, true));
+	return $sign;
+	}	
+	}
 
 ?>
