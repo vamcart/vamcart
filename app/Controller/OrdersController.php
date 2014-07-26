@@ -24,7 +24,6 @@ class OrdersController extends AppController {
 		foreach($_POST AS $key => $value)
 			$order['Order'][$key] = $value;
 
-		$order['Order']['customer_id'] = (!isset($_SESSION['Customer']['customer_id'])) ? 0 : $_SESSION['Customer']['customer_id'];
 		if ($_POST['module_coupon_code'] != '') $_SESSION['module_coupon_code'] = $_POST['module_coupon_code'];
 		
 		if ($_POST['email'] != '') {
@@ -57,11 +56,6 @@ class OrdersController extends AppController {
 
 		// Save customer data
 		$Customer->saveAll($customer_data);
-
-		$order['Order']['customer_id'] = ($Customer->id > 0) ? $Customer->id : 0;
-
-		// Save order data
-		$this->Order->save($order);
 
 		// Send registration email to customer
 		
@@ -107,6 +101,15 @@ class OrdersController extends AppController {
 		
 		}	
 		}	
+
+		if (isset($_SESSION['Customer']['customer_id'])) {
+			$order['Order']['customer_id'] = $_SESSION['Customer']['customer_id'];
+		} else {
+			$order['Order']['customer_id'] = ($Customer->id > 0) ? $Customer->id : 0;
+		}
+
+		// Save order data
+		$this->Order->save($order);
 		
 		$this->redirect('/page/confirmation' . $config['URL_EXTENSION']);				
 
