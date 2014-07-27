@@ -23,7 +23,7 @@ foreach($data['OrderProduct'] AS $product)
 {
 	echo $this->Admin->TableCells(
 		  array(
-				$product['name'],
+				$this->Html->link($product['name'], '/contents/admin_edit/' . $product['content_id']),
 				$product['model'],
 				$product['price'],
 				$product['quantity'],
