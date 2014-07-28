@@ -76,6 +76,9 @@ class InterkassaController extends PaymentAppController {
 		$result['ik_sign'] = $this->getSign($result);
 
 		$process_button_string = '';
+
+		$process_button_string .= '<form action="https://sci.interkassa.com/" method="post">';
+
 		foreach ($result as $k => $val)
 		{
 			$process_button_string .= '<input type="hidden" name="'. $k . '" value="' . $val . '">';
