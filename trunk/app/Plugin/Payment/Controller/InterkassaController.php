@@ -68,7 +68,7 @@ class InterkassaController extends PaymentAppController {
 			'ik_am' => $order['Order']['total'], // Сумма платежа
 			'ik_pm_no' => $_SESSION['Customer']['order_id'], // Номер заказа
 			'ik_desc' => 'Order-'.$_SESSION['Customer']['order_id'], // Описание платежа
-			'ik_cur' => 'UAH', // Валюта платежа
+			'ik_cur' => $_SESSION['Customer']['currency_code'], // Валюта платежа
 			'ik_co_id' => $interkassa_id, // Идентификатор кассы
 		);
 
