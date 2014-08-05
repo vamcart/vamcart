@@ -8,17 +8,17 @@
 App::uses('ModuleCouponsAppController', 'ModuleCoupons.Controller');
 
 class AdminController extends ModuleCouponsAppController {
-	var $helpers = array('Time','Admin');
-	var $uses = array('ModuleCoupon');
+	public $helpers = array('Time','Admin');
+	public $uses = array('ModuleCoupon');
 	
-	function admin_delete($id)
+	public function admin_delete($id)
 	{
 		$this->ModuleCoupon->delete($id);
 		$this->Session->setFlash(__('You have deleted a coupon.'));
 		$this->redirect('/module_coupons/admin/admin_index/');
 	}
 	
-	function admin_edit($id = null)
+	public function admin_edit($id = null)
 	{
 		if(empty($this->data))
 		{
@@ -51,19 +51,19 @@ class AdminController extends ModuleCouponsAppController {
 		}
 	}
 	
-	function admin_new()
+	public function admin_new()
 	{
 		$this->redirect('/module_coupons/admin/admin_edit/');
 	}
 	
-	function admin_index()
+	public function admin_index()
 	{
 		$this->set('current_crumb', false);
 		$this->set('title_for_layout', __('Manage Coupons'));
 		$this->set('coupons',$this->ModuleCoupon->find('all'));
 	}
 	
-	function admin_help()
+	public function admin_help()
 	{
 		$this->set('current_crumb', false);
 		$this->set('title_for_layout', __('Coupons'));

@@ -8,15 +8,15 @@
 App::uses('ModuleCouponsAppController', 'ModuleCoupons.Controller');
 
 class ActionController extends ModuleCouponsAppController {
-	var $uses = null;
+	public $uses = null;
 
-	function show_info()
+	public function show_info()
 	{
 		$assignments = array();
 		return $assignments;
 	}
 
-	function checkout_box ()
+	public function checkout_box ()
 	{
 		$assignments = array();
 		return $assignments;
@@ -26,7 +26,7 @@ class ActionController extends ModuleCouponsAppController {
 	* The template function simply calls the view specified by the $action parameter.
 	*
 	*/
-	function template ($action)
+	public function template ($action)
 	{
 	}
 

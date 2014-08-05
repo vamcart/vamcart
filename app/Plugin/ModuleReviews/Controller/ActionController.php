@@ -8,10 +8,10 @@
 App::uses('ModuleReviewsAppController', 'ModuleReviews.Controller');
 
 class ActionController extends ModuleReviewsAppController {
-	var $uses = array('ModuleReviews.ModuleReview');
-	var $components = array('ContentBase');
+	public $uses = array('ModuleReviews.ModuleReview');
+	public $components = array('ContentBase');
 	
-	function link ()
+	public function link ()
 	{
 		global $content, $config;
 		$assignments = array('review_display_link' => BASE.'/page/read-reviews'.$config['URL_EXTENSION'].'?content_id=' . $content['Content']['id'],
@@ -19,7 +19,7 @@ class ActionController extends ModuleReviewsAppController {
 		return $assignments;
 	}
 	
-	function create ()
+	public function create ()
 	{
 			global $content, $config, $filter_list;
 
@@ -103,7 +103,7 @@ class ActionController extends ModuleReviewsAppController {
 		}
 	}
 	
-	function display () 
+	public function display () 
 	{
 		$assignments = array();
 		
@@ -164,7 +164,7 @@ class ActionController extends ModuleReviewsAppController {
 	* The template function simply calls the view specified by the $action parameter.
 	*
 	*/
-	function template ($action)
+	public function template ($action)
 	{
 	}
 

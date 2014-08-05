@@ -8,9 +8,9 @@
 App::uses('ModuleCouponsAppController', 'ModuleCoupons.Controller');
 
 class EventController extends ModuleCouponsAppController {
-	var $uses = null;
+	public $uses = null;
 	
-	function utilize_coupon()
+	public function utilize_coupon()
 	{
 		global $order;
 		$coupon_code = $_SESSION['module_coupon_code'];
