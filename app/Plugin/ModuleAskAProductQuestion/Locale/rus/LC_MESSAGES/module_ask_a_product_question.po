@@ -1,0 +1,72 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# No version information was available in the source files.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2012-01-10 14:22+0400\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: Alexandr Menovchicov <vam@kypi.ru>\n"
+"Language-Team: Russian <vam@kypi.ru>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#: /app_controller.php:183
+msgid "Ask A Product Question"
+msgstr "Задать вопрос о товаре"
+
+#: /app_controller.php:183
+msgid "Ask a product question"
+msgstr "Задать вопрос о товаре"
+
+#: /app_controller.php:183
+msgid "Customer can send question to store admin email about any product in your store from product page."
+msgstr "Покупатель может задать свой вопрос о любом товаре магазина, вопрос будет отправлен на email администратора магазина."
+
+#: /app_controller.php:183
+msgid "Template placeholder to create a link to a product question form:"
+msgstr "Метка для шаблона для создания ссылки на форму задать вопрос о товаре:"
+
+#: /app_controller.php:183
+msgid "This call will create link to javascript popup window with product question form."
+msgstr "Данная метка создаёт ссылку на javascript окно с формой задать вопрос о товаре."
+
+#: /app_controller.php:183
+msgid "Insert this placeholder at product page template (Admin - Layout - Template - Product Info)."
+msgstr "Вставьте данную метку в шаблон карточки товара (Админка - Оформление - Шаблоны - Шаблон карточки товара)."
+
+#: /app_controller.php:183
+msgid "Required field"
+msgstr "Обязательное поле"
+
+#: /app_controller.php:183
+msgid "Min length"
+msgstr "Минимум символов"
+
+#: /app_controller.php:183
+msgid "Your Name"
+msgstr "Ваше имя"
+
+#: /app_controller.php:183
+msgid "Your Email"
+msgstr "Ваш Email"
+
+#: /app_controller.php:183
+msgid "Your Question"
+msgstr "Ваш вопрос"
+
+#: /app_controller.php:183
+msgid "Submit"
+msgstr "Отправить"
+
+#: /app_controller.php:183
+msgid "Your question successfully sended."
+msgstr "Ваш вопрос успешно отправлен. Вы получите ответ в самое ближайшее время."
+
+#: /app_controller.php:183
+msgid "Thank you!"
+msgstr "Спасибо!"
