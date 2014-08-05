@@ -1559,7 +1559,11 @@ msgid "(controller)"
 msgstr "(controller)"
 
 #: /vendors/smarty/vam_plugins/function.module.php:82
-msgid "Controller to call.  Defaults to action"
+msgid "Module to call. Alias name"
+msgstr "Вызываемый модуль. Указывается псевдоним модуля"
+
+#: /vendors/smarty/vam_plugins/function.module.php:82
+msgid "Controller to call. Defaults to action"
 msgstr "Вызываемый контроллер"
 
 #: /vendors/smarty/vam_plugins/function.module.php:83

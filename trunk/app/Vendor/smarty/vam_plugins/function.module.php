@@ -26,14 +26,12 @@ function smarty_function_module($params, $template)
 	if(!isset($params['controller']))
 		$params['controller'] = 'action';
 	
-
 	
 	App::uses('SmartyComponent', 'Controller/Component');
 	$Smarty =& new SmartyComponent(new ComponentCollection());
 	
 	
 	$assignments = $Smarty->requestAction('/module_' . $params['alias'] . '/' . $params['controller'] . '/' . $params['action'] .'/');
-
 	
 	
 	if(isset($params['template']))
@@ -48,12 +46,9 @@ function smarty_function_module($params, $template)
 	{	
 		$display_template = $Smarty->requestAction('/module_' . $params['alias'] . '/' . $params['controller'] . '/' . $params['action'],array('return'));
 	}
-			
 	
 	
 	$Smarty->display($display_template,$assignments);
-	
-
 
 }
 
@@ -64,7 +59,8 @@ function smarty_help_function_module() {
 	<p><?php echo __('See the specific module documentation for more information.') ?></p>
 	<h3><?php echo __('What parameters does it take?') ?></h3>
 	<ul>
-		<li><em><?php echo __('(controller)') ?></em> - <?php echo __('Controller to call.  Defaults to action') ?>.</li>
+		<li><em><?php echo __('(alias)') ?></em> - <?php echo __('Module to call. Alias name') ?>.</li>
+		<li><em><?php echo __('(controller)') ?></em> - <?php echo __('Controller to call. Defaults to action') ?>.</li>
 		<li><em><?php echo __('(action)') ?></em> - <?php echo __('Method to call of the action controller.') ?></li>
 		<li><em><?php echo __('(template)') ?></em> - <?php echo __('Overrides the module\'s default template for the action specified.') ?></li>
 	</ul>	
