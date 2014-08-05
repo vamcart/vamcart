@@ -1,4 +1,3 @@
-<script type="text/javascript" src="<?php echo BASE; ?>/js/modified.js"></script>
 <script type="text/javascript" src="<?php echo BASE; ?>/js/jquery/plugins/validate/jquery.validate.pack.js"></script>
 <script type="text/javascript">
 $(function($){
