@@ -46,7 +46,7 @@ function smarty_function_module($params, $template)
 	}
 	else
 	{	
-		$display_template = $Smarty->requestAction('/module_' . $params['alias'] . '/action/' . $params['action'],array('return'));
+		$display_template = $Smarty->requestAction('/module_' . $params['alias'] . '/' . $params['controller'] . '/' . $params['action'],array('return'));
 	}
 			
 	
