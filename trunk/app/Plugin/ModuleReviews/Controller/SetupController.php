@@ -8,17 +8,17 @@
 App::uses('ModuleReviewsAppController', 'ModuleReviews.Controller');
 
 class SetupController extends ModuleReviewsAppController {
-	var $uses = array('Module', 'Content');
-	var $components = array('ModuleBase');
+	public $uses = array('Module', 'Content');
+	public $components = array('ModuleBase');
 	
-	function upgrade ()
+	public function upgrade ()
 	{
 		$this->ModuleBase->upgrade();
 		$this->Session->setFlash(__('Module Upgraded'));
 		$this->redirect('/modules/admin/');		
 	}
 		
-	function install()
+	public function install()
 	{
 
 		// Create the new module record		
@@ -65,7 +65,7 @@ class SetupController extends ModuleReviewsAppController {
 	}
 	
 	
-	function uninstall()
+	public function uninstall()
 	{
 		// Delete the module record
 		$module = $this->Module->findByAlias('reviews');

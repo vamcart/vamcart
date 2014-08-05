@@ -8,17 +8,17 @@
 App::uses('ModuleCouponsAppController', 'ModuleCoupons.Controller');
 
 class SetupController extends ModuleCouponsAppController {
-	var $uses = array('Module', 'Content', 'Event');
-	var $components = array('ModuleBase');
+	public $uses = array('Module', 'Content', 'Event');
+	public $components = array('ModuleBase');
 	
-	function upgrade ()
+	public function upgrade ()
 	{
 		$this->ModuleBase->upgrade();
 		$this->Session->setFlash(__('Module Upgraded'));
 		$this->redirect('/modules/admin/');		
 	}
 	
-	function install()
+	public function install()
 	{
 		$this->ModuleBase->check_if_installed('coupons');
 		
@@ -86,7 +86,7 @@ class SetupController extends ModuleCouponsAppController {
 		$this->redirect('/modules/admin/');
 	}
 	
-	function uninstall()
+	public function uninstall()
 	{
 		// Delete the module record
 		$module = $this->Module->findByAlias('coupons');
