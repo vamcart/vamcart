@@ -118,7 +118,9 @@ class AdminMenuComponent extends Component
 		foreach($modules AS $module)
 		{
 			$nav_level = $module['Module']['nav_level'];
+			if ($nav_level > 0) {
 			$navigation[$nav_level]['children'][] = array('icon' => $module['Module']['icon'], 'text' => ucfirst($module['Module']['name']), 'path' => '/module_' . $module['Module']['alias'] . '/admin/admin_index/', 'attributes' => array('class' => 'module'));
+			}
 		}
 		
 		return($navigation);
