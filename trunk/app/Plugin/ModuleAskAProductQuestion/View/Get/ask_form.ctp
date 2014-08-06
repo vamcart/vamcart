@@ -1,3 +1,4 @@
+<?php if ($content_id > 0) { ?>
 <script type="text/javascript" src="<?php echo BASE; ?>/js/jquery/plugins/validate/jquery.validate.pack.js"></script>
 <script type="text/javascript">
 $(function($){
@@ -77,3 +78,4 @@ $(document).ready(function() {
 		</div>
 		</form>
 </div>
+<?php } ?>
