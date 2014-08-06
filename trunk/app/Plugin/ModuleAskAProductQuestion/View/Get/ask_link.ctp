@@ -1,8 +1,6 @@
 <script type="text/javascript">
 $(document).ready(function(){
  $(".ask").colorbox({
- width:"40%", 
- height:"80%"
  });
 });
 </script>
