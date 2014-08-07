@@ -110,6 +110,8 @@ class BuyController extends ModuleOneClickBuyAppController {
 
 			$new_order = array();
 
+			$new_order['Order']['customer_id'] = '-1';
+
 			$new_order['Order']['bill_name'] = __d('module_one_click_buy', 'One Click Buy');
 			$new_order['Order']['ship_name'] = __d('module_one_click_buy', 'One Click Buy');
 
