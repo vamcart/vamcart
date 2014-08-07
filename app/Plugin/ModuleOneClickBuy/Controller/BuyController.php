@@ -7,8 +7,8 @@
    ---------------------------------------------------------------------------------------*/
 
 class BuyController extends ModuleOneClickBuyAppController {
-	public $uses = array('EmailTemplate');
-	public $components = array('Email', 'Smarty', 'ContentBase');
+	public $uses = array('Order');
+	public $components = array('Email', 'Smarty', 'ContentBase', 'OrderBase');
 		
 	public function link ()
 	{
@@ -34,7 +34,7 @@ class BuyController extends ModuleOneClickBuyAppController {
 		$this->set('content_id', $content_id);
 		$this->set('content_name', $content_description['ContentDescription']['name']);
 
-		if(!empty($_POST) && !$this->request->is('ajax'))
+		if(!empty($_POST) && $_POST['phone'] != '')
 		{
 
 		App::uses('Sanitize', 'Utility');
@@ -60,6 +60,9 @@ class BuyController extends ModuleOneClickBuyAppController {
 			{
 				$this->redirect('/' . $content['ContentType']['name'] . '/' . $content['Content']['alias'] . $config['URL_EXTENSION']);
 			}
+
+			// Save the order
+			$this->purchase_product();
 			
 			if ($config['SEND_EXTRA_EMAIL'] != '') {
 				// Email Subject
@@ -81,7 +84,7 @@ class BuyController extends ModuleOneClickBuyAppController {
 				// Sending mail
 				$this->Email->send();
 			}
-
+			
 			$this->redirect('/page/one_click_buy'.$config['URL_EXTENSION']);
 		}
 
@@ -99,4 +102,50 @@ class BuyController extends ModuleOneClickBuyAppController {
 	{
 	}
 
+	private function purchase_product () {
+		// Clean up the post
+		App::uses('Sanitize', 'Utility');
+		$clean = new Sanitize();
+		$clean->paranoid($_POST);
+
+			$new_order = array();
+
+			$new_order['Order']['bill_name'] = __d('module_one_click_buy', 'One Click Buy');
+			$new_order['Order']['ship_name'] = __d('module_one_click_buy', 'One Click Buy');
+
+			if (!filter_var($_POST['phone'], FILTER_VALIDATE_EMAIL)) {
+			$new_order['Order']['phone'] = $_POST['phone'];
+			} else {			
+			$new_order['Order']['email'] = $_POST['phone'];
+			}
+		
+			// Get default shipping & payment methods and assign them to the order
+			$default_payment = $this->Order->PaymentMethod->find('first', array('conditions' => array('default' => '1')));
+			$new_order['Order']['payment_method_id'] = $default_payment['PaymentMethod']['id'];
+
+			$default_shipping = $this->Order->ShippingMethod->find('first', array('conditions' => array('default' => '1')));
+			$new_order['Order']['shipping_method_id'] = $default_shipping['ShippingMethod']['id'];
+
+			// Get the default order status
+			if ($new_order['Order']['order_status_id'] == 0) {
+				$default_status = $this->Order->OrderStatus->find('first', array('conditions' => array('default' => '1')));
+				$new_order['Order']['order_status_id'] = $default_status['OrderStatus']['id'];
+			}
+
+			// Save the order
+			$this->Order->save($new_order);
+
+			$order_id = $this->Order->getLastInsertId();
+			$_SESSION['Customer']['order_id'] = $order_id;
+			global $order;
+			$order = $new_order;
+
+			// Add the product to the order from the component
+			$this->OrderBase->add_product($_POST['content_id'], 1);
+
+			// Empty the cart
+			$_SESSION['Customer']['order_id'] = null;
+
+	}
+	
 }
