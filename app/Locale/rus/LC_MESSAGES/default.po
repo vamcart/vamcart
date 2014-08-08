@@ -4903,3 +4903,7 @@ msgstr "Почта России"
 #: /app/View/GeoZones/admin_zones_edit.ctp:16
 msgid "Back"
 msgstr "Вернуться"
+
+#: /app/Conrtoller/ContactUsController.php:16
+msgid "Your enquiry has been successfully sent!"
+msgstr "Ваше сообщение успешно отправлено!"
