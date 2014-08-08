@@ -64,18 +64,34 @@ class BuyController extends ModuleOneClickBuyAppController {
 			// Save the order
 			$this->purchase_product();
 			
-			if ($config['SEND_EXTRA_EMAIL'] != '') {
-				// Email Subject
-				$subject = $content_description['ContentDescription']['name'];
-				$subject = $config['SITE_NAME'] . ' - ' . __d('module_one_click_buy', 'One Click Buy') . ' - ' . $subject;
+			if ($config['SEND_EXTRA_EMAIL'] != '' or filter_var($_POST['phone'], FILTER_VALIDATE_EMAIL)) {
 
-				$body = $content_description['ContentDescription']['name'] . "\n" . $_POST['phone'];
+				// Get email template
+				$email_template = $this->EmailTemplate->findByAlias('one_click_buy');
+
+				// Email Subject
+				$subject = $email_template['EmailTemplateDescription']['subject'];
+				$subject = str_replace('{$product_name}',$content_description['ContentDescription']['name'], $subject);
+				$subject = str_replace('{$store_name}',$config['SITE_NAME'], $subject);
+
+				$body = $email_template['EmailTemplateDescription']['content'];
+				$body = str_replace('{$product_name}', $content_description['ContentDescription']['name'], $body);
+				$body = str_replace('{$contact}', $_POST['phone'], $body);
 
 				$this->Email->init();
 				$this->Email->From = $_POST['phone'];
 				$this->Email->FromName = $_POST['phone'];
 
+				// Send email to admin
+				if (filter_var($config['SEND_EXTRA_EMAIL'], FILTER_VALIDATE_EMAIL)) {
 				$this->Email->AddAddress($config['SEND_EXTRA_EMAIL']);
+				}
+				
+				// Send email to customer
+				if (filter_var($_POST['phone'], FILTER_VALIDATE_EMAIL)) {
+				$this->Email->AddAddress($_POST['phone']);
+				}
+				
 				$this->Email->Subject = $subject;
 
 				// Email Body

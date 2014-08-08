@@ -20,7 +20,7 @@ class GetController extends ModuleAskAProductQuestionAppController {
 	public function ask_form ($content_id = null)
 	{
 		$this->layout = null;
-		global $content, $config, $filter_list;
+		global $content, $config;
 
 		if ($_POST['content_id'] > 0) {
 			$content_id = (int)$_POST['content_id'];
@@ -62,6 +62,41 @@ class GetController extends ModuleAskAProductQuestionAppController {
 			}
 			
 			if ($_POST['email'] != '' && $_POST['content'] != '') {
+
+				// Get email template
+				$email_template = $this->EmailTemplate->findByAlias('ask_a_product_question');
+
+				// Email Subject
+				$subject = $email_template['EmailTemplateDescription']['subject'];
+				$subject = str_replace('{$product_name}',$content_description['ContentDescription']['name'], $subject);
+				$subject = str_replace('{$store_name}',$config['SITE_NAME'], $subject);
+
+				$body = $email_template['EmailTemplateDescription']['content'];
+				$body = str_replace('{$product_name}', $content_description['ContentDescription']['name'], $body);
+				$body = str_replace('{$question}', $_POST['content'], $body);
+
+				$this->Email->init();
+				$this->Email->From = $_POST['email'];
+				$this->Email->FromName = $_POST['name'];
+
+				// Send email to admin
+				if (filter_var($config['SEND_CONTACT_US_EMAIL'], FILTER_VALIDATE_EMAIL)) {
+				$this->Email->AddAddress($config['SEND_CONTACT_US_EMAIL']);
+				}
+				
+				// Send email to customer
+				if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+				$this->Email->AddAddress($_POST['email']);
+				}
+				
+				$this->Email->Subject = $subject;
+
+				// Email Body
+				$this->Email->Body = $body;
+
+				// Sending mail
+				$this->Email->send();
+
 				// Email Subject
 				$subject = $content_description['ContentDescription']['name'];
 				$subject = $config['SITE_NAME'] . ' - ' . $subject;
