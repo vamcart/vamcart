@@ -97,24 +97,6 @@ class GetController extends ModuleAskAProductQuestionAppController {
 				// Sending mail
 				$this->Email->send();
 
-				// Email Subject
-				$subject = $content_description['ContentDescription']['name'];
-				$subject = $config['SITE_NAME'] . ' - ' . $subject;
-
-				$body = $content_description['ContentDescription']['name'] . "\n"."\n" . $_POST['content'];
-
-				$this->Email->init();
-				$this->Email->From = $_POST['email'];
-				$this->Email->FromName = $_POST['name'];
-
-				$this->Email->AddAddress($config['SEND_CONTACT_US_EMAIL']);
-				$this->Email->Subject = $subject;
-
-				// Email Body
-				$this->Email->Body = $body;
-
-				// Sending mail
-				$this->Email->send();
 			}
 
 			$this->redirect('/page/ask_a_product_question'.$config['URL_EXTENSION']);
