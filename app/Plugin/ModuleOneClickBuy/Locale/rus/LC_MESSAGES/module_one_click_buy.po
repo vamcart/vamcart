@@ -57,7 +57,7 @@ msgstr "Отправить"
 
 #: /app_controller.php:183
 msgid "Your request successfully sended."
-msgstr "Ваш заказ успешно отправлен. Вы получите ответ в самое ближайшее время."
+msgstr "Ваш заказ успешно оформлен. Вы получите ответ в самое ближайшее время."
 
 #: /app_controller.php:183
 msgid "Thank you!"

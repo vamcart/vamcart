@@ -63,6 +63,17 @@ class GetController extends ModuleAskAProductQuestionAppController {
 			
 			if ($_POST['email'] != '' && $_POST['content'] != '') {
 
+				// Retrieve email template
+				$this->EmailTemplate->unbindModel(array('hasMany' => array('EmailTemplateDescription')));
+				$this->EmailTemplate->bindModel(array(
+					'hasOne' => array(
+						'EmailTemplateDescription' => array(
+							'className'  => 'EmailTemplateDescription',
+							'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
+						)
+					)
+				));
+
 				// Get email template
 				$email_template = $this->EmailTemplate->findByAlias('ask_a_product_question');
 
