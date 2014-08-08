@@ -66,6 +66,17 @@ class BuyController extends ModuleOneClickBuyAppController {
 			
 			if (filter_var($config['SEND_EXTRA_EMAIL'], FILTER_VALIDATE_EMAIL) or filter_var($_POST['phone'], FILTER_VALIDATE_EMAIL)) {
 
+				// Retrieve email template
+				$this->EmailTemplate->unbindModel(array('hasMany' => array('EmailTemplateDescription')));
+				$this->EmailTemplate->bindModel(array(
+					'hasOne' => array(
+						'EmailTemplateDescription' => array(
+							'className'  => 'EmailTemplateDescription',
+							'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
+						)
+					)
+				));
+
 				// Get email template
 				$email_template = $this->EmailTemplate->findByAlias('one_click_buy');
 
@@ -75,6 +86,7 @@ class BuyController extends ModuleOneClickBuyAppController {
 				$subject = str_replace('{$store_name}',$config['SITE_NAME'], $subject);
 
 				$body = $email_template['EmailTemplateDescription']['content'];
+				$body = str_replace('{$store_name}', $config['SITE_NAME'], $body);
 				$body = str_replace('{$product_name}', $content_description['ContentDescription']['name'], $body);
 				$body = str_replace('{$contact}', $_POST['phone'], $body);
 

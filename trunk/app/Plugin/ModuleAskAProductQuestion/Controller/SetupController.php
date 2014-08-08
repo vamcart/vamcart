@@ -51,7 +51,7 @@ INSERT INTO email_templates (`id`, `alias`, `default`, `order`) VALUES (NULL, 'a
 ";
 		$install_query[] = "
 INSERT INTO `email_template_descriptions` (`id`, `email_template_id`, `language_id`, `subject`, `content`) VALUES
-(NULL, LAST_INSERT_ID(), 1, 'Ask a product question - {\$product_name}', 'Hello!\r\n\r\nThank you for your question! We\'ll reply you shortly.\r\n\r\nProduct name: {\$product_name}\r\n\r\nYour question:\r\n{\$question}'),
+(NULL, LAST_INSERT_ID(), 1, 'Ask a product question - {\$product_name}', 'Hello!\r\n\r\nThank you for your question! We\'ll reply you shortly.\r\n\r\nProduct name: {\$product_name}\r\n\r\nYour question:\r\n\r\n{\$question}'),
 (NULL, LAST_INSERT_ID(), 2, 'Задать вопрос о товаре - {\$product_name}', 'Здравствуйте!\r\n\r\nСпасибо за Ваш вопрос! Мы ответим Вам в самое ближайшее время.\r\n\r\nНазвание товара: {\$product_name}\r\n\r\nВаш вопрос:\r\n\r\n{\$question}');
 		";
 				
