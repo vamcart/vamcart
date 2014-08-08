@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 
 class BuyController extends ModuleOneClickBuyAppController {
-	public $uses = array('Order');
+	public $uses = array('Order', 'EmailTemplate');
 	public $components = array('Email', 'Smarty', 'ContentBase', 'OrderBase');
 		
 	public function link ()
@@ -64,7 +64,7 @@ class BuyController extends ModuleOneClickBuyAppController {
 			// Save the order
 			$this->purchase_product();
 			
-			if ($config['SEND_EXTRA_EMAIL'] != '' or filter_var($_POST['phone'], FILTER_VALIDATE_EMAIL)) {
+			if (filter_var($config['SEND_EXTRA_EMAIL'], FILTER_VALIDATE_EMAIL) or filter_var($_POST['phone'], FILTER_VALIDATE_EMAIL)) {
 
 				// Get email template
 				$email_template = $this->EmailTemplate->findByAlias('one_click_buy');
