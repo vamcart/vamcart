@@ -58,7 +58,20 @@ class Content extends AppModel {
                     $url = BASE . '/' . ((isset($base_type))?$base_type:$content['ContentType']['name']) . '/' . $content['Content']['alias'] . $config['URL_EXTENSION'];
             return $url;
         }
-        
+
+        public function getStockForContent($content_id = 0, $base_type = null)
+        {
+            $url = null;            
+            global $config;
+            if($content_id == 0&&isset($this->id)) $content_id = $this->id;
+            $this->unbindAll();
+            $this->bindModel(array('belongsTo' => array('ContentType' => array('className' => 'ContentType'))));
+            $this->bindModel(array('hasOne' => array('ContentProduct' => array('className' => 'ContentProduct'))));	
+            $content = $this->find('first', array('conditions' => array('Content.id' => $content_id)));
+            $stock = $content['ContentProduct']['stock'];
+            return $stock;
+        }
+                
         public function is_group($content_id = 0)
         {
             if($content_id == 0&&isset($this->id)) $content_id = $this->id;
@@ -88,7 +101,7 @@ class Content extends AppModel {
             $list_attr = $this->getSetAttributesForProduct($content_id);
             $list_attr = Set::combine($list_attr,'{n}.id','{n}');        
             $this->unbindAll();
-            $products = $this->find('list', array('fields' => array('id','parent_id'),'conditions' => array('id_group' => $this->getGroup($content_id), 'Content.id <>' => $content_id)));        
+            $products = $this->find('list', array('fields' => array('id','parent_id'),'conditions' => array('id_group' => $this->getGroup($content_id), 'Content.id <>' => $content_id))); 
             foreach($products AS $product_id => $product_parent_id)
             {
                 $group_list_attr = $this->getSetAttributesForProduct($product_id);            
@@ -98,6 +111,7 @@ class Content extends AppModel {
                     {
                         $attr['content_id'] = $product_id;
                         $attr['content_alias'] = $this->getAliasForContent($product_id);
+                        $attr['content_stock'] = $this->getStockForContent($product_id,'product');
                         $attr['content_chng_url'] = $this->getUrlForContent($product_id,'product');
                         if($list_attr[$attr['id']]['values_attribute']['id'] != $make_attr_product)$list_attr[$attr['id']]['make'] = false;
                         if($unique) //Проверим на уникальность
