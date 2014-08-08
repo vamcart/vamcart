@@ -53,6 +53,8 @@ class ContactUsController extends AppController {
 		
 		}
 
+		$this->Session->setFlash(__('Your enquiry has been successfully sent!'), 'bootstrap_alert_success');
+				
 		$this->redirect('/');
 	}
 	
