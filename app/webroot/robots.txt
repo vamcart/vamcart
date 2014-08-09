@@ -14,6 +14,7 @@ Disallow: /admin/
 Disallow: /page/coupon-details.html
 Disallow: /users/admin_login
 Disallow: /page/home-page.html
+Disallow: /page/search-result.html
 Disallow: /page/ask_a_product_question.html
 Disallow: /page/one_click_buy.html
 Disallow: /module_one_click_buy/*
