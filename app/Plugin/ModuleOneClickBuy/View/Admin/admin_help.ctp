@@ -14,4 +14,5 @@
 <p>{module alias='one_click_buy' controller='buy' action='link'}</p>
 <p><?php echo __d('module_one_click_buy', 'This call will create link to javascript popup window with product request form.'); ?></p>
 <h3><?php echo __d('module_one_click_buy', 'Insert this placeholder at product page template (Admin - Layout - Template - Product Info).'); ?></h3>
+<?php echo $this->Admin->linkButton(__('Back'), '/modules/admin/', 'cus-arrow-turn-left', array('escape' => false, 'class' => 'btn')); ?>
 <?php echo $this->Admin->ShowPageHeaderEnd(); ?>

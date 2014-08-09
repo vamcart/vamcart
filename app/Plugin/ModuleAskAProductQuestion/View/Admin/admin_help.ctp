@@ -14,4 +14,5 @@
 <p>{module alias='ask_a_product_question' controller='get' action='ask_link'}</p>
 <p><?php echo __d('module_ask_a_product_question', 'This call will create link to javascript popup window with product question form.'); ?></p>
 <h3><?php echo __d('module_ask_a_product_question', 'Insert this placeholder at product page template (Admin - Layout - Template - Product Info).'); ?></h3>
+<?php echo $this->Admin->linkButton(__('Back'), '/modules/admin/', 'cus-arrow-turn-left', array('escape' => false, 'class' => 'btn')); ?>
 <?php echo $this->Admin->ShowPageHeaderEnd(); ?>
