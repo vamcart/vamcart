@@ -9,7 +9,7 @@
 function default_template_discount_list()
 {
     $template = '
-    	{if $discounts}
+		{if $discounts}
 		<div class="inner">            
 			<ul>
 			{foreach from=$discounts item=discount}
