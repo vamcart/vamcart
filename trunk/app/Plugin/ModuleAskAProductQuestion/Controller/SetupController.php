@@ -63,7 +63,6 @@ INSERT INTO `email_template_descriptions` (`id`, `email_template_id`, `language_
 		}
 
 		$this->Session->setFlash(__('Module Installed'));
-		$this->Session->setFlash(__('Module Installed'));
 		$this->redirect('/module_ask_a_product_question/admin/admin_help');
 	}
 	
