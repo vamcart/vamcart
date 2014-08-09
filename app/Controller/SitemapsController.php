@@ -186,6 +186,7 @@ class SitemapsController extends AppController {
 					
 					if($raw_data['ContentImage']['image'] != "") {
 						$image_url = $raw_data['Content']['id'] . '/' . $raw_data['ContentImage']['image'];
+						$image_path = BASE . '/img/content/' . $raw_data['Content']['id'] . '/' . $raw_data['ContentImage']['image'];
 						$thumb_name = substr_replace($raw_data['ContentImage']['image'] , '', strrpos($raw_data['ContentImage']['image'] , '.')).'-'.$config['THUMBNAIL_SIZE'].'.png';	
 						$thumb_path = IMAGES . 'content' . '/' . $raw_data['Content']['id'] . '/' . $thumb_name;
 						$thumb_url = BASE . '/img/content/' . $raw_data['Content']['id'] . '/' . $thumb_name;
@@ -193,8 +194,10 @@ class SitemapsController extends AppController {
 							if(file_exists($thumb_path) && is_file($thumb_path)) {
 								list($width, $height, $type, $attr) = getimagesize($thumb_path);
 								$content_list_products[$count_products]['image'] =  $thumb_url;
+								$content_list_products[$count_products]['image_original'] =  $image_path;
 							} else {
 								$content_list_products[$count_products]['image'] = BASE . '/images/thumb/' . $image_url;
+								$content_list_products[$count_products]['image_original'] =  $image_path;
 							}
 		
 					} else { 
