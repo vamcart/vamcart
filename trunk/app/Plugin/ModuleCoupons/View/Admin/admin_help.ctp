@@ -14,4 +14,5 @@
 <p><?php echo __('Once installed there will be a new menu item under Content called Coupons. Here you can create coupons for your customers to use. They will be presented with a box during checkout to enter any promotional coupons they have.'); ?></p>
 <h3><?php echo __('To use during checkout:'); ?></h3>
 <p>{module alias='coupons' action='checkout_box'}</p>
+<?php echo $this->Admin->linkButton(__('Back'), '/modules/admin/', 'cus-arrow-turn-left', array('escape' => false, 'class' => 'btn')); ?>
 <?php echo $this->Admin->ShowPageHeaderEnd(); ?>
