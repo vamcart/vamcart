@@ -9,6 +9,7 @@
 function default_template_discount_list()
 {
     $template = '
+    	{if $discounts}
 		<div class="inner">            
 			<ul>
 			{foreach from=$discounts item=discount}
@@ -16,6 +17,7 @@ function default_template_discount_list()
 			{/foreach}
 			</ul>
 		</div>
+		{/if}
     ';
     return $template;
 }
