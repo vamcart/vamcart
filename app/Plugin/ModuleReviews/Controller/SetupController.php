@@ -20,6 +20,7 @@ class SetupController extends ModuleReviewsAppController {
 		
 	public function install()
 	{
+		$this->ModuleBase->check_if_installed('reviews');
 
 		// Create the new module record		
 		$new_module = array();

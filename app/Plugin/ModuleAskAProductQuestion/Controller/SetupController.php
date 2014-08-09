@@ -18,6 +18,7 @@ class SetupController extends ModuleAskAProductQuestionAppController {
 		
 	public function install()
 	{
+		$this->ModuleBase->check_if_installed('ask_a_product_question');
 
 		// Create the new module record		
 		$new_module = array();
