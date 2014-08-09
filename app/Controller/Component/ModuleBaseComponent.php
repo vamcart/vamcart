@@ -51,7 +51,7 @@ class ModuleBaseComponent extends Object
 		$installed_version = $installed_module['Module']['version'];
 		if($installed_version >= $current_version)
 		{
-			$this->Session->setFlash(__('Could not install module.',true));
+			$this->Session->setFlash(__('Could not install module.'));
 			$this->controller->redirect('/modules/admin/');
 			exit;
 		}
@@ -132,7 +132,7 @@ class ModuleBaseComponent extends Object
 		if(($redirect == true)&&($check_count == 1))
 		{
 		
-			$this->Session->setFlash($module_alias . ' ' . __('module exists.',true));
+			$this->Session->setFlash($module_alias . ' ' . __('module exists.'));
 			$this->controller->redirect('/modules/admin');
 			die();
 		}
