@@ -18,6 +18,7 @@ class SetupController extends ModuleOneClickBuyAppController {
 		
 	public function install()
 	{
+		$this->ModuleBase->check_if_installed('one_click_buy');
 
 		// Create the new module record		
 		$new_module = array();
