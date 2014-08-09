@@ -102,6 +102,7 @@ function smarty_function_shopping_cart($params, $template)
 		
 		if($content_image != "") {
 			$image_url = $content_id . '/' . $content_image . '/40';
+			$image_path = BASE . '/img/content/' . $content_id . '/' . $content_image;
 			$thumb_name = substr_replace($content_image , '', strrpos($content_image , '.')).'-40.png';	
 			$thumb_path = IMAGES . 'content' . '/' . $content_id . '/' . $thumb_name;
 			$thumb_url = BASE . '/img/content/' . $content_id . '/' . $thumb_name;
@@ -109,11 +110,13 @@ function smarty_function_shopping_cart($params, $template)
 				if(file_exists($thumb_path) && is_file($thumb_path)) {
 					list($width, $height, $type, $attr) = getimagesize($thumb_path);
 					$image['image'] = true;
+					$image['image_original'] =  $image_path;
 					$image['image_thumb'] =  $thumb_url;
 					$image['image_width'] = $width;
 					$image['image_height'] = $height;
 				} else {
 					$image['image'] = true;
+					$image['image_original'] =  $image_path;
 					$image['image_thumb'] = BASE . '/images/thumb/' . $image_url;
 					$image['image_width'] = null;
 					$image['image_height'] = null;

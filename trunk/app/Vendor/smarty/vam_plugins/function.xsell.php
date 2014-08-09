@@ -66,6 +66,7 @@ function smarty_function_xsell($params, &$smarty)
 		
 		if($image['ContentImage']['image'] != "") {
 			$image_url = $content['ContentRelations'][$key]['id'] . '/' . $image['ContentImage']['image'];
+			$image_path = BASE . '/img/content/' . $content['ContentRelations'][$key]['id'] . '/' . $image['ContentImage']['image'];
 			$thumb_name = substr_replace($image['ContentImage']['image'] , '', strrpos($image['ContentImage']['image'] , '.')).'-'.$config['THUMBNAIL_SIZE'].'.png';	
 			$thumb_path = IMAGES . 'content' . '/' . $content['ContentRelations'][$key]['id'] . '/' . $thumb_name;
 			$thumb_url = BASE . '/img/content/' . $content['ContentRelations'][$key]['id'] . '/' . $thumb_name;
@@ -73,10 +74,12 @@ function smarty_function_xsell($params, &$smarty)
 				if(file_exists($thumb_path) && is_file($thumb_path)) {
 					list($width, $height, $type, $attr) = getimagesize($thumb_path);
 					$content['ContentRelations'][$key]['image']['image'] =  $thumb_url;
+					$content['ContentRelations'][$key]['image']['image_original'] =  $image_path;
 					$content['ContentRelations'][$key]['image']['image_width'] = $width;
 					$content['ContentRelations'][$key]['image']['image_height'] = $height;
 				} else {
 					$content['ContentRelations'][$key]['image']['image'] = BASE . '/images/thumb/' . $image_url;
+					$content['ContentRelations'][$key]['image']['image_original'] =  $image_path;
 					$content['ContentRelations'][$key]['image']['image_width'] = null;
 					$content['ContentRelations'][$key]['image']['image_height'] = null;
 				}

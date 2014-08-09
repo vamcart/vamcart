@@ -162,6 +162,7 @@ function smarty_function_compared($params)
 								
 								if($product['ContentImage']['image'] != "") {
 									$image_url = $product['Content']['id'] . '/' . $product['ContentImage']['image'];
+									$image_path = BASE . '/img/content/' . $product['Content']['id'] . '/' . $product['ContentImage']['image'];
 									$thumb_name = substr_replace($product['ContentImage']['image'] , '', strrpos($product['ContentImage']['image'] , '.')).'-'.$config['THUMBNAIL_SIZE'].'.png';	
 									$thumb_path = IMAGES . 'content' . '/' . $product['Content']['id'] . '/' . $thumb_name;
 									$thumb_url = BASE . '/img/content/' . $product['Content']['id'] . '/' . $thumb_name;
@@ -169,10 +170,12 @@ function smarty_function_compared($params)
 										if(file_exists($thumb_path) && is_file($thumb_path)) {
 											list($width, $height, $type, $attr) = getimagesize($thumb_path);
 											$element_list[$k_a]['attributes_product'][$k_p]['image'] =  $thumb_url;
+											$element_list[$k_a]['attributes_product'][$k_p]['image_original'] =  $image_path;
 											$element_list[$k_a]['attributes_product'][$k_p]['image_width'] = $width;
 											$element_list[$k_a]['attributes_product'][$k_p]['image_height'] = $height;
 										} else {
 											$element_list[$k_a]['attributes_product'][$k_p]['image'] = BASE . '/images/thumb/' . $image_url;
+											$element_list[$k_a]['attributes_product'][$k_p]['image_original'] =  $image_path;
 											$element_list[$k_a]['attributes_product'][$k_p]['image_width'] = null;
 											$element_list[$k_a]['attributes_product'][$k_p]['image_height'] = null;
 										}
