@@ -17,7 +17,7 @@ function smarty_function_country_list($params, &$smarty)
     $List = '';
 
 		if(!isset ($params['selected']))
-			$params['selected'] = 176;
+			$params['selected'] = ($_SESSION['Customer']['language'] == 'ru') ? 176 : 223;
 
     foreach($options as $key=>$value)
     {

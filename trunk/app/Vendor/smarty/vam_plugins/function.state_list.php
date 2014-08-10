@@ -11,10 +11,10 @@ function smarty_function_state_list($params, &$smarty)
         global $content;
 
 			if(!isset ($params['country']))
-				$params['country'] = 176;
+				$params['country'] = ($_SESSION['Customer']['language'] == 'ru') ? 176 : 223;
 
 			if(!isset ($params['selected']))
-				$params['selected'] = 99;
+				$params['selected'] = ($_SESSION['Customer']['language'] == 'ru') ? 99 : 332;
 
         App::import('Model', 'CountryZone');
         $CountryZone =& new CountryZone();
