@@ -61,7 +61,6 @@ class Content extends AppModel {
 
         public function getStockForContent($content_id = 0, $base_type = null)
         {
-            $url = null;            
             global $config;
             if($content_id == 0&&isset($this->id)) $content_id = $this->id;
             $this->unbindAll();
@@ -71,6 +70,19 @@ class Content extends AppModel {
             $stock = $content['ContentProduct']['stock'];
             return $stock;
         }
+
+        public function getPriceForContent($content_id = 0, $base_type = null)
+        {
+            global $config;
+            if($content_id == 0&&isset($this->id)) $content_id = $this->id;
+            $this->unbindAll();
+            $this->bindModel(array('belongsTo' => array('ContentType' => array('className' => 'ContentType'))));
+            $this->bindModel(array('hasOne' => array('ContentProduct' => array('className' => 'ContentProduct'))));	
+            $content = $this->find('first', array('conditions' => array('Content.id' => $content_id)));
+            $price = $content['ContentProduct']['price'];
+            return $price;
+        }
+
                 
         public function is_group($content_id = 0)
         {
@@ -111,7 +123,8 @@ class Content extends AppModel {
                     {
                         $attr['content_id'] = $product_id;
                         $attr['content_alias'] = $this->getAliasForContent($product_id);
-                        $attr['content_stock'] = $this->getStockForContent($product_id,'product');
+                        $attr['content_stock'] = $this->getStockForContent($product_id);
+                        $attr['content_price'] = $this->getPriceForContent($product_id);
                         $attr['content_chng_url'] = $this->getUrlForContent($product_id,'product');
                         if($list_attr[$attr['id']]['values_attribute']['id'] != $make_attr_product)$list_attr[$attr['id']]['make'] = false;
                         if($unique) //Проверим на уникальность
