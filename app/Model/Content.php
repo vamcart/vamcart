@@ -59,7 +59,7 @@ class Content extends AppModel {
             return $url;
         }
 
-        public function getStockForContent($content_id = 0, $base_type = null)
+        public function getStockForContent($content_id = 0)
         {
             global $config;
             if($content_id == 0&&isset($this->id)) $content_id = $this->id;
@@ -71,7 +71,7 @@ class Content extends AppModel {
             return $stock;
         }
 
-        public function getPriceForContent($content_id = 0, $base_type = null)
+        public function getPriceForContent($content_id = 0)
         {
             global $config;
             if($content_id == 0&&isset($this->id)) $content_id = $this->id;
