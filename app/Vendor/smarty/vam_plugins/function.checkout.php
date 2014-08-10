@@ -134,14 +134,14 @@ $(this).parent().addClass("selected");
 	<div class="control-group">
 		<label class="control-label" for="bill_country">{lang}Country{/lang}:</label>
 		<div class="controls">
-			<select name="bill_country" id="bill_country">{if $customer.AddressBook.ship_country}{country_list selected={$customer.AddressBook.ship_country}}{else}{country_list selected=176}{/if}</select>
+			<select name="bill_country" id="bill_country">{if $customer.AddressBook.ship_country}{country_list selected={$customer.AddressBook.ship_country}}{else}{country_list}{/if}</select>
 		</div>
 	</div>
 	<div class="control-group">
 	<div id="bill_state_div">
 		<label class="control-label" for="bill_state">{lang}State{/lang}:</label>
 		<div class="controls">
-			<select name="bill_state" id="bill_state">{if $customer.AddressBook.ship_state}{state_list country={$customer.AddressBook.ship_country} selected={$customer.AddressBook.ship_state}}{else}{state_list country=176 selected=99}{/if}</select>
+			<select name="bill_state" id="bill_state">{if $customer.AddressBook.ship_state}{state_list country={$customer.AddressBook.ship_country} selected={$customer.AddressBook.ship_state}}{else}{state_list}{/if}</select>
 		</div>
 	</div>
 	</div>
@@ -189,14 +189,14 @@ $(this).parent().addClass("selected");
 	<div class="control-group">
 		<label class="control-label" for="ship_country">{lang}Country{/lang}:</label>
 		<div class="controls">
-			<select name="ship_country" id="ship_country">{country_list selected=176}</select>
+			<select name="ship_country" id="ship_country">{country_list}</select>
 		</div>
 	</div>
 	<div class="control-group">
 	<div id="ship_state_div">
 		<label class="control-label" for="ship_state">{lang}State{/lang}:</label>
 		<div class="controls">
-			<select name="ship_state" id="ship_state">{state_list country=176 selected=99}</select>
+			<select name="ship_state" id="ship_state">{state_list}</select>
 		</div>
 	</div>
 	</div>

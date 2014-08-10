@@ -128,14 +128,14 @@ $("#ship_phone").mask("(999) 999-9999");
 	<div class="control-group">
 		<label class="control-label" for="ship_country">{lang}Country{/lang}:</label>
 		<div class="controls">
-			<select name="AddressBook[ship_country]" id="ship_country">{if $form_data.AddressBook.ship_country}{country_list selected={$form_data.AddressBook.ship_country}}{else}{country_list selected=176}{/if}</select>
+			<select name="AddressBook[ship_country]" id="ship_country">{if $form_data.AddressBook.ship_country}{country_list selected={$form_data.AddressBook.ship_country}}{else}{country_list}{/if}</select>
 		</div>
 	</div>
 	<div class="control-group">
 	<div id="ship_state_div">
 		<label class="control-label" for="ship_state">{lang}State{/lang}:</label>
 		<div class="controls">
-			<select name="AddressBook[ship_state]" id="ship_state">{if $form_data.AddressBook.ship_state}{state_list country={$form_data.AddressBook.ship_country} selected={$form_data.AddressBook.ship_state}}{else}{state_list country=176 selected=99}{/if}</select>
+			<select name="AddressBook[ship_state]" id="ship_state">{if $form_data.AddressBook.ship_state}{state_list country={$form_data.AddressBook.ship_country} selected={$form_data.AddressBook.ship_state}}{else}{state_list}{/if}</select>
 		</div>
 	</div>
 	</div>
