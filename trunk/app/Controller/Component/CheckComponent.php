@@ -7,8 +7,6 @@
    ---------------------------------------------------------------------------------------*/
 class CheckComponent extends Object
 {
-    public $data;
-
 	public function beforeFilter ()
 	{
 	}
