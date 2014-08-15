@@ -125,7 +125,7 @@ class CheckComponent extends Object
 
 	public function check_host()
 	{
-		$host = $host1 = $_SERVER['HTTP_HOST'];
+		$host = $host1 = env('HTTP_HOST');
 		$host2 = getenv('HTTP_HOST');
 		if(function_exists('apache_getenv'))
 			$host3 = apache_getenv('HTTP_HOST');
