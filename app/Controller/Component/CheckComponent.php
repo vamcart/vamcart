@@ -7,6 +7,9 @@
    ---------------------------------------------------------------------------------------*/
 class CheckComponent extends Object
 {
+
+	public $demo_period = 14;	
+	
 	public function beforeFilter ()
 	{
 	}
@@ -42,7 +45,7 @@ class CheckComponent extends Object
 		$config_filename = ROOT . '/config.php';
 		if(is_readable($config_filename)) {
 			if (filesize($config_filename) > 0) {
-				$demo_period = 14;
+				$demo_period = $this->demo_period;
     			$current_install = date("d", filemtime($config_filename));  
     			if ($current_install <= $demo_period) {
 				
