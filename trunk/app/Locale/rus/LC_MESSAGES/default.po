@@ -3429,6 +3429,10 @@ msgid "Click Update button to start VamShop AutoUpdate."
 msgstr "Нажмите кнопку Обновить для обновления Вашего магазина до текущей версии."
 
 #: /app/views/update/admin_update.ctp
+msgid "Trial version of VamShop is over. Purchase unlimited version of VamShop at"
+msgstr "Срок работы демо-версии VamShop закончился. Оформите заказ на полную неограниченную версию VamShop на"
+
+#: /app/views/update/admin_update.ctp
 msgid "Don\'t forget backup your files and database before update at Admin - Tools - Database Backup."
 msgstr "Не забудьте сделать резервную копию файлов и базы данных магазина перед обновлением."
 
