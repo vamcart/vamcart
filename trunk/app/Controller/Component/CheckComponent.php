@@ -8,7 +8,7 @@
 class CheckComponent extends Object
 {
 
-	public $demo_period = 14;	
+	public $demo_period_days = 14;	
 	
 	public function beforeFilter ()
 	{
@@ -40,15 +40,16 @@ class CheckComponent extends Object
 		App::import('Model', 'License');
 	   $License =& new License();
     	$this->data = $License->find('first');
+
      	if($this->check_domain($this->data['License']['licenseKey']) != 'true') {
     	
 		$config_filename = ROOT . '/config.php';
 		if(is_readable($config_filename)) {
 			if (filesize($config_filename) > 0) {
-				$demo_period = $this->demo_period;
-    			$current_install = date("d", filemtime($config_filename));  
-    			if ($current_install <= $demo_period) {
-				
+    			$current_install = filemtime($config_filename);  
+    			$demo_period = $current_install + ($this->demo_period_days * 24 * 60 * 60);
+    			$current_date = time();  
+    			if ($current_date <= $demo_period) {
     			} else {
     			echo __('Trial version of VamShop is over. Purchase unlimited version of VamShop at') . ' <a href="'. 'http://' . __('vamshop.com') . '">http://' . __('vamshop.com') . '</a>';
     			die();
