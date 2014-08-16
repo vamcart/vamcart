@@ -2355,6 +2355,10 @@ msgid "Subscribe"
 msgstr "Подписаться"
 
 #: /views/install/create.ctp:15
+msgid "http://support.vamshop.com/modules/evennews/index.php?action=subscribe"
+msgstr "http://support.vamshop.ru/modules/evennews/index.php?action=subscribe"
+
+#: /views/install/create.ctp:15
 msgid "We at VamShop value your privacy, we will never sell or distribute your information. You will only receive information regarding VamShop or its affiliates."
 msgstr "Мы заботимся о безопасности Вашей информации. Вы будете получать информацию только о новостях VamShop."
 
