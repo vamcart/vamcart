@@ -15,15 +15,11 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-lightbulb');
 <p>
 <?php echo $this->Admin->linkButtonCatalog(__('Click here to visit your live store.'),'/','cus-cart-go',array('escape' => false, 'target'=>'_blank', 'class' => 'btn')); ?>
 </p>
-<form method="post" action="http://support.vamshop.com/modules/evennews/index.php">
-<fieldset class="form">
-<legend><?php echo __('VamShop Newsletter'); ?></legend>
-<div class="input text"><?php echo __('Your Name'); ?>: <input type="text" name="user_nick" /></div>
-<div class="input text"><?php echo __('Your Email'); ?>: <input type="text" name="user_mail" /></div>
-</fieldset>
-<input type='hidden' name='action' value='subscribe_conf'>
-<?php echo $this->Admin->formButtonCatalog(__('Subscribe'), 'cus-newspaper', array('class' => 'btn', 'type' => 'submit', 'name' => 'submitbutton')); ?>
-</form>
+<p><?php echo __('VamShop Newsletter'); ?>: </p>
+<p>
+<?php echo $this->Admin->linkButtonCatalog(__('Subscribe'),__('http://support.vamshop.com/modules/evennews/index.php?action=subscribe'),'cus-arrow-right',array('escape' => false, 'target'=>'_blank', 'class' => 'btn'));
+ ?>
+</p>
 <p>
 <?php echo __('We at VamShop value your privacy, we will never sell or distribute your information. You will only receive information regarding VamShop or its affiliates.'); ?>
 </p>
