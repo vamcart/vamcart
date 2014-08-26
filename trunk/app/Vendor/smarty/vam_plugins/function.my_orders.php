@@ -25,7 +25,7 @@ $template = '
 
 	<div id="customer{$order.Order.id}" class="tab-pane fade in active">
 
-		<table border=0 class="orderTable">
+		<table border="0" class="contentTable">
 			<tr><td width="50%">
 		
 			<table border="0" class="contentTable">
@@ -112,12 +112,12 @@ $template = '
 		</tr>
 		{foreach from=$order.OrderProduct item=products}
 		<tr>
-			<td>{$products.name}</td>
+			<td>{$products.name} {if $products.filename != ""} - <a href="{$smarty.const.FULL_BASE_URL}{$smarty.const.BASE}/download/{$order.Order.id}/{$products.id}/{$products.download_key}"><span class="label label-success">{lang}Download file{/lang}</span></a>{/if}</td>
 			<td>{$products.model}</td>
 			<td>{$products.price}</td>
 			<td>{$products.quantity}</td>
 			<td>{$products.quantity*$products.price}</td>
-		<tr>
+		</tr>
 		{/foreach}
 		
 		<tr>
@@ -126,7 +126,7 @@ $template = '
 			<td>{$order.Order.shipping}</td>
 			<td>1</td>
 			<td>{$order.Order.shipping}</td>					
-		<tr>
+		</tr>
 
 		<tr>
 			<td>{lang}Order Total{/lang}</strong></td>
@@ -134,7 +134,7 @@ $template = '
 			<td>&nbsp;</td>
 			<td>&nbsp;</td>
 			<td><strong>{$order.Order.total}</strong></td>
-		<tr>
+		</tr>
 
 		</table>
 		
@@ -200,7 +200,7 @@ function smarty_function_my_orders($params, $template)
            	)
 	    );			
 
-	$order_data = $Order->find('all', array('recursive' => 1, 'conditions' => array('Order.customer_id' => $_SESSION['Customer']['customer_id'], 'Order.order_status_id >' => '0'), 'order' => 'Order.id DESC'));
+	$order_data = $Order->find('all', array('recursive' => 2, 'conditions' => array('Order.customer_id' => $_SESSION['Customer']['customer_id'], 'Order.order_status_id >' => '0'), 'order' => 'Order.id DESC'));
 
 	$display_template = $Smarty->load_template($params, 'my_orders');
 	$assignments = array(

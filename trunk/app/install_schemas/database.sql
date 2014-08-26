@@ -39,7 +39,7 @@ INSERT INTO `configurations` (`id`, `configuration_group_id`, `key`, `value`, `t
 (3,'1','FACEBOOK', 'http://facebook.com/your-account','text', '', 'Facebook','','3'),
 (4,'1','TWITTER', 'http://twitter.com/your-account','text', '', 'Twitter','','4'),
 (5,'1','GOOGLE', 'http://plus.google.com/your-account','text', '', 'Google+','','5'),
-(6,'1','METADATA', '<meta name="generator" content="Bluefish 2.2.2" />','textarea', '', 'Metadata','','6'),
+(6,'1','METADATA', '<meta name="generator" content="Bluefish 2.2.5" />','textarea', '', 'Metadata','','6'),
 (7,'1','URL_EXTENSION', '.html','text', '', 'URL Extension','','7'),
 (8,'1','GD_LIBRARY', '1','select', '0,1', 'GD Library Enabled','','8'),
 (9,'1','THUMBNAIL_SIZE', '250','text', '', 'Image Thumbnail Size','','9'),
@@ -1405,7 +1405,11 @@ INSERT INTO `defined_languages` (`id`, `language_id`, `key`, `value`, `created`,
 (279, 1, 'Ask A Product Question', 'Ask A Product Question', '2013-10-10 20:08:49', '2013-10-10 20:08:49'),
 (280, 2, 'Ask A Product Question', 'Задать вопрос о товаре', '2013-10-10 20:08:49', '2013-10-10 20:08:49'),
 (281, 1, 'One Click Buy', 'One Click Buy', '2013-10-10 20:08:49', '2013-10-10 20:08:49'),
-(282, 2, 'One Click Buy', 'Купить за 1 клик', '2013-10-10 20:08:49', '2013-10-10 20:08:49');
+(282, 2, 'One Click Buy', 'Купить за 1 клик', '2013-10-10 20:08:49', '2013-10-10 20:08:49'),
+(283, 1, 'Download', 'Download', '2013-10-10 20:08:49', '2013-10-10 20:08:49'),
+(284, 2, 'Download', 'Скачать', '2013-10-10 20:08:49', '2013-10-10 20:08:49'),
+(285, 1, 'Download file', 'Download file', '2013-10-10 20:08:49', '2013-10-10 20:08:49'),
+(286, 2, 'Download file', 'Cкачать файл', '2013-10-10 20:08:49', '2013-10-10 20:08:49');
 
 DROP TABLE IF EXISTS email_templates;
 CREATE TABLE `email_templates` (
