@@ -82,7 +82,6 @@ function smarty_function_shopping_cart($params, $template)
 	if (!isset($order['OrderProduct'])) {
 		// Quit if we passed the param and the cart is empty
 		if ((!isset($params['showempty']))||($params['showempty'] == false)) {
-			//echo '<div id="shopping-cart-box"></div>';
 			return;
 		}
 
