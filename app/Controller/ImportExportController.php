@@ -94,6 +94,7 @@ class ImportExportController extends AppController {
                         foreach($rowIterator as $k_row => $row)
                         {
                             $cellIterator = $row->getCellIterator();
+                            $cellIterator->setIterateOnlyExistingCells(false);
                             foreach($cellIterator as $k_cell => $cell)
                             {
                                 $tmp_row[$tmp_head[$k_cell]] = $cell->getValue();
@@ -102,7 +103,6 @@ class ImportExportController extends AppController {
                         }
                         App::import('Model', $table_name);
                         $this->myModel = new $table_name();
-                        
                         if(method_exists($this->myModel,'import'))$rows = $this->myModel->import($tmp[$table_name]);
                         else
                             foreach($tmp[$table_name] AS $table_row)
