@@ -103,6 +103,7 @@ class ImportExportController extends AppController {
                         }
                         App::import('Model', $table_name);
                         $this->myModel = new $table_name();
+
                         if(method_exists($this->myModel,'import'))$rows = $this->myModel->import($tmp[$table_name]);
                         else
                             foreach($tmp[$table_name] AS $table_row)
