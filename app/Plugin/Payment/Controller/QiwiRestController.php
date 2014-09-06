@@ -59,7 +59,7 @@ class QiwiRestController extends PaymentAppController {
 	{
 
 		$content = '<form action="' . BASE . '/payment/qiwi_rest/process_payment/" method="post">
-		<p>	QIWI {lang}Phone{/lang}: &nbsp;<input type="text" name="qiwi_telephone" /> {lang}Example{/lang}: 7916820XXXX</p>
+		<p>	'.__('Qiwi Phone').': &nbsp;<input type="text" name="qiwi_telephone" /> {lang}Example{/lang}: 7916820XXXX</p>
 		<button class="btn btn-inverse" type="submit" value="{lang}Confirm Order{/lang}"><i class="fa fa-check"></i> {lang}Confirm Order{/lang}</button>
 		</form>';
 
@@ -107,7 +107,7 @@ class QiwiRestController extends PaymentAppController {
 		$summ = number_format($order['Order']['total'],2,'.','');
 		$life_time = date('c', strtotime("+7 days"));
 
-		$_data = "user=" . urlencode("tel:+" . ($_SESSION['qiwi_telephone'] == '' ? $_POST['qiwi_telephone'] : $_SESSION['qiwi_telephone'])) . "&amount=" . urlencode($summ) . "&ccy=" . urlencode($currency_code) . "&comment=" . urlencode($order_id) . "&lifetime=" . urlencode($life_time). "&prv_name=" . urlencode(STORE_NAME);
+		$_data = "user=" . urlencode("tel:+" . $_POST['qiwi_telephone']) . "&amount=" . urlencode($summ) . "&ccy=" . urlencode($currency_code) . "&comment=" . urlencode($order_id) . "&lifetime=" . urlencode($life_time). "&prv_name=" . urlencode(STORE_NAME);
 		
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $_data);
 
