@@ -2863,9 +2863,25 @@ msgstr "Секретный ключ"
 msgid "Qiwi ID"
 msgstr "ID номер магазина в Qiwi"
 
+#: /plugins/payment/views/qiwi/settings.ctp:17
+msgid "Qiwi API ID"
+msgstr "Qiwi API ID"
+
+#: /plugins/payment/views/qiwi/settings.ctp:17
+msgid "Qiwi Notify Password"
+msgstr "Пароль оповещения"
+
 #: /plugins/payment/views/qiwi/settings.ctp:22
 msgid "Qiwi Password"
 msgstr "Ваш пароль"
+
+#: /plugins/payment/views/qiwi/settings.ctp:22
+msgid "Qiwi"
+msgstr "Киви"
+
+#: /plugins/payment/views/qiwi/settings.ctp:22
+msgid "Qiwi Phone"
+msgstr "Киви Телефон"
 
 #: Time Helper
 msgid "Today, %s"
