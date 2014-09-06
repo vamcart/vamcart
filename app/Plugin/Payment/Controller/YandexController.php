@@ -83,6 +83,7 @@ class YandexController extends PaymentAppController {
 			<input type="hidden" name="shopFailURL" value="' . $fail_url . '">
 			<input type="hidden" name="cps_email" value="' . $order['Order']['phone'] . '">
 			<input type="hidden" name="cms_name" value="vamshop">
+			<input type="hidden" name="paymentType" value="PC">
 			<input type="hidden" name="cps_phone" value="' . $order['Order']['email'] . '">';
 						
 		$content .= '
