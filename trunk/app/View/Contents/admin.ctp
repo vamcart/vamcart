@@ -136,6 +136,15 @@ echo '</table>';
 
 echo $this->Admin->ActionBar(array('activate'=>__('Activate'),'deactivate'=>__('Deactivate'),'show_in_menu'=>__('Show In Menu'),'hide_from_menu'=>__('Hide From Menu'), 'yml_export' => __('Export to YML'), 'yml_not_export' => __('Not export to YML'), 'delete'=>__('Delete'),'copy'=>__('Copy'),'move'=>__('Move')),true,(isset($last_content_id) ? $last_content_id : 0).'/'.(isset($parent_content) ? $parent_content['Content']['id'] : 0));
 echo $this->Form->end();
+?>
+
+<table class="contentPagination">
+	<tr>
+		<td><?php echo $this->Paginator->numbers(array('separator'=>' - ')); ?></td>
+	</tr>
+</table>
+
+<?php
 echo $this->Admin->ShowPageHeaderEnd();
 
 ?>

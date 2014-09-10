@@ -7,6 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 class ContentsController extends AppController {
 	public $helpers = array('TinyMce');
+	public $components = array('Paginator');	
 	public $name = 'Contents';
 
 	/**
@@ -660,45 +661,83 @@ class ContentsController extends AppController {
 	{
 		$this->set('current_crumb', __('Listing', true));
 		$this->set('title_for_layout', __('Content', true));
-		// Lets remove the hasMany association for now and associate it with our language of choice
-		$this->Content->unbindModel(array('hasMany' => array('ContentDescription')));
-		$this->Content->bindModel(
-			array('hasOne' => array(
-						'ContentDescription' => array(
-							'className' => 'ContentDescription',
-							'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
-							)
-						)
-			)
-		);
-
-		$content_data = $this->Content->find('all', array('conditions' => array('Content.parent_id' => $parent_id), 'order' => array('Content.order ASC')));
-		// Loop through and assign the counts
-		foreach($content_data AS $key => $value)
-		{
-			$content_data[$key]['Content']['count'] = $this->Content->find('count', array('conditions' => array('Content.parent_id' => $value['Content']['id'])));
-		}
 		
 		// Assign the parent content if $parent_id > 0
 		if($parent_id > 0)
 		{
-			$this->Content->unbindModel(array('hasMany' => array('ContentDescription')));
-			$this->Content->bindModel(array('hasOne' => array(
-									'ContentDescription' => array(
-										'className' => 'ContentDescription',
-										'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
-										)
-									)
-							)
-			);
-
+			$this->Content->unbindAll();   
+			$this->Content->bindModel(array(
+			'hasOne' => array(
+				'ContentDescription' => array(
+					'className' => 'ContentDescription',
+					'conditions' => 'language_id = '.$this->Session->read('Customer.language_id')
+				)
+			)
+			));
 			$parent_content = $this->Content->read(null, $parent_id);
-			$this->set('current_crumb_info', $parent_content['ContentDescription']['name']);
+			$this->set('current_crumb', $parent_content['ContentDescription']['name']);
 			$this->set('parent_content', $parent_content);			
 		}
+
+		//Pagination settings
+		$this->Paginator->settings = array(
+			'conditions' => array('Content.parent_id' => $parent_id),
+			'limit' => 20,
+			'order' => array(
+				'Content.order' => 'asc'
+			)
+		);
+    
+		$this->Content->unbindAll();   
+
+		$this->Content->bindModel(array(
+			'hasOne' => array(
+				'ContentDescription' => array(
+					'className' => 'ContentDescription',
+					'conditions' => 'language_id = '.$this->Session->read('Customer.language_id')
+				)
+			)
+		));
+
+		$this->Content->bindModel(array(
+			'belongsTo' => array(
+				'ContentType' => array(
+					'className' => 'ContentType'
+				)
+			)
+		));
+
+		$this->Content->bindModel(array(
+			'hasOne' => array(
+				'ContentImage' => array(
+					'className' => 'ContentImage',
+					'conditions' => array(
+						'ContentImage.order' => '1'
+					)
+				)
+			)
+		));
+
+		$this->Content->bindModel(array(
+			'hasOne' => array(
+				'ContentProduct' => array(
+					'className' => 'ContentProduct'
+				)
+			)
+		));
+
+		$this->Content->bindModel(array(
+			'hasOne' => array(
+				'ContentDownloadable' => array(
+					'className' => 'ContentDownloadable'
+				)
+			)
+		));
 		
-		$this->set('content_data', $content_data);
-		$this->set('content_count', $this->Content->find('count', array('conditions' => array('Content.parent_id' => $parent_id))));
+		//Paginate data
+		$content_data = $this->Paginator->paginate('Content');
+		$this->set(compact('content_data'));
+    
 		$last_content_id = $this->Content->find('first', array('order' => array('Content.id DESC')));
 		$last_content_id = $last_content_id['Content']['id']+1;
 		$this->set('last_content_id', $last_content_id);
