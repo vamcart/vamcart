@@ -37,9 +37,6 @@ class SiteController extends AppController {
 			$customer = new Customer();
 			$customer->set($_POST['customer']);
 			if ($customer->validates()) {
-				$_POST['customer']['password'] = Security::hash($_POST['customer']['password'], 'sha1', true);
-				$_POST['customer']['retype'] = Security::hash($_POST['customer']['retype'], 'sha1', true);
-				$ret = $customer->save($_POST['customer']);
 				
 				// Retrieve email template
 				$this->EmailTemplate->unbindModel(array('hasMany' => array('EmailTemplateDescription')));
@@ -79,6 +76,10 @@ class SiteController extends AppController {
 
 				// Sending mail
 				$this->Email->send();
+
+				$_POST['customer']['password'] = Security::hash($_POST['customer']['password'], 'sha1', true);
+				$_POST['customer']['retype'] = Security::hash($_POST['customer']['retype'], 'sha1', true);
+				$ret = $customer->save($_POST['customer']);
 
 				$this->redirect('/customer/register-success'  . $config['URL_EXTENSION']);
 				
