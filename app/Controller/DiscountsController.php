@@ -21,7 +21,7 @@ class DiscountsController extends AppController {
 
 	public function admin_edit($content_id = null, $id = null)
 	{
-		$this->set('current_crumb', __('Discounts Details', true));
+		$this->set('current_crumb', false);
 		$this->set('title_for_layout', __('Discounts Details', true));
 		// If they pressed cancel
 		if(isset($this->data['cancelbutton']))
@@ -75,7 +75,7 @@ class DiscountsController extends AppController {
 
 	public function admin($content_id = null, $ajax = false)
 	{
-		$this->set('current_crumb', __('Discounts Listing', true));
+		$this->set('current_crumb', false);
 		$this->set('title_for_layout', __('Discounts Listing', true));
       $this->set('content_product_id', $content_id);
 		$this->set('discount_data',$this->ContentProductPrice->find('all', array('conditions' => array('content_product_id' => $content_id), 'order' => 'quantity ASC')));
