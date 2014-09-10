@@ -10,7 +10,7 @@ $this->Html->script(array(
 	'selectall.js'
 ), array('inline' => false));
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-table-editg');
+echo $this->Admin->ShowPageHeaderStart($title_for_layout, 'cus-table-edit');
 
 echo $this->Form->create('ContentProductPrice', array('action' => '/discounts/admin_modify_selected/'.$content_product_id, 'url' => '/discounts/admin_modify_selected/'.$content_product_id));
 

@@ -11,7 +11,7 @@ $this->Html->script(array(
 	'focus-first-input.js'
 ), array('inline' => false));
 
-	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
+	echo $this->Admin->ShowPageHeaderStart($title_for_layout, 'cus-application-edit');
 
 	echo $this->Form->create('ContentProductPrice', array('id' => 'contentform', 'action' => '/discounts/admin_edit/', 'url' => '/discounts/admin_edit/'));
 	echo $this->Form->input('ContentProductPrice.id', 
