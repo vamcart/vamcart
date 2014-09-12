@@ -177,6 +177,35 @@ class ContentsController extends AppController {
 	}
 
 	/**
+	* Change price of a content item.
+	*
+	*
+	* @param  int  $content_id The id of the content we're going to change.
+	*/
+	public function admin_change_price ($content_id) 
+	{
+		// Read the record
+		$this->Content->id = (int)$this->data['id'];
+		$record = $this->Content->read();
+		if($record['Content']['content_type_id'] == 2)
+		{
+			$record['ContentProduct']['price'] = $this->data['value'];
+			$this->Content->ContentProduct->save($record);
+		}
+		if($record['Content']['content_type_id'] == 7)
+		{
+			$record['ContentDownloadable']['price'] = $this->data['value'];
+			$this->Content->ContentDownloadable->save($record);
+		}
+
+        $this->set('return',$this->data['value']);
+
+        $this->render('/Elements/ajaxreturn');
+
+		
+	}
+
+	/**
 	* Deletes a content item.
 	*
 	* The content item will not be deleted if it's set as the default item.
