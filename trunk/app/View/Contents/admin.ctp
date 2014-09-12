@@ -22,6 +22,7 @@ if (!file_exists(WWW_ROOT . 'js/' . $fname)) {
     
 $this->Html->script(array(
 	'jquery/plugins/jquery-ui-min.js',
+	'jquery/plugins/jquery.jeditable.js',
 	'selectall.js',
 	$fname
 ), array('inline' => false));
@@ -88,7 +89,7 @@ echo $this->Form->create('Content', array('action' => '/contents/admin_modify_se
 
 echo '<table class="contentTable">';
 
-echo $this->Html->tableHeaders(array(	 __('Title'), __('Type'), __('Active'), __('Show in menu'), __('Export to YML'), __('Default'), __('Sort Order'), __('Action'), '<input type="checkbox" onclick="checkAll(this)" />'));
+echo $this->Html->tableHeaders(array(	 __('Title'), __('Type'), __('Active'), __('Show in menu'), __('Export to YML'), __('Default'), __('Price'), __('Sort Order'), __('Action'), '<input type="checkbox" onclick="checkAll(this)" />'));
 
 foreach ($content_data AS $content)
 {
@@ -99,7 +100,13 @@ foreach ($content_data AS $content)
 	} else {
 		$name_link = '';
 	}
-	
+
+	if ($content['Content']['content_type_id'] == 7) {
+		$price = $content['ContentDownloadable']['price'];
+	} else {
+		$price = $content['ContentProduct']['price'];
+	}
+			
 	if ($content['ContentType']['name']=='category') {
 		$name_link .= $this->Html->link($content['ContentDescription']['name'], '/contents/admin/0/' . $content['Content']['id']);
 	} else {
@@ -120,17 +127,24 @@ foreach ($content_data AS $content)
 			array($this->Ajax->link(($content['Content']['show_in_menu'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'),'title' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False'),'title' => __('False')))), 'null', $options = array('escape' => false, 'url' => '/contents/admin_change_show_in_menu_status/' . $content['Content']['id'], 'update' => 'content'), null, false), array('align'=>'center')),
 			array($this->Ajax->link(($content['Content']['yml_export'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'),'title' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False'),'title' => __('False')))), 'null', $options = array('escape' => false, 'url' => '/contents/admin_change_yml_export_status/' . $content['Content']['id'], 'update' => 'content'), null, false), array('align'=>'center')),
 			array($this->Admin->DefaultButton($content['Content']), array('align'=>'center')),
+			($content['Content']['content_type_id'] == 2 or $content['Content']['content_type_id'] == 7) ? array($price,array('id' => $content['Content']['id'],'align' => 'center', 'class' => 'edit'))	: false,
 			array($content['Content']['order'], array('align'=>'center')),
 			array($this->Admin->ActionButton('edit','/contents/admin_edit/' . $content['Content']['id'].'/'.(isset($parent_content) ? $parent_content['Content']['id'] : 0),__('Edit')) . $this->Admin->ActionButton('delete','/contents/admin_delete/' . $content['Content']['id'],__('Delete')) . $discounts, array('align'=>'center')),
 			array($this->Form->checkbox('modify][', array('value' => $content['Content']['id'])), array('align'=>'center'))
 		));
+
+		// Ajax price change
+		if ($content['Content']['content_type_id'] == 2 or $content['Content']['content_type_id'] == 7) {
+		echo $this->Ajax->editor($content['Content']['id'],'/contents/admin_change_price/',  array('tooltip' => $content['Content']['id'],'placeholder' => '_','onblur' => 'submit'));					
+		}
+
 }
 
 // Display a link letting the user to go up one level
 if(isset($parent_content))
 {
 	$parent_link = $this->Admin->linkButton(__('Up One Level'),'/contents/admin/0/' . $parent_content['Content']['parent_id'],'cus-arrow-up',array('escape' => false, 'class' => 'btn'));
-	echo '<tr><td colspan="9">' . $parent_link . '</td></tr>';	
+	echo '<tr><td colspan="10">' . $parent_link . '</td></tr>';	
 }
 echo '</table>';
 
