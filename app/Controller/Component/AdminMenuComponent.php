@@ -106,7 +106,7 @@ class AdminMenuComponent extends Component
 					2 => array('icon' => 'cus-chart-curve', 'text' => __('Sales Report', true), 'path' => '/reports/admin/')
 				)
 			),
-			10 => array('icon' => 'cus-application-go', 'text' => __('Launch Site', true), 'path' => '/', 'attributes' => array('target' => 'blank'))
+			//10 => array('icon' => 'cus-application-go', 'text' => __('Launch Site', true), 'path' => '/', 'attributes' => array('target' => 'blank'))
 		);
 		
 		// Add module navigation elements

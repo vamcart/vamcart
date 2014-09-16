@@ -2447,6 +2447,14 @@ msgid "Help"
 msgstr "Помощь"
 
 #: /views/layouts/admin.ctp:45
+msgid "Support"
+msgstr "Поддержка"
+
+#: /views/layouts/admin.ctp:45
+msgid "Apps"
+msgstr "Дополнения"
+
+#: /views/layouts/admin.ctp:45
 msgid "Help for this page"
 msgstr "Помощь по странице"
 

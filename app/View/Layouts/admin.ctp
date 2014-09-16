@@ -17,6 +17,7 @@
 <?php echo $this->Html->css(array(
 										'admin',
 										'normalize.css',
+										'font-awesome.min.css',
 										'bootstrap/bootstrap.css',
 										'bootstrap/cus-icons.css',
 										'bootstrap/bootstrap-responsive.css',
@@ -49,14 +50,14 @@ $(document).ready(function () {$(\'[rel=tooltip],input[data-title]\').tooltip();
 	</div>
 	
 	<div class="span8">
+
+		<ul class="inline text-right">
+			<li><h3><a href="http://apps.<?php echo __('vamshop.com'); ?>/" target="_blank" title="<?php echo __('Apps'); ?>"><i class="fa fa-th"></i></a></h3></li>
+			<li><h3><a href="http://support.<?php echo __('vamshop.com'); ?>/" target="_blank" title="<?php echo __('Support'); ?>"><i class="fa fa-question"></i></a></h3></li>
+			<li><h3><?php echo $this->Html->link('<i class="fa fa-shopping-cart"></i>', '/', array('escape'=> false, 'target' => 'blank', 'title' => __('Launch Site'))); ?></h3></li>
+			<li><h3><?php echo $this->Html->link('<i class="fa fa-sign-out"></i>', '/users/admin_logout/', array('escape'=> false, 'target' => 'blank', 'title' => __('Logout'))); ?></h3></li>
+		</ul>
   
-		<?php 
-		echo $this->form->create('Search', array('class' => 'navbar-search pull-right', 'action' => '/search/admin_global_search/', 'url' => '/search/admin_global_search/'));
-		echo $this->form->input('Search.term',array('class' => 'span12', 'label' => false,'value' => __('Global Record Search',true),"onblur" => "if(this.value=='') this.value=this.defaultValue;","onfocus" => "if(this.value==this.defaultValue) this.value='';"));
-		//echo $this->form->submit( __('Submit', true));
-		echo $this->form->end();
-		?>   
- 
 	</div>
 	
 </div>
@@ -72,6 +73,13 @@ if(isset($navigation)) {
 	    <div class="container">
 			
 			<?php echo $this->admin->DrawMenu($navigation); ?>
+
+			<?php 
+			echo $this->form->create('Search', array('class' => 'navbar-search pull-right', 'action' => '/search/admin_global_search/', 'url' => '/search/admin_global_search/'));
+			echo $this->form->input('Search.term',array('class' => 'span12', 'label' => false,'value' => __('Global Record Search',true),"onblur" => "if(this.value=='') this.value=this.defaultValue;","onfocus" => "if(this.value==this.defaultValue) this.value='';"));
+			//echo $this->form->submit( __('Submit', true));
+			echo $this->form->end();
+			?>   
 
 	    </div>
 	  </div><!-- /navbar-inner -->
