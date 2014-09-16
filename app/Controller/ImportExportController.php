@@ -5,6 +5,7 @@
    Copyright (c) 2014 VamSoft Ltd.
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
+set_time_limit(3600);
 
 class ImportExportController extends AppController {
 
