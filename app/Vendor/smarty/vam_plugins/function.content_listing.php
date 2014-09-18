@@ -76,7 +76,7 @@ function smarty_function_content_listing($params, $template)
 	global $content,$filter_list;
 	
 	// Cache the output.
-	$cache_name = 'vam_content_listing_output_' . $_SESSION['Customer']['customer_group_id'] . '_' . $content['Content']['id'] . '_' . (isset($params['template'])?$params['template']:'') . (isset($params['parent'])?'_'.$params['parent']:'') . '_' . $_SESSION['Customer']['language_id'] . '_' . $_SESSION['Customer']['page'] . (isset($filter_list)?md5(serialize($filter_list)):'');
+	$cache_name = 'vam_content_listing_output_' . $_SESSION['Customer']['customer_group_id'] . '_' . $content['Content']['id'] . '_' . (isset($params['template'])?$params['template']:'') . (isset($params['parent'])?'_'.$params['parent']:'') . (isset($params['order'])?'_'.md5(serialize($params['order'])):'') . '_' . $_SESSION['Customer']['language_id'] . '_' . $_SESSION['Customer']['page'] . (isset($filter_list)?md5(serialize($filter_list)):'');
 	$output = Cache::read($cache_name, 'catalog');
 	if($output === false)
 	{
@@ -134,6 +134,9 @@ function smarty_function_content_listing($params, $template)
 				'Attribute' => array(
                     'className' => 'Attribute'
 					))));
+
+        if(!isset ($params['order']))
+            $params['order'] = 'Content.order ASC';
 
         if(!isset ($params['page']))
             $params['page'] = 1;
@@ -237,10 +240,10 @@ function smarty_function_content_listing($params, $template)
                 $value = array('OR' => $value);
                 $tmp_content_list_data_conditions = array_merge($next_flt, $value);
 //Добавляем фильтр (новый вариант с группами)                
-//                $content_filtered_list_data = $ContentFiltered->find('all', array('fields' => array('Content.id','IFNULL(Content.id_group,Content.id) as grp'),'conditions' => $tmp_content_list_data_conditions, 'order' => array('Content.order ASC') ,'joins' => $content_list_data_joins ,'group' => array('Content.id')));
+//                $content_filtered_list_data = $ContentFiltered->find('all', array('fields' => array('Content.id','IFNULL(Content.id_group,Content.id) as grp'),'conditions' => $tmp_content_list_data_conditions, 'order' => array($params['order']) ,'joins' => $content_list_data_joins ,'group' => array('Content.id')));
 //                $content_filtered_list_data = Set::combine($content_filtered_list_data,'{n}.Content.id', '{n}.0.grp');//нормализуем в list
 //(старый вариант без групп)
-                $content_filtered_list_data = $ContentFiltered->find('list', array('fields' => 'id','conditions' => $tmp_content_list_data_conditions, 'order' => array('Content.order ASC') ,'joins' => $content_list_data_joins ,'group' => array('Content.id')));                
+                $content_filtered_list_data = $ContentFiltered->find('list', array('fields' => 'id','conditions' => $tmp_content_list_data_conditions, 'order' => array($params['order']) ,'joins' => $content_list_data_joins ,'group' => array('Content.id')));                
 //                
                 $next_flt = array('Content.id' => $content_filtered_list_data);
             }
@@ -251,7 +254,7 @@ function smarty_function_content_listing($params, $template)
 //               
             if($params['page'] == 'all'){          
 
-                $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'order' => array('Content.order ASC')));
+                $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'order' => array($params['order'])));
                 $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
             }
             else{
@@ -259,13 +262,13 @@ function smarty_function_content_listing($params, $template)
 	  	        if(!isset ($params['limit']))
    	         $params['limit'] = $config['PRODUCTS_PER_PAGE'];
             
-                $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => $params['limit'],'page' => $params['page'], 'order' => array('Content.id ASC, Content.order ASC')));
+                $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => $params['limit'],'page' => $params['page'], 'order' => array($params['order'])));
                 $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
             }
             //$content_total = count($content_list_data);
         }
         else{
-            $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => $params['limit'], 'order' => array('Content.order ASC, Content.id ASC')));
+            $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => $params['limit'], 'order' => array('Content.order ASC')));
         }
 	
 	// Loop through the content list and create a new array with only what the template needs
@@ -369,6 +372,7 @@ function smarty_function_content_listing($params, $template)
 	$vars['count'] = $count;
 	$vars['pages_number'] = 0;
 	$vars['page'] = $params['page'];
+	$vars['order'] = $params['order'];
 	$vars['ext'] = $config['URL_EXTENSION'];
 
 	// Error page
@@ -411,6 +415,7 @@ function smarty_help_function_content_listing() {
 		<li><em><?php echo __('(parent)') ?></em> - <?php echo __('The parent of the content items to be shown. Accepts an alias or id, defaults to 0.') ?></li>
 		<li><em><?php echo __('(template)') ?></em> - <?php echo __('Useful if you want to override the default content listing template. Setting this will utilize the template that matches this alias.') ?></li>
 		<li><em><?php echo __('(page)') ?></em> - <?php echo __('Current page.') ?></li>
+		<li><em><?php echo __('(order)') ?></em> - <?php echo __('Content listing sort order. Default order value is sort order column - \'Content.order ASC\'.') ?></li>
 		<li><em><?php echo __('(limit)') ?></em> - <?php echo __('Items per page.') ?></li>
 	</ul>
 	<?php

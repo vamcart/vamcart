@@ -1481,6 +1481,10 @@ msgstr "(page)"
 msgid "Current page."
 msgstr "Текущая страница."
 
+#: /vendors/smarty/vam_plugins/function.content_listing.php:183
+msgid "Content listing sort order. Default order value is sort order column - \'Content.order ASC\'."
+msgstr "Порядок сортировки товара. По умолчанию сортируется по полю порядок сортировки - \'Content.order ASC\'."
+
 #: /vendors/smarty/vam_plugins/function.content_listing.php:182
 msgid "(limit)"
 msgstr "(limit)"
