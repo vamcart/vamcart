@@ -11,6 +11,22 @@ function default_template_content_listing()
 $template = '
 {if $content_list}
 
+<div class="sort">{lang}Sort by:{/lang}</div>
+<div class="btn-toolbar">
+	<div class="btn-group">
+	<span class="btn btn-inverse"><i class="fa fa-filter" title="{lang}Sort by:{/lang}"></i></span>
+		<a class="btn btn-inverse{if $order == "price-asc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/price-asc">{lang} Price{/lang}</a>
+		<a class="btn btn-inverse{if $order == "price-asc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/price-asc"><i class="fa fa-sort-numeric-asc" title="{lang}Price (Low to High){/lang}"></i></a>
+		<a class="btn btn-inverse{if $order == "price-desc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/price-desc"><i class="fa fa-sort-numeric-desc" title="{lang}Price (High to Low){/lang}"></i></a>
+		<a class="btn btn-inverse{if $order == "name-asc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/name-asc">{lang} Name{/lang}</a>
+		<a class="btn btn-inverse{if $order == "name-asc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/name-asc"><i class="fa fa-sort-alpha-asc" title="{lang}Name (A-Z){/lang}"></i></a>
+		<a class="btn btn-inverse{if $order == "name-desc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/name-desc"><i class="fa fa-sort-alpha-desc" title="{lang}Name (Z-A){/lang}"></i></a>
+		<a class="btn btn-inverse{if $order == "ordered-desc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/ordered-desc">{lang} Popular{/lang}</a>
+		<a class="btn btn-inverse{if $order == "ordered-desc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/ordered-desc"><i class="fa fa-thumbs-up" title="{lang}Popular (desc){/lang}"></i></a>
+		<a class="btn btn-inverse{if $order == "ordered-asc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/ordered-asc"><i class="fa fa-thumbs-down" title="{lang}Popular (asc){/lang}"></i></a>
+	</div>
+</div>
+
 {if $pages_number > 1}
 <!-- start: Pagination -->
 <div class="pagination pagination-centered">
@@ -115,7 +131,7 @@ function smarty_function_content_listing($params, $template)
             $params['order_column'] = 'ContentDescription.name ASC';
 
         if($params['order'] == 'name-desc' or $config['order'] == 'name-desc')
-            $params['order_column'] = 'ContentDescription.name DSC';
+            $params['order_column'] = 'ContentDescription.name DESC';
 
         if($params['order'] == 'id' or $config['order'] == 'id')
             $params['order_column'] = 'Content.id';
@@ -427,7 +443,7 @@ function smarty_function_content_listing($params, $template)
 	$vars['count'] = $count;
 	$vars['pages_number'] = 0;
 	$vars['page'] = $params['page'];
-	$vars['order'] = $config['order'];
+	$vars['order'] = $params['order'];
 	$vars['ext'] = $config['URL_EXTENSION'];
 
 	// Error page
@@ -470,7 +486,7 @@ function smarty_help_function_content_listing() {
 		<li><em><?php echo __('(parent)') ?></em> - <?php echo __('The parent of the content items to be shown. Accepts an alias or id, defaults to 0.') ?></li>
 		<li><em><?php echo __('(template)') ?></em> - <?php echo __('Useful if you want to override the default content listing template. Setting this will utilize the template that matches this alias.') ?></li>
 		<li><em><?php echo __('(page)') ?></em> - <?php echo __('Current page.') ?></li>
-		<li><em><?php echo __('(order)') ?></em> - <?php echo __('Content listing sort order. Default order value is sort order column - \'Content.order ASC\'.') ?></li>
+		<li><em><?php echo __('(order)') ?></em> - <?php echo __('Content listing sort order. Available values: ') . 'order,order-asc,order-desc,price,price-asc,price-desc,stock,stock-asc,stock-desc,name,name-asc,name-desc,id,id-asc,id-desc,ordered,ordered-asc,ordered-desc' ?></li>
 		<li><em><?php echo __('(limit)') ?></em> - <?php echo __('Items per page.') ?></li>
 	</ul>
 	<?php
