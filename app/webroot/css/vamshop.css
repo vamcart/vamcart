@@ -2323,6 +2323,11 @@ label.error
 		margin-bottom: 5px;
 	}
 
+.btn.active 
+	{
+		background-color: #ff6633;
+	}
+
 .btn:hover 
 	{
 		background-color: #ff6633;
