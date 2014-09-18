@@ -1586,6 +1586,10 @@ msgstr "Перезаписывает шаблон модуля по умолча
 msgid "Displays the current page name."
 msgstr "Показывает название текущей страницы."
 
+#: /vendors/smarty/vam_plugins/function.page_url.php:33
+msgid "Displays the current page url."
+msgstr "Показывает url адрес текущей страницы."
+
 #: /vendors/smarty/vam_plugins/function.payment.php:64
 msgid "This plugin handles the payment process."
 msgstr "Данный тэг управляет процессом оплаты."
