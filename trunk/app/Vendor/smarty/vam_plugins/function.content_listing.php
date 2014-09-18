@@ -16,9 +16,9 @@ $template = '
 <div class="pagination pagination-centered">
 	<ul>
 		{for $pg=1 to $pages_number}
-		<li{if $pg == $page} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}">{$pg}</a></li>
+		<li{if $pg == $page} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}{if $order}/order/{$order}{/if}">{$pg}</a></li>
 		{/for}
-		<li{if "all" == $page} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all">{lang}All{/lang}</a></li>
+		<li{if "all" == $page} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all{if $order}/order/{$order}{/if}">{lang}All{/lang}</a></li>
 	</ul>
 </div>
 <!-- end: Pagination -->
@@ -54,9 +54,9 @@ $template = '
 <div class="pagination pagination-centered">
 	<ul>
 		{for $pg=1 to $pages_number}
-		<li{if $pg == $page} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}">{$pg}</a></li>
+		<li{if $pg == $page} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}{if $order}/order/{$order}{/if}">{$pg}</a></li>
 		{/for}
-		<li{if "all" == $page} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all">{lang}All{/lang}</a></li>
+		<li{if "all" == $page} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all{if $order}/order/{$order}{/if}">{lang}All{/lang}</a></li>
 	</ul>
 </div>
 <!-- end: Pagination -->
@@ -73,16 +73,74 @@ return $template;
 
 function smarty_function_content_listing($params, $template)
 {
-	global $content,$filter_list;
+	global $config,$content,$filter_list;
+
+        if(!isset($params['order']) or !isset($config['order']))
+            $params['order_column'] = 'Content.order ASC';
+
+        if(isset($config['order']))
+            $params['order'] = $config['order'];
+
+        if($params['order'] == 'order' or $config['order'] == 'order')
+            $params['order_column'] = 'Content.order';
+
+        if($params['order'] == 'order-asc' or $config['order'] == 'order-asc')
+            $params['order_column'] = 'Content.order ASC';
+
+        if($params['order'] == 'order-desc' or $config['order'] == 'order-desc')
+            $params['order_column'] = 'Content.order DESC';
+
+        if($params['order'] == 'price' or $config['order'] == 'price')
+            $params['order_column'] = 'ContentProduct.price';
+
+        if($params['order'] == 'price-asc' or $config['order'] == 'price-asc')
+            $params['order_column'] = 'ContentProduct.price ASC';
+
+        if($params['order'] == 'price-desc' or $config['order'] == 'price-desc')
+            $params['order_column'] = 'ContentProduct.price DESC';
+
+        if($params['order'] == 'stock' or $config['order'] == 'stock')
+            $params['order_column'] = 'ContentProduct.stock';
+
+        if($params['order'] == 'stock-asc' or $config['order'] == 'stock-asc')
+            $params['order_column'] = 'ContentProduct.stock ASC';
+
+        if($params['order'] == 'stock-desc' or $config['order'] == 'stock-desc')
+            $params['order_column'] = 'ContentProduct.stock DESC';
+
+        if($params['order'] == 'name' or $config['order'] == 'name')
+            $params['order_column'] = 'ContentDescription.name';
+
+        if($params['order'] == 'name-asc' or $config['order'] == 'name-asc')
+            $params['order_column'] = 'ContentDescription.name ASC';
+
+        if($params['order'] == 'name-desc' or $config['order'] == 'name-desc')
+            $params['order_column'] = 'ContentDescription.name DSC';
+
+        if($params['order'] == 'id' or $config['order'] == 'id')
+            $params['order_column'] = 'Content.id';
+
+        if($params['order'] == 'id-asc' or $config['order'] == 'id-asc')
+            $params['order_column'] = 'Content.id ASC';
+
+        if($params['order'] == 'id-desc' or $config['order'] == 'id-desc')
+            $params['order_column'] = 'Content.id DESC';
+
+        if($params['order'] == 'ordered' or $config['order'] == 'ordered')
+            $params['order_column'] = 'ContentProduct.ordered';
+
+        if($params['order'] == 'ordered-asc' or $config['order'] == 'ordered-asc')
+            $params['order_column'] = 'ContentProduct.ordered ASC';
+
+        if($params['order'] == 'ordered-desc' or $config['order'] == 'ordered-desc')
+            $params['order_column'] = 'ContentProduct.ordered DESC';
 	
 	// Cache the output.
-	$cache_name = 'vam_content_listing_output_' . $_SESSION['Customer']['customer_group_id'] . '_' . $content['Content']['id'] . '_' . (isset($params['template'])?$params['template']:'') . (isset($params['parent'])?'_'.$params['parent']:'') . (isset($params['order'])?'_'.md5(serialize($params['order'])):'') . '_' . $_SESSION['Customer']['language_id'] . '_' . $_SESSION['Customer']['page'] . (isset($filter_list)?md5(serialize($filter_list)):'');
+	$cache_name = 'vam_content_listing_output_' . $_SESSION['Customer']['customer_group_id'] . '_' . $content['Content']['id'] . '_' . (isset($params['template'])?$params['template']:'') . (isset($params['parent'])?'_'.$params['parent']:'') . (isset($config['order'])?'_'.$config['order']:'') . '_' . $_SESSION['Customer']['language_id'] . '_' . $_SESSION['Customer']['page'] . (isset($filter_list)?md5(serialize($filter_list)):'');
 	$output = Cache::read($cache_name, 'catalog');
 	if($output === false)
 	{
 		ob_start();
-		
-	global $config;
 		
 	// Load some necessary components & models
 	App::uses('SmartyComponent', 'Controller/Component');
@@ -134,9 +192,6 @@ function smarty_function_content_listing($params, $template)
 				'Attribute' => array(
                     'className' => 'Attribute'
 					))));
-
-        if(!isset ($params['order']))
-            $params['order'] = 'Content.order ASC';
 
         if(!isset ($params['page']))
             $params['page'] = 1;
@@ -240,10 +295,10 @@ function smarty_function_content_listing($params, $template)
                 $value = array('OR' => $value);
                 $tmp_content_list_data_conditions = array_merge($next_flt, $value);
 //Добавляем фильтр (новый вариант с группами)                
-//                $content_filtered_list_data = $ContentFiltered->find('all', array('fields' => array('Content.id','IFNULL(Content.id_group,Content.id) as grp'),'conditions' => $tmp_content_list_data_conditions, 'order' => array($params['order']) ,'joins' => $content_list_data_joins ,'group' => array('Content.id')));
+//                $content_filtered_list_data = $ContentFiltered->find('all', array('fields' => array('Content.id','IFNULL(Content.id_group,Content.id) as grp'),'conditions' => $tmp_content_list_data_conditions, 'order' => array($params['order_column']) ,'joins' => $content_list_data_joins ,'group' => array('Content.id')));
 //                $content_filtered_list_data = Set::combine($content_filtered_list_data,'{n}.Content.id', '{n}.0.grp');//нормализуем в list
 //(старый вариант без групп)
-                $content_filtered_list_data = $ContentFiltered->find('list', array('fields' => 'id','conditions' => $tmp_content_list_data_conditions, 'order' => array($params['order']) ,'joins' => $content_list_data_joins ,'group' => array('Content.id')));                
+                $content_filtered_list_data = $ContentFiltered->find('list', array('fields' => 'id','conditions' => $tmp_content_list_data_conditions, 'order' => array('Content.order ASC') ,'joins' => $content_list_data_joins ,'group' => array('Content.id')));                
 //                
                 $next_flt = array('Content.id' => $content_filtered_list_data);
             }
@@ -254,7 +309,7 @@ function smarty_function_content_listing($params, $template)
 //               
             if($params['page'] == 'all'){          
 
-                $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'order' => array($params['order'])));
+                $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'order' => array($params['order_column'])));
                 $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
             }
             else{
@@ -262,7 +317,7 @@ function smarty_function_content_listing($params, $template)
 	  	        if(!isset ($params['limit']))
    	         $params['limit'] = $config['PRODUCTS_PER_PAGE'];
             
-                $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => $params['limit'],'page' => $params['page'], 'order' => array($params['order'])));
+                $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => $params['limit'],'page' => $params['page'], 'order' => array($params['order_column'])));
                 $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
             }
             //$content_total = count($content_list_data);
@@ -372,7 +427,7 @@ function smarty_function_content_listing($params, $template)
 	$vars['count'] = $count;
 	$vars['pages_number'] = 0;
 	$vars['page'] = $params['page'];
-	$vars['order'] = $params['order'];
+	$vars['order'] = $config['order'];
 	$vars['ext'] = $config['URL_EXTENSION'];
 
 	// Error page

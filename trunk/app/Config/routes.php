@@ -41,6 +41,9 @@
 	Router::connect('/download/:order_id/:content_id/:download_key', array('controller' => 'download', 'action' => 'get'));
 	Router::connect('/category/:content_alias', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/category/:content_alias/page/:page', array('controller' => 'pages', 'action' => 'index'));
+	Router::connect('/category/:content_alias/order/:order', array('controller' => 'pages', 'action' => 'index'));
+	Router::connect('/category/:content_alias/page/:page/order/:order', array('controller' => 'pages', 'action' => 'index'));
+	Router::connect('/category/:content_alias/order/:order/page/:page', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/category/addcmp/:add_alias/:content_alias', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/category/delcmp/:del_alias/:content_alias', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/category/compared/:compared/:content_alias', array('controller' => 'pages', 'action' => 'index'));
