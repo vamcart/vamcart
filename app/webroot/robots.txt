@@ -23,4 +23,5 @@ Disallow: /page/register.html
 Disallow: /page/register-success.html
 Disallow: /customer/register.html
 Disallow: /*addcmp*
+Disallow: /*order*
 Disallow: /*compared*
