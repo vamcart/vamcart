@@ -22,6 +22,8 @@ Disallow: /module_ask_a_product_question/*
 Disallow: /page/register.html
 Disallow: /page/register-success.html
 Disallow: /customer/register.html
-Disallow: /*addcmp*
-Disallow: /*order*
-Disallow: /*compared*
+Disallow: */addcmp/*
+Disallow: */compared/*
+Disallow: */order/*
+Disallow: */page/1/*
+Disallow: */page/all/*
