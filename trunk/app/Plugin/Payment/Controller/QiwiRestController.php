@@ -154,7 +154,7 @@ class QiwiRestController extends PaymentAppController {
 		$merchant_summ = number_format((float)$_POST['amount'], 2);
 		$order_summ = number_format((float)$order['Order']['total'], 2);
 
-		if (($_POST['status'] == 'paid') && ($merchant_summ == $order_summ)) {
+		if (($_POST['status'] == 'paid') && ($merchant_summ == $order_summ) && ($order_summ > 0)) {
 		
 		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 		$order_data = $this->Order->find('first', array('conditions' => array('Order.id' => $_POST['bill_id'])));
