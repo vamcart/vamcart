@@ -13,7 +13,17 @@ $template = '
 <script type="text/javascript" src="{base_path}/js/jquery/plugins/jstree/jstree.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-   $("#jstree").jstree();});
+
+$("#jstree").jstree().delegate("a","click", function(e) {
+            if ($("#jstree").jstree("is_leaf", this)) {
+                document.location.href = this;
+            }
+            else {
+                $("#jstree").jstree("toggle_node", this);
+            }
+        });
+    
+});
 </script>
 
 {function name=menu parent_id=0}
