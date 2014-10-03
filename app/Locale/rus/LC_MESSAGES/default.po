@@ -1440,6 +1440,10 @@ msgstr "Выводит картинки указанного content_id элем
 msgid "Displays a list of content items depending on the parent of those items."
 msgstr "Выводит список содержимого."
 
+#: /vendors/smarty/vam_plugins/function.category_box.php:174
+msgid "Displays a list of categories."
+msgstr "Выводит список категорий."
+
 #: /vendors/smarty/vam_plugins/function.content_listing.php:179
 msgid "(type)"
 msgstr "(type)"
