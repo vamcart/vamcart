@@ -89,7 +89,7 @@ echo $this->Form->create('Content', array('action' => '/contents/admin_modify_se
 
 echo '<table class="contentTable">';
 
-echo $this->Html->tableHeaders(array(	 __('Title'), __('Type'), __('Active'), __('Show in menu'), __('Export to YML'), __('Default'), __('Price'), __('Sort Order'), __('Action'), '<input type="checkbox" onclick="checkAll(this)" />'));
+echo $this->Html->tableHeaders(array(	 __('Title'), __('Type'), __('Active'), __('Show in menu'), __('Export to YML'), __('Default'), __('Price'), __('Stock'), __('Sort Order'), __('Action'), '<input type="checkbox" onclick="checkAll(this)" />'));
 
 foreach ($content_data AS $content)
 {
@@ -103,8 +103,10 @@ foreach ($content_data AS $content)
 
 	if ($content['Content']['content_type_id'] == 7) {
 		$price = $content['ContentDownloadable']['price'];
+		$stock = $content['ContentDownloadable']['stock'];
 	} else {
 		$price = $content['ContentProduct']['price'];
+		$stock = $content['ContentProduct']['stock'];
 	}
 			
 	if ($content['ContentType']['name']=='category') {
@@ -128,6 +130,7 @@ foreach ($content_data AS $content)
 			array($this->Ajax->link(($content['Content']['yml_export'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'),'title' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False'),'title' => __('False')))), 'null', $options = array('escape' => false, 'url' => '/contents/admin_change_yml_export_status/' . $content['Content']['id'], 'update' => 'content'), null, false), array('align'=>'center')),
 			array($this->Admin->DefaultButton($content['Content']), array('align'=>'center')),
 			($content['Content']['content_type_id'] == 2 or $content['Content']['content_type_id'] == 7) ? array($price,array('id' => $content['Content']['id'],'align' => 'center', 'class' => 'edit'))	: false,
+			($content['Content']['content_type_id'] == 2 or $content['Content']['content_type_id'] == 7) ? array($stock,array('id' => 'stock'.$content['Content']['id'],'align' => 'center', 'class' => 'edit'))	: false,
 			array($content['Content']['order'], array('align'=>'center')),
 			array($this->Admin->ActionButton('edit','/contents/admin_edit/' . $content['Content']['id'].'/'.(isset($parent_content) ? $parent_content['Content']['id'] : 0),__('Edit')) . $this->Admin->ActionButton('delete','/contents/admin_delete/' . $content['Content']['id'],__('Delete')) . $discounts, array('align'=>'center')),
 			array($this->Form->checkbox('modify][', array('value' => $content['Content']['id'])), array('align'=>'center'))
@@ -136,6 +139,11 @@ foreach ($content_data AS $content)
 		// Ajax price change
 		if ($content['Content']['content_type_id'] == 2 or $content['Content']['content_type_id'] == 7) {
 		echo $this->Ajax->editor($content['Content']['id'],'/contents/admin_change_price/',  array('tooltip' => $content['Content']['id'],'placeholder' => '_','onblur' => 'submit'));					
+		}
+
+		// Ajax stock change
+		if ($content['Content']['content_type_id'] == 2 or $content['Content']['content_type_id'] == 7) {
+		echo $this->Ajax->editor('stock'.$content['Content']['id'],'/contents/admin_change_stock/'.$content['Content']['id'],  array('tooltip' => $content['Content']['id'],'placeholder' => '_','onblur' => 'submit'));					
 		}
 
 }

@@ -206,6 +206,35 @@ class ContentsController extends AppController {
 	}
 
 	/**
+	* Change stock of a content item.
+	*
+	*
+	* @param  int  $content_id The id of the content we're going to change.
+	*/
+	public function admin_change_stock ($content_id) 
+	{
+		// Read the record
+		$this->Content->id = (int)$content_id;
+		$record = $this->Content->read();
+		if($record['Content']['content_type_id'] == 2)
+		{
+			$record['ContentProduct']['stock'] = $this->data['value'];
+			$this->Content->ContentProduct->save($record);
+		}
+		if($record['Content']['content_type_id'] == 7)
+		{
+			$record['ContentDownloadable']['stock'] = $this->data['value'];
+			$this->Content->ContentDownloadable->save($record);
+		}
+
+        $this->set('return',$this->data['value']);
+
+        $this->render('/Elements/ajaxreturn');
+
+		
+	}
+
+	/**
 	* Deletes a content item.
 	*
 	* The content item will not be deleted if it's set as the default item.
