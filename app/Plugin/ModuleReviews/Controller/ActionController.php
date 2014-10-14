@@ -148,16 +148,28 @@ class ActionController extends ModuleReviewsAppController {
 		$assignments['content_short_description'] = $content_description['ContentDescription']['short_description'];
 		$assignments['content_price'] = $CurrencyBase->display_price($content['ContentProduct']['price']);	
 		$assignments['content_url'] = BASE . '/' . $content_description['ContentDescription']['name'] . '/' . $content['Content']['alias'] . $config['URL_EXTENSION'];
-		
 		$assignments['total'] = $col;
 		$assignments['total_rating'] = $total_rating;
 		$assignments['average_rating'] = number_format($total_rating/$col, 2);
+		for($i=0;$i<number_format($total_rating/$col);$i++)	{
+		$assignments['star_rating'] .= '<span class="label label-warning"><i class="fa fa-star"></i></span> ';
+		}
 		$assignments['max_rating'] = $max;
 		$assignments['min_rating'] = $min;
 		$assignments['reviews'] = $assigned_reviews;
 		
 		return $assignments;
 
+	}
+
+	public function reviews_total () 
+	{
+		return $this->display();
+	}
+
+	public function reviews_rating () 
+	{
+		return $this->display();
 	}
 	
 	/**
