@@ -84,7 +84,7 @@ function smarty_function_category_box_jstree($params, $template)
 
 	$tree = array();
 	foreach ($categories as $category) {
-		_add_tree_node($tree, $category, 0);
+		_add_tree_node_jstree($tree, $category, 0);
 	}
 
 	$cats_tree_data = array();
@@ -127,7 +127,7 @@ function smarty_help_function_category_box_jstree() {
 function smarty_about_function_category_box_jstree() {
 }
 
-function _add_tree_node(&$tree, $node, $level)
+function _add_tree_node_jstree(&$tree, $node, $level)
 {
 	global $config;
 	
@@ -141,7 +141,7 @@ function _add_tree_node(&$tree, $node, $level)
 			'tree_prefix' => str_repeat('&nbsp;&nbsp;', $level));
 			
 	foreach ($node['children'] as $child) {
-		_add_tree_node($tree, $child, $level + 1);
+		_add_tree_node_jstree($tree, $child, $level + 1);
 	}
 }
 
