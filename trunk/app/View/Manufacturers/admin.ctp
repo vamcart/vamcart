@@ -34,7 +34,13 @@ foreach ($manufacturer_data AS $manufacturer)
 echo '</table>';
 
 echo $this->Admin->ActionBar(array('activate'=>__('Activate'),'deactivate'=>__('Deactivate'),'delete'=>__('Delete')));
-
+?>
+<table class="contentPagination">
+	<tr>
+		<td><?php echo $this->Paginator->numbers(array('separator'=>' - ')); ?></td>
+	</tr>
+</table>
+<?php
 echo $this->Admin->ShowPageHeaderEnd();
 
 ?>
