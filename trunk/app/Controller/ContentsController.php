@@ -306,13 +306,13 @@ class ContentsController extends AppController {
 		App::import('Model', 'Manufacturer');
 		$Manufacturer = new Manufacturer();
 
-		$tax_list_translatable = $Manufacturer->find('list', array('conditions' => array('Manufacturer.active' => 1), 'order' => array('Manufacturer.name ASC')));
-		foreach($tax_list_translatable AS $key => $value)
+		$manufacturer_list_translatable = $Manufacturer->find('list', array('conditions' => array('Manufacturer.active' => 1), 'order' => array('Manufacturer.name ASC')));
+		foreach($manufacturer_list_translatable AS $key => $value)
 		{
-		$tax_list_translatable[$key] = __($value, true);
+		$manufacturer_list_translatable[$key] = __($value, true);
 		}
 		
-		return $tax_list_translatable;
+		return $manufacturer_list_translatable;
 	}
 
 	public function generate_order_statuses_list()
