@@ -8,5 +8,6 @@
 App::uses('AppModel', 'Model');
 class Manufacturer extends AppModel {
 	public $name = 'Manufacturer';
+	public $hasMany = array('ContentProduct');
 }
 ?>
