@@ -232,7 +232,7 @@ function smarty_function_content_listing($params, $template)
 			$allowed_types[] =  $type;
 	}
 	$content_list_data_conditions = array('Content.parent_id' => $params['parent'],'Content.active' => '1','Content.show_in_menu' => '1');
-	$Content->recursive = 2;
+	$Content->recursive = 1;
 
         // Applying pagination for products only
         if(strpos($params['type'],'product') !== false){
@@ -347,6 +347,7 @@ function smarty_function_content_listing($params, $template)
 	$count = 0;
 	
 	$CurrencyBase =& new CurrencyBaseComponent(new ComponentCollection());
+	$ContentBase =& new ContentBaseComponent(new ComponentCollection());
 	
 	foreach($content_list_data AS $raw_data)
 	{
@@ -369,7 +370,7 @@ function smarty_function_content_listing($params, $template)
 			$content_list[$count]['stock']	= $raw_data['ContentProduct']['stock'];	
 			$content_list[$count]['model']	= $raw_data['ContentProduct']['model'];	
 			$content_list[$count]['weight']	= $raw_data['ContentProduct']['weight'];	
-			$content_list[$count]['manufacturer']	= $raw_data['ContentProduct']['Manufacturer']['name'];	
+			$content_list[$count]['manufacturer']	= $ContentBase->getManufacturerName($raw_data['ContentProduct']['manufacturer_id']);	
 			$content_list[$count]['date_added']	= CakeTime::i18nFormat($raw_data['Content']['created']);	
 			$content_list[$count]['date_modified']	= CakeTime::i18nFormat($raw_data['Content']['modified']);	
 
