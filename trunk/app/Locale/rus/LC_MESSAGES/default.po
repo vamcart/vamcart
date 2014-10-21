@@ -2194,6 +2194,30 @@ msgstr "Склад"
 msgid "Model"
 msgstr "Артикул"
 
+#: /views/contents/admin_edit_type.ctp:49
+msgid "SKU"
+msgstr "SKU"
+
+#: /views/contents/admin_edit_type.ctp:49
+msgid "Manufacturer"
+msgstr "Производитель"
+
+#: /views/contents/admin_edit_type.ctp:49
+msgid "Manufacturers"
+msgstr "Производители"
+
+#: /views/contents/admin_edit_type.ctp:49
+msgid "Manufacturers Listing"
+msgstr "Список производителей"
+
+#: /views/contents/admin_edit_type.ctp:49
+msgid "Manufacturer Details"
+msgstr "Информация о производителе"
+
+#: /views/contents/admin_edit_type.ctp:49
+msgid "Add Manufacturer"
+msgstr "Добавить производителя"
+
 #: /views/contents/admin_edit_type.ctp:74
 msgid "Link Details"
 msgstr "Ссылка"
