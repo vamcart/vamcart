@@ -7,6 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 class ManufacturersController extends AppController {
 	public $name = 'Manufacturers';
+	public $paginate = array('limit' => 20, 'order' => array('Manufacturer.name' => 'ASC'));
 	
 	public function admin_change_active_status ($id) 
 	{
@@ -100,7 +101,8 @@ class ManufacturersController extends AppController {
 	{
 		$this->set('current_crumb', __('Manufacturers Listing', true));
 		$this->set('title_for_layout', __('Manufacturers Listing', true));
-		$this->set('manufacturer_data',$this->Manufacturer->find('all', array('order' => array('Manufacturer.name ASC'))));	
+		$data = $this->paginate('Manufacturer');
+		$this->set('manufacturer_data',$data);
 	}	
 	
 }
