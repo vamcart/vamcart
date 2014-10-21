@@ -1634,6 +1634,10 @@ msgstr "Показывает вес товара."
 msgid "Displays the product model for the current content."
 msgstr "Показывает артикул товара."
 
+#: /vendors/smarty/vam_plugins/function.product_manufacturer.php:36
+msgid "Displays the product manufacturer for the current content."
+msgstr "Показывает производителя товара."
+
 #: /vendors/smarty/vam_plugins/function.product_stock.php:36
 msgid "Displays the product stock quantity for the current content."
 msgstr "Показывает количество единиц товара на складе."
