@@ -16,6 +16,7 @@ switch($content_type_id) {
 	case '2':
 	default:
 		$tax_options = $this->requestAction('/contents/generate_tax_list/');
+		$manufacturer_list = $this->requestAction('/contents/generate_manufacturer_list/');
 
 		echo $this->Form->input('ContentProduct.price', 
 			array(
@@ -42,12 +43,27 @@ switch($content_type_id) {
 				'type' => 'text',
 				'value' => isset($data['ContentProduct']['model']) ? $data['ContentProduct']['model']: ''
 			));
+		echo $this->Form->input('ContentProduct.sku', 
+			array(
+				'label' => __('SKU'),
+				'type' => 'text',
+				'value' => isset($data['ContentProduct']['sku']) ? $data['ContentProduct']['sku']: ''
+			));
 		echo $this->Form->input('ContentProduct.weight', 
 			array(
 				'label' => __('Weight'),
 				'after' => ' '.__('kg.'),
 				'type' => 'text',
 				'value' => !isset($data['ContentProduct']['weight'])? 0 : $data['ContentProduct']['weight']
+			));
+		echo $this->Form->input('ContentProduct.manufacturer_id', 
+			array(
+				'type' => 'select',
+				'options' => $manufacturer_list,
+				'selected' => isset($data['ContentProduct']['manufacturer_id']) ? $data['ContentProduct']['manufacturer_id']: '',
+				'label' => __('Manufacturer'),
+				'empty' => __('Select'),
+				'after' => ' '.$this->Html->link($this->Html->image("admin/icons/new.png", array('alt' => __('Add Manufacturer'), 'title' => __('Add Manufacturer'))),'/manufacturers/admin/', array('escape' => false, 'target' => '_blank'))
 			));
 		break;
 	case '3':
@@ -81,6 +97,7 @@ switch($content_type_id) {
 		break;
 	case '7':
 		$tax_options = $this->requestAction('/contents/generate_tax_list/');
+		$manufacturer_list = $this->requestAction('/contents/generate_manufacturer_list/');
 		$order_statuses = $this->requestAction('/contents/generate_order_statuses_list/');
 
 		echo $this->Form->input('ContentDownloadable.price', 
@@ -109,11 +126,26 @@ switch($content_type_id) {
 				'type' => 'text',
 				'value' => isset($data['ContentDownloadable']['model']) ? $data['ContentDownloadable']['model'] : ''
 			));
+		echo $this->Form->input('ContentDownloadable.sku', 
+			array(
+				'label' => __('SKU'),
+				'type' => 'text',
+				'value' => isset($data['ContentDownloadable']['sku']) ? $data['ContentDownloadable']['sku'] : ''
+			));
 		echo $this->Form->input('ContentDownloadable.file', 
 			array(
 				'label' => __('File: ') . (isset($data['ContentDownloadable']['filename']) ? $data['ContentDownloadable']['filename'] : ''),
 				'type' => 'file',
 				'value' => isset($data['ContentDownloadable']['filename']) ? $data['ContentDownloadable']['filename'] : ''
+			));
+		echo $this->Form->input('ContentDownloadable.manufacturer_id', 
+			array(
+				'type' => 'select',
+				'options' => $manufacturer_list,
+				'selected' => isset($data['ContentDownloadable']['manufacturer_id']) ? $data['ContentDownloadable']['manufacturer_id']: '',
+				'label' => __('Manufacturer'),
+				'empty' => __('Select'),
+				'after' => ' '.$this->Html->link($this->Html->image("admin/icons/new.png", array('alt' => __('Add Manufacturer'), 'title' => __('Add Manufacturer'))),'/manufacturers/admin/', array('escape' => false, 'target' => '_blank'))
 			));
 		echo $this->Form->input('ContentDownloadable.delete', 
 			array(

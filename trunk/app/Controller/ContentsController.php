@@ -300,7 +300,21 @@ class ContentsController extends AppController {
 		
 		return $tax_list_translatable;
 	}
-	
+
+	public function generate_manufacturer_list ()
+	{
+		App::import('Model', 'Manufacturer');
+		$Manufacturer = new Manufacturer();
+
+		$tax_list_translatable = $Manufacturer->find('list', array('conditions' => array('Manufacturer.active' => 1), 'order' => array('Manufacturer.name ASC')));
+		foreach($tax_list_translatable AS $key => $value)
+		{
+		$tax_list_translatable[$key] = __($value, true);
+		}
+		
+		return $tax_list_translatable;
+	}
+
 	public function generate_order_statuses_list()
 	{
 		App::import('Model', 'OrderStatus');
