@@ -122,7 +122,9 @@ INSERT INTO `contents` VALUES
 (103,101,2,0,2,1,0,'samsung-gear-2-gold-brown','',1,1,1,0,NULL,102,'2014-07-11 19:38:33','2014-07-11 20:09:13'),
 (104,101,3,0,2,1,0,'samsung-gear-2-charcoal-black','',1,1,1,0,NULL,102,'2014-07-11 19:39:53','2014-07-11 20:09:22'),
 (105, -1, NULL, NULL, 3, 1, NULL, 'ask_a_product_question', NULL, 1, NULL, NULL, NULL, NULL, NULL, '2014-08-09 20:58:06', '2014-08-09 20:58:06'),
-(106, -1, NULL, NULL, 3, 1, NULL, 'one_click_buy', NULL, 1, NULL, NULL, NULL, NULL, NULL, '2014-08-09 20:58:09', '2014-08-09 20:58:09');
+(106, -1, NULL, NULL, 3, 1, NULL, 'one_click_buy', NULL, 1, NULL, NULL, NULL, NULL, NULL, '2014-08-09 20:58:09', '2014-08-09 20:58:09'),
+(107,0,4,0,1,1,0,'brands','',1,0,1,0,NULL,NULL,'2014-07-11 19:18:53','2014-07-11 19:18:53'),
+(108,0,8,0,1,1,0,'samsung','',1,0,1,0,NULL,NULL,'2014-07-11 19:18:53','2014-07-11 19:18:53');
 
 DROP TABLE IF EXISTS content_categories;
 CREATE TABLE `content_categories` (
@@ -138,7 +140,8 @@ INSERT INTO `content_categories` VALUES
 (9,39,'1'),
 (12,51,'1'),
 (13,43,'1'),
-(14,101,'1')	;
+(14,101,'1'),
+(15,107,'1')	;
 
 DROP TABLE IF EXISTS content_descriptions;
 CREATE TABLE `content_descriptions` (
@@ -239,7 +242,11 @@ INSERT INTO `content_descriptions` VALUES
 (813, 105, 1, 'Ask A Product Question', '{module alias=''ask_a_product_question'' controller=''get'' action=''ask_success''}', NULL, NULL, NULL, NULL),
 (814, 105, 2, 'Задать вопрос о товаре', '{module alias=''ask_a_product_question'' controller=''get'' action=''ask_success''}', NULL, NULL, NULL, NULL),
 (815, 106, 1, 'One Click Buy', '{module alias=''one_click_buy'' controller=''buy'' action=''success''}', NULL, NULL, NULL, NULL),
-(816, 106, 2, 'Купить за 1 клик', '{module alias=''one_click_buy'' controller=''buy'' action=''success''}', NULL, NULL, NULL, NULL);
+(816, 106, 2, 'Купить за 1 клик', '{module alias=''one_click_buy'' controller=''buy'' action=''success''}', NULL, NULL, NULL, NULL),
+(817, 106, 1, 'Brands', '', NULL, NULL, NULL, NULL),
+(818, 106, 2, 'Производители', '', NULL, NULL, NULL, NULL),
+(819, 106, 1, 'Samsung', '', NULL, NULL, NULL, NULL),
+(820, 106, 2, 'Samsung', '', NULL, NULL, NULL, NULL);
 
 DROP TABLE IF EXISTS content_images;
 CREATE TABLE `content_images` (
@@ -302,7 +309,8 @@ INSERT INTO `content_images` VALUES
 (123,104,1,'samsung-gear-2-charcoal-black-2.jpg','2014-07-11 20:09:21','2014-07-11 20:09:21'),
 (124,104,2,'samsung-gear-2-charcoal-black-1.jpg','2014-07-11 20:09:21','2014-07-11 20:09:21'),
 (125,104,2,'samsung-gear-2-charcoal-black-4.jpg','2014-07-11 20:09:21','2014-07-11 20:09:21'),
-(126,104,2,'samsung-gear-2-charcoal-black-3.jpg','2014-07-11 20:09:21','2014-07-11 20:09:21')	;
+(126,104,2,'samsung-gear-2-charcoal-black-3.jpg','2014-07-11 20:09:21','2014-07-11 20:09:21'),
+(127,108,1,'samsung.png','2014-07-11 20:09:21','2014-07-11 20:09:21')	;
 
 DROP TABLE IF EXISTS content_links;
 CREATE TABLE `content_links` (
@@ -312,6 +320,18 @@ CREATE TABLE `content_links` (
   PRIMARY KEY  (`id`),
   INDEX content_id (content_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+DROP TABLE IF EXISTS content_manufacturers;
+CREATE TABLE `content_manufacturers` (
+  `id` int(10) auto_increment,
+  `content_id` int(10),
+  `extra` varchar(1) collate utf8_unicode_ci,
+  PRIMARY KEY  (`id`),
+  INDEX content_id (content_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `content_manufacturers` VALUES 
+(1,108,'1')	;
 
 DROP TABLE IF EXISTS content_pages;
 CREATE TABLE `content_pages` (
@@ -1972,20 +1992,6 @@ CREATE TABLE `languages` (
 INSERT INTO `languages` (`id`, `default`, `name`, `code`, `iso_code_2`, `active`, `sort_order`) VALUES 
 (1, 1, 'English', 'eng', 'en', 1, 1),
 (2, 0, 'Русский', 'rus', 'ru', 1, 0);
-
-DROP TABLE IF EXISTS manufacturers;
-CREATE TABLE `manufacturers` (
-  `id` int(10) auto_increment,
-  `name` varchar(255) collate utf8_unicode_ci,
-  `alias` varchar(255) collate utf8_unicode_ci,
-  `image` varchar(5) collate utf8_unicode_ci,
-  `active` tinyint(4) default '1',
-  `order` int(3),
-  PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-INSERT INTO `manufacturers` (`id`, `name`, `alias`, `image`, `active`, `order`) VALUES 
-(1, 'Samsung', 'samsung', 'samsung.png', 1, 1);
 
 DROP TABLE IF EXISTS micro_templates;
 CREATE TABLE `micro_templates` (
