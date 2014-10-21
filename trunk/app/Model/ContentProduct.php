@@ -9,7 +9,7 @@
 App::uses('Model', 'AppModel');
 class ContentProduct extends AppModel {
 	public $name = 'ContentProduct';
-	public $belongsTo = array('Tax');
+	public $belongsTo = array('Tax', 'Manufacturer');
 	public $hasMany = array('ContentProductPrice' => array('dependent' => true));
 	
 	public $validate = array(
