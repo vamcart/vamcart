@@ -1977,14 +1977,15 @@ DROP TABLE IF EXISTS manufacturers;
 CREATE TABLE `manufacturers` (
   `id` int(10) auto_increment,
   `name` varchar(255) collate utf8_unicode_ci,
+  `alias` varchar(255) collate utf8_unicode_ci,
   `image` varchar(5) collate utf8_unicode_ci,
   `active` tinyint(4) default '1',
   `order` int(3),
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `manufacturers` (`id`, `name`, `image`, `active`, `order`) VALUES 
-(1, 'Samsung', 'samsung.png', 1, 1);
+INSERT INTO `manufacturers` (`id`, `name`, `alias`, `image`, `active`, `order`) VALUES 
+(1, 'Samsung', 'samsung', 'samsung.png', 1, 1);
 
 DROP TABLE IF EXISTS micro_templates;
 CREATE TABLE `micro_templates` (
