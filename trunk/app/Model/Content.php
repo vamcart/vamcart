@@ -24,6 +24,11 @@ class Content extends AppModel {
 		)
 	);
 
+	public function beforeFind()   {
+		$this->query("SET SQL_MODE=''");
+		$this->query("SET SQL_BIG_SELECTS=1");
+	}
+	
 	public $validate = array(
 		'parent_id' => array(
 			'rule' => 'notEmpty'

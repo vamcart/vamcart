@@ -46,8 +46,6 @@ class AppModel extends Model {
 
 
 	public function beforeFind()   {
-		$this->query("SET SQL_MODE=''");
-		$this->query("SET SQL_BIG_SELECTS=1");
 	}
 	
 	/**
