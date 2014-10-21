@@ -347,6 +347,7 @@ function smarty_function_content_listing($params, $template)
 	$count = 0;
 	
 	$CurrencyBase =& new CurrencyBaseComponent(new ComponentCollection());
+	$ContentBase =& new ContentBaseComponent(new ComponentCollection());
 	
 	foreach($content_list_data AS $raw_data)
 	{
@@ -369,6 +370,7 @@ function smarty_function_content_listing($params, $template)
 			$content_list[$count]['stock']	= $raw_data['ContentProduct']['stock'];	
 			$content_list[$count]['model']	= $raw_data['ContentProduct']['model'];	
 			$content_list[$count]['weight']	= $raw_data['ContentProduct']['weight'];	
+			$content_list[$count]['manufacturer']	= $ContentBase->get_product_manufacturer_name($raw_data['ContentProduct']['manufacturer_id']);	
 			$content_list[$count]['date_added']	= CakeTime::i18nFormat($raw_data['Content']['created']);	
 			$content_list[$count]['date_modified']	= CakeTime::i18nFormat($raw_data['Content']['modified']);	
 
