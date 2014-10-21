@@ -33,6 +33,7 @@ $template = '
 			<div class="inner notop nobottom text-left">
 				<h4 class="title"><a href="{$node.url}">{$node.name}</a></h4>
 				<div class="description">{$node.short_description|strip_tags|truncate:30:"...":true}</div>
+				<div class="description">{attribute_list product_id=$node.id}</div>
 			</div>
 			</div>
 			{product_form product_id={$node.id}}
@@ -147,7 +148,7 @@ function smarty_function_search_result($params, $template)
 						'OR' => array('ContentDescription.name LIKE' => '%' . $_GET['keyword'] . '%',
 						         'ContentProduct.model LIKE' => '%' . $_GET['keyword'] . '%',
 							      'ContentDescription.description LIKE' => '%' . $_GET['keyword'] . '%')));
-		$Content->recursive = 1;
+		$Content->recursive = 2;
 
 		$content_total = $content_list_data = $Content->find('count', array('conditions' => $search_conditions));;
 
@@ -181,6 +182,7 @@ function smarty_function_search_result($params, $template)
 			$content_list[$count]['stock']  = $raw_data['ContentProduct']['stock'];
 			$content_list[$count]['model']  = $raw_data['ContentProduct']['model'];
 			$content_list[$count]['weight'] = $raw_data['ContentProduct']['weight'];
+			$content_list[$count]['manufacturer']	= $raw_data['ContentProduct']['Manufacturer']['name'];	
 
 			// Content Image
 			

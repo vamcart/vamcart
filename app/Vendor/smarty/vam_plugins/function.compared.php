@@ -130,7 +130,7 @@ function smarty_function_compared($params)
                                                ,'order' => array('Attribute.order ASC')
 					))));
 
-        $content_list = $Content->find('all',array('recursive' => 1, 'conditions' => array('Content.id' => $content_compare_list)));
+        $content_list = $Content->find('all',array('recursive' => 2, 'conditions' => array('Content.id' => $content_compare_list)));
 
 	$element_list = array();
 	$CurrencyBase =& new CurrencyBaseComponent(new ComponentCollection());
@@ -155,6 +155,7 @@ function smarty_function_compared($params)
                     $element_list[$k_a]['attributes_product'][$k_p]['stock']	= $product['ContentProduct']['stock'];	
                     $element_list[$k_a]['attributes_product'][$k_p]['model']	= $product['ContentProduct']['model'];	
                     $element_list[$k_a]['attributes_product'][$k_p]['weight']	= $product['ContentProduct']['weight'];	
+                    $element_list[$k_a]['attributes_product'][$k_p]['manufacturer']	= $product['ContentProduct']['Manufacturer']['name'];	
 
 								global $config;
 
