@@ -58,6 +58,9 @@ function smarty_function_xsell($params, &$smarty)
 	App::uses('CurrencyBaseComponent', 'Controller/Component');
 	$CurrencyBase = new CurrencyBaseComponent(new ComponentCollection());
 
+	App::uses('ContentBaseComponent', 'Controller/Component');
+	$ContentBase = new ContentBaseComponent(new ComponentCollection());
+
 	$language_id = $content['ContentDescription']['language_id'];
 
 	foreach ($content['ContentRelations'] as $key => $related) {
@@ -133,13 +136,13 @@ function smarty_function_xsell($params, &$smarty)
                     'className' => 'ContentDownloadable'
 					))));
 											
-		$product = $Content->find('first', array('recursive' => 2, 'conditions' => array('Content.id' => $content['ContentRelations'][$key]['id'])));
+		$product = $Content->find('first', array('recursive' => 1, 'conditions' => array('Content.id' => $content['ContentRelations'][$key]['id'])));
 		$content['ContentRelations'][$key]['id'] = $content['ContentRelations'][$key]['id'];
 		$content['ContentRelations'][$key]['alias'] = $content['ContentRelations'][$key]['id'];
 		$content['ContentRelations'][$key]['stock'] = $product['ContentProduct']['stock'];
 		$content['ContentRelations'][$key]['model'] = $product['ContentProduct']['model'];
 		$content['ContentRelations'][$key]['weight'] = $product['ContentProduct']['weight'];
-		$content['ContentRelations'][$key]['manufacturer'] = $product['ContentProduct']['Manufacturer']['name'];	
+		$content['ContentRelations'][$key]['manufacturer'] = $ContentBase->getManufacturerName($product['ContentProduct']['manufacturer_id']);
 		$content['ContentRelations'][$key]['price'] = $CurrencyBase->display_price($product['ContentProduct']['price']);
 		$content['ContentRelations'][$key]['url'] = BASE . '/' . $product['ContentType']['name'] . '/' . $product['Content']['alias'] . $config['URL_EXTENSION'];
 

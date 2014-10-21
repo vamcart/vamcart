@@ -148,7 +148,7 @@ function smarty_function_search_result($params, $template)
 						'OR' => array('ContentDescription.name LIKE' => '%' . $_GET['keyword'] . '%',
 						         'ContentProduct.model LIKE' => '%' . $_GET['keyword'] . '%',
 							      'ContentDescription.description LIKE' => '%' . $_GET['keyword'] . '%')));
-		$Content->recursive = 2;
+		$Content->recursive = 1;
 
 		$content_total = $content_list_data = $Content->find('count', array('conditions' => $search_conditions));;
 
@@ -163,6 +163,7 @@ function smarty_function_search_result($params, $template)
 		$count = 0;
 
 		$CurrencyBase =& new CurrencyBaseComponent(new ComponentCollection());
+		$ContentBase =& new ContentBaseComponent(new ComponentCollection());
 	
 		foreach($content_list_data AS $raw_data) {
 			if ($raw_data['Content']['content_type_id'] == 7) {
@@ -182,7 +183,7 @@ function smarty_function_search_result($params, $template)
 			$content_list[$count]['stock']  = $raw_data['ContentProduct']['stock'];
 			$content_list[$count]['model']  = $raw_data['ContentProduct']['model'];
 			$content_list[$count]['weight'] = $raw_data['ContentProduct']['weight'];
-			$content_list[$count]['manufacturer']	= $raw_data['ContentProduct']['Manufacturer']['name'];	
+			$content_list[$count]['manufacturer']	= $ContentBase->getManufacturerName($raw_data['ContentProduct']['manufacturer_id']);	
 
 			// Content Image
 			

@@ -11,8 +11,11 @@ function smarty_function_product_manufacturer($params, $template)
 	global $content;
 
 	if ($content['ContentProduct']['manufacturer_id'] > 0) {
+
+	App::uses('ContentBaseComponent', 'Controller/Component');
+	$ContentBase = new ContentBaseComponent(new ComponentCollection());
 	
-	$manufacturer = $content['Manufacturer']['name'];
+	$manufacturer = $ContentBase->getManufacturerName($content['ContentProduct']['manufacturer_id']);
 	
 	echo $manufacturer;
 
