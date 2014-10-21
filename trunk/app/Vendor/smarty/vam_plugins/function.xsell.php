@@ -20,7 +20,8 @@ function default_template_xsell()
 				<a href="{$node.url}" class="image"><img src="{$node.image.image}" alt="{$node.name}"{if {$node.image.image_width} > 0} width="{$node.image.image_width}"{/if}{if {$node.image.image_height} > 0} height="{$node.image.image_height}"{/if} /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
 			<div class="inner notop nobottom text-left">
 				<h4 class="title"><a href="{$node.url}">{$node.name}</a></h4>
-				<p class="description">{$node.short_description|strip_tags|truncate:30:"...":true}</p>
+				<div class="description">{$node.short_description|strip_tags|truncate:30:"...":true}</div>
+				<div class="description">{attribute_list product_id=$node.id}</div>
               </div>
 			</div>
 			{product_form product_id={$node.id}}
@@ -103,13 +104,42 @@ function smarty_function_xsell($params, &$smarty)
 				}
 
 		}
-		
-		$product = $Content->find('first', array('conditions' => array('Content.id' => $content['ContentRelations'][$key]['id'])));
+
+		$Content->unbindAll();	
+		$Content->bindModel(array('hasOne' => array(
+				'ContentDescription' => array(
+                    'className' => 'ContentDescription',
+					'conditions'   => 'language_id = '.$_SESSION['Customer']['language_id']
+                ))));
+		$Content->bindModel(array('belongsTo' => array(
+				'ContentType' => array(
+                    'className' => 'ContentType'
+					))));			
+		$Content->bindModel(array('hasOne' => array(
+				'ContentImage' => array(
+                    'className' => 'ContentImage',
+                    'conditions'=>array('ContentImage.order' => '1')
+					))));						
+		$Content->bindModel(array('hasOne' => array(
+				'ContentLink' => array(
+                    'className' => 'ContentLink'
+					))));		
+		$Content->bindModel(array('hasOne' => array(
+				'ContentProduct' => array(
+                    'className' => 'ContentProduct'
+					))));
+		$Content->bindModel(array('hasOne' => array(
+				'ContentDownloadable' => array(
+                    'className' => 'ContentDownloadable'
+					))));
+											
+		$product = $Content->find('first', array('recursive' => 2, 'conditions' => array('Content.id' => $content['ContentRelations'][$key]['id'])));
 		$content['ContentRelations'][$key]['id'] = $content['ContentRelations'][$key]['id'];
 		$content['ContentRelations'][$key]['alias'] = $content['ContentRelations'][$key]['id'];
 		$content['ContentRelations'][$key]['stock'] = $product['ContentProduct']['stock'];
 		$content['ContentRelations'][$key]['model'] = $product['ContentProduct']['model'];
 		$content['ContentRelations'][$key]['weight'] = $product['ContentProduct']['weight'];
+		$content['ContentRelations'][$key]['manufacturer']	= $product['ContentProduct']['Manufacturer']['name'];	
 		$content['ContentRelations'][$key]['price'] = $CurrencyBase->display_price($product['ContentProduct']['price']);
 		$content['ContentRelations'][$key]['url'] = BASE . '/' . $product['ContentType']['name'] . '/' . $product['Content']['alias'] . $config['URL_EXTENSION'];
 
