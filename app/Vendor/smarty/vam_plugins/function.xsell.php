@@ -139,7 +139,7 @@ function smarty_function_xsell($params, &$smarty)
 		$content['ContentRelations'][$key]['stock'] = $product['ContentProduct']['stock'];
 		$content['ContentRelations'][$key]['model'] = $product['ContentProduct']['model'];
 		$content['ContentRelations'][$key]['weight'] = $product['ContentProduct']['weight'];
-		$content['ContentRelations'][$key]['manufacturer']	= $product['ContentProduct']['Manufacturer']['name'];	
+		$content['ContentRelations'][$key]['manufacturer'] = $product['ContentProduct']['Manufacturer']['name'];	
 		$content['ContentRelations'][$key]['price'] = $CurrencyBase->display_price($product['ContentProduct']['price']);
 		$content['ContentRelations'][$key]['url'] = BASE . '/' . $product['ContentType']['name'] . '/' . $product['Content']['alias'] . $config['URL_EXTENSION'];
 
