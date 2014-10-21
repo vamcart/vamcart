@@ -63,7 +63,6 @@ switch($content_type_id) {
 				'selected' => isset($data['ContentProduct']['manufacturer_id']) ? $data['ContentProduct']['manufacturer_id']: '',
 				'label' => __('Manufacturer'),
 				'empty' => __('Select'),
-				'after' => ' '.$this->Html->link($this->Html->image("admin/icons/new.png", array('alt' => __('Add Manufacturer'), 'title' => __('Add Manufacturer'))),'/manufacturers/admin/', array('escape' => false, 'target' => '_blank'))
 			));
 		break;
 	case '3':
@@ -145,7 +144,6 @@ switch($content_type_id) {
 				'selected' => isset($data['ContentDownloadable']['manufacturer_id']) ? $data['ContentDownloadable']['manufacturer_id']: '',
 				'label' => __('Manufacturer'),
 				'empty' => __('Select'),
-				'after' => ' '.$this->Html->link($this->Html->image("admin/icons/new.png", array('alt' => __('Add Manufacturer'), 'title' => __('Add Manufacturer'))),'/manufacturers/admin/', array('escape' => false, 'target' => '_blank'))
 			));
 		echo $this->Form->input('ContentDownloadable.delete', 
 			array(
@@ -163,6 +161,13 @@ switch($content_type_id) {
 				'label' => __('Max. days for download'),
 				'type' => 'text',
 				'value' => isset($data['ContentDownloadable']['max_days_for_download']) ? $data['ContentDownloadable']['max_days_for_download'] : ''
+			));
+		break;
+	case '8':
+		echo $this->Form->input('ContentManufacturer.extra', 
+			array(
+				'type' => 'hidden',
+				'value' => 1
 			));
 		break;
 }
