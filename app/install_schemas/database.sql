@@ -429,10 +429,12 @@ DROP TABLE IF EXISTS `content_downloadables`;
 CREATE TABLE IF NOT EXISTS `content_downloadables` (
   `id` int(10) AUTO_INCREMENT,
   `content_id` int(10),
+  `manufacturer_id` int(10),
   `filename` varchar(256),
   `filestorename` varchar(256),
   `price` double,
   `model` varchar(255),
+  `sku` varchar(255),
   `tax_id` int(10),
   `order_status_id` int(10),
   `max_downloads` int(10) DEFAULT '0',
@@ -1977,11 +1979,11 @@ CREATE TABLE `manufacturers` (
   `name` varchar(255) collate utf8_unicode_ci,
   `image` varchar(5) collate utf8_unicode_ci,
   `active` tinyint(4) default '1',
-  `sort_order` int(3),
+  `order` int(3),
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `manufacturers` (`id`, `name`, `image`, `active`, `sort_order`) VALUES 
+INSERT INTO `manufacturers` (`id`, `name`, `image`, `active`, `order`) VALUES 
 (1, 'Samsung', 'samsung.png', 1, 1);
 
 DROP TABLE IF EXISTS micro_templates;
