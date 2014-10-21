@@ -123,8 +123,8 @@ INSERT INTO `contents` VALUES
 (104,101,3,0,2,1,0,'samsung-gear-2-charcoal-black','',1,1,1,0,NULL,102,'2014-07-11 19:39:53','2014-07-11 20:09:22'),
 (105, -1, NULL, NULL, 3, 1, NULL, 'ask_a_product_question', NULL, 1, NULL, NULL, NULL, NULL, NULL, '2014-08-09 20:58:06', '2014-08-09 20:58:06'),
 (106, -1, NULL, NULL, 3, 1, NULL, 'one_click_buy', NULL, 1, NULL, NULL, NULL, NULL, NULL, '2014-08-09 20:58:09', '2014-08-09 20:58:09'),
-(107,0,4,0,1,1,0,'brands','',1,0,1,0,NULL,NULL,'2014-07-11 19:18:53','2014-07-11 19:18:53'),
-(108,0,8,0,1,1,0,'samsung','',1,0,1,0,NULL,NULL,'2014-07-11 19:18:53','2014-07-11 19:18:53');
+(107,0,8,0,1,1,0,'brands','',1,0,0,0,NULL,NULL,'2014-07-11 19:18:53','2014-07-11 19:18:53'),
+(108,107,1,0,8,1,0,'samsung','',1,0,0,0,NULL,NULL,'2014-07-11 19:18:53','2014-07-11 19:18:53');
 
 DROP TABLE IF EXISTS content_categories;
 CREATE TABLE `content_categories` (
@@ -243,10 +243,10 @@ INSERT INTO `content_descriptions` VALUES
 (814, 105, 2, 'Задать вопрос о товаре', '{module alias=''ask_a_product_question'' controller=''get'' action=''ask_success''}', NULL, NULL, NULL, NULL),
 (815, 106, 1, 'One Click Buy', '{module alias=''one_click_buy'' controller=''buy'' action=''success''}', NULL, NULL, NULL, NULL),
 (816, 106, 2, 'Купить за 1 клик', '{module alias=''one_click_buy'' controller=''buy'' action=''success''}', NULL, NULL, NULL, NULL),
-(817, 106, 1, 'Brands', '', NULL, NULL, NULL, NULL),
-(818, 106, 2, 'Производители', '', NULL, NULL, NULL, NULL),
-(819, 106, 1, 'Samsung', '', NULL, NULL, NULL, NULL),
-(820, 106, 2, 'Samsung', '', NULL, NULL, NULL, NULL);
+(817, 107, 1, 'Brands', '', NULL, NULL, NULL, NULL),
+(818, 107, 2, 'Производители', '', NULL, NULL, NULL, NULL),
+(819, 108, 1, 'Samsung', '', NULL, NULL, NULL, NULL),
+(820, 108, 2, 'Samsung', '', NULL, NULL, NULL, NULL);
 
 DROP TABLE IF EXISTS content_images;
 CREATE TABLE `content_images` (
@@ -377,18 +377,18 @@ CREATE TABLE `content_products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `content_products` VALUES 
-(17,38,1,22,'','',399,2,3,1,1,0),
-(18,93,1,0,'','',299,1,0,1,1,0),
-(19,94,1,0,'','',199,1,0,1,1,0),
-(20,95,1,0,'','',499,1,0,1,1,0),
-(21,96,1,0,'','',399,1,0,1,1,0),
-(22,97,1,0,'','',299,1,0,1,1,0),
-(23,98,1,0,'','',999,1,0,1,1,0),
-(24,99,1,0,'','',899,1,0,1,1,0),
-(25,100,1,0,'','',799,1,0,1,1,0),
-(26,102,1,0,'','',299,1,0,1,1,0),
-(27,103,1,0,'','',299,1,0,1,1,0),
-(28,104,1,0,'','',299,1,0,1,1,0)	;
+(17,38,108,22,'','',399,2,3,1,1,0),
+(18,93,108,0,'','',299,1,0,1,1,0),
+(19,94,108,0,'','',199,1,0,1,1,0),
+(20,95,108,0,'','',499,1,0,1,1,0),
+(21,96,108,0,'','',399,1,0,1,1,0),
+(22,97,108,0,'','',299,1,0,1,1,0),
+(23,98,108,0,'','',999,1,0,1,1,0),
+(24,99,108,0,'','',899,1,0,1,1,0),
+(25,100,108,0,'','',799,1,0,1,1,0),
+(26,102,108,0,'','',299,1,0,1,1,0),
+(27,103,108,0,'','',299,1,0,1,1,0),
+(28,104,108,0,'','',299,1,0,1,1,0)	;
 
 DROP TABLE IF EXISTS content_product_prices;
 CREATE TABLE IF NOT EXISTS `content_product_prices` (
@@ -443,7 +443,8 @@ INSERT INTO `content_types` (`id`, `template_type_id`, `name`, `type`) VALUES
 (4, 0, 'link', 'ContentLink'),
 (5, 5, 'news', 'ContentNews'),
 (6, 6, 'article', 'ContentArticle'),
-(7, 3, 'downloadable', 'ContentDownloadable');
+(7, 3, 'downloadable', 'ContentDownloadable'),
+(8, 7, 'manufacturer', 'ContentManufacturer');
 
 DROP TABLE IF EXISTS `content_downloadables`;
 CREATE TABLE IF NOT EXISTS `content_downloadables` (
@@ -1453,7 +1454,9 @@ INSERT INTO `defined_languages` (`id`, `language_id`, `key`, `value`, `created`,
 (303, 1, 'Popular (asc)', 'Popular (asc)', '2013-10-10 20:08:49', '2013-10-10 20:08:49'),
 (304, 2, 'Popular (asc)', 'Популярность (популярные товары снизу)', '2013-10-10 20:08:49', '2013-10-10 20:08:49'),
 (305, 1, 'Popular (desc)', 'Popular (desc)', '2013-10-10 20:08:49', '2013-10-10 20:08:49'),
-(306, 2, 'Popular (desc)', 'Популярность (популярные товары сверху)', '2013-10-10 20:08:49', '2013-10-10 20:08:49');
+(306, 2, 'Popular (desc)', 'Популярность (популярные товары сверху)', '2013-10-10 20:08:49', '2013-10-10 20:08:49'),
+(307, 1, 'Products by this Manufacturer', 'Products by this Manufacturer', '2013-10-10 20:08:49', '2013-10-10 20:08:49'),
+(308, 2, 'Products by this Manufacturer', 'Товары данного производителя', '2013-10-10 20:08:49', '2013-10-10 20:08:49');
 
 DROP TABLE IF EXISTS email_templates;
 CREATE TABLE `email_templates` (
@@ -2400,7 +2403,9 @@ INSERT INTO `templates` (`id`, `parent_id`, `template_type_id`, `default`, `name
 (4, 1, 3, 0, 'Product Info', '<!-- start: Page section -->\r\n	<section class="span9 page-sidebar pull-right" itemscope itemtype="http://schema.org/Product">\r\n\r\n		<div class="row-fluid">\r\n			<!-- start: Product image -->\r\n				{content_images}\r\n			<!-- end: Product image -->\r\n			<!-- start: Product title -->\r\n				<div class="span6 product-info">\r\n\r\n					<div class="inner product-title">\r\n						<div class="row-fluid">\r\n							<div class="span8 title"><h1 itemprop="name">{page_name}</h1></div>\r\n							<div class="span4 price" itemprop="offers" itemscope itemtype="http://schema.org/Offer"><span itemprop="price">{product_price}</span></div>\r\n						</div>\r\n					</div>\r\n                                                      \r\n					{module alias=''reviews'' action=''reviews_total''}{module alias=''reviews'' action=''reviews_rating''}\r\n					{discount_group}\r\n					{discount_list}\r\n					{module alias=''ask_a_product_question'' controller=''get'' action=''ask_link''}\r\n\r\n					<div class="inner nobottom product-cart">\r\n							{product_form}\r\n								<label>{lang}Qty{/lang}:</label>\r\n								<input name="product_quantity" id="product_quantity" type="text" value="1" size="3" />\r\n								<button type="submit" class="btn btn-inverse"><i class="fa fa-shopping-cart"></i> {lang}Add to cart{/lang}</button>\r\n							{/product_form}\r\n							{module alias=''one_click_buy'' controller=''buy'' action=''link''}\r\n					</div>\r\n					\r\n					<div class="inner">\r\n						{attribute_list}\r\n					</div>\r\n\r\n				</div>\r\n			<!-- end: Product title -->\r\n		</div>\r\n\r\n		<div class="row-fluid">\r\n\r\n			<div class="row-fluid product-tabs">\r\n				<section class="widget">\r\n\r\n					<ul class="nav nav-tabs">\r\n						<li class="active"><a href="#description" data-toggle="tab"><i class="fa fa-thumbs-up"></i> {lang}Description{/lang}</a></li>\r\n						<li><a href="#reviews" data-toggle="tab"><i class="fa fa-comment"></i> {lang}Reviews{/lang}</a></li>\r\n						<li><a href="#add-review" data-toggle="tab"><i class="fa fa-pencil"></i> {lang}Add Review{/lang}</a></li>\r\n					</ul>\r\n\r\n					<div class="tab-content">\r\n\r\n						<div class="tab-pane inner fade in notop active" id="description">\r\n							<div itemprop="description">{description}</div>\r\n						</div>\r\n\r\n						<div class="tab-pane inner fade in notop" id="reviews">\r\n							{module alias=''reviews'' action=''display''}\r\n						</div>\r\n\r\n						<div class="tab-pane inner fade in notop" id="add-review">\r\n							{module alias=''reviews'' action=''create''}\r\n						</div>\r\n\r\n					</div>\r\n				</section>\r\n			</div>\r\n		</div>\r\n\r\n		{xsell}\r\n\r\n	</section>\r\n<!-- end: Page section -->', '2013-10-01 16:07:25', '2013-04-17 16:07:25'),
 (5, 1, 4, 0, 'Category Info', '<!-- start: Page section -->\r\n	<section class=\"span9 page-sidebar pull-right\">\r\n		<h2>{page_name}</h2>              \r\n			{description}\r\n\r\n		{if $sub_count->value.categories > 0}\r\n			<h3>{lang}Sub Categories{/lang}</h3>\r\n				<div class=\"content_listing\">\r\n					{content_listing template=\'subcategory-listing\' parent={$content_id} type=\'category\'}\r\n				</div>\r\n		{/if}\r\n\r\n		{if $sub_count->value.products + $sub_count->value.downloadables > 0}\r\n			<h3>{lang}Products in this Category{/lang}</h3>\r\n				<div class=\"content_listing\">\r\n					{content_listing template=\'product-listing\' parent={$content_id} page={$page} type=\'product,downloadable\' order=\'price-desc\'}\r\n				</div>\r\n		{/if}\r\n\r\n		{if $sub_count->value.pages > 0 or $sub_count->value.news > 0 or $sub_count->value.articles > 0}\r\n				<div class=\"content_listing\">\r\n					{content_listing template=\'footer-links\' parent={$content_id}}\r\n				</div>\r\n		{/if}\r\n</section>\r\n<!-- end: Page section -->', '2013-10-01 16:07:25', '2013-04-17 16:07:25'),
 (6, 1, 5, 0, 'News Page', '<!-- start: Page section -->\r\n	<section class=\"span9 page-sidebar pull-right\">\r\n		<h2>{page_name}</h2>              \r\n			{description}\r\n	</section>\r\n<!-- end: Page section -->','2013-10-01 16:07:25','2013-10-09 13:38:52'),
-(7, 1, 6, 0, 'Article Page', '<!-- start: Page section -->\r\n	<section class=\"span9 page-sidebar pull-right\">\r\n		<h2>{page_name}</h2>              \r\n			{description}\r\n	</section>\r\n<!-- end: Page section -->', '2013-10-01 16:07:25', '2013-04-17 16:07:25');
+(7, 1, 6, 0, 'Article Page', '<!-- start: Page section -->\r\n	<section class=\"span9 page-sidebar pull-right\">\r\n		<h2>{page_name}</h2>              \r\n			{description}\r\n	</section>\r\n<!-- end: Page section -->', '2013-10-01 16:07:25', '2013-04-17 16:07:25'),
+(8, 1, 7, 0, 'Manufacturer Info', '<!-- start: Page section -->\r\n	<section class=\"span9 page-sidebar pull-right\">\r\n		<h2>{page_name}</h2>              \r\n			{description}\r\n\r\n		{if $sub_count->value.categories > 0}\r\n			<h3>{lang}Sub Categories{/lang}</h3>\r\n				<div class=\"content_listing\">\r\n					{content_listing template=\'subcategory-listing\' parent={$content_id} type=\'category\'}\r\n				</div>\r\n		{/if}\r\n\r\n		{if $sub_count->value.products + $sub_count->value.downloadables > 0}\r\n			<h3>{lang}Products by this Manufacturer{/lang}</h3>\r\n				<div class=\"content_listing\">\r\n					{content_listing template=\'product-listing\' brand={$brand_id} page={$page} type=\'product,downloadable\' order=\'price-desc\'}\r\n				</div>\r\n		{/if}\r\n\r\n		{if $sub_count->value.pages > 0 or $sub_count->value.news > 0 or $sub_count->value.articles > 0}\r\n				<div class=\"content_listing\">\r\n					{content_listing template=\'footer-links\' parent={$content_id}}\r\n				</div>\r\n		{/if}\r\n</section>\r\n<!-- end: Page section -->', '2013-10-01 16:07:25', '2013-04-17 16:07:25');
+
 DROP TABLE IF EXISTS templates_stylesheets;
 CREATE TABLE `templates_stylesheets` (
   `template_id` int(10) unsigned default '0',
@@ -2425,7 +2430,8 @@ INSERT INTO `template_types` (`id`, `name`, `default_template`) VALUES
 (3, 'Product Info', '<!-- start: Page section -->\r\n	<section class="span9 page-sidebar pull-right" itemscope itemtype="http://schema.org/Product">\r\n\r\n		<div class="row-fluid">\r\n			<!-- start: Product image -->\r\n				{content_images}\r\n			<!-- end: Product image -->\r\n			<!-- start: Product title -->\r\n				<div class="span6 product-info">\r\n\r\n					<div class="inner product-title">\r\n						<div class="row-fluid">\r\n							<div class="span8 title"><h1 itemprop="name">{page_name}</h1></div>\r\n							<div class="span4 price" itemprop="offers" itemscope itemtype="http://schema.org/Offer"><span itemprop="price">{product_price}</span></div>\r\n						</div>\r\n					</div>\r\n                                                      \r\n					{module alias=''reviews'' action=''reviews_total''}{module alias=''reviews'' action=''reviews_rating''}\r\n					{discount_group}\r\n					{discount_list}\r\n					{module alias=''ask_a_product_question'' controller=''get'' action=''ask_link''}\r\n\r\n					<div class="inner nobottom product-cart">\r\n							{product_form}\r\n								<label>{lang}Qty{/lang}:</label>\r\n								<input name="product_quantity" id="product_quantity" type="text" value="1" size="3" />\r\n								<button type="submit" class="btn btn-inverse"><i class="fa fa-shopping-cart"></i> {lang}Add to cart{/lang}</button>\r\n							{/product_form}\r\n							{module alias=''one_click_buy'' controller=''buy'' action=''link''}\r\n					</div>\r\n					\r\n					<div class="inner">\r\n						{attribute_list}\r\n					</div>\r\n\r\n				</div>\r\n			<!-- end: Product title -->\r\n		</div>\r\n\r\n		<div class="row-fluid">\r\n\r\n			<div class="row-fluid product-tabs">\r\n				<section class="widget">\r\n\r\n					<ul class="nav nav-tabs">\r\n						<li class="active"><a href="#description" data-toggle="tab"><i class="fa fa-thumbs-up"></i> {lang}Description{/lang}</a></li>\r\n						<li><a href="#reviews" data-toggle="tab"><i class="fa fa-comment"></i> {lang}Reviews{/lang}</a></li>\r\n						<li><a href="#add-review" data-toggle="tab"><i class="fa fa-pencil"></i> {lang}Add Review{/lang}</a></li>\r\n					</ul>\r\n\r\n					<div class="tab-content">\r\n\r\n						<div class="tab-pane inner fade in notop active" id="description">\r\n							<div itemprop="description">{description}</div>\r\n						</div>\r\n\r\n						<div class="tab-pane inner fade in notop" id="reviews">\r\n							{module alias=''reviews'' action=''display''}\r\n						</div>\r\n\r\n						<div class="tab-pane inner fade in notop" id="add-review">\r\n							{module alias=''reviews'' action=''create''}\r\n						</div>\r\n\r\n					</div>\r\n				</section>\r\n			</div>\r\n		</div>\r\n\r\n		{xsell}\r\n\r\n	</section>\r\n<!-- end: Page section -->'),
 (4, 'Category Info', '<!-- start: Page section -->\r\n	<section class=\"span9 page-sidebar pull-right\">\r\n		<h2>{page_name}</h2>              \r\n			{description}\r\n\r\n		{if $sub_count->value.categories > 0}\r\n			<h3>{lang}Sub Categories{/lang}</h3>\r\n				<div class=\"content_listing\">\r\n					{content_listing template=\'subcategory-listing\' parent={$content_id} type=\'category\'}\r\n				</div>\r\n		{/if}\r\n\r\n		{if $sub_count->value.products + $sub_count->value.downloadables > 0}\r\n			<h3>{lang}Products in this Category{/lang}</h3>\r\n				<div class=\"content_listing\">\r\n					{content_listing template=\'product-listing\' parent={$content_id} page={$page} type=\'product,downloadable\' order=\'price-desc\'}\r\n				</div>\r\n		{/if}\r\n\r\n		{if $sub_count->value.pages > 0 or $sub_count->value.news > 0 or $sub_count->value.articles > 0}\r\n				<div class=\"content_listing\">\r\n					{content_listing template=\'footer-links\' parent={$content_id}}\r\n				</div>\r\n		{/if}\r\n</section>\r\n<!-- end: Page section -->'),
 (5, 'News Page', '<!-- start: Page section -->\r\n	<section class=\"span9 page-sidebar pull-right\">\r\n		<h2>{page_name}</h2>              \r\n			{description}\r\n	</section>\r\n<!-- end: Page section -->'),
-(6, 'Article Page', '<!-- start: Page section -->\r\n	<section class=\"span9 page-sidebar pull-right\">\r\n		<h2>{page_name}</h2>              \r\n			{description}\r\n	</section>\r\n<!-- end: Page section -->');
+(6, 'Article Page', '<!-- start: Page section -->\r\n	<section class=\"span9 page-sidebar pull-right\">\r\n		<h2>{page_name}</h2>              \r\n			{description}\r\n	</section>\r\n<!-- end: Page section -->'),
+(7, 'Manufacturer Info', '<!-- start: Page section -->\r\n	<section class=\"span9 page-sidebar pull-right\">\r\n		<h2>{page_name}</h2>              \r\n			{description}\r\n\r\n		{if $sub_count->value.categories > 0}\r\n			<h3>{lang}Sub Categories{/lang}</h3>\r\n				<div class=\"content_listing\">\r\n					{content_listing template=\'subcategory-listing\' parent={$content_id} type=\'category\'}\r\n				</div>\r\n		{/if}\r\n\r\n		{if $sub_count->value.products + $sub_count->value.downloadables > 0}\r\n			<h3>{lang}Products by this Manufacturer{/lang}</h3>\r\n				<div class=\"content_listing\">\r\n					{content_listing template=\'product-listing\' brand={$brand_id} page={$page} type=\'product,downloadable\' order=\'price-desc\'}\r\n				</div>\r\n		{/if}\r\n\r\n		{if $sub_count->value.pages > 0 or $sub_count->value.news > 0 or $sub_count->value.articles > 0}\r\n				<div class=\"content_listing\">\r\n					{content_listing template=\'footer-links\' parent={$content_id}}\r\n				</div>\r\n		{/if}\r\n</section>\r\n<!-- end: Page section -->');
 
 DROP TABLE IF EXISTS users;
 CREATE TABLE `users` (
