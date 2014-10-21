@@ -50,6 +50,7 @@ class ManufacturersController extends AppController {
 		}
 		else
 		{
+			if($this->data['Manufacturer']['alias'] == "") $this->request->data['Manufacturer']['alias'] = $this->generateAlias($this->data['Manufacturer']['name']);
 			$this->Manufacturer->save($this->data);		
 			$this->Session->setFlash(__('Record created.', true));
 			$this->redirect('/manufacturers/admin/');
