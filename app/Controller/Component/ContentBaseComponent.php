@@ -160,6 +160,20 @@ class ContentBaseComponent extends Object
 
 		return $content_image['ContentImage']['image'];
 	}
+
+	public function get_product_manufacturer_name($manufacturer_id)
+	{
+		if ($manufacturer_id > 0) {
+		App::import('Model', 'Manufacturer');
+		$Manufacturer = new Manufacturer();
+		
+		$manufacturer_name = $Manufacturer->find('first',array('fields' => array('Manufacturer.name','Manufacturer.image')
+                                                 ,'conditions' => array('Manufacturer.id' => $manufacturer_id,'Manufacturer.active' => 1)
+                                                 ,'order' => array('Manufacturer.order ASC')));
+
+		return $manufacturer_name['Manufacturer']['name'];
+		}
+	}
 	
 	/**
 	* Returns a list of all content in $key => $value format
