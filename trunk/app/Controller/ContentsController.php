@@ -303,16 +303,27 @@ class ContentsController extends AppController {
 
 	public function generate_manufacturer_list ()
 	{
-		App::import('Model', 'Manufacturer');
-		$Manufacturer = new Manufacturer();
+		App::import('Model', 'Content');
+		$ManufacturerList = new Content();
 
-		$manufacturer_list_translatable = $Manufacturer->find('list', array('conditions' => array('Manufacturer.active' => 1), 'order' => array('Manufacturer.name ASC')));
-		foreach($manufacturer_list_translatable AS $key => $value)
-		{
-		$manufacturer_list_translatable[$key] = __($value, true);
+		$ManufacturerList->unbindall();
+		$ManufacturerList->bindModel(
+			array('hasOne' => array(
+				'ContentDescription' => array(
+					'className' => 'ContentDescription',
+					'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
+				)
+			))
+		);
+
+		$manufacturers = $ManufacturerList->find('all', array('conditions' => array('Content.content_type_id' => 8, 'Content.active' => 1), 'order' => array('ContentDescription.name ASC')));
+
+		$manufacturer_list = array();
+		foreach ($manufacturers as $status) {
+			$manufacturer_list[$status['Content']['id']] = $status['ContentDescription']['name'];
 		}
-		
-		return $manufacturer_list_translatable;
+
+		return $manufacturer_list;
 	}
 
 	public function generate_order_statuses_list()
