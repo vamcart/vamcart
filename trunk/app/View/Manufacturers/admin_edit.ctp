@@ -22,6 +22,10 @@ $this->Html->script(array(
 						array(
 				   		'label' => __('Name')
 	               ));
+	echo $this->Form->input('Manufacturer.alias', 
+						array(
+   				   	'label' => __('Alias')
+	               ));
 	echo $this->Form->input('Manufacturer.order', 
 						array(
    				   	'label' => __('Sort Order')
