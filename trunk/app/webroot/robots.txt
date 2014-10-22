@@ -25,5 +25,6 @@ Disallow: /customer/register.html
 Disallow: */addcmp/*
 Disallow: */compared/*
 Disallow: */order/*
+Disallow: */manufacturer/*
 Disallow: */page/1/*
 Disallow: */page/all/*
