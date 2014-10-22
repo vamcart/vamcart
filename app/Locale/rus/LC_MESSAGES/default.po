@@ -2037,6 +2037,10 @@ msgid "downloadable"
 msgstr "скачиваемый"
 
 #: /views/contents/admin_edit.ctp:60
+msgid "manufacturer"
+msgstr "производитель"
+
+#: /views/contents/admin_edit.ctp:60
 msgid "Default Theme"
 msgstr "Шаблон по умолчанию"
 
@@ -2055,6 +2059,10 @@ msgstr "Страница карточки товара"
 #: /views/contents/admin_edit.ctp:60
 msgid "Category Info"
 msgstr "Страница категории"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "Manufacturer Info"
+msgstr "Страница производителя"
 
 #: /views/contents/admin_edit.ctp:60
 msgid "News Page"
