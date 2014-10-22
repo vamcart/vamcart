@@ -232,6 +232,7 @@ function smarty_function_content_listing($params, $template)
 			$allowed_types[] =  $type;
 	}
 	$content_list_data_conditions = array('Content.parent_id' => $params['parent'],'Content.active' => '1','Content.show_in_menu' => '1');
+
 	$Content->recursive = 1;
 
         // Applying pagination for products only
@@ -323,16 +324,23 @@ function smarty_function_content_listing($params, $template)
 //2.Добавим фильтр для групп        
         $content_list_data_conditions = array_merge($content_list_data_conditions,array('OR' => array('Content.id_group is null','Content.id' => $content_list_group)));
 //               
+
+				// Sort products by manufacturer
+				if(isset($params['manufacturer']) && $params['manufacturer'] > 0) {
+				$content_list_data_conditions = array_slice($content_list_data_conditions,1);
+				$content_list_data_conditions = array_merge($content_list_data_conditions,array('ContentProduct.manufacturer_id' => $params['manufacturer']));
+				}
+
             if($params['page'] == 'all'){          
 
                 $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'order' => array($params['order_column'])));
                 $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
             }
             else{
-            	
+
 	  	        if(!isset ($params['limit']))
    	         $params['limit'] = $config['PRODUCTS_PER_PAGE'];
-            
+
                 $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => $params['limit'],'page' => $params['page'], 'order' => array($params['order_column'])));
                 $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
             }

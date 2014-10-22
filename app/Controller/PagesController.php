@@ -146,6 +146,7 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty');
 					'all_content' => $this->Content->find('count', array('conditions' => array('Content.parent_id' => $content['Content']['id'], 'Content.active' => 1))),
 					'categories' => $this->Content->find('count', array('conditions' => array('Content.parent_id' => $content['Content']['id'], 'ContentType.name' => 'category'))),
 					'products' => $this->Content->find('count', array('conditions' => array('Content.parent_id' => $content['Content']['id'], 'Content.active' => 1, 'ContentType.name' => 'product'))),
+					'manufacturer_products' => $this->Content->find('count', array('conditions' => array('ContentProduct.manufacturer_id' => $content['Content']['id'], 'Content.active' => 1, 'ContentType.name' => 'product'))),
 					'downloadables' => $this->Content->find('count', array('conditions' => array('Content.parent_id' => $content['Content']['id'], 'Content.active' => 1, 'ContentType.name' => 'downloadable'))),
 					'pages' => $this->Content->find('count', array('conditions' => array('Content.parent_id' => $content['Content']['id'], 'Content.active' => 1, 'ContentType.name' => 'page'))),
 					'news' => $this->Content->find('count', array('conditions' => array('Content.parent_id' => $content['Content']['id'], 'Content.active' => 1, 'ContentType.name' => 'news'))),
