@@ -204,11 +204,6 @@ function smarty_function_content_listing($params, $template)
 	}
 
 
-                $Content->bindModel(array('hasMany' => array(
-				'Attribute' => array(
-                    'className' => 'Attribute'
-					))));
-
         if(!isset ($params['page']))
             $params['page'] = 1;
 
