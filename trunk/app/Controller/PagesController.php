@@ -141,6 +141,7 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty');
 			$template_vars = array(
 				'content_id' => $content['Content']['id'],
 				'content_alias' => $content['Content']['alias'],
+				'content_type' => $content['ContentType']['name'],
 				'parent_id' => $content['Content']['parent_id'],
 				'sub_count' => array(
 					'all_content' => $this->Content->find('count', array('conditions' => array('Content.parent_id' => $content['Content']['id'], 'Content.active' => 1))),

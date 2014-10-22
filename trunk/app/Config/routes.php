@@ -51,6 +51,7 @@
 	Router::connect('/page/:content_alias', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/news/:content_alias', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/article/:content_alias', array('controller' => 'pages', 'action' => 'index'));
+	Router::connect('/manufacturer/:content_alias', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/customer/:content_alias', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/google_sitemap', array('controller' => 'sitemaps', 'action' => 'google', 'ext' => 'xml'));
 	Router::connect('/yandex_market', array('controller' => 'sitemaps', 'action' => 'yandex', 'ext' => 'xml'));
