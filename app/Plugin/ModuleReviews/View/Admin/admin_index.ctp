@@ -34,7 +34,12 @@ echo $this->Admin->EmptyResults($reviews);
 
 echo $this->Admin->ActionBar(array('delete'=>__('Delete')),false);
 echo $this->Form->end();
-
+?>
+<table class="contentPagination">
+	<tr>
+		<td><?php echo $this->Paginator->numbers(array('separator'=>' - ')); ?></td>
+	</tr>
+</table>
+<?php
 echo $this->Admin->ShowPageHeaderEnd();
-
 ?>
