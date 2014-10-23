@@ -10,6 +10,7 @@ App::uses('ModuleReviewsAppController', 'ModuleReviews.Controller');
 class AdminController extends ModuleReviewsAppController {
 	public $uses = array('ModuleReviews.ModuleReview');
 	public $helpers = array('Time','Admin');
+	public $paginate = array('limit' => 20, 'order' => array('ModuleReview.created' => 'desc'));
 	
 	public function admin_delete ($id)
 	{
@@ -53,7 +54,8 @@ class AdminController extends ModuleReviewsAppController {
 	{
 		$this->set('current_crumb', false);
 		$this->set('title_for_layout', __('Manage Reviews'));
-		$this->set('reviews',$this->ModuleReview->find('all'));
+		$data = $this->paginate('ModuleReview');
+		$this->set('reviews',$data);
 	}
 	
 	public function admin_help()
