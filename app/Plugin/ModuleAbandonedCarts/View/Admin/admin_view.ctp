@@ -178,82 +178,9 @@ echo '</table>';
 
 	echo $this->Admin->EndTabContent();
 
-	echo $this->Admin->StartTabContent('comments');
-
-echo '<table class="contentTable">';
-
-echo $this->Html->tableHeaders(array( __('Date'), __('Sent To Customer'), __('Comment')));
-
-foreach($data['OrderComment'] AS $comment) 
-{
-	echo $this->Admin->TableCells(
-		  array(
-				$this->Time->i18nFormat($comment['created']),
-				($comment['sent_to_customer'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'),'title' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False'),'title' => __('False')))),
-				'<pre>'.$comment['comment'].'</pre>'
-		   ));
-}
-echo '</table>';
-
-	echo $this->Admin->EndTabContent();
-
-	echo $this->Admin->StartTabContent('status');
-
-echo $this->Form->create('OrderComment', array('id' => 'contentform', 'name' => 'contentform', 'action' => '/orders/admin_new_comment/', 'url' => '/orders/admin_new_comment/'));
-
-	echo $this->Form->input('Order.id', 
-			array(
-				'type' => 'hidden',
-				'value' => $data['Order']['id']
-			));	
-	echo $this->Form->input('Order.order_status_id', 
-			array(
-				'type' => 'select',
-				'options' => $order_status_list,
-				'selected' => $data['Order']['order_status_id'],
-				'label' => __('Update Status')
-			));
-	echo $this->Form->input('OrderComment.order_id', 
-			array(
-				'type' => 'hidden',
-				'value' => $data['Order']['id']
-			));				
-	echo $this->Form->input('OrderComment.user_id', 
-			array(
-				'type' => 'hidden',
-				'value' => $_SESSION['User']['id']
-			));	
-	echo $this->Form->input('Order.answer_template_id', 
-			array(
-				'type' => 'select',
-				'options' => $answer_template_list,
-				'label' => __('Answer Template'),
-				'name' => 'menu',
-				'empty' => __('Select'),
-				'onclick' => 'var textarea = document.getElementById("comment"); textarea.value=document.contentform.menu.options[document.contentform.menu.selectedIndex].value;',
-				'after' => ' '.$this->Html->link($this->Html->image("admin/icons/new.png", array('alt' => __('Add Answer Template'), 'title' => __('Add Answer Template'))),'/answer_template/admin/', array('escape' => false, 'target' => '_blank'))
-			));
-	echo $this->Form->input('OrderComment.comment', 
-			array(
-				'type' => 'textarea',
-				'label' => __('Comment'),
-				'class' => 'pagesmallesttextarea',
-				'id' => 'comment'
-			));
-	echo $this->Form->input('OrderComment.sent_to_customer', 
-			array(
-				'type' => 'checkbox',
-				'label' => __('Send To Customer'),
-				'class' => 'checkbox_group'
-			));
-	echo '<div class="clear"></div>';
-	echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn', 'type' => 'submit', 'name' => 'submit', 'id' => 'submit'));
-	echo '<div class="clear"></div>';
-	echo $this->Form->end();
-
-	echo $this->Admin->EndTabContent();
-
 	echo $this->Admin->EndTabs();
+	
+	echo $this->Admin->linkButton(__('Back'), '/module_abandoned_carts/admin/admin_index/', 'cus-arrow-turn-left', array('escape' => false, 'class' => 'btn'));
 
 	echo $this->Admin->ShowPageHeaderEnd();
 	
