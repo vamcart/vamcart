@@ -187,6 +187,14 @@
   {
     //--(MAGIC-PclTrace)--//PclTraceFctStart(__FILE__, __LINE__, 'PclZip::PclZip', "zipname=$p_zipname");
 
+	if (!function_exists('gzopen')
+	    && function_exists('gzopen64')) {
+	    function gzopen($filename , $mode = 'r', $use_include_path = 0 )
+	    {
+	        return gzopen64($filename , $mode, $use_include_path);
+	    }
+	}
+
     // ----- Tests the zlib
     if (!function_exists('gzopen'))
     {
