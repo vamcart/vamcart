@@ -179,7 +179,7 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 							$this->Time->i18nFormat($order['Order']['created']),
 							$order_status_list[$order['OrderStatus']['id']],
 							array($this->Admin->ActionButton('view','/orders/admin_view/' . $order['Order']['id'],__('View')).$this->Admin->ActionButton('edit','/orders_edit/admin/edit/' . $order['Order']['id'],__('Edit')), array('align'=>'center'))
-					   ));
+					   ), ($order['OrderStatus']['id'] == 1 ? 'highlight' : null), ($order['OrderStatus']['id'] == 1 ? 'highlight' : null));
 					   	
 			}
 			echo '</table>';

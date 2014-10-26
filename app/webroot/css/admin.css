@@ -361,6 +361,34 @@ div#content table.contentTable tr.contentRowOddHover
 		background: #ffc;
 	}
 
+div#content table.contentTable tr.contentRowEven.highlight
+	{
+		padding: 0;
+		margin: 0;
+		background: #ffc;
+	}
+
+div#content table.contentTable tr.contentRowOdd.highlight
+	{
+		padding: 0;
+		margin: 0;
+		background: #fcf8e3;
+	}
+
+div#content table.contentTable tr.contentRowEvenHover.highlight
+	{
+		padding: 0;
+		margin: 0;
+		background: #ffc;
+	}
+
+div#content table.contentTable tr.contentRowOddHover.highlight
+	{
+		padding: 0;
+		margin: 0;
+		background: #fcf8e3;
+	}
+
 div#content table.contentTable th
 	{
 		color: #000;

@@ -95,12 +95,12 @@ $("#myTabLang a:first").tab("show"); // Select first tab
 		return $content;
 	}
 	
-	public function TableCells ($cell_array)
+	public function TableCells ($cell_array, $odd, $even)
 	{
 		return($this->Html->TableCells(
 				   $cell_array,
-				   array("class" => "contentRowEven","onmouseout" =>"this.className='contentRowEven';", "onmouseover" => "this.className='contentRowEvenHover';"),
-				   array("class" => "contentRowOdd","onmouseout" =>"this.className='contentRowOdd';", "onmouseover" => "this.className='contentRowOddHover';")
+				   array("class" => "contentRowEven".(!empty($odd) ? ' '.$odd : null)."","onmouseout" =>"this.className='contentRowEven".(!empty($odd) ? ' '.$odd : null)."';", "onmouseover" => "this.className='contentRowEvenHover".(!empty($odd) ? ' '.$odd : null)."';"),
+				   array("class" => "contentRowOdd".(!empty($even) ? ' '.$even : null)."","onmouseout" =>"this.className='contentRowOdd".(!empty($even) ? ' '.$even : null)."';", "onmouseover" => "this.className='contentRowOddHover".(!empty($even) ? ' '.$even : null)."';")
 					)
 				);
 	}
