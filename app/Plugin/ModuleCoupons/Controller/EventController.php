@@ -56,7 +56,6 @@ class EventController extends ModuleCouponsAppController {
 		
 		$coupon_product = array();
 		$coupon_product['OrderProduct']['order_id'] = $order['Order']['id'];
-		$coupon_product['OrderProduct']['order_id'] = $order['Order']['id'];
 		$coupon_product['OrderProduct']['name'] = $coupon['ModuleCoupon']['name'] . ' - ' . $coupon['ModuleCoupon']['code'];
 		$coupon_product['OrderProduct']['quantity'] = 1;
 		$coupon_product['OrderProduct']['price'] = $discount;	
