@@ -160,7 +160,7 @@ Cache::config('catalog', array(
 
  
  
-CakePlugin::loadAll(array(array('bootstrap' => true, 'routes' => true)));
+CakePlugin::loadAll(array(array('bootstrap' => true, 'routes' => true, 'ignoreMissing' => true)));
   
  
 
