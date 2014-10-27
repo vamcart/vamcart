@@ -160,7 +160,7 @@ Cache::config('catalog', array(
 
  
  
-CakePlugin::loadAll(array(array('bootstrap' => true)));
+CakePlugin::loadAll(array(array('bootstrap' => true, 'routes' => true)));
   
  
 
@@ -206,3 +206,5 @@ CakeLog::config('error', array(
 
 	if(!defined('CryptKey')) define('CryptKey','VamShop');
 	if(!defined('CheckServer')) define('CheckServer','http://updates.vamshop.com/');
+
+Configure::write('Config.language', 'rus');
