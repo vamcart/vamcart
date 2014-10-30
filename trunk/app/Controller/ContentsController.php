@@ -828,6 +828,8 @@ class ContentsController extends AppController {
 	
 	public function admin_categories_tree()
 	{
+		$this->Content->unbindAll();
+
 		$this->Content->unbindModel(array('hasMany' => array('ContentDescription')));
 
 		$this->Content->bindModel(array('hasOne' => array(
@@ -856,6 +858,8 @@ class ContentsController extends AppController {
 		foreach ($product['xsell'] as $relation) {
 			$related[] = $relation['id'];
 		}
+
+		$this->Content->unbindAll();
 
 		$this->Content->unbindModel(array('hasMany' => array('ContentDescription')));
 
