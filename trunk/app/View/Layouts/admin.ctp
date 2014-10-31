@@ -76,7 +76,7 @@ if(isset($navigation)) {
 
 			<?php 
 			echo $this->form->create('Search', array('class' => 'navbar-search pull-right', 'action' => '/search/admin_global_search/', 'url' => '/search/admin_global_search/'));
-			echo $this->form->input('Search.term',array('class' => 'span12', 'label' => false,'value' => __('Global Record Search',true),"onblur" => "if(this.value=='') this.value=this.defaultValue;","onfocus" => "if(this.value==this.defaultValue) this.value='';"));
+			echo $this->form->input('Search.term',array('class' => 'input-medium', 'label' => false,'value' => __('Global Record Search',true),"onblur" => "if(this.value=='') this.value=this.defaultValue;","onfocus" => "if(this.value==this.defaultValue) this.value='';"));
 			//echo $this->form->submit( __('Submit', true));
 			echo $this->form->end();
 			?>   
