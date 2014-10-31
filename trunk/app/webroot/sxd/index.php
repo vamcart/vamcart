@@ -1,10 +1,10 @@
 <?php
 /***************************************************************************\
-| Sypex Dumper               version 2.0.9c                                 |
+| Sypex Dumper               version 2.0.11                                 |
 | (c) 2003-2011 zapimir      zapimir@zapimir.net       http://sypex.net/    |
 | (c) 2005-2011 BINOVATOR    info@sypex.net                                 |
 |---------------------------------------------------------------------------|
-|     created: 2003.09.02 19:07              modified: 2011.11.15 17:51     |
+|     created: 2003.09.02 19:07              modified: 2013.08.27 06:27     |
 |---------------------------------------------------------------------------|
 | Sypex Dumper is released under the terms of the BSD license               |
 |   http://sypex.net/bsd_license.txt                                        |
@@ -12,10 +12,9 @@
 header("Expires: Wed, 19 Nov 2008 19:19:19 GMT");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Content-Type: text/html; charset=utf-8");
-if(!ini_get('zlib.output_compression') && function_exists('ob_gzhandler')) ob_start('ob_gzhandler');
 //error_reporting(E_ALL);
-@set_magic_quotes_runtime(0);
 error_reporting(0);
+if (!ini_get('zlib.output_compression') && function_exists('ob_gzhandler')) ob_start('ob_gzhandler');
 set_error_handler('sxd_error_handler');
 register_shutdown_function('sxd_shutdown');
 $SXD = new Sypex_Dumper();
@@ -30,9 +29,9 @@ class Sypex_Dumper {
 		define('C_WARNING', 4);
 		define('SXD_DEBUG', false);
 		define('TIMER', array_sum(explode(' ', microtime()))); 
-		define('V_SXD', 20009);
+		define('V_SXD', 20011);
 		define('V_PHP', sxd_ver2int(phpversion()));
-		$this->name = 'Sypex Dumper 2.0.9';
+		$this->name = 'Sypex Dumper 2.0.11';
 	}
 	function loadLang($lng_name = 'auto'){
 		if($lng_name == 'auto'){
@@ -110,11 +109,7 @@ class Sypex_Dumper {
 					$auth = true;
 					$this->CFG = $SES[$_COOKIE['sxd']]['cfg'];
 					$this->SES = &$SES;
-					if(!empty($_REQUEST['lang']) && preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $_REQUEST['lang'])) {
-					    $this->loadLang($_REQUEST['lang']);
-					} else {
-					    $this->loadLang($this->CFG['lang']);
-					}
+					$this->loadLang($this->CFG['lang']);
 				}
 			}
 			if(!$auth) {
@@ -141,10 +136,11 @@ class Sypex_Dumper {
 				}
 				if($auth){
 					$key = md5(rand(1,100000) . $user . microtime());
-					//$CFG['lang'] = $this->LNG['name'];
+					$CFG['lang'] = $this->LNG['name'];
 					$_COOKIE['sxd'] = $key;
 					$this->saveCFG();
-					setcookie('sxd', $key, !empty($_POST['save']) ? time() + 31536000 : 0);
+					if(V_PHP > 50200) setcookie('sxd', $key, !empty($_POST['save']) ? time() + 31536000 : 0, '', '', false, true);
+					else setcookie('sxd', $key, !empty($_POST['save']) ? time() + 31536000 : 0, '', '', false);
 					header("Location: ./");
 					exit;
 				}
@@ -163,13 +159,14 @@ class Sypex_Dumper {
 				foreach($this->langs AS $k => $v){
 					$this->lng_list .= "<option value=\"{$k}\"" . ($k == (!empty($_REQUEST['lang']) ? $this->LNG['name'] : $this->CFG['lang']) ? ' SELECTED' : '') . ">{$v}</opinion>";
 				}
+				include('tmpl.php');
 				echo sxd_tpl_auth();
 				exit;
 			}
 		}
 		if(empty($_POST['ajax']['act']) || $_POST['ajax']['act'] != 'save_connect') $this->connect();
 		if(isset($_POST['ajax'])) $this->ajax($_POST['ajax']);
-		else $this->main();
+		else $this->main();exit;
 	}
 	function saveToFile($name, $content){
 		$fp = fopen($name, "w");
@@ -186,12 +183,13 @@ class Sypex_Dumper {
 			$this->CFG['my_pass'] = $pass;
 		}
 		if(mysql_connect($this->CFG['my_host'] . ($this->CFG['my_host']{0} != ':' ? ":{$this->CFG['my_port']}" : ''),  $this->CFG['my_user'], $this->CFG['my_pass'])) {
-			mysql_query('SET NAMES utf8') or sxd_my_error();
+			if(V_PHP > 50202) mysql_set_charset('utf8') or sxd_my_error();
+			else mysql_query('SET NAMES utf8') or sxd_my_error();
 			define('V_MYSQL', sxd_ver2int(mysql_get_server_info()));
 		}
 		else {
 			define('V_MYSQL', 0); 
-			$this->error = "sxd.actions.tab_connects();alert('{" . mysql_escape_string(mysql_error()) . "');";
+			$this->error = "sxd.actions.tab_connects();alert(" . sxd_esc(mysql_error()) . ");";
 		}	
 		$this->try = false;
 		return V_MYSQL ? true: false;
@@ -247,6 +245,7 @@ class Sypex_Dumper {
 		$this->LNG['del_date']  = sprintf($this->LNG['del_date'], '<input type="text" id="del_time" class=txt style="width:24px;" maxlength="3">');
 		$this->LNG['del_count'] = sprintf($this->LNG['del_count'], '<input id="del_count" type="text" class=txt style="width:18px;" maxlength="2">');
 		
+		include('tmpl.php');
 		echo sxd_tpl_page();
 	}
 	function addCombo($name, $sel, $ico, $opt_name, $opts = ''){
@@ -323,7 +322,7 @@ class Sypex_Dumper {
 				break;
 			case 'exit': 
 				setcookie('sxd', '', 0);
-				$res = "top.location.href = '" . mysql_escape_string($this->CFG['exitURL']) . "'"; 
+				$res = "top.location.href = " . sxd_esc($this->CFG['exitURL']) . ";";
 				break;
 		}	
 		echo $res;
@@ -337,21 +336,21 @@ class Sypex_Dumper {
 		return $JOB;
 	}
 	function deleteDB($name){
-		$r = mysql_query('DROP DATABASE `' . mysql_escape_string($name) . '`') or sxd_my_error();
+		$r = mysql_query('DROP DATABASE `' . sxd_esc($name, false) . '`') or sxd_my_error();
 		if($r){
         	echo "sxd.clearOpt('db');sxd.addOpt(" . sxd_php2json(array('db' => $this->getDBList())) . ");sxd.combos.services_db.select(0,'-');";
 		}
         else
-        	echo "alert('" . mysql_escape_string(mysql_error()) . "')";
+        	echo "alert(" . sxd_esc(mysql_error()) . ");";
 	}
 	function cfg2js($cfg){
 		foreach($cfg AS $k => $v){
-			$cfg[$k] = mysql_escape_string($v);
+			$cfg[$k] = sxd_esc($v, false);
 		}
 		return $cfg;
 	}
 	function addDb($req){
-        $r = mysql_query('CREATE DATABASE `' . mysql_escape_string($req['name']) . '`' . (V_MYSQL > 40100 ? "CHARACTER SET {$req['charset']} COLLATE {$req['collate']}" : ''));
+        $r = mysql_query('CREATE DATABASE `' . sxd_esc($req['name'], false) . '`' . (V_MYSQL > 40100 ? "CHARACTER SET {$req['charset']} COLLATE {$req['collate']}" : ''));
         if($r)
         	echo "sxd.addOpt(" . sxd_php2json(array('db' => array($req['name'] => "{$req['name']} (0)"))) . ");";
         else
@@ -450,9 +449,11 @@ class Sypex_Dumper {
 		//return;
 		@ignore_user_abort(1); 
 		header("SXD: {$this->name}");
+		$size = ob_get_length();
+//		@fastcgi_finish_request();
+		header("Content-Length: {$size}");
 		header("Connection: close"); 
-		header("Content-Length: 0"); 
-		@ob_end_flush(); 
+		@ob_end_flush();
 		@flush();
 	}
 	function resumeJob($job){
@@ -662,8 +663,8 @@ class Sypex_Dumper {
 				case '#': // Команды для дампера
 					if (preg_match("/\#\t(TC|TD|VI|PR|FU|TR|EV)`(.+?)`(([^_]+?)_.+?)?$/", $q, $m)) {
 						//if(!empty($tab)) $enable_index[] = $tab;
-						$this->setNames($this->JOB['correct'] == 1 && !empty($this->JOB['charset']) ? $this->JOB['charset'] : empty($m[3]) ? '' : $m[3]);
-						
+//						$this->setNames($this->JOB['correct'] == 1 && !empty($this->JOB['charset']) ? $this->JOB['charset'] : empty($m[3]) ? '' : $m[3]);
+						$this->setNames('binary');
 						if($m[1] == 'TC') {
 							$this->addLog(sprintf($this->LNG['restore_TC'], $m[2]));
 							$insert = '';
@@ -705,7 +706,7 @@ class Sypex_Dumper {
 					}
 				}
 				else {
-					error_log("----------\n{$q}\n", 3, "error.log");
+					error_log(date('r') . "\n----------\n{$q}\n", 3, "backup/sql_error.log");
 					sxd_my_error();
 				}
 				
@@ -796,6 +797,8 @@ class Sypex_Dumper {
 			}
 			do {
 				$repeat = false;
+				//error_log("-----------------\n[{$q}]\n", 3, "q.log");
+				//if(empty($q)) {continue 2;}
 				switch($q{0}){
 					case '(':
 						if($continue) {
@@ -860,6 +863,7 @@ class Sypex_Dumper {
 				fseek($this->fh_rtl, 0);
 				$this->rtl[1] = time();
 				fwrite($this->fh_rtl, implode("\t", $this->rtl));
+				error_log("-----------------\n{$q}\n", 3, "sql.log");
 				if(mysql_query($q)) {
 					if($insert) {
 						$c = 1;
@@ -1001,7 +1005,7 @@ class Sypex_Dumper {
 		$this->JOB['file_name'] = $this->CFG['backup_path'] . $this->JOB['file'];
 		$this->JOB['todo'] = $todo;
 		$this->saveJob($this->JOB['job'], $this->JOB);
-		$fcache = implode('|', array('#SXD20', V_SXD, V_MYSQL, V_PHP, date('Y.m.d H:i:s'), $this->JOB['db'], $this->JOB['charset'], $tabs, $rows, mysql_escape_string($this->JOB['comment']))) . "\n";
+		$fcache = implode('|', array('#SXD20', V_SXD, V_MYSQL, V_PHP, date('Y.m.d H:i:s'), $this->JOB['db'], $this->JOB['charset'], $tabs, $rows, sxd_esc($this->JOB['comment'], false))) . "\n";
 		foreach($header AS $t => $o){
 			if (!empty($o)) $fcache .= "#{$t} " . implode('|', $o) . "\n";	
 		}
@@ -1098,7 +1102,7 @@ class Sypex_Dumper {
 							}
 							for($k = 0; $k < $fields; $k++){
 								if(!isset($row[$k])) {$row[$k] = '\N';}
-								elseif($notNum[$k]) {$row[$k] =  '\'' . mysql_escape_string($row[$k]) . '\'';}
+								elseif($notNum[$k]) {$row[$k] =  '\'' . mysql_real_escape_string($row[$k]) . '\'';} // TODO: Потестить скорость эскэйпинга строк
 							}
 							$fcache .= '(' . implode(',', $row) . "),\n";
 							$this->rtl[7]++;  
@@ -1137,7 +1141,7 @@ class Sypex_Dumper {
 		fclose($this->fh_tmp);
 		rename($this->JOB['file_tmp'], $this->JOB['file_name']);
 		$this->addLog(sprintf($this->LNG['backup_end'], $this->JOB['db']));
-		
+		if(file_exists('sxd2ftp.php')) include('sxd2ftp.php');
 		if ($this->JOB['del_time'] || $this->JOB['del_count']) {
             $this->addLog($this->LNG['autodelete']);
             $deldate = '';
@@ -1203,15 +1207,15 @@ class Sypex_Dumper {
 			$tmp = explode(',', $this->CFG['my_db']);
 			foreach($tmp AS $d){
 				$d = trim($d);
-				$items[] = $qq . mysql_escape_string($d) . $qq;
+				$items[] = $qq . sxd_esc($d, false) . $qq;
 				$dbs[$d] = "{$d} (0)";
 			}
 		}
 		else{
 			$result = mysql_query("SHOW DATABASES") or sxd_my_error();
     		while($item = mysql_fetch_row($result)){
-    			if($item[0] == 'information_schema' || $item[0] == 'mysql') continue;
-    			$items[] = $qq . mysql_escape_string($item[0]) . $qq;
+    			if($item[0] == 'information_schema' || $item[0] == 'mysql' || $item[0] == 'performance_schema') continue;
+    			$items[] = $qq . sxd_esc($item[0], false) . $qq;
     			$dbs[$item[0]] = "{$item[0]} (0)";
     		}	
 		}
@@ -1228,7 +1232,7 @@ class Sypex_Dumper {
 			$where = (count($items) > 0) ? 'WHERE `table_schema` IN (' . implode(',', $items) . ')' : '';
 			$result = mysql_query("SELECT `table_schema`, COUNT(*) FROM `information_schema`.`tables` {$where} GROUP BY `table_schema`") or sxd_my_error();
 			while($item = mysql_fetch_row($result)){
-    			if($item[0] == 'information_schema' || $item[0] == 'mysql') continue; 
+    			if($item[0] == 'information_schema' || $item[0] == 'mysql' || $item[0] == 'performance_schema') continue;
     			$dbs[$item[0]] = "{$item[0]} ({$item[1]})";
     		}
 		}
@@ -1361,7 +1365,7 @@ class Sypex_Dumper {
 			if(!count($o)) continue;
 			if($type == 'TA') {
 				$open_childs = count($o['*']) > 1 ? 0 : 1;
-				$obj .= "[{$row},0,'" . mysql_escape_string($info[$type][0]) . "',1,1,1],";
+				$obj .= "[{$row},0," . sxd_esc($info[$type][0]) . ",1,1,1],";
 				$row++;
 				foreach($o['*'] AS $value){
 					if(is_string($value)){
@@ -1370,7 +1374,7 @@ class Sypex_Dumper {
 							$pid = $row++; 
 							for($i = 0, $l = count($o[$value]); $i < $l; $i++){
 								$checked = ($o[$value][$i][1] == '' && $o[$value][$i][2] == '') ? 2 : 1;
-								$obj .= "[{$row},{$pid},'" . mysql_escape_string($o[$value][$i][0]) . "',2,{$checked},{$o[$value][$i][2]}],";
+								$obj .= "[{$row},{$pid}," . sxd_esc($o[$value][$i][0]) . ",2,{$checked},{$o[$value][$i][2]}],";
 								$row++;
 							}
 						}
@@ -1387,11 +1391,11 @@ class Sypex_Dumper {
 				}
 			}
 			else {
-				$obj .= "[{$row},0,'" . mysql_escape_string($info[$type][0]) . "',{$info[$type][1]},1,1],";
+				$obj .= "[{$row},0," . sxd_esc($info[$type][0]) . ",{$info[$type][1]},1,1],";
 				$pid = $row++;
 				$info[$type][1]++;
 				for($i = 0, $l = count($o); $i < $l; $i++){
-					$o[$i] = mysql_escape_string($o[$i]);
+					$o[$i] = sxd_esc($o[$i], false);
 					$obj .= "[{$row},{$pid},'{$o[$i]}',{$info[$type][1]},1,0],";
 					$row++;	
 				}
@@ -1535,7 +1539,7 @@ function sxd_check($n, $obj, $filt){
 }
 function sxd_php2json($obj){
 	if(count($obj) == 0) return '[]';
-	$is_obj = isset($obj[count($obj) - 1]) ? false : true;
+	$is_obj = isset($obj[0]) && isset($obj[count($obj) - 1]) ? false : true;
 	$str = $is_obj ? '{' : '[';
     foreach ($obj AS $key  => $value) {
     	$str .= $is_obj ? "'" . addcslashes($key, "\n\r\t'\\/") . "'" . ':' : ''; 
@@ -1554,11 +1558,13 @@ function sxd_ver2int($ver){
 function sxd_error_handler($errno, $errmsg, $filename, $linenum, $vars){
     global $SXD;
     if($SXD->try) return;
+	if($errno == 8192) return;
     if(strpos($errmsg, 'timezone settings')) return;
-    $errortype = array(1 => 'Error', 2 => 'Warning', 4 => 'Parsing Error', 8 => 'Notice', 16 => 'Core Error', 32 => 'Core Warning', 64 => 'Compile Error', 
-					   128 => 'Compile Warning', 256 => 'MySQL Error', 512 => 'Warning', 1024 => 'Notice');
-	$str = mysql_escape_string("{$errortype[$errno]}: {$errmsg} ({$filename}:{$linenum})");
-	if(SXD_DEBUG) error_log("[index.php]\n{$str}\n", 3, "error.log");
+    $errortype = array(1 => 'Error', 2 => 'Warning', 4 => 'Parsing Error', 8 => 'Notice', 16 => 'Core Error', 32 => 'Core Warning', 64 => 'Compile Error',
+					   128 => 'Compile Warning', 256 => 'MySQL Error', 512 => 'Warning', 1024 => 'Notice',
+						2048 => 'Strict', 8192 => 'Deprecated', 16384 => 'Deprecated');
+	$str = sxd_esc("{$errortype[$errno]}: {$errmsg} ({$filename}:{$linenum})", false);
+	if(SXD_DEBUG) error_log("[index.php]\n{$str}\n", 3, "backup/error.log");
 	
     if($errno == 8 || $errno == 1024) {
     	if (!$SXD->fh_log && !$SXD->fh_rtl) echo isset($_POST['ajax']) ? "alert('" . ($str) . "');" : $str;
@@ -1581,6 +1587,9 @@ function sxd_error_handler($errno, $errmsg, $filename, $linenum, $vars){
     	die;
 	}
 }
+function sxd_esc($str, $quoted = true){
+	return $quoted ? "'" . addcslashes($str, "\\\0\n\r\t\'") . "'" : addcslashes($str, "\\\0\n\r\t\'");
+}
 function sxd_my_error(){
 	trigger_error(mysql_error(), E_USER_ERROR);	
 }
@@ -1600,358 +1609,3 @@ function sxd_shutdown(){
 function sxd_antimagic($arr){
 	return is_array($arr) ? array_map('sxd_antimagic', $arr) : stripslashes($arr);
 }
-// Templates
-function sxd_tpl_page(){
-global $SXD;
-return <<<HTML
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>{$SXD->name}</title>
-<link rel="stylesheet" type="text/css" href="load.php?sxd.v208.css">
-<script type="text/javascript" src="load.php?sxd.v208.js"></script>
-<script type="text/javascript" src="load.php?{$SXD->LNG['name']}.lng.js"></script>
-<link rel="shortcut icon" href="load.php?favicon.v208.ico">
-</head>
-
-<body>
-<div id="main_div">
-	<div id="header">{$SXD->name}</div>
-	<div id="sxdToolbar"></div>
-	<div id="name"><div id="loading"></div><b></b></div>
-	<div id="content" class="content">
-		<table cellspacing="0" id="tab_backup">
-			<tr>
-				<td width="242" valign="top">
-					<div class="caption">{$SXD->LNG['combo_db']}</div><div id="backup_db"></div>
-					<div class="caption">{$SXD->LNG['combo_charset']}</div><div id="backup_charset"></div>
-					<div class="caption">{$SXD->LNG['combo_zip']}</div><div id="backup_zip"></div>
-					<div class="caption">{$SXD->LNG['combo_comments']}</div>
-					<div class="border"><textarea cols="10" rows="3" id="backup_comment"></textarea></div>
-					<div class="caption" style="margin-top:12px;">
-						<fieldset><legend>{$SXD->LNG['del_legend']}</legend>
-						<div class="caption">&nbsp;– {$SXD->LNG['del_date']}</div>
-						<div class="caption">&nbsp;– {$SXD->LNG['del_count']}</div>
-						</fieldset>
-					</div>
-				</td>
-				<td width="308" valign="top">
-					<div class="caption">{$SXD->LNG['tree']}</div><div id=backup_tree class="zTree"></div>
-				</td>
-			</tr>
-			<tr><td></td><td align="right"><input type="button" value="{$SXD->LNG['btn_save']}" onclick="sxd.showDialog('savejob');z('sj_name').value = sxd.combos.backup_db.value;"> <input type="button" value="{$SXD->LNG['btn_exec']}" onclick="sxd.runBackup();"></td></tr>
-		</table>
-		
-		<table cellspacing="0" id="tab_restore" style="display:none;">
-			<tr>
-				<td width="242" valign="top">
-					<div class="caption">{$SXD->LNG['combo_db']}</div><div id="restore_db"></div>
-					<div class="caption">{$SXD->LNG['combo_charset']}</div><div id="restore_charset"></div>
-					<div class="caption">{$SXD->LNG['combo_file']}</div><div id="restore_file"></div>
-					<div class="caption">{$SXD->LNG['combo_comments']}</div>
-					<div class="border"><textarea cols="10" rows="3" id="restore_comment" readonly></textarea></div>
-					<div class="caption">{$SXD->LNG['combo_strategy']}</div><div id="restore_type"></div>
-					<div class="caption" style="margin-top:17px;">
-						<fieldset><legend>{$SXD->LNG['ext_legend']}</legend>
-						<div class="caption"><label><input type="checkbox" id="correct"> {$SXD->LNG['correct']}</label></div>
-						<div class="caption"><label><input type="checkbox" id="autoinc"> {$SXD->LNG['autoinc']}</label></div>
-						</fieldset>
-					</div>
-				</td>
-				<td width="308" valign="top">
-					<div class="caption">{$SXD->LNG['tree']}</div><div id=restore_tree class="zTree"></div>
-				</td>
-			</tr>
-			<tr><td></td><td align="right"><input type="button" value="{$SXD->LNG['btn_save']}" onclick="sxd.showDialog('savejob');z('sj_name').value = sxd.combos.restore_db.value;" id=restore_savejob> <input type="button" value="{$SXD->LNG['btn_exec']}" onclick="sxd.runRestore();" id=restore_runjob></td></tr>
-		</table>
-		
-		<table cellspacing="0" id="tab_log" style="display:none;">
-			<tr>
-				<td valign="top" colspan=2>
-					<div id=sxdGrid1></div> 
-				</td>
-			</tr>
-			<tr><td colspan=2>
-			<table class=progress>
-				<tr><td>{$SXD->LNG['status_current']}</td><td><div id="sxdProc1"></div></td><td width=60>{$SXD->LNG['time_elapsed']}</td><td width=40 align=right id="sxdTime1">00:00</td></tr>
-				<tr><td>{$SXD->LNG['status_total']}</td><td><div id="sxdProc2"></div></td><td>{$SXD->LNG['time_left']}</td><td align=right id="sxdTime2">00:00</td></tr>
-			</table>
-			</td></tr>
-			<tr><td width="152"><input type="button" value="{$SXD->LNG['btn_clear']}" onclick="sxd.log.clear();"></td><td width="380" align="right">
-			<input type="button" value="{$SXD->LNG['btn_download']}" id="btn_down" onclick="sxd.runFiles('download', this.file);" style="display:none;">
-			<input type="button" value="{$SXD->LNG['btn_again']}" id="btn_again" onclick="sxd.runAgain();" disabled>
-			<input type="button" value="{$SXD->LNG['btn_stop']}" id="btn_stop" onclick="sxd.stopJob();" disabled>
-			<input type="button" value="{$SXD->LNG['btn_pause']}" id="btn_pause" onclick="sxd.pauseJob();" disabled>
-			<input type="button" value="{$SXD->LNG['btn_resume']}" id="btn_resume" onclick="sxd.resumeJob();" style="display:none;">
-			</td></tr>
-		</table>
-		<table cellspacing="0" id="tab_result" style="display:none;">
-			<tr>
-				<td valign="top">
-					<div id=sxdGrid3></div> 
-				</td>
-			</tr>
-			<tr><td>
-			<input type="button" value="{$SXD->LNG['btn_clear']}" onclick="sxd.result.clear();">
-			</td></tr>
-		</table>
-		
-		<table cellspacing="0" id="tab_files" style="display:none;">
-			<tr>
-				<td valign="top" colspan=2>
-					<div id=sxdGrid2></div> 
-				</td>
-			</tr>
-			<tr><td width="242"><form id="save_file" method="GET" style="visibility:hidden;display:inline;" target=save></form><input type="button" value="{$SXD->LNG['btn_delete']}" onclick="sxd.runFiles('delete')"></td><td width="290" align="right">
-			<input type="button" value="{$SXD->LNG['btn_download']}" onclick="sxd.runFiles('download')">
-			<input type="button" value="{$SXD->LNG['btn_open']}" onclick="sxd.runFiles('open')">
-			</td></tr>
-		</table>
-		
-		
-		<table cellspacing="0" id="tab_services" style="display:none;">
-			<tr>
-				<td width="242" valign="top">
-					<div class="caption">{$SXD->LNG['combo_db']}</div><div id="services_db"></div>
-					<br>
-					<div class="caption">{$SXD->LNG['opt_check']}</div><div id="services_check"></div>
-					<div class="caption">{$SXD->LNG['opt_repair']}</div><div id="services_repair"></div>
-				</td>
-				<td width="308" valign="top">
-					<div class="caption">{$SXD->LNG['tree']}</div><div id=services_tree class="zTree"></div>
-				</td>
-			</tr>
-			<tr><td align="right" colspan=2><input type="button" value="{$SXD->LNG['btn_delete_db']}" onclick="sxd.runServices('delete')" style="float:left;"> <input type="button" value="{$SXD->LNG['btn_check']}" onclick="sxd.runServices('check')"> <input type="button" value="{$SXD->LNG['btn_repair']}" onclick="sxd.runServices('repair')"> <input type="button" value="{$SXD->LNG['btn_analyze']}" onclick="sxd.runServices('analyze')">  <input type="button" value="{$SXD->LNG['btn_optimize']}" onclick="sxd.runServices('optimize')"></td></tr>
-		</table>
-		<table cellspacing="0" id="tab_options" style="display:none;">
-			<tr>
-				<td valign="top" colspan=2>
-					<div style="height: 341px;">
-					<fieldset>
-					<legend>{$SXD->LNG['cfg_legend']}</legend>
-						<table cellspacing="0">
-							<tr>
-								<td width=190>{$SXD->LNG['cfg_time_web']}</td>
-								<td width=45><input type="text" id="time_web" style="width:40px;"></td>
-								<td align="right">{$SXD->LNG['cfg_time_cron']}</td>
-								<td width=40 align="right"><input type="text" id="time_cron" style="width:40px;"></td>
-							</tr>
-							<tr>
-								<td>{$SXD->LNG['cfg_backup_path']}</td>
-								<td colspan=3><input type="text" id="backup_path" style="width:351px;"></td>
-							</tr>
-							<tr>
-								<td>{$SXD->LNG['cfg_backup_url']}</td>
-								<td colspan=3><input type="text" id="backup_url" style="width:351px;"></td>
-							</tr>
-							<tr>
-								<td>{$SXD->LNG['cfg_globstat']}</td>
-								<td colspan=3><input type="checkbox" id="globstat" value="1"></td>
-							</tr>
-						</table>
-					</fieldset>
-					<fieldset>
-					<legend>{$SXD->LNG['cfg_confirm']}</legend>
-						<table cellspacing="0">
-							<tr>
-								<td width="33%"><label><input type="checkbox" id="conf_import" value="1"> {$SXD->LNG['cfg_conf_import']}</label></td>
-								<td width="34%"><label><input type="checkbox" id="conf_file" value="1"> {$SXD->LNG['cfg_conf_file']}</label></td>
-								<td width="33%"><label><input type="checkbox" id="conf_db" value="1"> {$SXD->LNG['cfg_conf_db']}</label></td>
-							</tr>
-						</table>
-					</fieldset>
-					<fieldset>
-					<legend>{$SXD->LNG['cfg_extended']}</legend>
-						<table cellspacing="0">
-							<tr>
-								<td width=190>{$SXD->LNG['cfg_charsets']}</td>
-								<td><input type="text" id="charsets" value="" style="width:351px;"></td>
-							</tr>
-							<tr>
-								<td>{$SXD->LNG['cfg_only_create']}</td>
-								<td><input type="text" id="only_create" value="" style="width:351px;"></td>
-							</tr>
-							<tr>
-								<td>{$SXD->LNG['cfg_auth']}</td>
-								<td><input type="text" id="auth" value="" style="width:351px;"></td>
-							</tr>
-						</table>
-					</fieldset>
-					</div>
-				</td>
-			</tr>
-			<tr><td align="right" colspan=2><input type="button" value="{$SXD->LNG['btn_save']}" onclick="sxd.saveOptions();"></td></tr>
-		</table>
-	</div>
-</div>
-
-<div id="overlay"></div>
-<div class="dialog" id ="dia_connect">
-	<div class="header">{$SXD->LNG['con_header']}</div>
-	<div class="content">
-		<table cellspacing="5">
-			<tr>
-				<td valign="top">
-				<fieldset>
-				<legend>{$SXD->LNG['connect']}</legend>
-					<table cellspacing="3">
-						<tr>
-							<td width="80">{$SXD->LNG['my_host']}</td>
-							<td width="126"><input type="text" id="con_host" style="width:120px;"></td>
-							<td width="40" align="right">{$SXD->LNG['my_port']}</td>
-							<td width="36"><input type="text" id="con_port" maxlength="5" style="width:30px;"></td>
-						</tr>
-						<tr>
-							<td>{$SXD->LNG['my_user']}</td>
-							<td colspan="3"><input type="text" id="con_user" name="user" style="width:202px;"></td>
-						</tr>
-						<tr>
-							<td>{$SXD->LNG['my_pass']}</td>
-							<td colspan="3"><input type="password" id="con_pass" name="pass" title="{$SXD->LNG['my_pass_hidden']}" style="width:202px;" onchange="this.changed = true;"></td>
-						</tr>
-						<tr>
-							<td></td>
-							<td colspan="3"><label><input type="checkbox" id="con_comp" value="1"> {$SXD->LNG['my_comp']}</label></td>
-						</tr>
-						<tr>
-							<td>{$SXD->LNG['my_db']}</td>
-							<td colspan="3"><input type="text" id="con_db" style="width:202px;"></td>
-						</tr>
-					</table></fieldset>
-				</td>
-			</tr>
-			<tr class="buttons"><td align="right"><input type="button" value="{$SXD->LNG['btn_save']}" onclick="sxd.saveConnect();"><input type="button" value="{$SXD->LNG['btn_cancel']}" onclick="sxd.hideDialog('connect');"></td></tr>
-		</table>
-	</div>
-</div>
-<div class="dialog" id ="dia_savejob">
-	<div class="header">{$SXD->LNG['sj_header']}</div>
-	<div class="content">
-		<table cellspacing="5">
-			<tr>
-				<td valign="top">
-				<fieldset>
-				<legend>{$SXD->LNG['sj_job']}</legend>
-					<table cellspacing="3">
-						<tr>
-							<td width="80">{$SXD->LNG['sj_name']}</td>
-							<td><input type="text" id="sj_name" style="width:202px;" maxlength="12" value=""></td>
-						</tr>
-						<tr>
-							<td>{$SXD->LNG['sj_title']}</td>
-							<td><input type="text" id="sj_title" maxlength="64" style="width:202px;"></td>
-						</tr>
-					</table></fieldset>
-				</td>
-			</tr>
-			<tr class="buttons"><td align="right"><input type="button" value="{$SXD->LNG['btn_save']}" onclick="sxd.saveJob();"><input type="button" value="{$SXD->LNG['btn_cancel']}" onclick="sxd.hideDialog('savejob');"></td></tr>
-		</table>
-	</div>
-</div>
-<div class=dialog id="dia_createdb">
-	<div class="header">{$SXD->LNG['cdb_header']}</div>
-	<div class="content">
-		<table cellspacing="5">
-			<tr>
-				<td valign="top">
-				<fieldset>
-				<legend>{$SXD->LNG['cdb_detail']}</legend>
-					<table cellspacing="3">
-						<tr>
-							<td width="80">{$SXD->LNG['cdb_name']}</td>
-							<td width="202"><input type="text" id="db_name" value="my_db_1" style="width:202px;"></td>
-						</tr>
-						<tr>
-							<td>{$SXD->LNG['combo_charset']}</td>
-							<td><div id="db_charset"></div></td>
-						</tr>
-						<tr>
-							<td>{$SXD->LNG['combo_collate']}</td>
-							<td><div id="db_charset_col"></div></td>
-						</tr>
-					</table>
-				</fieldset>
-				</td>
-			</tr>
-			<tr class="buttons"><td align="right"><input type="button" value="{$SXD->LNG['btn_create']}" onclick="sxd.addDb();"><input type="button" value="{$SXD->LNG['btn_cancel']}" onclick="sxd.hideDialog('createdb');"></td></tr>
-		</table>
-	</div>
-</div>
-
-<div id=sxdMenu style="display:none;z-index:9999;"></div>
-<script type="text/javascript">
-sxd.init();
-sxd.backupUrl = '{$SXD->CFG['backup_url']}';
-sxd.tbar.init('sxdToolbar', {$SXD->VAR['toolbar']}); 
-{$SXD->VAR['combos']}
-sxd.actions.tab_backup();
-</script>
-</body>
-</html>
-HTML;
-}
-
-function sxd_tpl_auth($error = ''){
-global $SXD;
-return <<<HTML
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">  
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>{$SXD->name}</title>
-<link rel="shortcut icon" href="load.php?favicon.v208.ico">
-<link rel="stylesheet" type="text/css" href="load.php?sxd.v208.css">
-</head>
-<body>
-<div class="dialog" id="dia_auth">
-	<div class="header"><a href="http://sypex.net/">{$SXD->name}</a></div>
-	<div class="content" id="div_1" style="line-height:50px;text-align:center;">{$SXD->LNG['js_required']}</div>
-	<div class="content" id="div_2" style="display:none;">
-		<form method="post">
-		<table cellspacing="5">
-			<tr>
-				<td valign="top" colspan="3">
-				<fieldset>
-				<legend>{$SXD->LNG['auth']}</legend>
-					<table cellspacing="3">
-						<tr>
-							<td width="90">{$SXD->LNG['auth_user']}</td>
-							<td width="192"><input type="text" name="user" value="{$_POST['user']}" class="i202"></td>
-						</tr>
-						<tr>
-							<td>{$SXD->LNG['my_pass']}</td>
-							<td><input type="password" name="pass" value="{$_POST['pass']}" class="i202"></td>
-						</tr>
-						<tr>
-							<td></td>
-							<td><label><input type="checkbox" name="save" value="1"{$_POST['save']}> {$SXD->LNG['auth_remember']}</label></td>
-						</tr>
-						<tr>
-							<td>Language:</td>
-							<td><select type="text" name="lang" style="width:198px;" onChange="this.form.submit();">{$SXD->lng_list}</select></td>
-						</tr>
-					</table>
-					<table cellspacing="3" id="hst" style="display:none;">
-						<tr>
-							<td width="90">{$SXD->LNG['my_host']}</td>
-							<td width="116"><input type="text" name="host" style="width:110px;" value="{$_POST['host']}"></td>
-							<td width="40" align="right">{$SXD->LNG['my_port']}</td>
-							<td width="36"><input type="text" name="port" maxlength="5" style="width:30px;" value="{$_POST['port']}"></td>
-						</tr>
-					</table>
-				</fieldset>
-				</td>
-			</tr>
-			<tr class="buttons"><td align="left"><input type="button" value="{$SXD->LNG['btn_details']}" onclick="var s = document.getElementById('hst').style; s.display = (s.display == 'block') ? 'none' : 'block';"></td><td align="right"><input type="submit" value="{$SXD->LNG['btn_enter']}"></td></tr>
-		</table>
-		</form>
-	</div>
-	<script type="text/javascript">document.getElementById('div_1').style.display = 'none';document.getElementById('div_2').style.display = 'block';</script>
-</div>
-</body>
-</html>
-HTML;
-}
-
-?>
