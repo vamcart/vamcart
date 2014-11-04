@@ -15,6 +15,9 @@ class AttributesController extends AppController
     public function admin ($type = 'category' ,$id = 0)
     {              
         $this->loadModel('Content');
+
+	$this->Content->unbindAll();
+
 	$this->Content->unbindModel(array('hasMany' => array('ContentDescription')));
 	$this->Content->bindModel(array('hasOne' => array('ContentDescription' => array(
 						'className' => 'ContentDescription',
@@ -35,7 +38,7 @@ class AttributesController extends AppController
 						'className' => 'ContentDescription',
 						'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
 					))));
-        $this->Content->recursive = 2;
+        $this->Content->recursive = 1;
         
         if($type == 'category') $this->paginate['Content'] = array('conditions' => array('Content.content_type_id = 1')
                                           ,'limit' => '30'
