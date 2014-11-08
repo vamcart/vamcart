@@ -1437,7 +1437,7 @@ height: 50px;
   top: 48%;
   left: -30px;
   padding: 10px 15px 10px 50px;
-  background-color: #f37324;
+  background-color: #ff6633;
   color: #ffffff;
   font-size: 16px;
   font-weight: bold;
@@ -1531,7 +1531,7 @@ height: 50px;
   transform: scale(1);
 }
 .shop-products .thumbnail:hover .title {
-  color: #f37324;
+  color: #ff6633;
 }
 .product-images {
   margin-bottom: 30px;
@@ -1850,7 +1850,7 @@ height: 50px;
   top: 48%;
   left: -30px;
   padding: 10px 15px 10px 50px;
-  background-color: #f37324;
+  background-color: #ff6633;
   color: #ffffff;
   font-size: 16px;
   font-weight: bold;
@@ -1944,7 +1944,7 @@ height: 50px;
   transform: scale(1);
 }
 .featured-products .thumbnail:hover .title {
-  color: #f37324;
+  color: #ff6633;
 }
 /* TOP Categories
 /* ========================================================================== */
