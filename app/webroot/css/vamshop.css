@@ -1331,7 +1331,7 @@ height: 50px;
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  background: #555 url("../../img/button.png") no-repeat center center;
+  background: #555 url("../img/button.png") no-repeat center center;
 }
 #search .search-bt:before {
   content: "\f096";
@@ -2116,11 +2116,11 @@ height: 50px;
 	height:51px;
 	border:none;
 	text-indent:100%;
-	background:url(../../img/up.png) no-repeat left top;
+	background:url(../img/up.png) no-repeat left top;
 }
 
 #toTopHover {
-	background:url(../../img/up.png) no-repeat left -51px;
+	background:url(../img/up.png) no-repeat left -51px;
 	width:51px;
 	height:51px;
 	display:block;
