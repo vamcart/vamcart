@@ -5,3 +5,14 @@ AddDefaultCharset utf-8
    RewriteRule    ^$ app/webroot/    [L]
    RewriteRule    (.*) app/webroot/$1 [L]
 </IfModule>
+
+<IfModule mod_php5.c> 
+  php_value magic_quotes_gpc                0 
+  php_value register_globals                0 
+  php_value session.auto_start              0 
+  php_value mbstring.http_input             pass 
+  php_value mbstring.http_output            pass 
+  php_value mbstring.encoding_translation   0 
+  php_value default_charset UTF-8 
+  php_value mbstring.internal_encoding UTF-8 
+</IfModule>
