@@ -91,7 +91,6 @@ function smarty_function_content_listing($params, $template)
 {
 	global $config,$content,$filter_list;
 
-        if(!isset($params['order']) or !isset($config['order']))
             $params['order_column'] = 'Content.order ASC';
 
         if(isset($config['order']))
