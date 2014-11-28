@@ -67,6 +67,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 	
 			echo '<ul id="myTab" class="nav nav-tabs">';
 			echo $this->Admin->CreateTab('main',__('Main'), 'cus-application');
+			echo $this->Admin->CreateTab('data',__('Data'), 'cus-table-multiple');
 			echo $this->Admin->CreateTab('view_images',__('View Images'), 'cus-pictures');
 			echo $this->Admin->CreateTab('upload_images',__('Upload Images'), 'cus-picture-add');
 			echo $this->Admin->CreateTab('options',__('Options'), 'cus-cog');
@@ -92,30 +93,6 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 							'value' => isset($data['Content']['order']) ? $data['Content']['order'] : ''
 	               ));
 			
-   		echo $this->Form->input('Content.content_type_id', 
-   					array(
-							'type' => 'select',
-				   		'label' => __('Content Type'),
-							'options' => $content_types,
-							'selected' => (!isset($data['Content']['content_type_id'])? 2 : $data['Content']['content_type_id'])
-	               ));
-
-		echo '<div id="content_type_fields">';
-			echo $this->requestAction( '/contents/admin_edit_type/' . (!isset($data['Content']['content_type_id'])? 2 : $data['Content']['content_type_id']) . '/' . (isset($data['Content']['id']) ? $data['Content']['id'] : '' ), array('return'));
-		echo '</div>';
-	
-	echo '<div class="template_required" id="template_required_template_picker" style="display:' . $tpl_req_style . ';">';
-	
-		echo $this->Form->input('Content.template_id', 
-						array(
-							'type' => 'select',
-							'label' => __('Template'),
-							'options' => $templates,
-							'selected' => isset($data['Content']['template_id']) ?$data['Content']['template_id'] : ''
-						));
-	echo '</div>';	
-
-
 			echo '<ul id="myTabLang" class="nav nav-tabs">';
 	foreach($languages AS $language)
 	{
@@ -189,6 +166,33 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 		
 	echo $this->Admin->EndTabs();
 		
+	echo $this->Admin->EndTabContent();
+
+	echo $this->Admin->StartTabContent('data');
+
+   		echo $this->Form->input('Content.content_type_id', 
+   					array(
+							'type' => 'select',
+				   		'label' => __('Content Type'),
+							'options' => $content_types,
+							'selected' => (!isset($data['Content']['content_type_id'])? 2 : $data['Content']['content_type_id'])
+	               ));
+
+		echo '<div id="content_type_fields">';
+			echo $this->requestAction( '/contents/admin_edit_type/' . (!isset($data['Content']['content_type_id'])? 2 : $data['Content']['content_type_id']) . '/' . (isset($data['Content']['id']) ? $data['Content']['id'] : '' ), array('return'));
+		echo '</div>';
+	
+	echo '<div class="template_required" id="template_required_template_picker" style="display:' . $tpl_req_style . ';">';
+	
+		echo $this->Form->input('Content.template_id', 
+						array(
+							'type' => 'select',
+							'label' => __('Template'),
+							'options' => $templates,
+							'selected' => isset($data['Content']['template_id']) ?$data['Content']['template_id'] : ''
+						));
+	echo '</div>';	
+
 	echo $this->Admin->EndTabContent();
 
 	echo $this->Admin->StartTabContent('view_images');
