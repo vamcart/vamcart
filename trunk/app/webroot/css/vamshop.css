@@ -1389,36 +1389,6 @@ height: 50px;
   z-index: 15;
 }
 
-.shop-products .thumbnail .label {
-  position: absolute;
-  background-color: #ff6633;
-  color: #fff;
-  right: 0;
-  padding: 0 15px 0 15px;
-  margin: 0 right;
-  top: 8%;
-  height: 40px;
-  font-size: 16px;
-  line-height: 40px;
-  text-align: center;
-  vertical-align: middle;
-  margin-left: -20px;
-  margin-top: -20px;
-  border-radius: 0px;
-}
-
-.shop-products .thumbnail .label.new {
-  background-color: #0081c2;
-}
-
-.shop-products .thumbnail .label.hot {
-  background-color: #d91414;
-}
-
-.shop-products .thumbnail .label.sale {
-  background-color: #00b600;
-}
-
 .shop-products .thumbnail .image {
   overflow: hidden;
   position: relative;
@@ -1805,36 +1775,6 @@ height: 50px;
   font-size: 16px;
   font-weight: bold;
   z-index: 15;
-}
-
-.featured-products .thumbnail .label {
-  position: absolute;
-  background-color: #ff6633;
-  color: #fff;
-  right: 0;
-  padding: 0 15px 0 15px;
-  margin: 0 right;
-  top: 8%;
-  height: 40px;
-  font-size: 16px;
-  line-height: 40px;
-  text-align: center;
-  vertical-align: middle;
-  margin-left: -20px;
-  margin-top: -20px;
-  border-radius: 0px;
-}
-
-.featured-products .thumbnail .label.new {
-  background-color: #0081c2;
-}
-
-.featured-products .thumbnail .label.hot {
-  background-color: #d91414;
-}
-
-.featured-products .thumbnail .label.sale {
-  background-color: #00b600;
 }
 
 .featured-products .thumbnail .image {
@@ -2384,3 +2324,37 @@ ul.attributes li a.confirm
 		height: 36px;
 		padding-top: .5em;
 	}
+
+.thumbnail .label {
+  position: absolute;
+  background-color: #ff6633;
+  color: #fff;
+  right: 0;
+  padding: 0 15px 0 15px;
+  margin: 0 right;
+  top: 8%;
+  height: 40px;
+  font-size: 16px;
+  line-height: 40px;
+  text-align: center;
+  vertical-align: middle;
+  margin-left: -20px;
+  margin-top: -20px;
+  border-radius: 0px;
+}
+
+.thumbnail .label.new {
+  background-color: #0081c2;
+}
+
+.thumbnail .label.hot {
+  background-color: #d91414;
+}
+
+.thumbnail .label.sale {
+  background-color: #00b600;
+}
+
+.thumbnail .label.html {
+  background-color: transparent;
+}
