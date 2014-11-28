@@ -5034,3 +5034,11 @@ msgstr "Информация о ярлыке товара"
 #: /controllers/languages_controller.php:143
 msgid "Product Labels Listing"
 msgstr "Список ярлыков товара"
+
+#: /vendors/smarty/vam_plugins/function.product_label.php:53
+msgid "Displays the product label."
+msgstr "Выводит ярлык товара."
+
+#: /vendors/smarty/vam_plugins/function.product_label.php:53
+msgid "Display product label of selected content_id element."
+msgstr "Выводит ярлык заданного content_id товара."
