@@ -356,7 +356,7 @@ class ContentsController extends AppController {
 		App::import('Model', 'Label');
 		$Label = new Label();
 
-		$product_labels_list = $Label->find('all', array('order' => array('Label.sort_order')));
+		$product_labels_list = $Label->find('all', array('conditions' => array('Label.active' => 1), 'order' => array('Label.sort_order')));
 
 		$product_labels_list_ = array();
 		foreach ($product_labels_list as $label) {
