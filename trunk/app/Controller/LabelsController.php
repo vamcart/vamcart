@@ -120,7 +120,7 @@ class LabelsController extends AppController {
 	{
 		$this->set('current_crumb', __('Product Labels Listing', true));
 		$this->set('title_for_layout', __('Product Labels Listing', true));
-		$this->set('label_data',$this->Label->find('all', array('order' => array('Label.alias ASC'))));	
+		$this->set('label_data',$this->Label->find('all', array('order' => array('Label.sort_order ASC'))));	
 	}	
 	
 }
