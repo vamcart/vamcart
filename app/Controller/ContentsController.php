@@ -866,8 +866,6 @@ class ContentsController extends AppController {
 
 	public function admin_products_tree($parent_node_id, $products_id)
 	{
-		$this->Content->unbindAll();
-
 		$product = $this->Content->find('first', array('conditions' => array('Content.id' => (int)$products_id)));
 		$related = array();
 
