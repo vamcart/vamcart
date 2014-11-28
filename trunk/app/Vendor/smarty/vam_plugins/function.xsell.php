@@ -17,9 +17,14 @@ function default_template_xsell()
 		{foreach from=$relations item=node}
       <li class="item span4{if $node@index is div by 3} first{/if}">
 			<div class="thumbnail text-center">
-				<a href="{$node.url}" class="image"><img src="{$node.image.image}" alt="{$node.name}"{if {$node.image.image_width} > 0} width="{$node.image.image_width}"{/if}{if {$node.image.image_height} > 0} height="{$node.image.image_height}"{/if} /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
+				{if $node.discount > 0}<div class="description"><span class="discount">-{$node.discount|round}%</span></div>{/if}
+				<a href="{$node.url}" class="image"><img src="{$node.image.image}" alt="{$node.name}"{if {$node.image.image_width} > 0} width="{$node.image.image_width}"{/if}{if {$node.image.image_height} > 0} height="{$node.image.image_height}"{/if} />{product_label label_id={$node.label_id}}</a>
 			<div class="inner notop nobottom text-left">
 				<h4 class="title"><a href="{$node.url}">{$node.name}</a></h4>
+				{if $node.rating > 0}<div class="description"><span class="rating">{$node.rating}</span> <span class="reviews">(<a href="{$node.url}">{$node.reviews}</a>)</span></div>{/if}
+				{if $node.price > 0}<div class="description">{lang}Price{/lang}: <span class="price">{$node.price}</span></div>{/if}
+				{if $node.old_price > 0}<div class="description">{lang}List Price{/lang}: <span class="old-price"><del>{$node.old_price}</del></span></div>{/if}
+				{if $node.price_save > 0}<div class="description">{lang}You Save{/lang}: <span class="save">{$node.price_save} ({$node.price_save_percent|round}%)</span></div>{/if}
 				<div class="description">{$node.short_description|strip_tags|truncate:30:"...":true}</div>
 				<div class="description">{attribute_list product_id=$node.id}</div>
               </div>
@@ -143,6 +148,7 @@ function smarty_function_xsell($params, &$smarty)
 		$content['ContentRelations'][$key]['model'] = $product['ContentProduct']['model'];
 		$content['ContentRelations'][$key]['weight'] = $product['ContentProduct']['weight'];
 		$content['ContentRelations'][$key]['manufacturer'] = $ContentBase->getManufacturerName($product['ContentProduct']['manufacturer_id']);
+		$content['ContentRelations'][$key]['label_id'] = $product['ContentProduct']['label_id'];
 		$content['ContentRelations'][$key]['price'] = $CurrencyBase->display_price($product['ContentProduct']['price']);
 		$content['ContentRelations'][$key]['url'] = BASE . '/' . $product['ContentType']['name'] . '/' . $product['Content']['alias'] . $config['URL_EXTENSION'];
 

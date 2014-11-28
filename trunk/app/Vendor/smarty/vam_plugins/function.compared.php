@@ -19,9 +19,14 @@ $template = '
 				{foreach from=$element_list[0]["attributes_product"] item=node}
 				<li class="item span4{if $node@index is div by 3} first{/if}">
 					<div class="thumbnail text-center">
-						<a href="{$node.url}" class="image"><img src="{$node.image}" alt="{$node.name}"{if {$node.image_width} > 0} width="{$node.image_width}"{/if}{if {$node.image_height} > 0} height="{$node.image_height}"{/if} /><span class="frame-overlay"></span><span class="price">{$node.price}</span></a>
+						{if $node.discount > 0}<div class="description"><span class="discount">-{$node.discount|round}%</span></div>{/if}
+						<a href="{$node.url}" class="image"><img src="{$node.image}" alt="{$node.name}"{if {$node.image_width} > 0} width="{$node.image_width}"{/if}{if {$node.image_height} > 0} height="{$node.image_height}"{/if} />{product_label label_id={$node.label_id}}</a>
 					<div class="inner notop nobottom text-left">
 						<h4 class="title"><a href="{$node.url}">{$node.name}</a></h4>
+						{if $node.rating > 0}<div class="description"><span class="rating">{$node.rating}</span> <span class="reviews">(<a href="{$node.url}">{$node.reviews}</a>)</span></div>{/if}
+						{if $node.price > 0}<div class="description">{lang}Price{/lang}: <span class="price">{$node.price}</span></div>{/if}
+						{if $node.old_price > 0}<div class="description">{lang}List Price{/lang}: <span class="old-price"><del>{$node.old_price}</del></span></div>{/if}
+						{if $node.price_save > 0}<div class="description">{lang}You Save{/lang}: <span class="save">{$node.price_save} ({$node.price_save_percent|round}%)</span></div>{/if}
 						<div class="description">{$node.short_description|strip_tags|truncate:30:"...":true}</div>
 					</div>
 					</div>
@@ -157,6 +162,7 @@ function smarty_function_compared($params)
                     $element_list[$k_a]['attributes_product'][$k_p]['model']	= $product['ContentProduct']['model'];	
                     $element_list[$k_a]['attributes_product'][$k_p]['weight']	= $product['ContentProduct']['weight'];	
                     $element_list[$k_a]['attributes_product'][$k_p]['manufacturer']	= $ContentBase->getManufacturerName($product['ContentProduct']['manufacturer_id']);	
+                    $element_list[$k_a]['attributes_product'][$k_p]['label_id']	= $product['ContentProduct']['label_id'];	
 
 								global $config;
 
