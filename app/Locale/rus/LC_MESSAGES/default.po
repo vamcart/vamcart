@@ -4987,3 +4987,37 @@ msgstr "Вернуться"
 #: /app/Conrtoller/ContactUsController.php:16
 msgid "Your enquiry has been successfully sent!"
 msgstr "Ваше сообщение успешно отправлено!"
+
+#: /controllers/languages_controller.php:66
+#: /views/languages/admin_edit.ctp:16
+msgid "New"
+msgstr "Новинка"
+
+#: /controllers/languages_controller.php:66
+#: /views/languages/admin_edit.ctp:16
+msgid "Hit"
+msgstr "Хит"
+
+#: /controllers/languages_controller.php:66
+#: /views/languages/admin_edit.ctp:16
+msgid "Sale"
+msgstr "Распродажа"
+
+#: /controllers/languages_controller.php:66
+#: /views/languages/admin_edit.ctp:16
+msgid "Product Labels"
+msgstr "Ярлыки товара"
+
+#: /controllers/languages_controller.php:66
+#: /views/languages/admin_edit.ctp:16
+msgid "Product Label"
+msgstr "Ярлык товара"
+
+#: /controllers/languages_controller.php:66
+#: /views/languages/admin_edit.ctp:16
+msgid "Product Label Details"
+msgstr "Информация о ярлыке товара"
+
+#: /controllers/languages_controller.php:143
+msgid "Product Labels Listing"
+msgstr "Список ярлыков товара"

@@ -2000,7 +2000,7 @@ CREATE TABLE `labels` (
 
 INSERT INTO `labels` (`id`, `default`, `name`, `alias`, `html`, `active`, `sort_order`) VALUES 
 (1, 1, 'New', 'new', '', 1, 1),
-(2, 0, 'Hot', 'hot', '', 1, 2),
+(2, 0, 'Hit', 'hit', '', 1, 2),
 (3, 0, 'Sale', 'sale', '', 1, 3);
 
 DROP TABLE IF EXISTS languages;

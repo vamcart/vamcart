@@ -72,7 +72,8 @@ class AdminMenuComponent extends Component
 					8 => array('icon' => 'cus-calculator-edit', 'text' => __('Tax Rates', true), 'path' => '/tax_country_zone_rates/admin/0'),
 					9 => array('icon' => 'cus-email-open', 'text' => __('Email Templates', true), 'path' => '/email_template/admin/'),
 					10 => array('icon' => 'cus-comment-edit', 'text' => __('Answer Templates', true), 'path' => '/answer_template/admin/'),
-					11 => array('icon' => 'cus-tag-blue-edit', 'text' => __('Attribute Templates', true), 'path' => '/attribute_templates/admin/')
+					11 => array('icon' => 'cus-tag-blue-edit', 'text' => __('Attribute Templates', true), 'path' => '/attribute_templates/admin/'),
+					12 => array('icon' => 'cus-tag-blue', 'text' => __('Product Labels', true), 'path' => '/labels/admin/')
 				)
 			),	
 			6 => array('icon' => 'cus-world', 'text' => __('Locale', true), 'path' => '/admin/admin_top/6',
