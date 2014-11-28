@@ -32,6 +32,10 @@ $this->Html->script(array(
 				   		'type' => 'textarea',
 				   		'class' => 'pagesmalltextarea'
 	               ));
+	echo $this->Form->input('Label.sort_order', 
+						array(
+   				   	'label' => __('Sort Order')
+	               ));
 	echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn', 'type' => 'submit', 'name' => 'submit')) . $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn', 'type' => 'submit', 'name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';
 	echo $this->Form->end();

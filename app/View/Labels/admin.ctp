@@ -16,7 +16,7 @@ echo $this->Form->create('Label', array('action' => '/labels/admin_modify_select
 
 echo '<table class="contentTable">';
 
-echo $this->Html->tableHeaders(array( __('Name'), __('Alias'), __('Active'), __('Default'), __('Action'), '<input type="checkbox" onclick="checkAll(this)" />'));
+echo $this->Html->tableHeaders(array( __('Name'), __('Alias'), __('Active'), __('Order'), __('Action'), '<input type="checkbox" onclick="checkAll(this)" />'));
 
 foreach ($label_data AS $label)
 {
@@ -25,7 +25,7 @@ foreach ($label_data AS $label)
 				$this->Html->link(__($label['Label']['name']), '/labels/admin_edit/' . $label['Label']['id']),
 				array($label['Label']['alias'], array('align'=>'center')),				
 				array($this->Ajax->link(($label['Label']['active'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'),'title' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False'),'title' => __('False')))), 'null', $options = array('escape' => false, 'url' => '/labels/admin_change_active_status/' . $label['Label']['id'], 'update' => 'content'), null, false), array('align'=>'center')),
-				array($this->Admin->DefaultButton($label['Label']), array('align'=>'center')),
+				array($label['Label']['sort_order'], array('align'=>'center')),
 				array($this->Admin->ActionButton('edit','/labels/admin_edit/' . $label['Label']['id'],__('Edit')) . $this->Admin->ActionButton('delete','/labels/admin_delete/' . $label['Label']['id'],__('Delete')), array('align'=>'center')),
 				array($this->Form->checkbox('modify][', array('value' => $label['Label']['id'])), array('align'=>'center'))
 		   ));
