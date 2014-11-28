@@ -1389,11 +1389,12 @@ height: 50px;
   z-index: 15;
 }
 
-.shop-products .thumbnail .badge {
+.shop-products .thumbnail .label {
   position: absolute;
   background-color: #ff6633;
   color: #fff;
   right: 0;
+  padding: 0 15px 0 15px;
   margin: 0 right;
   top: 8%;
   height: 40px;
@@ -1406,12 +1407,16 @@ height: 50px;
   border-radius: 0px;
 }
 
-.shop-products .thumbnail .badge.new {
+.shop-products .thumbnail .label.new {
   background-color: #0081c2;
 }
 
-.shop-products .thumbnail .badge.sale {
+.shop-products .thumbnail .label.hot {
   background-color: #d91414;
+}
+
+.shop-products .thumbnail .label.sale {
+  background-color: #00b600;
 }
 
 .shop-products .thumbnail .image {
@@ -1802,11 +1807,12 @@ height: 50px;
   z-index: 15;
 }
 
-.featured-products .thumbnail .badge {
+.featured-products .thumbnail .label {
   position: absolute;
   background-color: #ff6633;
   color: #fff;
   right: 0;
+  padding: 0 15px 0 15px;
   margin: 0 right;
   top: 8%;
   height: 40px;
@@ -1819,12 +1825,16 @@ height: 50px;
   border-radius: 0px;
 }
 
-.featured-products .thumbnail .badge.new {
+.featured-products .thumbnail .label.new {
   background-color: #0081c2;
 }
 
-.featured-products .thumbnail .badge.sale {
+.featured-products .thumbnail .label.hot {
   background-color: #d91414;
+}
+
+.featured-products .thumbnail .label.sale {
+  background-color: #00b600;
 }
 
 .featured-products .thumbnail .image {
