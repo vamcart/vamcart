@@ -843,8 +843,9 @@ class ContentsController extends AppController {
 	
 	public function admin_categories_tree()
 	{
-		$this->Content->unbindModel(array('hasMany' => array('ContentDescription')));
-
+		
+		$this->Content->unbindAll();
+		
 		$this->Content->bindModel(array('hasOne' => array(
 								'ContentDescription' => array(
 									'className' => 'ContentDescription',
@@ -865,6 +866,8 @@ class ContentsController extends AppController {
 
 	public function admin_products_tree($parent_node_id, $products_id)
 	{
+		$this->Content->unbindAll();
+
 		$product = $this->Content->find('first', array('conditions' => array('Content.id' => (int)$products_id)));
 		$related = array();
 
@@ -872,7 +875,7 @@ class ContentsController extends AppController {
 			$related[] = $relation['id'];
 		}
 
-		$this->Content->unbindModel(array('hasMany' => array('ContentDescription')));
+		$this->Content->unbindAll();
 
 		$this->Content->bindModel(array('hasOne' => array(
 								'ContentDescription' => array(
