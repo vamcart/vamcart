@@ -42,7 +42,7 @@ function smarty_function_product_label($params, $template)
 	App::import('Model', 'Label');
 		$Label =& new Label();
 	
-	$label = $Label->find('first', array('conditions' => array('id' => $params['label_id'])));
+	$label = $Label->find('first', array('conditions' => array('active' => 1, 'id' => $params['label_id'])));
 
 	if(!$label)
 		return;
