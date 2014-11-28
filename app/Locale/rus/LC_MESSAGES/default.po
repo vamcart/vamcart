@@ -795,6 +795,14 @@ msgstr "Модуль находится в разделе Заказы - Бро�
 msgid "Main"
 msgstr "Основные"
 
+#: /views/contents/admin_edit.ctp:35
+#: /views/countries/admin_edit.ctp:18
+#: /views/global_content_blocks/admin_edit.ctp:19
+#: /views/stylesheets/admin_edit.ctp:18
+#: /views/user_tags/admin_edit.ctp:19
+msgid "General"
+msgstr "Основные"
+
 #: /views/admin/admin_top.ctp:24
 msgid "Menu"
 msgstr "Меню"

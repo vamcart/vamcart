@@ -57,14 +57,6 @@ switch($content_type_id) {
 				'type' => 'text',
 				'value' => !isset($data['ContentProduct']['weight'])? 0 : $data['ContentProduct']['weight']
 			));
-		echo $this->Form->input('ContentProduct.label_id', 
-			array(
-				'type' => 'select',
-				'options' => $product_labels_list,
-				'selected' => isset($data['ContentProduct']['label_id']) ? $data['ContentProduct']['label_id']: '',
-				'label' => __('Product Label'),
-				'empty' => __('Select'),
-			));
 		echo $this->Form->input('ContentProduct.manufacturer_id', 
 			array(
 				'type' => 'select',
@@ -171,6 +163,7 @@ switch($content_type_id) {
 				'selected' => isset($data['ContentDownloadable']['label_id']) ? $data['ContentDownloadable']['label_id']: '',
 				'label' => __('Product Label'),
 				'empty' => __('Select'),
+				'after' => ' '.$this->Html->link($this->Html->image("admin/icons/new.png", array('alt' => __('Add Product Label'), 'title' => __('Add Product Label'))),'/labels/admin/', array('escape' => false, 'target' => '_blank'))
 			));
 		echo $this->Form->input('ContentDownloadable.delete', 
 			array(
