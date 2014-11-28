@@ -17,6 +17,7 @@ switch($content_type_id) {
 	default:
 		$tax_options = $this->requestAction('/contents/generate_tax_list/');
 		$manufacturer_list = $this->requestAction('/contents/generate_manufacturer_list/');
+		$product_labels_list = $this->requestAction('/contents/generate_product_labels_list/');
 
 		echo $this->Form->input('ContentProduct.price', 
 			array(
@@ -56,6 +57,14 @@ switch($content_type_id) {
 				'type' => 'text',
 				'value' => !isset($data['ContentProduct']['weight'])? 0 : $data['ContentProduct']['weight']
 			));
+		echo $this->Form->input('ContentProduct.label_id', 
+			array(
+				'type' => 'select',
+				'options' => $product_labels_list,
+				'selected' => isset($data['ContentProduct']['label_id']) ? $data['ContentProduct']['label_id']: '',
+				'label' => __('Product Label'),
+				'empty' => __('Select'),
+			));
 		echo $this->Form->input('ContentProduct.manufacturer_id', 
 			array(
 				'type' => 'select',
@@ -63,6 +72,15 @@ switch($content_type_id) {
 				'selected' => isset($data['ContentProduct']['manufacturer_id']) ? $data['ContentProduct']['manufacturer_id']: '',
 				'label' => __('Manufacturer'),
 				'empty' => __('Select'),
+			));
+		echo $this->Form->input('ContentProduct.label_id', 
+			array(
+				'type' => 'select',
+				'options' => $product_labels_list,
+				'selected' => isset($data['ContentProduct']['label_id']) ? $data['ContentProduct']['label_id']: '',
+				'label' => __('Product Label'),
+				'empty' => __('Select'),
+				'after' => ' '.$this->Html->link($this->Html->image("admin/icons/new.png", array('alt' => __('Add Product Label'), 'title' => __('Add Product Label'))),'/labels/admin/', array('escape' => false, 'target' => '_blank'))
 			));
 		break;
 	case '3':
@@ -97,6 +115,7 @@ switch($content_type_id) {
 	case '7':
 		$tax_options = $this->requestAction('/contents/generate_tax_list/');
 		$manufacturer_list = $this->requestAction('/contents/generate_manufacturer_list/');
+		$product_labels_list = $this->requestAction('/contents/generate_product_labels_list/');
 		$order_statuses = $this->requestAction('/contents/generate_order_statuses_list/');
 
 		echo $this->Form->input('ContentDownloadable.price', 
@@ -143,6 +162,14 @@ switch($content_type_id) {
 				'options' => $manufacturer_list,
 				'selected' => isset($data['ContentDownloadable']['manufacturer_id']) ? $data['ContentDownloadable']['manufacturer_id']: '',
 				'label' => __('Manufacturer'),
+				'empty' => __('Select'),
+			));
+		echo $this->Form->input('ContentDownloadable.label_id', 
+			array(
+				'type' => 'select',
+				'options' => $product_labels_list,
+				'selected' => isset($data['ContentDownloadable']['label_id']) ? $data['ContentDownloadable']['label_id']: '',
+				'label' => __('Product Label'),
 				'empty' => __('Select'),
 			));
 		echo $this->Form->input('ContentDownloadable.delete', 
