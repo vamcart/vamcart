@@ -5005,6 +5005,11 @@ msgstr "Распродажа"
 
 #: /controllers/languages_controller.php:66
 #: /views/languages/admin_edit.ctp:16
+msgid "Add Product Label"
+msgstr "Добавить ярлык товара"
+
+#: /controllers/languages_controller.php:66
+#: /views/languages/admin_edit.ctp:16
 msgid "Product Labels"
 msgstr "Ярлыки товара"
 

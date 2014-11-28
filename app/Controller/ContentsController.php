@@ -351,6 +351,21 @@ class ContentsController extends AppController {
 		return $order_statuses_list_;
 	}
 
+	public function generate_product_labels_list()
+	{
+		App::import('Model', 'Label');
+		$Label = new Label();
+
+		$product_labels_list = $Label->find('all', array('order' => array('Label.sort_order')));
+
+		$product_labels_list_ = array();
+		foreach ($product_labels_list as $label) {
+			$product_labels_list_[$label['Label']['id']] = __($label['Label']['name']);
+		}
+		
+		return $product_labels_list_;
+	}
+	
 	public function admin_core_pages_edit($content_id) 
 	{
 			$this->set('current_crumb', __('Edit',true));
@@ -828,8 +843,6 @@ class ContentsController extends AppController {
 	
 	public function admin_categories_tree()
 	{
-		$this->Content->unbindAll();
-
 		$this->Content->unbindModel(array('hasMany' => array('ContentDescription')));
 
 		$this->Content->bindModel(array('hasOne' => array(
@@ -858,8 +871,6 @@ class ContentsController extends AppController {
 		foreach ($product['xsell'] as $relation) {
 			$related[] = $relation['id'];
 		}
-
-		$this->Content->unbindAll();
 
 		$this->Content->unbindModel(array('hasMany' => array('ContentDescription')));
 
