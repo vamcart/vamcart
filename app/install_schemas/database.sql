@@ -363,6 +363,7 @@ CREATE TABLE `content_products` (
   `id` int(10) auto_increment,
   `content_id` int(10),
   `manufacturer_id` int(10),
+  `label_id` int(10),
   `stock` int(10),
   `model` varchar(255) collate utf8_unicode_ci,
   `sku` varchar(255) collate utf8_unicode_ci,
@@ -377,18 +378,18 @@ CREATE TABLE `content_products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `content_products` VALUES 
-(17,38,108,22,'','',399,2,3,1,1,0),
-(18,93,108,0,'','',299,1,0,1,1,0),
-(19,94,108,0,'','',199,1,0,1,1,0),
-(20,95,108,0,'','',499,1,0,1,1,0),
-(21,96,108,0,'','',399,1,0,1,1,0),
-(22,97,108,0,'','',299,1,0,1,1,0),
-(23,98,108,0,'','',999,1,0,1,1,0),
-(24,99,108,0,'','',899,1,0,1,1,0),
-(25,100,108,0,'','',799,1,0,1,1,0),
-(26,102,108,0,'','',299,1,0,1,1,0),
-(27,103,108,0,'','',299,1,0,1,1,0),
-(28,104,108,0,'','',299,1,0,1,1,0)	;
+(17,38,108,0,22,'','',399,2,3,1,1,0),
+(18,93,108,2,0,'','',299,1,0,1,1,0),
+(19,94,108,0,0,'','',199,1,0,1,1,0),
+(20,95,108,1,0,'','',499,1,0,1,1,0),
+(21,96,108,2,0,'','',399,1,0,1,1,0),
+(22,97,108,3,0,'','',299,1,0,1,1,0),
+(23,98,108,0,0,'','',999,1,0,1,1,0),
+(24,99,108,0,0,'','',899,1,0,1,1,0),
+(25,100,108,3,0,'','',799,1,0,1,1,0),
+(26,102,108,0,0,'','',299,1,0,1,1,0),
+(27,103,108,0,0,'','',299,1,0,1,1,0),
+(28,104,108,0,0,'','',299,1,0,1,1,0)	;
 
 DROP TABLE IF EXISTS content_product_prices;
 CREATE TABLE IF NOT EXISTS `content_product_prices` (
@@ -451,6 +452,7 @@ CREATE TABLE IF NOT EXISTS `content_downloadables` (
   `id` int(10) AUTO_INCREMENT,
   `content_id` int(10),
   `manufacturer_id` int(10),
+  `label_id` int(10),
   `filename` varchar(256),
   `filestorename` varchar(256),
   `price` double,
@@ -1983,6 +1985,23 @@ CREATE TABLE `global_content_blocks` (
 
 INSERT INTO `global_content_blocks` (`id`, `name`, `content`, `alias`, `active`, `created`, `modified`) VALUES 
 (1, 'Footer', '<p class="copyright"><a href="http://{lang}vamshop.com{/lang}/">{lang}Powered by{/lang} VamShop</a>.</p>', 'footer', 1, '2009-07-17 10:00:06', '2009-09-12 17:05:49');
+
+DROP TABLE IF EXISTS labels;
+CREATE TABLE `labels` (
+  `id` int(10) auto_increment,
+  `default` tinyint(4),
+  `name` varchar(255) collate utf8_unicode_ci,
+  `alias` varchar(255) collate utf8_unicode_ci,
+  `html` varchar(255) collate utf8_unicode_ci,
+  `active` tinyint(4) default '1',
+  `sort_order` int(3),
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO `labels` (`id`, `default`, `name`, `alias`, `html`, `active`, `sort_order`) VALUES 
+(1, 1, 'New', 'new', '', 1, 1),
+(2, 0, 'Hot', 'hot', '', 1, 2),
+(3, 0, 'Sale', 'sale', '', 1, 3);
 
 DROP TABLE IF EXISTS languages;
 CREATE TABLE `languages` (
