@@ -5040,5 +5040,5 @@ msgid "Displays the product label."
 msgstr "Выводит ярлык товара."
 
 #: /vendors/smarty/vam_plugins/function.product_label.php:53
-msgid "Display product label of selected content_id element."
-msgstr "Выводит ярлык заданного content_id товара."
+msgid "Display label name of selected label_id element."
+msgstr "Выводит ярлык заданного label_id элемента."
