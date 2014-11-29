@@ -25,9 +25,16 @@ class ContentProduct extends AppModel {
 	);
         
         public $id_customer_discount = null;
+        public $is_discount = true;  
+        
+        public function setDiscount($is_discount = true)
+        {
+           $this->is_discount = $is_discount;
+        }        
         
         public function afterFind($results, $primary = false)
         {
+            if($this->is_discount)
             foreach ($results as $key => $value) 
             {
                 $price = null;
