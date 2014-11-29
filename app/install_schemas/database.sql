@@ -410,7 +410,7 @@ CREATE TABLE `content_specials` (
   `date_start` datetime,
   `date_end` datetime,
   PRIMARY KEY  (`id`),
-  INDEX content_id (content_id)
+  INDEX content_product_id (content_product_id,groups_customer_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS content_news;
