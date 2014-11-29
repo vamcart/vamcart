@@ -8,14 +8,31 @@
 ?>
 <?php
 
+$l = $this->Session->read('Config.language');
+
+if (NULL == $l) {
+	$l = $this->Session->read('Customer.language');
+}
+
+$l = substr($l, 0, 2);
+
+$fname = 'datepicker-' . $l . '.js';
+
+if (!file_exists(WWW_ROOT . 'js/jquery/plugins/jquery-ui/' . $fname)) {
+	$fname = 'datepicker-en.js';
+}
+
 $this->Html->script(array(
 	'jquery/plugins/jquery.cookie.js',
 	'jquery/plugins/jquery-ui-min.js',
 	'jquery/plugins/uploadfile/jquery.uploadfile.js',
+	'jquery/plugins/jquery-ui/' . $fname,
 	'jquery/plugins/dynatree/jquery.dynatree.js',
 	'modified.js',
 	'focus-first-input.js'
 ), array('inline' => false));
+
+$this->Html->css('jquery-ui.css', null, array('inline' => false));
 	
 	echo $this->TinyMce->init();
 ?>
@@ -25,6 +42,11 @@ $this->Html->script(array(
 		$("select#ContentContentTypeId").change(function () {
 			$("div#content_type_fields").load("'. BASE . '/contents/admin_edit_type/"+$("select#ContentContentTypeId").val());
 		})
+
+		$(function() {
+			$( "#date_start" ).datepicker({ dateFormat: "yy-mm-dd" }).val();
+			$( "#date_end" ).datepicker({ dateFormat: "yy-mm-dd" }).val();
+		});
 
 		$("#products-tree").dynatree({
 			checkbox: true,
@@ -68,6 +90,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 			echo '<ul id="myTab" class="nav nav-tabs">';
 			echo $this->Admin->CreateTab('main',__('Main'), 'cus-application');
 			echo $this->Admin->CreateTab('data',__('Data'), 'cus-table-multiple');
+			echo $this->Admin->CreateTab('special',__('Special'), 'cus-tag-yellow');
 			echo $this->Admin->CreateTab('view_images',__('View Images'), 'cus-pictures');
 			echo $this->Admin->CreateTab('upload_images',__('Upload Images'), 'cus-picture-add');
 			echo $this->Admin->CreateTab('options',__('Options'), 'cus-cog');
@@ -192,6 +215,34 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 							'selected' => isset($data['Content']['template_id']) ?$data['Content']['template_id'] : ''
 						));
 	echo '</div>';	
+
+	echo $this->Admin->EndTabContent();
+
+	echo $this->Admin->StartTabContent('special');
+
+	echo $this->Form->input('ContentSpecial.price', 
+		array(
+			'label' => __('Special Price'),
+			'type' => 'text',
+			'value' => !isset($data['ContentSpecial']['price'])? 0 : $data['ContentSpecial']['price']
+		));
+
+	echo $this->Form->input('ContentSpecial.date_start', 
+		array(
+			'label' => __('Date Start'),
+			'type' => 'text',
+			'dateFormat' => 'Y-m-d H:i:s',
+			'id' => 'date_start',
+			'value' => !isset($data['ContentSpecial']['date_start'])? false : $data['ContentSpecial']['date_start']
+		));
+
+	echo $this->Form->input('ContentSpecial.date_end', 
+		array(
+			'label' => __('Date End'),
+			'type' => 'text',
+			'id' => 'date_end',
+			'value' => !isset($data['ContentSpecial']['date_end'])? false : $data['ContentSpecial']['date_end']
+		));
 
 	echo $this->Admin->EndTabContent();
 

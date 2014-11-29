@@ -407,8 +407,8 @@ CREATE TABLE `content_specials` (
   `content_product_id` int(10),
   `groups_customer_id` int(10),
   `price` double,
-  `date_start` datetime,
-  `date_end` datetime,
+  `date_start` date,
+  `date_end` date,
   PRIMARY KEY  (`id`),
   INDEX content_product_id (content_product_id,groups_customer_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

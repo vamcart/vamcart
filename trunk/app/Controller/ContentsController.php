@@ -493,7 +493,6 @@ class ContentsController extends AppController {
 			// Save to the database
 			$this->Content->save($this->data['Content']);
 			
-			
 			if($content_id == null)
 			{
 				// Get the content id if it's new
@@ -547,6 +546,21 @@ class ContentsController extends AppController {
 			
 			$this->Content->$model->save($special_content);
 
+			// Save special to the database
+			if ($this->data['ContentSpecial']) {
+
+			// Check if we already have a record for this type of special content, if so delete it.
+			// I'm sure there's a better way to do this
+			$check_special = $this->Content->ContentSpecial->find('first', array('conditions' => array('content_id' => $content_id)));
+
+			if(!empty($check_special))
+				$this->request->data['ContentSpecial']['id'] = $check_special['ContentSpecial']['id'];
+
+			$this->request->data['ContentSpecial']['content_id'] = $content_id;
+			$this->Content->ContentSpecial->save($this->data['ContentSpecial']);
+			
+			}
+
 			$this->Session->setFlash(__('Record saved.', true));
 			
 			// Check if we pressed 'apply' otherwise just render
@@ -579,7 +593,7 @@ class ContentsController extends AppController {
 
 			$this->Content->id = $content_id;			
 			$data = $this->Content->read();
-		
+			
 			// If we were able to read a value from the database
 			if(!empty($data))
 			{
