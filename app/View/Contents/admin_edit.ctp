@@ -90,7 +90,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 			echo '<ul id="myTab" class="nav nav-tabs">';
 			echo $this->Admin->CreateTab('main',__('Main'), 'cus-application');
 			echo $this->Admin->CreateTab('data',__('Data'), 'cus-table-multiple');
-			echo $this->Admin->CreateTab('special',__('Special'), 'cus-tag-yellow');
+			if (($data['Content']['content_type_id'] == 2 or $data['Content']['content_type_id'] == 7)) echo $this->Admin->CreateTab('special',__('Special'), 'cus-tag-yellow');
 			echo $this->Admin->CreateTab('view_images',__('View Images'), 'cus-pictures');
 			echo $this->Admin->CreateTab('upload_images',__('Upload Images'), 'cus-picture-add');
 			echo $this->Admin->CreateTab('options',__('Options'), 'cus-cog');
@@ -218,13 +218,15 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 
 	echo $this->Admin->EndTabContent();
 
+	if (($data['Content']['content_type_id'] == 2 or $data['Content']['content_type_id'] == 7)) {	
+	
 	echo $this->Admin->StartTabContent('special');
 
 	echo $this->Form->input('ContentSpecial.price', 
 		array(
 			'label' => __('Special Price'),
 			'type' => 'text',
-			'value' => !isset($data['ContentSpecial']['price'])? 0 : $data['ContentSpecial']['price']
+			'value' => !isset($data['ContentSpecial']['price'])? false : $data['ContentSpecial']['price']
 		));
 
 	echo $this->Form->input('ContentSpecial.date_start', 
@@ -245,6 +247,8 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 		));
 
 	echo $this->Admin->EndTabContent();
+	
+	}
 
 	echo $this->Admin->StartTabContent('view_images');
 		echo '<div id="content_images_holder">';		
