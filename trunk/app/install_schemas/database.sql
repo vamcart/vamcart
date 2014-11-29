@@ -404,13 +404,13 @@ CREATE TABLE IF NOT EXISTS `content_product_prices` (
 DROP TABLE IF EXISTS content_specials;
 CREATE TABLE `content_specials` (
   `id` int(10) auto_increment,
-  `content_product_id` int(10),
+  `content_id` int(10),
   `groups_customer_id` int(10),
   `price` double,
   `date_start` date,
   `date_end` date,
   PRIMARY KEY  (`id`),
-  INDEX content_product_id (content_product_id,groups_customer_id)
+  INDEX content_id (content_id,groups_customer_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS content_news;
