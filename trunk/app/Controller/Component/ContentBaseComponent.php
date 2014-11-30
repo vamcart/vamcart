@@ -194,8 +194,6 @@ class ContentBaseComponent extends Object
 
 		App::import('Model', 'ModuleReviews.ModuleReview');
 
-		$this->ModuleBase->check_if_installed('reviews');
-		
 		$Reviews =& new ModuleReview();		
 
 		$Reviews->unbindAll();		
