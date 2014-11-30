@@ -853,6 +853,8 @@ class ContentsController extends AppController {
 			)
 		));
 		
+		$this->Content->ContentProduct->setDiscount(false);
+		
 		//Paginate data
 		$content_data = $this->Paginator->paginate('Content');
 		$this->set(compact('content_data'));
