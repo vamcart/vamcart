@@ -1366,7 +1366,7 @@ height: 50px;
   background-color: #ff6633;
 }
 .shop-products .thumbnail {
-  border: 0px solid #e7e7e7;
+  border: solid 1px #eeeeee;
   padding: 0;
   margin-bottom: 15px;
   overflow: hidden;
@@ -1733,7 +1733,7 @@ height: 50px;
   background-color: #ff6633;
 }
 .featured-products .thumbnail {
-  border: 0px solid #e7e7e7;
+  border: solid 1px #eeeeee;
   padding: 0;
   margin-bottom: 15px;
   overflow: hidden;
