@@ -12,7 +12,7 @@ class ImportExportController extends AppController {
 	public $name = 'ImportExport';
 	public $uses = null;
         public $helpers = array('Html','Admin');
-        public $contain_table = array('ContentDescription' => null/*<-эта модель обязательна*/,'ContentType','ContentCategory','ContentImage','ContentProduct','ContentManufacturer','ContentNews','ContentArticle','Attribute');
+        public $contain_table = array('ContentDescription' => null/*<-эта модель обязательна*/,'ContentType','ContentCategory','ContentImage','ContentProduct','ContentManufacturer','ContentSpecial','ContentNews','ContentArticle','Attribute');
 
 	public function admin ($ajax = false)
 	{
