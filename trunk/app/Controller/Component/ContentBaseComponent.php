@@ -179,6 +179,80 @@ class ContentBaseComponent extends Object
 		return $manufacturer_name['ContentDescription']['name'];
 		}
 	}
+
+	public function getReviewsInfo($content_id, $info)
+	{
+		if ($content_id > 0) {
+
+		App::import('Model', 'Module');
+		$Module =& new Module();
+		
+		$check_count = $Module->find('count', array('conditions' => array('Module.alias' => 'reviews')));
+		
+		if(($check_count == 1))
+		{
+
+		App::import('Model', 'ModuleReviews.ModuleReview');
+
+		$this->ModuleBase->check_if_installed('reviews');
+		
+		$Reviews =& new ModuleReview();		
+
+		$Reviews->unbindAll();		
+		$reviews = $Reviews->find('all', array('conditions' => array('content_id' => $content_id), 'order' => 'ModuleReview.id DESC'));
+		
+		if (!$reviews)
+			return;
+
+		App::uses('CakeTime', 'Utility');
+		
+		$assigned_reviews = array();
+		$col = 0;
+		$total_rating = null;
+		$max = null;
+		$min = 99999999; //to make sure it's not below all the values
+		foreach($reviews AS $review)
+		{
+			$col++;
+			$total_rating += (int) $review['ModuleReview']['rating'];
+			$max = (int) max($max, $review['ModuleReview']['rating']);
+			$min = (int) min($min, $review['ModuleReview']['rating']);
+			$review['ModuleReview']['created'] = CakeTime::i18nFormat($review['ModuleReview']['created']);
+			$assigned_reviews[] = $review['ModuleReview'];
+		}
+
+		$assignments = array();
+		$assignments['total'] = $col;
+		$assignments['total_rating'] = $total_rating;
+		$assignments['average_rating'] = number_format($total_rating/$col, 2);
+		for($i=0;$i<number_format($total_rating/$col);$i++)	{
+		$assignments['star_rating'] .= '<i class="fa fa-star"></i> ';
+		}
+		$assignments['max_rating'] = $max;
+		$assignments['min_rating'] = $min;
+		$assignments['reviews'] = $assigned_reviews;
+		
+		if ($info == 'average_rating') {
+		return $assignments['average_rating'];
+		}
+
+		if ($info == 'star_rating') {
+		return $assignments['star_rating'];
+		}
+
+		if ($info == 'reviews_total') {
+		return $assignments['total'];
+		}
+
+		if (!$info) {
+		return;
+		}
+
+		}
+
+		}
+	}
+
 	
 	/**
 	* Returns a list of all content in $key => $value format

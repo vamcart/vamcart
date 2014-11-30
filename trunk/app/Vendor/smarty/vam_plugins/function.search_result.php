@@ -194,6 +194,9 @@ function smarty_function_search_result($params, $template)
 			$content_list[$count]['price_save']	= $CurrencyBase->display_price($raw_data['ContentProduct']['old_price']-$price);	
 			$content_list[$count]['price_save_percent']	= ($raw_data['ContentProduct']['old_price'] > $raw_data['ContentProduct']['price']) ? 100-($price*100/$raw_data['ContentProduct']['old_price']) : 0;	
 			$content_list[$count]['discount']	= ($raw_data['ContentProduct']['old_price'] > $raw_data['ContentProduct']['price']) ? 100-($price*100/$raw_data['ContentProduct']['old_price']) : 0;	
+			$content_list[$count]['rating']	= $ContentBase->getReviewsInfo($raw_data['Content']['id'], 'average_rating');	
+			$content_list[$count]['star_rating']	= $ContentBase->getReviewsInfo($raw_data['Content']['id'], 'star_rating');	
+			$content_list[$count]['reviews']	= $ContentBase->getReviewsInfo($raw_data['Content']['id'], 'reviews_total');	
 			$content_list[$count]['stock']  = $raw_data['ContentProduct']['stock'];
 			$content_list[$count]['model']  = $raw_data['ContentProduct']['model'];
 			$content_list[$count]['weight'] = $raw_data['ContentProduct']['weight'];

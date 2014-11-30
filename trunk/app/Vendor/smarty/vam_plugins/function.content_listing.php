@@ -50,7 +50,7 @@ $template = '
 				<a href="{$node.url}" class="image"><img src="{$node.image}" alt="{$node.name}"{if isset($thumbnail_width)} width="{$thumbnail_width}"{/if} />{product_label label_id={$node.label_id}}</a>
 			<div class="inner notop nobottom text-left">
 				<h4 class="title"><a href="{$node.url}">{$node.name}</a></h4>
-				{if $node.rating > 0}<div class="description"><span class="rating">{$node.rating}</span> <span class="reviews">(<a href="{$node.url}">{$node.reviews}</a>)</span></div>{/if}
+				{if $node.reviews > 0}<div class="description"><span class="rating">{$node.star_rating}</span> <span class="reviews">(<a href="{$node.url}">{$node.reviews}</a>)</span></div>{/if}
 				{if $node.price > 0}<div class="description">{lang}Price{/lang}: <span class="price">{$node.price}</span></div>{/if}
 				{if $node.old_price > 0}<div class="description">{lang}List Price{/lang}: <span class="old-price"><del>{$node.old_price}</del></span></div>{/if}
 				{if $node.price_save > 0}<div class="description">{lang}You Save{/lang}: <span class="save">{$node.price_save} ({$node.price_save_percent|round}%)</span></div>{/if}
@@ -382,6 +382,9 @@ function smarty_function_content_listing($params, $template)
 			$content_list[$count]['price_save']	= $CurrencyBase->display_price($raw_data['ContentProduct']['old_price']-$price);	
 			$content_list[$count]['price_save_percent']	= ($raw_data['ContentProduct']['old_price'] > $raw_data['ContentProduct']['price']) ? 100-($price*100/$raw_data['ContentProduct']['old_price']) : 0;	
 			$content_list[$count]['discount']	= ($raw_data['ContentProduct']['old_price'] > $raw_data['ContentProduct']['price']) ? 100-($price*100/$raw_data['ContentProduct']['old_price']) : 0;	
+			$content_list[$count]['rating']	= $ContentBase->getReviewsInfo($raw_data['Content']['id'], 'average_rating');	
+			$content_list[$count]['star_rating']	= $ContentBase->getReviewsInfo($raw_data['Content']['id'], 'star_rating');	
+			$content_list[$count]['reviews']	= $ContentBase->getReviewsInfo($raw_data['Content']['id'], 'reviews_total');	
 			$content_list[$count]['stock']	= $raw_data['ContentProduct']['stock'];	
 			$content_list[$count]['model']	= $raw_data['ContentProduct']['model'];	
 			$content_list[$count]['weight']	= $raw_data['ContentProduct']['weight'];	
