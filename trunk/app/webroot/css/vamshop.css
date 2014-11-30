@@ -2358,3 +2358,12 @@ ul.attributes li a.confirm
   z-index: 5;
   clear: both;
 }
+.rating {
+  background-color: transparent;
+  color: #ff6633;
+  right: 0;
+  padding: 0 5px 0 0;
+  font-size: 16px;
+  text-align: center;
+  vertical-align: middle;
+}

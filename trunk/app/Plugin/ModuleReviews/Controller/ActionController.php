@@ -152,7 +152,7 @@ class ActionController extends ModuleReviewsAppController {
 		$assignments['total_rating'] = $total_rating;
 		$assignments['average_rating'] = number_format($total_rating/$col, 2);
 		for($i=0;$i<number_format($total_rating/$col);$i++)	{
-		$assignments['star_rating'] .= '<span class="label label-warning"><i class="fa fa-star"></i></span> ';
+		$assignments['star_rating'] .= '<span class="rating"><i class="fa fa-star"></i></span> ';
 		}
 		$assignments['max_rating'] = $max;
 		$assignments['min_rating'] = $min;
