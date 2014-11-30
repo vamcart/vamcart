@@ -197,6 +197,10 @@ function smarty_function_content_listing($params, $template)
 				'ContentDownloadable' => array(
                     'className' => 'ContentDownloadable'
 					))));
+		$Content->bindModel(array('hasOne' => array(
+				'ContentSpecial' => array(
+                    'className' => 'ContentSpecial'
+					))));
 		
 	// Make sure parent is valid, if it's not a number get the correct parent number
 	if(!isset($params['parent']))
@@ -374,6 +378,10 @@ function smarty_function_content_listing($params, $template)
 			$content_list[$count]['id']	= $raw_data['Content']['id'];
 			$content_list[$count]['alias']	= $raw_data['Content']['alias'];
 			$content_list[$count]['price']	= $CurrencyBase->display_price($price);	
+			$content_list[$count]['old_price']	= ($raw_data['ContentProduct']['old_price'] > $raw_data['ContentProduct']['price']) ? $CurrencyBase->display_price($raw_data['ContentProduct']['old_price']) : 0;	
+			$content_list[$count]['price_save']	= $CurrencyBase->display_price($raw_data['ContentProduct']['old_price']-$price);	
+			$content_list[$count]['price_save_percent']	= ($raw_data['ContentProduct']['old_price'] > $raw_data['ContentProduct']['price']) ? 100-($price*100/$raw_data['ContentProduct']['old_price']) : 0;	
+			$content_list[$count]['discount']	= ($raw_data['ContentProduct']['old_price'] > $raw_data['ContentProduct']['price']) ? 100-($price*100/$raw_data['ContentProduct']['old_price']) : 0;	
 			$content_list[$count]['stock']	= $raw_data['ContentProduct']['stock'];	
 			$content_list[$count]['model']	= $raw_data['ContentProduct']['model'];	
 			$content_list[$count]['weight']	= $raw_data['ContentProduct']['weight'];	

@@ -140,6 +140,11 @@ function smarty_function_xsell($params, &$smarty)
 				'ContentDownloadable' => array(
                     'className' => 'ContentDownloadable'
 					))));
+
+		$Content->bindModel(array('hasOne' => array(
+				'ContentSpecial' => array(
+                    'className' => 'ContentSpecial'
+					))));
 											
 		$product = $Content->find('first', array('recursive' => 1, 'conditions' => array('Content.id' => $content['ContentRelations'][$key]['id'])));
 		$content['ContentRelations'][$key]['id'] = $content['ContentRelations'][$key]['id'];
@@ -150,6 +155,10 @@ function smarty_function_xsell($params, &$smarty)
 		$content['ContentRelations'][$key]['manufacturer'] = $ContentBase->getManufacturerName($product['ContentProduct']['manufacturer_id']);
 		$content['ContentRelations'][$key]['label_id'] = $product['ContentProduct']['label_id'];
 		$content['ContentRelations'][$key]['price'] = $CurrencyBase->display_price($product['ContentProduct']['price']);
+		$content['ContentRelations'][$key]['old_price']	= ($product['ContentProduct']['old_price'] > $product['ContentProduct']['price']) ? $CurrencyBase->display_price($product['ContentProduct']['old_price']) : 0;	
+		$content['ContentRelations'][$key]['price_save']	= $CurrencyBase->display_price($product['ContentProduct']['old_price']-$product['ContentProduct']['price']);	
+		$content['ContentRelations'][$key]['price_save_percent']	= ($product['ContentProduct']['old_price'] > $product['ContentProduct']['price']) ? 100-($product['ContentProduct']['price']*100/$product['ContentProduct']['old_price']) : 0;	
+		$content['ContentRelations'][$key]['discount']	= ($product['ContentProduct']['old_price'] > $product['ContentProduct']['price']) ? 100-($product['ContentProduct']['price']*100/$product['ContentProduct']['old_price']) : 0;	
 		$content['ContentRelations'][$key]['url'] = BASE . '/' . $product['ContentType']['name'] . '/' . $product['Content']['alias'] . $config['URL_EXTENSION'];
 
 		$product = $Content->ContentDescription->find('first', array('conditions' => array('content_id' => $content['ContentRelations'][$key]['id'], 
