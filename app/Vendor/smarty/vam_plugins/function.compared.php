@@ -24,9 +24,9 @@ $template = '
 					<div class="inner notop nobottom text-left">
 						<h4 class="title"><a href="{$node.url}">{$node.name}</a></h4>
 						{if $node.reviews > 0}<div class="description"><span class="rating">{$node.star_rating}</span> <span class="reviews">(<a href="{$node.url}">{$node.reviews}</a>)</span></div>{/if}
-						{if $node.price > 0}<div class="description">{lang}Price{/lang}: <span class="price">{$node.price}</span></div>{/if}
-						{if $node.old_price > 0}<div class="description">{lang}List Price{/lang}: <span class="old-price"><del>{$node.old_price}</del></span></div>{/if}
-						{if $node.price_save > 0}<div class="description">{lang}You Save{/lang}: <span class="save">{$node.price_save} ({$node.price_save_percent|round}%)</span></div>{/if}
+						{if $node.price}<div class="description">{lang}Price{/lang}: <span class="price">{$node.price}</span></div>{/if}
+						{if $node.old_price}<div class="description">{lang}List Price{/lang}: <span class="old-price"><del>{$node.old_price}</del></span></div>{/if}
+						{if $node.price_save}<div class="description">{lang}You Save{/lang}: <span class="save">{$node.price_save} ({$node.price_save_percent|round}%)</span></div>{/if}
 						<div class="description">{$node.short_description|strip_tags|truncate:30:"...":true}</div>
 					</div>
 					</div>
@@ -161,10 +161,12 @@ function smarty_function_compared($params)
                     $element_list[$k_a]['attributes_product'][$k_p]['meta_keywords']	= $product['ContentDescription']['meta_keywords'];
                     $element_list[$k_a]['attributes_product'][$k_p]['id']	= $product['Content']['id'];
                     $element_list[$k_a]['attributes_product'][$k_p]['alias']	= $product['Content']['alias'];
-                    $element_list[$k_a]['attributes_product'][$k_p]['price']	= $CurrencyBase->display_price($product['ContentProduct']['price']);	
-                    $element_list[$k_a]['attributes_product'][$k_p]['old_price']	= ($product['ContentProduct']['old_price'] > $product['ContentProduct']['price']) ? $CurrencyBase->display_price($product['ContentProduct']['old_price']) : 0;	
-                    $element_list[$k_a]['attributes_product'][$k_p]['price_save']	= $CurrencyBase->display_price($product['ContentProduct']['old_price']-$product['ContentProduct']['price']);	
-                    $element_list[$k_a]['attributes_product'][$k_p]['price_save_percent']	= ($product['ContentProduct']['old_price'] > $product['ContentProduct']['price']) ? 100-($product['ContentProduct']['price']*100/$product['ContentProduct']['old_price']) : 0;	
+                    $element_list[$k_a]['attributes_product'][$k_p]['price']	= ($product['ContentProduct']['price'] > 0) ? $CurrencyBase->display_price($product['ContentProduct']['price']) : false;	
+                    $element_list[$k_a]['attributes_product'][$k_p]['old_price']	= ($product['ContentProduct']['old_price'] > $product['ContentProduct']['price']) ? $CurrencyBase->display_price($product['ContentProduct']['old_price']) : false;	
+                    $element_list[$k_a]['attributes_product'][$k_p]['price_save']	= ($product['ContentProduct']['old_price']-$product['ContentProduct']['price'] > 0) ? $CurrencyBase->display_price($product['ContentProduct']['old_price']-$product['ContentProduct']['price']) : false;	
+                    $element_list[$k_a]['attributes_product'][$k_p]['price_save_percent']	= ($product['ContentProduct']['old_price'] > $product['ContentProduct']['price']) ? 100-($product['ContentProduct']['price']*100/$product['ContentProduct']['old_price']) : false;	
+
+
                     $element_list[$k_a]['attributes_product'][$k_p]['discount']	= ($product['ContentProduct']['old_price'] > $product['ContentProduct']['price']) ? 100-($product['ContentProduct']['price']*100/$product['ContentProduct']['old_price']) : 0;	
                     $element_list[$k_a]['attributes_product'][$k_p]['rating']	= $ContentBase->getReviewsInfo($product['Content']['id'], 'average_rating');	
                     $element_list[$k_a]['attributes_product'][$k_p]['star_rating']	= $ContentBase->getReviewsInfo($product['Content']['id'], 'star_rating');	

@@ -22,9 +22,9 @@ function default_template_xsell()
 			<div class="inner notop nobottom text-left">
 				<h4 class="title"><a href="{$node.url}">{$node.name}</a></h4>
 				{if $node.reviews > 0}<div class="description"><span class="rating">{$node.star_rating}</span> <span class="reviews">(<a href="{$node.url}">{$node.reviews}</a>)</span></div>{/if}
-				{if $node.price > 0}<div class="description">{lang}Price{/lang}: <span class="price">{$node.price}</span></div>{/if}
-				{if $node.old_price > 0}<div class="description">{lang}List Price{/lang}: <span class="old-price"><del>{$node.old_price}</del></span></div>{/if}
-				{if $node.price_save > 0}<div class="description">{lang}You Save{/lang}: <span class="save">{$node.price_save} ({$node.price_save_percent|round}%)</span></div>{/if}
+				{if $node.price}<div class="description">{lang}Price{/lang}: <span class="price">{$node.price}</span></div>{/if}
+				{if $node.old_price}<div class="description">{lang}List Price{/lang}: <span class="old-price"><del>{$node.old_price}</del></span></div>{/if}
+				{if $node.price_save}<div class="description">{lang}You Save{/lang}: <span class="save">{$node.price_save} ({$node.price_save_percent|round}%)</span></div>{/if}
 				<div class="description">{$node.short_description|strip_tags|truncate:30:"...":true}</div>
 				<div class="description">{attribute_list product_id=$node.id}</div>
               </div>
@@ -154,10 +154,10 @@ function smarty_function_xsell($params, &$smarty)
 		$content['ContentRelations'][$key]['weight'] = $product['ContentProduct']['weight'];
 		$content['ContentRelations'][$key]['manufacturer'] = $ContentBase->getManufacturerName($product['ContentProduct']['manufacturer_id']);
 		$content['ContentRelations'][$key]['label_id'] = $product['ContentProduct']['label_id'];
-		$content['ContentRelations'][$key]['price'] = $CurrencyBase->display_price($product['ContentProduct']['price']);
-		$content['ContentRelations'][$key]['old_price']	= ($product['ContentProduct']['old_price'] > $product['ContentProduct']['price']) ? $CurrencyBase->display_price($product['ContentProduct']['old_price']) : 0;	
-		$content['ContentRelations'][$key]['price_save']	= $CurrencyBase->display_price($product['ContentProduct']['old_price']-$product['ContentProduct']['price']);	
-		$content['ContentRelations'][$key]['price_save_percent']	= ($product['ContentProduct']['old_price'] > $product['ContentProduct']['price']) ? 100-($product['ContentProduct']['price']*100/$product['ContentProduct']['old_price']) : 0;	
+		$content['ContentRelations'][$key]['price']	= ($product['ContentProduct']['price'] > 0) ? $CurrencyBase->display_price($product['ContentProduct']['price']) : false;	
+		$content['ContentRelations'][$key]['old_price']	= ($product['ContentProduct']['old_price'] > $product['ContentProduct']['price']) ? $CurrencyBase->display_price($product['ContentProduct']['old_price']) : false;	
+		$content['ContentRelations'][$key]['price_save']	= ($product['ContentProduct']['old_price']-$product['ContentProduct']['price'] > 0) ? $CurrencyBase->display_price($product['ContentProduct']['old_price']-$product['ContentProduct']['price']) : false;	
+		$content['ContentRelations'][$key]['price_save_percent']	= ($product['ContentProduct']['old_price'] > $product['ContentProduct']['price']) ? 100-($product['ContentProduct']['price']*100/$product['ContentProduct']['old_price']) : false;	
 		$content['ContentRelations'][$key]['discount']	= ($product['ContentProduct']['old_price'] > $product['ContentProduct']['price']) ? 100-($product['ContentProduct']['price']*100/$product['ContentProduct']['old_price']) : 0;	
 		$content['ContentRelations'][$key]['rating']	= $ContentBase->getReviewsInfo($product['Content']['id'], 'average_rating');	
 		$content['ContentRelations'][$key]['star_rating']	= $ContentBase->getReviewsInfo($product['Content']['id'], 'star_rating');	
