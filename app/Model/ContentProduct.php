@@ -61,6 +61,7 @@ class ContentProduct extends AppModel {
                         $special_price = $Special->find('first',array('conditions' => array('ContentSpecial.content_id' => $value['ContentProduct']['content_id'])));
 
                         if($special_price['ContentSpecial']['price'] > 0) { 
+                        $results[$key]['ContentProduct']['old_price'] = $results[$key]['ContentProduct']['price'];
                         if((isset($special_price['ContentSpecial']['date_start']) && time() >= strtotime($special_price['ContentSpecial']['date_start'])) or !isset($special_price['ContentSpecial']['date_start'])) { 
                         if(isset($special_price['ContentSpecial']['date_end']) && time() <= strtotime($special_price['ContentSpecial']['date_end']) or !isset($special_price['ContentSpecial']['date_end'])) { 
                         $price = $special_price['ContentSpecial']['price'];
