@@ -129,6 +129,10 @@ function smarty_function_compared($params)
 				'ContentProduct' => array(
                     'className' => 'ContentProduct'
 					))));
+		$Content->bindModel(array('hasOne' => array(
+				'ContentSpecial' => array(
+                    'className' => 'ContentSpecial'
+					))));
 
 		$Content->bindModel(array('hasMany' => array('Attribute' => array(
 						'className' => 'Attribute'
@@ -158,6 +162,10 @@ function smarty_function_compared($params)
                     $element_list[$k_a]['attributes_product'][$k_p]['id']	= $product['Content']['id'];
                     $element_list[$k_a]['attributes_product'][$k_p]['alias']	= $product['Content']['alias'];
                     $element_list[$k_a]['attributes_product'][$k_p]['price']	= $CurrencyBase->display_price($product['ContentProduct']['price']);	
+                    $element_list[$k_a]['attributes_product'][$k_p]['old_price']	= ($product['ContentProduct']['old_price'] > $product['ContentProduct']['price']) ? $CurrencyBase->display_price($product['ContentProduct']['old_price']) : 0;	
+                    $element_list[$k_a]['attributes_product'][$k_p]['price_save']	= $CurrencyBase->display_price($product['ContentProduct']['old_price']-$product['ContentProduct']['price']);	
+                    $element_list[$k_a]['attributes_product'][$k_p]['price_save_percent']	= ($product['ContentProduct']['old_price'] > $product['ContentProduct']['price']) ? 100-($product['ContentProduct']['price']*100/$product['ContentProduct']['old_price']) : 0;	
+                    $element_list[$k_a]['attributes_product'][$k_p]['discount']	= ($product['ContentProduct']['old_price'] > $product['ContentProduct']['price']) ? 100-($product['ContentProduct']['price']*100/$product['ContentProduct']['old_price']) : 0;	
                     $element_list[$k_a]['attributes_product'][$k_p]['stock']	= $product['ContentProduct']['stock'];	
                     $element_list[$k_a]['attributes_product'][$k_p]['model']	= $product['ContentProduct']['model'];	
                     $element_list[$k_a]['attributes_product'][$k_p]['weight']	= $product['ContentProduct']['weight'];	

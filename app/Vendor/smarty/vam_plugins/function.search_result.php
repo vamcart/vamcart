@@ -149,6 +149,11 @@ function smarty_function_search_result($params, $template)
 			)
 		), false);
 
+		$Content->bindModel(array('hasOne' => array(
+				'ContentSpecial' => array(
+                    'className' => 'ContentSpecial'
+					))));
+
 		$search_conditions = array('AND' => array('Content.active' => '1', 'ContentType.name' => array('product', 'downloadable'),
 						'OR' => array('ContentDescription.name LIKE' => '%' . $_GET['keyword'] . '%',
 						         'ContentProduct.model LIKE' => '%' . $_GET['keyword'] . '%',
@@ -185,6 +190,10 @@ function smarty_function_search_result($params, $template)
 			$content_list[$count]['id']	= $raw_data['Content']['id'];
 			$content_list[$count]['alias']  = $raw_data['Content']['alias'];
 			$content_list[$count]['price']  = $CurrencyBase->display_price($price);
+			$content_list[$count]['old_price']	= ($raw_data['ContentProduct']['old_price'] > $raw_data['ContentProduct']['price']) ? $CurrencyBase->display_price($raw_data['ContentProduct']['old_price']) : 0;	
+			$content_list[$count]['price_save']	= $CurrencyBase->display_price($raw_data['ContentProduct']['old_price']-$price);	
+			$content_list[$count]['price_save_percent']	= ($raw_data['ContentProduct']['old_price'] > $raw_data['ContentProduct']['price']) ? 100-($price*100/$raw_data['ContentProduct']['old_price']) : 0;	
+			$content_list[$count]['discount']	= ($raw_data['ContentProduct']['old_price'] > $raw_data['ContentProduct']['price']) ? 100-($price*100/$raw_data['ContentProduct']['old_price']) : 0;	
 			$content_list[$count]['stock']  = $raw_data['ContentProduct']['stock'];
 			$content_list[$count]['model']  = $raw_data['ContentProduct']['model'];
 			$content_list[$count]['weight'] = $raw_data['ContentProduct']['weight'];
