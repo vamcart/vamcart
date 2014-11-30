@@ -5052,6 +5052,10 @@ msgid "Special Price"
 msgstr "Специальная цена"
 
 #: /views/contents/admin_edit.ctp:35
+msgid "<b>Specials Notes:</b><ul><li>You can enter a percentage to deduct in the Specials Price field, for example: <b>20%</b></li><li>If you enter a new price, the decimal separator must be a \'.\' (decimal-point), example: <b>49.99</b></li><li>Leave the start/end date empty for no expiration.</li></ul>"
+msgstr "<b>Примечание:</b><ul><li>Вы можете указать процент скидки в поле Специальная цена, например: <b>20%</b></li><li>Если Вы указываете новую цену, десятичный разделитель должен быть \'.\' (точка), например: <b>49.99</b></li><li>Вы можете оставить поля начала/завершения акции пустыми, если не хотите ограничивать акцию по времени.</li></ul>"
+
+#: /views/contents/admin_edit.ctp:35
 msgid "Date Start"
 msgstr "Дата начала акции"
 

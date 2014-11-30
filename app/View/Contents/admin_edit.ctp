@@ -228,6 +228,8 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 			'type' => 'text',
 			'value' => !isset($data['ContentSpecial']['price'])? false : $data['ContentSpecial']['price']
 		));
+		
+	echo __('<b>Specials Notes:</b><ul><li>You can enter a percentage to deduct in the Specials Price field, for example: <b>20%</b></li><li>If you enter a new price, the decimal separator must be a \'.\' (decimal-point), example: <b>49.99</b></li><li>Leave the start/end date empty for no expiration.</li></ul>');
 
 	echo $this->Form->input('ContentSpecial.date_start', 
 		array(
