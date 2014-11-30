@@ -557,6 +557,11 @@ class ContentsController extends AppController {
 				$this->request->data['ContentSpecial']['id'] = $check_special['ContentSpecial']['id'];
 
 			$this->request->data['ContentSpecial']['content_id'] = $content_id;
+
+			if (substr($this->data['ContentSpecial']['price'], -1) == '%')  {
+				$this->request->data['ContentSpecial']['price'] = ($this->data['ContentProduct']['price'] - (($this->data['ContentSpecial']['price'] / 100) * $this->data['ContentProduct']['price']));
+			}
+
 			$this->Content->ContentSpecial->save($this->data['ContentSpecial']);
 			
 			}
