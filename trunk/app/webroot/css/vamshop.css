@@ -2337,3 +2337,24 @@ ul.attributes li a.confirm
   z-index: 5;
   clear: both;
 }
+.description .price {
+  color: #ff6633;
+  font-size: 20px;
+  font-weight: bold;
+  z-index: 5;
+  clear: both;
+}
+.description .old-price {
+  color: gray;
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 5;
+  clear: both;
+}
+.description .save {
+  color: #ff6633;
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 5;
+  clear: both;
+}
