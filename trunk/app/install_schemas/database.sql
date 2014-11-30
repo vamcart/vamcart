@@ -418,7 +418,7 @@ INSERT INTO `content_specials` (`id`, `content_id`, `groups_customer_id`, `price
 (2, 97, NULL, 249, NULL, NULL),
 (3, 93, NULL, 249, NULL, NULL),
 (4, 100, NULL, 729, NULL, NULL),
-(5, 102, NULL, 249, NULL, NULL),
+(5, 102, NULL, 249, NULL, NULL);
 
 DROP TABLE IF EXISTS content_news;
 CREATE TABLE `content_news` (
