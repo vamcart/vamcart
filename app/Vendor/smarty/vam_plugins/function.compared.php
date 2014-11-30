@@ -166,6 +166,9 @@ function smarty_function_compared($params)
                     $element_list[$k_a]['attributes_product'][$k_p]['price_save']	= $CurrencyBase->display_price($product['ContentProduct']['old_price']-$product['ContentProduct']['price']);	
                     $element_list[$k_a]['attributes_product'][$k_p]['price_save_percent']	= ($product['ContentProduct']['old_price'] > $product['ContentProduct']['price']) ? 100-($product['ContentProduct']['price']*100/$product['ContentProduct']['old_price']) : 0;	
                     $element_list[$k_a]['attributes_product'][$k_p]['discount']	= ($product['ContentProduct']['old_price'] > $product['ContentProduct']['price']) ? 100-($product['ContentProduct']['price']*100/$product['ContentProduct']['old_price']) : 0;	
+                    $element_list[$k_a]['attributes_product'][$k_p]['rating']	= $ContentBase->getReviewsInfo($product['Content']['id'], 'average_rating');	
+                    $element_list[$k_a]['attributes_product'][$k_p]['star_rating']	= $ContentBase->getReviewsInfo($product['Content']['id'], 'star_rating');	
+                    $element_list[$k_a]['attributes_product'][$k_p]['reviews']	= $ContentBase->getReviewsInfo($product['Content']['id'], 'reviews_total');	
                     $element_list[$k_a]['attributes_product'][$k_p]['stock']	= $product['ContentProduct']['stock'];	
                     $element_list[$k_a]['attributes_product'][$k_p]['model']	= $product['ContentProduct']['model'];	
                     $element_list[$k_a]['attributes_product'][$k_p]['weight']	= $product['ContentProduct']['weight'];	

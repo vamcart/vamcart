@@ -159,6 +159,9 @@ function smarty_function_xsell($params, &$smarty)
 		$content['ContentRelations'][$key]['price_save']	= $CurrencyBase->display_price($product['ContentProduct']['old_price']-$product['ContentProduct']['price']);	
 		$content['ContentRelations'][$key]['price_save_percent']	= ($product['ContentProduct']['old_price'] > $product['ContentProduct']['price']) ? 100-($product['ContentProduct']['price']*100/$product['ContentProduct']['old_price']) : 0;	
 		$content['ContentRelations'][$key]['discount']	= ($product['ContentProduct']['old_price'] > $product['ContentProduct']['price']) ? 100-($product['ContentProduct']['price']*100/$product['ContentProduct']['old_price']) : 0;	
+		$content['ContentRelations'][$key]['rating']	= $ContentBase->getReviewsInfo($product['Content']['id'], 'average_rating');	
+		$content['ContentRelations'][$key]['star_rating']	= $ContentBase->getReviewsInfo($product['Content']['id'], 'star_rating');	
+		$content['ContentRelations'][$key]['reviews']	= $ContentBase->getReviewsInfo($product['Content']['id'], 'reviews_total');	
 		$content['ContentRelations'][$key]['url'] = BASE . '/' . $product['ContentType']['name'] . '/' . $product['Content']['alias'] . $config['URL_EXTENSION'];
 
 		$product = $Content->ContentDescription->find('first', array('conditions' => array('content_id' => $content['ContentRelations'][$key]['id'], 
