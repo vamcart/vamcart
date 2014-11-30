@@ -34,9 +34,9 @@ $template = '
 			<div class="inner notop nobottom text-left">
 				<h4 class="title"><a href="{$node.url}">{$node.name}</a></h4>
 				{if $node.reviews > 0}<div class="description"><span class="rating">{$node.star_rating}</span> <span class="reviews">(<a href="{$node.url}">{$node.reviews}</a>)</span></div>{/if}
-				{if $node.price > 0}<div class="description">{lang}Price{/lang}: <span class="price">{$node.price}</span></div>{/if}
-				{if $node.old_price > 0}<div class="description">{lang}List Price{/lang}: <span class="old-price"><del>{$node.old_price}</del></span></div>{/if}
-				{if $node.price_save > 0}<div class="description">{lang}You Save{/lang}: <span class="save">{$node.price_save} ({$node.price_save_percent|round}%)</span></div>{/if}
+				{if $node.price}<div class="description">{lang}Price{/lang}: <span class="price">{$node.price}</span></div>{/if}
+				{if $node.old_price}<div class="description">{lang}List Price{/lang}: <span class="old-price"><del>{$node.old_price}</del></span></div>{/if}
+				{if $node.price_save}<div class="description">{lang}You Save{/lang}: <span class="save">{$node.price_save} ({$node.price_save_percent|round}%)</span></div>{/if}
 				<div class="description">{$node.short_description|strip_tags|truncate:30:"...":true}</div>
 				<div class="description">{attribute_list product_id=$node.id}</div>
 			</div>
@@ -189,10 +189,10 @@ function smarty_function_search_result($params, $template)
 			$content_list[$count]['meta_keywords']	= $raw_data['ContentDescription']['meta_keywords'];
 			$content_list[$count]['id']	= $raw_data['Content']['id'];
 			$content_list[$count]['alias']  = $raw_data['Content']['alias'];
-			$content_list[$count]['price']  = $CurrencyBase->display_price($price);
-			$content_list[$count]['old_price']	= ($raw_data['ContentProduct']['old_price'] > $raw_data['ContentProduct']['price']) ? $CurrencyBase->display_price($raw_data['ContentProduct']['old_price']) : 0;	
-			$content_list[$count]['price_save']	= $CurrencyBase->display_price($raw_data['ContentProduct']['old_price']-$price);	
-			$content_list[$count]['price_save_percent']	= ($raw_data['ContentProduct']['old_price'] > $raw_data['ContentProduct']['price']) ? 100-($price*100/$raw_data['ContentProduct']['old_price']) : 0;	
+			$content_list[$count]['price']	= ($price > 0) ? $CurrencyBase->display_price($price) : false;	
+			$content_list[$count]['old_price']	= ($raw_data['ContentProduct']['old_price'] > $raw_data['ContentProduct']['price']) ? $CurrencyBase->display_price($raw_data['ContentProduct']['old_price']) : false;	
+			$content_list[$count]['price_save']	= ($raw_data['ContentProduct']['old_price']-$price > 0) ? $CurrencyBase->display_price($raw_data['ContentProduct']['old_price']-$price) : false;	
+			$content_list[$count]['price_save_percent']	= ($raw_data['ContentProduct']['old_price'] > $raw_data['ContentProduct']['price']) ? 100-($price*100/$raw_data['ContentProduct']['old_price']) : false;	
 			$content_list[$count]['discount']	= ($raw_data['ContentProduct']['old_price'] > $raw_data['ContentProduct']['price']) ? 100-($price*100/$raw_data['ContentProduct']['old_price']) : 0;	
 			$content_list[$count]['rating']	= $ContentBase->getReviewsInfo($raw_data['Content']['id'], 'average_rating');	
 			$content_list[$count]['star_rating']	= $ContentBase->getReviewsInfo($raw_data['Content']['id'], 'star_rating');	
