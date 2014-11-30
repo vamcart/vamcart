@@ -53,6 +53,23 @@ class ContentProduct extends AppModel {
                     } 
                     $results[$key]['ContentProduct']['price'] = $price;
                 }
+            // Get special price
+                if(isset($results[$key]['ContentProduct']['content_id']) && $results[$key]['ContentProduct']['price'] > 0)
+                {
+                        App::import('Model', 'ContentSpecial');
+                        $Special = new ContentSpecial();
+                        $special_price = $Special->find('first',array('conditions' => array('ContentSpecial.content_id' => $value['ContentProduct']['content_id'])));
+
+                        if($special_price['ContentSpecial']['price'] > 0) { 
+                        if(isset($special_price['ContentSpecial']['date_start']) && time() >= strtotime($special_price['ContentSpecial']['date_start'])) { 
+                        if(isset($special_price['ContentSpecial']['date_end']) && time() <= strtotime($special_price['ContentSpecial']['date_end'])) { 
+                        $price = $special_price['ContentSpecial']['price'];
+                     	}
+                     	}
+                     	}
+
+                    $results[$key]['ContentProduct']['price'] = $price;
+                }
             }
 
             return($results);
