@@ -413,6 +413,13 @@ CREATE TABLE `content_specials` (
   INDEX content_id (content_id,groups_customer_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+INSERT INTO `content_specials` (`id`, `content_id`, `groups_customer_id`, `price`, `date_start`, `date_end`) VALUES
+(1, 95, NULL, 429, NULL, NULL),
+(2, 97, NULL, 249, NULL, NULL),
+(3, 93, NULL, 249, NULL, NULL),
+(4, 100, NULL, 729, NULL, NULL),
+(5, 102, NULL, 249, NULL, NULL),
+
 DROP TABLE IF EXISTS content_news;
 CREATE TABLE `content_news` (
   `id` int(10) auto_increment,
