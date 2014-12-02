@@ -25,7 +25,7 @@ class SummaComponent extends Object
 	public function beforeRender(Controller $controller){
 	}
 	
-	public function beforeRedirect(Controller $controller){
+	public function beforeRedirect(Controller $controller, $url, $status = NULL, $exit = true){
 	}
 	
 public $diw=Array(    0 =>    Array(    0  => Array( 0=> "ноль",    1=>1), 

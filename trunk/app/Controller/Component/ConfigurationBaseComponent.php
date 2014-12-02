@@ -22,7 +22,7 @@ class ConfigurationBaseComponent extends Object
 	public function shutdown(Controller $controller) {
 	}
 
-	public function beforeRedirect(Controller $controller){
+	public function beforeRedirect(Controller $controller, $url, $status = NULL, $exit = true){
 	}
     
 	public function beforeRender(Controller $controller){

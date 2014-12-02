@@ -25,7 +25,7 @@ class LocaleComponent extends Object
 	public function beforeRender(Controller $controller){
 	}
 
-	public function beforeRedirect(Controller $controller){
+	public function beforeRedirect(Controller $controller, $url, $status = NULL, $exit = true){
 	}
 	
 	public function custom_crumb ($format, $language_key, $count = 1)
