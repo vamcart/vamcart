@@ -168,6 +168,9 @@ function smarty_function_address_book($params, $template)
 	$Customer =& new Customer();
 
 	$customer_data = $Customer->AddressBook->find('first', array('conditions' => array('AddressBook.customer_id' => $_SESSION['Customer']['customer_id'])));
+
+	$customer = (!$customer_data) ? false : $customer_data;
+
 	$errors = array();
 
 	if (isset($_SESSION['FormErrors'])) {
@@ -180,7 +183,7 @@ function smarty_function_address_book($params, $template)
 	$display_template = $Smarty->load_template($params, 'address_book');
 	$assignments = array(
 		'errors' => $errors,
-		'form_data' => $customer_data,
+		'form_data' => $customer,
 	);
 
 	$Smarty->display($display_template, $assignments);
