@@ -157,6 +157,9 @@ class ContentBaseComponent extends Object
 		$ContentImage = new ContentImage();
 		
 		$content_image = $ContentImage->find('first', array('conditions' => array('content_id' => $content_id)));
+		
+		if (!$content_image)
+			return;
 
 		return $content_image['ContentImage']['image'];
 	}
