@@ -284,7 +284,7 @@ class AppController extends Controller {
 			// Set a current breadcrumb from the locale based on the current controller/action		
 			//$this->set('current_crumb',$Locale->set_crumb($this->params['action'],$this->params['controller']));	
 
-			//$Info->get_info();
+			$Info->get_info();
 	
 			// Check the admin login credentials against the database
 			// ToDo: Make this more secure, possibly change to a requestaction in users controller
