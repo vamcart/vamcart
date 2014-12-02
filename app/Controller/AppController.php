@@ -231,6 +231,7 @@ class AppController extends Controller {
 				$this->Language = new Language();
 				$languages = $this->Language->find('first', array('conditions' => array('Language.default' => 1)));
 
+				$new_customer['customer_group_id'] = 0;
 				$new_customer['language_id'] = $languages['Language']['id'];
 				$new_customer['language'] = $languages['Language']['iso_code_2'];
 			
@@ -283,7 +284,7 @@ class AppController extends Controller {
 			// Set a current breadcrumb from the locale based on the current controller/action		
 			//$this->set('current_crumb',$Locale->set_crumb($this->params['action'],$this->params['controller']));	
 
-			$Info->get_info();
+			//$Info->get_info();
 	
 			// Check the admin login credentials against the database
 			// ToDo: Make this more secure, possibly change to a requestaction in users controller
