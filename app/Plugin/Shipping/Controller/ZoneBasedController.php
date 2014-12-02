@@ -122,6 +122,7 @@ $newline =
 			$keyed_rates[$temp_rate_key] = $temp_rates['1'];
 		}
 		
+		
 		$keyed_rates = array_reverse($keyed_rates,true);
 
 		$shipping_price = 0;

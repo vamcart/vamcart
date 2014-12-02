@@ -32,21 +32,21 @@ class RussianPostController extends ShippingAppController {
                 $new_module['ShippingMethod']['code'] = $this->module_name;
 
                 $new_module['ShippingMethodValue'][0]['shipping_method_id'] = $this->ShippingMethod->id;
-                $new_module['ShippingMethodValue'][0]['key'] = 'zone_based_type';
+                $new_module['ShippingMethodValue'][0]['key'] = 'russian_post_type';
                 $new_module['ShippingMethodValue'][0]['value'] = 'weight';
 
                 for ($i = 0; $i < $this->num_zones; $i++) {
 
                         $new_module['ShippingMethodValue'][$i*3 + 1]['shipping_method_id'] = $this->ShippingMethod->id;
-                        $new_module['ShippingMethodValue'][$i*3 + 1]['key'] = 'zone_based_zone_' . ($i + 1);
+                        $new_module['ShippingMethodValue'][$i*3 + 1]['key'] = 'russian_post_zone_' . ($i + 1);
                         $new_module['ShippingMethodValue'][$i*3 + 1]['value'] = '';
 
                         $new_module['ShippingMethodValue'][$i*3 + 2]['shipping_method_id'] = $this->ShippingMethod->id;
-                        $new_module['ShippingMethodValue'][$i*3 + 2]['key'] = 'zone_based_cost_' . ($i + 1);
+                        $new_module['ShippingMethodValue'][$i*3 + 2]['key'] = 'russian_post_cost_' . ($i + 1);
                         $new_module['ShippingMethodValue'][$i*3 + 2]['value'] = '';
 
                         $new_module['ShippingMethodValue'][$i*3 + 3]['shipping_method_id'] = $this->ShippingMethod->id;
-                        $new_module['ShippingMethodValue'][$i*3 + 3]['key'] = 'zone_based_handling_' . ($i + 1);
+                        $new_module['ShippingMethodValue'][$i*3 + 3]['key'] = 'russian_post_handling_' . ($i + 1);
                         $new_module['ShippingMethodValue'][$i*3 + 3]['value'] = '';
                 }
 
@@ -88,10 +88,10 @@ class RussianPostController extends ShippingAppController {
                 $geo_zone = $country_zone['GeoZone']['id'];
                 $shipping_price = 0;
 
-                $cost     = $data['zone_based_cost_' . $geo_zone];
-                $handling = $data['zone_based_handling_' . $geo_zone];
+                $cost     = $data['russian_post_cost_' . $geo_zone];
+                $handling = $data['russian_post_handling_' . $geo_zone];
 
-		switch($data['zone_based_type'])
+		switch($data['russian_post_type'])
 		{
 			case 'products':
 				$units = count($order['OrderProduct']);
