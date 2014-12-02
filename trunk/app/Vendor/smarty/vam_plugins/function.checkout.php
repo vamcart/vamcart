@@ -249,7 +249,7 @@ $(this).parent().addClass("selected");
 				{if $ship_method.icon}<img src="{base_path}/img/icons/shipping/{$ship_method.icon}" alt="{$ship_method.name}" title="{$ship_method.name}" /> {/if}
 		</span>
 		{if $ship_method.cost_plain > 0}<span class="description">{$ship_method.cost}</span>{/if}
-		{if $ship_method.descripition}<span class="description">{$ship_method.descripition}</span>{/if}
+		{if $ship_method.description}<span class="description">{$ship_method.description}</span>{/if}
 		</label>	
 		</li>
     {/foreach}
@@ -277,7 +277,7 @@ $(this).parent().addClass("selected");
 		<span class="image text-center">
 				{if $payment_method.icon}<img class="text-center" src="{base_path}/img/icons/payment/{$payment_method.icon}" alt="{$payment_method.name}" title="{$payment_method.name}" /> {/if}
 		</span>
-		{if $payment_method.descripition}<span class="description">{$payment_method.descripition}</span>{/if}
+		{if $payment_method.description}<span class="description">{$payment_method.description}</span>{/if}
 		</label>	
 		</li>
     {/foreach}
@@ -334,6 +334,7 @@ function smarty_function_checkout($params, $template)
 		$keyed_ship_methods[$ship_method_id] = array(
 										  'id' => $ship_method_id,
 										  'name' => $method['ShippingMethod']['name'],
+										  'description' => (isset($method['ShippingMethod']['description'])) ? $method['ShippingMethod']['description'] : false,
 										  'icon' => (isset($method['ShippingMethod']['icon']) && file_exists(IMAGES . 'icons/shipping/' . $method['ShippingMethod']['icon'])) ? $method['ShippingMethod']['icon'] : false,
 										  'cost_plain' => $MethodBase->calculate(),
 										  'cost' => $CurrencyBase->display_price($MethodBase->calculate())
@@ -352,6 +353,7 @@ function smarty_function_checkout($params, $template)
 		$keyed_payment_methods[$payment_method_id] = array(
 										  'id' => $payment_method_id,
 										  'name' => $method['PaymentMethod']['name'],
+										  'description' => (isset($method['PaymentMethod']['description'])) ? $method['PaymentMethod']['description'] : false,
 										  'icon' => (isset($method['PaymentMethod']['icon']) && file_exists(IMAGES . 'icons/payment/' . $method['PaymentMethod']['icon'])) ? $method['PaymentMethod']['icon'] : false
 										  );
 
