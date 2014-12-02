@@ -45,9 +45,9 @@ function default_template_attribute_list()
                     {foreach from=$attr.element_list item=attr_element}
                         {if $attr_element@first}<ul class="specs">{/if}                     
                         <li>{if $attr_element.make}<b>{/if}
-                                {$attr_element.name}
-                                {$attr_element.values_attribute.name}
+                                {$attr_element.name}:
                             {if $attr_element.make}</b>{/if}                                
+                                {$attr_element.values_attribute.name}
                         <ul class="attributes">
                         {foreach from=$attr_element.group_attributes item=attr_val}                        
                             <li>
