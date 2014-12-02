@@ -23,7 +23,7 @@ class SmartyComponent extends Component
 	public function beforeRender(Controller $controller){
 	}
 
-	public function beforeRedirect(Controller $controller){
+	public function beforeRedirect(Controller $controller, $url, $status = NULL, $exit = true){
 	}
 	
 	public function load_template ($params, $tag)

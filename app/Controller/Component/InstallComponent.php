@@ -26,7 +26,7 @@ class InstallComponent extends Object
 	public function beforeRender(Controller $controller){
 	}
 
-	public function beforeRedirect(Controller $controller){
+	public function beforeRedirect(Controller $controller, $url, $status = NULL, $exit = true){
 	}
 
 	public function getVersion ()
