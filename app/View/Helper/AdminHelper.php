@@ -95,7 +95,7 @@ $("#myTabLang a:first").tab("show"); // Select first tab
 		return $content;
 	}
 	
-	public function TableCells ($cell_array, $odd, $even)
+	public function TableCells ($cell_array, $odd = false, $even = false)
 	{
 		return($this->Html->TableCells(
 				   $cell_array,
