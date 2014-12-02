@@ -54,7 +54,7 @@ class ContentProduct extends AppModel {
                     $results[$key]['ContentProduct']['price'] = $price;
                 }
             // Get special price
-                $results[$key]['ContentProduct']['old_price'] = $results[$key]['ContentProduct']['price'];
+                (isset($results[$key]['ContentProduct']['content_id'])) ? $results[$key]['ContentProduct']['old_price'] = $results[$key]['ContentProduct']['price'] : null;
                 if(isset($results[$key]['ContentProduct']['content_id']) && $results[$key]['ContentProduct']['price'] > 0)
                 {
                         App::import('Model', 'ContentSpecial');
