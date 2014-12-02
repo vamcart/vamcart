@@ -52,7 +52,7 @@ $this->Html->css('jquery-ui.css', null, array('inline' => false));
 			checkbox: true,
 			selectMode: 3,
 			initAjax: {
-				url: "' . BASE . '/contents/admin_products_tree/0/' . $data['Content']['id'] . '" ,
+				url: "' . BASE . '/contents/admin_products_tree/0/' . (isset($data['Content']['id']) ? $data['Content']['id'] : 0) . '" ,
 			},
 			onLazyRead: function(node){
 				node.appendAjax({
@@ -90,7 +90,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 			echo '<ul id="myTab" class="nav nav-tabs">';
 			echo $this->Admin->CreateTab('main',__('Main'), 'cus-application');
 			echo $this->Admin->CreateTab('data',__('Data'), 'cus-table-multiple');
-			if (($data['Content']['content_type_id'] == 2 or $data['Content']['content_type_id'] == 7)) echo $this->Admin->CreateTab('special',__('Special'), 'cus-tag-yellow');
+			if (isset($data['Content']['content_type_id'])) if (($data['Content']['content_type_id'] == 2 or $data['Content']['content_type_id'] == 7)) echo $this->Admin->CreateTab('special',__('Special'), 'cus-tag-yellow');
 			echo $this->Admin->CreateTab('view_images',__('View Images'), 'cus-pictures');
 			echo $this->Admin->CreateTab('upload_images',__('Upload Images'), 'cus-picture-add');
 			echo $this->Admin->CreateTab('options',__('Options'), 'cus-cog');
@@ -218,6 +218,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 
 	echo $this->Admin->EndTabContent();
 
+	if (isset($data['Content']['content_type_id'])) {
 	if (($data['Content']['content_type_id'] == 2 or $data['Content']['content_type_id'] == 7)) {	
 	
 	echo $this->Admin->StartTabContent('special');
@@ -250,6 +251,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 
 	echo $this->Admin->EndTabContent();
 	
+	}
 	}
 
 	echo $this->Admin->StartTabContent('view_images');
