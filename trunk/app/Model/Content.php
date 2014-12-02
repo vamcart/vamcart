@@ -24,7 +24,7 @@ class Content extends AppModel {
 		)
 	);
 
-	public function beforeFind()   {
+	public function beforeFind($queryData)   {
 		//$this->query("SET SQL_MODE=''");
 		//$this->query("SET SQL_BIG_SELECTS=1");
 	}
