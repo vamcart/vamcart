@@ -189,19 +189,21 @@ function smarty_function_search_result($params, $template)
 			$content_list[$count]['meta_keywords']	= $raw_data['ContentDescription']['meta_keywords'];
 			$content_list[$count]['id']	= $raw_data['Content']['id'];
 			$content_list[$count]['alias']  = $raw_data['Content']['alias'];
-			$content_list[$count]['price']	= ($price > 0) ? $CurrencyBase->display_price($price) : false;	
-			$content_list[$count]['old_price']	= ($raw_data['ContentProduct']['old_price'] > $raw_data['ContentProduct']['price']) ? $CurrencyBase->display_price($raw_data['ContentProduct']['old_price']) : false;	
-			$content_list[$count]['price_save']	= ($raw_data['ContentProduct']['old_price']-$price > 0) ? $CurrencyBase->display_price($raw_data['ContentProduct']['old_price']-$price) : false;	
-			$content_list[$count]['price_save_percent']	= ($raw_data['ContentProduct']['old_price'] > $raw_data['ContentProduct']['price']) ? 100-($price*100/$raw_data['ContentProduct']['old_price']) : false;	
-			$content_list[$count]['discount']	= ($raw_data['ContentProduct']['old_price'] > $raw_data['ContentProduct']['price']) ? 100-($price*100/$raw_data['ContentProduct']['old_price']) : 0;	
+			if ($raw_data['Content']['content_type_id'] == 2 or $raw_data['Content']['content_type_id'] == 7) $content_list[$count]['price']	= ($price > 0) ? $CurrencyBase->display_price($price) : false;	
+			if ($raw_data['Content']['content_type_id'] == 2 or $raw_data['Content']['content_type_id'] == 7) $content_list[$count]['old_price']	= (($raw_data['ContentProduct']['old_price'] > $raw_data['ContentProduct']['price']) ? $CurrencyBase->display_price($raw_data['ContentProduct']['old_price']) : false);	
+			if ($raw_data['Content']['content_type_id'] == 2 or $raw_data['Content']['content_type_id'] == 7) $content_list[$count]['price_save']	= (($raw_data['ContentProduct']['old_price']-$price > 0) ? $CurrencyBase->display_price($raw_data['ContentProduct']['old_price']-$price) : false);	
+			if ($raw_data['Content']['content_type_id'] == 2 or $raw_data['Content']['content_type_id'] == 7) $content_list[$count]['price_save_percent']	= (($raw_data['ContentProduct']['old_price'] > $raw_data['ContentProduct']['price']) ? 100-($price*100/$raw_data['ContentProduct']['old_price']) : false);	
+			if ($raw_data['Content']['content_type_id'] == 2 or $raw_data['Content']['content_type_id'] == 7) $content_list[$count]['discount']	= (($raw_data['ContentProduct']['old_price'] > $raw_data['ContentProduct']['price']) ? 100-($price*100/$raw_data['ContentProduct']['old_price']) : 0);	
 			$content_list[$count]['rating']	= $ContentBase->getReviewsInfo($raw_data['Content']['id'], 'average_rating');	
 			$content_list[$count]['star_rating']	= $ContentBase->getReviewsInfo($raw_data['Content']['id'], 'star_rating');	
 			$content_list[$count]['reviews']	= $ContentBase->getReviewsInfo($raw_data['Content']['id'], 'reviews_total');	
-			$content_list[$count]['stock']  = $raw_data['ContentProduct']['stock'];
-			$content_list[$count]['model']  = $raw_data['ContentProduct']['model'];
-			$content_list[$count]['weight'] = $raw_data['ContentProduct']['weight'];
-			$content_list[$count]['manufacturer']	= $ContentBase->getManufacturerName($raw_data['ContentProduct']['manufacturer_id']);	
-			$content_list[$count]['label_id'] = $raw_data['ContentProduct']['label_id'];
+			if ($raw_data['Content']['content_type_id'] == 2 or $raw_data['Content']['content_type_id'] == 7) $content_list[$count]['stock']  = $raw_data['ContentProduct']['stock'];
+			if ($raw_data['Content']['content_type_id'] == 2 or $raw_data['Content']['content_type_id'] == 7) $content_list[$count]['model']  = $raw_data['ContentProduct']['model'];
+			if ($raw_data['Content']['content_type_id'] == 2 or $raw_data['Content']['content_type_id'] == 7) $content_list[$count]['weight'] = $raw_data['ContentProduct']['weight'];
+			if ($raw_data['Content']['content_type_id'] == 2 or $raw_data['Content']['content_type_id'] == 7) $content_list[$count]['manufacturer']	= $ContentBase->getManufacturerName($raw_data['ContentProduct']['manufacturer_id']);	
+			if ($raw_data['Content']['content_type_id'] == 2 or $raw_data['Content']['content_type_id'] == 7) $content_list[$count]['label_id'] = $raw_data['ContentProduct']['label_id'];
+			$content_list[$count]['date_added']	= CakeTime::i18nFormat($raw_data['Content']['created']);	
+			$content_list[$count]['date_modified']	= CakeTime::i18nFormat($raw_data['Content']['modified']);	
 
 			// Content Image
 			
