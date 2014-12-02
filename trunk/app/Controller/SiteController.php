@@ -196,8 +196,8 @@ class SiteController extends AppController {
 
 		$this->Session->setFlash(__('Login error. Check your email and/or password!'), 'bootstrap_alert_error');
 
-		$this->Session->delete('Customer.customer_id');
-		$this->Session->delete('Customer.customer_group_id');
+		//$this->Session->delete('Customer.customer_id');
+		//$this->Session->delete('Customer.customer_group_id');
 
 		}
 
