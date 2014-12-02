@@ -19,7 +19,7 @@ function smarty_function_product_price_old($params, $template)
 		$price_old = $content['ContentProduct']['old_price'];
 	}
 
-	if ($content['ContentProduct']['price'] > $price_old) {
+	if ($content['ContentProduct']['price'] >= $price_old) {
 		return;
 	}
 
