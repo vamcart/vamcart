@@ -98,6 +98,9 @@ function smarty_function_content_listing($params, $template)
 
             $params['order_column'] = 'Content.order ASC';
 
+        if(!isset($params['order']))
+            $params['order'] = 'order-asc';
+
         if(isset($config['order']))
             $params['order'] = $config['order'];
 
@@ -234,6 +237,8 @@ function smarty_function_content_listing($params, $template)
 		foreach($types AS $type)
 			$allowed_types[] =  $type;
 	}
+	$content_list_group = '';
+
 	$content_list_data_conditions = array('Content.parent_id' => $params['parent'],'Content.active' => '1','Content.show_in_menu' => '1');
 
 	$Content->recursive = 1;
@@ -394,16 +399,20 @@ function smarty_function_content_listing($params, $template)
 			$content_list[$count]['date_modified']	= CakeTime::i18nFormat($raw_data['Content']['modified']);	
 
 //3.Установим признак если группа
+								if (is_array($content_list_group)) {
                         if (in_array($raw_data['Content']['id'],$content_list_group)){ 
                             $content_list[$count]['is_group'] = true;
                             //var_dump($Content->getSetAttributesForProduct(96));
                         }
+                     	}
 //                        
                         $content_list[$count]['attributes'] = array();
+                        if (isset($raw_data['Attribute'])) {
                         foreach($raw_data['Attribute'] AS $attribute)
                         {
                             $content_list[$count]['attributes'][$attribute['parent_id']]['id'] = $attribute['id'];
                             $content_list[$count]['attributes'][$attribute['parent_id']]['value'] = $attribute['val'];
+                        }
                         }
 
 			// Content Image
