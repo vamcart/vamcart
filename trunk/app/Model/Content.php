@@ -131,7 +131,7 @@ class Content extends AppModel {
                         $attr['content_stock'] = $this->getStockForContent($product_id);
                         $attr['content_price'] = $this->getPriceForContent($product_id);
                         $attr['content_chng_url'] = $this->getUrlForContent($product_id,'product');
-                        if($list_attr[$attr['id']]['values_attribute']['id'] != $make_attr_product)$list_attr[$attr['id']]['make'] = false;
+                        if($list_attr[$attr['id']]['values_attribute']['id'] != $make_attr_product)$attr['make'] = false;
                         if($unique) //Проверим на уникальность
                         {                        
                             $key_unique = true;
@@ -202,7 +202,8 @@ class Content extends AppModel {
                 $attr_list[$key_attr]['id'] = $attribute['id'];
                 $attr_list[$key_attr]['name'] = $attribute['name'];
                 $attr_list[$key_attr]['template'] = $attribute['AttributeTemplate'];
-                if(isset($value_list[$make_attr_product])&&$value_list[$make_attr_product]!=0)$attr_list[$key_attr]['make'] = true;         
+                //if(isset($value_list[$make_attr_product])&&$value_list[$make_attr_product]!=0)$attr_list[$key_attr]['make'] = true;         
+                $attr_list[$key_attr]['make'] = false;         
                 $attr_list[$key_attr]['group_attributes'] = array();
                 foreach($attribute['DefValAttributes'] AS $key_val => $values_attribute)
                 {
