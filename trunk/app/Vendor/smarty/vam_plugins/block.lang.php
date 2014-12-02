@@ -25,6 +25,8 @@ function smarty_block_lang($params, $content, $template, &$repeat)
 
 			App::import('Model', 'DefinedLanguage');
 			$DefinedLanguage =& new DefinedLanguage();
+			
+			$text_values_cache_output = array();
 	
 			$defined_language_values = $DefinedLanguage->find('all', array('conditions' => array('language_id' => $_SESSION['Customer']['language_id'])));
 
