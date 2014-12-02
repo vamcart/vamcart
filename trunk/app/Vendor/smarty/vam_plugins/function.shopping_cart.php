@@ -89,6 +89,9 @@ function smarty_function_shopping_cart($params, $template)
 		$order['OrderProduct'] = array();
 	}
 
+		$total_quantity = null;
+		$total_weight = null;
+
 	foreach($order['OrderProduct'] AS $cart_item)
 	{
 		$content_id = $cart_item['content_id'];

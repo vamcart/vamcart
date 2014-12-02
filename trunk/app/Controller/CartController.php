@@ -70,6 +70,8 @@ class CartController extends AppController {
 			$order = $new_order;
 		}
 
+		$_POST['product_quantity'] = (!$_POST['product_quantity']) ? 1 : $_POST['product_quantity'];
+
 		if (!isset($_POST['product_quantity']) && sizeof($_POST['product_quantity'] < 0)) $_POST['product_quantity'] = 1;
 
 		// Add the product to the order from the component
