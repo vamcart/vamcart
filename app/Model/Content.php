@@ -217,7 +217,7 @@ class Content extends AppModel {
                     }
                 }
                 //Для установленных значений добавлена проверка на checked_list
-                if($is_set&&$values_attribute['type_attr']!='checked_list')$attr_list[$key_attr]['values_attribute'] = reset($attr_list[$key_attr]['values_attribute']);
+                if($is_set&&$values_attribute['type_attr']!='checked_list')$attr_list[$key_attr]['values_attribute'] = empty($attr_list[$key_attr]['values_attribute']) ? null : reset($attr_list[$key_attr]['values_attribute']);
             }      
             return $attr_list;
         }
