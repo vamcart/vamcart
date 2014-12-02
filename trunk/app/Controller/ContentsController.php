@@ -547,7 +547,7 @@ class ContentsController extends AppController {
 			$this->Content->$model->save($special_content);
 
 			// Save special to the database
-			if ($this->data['ContentSpecial']) {
+			if (!empty($this->data['ContentSpecial'])) {
 
 			// Check if we already have a record for this type of special content, if so delete it.
 			// I'm sure there's a better way to do this
