@@ -96,10 +96,13 @@ function smarty_function_content_listing($params, $template)
 {
 	global $config,$content,$filter_list;
 
-            $params['order_column'] = 'Content.order ASC';
+            $params['order_column'] = ($content['Content']['content_type_id'] == 2 or $content['Content']['content_type_id'] == 7) ? 'Content.order ASC' : 'ContentProduct.price DESC';
 
-        if(!isset($params['order']))
-            $params['order'] = 'order-asc';
+        if(!isset($params['order'])) 
+            $params['order'] = ($content['Content']['content_type_id'] == 2 or $content['Content']['content_type_id'] == 7) ? 'order-asc' : 'price-desc';
+         
+        if(!isset($config['order']))
+            $config['order'] = $params['order'];
 
         if(isset($config['order']))
             $params['order'] = $config['order'];
