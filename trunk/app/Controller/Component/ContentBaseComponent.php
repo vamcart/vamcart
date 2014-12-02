@@ -220,6 +220,7 @@ class ContentBaseComponent extends Object
 		}
 
 		$assignments = array();
+		if ($col > 0) {
 		$assignments['total'] = $col;
 		$assignments['total_rating'] = $total_rating;
 		$assignments['average_rating'] = number_format($total_rating/$col, 2);
@@ -229,6 +230,7 @@ class ContentBaseComponent extends Object
 		}
 		$assignments['max_rating'] = $max;
 		$assignments['min_rating'] = $min;
+		}
 		$assignments['reviews'] = $assigned_reviews;
 		
 		if ($info == 'average_rating') {
