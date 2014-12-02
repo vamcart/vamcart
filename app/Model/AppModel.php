@@ -45,7 +45,7 @@ class AppModel extends Model {
     }	
 
 
-	public function beforeFind()   {
+	public function beforeFind($queryData)   {
 	}
 	
 	/**
