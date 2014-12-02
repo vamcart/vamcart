@@ -58,6 +58,9 @@ function smarty_function_breadcrumbs($params, $template)
 	
 	$page_data = $Content->find('first', array('conditions' => array('Content.id' => $content['Content']['parent_id'])));
 
+	if(!$page_data)
+		return;
+		
 	$default_page = $content['Content']['default'];
 	$page_id = $content['Content']['id'];
 	$page_alias = $content['Content']['alias'];

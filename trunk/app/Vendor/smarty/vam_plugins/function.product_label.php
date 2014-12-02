@@ -25,7 +25,7 @@ function smarty_function_product_label($params, $template)
 	global $config;
 
 	if(!isset ($params['label_id']))
-		$params['label_id'] = $content['ContentProduct']['label_id'];
+		$params['label_id'] = ($content['Content']['content_type_id'] == 2 or $content['Content']['content_type_id'] == 7) ? $content['ContentProduct']['label_id'] : 0;
 
 	if($params['label_id'] > 0) {
 
