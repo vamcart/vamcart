@@ -22,6 +22,8 @@ class GetController extends ModuleAskAProductQuestionAppController {
 		$this->layout = null;
 		global $content, $config;
 
+		$_POST['content_id'] = (isset($_POST['content_id']) ? $_POST['content_id'] : (int)$content_id);
+
 		if ($_POST['content_id'] > 0) {
 			$content_id = (int)$_POST['content_id'];
 		} else {
@@ -117,6 +119,8 @@ class GetController extends ModuleAskAProductQuestionAppController {
 
 	public function ask_success ()
 	{
+		$assignments = array();		
+		return $assignments;
 	}
 	
 	/**
