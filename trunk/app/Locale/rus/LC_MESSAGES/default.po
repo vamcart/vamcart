@@ -3170,7 +3170,7 @@ msgstr "от"
 
 #: /plugins/payment/views/invoice/settings.ctp:52
 msgid "#"
-msgstr "№ п/п"
+msgstr "№"
 
 #: /plugins/payment/views/invoice/settings.ctp:52
 msgid "Summa:"

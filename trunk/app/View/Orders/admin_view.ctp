@@ -10,7 +10,7 @@ $this->Html->script(array(
 	'modified.js'
 ), array('inline' => false));
 
-	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-table');
+	echo $this->Admin->ShowPageHeaderStart($current_crumb . ' ' . __('#') . $data['Order']['id'] . ', ' . __('Order Status') . ': ' . $order_status_list[$data['OrderStatus']['id']], 'cus-table');
 
 			echo '<ul id="myTab" class="nav nav-tabs">';
 			echo $this->Admin->CreateTab('customer',__('Order View'), 'cus-user');
