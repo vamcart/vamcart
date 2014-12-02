@@ -21,7 +21,7 @@ function smarty_function_product_price_save($params, $template)
 		$price_special = $content['ContentProduct']['old_price'];
 	}
 
-	if ($content['ContentProduct']['price'] > $price_special) {
+	if ($content['ContentProduct']['price'] >= $price_special) {
 		return;
 	}
 
