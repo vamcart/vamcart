@@ -22,6 +22,8 @@ class BuyController extends ModuleOneClickBuyAppController {
 		$this->layout = null;
 		global $content, $config, $filter_list;
 
+		$_POST['content_id'] = (isset($_POST['content_id']) ? $_POST['content_id'] : (int)$content_id);
+
 		if ($_POST['content_id'] > 0) {
 			$content_id = (int)$_POST['content_id'];
 		} else {
@@ -33,6 +35,8 @@ class BuyController extends ModuleOneClickBuyAppController {
 
 		$this->set('content_id', $content_id);
 		$this->set('content_name', $content_description['ContentDescription']['name']);
+
+		$_POST['phone'] = (!empty($_POST['phone'])) ? $_POST['phone'] : null;
 
 		if(!empty($_POST) && $_POST['phone'] != '')
 		{
@@ -120,6 +124,8 @@ class BuyController extends ModuleOneClickBuyAppController {
 
 	public function success ()
 	{
+		$assignments = array();		
+		return $assignments;
 	}
 	
 	/**
@@ -156,6 +162,8 @@ class BuyController extends ModuleOneClickBuyAppController {
 			$default_shipping = $this->Order->ShippingMethod->find('first', array('conditions' => array('default' => '1')));
 			$new_order['Order']['shipping_method_id'] = $default_shipping['ShippingMethod']['id'];
 
+			$new_order['Order']['order_status_id'] = 0;			
+			
 			// Get the default order status
 			if ($new_order['Order']['order_status_id'] == 0) {
 				$default_status = $this->Order->OrderStatus->find('first', array('conditions' => array('default' => '1')));

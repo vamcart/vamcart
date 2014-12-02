@@ -13,7 +13,7 @@ class EventController extends ModuleCouponsAppController {
 	public function utilize_coupon()
 	{
 		global $order;
-		$coupon_code = $_SESSION['module_coupon_code'];
+		$coupon_code = ($this->Session->check('module_coupon_code')) ? $this->Session->read('module_coupon_code') : null;
 
 		if(empty($coupon_code))
 			return;
