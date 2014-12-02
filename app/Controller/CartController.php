@@ -27,7 +27,7 @@ class CartController extends AppController {
 			$new_order['Order']['order_status_id'] = 0;
 			$new_order['Order']['customer_id'] = (!isset($_SESSION['Customer']['customer_id'])) ? 0 : $_SESSION['Customer']['customer_id'];
 
-			if ($_SESSION['Customer']['customer_id'] > 0) {
+			if ($new_order['Order']['customer_id'] > 0) {
 				
 			App::import('Model', 'Customer');
 			$Customer =& new Customer();
@@ -70,12 +70,10 @@ class CartController extends AppController {
 			$order = $new_order;
 		}
 
-		$_POST['product_quantity'] = (!$_POST['product_quantity']) ? 1 : $_POST['product_quantity'];
-
-		if (!isset($_POST['product_quantity']) && sizeof($_POST['product_quantity'] < 0)) $_POST['product_quantity'] = 1;
+		$qty = (isset($_POST['product_quantity']) && $_POST['product_quantity'] > 0) ? $_POST['product_quantity'] : 1;
 
 		// Add the product to the order from the component
-		$this->OrderBase->add_product($_POST['product_id'], $_POST['product_quantity']);
+		$this->OrderBase->add_product($_POST['product_id'], $qty);
 
 		global $config;
 		$content = $this->Content->read(null, $_POST['product_id']);
