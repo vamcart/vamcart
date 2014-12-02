@@ -132,7 +132,10 @@ class OrdersController extends AppController {
 			// Update products ordered 
 			foreach($order['OrderProduct'] as $order_data) {
 
-				if ('' == $order['OrderProduct']['filename']) {
+					$filename = (isset($order['OrderProduct']['filename'])) ? $order['OrderProduct']['filename'] : false;
+
+					if (!$filename) {
+
 					App::import('Model', 'ContentProduct');
 					$ContentProduct =& new ContentProduct();
 					//$product_data = $ContentProduct->findByContentId($order_data['content_id']);
@@ -282,7 +285,10 @@ class OrdersController extends AppController {
 						// Restock 
 						foreach($order['OrderProduct'] as $order_data) {
 			
-							if ('' == $order['OrderProduct']['filename']) {
+							$filename = (isset($order['OrderProduct']['filename'])) ? $order['OrderProduct']['filename'] : false;
+
+							if (!$filename) {
+
 								App::import('Model', 'ContentProduct');
 								$ContentProduct =& new ContentProduct();
 								//$product_data = $ContentProduct->findByContentId($order_data['content_id']);
@@ -454,7 +460,10 @@ class OrdersController extends AppController {
 			// Restock 
 			foreach($order['OrderProduct'] as $order_data) {
 
-				if ('' == $order['OrderProduct']['filename']) {
+					$filename = (isset($order['OrderProduct']['filename'])) ? $order['OrderProduct']['filename'] : false;
+
+					if (!$filename) {
+
 					App::import('Model', 'ContentProduct');
 					$ContentProduct =& new ContentProduct();
 					//$product_data = $ContentProduct->findByContentId($order_data['content_id']);
