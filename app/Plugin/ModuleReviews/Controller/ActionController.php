@@ -105,13 +105,13 @@ class ActionController extends ModuleReviewsAppController {
 	
 	public function display () 
 	{
+		global $content,$config;
 		$assignments = array();
 		
 		$CurrencyBase =& new CurrencyBaseComponent(new ComponentCollection());
 		
 		if(empty($_GET['content_id']))
 		{
-			global $content;
 			$content_id = $content['Content']['id'];	
 		}
 		else
@@ -141,6 +141,7 @@ class ActionController extends ModuleReviewsAppController {
 		$content_description = $this->ContentBase->get_content_description($content_id);			
 			
 		$assignments = array();
+		if ($col > 0) {
 		$assignments['content_id'] = $content_id;
 		$assignments['content_alias'] = $content['Content']['alias'];
 		$assignments['content_name'] = $content_description['ContentDescription']['name'];		
@@ -157,6 +158,7 @@ class ActionController extends ModuleReviewsAppController {
 		}
 		$assignments['max_rating'] = $max;
 		$assignments['min_rating'] = $min;
+		}
 		$assignments['reviews'] = $assigned_reviews;
 		
 		return $assignments;
