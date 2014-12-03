@@ -475,6 +475,7 @@ CREATE TABLE IF NOT EXISTS `content_downloadables` (
   `filename` varchar(256),
   `filestorename` varchar(256),
   `price` double,
+  `stock` int(10),
   `model` varchar(255),
   `sku` varchar(255),
   `tax_id` int(10),
