@@ -91,6 +91,8 @@ function smarty_function_compared($params)
 		
 	App::uses('SmartyComponent', 'Controller/Component');
 	$Smarty =& new SmartyComponent(new ComponentCollection());
+
+	App::uses('CakeTime', 'Utility');
         
         App::import('Model', 'Content');
 	$Content =& new Content();
@@ -130,6 +132,10 @@ function smarty_function_compared($params)
                     'className' => 'ContentProduct'
 					))));
 		$Content->bindModel(array('hasOne' => array(
+				'ContentDownloadable' => array(
+                    'className' => 'ContentDownloadable'
+					))));
+		$Content->bindModel(array('hasOne' => array(
 				'ContentSpecial' => array(
                     'className' => 'ContentSpecial'
 					))));
@@ -153,27 +159,39 @@ function smarty_function_compared($params)
                 $element_list[$k_a]['attributes_product'] = array();
                 foreach ($content_list as $k_p => $product) 
                 {
-                    $element_list[$k_a]['attributes_product'][$k_p]['name'] = $product['ContentDescription']['name'];
-                    $element_list[$k_a]['attributes_product'][$k_p]['description']	= $product['ContentDescription']['description'];
-                    $element_list[$k_a]['attributes_product'][$k_p]['short_description']	= $product['ContentDescription']['short_description'];
-                    $element_list[$k_a]['attributes_product'][$k_p]['meta_title']	= $product['ContentDescription']['meta_title'];
-                    $element_list[$k_a]['attributes_product'][$k_p]['meta_description']	= $product['ContentDescription']['meta_description'];
-                    $element_list[$k_a]['attributes_product'][$k_p]['meta_keywords']	= $product['ContentDescription']['meta_keywords'];
-                    $element_list[$k_a]['attributes_product'][$k_p]['id']	= $product['Content']['id'];
-                    $element_list[$k_a]['attributes_product'][$k_p]['alias']	= $product['Content']['alias'];
-                    if ($product['Content']['content_type_id'] == 2 or $product['Content']['content_type_id'] == 7) $element_list[$k_a]['attributes_product'][$k_p]['price']	= (($product['ContentProduct']['price'] > 0) ? $CurrencyBase->display_price($product['ContentProduct']['price']) : false);	
-                    if ($product['Content']['content_type_id'] == 2 or $product['Content']['content_type_id'] == 7) $element_list[$k_a]['attributes_product'][$k_p]['old_price']	= (($product['ContentProduct']['old_price'] > $product['ContentProduct']['price']) ? $CurrencyBase->display_price($product['ContentProduct']['old_price']) : false);	
-                    if ($product['Content']['content_type_id'] == 2 or $product['Content']['content_type_id'] == 7) $element_list[$k_a]['attributes_product'][$k_p]['price_save']	= (($product['ContentProduct']['old_price']-$product['ContentProduct']['price'] > 0) ? $CurrencyBase->display_price($product['ContentProduct']['old_price']-$product['ContentProduct']['price']) : false);	
-                    if ($product['Content']['content_type_id'] == 2 or $product['Content']['content_type_id'] == 7) $element_list[$k_a]['attributes_product'][$k_p]['price_save_percent']	= (($product['ContentProduct']['old_price'] > $product['ContentProduct']['price']) ? 100-($product['ContentProduct']['price']*100/$product['ContentProduct']['old_price']) : false);	
-                    if ($product['Content']['content_type_id'] == 2 or $product['Content']['content_type_id'] == 7) $element_list[$k_a]['attributes_product'][$k_p]['discount']	= (($product['ContentProduct']['old_price'] > $product['ContentProduct']['price']) ? 100-($product['ContentProduct']['price']*100/$product['ContentProduct']['old_price']) : 0);	
-                    $element_list[$k_a]['attributes_product'][$k_p]['rating']	= $ContentBase->getReviewsInfo($product['Content']['id'], 'average_rating');	
-                    $element_list[$k_a]['attributes_product'][$k_p]['star_rating']	= $ContentBase->getReviewsInfo($product['Content']['id'], 'star_rating');	
-                    $element_list[$k_a]['attributes_product'][$k_p]['reviews']	= $ContentBase->getReviewsInfo($product['Content']['id'], 'reviews_total');	
-                    if ($product['Content']['content_type_id'] == 2 or $product['Content']['content_type_id'] == 7) $element_list[$k_a]['attributes_product'][$k_p]['stock']	= $product['ContentProduct']['stock'];	
-                    if ($product['Content']['content_type_id'] == 2 or $product['Content']['content_type_id'] == 7) $element_list[$k_a]['attributes_product'][$k_p]['model']	= $product['ContentProduct']['model'];	
-                    if ($product['Content']['content_type_id'] == 2 or $product['Content']['content_type_id'] == 7) $element_list[$k_a]['attributes_product'][$k_p]['weight']	= $product['ContentProduct']['weight'];	
-                    if ($product['Content']['content_type_id'] == 2 or $product['Content']['content_type_id'] == 7) $element_list[$k_a]['attributes_product'][$k_p]['manufacturer']	= $ContentBase->getManufacturerName($product['ContentProduct']['manufacturer_id']);	
-                    if ($product['Content']['content_type_id'] == 2 or $product['Content']['content_type_id'] == 7) $element_list[$k_a]['attributes_product'][$k_p]['label_id']	= $product['ContentProduct']['label_id'];	
+						$content_type = 'ContentProduct';
+				
+						if ($product['Content']['content_type_id'] == 7) {
+							$price = $product['ContentDownloadable']['price'];
+							$content_type = 'ContentDownloadable';
+						} else {
+							$price = $product['ContentProduct']['price'];
+							$content_type = 'ContentProduct';
+						}
+
+						$element_list[$k_a]['attributes_product'][$k_p]['name']	= $product['ContentDescription']['name'];
+						$element_list[$k_a]['attributes_product'][$k_p]['description']	= $product['ContentDescription']['description'];
+						$element_list[$k_a]['attributes_product'][$k_p]['short_description']	= $product['ContentDescription']['short_description'];
+						$element_list[$k_a]['attributes_product'][$k_p]['meta_title']	= $product['ContentDescription']['meta_title'];
+						$element_list[$k_a]['attributes_product'][$k_p]['meta_description']	= $product['ContentDescription']['meta_description'];
+						$element_list[$k_a]['attributes_product'][$k_p]['meta_keywords']	= $product['ContentDescription']['meta_keywords'];
+						$element_list[$k_a]['attributes_product'][$k_p]['id']	= $product['Content']['id'];
+						$element_list[$k_a]['attributes_product'][$k_p]['alias']	= $product['Content']['alias'];
+						if ($product['Content']['content_type_id'] == 2 or $product['Content']['content_type_id'] == 7) $element_list[$k_a]['attributes_product'][$k_p]['price']	= ($price > 0) ? $CurrencyBase->display_price($price) : false;	
+						if ($product['Content']['content_type_id'] == 2 or $product['Content']['content_type_id'] == 7) $element_list[$k_a]['attributes_product'][$k_p]['old_price']	= (($product[$content_type]['old_price'] > $price) ? $CurrencyBase->display_price($product[$content_type]['old_price']) : false);	
+						if ($product['Content']['content_type_id'] == 2 or $product['Content']['content_type_id'] == 7) $element_list[$k_a]['attributes_product'][$k_p]['price_save']	= (($product[$content_type]['old_price']-$price > 0) ? $CurrencyBase->display_price($product[$content_type]['old_price']-$price) : false);	
+						if ($product['Content']['content_type_id'] == 2 or $product['Content']['content_type_id'] == 7) $element_list[$k_a]['attributes_product'][$k_p]['price_save_percent']	= (($product[$content_type]['old_price'] > $price) ? 100-($price*100/$product[$content_type]['old_price']) : false);	
+						if ($product['Content']['content_type_id'] == 2 or $product['Content']['content_type_id'] == 7) $element_list[$k_a]['attributes_product'][$k_p]['discount']	= (($product[$content_type]['old_price'] > $price) ? 100-($price*100/$product[$content_type]['old_price']) : 0);	
+						$element_list[$k_a]['attributes_product'][$k_p]['rating']	= $ContentBase->getReviewsInfo($product['Content']['id'], 'average_rating');	
+						$element_list[$k_a]['attributes_product'][$k_p]['star_rating']	= $ContentBase->getReviewsInfo($product['Content']['id'], 'star_rating');	
+						$element_list[$k_a]['attributes_product'][$k_p]['reviews']	= $ContentBase->getReviewsInfo($product['Content']['id'], 'reviews_total');	
+						if ($product['Content']['content_type_id'] == 2 or $product['Content']['content_type_id'] == 7) $element_list[$k_a]['attributes_product'][$k_p]['stock']	= $product[$content_type]['stock'];	
+						if ($product['Content']['content_type_id'] == 2 or $product['Content']['content_type_id'] == 7) $element_list[$k_a]['attributes_product'][$k_p]['model']	= $product[$content_type]['model'];	
+						if ($product['Content']['content_type_id'] == 2) $element_list[$k_a]['attributes_product'][$k_p]['weight']	= $product[$content_type]['weight'];	
+						if ($product['Content']['content_type_id'] == 2 or $product['Content']['content_type_id'] == 7) $element_list[$k_a]['attributes_product'][$k_p]['manufacturer']	= $ContentBase->getManufacturerName($product[$content_type]['manufacturer_id']);	
+						if ($product['Content']['content_type_id'] == 2 or $product['Content']['content_type_id'] == 7) $element_list[$k_a]['attributes_product'][$k_p]['label_id']	= $product[$content_type]['label_id'];	
+						$element_list[$k_a]['attributes_product'][$k_p]['date_added']	= CakeTime::i18nFormat($product['Content']['created']);	
+						$element_list[$k_a]['attributes_product'][$k_p]['date_modified']	= CakeTime::i18nFormat($product['Content']['modified']);	
 
 								global $config;
 
