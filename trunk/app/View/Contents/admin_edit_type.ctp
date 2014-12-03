@@ -130,6 +130,12 @@ switch($content_type_id) {
 				'options' => $order_statuses,
 				'selected' => isset($data['ContentDownloadable']['order_status_id']) ? $data['ContentDownloadable']['order_status_id'] : ''
 			));
+		echo $this->Form->input('ContentDownloadable.stock', 
+			array(
+				'label' => __('Stock'),
+				'type' => 'text',
+				'value' => !isset($data['ContentDownloadable']['stock'])? 0 : $data['ContentDownloadable']['stock']
+			));
 		echo $this->Form->input('ContentDownloadable.model', 
 			array(
 				'label' => __('Model'),
