@@ -30,6 +30,9 @@ function smarty_function_product_label($params, $template)
 	if(!isset ($params['label_id']) && $content['Content']['content_type_id'] == 7)
 		$params['label_id'] = $content['ContentDownloadable']['label_id'];
 
+	if(!isset ($params['label_id']))
+		$params['label_id'] = null;
+
 	if($params['label_id'] > 0) {
 
 	// Cache the output.
