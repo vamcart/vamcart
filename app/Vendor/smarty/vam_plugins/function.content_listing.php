@@ -217,9 +217,6 @@ function smarty_function_content_listing($params, $template)
 		$params['parent'] = $get_content['Content']['id'];
 	}
 
-        if(!isset ($params['limit']))
-				$params['limit'] = $config['PRODUCTS_PER_PAGE'];
-
         if(!isset ($params['page']))
             $params['page'] = 1;
 
@@ -350,6 +347,9 @@ function smarty_function_content_listing($params, $template)
                 $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
             }
             else{
+
+					if(!isset ($params['limit']))
+						$params['limit'] = $config['PRODUCTS_PER_PAGE'];
 
                 $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => $params['limit'],'page' => $params['page'], 'order' => array($params['order_column'])));
                 $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
@@ -482,6 +482,9 @@ function smarty_function_content_listing($params, $template)
 	//if (!$content_list) {
 		//throw new NotFoundException();
 	//}	
+
+        if(!isset ($params['limit']))
+				$params['limit'] = $config['PRODUCTS_PER_PAGE'];
         
         // Calculating the number of pages
          if(strpos($params['type'],'product') !== false){
