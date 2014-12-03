@@ -13,13 +13,12 @@ function smarty_function_product_price_old($params, $template)
 	App::uses('CurrencyBaseComponent', 'Controller/Component');
 	$CurrencyBase =& new CurrencyBaseComponent(new ComponentCollection());
 
-	if ($content['Content']['content_type_id'] == 7) {
-		$price_old = $content['ContentDownloadable']['old_price'];
-	} else {
-		$price_old = $content['ContentProduct']['old_price'];
-	}
+	$content_type = 'ContentProduct';
+	if ($content['Content']['content_type_id'] == 7) $content_type = 'ContentDownloadable';
 
-	if ($content['ContentProduct']['price'] >= $price_old) {
+	$price_old = $content[$content_type]['old_price'];
+
+	if ($content[$content_type]['price'] >= $price_old) {
 		return;
 	}
 
