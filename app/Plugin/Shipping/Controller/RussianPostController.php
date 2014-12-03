@@ -81,12 +81,15 @@ class RussianPostController extends ShippingAppController {
                 // Calculate the unit of measure depending on what's set in the database
                 global $order;
                 $shipping_country = $order['Order']['bill_country'];
+                $shipping_price = 0;
+                $cost = 0;
+                $handling = 0;
 
                 $country_zone = $this->CountryZone->find('first', array('conditions' => array('CountryZone.id' => $order['Order']['bill_state'])));
 
+					if ($country_zone) {
 
                 $geo_zone = $country_zone['GeoZone']['id'];
-                $shipping_price = 0;
 
                 $cost     = $data['russian_post_cost_' . $geo_zone];
                 $handling = $data['russian_post_handling_' . $geo_zone];
@@ -133,6 +136,8 @@ $newline =
 				$shipping_price = $value;
 			}
 		}
+
+					}
 
                 return $shipping_price + $handling;
         }
