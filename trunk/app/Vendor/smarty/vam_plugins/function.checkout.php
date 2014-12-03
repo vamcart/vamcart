@@ -366,6 +366,8 @@ function smarty_function_checkout($params, $template)
 	App::import('Model', 'Customer');
 	$Customer =& new Customer();
 		
+	$customer = false;
+			
 	if (isset($_SESSION['Customer']['customer_id'])) {
 		$customer = $Customer->find('first', array('conditions' => array('Customer.id' => $_SESSION['Customer']['customer_id'])));
 	}

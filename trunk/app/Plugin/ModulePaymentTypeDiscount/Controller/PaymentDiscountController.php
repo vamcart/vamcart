@@ -12,6 +12,7 @@ class PaymentDiscountController extends ModulePaymentTypeDiscountAppController {
 	{
 		global $order;
 
+		$discount = 0;
 		$payment_discount = $this->ModulePaymentTypeDiscount->find('first', array('conditions' => array('payment_method_id' => $order['Order']['payment_method_id'])));
 
 		if($payment_discount['ModulePaymentTypeDiscount']['discount'] > 0) {
