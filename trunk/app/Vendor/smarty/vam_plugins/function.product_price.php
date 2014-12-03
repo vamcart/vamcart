@@ -13,14 +13,14 @@ function smarty_function_product_price($params, $template)
 	App::uses('CurrencyBaseComponent', 'Controller/Component');
 	$CurrencyBase =& new CurrencyBaseComponent(new ComponentCollection());
 
-	if ($content['Content']['content_type_id'] == 7) {
-		$price = $content['ContentDownloadable']['price'];
-	} else {
-		$price = $content['ContentProduct']['price'];
-	}
+	$price = 0;
+	$content_type = 'ContentProduct';
+	if ($content['Content']['content_type_id'] == 7) $content_type = 'ContentDownloadable';
+	
+	$price = $content[$content_type]['price'];
 
 	if(isset($params['price'])) $price = $params['price'];
-			
+
 	$price = $CurrencyBase->display_price($price);
 	
 	echo $price;

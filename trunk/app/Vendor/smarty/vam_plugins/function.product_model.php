@@ -11,7 +11,6 @@ function smarty_function_product_model($params, $template)
 	global $content;
 
 	$content_type = 'ContentProduct';
-
 	if ($content['Content']['content_type_id'] == 7) $content_type = 'ContentDownloadable';
 	
 	$model = $content[$content_type]['model'];
