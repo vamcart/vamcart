@@ -89,8 +89,12 @@ class ReportsController extends AppController {
                                                                           ,'Order.created >' => $options['stamp_dat'])
                                                     ,'group' => array('dat')
                                                     ,'order' => array('dat')));
-            
+                                                    
+            $result = false;
+
+				if ($order) {
             $result = array();
+            
             foreach ($order as $k => $ord) 
             {
                 $result['dat'][$k] = $ord[0]['dat'];
@@ -99,6 +103,8 @@ class ReportsController extends AppController {
                 $result['jq_plot_cnt'][$k] = '["'.$ord[0]['dat'].'" ,'.$ord[0]['cnt'].']';
                 $result['jq_plot_summ'][$k] = '["'.$ord[0]['dat'].'" ,'.$ord[0]['summ'].']';
             } 
+            
+         	}
 
            $this->set('result',$result);
            $this->set('statuses',$options['statuses']);

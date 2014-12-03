@@ -17,6 +17,7 @@ echo $this->Html->css(array(
 	'jquery/plugins/jqplot/jquery.jqplot.min.css',
 ), null, array('inline' => true));
 
+if ($result) {
 echo $this->Html->scriptBlock('
     $(document).ready(function() {
         $.jqplot.config.enablePlugins = true;
@@ -74,6 +75,7 @@ $(\'a[href="#chart"]\').on(\'shown\', function(e) {
 
 });
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false));
+}
 
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-chart-curve');
 
