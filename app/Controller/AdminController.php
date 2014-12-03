@@ -35,7 +35,12 @@ class AdminController extends AppController {
                                                                           ,*/'Order.created >' => date("Y-m-d H:i:s",time()-(365*24*3600)))
                                                     ,'group' => array('dat')
                                                     ,'order' => array('dat')));
+
+            $result = false;
+
+				if ($order_day or $order_day) {
             $result = array();
+
             foreach ($order_day as $k => $ord) 
             {
                 $result['dat'][$k] = $ord[0]['dat'];
@@ -54,6 +59,8 @@ class AdminController extends AppController {
                 $result['month']['jq_plot_cnt'][$k] = '["'.$ord[0]['dat'].'" , '.$ord[0]['cnt'].']';
                 $result['month']['jq_plot_summ'][$k] = '["'.$ord[0]['dat'].'" , '.$ord[0]['summ'].']';
             }
+
+				}
 
 				App::import('Model', 'Content');
 				$Content =& new Content();	
@@ -83,9 +90,13 @@ class AdminController extends AppController {
                                                        , 'limit' => 10
                                                        ,'order' => array('ContentProduct.ordered DESC')
                                                                 ));
-            $result['content_ordered'] = $content_ordered;
+
+				if ($content_ordered) {
+            $top_products = $content_ordered;
+            }
 
             $this->set('result',$result);	
+            $this->set('top_products',$top_products);	
             $this->set('level', $level);
 
 		// Last orders

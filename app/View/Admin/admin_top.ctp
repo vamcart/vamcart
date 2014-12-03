@@ -29,6 +29,7 @@ $(document).ready(function () {
 });
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false));
 
+if ($result) {
 echo $this->Html->scriptBlock('
     $(document).ready(function() {
         $.jqplot.config.enablePlugins = true;
@@ -86,7 +87,9 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 
 });
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false));
+}
 
+if ($result) {
 echo $this->Html->scriptBlock('
     $(document).ready(function() {
         $.jqplot.config.enablePlugins = true;
@@ -145,6 +148,7 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 
 });
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false));
+}
 
 	echo $this->admin->ShowPageHeaderStart(__('Dashboard',true), 'cus-house');
 
@@ -201,7 +205,8 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
                         echo '<table class="contentTable"><tr><td colspan="3">';
                         echo __('Top 10 Ordered');
                         echo $this->Html->tableHeaders(array( __('Image'), __('Name'),  __('Ordered')));
-                        foreach ($result['content_ordered'] AS $k => $ordered)
+                        if ($top_products) {
+                        foreach ($top_products AS $k => $ordered)
                         {
                         	
 								// Content Image
@@ -248,6 +253,7 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
                                                                 ,$ordered['ContentDescription']['name']
                                                                ,array($ordered['ContentProduct']['ordered'],array('height' => '40'))
                                                                ));
+                        }
                         }
                    echo '</td></tr></table>';
                     echo '</td></tr></table>';
