@@ -594,7 +594,7 @@ class ContentsController extends AppController {
 		}
 		else	// The form has not been submitted
 		{
-        	//$this->Content->ContentProduct->setDiscount(false);
+        	$this->Content->ContentProduct->setDiscount(false);
 
 			$this->Content->id = $content_id;			
 			$data = $this->Content->read();
@@ -853,7 +853,7 @@ class ContentsController extends AppController {
 			)
 		));
 		
-		//$this->Content->ContentProduct->setDiscount(false);
+		$this->Content->ContentProduct->setDiscount(false);
 		
 		//Paginate data
 		$content_data = $this->Paginator->paginate('Content');
