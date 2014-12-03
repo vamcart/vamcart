@@ -2307,18 +2307,17 @@ CREATE TABLE `search_tables` (
 
 INSERT INTO `search_tables` (`id`, `model`, `field`, `url`, `edit_field`, `alternate_anchor`) VALUES 
 (1, 'Content', 'alias', '/contents/admin_edit/', 'id', ''),
-(2, 'Content', 'head_data', '/contents/admin_edit/', 'content_id', ''),
-(3, 'ContentDescription', 'name', '/contents/admin_edit/', 'content_id', ''),
-(4, 'ContentDescription', 'description', '/contents/admin_edit/', 'content_id', 'name'),
-(5, 'ContentDescription', 'short_description', '/contents/admin_edit/', 'content_id', 'name'),
-(6, 'ContentLink', 'url', '/contents/admin_edit/', 'content_id', ''),
-(7, 'Language', 'name', '/languages/admin_edit/', 'id', ''),
-(8, 'DefinedLanguage', 'key', '/defined_languages/admin_edit/', 'key', ''),
-(9, 'DefinedLanguage', 'value', '/defined_languages/admin_edit/', 'key', ''),
-(10, 'Template', 'name', '/templates/admin_edit/', 'id', ''),
-(11, 'Template', 'template', '/templates/admin_edit/', 'id', 'name'),
-(12, 'Stylesheet', 'name', '/stylesheets/admin_edit/', 'id', ''),
-(13, 'Stylesheet', 'stylesheet', '/stylesheets/admin_edit/', 'id', 'name');
+(2, 'ContentDescription', 'name', '/contents/admin_edit/', 'content_id', ''),
+(3, 'ContentDescription', 'description', '/contents/admin_edit/', 'content_id', 'name'),
+(4, 'ContentDescription', 'short_description', '/contents/admin_edit/', 'content_id', 'name'),
+(5, 'ContentLink', 'url', '/contents/admin_edit/', 'content_id', ''),
+(6, 'Language', 'name', '/languages/admin_edit/', 'id', ''),
+(7, 'DefinedLanguage', 'key', '/defined_languages/admin_edit/', 'key', ''),
+(8, 'DefinedLanguage', 'value', '/defined_languages/admin_edit/', 'key', ''),
+(9, 'Template', 'name', '/templates/admin_edit/', 'id', ''),
+(10, 'Template', 'template', '/templates/admin_edit/', 'id', 'name'),
+(11, 'Stylesheet', 'name', '/stylesheets/admin_edit/', 'id', ''),
+(12, 'Stylesheet', 'stylesheet', '/stylesheets/admin_edit/', 'id', 'name');
 
 DROP TABLE IF EXISTS shipping_methods;
 CREATE TABLE `shipping_methods` (
