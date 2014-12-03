@@ -38,7 +38,7 @@ class AttributesController extends AppController
 						'className' => 'ContentDescription',
 						'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
 					))));
-        $this->Content->recursive = 1;
+        $this->Content->recursive = 2;
         
         if($type == 'category') $this->paginate['Content'] = array('conditions' => array('Content.content_type_id = 1')
                                           ,'limit' => '30'
