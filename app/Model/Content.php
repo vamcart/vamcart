@@ -197,6 +197,7 @@ class Content extends AppModel {
             $parent_group = $this->find('first', array('conditions' => array('id' => $product['Content']['parent_id']/*, 'content_type_id' => 1*/)
                                                     ,'order' => array('order ASC') 
                                                     ));
+				if ($parent_group) {                                                    
             foreach($parent_group['Attributes'] AS $key_attr => $attribute)
             {
                 $attr_list[$key_attr]['id'] = $attribute['id'];
@@ -219,7 +220,8 @@ class Content extends AppModel {
                 }
                 //Для установленных значений добавлена проверка на checked_list
                 if($is_set&&$values_attribute['type_attr']!='checked_list')$attr_list[$key_attr]['values_attribute'] = empty($attr_list[$key_attr]['values_attribute']) ? null : reset($attr_list[$key_attr]['values_attribute']);
-            }      
+            }     
+            } 
             return $attr_list;
         }
         
