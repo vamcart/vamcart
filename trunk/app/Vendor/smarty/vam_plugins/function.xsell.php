@@ -149,35 +149,32 @@ function smarty_function_xsell($params, &$smarty)
 					))));
 											
 		$product = $Content->find('first', array('recursive' => 1, 'conditions' => array('Content.id' => $content['ContentRelations'][$key]['id'])));
-		$content['ContentRelations'][$key]['id'] = $content['ContentRelations'][$key]['id'];
 			$content_type = 'ContentProduct';
+			$price = $product['ContentProduct']['price'];
 	
-			if ($product['Content']['content_type_id'] == 7) {
-				$price = $product['ContentDownloadable']['price'];
+			if ($content['ContentRelations'][$key]['content_type_id'] == 7) {
 				$content_type = 'ContentDownloadable';
-			} else {
 				$price = $product['ContentProduct']['price'];
-				$content_type = 'ContentProduct';
 			}
-			$content['ContentRelations'][$key]['id']	= $product['Content']['id'];
-			$content['ContentRelations'][$key]['alias']	= $product['Content']['alias'];
-			if ($product['Content']['content_type_id'] == 2 or $product['Content']['content_type_id'] == 7) $content['ContentRelations'][$key]['price']	= ($price > 0) ? $CurrencyBase->display_price($price) : false;	
-			if ($product['Content']['content_type_id'] == 2 or $product['Content']['content_type_id'] == 7) $content['ContentRelations'][$key]['old_price']	= (($product[$content_type]['old_price'] > $price) ? $CurrencyBase->display_price($product[$content_type]['old_price']) : false);	
-			if ($product['Content']['content_type_id'] == 2 or $product['Content']['content_type_id'] == 7) $content['ContentRelations'][$key]['price_save']	= (($product[$content_type]['old_price']-$price > 0) ? $CurrencyBase->display_price($product[$content_type]['old_price']-$price) : false);	
-			if ($product['Content']['content_type_id'] == 2 or $product['Content']['content_type_id'] == 7) $content['ContentRelations'][$key]['price_save_percent']	= (($product[$content_type]['old_price'] > $price) ? 100-($price*100/$product[$content_type]['old_price']) : false);	
-			if ($product['Content']['content_type_id'] == 2 or $product['Content']['content_type_id'] == 7) $content['ContentRelations'][$key]['discount']	= (($product[$content_type]['old_price'] > $price) ? 100-($price*100/$product[$content_type]['old_price']) : 0);	
-			$content['ContentRelations'][$key]['rating']	= $ContentBase->getReviewsInfo($product['Content']['id'], 'average_rating');	
-			$content['ContentRelations'][$key]['star_rating']	= $ContentBase->getReviewsInfo($product['Content']['id'], 'star_rating');	
-			$content['ContentRelations'][$key]['reviews']	= $ContentBase->getReviewsInfo($product['Content']['id'], 'reviews_total');	
-			if ($product['Content']['content_type_id'] == 2 or $product['Content']['content_type_id'] == 7) $content['ContentRelations'][$key]['stock']	= $product[$content_type]['stock'];	
-			if ($product['Content']['content_type_id'] == 2 or $product['Content']['content_type_id'] == 7) $content['ContentRelations'][$key]['model']	= $product[$content_type]['model'];	
-			if ($product['Content']['content_type_id'] == 2) $content['ContentRelations'][$key]['weight']	= $product[$content_type]['weight'];	
-			if ($product['Content']['content_type_id'] == 2 or $product['Content']['content_type_id'] == 7) $content['ContentRelations'][$key]['manufacturer']	= $ContentBase->getManufacturerName($product[$content_type]['manufacturer_id']);	
-			if ($product['Content']['content_type_id'] == 2 or $product['Content']['content_type_id'] == 7) $content['ContentRelations'][$key]['label_id']	= $product[$content_type]['label_id'];	
-			$content['ContentRelations'][$key]['date_added']	= CakeTime::i18nFormat($product['Content']['created']);	
-			$content['ContentRelations'][$key]['date_modified']	= CakeTime::i18nFormat($product['Content']['modified']);	
+			$content['ContentRelations'][$key]['id']	= $content['ContentRelations'][$key]['id'];
+			$content['ContentRelations'][$key]['alias']	= $content['ContentRelations'][$key]['alias'];
+			if ($content['ContentRelations'][$key]['content_type_id'] == 2 or $content['ContentRelations'][$key]['content_type_id'] == 7) $content['ContentRelations'][$key]['price']	= ($price > 0) ? $CurrencyBase->display_price($price) : false;	
+			if ($content['ContentRelations'][$key]['content_type_id'] == 2 or $content['ContentRelations'][$key]['content_type_id'] == 7) $content['ContentRelations'][$key]['old_price']	= (($product[$content_type]['old_price'] > $price) ? $CurrencyBase->display_price($product[$content_type]['old_price']) : false);	
+			if ($content['ContentRelations'][$key]['content_type_id'] == 2 or $content['ContentRelations'][$key]['content_type_id'] == 7) $content['ContentRelations'][$key]['price_save']	= (($product[$content_type]['old_price']-$price > 0) ? $CurrencyBase->display_price($product[$content_type]['old_price']-$price) : false);	
+			if ($content['ContentRelations'][$key]['content_type_id'] == 2 or $content['ContentRelations'][$key]['content_type_id'] == 7) $content['ContentRelations'][$key]['price_save_percent']	= (($product[$content_type]['old_price'] > $price) ? 100-($price*100/$product[$content_type]['old_price']) : false);	
+			if ($content['ContentRelations'][$key]['content_type_id'] == 2 or $content['ContentRelations'][$key]['content_type_id'] == 7) $content['ContentRelations'][$key]['discount']	= (($product[$content_type]['old_price'] > $price) ? 100-($price*100/$product[$content_type]['old_price']) : 0);	
+			$content['ContentRelations'][$key]['rating']	= $ContentBase->getReviewsInfo($content['ContentRelations'][$key]['id'], 'average_rating');	
+			$content['ContentRelations'][$key]['star_rating']	= $ContentBase->getReviewsInfo($content['ContentRelations'][$key]['id'], 'star_rating');	
+			$content['ContentRelations'][$key]['reviews']	= $ContentBase->getReviewsInfo($content['ContentRelations'][$key]['id'], 'reviews_total');	
+			if ($content['ContentRelations'][$key]['content_type_id'] == 2 or $content['ContentRelations'][$key]['content_type_id'] == 7) $content['ContentRelations'][$key]['stock']	= $product[$content_type]['stock'];	
+			if ($content['ContentRelations'][$key]['content_type_id'] == 2 or $content['ContentRelations'][$key]['content_type_id'] == 7) $content['ContentRelations'][$key]['model']	= $product[$content_type]['model'];	
+			if ($content['ContentRelations'][$key]['content_type_id'] == 2) $content['ContentRelations'][$key]['weight']	= $product[$content_type]['weight'];	
+			if ($content['ContentRelations'][$key]['content_type_id'] == 2 or $content['ContentRelations'][$key]['content_type_id'] == 7) $content['ContentRelations'][$key]['manufacturer']	= $ContentBase->getManufacturerName($product[$content_type]['manufacturer_id']);	
+			if ($content['ContentRelations'][$key]['content_type_id'] == 2 or $content['ContentRelations'][$key]['content_type_id'] == 7) $content['ContentRelations'][$key]['label_id']	= $product[$content_type]['label_id'];	
+			$content['ContentRelations'][$key]['date_added']	= CakeTime::i18nFormat($content['ContentRelations'][$key]['created']);	
+			$content['ContentRelations'][$key]['date_modified']	= CakeTime::i18nFormat($content['ContentRelations'][$key]['modified']);	
 
-			$content['ContentRelations'][$key]['url'] = BASE . '/' . $product['ContentType']['name'] . '/' . $product['Content']['alias'] . $config['URL_EXTENSION'];
+			$content['ContentRelations'][$key]['url'] = BASE . '/' . $product['ContentType']['name'] . '/' . $content['ContentRelations'][$key]['alias'] . $config['URL_EXTENSION'];
 	
 			$product = $Content->ContentDescription->find('first', array('conditions' => array('content_id' => $content['ContentRelations'][$key]['id'], 
 										       'ContentDescription.language_id' => $language_id)));

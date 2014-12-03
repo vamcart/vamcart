@@ -160,13 +160,11 @@ function smarty_function_compared($params)
                 foreach ($content_list as $k_p => $product) 
                 {
 						$content_type = 'ContentProduct';
+						$price = $product['ContentProduct']['price'];
 				
 						if ($product['Content']['content_type_id'] == 7) {
-							$price = $product['ContentDownloadable']['price'];
 							$content_type = 'ContentDownloadable';
-						} else {
-							$price = $product['ContentProduct']['price'];
-							$content_type = 'ContentProduct';
+							$price = $product['ContentDownloadable']['price'];
 						}
 
 						$element_list[$k_a]['attributes_product'][$k_p]['name']	= $product['ContentDescription']['name'];

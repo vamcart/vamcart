@@ -370,13 +370,11 @@ function smarty_function_content_listing($params, $template)
 	foreach($content_list_data AS $raw_data)
 	{
 		$content_type = 'ContentProduct';
+		$price = $raw_data['ContentProduct']['price'];
 
 		if ($raw_data['Content']['content_type_id'] == 7) {
-			$price = $raw_data['ContentDownloadable']['price'];
 			$content_type = 'ContentDownloadable';
-		} else {
-			$price = $raw_data['ContentProduct']['price'];
-			$content_type = 'ContentProduct';
+			$price = $raw_data['ContentDownloadable']['price'];
 		}
 		if(in_array(strtolower($raw_data['ContentType']['name']),$allowed_types))
 		{

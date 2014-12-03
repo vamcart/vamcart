@@ -9,10 +9,14 @@
 function smarty_function_product_weight($params, $template)
 {
 	global $content;
-	
+
+	if ($content['Content']['content_type_id'] != 2) return;
+
 	$weight = $content['ContentProduct']['weight'];
 	
+	if ($weight > 0) {
 	echo $weight;
+	}
 }
 
 function smarty_help_function_product_weight () {

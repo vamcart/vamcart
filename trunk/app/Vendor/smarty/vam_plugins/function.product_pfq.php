@@ -9,6 +9,9 @@
 function smarty_function_product_pfq($params, &$smarty)
 {
     global $content;
+
+		if ($content['Content']['content_type_id'] != 2) return;
+
     if ($content['ContentProduct']['stock'] == -1)
     {
         return '';
