@@ -34,12 +34,12 @@ class UpdateController extends AppController {
             	$this->Check->get_update_archive($version);
         		App::import('Vendor', 'PclZip', array('file' => 'pclzip'.DS.'zip.php'));
 				$this->data['zip_dir'] = basename($version);
-            	if(!@mkdir('../tmp/updates/'.$this->data['zip_dir'], 0777))
+            	if(!@mkdir(ROOT.'/app/tmp/updates/'.$this->data['zip_dir'], 0777))
 					die("<font color='red'>Error : Unable to create directory</font><br />");
-				$this->data['archive'] = new PclZip('../tmp/updates/'.$version.'.zip');
-				if ($this->data['archive']->extract(PCLZIP_OPT_PATH,'../tmp/updates/'.$this->data['zip_dir']) == 0)
+				$this->data['archive'] = new PclZip(ROOT.'/app/tmp/updates/'.$version.'.zip');
+				if ($this->data['archive']->extract(PCLZIP_OPT_PATH,ROOT.'/app/tmp/updates/'.$this->data['zip_dir']) == 0)
 					die("<font color='red'>Error : Unable to unzip archive</font>");
-                $this->data['description'] = file_get_contents('../tmp/updates/'.$this->data['zip_dir'].'/description.xml');
+                $this->data['description'] = file_get_contents(ROOT.'/app/tmp/updates/'.$this->data['zip_dir'].'/description.xml');
                 $this->data['description'] = $this->xml2array($this->data['description']);
                 if(isset($this->data['description']['files']['file']['value']) && $this->data['description']['files']['file']['value'] != '') {
                 	$this->data['tmp'][0]['value'] = $this->data['description']['files']['file']['value'];
@@ -51,17 +51,17 @@ class UpdateController extends AppController {
                 if(count($this->data['description']['files']['file']) > 0) {
                 	foreach($this->data['description']['files']['file'] as $file) {
 						if($file['attr']['action'] == 'create')
-							copy('../tmp/updates/'.$this->data['zip_dir'].$file['attr']['path'].$file['value'], '../..'.$file['attr']['path'].$file['value']);
-							//chmod('../..'.$file['attr']['path'].$file['value'],0755);
+							copy(ROOT.'/app/tmp/updates/'.$this->data['zip_dir'].'/'.$file['attr']['path'].$file['value'], ROOT.'/'.$file['attr']['path'].$file['value']);
+							//chmod(ROOT.$file['attr']['path'].$file['value'],0755);
 						if($file['attr']['action'] == 'update') {
-							@unlink('../..'.$file['attr']['path'].$file['value']);
-							@copy('../tmp/updates/'.$this->data['zip_dir'].$file['attr']['path'].$file['value'], '../..'.$file['attr']['path'].$file['value']);
-							//chmod('../..'.$file['attr']['path'].$file['value'],0755);
+							@unlink(ROOT.$file['attr']['path'].$file['value']);
+							@copy(ROOT.'/app/tmp/updates/'.$this->data['zip_dir'].'/'.$file['attr']['path'].$file['value'], ROOT.'/'.$file['attr']['path'].$file['value']);
+							//chmod(ROOT.$file['attr']['path'].$file['value'],0755);
 						}
 						if($file['attr']['action'] == 'delete')
-							@unlink('../..'.$file['attr']['path'].$file['value']);
+							@unlink(ROOT.$file['attr']['path'].$file['value']);
                         if($file['attr']['action'] == 'sql') {
-							$lines = file('../tmp/updates/'.$this->data['zip_dir'].'/'.$file['value']);
+							$lines = file(ROOT.'/app/tmp/updates/'.$this->data['zip_dir'].'/'.$file['value']);
 							foreach ($lines as $line) {
     							if (substr($line, 0, 2) == '--' || $line == '')
         						continue;
@@ -75,11 +75,11 @@ class UpdateController extends AppController {
                 	}
                 }
       		App::import('Vendor', 'DeleteAll', array('file' => 'deleteall'.DS.'deleteall.php'));    
-      		@deleteAll('../tmp/updates/'.$this->data['zip_dir']);
-      		@unlink('../tmp/updates/'.$version.'.zip');
+      		@deleteAll(ROOT.'/app/tmp/updates/'.$this->data['zip_dir']);
+      		@unlink(ROOT.'/app/tmp/updates/'.$version.'.zip');
       		$this->data['current_version'] = $version;
             }
-            $filename = './version.txt';
+            $filename = ROOT.'/app/webroot/version.txt';
 			$handle = fopen($filename, 'w+');
 			fwrite($handle, $this->data['current_version']);
 			fclose($handle);
