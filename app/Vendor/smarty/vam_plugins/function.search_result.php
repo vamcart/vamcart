@@ -180,13 +180,11 @@ function smarty_function_search_result($params, $template)
 	
 		foreach($content_list_data AS $raw_data) {
 			$content_type = 'ContentProduct';
+			$price = $raw_data['ContentProduct']['price'];
 	
 			if ($raw_data['Content']['content_type_id'] == 7) {
-				$price = $raw_data['ContentDownloadable']['price'];
 				$content_type = 'ContentDownloadable';
-			} else {
-				$price = $raw_data['ContentProduct']['price'];
-				$content_type = 'ContentProduct';
+				$price = $raw_data['ContentDownloadable']['price'];
 			}
 			$content_list[$count]['name']	= $raw_data['ContentDescription']['name'];
 			$content_list[$count]['description']	= $raw_data['ContentDescription']['description'];

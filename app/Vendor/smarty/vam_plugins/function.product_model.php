@@ -9,10 +9,16 @@
 function smarty_function_product_model($params, $template)
 {
 	global $content;
+
+	$content_type = 'ContentProduct';
+
+	if ($content['Content']['content_type_id'] == 7) $content_type = 'ContentDownloadable';
 	
-	$model = $content['ContentProduct']['model'];
-	
+	$model = $content[$content_type]['model'];
+		
+	if ($model != '') {
 	echo $model;
+	}
 }
 
 function smarty_help_function_product_model () {

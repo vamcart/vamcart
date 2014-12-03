@@ -10,12 +10,16 @@ function smarty_function_product_manufacturer($params, $template)
 {
 	global $content;
 
-	if ($content['ContentProduct']['manufacturer_id'] > 0) {
+	$content_type = 'ContentProduct';
+
+	if ($content['Content']['content_type_id'] == 7) $content_type = 'ContentDownloadable';
+
+	if ($content[$content_type]['manufacturer_id'] > 0) {
 
 	App::uses('ContentBaseComponent', 'Controller/Component');
 	$ContentBase = new ContentBaseComponent(new ComponentCollection());
 	
-	$manufacturer = $ContentBase->getManufacturerName($content['ContentProduct']['manufacturer_id']);
+	$manufacturer = $ContentBase->getManufacturerName($content[$content_type]['manufacturer_id']);
 	
 	echo '<div class="manufacturer">'.__('Manufacturer').': '.$manufacturer.'</div>';
 

@@ -9,10 +9,17 @@
 function smarty_function_product_stock($params, $template)
 {
 	global $content;
+
+	$content_type = 'ContentProduct';
+
+	if ($content['Content']['content_type_id'] == 7) $content_type = 'ContentDownloadable';
 	
-	$stock = $content['ContentProduct']['stock'];
-	
+	$stock = $content[$content_type]['stock'];
+
+	if ($stock > 0) {
 	echo $stock;
+	}
+	
 }
 
 function smarty_help_function_product_stock () {
