@@ -8,9 +8,9 @@
 
 function smarty_function_content($params, $template)
 {
-	global $content,$config,$filter_list;
+	global $content,$config,$filter_list,$sort_by;
 	// Cache the output... Don't cache core pages.
-	$cache_name = 'vam_page_content_' . $_SESSION['Customer']['customer_group_id'] . '_' . $content['Content']['id'] . '_' . $_SESSION['Customer']['language_id']. '_' . $_SESSION['Customer']['currency_id']. '_' . (isset($_SESSION['Customer']['page'])?'_'.$_SESSION['Customer']['page']:'') . (isset($config['order'])?'_'.$config['order']:'') . (isset($filter_list)?md5(serialize($filter_list)):'');
+	$cache_name = 'vam_page_content_' . $_SESSION['Customer']['customer_group_id'] . '_' . $content['Content']['id'] . '_' . $_SESSION['Customer']['language_id']. '_' . $_SESSION['Customer']['currency_id']. '_' . (isset($_SESSION['Customer']['page'])?'_'.$_SESSION['Customer']['page']:'') . (isset($sort_by)?'_'.$sort_by:'') . (isset($filter_list)?md5(serialize($filter_list)):'');
 	$output = Cache::read($cache_name, 'catalog');
 
 	if (($output === false)||($content['Content']['parent_id'] == '-1')) {

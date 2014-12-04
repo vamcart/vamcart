@@ -100,15 +100,15 @@ return $template;
 
 function smarty_function_content_listing($params, $template)
 {
-	global $config,$content,$filter_list;
+	global $config,$content,$filter_list,$sort_by;
 
-        $params['order_column'] = ($content['Content']['content_type_id'] == 2 or $content['Content']['content_type_id'] == 7) ? 'ContentProduct.price DESC' : 'Content.order ASC';
+        $params['order_column'] = 'Content.order ASC';
 
-        if($config['order'] == false && !isset ($params['order']))
-            $params['order'] = ($content['Content']['content_type_id'] == 2 or $content['Content']['content_type_id'] == 7) ? 'price-desc' : 'order-asc';
+        if($sort_by == false && !isset ($params['order']))
+            $params['order'] = 'order-asc';
         
-        if($config['order'] != false)
-            $params['order'] = $config['order'];
+        if($sort_by != false)
+            $params['order'] = $sort_by;
 
         if($params['order'] == 'order')
             $params['order_column'] = 'Content.order';
@@ -163,6 +163,8 @@ function smarty_function_content_listing($params, $template)
 
         if($params['order'] == 'ordered-desc')
             $params['order_column'] = 'ContentProduct.ordered DESC';
+
+echo $sort_by.'::'.$params['order'].'::'.$params['order_column'];        
 
 	// Cache the output.
 	$cache_name = 'vam_content_listing_output_' . $_SESSION['Customer']['customer_group_id'] . '_' . $content['Content']['id'] . '_' . (isset($params['template'])?$params['template']:'') . (isset($params['parent'])?'_'.$params['parent']:'') . (isset($params['label_id'])?'_'.$params['label_id']:'') . (isset($params['order'])?'_'.$params['order']:'') . '_' . $_SESSION['Customer']['language_id'] . '_' . $_SESSION['Customer']['page'] . (isset($filter_list)?md5(serialize($filter_list)):'');
