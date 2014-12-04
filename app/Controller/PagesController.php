@@ -127,11 +127,14 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty');
 			$this->params['page'] = 1;
 		}
 
+		//if ($content['Content']['content_type_id'] == 1) {
+		global $sort_by;
 		if (isset($this->params['order'])) {
-			$config['order'] = $this->params['order'];
+			$sort_by = $this->params['order'];
 		} else {
-			$config['order'] = false;
+			$sort_by = false;
 		}
+		//}
 
 		$this->Session->write('Customer.page', $this->params['page']);
 
