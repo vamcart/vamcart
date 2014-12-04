@@ -106,7 +106,7 @@ function smarty_function_content_listing($params, $template)
 
         if(isset($config['order']))
             $params['order'] = $config['order'];
-
+            
         if($params['order'] == 'order' or $config['order'] == 'order')
             $params['order_column'] = 'Content.order';
 
@@ -160,9 +160,9 @@ function smarty_function_content_listing($params, $template)
 
         if($params['order'] == 'ordered-desc' or $config['order'] == 'ordered-desc')
             $params['order_column'] = 'ContentProduct.ordered DESC';
-	
+
 	// Cache the output.
-	$cache_name = 'vam_content_listing_output_' . $_SESSION['Customer']['customer_group_id'] . '_' . $content['Content']['id'] . '_' . (isset($params['template'])?$params['template']:'') . (isset($params['parent'])?'_'.$params['parent']:'') . (isset($config['order'])?'_'.$config['order']:'') . '_' . $_SESSION['Customer']['language_id'] . '_' . $_SESSION['Customer']['page'] . (isset($filter_list)?md5(serialize($filter_list)):'');
+	$cache_name = 'vam_content_listing_output_' . $_SESSION['Customer']['customer_group_id'] . '_' . $content['Content']['id'] . '_' . (isset($params['template'])?$params['template']:'') . (isset($params['parent'])?'_'.$params['parent']:'') . (isset($params['label_id'])?'_'.$params['label_id']:'') . (isset($config['order'])?'_'.$config['order']:'') . '_' . $_SESSION['Customer']['language_id'] . '_' . $_SESSION['Customer']['page'] . (isset($filter_list)?md5(serialize($filter_list)):'');
 	$output = Cache::read($cache_name, 'catalog');
 	if($output === false)
 	{
@@ -222,6 +222,9 @@ function smarty_function_content_listing($params, $template)
 
         if(!isset ($params['type']))
             $params['type'] = 'all';
+
+        if(!isset($params['label_id'])) 
+            $params['label_id'] = 0;
 	
 	// Loop through the values in $params['type'] and set some more condiitons
 	$allowed_types = array();
@@ -339,6 +342,16 @@ function smarty_function_content_listing($params, $template)
 				if(isset($params['manufacturer']) && $params['manufacturer'] > 0) {
 				$content_list_data_conditions = array_slice($content_list_data_conditions,1);
 				$content_list_data_conditions = array_merge($content_list_data_conditions,array('ContentProduct.manufacturer_id' => $params['manufacturer']));
+				}
+
+				// Sort products by label
+				if(strpos($params['type'],'product') !== false){
+				if(isset($params['label_id']) && $params['label_id'] > 0) {
+				if(!isset($params['parent']) or $params['parent'] <= 0) {
+				$content_list_data_conditions = array_slice($content_list_data_conditions,1);
+				}
+				$content_list_data_conditions = array_merge($content_list_data_conditions,array('ContentProduct.label_id' => $params['label_id']));
+				}
 				}
 
             if($params['page'] == 'all'){          
@@ -523,6 +536,7 @@ function smarty_help_function_content_listing() {
 		<li><em><?php echo __('(parent)') ?></em> - <?php echo __('The parent of the content items to be shown. Accepts an alias or id, defaults to 0.') ?></li>
 		<li><em><?php echo __('(template)') ?></em> - <?php echo __('Useful if you want to override the default content listing template. Setting this will utilize the template that matches this alias.') ?></li>
 		<li><em><?php echo __('(page)') ?></em> - <?php echo __('Current page.') ?></li>
+		<li><em><?php echo __('(label_id)') ?></em> - <?php echo __('Display products with selected product label.') ?></li>
 		<li><em><?php echo __('(order)') ?></em> - <?php echo __('Content listing sort order. Available values: ') . 'order,order-asc,order-desc,price,price-asc,price-desc,stock,stock-asc,stock-desc,name,name-asc,name-desc,id,id-asc,id-desc,ordered,ordered-asc,ordered-desc' ?></li>
 		<li><em><?php echo __('(limit)') ?></em> - <?php echo __('Items per page.') ?></li>
 	</ul>

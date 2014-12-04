@@ -1497,6 +1497,10 @@ msgstr "Текущая страница."
 msgid "Content listing sort order. Available values: "
 msgstr "Порядок сортировки товара. Доступные значения: "
 
+#: /vendors/smarty/vam_plugins/function.content_listing.php:183
+msgid "Display products with selected product label."
+msgstr "Выводит товары с указанным ярлыком."
+
 #: /vendors/smarty/vam_plugins/function.content_listing.php:182
 msgid "(limit)"
 msgstr "(limit)"
