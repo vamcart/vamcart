@@ -96,73 +96,70 @@ function smarty_function_content_listing($params, $template)
 {
 	global $config,$content,$filter_list;
 
-            $params['order_column'] = ($content['Content']['content_type_id'] == 2 or $content['Content']['content_type_id'] == 7) ? 'Content.order ASC' : 'ContentProduct.price DESC';
+        $params['order_column'] = ($content['Content']['content_type_id'] == 2 or $content['Content']['content_type_id'] == 7) ? 'ContentProduct.price DESC' : 'Content.order ASC';
 
-        if(!isset($params['order'])) 
-            $params['order'] = ($content['Content']['content_type_id'] == 2 or $content['Content']['content_type_id'] == 7) ? 'order-asc' : 'price-desc';
-         
-        if(!isset($config['order']))
-            $config['order'] = $params['order'];
-
-        if(isset($config['order']))
+        if($config['order'] == false && !isset ($params['order']))
+            $params['order'] = ($content['Content']['content_type_id'] == 2 or $content['Content']['content_type_id'] == 7) ? 'price-desc' : 'order-asc';
+        
+        if($config['order'] != false)
             $params['order'] = $config['order'];
-            
-        if($params['order'] == 'order' or $config['order'] == 'order')
+
+        if($params['order'] == 'order')
             $params['order_column'] = 'Content.order';
 
-        if($params['order'] == 'order-asc' or $config['order'] == 'order-asc')
+        if($params['order'] == 'order-asc')
             $params['order_column'] = 'Content.order ASC';
 
-        if($params['order'] == 'order-desc' or $config['order'] == 'order-desc')
+        if($params['order'] == 'order-desc')
             $params['order_column'] = 'Content.order DESC';
 
-        if($params['order'] == 'price' or $config['order'] == 'price')
+        if($params['order'] == 'price')
             $params['order_column'] = 'ContentProduct.price';
 
-        if($params['order'] == 'price-asc' or $config['order'] == 'price-asc')
+        if($params['order'] == 'price-asc')
             $params['order_column'] = 'ContentProduct.price ASC';
 
-        if($params['order'] == 'price-desc' or $config['order'] == 'price-desc')
+        if($params['order'] == 'price-desc')
             $params['order_column'] = 'ContentProduct.price DESC';
 
-        if($params['order'] == 'stock' or $config['order'] == 'stock')
+        if($params['order'] == 'stock')
             $params['order_column'] = 'ContentProduct.stock';
 
-        if($params['order'] == 'stock-asc' or $config['order'] == 'stock-asc')
+        if($params['order'] == 'stock-asc')
             $params['order_column'] = 'ContentProduct.stock ASC';
 
-        if($params['order'] == 'stock-desc' or $config['order'] == 'stock-desc')
+        if($params['order'] == 'stock-desc')
             $params['order_column'] = 'ContentProduct.stock DESC';
 
-        if($params['order'] == 'name' or $config['order'] == 'name')
+        if($params['order'] == 'name')
             $params['order_column'] = 'ContentDescription.name';
 
-        if($params['order'] == 'name-asc' or $config['order'] == 'name-asc')
+        if($params['order'] == 'name-asc')
             $params['order_column'] = 'ContentDescription.name ASC';
 
-        if($params['order'] == 'name-desc' or $config['order'] == 'name-desc')
+        if($params['order'] == 'name-desc')
             $params['order_column'] = 'ContentDescription.name DESC';
 
-        if($params['order'] == 'id' or $config['order'] == 'id')
+        if($params['order'] == 'id')
             $params['order_column'] = 'Content.id';
 
-        if($params['order'] == 'id-asc' or $config['order'] == 'id-asc')
+        if($params['order'] == 'id-asc')
             $params['order_column'] = 'Content.id ASC';
 
-        if($params['order'] == 'id-desc' or $config['order'] == 'id-desc')
+        if($params['order'] == 'id-desc')
             $params['order_column'] = 'Content.id DESC';
 
-        if($params['order'] == 'ordered' or $config['order'] == 'ordered')
+        if($params['order'] == 'ordered')
             $params['order_column'] = 'ContentProduct.ordered';
 
-        if($params['order'] == 'ordered-asc' or $config['order'] == 'ordered-asc')
+        if($params['order'] == 'ordered-asc')
             $params['order_column'] = 'ContentProduct.ordered ASC';
 
-        if($params['order'] == 'ordered-desc' or $config['order'] == 'ordered-desc')
+        if($params['order'] == 'ordered-desc')
             $params['order_column'] = 'ContentProduct.ordered DESC';
 
 	// Cache the output.
-	$cache_name = 'vam_content_listing_output_' . $_SESSION['Customer']['customer_group_id'] . '_' . $content['Content']['id'] . '_' . (isset($params['template'])?$params['template']:'') . (isset($params['parent'])?'_'.$params['parent']:'') . (isset($params['label_id'])?'_'.$params['label_id']:'') . (isset($config['order'])?'_'.$config['order']:'') . '_' . $_SESSION['Customer']['language_id'] . '_' . $_SESSION['Customer']['page'] . (isset($filter_list)?md5(serialize($filter_list)):'');
+	$cache_name = 'vam_content_listing_output_' . $_SESSION['Customer']['customer_group_id'] . '_' . $content['Content']['id'] . '_' . (isset($params['template'])?$params['template']:'') . (isset($params['parent'])?'_'.$params['parent']:'') . (isset($params['label_id'])?'_'.$params['label_id']:'') . (isset($params['order'])?'_'.$params['order']:'') . '_' . $_SESSION['Customer']['language_id'] . '_' . $_SESSION['Customer']['page'] . (isset($filter_list)?md5(serialize($filter_list)):'');
 	$output = Cache::read($cache_name, 'catalog');
 	if($output === false)
 	{

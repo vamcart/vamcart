@@ -129,6 +129,8 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty');
 
 		if (isset($this->params['order'])) {
 			$config['order'] = $this->params['order'];
+		} else {
+			$config['order'] = false;
 		}
 
 		$this->Session->write('Customer.page', $this->params['page']);
