@@ -11,6 +11,7 @@ function default_template_content_listing()
 $template = '
 {if $content_list}
 
+{if isset($content_alias)}
 <div class="sort">{lang}Sort by:{/lang}</div>
 <div class="btn-toolbar">
 	<div class="btn-group">
@@ -26,7 +27,9 @@ $template = '
 		<a class="btn btn-inverse{if $order == "ordered-asc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/ordered-asc"><i class="fa fa-thumbs-down" title="{lang}Popular (asc){/lang}"></i></a>
 	</div>
 </div>
+{/if}
 
+{if isset($content_alias)}
 {if $pages_number > 1}
 <!-- start: Pagination -->
 <div class="pagination pagination-centered">
@@ -38,6 +41,7 @@ $template = '
 	</ul>
 </div>
 <!-- end: Pagination -->
+{/if}  
 {/if}  
   
 <!-- start: products listing -->
@@ -70,6 +74,7 @@ $template = '
 </div>  
 <!-- end: products listing -->
 
+{if isset($content_alias)}
 {if $pages_number > 1}
 <!-- start: Pagination -->
 <div class="pagination pagination-centered">
@@ -81,6 +86,7 @@ $template = '
 	</ul>
 </div>
 <!-- end: Pagination -->
+{/if}
 {/if}
 
 {else}
