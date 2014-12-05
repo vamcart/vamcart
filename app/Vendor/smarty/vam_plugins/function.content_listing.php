@@ -35,9 +35,9 @@ $template = '
 <div class="pagination pagination-centered">
 	<ul>
 		{for $pg=1 to $pages_number}
-		<li{if $pg == {$page->value}} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}{if $order}/order/{$order}{/if}">{$pg}</a></li>
+		<li{if $pg == {$page}} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}{if $order}/order/{$order}{/if}">{$pg}</a></li>
 		{/for}
-		<li{if "all" == {$page->value}} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all{if $order}/order/{$order}{/if}">{lang}All{/lang}</a></li>
+		<li{if "all" == {$page}} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all{if $order}/order/{$order}{/if}">{lang}All{/lang}</a></li>
 	</ul>
 </div>
 <!-- end: Pagination -->
@@ -80,9 +80,9 @@ $template = '
 <div class="pagination pagination-centered">
 	<ul>
 		{for $pg=1 to $pages_number}
-		<li{if $pg == {$page->value}} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}{if $order}/order/{$order}{/if}">{$pg}</a></li>
+		<li{if $pg == {$page}} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}{if $order}/order/{$order}{/if}">{$pg}</a></li>
 		{/for}
-		<li{if "all" == {$page->value}} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all{if $order}/order/{$order}{/if}">{lang}All{/lang}</a></li>
+		<li{if "all" == {$page}} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all{if $order}/order/{$order}{/if}">{lang}All{/lang}</a></li>
 	</ul>
 </div>
 <!-- end: Pagination -->
@@ -189,8 +189,6 @@ function smarty_function_content_listing($params, $template)
         break;
             
         endswitch;
-
-echo '<br />sort_by: '.$sort_by.'<br />curent_order: '.$params['current_order'].'<br />order: '.$params['order'].'order_column: '.$params['order_column'].'<br />';        
 
 	// Cache the output.
 	$cache_name = 'vam_content_listing_output_' . $_SESSION['Customer']['customer_group_id'] . '_' . $content['Content']['id'] . '_' . (isset($params['template'])?$params['template']:'') . (isset($params['parent'])?'_'.$params['parent']:'') . (isset($params['label_id'])?'_'.$params['label_id']:'') . (isset($params['current_order'])?'_'.$params['current_order']:'') . '_' . $_SESSION['Customer']['language_id'] . '_' . $_SESSION['Customer']['page'] . (isset($filter_list)?md5(serialize($filter_list)):'');
