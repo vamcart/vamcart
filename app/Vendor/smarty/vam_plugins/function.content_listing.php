@@ -108,7 +108,7 @@ function smarty_function_content_listing($params, $template)
 			if (!isset ($params['current_order'])) 
 			    $params['current_order'] = $params['order'];
 
-			switch ($params['current_order']):
+        switch ($params['current_order']):
 
         case 'order':
             $params['order_column'] = 'Content.order';
@@ -183,10 +183,7 @@ function smarty_function_content_listing($params, $template)
         break;
 
         default:
-            $params['order'] = 'id-desc';
-            $params['current_order'] = 'id-desc';
             $params['order_column'] = 'Content.id DESC';
-        break;
             
         endswitch;
 
