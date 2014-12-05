@@ -7,5 +7,5 @@
    ---------------------------------------------------------------------------------------*/
 
 class ModulePaymentTypeDiscount extends AppModel {
-	publuc $name = 'ModulePaymentTypeDiscount';
+	public $name = 'ModulePaymentTypeDiscount';
 }
