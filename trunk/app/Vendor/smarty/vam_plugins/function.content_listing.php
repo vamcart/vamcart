@@ -35,9 +35,9 @@ $template = '
 <div class="pagination pagination-centered">
 	<ul>
 		{for $pg=1 to $pages_number}
-		<li{if $pg == $page} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}{if $order}/order/{$order}{/if}">{$pg}</a></li>
+		<li{if $pg == {$page->value}} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}{if $order}/order/{$order}{/if}">{$pg}</a></li>
 		{/for}
-		<li{if "all" == $page} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all{if $order}/order/{$order}{/if}">{lang}All{/lang}</a></li>
+		<li{if "all" == {$page->value}} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all{if $order}/order/{$order}{/if}">{lang}All{/lang}</a></li>
 	</ul>
 </div>
 <!-- end: Pagination -->
@@ -80,9 +80,9 @@ $template = '
 <div class="pagination pagination-centered">
 	<ul>
 		{for $pg=1 to $pages_number}
-		<li{if $pg == $page} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}{if $order}/order/{$order}{/if}">{$pg}</a></li>
+		<li{if $pg == {$page->value}} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}{if $order}/order/{$order}{/if}">{$pg}</a></li>
 		{/for}
-		<li{if "all" == $page} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all{if $order}/order/{$order}{/if}">{lang}All{/lang}</a></li>
+		<li{if "all" == {$page->value}} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all{if $order}/order/{$order}{/if}">{lang}All{/lang}</a></li>
 	</ul>
 </div>
 <!-- end: Pagination -->
@@ -101,42 +101,12 @@ return $template;
 function smarty_function_content_listing($params, $template)
 {
 	global $config,$content,$filter_list,$sort_by;
-
-        //if(!isset ($params['order_column']))
-        //$params['order'] = 'Content.order ASC';
-
-if (!isset ($params['order'])) {
-    $params['order'] = 'Content.order ASC';
-} elseif (!isset ($params['current_order'])) {
-    $params['current_order'] = $params['order'];
-} elseif ($params['order'] == $params['current_order']) {
-    $params['order'] = $params['current_order'];
-}
-
-        //if(!isset ($params['order']))
-            //$params['order'] = $sort_by;
-
-        //if(!isset ($params['current_order']))
-           // $params['current_order'] = $params['order'];
-
-        //if($params['order'] != $params['current_order'])
-            //$params['order'] = $params['current_order'];
-
-        //if($sort_by == false && !isset ($params['order']))
-            //$params['order'] = 'order-asc';
-        
-        //if($sort_by != false)
-            //$params['order'] = $sort_by;
-
-        //if(isset ($params['current_order']) && $params['current_order'] == $params['order']) {
-			//$test = $params['current_order'];
-		//} elseif ($params['current_order'] != $params['order']) {
-			//$test = $params['order'];
-		//} else {
-			//$test = 'order-asc';
-		//}
-		//echo $test;
-
+			
+			if (!isset ($params['order'])) 
+			    $params['order'] = 'id-desc';
+			
+			if (!isset ($params['current_order'])) 
+			    $params['current_order'] = $params['order'];
 
 			switch ($params['current_order']):
 
@@ -213,11 +183,12 @@ if (!isset ($params['order'])) {
         break;
 
         default:
-            $params['order_column'] = 'Content.order ASC';
+            $params['order'] = 'id-desc';
+            $params['current_order'] = 'id-desc';
+            $params['order_column'] = 'Content.id DESC';
         break;
             
         endswitch;
-
 
 echo '<br />sort_by: '.$sort_by.'<br />curent_order: '.$params['current_order'].'<br />order: '.$params['order'].'order_column: '.$params['order_column'].'<br />';        
 
@@ -423,7 +394,6 @@ echo '<br />sort_by: '.$sort_by.'<br />curent_order: '.$params['current_order'].
 
 					if(!isset ($params['limit']))
 						$params['limit'] = $config['PRODUCTS_PER_PAGE'];
-echo '-'.$params['current_order'];
                 $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => $params['limit'],'page' => $params['page'], 'order' => array($params['order_column'])));
                 $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
             }
@@ -550,7 +520,7 @@ echo '-'.$params['current_order'];
 	$vars['count'] = $count;
 	$vars['pages_number'] = 0;
 	$vars['page'] = $params['page'];
-	$vars['order'] = (!$sort_by) ? $params['order'] : $sort_by;
+	$vars['order'] = $params['current_order'];
 	$vars['ext'] = $config['URL_EXTENSION'];
 
 	// Error page
@@ -560,7 +530,7 @@ echo '-'.$params['current_order'];
 
         if(!isset ($params['limit']))
 				$params['limit'] = $config['PRODUCTS_PER_PAGE'];
-        
+
         // Calculating the number of pages
          if(strpos($params['type'],'product') !== false){
              $vars['pages_number'] = ceil($content_total/$params['limit']);
