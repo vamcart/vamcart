@@ -127,14 +127,12 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty');
 			$this->params['page'] = 1;
 		}
 
-		//if ($content['Content']['content_type_id'] == 1) {
 		global $sort_by;
 		if (isset($this->params['order'])) {
 			$sort_by = $this->params['order'];
 		} else {
 			$sort_by = false;
 		}
-		//}
 
 		$this->Session->write('Customer.page', $this->params['page']);
 
@@ -165,6 +163,7 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty');
 				'modified' => $content['Content']['modified'],
 				'stock' => (isset($content['ContentProduct']['stock'])) ? $content['ContentProduct']['stock'] : false,
 				'page' => $this->params['page'],
+				'current_order' => $sort_by,
 				'ajax_enable' => $config['AJAX_ENABLE'],
 				'is_compared' => $is_compared
 			);

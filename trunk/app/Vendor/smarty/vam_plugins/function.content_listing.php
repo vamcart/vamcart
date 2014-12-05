@@ -102,72 +102,127 @@ function smarty_function_content_listing($params, $template)
 {
 	global $config,$content,$filter_list,$sort_by;
 
-        $params['order_column'] = 'Content.order ASC';
+        //if(!isset ($params['order_column']))
+        //$params['order'] = 'Content.order ASC';
 
-        if($sort_by == false && !isset ($params['order']))
-            $params['order'] = 'order-asc';
+if (!isset ($params['order'])) {
+    $params['order'] = 'Content.order ASC';
+} elseif (!isset ($params['current_order'])) {
+    $params['current_order'] = $params['order'];
+} elseif ($params['order'] == $params['current_order']) {
+    $params['order'] = $params['current_order'];
+}
+
+        //if(!isset ($params['order']))
+            //$params['order'] = $sort_by;
+
+        //if(!isset ($params['current_order']))
+           // $params['current_order'] = $params['order'];
+
+        //if($params['order'] != $params['current_order'])
+            //$params['order'] = $params['current_order'];
+
+        //if($sort_by == false && !isset ($params['order']))
+            //$params['order'] = 'order-asc';
         
-        if($sort_by != false)
-            $params['order'] = $sort_by;
+        //if($sort_by != false)
+            //$params['order'] = $sort_by;
 
-        if($params['order'] == 'order')
+        //if(isset ($params['current_order']) && $params['current_order'] == $params['order']) {
+			//$test = $params['current_order'];
+		//} elseif ($params['current_order'] != $params['order']) {
+			//$test = $params['order'];
+		//} else {
+			//$test = 'order-asc';
+		//}
+		//echo $test;
+
+
+			switch ($params['current_order']):
+
+        case 'order':
             $params['order_column'] = 'Content.order';
+        break;
 
-        if($params['order'] == 'order-asc')
+        case 'order-asc':
             $params['order_column'] = 'Content.order ASC';
+        break;
 
-        if($params['order'] == 'order-desc')
+        case 'order-desc':
             $params['order_column'] = 'Content.order DESC';
+        break;
 
-        if($params['order'] == 'price')
+        case 'price':
             $params['order_column'] = 'ContentProduct.price';
+        break;
 
-        if($params['order'] == 'price-asc')
+        case 'price-asc':
             $params['order_column'] = 'ContentProduct.price ASC';
+        break;
 
-        if($params['order'] == 'price-desc')
+        case 'price-desc':
             $params['order_column'] = 'ContentProduct.price DESC';
+        break;
 
-        if($params['order'] == 'stock')
+        case 'stock':
             $params['order_column'] = 'ContentProduct.stock';
+        break;
 
-        if($params['order'] == 'stock-asc')
+        case 'stock-asc':
             $params['order_column'] = 'ContentProduct.stock ASC';
+        break;
 
-        if($params['order'] == 'stock-desc')
+        case 'stock-desc':
             $params['order_column'] = 'ContentProduct.stock DESC';
+        break;
 
-        if($params['order'] == 'name')
+        case 'name':
             $params['order_column'] = 'ContentDescription.name';
+        break;
 
-        if($params['order'] == 'name-asc')
+        case 'name-asc':
             $params['order_column'] = 'ContentDescription.name ASC';
+        break;
 
-        if($params['order'] == 'name-desc')
+        case 'name-desc':
             $params['order_column'] = 'ContentDescription.name DESC';
+        break;
 
-        if($params['order'] == 'id')
+        case 'id':
             $params['order_column'] = 'Content.id';
+        break;
 
-        if($params['order'] == 'id-asc')
+        case 'id-asc':
             $params['order_column'] = 'Content.id ASC';
+        break;
 
-        if($params['order'] == 'id-desc')
+        case 'id-desc':
             $params['order_column'] = 'Content.id DESC';
+        break;
 
-        if($params['order'] == 'ordered')
+        case 'ordered':
             $params['order_column'] = 'ContentProduct.ordered';
+        break;
 
-        if($params['order'] == 'ordered-asc')
+        case 'ordered-asc':
             $params['order_column'] = 'ContentProduct.ordered ASC';
+        break;
 
-        if($params['order'] == 'ordered-desc')
+        case 'ordered-desc':
             $params['order_column'] = 'ContentProduct.ordered DESC';
+        break;
 
-echo $sort_by.'::'.$params['order'].'::'.$params['order_column'];        
+        default:
+            $params['order_column'] = 'Content.order ASC';
+        break;
+            
+        endswitch;
+
+
+echo '<br />sort_by: '.$sort_by.'<br />curent_order: '.$params['current_order'].'<br />order: '.$params['order'].'order_column: '.$params['order_column'].'<br />';        
 
 	// Cache the output.
-	$cache_name = 'vam_content_listing_output_' . $_SESSION['Customer']['customer_group_id'] . '_' . $content['Content']['id'] . '_' . (isset($params['template'])?$params['template']:'') . (isset($params['parent'])?'_'.$params['parent']:'') . (isset($params['label_id'])?'_'.$params['label_id']:'') . (isset($params['order'])?'_'.$params['order']:'') . '_' . $_SESSION['Customer']['language_id'] . '_' . $_SESSION['Customer']['page'] . (isset($filter_list)?md5(serialize($filter_list)):'');
+	$cache_name = 'vam_content_listing_output_' . $_SESSION['Customer']['customer_group_id'] . '_' . $content['Content']['id'] . '_' . (isset($params['template'])?$params['template']:'') . (isset($params['parent'])?'_'.$params['parent']:'') . (isset($params['label_id'])?'_'.$params['label_id']:'') . (isset($params['current_order'])?'_'.$params['current_order']:'') . '_' . $_SESSION['Customer']['language_id'] . '_' . $_SESSION['Customer']['page'] . (isset($filter_list)?md5(serialize($filter_list)):'');
 	$output = Cache::read($cache_name, 'catalog');
 	if($output === false)
 	{
@@ -368,7 +423,7 @@ echo $sort_by.'::'.$params['order'].'::'.$params['order_column'];
 
 					if(!isset ($params['limit']))
 						$params['limit'] = $config['PRODUCTS_PER_PAGE'];
-
+echo '-'.$params['current_order'];
                 $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => $params['limit'],'page' => $params['page'], 'order' => array($params['order_column'])));
                 $content_total = $Content->find('count',array('conditions' => $content_list_data_conditions));
             }
@@ -495,7 +550,7 @@ echo $sort_by.'::'.$params['order'].'::'.$params['order_column'];
 	$vars['count'] = $count;
 	$vars['pages_number'] = 0;
 	$vars['page'] = $params['page'];
-	$vars['order'] = $params['order'];
+	$vars['order'] = (!$sort_by) ? $params['order'] : $sort_by;
 	$vars['ext'] = $config['URL_EXTENSION'];
 
 	// Error page
