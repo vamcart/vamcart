@@ -137,7 +137,7 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty');
 		$this->Session->write('Customer.page', $this->params['page']);
 
 		// Save cache based on content_id for template_vars.
-		$cache_name = 'vam_template_vars_' . $content['Content']['id'].(isset($this->params['page'])?'_'.$this->params['page']:'').(isset($this->params['order'])?'_'.$this->params['order']:'').$is_compared;
+		$cache_name = 'vam_template_vars_' . $content['Content']['id'].(isset($this->params['page'])?'_'.$this->params['page']:'').(isset($sort_by)?'_'.$sort_by:'').$is_compared;
 		$template_vars = Cache::read($cache_name, 'catalog');
               
 		if ($template_vars === false) {
