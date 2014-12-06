@@ -82,7 +82,7 @@ class CartController extends AppController {
 			$this->Smarty->display("{shopping_cart template='cart-content-box'}");
 			die();
 		} else {
-			$this->redirect('/product/' . $content['Content']['alias'] . $config['URL_EXTENSION']);
+			$this->redirect('/page/cart-contents' . $config['URL_EXTENSION']);
 		}
 	}
 
