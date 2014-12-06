@@ -525,9 +525,9 @@ function smarty_function_content_listing($params, $template)
 	$vars['ext'] = $config['URL_EXTENSION'];
 
 	// Error page
-	//if (!$content_list) {
-		//throw new NotFoundException();
-	//}	
+	if (!$content_list) {
+		throw new NotFoundException();
+	}	
 
         if(!isset ($params['limit']))
 				$params['limit'] = $config['PRODUCTS_PER_PAGE'];
