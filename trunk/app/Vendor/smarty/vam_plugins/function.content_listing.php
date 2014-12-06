@@ -111,7 +111,7 @@ function smarty_function_content_listing($params, $template)
 			if (isset ($params['current_order'])) 
 			    $params['order'] = $params['current_order'];
 			
-			if (!isset ($params['current_order']) && $params['current_order'] != $params['order']) 
+			if ($params['current_order'] != $params['order']) 
 			    $params['current_order'] = $params['order'];
 
         switch ($params['current_order']):
