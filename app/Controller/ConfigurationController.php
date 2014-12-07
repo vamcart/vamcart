@@ -11,7 +11,14 @@ class ConfigurationController extends AppController {
 	
 	public function admin_clear_cache ()
 	{
-		Cache::clear(false, 'catalog');
+		// clear Cache::write() items
+		Cache::clear();
+		// clear core cache
+		$cachePaths = array('views', 'persistent', 'models', 'catalog');
+		foreach($cachePaths as $config) {
+				clearCache(null, $config);
+		}
+        		
 		$this->Session->setFlash(__('Cache cleared.',true));
 		$this->redirect('/configuration/admin/');
 	}
