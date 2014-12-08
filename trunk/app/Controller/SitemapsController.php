@@ -25,7 +25,7 @@ class SitemapsController extends AppController {
 
 		// Load some necessary components & models
 		App::import('Model', 'Content');
-		$Content =& new Content();
+		$Content = new Content();
 		$Content->unbindAll();
 
 		$Content->bindModel(array(
@@ -99,7 +99,7 @@ class SitemapsController extends AppController {
 
 		// Load some necessary components & models
 		App::import('Model', 'Content');
-		$Content =& new Content();
+		$Content = new Content();
 		$Content->unbindAll();
 
 		$Content->bindModel(array(

@@ -23,7 +23,7 @@ function smarty_function_discount_group($params)
 {    
     $discount = 0;    
     App::uses('SmartyComponent', 'Controller/Component');
-    $Smarty =& new SmartyComponent(new ComponentCollection());
+    $Smarty = new SmartyComponent(new ComponentCollection());
     
     if(isset($_SESSION['Customer']['customer_id']))
     {

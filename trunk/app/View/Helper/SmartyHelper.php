@@ -13,7 +13,7 @@ class SmartyHelper extends AppHelper
 	public function load_smarty ()
 	{
             App::uses('SmartyComponent', 'Controller/Component');
-            $smarty =& new SmartyComponent(new ComponentCollection());       
+            $smarty = new SmartyComponent(new ComponentCollection());       
             return $smarty;
 	}
 

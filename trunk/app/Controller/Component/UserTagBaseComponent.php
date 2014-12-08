@@ -32,7 +32,7 @@ class UserTagBaseComponent extends Object
 	{
 		// Load the model
 		App::import('Model', 'UserTag');
-			$this->UserTag =& new UserTag();
+			$this->UserTag = new UserTag();
 	
 		$tag = $this->UserTag->findByAlias($params['alias']);
 		

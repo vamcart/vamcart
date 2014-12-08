@@ -11,7 +11,7 @@ function smarty_function_product_price($params, $template)
 	global $content;
 	
 	App::uses('CurrencyBaseComponent', 'Controller/Component');
-	$CurrencyBase =& new CurrencyBaseComponent(new ComponentCollection());
+	$CurrencyBase = new CurrencyBaseComponent(new ComponentCollection());
 
 	$price = 0;
 	$content_type = 'ContentProduct';

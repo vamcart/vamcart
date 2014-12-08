@@ -53,7 +53,7 @@ class GoogleHtmlController extends PaymentAppController {
 		global $order;
 		
 		App::import('Model', 'PaymentMethod');
-		$this->PaymentMethod =& new PaymentMethod();
+		$this->PaymentMethod = new PaymentMethod();
 		
 		$google_merchant_id = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'google_html_merchant_id')));
 		$merchant_id = $google_merchant_id['PaymentMethodValue']['value'];

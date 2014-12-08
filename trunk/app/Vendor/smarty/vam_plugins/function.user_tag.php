@@ -10,7 +10,7 @@ function smarty_function_user_tag($params, $template)
 {
 
 	App::uses('UserTagBaseComponent', 'Controller/Component');
-	$UserTagBase =& new UserTagBaseComponent(new ComponentCollection());
+	$UserTagBase = new UserTagBaseComponent(new ComponentCollection());
 
 	$UserTagBase->call_user_tag($params);
 

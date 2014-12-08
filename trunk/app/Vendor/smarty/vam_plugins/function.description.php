@@ -12,7 +12,7 @@ function smarty_function_description($params, $template)
 	global $content;
 		
 	App::uses('SmartyComponent', 'Controller/Component');
-		$Smarty =& new SmartyComponent(new ComponentCollection());
+		$Smarty = new SmartyComponent(new ComponentCollection());
 
 	$Smarty->display($content['ContentDescription']['description']);
 	

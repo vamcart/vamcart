@@ -33,10 +33,10 @@ class CustomerBaseComponent extends Object
 	{
 
 		App::uses('EventBaseComponent', 'Controller/Component');
-		$this->EventBase =& new EventBaseComponent(new ComponentCollection());
+		$this->EventBase = new EventBaseComponent(new ComponentCollection());
 		
 		App::import('Model', 'Order');
-		$this->Order =& new Order();
+		$this->Order = new Order();
 		
 		$order = $this->Order->read(null,$_SESSION['Customer']['order_id']);
 

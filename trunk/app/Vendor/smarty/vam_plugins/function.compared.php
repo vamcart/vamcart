@@ -90,15 +90,15 @@ function smarty_function_compared($params)
 	ob_start();
 		
 	App::uses('SmartyComponent', 'Controller/Component');
-	$Smarty =& new SmartyComponent(new ComponentCollection());
+	$Smarty = new SmartyComponent(new ComponentCollection());
 
 	App::uses('CakeTime', 'Utility');
         
         App::import('Model', 'Content');
-	$Content =& new Content();
+	$Content = new Content();
 
         App::import('Model', 'Attribute');
-	$Attribute =& new Attribute();
+	$Attribute = new Attribute();
 
 	
 	$content_compare_list = $_SESSION['compare_list'][$content['Content']['alias']];
@@ -148,8 +148,8 @@ function smarty_function_compared($params)
         $content_list = $Content->find('all',array('recursive' => 1, 'conditions' => array('Content.id' => $content_compare_list)));
 
 	$element_list = array();
-	$CurrencyBase =& new CurrencyBaseComponent(new ComponentCollection());
-	$ContentBase =& new ContentBaseComponent(new ComponentCollection());
+	$CurrencyBase = new CurrencyBaseComponent(new ComponentCollection());
+	$ContentBase = new ContentBaseComponent(new ComponentCollection());
 
         foreach ($attr as $k_a => $attribute) 
         {

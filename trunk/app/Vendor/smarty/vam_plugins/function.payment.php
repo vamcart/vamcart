@@ -24,13 +24,13 @@ function smarty_function_payment($params, $template)
 	global $order;		
 		
 	App::uses('SmartyComponent', 'Controller/Component');
-		$Smarty =& new SmartyComponent(new ComponentCollection());
+		$Smarty = new SmartyComponent(new ComponentCollection());
 
 	App::uses('PaymentMethodBaseComponent', 'Controller/Component');
-		$PaymentMethodBase =& new PaymentMethodBaseComponent(new ComponentCollection());
+		$PaymentMethodBase = new PaymentMethodBaseComponent(new ComponentCollection());
 
 	App::import('Model', 'PaymentMethod');
-		$PaymentMethod =& new PaymentMethod();
+		$PaymentMethod = new PaymentMethod();
 
 
 	$PaymentMethodBase->save_customer_data();

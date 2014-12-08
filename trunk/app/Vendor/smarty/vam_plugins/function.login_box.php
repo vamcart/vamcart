@@ -51,7 +51,7 @@ return $template;
 function smarty_function_login_box($params, $template)
 {
 	App::uses('SmartyComponent', 'Controller/Component');
-	$Smarty =& new SmartyComponent(new ComponentCollection());
+	$Smarty = new SmartyComponent(new ComponentCollection());
 
 	if (isset($_SESSION['Customer']['customer_id'])) {
 		$isLoggedIn = true;

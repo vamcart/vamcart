@@ -35,7 +35,7 @@ class ConfigurationBaseComponent extends Object
 		if($config_values === false)
 		{
 			App::import('Model', 'Configuration');
-				$Configuration =& new Configuration();
+				$Configuration = new Configuration();
 	
 			$configuration_values = $Configuration->find('all');
 

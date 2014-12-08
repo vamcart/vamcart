@@ -276,10 +276,10 @@ class AppController extends Controller {
 
 			// We load the locale component here so it doesn't get loaded for the front end
 			App::uses('LocaleComponent', 'Controller/Component');
-			$Locale =& new LocaleComponent(new ComponentCollection ());
+			$Locale = new LocaleComponent(new ComponentCollection ());
 
 			App::uses('CheckComponent', 'Controller/Component');
-			$Info =& new CheckComponent(new ComponentCollection ());
+			$Info = new CheckComponent(new ComponentCollection ());
 
 			// Set a current breadcrumb from the locale based on the current controller/action		
 			//$this->set('current_crumb',$Locale->set_crumb($this->params['action'],$this->params['controller']));	

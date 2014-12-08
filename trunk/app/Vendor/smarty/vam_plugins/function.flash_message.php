@@ -10,7 +10,7 @@ function smarty_function_flash_message($params, $template)
 {
 
 	App::uses('SessionHelper', 'View/Helper');
-	$Session =& new SessionHelper(new View(null));
+	$Session = new SessionHelper(new View(null));
 
 	$result = $Session->flash();
 

@@ -83,7 +83,7 @@ function smarty_function_search_result($params, $template)
 	$clean->paranoid($_GET);
 
 	App::uses('SmartyComponent', 'Controller/Component');
-	$Smarty =& new SmartyComponent(new ComponentCollection());
+	$Smarty = new SmartyComponent(new ComponentCollection());
 
 	App::uses('CakeTime', 'Utility');
 
@@ -101,7 +101,7 @@ function smarty_function_search_result($params, $template)
 	if (isset($_GET['keyword']) && !empty($_GET['keyword'])) {
 
 		App::import('Model', 'Content');
-		$Content =& new Content();
+		$Content = new Content();
 
 		$Content->unbindModel(array('belongsTo' => array('ContentType', 'Template')), false);
 		$Content->unbindModel(array('hasMany' => array('ContentImage', 'ContentDescription', 'Attribute')), false);
@@ -175,8 +175,8 @@ function smarty_function_search_result($params, $template)
 		$content_list = array();
 		$count = 0;
 
-		$CurrencyBase =& new CurrencyBaseComponent(new ComponentCollection());
-		$ContentBase =& new ContentBaseComponent(new ComponentCollection());
+		$CurrencyBase = new CurrencyBaseComponent(new ComponentCollection());
+		$ContentBase = new ContentBaseComponent(new ComponentCollection());
 	
 		foreach($content_list_data AS $raw_data) {
 			$content_type = 'ContentProduct';

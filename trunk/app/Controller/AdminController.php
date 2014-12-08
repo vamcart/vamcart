@@ -63,7 +63,7 @@ class AdminController extends AppController {
 				}
 
 				App::import('Model', 'Content');
-				$Content =& new Content();	
+				$Content = new Content();	
 		                        
 				$Content->unbindAll();	
 				$Content->bindModel(array('hasOne' => array(

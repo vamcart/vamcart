@@ -28,10 +28,10 @@ function smarty_function_discount_list($params)
     global $content;   
     $discounts = null;    
     App::uses('SmartyComponent', 'Controller/Component');
-    $Smarty =& new SmartyComponent(new ComponentCollection());
+    $Smarty = new SmartyComponent(new ComponentCollection());
     
     App::uses('OrderBaseComponent', 'Controller/Component');
-    $OrderBase =& new OrderBaseComponent(new ComponentCollection());
+    $OrderBase = new OrderBaseComponent(new ComponentCollection());
 
     if (isset($params['product_id'])) //Для каталога
     { 

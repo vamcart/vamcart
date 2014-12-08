@@ -31,11 +31,11 @@ class PaymentMethodBaseComponent extends Object
 	public function save_customer_data()
 	{
 		App::uses('CustomerBaseComponent', 'Controller/Component');
-		$this->CustomerBase =& new CustomerBaseComponent(new ComponentCollection());
+		$this->CustomerBase = new CustomerBaseComponent(new ComponentCollection());
 		$this->CustomerBase->save_customer_details($_POST);
 
 		App::uses('OrderBaseComponent', 'Controller/Component');	
-		$this->OrderBase =& new OrderBaseComponent(new ComponentCollection());		
+		$this->OrderBase = new OrderBaseComponent(new ComponentCollection());		
 		
 		$this->OrderBase->update_order_totals();
 	}
