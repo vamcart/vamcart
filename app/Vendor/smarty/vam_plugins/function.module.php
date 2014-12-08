@@ -13,7 +13,7 @@ function smarty_function_module($params, $template)
 		
 	// Make sure the module is still installed, if not exit
 	App::import('Model', 'Module');
-	$Module =& new Module();
+	$Module = new Module();
 	
 	$this_module = $Module->find('first', array('conditions' => array('alias' => $params['alias'])));
 	if(empty($this_module))
@@ -28,7 +28,7 @@ function smarty_function_module($params, $template)
 	
 	
 	App::uses('SmartyComponent', 'Controller/Component');
-	$Smarty =& new SmartyComponent(new ComponentCollection());
+	$Smarty = new SmartyComponent(new ComponentCollection());
 	
 	
 	$assignments = $Smarty->requestAction('/module_' . $params['alias'] . '/' . $params['controller'] . '/' . $params['action'] .'/');
@@ -37,7 +37,7 @@ function smarty_function_module($params, $template)
 	if(isset($params['template']))
 	{
 		App::import('Model', 'MicroTemplate');
-			$MicroTemplate =& new MicroTemplate();
+			$MicroTemplate = new MicroTemplate();
 		
 		$template = $MicroTemplate->find('first', array('conditions' => array('alias' => $params['template'])));
 		$display_template = $template['MicroTemplate']['template'];

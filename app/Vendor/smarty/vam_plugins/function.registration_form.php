@@ -122,7 +122,7 @@ return $template;
 function smarty_function_registration_form($params, $template)
 {
 	App::uses('SmartyComponent', 'Controller/Component');
-	$Smarty =& new SmartyComponent(new ComponentCollection());
+	$Smarty = new SmartyComponent(new ComponentCollection());
 
 	$errors = array();
 

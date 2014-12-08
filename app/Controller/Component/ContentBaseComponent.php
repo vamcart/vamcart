@@ -169,7 +169,7 @@ class ContentBaseComponent extends Object
 		if ($manufacturer_id > 0) {
 
 	App::import('Model', 'Content');
-		$Content =& new Content();		
+		$Content = new Content();		
 		$Content->unbindAll();	
 		$Content->bindModel(array('hasOne' => array(
 				'ContentDescription' => array(
@@ -188,7 +188,7 @@ class ContentBaseComponent extends Object
 		if ($content_id > 0) {
 
 		App::import('Model', 'Module');
-		$Module =& new Module();
+		$Module = new Module();
 		
 		$check_count = $Module->find('count', array('conditions' => array('Module.alias' => 'reviews')));
 		
@@ -197,7 +197,7 @@ class ContentBaseComponent extends Object
 
 		App::import('Model', 'ModuleReviews.ModuleReview');
 
-		$Reviews =& new ModuleReview();		
+		$Reviews = new ModuleReview();		
 
 		$Reviews->unbindAll();		
 		$reviews = $Reviews->find('all', array('conditions' => array('content_id' => $content_id), 'order' => 'ModuleReview.id DESC'));

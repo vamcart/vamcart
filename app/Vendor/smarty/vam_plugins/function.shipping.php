@@ -24,10 +24,10 @@ function smarty_function_shipping($params, $template)
 	global $order;		
 		
 	App::uses('SmartyComponent', 'Controller/Component');
-		$Smarty =& new SmartyComponent(new ComponentCollection());
+		$Smarty = new SmartyComponent(new ComponentCollection());
 
 	App::import('Model', 'ShippingMethod');
-		$ShippingMethod =& new ShippingMethod();
+		$ShippingMethod = new ShippingMethod();
 
 	// Get the shipping method 
 	$shipping = $ShippingMethod->read(null,$order['Order']['shipping_method_id']);

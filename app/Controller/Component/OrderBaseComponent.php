@@ -84,7 +84,7 @@ class OrderBaseComponent extends Object
 		$shipping = Inflector::classify($order['ShippingMethod']['code']);
 		$shipping_controller =  Inflector::classify($order['ShippingMethod']['code']) . 'Controller';
 		 App::import('Controller', 'Shipping.'.$shipping);
-		$MethodBase =& new $shipping_controller();
+		$MethodBase = new $shipping_controller();
 
 		$shipping_total = $MethodBase->calculate();
 
@@ -124,7 +124,7 @@ class OrderBaseComponent extends Object
 		$order['Order']['tax'] = $this->get_order_tax($order);
 		$order['Order']['total'] = $this->get_order_total($order) + $order['Order']['tax'] + $order['Order']['shipping'] ;
 
-		$EventBase =& new EventBaseComponent(new ComponentCollection());
+		$EventBase = new EventBaseComponent(new ComponentCollection());
 
 		$EventBase->ProcessEvent('UpdateOrderTotalsBeforeSave');
 		$this->Order->save($order);
@@ -138,7 +138,7 @@ class OrderBaseComponent extends Object
 		$order_product = $this->Order->OrderProduct->find('first', array('conditions' => array('content_id' => $product_id,'order_id' => $_SESSION['Customer']['order_id'])));
                 $prices = $this->get_price_product($product_id);                
 
-		$EventBase =& new EventBaseComponent(new ComponentCollection());
+		$EventBase = new EventBaseComponent(new ComponentCollection());
 
 		$EventBase->ProcessEvent('RemoveFromCartBeforeSave');
 
@@ -245,7 +245,7 @@ class OrderBaseComponent extends Object
 			}
 		}
 
-		$EventBase =& new EventBaseComponent(new ComponentCollection());
+		$EventBase = new EventBaseComponent(new ComponentCollection());
 
 		$EventBase->ProcessEvent('AddToCartBeforeSave');
 		$this->Order->OrderProduct->save($order_product);

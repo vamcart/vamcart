@@ -87,7 +87,7 @@ class ActionController extends ModuleReviewsAppController {
 			
 			$content_description = $this->ContentBase->get_content_description($content_id);			
 			
-			$CurrencyBase =& new CurrencyBaseComponent(new ComponentCollection());
+			$CurrencyBase = new CurrencyBaseComponent(new ComponentCollection());
 			
 			$assignments = array();
 			
@@ -108,7 +108,7 @@ class ActionController extends ModuleReviewsAppController {
 		global $content,$config;
 		$assignments = array();
 		
-		$CurrencyBase =& new CurrencyBaseComponent(new ComponentCollection());
+		$CurrencyBase = new CurrencyBaseComponent(new ComponentCollection());
 		
 		if(empty($_GET['content_id']))
 		{

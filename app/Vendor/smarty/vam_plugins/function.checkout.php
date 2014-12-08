@@ -303,19 +303,19 @@ function smarty_function_checkout($params, $template)
 	 *  Load some necessary models
 	 **/	
 	App::uses('SmartyComponent', 'Controller/Component');
-		$Smarty =& new SmartyComponent(new ComponentCollection());
+		$Smarty = new SmartyComponent(new ComponentCollection());
 
 	App::uses('CurrencyBaseComponent', 'Controller/Component');
-		$CurrencyBase =& new CurrencyBaseComponent(new ComponentCollection());		
+		$CurrencyBase = new CurrencyBaseComponent(new ComponentCollection());		
 	
 	App::import('Model', 'Order');
-		$Order =& new Order();
+		$Order = new Order();
 		
 	App::import('Model', 'ShippingMethod');
-		$ShippingMethod =& new ShippingMethod();
+		$ShippingMethod = new ShippingMethod();
 
 	App::import('Model', 'PaymentMethod');
-		$PaymentMethod =& new PaymentMethod();
+		$PaymentMethod = new PaymentMethod();
 
 	// Assign the shipping methods
 	$assignments = array();
@@ -327,7 +327,7 @@ function smarty_function_checkout($params, $template)
 		$shipping = Inflector::classify($method['ShippingMethod']['code']);
 		$shipping_controller =  Inflector::classify($method['ShippingMethod']['code']) . 'Controller';
 		App::import('Controller', 'Shipping.'.$shipping);
-		$MethodBase =& new $shipping_controller();
+		$MethodBase = new $shipping_controller();
 		
 		$ship_method_id = $method['ShippingMethod']['id'];
 		
@@ -364,7 +364,7 @@ function smarty_function_checkout($params, $template)
 	$order = $Order->find('first', array('conditions' => array('Order.id' => $_SESSION['Customer']['order_id'])));
 
 	App::import('Model', 'Customer');
-	$Customer =& new Customer();
+	$Customer = new Customer();
 		
 	$customer = false;
 			

@@ -43,10 +43,10 @@ function smarty_function_product_label($params, $template)
 		ob_start();
 	
 	App::uses('SmartyComponent', 'Controller/Component');
-		$Smarty =& new SmartyComponent(new ComponentCollection());
+		$Smarty = new SmartyComponent(new ComponentCollection());
 
 	App::import('Model', 'Label');
-		$Label =& new Label();
+		$Label = new Label();
 	
 	$label = $Label->find('first', array('conditions' => array('active' => 1, 'id' => $params['label_id'])));
 

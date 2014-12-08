@@ -11,7 +11,7 @@ function smarty_function_country_list($params, &$smarty)
     global $content;
 
     App::import('Model', 'Country');
-        $Country =& new Country();
+        $Country = new Country();
     
     $options = $Country->find('list', array('conditions' => array('active' => '1'),'order' => array('Country.name'), 'fields'=>'id, name'));
     $List = '';

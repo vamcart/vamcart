@@ -36,10 +36,10 @@ function smarty_function_filter($params)
     global $config;
     
     App::uses('SmartyComponent', 'Controller/Component');
-    $Smarty =& new SmartyComponent(new ComponentCollection());
+    $Smarty = new SmartyComponent(new ComponentCollection());
     
     App::import('Model', 'Attribute');
-    $Attribute =& new Attribute();		
+    $Attribute = new Attribute();		
     
     if (empty($content['FilteredAttribute'])||$content['ContentType']['name'] != 'category') 
     {

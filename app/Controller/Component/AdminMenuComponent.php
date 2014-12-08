@@ -112,7 +112,7 @@ class AdminMenuComponent extends Component
 		
 		// Add module navigation elements
 		App::import('Model', 'Module');
-		$Module =& new Module();
+		$Module = new Module();
 		
 		$modules = $Module->find('all');
 		

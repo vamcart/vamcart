@@ -24,7 +24,7 @@ function smarty_block_lang($params, $content, $template, &$repeat)
 	{
 
 			App::import('Model', 'DefinedLanguage');
-			$DefinedLanguage =& new DefinedLanguage();
+			$DefinedLanguage = new DefinedLanguage();
 			
 			$text_values_cache_output = array();
 	

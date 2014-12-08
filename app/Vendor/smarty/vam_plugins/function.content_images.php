@@ -57,10 +57,10 @@ function smarty_function_content_images($params, $template)
 	global $config;
 
 	App::uses('SmartyComponent', 'Controller/Component');
-		$Smarty =& new SmartyComponent(new ComponentCollection());
+		$Smarty = new SmartyComponent(new ComponentCollection());
 		
 	App::import('Model', 'ContentImage');
-		$ContentImage =& new ContentImage();
+		$ContentImage = new ContentImage();
 	
 	if(!isset($params['number']))
 		$params['number'] = null;		

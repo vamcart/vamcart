@@ -184,10 +184,10 @@ return $template;
 function smarty_function_my_orders($params, $template)
 {
 	App::uses('SmartyComponent', 'Controller/Component');
-	$Smarty =& new SmartyComponent(new ComponentCollection());
+	$Smarty = new SmartyComponent(new ComponentCollection());
 
 	App::import('Model', 'Order');
-	$Order =& new Order();
+	$Order = new Order();
 
 		$Order->OrderStatus->unbindModel(array('hasMany' => array('OrderStatusDescription')));
 		$Order->OrderStatus->bindModel(

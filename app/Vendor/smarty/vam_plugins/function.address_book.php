@@ -162,10 +162,10 @@ return $template;
 function smarty_function_address_book($params, $template)
 {
 	App::uses('SmartyComponent', 'Controller/Component');
-	$Smarty =& new SmartyComponent(new ComponentCollection());
+	$Smarty = new SmartyComponent(new ComponentCollection());
 
 	App::import('Model', 'Customer');
-	$Customer =& new Customer();
+	$Customer = new Customer();
 
 	$customer_data = $Customer->AddressBook->find('first', array('conditions' => array('AddressBook.customer_id' => $_SESSION['Customer']['customer_id'])));
 

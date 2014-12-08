@@ -30,7 +30,7 @@ class CartController extends AppController {
 			if ($new_order['Order']['customer_id'] > 0) {
 				
 			App::import('Model', 'Customer');
-			$Customer =& new Customer();
+			$Customer = new Customer();
 				
 			$customer = $Customer->find('first', array('conditions' => array('Customer.id' => $_SESSION['Customer']['customer_id'])));
 			

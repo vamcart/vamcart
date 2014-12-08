@@ -28,7 +28,7 @@ class PaymentMethodsController extends AppController {
 
 		// Load Order Statuses
 		App::import('Model', 'OrderStatusDescription');
-		$OrderStatusDescription =& new OrderStatusDescription();
+		$OrderStatusDescription = new OrderStatusDescription();
 
 		$statutes = $OrderStatusDescription->find('all', array('order' => array('OrderStatusDescription.id ASC'), 'conditions'   => 'language_id = ' . $this->Session->read('Customer.language_id')));
 		$statutes_list = array();

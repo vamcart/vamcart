@@ -17,7 +17,7 @@ function smarty_function_state_list($params, &$smarty)
 				$params['selected'] = ($_SESSION['Customer']['language'] == 'ru') ? 99 : 332;
 
         App::import('Model', 'CountryZone');
-        $CountryZone =& new CountryZone();
+        $CountryZone = new CountryZone();
         $options = $CountryZone->find('all', array('fields' => array('id', 'name'),
                                                    'conditions' => array('country_id' => $params['country']),
                                                    'order' => 'name'

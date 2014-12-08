@@ -36,7 +36,7 @@ class CurrencyBaseComponent extends Object
 		{
 		
 			App::import('Model', 'Currency');
-			$Currency =& new Currency();
+			$Currency = new Currency();
 	
 			$currency = $Currency->read(null, $_SESSION['Customer']['currency_id']);
 

@@ -36,7 +36,7 @@ class SmartyComponent extends Component
 				ob_start();
 
 				App::import('Model', 'MicroTemplate');
-				$MicroTemplate =& new MicroTemplate();
+				$MicroTemplate = new MicroTemplate();
 
 				$template = $MicroTemplate->find('first', array('conditions' => array('alias' => $params['template'])));
 				$display_template = $template['MicroTemplate']['template'];

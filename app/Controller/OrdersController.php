@@ -33,7 +33,7 @@ class OrdersController extends AppController {
 		$clean->clean($_POST);
 					
 		App::import('Model', 'Customer');
-		$Customer =& new Customer();					
+		$Customer = new Customer();					
 			
 		$customer = $Customer->find('count',array('conditions' => array('Customer.email' => $_POST['email'])));
 		
@@ -137,7 +137,7 @@ class OrdersController extends AppController {
 					if (!$filename) {
 
 					App::import('Model', 'ContentProduct');
-					$ContentProduct =& new ContentProduct();
+					$ContentProduct = new ContentProduct();
 					//$product_data = $ContentProduct->findByContentId($order_data['content_id']);
                $product_data = $ContentProduct->find('first',array('conditions' => array('ContentProduct.content_id' => $order_data['content_id'])
                                                                                            ,'fields' => array('ContentProduct.id','ContentProduct.ordered','ContentProduct.stock')
@@ -149,7 +149,7 @@ class OrdersController extends AppController {
 					}
 				} else {
 					App::import('Model', 'ContentDownloadable');
-					$ContentDownloadable =& new ContentDownloadable();
+					$ContentDownloadable = new ContentDownloadable();
 					//$product_data = $ContentDownloadable->findByContentId($order_data['content_id']);
                $product_data = $ContentDownloadable->find('first',array('conditions' => array('ContentDownloadable.content_id' => $order_data['content_id'])
                                                                                            ,'fields' => array('ContentDownloadable.id','ContentDownloadable.ordered','ContentDownloadable.stock')
@@ -294,7 +294,7 @@ class OrdersController extends AppController {
 							if (!$filename) {
 
 								App::import('Model', 'ContentProduct');
-								$ContentProduct =& new ContentProduct();
+								$ContentProduct = new ContentProduct();
 								//$product_data = $ContentProduct->findByContentId($order_data['content_id']);
                                                                 $product_data = $ContentProduct->find('first',array('conditions' => array('ContentProduct.content_id' => $order_data['content_id'])
                                                                                            ,'fields' => array('ContentProduct.id','ContentProduct.ordered','ContentProduct.stock')
@@ -304,7 +304,7 @@ class OrdersController extends AppController {
 								$ContentProduct->save($product_data);
 							} else {
 								App::import('Model', 'ContentDownloadable');
-								$ContentDownloadable =& new ContentDownloadable();
+								$ContentDownloadable = new ContentDownloadable();
 								//$product_data = $ContentDownloadable->findByContentId($order_data['content_id']);
                                                                 $product_data = $ContentDownloadable->find('first',array('conditions' => array('ContentDownloadable.content_id' => $order_data['content_id'])
                                                                                            ,'fields' => array('ContentDownloadable.id','ContentDownloadable.ordered','ContentDownloadable.stock')
@@ -469,7 +469,7 @@ class OrdersController extends AppController {
 					if (!$filename) {
 
 					App::import('Model', 'ContentProduct');
-					$ContentProduct =& new ContentProduct();
+					$ContentProduct = new ContentProduct();
 					//$product_data = $ContentProduct->findByContentId($order_data['content_id']);
                                         $product_data = $ContentProduct->find('first',array('conditions' => array('ContentProduct.content_id' => $order_data['content_id'])
                                                                                            ,'fields' => array('ContentProduct.id','ContentProduct.ordered','ContentProduct.stock')
@@ -479,7 +479,7 @@ class OrdersController extends AppController {
 					$ContentProduct->save($product_data);
 				} else {
 					App::import('Model', 'ContentDownloadable');
-					$ContentDownloadable =& new ContentDownloadable();
+					$ContentDownloadable = new ContentDownloadable();
 					//$product_data = $ContentDownloadable->findByContentId($order_data['content_id']);
                                         $product_data = $ContentDownloadable->find('first',array('conditions' => array('ContentDownloadable.content_id' => $order_data['content_id'])
                                                                                            ,'fields' => array('ContentDownloadable.id','ContentDownloadable.ordered','ContentDownloadable.stock')

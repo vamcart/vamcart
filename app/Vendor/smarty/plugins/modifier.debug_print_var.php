@@ -31,7 +31,7 @@ function smarty_modifier_debug_print_var ($var, $depth = 0, $length = 40)
             $results = '<b>Array (' . count($var) . ')</b>';
             foreach ($var as $curr_key => $curr_val) {
                 $results .= '<br>' . str_repeat('&nbsp;', $depth * 2)
-                 . '<b>' . strtr($curr_key, $_replace) . '</b> =&gt; '
+                 . '<b>' . strtr($curr_key, $_replace) . '</b> =gt; '
                  . smarty_modifier_debug_print_var($curr_val, ++$depth, $length);
                 $depth--;
             } 

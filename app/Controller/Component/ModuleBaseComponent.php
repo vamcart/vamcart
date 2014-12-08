@@ -15,7 +15,7 @@ class ModuleBaseComponent extends Object
 	}
 
 	public function initialize(Controller &$controller, $settings = array()) {
-		$this->controller =& $controller;
+		$this->controller = $controller;
     }
     
 	public function startup(Controller $controller) {
@@ -42,7 +42,7 @@ class ModuleBaseComponent extends Object
 		$current_version = $this->get_version();
 
 		App::import('Model', 'Module');
-		$Module =& new Module();
+		$Module = new Module();
 		
 		$module_alias = substr($this->controller->plugin,7,strlen($this->controller->plugin));
 		$installed_module = $Module->find('first', array('conditions' => array('alias' => $module_alias)));
@@ -87,7 +87,7 @@ class ModuleBaseComponent extends Object
 	public function create_core_page ($alias,$name,$description)
 	{
 		App::import('Model', 'Content');
-			$Content =& new Content();		
+			$Content = new Content();		
 
 		$new_page = array();
 		$new_page['Content']['alias'] = $alias;
@@ -97,7 +97,7 @@ class ModuleBaseComponent extends Object
 
 		// Get the default template
 		App::import('Model', 'Template');
-			$Template =& new Template();		
+			$Template = new Template();		
 		
 		$default_template = $Template->find('first', array('conditions' => array('default' => '1')));
 		$new_page['Content']['template_id'] = $default_template['Template']['id'];
@@ -125,7 +125,7 @@ class ModuleBaseComponent extends Object
 	public function check_if_installed ($module_alias,$redirect = true)
 	{
 		App::import('Model', 'Module');
-		$Module =& new Module();
+		$Module = new Module();
 		
 		$check_count = $Module->find('count', array('conditions' => array('Module.alias' => $module_alias)));
 		

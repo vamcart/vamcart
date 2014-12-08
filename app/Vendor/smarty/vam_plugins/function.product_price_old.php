@@ -11,7 +11,7 @@ function smarty_function_product_price_old($params, $template)
 	global $content;
 	
 	App::uses('CurrencyBaseComponent', 'Controller/Component');
-	$CurrencyBase =& new CurrencyBaseComponent(new ComponentCollection());
+	$CurrencyBase = new CurrencyBaseComponent(new ComponentCollection());
 
 	$content_type = 'ContentProduct';
 	if ($content['Content']['content_type_id'] == 7) $content_type = 'ContentDownloadable';

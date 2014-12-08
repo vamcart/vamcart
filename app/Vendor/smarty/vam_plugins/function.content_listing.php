@@ -202,12 +202,12 @@ function smarty_function_content_listing($params, $template)
 		
 	// Load some necessary components & models
 	App::uses('SmartyComponent', 'Controller/Component');
-		$Smarty =& new SmartyComponent(new ComponentCollection());
+		$Smarty = new SmartyComponent(new ComponentCollection());
 
 	App::uses('CakeTime', 'Utility');
 
 	App::import('Model', 'Content');
-		$Content =& new Content();		
+		$Content = new Content();		
 		$Content->unbindAll();	
 		$Content->bindModel(array('hasOne' => array(
 				'ContentDescription' => array(
@@ -264,7 +264,7 @@ function smarty_function_content_listing($params, $template)
 	{
 		// Set the default conditions if all or nothing was passed
 		App::import('Model', 'ContentType');
-		$ContentType =& new ContentType();
+		$ContentType = new ContentType();
 		$allowed_types = $ContentType->find('list');
 	}
 	else
@@ -283,7 +283,7 @@ function smarty_function_content_listing($params, $template)
         // Applying pagination for products only
         if(strpos($params['type'],'product') !== false){
 //1.Найдем группы        
-        $ContentGroup =& new Content();
+        $ContentGroup = new Content();
         $ContentGroup->recursive = -1;
         $content_list_group = $ContentGroup->find('list', array('fields' => array('Content.id_group' ,'COUNT(Content.id) AS grp_cnt')
                                                          ,'conditions' => $content_list_data_conditions
@@ -293,7 +293,7 @@ function smarty_function_content_listing($params, $template)
 //
         if(!empty($filter_list))
         {
-            $ContentFiltered =& new Content();
+            $ContentFiltered = new Content();
             $ContentFiltered->recursive = -1;
             $content_list_data_joins = array(array('table' => 'attributes'
                                                   ,'alias' => 'Attribute'
@@ -408,8 +408,8 @@ function smarty_function_content_listing($params, $template)
 	$content_list = array();
 	$count = 0;
 	
-	$CurrencyBase =& new CurrencyBaseComponent(new ComponentCollection());
-	$ContentBase =& new ContentBaseComponent(new ComponentCollection());
+	$CurrencyBase = new CurrencyBaseComponent(new ComponentCollection());
+	$ContentBase = new ContentBaseComponent(new ComponentCollection());
 	
 	foreach($content_list_data AS $raw_data)
 	{

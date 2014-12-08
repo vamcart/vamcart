@@ -60,10 +60,10 @@ function smarty_function_category_box($params, $template)
 	ob_start();
 
 	App::uses('SmartyComponent', 'Controller/Component');
-	$Smarty =& new SmartyComponent(new ComponentCollection());
+	$Smarty = new SmartyComponent(new ComponentCollection());
 
 	App::import('Model', 'Content');
-		$Content =& new Content();		
+		$Content = new Content();		
 		$Content->unbindAll();	
 		$Content->bindModel(array('hasOne' => array(
 				'ContentDescription' => array(

@@ -94,11 +94,11 @@ function smarty_function_attribute_list($params)
 {  
     global $content;
     App::uses('SmartyComponent', 'Controller/Component');
-    $Smarty =& new SmartyComponent(new ComponentCollection());
+    $Smarty = new SmartyComponent(new ComponentCollection());
     
     $attr = array();
     App::import('Model', 'Content');
-    $Content =& new Content();
+    $Content = new Content();
 
     if (isset($params['product_id'])) //Для каталога
     { 
