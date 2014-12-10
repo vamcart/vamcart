@@ -208,6 +208,16 @@ function smarty_function_content_listing($params, $template)
 
 	App::import('Model', 'Content');
 		$Content = new Content();		
+
+	// Make sure parent is valid, if it's not a number get the correct parent number
+	if(!isset($params['parent']))
+		$params['parent'] = 0;
+	if(!is_numeric($params['parent']))
+	{
+		$get_content = $Content->findByAlias($params['parent']);
+		$params['parent'] = $get_content['Content']['id'];
+	}
+
 		$Content->unbindAll();	
 		$Content->bindModel(array('hasOne' => array(
 				'ContentDescription' => array(
@@ -240,15 +250,6 @@ function smarty_function_content_listing($params, $template)
                     'className' => 'ContentSpecial'
 					))));
 		
-	// Make sure parent is valid, if it's not a number get the correct parent number
-	if(!isset($params['parent']))
-		$params['parent'] = 0;
-	if(!is_numeric($params['parent']))
-	{
-		$get_content = $Content->findByAlias($params['parent']);
-		$params['parent'] = $get_content['Content']['id'];
-	}
-
         if(!isset ($params['page']))
             $params['page'] = 1;
 
@@ -257,7 +258,8 @@ function smarty_function_content_listing($params, $template)
 
         if(!isset($params['label_id'])) 
             $params['label_id'] = 0;
-	
+
+
 	// Loop through the values in $params['type'] and set some more condiitons
 	$allowed_types = array();
 	if((!isset($params['type'])) || ($params['type'] == 'all'))
