@@ -24,6 +24,7 @@ $(document).ready(function () {
 		header: false,
 		date: false,
 		content: false,
+		linktarget: "_blank",
 		limit: 1,
 	});
 
@@ -31,6 +32,7 @@ $(document).ready(function () {
 		header: false,
 		date: true,
 		content: true,
+		linktarget: "_blank",
 		limit: 5,
 	});
 });
