@@ -1,3 +1,3 @@
 {if $reviews}
-	{lang}Reviews{/lang}: <span itemprop="reviewCount">{$total}</span>, 
+	{lang}Reviews{/lang}: {$total}, 
 {/if}

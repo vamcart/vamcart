@@ -1,3 +1,3 @@
 {if $reviews}
-	{lang}Rating value{/lang}: <span itemprop="ratingValue">{$star_rating}</span>
+	{lang}Rating value{/lang}: {$star_rating}
 {/if}
