@@ -2532,6 +2532,26 @@ msgstr "Работает на основе"
 msgid "vamshop.com"
 msgstr "vamshop.ru"
 
+#: /app/View/Admin/admin_top.ctp:53
+msgid "VamShop News"
+msgstr "Новости VamShop"
+
+#: /app/View/Admin/admin_top.ctp:53
+msgid "Total Orders"
+msgstr "Всего заказов"
+
+#: /app/View/Admin/admin_top.ctp:53
+msgid "Total Sales"
+msgstr "Сумма продаж"
+
+#: /app/View/Admin/admin_top.ctp:53
+msgid "Pending Orders"
+msgstr "Новых заказов"
+
+#: /app/View/Admin/admin_top.ctp:53
+msgid "Total Customers"
+msgstr "Всего покупателей"
+
 #: /views/micro_templates/admin_create_from_tag.ctp:17
 #: /views/micro_templates/admin_edit.ctp:18
 msgid "Micro Template Details"

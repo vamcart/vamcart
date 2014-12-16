@@ -26,6 +26,13 @@ $(document).ready(function () {
 		content: false,
 		limit: 1,
 	});
+
+	$("#vamshop-rss").rssfeed("http://support.'.__('vamshop.com',true).'/modules/news/backendt.php?topicid=1", {
+		header: false,
+		date: true,
+		content: true,
+		limit: 5,
+	});
 });
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false));
 
@@ -154,10 +161,41 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 
 	echo '<div id="news"></div>';
 
+	echo '<div class="row-fluid">';
+	echo '<div class="span5">';
+
+	echo '
+			<div class="row-fluid">
+			<div class="panel panel-default span4">
+			  <div class="panel-heading">
+			    <h3 class="panel-title"><i class="cus-cart"></i> '.__('Total Orders').'</h3>
+			  </div>
+			  <div class="panel-body text-center">
+			    <h4>'.$total_orders.(($pending_orders > 0) ? ' <sup><span title="'.__('Pending Orders').': '.$pending_orders.'" class="badge badge-important"> '.$this->Html->link($pending_orders,'/orders/admin/').' </span></sup>' : '').'</h4>
+			  </div>
+			</div>
+			<div class="panel panel-default span4">
+			  <div class="panel-heading">
+			    <h3 class="panel-title"><i class="cus-calculator"></i> '.__('Total Sales').'</h3>
+			  </div>
+			  <div class="panel-body text-center">
+			    <h4>'.$total_sales.'</h4>
+			  </div>
+			</div>
+			<div class="panel panel-default span4">
+			  <div class="panel-heading">
+			    <h3 class="panel-title"><i class="cus-user"></i> '.__('Total Customers').'</h3>
+			  </div>
+			  <div class="panel-body text-center">
+			    <h4>'.$total_customers.'</h4>
+			  </div>
+			</div>
+			</div>
+		';
+
 			echo '<ul id="myTab" class="nav nav-tabs">';
 			if($level == 1) {
 			echo $this->admin->CreateTab('orders',__('Orders',true), 'cus-cart');
-			echo $this->admin->CreateTab('sales',__('Sales Report',true), 'cus-chart-bar');
 			echo $this->admin->CreateTab('top',__('Top Products',true), 'cus-chart-pie');
 			}
 			echo $this->admin->CreateTab('home',__('Menu',true), 'cus-chart-organisation');
@@ -190,15 +228,6 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 
 		echo $this->admin->EndTabContent();
 				
-		echo $this->admin->StartTabContent('sales');
-
-		echo '<div id="charts">';
-		echo '<div id="chart1"></div>';
-		echo '<div id="chart2"></div>';
-		echo '</div>';
-
-		echo $this->admin->EndTabContent();
-                                
                 echo $this->admin->StartTabContent('top');
                 
                     echo '<table class="orderTable"><tr><td>';
@@ -304,5 +333,49 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 		echo $this->admin->EndTabContent();
 		
 	echo $this->admin->EndTabs();
+
+	echo '</div>';
+	
+	echo '<div class="span4">';
+
+			echo '<ul id="myTabSales" class="nav nav-tabs">';
+			echo $this->admin->CreateTab('sales',__('Sales Report',true), 'cus-chart-bar');
+			echo '</ul>';
+
+	echo $this->admin->StartTabs();
+	
+		echo $this->admin->StartTabContent('sales');
+
+		echo '<div id="charts">';
+		echo '<div id="chart1"></div>';
+		echo '<div id="chart2"></div>';
+		echo '</div>';
+			
+		echo $this->admin->EndTabContent();
+
+	echo $this->admin->EndTabs();
+
+	echo '</div>';	
+
+	echo '<div class="span3">';
+
+			echo '<ul id="myTabNews" class="nav nav-tabs">';
+			echo $this->admin->CreateTab('vamshop-news',__('VamShop News',true), 'cus-newspaper');
+			echo '</ul>';
+
+	echo $this->admin->StartTabs('rss-news');
+	
+		echo $this->admin->StartTabContent('vamshop-news');
+
+			echo '<div id="vamshop-rss"></div>';
+			
+		echo $this->admin->EndTabContent();
+
+	echo $this->admin->EndTabs();
+
+	echo '</div>';	
+	
+	echo '</div>';
+
 	
 	echo $this->admin->ShowPageHeaderEnd();

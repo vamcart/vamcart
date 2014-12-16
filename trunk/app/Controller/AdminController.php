@@ -103,7 +103,7 @@ class AdminController extends AppController {
 
 		$data = $this->Order->find('all', array(	'conditions' => array('Order.order_status_id >' => '0'), 
 																'order' => array('Order.id DESC'), 
-																'limit' => 20
+																'limit' => 18
 															));
 
 		// Bind and set the order status select list
@@ -130,6 +130,41 @@ class AdminController extends AppController {
 		$this->set('order_status_list',$order_status_list);
 
 		$this->set('data',$data);
+
+		// Total orders
+
+				$this->Order->unbindAll();	
+
+            $total_orders = $this->Order->find('first', array('fields' => array('TRUNCATE(SUM(Order.total),2) as summ','COUNT(Order.id) as cnt')
+                                                    ,'conditions' => array('Order.order_status_id >' => '0')));
+
+		// Pending orders
+
+            //Get default order status
+            
+				App::import('Model', 'OrderStatus');
+				$OrderStatus = new OrderStatus();	
+
+				$pending_orders = $OrderStatus->find('first', array('conditions' => array('default' => '1')));
+
+				$this->Order->unbindAll();	
+
+            $pending_orders = $this->Order->find('count', array('conditions' => array('Order.order_status_id' => $pending_orders['OrderStatus']['id'])));
+
+		// Total customers
+
+				App::import('Model', 'Customer');
+				$Customer = new Customer();	
+		                        
+				$Customer->unbindAll();	
+
+            $total_customers = $Customer->find('count');
+
+		$this->set('total_orders',$total_orders[0]['cnt']);
+		$this->set('pending_orders',$pending_orders);
+		$this->set('total_sales',($total_orders[0]['summ'] > 0) ? $total_orders[0]['summ'] : 0);
+		$this->set('total_customers',$total_customers);
+
 			
 	}
 }
