@@ -11,6 +11,8 @@
 		<div class="media-body" itemprop="review" itemscope itemtype="http://schema.org/Review">
 			<div class="inner">
 				<h4 class="media-heading"><span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{$review.name}</span></span> - <span content="{$review.created|date_format:"%Y-%m-%d"}" itemprop="datePublished">{$review.created|date_format:"%Y-%m-%d"}</span>:</h4>
+				
+					<meta itemprop="itemReviewed" content="{$content_name}">
 
 					<div class="description" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
 						<span itemprop="ratingValue" content="{$review.rating}">{lang}Rating{/lang}: {$review.rating}</span>
