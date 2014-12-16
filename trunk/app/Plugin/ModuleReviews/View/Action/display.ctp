@@ -15,7 +15,7 @@
 					<meta itemprop="itemReviewed" content="{$content_name}">
 
 					<div class="description" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
-						<span itemprop="ratingValue" content="{$review.rating}">{lang}Rating{/lang}: {$review.rating}</span>
+						{lang}Rating{/lang}: <span itemprop="ratingValue" content="{$review.rating}">{$review.rating}</span>
 					</div>
 
 					<div class="description" itemprop="reviewBody">
