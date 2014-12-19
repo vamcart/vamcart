@@ -1,13 +1,15 @@
-//<![CDATA[
+// Slide menu
 $(document).ready(function(){
   $('.toggle-menu').jPushMenu({closeOnClickLink: false});
   $('.dropdown-toggle').dropdown();
 });
-//]]>
+
+// Google material design theme init
 $(document).ready(function() {
     $.material.init();
 });
 
+// Scroll to top button 
 $(function(){
  
 	$(document).on( 'scroll', function(){
@@ -30,6 +32,7 @@ function scrollToTop() {
 	$('html, body').animate({scrollTop: offsetTop}, 500, 'linear');
 }
 
+// Fixed nav
 $('#nav').affix({
       offset: {
         top: $('header').height()
