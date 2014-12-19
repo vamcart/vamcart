@@ -1,0 +1,12 @@
+body {
+  background: #fff;	
+  color: #000;
+}
+
+li a,
+a:hover,
+a:focus,
+a:visited,
+ {
+  color: red;
+}
