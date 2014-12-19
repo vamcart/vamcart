@@ -10,3 +10,34 @@ a:visited,
  {
   color: red;
 }
+
+.scroll-top-wrapper {
+   position: fixed;
+	opacity: 0;
+	visibility: hidden;
+	text-align: center;
+	z-index: 99999999;
+	width: 70px;
+	height: 90px;
+	line-height: 90px;
+	right: 30px;
+	bottom: 30px;
+	padding-top: 2px;
+}
+.scroll-top-wrapper:hover {
+}
+.scroll-top-wrapper.show {
+   visibility: visible;
+   cursor: pointer;
+	opacity: 1.0;
+}
+.scroll-top-wrapper i.fa {
+	line-height: inherit;
+}
+ 
+#nav.affix {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index:10;
+}
