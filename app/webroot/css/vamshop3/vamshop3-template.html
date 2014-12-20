@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html>
 <head>
 	{meta_description}
@@ -20,7 +19,19 @@
 	{bender src="{base_path}/css/vamshop3/vamshop3.css"}
 	{bender output="{base_path}/css/vamshop3-packed.css"}
 	{stylesheet}
-	<script src="{base_path}/js/jquery/jquery.min.js"></script>
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="{base_path}/js/html5.js"></script>
+	<![endif]-->
+	{bender src="{base_path}/js/jquery/jquery.min.js"}
+	{bender src="{base_path}/js/bootstrap3/bootstrap.min.js"}
+	{bender src="{base_path}/js/ie10-viewport-bug-workaround.js"}
+	{bender src="{base_path}/js/jquery/plugins/jpushmenu/jpushmenu.js"}
+	{bender src="{base_path}/js/jquery/plugins/colorbox/jquery.colorbox-min.js"}
+	{bender src="{base_path}/js/material/ripples.min.js"}
+	{bender src="{base_path}/js/material/material.min.js"}
+	{bender src="{base_path}/js/vamshop3/vamshop3.js"}
+	{bender output="{base_path}/js/vamshop3-packed.js"}
 </head>
 <body>
 {google_analytics}
@@ -106,21 +117,6 @@
       </footer>
 
     </div><!-- /.container -->
-
-	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-	<!--[if lt IE 9]>
-	<script type="text/javascript" src="{base_path}/js/html5.js"></script>
-	<![endif]-->
-
-	{bender src="{base_path}/js/bootstrap3/bootstrap.min.js"}
-	{bender src="{base_path}/js/ie10-viewport-bug-workaround.js"}
-	{bender src="{base_path}/js/jquery/plugins/jpushmenu/jpushmenu.js"}
-	{bender src="{base_path}/js/jquery/plugins/colorbox/jquery.colorbox-min.js"}
-	{bender src="{base_path}/js/material/ripples.min.js"}
-	{bender src="{base_path}/js/material/material.min.js"}
-	{bender src="{base_path}/js/vamshop3/vamshop3.js"}
-	{bender output="{base_path}/js/vamshop3-packed.js"}
-
 
 </body>
 </html>
