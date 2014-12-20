@@ -41,7 +41,7 @@
 	<!-- end: Header -->
 
     <div id="nav">    
-     <div class="navbar navbar-warning">
+     <div class="navbar navbar-default">
       <div class="container">    
        <div class="navbar-header">
          <button type="button" class="navbar-toggle toggle-menu menu-left" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -54,7 +54,7 @@
             <i class="fa fa-home"></i>
 	      </a>
        </div>
-       <div class="collapse navbar-collapse navbar-warning cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="bs-example-navbar-collapse-1">
+       <div class="collapse navbar-collapse navbar-default cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="bs-example-navbar-collapse-1">
 			{content_listing template="vamshop3-info-links" parent="information" limit="10"}
 	      <form class="navbar-form navbar-left" role="search" action="{base_path}/page/search-result.html" method="get">
 	        <div class="form-group">
@@ -73,10 +73,10 @@
     
     <div class="container">
 
-		{breadcrumbs}
 
-      <div class="row">
+      <div class="row content">
          {flash_message}          
+         {breadcrumbs}
 		    <div class="col-sm-8 col-md-9 col-md-push-3">
 		         <div id="ajaxcontent">
 		         {if isset($is_compared)}{compared}{else}{content}{/if}
@@ -98,7 +98,7 @@
         {global_content alias="footer"}
         
 		<div class="scroll-top-wrapper ">
-				<button class="btn btn-fab btn-raised btn-warning"><i class="fa fa-chevron-up"></i></button>
+				<button class="btn btn-fab btn-fab-mini btn-raised btn-sm btn-warning"><i class="fa fa-chevron-up"></i></button>
 		</div>
         
       </footer>
