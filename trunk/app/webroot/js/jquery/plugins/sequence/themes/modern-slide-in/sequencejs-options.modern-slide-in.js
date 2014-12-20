@@ -3,7 +3,7 @@ $(document).ready(function(){
         nextButton: true,
         prevButton: true,
         animateStartingFrameIn: true,
-        autoPlay: false,
+        autoPlay: true,
     };
     
     var mySequence = $("#sequence").sequence(options).data("sequence");
