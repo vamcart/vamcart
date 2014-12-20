@@ -1,9 +1,9 @@
 body {
-	background: transparent;
+   background-color: #f9f9f9;
 }
 
 .row.content {
-background-color: #eee;
+background: #fff;
 padding: 20px;
 margin-bottom: 20px;
 box-shadow: 0 1px 8px rgba(0,0,0,.23),0 1px 8px rgba(0,0,0,.16);
