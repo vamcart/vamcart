@@ -32,17 +32,21 @@ function smarty_block_lang($params, $content, $template, &$repeat)
 
 			$text_values = array_combine(Set::extract($defined_language_values, '{n}.DefinedLanguage.key'),
 						 		 Set::extract($defined_language_values, '{n}.DefinedLanguage.value'));	
-						 		 
+
+			if(array_key_exists($content,$text_values))
+			{
+			$content = $text_values[$content];
+	      }			
+                						 		 
 		Cache::write($text_values_cache_name, $text_values, 'catalog');		
 	}
 
-		if(array_key_exists($content,$text_values_cache_output))
-		{
-		echo $text_values_cache_output[$content];
-		} else {
-		echo $content;
-		}			
-
+			if(array_key_exists($content,$text_values_cache_output))
+			{
+			echo $text_values_cache_output[$content];
+			} else {
+			echo  $content;
+			}			
 
 }
 
