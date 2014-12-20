@@ -30,18 +30,18 @@ Sequence.js and its dependencies are (c) Ian Lunn Design 2012 - 2013 unless othe
   margin: 0 auto;
   position: relative;
   height: 400px; }
-  #sequence > .sequence-canvas {
+  #sequence > ul {
     height: 100%;
     width: 100%; }
-    #sequence > .sequence-canvas > li {
+    #sequence > ul > li {
       position: absolute;
       width: 100%;
       height: 100%;
       z-index: 1;
       top: -50%; }
-      #sequence > .sequence-canvas > li img {
+      #sequence > ul > li img {
         height: 96%; }
-    #sequence > .sequence-canvas li > * {
+    #sequence > ul li > * {
       position: absolute;
       /* only cause the left and opacity properties to transition */
       -webkit-transition-property: left, opacity;
@@ -50,8 +50,8 @@ Sequence.js and its dependencies are (c) Ian Lunn Design 2012 - 2013 unless othe
       -o-transition-property: left, opacity;
       transition-property: left, opacity; }
 
-.sequence-next,
-.sequence-prev {
+.next,
+.prev {
   color: white;
   cursor: pointer;
   display: none;
@@ -72,14 +72,14 @@ Sequence.js and its dependencies are (c) Ian Lunn Design 2012 - 2013 unless othe
 .sequence-paused {
   opacity: 0.3; }
 
-.sequence-prev {
+.prev {
   left: 3%; }
 
-.sequence-next {
+.next {
   right: 3%; }
 
-.sequence-prev img,
-.sequence-next img {
+.prev img,
+.next img {
   height: 100%;
   width: auto; }
 
@@ -125,8 +125,8 @@ Sequence.js and its dependencies are (c) Ian Lunn Design 2012 - 2013 unless othe
   .sequence-pagination li.current img {
     opacity: 1; }
 
-.sequence-next,
-.sequence-prev {
+.next,
+.prev {
   position: absolute;
   opacity: 0.6;
   -webkit-transition-duration: 1s;
@@ -135,8 +135,8 @@ Sequence.js and its dependencies are (c) Ian Lunn Design 2012 - 2013 unless othe
   -o-transition-duration: 1s;
   transition-duration: 1s; }
 
-.sequence-next:hover,
-.sequence-prev:hover {
+.next:hover,
+.prev:hover {
   opacity: 1;
   -webkit-transition-duration: 1s;
   -moz-transition-duration: 1s;
@@ -242,8 +242,8 @@ Sequence.js and its dependencies are (c) Ian Lunn Design 2012 - 2013 unless othe
       font-size: 2.8em; }
     #sequence .subtitle {
       font-size: 1.6em; }
-    #sequence .sequence-next,
-    #sequence .sequence-prev {
+    #sequence .next,
+    #sequence .prev {
       height: 60px;
       margin-top: -40px; }
     #sequence .model {
@@ -323,8 +323,8 @@ Sequence.js and its dependencies are (c) Ian Lunn Design 2012 - 2013 unless othe
     #sequence .sequence-pagination {
       right: 17.5%; } }
 
-#sequence-theme .sequence-next,
-#sequence-theme .sequence-prev {
+#sequence-theme .next,
+#sequence-theme .prev {
   display: block;
   width: 50px;
   text-align: center;
@@ -341,28 +341,28 @@ Sequence.js and its dependencies are (c) Ian Lunn Design 2012 - 2013 unless othe
   vertical-align: middle;
 }
 @media (max-width: 980px) {
-  #sequence-theme .sequence-next,
-  #sequence-theme .sequence-prev {
+  #sequence-theme .next,
+  #sequence-theme .prev {
     margin-top: -33.5px;
     height: 30px;
     width: 30px;
   }
 }
-#sequence-theme .sequence-next i,
-#sequence-theme .sequence-prev i {
+#sequence-theme .next i,
+#sequence-theme .prev i {
   font-size: 30px;
   line-height: 50px;
   margin: 0;
 }
 @media (max-width: 980px) {
-  #sequence-theme .sequence-next i,
-  #sequence-theme .sequence-prev i {
+  #sequence-theme .next i,
+  #sequence-theme .prev i {
     font-size: 20px;
     line-height: 30px;
   }
 }
 
-#sequence-theme .sequence-prev {
+#sequence-theme .prev {
   left: 0;
   -webkit-border-top-right-radius: 6px;
   -webkit-border-bottom-right-radius: 6px;
@@ -383,7 +383,7 @@ Sequence.js and its dependencies are (c) Ian Lunn Design 2012 - 2013 unless othe
 @media (max-width: 980px) {
   
 }
-#sequence-theme .sequence-next {
+#sequence-theme .next {
   right: 0;
   -webkit-border-top-right-radius: 0;
   -webkit-border-bottom-right-radius: 0;
