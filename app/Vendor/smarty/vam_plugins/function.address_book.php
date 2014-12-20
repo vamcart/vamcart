@@ -10,6 +10,7 @@ function default_template_address_book()
 {
 $template = '
 <script type="text/javascript" src="{base_path}/js/modified.js"></script>
+<script type="text/javascript" src="{base_path}/js/focus-first-input.js"></script>
 <script type="text/javascript" src="{base_path}/js/jquery/plugins/validate/jquery.validate.pack.js"></script>
 <script type="text/javascript" src="{base_path}/js/jquery/plugins/maskedinput/jquery.maskedinput.min.js"></script>
 <script type="text/javascript">
