@@ -38,13 +38,6 @@ $template = '
 	</div>
 {/foreach}    
 </div>
-<script type="text/javascript">
-$(document).ready(function(){
-  $(".colorbox").colorbox({
-    rel: "colorbox"
-  });
-});
-</script>
 ';		
 
 return $template;
