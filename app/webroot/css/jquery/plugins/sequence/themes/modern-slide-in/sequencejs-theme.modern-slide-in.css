@@ -29,19 +29,19 @@ Sequence.js and its dependencies are (c) Ian Lunn Design 2012 - 2013 unless othe
   font-size: 0.625em;
   margin: 0 auto;
   position: relative;
-  height: 400px; }
-  #sequence > ul {
+  height: 268px; }
+  #sequence > .sequence-canvas {
     height: 100%;
     width: 100%; }
-    #sequence > ul > li {
+    #sequence > .sequence-canvas > li {
       position: absolute;
       width: 100%;
       height: 100%;
       z-index: 1;
-      top: -50%; }
-      #sequence > ul > li img {
+      top: -55%; }
+      #sequence > .sequence-canvas > li img {
         height: 96%; }
-    #sequence > ul li > * {
+    #sequence > .sequence-canvas li > * {
       position: absolute;
       /* only cause the left and opacity properties to transition */
       -webkit-transition-property: left, opacity;
@@ -50,8 +50,8 @@ Sequence.js and its dependencies are (c) Ian Lunn Design 2012 - 2013 unless othe
       -o-transition-property: left, opacity;
       transition-property: left, opacity; }
 
-.next,
-.prev {
+#sequence .next,
+#sequence .prev {
   color: white;
   cursor: pointer;
   display: none;
@@ -63,70 +63,31 @@ Sequence.js and its dependencies are (c) Ian Lunn Design 2012 - 2013 unless othe
   height: 75px;
   margin-top: -47.5px; }
 
-.sequence-pause {
+#sequence .sequence-pause {
   bottom: 0;
   cursor: pointer;
   position: absolute;
   z-index: 1000; }
 
-.sequence-paused {
+#sequence .sequence-paused {
   opacity: 0.3; }
 
-.prev {
+#sequence .prev {
   left: 3%; }
 
-.next {
+#sequence .next {
   right: 3%; }
 
-.prev img,
-.next img {
+#sequence .prev img,
+#sequence .next img {
   height: 100%;
   width: auto; }
 
 #sequence-preloader {
   background: #d9d9d9; }
 
-.sequence-pagination {
-  bottom: 1%;
-  display: none;
-  right: 6%;
-  position: absolute;
-  z-index: 10;
-  -webkit-transition-duration: 0.5s;
-  -moz-transition-duration: 0.5s;
-  -ms-transition-duration: 0.5s;
-  -o-transition-duration: 0.5s;
-  transition-duration: 0.5s; }
-  .sequence-pagination li {
-    display: inline-block;
-    *display: inline;
-    /* Hack for IE7 and below as they don't support inline-block */
-    height: 140px; }
-    .sequence-pagination li img {
-      cursor: pointer;
-      opacity: 0.5;
-      -webkit-transition-duration: 1s;
-      -moz-transition-duration: 1s;
-      -ms-transition-duration: 1s;
-      -o-transition-duration: 1s;
-      transition-duration: 1s;
-      -webkit-transition-property: margin-bottom, opacity;
-      -moz-transition-property: margin-bottom, opacity;
-      -ms-transition-property: margin-bottom, opacity;
-      -o-transition-property: margin-bottom, opacity;
-      transition-property: margin-bottom, opacity; }
-    .sequence-pagination li img:hover {
-      margin-bottom: 4px;
-      -webkit-transition-duration: 0.3s;
-      -moz-transition-duration: 0.3s;
-      -ms-transition-duration: 0.3s;
-      -o-transition-duration: 0.3s;
-      transition-duration: 0.3s; }
-  .sequence-pagination li.current img {
-    opacity: 1; }
-
-.next,
-.prev {
+#sequence .next,
+#sequence .prev {
   position: absolute;
   opacity: 0.6;
   -webkit-transition-duration: 1s;
@@ -135,8 +96,8 @@ Sequence.js and its dependencies are (c) Ian Lunn Design 2012 - 2013 unless othe
   -o-transition-duration: 1s;
   transition-duration: 1s; }
 
-.next:hover,
-.prev:hover {
+#sequence .next:hover,
+#sequence .prev:hover {
   opacity: 1;
   -webkit-transition-duration: 1s;
   -moz-transition-duration: 1s;
@@ -144,7 +105,7 @@ Sequence.js and its dependencies are (c) Ian Lunn Design 2012 - 2013 unless othe
   -o-transition-duration: 1s;
   transition-duration: 1s; }
 
-.title {
+#sequence .title {
   font-size: 3.4em;
   left: 65%;
   width: 35%;
@@ -152,7 +113,7 @@ Sequence.js and its dependencies are (c) Ian Lunn Design 2012 - 2013 unless othe
   bottom: 1%;
   z-index: 50; }
 
-.animate-in .title {
+#sequence .animate-in .title {
   left: 50%;
   opacity: 1;
   -webkit-transition-duration: 0.5s;
@@ -161,7 +122,7 @@ Sequence.js and its dependencies are (c) Ian Lunn Design 2012 - 2013 unless othe
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s; }
 
-.animate-out .title {
+#sequence .animate-out .title {
   left: 35%;
   opacity: 0;
   -webkit-transition-duration: 0.5s;
@@ -170,7 +131,8 @@ Sequence.js and its dependencies are (c) Ian Lunn Design 2012 - 2013 unless othe
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s; }
 
-.subtitle {
+
+#sequence .subtitle {
   color: black;
   font-size: 2em;
   left: 35%;
@@ -178,7 +140,7 @@ Sequence.js and its dependencies are (c) Ian Lunn Design 2012 - 2013 unless othe
   opacity: 0;
   top: 101%; }
 
-.animate-in .subtitle {
+#sequence .animate-in .subtitle {
   left: 50%;
   opacity: 1;
   -webkit-transition-duration: 0.5s;
@@ -187,7 +149,7 @@ Sequence.js and its dependencies are (c) Ian Lunn Design 2012 - 2013 unless othe
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s; }
 
-.animate-out .subtitle {
+#sequence .animate-out .subtitle {
   left: 65%;
   opacity: 0;
   -webkit-transition-duration: 0.5s;
@@ -196,28 +158,29 @@ Sequence.js and its dependencies are (c) Ian Lunn Design 2012 - 2013 unless othe
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s; }
 
-.model {
+#sequence .model {
   left: 30%;
   bottom: -48%;
   opacity: 0;
   position: relative;
   height: auto !important;
-  max-height: 378px !important;
+  max-height: 228px !important;
   width: 30%;
   min-width: 225px;
   /* prevents the model from shrinking when the browser is resized */
   max-width: 266px; }
 
-.animate-in .model {
+#sequence .animate-in .model {
   left: 15%;
   opacity: 1;
+  border: 1px solid black;
   -webkit-transition-duration: 1s;
   -moz-transition-duration: 1s;
   -ms-transition-duration: 1s;
   -o-transition-duration: 1s;
   transition-duration: 1s; }
 
-.animate-out .model {
+#sequence .animate-out .model {
   left: 15%;
   opacity: 0;
   -webkit-transition-duration: 0.5s;
@@ -231,13 +194,13 @@ Sequence.js and its dependencies are (c) Ian Lunn Design 2012 - 2013 unless othe
     width: 42%; } }
 @media only screen and (max-width: 838px) {
   #sequence {
-    height: 350px; }
+    height: 250px; }
     #sequence .model {
       max-height: 330px !important;
       width: auto; } }
 @media only screen and (max-width: 768px) {
   #sequence {
-    height: 300px; }
+    height: 200px; }
     #sequence .title {
       font-size: 2.8em; }
     #sequence .subtitle {
@@ -247,7 +210,7 @@ Sequence.js and its dependencies are (c) Ian Lunn Design 2012 - 2013 unless othe
       height: 60px;
       margin-top: -40px; }
     #sequence .model {
-      max-height: 380px !important;
+      max-height: 280px !important;
       width: auto; } }
 @media only screen and (max-width: 568px) {
   #sequence .model {
@@ -276,22 +239,17 @@ Sequence.js and its dependencies are (c) Ian Lunn Design 2012 - 2013 unless othe
     left: -100%; }
   #sequence .subtitle {
     visibility: hidden; }
-  #sequence .sequence-pagination {
-    bottom: 40px; }
-    #sequence .sequence-pagination li img {
-      height: 100px; } }
+ }
 @media only screen and (max-width: 518px) {
   #sequence {
-    height: 350px; } }
+    height: 250px; } }
 @media only screen and (max-width: 468px) {
   #sequence {
-    height: 315px; }
-    #sequence .sequence-pagination {
-      opacity: 0;
-      visibility: hidden; } }
+    height: 215px; }
+ }
 @media only screen and (max-width: 418px) {
   #sequence {
-    height: 275px; } }
+    height: 215px; } }
 @media only screen and (max-width: 368px) {
   #sequence {
     height: 225px; }
@@ -320,8 +278,7 @@ Sequence.js and its dependencies are (c) Ian Lunn Design 2012 - 2013 unless othe
     #sequence .animate-out .model {
       left: 17.5%;
       margin-left: 0; }
-    #sequence .sequence-pagination {
-      right: 17.5%; } }
+}
 
 #sequence-theme .next,
 #sequence-theme .prev {
