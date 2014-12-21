@@ -38,6 +38,7 @@ $template = '
 	</div>
 {/foreach}    
 </div>
+{capture "js"}	
 <script type="text/javascript">
 $(document).ready(function(){
   $(".colorbox").colorbox({
@@ -45,6 +46,7 @@ $(document).ready(function(){
   });
 });
 </script>
+{/capture}	
 ';		
 
 return $template;
