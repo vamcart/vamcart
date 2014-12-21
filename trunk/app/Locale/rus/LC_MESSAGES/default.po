@@ -2550,7 +2550,7 @@ msgstr "Новых заказов"
 
 #: /app/View/Admin/admin_top.ctp:53
 msgid "Total Customers"
-msgstr "Всего покупателей"
+msgstr "Всего клиентов"
 
 #: /views/micro_templates/admin_create_from_tag.ctp:17
 #: /views/micro_templates/admin_edit.ctp:18
