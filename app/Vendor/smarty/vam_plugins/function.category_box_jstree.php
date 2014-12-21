@@ -9,10 +9,7 @@
 function default_template_category_box_jstree()
 {
 $template = '
-{capture "css"}
 <link href="{base_path}/js/jquery/plugins/jstree/themes/default/style.min.css" rel="stylesheet" type="text/css"/>
-{/capture}
-{capture "js"}
 <script type="text/javascript" src="{base_path}/js/jquery/plugins/jstree/jstree.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -28,7 +25,6 @@ $("#jstree").jstree().delegate("a","click", function(e) {
     
 });
 </script>
-{/capture}
 {function name=menu parent_id=0}
 	{if $data[$parent_id].childs|@sizeof > 0}
 	<ul>

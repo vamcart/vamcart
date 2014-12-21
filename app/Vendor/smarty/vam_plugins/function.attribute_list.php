@@ -35,13 +35,11 @@ function default_template_attribute_list()
 						<div id="spinner">
 							<img src="{base_path}/img/ajax-loader.gif" alt="" />
 						</div>
-						  {capture "js"}
                     <script type="text/javascript"> 
                         $(document).ready(function () { 
                             global_spinner = $("#spinner");
                         });
                     </script>
-                    {/capture} 
 
                     <form id="set_attr_form" method="post" action={$base_content}>
                     {foreach from=$attr.element_list item=attr_element}
@@ -63,7 +61,6 @@ function default_template_attribute_list()
                         </li>
                         {if $attr_element@last}</ul>{/if}                      
                     {/foreach}
-                    {capture "js"}
                     <script type="text/javascript">      
                         $(".confirm").click(function(){            
                             var http_send = $(this).attr("href");
@@ -86,7 +83,6 @@ function default_template_attribute_list()
                         });
 
                     </script>
-                    {/capture}                
                     </form>
                 {/if}              
     ';

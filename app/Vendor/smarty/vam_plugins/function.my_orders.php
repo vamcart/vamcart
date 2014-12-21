@@ -165,7 +165,6 @@ $template = '
 </div>
 
 <hr>
-{capture "js"}
 <script type="text/javascript">
 $(document).ready(function () {
 
@@ -173,7 +172,6 @@ $("#myTab{$order.Order.id} a:first").tab("show"); // Select first tab
 	
 });
 </script>
-{/capture}
 {/foreach}
 {/if}
 ';

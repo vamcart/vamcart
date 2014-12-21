@@ -9,7 +9,6 @@
 function default_template_contact_us()
 {
 $template = '
-{capture "js"}
 <script type="text/javascript" src="{base_path}/js/modified.js"></script>
 <script type="text/javascript" src="{base_path}/js/focus-first-input.js"></script>
 <script type="text/javascript" src="{base_path}/js/jquery/plugins/validate/jquery.validate.pack.js"></script>
@@ -63,7 +62,6 @@ $(document).ready(function() {
   });
 });
 </script>
-{/capture}
 <h3>{lang}Contact Us{/lang}</h3>
 <form id="contentform" class="form-horizontal" name="contact-us" action="' . BASE . '/contact_us/send_email/" method="post">
 	<div class="control-group">
