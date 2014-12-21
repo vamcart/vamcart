@@ -38,15 +38,25 @@
 {yandex_metrika}
 
 	<!-- start: Header -->
-	<header class="hidden-sm hidden-xs">
+	<header>
 		<div class="container">
-			<div class="row-fluid">
-				<div class="col-sm-3 logo">
+			<div class="row vertical-align">
+				<div class="col-xs-3 logo hidden-sm hidden-xs">
 					<a href="{base_path}/"><img src="{base_path}/img/logo.png" alt="{config value=site_name}" title="{config value=site_name}" width="247" height="98" /></a>
 				</div>
-				<div class="col-sm-6">
+				<div class="col-xs-6 search">
+		      <form class="form-horizontal" role="search" action="{base_path}/page/search-result.html" method="get">
+		        <div class="form-group form-group-lg">
+		          <input type="text" name="keyword" class="form-control input-lg" placeholder="{lang}Search{/lang}">
+		          <button type="submit" class="btn hidden">{lang}Search{/lang}</button>
+		        </div>
+		      </form>
 				</div>
-				<div class="col-sm-3">
+				<div class="col-xs-3 links">
+			    <ul class="nav nav-pills">
+			      <li><a href="{base_path}/page/account.html" title="{lang}My Account{/lang}"><i class="fa fa-user"></i></a></li>
+			      <li><a href="{base_path}/page/cart-contents.html" title="{lang}Shopping Cart{/lang}"><i class="fa fa-shopping-cart"></i></a></li>
+			    </ul>
 				</div>
 			</div>
 		</div>
@@ -68,17 +78,17 @@
 	      </a>
        </div>
        <div class="collapse navbar-collapse navbar-default cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="bs-example-navbar-collapse-1">
-			{content_listing template="vamshop3-info-links" parent="information" limit="10"}
-	      <form class="navbar-form navbar-left" role="search" action="{base_path}/page/search-result.html" method="get">
-	        <div class="form-group">
-	          <input type="text" name="keyword" class="form-control" placeholder="{lang}Search{/lang}">
-	          <button type="submit" class="btn hidden">{lang}Search{/lang}</button>
-	        </div>
-	      </form>
+			<ul class="nav navbar-nav">
+				<li class="dropdown">
+					<a data-toggle="dropdown" class="dropdown-toggle" href="">{lang}Information{/lang} <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							{content_listing template="links" parent='information' limit='10'}
+						</ul>
+				</li>
+			</ul>
          <ul class="nav navbar-nav navbar-right">
            <li><a href="/"><i class="fa fa-phone"></i> {config value=telephone}</a></li>
            <li><a href="{base_path}/page/contact-us.html">{lang}Contact Us{/lang}</a></li>
-           <li><a href="{base_path}/page/account.html" title="{lang}My Account{/lang}"><i class="fa fa-user"></i></a></li>
          </ul>
        </div>
       </div>
@@ -86,10 +96,8 @@
     </div>  
     
     <div class="container">
-
-
+     {flash_message}          
       <div class="row content">
-         {flash_message}          
          {breadcrumbs}
 		    <!--<div class="col-sm-8 col-md-9 col-md-push-3">-->
 		    <div class="col-md-9 col-md-push-3">
