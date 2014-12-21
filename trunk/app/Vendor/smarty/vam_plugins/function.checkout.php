@@ -9,7 +9,6 @@
 function default_template_checkout ()
 {
 $template = '
-{capture "js"}
 <script type="text/javascript" src="{base_path}/js/modified.js"></script>
 <script type="text/javascript" src="{base_path}/js/focus-first-input.js"></script>
 <script type="text/javascript" src="{base_path}/js/jquery/plugins/validate/jquery.validate.pack.js"></script>
@@ -100,7 +99,6 @@ $(this).parent().addClass("selected");
     });
   });
 </script>
-{/capture}
 <div id="checkout">
 <form action="{$checkout_form_action}" method="post" id="contentform" class="form-horizontal">
 

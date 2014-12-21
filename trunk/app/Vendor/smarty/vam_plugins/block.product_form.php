@@ -32,7 +32,6 @@ function smarty_block_product_form($params, $product_form, $template, &$repeat)
     });
   }
 </script>
-{/capture}
 ';
 	}
 
