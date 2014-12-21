@@ -239,9 +239,3 @@ $(document).ready(function(){
         });
 
 });
-
-$(document).ready(function(){
-  $(".colorbox").colorbox({rel: "colorbox"});
-  $(".ask").colorbox();
-  $(".buy").colorbox();
-});
