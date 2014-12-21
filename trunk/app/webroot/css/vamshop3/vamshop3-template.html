@@ -18,7 +18,6 @@
 	{bender src="{base_path}/css/vamshop3/sequencejs.css"}
 	{bender src="{base_path}/css/vamshop3/vamshop3.css"}
 	{bender output="{base_path}/css/vamshop3-packed.css"}
-	{if isset($smarty.capture.css)}{$smarty.capture.css}{/if} 
 	{stylesheet}
 	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
@@ -26,8 +25,6 @@
 	<![endif]-->
 </head>
 <body>
-{google_analytics}
-{yandex_metrika}
 
 	<!-- start: Header -->
 	<header>
@@ -55,7 +52,7 @@
 	</header>
 	<!-- end: Header -->
 
-    <div id="nav">    
+    <div id="nav" data-spy="affix" data-offset-top="98" data-offset-bottom="200">       
      <div class="navbar navbar-default">
       <div class="container">    
        <div class="navbar-header">
@@ -121,6 +118,9 @@
 
     </div><!-- /.container -->
 
+	{google_analytics}
+	{yandex_metrika}
+
 	{bender src="{base_path}/js/jquery/jquery.min.js"}
 	{bender src="{base_path}/js/bootstrap3/bootstrap.min.js"}
 	{bender src="{base_path}/js/ie10-viewport-bug-workaround.js"}
@@ -130,7 +130,36 @@
 	{bender src="{base_path}/js/material/material.min.js"}
 	{bender src="{base_path}/js/vamshop3/vamshop3.js"}
 	{bender output="{base_path}/js/vamshop3-packed.js"}
-	{if isset($smarty.capture.js)}{$smarty.capture.js}{/if} 
+	{if $content_alias == "home-page"}
+	<script type="text/javascript" src="{base_path}/js/jquery/plugins/sequence.jquery-min.js"></script>
+	<script type="text/javascript" src="{base_path}/js/jquery/plugins/sequencejs-options.js"></script>
+	{/if}
+	{if $content_alias == "account_edit" or $content_alias == "register" or $content_alias == "address_book" or $content_alias == "checkout" or $content_alias == "contact-us"}
+	<script type="text/javascript" src="{base_path}/js/modified.js"></script>
+	<script type="text/javascript" src="{base_path}/js/focus-first-input.js"></script>
+	<script type="text/javascript" src="{base_path}/js/jquery/plugins/validate/jquery.validate.pack.js"></script>
+	{/if}
+	{if $content_alias == "register" or $content_alias == "contact-us"}
+	<script type="text/javascript" src="{base_path}/js/vamshop/antispam.js"></script>
+	{/if}
+	{if $content_alias == "checkout" or $content_alias == "address_book"}
+	<script type="text/javascript" src="{base_path}/js/jquery/plugins/maskedinput/jquery.maskedinput.min.js"></script>	
+	{/if}
+	{if $content_alias == "account_edit"}
+	<script type="text/javascript">{include file="{$smarty.const.WWW_ROOT}/js/vamshop/account_edit.js"}</script>	
+	{/if}
+	{if $content_alias == "address_book"}
+	<script type="text/javascript">{include file="{$smarty.const.WWW_ROOT}/js/vamshop/address_book.js"}</script>	
+	{/if}
+	{if $content_alias == "checkout"}
+	<script type="text/javascript">{include file="{$smarty.const.WWW_ROOT}/js/vamshop/checkout.js"}</script>	
+	{/if}
+	{if $content_alias == "contact-us"}
+	<script type="text/javascript">{include file="{$smarty.const.WWW_ROOT}/js/vamshop/contact_us.js"}</script>	
+	{/if}
+	{if $content_alias == "register"}
+	<script type="text/javascript">{include file="{$smarty.const.WWW_ROOT}/js/vamshop/register.js"}</script>	
+	{/if}
 
 </body>
 </html>
