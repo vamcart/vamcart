@@ -38,3 +38,9 @@ $('#nav').affix({
         top: $('header').height()
       }
 });
+
+$(document).ready(function(){
+  $(".colorbox").colorbox({rel: "colorbox"});
+  $(".ask").colorbox();
+  $(".buy").colorbox();
+});
