@@ -20,15 +20,19 @@ function smarty_block_product_form($params, $product_form, $template, &$repeat)
 
 	if ($config['AJAX_ENABLE'] == '1') {
 	$output .= '
+{capture "js"}	
 <script type="text/javascript">
   function onProductFormSubmit'.$params['product_id'].'() {
     var str = $("#product-form'.$params['product_id'].'").serialize();
 
     $.post("'.BASE.'/cart/purchase_product", str, function(data) {
       $("#shopping-cart-box").html(data);
+      $("html, body").animate({ scrollTop: 0 }, "slow");	
+    	$(".shopping-cart-widget").addClass( "ajax-cart-hightlight" );
     });
   }
 </script>
+{/capture}
 ';
 	}
 

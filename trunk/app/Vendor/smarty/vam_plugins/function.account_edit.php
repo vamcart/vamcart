@@ -9,6 +9,7 @@
 function default_template_account_edit()
 {
 $template = '
+{capture "js"}
 <script type="text/javascript" src="{base_path}/js/modified.js"></script>
 <script type="text/javascript" src="{base_path}/js/focus-first-input.js"></script>
 <script type="text/javascript" src="{base_path}/js/jquery/plugins/validate/jquery.validate.pack.js"></script>
@@ -57,6 +58,7 @@ $(document).ready(function() {
   });
 });
 </script>
+{/capture}
 {foreach from=$errors item=error}
 {if $error}
 <div class="alert alert-error"><i class="cus-error"></i> {$error}</div>

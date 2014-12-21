@@ -9,7 +9,10 @@
 function default_template_category_box()
 {
 $template = '
+{capture "css"}
 <link href="{base_path}/js/jquery/plugins/waslidemenu/waslidemenu.css" rel="stylesheet" type="text/css"/>
+{/capture}
+{capture "js"}
 <script type="text/javascript" src="{base_path}/js/jquery/plugins/waslidemenu/waslidemenu.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -24,7 +27,7 @@ $(document).ready(function(){
    });
 });
 </script>
-
+{/capture}
 {function name=menu parent_id=0}
 	{if $data[$parent_id].childs|@sizeof > 0}
 	<ul>
