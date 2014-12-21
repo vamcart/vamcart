@@ -1,0 +1,33 @@
+<!-- start: Page section -->
+	<section class="content listing">
+			{if $content_alias != 'home-page'}<h2>{page_name}</h2>{/if}              
+			{description}
+
+		{if $sub_count->value.categories > 0}
+			<h3>{lang}Sub Categories{/lang}</h3>
+				<div class="content_listing">
+					{content_listing template='subcategory-listing' parent={$content_id} type='category'}
+				</div>
+		{/if}
+
+		{if $sub_count->value.manufacturers > 0}
+			<h3>{lang}Manufacturers List{/lang}</h3>
+				<div class="content_listing">
+					{content_listing template='subcategory-listing' parent={$content_id} type='manufacturer'}
+				</div>
+		{/if}
+      
+		{if $sub_count->value.products + $sub_count->value.downloadables > 0}
+			<h3>{lang}Products in this Category{/lang}</h3>
+				<div class="content_listing">
+					{content_listing template='product-listing' parent={$content_id} page={$page} type='product,downloadable' current_order={$current_order}}
+				</div>
+		{/if}
+
+		{if $sub_count->value.pages > 0 or $sub_count->value.news > 0 or $sub_count->value.articles > 0}
+				<div class="content_listing">
+					{content_listing template='footer-links' parent={$content_id}}
+				</div>
+		{/if}
+</section>
+<!-- end: Page section -->
