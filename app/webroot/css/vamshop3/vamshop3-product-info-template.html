@@ -1,0 +1,73 @@
+<!-- start: Page section -->
+	<section class="content product-info" itemscope itemtype="http://schema.org/Product">
+		<h2 itemprop="name">{page_name}</h2>              
+
+		<div class="row-fluid">
+			<!-- start: Product image -->
+				{content_images}
+			<!-- end: Product image -->
+			<!-- start: Product title -->
+				<div class="span6 product-info">
+					{module alias='reviews' action='reviews_total'}{module alias='reviews' action='reviews_rating'}
+					{product_manufacturer}
+					<br />
+					<div class="description" itemprop="offers" itemscope itemtype="http://schema.org/Offer">{lang}Price{/lang}: <span class="price" itemprop="price">{product_price}</span></div>
+					<br />
+					{if {product_price_old}}<div class="description">{lang}List Price{/lang}: <span class="old-price"><del>{product_price_old}</del></span></div>{/if}
+					{if {product_price_save}}<div class="description">{lang}You Save{/lang}: <span class="save">{product_price_save}</span></div>{/if}
+                  
+					{discount_group}
+					{discount_list}
+					{module alias='ask_a_product_question' controller='get' action='ask_link'}
+
+					<div class="inner nobottom product-cart">
+							{product_form}
+								<label>{lang}Qty{/lang}:</label>
+								<input name="product_quantity" id="product_quantity" type="text" value="1" size="3" />
+								<button type="submit" class="btn btn-inverse"><i class="fa fa-shopping-cart"></i> {lang}Add to cart{/lang}</button>
+							{/product_form}
+							{module alias='one_click_buy' controller='buy' action='link'}
+					</div>
+					
+					<div class="inner">
+						{attribute_list}
+					</div>
+
+				</div>
+			<!-- end: Product title -->
+		</div>
+
+		<div class="row-fluid">
+
+			<div class="row-fluid product-tabs">
+				<section class="widget">
+
+					<ul class="nav nav-tabs">
+						<li class="active"><a href="#description" data-toggle="tab"><i class="fa fa-thumbs-up"></i> {lang}Description{/lang}</a></li>
+						<li><a href="#reviews" data-toggle="tab"><i class="fa fa-comment"></i> {lang}Reviews{/lang}</a></li>
+						<li><a href="#add-review" data-toggle="tab"><i class="fa fa-pencil"></i> {lang}Add Review{/lang}</a></li>
+					</ul>
+
+					<div class="tab-content">
+
+						<div class="tab-pane inner fade in notop active" id="description">
+							<div itemprop="description">{description}</div>
+						</div>
+
+						<div class="tab-pane inner fade in notop" id="reviews">
+							{module alias='reviews' action='display'}
+						</div>
+
+						<div class="tab-pane inner fade in notop" id="add-review">
+							{module alias='reviews' action='create'}
+						</div>
+
+					</div>
+				</section>
+			</div>
+		</div>
+
+		{xsell}
+
+	</section>
+<!-- end: Page section -->
