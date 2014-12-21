@@ -9,59 +9,6 @@
 function default_template_contact_us()
 {
 $template = '
-<script type="text/javascript" src="{base_path}/js/modified.js"></script>
-<script type="text/javascript" src="{base_path}/js/focus-first-input.js"></script>
-<script type="text/javascript" src="{base_path}/js/jquery/plugins/validate/jquery.validate.pack.js"></script>
-<script type="text/javascript">
-$(function($){
-
-    $(\'.form-anti-bot, .form-anti-bot-2\').hide(); // hide inputs from users
-    var answer = $(\'.form-anti-bot input#anti-bot-a\').val(); // get answer
-    $(\'.form-anti-bot input#anti-bot-q\').val( answer ); // set answer into other input
-
-    if ( $(\'form#contentform input#anti-bot-q\').length == 0 ) {
-        var current_date = new Date();
-        var current_year = current_date.getFullYear();
-        $(\'form#contentform\').append(\'<input type="hidden" name="anti-bot-q" id="anti-bot-q" value="\'+current_year+\'" />\'); // add whole input with answer via javascript to form
-    }
-
-});
-</script>
-<script type="text/javascript">
-$(document).ready(function() {
-  // validate form
-  $("#contentform").validate({
-    rules: {
-      name: {
-        required: true,
-        minlength: 3      
-     },
-      email: {
-        required: true,
-        minlength: 3      
-     },
-      message: {
-        required: true,
-        minlength: 3      
-     },
-    },
-    messages: {
-      name: {
-        required: "{lang}Required field{/lang}",
-        minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 3"
-      },
-      email: {
-        required: "{lang}Required field{/lang}",
-        minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 3"
-      },
-      message: {
-        required: "{lang}Required field{/lang}",
-        minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 3"
-      }
-    }
-  });
-});
-</script>
 <h3>{lang}Contact Us{/lang}</h3>
 <form id="contentform" class="form-horizontal" name="contact-us" action="' . BASE . '/contact_us/send_email/" method="post">
 	<div class="control-group">
