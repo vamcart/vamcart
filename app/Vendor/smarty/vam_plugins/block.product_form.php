@@ -18,9 +18,10 @@ function smarty_block_product_form($params, $product_form, $template, &$repeat)
 
 	global $config, $content;
 
+	$output = '';
+
 	if ($config['AJAX_ENABLE'] == '1') {
 	$output .= '
-{capture "js"}	
 <script type="text/javascript">
   function onProductFormSubmit'.$params['product_id'].'() {
     var str = $("#product-form'.$params['product_id'].'").serialize();
@@ -35,7 +36,6 @@ function smarty_block_product_form($params, $product_form, $template, &$repeat)
 ';
 	}
 
-	$output = '';
 	$output .= '<form class="form-inline" name="product-form" id="product-form'.$params['product_id'].'" method="post" action="' . BASE . '/cart/purchase_product/"'.(($config['AJAX_ENABLE'] == '1') ? ' onsubmit="onProductFormSubmit'.$params['product_id'].'(); return false;"' : '').'>
 			<input type="hidden" name="product_id" value="' . (($params['product_id'] > 0) ? $params['product_id'] : $content['Content']['id']) . '">';
 	$output .= $product_form;
