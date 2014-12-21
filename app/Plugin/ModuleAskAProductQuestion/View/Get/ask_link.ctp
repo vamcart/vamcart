@@ -1,9 +1,3 @@
-<script type="text/javascript">
-$(document).ready(function(){
- $(".ask").colorbox({
- });
-});
-</script>
 <br />
 <div class="ask_a_product_question_link">
 <ul>
