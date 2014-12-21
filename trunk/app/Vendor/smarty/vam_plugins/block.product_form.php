@@ -20,6 +20,7 @@ function smarty_block_product_form($params, $product_form, $template, &$repeat)
 
 	if ($config['AJAX_ENABLE'] == '1') {
 	$output .= '
+{capture "js"}	
 <script type="text/javascript">
   function onProductFormSubmit'.$params['product_id'].'() {
     var str = $("#product-form'.$params['product_id'].'").serialize();

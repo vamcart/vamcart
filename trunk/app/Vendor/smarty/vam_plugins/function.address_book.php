@@ -9,6 +9,91 @@
 function default_template_address_book()
 {
 $template = '
+<script type="text/javascript" src="{base_path}/js/modified.js"></script>
+<script type="text/javascript" src="{base_path}/js/focus-first-input.js"></script>
+<script type="text/javascript" src="{base_path}/js/jquery/plugins/validate/jquery.validate.pack.js"></script>
+<script type="text/javascript" src="{base_path}/js/jquery/plugins/maskedinput/jquery.maskedinput.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+$("#ship_phone").mask("(999) 999-9999");
+
+  // validate form
+  $("#contentform").validate({
+    rules: {
+      "AddressBook[ship_name]": {
+        required: true,
+        minlength: 3      
+     },
+      "AddressBook[ship_line_1]": {
+        required: true,
+        minlength: 3,
+     },
+		//"AddressBook[ship_line_2]": {
+			//required: true,
+			//minlength: 3,
+		//},
+		"AddressBook[ship_city]": {
+			required: true,
+			minlength: 3,
+		},
+      "AddressBook[ship_country]": {
+        required: true,
+     },
+      //"AddressBook[ship_state]": {
+        //required: true,
+     //},
+		"AddressBook[ship_zip]": {
+			required: true,
+			minlength: 3,
+		},
+		"AddressBook[phone]": {
+			required: true,
+			minlength: 3,
+		}
+    },
+    messages: {
+      "AddressBook[ship_name]": {
+        required: "{lang}Required field{/lang}",
+        minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 3"
+      },
+      "AddressBook[ship_line_1]": {
+        required: "{lang}Required field{/lang}",
+        minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 3"
+      },
+      //"AddressBook[ship_line_2]": {
+        //required: "{lang}Required field{/lang}",
+        //minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 3"
+      //},
+      "AddressBook[ship_city]": {
+        required: "{lang}Required field{/lang}",
+        minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 3"
+      },
+      "AddressBook[ship_country]": {
+        required: "{lang}Required field{/lang}",
+        minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 3"
+      },
+      //"AddressBook[ship_state]": {
+        //required: "{lang}Required field{/lang}",
+      //},
+      "AddressBook[ship_zip]": {
+        required: "{lang}Required field{/lang}",
+        minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 3"
+      },
+      "AddressBook[phone]": {
+        required: "{lang}Required field{/lang}",
+        minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 3"
+      }
+    }
+  });
+});
+</script><script type="text/javascript">
+  $(document).ready(function() {
+    $("#ship_country").change(function () {
+      $("#ship_state_div").load(\'{base_path}/countries/address_book_regions/\' + $(this).val());
+    });
+  });
+</script>
 {foreach from=$errors item=error}
 {if $error}
 <div class="alert alert-error"><i class="cus-error"></i> {$error}</div>
