@@ -16,13 +16,13 @@ $template = '
 			<div class="form-group">
 			<label class="control-label" for="inputEmail">{lang}E-mail{/lang}</label>
 				<div class="controls">
-					<input type="text" name="data[Customer][email]" id="inputEmail" placeholder="{lang}E-mail{/lang}">
+					<input type="text" class="form-control" name="data[Customer][email]" id="inputEmail" placeholder="{lang}E-mail{/lang}">
 				</div>
 			</div>
 			<div class="form-group">
 			<label class="control-label" for="inputPassword">{lang}Password{/lang}</label>
 				<div class="controls">
-					<input type="password" name="data[Customer][password]" id="inputPassword" placeholder="{lang}Password{/lang}" autocomplete="off">
+					<input type="password" class="form-control" name="data[Customer][password]" id="inputPassword" placeholder="{lang}Password{/lang}" autocomplete="off">
 				</div>
 			</div>
 			<div class="form-group">
