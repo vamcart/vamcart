@@ -27,7 +27,7 @@ $template = '
 {/if}
 {if $image@first}
 	</div>
-	<div class="row-fluid small">
+	<div class="row small">
 {/if}
 {if $image@last}
 	</div>

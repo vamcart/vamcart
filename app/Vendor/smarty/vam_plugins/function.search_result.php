@@ -24,7 +24,7 @@ $template = '
 {/if}  
   
 <!-- start: products listing -->
-<div class="row-fluid shop-products">
+<div class="row search-results">
 	<ul class="thumbnails">
 		{foreach from=$content_list item=node}
 		<li class="item col-sm-6 col-md-4">
