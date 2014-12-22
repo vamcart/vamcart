@@ -12,7 +12,7 @@ $template = '
 <section class="widget inner">
 	<h3 class="widget-title">{lang}Currency{/lang}</h3>
 		<form action="{base_path}/currencies/pick_currency/" method="post">
-			<div class="control-group">
+			<div class="form-group">
 				<div class="controls">
 					<label class="select">				
 					<select name="currency_picker">

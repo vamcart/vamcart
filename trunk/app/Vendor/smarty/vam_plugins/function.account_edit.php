@@ -59,29 +59,29 @@ $(document).ready(function() {
 </script>
 {foreach from=$errors item=error}
 {if $error}
-<div class="alert alert-error"><i class="cus-error"></i> {$error}</div>
+<div class="alert alert-danger"><i class="cus-error"></i> {$error}</div>
 {/if}
 {/foreach}
 <form id="contentform" class="form-horizontal" name="account-edit" action="{base_path}/site/account_edit" method="post">
-	<div class="control-group">
+	<div class="form-group">
 		<label class="control-label" for="name">{lang}Name{/lang}:</label>
 		<div class="controls">
 			<input id="name" name="customer[name]" type="text" value="{$form_data.Customer.name}" />
 		</div>
 	</div>
-	<div class="control-group">
+	<div class="form-group">
 		<label class="control-label" for="email">{lang}E-mail{/lang}:</label>
 		<div class="controls">
 			<input id="email" name="customer[email]" type="text" value="{$form_data.Customer.email}" />
 		</div>
 	</div>
-	<div class="control-group">
+	<div class="form-group">
 		<label class="control-label" for="password">{lang}New Password{/lang}:</label>
 		<div class="controls">
 			<input id="password" name="customer[password]" type="password" autocomplete="off" />
 		</div>
 	</div>
-	<div class="control-group">
+	<div class="form-group">
 		<label class="control-label" for="retype">{lang}Retype Password{/lang}:</label>
 		<div class="controls">
 			<input id="retype" name="customer[retype]" type="password" autocomplete="off" />
