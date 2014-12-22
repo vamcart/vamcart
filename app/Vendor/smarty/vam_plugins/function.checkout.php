@@ -234,7 +234,7 @@ $(this).parent().addClass("selected");
 	<div class="row-fluid">
 	<ul class="shipping-methods">
     {foreach from=$ship_methods item=ship_method}
-		<li class="item span4 {if $ship_method@index is div by 3}first{/if}{if $ship_method.id == $order.shipping_method_id} selected{/if}">
+		<li class="item col-sm-6 col-md-4{if $ship_method.id == $order.shipping_method_id} selected{/if}">
       <label class="shipping-method">
       <span class="title">
         <input type="radio" name="shipping_method_id" value="{$ship_method.id}" id="ship_{$ship_method.id}" 
@@ -263,7 +263,7 @@ $(this).parent().addClass("selected");
 	<div class="row-fluid">
 	<ul class="payment-methods">
     {foreach from=$payment_methods item=payment_method}
-		<li class="item span4 {if $payment_method@index is div by 3}first{/if}{if $payment_method.id == $order.payment_method_id} selected{/if}">
+		<li class="item col-sm-6 col-md-4{if $payment_method.id == $order.payment_method_id} selected{/if}">
       <label class="payment-method">
       <span class="title">
         <input type="radio" name="payment_method_id" value="{$payment_method.id}" id="payment_{$payment_method.id}" 

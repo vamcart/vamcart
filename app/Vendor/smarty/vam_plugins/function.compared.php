@@ -10,14 +10,14 @@ function default_template_compared()
 {
 $template = '
 <!-- start: Page section -->
-	<section class="span9 page-sidebar pull-right">
+	<section class="page-sidebar pull-right">
 		<h2>{page_name}</h2>  
 
 		<!-- start: products listing -->
 		<div class="row-fluid shop-products">
 			<ul class="thumbnails">
 				{foreach from=$element_list[0]["attributes_product"] item=node}
-				<li class="item span4{if $node@index is div by 3} first{/if}">
+				<li class="item col-sm-6 col-md-4">
 					<div class="thumbnail text-center">
 						{if $node.discount > 0}<div class="description"><span class="discount">-{$node.discount|round}%</span></div>{/if}
 						<a href="{$node.url}" class="image"><img src="{$node.image}" alt="{$node.name}"{if {$node.image_width} > 0} width="{$node.image_width}"{/if}{if {$node.image_height} > 0} height="{$node.image_height}"{/if} />{product_label label_id={$node.label_id}}</a>
