@@ -63,23 +63,23 @@ $(document).ready(function() {
 });
 </script>
 <h3>{lang}Contact Us{/lang}</h3>
-<form id="contentform" class="form-horizontal" name="contact-us" action="' . BASE . '/contact_us/send_email/" method="post">
+<form id="contentform" name="contact-us" action="' . BASE . '/contact_us/send_email/" method="post">
 	<div class="form-group">
 		<label class="control-label" for="name">{lang}Your Name{/lang}:</label>
 		<div class="controls">
-			<input id="name" name="name" type="text" />
+			<input id="name" class="form-control" name="name" type="text" />
 		</div>
 	</div>
 	<div class="form-group">
 		<label class="control-label" for="name">{lang}Your Email{/lang}:</label>
 		<div class="controls">
-			<input id="email" name="email" type="text" />
+			<input id="email" class="form-control" name="email" type="text" />
 		</div>
 	</div>
 	<div class="form-group">
 		<label class="control-label" for="name">{lang}Message{/lang}:</label>
 		<div class="controls">
-			<textarea name="message" id="message" rows="9"></textarea>
+			<textarea class="form-control" name="message" id="message" rows="9"></textarea>
 		</div>
 	</div>
 	<div class="form-anti-bot" style="clear:both;">
