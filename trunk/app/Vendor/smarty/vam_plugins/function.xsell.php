@@ -9,10 +9,8 @@
 function default_template_xsell()
 {
     $template = '
-<div class="row-fluid">
+<div class="row xsell-products">
 	<h3>{lang}Also purchased{/lang}</h3>
-</div>
-<div class="row-fluid shop-products">
 	<ul class="thumbnails">
 		{foreach from=$relations item=node}
       <li class="item col-sm-6 col-md-4">
