@@ -284,7 +284,7 @@ $(this).parent().addClass("selected");
 	    
   </div>
 
-  <button class="btn btn-inverse" type="submit" value="{lang}Continue{/lang}"><i class="fa fa-check"></i> {lang}Continue{/lang}</button>
+  <button class="btn btn-default" type="submit" value="{lang}Continue{/lang}"><i class="fa fa-check"></i> {lang}Continue{/lang}</button>
 </form>
 </div>
 ';		
