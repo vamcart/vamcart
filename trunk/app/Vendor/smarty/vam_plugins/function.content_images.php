@@ -9,13 +9,13 @@
 function default_template_content_images()
 {
 $template = '
-<div class="span6 product-images">
+<div class="col-md-6 product-images">
 {foreach from=$images item=image}
 {if $image@first}
 	<div class="thumbnail big text-center">
 {/if}
 {if $image@index > 0}
-		<div class="span4 thumbnail text-center">
+		<div class="col-sm-6 col-md-4 thumbnail text-center">
 {/if}
 			<a href="{$image.image_path}" class="colorbox" title="{$image.name}"><img itemprop="image" src="{$image.image_thumb}" alt="{$image.name}" title="{$image.name}"{if {$image.image_width} > 0} width="{$image.image_width}"{/if}{if {$image.image_height} > 0} height="{$image.image_height}"{/if} />
 			{if $image@first}{product_label}{/if}
