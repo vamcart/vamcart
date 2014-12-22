@@ -106,37 +106,37 @@ $(this).parent().addClass("selected");
     <div>
       <h3>{lang}Billing Information{/lang}</h3>
     </div>
-	<div class="control-group">
+	<div class="form-group">
 		<label class="control-label" for="bill_name">{lang}Name{/lang}:</label>
 		<div class="controls">
 			<input type="text" name="bill_name" id="bill_name" value="{if $customer.AddressBook.ship_name}{$customer.AddressBook.ship_name}{else}{$order.bill_name}{/if}"/>
 		</div>
 	</div>
-	<div class="control-group">
+	<div class="form-group">
 		<label class="control-label" for="bill_line_1">{lang}Address Line 1{/lang}:</label>
 		<div class="controls">
 			<input type="text" name="bill_line_1" id="bill_line_1" value="{if $customer.AddressBook.ship_line_1}{$customer.AddressBook.ship_line_1}{else}{$order.bill_line_1}{/if}" />
 		</div>
 	</div>
-	<div class="control-group">
+	<div class="form-group">
 		<label class="control-label" for="bill_line_2">{lang}Address Line 2{/lang}:</label>
 		<div class="controls">
 			<input type="text" name="bill_line_2" id="bill_line_2" value="{if $customer.AddressBook.ship_line_2}{$customer.AddressBook.ship_line_2}{else}{$order.bill_line_2}{/if}" />
 		</div>
 	</div>
-	<div class="control-group">
+	<div class="form-group">
 		<label class="control-label" for="bill_city">{lang}City{/lang}:</label>
 		<div class="controls">
 			<input type="text" name="bill_city" id="bill_city" value="{if $customer.AddressBook.ship_city}{$customer.AddressBook.ship_city}{else}{$order.bill_city}{/if}" />
 		</div>
 	</div>    
-	<div class="control-group">
+	<div class="form-group">
 		<label class="control-label" for="bill_country">{lang}Country{/lang}:</label>
 		<div class="controls">
 			<select name="bill_country" id="bill_country">{if $customer.AddressBook.ship_country}{country_list selected={$customer.AddressBook.ship_country}}{else}{country_list}{/if}</select>
 		</div>
 	</div>
-	<div class="control-group">
+	<div class="form-group">
 	<div id="bill_state_div">
 		<label class="control-label" for="bill_state">{lang}State{/lang}:</label>
 		<div class="controls">
@@ -144,7 +144,7 @@ $(this).parent().addClass("selected");
 		</div>
 	</div>
 	</div>
-	<div class="control-group">
+	<div class="form-group">
 		<label class="control-label" for="bill_zip">{lang}Zipcode{/lang}:</label>
 		<div class="controls">
 			<input type="text" name="bill_zip" id="bill_zip" value="{if $customer.AddressBook.ship_zip}{$customer.AddressBook.ship_zip}{else}{$order.bill_zip}{/if}" />
@@ -161,37 +161,37 @@ $(this).parent().addClass("selected");
     <div>
       <h3>{lang}Shipping Information{/lang}</h3>
     </div>
-	<div class="control-group">
+	<div class="form-group">
 		<label class="control-label" for="ship_name">{lang}Name{/lang}:</label>
 		<div class="controls">
 			<input type="text" name="ship_name" id="ship_name" value="{$order.ship_name}" />
 		</div>
 	</div>
-	<div class="control-group">
+	<div class="form-group">
 		<label class="control-label" for="ship_line_1">{lang}Address Line 1{/lang}:</label>
 		<div class="controls">
 			<input type="text" name="ship_line_1" id="ship_line_1" value="{$order.ship_line_1}" />
 		</div>
 	</div>
-	<div class="control-group">
+	<div class="form-group">
 		<label class="control-label" for="ship_line_2">{lang}Address Line 2{/lang}:</label>
 		<div class="controls">
 			<input type="text" name="ship_line_2" id="ship_line_2" value="{$order.ship_line_2}" />
 		</div>
 	</div>
-	<div class="control-group">
+	<div class="form-group">
 		<label class="control-label" for="ship_city">{lang}City{/lang}:</label>
 		<div class="controls">
 			<input type="text" name="ship_city" id="ship_city" value="{$order.ship_city}" />
 		</div>
 	</div>    
-	<div class="control-group">
+	<div class="form-group">
 		<label class="control-label" for="ship_country">{lang}Country{/lang}:</label>
 		<div class="controls">
 			<select name="ship_country" id="ship_country">{country_list}</select>
 		</div>
 	</div>
-	<div class="control-group">
+	<div class="form-group">
 	<div id="ship_state_div">
 		<label class="control-label" for="ship_state">{lang}State{/lang}:</label>
 		<div class="controls">
@@ -199,7 +199,7 @@ $(this).parent().addClass("selected");
 		</div>
 	</div>
 	</div>
-	<div class="control-group">
+	<div class="form-group">
 		<label class="control-label" for="ship_zip">{lang}Zipcode{/lang}:</label>
 		<div class="controls">
 			<input type="text" name="ship_zip" id="ship_zip" value="{$order.ship_zip}" />
@@ -210,13 +210,13 @@ $(this).parent().addClass("selected");
     <div>
       <h3>{lang}Contact Information{/lang}</h3>
     </div>
-	<div class="control-group">
+	<div class="form-group">
 		<label class="control-label" for="email">{lang}E-mail{/lang}:</label>
 		<div class="controls">
 			<input type="text" name="email" id="email" value="{if $customer.Customer.email}{$customer.Customer.email}{else}{$order.email}{/if}" />
 		</div>
 	</div>
-	<div class="control-group">
+	<div class="form-group">
 		<label class="control-label" for="phone">{lang}Phone{/lang}:</label>
 		<div class="controls">
 			<input type="text" name="phone" id="phone" value="{if $customer.AddressBook.phone}{$customer.AddressBook.phone}{else}{$order.phone}{/if}" />

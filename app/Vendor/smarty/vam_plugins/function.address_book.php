@@ -96,42 +96,42 @@ $("#ship_phone").mask("(999) 999-9999");
 </script>
 {foreach from=$errors item=error}
 {if $error}
-<div class="alert alert-error"><i class="cus-error"></i> {$error}</div>
+<div class="alert alert-danger"><i class="cus-error"></i> {$error}</div>
 {/if}
 {/foreach}
 <form id="contentform" class="form-horizontal" name="address-book" action="{base_path}/site/address_book" method="post">
 <div>{lang}Shipping Information{/lang}</div>
-	<div class="control-group">
+	<div class="form-group">
 		<label class="control-label" for="ship_name">{lang}Name{/lang}:</label>
 		<div class="controls">
 			<input id="ship_name" name="AddressBook[ship_name]" type="text" value="{$form_data.AddressBook.ship_name}" />
 		</div>
 	</div>
-	<div class="control-group">
+	<div class="form-group">
 		<label class="control-label" for="ship_line_1">{lang}Address Line 1{/lang}:</label>
 		<div class="controls">
 			<input id="ship_line_1" name="AddressBook[ship_line_1]" type="text" value="{$form_data.AddressBook.ship_line_1}" />
 		</div>
 	</div>
-	<div class="control-group">
+	<div class="form-group">
 		<label class="control-label" for="ship_line_2">{lang}Address Line 2{/lang}:</label>
 		<div class="controls">
 			<input id="ship_line_2" name="AddressBook[ship_line_2]" type="text" value="{$form_data.AddressBook.ship_line_2}" />
 		</div>
 	</div>
-	<div class="control-group">
+	<div class="form-group">
 		<label class="control-label" for="ship_city">{lang}City{/lang}:</label>
 		<div class="controls">
 			<input id="ship_city" name="AddressBook[ship_city]" type="text" value="{$form_data.AddressBook.ship_city}" />
 		</div>
 	</div>    
-	<div class="control-group">
+	<div class="form-group">
 		<label class="control-label" for="ship_country">{lang}Country{/lang}:</label>
 		<div class="controls">
 			<select name="AddressBook[ship_country]" id="ship_country">{if $form_data.AddressBook.ship_country}{country_list selected={$form_data.AddressBook.ship_country}}{else}{country_list}{/if}</select>
 		</div>
 	</div>
-	<div class="control-group">
+	<div class="form-group">
 	<div id="ship_state_div">
 		<label class="control-label" for="ship_state">{lang}State{/lang}:</label>
 		<div class="controls">
@@ -139,13 +139,13 @@ $("#ship_phone").mask("(999) 999-9999");
 		</div>
 	</div>
 	</div>
-	<div class="control-group">
+	<div class="form-group">
 		<label class="control-label" for="ship_zip">{lang}Zipcode{/lang}:</label>
 		<div class="controls">
 			<input id="ship_zip" name="AddressBook[ship_zip]" type="text" value="{$form_data.AddressBook.ship_zip}" />
 		</div>
 	</div>
-	<div class="control-group">
+	<div class="form-group">
 		<label class="control-label" for="ship_phone">{lang}Phone{/lang}:</label>
 		<div class="controls">
 			<input id="ship_phone" name="AddressBook[phone]" type="text" value="{$form_data.AddressBook.phone}" />
