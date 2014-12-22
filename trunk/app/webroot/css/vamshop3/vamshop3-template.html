@@ -44,7 +44,7 @@
 						<li><a href="{config value=facebook}"><i class="fa fa-facebook"></i> Facebook</a></li>
 					</ul>
 					<ul class="nav nav-pills top-menu pull-right">
-						<li><a href="{base_path}/page/contact-us.html">{lang}Contact Us{/lang}</a></li>
+						<li><a href="{base_path}/page/contact-us.html"><i class="fa fa-pencil"></i> {lang}Contact Us{/lang}</a></li>
 					</ul>
 			</div>
 			<div class="row">
@@ -85,7 +85,7 @@
 			</ul>
 	      <form class="navbar-form navbar-left" role="search" action="{base_path}/page/search-result.html" method="get">
 	        <div class="input-group">
-	            <input type="text" class="form-control" placeholder="{lang}Search{/lang}" name="keywords">
+	            <input type="text" class="form-control" placeholder="{lang}Search{/lang}" name="keyword">
 	            <div class="input-group-btn">
 	                <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
 	            </div>
@@ -117,35 +117,19 @@
 					{compare}
 					{language_box}
 					{currency_box}
+					<section class="widget inner news-widget">
+						<h3 class="widget-title">{lang}News{/lang}</h3>
+							<ul>
+								{content_listing template="links" parent='news' type='news' limit='10'}
+							</ul>
+					</section>
+					<section class="widget inner articles-widget">
+						<h3 class="widget-title">{lang}Articles{/lang}</h3>
+							<ul>
+								{content_listing template="links" parent='articles' type='article' limit='10'}
+							</ul>
+					</section>
 		    </div>
-
-		    <div class="bottom">
-            <div class="col-md-4 information">
-                <h3>{lang}Information{/lang}</h3>
-						<div>
-						<ul>
-							{content_listing template="links" parent='information' type='page' limit='10'}
-						</ul>
-						</div>
-            </div>
-            <div class="col-md-4 news">
-                <h3>{lang}News{/lang}</h3>
-						<div>
-						<ul>
-							{content_listing template="links" parent='news' type='news' limit='10'}
-						</ul>
-						</div>
-            </div>
-            <div class="col-md-4 articles">
-                <h3>{lang}Articles{/lang}</h3>
-						<div>
-						<ul>
-							{content_listing template="links" parent='articles' type='article' limit='10'}
-						</ul>
-						</div>
-            </div>
-		    </div>
-
 
       </div><!-- /.row -->
 
