@@ -87,7 +87,7 @@ class InterkassaController extends PaymentAppController {
 		$content = $process_button_string;
 						
 		$content .= '
-			<button class="btn btn-inverse" type="submit" value="{lang}Process to Payment{/lang}"><i class="fa fa-check"></i> {lang}Process to Payment{/lang}</button>
+			<button class="btn btn-default" type="submit" value="{lang}Process to Payment{/lang}"><i class="fa fa-check"></i> {lang}Process to Payment{/lang}</button>
 			</form>';
 	
 	// Save the order

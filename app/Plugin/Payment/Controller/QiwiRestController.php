@@ -60,7 +60,7 @@ class QiwiRestController extends PaymentAppController {
 
 		$content = '<form action="' . BASE . '/payment/qiwi_rest/process_payment/" method="post">
 		<p>	'.__('Qiwi Phone').': &nbsp;<input type="text" name="qiwi_telephone" /> {lang}Example{/lang}: 7916820XXXX</p>
-		<button class="btn btn-inverse" type="submit" value="{lang}Confirm Order{/lang}"><i class="fa fa-check"></i> {lang}Confirm Order{/lang}</button>
+		<button class="btn btn-default" type="submit" value="{lang}Confirm Order{/lang}"><i class="fa fa-check"></i> {lang}Confirm Order{/lang}</button>
 		</form>';
 
 		return $content;	

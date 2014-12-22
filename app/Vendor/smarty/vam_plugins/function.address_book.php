@@ -151,7 +151,7 @@ $("#ship_phone").mask("(999) 999-9999");
 			<input id="ship_phone" name="AddressBook[phone]" type="text" value="{$form_data.AddressBook.phone}" />
 		</div>
 	</div>    
-	<button class="btn btn-inverse" type="submit" value="{lang}Save{/lang}"><i class="fa fa-check"></i> {lang}Save{/lang}</button>
+	<button class="btn btn-default" type="submit" value="{lang}Save{/lang}"><i class="fa fa-check"></i> {lang}Save{/lang}</button>
 </form>
 ';
 
