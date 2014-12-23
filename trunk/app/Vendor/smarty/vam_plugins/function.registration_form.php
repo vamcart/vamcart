@@ -77,7 +77,7 @@ $(document).ready(function() {
 <div class="alert alert-danger"><i class="cus-error"></i> {$error}</div>
 {/if}
 {/foreach}
-<form id="contentform" class="form-horizontal" name="login-form" action="{base_path}/site/register" method="post">
+<form id="contentform" name="login-form" action="{base_path}/site/register" method="post" class="form-horizontal">
 	<div class="form-group">
 		<label class="col-sm-3 control-label" for="name">{lang}Name{/lang}:</label>
 		<div class="col-sm-9">

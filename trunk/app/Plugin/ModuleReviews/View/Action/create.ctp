@@ -44,7 +44,7 @@ $(document).ready(function() {
 </script>
 <div class="add-review">
 	<h3>{lang}Add Review{/lang}</h3>
-		<form class="form" action="{base_path}/module_reviews/action/create/" method="post" id="contentform">
+		<form class="form" action="{base_path}/module_reviews/action/create/" method="post" id="contentform" class="form-horizontal">
 		<input type="hidden" name="content_id" value="{$content_id}" />
 		<div class="form-group">
 			<label class="col-sm-3 control-label" for="name">{lang}Name{/lang}:</label>

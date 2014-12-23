@@ -63,7 +63,7 @@ $(document).ready(function() {
 });
 </script>
 <h3>{lang}Contact Us{/lang}</h3>
-<form id="contentform" name="contact-us" action="' . BASE . '/contact_us/send_email/" method="post">
+<form id="contentform" name="contact-us" action="' . BASE . '/contact_us/send_email/" method="post" class="form-horizontal">
 	<div class="form-group">
 		<label class="col-sm-2 control-label" for="name">{lang}Your Name{/lang}:</label>
 		<div class="col-sm-10">
