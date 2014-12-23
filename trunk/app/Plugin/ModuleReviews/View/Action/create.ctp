@@ -47,34 +47,34 @@ $(document).ready(function() {
 		<form class="form" action="{base_path}/module_reviews/action/create/" method="post" id="contentform">
 		<input type="hidden" name="content_id" value="{$content_id}" />
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="name">{lang}Name{/lang}:</label>
-			<div class="col-sm-10">
+			<label class="col-sm-3 control-label" for="name">{lang}Name{/lang}:</label>
+			<div class="col-sm-9">
 			<input name="name" class="form-control" id="name" type="text" />
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="rating">{lang}Rating{/lang}:</label>
-			<div class="radio-inline">
+			<label class="col-sm-3 control-label" for="rating">{lang}Rating{/lang}:</label>
+			<div class="radio col-sm-10">
 			<label class="radio-inline">
-			<input name="rating" class="form-control" type="radio" value="1"/> 1
+			<input name="rating" type="radio" value="1"/> 1
 			</label>
 			<label class="radio-inline">
-			<input name="rating" class="form-control" type="radio" value="2"/> 2
+			<input name="rating" type="radio" value="2"/> 2
 			</label>
 			<label class="radio-inline">
-			<input name="rating" class="form-control" type="radio" value="3"/> 3
+			<input name="rating" type="radio" value="3"/> 3
 			</label>
 			<label class="radio-inline">
-			<input name="rating" class="form-control" type="radio" value="4"/> 4
+			<input name="rating" type="radio" value="4"/> 4
 			</label>
 			<label class="radio-inline">
-			<input name="rating" class="form-control" type="radio" value="5" checked /> 5
+			<input name="rating" type="radio" value="5" checked /> 5
 			</label>
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-2 control-label" for="content">{lang}Review{/lang}:</label>
-			<div class="col-sm-10">
+			<label class="col-sm-3 control-label" for="content">{lang}Review{/lang}:</label>
+			<div class="col-sm-9">
 			<textarea name="content" class="form-control" id="content" cols="30" rows="10"></textarea>
 			</div>
 		</div>
