@@ -66,25 +66,25 @@ $(document).ready(function() {
 	<div class="form-group">
 		<label class="control-label" for="name">{lang}Name{/lang}:</label>
 		<div class="controls">
-			<input id="name" name="customer[name]" type="text" value="{$form_data.Customer.name}" />
+			<input id="name" name="customer[name]" class="form-control" type="text" value="{$form_data.Customer.name}" />
 		</div>
 	</div>
 	<div class="form-group">
 		<label class="control-label" for="email">{lang}E-mail{/lang}:</label>
 		<div class="controls">
-			<input id="email" name="customer[email]" type="text" value="{$form_data.Customer.email}" />
+			<input id="email" name="customer[email]" class="form-control" type="text" value="{$form_data.Customer.email}" />
 		</div>
 	</div>
 	<div class="form-group">
 		<label class="control-label" for="password">{lang}New Password{/lang}:</label>
 		<div class="controls">
-			<input id="password" name="customer[password]" type="password" autocomplete="off" />
+			<input id="password" name="customer[password]" class="form-control" type="password" autocomplete="off" />
 		</div>
 	</div>
 	<div class="form-group">
 		<label class="control-label" for="retype">{lang}Retype Password{/lang}:</label>
 		<div class="controls">
-			<input id="retype" name="customer[retype]" type="password" autocomplete="off" />
+			<input id="retype" name="customer[retype]" class="form-control" type="password" autocomplete="off" />
 		</div>
 	</div>    
 	<button class="btn btn-default" type="submit" value="{lang}Save{/lang}"><i class="fa fa-check"></i> {lang}Save{/lang}</button>
