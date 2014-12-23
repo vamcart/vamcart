@@ -1,6 +1,6 @@
 {if $reviews}
-	<div class="row-fluid reviews-title" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-		<div class="span8 title">
+	<div class="row reviews-title" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+		<div class="title">
 		<h3>{$content_name} {lang}Reviews{/lang}</h3>
 		{lang}Reviews{/lang}: <span itemprop="reviewCount">{$total}</span>, {lang}Rating value{/lang}: <span itemprop="ratingValue">{$average_rating}</span>
 		</div>	
