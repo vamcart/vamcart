@@ -42,36 +42,36 @@ $(document).ready(function() {
   });
 });
 </script>
-<div class="row-fluid add-review">
+<div class="row add-review">
 	<h3>{lang}Add Review{/lang}</h3>
 		<form action="{base_path}/module_reviews/action/create/" method="post" id="contentform">
 		<input type="hidden" name="content_id" value="{$content_id}" />
 		<div class="control-group">
 			<div class="controls controls-row">
-			<input class="span4" name="name" id="name" type="text" placeholder="{lang}Name{/lang}"/>
+			<input name="name" class="form-control" id="name" type="text" placeholder="{lang}Name{/lang}"/>
 			</div>
 			<div class="controls controls-row">
 			<label>{lang}Rating{/lang}:</label>
-			<label class="radio inline">
-			<input name="rating" type="radio" value="1"/> 1
+			<label class="radio-inline">
+			<input name="rating" class="form-control" type="radio" value="1"/> 1
 			</label>
-			<label class="radio inline">
-			<input name="rating" type="radio" value="2"/> 2
+			<label class="radio-inline">
+			<input name="rating" class="form-control" type="radio" value="2"/> 2
 			</label>
-			<label class="radio inline">
-			<input name="rating" type="radio" value="3"/> 3
+			<label class="radio-inline">
+			<input name="rating" class="form-control" type="radio" value="3"/> 3
 			</label>
-			<label class="radio inline">
-			<input name="rating" type="radio" value="4"/> 4
+			<label class="radio-inline">
+			<input name="rating" class="form-control" type="radio" value="4"/> 4
 			</label>
-			<label class="radio inline">
-			<input name="rating" type="radio" value="5" checked /> 5
+			<label class="radio-inline">
+			<input name="rating" class="form-control" type="radio" value="5" checked /> 5
 			</label>
 			</div>
 			<div class="controls controls-row">
-			<textarea class="span10" name="content" id="content" cols="30" rows="10" placeholder="{lang}Review{/lang}"></textarea>
+			<textarea name="content" class="form-control" id="content" cols="30" rows="10" placeholder="{lang}Review{/lang}"></textarea>
 			</div>
-			<button class="btn btn-inverse btn-submit-review" type="submit" name="submit" value="{lang}Submit{/lang}"><i class="fa fa-check"></i> {lang}Submit{/lang}</button>
+			<button class="btn btn-default btn-submit-review" type="submit" name="submit" value="{lang}Submit{/lang}"><i class="fa fa-check"></i> {lang}Submit{/lang}</button>
 			<div class="form-anti-bot" style="clear:both;">
 				<strong>Current <span style="display:none;">month</span> <span style="display:inline;">ye@r</span> <span style="display:none;">day</span></strong> <span class="required">*</span>
 				<input type="hidden" name="anti-bot-a" id="anti-bot-a" value="{$smarty.now|date_format:"%Y"}" />

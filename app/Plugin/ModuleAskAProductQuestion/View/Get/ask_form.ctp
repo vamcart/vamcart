@@ -51,21 +51,21 @@ $(document).ready(function() {
   });
 });
 </script>
-<div class="row-fluid add-question">
+<div class="row add-question">
 	<h3><?php echo __d('module_ask_a_product_question', 'Ask a product question'). ': '. $content_name; ?></h3>
 		<form action="<?php echo BASE; ?>/module_ask_a_product_question/get/ask_form/" method="post" id="askform">
 		<input type="hidden" name="content_id" value="<?php echo $content_id; ?>" />
 		<div class="control-group">
 			<div class="controls controls-row">
-			<input class="span4" name="name" id="name" type="text" placeholder="<?php echo __d('module_ask_a_product_question', 'Your Name'); ?>"/>
+			<input name="name" class="form-control" id="name" type="text" placeholder="<?php echo __d('module_ask_a_product_question', 'Your Name'); ?>"/>
 			</div>
 			<div class="controls controls-row">
-			<input class="span4" name="email" id="email" type="text" placeholder="<?php echo __d('module_ask_a_product_question', 'Your Email'); ?>"/>
+			<input name="email" class="form-control" id="email" type="text" placeholder="<?php echo __d('module_ask_a_product_question', 'Your Email'); ?>"/>
 			</div>
 			<div class="controls controls-row">
-			<textarea class="span10" name="content" id="content" cols="30" rows="10" placeholder="<?php echo __d('module_ask_a_product_question', 'Your Question'); ?>"></textarea>
+			<textarea name="content" class="form-control" id="content" cols="30" rows="10" placeholder="<?php echo __d('module_ask_a_product_question', 'Your Question'); ?>"></textarea>
 			</div>
-			<button class="btn btn-inverse btn-submit-question" type="submit" name="submit" value="<?php echo __d('module_ask_a_product_question', 'Submit'); ?>"><i class="fa fa-check"></i> <?php echo __d('module_ask_a_product_question', 'Submit'); ?></button>
+			<button class="btn btn-default btn-submit-question" type="submit" name="submit" value="<?php echo __d('module_ask_a_product_question', 'Submit'); ?>"><i class="fa fa-check"></i> <?php echo __d('module_ask_a_product_question', 'Submit'); ?></button>
 			<div class="form-anti-bot" style="clear:both;">
 				<strong>Current <span style="display:none;">month</span> <span style="display:inline;">ye@r</span> <span style="display:none;">day</span></strong> <span class="required">*</span>
 				<input type="hidden" name="anti-bot-a" id="anti-bot-a" value="<?php echo date("Y"); ?>" />
