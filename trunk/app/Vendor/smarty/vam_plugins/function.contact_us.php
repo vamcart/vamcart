@@ -71,13 +71,13 @@ $(document).ready(function() {
 		</div>
 	</div>
 	<div class="form-group">
-		<label class="col-sm-3 control-label" for="name">{lang}Your Email{/lang}:</label>
+		<label class="col-sm-3 control-label" for="email">{lang}Your Email{/lang}:</label>
 		<div class="col-sm-9">
 			<input id="email" class="form-control" name="email" type="text" />
 		</div>
 	</div>
 	<div class="form-group">
-		<label class="col-sm-3 control-label" for="name">{lang}Message{/lang}:</label>
+		<label class="col-sm-3 control-label" for="message">{lang}Message{/lang}:</label>
 		<div class="col-sm-9">
 			<textarea class="form-control" name="message" id="message" rows="9"></textarea>
 		</div>
