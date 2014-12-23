@@ -54,7 +54,7 @@ $(document).ready(function() {
 		</div>
 		<div class="form-group">
 			<label class="col-sm-3 control-label" for="rating">{lang}Rating{/lang}:</label>
-			<div class="radio col-sm-10">
+			<div class="radio radio-inline">
 			<label class="radio-inline">
 			<input name="rating" type="radio" value="1"/> 1
 			</label>
