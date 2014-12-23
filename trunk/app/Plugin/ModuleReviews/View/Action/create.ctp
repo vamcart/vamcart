@@ -78,7 +78,7 @@ $(document).ready(function() {
 			<textarea name="content" class="form-control" id="content" cols="30" rows="10"></textarea>
 			</div>
 		</div>
-			<button class="btn btn-default btn-submit-review" type="submit" name="submit" value="{lang}Submit{/lang}"><i class="fa fa-check"></i> {lang}Submit{/lang}</button>
+			<button class="btn btn-default" type="submit" name="submit" value="{lang}Submit{/lang}"><i class="fa fa-check"></i> {lang}Submit{/lang}</button>
 			<div class="form-anti-bot" style="clear:both;">
 				<strong>Current <span style="display:none;">month</span> <span style="display:inline;">ye@r</span> <span style="display:none;">day</span></strong> <span class="required">*</span>
 				<input type="hidden" name="anti-bot-a" id="anti-bot-a" value="{$smarty.now|date_format:"%Y"}" />
