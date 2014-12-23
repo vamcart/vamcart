@@ -67,7 +67,7 @@ $(document).ready(function() {
 			<label class="sr-only" for="content"><?php echo __d('module_ask_a_product_question', 'Your Question'); ?></label>
 			<textarea name="content" class="form-control" id="content" cols="30" rows="10" placeholder="<?php echo __d('module_ask_a_product_question', 'Your Question'); ?>"></textarea>
 		</div>
-			<label class="sr-only" style="clear:both;">
+			<div class="form-anti-bot" style="clear:both;">
 				<strong>Current <span style="display:none;">month</span> <span style="display:inline;">ye@r</span> <span style="display:none;">day</span></strong> <span class="required">*</span>
 				<input type="hidden" name="anti-bot-a" id="anti-bot-a" value="<?php echo date("Y"); ?>" />
 				<input type="text" name="anti-bot-q" id="anti-bot-q" size="30" value="19" />
