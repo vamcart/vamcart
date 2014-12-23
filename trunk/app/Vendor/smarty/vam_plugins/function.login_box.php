@@ -12,7 +12,7 @@ $template = '
 <section class="widget inner">
 		{if not $is_logged_in }
 	<h3 class="widget-title">{lang}Login{/lang}</h3>
-		<form action="{base_path}/site/login?return_url={$return_url}" method="post">
+		<form action="{base_path}/site/login?return_url={$return_url}" method="post" class="form-horizontal">
 			<div class="form-group">
 			<label class="col-sm-2 control-label" for="inputEmail">{lang}E-mail{/lang}</label>
 				<div class="col-sm-10">
