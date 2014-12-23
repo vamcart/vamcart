@@ -25,11 +25,7 @@ $template = '
 					<input type="password" class="form-control" name="data[Customer][password]" id="inputPassword" placeholder="{lang}Password{/lang}" autocomplete="off">
 				</div>
 			</div>
-			<div class="form-group">
-				<div class="col-sm-9">
-					<button type="submit" class="btn btn-default"><i class="fa fa-sign-in"></i> {lang}Login{/lang}</button>
-				</div>
-			</div>
+		<button type="submit" class="btn btn-default"><i class="fa fa-sign-in"></i> {lang}Login{/lang}</button>
 		</form>
 		<br /><br />
 		<p><a href="{base_path}/customer/register.html">{lang}Registration{/lang}</a></p>
