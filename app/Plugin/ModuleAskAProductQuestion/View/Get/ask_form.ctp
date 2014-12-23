@@ -67,6 +67,7 @@ $(document).ready(function() {
 			<label class="sr-only" for="content"><?php echo __d('module_ask_a_product_question', 'Your Question'); ?></label>
 			<textarea name="content" class="form-control" id="content" cols="30" rows="10" placeholder="<?php echo __d('module_ask_a_product_question', 'Your Question'); ?>"></textarea>
 		</div>
+			<button class="btn btn-default" type="submit" name="submit" value="<?php echo __d('module_ask_a_product_question', 'Submit'); ?>"><i class="fa fa-check"></i> <?php echo __d('module_ask_a_product_question', 'Submit'); ?></button> 		
 			<div class="form-anti-bot" style="clear:both;">
 				<strong>Current <span style="display:none;">month</span> <span style="display:inline;">ye@r</span> <span style="display:none;">day</span></strong> <span class="required">*</span>
 				<input type="hidden" name="anti-bot-a" id="anti-bot-a" value="<?php echo date("Y"); ?>" />
@@ -76,7 +77,6 @@ $(document).ready(function() {
 				<strong>Leave this field empty</strong> <span class="required">*</span>
 				<input type="text" name="anti-bot-e-email-url" id="anti-bot-e-email-url" size="30" value=""/>
 			</div>
-			<button class="btn btn-default" type="submit" name="submit" value="<?php echo __d('module_ask_a_product_question', 'Submit'); ?>"><i class="fa fa-check"></i> <?php echo __d('module_ask_a_product_question', 'Submit'); ?></button> 		
 			</form>
 </div>
 <?php } ?>
