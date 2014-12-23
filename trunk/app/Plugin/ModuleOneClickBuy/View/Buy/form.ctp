@@ -34,14 +34,14 @@ $(document).ready(function() {
   });
 });
 </script>
-<div class="row add-question">
+<div class="one-click-buy">
 	<h3><?php echo __d('module_one_click_buy', 'One Click Buy'). ': '. $content_name; ?></h3>
 		<form action="<?php echo BASE; ?>/module_one_click_buy/buy/form/" method="post" id="buyform">
 		<input type="hidden" name="content_id" value="<?php echo $content_id; ?>" />
-		<div class="control-group">
-			<div class="controls controls-row">
-			<input name="phone" class="form-control" id="phone" type="text" placeholder="<?php echo __d('module_one_click_buy', 'Your Phone (or Email)'); ?>"/>
-			</div>
+		<div class="form-group">
+			<label class="sr-only" for="phone"><?php echo __d('module_one_click_buy', 'Your Phone (or Email)'); ?></label>		
+			<input name="phone" class="form-control" id="phone" type="text" placeholder="<?php echo __d('module_one_click_buy', 'Your Phone (or Email)'); ?>" />
+		</div>
 			<button class="btn btn-default btn-submit-question" type="submit" name="submit" value="<?php echo __d('module_one_click_buy', 'Submit'); ?>"><i class="fa fa-check"></i> <?php echo __d('module_one_click_buy', 'Submit'); ?></button>
 			<div class="form-anti-bot" style="clear:both;">
 				<strong>Current <span style="display:none;">month</span> <span style="display:inline;">ye@r</span> <span style="display:none;">day</span></strong> <span class="required">*</span>
@@ -52,7 +52,6 @@ $(document).ready(function() {
 				<strong>Leave this field empty</strong> <span class="required">*</span>
 				<input type="text" name="anti-bot-e-email-url" id="anti-bot-e-email-url" size="30" value=""/>
 			</div>
-		</div>
 		</form>
 </div>
 <?php } ?>

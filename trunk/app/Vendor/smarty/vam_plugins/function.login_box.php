@@ -14,19 +14,19 @@ $template = '
 	<h3 class="widget-title">{lang}Login{/lang}</h3>
 		<form action="{base_path}/site/login?return_url={$return_url}" method="post">
 			<div class="form-group">
-			<label class="control-label" for="inputEmail">{lang}E-mail{/lang}</label>
-				<div class="controls">
+			<label class="col-sm-2 control-label" for="inputEmail">{lang}E-mail{/lang}</label>
+				<div class="col-sm-10">
 					<input type="text" class="form-control" name="data[Customer][email]" id="inputEmail" placeholder="{lang}E-mail{/lang}">
 				</div>
 			</div>
 			<div class="form-group">
-			<label class="control-label" for="inputPassword">{lang}Password{/lang}</label>
-				<div class="controls">
+			<label class="col-sm-2 control-label" for="inputPassword">{lang}Password{/lang}</label>
+				<div class="col-sm-10">
 					<input type="password" class="form-control" name="data[Customer][password]" id="inputPassword" placeholder="{lang}Password{/lang}" autocomplete="off">
 				</div>
 			</div>
 			<div class="form-group">
-				<div class="controls">
+				<div class="col-sm-10">
 					<button type="submit" class="btn btn-default"><i class="fa fa-sign-in"></i> {lang}Login{/lang}</button>
 				</div>
 			</div>

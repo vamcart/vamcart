@@ -102,52 +102,52 @@ $("#ship_phone").mask("(999) 999-9999");
 <form id="contentform" class="form-horizontal" name="address-book" action="{base_path}/site/address_book" method="post">
 <div>{lang}Shipping Information{/lang}</div>
 	<div class="form-group">
-		<label class="control-label" for="ship_name">{lang}Name{/lang}:</label>
-		<div class="controls">
+		<label class="col-sm-2 control-label" for="ship_name">{lang}Name{/lang}:</label>
+		<div class="col-sm-10">
 			<input id="ship_name" name="AddressBook[ship_name]" class="form-control" type="text" value="{$form_data.AddressBook.ship_name}" />
 		</div>
 	</div>
 	<div class="form-group">
-		<label class="control-label" for="ship_line_1">{lang}Address Line 1{/lang}:</label>
-		<div class="controls">
+		<label class="col-sm-2 control-label" for="ship_line_1">{lang}Address Line 1{/lang}:</label>
+		<div class="col-sm-10">
 			<input id="ship_line_1" name="AddressBook[ship_line_1]" class="form-control" type="text" value="{$form_data.AddressBook.ship_line_1}" />
 		</div>
 	</div>
 	<div class="form-group">
-		<label class="control-label" for="ship_line_2">{lang}Address Line 2{/lang}:</label>
-		<div class="controls">
+		<label class="col-sm-2 control-label" for="ship_line_2">{lang}Address Line 2{/lang}:</label>
+		<div class="col-sm-10">
 			<input id="ship_line_2" name="AddressBook[ship_line_2]" class="form-control" type="text" value="{$form_data.AddressBook.ship_line_2}" />
 		</div>
 	</div>
 	<div class="form-group">
-		<label class="control-label" for="ship_city">{lang}City{/lang}:</label>
-		<div class="controls">
+		<label class="col-sm-2 control-label" for="ship_city">{lang}City{/lang}:</label>
+		<div class="col-sm-10">
 			<input id="ship_city" name="AddressBook[ship_city]" class="form-control" type="text" value="{$form_data.AddressBook.ship_city}" />
 		</div>
 	</div>    
 	<div class="form-group">
-		<label class="control-label" for="ship_country">{lang}Country{/lang}:</label>
-		<div class="controls">
+		<label class="col-sm-2 control-label" for="ship_country">{lang}Country{/lang}:</label>
+		<div class="col-sm-10">
 			<select name="AddressBook[ship_country]" class="form-control" id="ship_country">{if $form_data.AddressBook.ship_country}{country_list selected={$form_data.AddressBook.ship_country}}{else}{country_list}{/if}</select>
 		</div>
 	</div>
 	<div class="form-group">
 	<div id="ship_state_div">
-		<label class="control-label" for="ship_state">{lang}State{/lang}:</label>
-		<div class="controls">
+		<label class="col-sm-2 control-label" for="ship_state">{lang}State{/lang}:</label>
+		<div class="col-sm-10">
 			<select name="AddressBook[ship_state]" class="form-control" id="ship_state">{if $form_data.AddressBook.ship_state}{state_list country={$form_data.AddressBook.ship_country} selected={$form_data.AddressBook.ship_state}}{else}{state_list}{/if}</select>
 		</div>
 	</div>
 	</div>
 	<div class="form-group">
-		<label class="control-label" for="ship_zip">{lang}Zipcode{/lang}:</label>
-		<div class="controls">
+		<label class="col-sm-2 control-label" for="ship_zip">{lang}Zipcode{/lang}:</label>
+		<div class="col-sm-10">
 			<input id="ship_zip" name="AddressBook[ship_zip]" class="form-control" type="text" value="{$form_data.AddressBook.ship_zip}" />
 		</div>
 	</div>
 	<div class="form-group">
-		<label class="control-label" for="ship_phone">{lang}Phone{/lang}:</label>
-		<div class="controls">
+		<label class="col-sm-2 control-label" for="ship_phone">{lang}Phone{/lang}:</label>
+		<div class="col-sm-10">
 			<input id="ship_phone" name="AddressBook[phone]" class="form-control" type="text" value="{$form_data.AddressBook.phone}" />
 		</div>
 	</div>    

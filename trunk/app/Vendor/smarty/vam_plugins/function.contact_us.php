@@ -65,20 +65,20 @@ $(document).ready(function() {
 <h3>{lang}Contact Us{/lang}</h3>
 <form id="contentform" name="contact-us" action="' . BASE . '/contact_us/send_email/" method="post">
 	<div class="form-group">
-		<label class="control-label" for="name">{lang}Your Name{/lang}:</label>
-		<div class="controls">
+		<label class="col-sm-2 control-label" for="name">{lang}Your Name{/lang}:</label>
+		<div class="col-sm-10">
 			<input id="name" class="form-control" name="name" type="text" />
 		</div>
 	</div>
 	<div class="form-group">
-		<label class="control-label" for="name">{lang}Your Email{/lang}:</label>
-		<div class="controls">
+		<label class="col-sm-2 control-label" for="name">{lang}Your Email{/lang}:</label>
+		<div class="col-sm-10">
 			<input id="email" class="form-control" name="email" type="text" />
 		</div>
 	</div>
 	<div class="form-group">
-		<label class="control-label" for="name">{lang}Message{/lang}:</label>
-		<div class="controls">
+		<label class="col-sm-2 control-label" for="name">{lang}Message{/lang}:</label>
+		<div class="col-sm-10">
 			<textarea class="form-control" name="message" id="message" rows="9"></textarea>
 		</div>
 	</div>
