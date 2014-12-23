@@ -10,7 +10,7 @@ function default_template_compared()
 {
 $template = '
 <!-- start: Page section -->
-	<section class="page-sidebar pull-right">
+	<section class="content compared">
 		<h2>{page_name}</h2>  
 
 		<!-- start: products listing -->
