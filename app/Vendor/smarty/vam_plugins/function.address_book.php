@@ -99,7 +99,7 @@ $("#ship_phone").mask("(999) 999-9999");
 <div class="alert alert-danger"><i class="cus-error"></i> {$error}</div>
 {/if}
 {/foreach}
-<form id="contentform" class="form-horizontal" name="address-book" action="{base_path}/site/address_book" method="post">
+<form id="contentform" name="address-book" action="{base_path}/site/address_book" method="post" class="form-horizontal">
 <div>{lang}Shipping Information{/lang}</div>
 	<div class="form-group">
 		<label class="col-sm-3 control-label" for="ship_name">{lang}Name{/lang}:</label>
