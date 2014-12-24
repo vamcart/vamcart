@@ -11,7 +11,7 @@ border-radius: 0px;
 border: 0;
 }
 
-ul {
+ul.thumbnails {
   list-style-type: none;
 }
 
@@ -19,7 +19,7 @@ ul li a {
   display: block;
   padding: 12px 0 12px 0;
 }
-	
+  
 ul.thumbnails {
   padding: 0;
   margin: 0;
@@ -27,26 +27,26 @@ ul.thumbnails {
 
 .scroll-top-wrapper {
    position: fixed;
-	opacity: 0;
-	visibility: hidden;
-	text-align: center;
-	z-index: 99999999;
-	width: 50px;
-	height: 60px;
-	line-height: 60px;
-	right: 30px;
-	bottom: 20px;
-	padding-top: 2px;
+  opacity: 0;
+  visibility: hidden;
+  text-align: center;
+  z-index: 99999999;
+  width: 50px;
+  height: 60px;
+  line-height: 60px;
+  right: 30px;
+  bottom: 20px;
+  padding-top: 2px;
 }
 .scroll-top-wrapper:hover {
 }
 .scroll-top-wrapper.show {
    visibility: visible;
    cursor: pointer;
-	opacity: 1.0;
+  opacity: 1.0;
 }
 .scroll-top-wrapper i.fa {
-	line-height: inherit;
+  line-height: inherit;
 }
  
 #nav.affix {
@@ -62,19 +62,19 @@ margin-bottom: 0;
 
 /* Ajax Spinner */
 div#spinner
-	{
-		display: none;
-		width:100px;
-		height: 100px;
-		position: fixed;
-		top: 50%;
-		left: 50%;
-		text-align:center;
-		margin-left: -50px;
-		margin-top: -100px;
-		z-index:555;
-		overflow: auto;
-	} 
+  {
+    display: none;
+    width:100px;
+    height: 100px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    text-align:center;
+    margin-left: -50px;
+    margin-top: -100px;
+    z-index:555;
+    overflow: auto;
+  } 
 /* /Ajax Spinner */
 
 /* Ajax Cart Highlight */
@@ -83,5 +83,5 @@ div#spinner
     background: #fcc;
     opacity: 1;
     transition: all 2s ease-in;
-   }	
+   }  
 /* /Ajax Cart Highlight */
