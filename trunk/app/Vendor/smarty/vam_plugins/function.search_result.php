@@ -163,13 +163,13 @@ function smarty_function_search_result($params, $template)
 							      'ContentDescription.description LIKE' => '%' . $_GET['keyword'] . '%')));
 		$Content->recursive = 1;
 
-		$content_total = $content_list_data = $Content->find('count', array('conditions' => $search_conditions));;
+		$content_total = $content_list_data = $Content->find('count', array('conditions' => $search_conditions, 'group' => array('Content.alias')));
 
 
 		if ($vars['page'] == 'all') {
-			$content_list_data = $Content->find('all', array('conditions' => $search_conditions));
+			$content_list_data = $Content->find('all', array('conditions' => $search_conditions, 'group' => array('Content.alias')));
 		} else {
-			$content_list_data = $Content->find('all', array('conditions' => $search_conditions, 'limit' => $params['limit'], 'page' => $vars['page']));
+			$content_list_data = $Content->find('all', array('conditions' => $search_conditions, 'group' => array('Content.alias'), 'limit' => $params['limit'], 'page' => $vars['page']));
 		}
 
 		$content_list = array();
