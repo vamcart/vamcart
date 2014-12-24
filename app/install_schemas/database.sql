@@ -1494,7 +1494,9 @@ INSERT INTO `defined_languages` (`id`, `language_id`, `key`, `value`, `created`,
 (321, 1, 'You Save', 'You Save', '2013-10-10 20:08:49', '2013-10-10 20:08:49'),
 (322, 2, 'You Save', 'Вы экономите', '2013-10-10 20:08:49', '2013-10-10 20:08:49'),
 (323, 1, 'Feedback', 'Feedback', '2013-10-10 20:08:49', '2013-10-10 20:08:49'),
-(324, 2, 'Feedback', 'Отзывы', '2013-10-10 20:08:49', '2013-10-10 20:08:49');
+(324, 2, 'Feedback', 'Отзывы', '2013-10-10 20:08:49', '2013-10-10 20:08:49'),
+(325, 1, 'Continue Shopping', 'Continue Shopping', '2013-10-10 20:08:49', '2013-10-10 20:08:49'),
+(326, 2, 'Continue Shopping', 'Вернуться в магазин', '2013-10-10 20:08:49', '2013-10-10 20:08:49');
 
 DROP TABLE IF EXISTS email_templates;
 CREATE TABLE `email_templates` (
