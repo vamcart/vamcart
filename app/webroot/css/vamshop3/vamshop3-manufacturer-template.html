@@ -1,13 +1,13 @@
 <!-- start: Page section -->
 	<section class="content manufacturer">
-			{if $content_alias != 'home-page'}<h2>{page_name}</h2>{/if}              
+			{if $content_alias != "home-page"}<h2>{page_name}</h2>{/if}              
 		<div class="clearfix">{content_images number=1 content_id={$content_id}}</div>			
 		{description}
 
 		{if $sub_count->value.manufacturer_products}
 			<h3>{lang}Products by this Manufacturer{/lang}</h3>
 				<div class="content_listing">
-					{content_listing template='product-listing' manufacturer={$content_id} page={$page} type='product,downloadable' current_order={$current_order}}
+					{content_listing template="product-listing" manufacturer={$content_id} page={$page} type="product,downloadable" current_order={$current_order}}
 				</div>
 		{/if}
 </section>

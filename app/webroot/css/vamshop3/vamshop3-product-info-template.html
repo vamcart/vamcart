@@ -8,7 +8,7 @@
 			<!-- end: Product image -->
 			<!-- start: Product title -->
 				<div class="col-md-6 product-info">
-					{module alias='reviews' action='reviews_total'}{module alias='reviews' action='reviews_rating'}
+					{module alias="reviews" action="reviews_total"}{module alias="reviews" action="reviews_rating"}
 					{product_manufacturer}
 					<br />
 					<div class="description" itemprop="offers" itemscope itemtype="http://schema.org/Offer">{lang}Price{/lang}: <span class="price" itemprop="price">{product_price}</span></div>
@@ -18,7 +18,7 @@
                   
 					{discount_group}
 					{discount_list}
-					{module alias='ask_a_product_question' controller='get' action='ask_link'}
+					{module alias="ask_a_product_question" controller="get" action="ask_link"}
 
 					<div class="inner nobottom product-cart">
 							{product_form}
@@ -26,7 +26,7 @@
 								<input name="product_quantity" class="form-control" id="product_quantity" type="text" value="1" size="3" />
 								<button type="submit" class="btn btn-default"><i class="fa fa-shopping-cart"></i> {lang}Add to cart{/lang}</button>
 							{/product_form}
-							{module alias='one_click_buy' controller='buy' action='link'}
+							{module alias="one_click_buy" controller="buy" action="link"}
 					</div>
 					
 					<div class="inner">
@@ -55,11 +55,11 @@
 						</div>
 
 						<div class="tab-pane inner fade in notop" id="reviews">
-							{module alias='reviews' action='display'}
+							{module alias="reviews" action="display"}
 						</div>
 
 						<div class="tab-pane inner fade in notop" id="add-review">
-							{module alias='reviews' action='create'}
+							{module alias="reviews" action="create"}
 						</div>
 
 					</div>
