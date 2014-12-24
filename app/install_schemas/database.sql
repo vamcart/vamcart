@@ -53,7 +53,7 @@ INSERT INTO `configurations` (`id`, `configuration_group_id`, `key`, `value`, `t
 (17,'3','NEW_ORDER_STATUS_FROM_EMAIL', 'vam@test.com','text', '', 'New Order Status: From','','17'),
 (18,'3','NEW_ORDER_STATUS_FROM_NAME', 'VamShop','text', '', 'New Order Status: From Name','','18'),
 (19,'3','SEND_CONTACT_US_EMAIL', 'vam@test.com','text', '', 'Send contact us emails to','','19'),
-(20,'1','AJAX_ENABLE', '1', 'select', '0,1', 'Ajax Enable', '', '20');
+(20,'1','AJAX_ENABLE', '0', 'select', '0,1', 'Ajax Enable', '', '20');
 
 DROP TABLE IF EXISTS contents;
 CREATE TABLE `contents` (
