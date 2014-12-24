@@ -427,6 +427,13 @@ class OrdersController extends AppController {
 		$body = str_replace('{$ship_state}', $order['Order']['ship_state'], $body);
 		$body = str_replace('{$ship_country}', $order['Order']['ship_country'], $body);
 		$body = str_replace('{$ship_zip}', $order['Order']['ship_zip'], $body);
+
+		$body = str_replace('{$shipping_method}', $order['ShippingMethod']['name'], $body);
+		$body = str_replace('{$payment_method}', $order['PaymentMethod']['name'], $body);
+		$body = str_replace('{$date}', $order['Order']['created'], $body);
+		$body = str_replace('{$phone}', $order['Order']['phone'], $body);
+		$body = str_replace('{$email}', $order['Order']['email'], $body);
+		$body = str_replace('{$order_total}', $order['Order']['total'], $body);
 		
 		// Email Body
 		$this->Email->Body = $body;
