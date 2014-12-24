@@ -1606,6 +1606,10 @@ msgstr "Перезаписывает шаблон модуля по умолча
 msgid "Displays the current page name."
 msgstr "Показывает название текущей страницы."
 
+#: /vendors/smarty/vam_plugins/function.shopping_cart_total.php:33
+msgid "Displays the total quantity products in shopping cart."
+msgstr "Показывает количество товара в корзине."
+
 #: /vendors/smarty/vam_plugins/function.page_url.php:33
 msgid "Displays the current page url."
 msgstr "Показывает url адрес текущей страницы."
