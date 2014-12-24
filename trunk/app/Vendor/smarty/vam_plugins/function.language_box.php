@@ -11,9 +11,9 @@ function default_template_language_box()
 $template = '
 <section class="widget inner">
 	<h3 class="widget-title">{lang}Language{/lang}</h3>
-		<ul class="list-inline">
+		<ul class="icons clearfix">
 			{foreach from=$languages item=language}
-				<li><img src="{$language.image}" width="18" height="12" alt="{$language.name}" title="{$language.name}"/> <a href="{$language.url}">{$language.name}</a></li>
+				<li><a href="{$language.url}"><img src="{$language.image}" width="18" height="12" alt="{$language.name}" title="{$language.name}"/> {$language.name}</a></li>
 			{/foreach}
 		</ul>
 </section>
