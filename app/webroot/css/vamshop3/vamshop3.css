@@ -15,6 +15,11 @@ ul {
   list-style-type: none;
 }
 
+ul li a {
+  display: block;
+  padding: 12px 0 12px 0;
+}
+	
 ul.thumbnails {
   padding: 0;
   margin: 0;
