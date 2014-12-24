@@ -58,6 +58,9 @@ class SiteController extends AppController {
 
 				$body = $email_template['EmailTemplateDescription']['content'];
 				$body = str_replace('{$name}', $_POST['customer']['name'], $body);
+				$fio = explode(" ", $_POST['bill_name']);				
+				$body = str_replace('{$firstname}', isset($fio[0]) ? $fio[0] : $_POST['customer']['name'], $body);
+				$body = str_replace('{$lastname}', isset($fio[1]) ? $fio[1] : $_POST['customer']['name'], $body);
 				$body = str_replace('{$email}', $_POST['customer']['email'], $body);
 				$body = str_replace('{$password}', $_POST['customer']['password'], $body);
 

@@ -79,6 +79,9 @@ class OrdersController extends AppController {
 
 		$body = $email_template['EmailTemplateDescription']['content'];
 		$body = str_replace('{$name}', $_POST['bill_name'], $body);
+		$fio = explode(" ", $_POST['bill_name']);				
+		$body = str_replace('{$firstname}', isset($fio[0]) ? $fio[0] : $_POST['bill_name'], $body);
+		$body = str_replace('{$lastname}', isset($fio[1]) ? $fio[1] : $_POST['bill_name'], $body);
 		$body = str_replace('{$email}', $_POST['email'], $body);
 		$body = str_replace('{$password}', $customer_password, $body);
 
@@ -205,6 +208,9 @@ class OrdersController extends AppController {
 
 			$body = $email_template['EmailTemplateDescription']['content'];
 			$body = str_replace('{$name}', $order['Order']['bill_name'], $body);
+			$fio = explode(" ", $order['Order']['bill_name']);				
+			$body = str_replace('{$firstname}', isset($fio[0]) ? $fio[0] : $order['Order']['bill_name'], $body);
+			$body = str_replace('{$lastname}', isset($fio[1]) ? $fio[1] : $order['Order']['bill_name'], $body);
 			$body = str_replace('{$order_number}', $order['Order']['id'], $body);
 			$body = str_replace('{$order_status}', $current_order_status['OrderStatusDescription']['name'], $body);
 
@@ -212,16 +218,16 @@ class OrdersController extends AppController {
 			$body = str_replace('{$bill_line_1}', $order['Order']['bill_line_1'], $body);
 			$body = str_replace('{$bill_line_2}', $order['Order']['bill_line_2'], $body);
 			$body = str_replace('{$bill_city}', $order['Order']['bill_city'], $body);
-			$body = str_replace('{$bill_state}', $order['Order']['bill_state'], $body);
-			$body = str_replace('{$bill_country}', $order['Order']['bill_country'], $body);
+			$body = str_replace('{$bill_state}', $order['BillState']['name'], $body);
+			$body = str_replace('{$bill_country}', $order['BillCountry']['name'], $body);
 			$body = str_replace('{$bill_zip}', $order['Order']['bill_zip'], $body);
 
 			$body = str_replace('{$ship_name}', $order['Order']['ship_name'], $body);
 			$body = str_replace('{$ship_line_1}', $order['Order']['ship_line_1'], $body);
 			$body = str_replace('{$ship_line_2}', $order['Order']['ship_line_2'], $body);
 			$body = str_replace('{$ship_city}', $order['Order']['ship_city'], $body);
-			$body = str_replace('{$ship_state}', $order['Order']['ship_state'], $body);
-			$body = str_replace('{$ship_country}', $order['Order']['ship_country'], $body);
+			$body = str_replace('{$ship_state}', $order['ShipState']['name'], $body);
+			$body = str_replace('{$ship_country}', $order['ShipCountry']['name'], $body);
 			$body = str_replace('{$ship_zip}', $order['Order']['ship_zip'], $body);
 
 			$order = $this->Order->find('all', array('conditions' => array('Order.id' => $order['Order']['id'])));
@@ -408,6 +414,9 @@ class OrdersController extends AppController {
 		
 		$body = $email_template['EmailTemplateDescription']['content'];
 		$body = str_replace('{$name}', $order['Order']['bill_name'], $body);
+		$fio = explode(" ", $order['Order']['bill_name']);				
+		$body = str_replace('{$firstname}', isset($fio[0]) ? $fio[0] : $order['Order']['bill_name'], $body);
+		$body = str_replace('{$lastname}', isset($fio[1]) ? $fio[1] : $order['Order']['bill_name'], $body);
 		$body = str_replace('{$order_number}', $order['Order']['id'], $body);
 		$body = str_replace('{$order_status}', $current_order_status['OrderStatusDescription']['name'], $body);
 		$body = str_replace('{$comments}', $order['OrderComment']['comment'], $body);
@@ -416,16 +425,16 @@ class OrdersController extends AppController {
 		$body = str_replace('{$bill_line_1}', $order['Order']['bill_line_1'], $body);
 		$body = str_replace('{$bill_line_2}', $order['Order']['bill_line_2'], $body);
 		$body = str_replace('{$bill_city}', $order['Order']['bill_city'], $body);
-		$body = str_replace('{$bill_state}', $order['Order']['bill_state'], $body);
-		$body = str_replace('{$bill_country}', $order['Order']['bill_country'], $body);
+		$body = str_replace('{$bill_state}', $order['BillState']['name'], $body);
+		$body = str_replace('{$bill_country}', $order['BillCountry']['name'], $body);
 		$body = str_replace('{$bill_zip}', $order['Order']['bill_zip'], $body);
 
 		$body = str_replace('{$ship_name}', $order['Order']['ship_name'], $body);
 		$body = str_replace('{$ship_line_1}', $order['Order']['ship_line_1'], $body);
 		$body = str_replace('{$ship_line_2}', $order['Order']['ship_line_2'], $body);
 		$body = str_replace('{$ship_city}', $order['Order']['ship_city'], $body);
-		$body = str_replace('{$ship_state}', $order['Order']['ship_state'], $body);
-		$body = str_replace('{$ship_country}', $order['Order']['ship_country'], $body);
+		$body = str_replace('{$ship_state}', $order['ShipState']['name'], $body);
+		$body = str_replace('{$ship_country}', $order['ShipCountry']['name'], $body);
 		$body = str_replace('{$ship_zip}', $order['Order']['ship_zip'], $body);
 
 		$body = str_replace('{$shipping_method}', $order['ShippingMethod']['name'], $body);
@@ -585,10 +594,37 @@ class OrdersController extends AppController {
 		$this->Email->Subject = $subject;
 		
 		$body = $email_template['EmailTemplateDescription']['content'];
+
 		$body = str_replace('{$name}', $old_order['Order']['bill_name'], $body);
+		$fio = explode(" ", $old_order['Order']['bill_name']);				
+		$body = str_replace('{$firstname}', isset($fio[0]) ? $fio[0] : $old_order['Order']['bill_name'], $body);
+		$body = str_replace('{$lastname}', isset($fio[1]) ? $fio[1] : $old_order['Order']['bill_name'], $body);
+
 		$body = str_replace('{$order_number}', $this->data['Order']['id'], $body);
 		$body = str_replace('{$order_status}', $current_order_status['OrderStatusDescription']['name'], $body);
 		$body = str_replace('{$comments}', $this->data['OrderComment']['comment'], $body);
+
+		$body = str_replace('{$bill_name}', $old_order['Order']['bill_name'], $body);
+		$body = str_replace('{$bill_line_1}', $old_order['Order']['bill_line_1'], $body);
+		$body = str_replace('{$bill_line_2}', $old_order['Order']['bill_line_2'], $body);
+		$body = str_replace('{$bill_city}', $old_order['Order']['bill_city'], $body);
+		$body = str_replace('{$bill_state}', $old_order['BillState']['name'], $body);
+		$body = str_replace('{$bill_country}', $old_order['Order']['bill_country'], $body);
+		$body = str_replace('{$bill_zip}', $old_order['Order']['bill_zip'], $body);
+
+		$body = str_replace('{$ship_name}', $old_order['Order']['ship_name'], $body);
+		$body = str_replace('{$ship_line_1}', $old_order['Order']['ship_line_1'], $body);
+		$body = str_replace('{$ship_line_2}', $old_order['Order']['ship_line_2'], $body);
+		$body = str_replace('{$ship_city}', $old_order['Order']['ship_city'], $body);
+		$body = str_replace('{$ship_state}', $old_order['ShipState']['name'], $body);
+		$body = str_replace('{$ship_country}', $old_order['Order']['ship_country'], $body);
+		$body = str_replace('{$ship_zip}', $old_order['Order']['ship_zip'], $body);
+
+		$body = str_replace('{$shipping_method}', $old_order['ShippingMethod']['name'], $body);
+		$body = str_replace('{$payment_method}', $old_order['PaymentMethod']['name'], $body);
+		$body = str_replace('{$date}', $old_order['Order']['created'], $body);
+		$body = str_replace('{$phone}', $old_order['Order']['phone'], $body);
+		$body = str_replace('{$email}', $old_order['Order']['email'], $body);
 		
 		// Email Body
 		$this->Email->Body = $body;
