@@ -47,8 +47,8 @@ $template = '
 		</tr>
 	</table>
 	<p class="text-center">
-	<a class="btn btn-default" href="{base_path}/"><i class="fa fa-chevron-left"></i> {lang}Continue Shopping{/lang}</a>
-	<button class="btn btn-default" type="submit" name="updatebutton"><i class="fa fa-check"></i> {lang}Update{/lang}</button>
+	<a class="btn btn-default" href="{base_path}/"><i class="fa fa-arrow-left"></i> {lang}Continue Shopping{/lang}</a>
+	<button class="btn btn-default" type="submit" name="updatebutton"><i class="fa fa-refresh"></i> {lang}Update{/lang}</button>
 	<a class="btn btn-warning" href="{$checkout_link}"><i class="fa fa-shopping-cart"></i> {lang}Checkout{/lang}</a>
 	</p>
 </form>
