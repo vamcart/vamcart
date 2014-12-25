@@ -94,3 +94,12 @@ div#spinner {
   overflow: auto;
 } 
 /* /Ajax Spinner */
+
+/* Ajax Hightlight */
+.ajax-cart-hightlight {
+  background: #fcc;
+  opacity: 1;
+  transition: all 2s ease-in;
+}	
+/* /Ajax Hightlight */
+   
