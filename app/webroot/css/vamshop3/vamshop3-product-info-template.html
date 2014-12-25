@@ -16,12 +16,11 @@
           <div class="description" itemprop="offers" itemscope itemtype="http://schema.org/Offer">{lang}Price{/lang}: <span class="price" itemprop="price">{product_price}</span></div>
           <br />
           {if {product_price_old}}<div class="description">{lang}List Price{/lang}: <span class="old-price"><del>{product_price_old}</del></span></div>{/if}
-          {if {product_price_save}}<div class="description">{lang}You Save{/lang}: <span class="save">{product_price_save}</span></div>{/if}
+          {if {product_price_save}}<div class="description">{lang}You Save{/lang}: <span class="save">{product_price_save}</span></div><br />{/if}
                   
           {discount_group}
           {discount_list}
 
-          <p>
           {product_form}
             <div class="input-group">
               <input name="product_quantity" class="form-control" id="product_quantity" type="text" value="1" size="1" />
@@ -30,12 +29,11 @@
               </span>
             </div>
           {/product_form}
-          </p>
+          <br />
+          {module alias="one_click_buy" controller="buy" action="link"}
+          {module alias="ask_a_product_question" controller="get" action="ask_link"}
 
-          <p>{module alias="one_click_buy" controller="buy" action="link"}</p>
-          <p>{module alias="ask_a_product_question" controller="get" action="ask_link"}</p>
-
-          <p>{attribute_list}</p>
+          {attribute_list}
 
                     
         </div>
