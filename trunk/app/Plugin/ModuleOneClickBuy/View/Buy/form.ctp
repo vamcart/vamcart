@@ -42,16 +42,20 @@ $(document).ready(function() {
 			<label class="sr-only" for="phone"><?php echo __d('module_one_click_buy', 'Your Phone (or Email)'); ?></label>		
 			<input name="phone" class="form-control" id="phone" type="text" placeholder="<?php echo __d('module_one_click_buy', 'Your Phone (or Email)'); ?>" />
 		</div>
-			<button class="btn btn-default btn-submit-question" type="submit" name="submit" value="<?php echo __d('module_one_click_buy', 'Submit'); ?>"><i class="fa fa-check"></i> <?php echo __d('module_one_click_buy', 'Submit'); ?></button>
-			<div class="form-anti-bot" style="clear:both;">
-				<strong>Current <span style="display:none;">month</span> <span style="display:inline;">ye@r</span> <span style="display:none;">day</span></strong> <span class="required">*</span>
-				<input type="hidden" name="anti-bot-a" id="anti-bot-a" value="<?php echo date("Y"); ?>" />
-				<input type="text" name="anti-bot-q" id="anti-bot-q" size="30" value="19" />
+		<div class="form-group">
+			<div>
+				<button class="btn btn-default btn-submit-question" type="submit" name="submit" value="<?php echo __d('module_one_click_buy', 'Submit'); ?>"><i class="fa fa-check"></i> <?php echo __d('module_one_click_buy', 'Submit'); ?></button>
 			</div>
-			<div class="form-anti-bot-2" style="display:none;">
-				<strong>Leave this field empty</strong> <span class="required">*</span>
-				<input type="text" name="anti-bot-e-email-url" id="anti-bot-e-email-url" size="30" value=""/>
-			</div>
+		</div>
+		<div class="form-anti-bot" style="clear:both;">
+			<strong>Current <span style="display:none;">month</span> <span style="display:inline;">ye@r</span> <span style="display:none;">day</span></strong> <span class="required">*</span>
+			<input type="hidden" name="anti-bot-a" id="anti-bot-a" value="<?php echo date("Y"); ?>" />
+			<input type="text" name="anti-bot-q" id="anti-bot-q" size="30" value="19" />
+		</div>
+		<div class="form-anti-bot-2" style="display:none;">
+			<strong>Leave this field empty</strong> <span class="required">*</span>
+			<input type="text" name="anti-bot-e-email-url" id="anti-bot-e-email-url" size="30" value=""/>
+		</div>
 		</form>
 </div>
 <?php } ?>

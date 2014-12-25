@@ -10,21 +10,21 @@ function default_template_currency_box()
 {
 $template = '
 <section class="widget inner">
-	<h3 class="widget-title">{lang}Currency{/lang}</h3>
-		<form action="{base_path}/currencies/pick_currency/" method="post">
-			<div class="form-group">
-				<div class="controls">
-					<label class="select">				
-					<select name="currency_picker">
-						{foreach from=$currencies item=currency}
-							<option value="{$currency.id}" {if $currency.id == $smarty.session.Customer.currency_id}selected="selected"{/if}>{$currency.name}</option>
-						{/foreach}
-					</select>
-					</label>
-					<button type="submit" class="btn btn-default"><i class="fa fa-check"></i> {lang}Go{/lang}</button>
-				</div>
-			</div>
-		</form>
+  <h3 class="widget-title">{lang}Currency{/lang}</h3>
+    <form action="{base_path}/currencies/pick_currency/" method="post">
+    <div class="form-group">
+      <label class="sr-only">{lang}Currency{/lang}</label>
+      <select name="currency_picker" class="form-control">
+        {foreach from=$currencies item=currency}
+        <option value="{$currency.id}" {if $currency.id == $smarty.session.Customer.currency_id}selected="selected"{/if}>{$currency.name}</option>
+        {/foreach}
+      </select>
+    </div>
+    <div class="form-group">
+      <div>
+        <button type="submit" class="btn btn-default"><i class="fa fa-check"></i> {lang}Go{/lang}</button>
+      </div>
+    </div>
 </section>
 ';		
 

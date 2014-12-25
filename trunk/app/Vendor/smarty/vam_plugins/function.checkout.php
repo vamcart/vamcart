@@ -288,7 +288,11 @@ $(this).parent().addClass("selected");
 	    
   </div>
 
-  <button class="btn btn-default" type="submit" value="{lang}Continue{/lang}"><i class="fa fa-check"></i> {lang}Continue{/lang}</button>
+	<div class="form-group">
+	  <div class="col-sm-offset-3 col-sm-9">
+	    <button class="btn btn-default" type="submit" value="{lang}Continue{/lang}"><i class="fa fa-check"></i> {lang}Continue{/lang}</button>
+	  </div>
+	</div>
 </form>
 </div>
 ';		

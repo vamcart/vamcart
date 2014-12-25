@@ -87,7 +87,11 @@ $(document).ready(function() {
 			<input id="retype" name="customer[retype]" class="form-control" type="password" autocomplete="off" />
 		</div>
 	</div>    
-	<button class="btn btn-default" type="submit" value="{lang}Save{/lang}"><i class="fa fa-check"></i> {lang}Save{/lang}</button>
+	<div class="form-group">
+	  <div class="col-sm-offset-3 col-sm-9">
+	    <button class="btn btn-default" type="submit" value="{lang}Save{/lang}"><i class="fa fa-check"></i> {lang}Save{/lang}</button>
+	  </div>
+	</div>
 </form>
 ';
 

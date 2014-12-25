@@ -53,7 +53,7 @@ $(document).ready(function() {
 </script>
 <div class="ask-form">
 	<h3><?php echo __d('module_ask_a_product_question', 'Ask a product question'). ': '. $content_name; ?></h3>
-		<form class="form" action="<?php echo BASE; ?>/module_ask_a_product_question/get/ask_form/" method="post" id="askform">
+		<form action="<?php echo BASE; ?>/module_ask_a_product_question/get/ask_form/" method="post" id="askform">
 		<input type="hidden" name="content_id" value="<?php echo $content_id; ?>" />
 		<div class="form-group">
 			<label class="sr-only" for="name"><?php echo __d('module_ask_a_product_question', 'Your Name'); ?></label>
@@ -67,16 +67,20 @@ $(document).ready(function() {
 			<label class="sr-only" for="content"><?php echo __d('module_ask_a_product_question', 'Your Question'); ?></label>
 			<textarea name="content" class="form-control" id="content" cols="30" rows="10" placeholder="<?php echo __d('module_ask_a_product_question', 'Your Question'); ?>"></textarea>
 		</div>
-			<button class="btn btn-default" type="submit" name="submit" value="<?php echo __d('module_ask_a_product_question', 'Submit'); ?>"><i class="fa fa-check"></i> <?php echo __d('module_ask_a_product_question', 'Submit'); ?></button> 		
-			<div class="form-anti-bot" style="clear:both;">
-				<strong>Current <span style="display:none;">month</span> <span style="display:inline;">ye@r</span> <span style="display:none;">day</span></strong> <span class="required">*</span>
-				<input type="hidden" name="anti-bot-a" id="anti-bot-a" value="<?php echo date("Y"); ?>" />
-				<input type="text" name="anti-bot-q" id="anti-bot-q" size="30" value="19" />
+		<div class="form-group">
+			<div>
+				<button class="btn btn-default" type="submit" name="submit" value="<?php echo __d('module_ask_a_product_question', 'Submit'); ?>"><i class="fa fa-check"></i> <?php echo __d('module_ask_a_product_question', 'Submit'); ?></button> 		
 			</div>
-			<div class="form-anti-bot-2" style="display:none;">
-				<strong>Leave this field empty</strong> <span class="required">*</span>
-				<input type="text" name="anti-bot-e-email-url" id="anti-bot-e-email-url" size="30" value=""/>
-			</div>
-			</form>
+		</div>
+		<div class="form-anti-bot" style="clear:both;">
+			<strong>Current <span style="display:none;">month</span> <span style="display:inline;">ye@r</span> <span style="display:none;">day</span></strong> <span class="required">*</span>
+			<input type="hidden" name="anti-bot-a" id="anti-bot-a" value="<?php echo date("Y"); ?>" />
+			<input type="text" name="anti-bot-q" id="anti-bot-q" size="30" value="19" />
+		</div>
+		<div class="form-anti-bot-2" style="display:none;">
+			<strong>Leave this field empty</strong> <span class="required">*</span>
+			<input type="text" name="anti-bot-e-email-url" id="anti-bot-e-email-url" size="30" value=""/>
+		</div>
+		</form>
 </div>
 <?php } ?>
