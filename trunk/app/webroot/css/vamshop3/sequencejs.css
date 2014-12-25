@@ -281,14 +281,6 @@
     bottom: -34%;
   }
 }
-#sequence-theme .text .btn {
-  background-color: #555555;
-  color: #ffffff;
-}
-#sequence-theme .text .btn:hover {
-  background-color: #ff6633;
-  color: #ffffff;
-}
 #sequence-theme .animate-in .text {
   left: 10%;
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
