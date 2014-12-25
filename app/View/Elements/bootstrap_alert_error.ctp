@@ -1,1 +1,1 @@
-<div class="alert alert-error"><i class="cus-error"></i> <?php echo $message; ?></div>
+<div class="alert alert-danger"><i class="fa fa-warning"></i> <?php echo $message; ?></div>
