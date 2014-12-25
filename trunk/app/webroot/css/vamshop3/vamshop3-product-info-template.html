@@ -4,9 +4,11 @@
 
     <div class="row">
       <!-- start: Product image -->
+        <div class="col-md-6 product-images">
         {content_images}
+        </div>
       <!-- end: Product image -->
-      <!-- start: Product title -->
+      <!-- start: Product info -->
         <div class="col-md-6 product-info">
           {module alias="reviews" action="reviews_total"}{module alias="reviews" action="reviews_rating"}
           {product_manufacturer}
@@ -18,23 +20,28 @@
                   
           {discount_group}
           {discount_list}
-          {module alias="ask_a_product_question" controller="get" action="ask_link"}
 
-          <div class="inner nobottom product-cart">
-              {product_form}
-                <label>{lang}Qty{/lang}:</label>
-                <input name="product_quantity" class="form-control" id="product_quantity" type="text" value="1" size="3" />
+          <p>
+          {product_form}
+            <div class="input-group">
+              <input name="product_quantity" class="form-control" id="product_quantity" type="text" value="1" size="1" />
+              <span class="input-group-btn">
                 <button type="submit" class="btn btn-default"><i class="fa fa-shopping-cart"></i> {lang}Add to cart{/lang}</button>
-              {/product_form}
-              {module alias="one_click_buy" controller="buy" action="link"}
-          </div>
-          
-          <div class="inner">
-            {attribute_list}
-          </div>
+              </span>
+            </div>
+          {/product_form}
+          </p>
 
+          <p>{module alias="one_click_buy" controller="buy" action="link"}</p>
+          <p>{module alias="ask_a_product_question" controller="get" action="ask_link"}</p>
+
+          <p>{attribute_list}</p>
+
+                    
         </div>
-      <!-- end: Product title -->
+      <!-- end: Product info -->
+
+
     </div>
 
     <div class="row">

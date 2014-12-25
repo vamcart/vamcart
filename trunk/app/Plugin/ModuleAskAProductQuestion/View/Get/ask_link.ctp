@@ -4,9 +4,6 @@ $(document).ready(function(){
  });
 });
 </script>
-<br />
 <div class="ask_a_product_question_link">
-<ul>
-	<li><a class="ask" href="{$ask_a_product_question_link}"><?php echo __d('module_ask_a_product_question', 'Ask a product question'); ?></a></li>
-</ul>	
+<a class="btn btn-default ask" href="{$ask_a_product_question_link}"><i class="fa fa-lightbulb-o"></i> <?php echo __d('module_ask_a_product_question', 'Ask a product question'); ?></a>
 </div>
