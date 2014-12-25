@@ -75,6 +75,10 @@ ul.icons li:before {
   z-index:10000;
 }
 
+.nav, .navbar {
+margin-bottom: 0;
+}
+
 /* Ajax Spinner */
 div#spinner {
   display: none;
