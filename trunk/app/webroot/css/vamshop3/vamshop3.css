@@ -75,10 +75,6 @@ ul.icons li:before {
   z-index:10000;
 }
 
-.nav, .navbar {
-margin-bottom: 0;
-}
-
 /* Ajax Spinner */
 div#spinner {
   display: none;
@@ -94,11 +90,3 @@ div#spinner {
   overflow: auto;
 } 
 /* /Ajax Spinner */
-
-/* Ajax Cart Highlight */
-.ajax-cart-hightlight {
-  background: #fcc;
-  opacity: 1;
-  transition: all 2s ease-in;
-}  
-/* /Ajax Cart Highlight */
