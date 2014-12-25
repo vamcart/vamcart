@@ -82,6 +82,11 @@ $(document).ready(function() {
 			<textarea class="form-control" name="message" id="message" rows="9"></textarea>
 		</div>
 	</div>
+   <div class="form-group">
+     <div class="col-sm-offset-2 col-sm-10">
+       <button class="btn btn-default" type="submit" name="submit" value="{lang}Send{/lang}"><i class="fa fa-check"></i> {lang}Send{/lang}</button>
+     </div>
+   </div>
 	<div class="form-anti-bot" style="clear:both;">
 		<strong>Current <span style="display:none;">month</span> <span style="display:inline;">ye@r</span> <span style="display:none;">day</span></strong> <span class="required">*</span>
 		<input type="hidden" name="anti-bot-a" id="anti-bot-a" value="{$smarty.now|date_format:"%Y"}" />
@@ -91,7 +96,6 @@ $(document).ready(function() {
 		<strong>Leave this field empty</strong> <span class="required">*</span>
 		<input type="text" name="anti-bot-e-email-url" id="anti-bot-e-email-url" size="30" value=""/>
 	</div>
-	<button class="btn btn-default" type="submit" name="submit" value="{lang}Send{/lang}"><i class="fa fa-check"></i> {lang}Send{/lang}</button>
 </form>
 ';
 		
