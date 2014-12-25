@@ -10,15 +10,12 @@ function default_template_breadcrumbs()
 {
 $template = '
 {if !$default_page and $parent_id > 0}
-<!-- start: Page header / Breadcrumbs -->
 <div id="breadcrumbs">
-	<div class="container">
-		<div class="breadcrumbs">
-			<a href="{$parent_url}">{$parent_name}</a> &raquo; {$page_name}
-		</div>
-	</div>
+    <ol class="breadcrumb">
+      <li><a href="{$parent_url}">{$parent_name}</a></li>
+      <li class="active">{$page_name}</li>
+    </ol>
 </div>
-<!-- end: Page header / Breadcrumbs -->
 {/if}
 ';
 		
