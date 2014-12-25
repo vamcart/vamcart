@@ -4,11 +4,6 @@ $(document).ready(function(){
   $('.dropdown-toggle').dropdown();
 });
 
-// Google material design theme init
-$(document).ready(function() {
-    $.material.init();
-});
-
 // Scroll to top button 
 $(function(){
  
