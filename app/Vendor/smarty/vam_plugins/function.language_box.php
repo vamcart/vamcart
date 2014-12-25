@@ -9,7 +9,7 @@
 function default_template_language_box()
 {
 $template = '
-<section class="widget inner">
+<section class="widget inner language-widget">
 	<h3 class="widget-title">{lang}Language{/lang}</h3>
 		<ul class="icons clearfix">
 			{foreach from=$languages item=language}

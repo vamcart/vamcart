@@ -9,13 +9,12 @@
 function default_template_compare()
 {
 $template = '
-<section class="widget inner">
+<section class="widget inner compare-widget">
 	<h3 class="widget-title">{lang}Comparison{/lang}</h3>
 	<form name="" action="{$base_url}/compared/done/{$base_content}" method="post">
 		<ul class="icons clearfix">
 			{foreach from=$element_list item=element}
-				<li>{$element.ContentDescription.name} 
-					<a href="{$base_url}/delcmp/{$element.Content.alias}/{$base_content}"><img src="{base_path}/img/icons/delete.png" alt="{lang}Remove{/lang}" title="{lang}Remove{/lang}" width="16" height="16" /></a>
+				<li><a title="{lang}Remove{/lang}" href="{$base_url}/delcmp/{$element.Content.alias}/{$base_content}">{$element.ContentDescription.name} <i class="fa fa-trash-o"></i></a>
 				</li>
          {/foreach}
 		</ul>
