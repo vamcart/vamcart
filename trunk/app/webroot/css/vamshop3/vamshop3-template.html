@@ -1,162 +1,162 @@
 <!DOCTYPE html>
 <html>
 <head>
-{meta_description}
-{meta_keywords}
-{metadata}
-{headdata}
-<title>{page_name} -{config value=site_name}</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
-<link rel="shortcut icon" href="{base_path}/favicon.ico"/>
-{bender src="{base_path}/css/bootstrap3/bootstrap.min.css"}
-{bender src="{base_path}/css/material/ripples.min.css"}
-{bender src="{base_path}/css/material/material-wfont.min.css"}
-{bender src="{base_path}/css/font-awesome.min.css"}
-{bender src="{base_path}/css/vamshop3/push-menu.css"}
-{bender src="{base_path}/css/jquery/plugins/colorbox/colorbox.css"}
-{bender src="{base_path}/css/vamshop3/sequencejs.css"}
-{bender src="{base_path}/css/vamshop3/vamshop3.css"}
-{bender output="{base_path}/css/vamshop3-packed.css"}
-{stylesheet}
-{bender src="{base_path}/js/jquery/jquery.min.js"}
-{bender src="{base_path}/js/bootstrap3/bootstrap.min.js"}
-{bender src="{base_path}/js/ie10-viewport-bug-workaround.js"}
-{bender src="{base_path}/js/jquery/plugins/jpushmenu/jpushmenu.js"}
-{bender src="{base_path}/js/jquery/plugins/colorbox/jquery.colorbox-min.js"}
-{bender src="{base_path}/js/material/ripples.min.js"}
-{bender src="{base_path}/js/material/material.min.js"}
-{bender src="{base_path}/js/vamshop3/vamshop3.js"}
-{bender output="{base_path}/js/vamshop3-packed.js"}
-<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-<!--[if lt IE 9]>
-<script type="text/javascript" src="js/html5.js"></script>
-<![endif]-->
+  {meta_description}
+  {meta_keywords}
+  {metadata}
+  {headdata}
+  <title>{page_name} - {config value=site_name}</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+  <link rel="shortcut icon" href="{base_path}/favicon.ico"/>
+  {bender src="{base_path}/css/bootstrap3/bootstrap.min.css"}
+  {bender src="{base_path}/css/material/ripples.min.css"}
+  {bender src="{base_path}/css/material/material-wfont.min.css"}
+  {bender src="{base_path}/css/font-awesome.min.css"}
+  {bender src="{base_path}/css/vamshop3/push-menu.css"}
+  {bender src="{base_path}/css/jquery/plugins/colorbox/colorbox.css"}
+  {bender src="{base_path}/css/vamshop3/sequencejs.css"}
+  {bender src="{base_path}/css/vamshop3/vamshop3.css"}
+  {bender output="{base_path}/css/vamshop3-packed.css"}
+  {stylesheet}
+   {bender src="{base_path}/js/jquery/jquery.min.js"}
+  {bender src="{base_path}/js/bootstrap3/bootstrap.min.js"}
+  {bender src="{base_path}/js/ie10-viewport-bug-workaround.js"}
+  {bender src="{base_path}/js/jquery/plugins/jpushmenu/jpushmenu.js"}
+  {bender src="{base_path}/js/jquery/plugins/colorbox/jquery.colorbox-min.js"}
+  {bender src="{base_path}/js/material/ripples.min.js"}
+  {bender src="{base_path}/js/material/material.min.js"}
+  {bender src="{base_path}/js/vamshop3/vamshop3.js"}
+  {bender output="{base_path}/js/vamshop3-packed.js"}
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+  <script type="text/javascript" src="js/html5.js"></script>
+  <![endif]-->
 </head>
 <body>
-<!-- start: Header -->
-<header class="hidden-xs">
-<div class="container">
- <div class="topbar clearfix">
-   <ul class="nav nav-pills top-contacts pull-left">
-     <li><a href=""><i class="fa fa-phone"></i>{config value=telephone}</a></li>
-     <li><a href="{config value=twitter}"><i class="fa fa-twitter"></i> Twitter</a></li>
-     <li><a href="{config value=facebook}"><i class="fa fa-facebook"></i> Facebook</a></li>
-   </ul>
-   <ul class="nav nav-pills top-menu pull-right">
-     <li><a href="{base_path}/page/contact-us.html"><i class="fa fa-pencil"></i>{lang}Contact Us{/lang}</a></li>
-   </ul>
- </div>
- <div class="row">
-   <div class="col-xs-5">
-   <a href="{base_path}/"><img src="{base_path}/img/logo.png" alt="{config value=site_name}" title="{config value=site_name}" width="247" height="98" /></a>
+  <!-- start: Header -->
+  <header class="hidden-xs">
+ <div class="container">
+   <div class="topbar clearfix">
+       <ul class="nav nav-pills top-contacts pull-left">
+         <li><a href=""><i class="fa fa-phone"></i> {config value=telephone}</a></li>
+         <li><a href="{config value=twitter}"><i class="fa fa-twitter"></i> Twitter</a></li>
+         <li><a href="{config value=facebook}"><i class="fa fa-facebook"></i> Facebook</a></li>
+       </ul>
+       <ul class="nav nav-pills top-menu pull-right">
+         <li><a href="{base_path}/page/contact-us.html"><i class="fa fa-pencil"></i> {lang}Contact Us{/lang}</a></li>
+       </ul>
    </div>
-   <div class="col-xs-5">
-   </div>
-   <div class="col-xs-2">
-   </div>
- </div>
-</div>
-</header>
-<!-- end: Header -->
-
-<div id="nav" data-spy="affix" data-offset-top="138" data-offset-bottom="0">  
-<div class="navbar navbar-default">
- <div class="container">  
-  <div class="navbar-header">
-  <button type="button" class="navbar-toggle toggle-menu menu-left" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-    <span class="sr-only"></span>        
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-  </button>
-   <a class="navbar-brand" href="/">
-     <i class="fa fa-home"></i>
-   </a>
-  </div>
-  <div class="collapse navbar-collapse navbar-default cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="bs-example-navbar-collapse-1">
- <ul class="nav navbar-nav">
-   <li class="dropdown">
-   <a data-toggle="dropdown" class="dropdown-toggle" href="">{lang}Information{/lang}<b class="caret"></b></a>
-     <ul class="dropdown-menu">
-     {content_listing template="links" parent="information" type="page"}
-     </ul>
-   </li>
- </ul>
-   <form class="navbar-form navbar-left" role="search" action="{base_path}/page/search-result.html" method="get">
-   <div class="input-group">
-     <input type="text" class="form-control" placeholder="{lang}Search{/lang}" name="keyword">
-     <div class="input-group-btn">
-       <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+   <div class="row">
+     <div class="col-xs-5">
+       <a href="{base_path}/"><img src="{base_path}/img/logo.png" alt="{config value=site_name}" title="{config value=site_name}" width="247" height="98" /></a>
+     </div>
+     <div class="col-xs-5">
+     </div>
+     <div class="col-xs-2">
      </div>
    </div>
-   </form>
-  <ul class="nav navbar-nav navbar-right">
-     <li><a href="/page/account.html" title="{lang}My Orders{/lang}"><i class="fa fa-user"></i>{lang}My Orders{/lang}</a></li>
-     <li><a href="/page/cart-contents.html" title="{lang}Cart{/lang}"><i class="fa fa-shopping-cart"></i>{lang}Cart{/lang}{if{shopping_cart_total} > 0}<sup><span title="{shopping_cart_total}" class="badge progress-bar-danger">{shopping_cart_total}</span></sup>{/if}</a></li>
-  </ul>
-  </div>
  </div>
-</div>  
-</div>  
+  </header>
+  <!-- end: Header -->
 
-{flash_message}      
- 
-<div class="container">
- <div class="row content">
-  {breadcrumbs}
-   <div class="col-md-9 col-md-push-3">
-    <div id="ajaxcontent">
-    {if isset($is_compared)}{compared}{else}{content}{/if}
+ <div id="nav" data-spy="affix" data-offset-top="138" data-offset-bottom="0">    
+  <div class="navbar navbar-default">
+   <div class="container">    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle toggle-menu menu-left" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only"></span>                
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+     <a class="navbar-brand" href="/">
+         <i class="fa fa-home"></i>
+     </a>
+    </div>
+    <div class="collapse navbar-collapse navbar-default cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="bs-example-navbar-collapse-1">
+   <ul class="nav navbar-nav">
+     <li class="dropdown">
+       <a data-toggle="dropdown" class="dropdown-toggle" href="">{lang}Information{/lang} <b class="caret"></b></a>
+         <ul class="dropdown-menu">
+           {content_listing template="links" parent="information" type="page" limit="10"}
+         </ul>
+     </li>
+   </ul>
+     <form class="navbar-form navbar-left" role="search" action="{base_path}/page/search-result.html" method="get">
+       <div class="input-group">
+           <input type="text" class="form-control" placeholder="{lang}Search{/lang}" name="keyword">
+           <div class="input-group-btn">
+               <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+           </div>
+       </div>
+     </form>
+      <ul class="nav navbar-nav navbar-right">
+         <li><a href="/page/account.html" title="{lang}My Orders{/lang}"><i class="fa fa-user"></i> {lang}My Orders{/lang}</a></li>
+         <li><a href="/page/cart-contents.html" title="{lang}Cart{/lang}"><i class="fa fa-shopping-cart"></i> {lang}Cart{/lang} {if {shopping_cart_total} > 0}<sup><span title="{shopping_cart_total}" class="badge progress-bar-danger">{shopping_cart_total}</span></sup>{/if}</a></li>
+      </ul>
     </div>
    </div>
-   <div class="col-md-3 col-md-pull-9">
-   <div id="shopping-cart-box">{shopping_cart template="cart-content-box"}</div>
-   <section class="widget inner categories-widget">
-     <h3 class="widget-title">{lang}Categories{/lang}</h3>
-     <ul class="icons">
-       {content_listing template="links" parent="0" type="category"}
-     </ul>
-   </section>
-   <section class="widget inner brands-widget">
-     <h3 class="widget-title">{lang}Brands{/lang}</h3>
-     <ul class="icons">
-       {content_listing template="links" parent="brands" type="manufacturer"}
-     </ul>
-   </section>
-   {filter}
-   {compare}
-   {language_box}
-   {currency_box}
-   <section class="widget inner news-widget">
-     <h3 class="widget-title">{lang}News{/lang}</h3>
-     <ul class="icons">
-       {content_listing template="links" parent="news" type="news" limit="10"}
-     </ul>
-   </section>
-   <section class="widget inner articles-widget">
-     <h3 class="widget-title">{lang}Articles{/lang}</h3>
-     <ul class="icons">
-       {content_listing template="links" parent="articles" type="article" limit="10"}
-     </ul>
-   </section>
-   </div>
+  </div>  
+ </div>  
 
- </div><!-- /.row -->
+{flash_message}          
+ 
+ <div class="container">
+   <div class="row content">
+      {breadcrumbs}
+     <div class="col-md-9 col-md-push-3">
+          <div id="ajaxcontent">
+          {if isset($is_compared)}{compared}{else}{content}{/if}
+          </div>
+     </div>
+     <div class="col-md-3 col-md-pull-9">
+       <div id="shopping-cart-box">{shopping_cart template="cart-content-box"}</div>
+       <section class="widget inner categories-widget">
+         <h3 class="widget-title">{lang}Categories{/lang}</h3>
+           <ul class="icons">
+             {content_listing template="links" parent="0" type="category"}
+           </ul>
+       </section>
+       <section class="widget inner brands-widget">
+         <h3 class="widget-title">{lang}Brands{/lang}</h3>
+           <ul class="icons">
+             {content_listing template="links" parent="brands" type="manufacturer"}
+           </ul>
+       </section>
+       {filter}
+       {compare}
+       {language_box}
+       {currency_box}
+       <section class="widget inner news-widget">
+         <h3 class="widget-title">{lang}News{/lang}</h3>
+           <ul class="icons">
+             {content_listing template="links" parent="news" type="news" limit="10"}
+           </ul>
+       </section>
+       <section class="widget inner articles-widget">
+         <h3 class="widget-title">{lang}Articles{/lang}</h3>
+           <ul class="icons">
+             {content_listing template="links" parent="articles" type="article" limit="10"}
+           </ul>
+       </section>
+     </div>
 
- <!-- Site footer -->
- <footer>
-<div class="text-center">
-   {global_content alias="footer"}
-</div>
-   
-<div class="scroll-top-wrapper">
-   <button class="btn btn-fab btn-fab-mini btn-raised btn-sm btn-warning"><i class="fa fa-chevron-up"></i></button>
-</div>
-   
- </footer>
+   </div><!-- /.row -->
 
-</div><!-- /.container -->
+   <!-- Site footer -->
+   <footer>
+ <div class="text-center">
+     {global_content alias="footer"}
+ </div>
+     
+ <div class="scroll-top-wrapper">
+     <button class="btn btn-fab btn-fab-mini btn-raised btn-sm btn-warning"><i class="fa fa-chevron-up"></i></button>
+ </div>
+     
+   </footer>
+
+ </div><!-- /.container -->
 
 {google_analytics}
 {yandex_metrika}
