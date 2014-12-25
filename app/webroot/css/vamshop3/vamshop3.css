@@ -11,6 +11,17 @@ a:focus {
   color: #ff4b0c;
   text-decoration: underline;
 }
+a,
+a:active,
+a:focus,
+input,
+input:active,
+input:focus,
+select,
+select:active,
+select:focus {
+  outline: 0 !important;
+}
 .row.content {
   background: #fff;
   padding: 20px;
@@ -54,7 +65,7 @@ ul.icons li:before {
 }
 
 .scroll-top-wrapper {
-   position: fixed;
+  position: fixed;
   opacity: 0;
   visibility: hidden;
   text-align: center;
@@ -95,7 +106,6 @@ border-radius: 0px;
 .navbar-toggle {
 border: 0px;
 }
-
 
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
 background-color: #ff0000;
@@ -219,6 +229,51 @@ color: #fff;
   color: #fff;
   background-color: #000;
   border-color: #000;
+}
+
+.pagination > li > a,
+.pagination > li > span {
+  color: #555;
+  background-color: transparent;
+  border: 0px;
+}
+
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+  margin-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+  color: #fff;
+  background-color: #ff4b0c;
+}
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  color: #fff;
+  background-color: #ff4b0c;
+}
+
+.alert {
+  border-radius: 0px;
+}
+
+
+.form-control {
+  border-radius: 0px;
 }
 
 /* Ajax Spinner */
