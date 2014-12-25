@@ -32,8 +32,8 @@ $template = '
 {if isset($content_alias)}
 {if $pages_number > 1}
 <!-- start: Pagination -->
-<div class="pagination pagination-centered">
-	<ul>
+<div class="text-center">
+	<ul class="pagination">
 		{for $pg=1 to $pages_number}
 		<li{if $pg == {$page}} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}{if $order}/order/{$order}{/if}">{$pg}</a></li>
 		{/for}
@@ -77,8 +77,8 @@ $template = '
 {if isset($content_alias)}
 {if $pages_number > 1}
 <!-- start: Pagination -->
-<div class="pagination pagination-centered">
-	<ul>
+<div class="text-center">
+	<ul class="pagination">
 		{for $pg=1 to $pages_number}
 		<li{if $pg == {$page}} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}{if $order}/order/{$order}{/if}">{$pg}</a></li>
 		{/for}
