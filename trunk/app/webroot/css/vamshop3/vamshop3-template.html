@@ -112,8 +112,18 @@
      </div>
      <div class="col-md-3 col-md-pull-9">
        <div id="shopping-cart-box">{shopping_cart template="cart-content-box"}</div>
-       {content_listing template="categories-box" parent="0" type="category"}
-       {content_listing template="manufacturer-box" parent="brands" type="manufacturer"}
+       <section class="widget inner categories-widget">
+         <h3 class="widget-title">{lang}Categories{/lang}</h3>
+           <ul class="icons">
+             {content_listing template="links" parent="0" type="category"}
+           </ul>
+       </section>
+       <section class="widget inner brands-widget">
+         <h3 class="widget-title">{lang}Brands{/lang}</h3>
+           <ul class="icons">
+             {content_listing template="links" parent="brands" type="manufacturer"}
+           </ul>
+       </section>
        {filter}
        {compare}
        {language_box}
