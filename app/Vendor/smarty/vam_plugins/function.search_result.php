@@ -12,8 +12,8 @@ $template = '
 
 {if $pages_number > 1}
 <!-- start: Pagination -->
-<div class="pagination pagination-centered">
-	<ul>
+<div class="text-center">
+	<ul class="pagination">
 		{for $pg=1 to $pages_number}
 		<li{if $pg == $page} class="active"{/if}><a href="{base_path}/page/search-result{$ext}?page={$pg}&keyword={$keyword}">{$pg}</a></li>
 		{/for}
@@ -55,8 +55,8 @@ $template = '
 
 {if $pages_number > 1}
 <!-- start: Pagination -->
-<div class="pagination pagination-centered">
-	<ul>
+<div class="text-center">
+	<ul class="pagination">
 		{for $pg=1 to $pages_number}
 		<li{if $pg == $page} class="active"{/if}><a href="{base_path}/page/search-result{$ext}?page={$pg}&keyword={$keyword}">{$pg}</a></li>
 		{/for}
