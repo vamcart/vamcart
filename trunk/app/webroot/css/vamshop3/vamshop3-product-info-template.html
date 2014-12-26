@@ -22,12 +22,16 @@
           {discount_list}
 
           {product_form}
+          <div class="form-group">
+            <label class="sr-only">{lang}Qty{/lang}</label>
+            <p class="form-control-static">{lang}Qty{/lang}:</p>
             <div class="input-group">
               <input name="product_quantity" class="form-control" id="product_quantity" type="text" value="1" size="1" />
               <span class="input-group-btn">
                 <button type="submit" class="btn btn-default"><i class="fa fa-shopping-cart"></i> {lang}Add to cart{/lang}</button>
               </span>
             </div>
+          </div>          
           {/product_form}
 
           {module alias="one_click_buy" controller="buy" action="link"}
