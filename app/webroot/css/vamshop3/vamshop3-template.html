@@ -44,12 +44,12 @@
        </ul>
    </div>
    <div class="row">
-     <div class="col-xs-5">
+     <div class="col-sm-5">
        <a href="{base_path}/"><img src="{base_path}/img/logo.png" alt="{config value=site_name}" title="{config value=site_name}" width="247" height="98" /></a>
      </div>
-     <div class="col-xs-5">
+     <div class="col-sm-5">
      </div>
-     <div class="col-xs-2">
+     <div class="col-sm-2">
      </div>
    </div>
   </div>
@@ -124,33 +124,49 @@
        {compare}
        {language_box}
        {currency_box}
-       <section class="widget inner news-widget">
-         <h3 class="widget-title">{lang}News{/lang}</h3>
-           <ul class="icons">
-             {content_listing template="links" parent="news" type="news" limit="10"}
-           </ul>
-       </section>
-       <section class="widget inner articles-widget">
-         <h3 class="widget-title">{lang}Articles{/lang}</h3>
-           <ul class="icons">
-             {content_listing template="links" parent="articles" type="article" limit="10"}
-           </ul>
-       </section>
      </div>
 
    </div><!-- /.row -->
 
-   <!-- Site footer -->
-   <footer>
-    <div class="text-center">
-     {global_content alias="footer"}
-    </div>
-   </footer>
-
  </div><!-- /.container -->
 
+ <!-- Site footer -->
+ <footer>
+ <div class="container">
+ <div class="row">
+   <div class="col-sm-4">
+     <section class="widget inner articles-widget">
+       <h3 class="widget-title">{lang}Information{/lang}</h3>
+         <ul class="icons">
+           {content_listing template="links" parent="information" type="page" limit="10"}
+         </ul>
+     </section>
+   </div>
+   <div class="col-sm-4">
+     <section class="widget inner news-widget">
+       <h3 class="widget-title">{lang}News{/lang}</h3>
+         <ul class="icons">
+           {content_listing template="links" parent="news" type="news" limit="10"}
+         </ul>
+     </section>
+   </div>
+   <div class="col-sm-4">
+     <section class="widget inner articles-widget">
+       <h3 class="widget-title">{lang}Articles{/lang}</h3>
+         <ul class="icons">
+           {content_listing template="links" parent="articles" type="article" limit="10"}
+         </ul>
+     </section>
+   </div>
+ </div>
+ <div class="text-center">
+  {global_content alias="footer"}
+ </div>
+ </div>
+ </footer>
+
  <div class="scroll-top-wrapper">
-   <button class="btn btn-default"><i class="fa fa-chevron-up"></i></button>
+   <button class="btn btn-warning"><i class="fa fa-chevron-up"></i></button>
  </div>
 
 {google_analytics}
