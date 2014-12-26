@@ -110,13 +110,13 @@
        <div id="shopping-cart-box">{shopping_cart template="cart-content-box"}</div>
        <section class="widget inner categories-widget">
          <h3 class="widget-title">{lang}Categories{/lang}</h3>
-           <ul class="icons">
+           <ul class="icons clearfix">
              {content_listing template="links" parent="0" type="category"}
            </ul>
        </section>
        <section class="widget inner brands-widget">
          <h3 class="widget-title">{lang}Brands{/lang}</h3>
-           <ul class="icons">
+           <ul class="icons clearfix">
              {content_listing template="links" parent="brands" type="manufacturer"}
            </ul>
        </section>
@@ -135,25 +135,25 @@
  <div class="container">
  <div class="row">
    <div class="col-sm-4">
-     <section class="widget inner articles-widget">
+     <section class="widget information-widget">
        <h3 class="widget-title">{lang}Information{/lang}</h3>
-         <ul class="icons">
+         <ul class="icons clearfix">
            {content_listing template="links" parent="information" type="page" limit="10"}
          </ul>
      </section>
    </div>
    <div class="col-sm-4">
-     <section class="widget inner news-widget">
+     <section class="widget news-widget">
        <h3 class="widget-title">{lang}News{/lang}</h3>
-         <ul class="icons">
+         <ul class="icons clearfix">
            {content_listing template="links" parent="news" type="news" limit="10"}
          </ul>
      </section>
    </div>
    <div class="col-sm-4">
-     <section class="widget inner articles-widget">
+     <section class="widget articles-widget">
        <h3 class="widget-title">{lang}Articles{/lang}</h3>
-         <ul class="icons">
+         <ul class="icons clearfix">
            {content_listing template="links" parent="articles" type="article" limit="10"}
          </ul>
      </section>

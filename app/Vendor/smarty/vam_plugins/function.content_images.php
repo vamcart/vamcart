@@ -9,6 +9,7 @@
 function default_template_content_images()
 {
 $template = '
+<div class="product-images">
 {foreach from=$images item=image}
 {if $image@first}
 	<div class="thumbnail big text-center">
@@ -35,7 +36,8 @@ $template = '
 	<div class="thumbnail big text-center">
 			<img src="{$noimg_path}" alt="{lang}No Image{/lang}" title="{lang}No Image{/lang}" width="{$thumbnail_size}" height="{$thumbnail_size}" />
 	</div>
-{/foreach}    
+{/foreach}   
+</div> 
 <script type="text/javascript">
 $(document).ready(function(){
   $(".colorbox").colorbox({
