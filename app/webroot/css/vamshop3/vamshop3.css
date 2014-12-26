@@ -8,7 +8,7 @@ text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #ff4b0c;
+  color: #ff6633;
   text-decoration: underline;
 }
 a,
@@ -107,6 +107,12 @@ border-radius: 0px;
 border: 0px;
 }
 
+.navbar-default .navbar-nav > li > a:hover, 
+.navbar-default .navbar-nav > li > a:focus, 
+.navbar-default .navbar-nav > li > a:active {
+ color: #fff; 
+}
+
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
 background-color: #ff0000;
 }
@@ -120,8 +126,8 @@ margin-bottom: 0;
 }
 
 .navbar-default {
-background-color: #ff4b0c; 
-border-color: #ff6633;
+background-color: #ff6633;
+border-color: #ff4b0c;
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
@@ -177,8 +183,11 @@ color: #fff;
   background-color: transparent;
 }
 
-.btn {
-border-radius: 0;
+.btn,
+.alert,
+.form-control,
+.breadcrumb {
+  border-radius: 0px;
 }
 
 .btn.btn-default, 
@@ -193,31 +202,28 @@ border: 1px solid #555;
 color: #fff;
 }
 
-.btn-warning {
-background-color: #ff4b0c;
-border: 1px solid #ff4b0c;
-color: #fff;
-}
-
 .btn:hover,
 .btn:focus,
 .btn:active,
 .btn-default:hover,
 .btn-default:focus,
-.btn-default:active
-.btn-warning:hover,
-.btn-warning:focus,
-.btn-warning:active {
-background-color: #ff4b0c;
-border: 1px solid #ff4b0c;
+.btn-default:active {
+background-color: #ff6633;
+border: 1px solid #ff6633;
+color: #fff;
+}
+
+.btn-warning {
+background-color: #ff5722;
+border: 1px solid #ff5722;
 color: #fff;
 }
 
 .btn-warning:hover,
 .btn-warning:focus,
 .btn-warning:active {
-background-color: #ff5722;
-border: 1px solid #ff5722;
+background-color: #ff6633;
+border: 1px solid #ff6633;
 color: #fff;
 }
 
@@ -261,7 +267,7 @@ color: #fff;
 .pagination > li > a:focus,
 .pagination > li > span:focus {
   color: #fff;
-  background-color: #ff4b0c;
+  background-color: #ff6633;
 }
 .pagination > .active > a,
 .pagination > .active > span,
@@ -270,16 +276,7 @@ color: #fff;
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
   color: #fff;
-  background-color: #ff4b0c;
-}
-
-.alert {
-  border-radius: 0px;
-}
-
-
-.form-control {
-  border-radius: 0px;
+  background-color: #ff6633;
 }
 
 /* Ajax Spinner */
