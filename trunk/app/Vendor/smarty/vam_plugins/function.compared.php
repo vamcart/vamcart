@@ -14,7 +14,7 @@ $template = '
 		<h2>{page_name}</h2>  
 
 		<!-- start: products listing -->
-		<div class="row compared">
+		<div class="row shop-products">
 			<ul class="thumbnails">
 				{foreach from=$element_list[0]["attributes_product"] item=node}
 				<li class="item col-sm-6 col-md-4">
