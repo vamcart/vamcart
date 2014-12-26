@@ -2346,3 +2346,8 @@ ul.attributes li a.confirm
     opacity: 1;
     transition: all 2s ease-in;
    }	
+
+.sr-only
+	{
+		display: none;
+	}
