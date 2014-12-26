@@ -1610,8 +1610,8 @@ msgstr "Показывает название текущей страницы."
 msgid "Displays the total quantity products in shopping cart."
 msgstr "Показывает количество товара в корзине."
 
-#: /vendors/smarty/vam_plugins/function.shopping_cart_order_total.php:33
-msgid "Displays the order total in shopping cart."
+#: /vendors/smarty/vam_plugins/function.shopping_cart_amount.php:33
+msgid "Displays the shopping cart amount."
 msgstr "Показывает сумму заказа в корзине."
 
 #: /vendors/smarty/vam_plugins/function.page_url.php:33
