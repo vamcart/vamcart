@@ -7,6 +7,7 @@ color: #000;
 text-decoration: none;
 }
 a:hover,
+a:active,
 a:focus {
   color: #ff6633;
   text-decoration: underline;
@@ -115,7 +116,7 @@ border: 0px;
 }
 
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-background-color: #ff0000;
+background-color: #f44336;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -128,7 +129,6 @@ margin-bottom: 0;
 
 .navbar-default {
 background-color: #ff6633;
-border-color: #ff4b0c;
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
@@ -213,14 +213,14 @@ color: #fff;
 .btn-warning:hover,
 .btn-warning:focus,
 .btn-warning:active {
-background-color: #ff6633;
-border: 1px solid #ff6633;
+background-color: #ff5722;
+border: 1px solid #ff5722;
 color: #fff;
 }
 
 .btn-warning {
-background-color: #ff5722;
-border: 1px solid #ff5722;
+background-color: #ff6633;
+border: 1px solid #ff6633;
 color: #fff;
 }
 
@@ -268,6 +268,143 @@ color: #fff;
   color: #fff;
   background-color: #ff6633;
 }
+
+footer {
+  color: #fff;
+  background-color: #333;
+}
+
+footer a,
+footer a:hover,
+footer a:focus,
+footer a:active {
+  color: #fff;
+}
+
+.thumbnail .price {
+  color: #ff6633;
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 5;
+  clear: both;
+}
+.thumbnail .old-price {
+  color: gray;
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 5;
+  clear: both;
+}
+.thumbnail .save {
+  color: #ff6633;
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 5;
+  clear: both;
+}
+.description .price {
+  color: #ff6633;
+  font-size: 20px;
+  font-weight: bold;
+  z-index: 5;
+  clear: both;
+}
+.description .old-price {
+  color: gray;
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 5;
+  clear: both;
+}
+.description .save {
+  color: #ff6633;
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 5;
+  clear: both;
+}
+.rating {
+  background-color: transparent;
+  color: #ff6633;
+  right: 0;
+  padding: 0 5px 0 0;
+  font-size: 16px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Error */
+
+label.error 
+    {
+		margin-left: 10px;
+		width: auto;
+		display: inline;
+		color: red;
+		font-weight: normal;
+		background: transparent;
+	}
+
+.error
+	{
+		background: #fcc;
+	}	
+   
+/* /Error */
+
+/* Checkout */
+
+ul.shipping-methods,
+ul.payment-methods {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.shipping-methods li,
+ul.payment-methods li
+	{
+		border: 2px solid #fff;
+		border-radius: 0px;
+		margin: 0 0 1.5em 0;
+		padding: 0;
+	}
+
+ul.shipping-methods li:hover,
+ul.payment-methods li:hover,
+ul.shipping-methods .selected,
+ul.payment-methods .selected
+	{
+		border: 2px solid #ff6633;
+		border-radius: 0px;
+	}
+
+ul.shipping-methods li label,
+ul.payment-methods li label
+	{
+		height: 140px;
+		overflow: auto;
+		display: block;
+	}
+
+ul.shipping-methods li label span.title,
+ul.payment-methods li label span.title,
+ul.shipping-methods li label span.description,
+ul.payment-methods li label span.description,
+ul.shipping-methods li label span.image,
+ul.payment-methods li label span.image
+	{
+		display: block;
+		padding: .5em;
+	}
+
+ul.shipping-methods li label span.title,
+ul.payment-methods li label span.title
+	{
+		background: #eee;
+	}
+
+/* /Checkout */
 
 /* Ajax Spinner */
 div#spinner {
