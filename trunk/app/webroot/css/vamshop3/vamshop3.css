@@ -181,6 +181,12 @@ color: #fff;
 border-radius: 0;
 }
 
+.btn.btn-default, 
+.btn.btn-warning 
+	{
+		margin-bottom: 5px;
+	}
+
 .btn-default {
 background-color: #555;
 border: 1px solid #555;
