@@ -12,7 +12,6 @@ function smarty_function_shopping_cart_total($params, $template)
 	global $config;
 	global $content;
 
-
 	$order_items = array();
 	if (!isset($order['OrderProduct'])) {
 			return;
