@@ -33,6 +33,11 @@ select:focus {
   border: 0;
 }
 
+.product-tabs, 
+.tab-content {
+  padding: 15px;
+}
+
 ul.thumbnails {
   list-style-type: none;
   padding: 0;
