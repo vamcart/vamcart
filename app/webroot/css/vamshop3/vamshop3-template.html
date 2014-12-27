@@ -101,11 +101,14 @@
  <div class="container">
    <div class="row content">
       {breadcrumbs}
-     <div class="col-md-9 col-md-push-3">
-          <div id="ajaxcontent">
-          {if isset($is_compared)}{compared}{else}{content}{/if}
-          </div>
-     </div>
+      
+      {if {$content_type} == "category"}<div class="col-md-9 col-md-push-3">{/if}
+      <div id="ajaxcontent">
+        {if isset($is_compared)}{compared}{else}{content}{/if}
+      </div>
+      {if {$content_type} == "category"}</div>{/if}
+
+     {if {$content_type} == "category"}
      <div class="col-md-3 col-md-pull-9">
        <div id="shopping-cart-box">{shopping_cart template="cart-content-box"}</div>
        <section class="widget inner categories-widget">
@@ -125,6 +128,7 @@
        {language_box}
        {currency_box}
      </div>
+     {/if}
 
    </div><!-- /.row -->
 
