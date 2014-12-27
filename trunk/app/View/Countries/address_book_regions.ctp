@@ -1,6 +1,7 @@
-		<label class="control-label" for="ship_state"><?php echo __('State') ?>:</label>
-		<div class="controls">
-			<select name="AddressBook[ship_state]" id="ship_state">
+	<div id="ship_state_div">
+		<label class="col-sm-3 control-label" for="ship_state"><?php echo __('State') ?>:</label>
+		<div class="col-sm-9">
+			<select class="form-control" name="AddressBook[ship_state]" id="ship_state">
 			<?php if (sizeof($zones) > 0) { ?>
 			<?php foreach ($zones as $key => $value) { ?>
 			    <option value="<?php echo $key ?>"><?php echo __($value); ?></option>
@@ -10,3 +11,4 @@
 			<?php } ?>
 			</select>
 		</div>
+	</div>		
