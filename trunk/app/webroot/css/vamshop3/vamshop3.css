@@ -175,6 +175,23 @@ color: #fff;
   border-radius: 0;
 }
 
+ul.dropdown-menu.cart {
+padding: 0;
+margin: 0;
+}
+
+.dropdown.open .dropdown-menu.cart h3.widget-title {
+  display: none;
+}
+
+.dropdown-menu.cart {
+  min-width: 300px;
+  width: 300px;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 0;
+}
+
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus,
 .dropdown-menu > .active > a:hover,
@@ -327,8 +344,11 @@ color: #fff;
   background-color: #ff6633;
 }
 
-/* Categories widget
+/* Shopping Cart Widget
 /* ========================================================================== */
+.shopping-cart-widget {
+background: #fff;
+}
 .shopping-cart-widget .products {
   margin: 0 0 20px 0;
 }

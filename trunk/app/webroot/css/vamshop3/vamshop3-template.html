@@ -89,7 +89,14 @@
      </form>
       <ul class="nav navbar-nav navbar-right">
          <li><a href="{base_path}/page/account.html" title="{lang}My Orders{/lang}"><i class="fa fa-user"></i> {lang}My Orders{/lang}</a></li>
-         <li><a href="{base_path}/page/cart-contents.html" title="{lang}Cart{/lang}"><i class="fa fa-shopping-cart"></i> {lang}Cart{/lang} {if {shopping_cart_total} > 0}<sup><span title="{shopping_cart_total}" class="badge progress-bar-danger">{shopping_cart_total}</span></sup>{/if}</a></li>
+         <li{if {shopping_cart_total} > 0} class="dropdown"{/if}><a{if {shopping_cart_total} > 0} data-toggle="dropdown" class="dropdown-toggle"{/if} href="{base_path}/page/cart-contents.html" title="{lang}Cart{/lang}"><i class="fa fa-shopping-cart"></i> {lang}Cart{/lang} {if {shopping_cart_total} > 0}<sup><span title="{shopping_cart_total}" class="badge progress-bar-danger">{shopping_cart_total}</span></sup> <b class="caret"></b>{/if}</a>
+
+         <ul class="dropdown-menu cart">
+           <div id="shopping-cart-box">{shopping_cart template="cart-content-box"}</div>
+         </ul>
+         
+         
+         </li>
       </ul>
     </div>
    </div>
