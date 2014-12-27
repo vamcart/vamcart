@@ -164,7 +164,7 @@ function smarty_function_shopping_cart($params, $template)
 
 	$assignments = array(
 		'checkout_link' => BASE . '/page/checkout' . $config['URL_EXTENSION'],
-		'back_link' => isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/',
+		'back_link' => isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : BASE. '/',
 		'order_total' => $CurrencyBase->display_price($order['Order']['total']),
 		'total_quantity' => $total_quantity,
 		'total_weight' => $total_weight,
