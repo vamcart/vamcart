@@ -190,6 +190,7 @@ margin: 0;
   background-color: #fff;
   border: 1px solid #eee;
   border-radius: 0;
+  z-index: 2000;
 }
 
 .dropdown-menu > li > a:hover,
