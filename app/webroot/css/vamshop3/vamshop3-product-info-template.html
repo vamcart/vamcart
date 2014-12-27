@@ -47,32 +47,30 @@
     </div>
 
     <div class="row">
+      <div class="row product-tabs" role="tab-panel">
 
-      <div class="row product-tabs">
-        <section class="widget">
-
-          <ul class="nav nav-tabs">
-            <li class="active"><a href="#description" data-toggle="tab"><i class="fa fa-thumbs-up"></i> {lang}Description{/lang}</a></li>
-            <li><a href="#reviews" data-toggle="tab"><i class="fa fa-comment"></i> {lang}Reviews{/lang}</a></li>
-            <li><a href="#add-review" data-toggle="tab"><i class="fa fa-pencil"></i> {lang}Add Review{/lang}</a></li>
+          <ul class="nav nav-tabs" role="tab-list">
+            <li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab"><i class="fa fa-thumbs-up"></i> {lang}Description{/lang}</a></li>
+            <li role="presentation"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab"><i class="fa fa-comment"></i> {lang}Reviews{/lang}</a></li>
+            <li role="presentation"><a href="#add-review" aria-controls="add-review" role="tab" data-toggle="tab"><i class="fa fa-pencil"></i> {lang}Add Review{/lang}</a></li>
           </ul>
 
           <div class="tab-content">
 
-            <div class="tab-pane inner fade in notop active" id="description">
+            <div role="tabpanel" class="tab-pane inner fade in notop active" id="description">
               <div itemprop="description">{description}</div>
             </div>
 
-            <div class="tab-pane inner fade in notop" id="reviews">
+            <div role="tabpanel" class="tab-pane inner fade in notop" id="reviews">
               {module alias="reviews" action="display"}
             </div>
 
-            <div class="tab-pane inner fade in notop" id="add-review">
+            <div role="tabpanel" class="tab-pane inner fade in notop" id="add-review">
               {module alias="reviews" action="create"}
             </div>
 
           </div>
-        </section>
+
       </div>
     </div>
 
