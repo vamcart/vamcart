@@ -28,7 +28,8 @@ function smarty_block_product_form($params, $product_form, $template, &$repeat)
 
     $.post("'.BASE.'/cart/purchase_product", str, function(data) {
       $("#shopping-cart-box").html(data);
-      $("html, body").animate({ scrollTop: 0 }, "slow");	
+      $("html, body").animate({ scrollTop: 0 }, "slow");
+      $(".dropdown-menu.cart").dropdown("toggle");
     	$(".shopping-cart-widget").addClass("ajax-cart-hightlight");
     });
   }
