@@ -47,7 +47,7 @@ $template = '
 		</tr>
 	</table>
 	<p class="text-center">
-	<a class="btn btn-default" href="{base_path}/"><i class="fa fa-arrow-left"></i> {lang}Continue Shopping{/lang}</a>
+	<a class="btn btn-default" href="{$back_link}"><i class="fa fa-arrow-left"></i> {lang}Continue Shopping{/lang}</a>
 	<button class="btn btn-default" type="submit" name="updatebutton"><i class="fa fa-refresh"></i> {lang}Update{/lang}</button>
 	<a class="btn btn-warning" href="{$checkout_link}"><i class="fa fa-shopping-cart"></i> {lang}Checkout{/lang}</a>
 	</p>
@@ -163,6 +163,7 @@ function smarty_function_shopping_cart($params, $template)
 
 	$assignments = array(
 		'checkout_link' => BASE . '/page/checkout' . $config['URL_EXTENSION'],
+		'back_link' => $_SERVER['HTTP_REFERER'],
 		'order_total' => $CurrencyBase->display_price($order['Order']['total']),
 		'total_quantity' => $total_quantity,
 		'total_weight' => $total_weight,
