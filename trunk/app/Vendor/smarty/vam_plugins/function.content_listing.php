@@ -13,31 +13,31 @@ $template = '
 
 {if isset($content_alias)}
 <div class="btn-toolbar">
-	<div class="btn-group">
-	<span class="btn btn-default"><i class="fa fa-sort" title="{lang}Sort by{/lang}"></i></span>
-		<a class="btn btn-default{if $order == "price-asc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/price-asc">{lang} Price{/lang}</a>
-		<a class="btn btn-default{if $order == "price-asc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/price-asc"><i class="fa fa-sort-numeric-asc" title="{lang}Price (Low to High){/lang}"></i></a>
-		<a class="btn btn-default{if $order == "price-desc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/price-desc"><i class="fa fa-sort-numeric-desc" title="{lang}Price (High to Low){/lang}"></i></a>
-		<a class="btn btn-default{if $order == "name-asc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/name-asc">{lang} Name{/lang}</a>
-		<a class="btn btn-default{if $order == "name-asc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/name-asc"><i class="fa fa-sort-alpha-asc" title="{lang}Name (A-Z){/lang}"></i></a>
-		<a class="btn btn-default{if $order == "name-desc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/name-desc"><i class="fa fa-sort-alpha-desc" title="{lang}Name (Z-A){/lang}"></i></a>
-		<a class="btn btn-default{if $order == "ordered-desc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/ordered-desc">{lang} Popular{/lang}</a>
-		<a class="btn btn-default{if $order == "ordered-desc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/ordered-desc"><i class="fa fa-thumbs-up" title="{lang}Popular (desc){/lang}"></i></a>
-		<a class="btn btn-default{if $order == "ordered-asc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/ordered-asc"><i class="fa fa-thumbs-down" title="{lang}Popular (asc){/lang}"></i></a>
-	</div>
+  <div class="btn-group">
+  <span class="btn btn-default"><i class="fa fa-sort" title="{lang}Sort by{/lang}"></i></span>
+    <a class="btn btn-default{if $order == "price-asc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/price-asc">{lang} Price{/lang}</a>
+    <a class="btn btn-default{if $order == "price-asc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/price-asc"><i class="fa fa-sort-numeric-asc" title="{lang}Price (Low to High){/lang}"></i></a>
+    <a class="btn btn-default{if $order == "price-desc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/price-desc"><i class="fa fa-sort-numeric-desc" title="{lang}Price (High to Low){/lang}"></i></a>
+    <a class="btn btn-default{if $order == "name-asc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/name-asc">{lang} Name{/lang}</a>
+    <a class="btn btn-default{if $order == "name-asc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/name-asc"><i class="fa fa-sort-alpha-asc" title="{lang}Name (A-Z){/lang}"></i></a>
+    <a class="btn btn-default{if $order == "name-desc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/name-desc"><i class="fa fa-sort-alpha-desc" title="{lang}Name (Z-A){/lang}"></i></a>
+    <a class="btn btn-default{if $order == "ordered-desc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/ordered-desc">{lang} Popular{/lang}</a>
+    <a class="btn btn-default{if $order == "ordered-desc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/ordered-desc"><i class="fa fa-thumbs-up" title="{lang}Popular (desc){/lang}"></i></a>
+    <a class="btn btn-default{if $order == "ordered-asc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/ordered-asc"><i class="fa fa-thumbs-down" title="{lang}Popular (asc){/lang}"></i></a>
+  </div>
 </div>
-{/if}
+{/if}  
 
 {if isset($content_alias)}
 {if $pages_number > 1}
 <!-- start: Pagination -->
 <div class="text-center">
-	<ul class="pagination">
-		{for $pg=1 to $pages_number}
-		<li{if $pg == {$page}} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}{if $order}/order/{$order}{/if}">{$pg}</a></li>
-		{/for}
-		<li{if "all" == {$page}} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all{if $order}/order/{$order}{/if}">{lang}All{/lang}</a></li>
-	</ul>
+  <ul class="pagination">
+    {for $pg=1 to $pages_number}
+    <li{if $pg == {$page}} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}{if $order}/order/{$order}{/if}">{$pg}</a></li>
+    {/for}
+    <li{if "all" == {$page}} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all{if $order}/order/{$order}{/if}">{lang}All{/lang}</a></li>
+  </ul>
 </div>
 <!-- end: Pagination -->
 {/if}  
@@ -45,31 +45,33 @@ $template = '
   
 <!-- start: products listing -->
 <div class="row shop-products">
-	<ul class="thumbnails">
-		{foreach from=$content_list item=node}
-		<li class="item col-sm-6 col-md-4">
-			<div class="thumbnail text-center">
-				{if $node.discount > 0}<div class="description"><span class="discount">-{$node.discount|round}%</span></div>{/if}
-				<a href="{$node.url}" class="image"><img src="{$node.image}" alt="{$node.name}"{if isset($thumbnail_width)} width="{$thumbnail_width}"{/if} />{product_label label_id={$node.label_id}}</a>
-			<div class="inner notop nobottom text-left">
-				<h4 class="title"><a href="{$node.url}">{$node.name}</a></h4>
-				{if $node.reviews > 0}<div class="description"><span class="rating">{$node.star_rating}</span> <span class="reviews">{lang}Feedback{/lang}: {$node.reviews}</span></div>{/if}
-				{if $node.price}<div class="description">{lang}Price{/lang}: <span class="price">{$node.price}</span></div>{/if}
-				{if $node.old_price}<div class="description">{lang}List Price{/lang}: <span class="old-price"><del>{$node.old_price}</del></span></div>{/if}
-				{if $node.price_save}<div class="description">{lang}You Save{/lang}: <span class="save">{$node.price_save} ({$node.price_save_percent|round}%)</span></div>{/if}
-				<div class="description">{$node.short_description|strip_tags|truncate:30:"...":true}</div>
-				<div class="description">{attribute_list product_id=$node.id}</div>
-			</div>
-			</div>
-			{product_form product_id={$node.id}}
-			<div class="inner darken notop">
-				<button class="btn btn-default btn-add-to-cart" type="submit"><i class="fa fa-shopping-cart"></i> {lang}Buy{/lang}</button>
-				{if isset($is_compare)}<a href="{base_path}/category/addcmp/{$node.alias}/{$content_alias->value}{$ext}" class="btn btn-default btn-add-to-cart"><i class="fa fa-bookmark"></i> {lang}Compare{/lang}</a>{/if}
-			</div>
-			{/product_form}
-		</li>
-		{/foreach}
-	</ul>
+  <ul class="thumbnails">
+    {foreach from=$content_list item=node}
+    <li class="item col-sm-6 col-md-4">
+      <div class="thumbnail text-center">
+        {if $node.discount > 0}<div class="description"><span class="discount">-{$node.discount|round}%</span></div>{/if}
+        <a href="{$node.url}" class="image"><img src="{$node.image}" alt="{$node.name}"{if isset($thumbnail_width)} width="{$thumbnail_width}"{/if} />
+        {if $node.price}<span class="frame-overlay"></span><span class="price">{$node.price}</span>{/if}
+        {product_label label_id={$node.label_id}}
+        </a>
+      <div class="inner notop nobottom text-left">
+        <h4 class="title"><a href="{$node.url}">{$node.name}</a></h4>
+        {if $node.reviews > 0}<div class="description"><span class="rating">{$node.star_rating}</span> <span class="reviews">{lang}Feedback{/lang}: {$node.reviews}</span></div>{/if}
+        {if $node.old_price}<div class="description">{lang}List Price{/lang}: <span class="old-price"><del>{$node.old_price}</del></span></div>{/if}
+        {if $node.price_save}<div class="description">{lang}You Save{/lang}: <span class="save">{$node.price_save} ({$node.price_save_percent|round}%)</span></div>{/if}
+        <div class="description">{$node.short_description|strip_tags|truncate:30:"...":true}</div>
+        <div class="description">{attribute_list product_id=$node.id}</div>
+      </div>
+      </div>
+      {product_form product_id={$node.id}}
+      <div class="inner darken notop">
+        <button class="btn btn-default btn-add-to-cart" type="submit"><i class="fa fa-shopping-cart"></i> {lang}Buy{/lang}</button>
+        {if isset($is_compare)}<a href="{base_path}/category/addcmp/{$node.alias}/{$content_alias->value}{$ext}" class="btn btn-default btn-add-to-cart"><i class="fa fa-bookmark"></i> {lang}Compare{/lang}</a>{/if}
+      </div>
+      {/product_form}
+    </li>
+    {/foreach}
+  </ul>
 </div>  
 <!-- end: products listing -->
 
@@ -77,21 +79,21 @@ $template = '
 {if $pages_number > 1}
 <!-- start: Pagination -->
 <div class="text-center">
-	<ul class="pagination">
-		{for $pg=1 to $pages_number}
-		<li{if $pg == {$page}} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}{if $order}/order/{$order}{/if}">{$pg}</a></li>
-		{/for}
-		<li{if "all" == {$page}} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all{if $order}/order/{$order}{/if}">{lang}All{/lang}</a></li>
-	</ul>
+  <ul class="pagination">
+    {for $pg=1 to $pages_number}
+    <li{if $pg == {$page}} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/{$pg}{if $order}/order/{$order}{/if}">{$pg}</a></li>
+    {/for}
+    <li{if "all" == {$page}} class="active"{/if}><a href="{base_path}/category/{$content_alias->value}{$ext}/page/all{if $order}/order/{$order}{/if}">{lang}All{/lang}</a></li>
+  </ul>
 </div>
 <!-- end: Pagination -->
 {/if}
-{/if}
+{/if}  
 
 {else}
 {lang}No Items Found{/lang}
 
-{/if}
+{/if}  
 ';		
 
 return $template;
