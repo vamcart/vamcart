@@ -45,8 +45,8 @@ $template = '
 		<!-- end: products listing -->
 
 			<!-- start: compare_table -->
-			<table class="contentTable">
-			<tbody>
+			<table class="table table-striped table-hover">
+			<thead>
 			<tr>
 				<th>{lang}Comparison{/lang}</th>
 				{foreach from=$element_list[0]["attributes_product"] item=product}
@@ -54,7 +54,9 @@ $template = '
 					{$product.name}
 					</th>
 				{/foreach}
-			</tr>   
+			</tr>
+			</thead>   
+			<tbody>
 			{foreach from=$element_list item=attribute}
 				<tr>
 			       	<td>{$attribute.name_attribute}</td>

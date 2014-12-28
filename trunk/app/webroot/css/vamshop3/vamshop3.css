@@ -574,63 +574,6 @@ ul.clearfix {
   width: auto;
 }
 
-
-/* Tables */
-
-table.contentTable
-	{
-		width: 100%;
-		padding: 0 0 0 0;
-		margin: 0 0 .2em 0;
-		border: 1px solid #97a5b0;
-	}
-
-table.contentTable tr
-	{
-		padding: 0;
-		margin: 0;
-	}
-
-table.contentTable tr.contentRowEven
-	{
-		padding: 0;
-		margin: 0;
-		background: #f7f7f7;
-	}
-
-table.contentTable tr.contentRowOdd
-	{
-		padding: 0;
-		margin: 0;
-		background: #fff;
-	}
-
-table.contentTable tr.contentRowEvenHover,
-table.contentTable tr.contentRowOddHover
-	{
-		padding: 0;
-		margin: 0;
-		background: #ffc;
-	}
-
-table.contentTable th
-	{
-		color: #000;
-		font-weight: normal;
-		padding: .9em;
-		margin: 0;
-		background-color: #e3eff7;
-		border: 1px solid #97a5b0;
-	}
-
-table.contentTable td
-	{
-		padding: .3em .3em .3em .3em;
-		margin: 0;
-	}
-
-/* /Tables */
-
 /* Checkout */
 
 ul.shipping-methods,

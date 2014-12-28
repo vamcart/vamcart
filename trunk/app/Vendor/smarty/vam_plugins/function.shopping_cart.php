@@ -12,7 +12,8 @@ $template = '
 {if $order_items}
 <div class="cart">
 <form name="cart_qty" action="{base_path}/cart/update_cart_qty" method="post">
-	<table class="contentTable">
+	<table class="table table-striped table-hover">
+	  <thead>
 		<tr>
 			<th></th>
 			<th>{lang}Product{/lang}</th>
@@ -20,10 +21,12 @@ $template = '
 			<th>{lang}Qty{/lang}</th>
 			<th>{lang}Total{/lang}</th>
 		</tr>
+		</thead>
 
+    <tbody>
 {foreach from=$order_items item=product}
 		<tr>
-			<td align="center"><img class="media-object" src="{$product.image.image_thumb}" alt="" title=""{if {$product.image.image_width} > 0} width="{$product.image.image_width}"{/if}{if {$product.image.image_height} > 0} height="{$product.image.image_height}"{/if} /></td>
+			<td class="text-center"><img class="media-object" src="{$product.image.image_thumb}" alt="" title=""{if {$product.image.image_width} > 0} width="{$product.image.image_width}"{/if}{if {$product.image.image_height} > 0} height="{$product.image.image_height}"{/if} /></td>
 			<td><a href="{$product.link}">{$product.name}</a> <a href="{base_path}/cart/remove_product/{$product.id}/1" class="remove" title="{lang}Remove{/lang}"><i class="fa fa-trash-o"></i></a></td>
 			<td>{$product.price}</td>
 			<td><input type="text" name="qty[{$product.id}]" class="form-control" value="{$product.qty}" size="3" /></td>
@@ -36,15 +39,16 @@ $template = '
 {/foreach}
 
 		<tr class="cart_total">
-			<td colspan="3" width="100%">&nbsp;</td>
+			<td colspan="3">&nbsp;</td>
 			<td class="total-name">{lang}Shipping{/lang}:</td>
-			<td class="total-value"><nobr>{$shipping_total}</nobr></td>
+			<td class="total-value">{$shipping_total}</td>
 		</tr>
 		<tr class="cart_total">
 			<td colspan="3">&nbsp;</td>
 			<td class="total-name"><strong>{lang}Total{/lang}:</strong></td>
-			<td class="total-value"><nobr>{$order_total}</nobr></td>
+			<td class="total-value">{$order_total}</td>
 		</tr>
+    </tbody>
 	</table>
 	<p class="text-center">
 	<a class="btn btn-default" href="{$back_link}"><i class="fa fa-arrow-left"></i> {lang}Continue Shopping{/lang}</a>
