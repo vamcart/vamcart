@@ -435,6 +435,10 @@ footer a:active {
   color: #fff;
 }
 
+footer .copyright {
+  padding: 15px;
+}
+
 .thumbnail .discount {
   position: absolute;
   left: -30px;
