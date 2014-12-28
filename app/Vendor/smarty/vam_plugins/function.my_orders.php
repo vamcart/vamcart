@@ -13,23 +13,29 @@ $template = '
 {lang}Orders Not Found!{/lang}
 {else}
 {foreach from=$orders item=order}
-<div>{lang}Order number{/lang}: {$order.Order.id}</div>
 
 <ul id="myTab{$order.Order.id}" class="nav nav-tabs">
-	<li><a href ="#customer{$order.Order.id}" data-toggle="tab"><i class="cus-user"></i> {lang}Customer{/lang}</a></li>
-	<li><a href ="#order{$order.Order.id}" data-toggle="tab"><i class="cus-cart"></i> {lang}Products{/lang}</a></li>
-	<li><a href ="#comments{$order.Order.id}" data-toggle="tab"><i class="cus-comment"></i> {lang}Order Comments{/lang}</a></li>
+	<li><a href ="#customer{$order.Order.id}" data-toggle="tab"><i class="fa fa-user"></i> {lang}Customer{/lang}</a></li>
+	<li><a href ="#order{$order.Order.id}" data-toggle="tab"><i class="fa fa-shopping-cart"></i> {lang}Products{/lang}</a></li>
+	<li><a href ="#comments{$order.Order.id}" data-toggle="tab"><i class="fa fa-comment-o"></i> {lang}Order Comments{/lang}</a></li>
 </ul>
 
 <div id="myTabContent{$order.Order.id}" class="tab-content">
 
 	<div id="customer{$order.Order.id}" class="tab-pane fade in active">
 
-		<table border="0" class="contentTable">
-			<tr><td width="50%">
-		
-			<table border="0" class="contentTable">
-				<tr><th>{lang}Billing Information{/lang}</th></tr>
+		<table class="table">
+		  <thead>
+		  <tr>
+			<th>{lang}Order number{/lang}: {$order.Order.id}</th>
+			<th>&nbsp;</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr><td>
+			<table class="table table-striped table-hover">
+				<thead><tr><th>{lang}Billing Information{/lang}</th></tr></thead>
+				<tbody>
 					<tr><td>{lang}Name{/lang}: {$order.Order.bill_name}</td></tr>
 					<tr><td>{lang}Address Line 1{/lang}: {$order.Order.bill_line_1}</td></tr>
 					<tr><td>{lang}Address Line 2{/lang}: {$order.Order.bill_line_2}</td></tr>
@@ -37,12 +43,12 @@ $template = '
 					<tr><td>{lang}State{/lang}: {$order.Order.bill_state}</td></tr>
 					<tr><td>{lang}Country{/lang}: {$order.Order.bill_country}</td></tr>
 					<tr><td>{lang}Zipcode{/lang}: {$order.Order.bill_zip}</td></tr>
+				</tbody>
 			</table>
-		
-			</td><td width="50%">
-		
-			<table class="contentTable">
-				<tr><th>{lang}Shipping Information{/lang}</th></tr>
+			</td><td>
+			<table class="table table-striped table-hover">
+				<thead><tr><th>{lang}Shipping Information{/lang}</th></tr></thead>
+				<tbody>
 					<tr><td>{lang}Name{/lang}: {$order.Order.ship_name}</td></tr>
 					<tr><td>{lang}Address Line 1{/lang}: {$order.Order.ship_line_1}</td></tr>
 					<tr><td>{lang}Address Line 2{/lang}: {$order.Order.ship_line_2}</td></tr>
@@ -50,26 +56,31 @@ $template = '
 					<tr><td>{lang}State{/lang}: {$order.Order.ship_state}</td></tr>
 					<tr><td>{lang}Country{/lang}: {$order.Order.ship_country}</td></tr>
 					<tr><td>{lang}Zipcode{/lang}: {$order.Order.ship_zip}</td></tr>
+				</tbody>
 			</table>
 		
 				</td></tr>
 
 				<tr><td colspan="2">
 		
-				<table class="contentTable">
-					<tr><th>{lang}Order Status{/lang}</th></tr>
+				<table class="table table-striped table-hover">
+					<thead><tr><th>{lang}Order Status{/lang}</th></tr></thead>
+					<tbody>
 						<tr><td>{$order.OrderStatus.OrderStatusDescription.name}</td></tr>
+					</tbody>
 				</table>
 		
 				</td></tr>
 
 				<tr><td colspan="2">
 		
-				<table class="contentTable">
-					<tr><th>{lang}Contact Information{/lang}</th></tr>
+				<table class="table table-striped table-hover">
+					<thead><tr><th>{lang}Contact Information{/lang}</th></tr></thead>
+					<tbody>
 						<tr><td>{lang}Email{/lang}: {$order.Order.email}</td></tr>
 						<tr><td>{lang}Phone{/lang}: {$order.Order.phone}</td></tr>
 						<tr><td>{lang}Company{/lang}: {$order.Order.company_name}</td></tr>
+					</tbody>
 				</table>
 		
 				</td></tr>
@@ -78,31 +89,36 @@ $template = '
 				
 				<td>
 		
-				<table class="contentTable">
-					<tr><th>{lang}Payment Method{/lang}</th></tr>
+				<table class="table table-striped table-hover">
+					<thead><tr><th>{lang}Payment Method{/lang}</th></tr></thead>
+					<tbody>
 						<tr><td>{$order.PaymentMethod.name}</td></tr>
+					</tbody>
 				</table>
 		
 				</td>
 
 				<td>
 		
-				<table class="contentTable">
-					<tr><th>{lang}Shipping Method{/lang}</th></tr>
+				<table class="table table-striped table-hover">
+					<thead><tr><th>{lang}Shipping Method{/lang}</th></tr></thead>
+					<tbody>
 						<tr><td>{$order.ShippingMethod.name}</td></tr>
+					</tbody>
 				</table>
 		
 				</td>
 				
 				</tr>
-
+    </tbody>
 		</table>
 		
 	</div>
 	
 	<div id="order{$order.Order.id}" class="tab-pane fade">
 
-		<table class="contentTable">
+		<table class="table table-striped table-hover">
+		<thead>
 		<tr>
 			<th>{lang}Product{/lang}</th>
 			<th>{lang}Model{/lang}</th>
@@ -110,6 +126,8 @@ $template = '
 			<th>{lang}Quantity{/lang}</th>
 			<th>{lang}Total{/lang}</th>
 		</tr>
+		</thead>
+    <tbody>
 		{foreach from=$order.OrderProduct item=products}
 		<tr>
 			<td>{$products.name} {if $products.filename != ""} - <a href="{$smarty.const.FULL_BASE_URL}{$smarty.const.BASE}/download/{$order.Order.id}/{$products.id}/{$products.download_key}"><span class="label label-success">{lang}Download file{/lang}</span></a>{/if}</td>
@@ -129,27 +147,26 @@ $template = '
 		</tr>
 
 		<tr>
-			<td>{lang}Order Total{/lang}</strong></td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
+			<td colspan="3">&nbsp;</td>
+			<td><strong>{lang}Order Total{/lang}</strong></td>
 			<td><strong>{$order.Order.total}</strong></td>
 		</tr>
-
+    <tbody>
 		</table>
 		
 	</div>
 
 	<div id="comments{$order.Order.id}" class="tab-pane fade">
 
-		<table class="contentTable">
-		
+		<table class="table table-striped table-hover">
+		<thead>
 		<tr>
 		<th>{lang}Date{/lang}</th>
 		<th>{lang}Sent To Customer{/lang}</th>
 		<th>{lang}Comment{/lang}</th>
 		</tr>
-		
+		</thead>
+		<tbody>
 		{foreach from=$order.OrderComment item=comments}
 		<tr>
 		<td>{$comments.created}</td>
@@ -157,7 +174,7 @@ $template = '
 		<td><pre>{$comments.comment}</pre></td>
 		</tr>
 		{/foreach}
-		
+		</tbody>
 		</table>
 	
 	</div>
