@@ -231,11 +231,13 @@ $(this).parent().addClass("selected");
 	</div>
   </div>
   {module alias="coupons" action="checkout_box"}
+
   <div id="shipping_method">
     <div>
       <h3>{lang}Shipping Method{/lang}</h3>
     </div>  
-	<div class="row">
+
+  <div class="clearfix">
 	<ul class="shipping-methods">
     {foreach from=$ship_methods item=ship_method}
 		<li class="item col-sm-6 col-md-4{if $ship_method.id == $order.shipping_method_id} selected{/if}">
@@ -256,15 +258,16 @@ $(this).parent().addClass("selected");
 		</label>	
 		</li>
     {/foreach}
-	</ul>	</div>
-		
+	</ul>
+	</div>
   </div>
+
   <div id="payment_method">
     <div>
       <h3>{lang}Payment Method{/lang}</h3>
     </div>    
 
-	<div class="row">
+  <div class="clearfix">
 	<ul class="payment-methods">
     {foreach from=$payment_methods item=payment_method}
 		<li class="item col-sm-6 col-md-4{if $payment_method.id == $order.payment_method_id} selected{/if}">
@@ -284,7 +287,7 @@ $(this).parent().addClass("selected");
 		</label>	
 		</li>
     {/foreach}
-	</ul>	</div>
+	</ul>  </div>
 	    
   </div>
 
