@@ -70,7 +70,7 @@ var currentTallest = 0,
 
 if ($(window).width() > 767) {
 $(window).load(function() {
-  equalheight('.thumbnails .thumbnail');
+  //equalheight('.thumbnails .thumbnail');
 });
 
 $(window).resize(function(){
