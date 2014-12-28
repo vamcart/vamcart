@@ -70,10 +70,12 @@ var currentTallest = 0,
 
 if ($(window).width() > 767) {
 $(window).load(function() {
-  equalheight('.thumbnails .thumbnail');
+  equalheight('.featured-categories .thumbnails .thumbnail');
+  equalheight('.shop-products .thumbnails .thumbnail');
 });
 
 $(window).resize(function(){
-  equalheight('.thumbnails .thumbnail');
+  equalheight('.featured-categories .thumbnails .thumbnail');
+  equalheight('.shop-products .thumbnails .thumbnail');
 });
 }
