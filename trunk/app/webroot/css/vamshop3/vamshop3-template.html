@@ -73,9 +73,9 @@
     <div class="collapse navbar-collapse navbar-default cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="navbar-collapse">
    <ul class="nav navbar-nav">
      <li class="dropdown">
-       <a data-toggle="dropdown" class="dropdown-toggle" href="">{lang}Information{/lang} <b class="caret"></b></a>
+       <a data-toggle="dropdown" class="dropdown-toggle" href="">{lang}Categories{/lang} <b class="caret"></b></a>
          <ul class="dropdown-menu">
-           {content_listing template="links" parent="information" type="page" limit="10"}
+           {content_listing template="links" parent="0" type="category"}
          </ul>
      </li>
    </ul>
@@ -105,29 +105,6 @@
  <div class="container">
    <div class="row content">
    
-      {if $content_type != "category"}
-      <div id="categories">
-      <nav class="navbar navbar-categories" role="navigation">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-categories-collapse">
-              <span class="sr-only"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <span class="navbar-brand visible-xs">{lang}Categories{/lang}</span>
-          </div>
-            <div class="collapse navbar-collapse" id="navbar-categories-collapse">
-            <ul class="nav navbar-nav">
-              {content_listing template="links" parent="0" type="category" limit="20"}
-            </ul>
-          </div>
-        </div>
-      </nav>
-      </div>
-      {/if}
-    
       {breadcrumbs}
      
       {if $content_type == "category"}<div class="col-md-9 col-md-push-3">{/if}
