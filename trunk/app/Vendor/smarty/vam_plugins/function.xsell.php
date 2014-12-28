@@ -9,7 +9,7 @@
 function default_template_xsell()
 {
     $template = '
-<h3>{lang}Also purchased{/lang}</h2>
+<h3>{lang}Also purchased{/lang}</h3>
 <div class="row shop-products">
   <ul class="thumbnails">
   {foreach from=$relations item=node}
