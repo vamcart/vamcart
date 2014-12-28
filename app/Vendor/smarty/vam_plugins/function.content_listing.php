@@ -12,6 +12,7 @@ $template = '
 {if $content_list}
 
 {if isset($content_alias)}
+<div class="sort">
 <div class="btn-toolbar">
   <div class="btn-group">
   <span class="btn btn-default"><i class="fa fa-sort" title="{lang}Sort by{/lang}"></i></span>
@@ -25,6 +26,7 @@ $template = '
     <a class="btn btn-default{if $order == "ordered-desc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/ordered-desc"><i class="fa fa-thumbs-up" title="{lang}Popular (desc){/lang}"></i></a>
     <a class="btn btn-default{if $order == "ordered-asc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/ordered-asc"><i class="fa fa-thumbs-down" title="{lang}Popular (asc){/lang}"></i></a>
   </div>
+</div>
 </div>
 {/if}  
 
