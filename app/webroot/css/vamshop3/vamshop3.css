@@ -110,10 +110,6 @@ ul.icons li:before {
   padding-bottom: 15px;
 }
 
-.nav-pills > li > a {
-  border-radius: 0px;
-}
- 
 #nav.affix {
   position: fixed;
   top: 0;
@@ -268,6 +264,8 @@ padding-left: 0;
 
 .btn,
 .alert,
+.nav-tabs > li > a,
+.nav-pills > li > a,
 .form-control,
 .breadcrumb {
   border-radius: 0px;
