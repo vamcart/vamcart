@@ -28,9 +28,11 @@ function smarty_block_product_form($params, $product_form, $template, &$repeat)
 
     $.post("'.BASE.'/cart/purchase_product", str, function(data) {
       $("#shopping-cart-box").html(data);
-      $("html, body").animate({ scrollTop: 0 }, "slow");
-      $("a.dropdown-toggle.cart").dropdown("toggle");
-    	$(".shopping-cart-widget").addClass("ajax-cart-hightlight");
+      //$("html, body").animate({ scrollTop: 0 }, "slow");
+    	//$(".shopping-cart-widget").addClass("ajax-cart-hightlight");
+      $("nav .dropdown-toggle.cart").dropdown("toggle");
+      $("nav .navbar-toggle").click();
+      $("nav .navbar-toggle").focus();
     });
   }
 </script>
