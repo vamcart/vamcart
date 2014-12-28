@@ -17,26 +17,28 @@ $template = '
 		<div class="row shop-products">
 			<ul class="thumbnails">
 				{foreach from=$element_list[0]["attributes_product"] item=node}
-				<li class="item col-sm-6 col-md-4">
-					<div class="thumbnail text-center">
-						{if $node.discount > 0}<div class="description"><span class="discount">-{$node.discount|round}%</span></div>{/if}
-						<a href="{$node.url}" class="image"><img src="{$node.image}" alt="{$node.name}"{if {$node.image_width} > 0} width="{$node.image_width}"{/if}{if {$node.image_height} > 0} height="{$node.image_height}"{/if} />{product_label label_id={$node.label_id}}</a>
-					<div class="inner notop nobottom text-left">
-						<h4 class="title"><a href="{$node.url}">{$node.name}</a></h4>
-						{if $node.reviews > 0}<div class="description"><span class="rating">{$node.star_rating}</span> <span class="reviews">{lang}Feedback{/lang}: {$node.reviews}</span></div>{/if}
-						{if $node.price}<div class="description">{lang}Price{/lang}: <span class="price">{$node.price}</span></div>{/if}
-						{if $node.old_price}<div class="description">{lang}List Price{/lang}: <span class="old-price"><del>{$node.old_price}</del></span></div>{/if}
-						{if $node.price_save}<div class="description">{lang}You Save{/lang}: <span class="save">{$node.price_save} ({$node.price_save_percent|round}%)</span></div>{/if}
-						<div class="description">{$node.short_description|strip_tags|truncate:30:"...":true}</div>
-					</div>
-					</div>
-					{product_form product_id={$node.id}}
-					<div class="inner darken notop">
-						<button class="btn btn-default btn-add-to-cart" type="submit"><i class="fa fa-shopping-cart"></i> {lang}Buy{/lang}</button>
-						{if isset($is_compare)}<a href="{base_path}/category/addcmp/{$node.alias}/{$content_alias->value}{$ext}" class="btn btn-default btn-add-to-cart"><i class="fa fa-bookmark"></i> {lang}Compare{/lang}</a>{/if}
-					</div>
-					{/product_form}
-				</li>
+        <li class="item col-sm-6 col-md-4">
+          <div class="thumbnail text-center">
+            {if $node.discount > 0}<div class="description"><span class="discount">-{$node.discount|round}%</span></div>{/if}
+            <a href="{$node.url}" class="image"><img src="{$node.image}" alt="{$node.name}"{if isset($thumbnail_width)} width="{$thumbnail_width}"{/if} />
+            {if $node.price}<span class="frame-overlay"></span><span class="price">{$node.price}</span>{/if}
+            {product_label label_id={$node.label_id}}
+            </a>
+          <div class="inner notop nobottom text-left">
+            <h4 class="title"><a href="{$node.url}">{$node.name}</a></h4>
+            {if $node.reviews > 0}<div class="description"><span class="rating">{$node.star_rating}</span> <span class="reviews">{lang}Feedback{/lang}: {$node.reviews}</span></div>{/if}
+            {if $node.old_price}<div class="description">{lang}List Price{/lang}: <span class="old-price"><del>{$node.old_price}</del></span></div>{/if}
+            {if $node.price_save}<div class="description">{lang}You Save{/lang}: <span class="save">{$node.price_save} ({$node.price_save_percent|round}%)</span></div>{/if}
+            <div class="description">{$node.short_description|strip_tags|truncate:30:"...":true}</div>
+          </div>
+          </div>
+          {product_form product_id={$node.id}}
+          <div class="inner darken notop">
+            <button class="btn btn-default btn-add-to-cart" type="submit"><i class="fa fa-shopping-cart"></i> {lang}Buy{/lang}</button>
+            {if isset($is_compare)}<a href="{base_path}/category/addcmp/{$node.alias}/{$content_alias->value}{$ext}" class="btn btn-default btn-add-to-cart"><i class="fa fa-bookmark"></i> {lang}Compare{/lang}</a>{/if}
+          </div>
+          {/product_form}
+        </li>
 				{/foreach}
 			</ul>
 		</div>  

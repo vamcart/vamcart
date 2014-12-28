@@ -760,6 +760,25 @@ div#spinner {
   -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
+.shop-products .thumbnail .price {
+  position: absolute;
+  top: 48%;
+  left: -30px;
+  padding: 10px 15px 10px 50px;
+  background-color: #ff6633;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  z-index: 5;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
 .shop-products .thumbnail .zoom {
   background-color: #364245;
   color: #ffffff;

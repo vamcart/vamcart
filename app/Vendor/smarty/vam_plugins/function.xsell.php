@@ -9,32 +9,34 @@
 function default_template_xsell()
 {
     $template = '
+<h2>{lang}Also purchased{/lang}</h2>
 <div class="row shop-products">
-	<h3>{lang}Also purchased{/lang}</h3>
-	<ul class="thumbnails">
-		{foreach from=$relations item=node}
-      <li class="item col-sm-6 col-md-4">
-			<div class="thumbnail text-center">
-				{if $node.discount > 0}<div class="description"><span class="discount">-{$node.discount|round}%</span></div>{/if}
-				<a href="{$node.url}" class="image"><img src="{$node.image.image}" alt="{$node.name}"{if {$node.image.image_width} > 0} width="{$node.image.image_width}"{/if}{if {$node.image.image_height} > 0} height="{$node.image.image_height}"{/if} />{product_label label_id={$node.label_id}}</a>
-			<div class="inner notop nobottom text-left">
-				<h4 class="title"><a href="{$node.url}">{$node.name}</a></h4>
-				{if $node.reviews > 0}<div class="description"><span class="rating">{$node.star_rating}</span> <span class="reviews">{lang}Feedback{/lang}: {$node.reviews}</span></div>{/if}
-				{if $node.price}<div class="description">{lang}Price{/lang}: <span class="price">{$node.price}</span></div>{/if}
-				{if $node.old_price}<div class="description">{lang}List Price{/lang}: <span class="old-price"><del>{$node.old_price}</del></span></div>{/if}
-				{if $node.price_save}<div class="description">{lang}You Save{/lang}: <span class="save">{$node.price_save} ({$node.price_save_percent|round}%)</span></div>{/if}
-				<div class="description">{$node.short_description|strip_tags|truncate:30:"...":true}</div>
-				<div class="description">{attribute_list product_id=$node.id}</div>
-              </div>
-			</div>
-			{product_form product_id={$node.id}}
-			<div class="inner darken notop">
-				<button class="btn btn-default btn-add-to-cart" type="submit"><i class="fa fa-shopping-cart"></i> {lang}Buy{/lang}</button>
-			</div>
-			{/product_form}
-		</li>
-		{/foreach}
-	</ul>
+  <ul class="thumbnails">
+  {foreach from=$relations item=node}
+    <li class="item col-sm-6 col-md-4">
+      <div class="thumbnail text-center">
+        {if $node.discount > 0}<div class="description"><span class="discount">-{$node.discount|round}%</span></div>{/if}
+        <a href="{$node.url}" class="image"><img src="{$node.image.image}" alt="{$node.name}"{if {$node.image.image_width} > 0} width="{$node.image.image_width}"{/if}{if {$node.image.image_height} > 0} height="{$node.image.image_height}"{/if} />
+        {if $node.price}<span class="frame-overlay"></span><span class="price">{$node.price}</span>{/if}
+        {product_label label_id={$node.label_id}}
+        </a>
+        <div class="inner notop nobottom text-left">
+          <h4 class="title"><a href="{$node.url}">{$node.name}</a></h4>
+          {if $node.reviews > 0}<div class="description"><span class="rating">{$node.star_rating}</span> <span class="reviews">{lang}Feedback{/lang}: {$node.reviews}</span></div>{/if}
+          {if $node.old_price}<div class="description">{lang}List Price{/lang}: <span class="old-price"><del>{$node.old_price}</del></span></div>{/if}
+          {if $node.price_save}<div class="description">{lang}You Save{/lang}: <span class="save">{$node.price_save} ({$node.price_save_percent|round}%)</span></div>{/if}
+          <div class="description">{$node.short_description|strip_tags|truncate:30:"...":true}</div>
+          <div class="description">{attribute_list product_id=$node.id}</div>
+        </div>
+      </div>
+      {product_form product_id={$node.id}}
+      <div class="inner darken notop">
+        <button class="btn btn-default btn-add-to-cart" type="submit" value="{lang}Buy{/lang}"><i class="fa fa-shopping-cart"></i> {lang}Buy{/lang}</button>
+      </div>
+      {/product_form}
+    </li>
+  {/foreach}
+  </ul>
 </div>
 ';
     return $template;
