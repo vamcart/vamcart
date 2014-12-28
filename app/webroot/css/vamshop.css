@@ -263,6 +263,10 @@ padding-right: 0;
 padding-left: 0;
 }
 
+.sort {
+  padding-bottom: 15px;
+}
+
 .btn,
 .alert,
 .nav-tabs > li > a,
@@ -270,6 +274,10 @@ padding-left: 0;
 .form-control,
 .breadcrumb {
   border-radius: 0px;
+}
+
+.btn-toolbar .btn-default {
+  margin: 15px 0;
 }
 
 .btn.btn-default, 
@@ -764,6 +772,7 @@ div#spinner {
   padding-left: 6px;
 }
 .shop-products .thumbnail .title {
+  padding-top: 15px;
   margin-bottom: 10px;
   font-weight: bold;
 }
@@ -796,6 +805,7 @@ div#spinner {
 .shop-products .thumbnail:hover .title {
   color: #ff6633;
 }
+
 .product-images {
   margin-bottom: 30px;
 }
