@@ -559,11 +559,18 @@ label.error
 		color: red;
 		font-weight: normal;
 		background: transparent;
+		border: 0px;
 	}
 
 .error
 	{
 		background: #fcc;
+		border: 1px solid #d91414;
+	}	
+
+.modified
+	{
+		border: 1px solid #66afe9;
 	}	
    
 /* /Error */
