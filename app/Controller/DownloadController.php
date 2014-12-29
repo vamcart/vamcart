@@ -14,7 +14,6 @@ class DownloadController extends AppController {
 		App::import('Model', 'Order');
 		App::import('Model', 'OrderProduct');
 		$Order = new Order();
-		Configure::write('debug', 0);
 
 		$order = $Order->find('first', array('conditions' => array('Order.id' => (int)$this->params['order_id'])));
 		if (null !== $order) {
