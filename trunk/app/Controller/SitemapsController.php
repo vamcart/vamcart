@@ -86,7 +86,6 @@ class SitemapsController extends AppController {
 
 		$this->set('content_list', $content_list);
 		$this->layout = 'default';
-		Configure::write('debug', 0);
 	}
 
 	public function yandex()
@@ -255,7 +254,6 @@ class SitemapsController extends AppController {
 		$this->set('products', $content_list_products);
 
 		$this->layout = 'default';
-		Configure::write('debug', 0);
 	}
 
 }
