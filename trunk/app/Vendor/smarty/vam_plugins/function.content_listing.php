@@ -52,7 +52,7 @@ $template = '
     <li class="item col-sm-6 col-md-4">
       <div class="thumbnail text-center">
         {if $node.discount > 0}<div class="description"><span class="discount">-{$node.discount|round}%</span></div>{/if}
-        <a href="{$node.url}" class="image"><img src="{$node.image}" alt="{$node.name}"{if isset($thumbnail_width)} width="{$thumbnail_width}"{/if} />
+        <a href="{$node.url}" class="image"><img src="{$node.image}" alt="{$node.name}"{if {$node.image_width} > 0} width="{$node.image_width}"{/if}{if {$node.image_height} > 0} height="{$node.image_height}"{/if} />
         {if $node.price}<span class="frame-overlay"></span><span class="price">{$node.price}</span>{/if}
         {product_label label_id={$node.label_id}}
         </a>
