@@ -35,7 +35,7 @@ class UpdateController extends AppController {
         		App::import('Vendor', 'PclZip', array('file' => 'pclzip'.DS.'zip.php'));
 				$this->data['zip_dir'] = basename($version);
             	if(!@mkdir(ROOT.'/app/tmp/updates/'.$this->data['zip_dir'], 0777))
-					die("<font color='red'>Error : Unable to create directory</font><br />");
+					die("<font color='red'>Error : Unable to create directory for update.</font><br />");
 				$this->data['archive'] = new PclZip(ROOT.'/app/tmp/updates/'.$version.'.zip');
 				if ($this->data['archive']->extract(PCLZIP_OPT_PATH,ROOT.'/app/tmp/updates/'.$this->data['zip_dir']) == 0)
 					die("<font color='red'>Error : Unable to unzip archive</font>");
@@ -50,6 +50,10 @@ class UpdateController extends AppController {
 
                 if(count($this->data['description']['files']['file']) > 0) {
                 	foreach($this->data['description']['files']['file'] as $file) {
+                	  
+                	if(!file_exists(ROOT.'/'.$file['attr']['path']))
+    					    @mkdir(ROOT.'/'.$file['attr']['path'], 0777);
+               	  
 						if($file['attr']['action'] == 'create')
 							copy(ROOT.'/app/tmp/updates/'.$this->data['zip_dir'].'/'.$file['attr']['path'].$file['value'], ROOT.'/'.$file['attr']['path'].$file['value']);
 							//chmod(ROOT.$file['attr']['path'].$file['value'],0755);
