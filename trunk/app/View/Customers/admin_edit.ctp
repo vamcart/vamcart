@@ -10,6 +10,15 @@ $this->Html->script(array(
 	'modified.js',
 	'focus-first-input.js'
 ), array('inline' => false));
+?>
+<?php echo $this->Html->scriptBlock('
+  $(document).ready(function() {
+    $("#ship_country").change(function () {
+      $("#ship_state_div").load(\''.BASE.'/customers/generate_state_list/\' + $(this).val());
+    });
+  });
+', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
+<?php
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-user-edit');
 
@@ -64,14 +73,28 @@ $this->Html->script(array(
 						array(
    				   		'label' => __('City')
 	               ));	
+  $country_list = $this->requestAction('/customers/generate_country_list/');            	               
+  echo '<div id="country_state_div">';	   
 	echo $this->Form->input('AddressBook.ship_country', 
-						array(
-   				   		'label' => __('Country')
-	               ));	
+   					array(
+							'type' => 'select',
+							'id' => 'ship_country',
+				   		'label' => __('Country'),
+							'options' => $country_list,
+							'selected' => (!isset($data['AddressBook']['ship_country'])? $default_country : $data['AddressBook']['ship_country'])
+	               ));
+	echo '</div>';
+  $state_list = $this->requestAction('/customers/generate_state_list/'.$data['AddressBook']['ship_country']);            	               
+  echo '<div id="ship_state_div">';	   
 	echo $this->Form->input('AddressBook.ship_state', 
-						array(
-   				   		'label' => __('State')
-	               ));	
+   					array(
+							'type' => 'select',
+							'id' => 'ship_state',
+				   		'label' => __('State'),
+							'options' => $state_list,
+							'selected' => (!isset($data['AddressBook']['ship_state'])? $default_state : $data['AddressBook']['ship_state'])
+	               ));
+	echo '</div>';
 	echo $this->Form->input('AddressBook.ship_zip', 
 						array(
    				   		'label' => __('Zip')

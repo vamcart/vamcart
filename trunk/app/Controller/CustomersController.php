@@ -56,6 +56,11 @@ class CustomersController extends AppController {
                         $groups[0] = __('no');
                         asort($groups);
                         $this->set('groups',$groups);
+
+			$this->set('default_country',($_SESSION['Customer']['language'] == 'ru') ? 176 : 223);
+			$this->set('default_state',($_SESSION['Customer']['language'] == 'ru') ? 99 : 332);
+
+			$this->set('data',$this->request->data);
 		}
 		else
 		{
@@ -78,8 +83,8 @@ class CustomersController extends AppController {
 				$this->request->data['Customer']['password'] = $current_customer_data['Customer']['password'];
 				
 			}
-                        
-                        $user = $this->Customer->save($this->request->data);
+
+      $user = $this->Customer->save($this->request->data);
 
 			$address = array();
 			$address['AddressBook'] = $this->data['AddressBook'];
@@ -133,5 +138,49 @@ class CustomersController extends AppController {
 		$this->set('data',$data);
 
 	}	
+
+	public function generate_country_list($country_id = 0)
+	{
+		  App::import('Model', 'Country');
+		  $Countries = new Country();
+
+      if ($country_id > 0){
+      $default_country = $country_id;
+      } else {
+      $default_country = ($_SESSION['Customer']['language'] == 'ru') ? 176 : 223;
+      }
+      
+			$countries = $Countries->find('list', array('conditions' => array('active' => 1)));
+			foreach($countries AS $key => $value)
+			{
+				$countries[$key] = __($value, true);
+			}
+
+		$this->set('country_list',$countries);
+					
+		return $countries;
+	}
 	
+	public function generate_state_list($state_id = 0)
+	{
+		  App::import('Model', 'CountryZone');
+		  $CountryZones = new CountryZone();
+
+      if ($state_id > 0){
+      $default_country = $state_id;
+      } else {
+      $default_country = ($_SESSION['Customer']['language'] == 'ru') ? 176 : 223;
+      }
+      
+			$states = $CountryZones->find('list', array('conditions' => array('country_id' => $default_country)));
+			foreach($states AS $key => $value)
+			{
+				$states[$key] = __($value, true);
+			}
+
+		$this->set('state_list',$states);
+							
+		return $states;
+	}
+
 }
