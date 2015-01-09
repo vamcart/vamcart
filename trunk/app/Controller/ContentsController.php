@@ -972,6 +972,7 @@ class ContentsController extends AppController {
 	public function _copy_content($content, $parent_id)
 	{
 		$content['Content']['id'] = null;
+		$content['Content']['alias'] = $this->generateAlias($content['ContentDescription'][0]['name']);
 		$content['Content']['parent_id'] = $parent_id;
 		$content['Content']['viewed'] = 0;
 		
