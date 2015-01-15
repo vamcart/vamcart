@@ -27,13 +27,6 @@ function scrollToTop() {
 	$('html, body').animate({scrollTop: offsetTop}, 500, 'linear');
 }
 
-// Fixed nav
-$('#nav').affix({
-      offset: {
-        top: $('header').height()
-      }
-});
-
 // Responsive equal height
 // http://codepen.io/micahgodbolt/pen/FgqLc
 
