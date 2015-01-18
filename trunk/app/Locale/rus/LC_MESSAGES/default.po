@@ -1562,6 +1562,10 @@ msgstr "Перезаписывает шаблон по умолчанию для
 msgid "Displays the current meta description."
 msgstr "Показывает meta description для текущего содержания."
 
+#: /vendors/smarty/vam_plugins/function.meta_description.php:30
+msgid "Displays the current meta title."
+msgstr "Показывает meta title для текущего содержания."
+
 #: /vendors/smarty/vam_plugins/function.meta_keywords.php:30
 msgid "Displays the current meta keywords."
 msgstr "Показывает meta keywords для текущего содержания."
