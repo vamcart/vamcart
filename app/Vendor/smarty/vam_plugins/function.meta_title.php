@@ -11,7 +11,7 @@ function smarty_function_meta_title($params, $template)
 	global $content;
 	
 	if ($content['ContentDescription']['meta_title']) { 
-	$result = '<meta name="description" content="'.$content['ContentDescription']['meta_title'].'" />';
+	$result = $content['ContentDescription']['meta_title'];
 	} else {
 	$result = null;
 	}
