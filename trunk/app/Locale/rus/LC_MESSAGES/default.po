@@ -1126,6 +1126,14 @@ msgstr "Дата: "
 msgid "Author: "
 msgstr "Автор: "
 
+#: /plugins/module_reviews/views/admin/admin_edit.ctp:16
+msgid "Rating: "
+msgstr "Оценка: "
+
+#: /plugins/module_reviews/views/admin/admin_edit.ctp:16
+msgid "Product: "
+msgstr "Товар: "
+
 #: /plugins/module_reviews/views/admin/admin_edit.ctp:18
 msgid "Review: "
 msgstr "Отзыв: "
