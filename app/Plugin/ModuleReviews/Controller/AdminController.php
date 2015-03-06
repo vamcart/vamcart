@@ -10,6 +10,7 @@ App::uses('ModuleReviewsAppController', 'ModuleReviews.Controller');
 class AdminController extends ModuleReviewsAppController {
 	public $uses = array('ModuleReviews.ModuleReview');
 	public $helpers = array('Time','Admin');
+	public $components = array('ContentBase');
 	public $paginate = array('limit' => 20, 'order' => array('ModuleReview.created' => 'desc'));
 	
 	public function admin_delete ($id)
@@ -47,7 +48,13 @@ class AdminController extends ModuleReviewsAppController {
 	{
 		$this->set('current_crumb', false);
 		$this->set('title_for_layout', __('Read Review'));
-		$this->set('data',$this->ModuleReview->read(null,$id));
+
+		$data = $this->ModuleReview->read(null,$id);
+		
+		$content_description = $this->ContentBase->get_content_description($data['ModuleReview']['content_id']);
+    $data['ModuleReview']['product_name'] = $content_description['ContentDescription']['name'];
+
+		$this->set('data',$data);
 	}
 	
 	public function admin_index()
@@ -55,6 +62,13 @@ class AdminController extends ModuleReviewsAppController {
 		$this->set('current_crumb', false);
 		$this->set('title_for_layout', __('Manage Reviews'));
 		$data = $this->paginate('ModuleReview');
+		
+    	foreach($data AS $key => $value)
+    	{
+        $content_description = $this->ContentBase->get_content_description($data[$key]['ModuleReview']['content_id']);
+        $data[$key]['ModuleReview']['product_name'] = $content_description['ContentDescription']['name'];
+      }
+
 		$this->set('reviews',$data);
 	}
 	
