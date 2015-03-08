@@ -248,8 +248,8 @@ INSERT INTO `content_descriptions` VALUES
 (818, 107, 2, 'Производители', '', NULL, NULL, NULL, NULL),
 (819, 108, 1, 'Samsung', '', NULL, NULL, NULL, NULL),
 (820, 108, 2, 'Samsung', '', NULL, NULL, NULL, NULL),
-(821, 89, 1, 'Password Recovery', '{password_recovery}', '', '', '', ''),
-(822, 89, 2, 'Восстановление пароля', '{password_recovery}', '', '', '', '');
+(821, 109, 1, 'Password Recovery', '{password_recovery}', '', '', '', ''),
+(822, 109, 2, 'Восстановление пароля', '{password_recovery}', '', '', '', '');
 
 DROP TABLE IF EXISTS content_images;
 CREATE TABLE `content_images` (
