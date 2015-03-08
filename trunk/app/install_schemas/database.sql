@@ -124,7 +124,8 @@ INSERT INTO `contents` VALUES
 (105, -1, NULL, NULL, 3, 1, NULL, 'ask_a_product_question', NULL, 1, NULL, NULL, NULL, NULL, NULL, '2014-08-09 20:58:06', '2014-08-09 20:58:06'),
 (106, -1, NULL, NULL, 3, 1, NULL, 'one_click_buy', NULL, 1, NULL, NULL, NULL, NULL, NULL, '2014-08-09 20:58:09', '2014-08-09 20:58:09'),
 (107,0,8,0,1,1,0,'brands','',1,0,0,0,NULL,NULL,'2014-07-11 19:18:53','2014-07-11 19:18:53'),
-(108,107,1,0,8,1,0,'samsung','',1,1,0,0,NULL,NULL,'2014-07-11 19:18:53','2014-07-11 19:18:53');
+(108,107,1,0,8,1,0,'samsung','',1,1,0,0,NULL,NULL,'2014-07-11 19:18:53','2014-07-11 19:18:53'),
+(109,-1,7,0,3,1,0,'password_recovery','',1,0,0,106,NULL,NULL,'2014-08-19 00:00:00','2014-08-19 21:18:34');
 
 DROP TABLE IF EXISTS content_categories;
 CREATE TABLE `content_categories` (
@@ -246,7 +247,9 @@ INSERT INTO `content_descriptions` VALUES
 (817, 107, 1, 'Brands', '', NULL, NULL, NULL, NULL),
 (818, 107, 2, 'Производители', '', NULL, NULL, NULL, NULL),
 (819, 108, 1, 'Samsung', '', NULL, NULL, NULL, NULL),
-(820, 108, 2, 'Samsung', '', NULL, NULL, NULL, NULL);
+(820, 108, 2, 'Samsung', '', NULL, NULL, NULL, NULL),
+(821, 89, 1, 'Password Recovery', '{password_recovery}', '', '', '', ''),
+(822, 89, 2, 'Password Recovery', '{password_recovery}', '', '', '', '');
 
 DROP TABLE IF EXISTS content_images;
 CREATE TABLE `content_images` (
@@ -1516,8 +1519,8 @@ INSERT INTO `email_templates` (`id`, `alias`, `default`, `order`) VALUES
 (4, 'abandoned-cart', 0, 4),
 (5, 'ask_a_product_question', 0, 5),
 (6, 'one_click_buy', 0, 6),
-(7, 'password_forgotten_verification', 0, 7),
-(8, 'password_forgotten_new_password', 0, 8);
+(7, 'password_recovery_verification', 0, 7),
+(8, 'password_recovery_new_password', 0, 8);
 
 DROP TABLE IF EXISTS email_template_descriptions;
 CREATE TABLE `email_template_descriptions` (

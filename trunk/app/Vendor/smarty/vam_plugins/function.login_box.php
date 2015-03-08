@@ -32,7 +32,10 @@ $template = '
 			</div>
 		</form>
 		<br /><br />
-		<p><a href="{base_path}/customer/register.html">{lang}Registration{/lang}</a></p>
+		<ul class="list-inline">
+		<li><a href="{base_path}/customer/register.html">{lang}Registration{/lang}</a></li>
+		<li><a href="{base_path}/customer/password_recovery.html">{lang}Forgot your password?{/lang}</a></li>
+		</ul>
 		{else}
 		<ul class="icons clearfix">
 			<li><a href="{base_path}/customer/account_edit.html">{lang}Account Edit{/lang}</a></li>
