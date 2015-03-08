@@ -5114,3 +5114,19 @@ msgstr "Дата начала акции"
 #: /views/contents/admin_edit.ctp:35
 msgid "Date End"
 msgstr "Дата завершения акции"
+
+#: /controllers/SiteController.php:66
+msgid "No customers found for this email."
+msgstr "Не найдено покупателей с данным email."
+
+#: /controllers/SiteController.php:66
+msgid "New password validation email was send."
+msgstr "Письмо с кодом для генерации нового пароля успешно отправлено."
+
+#: /controllers/SiteController.php:66
+msgid "New password email was send."
+msgstr "Письмо с новым паролем успешно отправлено."
+
+#: /controllers/SiteController.php:66
+msgid "Customer not found for this verification code."
+msgstr "Не найден покупатель с данным кодом верификации."
