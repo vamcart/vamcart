@@ -1496,7 +1496,9 @@ INSERT INTO `defined_languages` (`id`, `language_id`, `key`, `value`, `created`,
 (323, 1, 'Feedback', 'Feedback', '2013-10-10 20:08:49', '2013-10-10 20:08:49'),
 (324, 2, 'Feedback', 'Отзывы', '2013-10-10 20:08:49', '2013-10-10 20:08:49'),
 (325, 1, 'Continue Shopping', 'Continue Shopping', '2013-10-10 20:08:49', '2013-10-10 20:08:49'),
-(326, 2, 'Continue Shopping', 'Вернуться в магазин', '2013-10-10 20:08:49', '2013-10-10 20:08:49');
+(326, 2, 'Continue Shopping', 'Вернуться в магазин', '2013-10-10 20:08:49', '2013-10-10 20:08:49'),
+(327, 1, 'Forgot your password?', 'Forgot your password?', '2013-10-10 20:08:49', '2013-10-10 20:08:49'),
+(328, 2, 'Forgot your password?', 'Забыли пароль?', '2013-10-10 20:08:49', '2013-10-10 20:08:49');
 
 DROP TABLE IF EXISTS email_templates;
 CREATE TABLE `email_templates` (
@@ -1513,7 +1515,9 @@ INSERT INTO `email_templates` (`id`, `alias`, `default`, `order`) VALUES
 (3, 'new-customer', 0, 3),
 (4, 'abandoned-cart', 0, 4),
 (5, 'ask_a_product_question', 0, 5),
-(6, 'one_click_buy', 0, 6);
+(6, 'one_click_buy', 0, 6),
+(7, 'password_forgotten_verification', 0, 7),
+(8, 'password_forgotten_new_password', 0, 8);
 
 DROP TABLE IF EXISTS email_template_descriptions;
 CREATE TABLE `email_template_descriptions` (
@@ -1538,7 +1542,11 @@ INSERT INTO `email_template_descriptions` (`id`, `email_template_id`, `language_
 (9, 5, 1, 'Ask a product question - {$product_name}', 'Hello!\r\n\r\nThank you for your question! We''ll reply you shortly.\r\n\r\nProduct name: {$product_name}\r\n\r\nYour question:\r\n\r\n{$question}'),
 (10, 5, 2, 'Задать вопрос о товаре - {$product_name}', 'Здравствуйте!\r\n\r\nСпасибо за Ваш вопрос! Мы ответим Вам в самое ближайшее время.\r\n\r\nНазвание товара: {$product_name}\r\n\r\nВаш вопрос:\r\n\r\n{$question}'),
 (11, 6, 1, 'One Click Buy - {$product_name}', 'Hello!\r\n\r\nThank you for stopping by {$store_name} and considering us for your purchase. Ordered product:\r\n\r\n{$product_name}\r\n\r\nContact information: {$contact}'),
-(12, 6, 2, 'Купить за 1 клик - {$product_name}', 'Здравствуйте!\r\n\r\nВы оформили заказ в интернет-магазине {$store_name}!\r\n\r\nТовар, который Вы заказали:\r\n\r\n{$product_name}\r\n\r\nКонтактные данные: {$contact}');
+(12, 6, 2, 'Купить за 1 клик - {$product_name}', 'Здравствуйте!\r\n\r\nВы оформили заказ в интернет-магазине {$store_name}!\r\n\r\nТовар, который Вы заказали:\r\n\r\n{$product_name}\r\n\r\nКонтактные данные: {$contact}'),
+(13, 7, 1, 'Confirmation mail for password renewal', 'Please confirm your password request!\r\n\r\nPlease confirm,that you personally required a new password. \r\nFor this reason we sent this email with a personal confirmation link. \r\nIf you confirm the link, by clicking it, immediately a new password \r\nis sent to you in a further email at the disposal.\r\n      \r\nYour confirmation link: {$link}\r\n'),
+(14, 7, 2, 'Подтверждение emaill для отправки нового пароля', 'Пожалуйста, подтвердите Ваш запрос!\r\n\r\nПодтвердите, что Вы запросили новый пароль. \r\nДля этого перейдите по ссылке подтверждения. \r\nЕсли Вы подтвердите Ваш запрос, перейдя по ссылке, Вы получите новый пароль на свой e-mail.\r\n      \r\nВаша ссылка подтверждения: {$link}'),
+(15, 8, 1, 'Your new password', 'This is your login credentials:\r\n\r\nE-mail: {$email}\r\nPassword: {$password}\r\n\r\nAccount page: {$account_page}'),
+(16, 8, 2, 'Ваш новый пароль', 'Ваши данные для входа:\r\n\r\nE-mail: {$email}\r\nПароль: {$password}\r\n\r\nВход в личный кабинет: {$account_page}');
 
 DROP TABLE IF EXISTS answer_templates;
 CREATE TABLE `answer_templates` (
@@ -2575,6 +2583,7 @@ CREATE TABLE IF NOT EXISTS `customers` (
   `name` varchar(32),
   `email` varchar(96),
   `password` varchar(40),
+  `code` varchar(255),
   PRIMARY KEY (`id`),
   INDEX groups_customer_id (groups_customer_id)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
