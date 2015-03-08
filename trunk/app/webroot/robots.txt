@@ -20,8 +20,10 @@ Disallow: /page/one_click_buy.html
 Disallow: /module_one_click_buy/*
 Disallow: /module_ask_a_product_question/*
 Disallow: /page/register.html
+Disallow: /page/password_recovery.html
 Disallow: /page/register-success.html
 Disallow: /customer/register.html
+Disallow: /customer/password_recovery.html
 Disallow: */addcmp/*
 Disallow: */compared/*
 Disallow: */order/*
