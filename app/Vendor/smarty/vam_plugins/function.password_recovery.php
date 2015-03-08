@@ -6,7 +6,7 @@
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-function default_template_registration_form()
+function default_template_password_recovery()
 {
 $template = '
 <script type="text/javascript" src="{base_path}/js/modified.js"></script>
@@ -32,41 +32,16 @@ $(document).ready(function() {
   // validate form
   $("#contentform").validate({
     rules: {
-      "customer[name]": {
-        required: true,
-        minlength: 2      
-     },
       "customer[email]": {
         required: true,
         minlength: 6,
         email: true      
-     },
-		"customer[password]": {
-			required: true,
-			minlength: 5,
-		},
-		"customer[retype]": {
-			required: true,
-			minlength: 5,
-			equalTo: "#password"
-		}
+     }
     },
     messages: {
-      "customer[name]": {
-        required: "{lang}Required field{/lang}",
-        minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 2"
-      },
       "customer[email]": {
         required: "{lang}Required field{/lang}",
         minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 6"
-      },
-      "customer[password]": {
-        required: "{lang}Required field{/lang}",
-        minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 5"
-      },
-      "customer[retype]": {
-        required: "{lang}Required field{/lang}",
-        minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 5"
       }
     }
   });
@@ -77,13 +52,7 @@ $(document).ready(function() {
 <div class="alert alert-danger"><i class="cus-error"></i> {$error}</div>
 {/if}
 {/foreach}
-<form id="contentform" name="login-form" action="{base_path}/site/register" method="post" class="form-horizontal">
-	<div class="form-group">
-		<label class="col-sm-3 control-label" for="name">{lang}Name{/lang}:</label>
-		<div class="col-sm-9">
-			<input id="name" name="customer[name]" class="form-control" type="text" value="{$form_data.name}" />
-		</div>
-	</div>
+<form id="contentform" name="login-form" action="{base_path}/site/password_recovery" method="post" class="form-horizontal">
 	<div class="form-group">
 		<label class="col-sm-3 control-label" for="email">{lang}E-mail{/lang}:</label>
 		<div class="col-sm-9">
@@ -91,20 +60,8 @@ $(document).ready(function() {
 		</div>
 	</div>
 	<div class="form-group">
-		<label class="col-sm-3 control-label" for="password">{lang}Password{/lang}:</label>
-		<div class="col-sm-9">
-			<input id="password" name="customer[password]" class="form-control" type="password" autocomplete="off" />
-		</div>
-	</div>
-	<div class="form-group">
-		<label class="col-sm-3 control-label" for="retype">{lang}Retype Password{/lang}:</label>
-		<div class="col-sm-9">
-			<input id="retype" name="customer[retype]" class="form-control" type="password" autocomplete="off" />
-		</div>
-	</div>   
-	<div class="form-group">
 	  <div class="col-sm-offset-3 col-sm-9">
-	    <button class="btn btn-default" type="submit" name="submit" value="{lang}Register{/lang}"><i class="fa fa-check"></i> {lang}Register{/lang}</button>
+	    <button class="btn btn-default" type="submit" name="submit" value="{lang}Continue{/lang}"><i class="fa fa-check"></i> {lang}Continue{/lang}</button>
 	  </div>
 	</div>
 	<div class="form-anti-bot" style="clear:both;">
@@ -123,7 +80,7 @@ return $template;
 }
 
 
-function smarty_function_registration_form($params, $template)
+function smarty_function_password_recovery($params, $template)
 {
 	App::uses('SmartyComponent', 'Controller/Component');
 	$Smarty = new SmartyComponent(new ComponentCollection());
@@ -147,7 +104,7 @@ function smarty_function_registration_form($params, $template)
 		);
 	}
 
-	$display_template = $Smarty->load_template($params, 'registration_form');
+	$display_template = $Smarty->load_template($params, 'password_recovery');
 	$assignments = array(
 		'errors' => $errors,
 		'form_data' => $form_data,
@@ -157,12 +114,12 @@ function smarty_function_registration_form($params, $template)
 
 }
 
-function smarty_help_function_registration_form() {
+function smarty_help_function_password_recovery() {
 	?>
 	<h3><?php echo __('What does this tag do?') ?></h3>
-	<p><?php echo __('Displays registration page.') ?></p>
+	<p><?php echo __('Displays password recovery page.') ?></p>
 	<h3><?php echo __('How do I use it?') ?></h3>
-	<p><?php echo __('Just insert the tag into your template like:') ?> <code>{registration_form}</code></p>
+	<p><?php echo __('Just insert the tag into your template like:') ?> <code>{password_recovery}</code></p>
 	<h3><?php echo __('What parameters does it take?') ?></h3>
 	<ul>
 		<li><em>(<?php echo __('None') ?>)</em></li>
@@ -170,5 +127,5 @@ function smarty_help_function_registration_form() {
 	<?php
 }
 
-function smarty_about_function_registration_form() {
+function smarty_about_function_password_recovery() {
 }
