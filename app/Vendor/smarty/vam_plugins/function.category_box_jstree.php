@@ -17,12 +17,13 @@ $(document).ready(function(){
 $("#jstree").jstree({ 
 		"plugins" : [ "state" ]
 	}).delegate("a","click", function(e) {
-            if ($("#jstree").jstree("is_leaf", this)) {
-                document.location.href = this;
-            }
-            else {
+            //if ($("#jstree").jstree("is_leaf", this)) {
                 $("#jstree").jstree("toggle_node", this);
-            }
+                document.location.href = this;
+            //}
+            //else {
+                //$("#jstree").jstree("toggle_node", this);
+            //}
         });
     
 });
