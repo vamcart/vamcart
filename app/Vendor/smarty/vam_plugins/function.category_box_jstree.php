@@ -14,7 +14,9 @@ $template = '
 <script type="text/javascript">
 $(document).ready(function(){
 
-$("#jstree").jstree().delegate("a","click", function(e) {
+$("#jstree").jstree({ 
+		"plugins" : [ "state" ]
+	}).delegate("a","click", function(e) {
             if ($("#jstree").jstree("is_leaf", this)) {
                 document.location.href = this;
             }
