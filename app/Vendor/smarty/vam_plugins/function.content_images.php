@@ -45,6 +45,7 @@ $(document).ready(function(){
   });
 {if $images_count > 1}
   $(".product-images").bxSlider({
+    adaptiveHeight: true,
     mode: "fade"
   });
 {/if}  
