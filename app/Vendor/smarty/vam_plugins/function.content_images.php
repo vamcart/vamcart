@@ -43,6 +43,11 @@ $(document).ready(function(){
   $(".colorbox").colorbox({
     rel: "colorbox"
   });
+{if $images_count > 1}
+  $(".product-images").bxSlider({
+    mode: "fade"
+  });
+{/if}  
 });
 </script>
 ';		
@@ -71,9 +76,11 @@ function smarty_function_content_images($params, $template)
 	$images = $ContentImage->find('all', array('limit' => $params['number'], 'conditions' => array('content_id' => $params['content_id'])));
 	
 	$keyed_images = array();
+	$cnt = 0;
 	foreach($images AS $key => $value)
 	{
 		$content_id = $params['content_id'];
+		$cnt++;
 
 			// Content Image
 
@@ -125,6 +132,7 @@ function smarty_function_content_images($params, $template)
 	}	
 	
 	$assignments = array('images' => $keyed_images,
+	           'images_count' => $cnt,
 						 'noimg_thumb' => BASE . '/images/thumb/0/noimage.png',
 						 'noimg_path' => BASE . '/img/noimage.png',
 						 'thumbnail_size' => $config['THUMBNAIL_SIZE']);
