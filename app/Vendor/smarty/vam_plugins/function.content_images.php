@@ -46,6 +46,8 @@ $(document).ready(function(){
 {if $images_count > 1}
   $(".product-images").bxSlider({
     adaptiveHeight: true,
+    controls: false,
+    pager: true,
     mode: "fade"
   });
 {/if}  
