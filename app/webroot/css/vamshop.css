@@ -159,7 +159,7 @@ background-color: #ff6633;
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
 color: #fff;
-background-color: #333;
+background-color: #555;
 }
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
@@ -180,8 +180,8 @@ color: #fff;
 }
 
 .dropdown-menu {
-  background-color: #333;
-  border: 1px solid #333;
+  background-color: #555;
+  border: 1px solid #555;
   border-radius: 0;
 }
 
@@ -241,7 +241,7 @@ margin: 0;
 }
 
 .navbar-categories .navbar-toggle .icon-bar {
-background-color: black;
+background-color: #555;
 }
 
 .navbar-categories .navbar-nav > li > a {
@@ -293,8 +293,8 @@ padding-left: 0;
 
 .btn-default,
 .btn-primary {
-background-color: #333;
-border: 1px solid #333;
+background-color: #555;
+border: 1px solid #555;
 color: #fff;
 }
 
@@ -371,7 +371,7 @@ color: #fff;
 /* ========================================================================== */
 .pagination > li > a,
 .pagination > li > span {
-  color: #333;
+  color: #555;
   background-color: transparent;
   border: 0px;
   padding: 10px 15px;
@@ -439,7 +439,7 @@ background: #fff;
 /* ========================================================================== */
 footer {
   color: #fff;
-  background-color: #333;
+  background-color: #555;
 }
 
 footer a,
@@ -1040,7 +1040,7 @@ div#spinner {
   left: -100%;
   top: 48%;
   padding: 10px 15px;
-  background-color: #333;
+  background-color: #555;
   color: #ffffff;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
