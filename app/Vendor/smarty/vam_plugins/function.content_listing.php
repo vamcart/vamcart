@@ -450,6 +450,7 @@ function smarty_function_content_listing($params, $template)
 			if ($raw_data['Content']['content_type_id'] == 2 or $raw_data['Content']['content_type_id'] == 7) $content_list[$count]['label_id']	= $raw_data[$content_type]['label_id'];	
 			$content_list[$count]['date_added']	= CakeTime::i18nFormat($raw_data['Content']['created']);	
 			$content_list[$count]['date_modified']	= CakeTime::i18nFormat($raw_data['Content']['modified']);	
+			$content_list[$count]['viewed']	= $raw_data['Content']['viewed'];
 
 //3.Установим признак если группа
 								if (is_array($content_list_group)) {
