@@ -24,6 +24,10 @@ msgid "Ask a product question"
 msgstr "Задать вопрос о товаре"
 
 #: /app_controller.php:183
+msgid "Ask a question"
+msgstr "Задать вопрос"
+
+#: /app_controller.php:183
 msgid "Customer can send question to store admin email about any product in your store from product page."
 msgstr "Покупатель может задать свой вопрос о любом товаре магазина, вопрос будет отправлен на email администратора магазина."
 

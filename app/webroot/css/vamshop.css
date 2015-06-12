@@ -285,10 +285,9 @@ padding-left: 0;
   margin: 15px 0;
 }
 
-.btn.btn-default, 
-.btn.btn-warning 
+.form-group
 	{
-		margin-bottom: 5px;
+		padding-bottom: 5px;
 	}
 
 .btn-default,
