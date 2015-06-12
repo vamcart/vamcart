@@ -424,6 +424,9 @@ background: #fff;
 .shopping-cart-widget .products .media-heading a:hover {
   color: #ff6633;
 }
+.shopping-cart-widget p.buttons {
+  padding-bottom: 5px;
+}
 /* Widget
 /* ========================================================================== */
 .widget ul.icons li {
