@@ -27,6 +27,21 @@ function scrollToTop() {
 	$('html, body').animate({scrollTop: offsetTop}, 500, 'linear');
 }
 
+// Ajax cart
+
+  function onProductFormSubmit(id, quantity) {
+    var str = $("#product-form"+id).serialize();
+
+    $.post("/cart/purchase_product", str, function(data) {
+      $("#shopping-cart-box").html(data);
+      //$("html, body").animate({ scrollTop: 0 }, "slow");
+      //$(".shopping-cart-widget").addClass("ajax-cart-hightlight");
+      $("nav .dropdown-toggle.cart").dropdown("toggle");
+      $("nav .navbar-toggle").click();
+      $("nav .navbar-toggle").focus();
+    });
+  }
+
 // Responsive equal height
 // http://codepen.io/micahgodbolt/pen/FgqLc
 
