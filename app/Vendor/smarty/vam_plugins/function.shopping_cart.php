@@ -50,11 +50,19 @@ $template = '
 		</tr>
     </tbody>
 	</table>
-	<p class="text-center">
-	<a class="btn btn-default" href="{$back_link}"><i class="fa fa-arrow-left"></i> {lang}Continue Shopping{/lang}</a>
-	<button class="btn btn-default" type="submit" name="updatebutton"><i class="fa fa-refresh"></i> {lang}Update{/lang}</button>
-	<a class="btn btn-warning" href="{$checkout_link}"><i class="fa fa-shopping-cart"></i> {lang}Checkout{/lang}</a>
-	</p>
+	<div class="container-fluid">
+	 <div class="row text-center">
+	   <div class="form-group col-sm-4">
+	     <a class="btn btn-default" href="{$back_link}"><i class="fa fa-arrow-left"></i> {lang}Continue Shopping{/lang}</a>
+	   </div>
+	   <div class="form-group col-sm-4">
+	     <button class="btn btn-default" type="submit" name="updatebutton"><i class="fa fa-refresh"></i> {lang}Update{/lang}</button>
+	   </div>
+	   <div class="form-group col-sm-4">
+	     <a class="btn btn-warning" href="{$checkout_link}"><i class="fa fa-shopping-cart"></i> {lang}Checkout{/lang}</a>
+	   </div>
+	 </div>
+	</div>
 </form>
 </div>
 {else}
