@@ -31,8 +31,9 @@ function scrollToTop() {
 
   function onProductFormSubmit(id, quantity) {
     var str = $("#product-form"+id).serialize();
+    var action = $("#product-form"+id).attr("action");
 
-    $.post("/cart/purchase_product", str, function(data) {
+    $.post(action, str, function(data) {
       $("#shopping-cart-box").html(data);
       //$("html, body").animate({ scrollTop: 0 }, "slow");
       //$(".shopping-cart-widget").addClass("ajax-cart-hightlight");
