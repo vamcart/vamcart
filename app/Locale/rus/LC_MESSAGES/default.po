@@ -4929,6 +4929,10 @@ msgid "ContentDescription"
 msgstr "Описание"
 
 #: /app/View/Search/admin_global_search.ctp:22
+msgid "ContentProduct"
+msgstr "Товар"
+
+#: /app/View/Search/admin_global_search.ctp:22
 msgid "ContentLink"
 msgstr "Ссылка"
 
@@ -4955,6 +4959,10 @@ msgstr "описание"
 #: /app/View/Search/admin_global_search.ctp:22
 msgid "short_description"
 msgstr "краткое описание"
+
+#: /app/View/Search/admin_global_search.ctp:22
+msgid "model"
+msgstr "артикул"
 
 #: /app/View/Search/admin_global_search.ctp:22
 msgid "url"
