@@ -253,8 +253,14 @@ class ContentsController extends AppController {
 		}
 		else
 		{
+			$count_children = $this->Content->find('count', array('conditions' => array('Content.parent_id' => $content_id)));
+			if($count_children > 0)
+			{
+				$this->Session->setFlash(__('Unable to delete content item with children.', true));
+			} else {
 			$this->Content->delete($content_id, true);
-			$this->Session->setFlash(__('You have deleted a record.', true));		
+			$this->Session->setFlash(__('You have deleted a record.', true));
+		  }		
 		}
 		$this->redirect('/contents/admin/0/' . $content['Content']['parent_id']);
 	}
