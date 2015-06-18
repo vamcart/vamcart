@@ -7,9 +7,18 @@
 
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/x-javascript application/font-woff
+
+<FilesMatch "\\.(js|css|woff|ttf|eot|otf)$">
+  SetOutputFilter DEFLATE
+</FilesMatch>
 </IfModule>
 
 <IfModule mod_expires.c> 
+  AddType application/vnd.ms-fontobject .eot
+  AddType application/x-font-ttf .ttf
+  AddType application/x-font-opentype .otf
+  AddType application/x-font-woff .woff
+  AddType image/svg+xml .svg
   ExpiresActive On
   ExpiresByType text/css "access plus 10 years"
   ExpiresByType text/js "access plus 10 years"
@@ -17,6 +26,11 @@
   ExpiresByType application/x-javascript "access plus 10 years"
   ExpiresByType application/javascript "access plus 10 years"
   ExpiresByType application/font-woff "access plus 10 years"
+  ExpiresByType application/vnd.ms-fontobject "access plus 10 years"
+  ExpiresByType application/x-font-ttf "access plus 10 years"
+  ExpiresByType application/x-font-opentype "access plus 10 years"
+  ExpiresByType application/x-font-woff "access plus 10 years"
+  ExpiresByType image/svg+xml "access plus 10 years"
   ExpiresByType image/png "access plus 10 years"
   ExpiresByType image/x-icon "access plus 10 years"
   ExpiresByType image/vnd.microsoft.icon "access plus 10 years"
