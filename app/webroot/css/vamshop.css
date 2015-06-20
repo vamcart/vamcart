@@ -457,7 +457,7 @@ footer .copyright {
 .thumbnail .discount {
   position: absolute;
   left: -30px;
-  padding: 10px 15px 10px 50px;
+  padding: 9px 15px 9px 50px;
   background-color: #ff6633;
   color: #ffffff;
   font-size: 16px;
@@ -734,7 +734,7 @@ div#spinner {
 }
 .shop-products .thumbnail .price {
   position: absolute;
-  top: 48%;
+  top: 80%;
   left: -30px;
   padding: 10px 15px 10px 50px;
   background-color: #ff6633;
@@ -1026,7 +1026,7 @@ div#spinner {
 .featured-categories .thumbnail .title {
   position: absolute;
   left: 0;
-  bottom: 48%;
+  bottom: 5%;
   padding: 10px 15px;
   background-color: #ff6633;
   color: #ffffff;
