@@ -1,5 +1,5 @@
 #sequence {
-  border: 1px solid black;
+  border: 0px solid black;
   background: transparent;
   margin: 0 auto;
   position: relative;
@@ -17,7 +17,7 @@
     width: 100%; }
     #sequence > .sequence-canvas > li {
       position: absolute;
-      border: 1px solid green;
+      border: 0px solid green;
       width: 100%;
       height: 100%;
       z-index: 1;
@@ -38,7 +38,7 @@
   color: #000;
   cursor: pointer;
   display: none;
-  border: 1px solid black;
+  border: 0px solid black;
   font-weight: bold;
   padding: 10px 15px;
   position: absolute;
@@ -122,7 +122,7 @@
 
 #sequence .title {
   font-size: 3.4em;
-  border: 1px solid red;
+  border: 0px solid red;
   left: 65%;
   width: 45%;
   opacity: 0;
@@ -149,7 +149,7 @@
 
 #sequence .subtitle {
   color: black;
-  border: 1px solid red;
+  border: 0px solid red;
   font-size: 2em;
   left: 65%;
   width: 45%;
@@ -177,7 +177,7 @@
 #sequence .model {
   left: 30%;
   bottom: -39%;
-  border: 1px solid blue;
+  border: 0px solid blue;
   opacity: 0;
   position: relative;
   height: auto !important;
