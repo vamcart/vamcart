@@ -9,11 +9,19 @@
 function default_template_account_edit()
 {
 $template = '
-<script type="text/javascript" src="{base_path}/js/modified.js"></script>
-<script type="text/javascript" src="{base_path}/js/focus-first-input.js"></script>
-<script type="text/javascript" src="{base_path}/js/jquery/plugins/validate/jquery.validate.pack.js"></script>
 <script type="text/javascript">
-$(document).ready(function() {
+$(function () {
+
+  $("#contentform :input:text:visible:enabled:first").focus();
+
+  $("form#contentform :input").change(function() {
+    $("input[id=\'" + this.id + "\']").addClass("modified");
+    $("radio[id=\'" + this.id + "\']").addClass("modified");
+    $("select[id=\'" + this.id + "\']").addClass("modified");
+    $("checkbox[id=\'" + this.id + "\']").addClass("modified");
+    $("textarea[id=\'" + this.id + "\']").addClass("modified");
+  });
+
   // validate form
   $("#contentform").validate({
     rules: {

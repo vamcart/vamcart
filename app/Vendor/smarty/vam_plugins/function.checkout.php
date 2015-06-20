@@ -9,14 +9,18 @@
 function default_template_checkout ()
 {
 $template = '
-<script type="text/javascript" src="{base_path}/js/modified.js"></script>
-<script type="text/javascript" src="{base_path}/js/focus-first-input.js"></script>
-<script type="text/javascript" src="{base_path}/js/jquery/plugins/validate/jquery.validate.pack.js"></script>
-<script type="text/javascript" src="{base_path}/js/jquery/plugins/maskedinput/jquery.maskedinput.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function() {
-	
-$("#phone").mask("(999) 999-9999");
+$(function () {
+
+  $("#contentform :input:text:visible:enabled:first").focus();
+
+  $("form#contentform :input").change(function() {
+    $("input[id=\'" + this.id + "\']").addClass("modified");
+    $("radio[id=\'" + this.id + "\']").addClass("modified");
+    $("select[id=\'" + this.id + "\']").addClass("modified");
+    $("checkbox[id=\'" + this.id + "\']").addClass("modified");
+    $("textarea[id=\'" + this.id + "\']").addClass("modified");
+  });
       	
 $("label.shipping-method").click(function(){
 $("label.shipping-method").parent().removeClass("selected");
@@ -60,10 +64,7 @@ $(this).parent().addClass("selected");
       }
     }
   });
-});
-</script>
-<script type="text/javascript">
-  $(document).ready(function() {
+
 	$(hidePay);		
 		function hidePay()	{
 		if ($("#diff_shipping").is(":checked") == "1")

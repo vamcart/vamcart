@@ -121,26 +121,26 @@ class Bender
             case "css":
                 $this->check_recombine( $output, $_stylesheets );
                 $this->minify( $_stylesheets, "css", $output );
-                return '<link href="' . $this->get_src( $output ) . '" rel="stylesheet" type="text/css"/>';
-//                return '
-//<script>
-//var cb = function() {
-//var l = document.createElement("link"); l.rel = "stylesheet";
-//l.href = "' . $this->get_src( $output ) . '";
-//var h = document.getElementsByTagName("head")[0]; h.parentNode.insertBefore(l, h);
-//};
-//var raf = requestAnimationFrame || mozRequestAnimationFrame ||
-//webkitRequestAnimationFrame || msRequestAnimationFrame;
-//if (raf) raf(cb);
-//else window.addEventListener("load", cb);
-//</script>
-//';    
+                //return '<link href="' . $this->get_src( $output ) . '" rel="stylesheet" type="text/css"/>';
+                return '
+<script>
+var cb = function() {
+var l = document.createElement("link"); l.rel = "stylesheet";
+l.href = "' . $this->get_src( $output ) . '";
+var h = document.getElementsByTagName("head")[0]; h.parentNode.insertBefore(l, h);
+};
+var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+webkitRequestAnimationFrame || msRequestAnimationFrame;
+if (raf) raf(cb);
+else window.addEventListener("load", cb);
+</script>
+';    
                 break;
             case "js":
                 $this->check_recombine( $output, $_javascripts );
                 $this->minify( $_javascripts, "js", $output );
                 return '<script type="text/javascript" src="' . $this->get_src( $output ) . '"></script>';
-//                return '
+                return '
 //<script type="text/javascript">
 //function downloadJSAtOnload() {
 //var element = document.createElement("script");
@@ -153,7 +153,7 @@ class Bender
 //window.attachEvent("onload", downloadJSAtOnload);
 //else window.onload = downloadJSAtOnload;
 //</script>
-//                ';
+                ';
                 
                 break;
         }

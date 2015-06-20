@@ -9,14 +9,18 @@
 function default_template_address_book()
 {
 $template = '
-<script type="text/javascript" src="{base_path}/js/modified.js"></script>
-<script type="text/javascript" src="{base_path}/js/focus-first-input.js"></script>
-<script type="text/javascript" src="{base_path}/js/jquery/plugins/validate/jquery.validate.pack.js"></script>
-<script type="text/javascript" src="{base_path}/js/jquery/plugins/maskedinput/jquery.maskedinput.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function() {
+$(function () {
 
-$("#ship_phone").mask("(999) 999-9999");
+  $("#contentform :input:text:visible:enabled:first").focus();
+
+  $("form#contentform :input").change(function() {
+    $("input[id=\'" + this.id + "\']").addClass("modified");
+    $("radio[id=\'" + this.id + "\']").addClass("modified");
+    $("select[id=\'" + this.id + "\']").addClass("modified");
+    $("checkbox[id=\'" + this.id + "\']").addClass("modified");
+    $("textarea[id=\'" + this.id + "\']").addClass("modified");
+  });
 
   // validate form
   $("#contentform").validate({
@@ -86,9 +90,7 @@ $("#ship_phone").mask("(999) 999-9999");
       }
     }
   });
-});
-</script><script type="text/javascript">
-  $(document).ready(function() {
+
     $("#ship_country").change(function () {
       $("#ship_state_div").load(\'{base_path}/countries/address_book_regions/\' + $(this).val());
     });

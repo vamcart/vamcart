@@ -45,7 +45,7 @@ function smarty_outputfilter_minify_html($source, Smarty_Internal_Template $smar
 
     // capture html elements not to be messed with
     $_offset = 0;
-    if (preg_match_all('#<(script|pre|textarea)[^>]*>.*?</\\1>#is', $source, $matches, PREG_OFFSET_CAPTURE | PREG_SET_ORDER)) {
+    if (preg_match_all('#<(script|pre)[^>]*>.*?</\\1>#is', $source, $matches, PREG_OFFSET_CAPTURE | PREG_SET_ORDER)) {
         foreach ($matches as $match) {
             $store[] = $match[0][0];
             $_length = strlen($match[0][0]);

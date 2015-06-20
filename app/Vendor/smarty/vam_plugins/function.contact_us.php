@@ -9,11 +9,18 @@
 function default_template_contact_us()
 {
 $template = '
-<script type="text/javascript" src="{base_path}/js/modified.js"></script>
-<script type="text/javascript" src="{base_path}/js/focus-first-input.js"></script>
-<script type="text/javascript" src="{base_path}/js/jquery/plugins/validate/jquery.validate.pack.js"></script>
 <script type="text/javascript">
-$(function($){
+$(function () {
+
+  $("#contentform :input:text:visible:enabled:first").focus();
+
+  $("form#contentform :input").change(function() {
+    $("input[id=\'" + this.id + "\']").addClass("modified");
+    $("radio[id=\'" + this.id + "\']").addClass("modified");
+    $("select[id=\'" + this.id + "\']").addClass("modified");
+    $("checkbox[id=\'" + this.id + "\']").addClass("modified");
+    $("textarea[id=\'" + this.id + "\']").addClass("modified");
+  });
 
     $(\'.form-anti-bot, .form-anti-bot-2\').hide(); // hide inputs from users
     var answer = $(\'.form-anti-bot input#anti-bot-a\').val(); // get answer
@@ -25,10 +32,6 @@ $(function($){
         $(\'form#contentform\').append(\'<input type="hidden" name="anti-bot-q" id="anti-bot-q" value="\'+current_year+\'" />\'); // add whole input with answer via javascript to form
     }
 
-});
-</script>
-<script type="text/javascript">
-$(document).ready(function() {
   // validate form
   $("#contentform").validate({
     rules: {
