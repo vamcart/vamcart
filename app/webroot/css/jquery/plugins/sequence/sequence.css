@@ -1,6 +1,6 @@
 #sequence {
   border: 1px solid black;
-  background: #eee;
+  background: transparent;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
@@ -10,7 +10,7 @@
   font-size: 0.625em;
   margin: 0 auto;
   position: relative;
-  height: 280px;
+  height: 333px;
     }
   #sequence > .sequence-canvas {
     height: 100%;
@@ -124,13 +124,13 @@
   font-size: 3.4em;
   border: 1px solid red;
   left: 65%;
-  width: 35%;
+  width: 45%;
   opacity: 0;
   bottom: 1%;
   z-index: 50; }
 
 #sequence .animate-in .title {
-  left: 50%;
+  left: 40%;
   opacity: 1;
   -webkit-transition-duration: 0.5s;
   -moz-transition-duration: 0.5s;
@@ -139,7 +139,7 @@
   transition-duration: 0.5s; }
 
 #sequence .animate-out .title {
-  left: 35%;
+  left: 45%;
   opacity: 0;
   -webkit-transition-duration: 0.5s;
   -moz-transition-duration: 0.5s;
@@ -151,13 +151,13 @@
   color: black;
   border: 1px solid red;
   font-size: 2em;
-  left: 35%;
-  width: 35%;
+  left: 65%;
+  width: 45%;
   opacity: 0;
   top: 101%; }
 
 #sequence .animate-in .subtitle {
-  left: 50%;
+  left: 40%;
   opacity: 1;
   -webkit-transition-duration: 0.5s;
   -moz-transition-duration: 0.5s;
@@ -166,7 +166,7 @@
   transition-duration: 0.5s; }
 
 #sequence .animate-out .subtitle {
-  left: 65%;
+  left: 45%;
   opacity: 0;
   -webkit-transition-duration: 0.5s;
   -moz-transition-duration: 0.5s;
@@ -176,12 +176,12 @@
 
 #sequence .model {
   left: 30%;
-  bottom: -48%;
+  bottom: -39%;
   border: 1px solid blue;
   opacity: 0;
   position: relative;
   height: auto !important;
-  max-height: 280px !important;
+  max-height: 310px !important;
   width: 40%;
   min-width: 225px;
   /* prevents the model from shrinking when the browser is resized */
@@ -210,23 +210,32 @@
     width: 42%; } }
 @media only screen and (max-width: 838px) {
   #sequence {
-    height: 280px; }
+    height: 333px; }
     #sequence .model {
-      max-height: 280px !important;
+      max-height: 310px !important;
       width: auto; } }
 @media only screen and (max-width: 768px) {
   #sequence {
-    height: 280px; }
+    height: 333px; }
     #sequence .title {
-      font-size: 2.8em; }
+      font-size: 2.8em;
+      width: 42%; }
+  #sequence .animate-in .title {
+    left: 43%; }
+  #sequence .animate-out .title {
+    left: 43%; }      
     #sequence .subtitle {
       font-size: 1.6em; }
+  #sequence .animate-in .subtitle {
+    left: 43%; }
+  #sequence .animate-out .subtitle {
+    left: 43%; }      
     #sequence .sequence-next,
     #sequence .sequence-prev {
       height: 60px;
       margin-top: -40px; }
     #sequence .model {
-      max-height: 280px !important;
+      max-height: 310px !important;
       width: auto; } }
 @media only screen and (max-width: 568px) {
   #sequence .model {
@@ -257,14 +266,24 @@
     visibility: hidden; }
   #sequence .sequence-pagination {
     bottom: 40px; }
+  #sequence .animate-in .title {
+    left: 30%; }
+  #sequence .animate-out .title {
+    left: 30%; }      
+    #sequence .subtitle {
+      font-size: 1.6em; }
+  #sequence .animate-in .subtitle {
+    left: 30%; }
+  #sequence .animate-out .subtitle {
+    left: 30%; }      
     #sequence .sequence-pagination li img {
       height: 100px; } }
 @media only screen and (max-width: 518px) {
   #sequence {
-    height: 280px; } }
+    height: 333px; } }
 @media only screen and (max-width: 468px) {
   #sequence {
-    height: 280px; }
+    height: 333px; }
     #sequence .sequence-pagination {
       opacity: 0;
       visibility: hidden; } }
@@ -273,13 +292,13 @@
     height: 375px; } }
 @media only screen and (max-width: 368px) {
   #sequence {
-    height: 280px; }
+    height: 333px; }
     #sequence .title {
       font-size: 2.2em; } }
 @media only screen and (max-width: 320px) and (orientation: portrait) {
   /*iphone portrait*/
   #sequence {
-    height: 280px; }
+    height: 333px; }
     #sequence .model {
       min-width: 45%;
       width: 45%; }
@@ -289,7 +308,7 @@
       margin-left: -22.5%; } }
 @media only screen and (min-width: 321px) and (max-width: 480px) and (orientation: landscape) {
   #sequence {
-    height: 280px; }
+    height: 333px; }
     #sequence .model {
       min-width: 24%;
       width: 24%; }
