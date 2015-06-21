@@ -61,7 +61,8 @@ function default_template_attribute_list()
                         </li>
                         {if $attr_element@last}</ul>{/if}                      
                     {/foreach}
-                    <script type="text/javascript">      
+                    <script type="text/javascript">
+                    $(function () {      
                         $(".confirm").click(function(){            
                             var http_send = $(this).attr("href");
                             var form_data = $("#set_attr_form").serialize();
@@ -81,7 +82,7 @@ function default_template_attribute_list()
                                 });                            
                             return false;
                         });
-
+                    });
                     </script>
                     </form>
                 {/if}              
