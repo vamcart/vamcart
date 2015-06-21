@@ -7,22 +7,6 @@ Github: https://github.com/IanLunn/Sequence
 
 This is a FREE script and is available under a MIT License:
 http://www.opensource.org/licenses/mit-license.php
-
-Sequence.js and its dependencies are (c) Ian Lunn Design 2012 unless otherwise stated.
-
-Sequence also relies on the following open source scripts:
-
-- jQuery imagesLoaded 2.1.0 (http://github.com/desandro/imagesloaded)
-	Paul Irish et al
-	Available under a MIT License: http://www.opensource.org/licenses/mit-license.php
-
-- jQuery TouchWipe 1.1.1 (http://www.netcu.de/jquery-touchwipe-iphone-ipad-library)
-	Andreas Waltl, netCU Internetagentur (http://www.netcu.de)
-	Available under a MIT License: http://www.opensource.org/licenses/mit-license.php
-
-- Modernizr 2.6.1 Custom Build (http://modernizr.com/) (Named Modernizr for Sequence to prevent conflicts)
-	Copyright (c) Faruk Ates, Paul Irish, Alex Sexton
-	Available under the BSD and MIT licenses: www.modernizr.com/license/
 	*/
 
 ;(function($) {
