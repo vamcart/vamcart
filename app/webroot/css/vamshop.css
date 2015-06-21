@@ -457,7 +457,7 @@ footer .copyright {
 .thumbnail .discount {
   position: absolute;
   left: -30px;
-  padding: 9px 15px 9px 50px;
+  padding: 7px 15px 8px 50px;
   background-color: #ff6633;
   color: #ffffff;
   font-size: 16px;
@@ -472,7 +472,7 @@ footer .copyright {
   right: 0;
   padding: 0 15px 0 15px;
   margin: 0 right;
-  top: 7.5%;
+  top: 7.7%;
   height: 40px;
   font-size: 16px;
   line-height: 40px;
