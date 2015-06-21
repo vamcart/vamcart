@@ -1,5 +1,4 @@
 <?php if ($content_id > 0) { ?>
-<script type="text/javascript" src="<?php echo BASE; ?>/js/jquery/plugins/validate/jquery.validate.pack.js"></script>
 <script type="text/javascript">
 $(function($){
 
@@ -13,10 +12,6 @@ $(function($){
         $('form#askform').append('<input type="hidden" name="anti-bot-q" id="anti-bot-q" value="'+current_year+'" />'); // add whole input with answer via javascript to form
     }
 
-});
-</script>
-<script type="text/javascript">
-$(document).ready(function() {
   // validate form
   $("#askform").validate({
     rules: {
