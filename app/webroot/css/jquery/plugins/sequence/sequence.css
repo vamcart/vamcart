@@ -1,3 +1,17 @@
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
 #sequence {
   border: 0px solid black;
   background: transparent;
@@ -182,13 +196,11 @@
   position: relative;
   height: auto !important;
   max-height: 310px !important;
-  width: 40%;
-  min-width: 225px;
   /* prevents the model from shrinking when the browser is resized */
   max-width: 266px; }
 
 #sequence .animate-in .model {
-  left: 2%;
+  left: 7%;
   opacity: 1;
   -webkit-transition-duration: 1s;
   -moz-transition-duration: 1s;
@@ -197,7 +209,7 @@
   transition-duration: 1s; }
 
 #sequence .animate-out .model {
-  left: 2%;
+  left: 4%;
   opacity: 0;
   -webkit-transition-duration: 0.5s;
   -moz-transition-duration: 0.5s;
@@ -240,9 +252,7 @@
 @media only screen and (max-width: 568px) {
   #sequence .model {
     left: 50%;
-    min-width: 40%;
-    /*prevents the model from shrinking when the browser is resized*/
-    width: 40%; }
+ }
   #sequence .animate-in .model {
     left: 50%;
     margin-left: -20%; }
@@ -306,17 +316,10 @@
       margin-left: -22.5%; }
     #sequence .animate-out .model {
       margin-left: -22.5%; } }
-@media only screen and (min-width: 321px) and (max-width: 480px) and (orientation: landscape) {
-  #sequence {
-    height: 333px; }
-    #sequence .model {
-      min-width: 24%;
-      width: 24%; }
-    #sequence .animate-in .model {
-      left: 17.5%;
-      margin-left: 0; }
-    #sequence .animate-out .model {
-      left: 17.5%;
-      margin-left: 0; }
-    #sequence .sequence-pagination {
-      right: 17.5%; } }
+
+
+@media (max-width: 480px) {
+  #sequence-theme {
+    display: none;
+  }
+}
