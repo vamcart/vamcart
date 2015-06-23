@@ -122,13 +122,13 @@ class Bender
                 $this->check_recombine( $output, $_stylesheets );
                 $this->minify( $_stylesheets, "css", $output );
                 //return '<link href="' . $this->get_src( $output ) . '" rel="stylesheet" type="text/css"/>';
-                return '<script id="loadcss">function loadCSS(e,n,o,t){"use strict";var d=window.document.createElement("link"),i=n||window.document.getElementsByTagName("script")[0],r=window.document.styleSheets;return d.rel="stylesheet",d.href=e,d.media="only x",t&&(d.onload=t),i.parentNode.insertBefore(d,i),d.onloadcssdefined=function(e){for(var n,o=0;o<r.length;o++)r[o].href&&r[o].href===d.href&&(n=!0);n?e():setTimeout(function(){d.onloadcssdefined(e)})},d.onloadcssdefined(function(){d.media=o||"all"}),d}loadCSS("' . $this->get_src( $output ) . '", document.getElementById("loadcss"));</script><noscript><link href="' . $this->get_src( $output ) . '" rel="stylesheet"></noscript>';    
+                return '<script id="loadcss">function loadCSS(e,n,o,t){"use strict";var d=window.document.createElement("link"),i=n||window.document.getElementsByTagName("script")[0],r=window.document.styleSheets;return d.rel="stylesheet",d.href=e,d.media="only x",t&&(d.onload=t),i.parentNode.insertBefore(d,i),d.onloadcssdefined=function(e){for(var n,o=0;o<r.length;o++)r[o].href&&r[o].href===d.href&&(n=!0);n?e():setTimeout(function(){d.onloadcssdefined(e)})},d.onloadcssdefined(function(){d.media=o||"all"}),d}loadCSS("' . $this->get_src( $output ) . '", document.getElementById("loadcss"));</script><noscript><link href="' . $this->get_src($output) . '" rel="stylesheet"></noscript>';    
                 break;
             case "js":
                 $this->check_recombine( $output, $_javascripts );
                 $this->minify( $_javascripts, "js", $output );
-                return '<script type="text/javascript" src="' . $this->get_src( $output ) . '"></script>';
-                //return '<script>function downloadJSAtOnload(){var d=document.createElement("script");d.src="' . $this->get_src( $output ) . '",document.body.appendChild(d)}window.addEventListener?window.addEventListener("load",downloadJSAtOnload,!1):window.attachEvent?window.attachEvent("onload",downloadJSAtOnload):window.onload=downloadJSAtOnload;</script>';
+                return '<script type="text/javascript" src="' . $this->get_src($output) . '"></script>';
+                //return '<script>function loadJS(e,t){"use strict";var n=window.document.getElementsByTagName("script")[0],o=window.document.createElement("script");return o.src=e,o.async=!0,n.parentNode.insertBefore(o,n),t&&"function"==typeof t&&(o.onload=t),o}loadJS("' . $this->get_src($output) . '");</script>';
                 
                 break;
         }
