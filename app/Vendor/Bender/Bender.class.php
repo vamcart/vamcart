@@ -122,7 +122,7 @@ class Bender
                 $this->check_recombine( $output, $_stylesheets );
                 $this->minify( $_stylesheets, "css", $output );
                 //return '<link href="' . $this->get_src( $output ) . '" rel="stylesheet" type="text/css"/>';
-                return '<script>var cb=function(){var e=document.createElement("link");e.rel="stylesheet",e.href="' . $this->get_src( $output ) . '";var a=document.getElementsByTagName("head")[0];a.parentNode.insertBefore(e,a)},raf=requestAnimationFrame||mozRequestAnimationFrame||webkitRequestAnimationFrame||msRequestAnimationFrame;raf?raf(cb):window.addEventListener("load",cb);</script>';    
+                return '<script>!function(){for(var n=0,i=["webkit","moz"],e=0;e<i.length&&!window.requestAnimationFrame;++e)window.requestAnimationFrame=window[i[e]+"RequestAnimationFrame"],window.cancelAnimationFrame=window[i[e]+"CancelAnimationFrame"]||window[i[e]+"CancelRequestAnimationFrame"];window.requestAnimationFrame||(window.requestAnimationFrame=function(i){var e=(new Date).getTime(),a=Math.max(0,16-(e-n)),o=window.setTimeout(function(){i(e+a)},a);return n=e+a,o}),window.cancelAnimationFrame||(window.cancelAnimationFrame=function(n){clearTimeout(n)})}();var cb=function(){var e=document.createElement("link");e.rel="stylesheet",e.href="' . $this->get_src( $output ) . '";var a=document.getElementsByTagName("head")[0];a.parentNode.insertBefore(e,a)},raf=requestAnimationFrame||mozRequestAnimationFrame||webkitRequestAnimationFrame||msRequestAnimationFrame;raf?raf(cb):window.addEventListener("load",cb);</script>';    
                 break;
             case "js":
                 $this->check_recombine( $output, $_javascripts );
