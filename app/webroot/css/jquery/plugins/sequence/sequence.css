@@ -49,6 +49,10 @@
 #sequence-theme .sequence-next,
 #sequence-theme .sequence-prev {
   display: block;
+}
+#sequence-theme .sequence-next,
+#sequence-theme .sequence-prev {
+  display: block;
   width: 50px;
   text-align: center;
   color: #000000;
