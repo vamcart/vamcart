@@ -988,7 +988,7 @@ div#spinner {
   }
 }
 .featured-categories .thumbnails .item {
-  margin-bottom: 0;
+  margin-bottom: 30px;
 }
 @media (max-width: 767px) {
   .featured-categories .thumbnails .item {
