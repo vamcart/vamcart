@@ -285,6 +285,13 @@ padding-left: 0;
   margin: 15px 0;
 }
 
+.btn-add-to-cart,
+.btn-filter-apply,
+.btn-filter-reset
+ {
+  margin: 12px 0;
+}
+
 .form-group {
   padding-bottom: 5px;
 }
