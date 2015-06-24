@@ -296,6 +296,11 @@ padding-left: 0;
   padding-bottom: 5px;
 }
 
+.form-horizontal .form-group {
+  margin-right: 0;
+  margin-left: 0;
+}
+
 .btn-default,
 .btn-primary {
 background-color: #555;
