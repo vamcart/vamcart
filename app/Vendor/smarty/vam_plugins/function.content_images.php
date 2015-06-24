@@ -17,7 +17,7 @@ $template = '
 {if $image@index > 0}
 		<div class="col-sm-6 col-md-4 thumbnail text-center">
 {/if}
-			<a href="{$image.image_path}" class="colorbox" title="{$image.name}"><img {if $image@index > 0}itemprop="image"{/if} src="{$image.image_thumb}" alt="{$image.name}" title="{$image.name}"{if {$image.image_width} > 0} width="{$image.image_width}"{/if}{if {$image.image_height} > 0} height="{$image.image_height}"{/if} />
+			<a href="{$image.image_path}" class="colorbox" title="{$image.name}"><img {if !$number}itemprop="image"{/if} src="{$image.image_thumb}" alt="{$image.name}" title="{$image.name}"{if {$image.image_width} > 0} width="{$image.image_width}"{/if}{if {$image.image_height} > 0} height="{$image.image_height}"{/if} />
 			{if $image@first}{product_label}{/if}
 			<span class="frame-overlay"></span>
 			<span class="zoom"><i class="fa fa-search-plus"></i></span>
@@ -134,7 +134,8 @@ function smarty_function_content_images($params, $template)
 			
 	}	
 	
-	$assignments = array('images' => $keyed_images,
+	$assignments = array('number' => $params['number'],
+	           'images' => $keyed_images,
 	           'images_count' => $cnt,
 						 'noimg_thumb' => BASE . '/images/thumb/0/noimage.png',
 						 'noimg_path' => BASE . '/img/noimage.png',
