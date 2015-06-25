@@ -33,7 +33,7 @@ function default_template_attribute_list()
                     {/foreach} 
                 {else if $attr.target=="PRODUCT_GROUP"}
 						<div id="spinner">
-							<img src="{base_path}/img/ajax-loader.gif" alt="" />
+							<img src="{base_path}/img/ajax-loader.gif" alt="" width="31" height="31" />
 						</div>
                     <script type="text/javascript"> 
                         $(document).ready(function () { 

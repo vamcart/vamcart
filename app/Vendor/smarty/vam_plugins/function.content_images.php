@@ -43,6 +43,14 @@ $(document).ready(function(){
   $(".colorbox").colorbox({
     rel: "colorbox"
   });
+{if $images_count > 1}
+  $(".product-images").bxSlider({
+    adaptiveHeight: true,
+    controls: false,
+    pager: true,
+    mode: "fade"
+  });
+{/if}    
 });
 </script>
 ';		
