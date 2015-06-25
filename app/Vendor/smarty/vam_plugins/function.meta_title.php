@@ -13,7 +13,7 @@ function smarty_function_meta_title($params, $template)
 	if ($content['ContentDescription']['meta_title']) { 
 	$result = $content['ContentDescription']['meta_title'];
 	} else {
-	$result = null;
+	$result = $content['ContentDescription']['name'];
 	}
 
 	return $result;

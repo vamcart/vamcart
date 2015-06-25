@@ -10,11 +10,7 @@ function smarty_function_page_name($params, $template)
 {
 	global $content;
 	
-	if ($content['ContentDescription']['meta_title']) { 
-	$result = $content['ContentDescription']['meta_title'];
-	} else {
 	$result = $content['ContentDescription']['name'];
-	}
 
 	return $result;
 }
