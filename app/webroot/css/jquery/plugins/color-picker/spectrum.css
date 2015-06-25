@@ -479,7 +479,6 @@ See http://bgrins.github.io/spectrum/themes/ for instructions.
 
 .sp-preview, .sp-alpha, .sp-thumb-el {
     position:relative;
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAAGUlEQVQYV2M4gwH+YwCGIasIUwhT25BVBADtzYNYrHvv4gAAAABJRU5ErkJggg==);
 }
 .sp-preview-inner, .sp-alpha-inner, .sp-thumb-inner {
     display:block;
