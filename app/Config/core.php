@@ -176,8 +176,9 @@
 	Configure::write('Session', array(
 		'defaults' => 'php',
 		'cookie' => 'vamshop',
-		'timeout' => 4320, //3 days
-		'cookieTimeout' => 4320 //3 days
+		'timeout' => 60,
+		'cookieTimeout' => 1440,
+		'autoRegenerate' => true
 	));
 
 /**
