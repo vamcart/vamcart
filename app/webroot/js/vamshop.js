@@ -152,7 +152,7 @@ $("#color-picker").spectrum({
     clickoutFiresChange: true,
     showAlpha: true,
     preferredFormat: "hex",
-    localStorageKey: "vamshop",
+    localStorageKey: "vamshop-color-picker",
     move: function (color) {
         updateColors(color);
     },
