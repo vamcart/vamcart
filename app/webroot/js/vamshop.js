@@ -121,3 +121,55 @@ $(window).resize(function(){
 
 	// Resize ColorBox when resizing window or changing mobile device orientation
 	jQuery(window).resize(resizeColorBox);
+
+// Color Picker
+
+function updateColors(color) {
+    var hexColor = "transparent";
+    if(color) {
+        hexColor = color.toHexString();
+    }
+    $("#docs-content").css("background", hexColor);
+}
+
+$(function() {
+
+var col = "transparent";
+if(typeof $.cookie("color") != "undefined"){
+   col = $.cookie("color");
+}    
+    $("#docs-content").css("background", col);
+
+$("#color-picker").spectrum({
+    allowEmpty:true,
+    color: col,
+    showInput: true,
+    showButtons: false,
+    showInitial: true,
+    showPalette: true,
+    showSelectionPalette: true,
+    hideAfterPaletteSelect:true,
+    clickoutFiresChange: true,
+    showAlpha: true,
+    preferredFormat: "hex",
+    localStorageKey: "vamshop",
+    move: function (color) {
+        updateColors(color);
+    },
+    show: function () {
+    },
+    beforeShow: function () {
+    },
+    hide: function (color) {
+        updateColors(color);
+        if(color) {
+        $.cookie("color", color.toHexString(), { expires: 30 })
+        }
+    },
+    palette: [
+        ["rgb(255, 102, 51)", "rgb(42, 42, 255)", "rgb(26, 177, 36)", "rgb(208, 22, 22)", "rgb(229, 212, 17)", "rgb(255, 255, 255)", "rgb(0, 0, 0)"]
+    ]
+});
+
+});
+	
