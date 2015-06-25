@@ -125,21 +125,35 @@ $(window).resize(function(){
 // Color Picker
 
 function updateColors(color) {
-    var hexColor = "transparent";
+    var col = "transparent";
     if(color) {
-        hexColor = color.toHexString();
+        col = color.toHexString();
     }
-    $("#docs-content").css("background", hexColor);
+    $(".navbar-default").css("background", col);
+    $(".navbar-default .navbar-collapse").css("border-color", col);
+    $(".navbar-default .navbar-form").css("border-color", col);
+    $(".btn-warning").css({"background": col,"border": "1px solid "+col});
+    $(".btn-warning.checkout").css("background", col);
+    $(".featured-categories .thumbnail .title").css("background", col);
+    $(".shop-products .thumbnail .price").css("background", col);
 }
 
 $(function() {
 
 var col = "transparent";
-if(typeof $.cookie("color") != "undefined"){
-   col = $.cookie("color");
+if(typeof $.cookie("vamshop-color") != "undefined"){
+   col = $.cookie("vamshop-color");
 }    
-    $("#docs-content").css("background", col);
+    $(".navbar-default").css("background", col);
+    $(".navbar-default .navbar-collapse").css("border-color", col);
+    $(".navbar-default .navbar-form").css("border-color", col);
+    $(".btn-warning").css({"background": col,"border": "1px solid "+col});
+    $(".btn-warning.checkout").css("background", col);
+    $(".featured-categories .thumbnail .title").css("background", col);
+    $(".shop-products .thumbnail .price").css("background", col);
 
+    if (!col) { var col = "#ff6633";}
+    
 $("#color-picker").spectrum({
     allowEmpty:true,
     color: col,
@@ -152,7 +166,7 @@ $("#color-picker").spectrum({
     clickoutFiresChange: true,
     showAlpha: true,
     preferredFormat: "hex",
-    localStorageKey: "vamshop-color-picker",
+    localStorageKey: "vamshop",
     move: function (color) {
         updateColors(color);
     },
@@ -163,13 +177,12 @@ $("#color-picker").spectrum({
     hide: function (color) {
         updateColors(color);
         if(color) {
-        $.cookie("color", color.toHexString(), { expires: 30 })
+        $.cookie("vamshop-color", color.toHexString(), { expires: 30, path: '/' })
         }
     },
     palette: [
-        ["rgb(255, 102, 51)", "rgb(42, 42, 255)", "rgb(26, 177, 36)", "rgb(208, 22, 22)", "rgb(229, 212, 17)", "rgb(255, 255, 255)", "rgb(0, 0, 0)"]
+        ["rgb(255, 102, 51)", "rgb(32, 10, 196)", "rgb(26, 177, 36)", "rgb(208, 22, 22)", "rgb(210, 193, 82)", "rgb(163, 163, 163)", "rgb(85, 85, 85)"]
     ]
 });
 
 });
-	
