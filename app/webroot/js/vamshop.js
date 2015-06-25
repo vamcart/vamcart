@@ -129,6 +129,9 @@ function updateColors(color) {
     if(color) {
         col = color.toHexString();
     }
+    if(color != $.cookie("vamshop-color")) {
+    $.cookie("vamshop-color", color.toHexString(), { expires: 30, path: '/' })
+    }
     $(".navbar-default").css("background", col);
     $(".navbar-default .navbar-collapse").css("border-color", col);
     $(".navbar-default .navbar-form").css("border-color", col);
@@ -176,9 +179,6 @@ $("#color-picker").spectrum({
     },
     hide: function (color) {
         updateColors(color);
-        if(color) {
-        $.cookie("vamshop-color", color.toHexString(), { expires: 30, path: '/' })
-        }
     },
     palette: [
         ["rgb(255, 102, 51)", "rgb(32, 10, 196)", "rgb(26, 177, 36)", "rgb(208, 22, 22)", "rgb(210, 193, 82)", "rgb(163, 163, 163)", "rgb(85, 85, 85)"]
