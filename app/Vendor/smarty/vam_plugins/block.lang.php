@@ -1,6 +1,6 @@
 <?php
 /**
- * block.t.php - Smarty gettext block plugin
+ * block.lang.php - Smarty gettext block plugin
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -32,49 +32,10 @@
  * @param mixed mixed Arguments, can be passed in an array or through single variables.
  * @return string Modified string
  */
-function smarty_gettext_strarg($str/*, $varargs... */) {
-	$tr = array();
-	$p = 0;
-
-	$nargs = func_num_args();
-	for ($i = 1; $i < $nargs; $i++) {
-		$arg = func_get_arg($i);
-
-		if (is_array($arg)) {
-			foreach ($arg as $aarg) {
-				$tr['%' . ++$p] = $aarg;
-			}
-		} else {
-			$tr['%' . ++$p] = $arg;
-		}
-	}
-
-	return strtr($str, $tr);
-}
-
-/**
- * Smarty block function, provides gettext support for smarty.
- *
- * The block content is the text that should be translated.
- *
- * Any parameter that is sent to the function will be represented as %n in the translation text,
- * where n is 1 for the first parameter. The following parameters are reserved:
- *   - escape - sets escape mode:
- *       - 'html' for HTML escaping, this is the default.
- *       - 'js' for javascript escaping.
- *       - 'url' for url escaping.
- *       - 'no'/'off'/0 - turns off escaping
- *   - plural - The plural version of the text (2nd parameter of ngettext())
- *   - count - The item count for plural mode (3rd parameter of ngettext())
- *   - domain - Textdomain to be used, default if skipped (dgettext() instead of gettext())
- *   - context - gettext context. reserved for future use.
- *
- * @param array $params
- * @param string $text
- * @link http://www.smarty.net/docs/en/plugins.block.functions.tpl
- * @return string
- */
-function smarty_block_lang($params, $text) {
+ 
+function smarty_block_lang($params, $text, $template, &$repeat)
+{
+	
 	if (!isset($text)) {
 		return $text;
 	}
@@ -154,3 +115,17 @@ function smarty_block_lang($params, $text) {
 
 	return $text;
 }
+
+function smarty_help_function_lang() {
+	?>
+	<h3><?php echo __('What does this tag do?') ?></h3>
+	<p><?php echo __('Outputs the correct language value specified by the key between the brackets.') ?></p>
+	<h3><?php echo __('How do I use it?') ?></h3>
+	<p><?php echo __('Just insert the tag into your template like:') ?> <code>{lang}<?php echo __('Language Text') ?>{/lang}</code></p>
+	<p><?php echo __('Make sure you define the language key in /app/Locale/your-locale/LC_MESSAGES/catalog.po.') ?></p>
+	<?php
+}
+
+function smarty_about_function_lang() {
+}
+?>

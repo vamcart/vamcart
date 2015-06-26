@@ -1342,8 +1342,8 @@ msgid "Language Text"
 msgstr "Текст для перевода"
 
 #: /vendors/smarty/vam_plugins/block.lang.php:64
-msgid "Make sure you define the language key in the admin area."
-msgstr "Не забудьте добавить перевод для строки в Админке - Локализация - Языковые строки."
+msgid "Make sure you define the language key in /app/Locale/your-locale/LC_MESSAGES/catalog.po."
+msgstr "Не забудьте добавить перевод для строки в /app/Locale/rus/LC_MESSAGES/catalog.po."
 
 #: /vendors/smarty/vam_plugins/block.product_form.php:42
 msgid "Wraps the product purchase button with a form."
