@@ -233,6 +233,7 @@ class AppController extends Controller {
 
 				$new_customer['customer_group_id'] = 0;
 				$new_customer['language_id'] = $languages['Language']['id'];
+				$new_customer['language_code'] = $languages['Language']['code'];
 				$new_customer['language'] = $languages['Language']['iso_code_2'];
 			
 				// Get the default currency
@@ -247,8 +248,12 @@ class AppController extends Controller {
 				$this->Session->write('Customer', $new_customer);
 				if(!isset($_SESSION['Config']['language']))
 				$this->Session->write('Config.language', $languages['Language']['iso_code_2']); 
+				if(!isset($_SESSION['Config']['language_code']))
+				$this->Session->write('Config.language_code', $languages['Language']['code']); 
 				if(!isset($_SESSION['UserPref']['language']))
 				$this->Session->write('UserPref.language', $languages['Language']['iso_code_2']); 			
+				if(!isset($_SESSION['UserPref']['language_code']))
+				$this->Session->write('UserPref.language_code', $languages['Language']['code']); 			
 			}
 			else
 			{

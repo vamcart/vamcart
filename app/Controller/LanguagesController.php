@@ -17,7 +17,9 @@ class LanguagesController extends AppController {
 		$default_language = $this->Language->find('first', array('conditions' => array('id' => $language_id)));
 
 		$this->Session->write('Config.language', $default_language['Language']['iso_code_2']);
+		$this->Session->write('Config.language_code', $default_language['Language']['code']);
 		$this->Session->write('Customer.language', $default_language['Language']['iso_code_2']);
+		$this->Session->write('Customer.language_code', $default_language['Language']['code']);
 
 		$this->EventBase->ProcessEvent('SwitchLanguage');
 		
