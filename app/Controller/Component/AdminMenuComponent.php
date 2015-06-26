@@ -81,8 +81,7 @@ class AdminMenuComponent extends Component
 					1 => array('icon' => 'cus-table-edit', 'text' => __('Currencies', true), 'path' => '/currencies/admin/'),
 					2 => array('icon' => 'cus-flag-green', 'text' => __('Languages', true), 'path' => '/languages/admin/'),
 					3 => array('icon' => 'cus-world-add', 'text' => __('Countries', true), 'path' => '/countries/admin/'),
-					4 => array('icon' => 'cus-page-white-world', 'text' => __('Geo Zones', true), 'path' => '/geo_zones/admin/'),
-					5 => array('icon' => 'cus-world-edit', 'text' => __('Defined Languages', true), 'path' => '/defined_languages/admin/')															
+					4 => array('icon' => 'cus-page-white-world', 'text' => __('Geo Zones', true), 'path' => '/geo_zones/admin/')
 				)
 			),					
 			7 => array('icon' => 'cus-plugin', 'text' => __('Extensions', true), 'path' => '/admin/admin_top/7',

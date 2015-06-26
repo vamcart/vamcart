@@ -168,6 +168,9 @@ msgstr "Отзывы"
 msgid "Filter"
 msgstr "Фильтр"
 
+msgid "FreeShipping"
+msgstr "Бесплатная доставка"
+
 msgid "FlatRate"
 msgstr "Курьерская доставка"
 
