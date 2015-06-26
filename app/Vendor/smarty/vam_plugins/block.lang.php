@@ -1,62 +1,156 @@
 <?php
-/* -----------------------------------------------------------------------------------------
-   VamShop - http://vamshop.com
-   -----------------------------------------------------------------------------------------
-   Copyright (c) 2014 VamSoft Ltd.
-   License - http://vamshop.com/license.html
-   ---------------------------------------------------------------------------------------*/
+/**
+ * block.t.php - Smarty gettext block plugin
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ *
+ * @package   smarty-gettext
+ * @link      https://github.com/smarty-gettext/smarty-gettext
+ * @author    Sagi Bashari <sagi@boom.org.il>
+ * @author    Elan Ruusamäe <glen@delfi.ee>
+ * @copyright 2004-2005 Sagi Bashari
+ * @copyright 2010-2015 Elan Ruusamäe
+ */
 
-function smarty_block_lang($params, $content, $template, &$repeat)
-{
-	
-	if (is_null($content)) 
-	{
-		return;
+/**
+ * Replaces arguments in a string with their values.
+ * Arguments are represented by % followed by their number.
+ *
+ * @param string $str Source string
+ * @param mixed mixed Arguments, can be passed in an array or through single variables.
+ * @return string Modified string
+ */
+function smarty_gettext_strarg($str/*, $varargs... */) {
+	$tr = array();
+	$p = 0;
+
+	$nargs = func_num_args();
+	for ($i = 1; $i < $nargs; $i++) {
+		$arg = func_get_arg($i);
+
+		if (is_array($arg)) {
+			foreach ($arg as $aarg) {
+				$tr['%' . ++$p] = $aarg;
+			}
+		} else {
+			$tr['%' . ++$p] = $arg;
+		}
 	}
 
-		global $config;		
-		
-	// Cache the output.
-	$text_values_cache_name = 'vam_defined_language' .  '_' . $_SESSION['Customer']['language_id'];
-	$text_values_cache_output = Cache::read($text_values_cache_name, 'catalog');
+	return strtr($str, $tr);
+}
 
-	if($text_values_cache_output === false)
-	{
-
-			App::import('Model', 'DefinedLanguage');
-			$DefinedLanguage = new DefinedLanguage();
-			
-			$text_values_cache_output = array();
-	
-			$defined_language_values = $DefinedLanguage->find('all', array('conditions' => array('language_id' => $_SESSION['Customer']['language_id'])));
-
-			$text_values = array_combine(Set::extract($defined_language_values, '{n}.DefinedLanguage.key'),
-						 		 Set::extract($defined_language_values, '{n}.DefinedLanguage.value'));	
-
-         if(array_key_exists($content,$text_values)) $content = $text_values[$content];			
-                						 		 
-		Cache::write($text_values_cache_name, $text_values, 'catalog');		
+/**
+ * Smarty block function, provides gettext support for smarty.
+ *
+ * The block content is the text that should be translated.
+ *
+ * Any parameter that is sent to the function will be represented as %n in the translation text,
+ * where n is 1 for the first parameter. The following parameters are reserved:
+ *   - escape - sets escape mode:
+ *       - 'html' for HTML escaping, this is the default.
+ *       - 'js' for javascript escaping.
+ *       - 'url' for url escaping.
+ *       - 'no'/'off'/0 - turns off escaping
+ *   - plural - The plural version of the text (2nd parameter of ngettext())
+ *   - count - The item count for plural mode (3rd parameter of ngettext())
+ *   - domain - Textdomain to be used, default if skipped (dgettext() instead of gettext())
+ *   - context - gettext context. reserved for future use.
+ *
+ * @param array $params
+ * @param string $text
+ * @link http://www.smarty.net/docs/en/plugins.block.functions.tpl
+ * @return string
+ */
+function smarty_block_lang($params, $text) {
+	if (!isset($text)) {
+		return $text;
 	}
 
-			if(array_key_exists($content,$text_values_cache_output))
-			{
-			echo $text_values_cache_output[$content];
-			} else {
-			echo $content;
-			}			
+	// set escape mode, default html escape
+	if (isset($params['escape'])) {
+		$escape = $params['escape'];
+		unset($params['escape']);
+	} else {
+		$escape = 'html';
+	}
 
-}
+	// set plural parameters 'plural' and 'count'.
+	if (isset($params['plural'])) {
+		$plural = $params['plural'];
+		unset($params['plural']);
 
-function smarty_help_function_lang() {
-	?>
-	<h3><?php echo __('What does this tag do?') ?></h3>
-	<p><?php echo __('Outputs the correct language value specified by the key between the brackets.') ?></p>
-	<h3><?php echo __('How do I use it?') ?></h3>
-	<p><?php echo __('Just insert the tag into your template like:') ?> <code>{lang}<?php echo __('Language Text') ?>{/lang}</code></p>
-	<p><?php echo __('Make sure you define the language key in the admin area.') ?></p>
-	<?php
-}
+		// set count
+		if (isset($params['count'])) {
+			$count = $params['count'];
+			unset($params['count']);
+		}
+	}
 
-function smarty_about_function_lang() {
+	// get domain param
+	if (isset($params['domain'])) {
+		$domain = $params['domain'];
+		unset($params['domain']);
+	} else {
+		$domain = null;
+	}
+
+	// get context param
+	if (isset($params['context'])) {
+		$context = $params['context'];
+		unset($params['context']);
+	} else {
+		$context = null;
+	}
+
+	// use plural if required parameters are set
+	if (isset($count) && isset($plural)) {
+		// use specified textdomain if available
+		if (isset($domain)) {
+			$text = __dn($domain, $text, $plural, $count);
+		} else {
+			$text = __n($text, $plural, $count);
+		}
+	} else {
+		// use specified textdomain if available
+		if (isset($domain)) {
+			$text = __d($domain, $text);
+		} else {
+			$text = __d('catalog', $text);
+		}
+	}
+
+	// run strarg if there are parameters
+	if (count($params)) {
+		$text = smarty_gettext_strarg($text, $params);
+	}
+
+	switch ($escape) {
+	case 'html':
+		$text = nl2br(htmlspecialchars($text));
+		break;
+	case 'javascript':
+	case 'js':
+		// javascript escape
+		$text = strtr($text, array('\\' => '\\\\', "'" => "\\'", '"' => '\\"', "\r" => '\\r', "\n" => '\\n', '</' => '<\/'));
+		break;
+	case 'url':
+		// url escape
+		$text = urlencode($text);
+		break;
+	}
+
+	return $text;
 }
-?>

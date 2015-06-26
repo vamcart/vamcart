@@ -1,0 +1,490 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# No version information was available in the source files.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2015-03-10 14:22+0400\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: Alexandr Menovchicov <vam@kypi.ru>\n"
+"Language-Team: Russian <vamshop@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+msgid "Name"
+msgstr "Имя"
+
+msgid "Price"
+msgstr "Цена"
+
+msgid "About Us"
+msgstr "Информация о магазине"
+
+msgid "Account Edit"
+msgstr "Редактирование данных"
+
+msgid "Add Review"
+msgstr "Добавить отзыв"
+
+msgid "Add to cart"
+msgstr "Добавить в корзину"
+
+msgid "Add to compare"
+msgstr "Сравнить"
+
+msgid "Address Book"
+msgstr "Адресная книга"
+
+msgid "Address Line 1"
+msgstr "Адрес"
+
+msgid "Address Line 2"
+msgstr "Доп. информация"
+
+msgid "All"
+msgstr "Все"
+
+msgid "Also purchased"
+msgstr "Сопутствующие товары"
+
+msgid "Apply"
+msgstr "Применить"
+
+msgid "Articles"
+msgstr "Статьи"
+
+msgid "Ask A Product Question"
+msgstr "Задать вопрос о товаре"
+
+msgid "best buy!"
+msgstr "успей купить!"
+
+msgid "Best rating"
+msgstr "Лучшая оценка"
+
+msgid "Billing Information"
+msgstr "Информация о покупателе"
+
+msgid "Brands"
+msgstr "Брэнды"
+
+msgid "Buy"
+msgstr "Купить"
+
+msgid "Cart"
+msgstr "Корзина"
+
+msgid "Cart Contents"
+msgstr "Содержимое корзины"
+
+msgid "Categories"
+msgstr "Разделы"
+
+msgid "Checkout"
+msgstr "Оформить"
+
+msgid "City"
+msgstr "Город"
+
+msgid "Comment"
+msgstr "Комментарий"
+
+msgid "Company"
+msgstr "Компания"
+
+msgid "Compare"
+msgstr "Сравнить"
+
+msgid "Comparison"
+msgstr "Сравнение"
+
+msgid "Confirm Order"
+msgstr "Подтвердить заказ"
+
+msgid "Contact Information"
+msgstr "Контактная информация"
+
+msgid "Contact Us"
+msgstr "Обратная связь"
+
+msgid "Continue"
+msgstr "Продолжить"
+
+msgid "Continue Shopping"
+msgstr "Вернуться в магазин"
+
+msgid "Country"
+msgstr "Страна"
+
+msgid "Coupon Code"
+msgstr "Код купона"
+
+msgid "Credit Card"
+msgstr "Кредитная карточка"
+
+msgid "Currency"
+msgstr "Валюта"
+
+msgid "Customer"
+msgstr "Покупатель"
+
+msgid "Date"
+msgstr "Дата"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "Details"
+msgstr "Подробнее"
+
+msgid "Discount"
+msgstr "Скидка"
+
+msgid "Download"
+msgstr "Скачать"
+
+msgid "Download file"
+msgstr "Cкачать файл"
+
+msgid "E-mail"
+msgstr "E-mail"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Example"
+msgstr "Пример"
+
+msgid "Featured Products"
+msgstr "Рекомендуемые товары"
+
+msgid "Feedback"
+msgstr "Отзывы"
+
+msgid "Filter"
+msgstr "Фильтр"
+
+msgid "FlatRate"
+msgstr "Курьерская доставка"
+
+msgid "Forgot your password?"
+msgstr "Забыли пароль?"
+
+msgid "Free Shipping"
+msgstr "Бесплатная доставка"
+
+msgid "from"
+msgstr "от"
+
+msgid "Go"
+msgstr "Продолжить"
+
+msgid "Hit"
+msgstr "Хит"
+
+msgid "Home"
+msgstr "Главная"
+
+msgid "In-store Pickup"
+msgstr "Самовывоз"
+
+msgid "Information"
+msgstr "Информация"
+
+msgid "Invoice"
+msgstr "Оплата по счёту"
+
+msgid "Kvitancia"
+msgstr "Оплата по квитанции СБ РФ"
+
+msgid "Language"
+msgstr "Язык"
+
+msgid "Leave empty to use current password."
+msgstr "Оставьте поле пустым, если Вы не хотите менять текущий пароль."
+
+msgid "List Price"
+msgstr "Старая цена"
+
+msgid "Login"
+msgstr "Вход"
+
+msgid "Logout"
+msgstr "Выход"
+
+msgid "Manufacturers List"
+msgstr "Список производителей"
+
+msgid "Message"
+msgstr "Сообщение"
+
+msgid "Min length"
+msgstr "Минимум символов"
+
+msgid "Model"
+msgstr "Артикул"
+
+msgid "Money Order Check"
+msgstr "Оплата наличными курьеру"
+
+msgid "My Account"
+msgstr "Личный кабинет"
+
+msgid "My delivery and billing addresses are not the same."
+msgstr "Нажмите, если адрес доставки и адрес покупателя различные."
+
+msgid "My Orders"
+msgstr "Мои заказы"
+
+msgid "Product Name"
+msgstr "Название"
+
+msgid "Product Name (A-Z)"
+msgstr "Название (А-Я)"
+
+msgid "Product Name (Z-A)"
+msgstr "Название (Я-А)"
+
+msgid "New"
+msgstr "Новинка"
+
+msgid "New Password"
+msgstr "Новый пароль"
+
+msgid "News"
+msgstr "Новости"
+
+msgid "No Cart Items"
+msgstr "В корзине нет товара."
+
+msgid "No Image"
+msgstr "Нет картинки"
+
+msgid "No Items Found"
+msgstr "Товары не найдены."
+
+msgid "No reviews were found for this product."
+msgstr "Нет отзывов для данного товара."
+
+msgid "One Click Buy"
+msgstr "Купить за 1 клик"
+
+msgid "Order Comments"
+msgstr "Комментарии к заказу"
+
+msgid "Order number"
+msgstr "Номер заказа"
+
+msgid "Order Status"
+msgstr "Статус заказа"
+
+msgid "Order Total"
+msgstr "Стоимость заказа"
+
+msgid "Orders Not Found!"
+msgstr "Заказы не найдены!"
+
+msgid "Pages"
+msgstr "Страницы"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Payment Method"
+msgstr "Способы оплаты"
+
+msgid "per"
+msgstr "за"
+
+msgid "PerItem"
+msgstr "На единицу"
+
+msgid "Permission Denied."
+msgstr "Нет доступа."
+
+msgid "Phone"
+msgstr "Телефон"
+
+msgid "Please agree to our policy."
+msgstr "Нажимая кнопку Продолжить, я подтверждаю свою дееспособность, даю согласие на обработку своих персональных данных."
+
+msgid "Popular"
+msgstr "Популярность"
+
+msgid "Popular (asc)"
+msgstr "Популярность (популярные товары снизу)"
+
+msgid "Popular (desc)"
+msgstr "Популярность (популярные товары сверху)"
+
+msgid "Powered by"
+msgstr "Работает на основе"
+
+msgid "Price (High to Low)"
+msgstr "Цена (по убыванию)"
+
+msgid "Price (Low to High)"
+msgstr "Цена (по возрастанию)"
+
+msgid "Price Ea."
+msgstr "Цена / шт."
+
+msgid "Print Invoice"
+msgstr "Распечатать счёт"
+
+msgid "Print Order"
+msgstr "Распечатать квитанцию"
+
+msgid "Process to Payment"
+msgstr "Перейти к оплате заказа"
+
+msgid "Product"
+msgstr "Товар"
+
+msgid "Products"
+msgstr "Товары"
+
+msgid "Products by this Manufacturer"
+msgstr "Товары данного производителя"
+
+msgid "Products in this Category"
+msgstr "Товары в данной категории"
+
+msgid "Qty"
+msgstr "Количество"
+
+msgid "qty."
+msgstr "шт."
+
+msgid "Quantity"
+msgstr "Количество"
+
+msgid "Quantity discounts"
+msgstr "Скидки от количества"
+
+msgid "Rating"
+msgstr "Оценка"
+
+msgid "Rating value"
+msgstr "Рейтинг"
+
+msgid "read more"
+msgstr "подробнее"
+
+msgid "Read Reviews"
+msgstr "Читать отзывы"
+
+msgid "Register"
+msgstr "Регистрация"
+
+msgid "Registration"
+msgstr "Регистрация"
+
+msgid "Remove"
+msgstr "Удалить"
+
+msgid "Required field"
+msgstr "Обязательное поле"
+
+msgid "Reset"
+msgstr "Сбросить"
+
+msgid "Retype Password"
+msgstr "Повторите пароль"
+
+msgid "Review"
+msgstr "Отзыв"
+
+msgid "Reviews"
+msgstr "Отзывы"
+
+msgid "RussianPost"
+msgstr "Почта России"
+
+msgid "Sale"
+msgstr "Распродажа"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Search"
+msgstr "Поиск"
+
+msgid "Send"
+msgstr "Отправить"
+
+msgid "Sent To Customer"
+msgstr "Покупатель уведомлён"
+
+msgid "Shipping"
+msgstr "Доставка"
+
+msgid "Shipping Information"
+msgstr "Информация о доставке"
+
+msgid "Shipping Method"
+msgstr "Способы доставки"
+
+msgid "Shopping Cart"
+msgstr "Корзина"
+
+msgid "Short Description"
+msgstr "Краткое описание"
+
+msgid "Sort by"
+msgstr "Cортировка"
+
+msgid "State"
+msgstr "Регион"
+
+msgid "Sub Categories"
+msgstr "Подкатегории"
+
+msgid "Submit"
+msgstr "Добавить"
+
+msgid "TableBased"
+msgstr "Табличный тариф"
+
+msgid "Terms & Conditions."
+msgstr "Подробнее о защите персональной информации."
+
+msgid "Total"
+msgstr "Всего"
+
+msgid "Update"
+msgstr "Обновить"
+
+msgid "vamshop.com"
+msgstr "vamshop.ru"
+
+msgid "View Cart"
+msgstr "Корзина"
+
+msgid "view products"
+msgstr "смотреть товары"
+
+msgid "Worst rating"
+msgstr "Худшая оценка"
+
+msgid "Write a Review"
+msgstr "Написать отзыв"
+
+msgid "You Save"
+msgstr "Вы экономите"
+
+msgid "Your Email"
+msgstr "Ваш email"
+
+msgid "Your Name"
+msgstr "Ваше имя"
+
+msgid "Zipcode"
+msgstr "Почтовый индекс"
+
+msgid "ZoneBased"
+msgstr "Зональный тариф"
