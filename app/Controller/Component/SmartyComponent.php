@@ -68,13 +68,6 @@ class SmartyComponent extends Component
 			'../Vendor/smarty/vam_plugins'
 		);
 
-    // Smarty GetText
-    $path = APP.'Locale/'.$_SESSION['Config']['language_code'].'/LC_MESSAGES/';
-    $domain = 'catalog';
-    bind_textdomain_codeset($domain, 'UTF-8');
-    bindtextdomain($domain, $path);
-    textdomain($domain);
-
 		// Minify html
 		$smarty->loadFilter('output','minify_html');
 
