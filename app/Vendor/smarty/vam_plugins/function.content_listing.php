@@ -16,13 +16,13 @@ $template = '
 <div class="btn-toolbar">
   <div class="btn-group">
   <span class="btn btn-default"><i class="fa fa-sort" title="{lang}Sort by{/lang}"></i></span>
-    <a class="btn btn-default{if $order == "price-asc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/price-asc">{lang} Price{/lang}</a>
+    <a class="btn btn-default{if $order == "price-asc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/price-asc">{lang}Price{/lang}</a>
     <a class="btn btn-default{if $order == "price-asc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/price-asc"><i class="fa fa-sort-numeric-asc" title="{lang}Price (Low to High){/lang}"></i></a>
     <a class="btn btn-default{if $order == "price-desc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/price-desc"><i class="fa fa-sort-numeric-desc" title="{lang}Price (High to Low){/lang}"></i></a>
-    <a class="btn btn-default{if $order == "name-asc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/name-asc">{lang} Name{/lang}</a>
+    <a class="btn btn-default{if $order == "name-asc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/name-asc">{lang}Product Name{/lang}</a>
     <a class="btn btn-default{if $order == "name-asc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/name-asc"><i class="fa fa-sort-alpha-asc" title="{lang}Name (A-Z){/lang}"></i></a>
     <a class="btn btn-default{if $order == "name-desc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/name-desc"><i class="fa fa-sort-alpha-desc" title="{lang}Name (Z-A){/lang}"></i></a>
-    <a class="btn btn-default{if $order == "ordered-desc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/ordered-desc">{lang} Popular{/lang}</a>
+    <a class="btn btn-default{if $order == "ordered-desc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/ordered-desc">{lang}Popular{/lang}</a>
     <a class="btn btn-default{if $order == "ordered-desc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/ordered-desc"><i class="fa fa-thumbs-up" title="{lang}Popular (desc){/lang}"></i></a>
     <a class="btn btn-default{if $order == "ordered-asc"} active{/if}" href="{base_path}/category/{$content_alias->value}{$ext}/order/ordered-asc"><i class="fa fa-thumbs-down" title="{lang}Popular (asc){/lang}"></i></a>
   </div>
