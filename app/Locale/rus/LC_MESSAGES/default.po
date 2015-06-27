@@ -158,7 +158,7 @@ msgstr "События"
 
 #: /app_controller.php:230
 msgid "Account"
-msgstr "Администраторы"
+msgstr "Админы"
 
 #: /app_controller.php:232
 msgid "Manage Accounts"
