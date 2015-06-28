@@ -73,7 +73,7 @@ class EmsRussianPostShippingController extends ShippingAppController {
         $ch = curl_init();
 
         // set url
-        //curl_setopt($ch, CURLOPT_URL, $ems);
+        curl_setopt($ch, CURLOPT_URL, $ems);
 
         //return the transfer as a string
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
