@@ -54,10 +54,11 @@ class EmsRussianPostShippingController extends ShippingAppController {
 
 			global $order;
 
-			$this->Translit = new TranslitComponent(new ComponentCollection());
+			App::uses('TranslitComponent', 'Controller/Component');
+			$Translit = new TranslitComponent(new ComponentCollection());
 			
         $from_city = strtolower('city--Moskva');
-        $to_city = strtolower('city--'.$this->Translit->convert($order['Order']['bill_city']));
+        $to_city = strtolower('city--'.$Translit->convert($order['Order']['bill_city']));
 
 			$total_weight = 0;
 			
@@ -66,13 +67,13 @@ class EmsRussianPostShippingController extends ShippingAppController {
 				$total_weight += (int) $products['weight']*$products['quantity'];
 			}
         
-        $url = 'http://emspost.ru/api/rest?method=ems.calculate&from='.$from_city.'&to='.$to_city.'&weight='.$total_weight;
+        $ems = "http://emspost.ru/api/rest?method=ems.calculate&from=".$from_city."&to=".$to_city."&weight=".$total_weight;
 
         // create curl resource
         $ch = curl_init();
 
         // set url
-        curl_setopt($ch, CURLOPT_URL, $url);
+        //curl_setopt($ch, CURLOPT_URL, $ems);
 
         //return the transfer as a string
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
