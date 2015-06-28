@@ -84,6 +84,7 @@ class RussianPostController extends ShippingAppController {
                 $shipping_price = 0;
                 $cost = 0;
                 $handling = 0;
+                $newline = '';
 
                 $country_zone = $this->CountryZone->find('first', array('conditions' => array('CountryZone.id' => $order['Order']['bill_state'])));
 
@@ -111,9 +112,8 @@ class RussianPostController extends ShippingAppController {
 			break;				
 		}
 		
-$newline =
-'
-';	
+		if ($cost > 0) {
+	
 		$rates = str_replace($newline, '', $cost);
 		$rates = explode(',', $rates);
 		
@@ -136,6 +136,8 @@ $newline =
 				$shipping_price = $value;
 			}
 		}
+
+    }
 
 					}
 

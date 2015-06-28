@@ -84,6 +84,7 @@ class ZoneBasedController extends ShippingAppController {
                 $shipping_price = 0;
                 $cost = 0;
                 $handling = 0;
+                $newline = '';
 
                 $country_zone = $this->CountryZone->find('first', array('conditions' => array('CountryZone.id' => $order['Order']['bill_state'])));
 
@@ -110,10 +111,9 @@ class ZoneBasedController extends ShippingAppController {
 				}
 			break;				
 		}
-		
-$newline =
-'
-';	
+
+		if ($cost > 0) {
+
 		$rates = str_replace($newline, '', $cost);
 		$rates = explode(',', $rates);
 		
@@ -127,9 +127,7 @@ $newline =
 		
 		
 		$keyed_rates = array_reverse($keyed_rates,true);
-
-		$shipping_price = 0;
-
+		
 		foreach($keyed_rates AS $key => $value)
 		{
 			if(($key < $units)&&($shipping_price == 0))
@@ -137,6 +135,8 @@ $newline =
 				$shipping_price = $value;
 			}
 		}
+
+    }
 
 					}
 
