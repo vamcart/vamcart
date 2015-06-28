@@ -150,6 +150,12 @@ $(this).parent().addClass("selected");
 		</div>
 	</div>    
 	<div class="form-group">
+		<label class="col-sm-3 control-label" for="bill_zip">{lang}Zipcode{/lang}:</label>
+		<div class="col-sm-9">
+			<input type="text" class="form-control" name="bill_zip" id="bill_zip" value="{if $customer.AddressBook.ship_zip}{$customer.AddressBook.ship_zip}{else}{$order.bill_zip}{/if}" />
+		</div>
+	</div>    
+	<div class="form-group">
 		<label class="col-sm-3 control-label" for="bill_country">{lang}Country{/lang}:</label>
 		<div class="col-sm-9">
 			<select name="bill_country" class="form-control" id="bill_country">{if $customer.AddressBook.ship_country}{country_list selected={$customer.AddressBook.ship_country}}{else}{country_list selected=($smarty.post.bill_country)}{/if}</select>
@@ -163,12 +169,6 @@ $(this).parent().addClass("selected");
 		</div>
 	</div>
 	</div>
-	<div class="form-group">
-		<label class="col-sm-3 control-label" for="bill_zip">{lang}Zipcode{/lang}:</label>
-		<div class="col-sm-9">
-			<input type="text" class="form-control" name="bill_zip" id="bill_zip" value="{if $customer.AddressBook.ship_zip}{$customer.AddressBook.ship_zip}{else}{$order.bill_zip}{/if}" />
-		</div>
-	</div>    
   </div>    
 
   <div id="diff_ship">
@@ -212,6 +212,12 @@ $(this).parent().addClass("selected");
 		</div>
 	</div>    
 	<div class="form-group">
+		<label class="col-sm-3 control-label" for="ship_zip">{lang}Zipcode{/lang}:</label>
+		<div class="col-sm-9">
+			<input type="text" class="form-control" name="ship_zip" id="ship_zip" value="{$order.ship_zip}" />
+		</div>
+	</div>    
+	<div class="form-group">
 		<label class="col-sm-3 control-label" for="ship_country">{lang}Country{/lang}:</label>
 		<div class="col-sm-9">
 			<select name="ship_country" class="form-control" id="ship_country">{country_list}</select>
@@ -225,12 +231,6 @@ $(this).parent().addClass("selected");
 		</div>
 	</div>
 	</div>
-	<div class="form-group">
-		<label class="col-sm-3 control-label" for="ship_zip">{lang}Zipcode{/lang}:</label>
-		<div class="col-sm-9">
-			<input type="text" class="form-control" name="ship_zip" id="ship_zip" value="{$order.ship_zip}" />
-		</div>
-	</div>    
   </div>
   <div id="contact_information">
     <div>
