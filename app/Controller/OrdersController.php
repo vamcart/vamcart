@@ -119,6 +119,25 @@ class OrdersController extends AppController {
 		}
 				
 	}
+
+	public function save_data ()
+	{
+		global $order;
+
+		if (isset($_SESSION['Customer']['order_id'])) {
+
+		foreach($_POST AS $key => $value)
+			$order['Order'][$key] = $value;
+
+		// Save order data
+		$this->Order->save($order);
+		
+  	$this->Smarty->display('{checkout}');
+		die();			
+
+		}
+				
+	}
 		
 	public function place_order ()
 	{

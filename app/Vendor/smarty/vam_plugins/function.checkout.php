@@ -93,16 +93,34 @@ $(this).parent().addClass("selected");
 		;}
 
     $("#bill_country").change(function () {
-      $("#bill_state_div").load(\'{base_path}/countries/billing_regions/\' + $(this).val());
+      $("#bill_state_div").load("{base_path}/countries/billing_regions/" + $(this).val());
     });
     $("#ship_country").change(function () {
-      $("#ship_state_div").load(\'{base_path}/countries/shipping_regions/\' + $(this).val());
+      $("#ship_state_div").load("{base_path}/countries/shipping_regions/" + $(this).val());
     });
+    $("#bill_state").change(function(){            
+        var http_send = "{base_path}/orders/save_data/";
+        var form_data = $("#contentform").serialize();
+        $.ajax({
+                type: "POST",
+                url: http_send,
+                data: form_data,
+                async: true,
+                success: function (data, textStatus) {
+                    $("#checkout").html(data);},
+                beforeSend: function () {
+                    },
+                complete: function () {
+                    $("#bill_state").focus();
+                    }                                                    
+            });                            
+        return false;
+    });
+
   });
 </script>
 <div id="checkout">
 <form action="{$checkout_form_action}" method="post" id="contentform" class="form-horizontal">
-
   <div id="bill_information">
     <div>
       <h3>{lang}Billing Information{/lang}</h3>
@@ -134,14 +152,14 @@ $(this).parent().addClass("selected");
 	<div class="form-group">
 		<label class="col-sm-3 control-label" for="bill_country">{lang}Country{/lang}:</label>
 		<div class="col-sm-9">
-			<select name="bill_country" class="form-control" id="bill_country">{if $customer.AddressBook.ship_country}{country_list selected={$customer.AddressBook.ship_country}}{else}{country_list}{/if}</select>
+			<select name="bill_country" class="form-control" id="bill_country">{if $customer.AddressBook.ship_country}{country_list selected={$customer.AddressBook.ship_country}}{else}{country_list selected=($smarty.post.bill_country)}{/if}</select>
 		</div>
 	</div>
 	<div class="form-group">
 	<div id="bill_state_div">
 		<label class="col-sm-3 control-label" for="bill_state">{lang}State{/lang}:</label>
 		<div class="col-sm-9">
-			<select name="bill_state" class="form-control" id="bill_state">{if $customer.AddressBook.ship_state}{state_list country={$customer.AddressBook.ship_country} selected={$customer.AddressBook.ship_state}}{else}{state_list}{/if}</select>
+			<select name="bill_state" class="form-control" id="bill_state">{if $customer.AddressBook.ship_state}{state_list country={$customer.AddressBook.ship_country} selected={$customer.AddressBook.ship_state}}{else}{state_list selected=($smarty.post.bill_state)}{/if}</select>
 		</div>
 	</div>
 	</div>
@@ -232,12 +250,10 @@ $(this).parent().addClass("selected");
 	</div>
   </div>
   {module alias="coupons" action="checkout_box"}
-
   <div id="shipping_method">
     <div>
       <h3>{lang}Shipping Method{/lang}</h3>
     </div>  
-
   <div class="clearfix">
 	<ul class="shipping-methods">
     {foreach from=$ship_methods item=ship_method}
@@ -307,6 +323,10 @@ return $template;
 
 function smarty_function_checkout($params, $template)
 {
+
+		if (!isset($_SESSION['Customer']['order_id'])) {
+		  return;
+		}
 
 	global $config;
 
