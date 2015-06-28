@@ -5138,3 +5138,19 @@ msgstr "Письмо с новым паролем успешно отправл�
 #: /controllers/SiteController.php:66
 msgid "Customer not found for this verification code."
 msgstr "Не найден покупатель с данным кодом верификации."
+
+#: /Plugin/Shipping/RussianPostCalc
+msgid "API Key"
+msgstr "API Ключ"
+
+#: /Plugin/Shipping/RussianPostCalc
+msgid "API Password"
+msgstr "API Пароль"
+
+#: /Plugin/Shipping/RussianPostCalc
+msgid "Store Zip Code"
+msgstr "Почтовый индекс отправителя"
+
+#: /plugins/shipping/views/admin/per_item.ctp:16
+msgid "RussianPostCalc"
+msgstr "Почта России"

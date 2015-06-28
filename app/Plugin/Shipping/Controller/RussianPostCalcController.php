@@ -91,7 +91,13 @@ class RussianPostCalcController extends ShippingAppController {
         //echo "<br/>";
     //}
 
-		return $ret['calc'][1]['cost'];
+    $shipping_cost = 0;
+    
+    if (isset($ret['calc']) && $ret['calc'][1]['cost'] > 0) {
+      $shipping_cost = $ret['calc'][1]['cost'];    
+    }
+
+		return $shipping_cost;
 	}
 
 	public function before_process()

@@ -408,6 +408,9 @@ msgstr "Отзывы"
 msgid "RussianPost"
 msgstr "Почта России"
 
+msgid "RussianPostCalc"
+msgstr "Почта России"
+
 msgid "Sale"
 msgstr "Распродажа"
 
