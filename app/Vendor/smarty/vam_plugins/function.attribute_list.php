@@ -121,8 +121,10 @@ function smarty_function_attribute_list($params)
     }                 
 
     $assignments = array();
-    $assignments = array('attr' => $attr
-                        ,'base_content' => $Content->getUrlForContent($content_id));
+    $assignments = array('attr' => $attr,
+                         'content_id' => $content_id,    
+                         'base_content' => $Content->getUrlForContent($content_id),
+                         );
     $display_template = $Smarty->load_template($params, 'attribute_list');
     $Smarty->display($display_template, $assignments);
 
