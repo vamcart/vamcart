@@ -1988,7 +1988,9 @@ INSERT INTO `search_tables` (`id`, `model`, `field`, `url`, `edit_field`, `alter
 (8, 'Template', 'name', '/templates/admin_edit/', 'id', ''),
 (9, 'Template', 'template', '/templates/admin_edit/', 'id', 'name'),
 (10, 'Stylesheet', 'name', '/stylesheets/admin_edit/', 'id', ''),
-(11, 'Stylesheet', 'stylesheet', '/stylesheets/admin_edit/', 'id', 'name');
+(11, 'Stylesheet', 'stylesheet', '/stylesheets/admin_edit/', 'id', 'name'),
+(12, 'Customer', 'name', '/customers/admin_edit/', 'id', ''),
+(13, 'Customer', 'email', '/customers/admin_edit/', 'id', '');
 
 DROP TABLE IF EXISTS shipping_methods;
 CREATE TABLE `shipping_methods` (
