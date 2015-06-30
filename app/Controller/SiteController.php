@@ -186,7 +186,7 @@ class SiteController extends AppController {
 		$clean = new Sanitize();
 		$clean->clean($_POST);
 
-		$customer_id = $this->Customer->find('first', array('conditions' => array('email' => $_POST['data']['Customer']['email'])));
+		$customer_id = $this->Customer->find('first', array('order' => 'Customer.id DESC', 'conditions' => array('email' => $_POST['data']['Customer']['email'])));
 
 		if ($customer_id['Customer']['password'] == Security::hash( $_POST['data']['Customer']['password'], 'sha1', true)) {
 
@@ -246,7 +246,7 @@ class SiteController extends AppController {
 		$clean = new Sanitize();
 		$clean->clean($_POST);
 
-			$user = $this->Customer->find('first', array('conditions' => array('email' => $_POST['customer']['email'])));
+			$user = $this->Customer->find('first', array('order' => 'Customer.id DESC', 'conditions' => array('email' => $_POST['customer']['email'])));
 
 			if(empty($user))
 			{
