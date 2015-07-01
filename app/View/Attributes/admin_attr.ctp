@@ -24,7 +24,7 @@ foreach ($content_data AS $content)
                                                , 'null'
                                                , $options = array('escape' => false, 'url' => '/attributes/set_group_content/' . $content['Content']['id'] , 'update' => 'content'), null, false), array('align'=>'center')
                                               )
-                                       ,array(isset($content['ContentGroup']['ContentDescription']['name']) ? $content['ContentGroup']['ContentDescription']['name'] : '-',array('id'=> 'id_group_' . $content['Content']['id'],'align'=>'center'))
+                                       ,array(isset($content['ContentGroup']['ContentDescription']['name']) ? $content['ContentGroup']['ContentDescription']['name'] : __('Select'),array('id'=> 'id_group_' . $content['Content']['id'],'align'=>'center'))
                                        ,array($this->Html->link($this->Html->tag('i', '',array('class' => 'cus-sitemap-color', 'title' => __('Attribute Values'), 'alt' => __('Attribute Values'))), '/attributes/admin_editor_value/edit/' . $content['Content']['id'] , array('escape' => false)),array('align'=>'center'))
                                         ));
         if($content['Content']['id'] != $content['Content']['id_group'])
@@ -33,7 +33,7 @@ foreach ($content_data AS $content)
                                                                     ,'data' => 'function(value, settings){return $.ajax({url: "' 
                                                                                 . $this->Html->url('/attributes/get_groups_content/' . $content['Content']['parent_id']) 
                                                                                 . '",async: false}).responseText;}'
-                                                                     ,'placeholder' => __('-')
+                                                                     ,'placeholder' => __('Select')
                                                                      ,'onblur' => 'submit'
                                                                      ,'style' => 'inherit')
                                 );

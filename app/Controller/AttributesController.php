@@ -226,7 +226,7 @@ class AttributesController extends AppController
 					))));
         $this->Content->recursive = 2;
         $content = $this->Content->read();        
-        $this->set('return',(isset($content['ContentGroup']['alias']))?$content['ContentGroup']['ContentDescription']['name']:__('-'));
+        $this->set('return',(isset($content['ContentGroup']['alias']))?$content['ContentGroup']['ContentDescription']['name']:__('Select'));
         $this->render('/Elements/ajaxreturn');
     }
     
@@ -242,7 +242,7 @@ class AttributesController extends AppController
                                                                                                 ,'Content.is_group' => 1)));
         $content = Set::combine($content,'{n}.Content.id','{n}.ContentDescription.name');
 
-        $content[0] = __('-');
+        $content[0] = __('Select');
         $this->set('return',json_encode($content));
         $this->render('/Elements/ajaxreturn');
     }
