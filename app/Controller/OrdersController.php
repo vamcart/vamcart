@@ -711,12 +711,10 @@ class OrdersController extends AppController {
 
 	}
 	
-	public function admin ($ajax = false)
+	public function admin ($order_status_id = 0)
 	{
 		$this->set('current_crumb', __('Orders Listing', true));
 		$this->set('title_for_layout', __('Orders Listing', true));
-
-		$data = $this->paginate('Order',"Order.order_status_id > 0");
 
 		// Bind and set the order status select list
 		$this->Order->OrderStatus->unbindModel(array('hasMany' => array('OrderStatusDescription')));
@@ -741,6 +739,18 @@ class OrdersController extends AppController {
 		
 		$this->set('order_status_list',$order_status_list);
 
+		if (isset($this->params->query['order_status_id'])) {
+		$order_status_id = $this->params->query['order_status_id'];
+		}
+
+		$this->set('order_status_dropdown', array(0 => __('Order Status'))+$order_status_list);
+		if ($order_status_id > 0) {		
+		$data = $this->paginate('Order',"Order.order_status_id = ".$order_status_id."");
+		$this->set('order_status_id', $order_status_id);
+		} else {
+		$data = $this->paginate('Order',"Order.order_status_id > 0");
+		$this->set('order_status_id', $order_status_id);
+		}
 
 		$this->set('data',$data);
 
