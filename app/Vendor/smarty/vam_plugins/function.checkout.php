@@ -158,7 +158,7 @@ $(this).parent().addClass("selected");
 	<div class="form-group">
 		<label class="col-sm-3 control-label" for="bill_country">{lang}Country{/lang}:</label>
 		<div class="col-sm-9">
-			<select name="bill_country" class="form-control" id="bill_country">{if $customer.AddressBook.ship_country}{country_list selected={$customer.AddressBook.ship_country}}{else}{country_list selected={$smarty.post.bill_country}}{/if}</select>
+			<select name="bill_country" class="form-control" id="bill_country">{if $customer.AddressBook.ship_country}{country_list selected={$customer.AddressBook.ship_country}}{else}{country_list}{/if}</select>
 		</div>
 	</div>
 	<div class="form-group">
