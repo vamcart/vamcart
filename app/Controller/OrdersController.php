@@ -111,6 +111,34 @@ class OrdersController extends AppController {
 			$order['Order']['customer_id'] = ($Customer->id > 0) ? $Customer->id : 0;
 		}
 
+		// Update order products tax
+		if ($order['Order']['bill_state']) {
+		foreach($order['OrderProduct'] AS $products) {
+
+		App::import('Model', 'OrderProduct');
+		$OrderProduct = new OrderProduct();
+
+		App::import('Model', 'ContentProduct');
+		$ContentProduct = new ContentProduct();
+
+		App::import('Model', 'TaxCountryZoneRate');
+		$TaxCountryZoneRate = new TaxCountryZoneRate();
+
+		$ContentProduct = $ContentProduct->find('first', array('conditions' => array('ContentProduct.content_id' => $products['content_id'])));
+
+		$TaxCountryZoneRate = $TaxCountryZoneRate->find('first', array('conditions' => array('TaxCountryZoneRate.country_zone_id' => $order['Order']['bill_state'], 'TaxCountryZoneRate.tax_id' => $ContentProduct['ContentProduct']['tax_id'])));
+		
+		$tax = 0;
+		if (isset($TaxCountryZoneRate['TaxCountryZoneRate']['rate'])) $tax = $TaxCountryZoneRate['TaxCountryZoneRate']['rate'];
+		if ($tax > 0) {
+		$product = $OrderProduct->find('first', array('conditions' => array('OrderProduct.order_id' => $order['Order']['id'], 'OrderProduct.content_id' => $products['content_id'])));
+		$product['OrderProduct']['tax'] = $products['price'] / 100 * $tax;
+		$OrderProduct->save($product);
+		}
+
+		}
+		}
+		
 		// Save order data
 		$this->Order->save($order);
 		
@@ -129,10 +157,37 @@ class OrdersController extends AppController {
 		foreach($_POST AS $key => $value)
 			$order['Order'][$key] = $value;
 
+		// Update order products tax
+		foreach($order['OrderProduct'] AS $products) {
+
+		App::import('Model', 'OrderProduct');
+		$OrderProduct = new OrderProduct();
+
+		App::import('Model', 'ContentProduct');
+		$ContentProduct = new ContentProduct();
+
+		App::import('Model', 'TaxCountryZoneRate');
+		$TaxCountryZoneRate = new TaxCountryZoneRate();
+
+		$ContentProduct = $ContentProduct->find('first', array('conditions' => array('ContentProduct.content_id' => $products['content_id'])));
+
+		$TaxCountryZoneRate = $TaxCountryZoneRate->find('first', array('conditions' => array('TaxCountryZoneRate.country_zone_id' => $order['Order']['bill_state'], 'TaxCountryZoneRate.tax_id' => $ContentProduct['ContentProduct']['tax_id'])));
+		
+		$tax = 0;
+		if (isset($TaxCountryZoneRate['TaxCountryZoneRate']['rate'])) $tax = $TaxCountryZoneRate['TaxCountryZoneRate']['rate'];
+		if ($tax > 0) {
+		$product = $OrderProduct->find('first', array('conditions' => array('OrderProduct.order_id' => $order['Order']['id'], 'OrderProduct.content_id' => $products['content_id'])));
+		$product['OrderProduct']['tax'] = $products['price'] / 100 * $tax;
+		$OrderProduct->save($product);
+		}
+
+		}
+		
 		// Save order data
 		$this->Order->save($order);
-		
-  	$this->Smarty->display('{checkout}');
+		//$this->Order->OrderProduct->save($order['OrderProduct']);
+	
+  		$this->Smarty->display('{checkout}');
 		die();			
 
 		}

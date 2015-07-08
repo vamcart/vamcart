@@ -103,6 +103,33 @@ class OrderBaseComponent extends Object
 
 	}
 
+	public function get_product_tax ($tax_class_id)
+	{
+		$tax = 0;
+		$customer = false;
+
+		App::import('Model', 'Customer');
+		$Customer = new Customer();
+
+		if (isset($_SESSION['Customer']['customer_id'])) {
+			$customer = $Customer->find('first', array('conditions' => array('Customer.id' => $_SESSION['Customer']['customer_id'])));
+		}
+
+		if ($customer['AddressBook']['ship_state']) {
+						
+		App::import('Model', 'TaxCountryZoneRate');
+		$TaxCountryZoneRate = new TaxCountryZoneRate();
+
+		$TaxCountryZoneRate = $TaxCountryZoneRate->find('first', array('conditions' => array('TaxCountryZoneRate.country_zone_id' => $order['Order']['bill_state'], 'TaxCountryZoneRate.tax_id' => $ContentProduct['ContentProduct']['tax_id'])));
+		
+		if (isset($TaxCountryZoneRate['TaxCountryZoneRate']['rate'])) $tax = $TaxCountryZoneRate['TaxCountryZoneRate']['rate'];
+		
+		}
+
+		return $tax;
+
+	}
+
 	public function get_order_total (&$order)
 	{
 		$running_total = 0;
@@ -193,7 +220,8 @@ class OrderBaseComponent extends Object
 						'model' => $product['ContentProduct']['model'],
 						'quantity' => $qty,
 						'price' => $product['ContentProduct']['price'],
-						'weight' => $product['ContentProduct']['weight']
+						'weight' => $product['ContentProduct']['weight'],
+						'tax' => $this->get_product_tax($product['ContentProduct']['tax_id'])
 					);
 					break;
 				case 'downloadable':
@@ -204,6 +232,7 @@ class OrderBaseComponent extends Object
 						'quantity' => $qty,
 						'price' => $product['ContentDownloadable']['price'],
 						'weight' => 0,
+						'tax' => $this->get_product_tax($product['ContentProduct']['tax_id']),
 						'filename' => $product['ContentDownloadable']['filename'],
 						'filestorename' => $product['ContentDownloadable']['filestorename'],
 						'download_count' => 0,
