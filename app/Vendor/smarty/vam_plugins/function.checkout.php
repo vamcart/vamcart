@@ -158,14 +158,14 @@ $(this).parent().addClass("selected");
 	<div class="form-group">
 		<label class="col-sm-3 control-label" for="bill_country">{lang}Country{/lang}:</label>
 		<div class="col-sm-9">
-			<select name="bill_country" class="form-control" id="bill_country">{if $customer.AddressBook.ship_country}{country_list selected={$customer.AddressBook.ship_country}}{else}{country_list selected=($smarty.post.bill_country)}{/if}</select>
+			<select name="bill_country" class="form-control" id="bill_country">{if $customer.AddressBook.ship_country}{country_list selected={$customer.AddressBook.ship_country}}{else}{country_list selected={$smarty.post.bill_country}}{/if}</select>
 		</div>
 	</div>
 	<div class="form-group">
 	<div id="bill_state_div">
 		<label class="col-sm-3 control-label" for="bill_state">{lang}State{/lang}:</label>
 		<div class="col-sm-9">
-			<select name="bill_state" class="form-control" id="bill_state">{if $customer.AddressBook.ship_state}{state_list country={$customer.AddressBook.ship_country} selected={$customer.AddressBook.ship_state}}{else}{state_list selected=($smarty.post.bill_state)}{/if}</select>
+			<select name="bill_state" class="form-control" id="bill_state">{if $customer.AddressBook.ship_state}{state_list country={$customer.AddressBook.ship_country} selected={$customer.AddressBook.ship_state}}{else}{state_list selected={$smarty.post.bill_state}}{/if}</select>
 		</div>
 	</div>
 	</div>
