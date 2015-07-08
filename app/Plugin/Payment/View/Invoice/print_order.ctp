@@ -60,13 +60,23 @@
         </tr>
 <?php } ?>
         <tr> 
-		<td width="5%" style="border-style: solid; border-width: 1px"><?php echo $counter+1; ?>.</td>
-		<td width="17%" style="border-style: solid; border-width: 1px"><?php echo $data['ShippingMethod']['code']; ?></td>
-		<td width="48%" style="border-style: solid; border-width: 1px"><?php echo $data['ShippingMethod']['name']; ?></td>
+		<td width="5%" style="border-style: solid; border-width: 1px">&nbsp;</td>
+		<td width="17%" style="border-style: solid; border-width: 1px">&nbsp;</td>
+		<td width="48%" style="border-style: solid; border-width: 1px"><?php echo __($data['ShippingMethod']['name']); ?></td>
 		<td width="12%" style="border-style: solid; border-width: 1px">1</td>
 		<td style="border-style: solid; border-width: 1px" width="6%"><?php echo $data['Order']['shipping']; ?></td>
 		<td width="9%" style="border-style: solid; border-width: 1px"><?php echo $data['Order']['shipping']; ?></td>
         </tr>
+<?php if ($data['Order']['tax'] > 0) { ?> 
+        <tr> 
+		<td width="5%" style="border-style: solid; border-width: 1px">&nbsp;</td>
+		<td width="17%" style="border-style: solid; border-width: 1px">&nbsp;</td>
+		<td width="48%" style="border-style: solid; border-width: 1px"><?php echo __("Tax"); ?></td>
+		<td width="12%" style="border-style: solid; border-width: 1px">1</td>
+		<td style="border-style: solid; border-width: 1px" width="6%"><?php echo $data['Order']['tax']; ?></td>
+		<td width="9%" style="border-style: solid; border-width: 1px"><?php echo $data['Order']['tax']; ?></td>
+        </tr>
+<?php } ?>
 	
 	<tr>
 		<td colspan="5" style="border-style: solid; border-width: 1px">
