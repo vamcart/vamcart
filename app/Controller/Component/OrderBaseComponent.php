@@ -105,6 +105,7 @@ class OrderBaseComponent extends Object
 
 	public function get_product_tax ($tax_class_id)
 	{
+		global $order;
 		$tax = 0;
 		$customer = false;
 
@@ -120,7 +121,7 @@ class OrderBaseComponent extends Object
 		App::import('Model', 'TaxCountryZoneRate');
 		$TaxCountryZoneRate = new TaxCountryZoneRate();
 
-		$TaxCountryZoneRate = $TaxCountryZoneRate->find('first', array('conditions' => array('TaxCountryZoneRate.country_zone_id' => $order['Order']['bill_state'], 'TaxCountryZoneRate.tax_id' => $ContentProduct['ContentProduct']['tax_id'])));
+		$TaxCountryZoneRate = $TaxCountryZoneRate->find('first', array('conditions' => array('TaxCountryZoneRate.country_zone_id' => $order['Order']['bill_state'], 'TaxCountryZoneRate.tax_id' => $tax_class_id)));
 		
 		if (isset($TaxCountryZoneRate['TaxCountryZoneRate']['rate'])) $tax = $TaxCountryZoneRate['TaxCountryZoneRate']['rate'];
 		
