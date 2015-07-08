@@ -68,16 +68,12 @@
 		<td width="9%" style="border-style: solid; border-width: 1px"><?php echo $data['Order']['shipping']; ?></td>
         </tr>
 <?php if ($data['Order']['tax'] > 0) { ?> 
-        <tr> 
-		<td width="5%" style="border-style: solid; border-width: 1px">&nbsp;</td>
-		<td width="17%" style="border-style: solid; border-width: 1px">&nbsp;</td>
-		<td width="48%" style="border-style: solid; border-width: 1px"><?php echo __("Tax"); ?></td>
-		<td width="12%" style="border-style: solid; border-width: 1px">1</td>
-		<td style="border-style: solid; border-width: 1px" width="6%"><?php echo $data['Order']['tax']; ?></td>
+	<tr>
+		<td colspan="5" style="border-style: solid; border-width: 1px">
+		<p align="right"><b><?php echo __("Tax"); ?></b></td>
 		<td width="9%" style="border-style: solid; border-width: 1px"><?php echo $data['Order']['tax']; ?></td>
-        </tr>
+	</tr>
 <?php } ?>
-	
 	<tr>
 		<td colspan="5" style="border-style: solid; border-width: 1px">
 		<p align="right"><b><?php echo __('Order Total'); ?></b></td>
