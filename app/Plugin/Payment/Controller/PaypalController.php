@@ -69,15 +69,16 @@ class PaypalController extends PaymentAppController {
 		$product_count = 1;
 		foreach($order['OrderProduct'] AS $product)
 		{
+			$amount = $product['price'];
 			$content .= '<input type="hidden" name="item_name_' . $product_count . '" value="' . $product['name'] . '">
 						 <input type="hidden" name="quantity_' . $product_count . '" value="' . $product['quantity'] . '">
-						 <input type="hidden" name="amount_' . $product_count . '" value="' . $product['price'] . '">';
+						 <input type="hidden" name="tax_' . $product_count . '" value="' . $product['tax'] . '">
+						 <input type="hidden" name="amount_' . $product_count . '" value="' . $amount . '">';
 
 			++$product_count;
 		}
 		$content .= '<input type="hidden" name="item_name_' . $product_count . '" value="shipping">
-					 <input type="hidden" name="amount_' . $product_count . '" value="' . $order['Order']['shipping'] . '">
-					 <input type="hidden" name="tax_x" value="' . $order['Order']['tax'] . '">';		
+					 <input type="hidden" name="amount_' . $product_count . '" value="' . $order['Order']['shipping'] . '">';		
 						
 		$content .= '
 			<button class="btn btn-default" type="submit" value="{lang}Confirm Order{/lang}"><i class="fa fa-check"></i> {lang}Confirm Order{/lang}</button>
