@@ -81,6 +81,7 @@ class OrdersEditController extends AppController
             $order['ship_inf'] = array('Ship_Customer_Name' => '','Ship_Address_Line_1' => '','Ship_Address_Line_2' => '','Ship_City' => '','Ship_Zip' => '');
             $order['contact_inf'] = array('Email' => '','Phone' => '','Company' => '0');
             $order['total'] = 0;
+            $order['tax'] = 0;
             $order['OrderProduct'] = array();
             
             $this->Session->write('order_edit.order', $order);
@@ -126,6 +127,7 @@ class OrdersEditController extends AppController
                     
                 $order['OrderProduct'] = $o['OrderProduct'];
                 $order['total'] = $o['Order']['total'];
+                $order['tax'] = $o['Order']['tax'];
           
                 if(isset($o['BillState']['id']))
                 $order['bill_state'] = array('data' => $order['bill_state']['data']
@@ -402,7 +404,7 @@ class OrdersEditController extends AppController
                             ,'shipping_method_id' => $order['ship_metd']['id_selected']
                             ,'payment_method_id' => $order['pay_metd']['id_selected']
                             ,'shipping' => '0'
-                            ,'tax' => '0'
+                            ,'tax' => $order['tax']
                             ,'total' => $order['total']
                             ,'bill_name' => $order['bill_inf']['Customer_Name']
                             ,'bill_line_1' => $order['bill_inf']['Address_Line_1']

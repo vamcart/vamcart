@@ -1229,6 +1229,12 @@ msgstr "кг."
 #: /plugins/shipping/views/admin/table_based.ctp:17
 #: /views/orders/admin.ctp:18
 #: /views/orders/admin_view.ctp:125
+msgid "Tax"
+msgstr "Налог"
+
+#: /plugins/shipping/views/admin/table_based.ctp:17
+#: /views/orders/admin.ctp:18
+#: /views/orders/admin_view.ctp:125
 msgid "Total"
 msgstr "Сумма"
 
@@ -5158,3 +5164,30 @@ msgstr "Почтовый индекс отправителя"
 #: /plugins/shipping/views/admin/per_item.ctp:16
 msgid "RussianPostCalc"
 msgstr "Почта России"
+
+msgid "FreeShipping"
+msgstr "Бесплатная доставка"
+
+msgid "FlatRate"
+msgstr "Курьерская доставка"
+
+msgid "ZoneBased"
+msgstr "Зональный тариф"
+
+msgid "PerItem"
+msgstr "На единицу"
+
+msgid "TableBased"
+msgstr "Табличный тариф"
+
+msgid "Money Order Check"
+msgstr "Оплата наличными курьеру"
+
+msgid "In-store Pickup"
+msgstr "Самовывоз"
+
+msgid "Invoice"
+msgstr "Оплата по счёту"
+
+msgid "Kvitancia"
+msgstr "Оплата по квитанции СБ РФ"

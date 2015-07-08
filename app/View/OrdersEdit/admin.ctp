@@ -186,6 +186,17 @@
                       ));
     if(isset($order['OrderProduct']))
     {
+        if ($order['tax'] > 0) {	  
+        echo $this->Admin->TableCells(
+                      array(
+                                    '<strong>' . __('Tax') . '</strong>',
+                                    '&nbsp;',
+                                    '&nbsp;',
+                                    '&nbsp;',
+                                    '<strong>' . $order['tax'] .'</strong>',
+                                    ''
+                      ));		
+        }                        
         echo $this->Admin->TableCells(
                       array(
                                     '<strong>' . __('Order Total') . '</strong>',
