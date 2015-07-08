@@ -77,7 +77,8 @@ class PaypalController extends PaymentAppController {
 
 			++$product_count;
 		}
-		$content .= '<input type="hidden" name="item_name_' . $product_count . '" value="shipping">
+		$content .= '<input type="hidden" name="item_name_' . $product_count . '" value="'. __('Shipping') .'">
+					 <input type="hidden" name="charset" value="utf-8">		
 					 <input type="hidden" name="amount_' . $product_count . '" value="' . $order['Order']['shipping'] . '">';		
 						
 		$content .= '

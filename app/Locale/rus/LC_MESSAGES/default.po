@@ -5165,6 +5165,9 @@ msgstr "Почтовый индекс отправителя"
 msgid "RussianPostCalc"
 msgstr "Почта России"
 
+msgid "Shipping"
+msgstr "Доставка"
+
 msgid "FreeShipping"
 msgstr "Бесплатная доставка"
 
