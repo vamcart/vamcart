@@ -5,6 +5,10 @@ to be setup fairly quickly with ease.
 </p>
 
 <p>
+Homepage: <a href="http://vamshop.com" target="_blank">http://vamshop.com</a>
+</p>
+
+<p>
 It’s a very simple one click install. 
 </p>
 <p>
@@ -34,14 +38,6 @@ Addons and extensions support.
 <li>Unlimited themes & templates support</li>
 <li>And much more...</li>
 </ul>
-
-<p>
-Homepage: <a href="http://vamshop.com" target="_blank">http://vamshop.com</a>
-</p>
-
-<p>
-Download (14 days trial version): <a href="http:/vamshop.com/vamshop2.zip" target="_blank">http:/vamshop.com/vamshop2.zip</a>
-</p>
 
 <h3>Install</h3>
 
