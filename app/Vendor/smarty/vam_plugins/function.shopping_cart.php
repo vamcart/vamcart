@@ -38,11 +38,13 @@ $template = '
 		</tr>
 {/foreach}
 
+		{if $shipping_total > 0}
 		<tr class="cart_total">
 			<td colspan="3">&nbsp;</td>
 			<td class="total-name">{lang}Shipping{/lang}:</td>
 			<td class="total-value">{$shipping_total}</td>
 		</tr>
+		{/if}
 		{if $tax_total > 0}
 		<tr class="cart_total">
 			<td colspan="3">&nbsp;</td>
@@ -50,11 +52,13 @@ $template = '
 			<td class="total-value">{$tax_total}</td>
 		</tr>
 		{/if}
+		{if $order_total > 0}
 		<tr class="cart_total">
 			<td colspan="3">&nbsp;</td>
 			<td class="total-name"><strong>{lang}Total{/lang}:</strong></td>
 			<td class="total-value">{$order_total}</td>
 		</tr>
+		{/if}
     </tbody>
 	</table>
 	<div class="container-fluid">
