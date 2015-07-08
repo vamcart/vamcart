@@ -137,7 +137,6 @@ $template = '
 			<td>{$products.quantity*$products.price}</td>
 		</tr>
 		{/foreach}
-		
 		<tr>
 			<td><strong>{$order.ShippingMethod.name}</strong></td>
 			<td>{$order.ShippingMethod.code}</td>
@@ -145,7 +144,13 @@ $template = '
 			<td>1</td>
 			<td>{$order.Order.shipping}</td>					
 		</tr>
-
+		{if $order.Order.tax > 0}
+		<tr>
+			<td colspan="3">&nbsp;</td>
+			<td><strong>{lang}Tax{/lang}</strong></td>
+			<td><strong>{$order.Order.tax}</strong></td>
+		</tr>
+		{/if}
 		<tr>
 			<td colspan="3">&nbsp;</td>
 			<td><strong>{lang}Order Total{/lang}</strong></td>
