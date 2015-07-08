@@ -43,6 +43,13 @@ $template = '
 			<td class="total-name">{lang}Shipping{/lang}:</td>
 			<td class="total-value">{$shipping_total}</td>
 		</tr>
+		{if $tax_total > 0}
+		<tr class="cart_total">
+			<td colspan="3">&nbsp;</td>
+			<td class="total-name">{lang}Tax{/lang}:</td>
+			<td class="total-value">{$tax_total}</td>
+		</tr>
+		{/if}
 		<tr class="cart_total">
 			<td colspan="3">&nbsp;</td>
 			<td class="total-name"><strong>{lang}Total{/lang}:</strong></td>
@@ -177,6 +184,7 @@ function smarty_function_shopping_cart($params, $template)
 	$assignments = array(
 		'checkout_link' => BASE . '/page/checkout' . $config['URL_EXTENSION'],
 		'back_link' => isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : BASE. '/',
+		'tax_total' => $CurrencyBase->display_price($order['Order']['tax']),
 		'order_total' => $CurrencyBase->display_price($order['Order']['total']),
 		'total_quantity' => $total_quantity,
 		'total_weight' => $total_weight,

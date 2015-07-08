@@ -459,6 +459,9 @@ msgstr "Табличный тариф"
 msgid "Terms & Conditions."
 msgstr "Подробнее о защите персональной информации."
 
+msgid "Tax"
+msgstr "Налог"
+
 msgid "Total"
 msgstr "Всего"
 
