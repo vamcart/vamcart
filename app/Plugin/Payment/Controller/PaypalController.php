@@ -72,7 +72,7 @@ class PaypalController extends PaymentAppController {
 			$amount = $product['price'];
 			$content .= '<input type="hidden" name="item_name_' . $product_count . '" value="' . $product['name'] . '">
 						 <input type="hidden" name="quantity_' . $product_count . '" value="' . $product['quantity'] . '">
-						 <input type="hidden" name="tax_' . $product_count . '" value="' . $product['tax'] . '">
+						 <input type="hidden" name="tax_' . $product_count . '" value="' . number_format($product['tax'], 2) . '">
 						 <input type="hidden" name="amount_' . $product_count . '" value="' . $amount . '">';
 
 			++$product_count;
