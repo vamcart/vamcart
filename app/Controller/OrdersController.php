@@ -185,7 +185,6 @@ class OrdersController extends AppController {
 		
 		// Save order data
 		$this->Order->save($order);
-		//$this->Order->OrderProduct->save($order['OrderProduct']);
 	
   		$this->Smarty->display('{checkout}');
 		die();			
