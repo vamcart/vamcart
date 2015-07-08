@@ -101,14 +101,14 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-cart', $search_form)
 
 echo '<div class="text-left">';
 echo $this->Form->create('Order', array('action' => '/orders/admin/', 'url' => '/orders/admin/', 'type' => 'get'));
-echo $this->Form->input('Order.order_status_id', 
+echo $this->Form->input('Order.status_id', 
 			array(
 				'type' => 'select',
 	   		'fieldset' => false,
 	   		'label' => false,
 				'options' => $order_status_dropdown,
 				'onchange' => "this.form.submit()",
-				'selected' => $order_status_id
+				'selected' => $status_id
          ));
 echo $this->Form->end();
 echo '</div>';

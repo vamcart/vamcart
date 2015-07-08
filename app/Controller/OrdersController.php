@@ -765,7 +765,7 @@ class OrdersController extends AppController {
 
 	}
 	
-	public function admin ($order_status_id = 0)
+	public function admin ($status_id = 0)
 	{
 		$this->set('current_crumb', __('Orders Listing', true));
 		$this->set('title_for_layout', __('Orders Listing', true));
@@ -793,23 +793,22 @@ class OrdersController extends AppController {
 		
 		$this->set('order_status_list',$order_status_list);
 
-		if (isset($this->params->query['order_status_id'])) {
-		$order_status_id = $this->params->query['order_status_id'];
+		if (isset($this->params->query['status_id'])) {
+		$status_id = $this->params->query['status_id'];
 		}
 
 		$this->set('order_status_dropdown', array(0 => __('Order Status'))+$order_status_list);
-		if ($order_status_id > 0) {		
-		$data = $this->paginate('Order',"Order.order_status_id = ".$order_status_id."");
-		$this->set('order_status_id', $order_status_id);
+		if ($status_id > 0) {		
+		$data = $this->paginate('Order',"Order.order_status_id = ".$status_id."");
+		$this->set('status_id', $status_id);
 		} else {
 		$data = $this->paginate('Order',"Order.order_status_id > 0");
-		$this->set('order_status_id', $order_status_id);
+		$this->set('status_id', $status_id);
 		}
 
 		$this->set('data',$data);
 
 	}	
-
 	public function admin_search() {
 		if (!isset($_SESSION['Search'])) {
 			$_SESSION['Search'] = array();
