@@ -34,7 +34,7 @@ foreach($data['OrderProduct'] AS $product)
 	echo $this->Admin->TableCells(
 		  array(
 		  		'<strong>' . __($data['ShippingMethod']['name']) . ' ' . '</strong>',
-				$data['ShippingMethod']['code'],
+				'',
 				__($data['Order']['shipping']),
 				'1',
 				__($data['Order']['shipping'])					
