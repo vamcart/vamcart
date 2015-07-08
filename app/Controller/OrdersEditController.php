@@ -335,11 +335,17 @@ class OrdersEditController extends AppController
             $order['OrderProduct'][$index]['max_days_for_download'] = '0';
             $order['OrderProduct'][$index]['download_key'] = '0';
             $order['OrderProduct'][$index]['order_status_id'] = '1';
+
+            $order['tax'] = 0;
+            foreach ($order['OrderProduct'] as $value) 
+            {
+                $order['tax'] += $value['tax'] * $value['quantity'];
+            }
             
             $order['total'] = 0;
             foreach ($order['OrderProduct'] as $value) 
             {
-                $order['total'] += $value['price'] * $value['quantity'];
+                $order['total'] += ($value['price'] * $value['quantity']) + ($value['tax'] * $value['quantity']);
             }
             
             $this->Session->write('order_edit.order', $order);
@@ -364,10 +370,16 @@ class OrdersEditController extends AppController
         array_splice($order['OrderProduct'],$index,1);
         if(!empty($order['OrderProduct']))
         {
+            $order['tax'] = 0;
+            foreach ($order['OrderProduct'] as $value) 
+            {
+                $order['tax'] += $value['tax'] * $value['quantity'];
+            }
+
             $order['total'] = 0;
             foreach ($order['OrderProduct'] as $value) 
             {
-                $order['total'] += $value['price'] * $value['quantity'];
+                $order['total'] += ($value['price'] * $value['quantity']) + ($value['tax'] * $value['quantity']);
             }
         }
         else $order['total'] = 0;
@@ -390,13 +402,22 @@ class OrdersEditController extends AppController
             $this->loadModel('ContentProduct');
             $this->ContentProduct->UnbindAll();
             $order = $this->Session->read('order_edit.order');
+
+            if(!empty($order['OrderProduct']))
+            {    
+            $order['tax'] = 0;
+            foreach ($order['OrderProduct'] as $value) 
+            {
+                $order['tax'] += $value['tax'] * $value['quantity'];
+            }
+            }
             
             $order['total'] = 0;
             if(!empty($order['OrderProduct']))
             {    
                 foreach ($order['OrderProduct'] as $value) 
                 {
-                    $order['total'] += $value['price'] * $value['quantity'];
+                    $order['total'] += ($value['price'] * $value['quantity']) + ($value['tax'] * $value['quantity']);
                 }   
             }
             $temp_order = array('Order' => array( 'id' => $order['id']
