@@ -33,12 +33,22 @@ foreach($data['OrderProduct'] AS $product)
 
 	echo $this->Admin->TableCells(
 		  array(
-		  		'<strong>' . $data['ShippingMethod']['name'] . ' ' . '</strong>',
+		  		'<strong>' . __($data['ShippingMethod']['name']) . ' ' . '</strong>',
 				$data['ShippingMethod']['code'],
-				$data['Order']['shipping'],
+				__($data['Order']['shipping']),
 				'1',
-				$data['Order']['shipping']					
+				__($data['Order']['shipping'])					
 		  ));
+	if ($data['Order']['tax'] > 0) {	  
+	echo $this->Admin->TableCells(
+		  array(
+		  		'<strong>' . __('Tax') . '</strong>',
+				'&nbsp;',
+				'&nbsp;',
+				'&nbsp;',
+				'<strong>' . $data['Order']['tax'] .'</strong>'
+		  ));		  
+	}
 	echo $this->Admin->TableCells(
 		  array(
 		  		'<strong>' . __('Order Total') . '</strong>',
