@@ -159,7 +159,9 @@ echo '</table>';
 
 echo '</td></tr>';
 
+
 if ($data_comments) {
+echo '<tr><td colspan="2">';
 echo '<table class="contentTable">';
 echo $this->Html->tableHeaders(array(__('Order Comments')));
 echo $this->Admin->TableCells(
@@ -167,6 +169,7 @@ echo $this->Admin->TableCells(
 			'<pre>'.$data_comments['OrderComment']['comment'].'</pre>'
 	   ));
 echo '</table>';
+echo '</td></tr>';
 }
 
 echo '<tr>';
