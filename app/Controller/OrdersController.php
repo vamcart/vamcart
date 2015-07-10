@@ -145,6 +145,12 @@ class OrdersController extends AppController {
 		$order['OrderComment']['comment'] = htmlspecialchars($order['Order']['comment']);
 		$this->Order->OrderComment->save($order['OrderComment']);
 		}
+
+		// Get the default order status
+		if ($order['Order']['order_status_id'] == 0) {
+			$default_status = $this->Order->OrderStatus->find('first', array('conditions' => array('default' => '1')));
+			$order['Order']['order_status_id'] = $default_status['OrderStatus']['id'];
+		}
 		
 		// Save order data
 		$this->Order->save($order);
