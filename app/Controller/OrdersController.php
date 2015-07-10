@@ -142,7 +142,7 @@ class OrdersController extends AppController {
 		//Save order comments
 		if (isset($order['Order']['comment']) && $order['Order']['comment'] != '') {
 		$order['OrderComment']['order_id'] = $_SESSION['Customer']['order_id'];
-		$order['OrderComment']['comment'] = $order['Order']['comment'];
+		$order['OrderComment']['comment'] = htmlspecialchars($order['Order']['comment']);
 		$this->Order->OrderComment->save($order['OrderComment']);
 		}
 		
@@ -197,7 +197,7 @@ class OrdersController extends AppController {
 		//Save order comments
 		if (isset($order['Order']['comment']) && $order['Order']['comment'] != '') {
 		$order['OrderComment']['order_id'] = $_SESSION['Customer']['order_id'];
-		$order['OrderComment']['comment'] = $order['Order']['comment'];
+		$order['OrderComment']['comment'] = htmlspecialchars($order['Order']['comment']);
 		$this->Order->OrderComment->save($order['OrderComment']);
 		}
 		
@@ -325,8 +325,8 @@ class OrdersController extends AppController {
 
 			$order = $order[0];
 
-			$body = str_replace('{$shipping_method}', $order['ShippingMethod']['name'], $body);
-			$body = str_replace('{$payment_method}', $order['PaymentMethod']['name'], $body);
+			$body = str_replace('{$shipping_method}', __($order['ShippingMethod']['name'], true), $body);
+			$body = str_replace('{$payment_method}', __($order['PaymentMethod']['name'], true), $body);
 			$body = str_replace('{$date}', $order['Order']['created'], $body);
 			$body = str_replace('{$phone}', $order['Order']['phone'], $body);
 			$body = str_replace('{$email}', $order['Order']['email'], $body);
@@ -334,9 +334,11 @@ class OrdersController extends AppController {
 
 			$order_comment = $this->Order->OrderComment->find('first', array('order'   => 'OrderComment.id DESC', 'conditions' => array('OrderComment.order_id' => $order['Order']['id'])));
 
-			if (isset($order_comment['Order']['comment']) && $order_comment['Order']['comment'] != '') {
-			$body = str_replace('{$comments}', $order_comment['OrderComment']['comment'], $body);
-			}
+			$comments = '';
+			if (isset($order_comment['OrderComment']['comment']) && $order_comment['OrderComment']['comment'] != '')
+			$comments = $order_comment['OrderComment']['comment'];
+
+			$body = str_replace('{$comments}', $comments, $body);
 
 			$order_products = '';
 			foreach($order['OrderProduct'] AS $product) {
@@ -346,7 +348,7 @@ class OrdersController extends AppController {
 				}
 			}
 
-			$order_products .= "\n" . $order['ShippingMethod']['name'] . ': ' . $order['Order']['shipping'] . "\n";
+			$order_products .= "\n" . __($order['ShippingMethod']['name'], true) . ': ' . $order['Order']['shipping'] . "\n";
 			$order_products .= __('Order Total',true) . ': ' . $order['Order']['total'] . "\n";
 
 			$body = str_replace('{$products}', $order_products, $body);
