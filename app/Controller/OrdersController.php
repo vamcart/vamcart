@@ -140,7 +140,7 @@ class OrdersController extends AppController {
 		}
 		
 		//Save order comments
-		if ($_POST['comment'] != '') {
+		if (isset($order['Order']['comment']) && $order['Order']['comment'] != '') {
 		$order['OrderComment']['order_id'] = $_SESSION['Customer']['order_id'];
 		$order['OrderComment']['comment'] = $order['Order']['comment'];
 		$this->Order->OrderComment->save($order['OrderComment']);
@@ -158,6 +158,10 @@ class OrdersController extends AppController {
 	public function save_data ()
 	{
 		global $order;
+
+		App::uses('Sanitize', 'Utility');
+		$clean = new Sanitize();
+		$clean->clean($_POST);
 
 		if (isset($_SESSION['Customer']['order_id'])) {
 
@@ -191,7 +195,7 @@ class OrdersController extends AppController {
 		}
 
 		//Save order comments
-		if ($_POST['comment'] != '') {
+		if (isset($order['Order']['comment']) && $order['Order']['comment'] != '') {
 		$order['OrderComment']['order_id'] = $_SESSION['Customer']['order_id'];
 		$order['OrderComment']['comment'] = $order['Order']['comment'];
 		$this->Order->OrderComment->save($order['OrderComment']);
@@ -259,13 +263,6 @@ class OrdersController extends AppController {
 				$order['Order']['order_status_id'] = $default_status['OrderStatus']['id'];
 			}
 
-			//Save order comments
-			if ($_POST['comment'] != '') {
-			$order['OrderComment']['order_id'] = $_SESSION['Customer']['order_id'];
-			$order['OrderComment']['comment'] = $order['Order']['comment'];
-			$this->Order->OrderComment->save($order['OrderComment']);
-			}
-
 			// Save the order
 			$this->Order->save($order);
 
@@ -307,7 +304,6 @@ class OrdersController extends AppController {
 			$body = str_replace('{$lastname}', isset($fio[1]) ? $fio[1] : $order['Order']['bill_name'], $body);
 			$body = str_replace('{$order_number}', $order['Order']['id'], $body);
 			$body = str_replace('{$order_status}', $current_order_status['OrderStatusDescription']['name'], $body);
-			$body = str_replace('{$comment}', $order['Order']['comment'], $body);
 
 			$body = str_replace('{$bill_name}', $order['Order']['bill_name'], $body);
 			$body = str_replace('{$bill_line_1}', $order['Order']['bill_line_1'], $body);
@@ -326,6 +322,7 @@ class OrdersController extends AppController {
 			$body = str_replace('{$ship_zip}', $order['Order']['ship_zip'], $body);
 
 			$order = $this->Order->find('all', array('conditions' => array('Order.id' => $order['Order']['id'])));
+
 			$order = $order[0];
 
 			$body = str_replace('{$shipping_method}', $order['ShippingMethod']['name'], $body);
@@ -334,6 +331,12 @@ class OrdersController extends AppController {
 			$body = str_replace('{$phone}', $order['Order']['phone'], $body);
 			$body = str_replace('{$email}', $order['Order']['email'], $body);
 			$body = str_replace('{$order_total}', $order['Order']['total'], $body);
+
+			$order_comment = $this->Order->OrderComment->find('first', array('order'   => 'OrderComment.id DESC', 'conditions' => array('OrderComment.order_id' => $order['Order']['id'])));
+
+			if (isset($order_comment['Order']['comment']) && $order_comment['Order']['comment'] != '') {
+			$body = str_replace('{$comments}', $order_comment['OrderComment']['comment'], $body);
+			}
 
 			$order_products = '';
 			foreach($order['OrderProduct'] AS $product) {
