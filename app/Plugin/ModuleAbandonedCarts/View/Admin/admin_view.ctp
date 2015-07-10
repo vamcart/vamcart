@@ -163,11 +163,17 @@ echo '</td></tr>';
 if ($data_comments) {
 echo '<tr><td colspan="2">';
 echo '<table class="contentTable">';
-echo $this->Html->tableHeaders(array(__('Order Comments')));
-echo $this->Admin->TableCells(
-	  array(
-			'<pre>'.$data_comments['OrderComment']['comment'].'</pre>'
-	   ));
+echo $this->Html->tableHeaders(array( __('Date'), __('Sent To Customer'), __('Comment')));
+
+foreach($data_comments AS $comment) 
+{
+	echo $this->Admin->TableCells(
+		  array(
+				$this->Time->i18nFormat($comment['OrderComment']['created']),
+				($comment['OrderComment']['sent_to_customer'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'),'title' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False'),'title' => __('False')))),
+				'<pre>'.$comment['OrderComment']['comment'].'</pre>'
+		   ));
+}
 echo '</table>';
 echo '</td></tr>';
 }

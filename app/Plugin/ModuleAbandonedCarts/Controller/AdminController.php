@@ -207,7 +207,7 @@ class AdminController extends ModuleAbandonedCartsAppController {
 		$this->set('title_for_layout', __('Order View', true));
 		$order = $this->Order->find('all', array('conditions' => array('Order.id' => $id)));
 		$this->set('data',$order[0]);
-		$order_comments = $this->Order->OrderComment->find('first', array('order'   => 'OrderComment.id DESC', 'conditions' => array('OrderComment.order_id' => $id)));
+		$order_comments = $this->Order->OrderComment->find('all', array('order' => 'OrderComment.id DESC', 'conditions' => array('OrderComment.order_id' => $id)));
 		$this->set('data_comments',$order_comments);
 	}
 			
