@@ -159,6 +159,16 @@ echo '</table>';
 
 echo '</td></tr>';
 
+if ($data_comments) {
+echo '<table class="contentTable">';
+echo $this->Html->tableHeaders(array(__('Order Comments')));
+echo $this->Admin->TableCells(
+	  array(
+			'<pre>'.$data_comments['OrderComment']['comment'].'</pre>'
+	   ));
+echo '</table>';
+}
+
 echo '<tr>';
 echo '<td>';
 
