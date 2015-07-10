@@ -259,6 +259,13 @@ class OrdersController extends AppController {
 				$order['Order']['order_status_id'] = $default_status['OrderStatus']['id'];
 			}
 
+			//Save order comments
+			if ($_POST['comment'] != '') {
+			$order['OrderComment']['order_id'] = $_SESSION['Customer']['order_id'];
+			$order['OrderComment']['comment'] = $order['Order']['comment'];
+			$this->Order->OrderComment->save($order['OrderComment']);
+			}
+
 			// Save the order
 			$this->Order->save($order);
 
@@ -300,6 +307,7 @@ class OrdersController extends AppController {
 			$body = str_replace('{$lastname}', isset($fio[1]) ? $fio[1] : $order['Order']['bill_name'], $body);
 			$body = str_replace('{$order_number}', $order['Order']['id'], $body);
 			$body = str_replace('{$order_status}', $current_order_status['OrderStatusDescription']['name'], $body);
+			$body = str_replace('{$comment}', $order['Order']['comment'], $body);
 
 			$body = str_replace('{$bill_name}', $order['Order']['bill_name'], $body);
 			$body = str_replace('{$bill_line_1}', $order['Order']['bill_line_1'], $body);
