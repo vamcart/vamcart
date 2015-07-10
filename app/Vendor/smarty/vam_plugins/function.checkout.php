@@ -248,6 +248,12 @@ $(this).parent().addClass("selected");
 			<input type="text" class="form-control" name="phone" id="phone" value="{if $customer.AddressBook.phone}{$customer.AddressBook.phone}{else}{$order.phone}{/if}" />
 		</div>
 	</div>
+	<div class="form-group">
+		<label class="col-sm-3 control-label" for="comment">{lang}Order Comments{/lang}:</label>
+		<div class="col-sm-9">
+			<textarea class="form-control" name="comment" id="comment" cols="30" rows="5">{$order_comment}</textarea>
+		</div>
+	</div>
   </div>
   {module alias="coupons" action="checkout_box"}
   <div id="shipping_method">
@@ -341,6 +347,9 @@ function smarty_function_checkout($params, $template)
 	
 	App::import('Model', 'Order');
 		$Order = new Order();
+
+	App::import('Model', 'OrderComment');
+		$OrderComment = new OrderComment();
 		
 	App::import('Model', 'ShippingMethod');
 		$ShippingMethod = new ShippingMethod();
@@ -392,6 +401,13 @@ function smarty_function_checkout($params, $template)
 		
 	// Assign the current order
 	$Order->unbindAll();
+
+	$Order->bindModel(array('hasOne' => array(
+			'OrderComment' => array(
+                 'className' => 'OrderComment',
+                 'order'   => 'OrderComment.id DESC'
+				))));		
+
 	$order = $Order->find('first', array('conditions' => array('Order.id' => $_SESSION['Customer']['order_id'])));
 
 	App::import('Model', 'Customer');
@@ -409,6 +425,7 @@ function smarty_function_checkout($params, $template)
 		'ship_methods' => $keyed_ship_methods,
 		'payment_methods' => $keyed_payment_methods,
 		'order' => $order['Order'],
+		'order_comment' => $order['OrderComment']['comment'],
 		'customer' => $customer,
 		'checkout_form_action' => BASE . '/orders/confirmation/'
 	);

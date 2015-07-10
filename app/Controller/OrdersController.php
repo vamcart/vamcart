@@ -19,6 +19,10 @@ class OrdersController extends AppController {
 		global $config;
 		global $order;
 
+		App::uses('Sanitize', 'Utility');
+		$clean = new Sanitize();
+		$clean->clean($_POST);
+
 		if (isset($_SESSION['Customer']['order_id'])) {
 
 		foreach($_POST AS $key => $value)
@@ -28,10 +32,6 @@ class OrdersController extends AppController {
 		
 		if ($_POST['email'] != '') {
 
-		App::uses('Sanitize', 'Utility');
-		$clean = new Sanitize();
-		$clean->clean($_POST);
-					
 		App::import('Model', 'Customer');
 		$Customer = new Customer();					
 			
@@ -139,6 +139,13 @@ class OrdersController extends AppController {
 		}
 		}
 		
+		//Save order comments
+		if ($_POST['comment'] != '') {
+		$order['OrderComment']['order_id'] = $_SESSION['Customer']['order_id'];
+		$order['OrderComment']['comment'] = $order['Order']['comment'];
+		$this->Order->OrderComment->save($order['OrderComment']);
+		}
+		
 		// Save order data
 		$this->Order->save($order);
 		
@@ -181,6 +188,13 @@ class OrdersController extends AppController {
 		$OrderProduct->save($product);
 		}
 
+		}
+
+		//Save order comments
+		if ($_POST['comment'] != '') {
+		$order['OrderComment']['order_id'] = $_SESSION['Customer']['order_id'];
+		$order['OrderComment']['comment'] = $order['Order']['comment'];
+		$this->Order->OrderComment->save($order['OrderComment']);
 		}
 		
 		// Save order data

@@ -9,5 +9,15 @@ App::uses('Model', 'AppModel');
 class OrderComment extends AppModel {
 	public $name = 'OrderComment';
 	public $belongsTo = array('Order','User');
+	
+    public $validate = array(
+        'comment' => array(
+            'alphaNumeric' => array(
+                'rule' => 'alphaNumeric',
+                'required' => false
+            ),
+        ),
+    );
+    	
 }
 ?>
