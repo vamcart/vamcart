@@ -869,6 +869,34 @@ class ContentsController extends AppController {
 		$last_content_id = $last_content_id['Content']['id']+1;
 		$this->set('last_content_id', $last_content_id);
 	}
+
+	public function admin_parents_tree()
+	{
+		
+		$this->Content->unbindAll();
+		
+		$this->Content->bindModel(array('hasOne' => array(
+								'ContentDescription' => array(
+									'className' => 'ContentDescription',
+									'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
+									)
+								)
+						)
+		);
+		
+		$categories_query = $this->Content->find('threaded', array('conditions' => array('Content.active' => 1, 'Content.content_type_id' => 1)));
+		$parents = array();
+		foreach ($categories_query as $parent) {
+			$this->_add_tree_node($parents, $parent, 0);
+		}
+		
+		$parents_list = array();
+		foreach ($parents as $status) {
+			$parents_list[$status['id']] = $status['tree_prefix'].$status['name'];
+		}
+		
+		return $parents_list;
+	}
 	
 	public function admin_categories_tree()
 	{

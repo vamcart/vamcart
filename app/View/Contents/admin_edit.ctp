@@ -105,16 +105,21 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 							'type' => 'hidden',
 							'value' => isset($data['Content']['id']) ? $data['Content']['id'] : ''
 	               ));
-		echo $this->Form->input('Content.parent_id', 
-						array(
-							'type' => 'hidden',
-							'value' => $parent_id
-	               ));
 		echo $this->Form->input('Content.order', 
 						array(
 							'type' => 'hidden',
 							'value' => isset($data['Content']['order']) ? $data['Content']['order'] : ''
 	               ));
+
+		echo $this->Form->input('Content.parent_id', 
+					array(
+						'type' => 'select',
+			   		'label' => __('Parent'),
+						'options' => $this->requestAction('/contents/admin_parents_tree/'),
+						'escape' => false,
+						'empty' => array(0 => __('Top Level')),
+						'selected' => $parent_id
+               ));
 			
 			echo '<ul id="myTabLang" class="nav nav-tabs">';
 	foreach($languages AS $language)
