@@ -92,7 +92,7 @@ $template = '
 				<table class="table table-striped table-hover">
 					<thead><tr><th>{lang}Payment Method{/lang}</th></tr></thead>
 					<tbody>
-						<tr><td>{$order.PaymentMethod.name}</td></tr>
+						<tr><td>{lang}{$order.PaymentMethod.name}{/lang}</td></tr>
 					</tbody>
 				</table>
 		
@@ -103,7 +103,7 @@ $template = '
 				<table class="table table-striped table-hover">
 					<thead><tr><th>{lang}Shipping Method{/lang}</th></tr></thead>
 					<tbody>
-						<tr><td>{$order.ShippingMethod.name}</td></tr>
+						<tr><td>{lang}{$order.ShippingMethod.name}{/lang}</td></tr>
 					</tbody>
 				</table>
 		
@@ -138,8 +138,8 @@ $template = '
 		</tr>
 		{/foreach}
 		<tr>
-			<td><strong>{$order.ShippingMethod.name}</strong></td>
-			<td>{$order.ShippingMethod.code}</td>
+			<td><strong>{lang}{$order.ShippingMethod.name}{/lang}</strong></td>
+			<td></td>
 			<td>{$order.Order.shipping}</td>
 			<td>1</td>
 			<td>{$order.Order.shipping}</td>					
