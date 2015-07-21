@@ -396,7 +396,7 @@ class ContentsController extends AppController {
 			$this->set('data',$data);
 			$this->set('content_types',$this->Content->ContentType->find('list'));
 			// Template
-			$templates_translatable =  $this->Content->Template->find('list', array('conditions'=>array('parent_id' => '0')));
+			$templates_translatable =  $this->Content->Template->find('list', array('conditions'=>array('parent_id' => '0'), 'order' => array('default' => 'DESC')));
 			foreach($templates_translatable AS $key => $value)
 			{
 			$templates_translatable[$key] = __($value, true);
@@ -633,7 +633,7 @@ class ContentsController extends AppController {
 			$this->set('content_types',$content_types_translatable);
 		
 			// Template
-			$templates_translatable =  $this->Content->Template->find('list', array('conditions'=>array('parent_id' => '0')));
+			$templates_translatable =  $this->Content->Template->find('list', array('conditions'=>array('parent_id' => '0'), 'order' => array('default' => 'DESC')));
 			foreach($templates_translatable AS $key => $value)
 			{
 				$templates_translatable[$key] = __($value, true);
