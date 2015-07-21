@@ -76,28 +76,16 @@ ul.icons li:before {
   text-align: left;
 }
 
-.scroll-top-wrapper {
-  position: fixed;
-  opacity: 0;
-  visibility: hidden;
-  text-align: center;
-  z-index: 99999999;
-  width: 50px;
-  height: 60px;
-  line-height: 60px;
-  right: 30px;
+a#scrollup {
   bottom: 20px;
-  padding-top: 2px;
+  right: 30px;
+  padding: 5px 10px;
+  background: #ff6633;
+  color: #fff;
 }
-.scroll-top-wrapper:hover {
-}
-.scroll-top-wrapper.show {
-  visibility: visible;
-  cursor: pointer;
-  opacity: 1.0;
-}
-.scroll-top-wrapper i.fa {
-  line-height: inherit;
+
+a#scrollup i{
+  font-size: 16px;
 }
 
 .inner {
