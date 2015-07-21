@@ -38,21 +38,21 @@ $template = '
 		</tr>
 {/foreach}
 
-		{if $shipping_total > 0}
+		{if $shipping_total_value > 0}
 		<tr class="cart_total">
 			<td colspan="3">&nbsp;</td>
 			<td class="total-name">{lang}Shipping{/lang}:</td>
 			<td class="total-value">{$shipping_total}</td>
 		</tr>
 		{/if}
-		{if $tax_total > 0}
+		{if $tax_total_value > 0}
 		<tr class="cart_total">
 			<td colspan="3">&nbsp;</td>
 			<td class="total-name">{lang}Tax{/lang}:</td>
 			<td class="total-value">{$tax_total}</td>
 		</tr>
 		{/if}
-		{if $order_total > 0}
+		{if $order_total_value > 0}
 		<tr class="cart_total">
 			<td colspan="3">&nbsp;</td>
 			<td class="total-name"><strong>{lang}Total{/lang}:</strong></td>
@@ -189,10 +189,13 @@ function smarty_function_shopping_cart($params, $template)
 		'checkout_link' => BASE . '/page/checkout' . $config['URL_EXTENSION'],
 		'back_link' => isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : BASE. '/',
 		'tax_total' => isset($order['Order']['tax']) ? $CurrencyBase->display_price($order['Order']['tax']) : 0,
+		'tax_total_value' => isset($order['Order']['tax']) ? $order['Order']['tax'] : 0,
 		'order_total' => $CurrencyBase->display_price($order['Order']['total']),
+		'order_total_value' => $order['Order']['total'],
 		'total_quantity' => $total_quantity,
 		'total_weight' => $total_weight,
 		'shipping_total' => $CurrencyBase->display_price($order['Order']['shipping']),
+		'shipping_total_value' => $order['Order']['shipping'],
 		'order_items' => $order_items,
 		'page_alias' => $content['Content']['alias'],
 		'cart_link' => BASE . '/page/cart-contents' . $config['URL_EXTENSION']
