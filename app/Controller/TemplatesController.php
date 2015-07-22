@@ -381,6 +381,7 @@ class TemplatesController extends AppController {
 			$z->open('./files/' . $this->data['Templates']['submittedfile']['name']);
 
 			$res = $z->extractTo('./files/');
+			$this->copyDir('./files/css', './css', true);
 			$this->copyDir('./files/js', './js', true);
 			$this->copyDir('./files/img', './img', true);
 
@@ -404,6 +405,7 @@ class TemplatesController extends AppController {
 						if ('' == $name) {
 							$this->Session->setFlash(__('Templates name is empty.',true));
 							@$this->removeDir('./files/js');
+							@$this->removeDir('./files/css');
 							@$this->removeDir('./files/img');
 							@unlink('./files/templates.xml');
 							@unlink('./files/' . $this->data['Templates']['submittedfile']['name']);
@@ -462,6 +464,7 @@ class TemplatesController extends AppController {
 					}
 
 					$this->Session->setFlash(__('Templates has been imported.',true));
+					@$this->removeDir('./files/css');
 					@$this->removeDir('./files/js');
 					@$this->removeDir('./files/img');
 					@unlink('./files/templates.xml');
@@ -469,6 +472,7 @@ class TemplatesController extends AppController {
 					$this->redirect('/templates/admin/');
 				} else {
 					$this->Session->setFlash(__('Invalid XML file templates.xml.',true));
+					@$this->removeDir('./files/css');
 					@$this->removeDir('./files/js');
 					@$this->removeDir('./files/img');
 					@unlink('./files/templates.xml');
@@ -477,6 +481,7 @@ class TemplatesController extends AppController {
 				}
 			} else {
 				$this->Session->setFlash(__('Error extracting templates.xml.',true));
+				@$this->removeDir('./files/css');
 				@$this->removeDir('./files/js');
 				@$this->removeDir('./files/img');
 				@unlink('./files/templates.xml');
@@ -486,6 +491,7 @@ class TemplatesController extends AppController {
 
 			$z->close();
 
+			@$this->removeDir('./files/css');
 			@$this->removeDir('./files/js');
 			@$this->removeDir('./files/img');
 			@unlink('./files/templates.xml');
