@@ -34,6 +34,10 @@ class SiteController extends AppController {
 		}
 					
 		if (isset($_POST['customer']) && $spam_flag == false) {
+
+		foreach($_POST['customer'] AS $key => $value)
+			$_POST['customer'][$key] = $clean->html($value);
+
 			$customer = new Customer();
 			$customer->set($_POST['customer']);
 			if ($customer->validates()) {
@@ -108,6 +112,9 @@ class SiteController extends AppController {
 			$customer = new Customer();
 			$customer->set($_POST['customer']);
 			if ($customer->validates()) {
+
+			foreach($_POST['customer'] AS $key => $value)
+				$_POST['customer'][$key] = $clean->html($value);
 				
 				$_POST['customer']['id'] = $_SESSION['Customer']['customer_id'];
 
@@ -149,6 +156,9 @@ class SiteController extends AppController {
 			$customer->AddressBook->set($_POST['AddressBook']);
 
 			if ($customer->AddressBook->validates()) {
+
+			foreach($_POST['AddressBook'] AS $key => $value)
+				$_POST['AddressBook'][$key] = $clean->html($value);
 
 				$_POST['Customer']['id'] = $_SESSION['Customer']['customer_id'];
 

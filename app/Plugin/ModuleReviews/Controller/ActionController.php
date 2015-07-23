@@ -26,6 +26,12 @@ class ActionController extends ModuleReviewsAppController {
 		if(!empty($_POST) && !$this->request->is('ajax'))
 		{
 
+		App::uses('Sanitize', 'Utility');
+		$clean = new Sanitize();
+
+		foreach($_POST AS $key => $value)
+			$_POST[$key] = $clean->html($value);
+
 			if(empty($_POST['content_id']))
 			{
 				global $content;
@@ -61,11 +67,6 @@ class ActionController extends ModuleReviewsAppController {
 			$new_review['ModuleReview']['name'] = $_POST['name'];
 			$new_review['ModuleReview']['content'] = $_POST['content'];
 			$new_review['ModuleReview']['rating'] = $_POST['rating'];
-			
-			App::uses('Sanitize', 'Utility');
-			$Clean = new Sanitize();
-			
-			$Clean->paranoid($new_review);
 			
 			$this->ModuleReview->save($new_review);
 			

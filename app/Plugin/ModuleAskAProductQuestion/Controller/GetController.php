@@ -42,6 +42,9 @@ class GetController extends ModuleAskAProductQuestionAppController {
 		App::uses('Sanitize', 'Utility');
 		$clean = new Sanitize();
 		$clean->clean($_POST);
+
+		foreach($_POST AS $key => $value)
+			$_POST[$key] = $clean->html($value);
 		
 			$spam_flag = false;
 	

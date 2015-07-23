@@ -23,6 +23,9 @@ class OrdersController extends AppController {
 		$clean = new Sanitize();
 		$clean->clean($_POST);
 
+		foreach($_POST AS $key => $value)
+			$_POST[$key] = $clean->html($value);
+
 		if (isset($_SESSION['Customer']['order_id'])) {
 
 		foreach($_POST AS $key => $value)
@@ -168,6 +171,9 @@ class OrdersController extends AppController {
 		App::uses('Sanitize', 'Utility');
 		$clean = new Sanitize();
 		$clean->clean($_POST);
+
+		foreach($_POST AS $key => $value)
+			$_POST[$key] = $clean->html($value);
 
 		if (isset($_SESSION['Customer']['order_id'])) {
 

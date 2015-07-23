@@ -44,6 +44,9 @@ class BuyController extends ModuleOneClickBuyAppController {
 		App::uses('Sanitize', 'Utility');
 		$clean = new Sanitize();
 		$clean->clean($_POST);
+
+		foreach($_POST AS $key => $value)
+			$_POST[$key] = $clean->html($value);
 		
 			$spam_flag = false;
 	
@@ -141,6 +144,9 @@ class BuyController extends ModuleOneClickBuyAppController {
 		App::uses('Sanitize', 'Utility');
 		$clean = new Sanitize();
 		$clean->paranoid($_POST);
+
+		foreach($_POST AS $key => $value)
+			$_POST[$key] = $clean->html($value);
 
 			$new_order = array();
 

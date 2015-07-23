@@ -17,6 +17,9 @@ class ContactUsController extends AppController {
 		$clean = new Sanitize();
 		$clean->paranoid($_POST);
 
+		foreach($_POST AS $key => $value)
+			$_POST[$key] = $clean->html($value);
+
 		$spam_flag = false;
 
 		if ( trim( $_POST['anti-bot-q'] ) != date('Y') ) { // answer is wrong - maybe spam
