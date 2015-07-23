@@ -145,7 +145,7 @@ class OrdersController extends AppController {
 		//Save order comments
 		if (isset($order['Order']['comment']) && $order['Order']['comment'] != '') {
 		$order['OrderComment']['order_id'] = $_SESSION['Customer']['order_id'];
-		$order['OrderComment']['comment'] = htmlspecialchars($order['Order']['comment']);
+		$order['OrderComment']['comment'] = $order['Order']['comment'];
 		$this->Order->OrderComment->save($order['OrderComment']);
 		}
 
@@ -209,7 +209,7 @@ class OrdersController extends AppController {
 		//Save order comments
 		if (isset($order['Order']['comment']) && $order['Order']['comment'] != '') {
 		$order['OrderComment']['order_id'] = $_SESSION['Customer']['order_id'];
-		$order['OrderComment']['comment'] = htmlspecialchars($order['Order']['comment']);
+		$order['OrderComment']['comment'] = $order['Order']['comment'];
 		$this->Order->OrderComment->save($order['OrderComment']);
 		}
 		
