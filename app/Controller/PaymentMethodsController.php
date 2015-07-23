@@ -126,33 +126,101 @@ class PaymentMethodsController extends AppController {
 			die();
 		}
 		
-		$val = $this->data['AddModule']['submittedfile'];
+		if (isset($this->data['AddModule']['submittedfile'])
+			&& $this->data['AddModule']['submittedfile']['error'] == 0
+			&& is_uploaded_file($this->data['AddModule']['submittedfile']['tmp_name'])) {
+
+			@unlink(ROOT.'/app/tmp/modules/' . $this->data['AddModule']['submittedfile']['name']);
+
+			if (!is_dir(ROOT.'/app/tmp/modules/payment_methods/')) {
+				mkdir(ROOT.'/app/tmp/modules/payment_methods/');
+			}
 		
-		if ( (!empty( $this->data['AddModule']['submittedfile']['tmp_name']) && $this->data['AddModule']['submittedfile']['tmp_name'] != 'none')) {
+			move_uploaded_file($this->data['AddModule']['submittedfile']['tmp_name'], ROOT.'/app/tmp/modules/payment_methods/' . $this->data['AddModule']['submittedfile']['name']);
+
+			$z = new ZipArchive();
+			$z->open(ROOT.'/app/tmp/modules/payment_methods/' . $this->data['AddModule']['submittedfile']['name']);
+
+			$res = $z->extractTo(ROOT.'/app/tmp/modules/payment_methods/');
+			$this->copyDir(ROOT.'/app/tmp/modules/payment_methods/app/Plugin/Payment', ROOT.'/app/Plugin/Payment', true);
+			$icons_dir = ROOT.'/app/tmp/modules/payment_methods/app/webroot/img/icons/payment';
+			if (file_exists($icons_dir) && is_dir($icons_dir)) $this->copyDir($icons_dir, ROOT.'/app/webroot/img/icons/payment', true);
+			$locale_dir = ROOT.'/app/tmp/modules/payment_methods/app/Locale';
+			if (file_exists($locale_dir) && is_dir($locale_dir)) $this->copyDir($locale_dir, ROOT.'/app/Locale', true);
+			
+			$z->close();
+
+			@$this->removeDir(ROOT.'/app/tmp/modules/payment_methods/');
+			@unlink(ROOT.'/app/tmp/modules/payment_methods/' . $this->data['Templates']['submittedfile']['name']);
 			$this->Session->setFlash( __('Module Uploaded', true));		
-
-			$this->destination = '../tmp/modules/';
-			$this->filename = $this->data['AddModule']['submittedfile']['name'];
-			$this->permissions = '0777';
-
-				if (move_uploaded_file($this->data['AddModule']['submittedfile']['tmp_name'], $this->destination . $this->filename)) {
-					chmod($this->destination . $this->filename, $this->permissions);
-					App::import('Vendor', 'PclZip', array('file' => 'pclzip'.DS.'zip.php'));
-					$this->archive = new PclZip('../tmp/modules/'.$this->filename);
-						if ($this->archive->extract(PCLZIP_OPT_PATH,'../..') == 0)
-							die(__('Error : Unable to unzip archive', true));
-					@unlink($this->destination.$this->filename);
-				} else {
-							return false;
-				}
-
+			$this->redirect('/payment_methods/admin/');
 		} else {
-			$this->Session->setFlash( __('Module Not Uploaded', true));
-		}		
-		
-		$this->redirect('/payment_methods/admin/');
-	
+			$this->Session->setFlash(__('Please, select the file for import.',true));
+			$this->redirect('/payment_methods/admin_add/');
+		}
+				
 	}
-	
+
+	// Helper stuff
+	public function removeDir($path)
+	{
+		if (file_exists($path) && is_dir($path)) {
+			$dirHandle = opendir($path);
+
+			while (false !== ($file = readdir($dirHandle))) {
+				if ($file!='.' && $file!='..') {
+					$tmpPath=$path.'/'.$file;
+					chmod($tmpPath, 0777);
+
+					if (is_dir($tmpPath)) {
+						$this->removeDir($tmpPath);
+					} else {
+						if (file_exists($tmpPath)) {
+							@unlink($tmpPath);
+						}
+					}
+				}
+			}
+
+			closedir($dirHandle);
+
+			if (file_exists($path)) {
+				@rmdir($path);
+			}
+		}
+	}
+
+	public function copyDir($source, $dest, $overwrite = false)
+	{
+		if (!is_dir($dest)) {
+			mkdir($dest);
+		}
+
+		if ($handle = opendir($source)) {
+			while (false !== ($file = readdir($handle))) {
+				if ($file != '.' && $file != '..') {
+					$path = $source . '/' . $file;
+
+					if (is_file($path)) {
+						if (!is_file($dest . '/' . $file) || $overwrite) {
+							$ext = pathinfo($file, PATHINFO_EXTENSION);
+							//if ('php' != $ext) {
+								if (!@copy($path, $dest . '/' . $file)) {
+								}
+							//}
+						}
+					} elseif (is_dir($path)) {
+
+						if (!is_dir($dest . '/' . $file)) {
+							mkdir($dest . '/' . $file);
+						}
+
+						$this->copyDir($path, $dest . '/' . $file, $overwrite);
+					}
+				}
+			}
+			closedir($handle);
+		}
+	}	
 }
 ?>
