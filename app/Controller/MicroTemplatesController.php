@@ -149,6 +149,7 @@ class MicroTemplatesController extends AppController {
 			$z->open('./files/' . $this->data['MicroTemplates']['submittedfile']['name']);
 
 			$res = $z->extractTo('./files/');
+			$this->copyDir('./files/css', './css', true);
 			$this->copyDir('./files/js', './js', true);
 			$this->copyDir('./files/img', './img', true);
 
@@ -176,6 +177,7 @@ class MicroTemplatesController extends AppController {
 
 						if ('' == $alias) {
 							$this->Session->setFlash(__('MicroTemplates alias is empty.',true));
+							@$this->removeDir('./files/css');
 							@$this->removeDir('./files/js');
 							@$this->removeDir('./files/img');
 							@unlink('./files/micro_templates.xml');
@@ -198,6 +200,7 @@ class MicroTemplatesController extends AppController {
 					}
 
 					$this->Session->setFlash(__('MicroTemplates has been imported.',true));
+					@$this->removeDir('./files/css');
 					@$this->removeDir('./files/js');
 					@$this->removeDir('./files/img');
 					@unlink('./files/micro_templates.xml');
@@ -205,6 +208,7 @@ class MicroTemplatesController extends AppController {
 					$this->redirect('/micro_templates/admin/');
 				} else {
 					$this->Session->setFlash(__('Invalid XML file micro_templates.xml.',true));
+					@$this->removeDir('./files/css');
 					@$this->removeDir('./files/js');
 					@$this->removeDir('./files/img');
 					@unlink('./files/micro_templates.xml');
@@ -213,6 +217,7 @@ class MicroTemplatesController extends AppController {
 				}
 			} else {
 				$this->Session->setFlash(__('Error extracting micro_templates.xml.',true));
+				@$this->removeDir('./files/css');
 				@$this->removeDir('./files/js');
 				@$this->removeDir('./files/img');
 				@unlink('./files/micro_templates.xml');
@@ -221,6 +226,7 @@ class MicroTemplatesController extends AppController {
 			}
 
 			$z->close();
+			@$this->removeDir('./files/css');
 			@$this->removeDir('./files/js');
 			@$this->removeDir('./files/img');
 			@unlink('./files/micro_templates.xml');

@@ -404,8 +404,8 @@ class TemplatesController extends AppController {
 
 						if ('' == $name) {
 							$this->Session->setFlash(__('Templates name is empty.',true));
-							@$this->removeDir('./files/js');
 							@$this->removeDir('./files/css');
+							@$this->removeDir('./files/js');
 							@$this->removeDir('./files/img');
 							@unlink('./files/templates.xml');
 							@unlink('./files/' . $this->data['Templates']['submittedfile']['name']);
