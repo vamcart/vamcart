@@ -276,7 +276,6 @@ echo $this->Form->create('OrderComment', array('id' => 'contentform', 'name' => 
 			));
 	echo '<div class="clear"></div>';
 	echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit', 'id' => 'submit'));
-	echo '<div class="clear"></div>';
 	echo $this->Form->end();
 
 	echo $this->Admin->EndTabContent();

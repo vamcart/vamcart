@@ -24,8 +24,8 @@
 							'type' => 'hidden',
 							'value' => $stylesheet['Stylesheet']['stylesheet']
 	               ));
-	echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit')) . $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';
+	echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit')) . $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'cancelbutton'));
 	echo $this->Form->end();
 	echo $this->Admin->ShowPageHeaderEnd(); 
 ?>

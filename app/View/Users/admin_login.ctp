@@ -18,9 +18,8 @@
 	echo $this->Form->input('username', array('label' => __('Username')));
 	echo $this->Form->input('password', array('label' => __('Password'), 'autocomplete' => 'off'));
 
-	echo $this->Admin->formButton(__('Login'), 'cus-key', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submitbutton'));
-	
 	echo '<div class="clear"></div>';
+	echo $this->Admin->formButton(__('Login'), 'cus-key', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submitbutton'));
 	echo $this->Form->end();
 
 	echo $this->Admin->ShowPageHeaderEnd();

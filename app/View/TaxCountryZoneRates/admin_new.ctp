@@ -51,8 +51,8 @@ echo $this->Form->create('TaxCountryZoneRate', array('id' => 'contentform', 'act
 				));
 	
 	
-echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit',  'id' => 'submitbutton')) . $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'cancelbutton'));
 echo '<div class="clear"></div>';
+echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit',  'id' => 'submitbutton')) . $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'cancelbutton'));
 	
 echo $this->Form->end();
 

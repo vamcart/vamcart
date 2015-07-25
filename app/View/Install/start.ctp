@@ -36,9 +36,8 @@ echo $this->Form->input('password', array('label' => __('Password'), 'value' => 
 
 echo '<br />';
 
-echo $this->Admin->formButtonCatalog(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit'));
-
 echo '<div class="clear"></div>';
+echo $this->Admin->formButtonCatalog(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit'));
 echo $this->Form->end();
 
 echo $this->Admin->ShowPageHeaderEnd();
