@@ -143,6 +143,12 @@ background-color: transparent;
 .hoe-left-header a {
 color: #fff;
 }
+
+.page_menu_item
+	{
+		margin: 0;
+		padding: 0 15px;
+	}
 	
 /* /Menu */
 

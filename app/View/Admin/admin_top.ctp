@@ -38,6 +38,7 @@ $(document).ready(function () {
 });
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false));
 
+if($level == 1) {
 if ($result) {
 echo $this->Html->scriptBlock('
     $(document).ready(function() {
@@ -97,7 +98,9 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 });
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false));
 }
+}
 
+if($level == 1) {
 if ($result) {
 echo $this->Html->scriptBlock('
     $(document).ready(function() {
@@ -158,6 +161,7 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 });
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false));
 }
+}
 
 	//echo $this->admin->ShowPageHeaderStart(__('Dashboard',true), 'cus-house');
 
@@ -203,8 +207,9 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 			if($level == 1) {
 			echo $this->admin->CreateTab('orders',__('Orders',true), 'cus-cart');
 			echo $this->admin->CreateTab('top',__('Top Products',true), 'cus-chart-pie');
-			}
+			} else {
 			echo $this->admin->CreateTab('home',__('Menu',true), 'cus-chart-organisation');
+			}
 			echo '</ul>';
 
 	echo $this->admin->StartTabs();
@@ -295,7 +300,7 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
                     
                 echo $this->admin->EndTabContent();
 
-		}
+		} else {
 		
 	echo $this->admin->StartTabContent('home');
 
@@ -337,6 +342,8 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 			}
 
 		echo $this->admin->EndTabContent();
+		
+	}
 		
 	echo $this->admin->EndTabs();
 
@@ -387,5 +394,4 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 	
 	}
 
-	
 	//echo $this->admin->ShowPageHeaderEnd();

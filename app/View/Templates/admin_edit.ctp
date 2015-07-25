@@ -39,7 +39,7 @@ $this->Html->css(array(
 	echo $this->Form->end();
 	echo $this->Admin->ShowPageHeaderEnd(); 
 
-	echo $this->Html->scriptBlock(''
+	echo $this->Html->scriptBlock('
 var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   mode: "text/html",
   lineNumbers: true,
