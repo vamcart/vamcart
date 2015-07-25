@@ -22,7 +22,7 @@ $(document).ready(function() {
 						$(this).parents('.panel-list').find('li.active').removeClass('active'); 
 						$(this).parent().addClass('active'); 	
 					}
-					return false;
+					//return false;
 				}
 			});
         },
