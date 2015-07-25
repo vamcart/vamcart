@@ -124,6 +124,10 @@ section {
 margin-bottom: 0;
 border: 0;
 }
+
+.hoe-left-header a {
+color: #fff;
+}
 	
 /* /Menu */
 
@@ -281,12 +285,12 @@ legend
 .input.checkbox, 
 .input.select 
 	{
-		margin: 12px 0 0 0; 
+		margin: 0 0 0 0; 
 	}
 
 .input.checkbox 
 	{
-		margin: 12px 0 0 14%; 
+		margin: 0 0 0 14%; 
 	}
 
 .input input,

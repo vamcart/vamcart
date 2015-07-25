@@ -239,9 +239,9 @@ $("#myTabSales a:first").tab("show"); // Select first tab
 			$menuitem['attributes'] = "";
 			
 		if(isset($menuitem['icon'])) {
-			$link =  $this->Html->link('<i class="'.$menuitem['icon'].'"></i> ' .__($menuitem['text'], true), $menuitem['path'], $parameters);
+			$link =  $this->Html->link('<i class="'.$menuitem['icon'].'"></i> <span class="menu-text">' . __($menuitem['text'], true) . '</span><span class="selected"></span> ', $menuitem['path'], $parameters);
 		} else {
-			$link =  $this->Html->link(__($menuitem['text'], true),$menuitem['path'], $parameters);
+			$link =  $this->Html->link('<i class="fa fa-caret-right"></i> <span class="menu-text">' . __($menuitem['text'], true) . '</span><span class="selected"></span> ', $menuitem['path'], $parameters);
 		}
 			
 		return($link);
@@ -265,21 +265,34 @@ $("#myTabSales a:first").tab("show"); // Select first tab
 	public function DrawMenu ($navigation_walk)
 	{
 		$navigation = '';
-		$navigation .= '<ul class="nav">';
+		$navigation .= '<ul class="nav panel-list">';
+
+		$path = '/' . $this->params['controller'] . '/' . $this->params['action'] . '/';
+
+		if($this->params['plugin'] != "")
+			$path .= '/' . $this->params['plugin'] . '/' . $path;
+			
 		foreach($navigation_walk AS $nav)
 		{
 			if(!empty($nav['children'])) {	
-			$navigation .= '<li class="dropdown">' . $this->MenuLinkDropdown($nav, array('class' => 'dropdown-toggle', 'data-toggle' => 'dropdown', 'escape' => false));
+			$navigation .= '
+                    <li class="hoe-has-menu">
+                        ' . $this->MenuLink($nav, array('escape' => false)) . '
+                    ';
 			} else {
-			$navigation .= '<li>' . $this->MenuLink($nav, array('escape' => false)).'</li>';
+			$navigation .= ' 
+                    <li'.(($path == $nav['path']) ? ' class="active"' : '').'>
+                        ' . $this->MenuLink($nav, array('escape' => false)) . '
+                    </li>
+                    ';
 			}
 									
 			if(!empty($nav['children']))	
 			{
-			$navigation .= '<ul class="dropdown-menu">';
+			$navigation .= '<ul class="hoe-sub-menu">';
 				foreach($nav['children'] AS $navchild)
 				{
-					$navigation .= '<li>' . $this->MenuLink($navchild, array('escape' => false)) . '</li>';
+					$navigation .= '<li'.(($path == $navchild['path']) ? ' class="active"' : '').'>' . $this->MenuLink($navchild, array('escape' => false)) . '</li>';
 				}
 			$navigation .= '</ul>';
 			}
@@ -298,7 +311,7 @@ $("#myTabSales a:first").tab("show"); // Select first tab
 		$divider = '';
 		
 		$breadcrumbs = '';
-		$breadcrumbs .= '<ul class="breadcrumb">';
+		$breadcrumbs .= '<ul class="left-navbar breadcrumb">';
 
 		// Loop through to generage the child breadcrumb, then the top level
 		foreach($navigation_walk AS $walk_key => $navigation)

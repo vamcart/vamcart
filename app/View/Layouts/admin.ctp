@@ -39,66 +39,70 @@ $(document).ready(function () {$(\'[rel=tooltip],input[data-title]\').tooltip();
 <?php echo $scripts_for_layout; ?>
 </head>
 
-<body>
+<body hoe-navigation-type="vertical-compact" hoe-nav-placement="left" >
+    <div id="hoeapp-wrapper" class="hoe-hide-lpanel" hoe-device-type="desktop">
 
-<div class="container-fluid">
-
-<!-- Header -->
-<div class="row-fluid">
-	<div class="col-sm-4">
-		<?php echo $this->Html->link($this->Html->image('admin/logo.png', array('alt' => __('VamShop',true))), '/admin/admin_top/', array('escape'=>false));?>  
-	</div>
-	
-	<div class="col-sm-8">
-
-		<ul class="inline text-right">
-			<li><h3><a href="http://apps.<?php echo __('vamshop.com'); ?>/" target="_blank" title="<?php echo __('Apps'); ?>"><i class="fa fa-th"></i></a></h3></li>
-			<li><h3><a href="http://support.<?php echo __('vamshop.com'); ?>/" target="_blank" title="<?php echo __('Support'); ?>"><i class="fa fa-question"></i></a></h3></li>
-			<li><h3><?php echo $this->Html->link('<i class="fa fa-shopping-cart"></i>', '/', array('escape'=> false, 'target' => 'blank', 'title' => __('Launch Site'))); ?></h3></li>
-			<li><h3><?php echo $this->Html->link('<i class="fa fa-sign-out"></i>', '/users/admin_logout/', array('escape'=> false, 'target' => 'blank', 'title' => __('Logout'))); ?></h3></li>
+ <header>    
+  <div class="navbar navbar-default navigation">
+   <div class="container-fluid">    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle toggle-menu menu-left" data-toggle="collapse" data-target="#navbar-collapse">
+        <span class="sr-only"></span>                
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+     <?php echo $this->Html->link($this->Html->image('admin/logo.png', array('alt' => __('VamShop',true))), '/admin/admin_top/', array('escape'=>false));?> 
+    </div>
+    <div class="collapse navbar-collapse navbar-default" id="navbar-collapse">
+		<ul class="nav navbar-nav">
+			<li><a href="http://apps.<?php echo __('vamshop.com'); ?>/" target="_blank" title="<?php echo __('Apps'); ?>"><i class="fa fa-th"></i> <?php echo __('Apps'); ?></a></li>
+			<li><a href="http://support.<?php echo __('vamshop.com'); ?>/" target="_blank" title="<?php echo __('Support'); ?>"><i class="fa fa-question"></i> <?php echo __('Support'); ?></a></li>
+			<li><?php echo $this->Html->link('<i class="fa fa-shopping-cart"></i> ' . __('Launch Site'), '/', array('escape'=> false, 'target' => 'blank', 'title' => __('Launch Site'))); ?></li>
+			<li><?php echo $this->Html->link('<i class="fa fa-sign-out"></i> ' . __('Logout'), '/users/admin_logout/', array('escape'=> false, 'target' => 'blank', 'title' => __('Logout'))); ?></li>
 		</ul>
-  
-	</div>
-	
-</div>
-<!-- /Header -->
 
-	<div class="row-fluid">
-		<div class="col-sm-12">
+			<?php 
+			echo $this->form->create('Search', array('class' => 'navbar-form navbar-right', 'action' => '/search/admin_global_search/', 'url' => '/search/admin_global_search/'));
+			echo $this->form->input('Search.term',array('class' => 'input-medium', 'label' => false,'placeholder' => __('Global Record Search',true)));
+			//echo $this->form->submit( __('Submit', true));
+			echo $this->form->end();
+			?> 
+
+    </div>
+   </div>
+  </div>  
+ </header>  
+ 
+
+  
+        <nav id="hoe-header" hoe-lpanel-effect="shrink" class="hoe-minimized-lpanel">
+            <div class="hoe-left-header">
+                <?php echo $this->Html->link('<i class="fa fa-home"></i> <span>' . __('VamShop',true) . '</span>', '/admin/admin_top/', array('escape'=>false)); ?>           	
+                <span class="hoe-sidebar-toggle"><a href="#"></a></span>
+            </div>
+
+            <div class="hoe-right-header" hoe-position-type="relative" hoe-color-type="header-bg7" >
+                <span class="hoe-sidebar-toggle"><a href="#"></a></span>
+                <?php if(isset($current_crumb)) {  echo $this->admin->GenerateBreadcrumbs($navigation, $current_crumb); } ?>
+                <ul class="right-navbar">
+                </ul>
+            </div>
+        </nav>
+
+        <div id="hoeapp-container" hoe-color-type="lpanel-bg2" hoe-lpanel-effect="overlay" class="hoe-minimized-lpanel">
 <?php
 if(isset($navigation)) { 
 ?>
-	<div class="navbar">
-	  <div class="navbar-inner">
-	    <div class="container">
-			
-			<?php echo $this->admin->DrawMenu($navigation); ?>
-
-			<?php 
-			echo $this->form->create('Search', array('class' => 'navbar-search pull-right', 'action' => '/search/admin_global_search/', 'url' => '/search/admin_global_search/'));
-			echo $this->form->input('Search.term',array('class' => 'input-medium', 'label' => false,'value' => __('Global Record Search',true),"onblur" => "if(this.value=='') this.value=this.defaultValue;","onfocus" => "if(this.value==this.defaultValue) this.value='';"));
-			//echo $this->form->submit( __('Submit', true));
-			echo $this->form->end();
-			?>   
-
-	    </div>
-	  </div><!-- /navbar-inner -->
-	</div><!-- /navbar -->
-<?php
-} 
-?>
-<?php
-if(isset($current_crumb)) { 
-?>
-<div class="breadCrumbs">
-<?php
-echo $this->admin->GenerateBreadcrumbs($navigation, $current_crumb);
-?>
-</div>
+            <aside id="hoe-left-panel" hoe-position-type="absolute">
+                <?php echo $this->admin->DrawMenu($navigation); ?>				 
+            </aside>
 <?php
 } 
 ?>
 
+            <section id="main-content">
+               
 <!-- Content -->
 <div id="wrapper">
 <div id="content">
@@ -110,6 +114,10 @@ echo $this->admin->GenerateBreadcrumbs($navigation, $current_crumb);
 </div>
 </div>
 <!-- /Content -->
+               
+            </section> 
+        </div>
+    </div>
 
 <!-- Footer -->
 <div id="footer">
@@ -118,11 +126,6 @@ echo $this->admin->GenerateBreadcrumbs($navigation, $current_crumb);
 </p>
 </div>
 <!-- /Footer -->
-
-		</div>
-	</div>
-	
-</div>
 
 </body>
 </html>
