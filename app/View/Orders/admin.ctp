@@ -91,7 +91,7 @@ function statusSelection(form)
 
 echo $this->Html->css('jquery-ui.css', null, array('inline' => false));
 $search_form  = $this->Form->create('Search', array('action' => '/orders/admin_search/', 'url' => '/orders/admin_search/'));
-$search_form .= $this->Form->input('Search.term',array('label' => __('Search'),'value' => __('Order Search'),"onblur" => "if(this.value=='') this.value=this.defaultValue;","onfocus" => "if(this.value==this.defaultValue) this.value='';"));
+$search_form .= $this->Form->input('Search.term',array('label' => __('Search'),'placeholder' => __('Order Search')));
 $search_form .= $this->Form->submit( __('Submit'));
 $search_form .= $this->Form->end();
 

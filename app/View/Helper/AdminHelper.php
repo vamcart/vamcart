@@ -379,11 +379,11 @@ $("#myTabSales a:first").tab("show"); // Select first tab
 			$content .= $page_name;
 		}
 
+		$content .= '</h2>';
+		$content .= '<div id="pageContent">';
 		if (null != $search_form) {
 			$content .= '<div class="search-f">' . $search_form . '</div>';
 		}
-		$content .= '</h2>';
-		$content .= '<div id="pageContent">';
 
 		return $content;
 	}

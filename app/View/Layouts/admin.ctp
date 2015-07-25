@@ -17,9 +17,9 @@
 <?php echo $this->Html->css(array(
 										'font-awesome.min.css',
 										'bootstrap3/bootstrap.min.css',
-										'bootstrap/cus-icons.css',
 										'dynatree/ui.dynatree.css',
 										'jquery/plugins/hoe/hoe.css',
+										'cus-icons.css',
 										'admin.css',
 											), null, array('inline' => true)); ?>
 

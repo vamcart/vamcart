@@ -484,7 +484,7 @@ div#content table.orderTable td
 
 div.search-f {
 	float: right;
-	margin: 0 9px;
+	margin: 15px 0;
 }
 
 div.search-f label {
@@ -874,6 +874,9 @@ div.rssError
 @media print {
 
 .navbar,
+header,
+nav,
+aside,
 .breadCrumbs,
 .span8 .inline.text-right,
 #footer,

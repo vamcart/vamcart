@@ -17,7 +17,7 @@
 <?php echo $this->Html->css(array(
 										'font-awesome.min.css',
 										'bootstrap3/bootstrap.min.css',
-										'bootstrap/cus-icons.css',
+										'cus-icons.css',
 										'admin.css',
 											), null, array('inline' => true)); ?>
 
