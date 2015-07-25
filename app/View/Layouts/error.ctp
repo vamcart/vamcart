@@ -35,7 +35,7 @@
 
 <?php echo $this->Html->script(array(
 											'jquery/jquery.min.js',
-											'bootstrap/bootstrap.min.js'
+											'bootstrap3/bootstrap.min.js',
 												),
 											array('inline' => true)); ?>
 <?php echo $scripts_for_layout; ?>
