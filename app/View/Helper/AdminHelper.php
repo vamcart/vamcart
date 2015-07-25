@@ -238,10 +238,10 @@ $("#myTabSales a:first").tab("show"); // Select first tab
 		if(!isset($menuitem['attributes']))
 			$menuitem['attributes'] = "";
 			
-		if(isset($menuitem['icon'])) {
+		if(isset($menuitem['icon']) && $menuitem['icon'] != '') {
 			$link =  $this->Html->link('<i class="'.$menuitem['icon'].'"></i> <span class="menu-text">' . __($menuitem['text'], true) . '</span><span class="selected"></span> ', $menuitem['path'], $parameters);
 		} else {
-			$link =  $this->Html->link('<i class="fa fa-caret-right"></i> <span class="menu-text">' . __($menuitem['text'], true) . '</span><span class="selected"></span> ', $menuitem['path'], $parameters);
+			$link =  $this->Html->link('<i class="fa fa-file-o"></i> <span class="menu-text">' . __($menuitem['text'], true) . '</span><span class="selected"></span> ', $menuitem['path'], $parameters);
 		}
 			
 		return($link);
@@ -253,10 +253,10 @@ $("#myTabSales a:first").tab("show"); // Select first tab
 		if(!isset($menuitem['attributes']))
 			$menuitem['attributes'] = "";
 			
-		if(isset($menuitem['icon'])) {
-			$link =  $this->Html->link('<i class="'.$menuitem['icon'].'"></i> ' .__($menuitem['text'], true).' <b class="caret"></b>', $menuitem['path'], $parameters);
+		if(isset($menuitem['icon']) && $menuitem['icon'] != '') {
+			$link =  $this->Html->link('<i class="'.$menuitem['icon'].'"></i> <span class="menu-text">' . __($menuitem['text'], true) . '</span><span class="selected"></span> ', '#', $parameters);
 		} else {
-			$link =  $this->Html->link(__($menuitem['text'], true).' <b class="caret"></b>',$menuitem['path'], $parameters);
+			$link =  $this->Html->link('<i class="fa fa-file-o"></i> <span class="menu-text">' . __($menuitem['text'], true) . '</span><span class="selected"></span> ', '#', $parameters);
 		}
 			
 		return($link);
@@ -277,7 +277,7 @@ $("#myTabSales a:first").tab("show"); // Select first tab
 			if(!empty($nav['children'])) {	
 			$navigation .= '
                     <li class="hoe-has-menu">
-                        ' . $this->MenuLink($nav, array('escape' => false)) . '
+                        ' . $this->MenuLinkDropdown($nav, array('escape' => false)) . '
                     ';
 			} else {
 			$navigation .= ' 
