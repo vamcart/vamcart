@@ -255,7 +255,7 @@ legend
 		padding: 0;
 	}
 
-div.input label 
+.input label 
 	{
 		display: inline-block; 
 		float: left; 
@@ -268,46 +268,47 @@ div.input label
 		text-align: right;
 	}
 
-div.input.textarea label 
+.input.text, 
+.input.textarea, 
+.input.radio, 
+.input.number, 
+.input.checkbox, 
+.input.select 
 	{
-		clear: both; 
-		text-align: left;
-		float: none;
-		width: auto;
+		margin: 12px 0 0 0; 
 	}
 
-div.input.checkbox label 
+.input.checkbox 
 	{
-		display: inline-block; 
-		float: left; 
-		width: auto; 
-		margin: 5px 0 0; 
-		padding: 0 10px 0 10px; 
-		color: #545452; 
-		font-weight: normal; 
-		text-align: right;
+		margin: 12px 0 0 14%; 
 	}
 
-div.input.checkbox 
+.input input,
+.input textarea,
+.input radio,
+.input number,
+.input checkbox,
+.input select,
+select
 	{
-		margin: 0 0 0 14%; 
-	}
-
-div.input input,
-div.input.text,
-div.input.textarea
-	{
-		clear: both;
+		display: block;
+		padding: 6px 12px;
+		font-size: 14px;
+		line-height: 1.42857143;
+		color: #555;
+		background-color: #fff;
+		background-image: none;
+		border: 1px solid #ccc;
 		border-radius: 0;
-	}
-		
-div.input select,
-select 
-	{
-		border-radius: 0;
+		-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+		box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+		-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+		-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+		transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;		
 	}
 
-div.input textarea 
+
+.input textarea 
 	{
 		width: 70%; 
 		height: 20em; 
@@ -315,9 +316,13 @@ div.input textarea
 		border-radius: 0;
 	}
 
-div.input textarea:focus, div.input input:focus, .sffocus, .sffocus 
+.input textarea:focus, .input input:focus, .sffocus, .sffocus 
 	{
-		background-color: #ffc;
+		border-color: #66afe9;
+		background: #ffc;
+		outline: 0;
+		-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+		box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);		
 		border-radius: 0;
 	}
 	

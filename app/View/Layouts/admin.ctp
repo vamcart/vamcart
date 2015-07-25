@@ -15,13 +15,13 @@
 
 <title><?php echo $title_for_layout; ?></title>
 <?php echo $this->Html->css(array(
-										'admin',
 										'normalize.css',
 										'font-awesome.min.css',
 										'bootstrap/bootstrap.css',
 										'bootstrap/cus-icons.css',
 										'bootstrap/bootstrap-responsive.css',
 										'dynatree/ui.dynatree.css',
+										'admin.css',
 											), null, array('inline' => true)); ?>
 
 <?php echo $this->Html->script(array(
