@@ -17,7 +17,7 @@ class AdminController extends AppController {
 	
 	public function admin_top($level = 1)
 	{
-            $this->set('current_crumb', __('', true));	
+            $this->set('current_crumb', __('Dashboard', true));	
             $this->set('title_for_layout', __('Dashboard', true));
             
             $l = $this->Session->read('Config.language');

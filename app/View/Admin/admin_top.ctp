@@ -159,9 +159,11 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false));
 }
 
-	echo $this->admin->ShowPageHeaderStart(__('Dashboard',true), 'cus-house');
+	//echo $this->admin->ShowPageHeaderStart(__('Dashboard',true), 'cus-house');
 
 	echo '<div id="news"></div>';
+
+	if($level == 1) {
 
 	echo '<div class="row-fluid">';
 	echo '<div class="col-sm-5">';
@@ -194,6 +196,8 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 			</div>
 			</div>
 		';
+
+	}
 
 			echo '<ul id="myTab" class="nav nav-tabs">';
 			if($level == 1) {
@@ -338,6 +342,8 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 
 	echo '</div>';
 	
+	if($level == 1) {
+
 	echo '<div class="col-sm-4">';
 
 			echo '<ul id="myTabSales" class="nav nav-tabs">';
@@ -378,6 +384,8 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 	echo '</div>';	
 	
 	echo '</div>';
+	
+	}
 
 	
-	echo $this->admin->ShowPageHeaderEnd();
+	//echo $this->admin->ShowPageHeaderEnd();

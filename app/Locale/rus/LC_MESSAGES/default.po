@@ -17,7 +17,7 @@ msgstr ""
 
 #: /app_controller.php:183
 msgid "Dashboard"
-msgstr "Главная"
+msgstr "Панель управления"
 
 #: /app_controller.php:185
 msgid "Orders"
