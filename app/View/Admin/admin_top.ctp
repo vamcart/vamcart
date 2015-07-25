@@ -163,7 +163,7 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 }
 }
 
-	//echo $this->admin->ShowPageHeaderStart(__('Dashboard',true), 'cus-house');
+	echo $this->admin->ShowPageHeaderStart();
 
 	echo '<div id="news"></div>';
 
@@ -394,4 +394,4 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 	
 	}
 
-	//echo $this->admin->ShowPageHeaderEnd();
+	echo $this->admin->ShowPageHeaderEnd();

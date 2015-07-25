@@ -370,6 +370,7 @@ $("#myTabSales a:first").tab("show"); // Select first tab
 	public function ShowPageHeaderStart($page_name = null, $icon = null, $search_form = null)
 	{
 		$content = '';
+		if ($page_name) {
 		$content .= '<div id="page">';
 		$content .= '<h2>';
 
@@ -384,7 +385,8 @@ $("#myTabSales a:first").tab("show"); // Select first tab
 		if (null != $search_form) {
 			$content .= '<div class="search-f">' . $search_form . '</div>';
 		}
-
+		}
+		
 		return $content;
 	}
 
