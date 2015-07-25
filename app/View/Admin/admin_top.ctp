@@ -164,7 +164,7 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 	echo '<div id="news"></div>';
 
 	echo '<div class="row-fluid">';
-	echo '<div class="span5">';
+	echo '<div class="col-sm-5">';
 
 	echo '
 			<div class="row-fluid">
@@ -338,7 +338,7 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 
 	echo '</div>';
 	
-	echo '<div class="span4">';
+	echo '<div class="col-sm-4">';
 
 			echo '<ul id="myTabSales" class="nav nav-tabs">';
 			echo $this->admin->CreateTab('sales',__('Sales Report',true), 'cus-chart-bar');
@@ -359,7 +359,7 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 
 	echo '</div>';	
 
-	echo '<div class="span3">';
+	echo '<div class="col-sm-3">';
 
 			echo '<ul id="myTabNews" class="nav nav-tabs">';
 			echo $this->admin->CreateTab('vamshop-news',__('VamShop News',true), 'cus-newspaper');

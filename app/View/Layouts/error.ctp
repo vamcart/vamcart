@@ -27,11 +27,10 @@
 
 <title><?php echo $title_for_layout; ?></title>
 <?php echo $this->Html->css(array(
-										'admin',
-										'normalize.css',
-										'bootstrap/bootstrap.css',
+										'font-awesome.min.css',
+										'bootstrap3/bootstrap.min.css',
 										'bootstrap/cus-icons.css',
-										'bootstrap/bootstrap-responsive.css',
+										'admin.css',
 											), null, array('inline' => true)); ?>
 
 <?php echo $this->Html->script(array(
@@ -48,14 +47,14 @@
 
 <!-- Header -->
 <div class="row-fluid">
-	<div class="span4">
+	<div class="col-sm-4">
 		<?php echo $this->Html->image('admin/logo.png', array('alt' => __('VamShop',true)))?>
 	</div>
 </div>
 <!-- /Header -->
 
 	<div class="row-fluid">
-		<div class="span12">
+		<div class="col-sm-12">
 
 <!-- Content -->
 <div id="wrapper">

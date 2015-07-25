@@ -295,7 +295,7 @@ $("#myTabSales a:first").tab("show"); // Select first tab
 	public function GenerateBreadcrumbs ($navigation_walk, $current_crumb)
 	{
 		// Get the breadcrumb divider
-		$divider = '<span class="divider">/</span>';
+		$divider = '';
 		
 		$breadcrumbs = '';
 		$breadcrumbs .= '<ul class="breadcrumb">';
@@ -322,7 +322,7 @@ $("#myTabSales a:first").tab("show"); // Select first tab
 		}
 		
 		// Set the current breadcrumb
-		$breadcrumbs .= __($current_crumb, true);
+		$breadcrumbs .= '<li class="active">'.__($current_crumb, true).'</li>';
 
 		$breadcrumbs .= '</ul>';
 		

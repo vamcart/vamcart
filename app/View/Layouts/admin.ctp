@@ -11,22 +11,22 @@
 <head>
 <?php echo $this->Html->charset(); ?>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
 
 <title><?php echo $title_for_layout; ?></title>
 <?php echo $this->Html->css(array(
-										'normalize.css',
 										'font-awesome.min.css',
-										'bootstrap/bootstrap.css',
+										'bootstrap3/bootstrap.min.css',
 										'bootstrap/cus-icons.css',
-										'bootstrap/bootstrap-responsive.css',
 										'dynatree/ui.dynatree.css',
+										'jquery/plugins/hoe/hoe.css',
 										'admin.css',
 											), null, array('inline' => true)); ?>
 
 <?php echo $this->Html->script(array(
 											'jquery/jquery.min.js',
-											'bootstrap/bootstrap.min.js'
+											'bootstrap/bootstrap.min.js',
+											'jquery/plugins/hoe/hoe.js',
 												),
 											array('inline' => true)); ?>
 <?php echo $this->Html->scriptBlock('
@@ -45,11 +45,11 @@ $(document).ready(function () {$(\'[rel=tooltip],input[data-title]\').tooltip();
 
 <!-- Header -->
 <div class="row-fluid">
-	<div class="span4">
+	<div class="col-sm-4">
 		<?php echo $this->Html->link($this->Html->image('admin/logo.png', array('alt' => __('VamShop',true))), '/admin/admin_top/', array('escape'=>false));?>  
 	</div>
 	
-	<div class="span8">
+	<div class="col-sm-8">
 
 		<ul class="inline text-right">
 			<li><h3><a href="http://apps.<?php echo __('vamshop.com'); ?>/" target="_blank" title="<?php echo __('Apps'); ?>"><i class="fa fa-th"></i></a></h3></li>
@@ -64,7 +64,7 @@ $(document).ready(function () {$(\'[rel=tooltip],input[data-title]\').tooltip();
 <!-- /Header -->
 
 	<div class="row-fluid">
-		<div class="span12">
+		<div class="col-sm-12">
 <?php
 if(isset($navigation)) { 
 ?>

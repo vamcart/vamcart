@@ -112,12 +112,18 @@ div#footer p
 
 /* Menu */
 		
-div.navbar
-	{
-		padding: 0 0 1em 0;
-		margin: .5em 0 0 0;
-		background: transparent;
-	}
+.breadcrumb {
+    background: transparent;
+}
+
+section {
+    background: transparent;
+}
+
+.nav, .navbar {
+margin-bottom: 0;
+border: 0;
+}
 	
 /* /Menu */
 
