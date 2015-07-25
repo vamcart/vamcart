@@ -144,6 +144,10 @@ background-color: transparent;
 color: #fff;
 }
 
+#hoeapp-wrapper {
+color: #000;
+}
+
 .page_menu_item
 	{
 		margin: 0;
@@ -516,7 +520,7 @@ div#content .noData
 
 div#flashMessage
 	{
-		border: 1px solid #97c850;
+		border: 0px solid #97c850;
 		padding: .5em 0 .5em 1.5em;
 		margin: 0 0 .5em 0;
 		background: #99ff00 url(../img/admin/icons/error.png) no-repeat center left;
