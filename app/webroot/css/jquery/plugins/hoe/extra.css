@@ -1,0 +1,12 @@
+.breadcrumb {
+    background: transparent;
+}
+
+section {
+    background: transparent;
+}
+
+.nav, .navbar {
+margin-bottom: 0;
+border: 0;
+}
