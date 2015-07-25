@@ -935,5 +935,21 @@ a[href]:after
 		height:320px;
 		width: 95%;
 	}
-			 
+		
+/* ScrollUp */
+		
+a#scrollup {
+  bottom: 20px;
+  right: 30px;
+  padding: 5px 10px;
+  background: #ff6633;
+  color: #fff;
+}
+
+a#scrollup i{
+  font-size: 16px;
+}			
+
+/* /ScrollUp */
+ 
 /*]]>*/

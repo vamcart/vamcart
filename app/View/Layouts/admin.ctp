@@ -27,6 +27,8 @@
 											'jquery/jquery.min.js',
 											'bootstrap3/bootstrap.min.js',
 											'jquery/plugins/hoe/hoe.js',
+											'jquery/plugins/scrollup/jquery.scrollup.min.js',
+											'admin.js',
 												),
 											array('inline' => true)); ?>
 <?php echo $this->Html->scriptBlock('
