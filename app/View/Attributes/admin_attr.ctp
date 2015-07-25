@@ -43,7 +43,7 @@ echo '</table>';
 
 <table class="contentPagination">
     <tr>               
-        <td><?php echo $this->Html->link($this->Html->tag('i', '',array('class' => 'cus-arrow-up')) . ' ' . __('Up One Level'), '/attributes/admin' , array('class' => 'btn', 'escape' => false)); ?></td>
+        <td><?php echo $this->Html->link($this->Html->tag('i', '',array('class' => 'cus-arrow-up')) . ' ' . __('Up One Level'), '/attributes/admin' , array('class' => 'btn btn-default', 'escape' => false)); ?></td>
         <td></td>
         <td></td>               
     </tr>

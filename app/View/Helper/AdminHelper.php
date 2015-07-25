@@ -119,7 +119,7 @@ $("#myTabSales a:first").tab("show"); // Select first tab
 		if($this->params['plugin'] != "")
 			$path = '/' . $this->params['plugin'] . $path;
 			
-		return($this->Html->link('<i class="cus-add"></i>'.' '.$title, $path, array('escape' => false, 'class' => 'btn')));
+		return($this->Html->link('<i class="cus-add"></i>'.' '.$title, $path, array('escape' => false, 'class' => 'btn btn-default')));
 	}
 	
 	public function CreateExportLink ($extra_path = null)
@@ -131,7 +131,7 @@ $("#myTabSales a:first").tab("show"); // Select first tab
 			$path = '/' . $this->params['plugin'] . $path;
 		}
 
-		return($this->Html->link('<i class="cus-arrow-out"></i>'.' '.$title, $path, array('escape' => false, 'class' => 'btn')));
+		return($this->Html->link('<i class="cus-arrow-out"></i>'.' '.$title, $path, array('escape' => false, 'class' => 'btn btn-default')));
 	}
 	
 	public function CreateImportLink ($extra_path = null)
@@ -143,7 +143,7 @@ $("#myTabSales a:first").tab("show"); // Select first tab
 			$path = '/' . $this->params['plugin'] . $path;
 		}
 
-		return($this->Html->link('<i class="cus-arrow-in"></i>'.' '.$title, $path, array('escape' => false, 'class' => 'btn')));
+		return($this->Html->link('<i class="cus-arrow-in"></i>'.' '.$title, $path, array('escape' => false, 'class' => 'btn btn-default')));
 	}
 	
 	public function ActionBar($options = null, $new = true, $extra_path = null, $export = false, $import = false) 
@@ -171,7 +171,7 @@ $("#myTabSales a:first").tab("show"); // Select first tab
 			}
 			
 			$content .= '</select>
-							<noscript><input class="btn" onclick="return confirm(\'' . __('Are you sure? You may not be able to undo this action.', true) . '\');" type="submit" value="' . __('Submit', true) . '"/></noscript>';
+							<noscript><input class="btn btn-default" onclick="return confirm(\'' . __('Are you sure? You may not be able to undo this action.', true) . '\');" type="submit" value="' . __('Submit', true) . '"/></noscript>';
 
 		}
 		$content .= '</div><div class="clear"></div>';		

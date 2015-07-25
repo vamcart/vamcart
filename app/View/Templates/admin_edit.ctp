@@ -34,12 +34,12 @@ $this->Html->css(array(
    				   	'id' => 'code',
    				   	'label' => __('Template')
 	               ));
-	echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn', 'type' => 'submit', 'name' => 'submitbutton', 'id' => 'submit')) . $this->Admin->formButton(__('Apply'), 'cus-disk', array('class' => 'btn', 'type' => 'submit', 'name' => 'apply')) . $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn', 'type' => 'submit', 'name' => 'cancelbutton'));
+	echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit')) . $this->Admin->formButton(__('Apply'), 'cus-disk', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'apply')) . $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';
 	echo $this->Form->end();
 	echo $this->Admin->ShowPageHeaderEnd(); 
 
-	echo $this->Html->scriptBlock('
+	echo $this->Html->scriptBlock(''
 var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   mode: "text/html",
   lineNumbers: true,

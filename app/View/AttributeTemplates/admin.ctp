@@ -21,7 +21,7 @@ foreach ($templates AS $template)
 }
 echo '</table>';
 
-echo $this->Admin->formButton(__('Create New'), 'cus-add', array('class' => 'btn', 'type' => 'submit', 'name' => 'applybutton'));
+echo $this->Admin->formButton(__('Create New'), 'cus-add', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'applybutton'));
 echo $this->Form->end(); 
 
 echo $this->Admin->ShowPageHeaderEnd();

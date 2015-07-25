@@ -17,11 +17,11 @@ foreach ($modules AS $module)
 
 	if($module['installed'] == 0)
 	{
-		$action_button = $this->Admin->linkButton(__('Install'),'/shipping/' . $module['code'] . '/install/','cus-add',array('escape' => false, 'class' => 'btn'));
+		$action_button = $this->Admin->linkButton(__('Install'),'/shipping/' . $module['code'] . '/install/','cus-add',array('escape' => false, 'class' => 'btn btn-default'));
 	}
 	else
 	{
-		$action_button = $this->Admin->linkButton(__('Uninstall'),'/shipping/' . $module['code'] . '/uninstall/','cus-cancel',array('escape' => false, 'class' => 'btn'),__('Are you sure?'));
+		$action_button = $this->Admin->linkButton(__('Uninstall'),'/shipping/' . $module['code'] . '/uninstall/','cus-cancel',array('escape' => false, 'class' => 'btn btn-default'),__('Are you sure?'));
 	}
 
 	echo $this->Admin->TableCells(
@@ -38,7 +38,7 @@ foreach ($modules AS $module)
 
 echo '</table>';
 
-echo $this->Admin->linkButton(__('Add module'), '/shipping_methods/admin_add/', 'cus-plugin-add', array('escape' => false, 'class' => 'btn'));
+echo $this->Admin->linkButton(__('Add module'), '/shipping_methods/admin_add/', 'cus-plugin-add', array('escape' => false, 'class' => 'btn btn-default'));
 
 echo $this->Admin->ShowPageHeaderEnd();
 

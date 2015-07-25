@@ -54,7 +54,7 @@ if(isset($default_template))
 						'onfocus' => 'this.select();'
 					));
 
-	echo $this->Admin->formButton(__('Create Micro Template From Tag'), 'cus-tick', array('class' => 'btn', 'type' => 'submit', 'name' => 'submit'));
+	echo $this->Admin->formButton(__('Create Micro Template From Tag'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit'));
 	echo '<div class="clear"></div>';
 	echo $this->Form->end();
 	

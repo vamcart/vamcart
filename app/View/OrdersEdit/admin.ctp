@@ -214,7 +214,7 @@
     echo '</table>';
     
     echo $this->Form->create('OrdersEdit', array('id' => 'saveForm','action' => '/orders_edit/save_order/', 'url' => '/orders_edit/save_order/'));
-    echo $this->Admin->formButton(__('Save'), 'cus-disk', array('id' => 'saveButton', 'name' => 'saveButton', 'class' => 'btn', 'type' => 'submit', 'name' => 'submit','onclick' =>  'saveform();')) . $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn', 'type' => 'submit', 'name' => 'cancelbutton','onclick' => 'saveform();'));
+    echo $this->Admin->formButton(__('Save'), 'cus-disk', array('id' => 'saveButton', 'name' => 'saveButton', 'class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit','onclick' =>  'saveform();')) . $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'cancelbutton','onclick' => 'saveform();'));
     echo $this->Form->end();
 
     echo $this->Admin->ShowPageHeaderEnd();

@@ -16,7 +16,7 @@ if($update_data['current_version'] >= $update_data['latest_version']) {	echo '<
 	echo '<p>'.__('Click Update button to start VamShop AutoUpdate.').'</p>';
 	echo '<div class="alert alert-error"><i class="cus-error"></i> '.__('Don\'t forget backup your files and database before update at Admin - Tools - Database Backup.').'</div>';
 	echo '<br />';
-	echo $this->Admin->linkButton(__('Update'),'/update/admin_update/','cus-tick',array('escape' => false, 'class' => 'btn'));
+	echo $this->Admin->linkButton(__('Update'),'/update/admin_update/','cus-tick',array('escape' => false, 'class' => 'btn btn-default'));
 } 
 
 echo $this->Admin->ShowPageHeaderEnd();

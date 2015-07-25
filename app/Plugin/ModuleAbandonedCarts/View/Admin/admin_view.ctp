@@ -209,7 +209,7 @@ echo '</table>';
 
 	echo $this->Admin->EndTabs();
 	
-	echo $this->Admin->linkButton(__('Back'), '/module_abandoned_carts/admin/admin_index/', 'cus-arrow-turn-left', array('escape' => false, 'class' => 'btn'));
+	echo $this->Admin->linkButton(__('Back'), '/module_abandoned_carts/admin/admin_index/', 'cus-arrow-turn-left', array('escape' => false, 'class' => 'btn btn-default'));
 
 	echo $this->Admin->ShowPageHeaderEnd();
 	

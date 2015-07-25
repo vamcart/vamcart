@@ -275,7 +275,7 @@ echo $this->Form->create('OrderComment', array('id' => 'contentform', 'name' => 
 				'class' => 'checkbox_group'
 			));
 	echo '<div class="clear"></div>';
-	echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn', 'type' => 'submit', 'name' => 'submit', 'id' => 'submit'));
+	echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit', 'id' => 'submit'));
 	echo '<div class="clear"></div>';
 	echo $this->Form->end();
 
@@ -283,8 +283,8 @@ echo $this->Form->create('OrderComment', array('id' => 'contentform', 'name' => 
 
 	echo $this->Admin->EndTabs();
 
-	echo $this->Admin->linkButton(__('Edit Order'), '/orders_edit/admin/edit/' . $data['Order']['id'], 'cus-cart-edit', array('escape' => false, 'class' => 'btn'));
-	echo $this->Admin->linkButton(__('Print Order'), 'javascript: window.print();', 'cus-printer', array('escape' => false, 'class' => 'btn'));
+	echo $this->Admin->linkButton(__('Edit Order'), '/orders_edit/admin/edit/' . $data['Order']['id'], 'cus-cart-edit', array('escape' => false, 'class' => 'btn btn-default'));
+	echo $this->Admin->linkButton(__('Print Order'), 'javascript: window.print();', 'cus-printer', array('escape' => false, 'class' => 'btn btn-default'));
 	
 	echo $this->Admin->ShowPageHeaderEnd();
 	

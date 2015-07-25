@@ -24,7 +24,7 @@ echo $this->Admin->StartTabContent('import');
     echo '<div class="alert alert-error"><i class="cus-error"></i> '.__('Don\'t forget backup your database before import at Admin - Tools - Database Backup.').'</div>';
     echo $this->Form->create('form_Import', array('enctype' => 'multipart/form-data', 'id' => 'contentform_import', 'action' => '/import_export/import/', 'url' => '/import_export/import/'));
     echo $this->Form->file('submittedfile');
-    echo '<br />' . $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn', 'type' => 'submit', 'name' => 'submit'));
+    echo '<br />' . $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit'));
     echo $this->Form->end();
     
 echo $this->Admin->EndTabContent();
@@ -51,7 +51,7 @@ echo $this->Admin->StartTabContent('export');
         }
         echo '</select>';
     echo '</div>';
-    echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn', 'type' => 'submit', 'name' => 'submit'));
+    echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit'));
     echo $this->Form->end();
     
 echo $this->Admin->EndTabContent();

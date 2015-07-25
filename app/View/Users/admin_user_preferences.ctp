@@ -23,7 +23,7 @@ $this->Html->script(array(
 					'selected' => $current_language
 				));
 	   
-	echo $this->Admin->formButton(__('Apply'), 'cus-tick', array('class' => 'btn', 'type' => 'submit', 'name' => 'applybutton')) . $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn', 'type' => 'submit', 'name' => 'cancelbutton'));
+	echo $this->Admin->formButton(__('Apply'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'applybutton')) . $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'cancelbutton'));
 	echo '<div class="clear"></div>';
 	echo $this->Form->end();	   
 	

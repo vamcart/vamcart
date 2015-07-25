@@ -32,7 +32,7 @@ foreach($files AS $tag)
 
 echo '</table>';
 
-echo $this->Admin->linkButton(__('Add module'), '/tags/admin_add/', 'cus-plugin-add', array('escape' => false, 'class' => 'btn'));
+echo $this->Admin->linkButton(__('Add module'), '/tags/admin_add/', 'cus-plugin-add', array('escape' => false, 'class' => 'btn btn-default'));
 
 echo $this->Admin->ShowPageHeaderEnd();
 

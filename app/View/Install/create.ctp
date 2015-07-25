@@ -13,11 +13,11 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-lightbulb');
 <?php echo __('Database successfully imported.') ?>
 </p>
 <p>
-<?php echo $this->Admin->linkButtonCatalog(__('Click here to visit your live store.'),'/','cus-cart-go',array('escape' => false, 'target'=>'_blank', 'class' => 'btn')); ?>
+<?php echo $this->Admin->linkButtonCatalog(__('Click here to visit your live store.'),'/','cus-cart-go',array('escape' => false, 'target'=>'_blank', 'class' => 'btn btn-default')); ?>
 </p>
 <p><?php echo __('VamShop Newsletter'); ?>: </p>
 <p>
-<?php echo $this->Admin->linkButtonCatalog(__('Subscribe'),__('http://support.vamshop.com/modules/evennews/index.php?action=subscribe'),'cus-arrow-right',array('escape' => false, 'target'=>'_blank', 'class' => 'btn'));
+<?php echo $this->Admin->linkButtonCatalog(__('Subscribe'),__('http://support.vamshop.com/modules/evennews/index.php?action=subscribe'),'cus-arrow-right',array('escape' => false, 'target'=>'_blank', 'class' => 'btn btn-default'));
  ?>
 </p>
 <p>
