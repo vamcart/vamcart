@@ -30,7 +30,7 @@ $(document).ready(function () {
 
 	$("#vamshop-rss").rssfeed("http://support.'.__('vamshop.com',true).'/modules/news/backendt.php?topicid=1", {
 		header: false,
-		date: true,
+		date: false,
 		content: true,
 		linktarget: "_blank",
 		limit: 5,
@@ -169,28 +169,42 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 
 	if($level == 1) {
 
-	echo '<div class="row-fluid">';
-	echo '<div class="col-sm-5">';
 
-	echo '
+	echo '<br />
+	
 			<div class="row-fluid">
-			<div class="panel panel-default span4">
+			<div class="col-sm-3">
+			<div class="panel panel-default">
 			  <div class="panel-heading">
 			    <h3 class="panel-title"><i class="cus-cart"></i> '.__('Total Orders').'</h3>
 			  </div>
 			  <div class="panel-body text-center">
-			    <h4>'.$total_orders.(($pending_orders > 0) ? ' <sup><span title="'.__('Pending Orders').': '.$pending_orders.'" class="badge badge-important"> '.$this->Html->link($pending_orders,'/orders/admin/').' </span></sup>' : '').'</h4>
+			    <h4>'.$total_orders.(($pending_orders > 0) ? ' <sup><span title="'.__('Pending Orders').': '.$pending_orders.'" class="badge"> '.$this->Html->link($pending_orders,'/orders/admin/').' </span></sup>' : '').'</h4>
 			  </div>
 			</div>
-			<div class="panel panel-default span4">
+			</div>
+			<div class="col-sm-3">
+			<div class="panel panel-default">
 			  <div class="panel-heading">
-			    <h3 class="panel-title"><i class="cus-calculator"></i> '.__('Total Sales').'</h3>
+			    <h3 class="panel-title"><i class="cus-calculator"></i> '.__('Average Order').'</h3>
+			  </div>
+			  <div class="panel-body text-center">
+			    <h4>'.$average_order.'</h4>
+			  </div>
+			</div>
+			</div>
+			<div class="col-sm-3">
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <h3 class="panel-title"><i class="cus-report"></i> '.__('Total Sales').'</h3>
 			  </div>
 			  <div class="panel-body text-center">
 			    <h4>'.$total_sales.'</h4>
 			  </div>
 			</div>
-			<div class="panel panel-default span4">
+			</div>
+			<div class="col-sm-3">
+			<div class="panel panel-default">
 			  <div class="panel-heading">
 			    <h3 class="panel-title"><i class="cus-user"></i> '.__('Total Customers').'</h3>
 			  </div>
@@ -199,7 +213,11 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 			  </div>
 			</div>
 			</div>
+			<div class="clear"></div>
 		';
+
+	echo '<div class="row-fluid">';
+	echo '<div class="col-sm-6">';
 
 	}
 
@@ -351,7 +369,7 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 	
 	if($level == 1) {
 
-	echo '<div class="col-sm-4">';
+	echo '<div class="col-sm-6">';
 
 			echo '<ul id="myTabSales" class="nav nav-tabs">';
 			echo $this->admin->CreateTab('sales',__('Sales Report',true), 'cus-chart-bar');
@@ -359,26 +377,28 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 
 	echo $this->admin->StartTabs();
 	
-		echo $this->admin->StartTabContent('sales');
+		//echo $this->admin->StartTabContent('sales');
 
 		echo '<div id="charts">';
 		echo '<div id="chart1"></div>';
 		echo '<div id="chart2"></div>';
 		echo '</div>';
 			
-		echo $this->admin->EndTabContent();
+		//echo $this->admin->EndTabContent();
 
 	echo $this->admin->EndTabs();
 
 	echo '</div>';	
+	echo '</div>';
 
-	echo '<div class="col-sm-3">';
+	echo '<div class="row-fluid">';
+	echo '<div class="col-sm-12">';
 
 			echo '<ul id="myTabNews" class="nav nav-tabs">';
 			echo $this->admin->CreateTab('vamshop-news',__('VamShop News',true), 'cus-newspaper');
 			echo '</ul>';
 
-	echo $this->admin->StartTabs('rss-news');
+		echo $this->admin->StartTabs('rss-news');
 	
 		echo $this->admin->StartTabContent('vamshop-news');
 

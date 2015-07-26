@@ -149,17 +149,6 @@ color: #000;
 background: #f8f8f8;
 }
 
-.page_menu_item
-	{
-		margin: 0;
-		padding: 0 15px;
-	}
-
-.panel
-	{
-		border-radius: 0;
-	}
-	
 /* /Menu */
 
 /* Navigation */
@@ -563,8 +552,8 @@ div.error input
 
 .btn
 	{
-		margin: 2px;
 		border-radius: 0;
+		margin: 5px 5px 0 0;
 	}
 	
 /* /Buttons */
@@ -923,15 +912,8 @@ a[href]:after
 }
 
 /* /Print Order */
-		
-.list_column li.column 
-	{
-		float:left;
-		border: 1px solid #eee;
-		display:inline;
-		padding: .5em;
-		margin: .5em;
-	}
+
+/* Admin Dashboard */
 
 #charts 
 	{
@@ -957,6 +939,39 @@ a[href]:after
 		height:320px;
 		width: 95%;
 	}
+
+.list_column li.column 
+	{
+		float:left;
+		border: 1px solid #eee;
+		display:inline;
+		padding: .5em;
+		margin: .5em;
+	}
+
+.page_menu_item
+	{
+		margin: 0;
+		padding: 0 15px;
+	}
+
+.panel
+	{
+		border-radius: 0;
+	}
+
+.badge
+	{
+		background: #ce4844;
+		color: #fff;
+	}
+
+.badge a, .badge a:hover, .badge a:visited 
+	{
+		color: #fff;
+	}
+
+/* /Admin Dashboard */
 		
 /* ScrollUp */
 		

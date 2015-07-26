@@ -163,6 +163,7 @@ class AdminController extends AppController {
 		$this->set('total_orders',$total_orders[0]['cnt']);
 		$this->set('pending_orders',$pending_orders);
 		$this->set('total_sales',($total_orders[0]['summ'] > 0) ? number_format($total_orders[0]['summ'], 0) : 0);
+		$this->set('average_order',($total_orders[0]['summ'] > 0) ? number_format($total_orders[0]['summ']/$total_orders[0]['cnt'], 0) : 0);
 		$this->set('total_customers',$total_customers);
 
 			

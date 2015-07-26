@@ -3808,7 +3808,7 @@ msgstr "Средняя стоимость"
 
 #: /View/Reports/admin.ctp:25
 msgid "Average Order"
-msgstr "Средняя стоимость заказа"
+msgstr "Средняя стоимость"
 
 #: /View/Admin/admin_top.ctp:25
 msgid "Top 10 Viewed"
