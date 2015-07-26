@@ -93,7 +93,7 @@ div#footer
 	{
 		clear: left;
 		width: 100%;
-		background: #f8f8f8;
+		background: #fff;
 		border-top: 0px solid #67748B;
 		text-align: center;
 		color: #000;
@@ -234,9 +234,9 @@ ul#myTab
 		margin: 0;	
 	}
 
-#myTabContent
+#myTabContent, .tab-content
 	{
-		padding: .5em 0 0 0;
+		padding: .5em 0 .5em 0;
 		margin: 0 0 .5em 0;
 		background: #fff;
 	}
@@ -738,7 +738,6 @@ div.multiAction
 div.clear
 	{
 		clear: both;
-		padding-top: 10px;
 	}
 			 
 			 
