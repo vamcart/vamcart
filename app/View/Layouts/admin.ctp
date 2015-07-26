@@ -80,7 +80,7 @@ $(document).ready(function () {$(\'[rel=tooltip],input[data-title]\').tooltip();
   
         <nav id="hoe-header" hoe-lpanel-effect="shrink" class="hoe-minimized-lpanel">
             <div class="hoe-left-header">
-                <?php echo $this->Html->link('<i class="fa fa-home"></i> <span>' . __('VamShop',true) . '</span>', '/admin/admin_top/', array('escape'=>false)); ?>           	
+                <?php echo $this->Html->link('<i class="cus-house"></i> <span>' . __('VamShop',true) . '</span>', '/admin/admin_top/', array('escape'=>false)); ?>           	
                 <span class="hoe-sidebar-toggle"><a href="#"></a></span>
             </div>
 
