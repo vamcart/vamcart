@@ -3806,6 +3806,10 @@ msgstr "Количество заказов"
 msgid "Average Sum"
 msgstr "Средняя стоимость"
 
+#: /View/Reports/admin.ctp:25
+msgid "Average Order"
+msgstr "Средняя стоимость заказа"
+
 #: /View/Admin/admin_top.ctp:25
 msgid "Top 10 Viewed"
 msgstr "Лучшие товары: 10 самых просматриваемых"
