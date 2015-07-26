@@ -256,7 +256,7 @@ body{position:relative;}
 #hoe-left-panel .panel-list > li > a > i {
     display: inline;
     font-size: 14px;
-    padding-right: 6px;
+    padding-right: 20px;
 }
 #hoe-left-panel .panel-list > li > a span.menu-text {
     display: inline-block;
@@ -475,7 +475,7 @@ body{position:relative;}
 .hoe-minimized-lpanel #hoe-left-panel .panel-list > li > a > i {
     display: inline;
     font-size: 15px;
-    padding-left: 6px;
+    padding-left: 15px;
     padding-right: 6px;
 }
 .hoe-minimized-lpanel #hoe-left-panel .panel-list > li:hover > a,
