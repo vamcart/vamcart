@@ -41,7 +41,8 @@ $template = '
 <script type="text/javascript">
 $(document).ready(function(){
   $(".colorbox").colorbox({
-    rel: "colorbox"
+    rel: "colorbox",
+    title: false
   });
 });
 </script>
