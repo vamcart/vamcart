@@ -263,7 +263,8 @@ legend
 		padding: 0;
 	}
 
-div.input label 
+div.input label, 
+div.radio label 
 	{
 		width: 15%;
 		color: #545452; 
@@ -328,7 +329,9 @@ div.input.checkbox label
 		display: inline-block;
 	}
 
-div.input.checkbox input 
+div.input.checkbox input, 
+div.input.radio input[type="radio"], 
+div.radio input[type="radio"] 
 	{
 		width: auto;
 		margin: 0 0 0 16%;
