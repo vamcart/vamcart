@@ -367,7 +367,7 @@ $("#myTabSales a:first").tab("show"); // Select first tab
 	* @param  booleen $text_link If true will display a text link instead if image, if the image doesn't exist.
 	* @return string	An <img> tag or name of the flag if $text_link is set to true.
 	*/	
-	public function ShowPageHeaderStart($page_name = null, $icon = null, $search_form = null)
+	public function ShowPageHeaderStart($page_name = null, $icon = null)
 	{
 		$content = '';
 		if ($page_name) {
@@ -382,9 +382,6 @@ $("#myTabSales a:first").tab("show"); // Select first tab
 
 		$content .= '</h2>';
 		$content .= '<div id="pageContent">';
-		if (null != $search_form) {
-			$content .= '<div class="search-f">' . $search_form . '</div>';
-		}
 		}
 		
 		return $content;

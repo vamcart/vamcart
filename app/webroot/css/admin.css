@@ -249,67 +249,46 @@ ul#myTab
 		border-radius: 0;
 	}
 
-form
+form, fieldset
 	{
 		padding: 0;
-		margin: 0;
-	}
-
-fieldset 
-	{
-		border: 0px;
-		padding: .2em 0 .2em 0;
 		margin: 0;
 	}
 
 legend 
 	{
-		font-size: 12pt;
-		font-weight: bold;
+		font-weight: normal;
 		color: #ff9c0f;
 		margin-bottom: .5em;
 		padding: 0;
 	}
 
-.input label 
+div.input label 
 	{
-		display: inline-block; 
-		float: left; 
-		width: 15%; 
-		margin: 5px 0 0; 
-		padding: 0 10px 0 10px; 
-		border: 0px solid black; 
+		width: 15%;
 		color: #545452; 
-		font-weight: normal; 
-		text-align: right;
+		text-align: right; 
+		padding: 0 10px 0 0; 
+		margin-bottom: 0;
+		font-weight: normal;
+		border: 0px solid red;
 	}
 
-.input.text, 
-.input.password, 
-.input.email, 
-.input.textarea, 
-.input.radio, 
-.input.number, 
-.input.checkbox, 
-.input.select 
+div.input
 	{
-		margin: 12px 0 0 0; 
+		margin: 0;
+		padding: 10px 0;
+		clear: both;
+		border: 0px solid green;
 	}
-
-.input.checkbox 
+	
+div.input input,
+div.input select,
+div.multiAction select,
+div.input textarea 
 	{
-		margin: 12px 0 0 14%; 
-	}
-
-.input input,
-.input textarea,
-.input radio,
-.input number,
-.input checkbox,
-.input select,
-select
-	{
-		display: block;
+		width: auto;
+		height: 34px;
 		padding: 6px 12px;
 		font-size: 14px;
 		line-height: 1.42857143;
@@ -317,31 +296,43 @@ select
 		background-color: #fff;
 		background-image: none;
 		border: 1px solid #ccc;
-		border-radius: 0;
+		border-radius: 0px;
 		-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 		box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
 		-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
 		-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-		transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;		
+		transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 	}
 
-
-.input textarea 
+div.input select 
 	{
-		width: 70%; 
-		height: 20em; 
-		padding: .3em; 
-		border-radius: 0;
 	}
 
-.input textarea:focus, .input input:focus, .sffocus, .sffocus 
+div.input textarea 
+	{
+		width: 80%;
+		height: 15em;
+	}
+
+div.input textarea:focus, div.input input:focus, .sffocus, .sffocus 
 	{
 		border-color: #66afe9;
 		background: #ffc;
 		outline: 0;
 		-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
-		box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);		
-		border-radius: 0;
+		box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+	}
+
+div.input.checkbox label 
+	{
+		display: inline-block;
+	}
+
+div.input.checkbox input 
+	{
+		width: auto;
+		margin: 0 0 0 16%;
+		padding: 0;
 	}
 	
 /* /Forms */
@@ -360,6 +351,13 @@ div#content table.contentTable
 		border-bottom-right-radius: 0px;
 	}
 
+div#content table.contentHeader
+	{
+		width: 100%;
+		padding: 0 0 0 0;
+		margin: 0 0 0 0;
+	}
+	
 div#content table.contentFooter
 	{
 		width: 100%;
@@ -490,16 +488,16 @@ div#content table.orderTable td
 		margin: 0;
 	}
 
-div.search-f {
+div.search-orders {
 	float: right;
 	margin: 15px 0;
 }
 
-div.search-f label {
+div.search-orders label {
 	display: none;
 }
 
-div.search-f .submit {
+div.search-orders .submit {
 	display: none;
 }
 /* /Orders */

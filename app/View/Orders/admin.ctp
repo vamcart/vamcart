@@ -90,15 +90,11 @@ function statusSelection(form)
 <?php
 
 echo $this->Html->css('jquery-ui.css', null, array('inline' => false));
-$search_form  = $this->Form->create('Search', array('action' => '/orders/admin_search/', 'url' => '/orders/admin_search/'));
-$search_form .= $this->Form->input('Search.term',array('label' => __('Search'),'placeholder' => __('Order Search')));
-$search_form .= $this->Form->submit( __('Submit'));
-$search_form .= $this->Form->end();
 
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-cart', $search_form);
+echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-cart');
 
-
-
+echo '<table class="contentHeader">';
+echo '<tr><td>';
 echo '<div class="text-left">';
 echo $this->Form->create('Order', array('action' => '/orders/admin/', 'url' => '/orders/admin/', 'type' => 'get'));
 echo $this->Form->input('Order.status_id', 
@@ -112,6 +108,18 @@ echo $this->Form->input('Order.status_id',
          ));
 echo $this->Form->end();
 echo '</div>';
+echo '</td>';
+echo '<td>';
+echo '<div class="search-orders">';
+echo $this->Form->create('Search', array('action' => '/orders/admin_search/', 'url' => '/orders/admin_search/'));
+echo $this->Form->input('Search.term',array('label' => __('Search'),'placeholder' => __('Order Search')));
+echo $this->Form->submit( __('Submit'));
+echo $this->Form->end();
+echo '</div>';
+echo '</td>';
+echo '</tr>';
+echo '</table>';
+
 
 echo $this->Form->create('Order', array('action' => '/orders/admin_modify_selected/', 'url' => '/orders/admin_modify_selected/', 'onsubmit' => 'return beforeSubmit(this);'));
 
