@@ -312,6 +312,7 @@ div.input select
 div.input textarea 
 	{
 		width: 80%;
+		margin: 0 0 0 15%;
 		height: 15em;
 	}
 
