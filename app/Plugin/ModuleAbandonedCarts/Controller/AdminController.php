@@ -26,7 +26,7 @@ class AdminController extends ModuleAbandonedCartsAppController {
 
 	public function admin_index ()
 	{
-		$this->set('current_crumb', false);
+		$this->set('current_crumb', __('Abandoned Carts'));
 		$this->set('title_for_layout', __('Abandoned Carts'));
 		$this->set('data',$this->paginate('Order',"Order.order_status_id <= '0'"));
 		
@@ -203,7 +203,7 @@ class AdminController extends ModuleAbandonedCartsAppController {
 
 	public function admin_view ($id)
 	{
-		$this->set('current_crumb', false);
+		$this->set('current_crumb', __('Order View', true));
 		$this->set('title_for_layout', __('Order View', true));
 		$order = $this->Order->find('all', array('conditions' => array('Order.id' => $id)));
 		$this->set('data',$order[0]);

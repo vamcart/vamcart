@@ -10,7 +10,7 @@ class AdminController extends ModuleAskAProductQuestionAppController {
 	
 	public function admin_help()
 	{
-		$this->set('current_crumb', false);
+		$this->set('current_crumb', __d('module_ask_a_product_question', 'Ask A Product Question'));
 		$this->set('title_for_layout', __d('module_ask_a_product_question', 'Ask A Product Question'));
 	}
 

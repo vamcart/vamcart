@@ -46,7 +46,7 @@ class AdminController extends ModuleReviewsAppController {
 		
 	public function admin_edit ($id)
 	{
-		$this->set('current_crumb', false);
+		$this->set('current_crumb', __('Reviews'));
 		$this->set('title_for_layout', __('Read Review'));
 
 		$data = $this->ModuleReview->read(null,$id);
@@ -59,8 +59,8 @@ class AdminController extends ModuleReviewsAppController {
 	
 	public function admin_index()
 	{
-		$this->set('current_crumb', false);
-		$this->set('title_for_layout', __('Manage Reviews'));
+		$this->set('current_crumb', __('Manage Reviews'));
+		$this->set('title_for_layout', __('Reviews'));
 		$data = $this->paginate('ModuleReview');
 		
     	foreach($data AS $key => $value)
@@ -74,7 +74,7 @@ class AdminController extends ModuleReviewsAppController {
 	
 	public function admin_help()
 	{
-		$this->set('current_crumb', false);
+		$this->set('current_crumb', __('Reviews'));
 		$this->set('title_for_layout', __('Reviews'));
 	}
 

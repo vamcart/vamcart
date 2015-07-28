@@ -12,7 +12,7 @@ class AdminController extends ModulePaymentTypeDiscountAppController {
 
 	public function admin_index()
 	{
-		$this->set('current_crumb', false);
+		$this->set('current_crumb', __d('module_payment_type_discount', 'Payment Type Discount'));
 		$this->set('title_for_layout', __d('module_payment_type_discount', 'Payment Type Discount'));
 		$this->set('payment_methods',$this->PaymentMethod->find('all', array('conditions' => array('active' => '1'),'order' => array('name' => 'asc'))));
 
@@ -35,7 +35,7 @@ class AdminController extends ModulePaymentTypeDiscountAppController {
 	
 	public function admin_help()
 	{
-		$this->set('current_crumb', false);
+		$this->set('current_crumb', __d('module_payment_type_discount', 'Payment Type Discount'));
 		$this->set('title_for_layout', __d('module_payment_type_discount', 'Payment Type Discount'));
 	}
 

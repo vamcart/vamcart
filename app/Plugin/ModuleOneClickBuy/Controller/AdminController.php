@@ -10,7 +10,7 @@ class AdminController extends ModuleOneClickBuyAppController {
 	
 	public function admin_help()
 	{
-		$this->set('current_crumb', false);
+		$this->set('current_crumb', __d('module_one_click_buy', 'One Click Buy'));
 		$this->set('title_for_layout', __d('module_one_click_buy', 'One Click Buy'));
 	}
 
