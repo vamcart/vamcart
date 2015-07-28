@@ -101,6 +101,24 @@ class ImagesController extends AppController {
 			unlink($filename);
 			
 			$this->ContentImage->delete($image_id);			
+
+			App::import('Content', 'Content');
+			$Content = new Content();
+
+			$Content->unbindAll();	
+
+			$Content->bindModel(array('hasOne' => array(
+					'ContentImage' => array(
+	                    'className' => 'ContentImage',
+	                    'order'=>array('ContentImage.id ASC')
+						))));						
+
+			$content = $Content->read(null,$image['ContentImage']['content_id']);
+			$images = $this->ContentImage->read(null,$content['ContentImage']['id']);
+			$images['ContentImage']['id'] = $content['ContentImage']['id']; 
+			$images['ContentImage']['order'] = 1; 
+			$this->ContentImage->save($images);			
+
 		}
 		$this->redirect('/images/admin_view_content_images/' . $image['ContentImage']['content_id']);
 	}
