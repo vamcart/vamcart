@@ -115,9 +115,11 @@ class ImagesController extends AppController {
 
 			$content = $Content->read(null,$image['ContentImage']['content_id']);
 			$images = $this->ContentImage->read(null,$content['ContentImage']['id']);
+			if ($images) {
 			$images['ContentImage']['id'] = $content['ContentImage']['id']; 
 			$images['ContentImage']['order'] = 1; 
-			$this->ContentImage->save($images);			
+			$this->ContentImage->save($images);
+			}			
 
 		}
 		$this->redirect('/images/admin_view_content_images/' . $image['ContentImage']['content_id']);
