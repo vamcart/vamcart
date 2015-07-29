@@ -121,6 +121,7 @@ $(this).parent().addClass("selected");
 
   });
 </script>
+{if {$dadata_api_key} != "" and $smarty.session.Config.language == "ru"}
 <link href="https://dadata.ru/static/css/lib/suggestions-15.7.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <!--[if lt IE 10]>
@@ -128,13 +129,11 @@ $(this).parent().addClass("selected");
 <![endif]-->
 <script type="text/javascript" src="https://dadata.ru/static/js/lib/jquery.suggestions-15.7.min.js"></script>
 <script type="text/javascript">
-
-
 (function($) {
 
-// DaData Suggestions 
+// DaData.Ru Suggestions 
 
-var token = "d54b2e521766960e89c4c5f871483b33eae9a364";
+var token = "{$dadata_api_key}";
 
 {literal}
 $("#bill_name").suggestions({
@@ -198,8 +197,8 @@ function showSelected(suggestion) {
 
 })(jQuery);
   
-
 </script>
+{/if}
 <div id="checkout">
 <form action="{$checkout_form_action}" method="post" id="contentform" class="form-horizontal">
   <div id="bill_information">
@@ -508,7 +507,8 @@ function smarty_function_checkout($params, $template)
 		'order' => $order['Order'],
 		'order_comment' => $order['OrderComment']['comment'],
 		'customer' => $customer,
-		'checkout_form_action' => BASE . '/orders/confirmation/'
+		'checkout_form_action' => BASE . '/orders/confirmation/',
+		'dadata_api_key' => $config['DADATA_API_KEY']
 	);
 	
 	$display_template = $Smarty->load_template($params,'checkout');
