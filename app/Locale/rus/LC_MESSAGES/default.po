@@ -263,7 +263,7 @@ msgstr "Содержание"
 
 #: /controllers/contents_controller.php:446
 msgid "Unable to delete content item with children."
-msgstr "Не могу удалить, есть вложенные записи."
+msgstr "Невозможно удалить, есть вложенные записи. Сначала удалите записи внутри."
 
 #: /controllers/contents_controller.php:451
 msgid "Deleted a content item."
