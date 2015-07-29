@@ -12,6 +12,8 @@ $template = '
 <script type="text/javascript">
 $(function () {
 
+  $("#ship_phone").mask("(999) 999-99-99");
+
   $("#contentform :input:text:visible:enabled:first").focus();
 
   $("form#contentform :input").change(function() {
