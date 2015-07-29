@@ -121,6 +121,85 @@ $(this).parent().addClass("selected");
 
   });
 </script>
+<link href="https://dadata.ru/static/css/lib/suggestions-15.7.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!--[if lt IE 10]>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.1/jquery.xdomainrequest.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="https://dadata.ru/static/js/lib/jquery.suggestions-15.7.min.js"></script>
+<script type="text/javascript">
+
+
+(function($) {
+
+// DaData Suggestions 
+
+var token = "d54b2e521766960e89c4c5f871483b33eae9a364";
+
+{literal}
+$("#bill_name").suggestions({
+  serviceUrl: "https://dadata.ru/api/v2",
+  token: token,
+  type: "NAME",
+  params: {
+    parts: ["NAME", "SURNAME"]
+  }
+});
+
+$("#email").suggestions({
+  serviceUrl: "https://dadata.ru/api/v2",
+  token: token,
+  type: "EMAIL",
+  params: {
+    parts: ["SURNAME"]
+  }
+});
+      
+$("#bill_line_1").suggestions({
+  serviceUrl: "https://dadata.ru/api/v2",
+  token: token,
+  type: "ADDRESS",
+  geoLocation: true,
+  onSelect: showSelected
+});
+
+function join(arr /*, separator */) {
+  var separator = arguments.length > 1 ? arguments[1] : " ";
+  return arr.filter(function(n){return n}).join(separator);
+}
+
+function showSelected(suggestion) {
+  var address = suggestion.data;
+  $("#bill_zip").val(address.postal_code);
+  if (address.region == "Москва" || address.region == "Санкт-Петербург") {
+  var reg = address.region;
+  } else {
+  var reg = join([
+    join([address.region, address.region_type], " "),
+    join([address.area_type, address.area], " ")
+  ]);
+  }
+  $("select#bill_state option").filter(function() {
+      return $(this).text() == reg; 
+  }).prop("selected", true);
+  
+  $("#bill_city").val(join([
+    join([address.city_type, address.city], " "),
+    join([address.settlement_type, address.settlement], " ")
+  ]));
+  //$("#bill_line_1").val(
+    //join([address.street_type, address.street], " "),
+    //join([address.house_type, address.house], " "),
+    //join([address.block_type, address.block], " "),
+    //join([address.flat_type, address.flat], " ")
+  //);
+}
+{/literal}
+
+})(jQuery);
+  
+
+</script>
 <div id="checkout">
 <form action="{$checkout_form_action}" method="post" id="contentform" class="form-horizontal">
   <div id="bill_information">
