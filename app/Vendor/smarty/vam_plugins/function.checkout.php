@@ -121,7 +121,7 @@ $(this).parent().addClass("selected");
 
   });
 </script>
-{if {$dadata_api_key} != "" and $smarty.session.Config.language == "ru"}
+{if $dadata_api_key != "" and $smarty.session.Config.language == "ru"}
 <link href="https://dadata.ru/static/css/lib/suggestions-15.7.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <!--[if lt IE 10]>
