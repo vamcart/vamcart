@@ -175,7 +175,7 @@ function showSelected(suggestion) {
   } else {
   var reg = join([
     join([address.region, address.region_type_full], " ")
-    //join([address.region, address.region_type_full], " "),
+    //join([address.region, address.region_type], " "),
     //join([address.area_type, address.area], " ")
   ]);
   }
