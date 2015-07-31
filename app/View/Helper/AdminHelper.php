@@ -191,7 +191,7 @@ $("#myTabSales a:first").tab("show"); // Select first tab
 		}
 		else
 		{
-			$button .= $this->Html->link($this->Html->image('', array('width' => '16')), 'javascript:void(0);', array('escape' => false));
+			$button .= $this->Html->link($this->Html->image('admin/transparency.png', array('width' => '16')), 'javascript:void(0);', array('escape' => false));
 		}
 		if($data['order'] > 1)
 		{
