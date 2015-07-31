@@ -104,9 +104,9 @@ else if($type == 'attr')
                                           ));  
     }
     if($attribute['Attribute']['id'] != 0)
-        echo $this->Admin->TableCells(array('',
+        echo $this->Admin->TableCells(array($this->Html->link($this->Html->tag('i', '',array('class' => 'cus-add')) . ' ' . __('Add'), '/attributes/admin_editor_attr/' . 'add/val/' . $attribute['Attribute']['id'], array('class' => 'btn btn-default', 'escape' => false)),
                                            '',    												        
-                                           array($this->Html->link($this->Html->image('admin/icons/new.png', array('title' => __('Add'), 'alt' => __('Add'))),'/attributes/admin_editor_attr/' . 'add/val/' . $attribute['Attribute']['id'], array('escape' => false)),array('align'=>'center'))
+                                           ''
                                            ));
     echo '</table>';
 

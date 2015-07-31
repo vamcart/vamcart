@@ -21,13 +21,13 @@ foreach ($content_data['Attribute'] AS $attribute)
                                        ,array($this->Admin->ActionButton('edit','/attributes/admin_editor_attr/' . 'edit/attr/' . $attribute['id'],__('Edit')) . $this->Admin->ActionButton('delete','/attributes/admin_editor_attr/' . 'delete/attr/' . $attribute['id'],__('Delete')),array('align'=>'center'))
                                   ));
 }
-echo $this->Admin->TableCells(array(''
+echo $this->Admin->TableCells(array($this->Html->link($this->Html->tag('i', '',array('class' => 'cus-add')) . ' ' . __('Add'), '/attributes/admin_editor_attr/' . 'add/attr/' . $content_data['Content']['id'], array('class' => 'btn btn-default', 'escape' => false))
                                    ,''
                                    ,''
                                    ,''
                                    ,''
                                    ,''
-                                   ,array($this->Html->link($this->Html->image('admin/icons/new.png', array('title' => __('Add'), 'alt' => __('Add'))),'/attributes/admin_editor_attr/' . 'add/attr/' . $content_data['Content']['id'], array('escape' => false)),array('align'=>'center'))
+                                   ,''
                               ));
 
 echo '</table>';
