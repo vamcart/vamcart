@@ -12,7 +12,9 @@ $template = '
 <script type="text/javascript">
 $(function () {
 
+{if $phone_mask != ""}
   $("#phone").mask("{$phone_mask}");
+{/if}  
 
   $("#contentform :input:text:visible:enabled:first").focus();
 
