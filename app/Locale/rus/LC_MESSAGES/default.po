@@ -1931,6 +1931,10 @@ msgstr "Получатель писем со страницы обратной �
 msgid "DaData API Key"
 msgstr "DaData.Ru API ключ подсказок"
 
+#: /views/configuration/admin_edit.ctp:40
+msgid "Phone Input Mask"
+msgstr "Маска для телефона"
+
 #: /views/contents/admin.ctp:18
 #: /views/contents/admin_core_pages.ctp:16
 #: /views/countries/admin.ctp:20

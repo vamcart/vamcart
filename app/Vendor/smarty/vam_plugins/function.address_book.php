@@ -12,7 +12,7 @@ $template = '
 <script type="text/javascript">
 $(function () {
 
-  $("#ship_phone").mask("(999) 999-99-99");
+  $("#ship_phone").mask("{$phone_mask}");
 
   $("#contentform :input:text:visible:enabled:first").focus();
 
@@ -264,7 +264,8 @@ function smarty_function_address_book($params, $template)
 	$assignments = array(
 		'errors' => $errors,
 		'form_data' => $customer,
-		'dadata_api_key' => $config['DADATA_API_KEY']
+		'dadata_api_key' => $config['DADATA_API_KEY'],
+		'phone_mask' => $config['PHONE_MASK']
 	);
 
 	$Smarty->display($display_template, $assignments);

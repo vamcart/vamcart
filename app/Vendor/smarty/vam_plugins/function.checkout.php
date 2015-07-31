@@ -12,7 +12,7 @@ $template = '
 <script type="text/javascript">
 $(function () {
 
-  $("#phone").mask("(999) 999-99-99");
+  $("#phone").mask("{$phone_mask}");
 
   $("#contentform :input:text:visible:enabled:first").focus();
 
@@ -509,7 +509,8 @@ function smarty_function_checkout($params, $template)
 		'order_comment' => $order['OrderComment']['comment'],
 		'customer' => $customer,
 		'checkout_form_action' => BASE . '/orders/confirmation/',
-		'dadata_api_key' => $config['DADATA_API_KEY']
+		'dadata_api_key' => $config['DADATA_API_KEY'],
+		'phone_mask' => $config['PHONE_MASK']
 	);
 	
 	$display_template = $Smarty->load_template($params,'checkout');
