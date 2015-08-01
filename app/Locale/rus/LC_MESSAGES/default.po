@@ -2519,8 +2519,8 @@ msgid "Flag"
 msgstr "Флаг"
 
 #: /views/languages/admin_edit.ctp:27
-msgid "Flag Code"
-msgstr "Код флага"
+msgid "ISO Code"
+msgstr "ISO код"
 
 #: /views/layouts/admin.ctp:19
 msgid "VamShop Admin"

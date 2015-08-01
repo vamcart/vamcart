@@ -28,7 +28,7 @@ $this->Html->script(array(
 	               ));
 	echo $this->Form->input('Language.iso_code_2', 
 						array(
-   				   	'label' => __('Flag Code')
+   				   	'label' => __('ISO Code')
 	               ));
 	echo '<div class="clear"></div>';
 	echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit')) . $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'cancelbutton'));
