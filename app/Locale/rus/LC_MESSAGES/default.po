@@ -4947,6 +4947,54 @@ msgid "Yandex.Money Mode"
 msgstr "Режим работы"
 
 #: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money Payment Type"
+msgstr "Способ оплаты"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money Wallet"
+msgstr "Оплата из кошелька в Яндекс.Деньгах"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money Credit Card"
+msgstr "Оплата с произвольной банковской карты"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money Mobile Phone"
+msgstr "Платеж со счета мобильного телефона"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money Terminals"
+msgstr "Оплата наличными через кассы и терминалы"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money WebMoney"
+msgstr "Оплата из кошелька в системе WebMoney"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money Sberbank Online"
+msgstr "Оплата через Сбербанк: по смс или Сбербанк Онлайн"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money mPOS"
+msgstr "Оплата через мобильный терминал (mPOS)"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money AlfaClick"
+msgstr "Оплата через Альфа-Клик"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money MasterPass"
+msgstr "Оплата через MasterPass"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money PSB"
+msgstr "Оплата через интернет-банк Промсвязьбанка"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money QIWI"
+msgstr "Оплата через QIWI Wallet"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
 msgid "Test Mode"
 msgstr "Тестовый режим"
 

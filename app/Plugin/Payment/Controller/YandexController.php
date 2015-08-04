@@ -42,6 +42,10 @@ class YandexController extends PaymentAppController {
 		$new_module['PaymentMethodValue'][3]['key'] = 'mode';
 		$new_module['PaymentMethodValue'][3]['value'] = '0';
 
+		$new_module['PaymentMethodValue'][4]['payment_method_id'] = $this->PaymentMethod->id;
+		$new_module['PaymentMethodValue'][4]['key'] = 'payment_type';
+		$new_module['PaymentMethodValue'][4]['value'] = 'PC';
+
 		$this->PaymentMethod->saveAll($new_module);
 
 		$this->Session->setFlash(__('Module Installed'));
@@ -76,6 +80,9 @@ class YandexController extends PaymentAppController {
 
 		$yandex_settings_mode = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'mode')));
 		$yandex_mode = $yandex_settings_mode['PaymentMethodValue']['value'];
+
+		$yandex_settings_payment_type = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'payment_type')));
+		$yandex_payment_type = $yandex_settings_payment_type['PaymentMethodValue']['value'];
 		
 		if ($yandex_mode == '0') {
 			$action_url = 'https://demomoney.yandex.ru/eshop.xml';
@@ -96,7 +103,7 @@ class YandexController extends PaymentAppController {
 			<input type="hidden" name="shopFailURL" value="' . $fail_url . '">
 			<input type="hidden" name="cps_email" value="' . $order['Order']['phone'] . '">
 			<input type="hidden" name="cms_name" value="vamshop">
-			<input type="hidden" name="paymentType" value="PC">
+			<input type="hidden" name="paymentType" value="'.$yandex_payment_type.'">
 			<input type="hidden" name="cps_phone" value="' . $order['Order']['email'] . '">';
 						
 		$content .= '
