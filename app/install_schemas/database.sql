@@ -55,7 +55,8 @@ INSERT INTO `configurations` (`id`, `configuration_group_id`, `key`, `value`, `t
 (19,'3','SEND_CONTACT_US_EMAIL', 'vam@test.com','text', '', 'Send contact us emails to','','19'),
 (20,'1','AJAX_ENABLE', '1', 'select', '0,1', 'Ajax Enable', '', '20'),
 (21,'1','DADATA_API_KEY', 'd54b2e521766960e89c4c5f871483b33eae9a364','text', '', 'DaData API Key','','21'),
-(22,'1','PHONE_MASK', '(999) 999-99-99','text', '', 'Phone Input Mask','','22');
+(22,'1','PHONE_MASK', '(999) 999-99-99','text', '', 'Phone Input Mask','','22'),
+(23,'1','SMS_EMAIL', '','text', '', 'SMS Email Gateway','','23');
 
 DROP TABLE IF EXISTS contents;
 CREATE TABLE `contents` (

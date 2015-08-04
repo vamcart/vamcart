@@ -1935,6 +1935,10 @@ msgstr "DaData.Ru API ключ подсказок"
 msgid "Phone Input Mask"
 msgstr "Маска для телефона"
 
+#: /views/configuration/admin_edit.ctp:40
+msgid "SMS Email Gateway"
+msgstr "SMS Email шлюз"
+
 #: /views/contents/admin.ctp:18
 #: /views/contents/admin_core_pages.ctp:16
 #: /views/countries/admin.ctp:20
