@@ -97,14 +97,15 @@ class YandexController extends PaymentAppController {
 			<input type="hidden" name="shopId" value="'.$yandex_shopid.'">
 			<input type="hidden" name="scid" value="'.$yandex_scid.'">
 			<input type="hidden" name="sum" value="' . $order['Order']['total'] . '">
-			<input type="hidden" name="customerNumber" value="' . $order['Order']['total'] . '">
+			<input type="hidden" name="customerNumber" value="' . $_SESSION['Customer']['order_id'] . '">
 			<input type="hidden" name="orderNumber" value="' . $_SESSION['Customer']['order_id'] . '">
 			<input type="hidden" name="shopSuccessURL" value="' . $success_url . '">
 			<input type="hidden" name="shopFailURL" value="' . $fail_url . '">
-			<input type="hidden" name="cps_email" value="' . $order['Order']['phone'] . '">
+			<input type="hidden" name="cps_email" value="' . $order['Order']['email'] . '">
+			<input type="hidden" name="cps_phone" value="' . $order['Order']['phone'] . '">
 			<input type="hidden" name="cms_name" value="vamshop">
 			<input type="hidden" name="paymentType" value="'.$yandex_payment_type.'">
-			<input type="hidden" name="cps_phone" value="' . $order['Order']['email'] . '">';
+			';
 						
 		$content .= '
 			<button class="btn btn-default" type="submit" value="{lang}Process to Payment{/lang}"><i class="fa fa-check"></i> {lang}Process to Payment{/lang}</button>
