@@ -127,7 +127,7 @@ class YandexController extends PaymentAppController {
 	{
 		$this->layout = false;
       $yandex_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'secret_key')));
-      $yandex_secret_key = $webmoney_data['PaymentMethodValue']['value'];
+      $yandex_secret_key = $yandex_data['PaymentMethodValue']['value'];
 		$order = $this->Order->read(null,$_POST['orderNumber']);
 		$crc = $_POST['md5'];
 		$hash = strtoupper(md5($_POST['action'].';'.$_POST['orderSumAmount'].';'.$_POST['orderSumCurrencyPaycash'].';'.$_POST['orderSumBankPaycash'].';'.$_POST['shopId'].';'.$_POST['invoiceId'].';'.$_POST['customerNumber'].';'.$yandex_secret_key));
