@@ -38,6 +38,10 @@ class YandexController extends PaymentAppController {
 		$new_module['PaymentMethodValue'][2]['key'] = 'secret_key';
 		$new_module['PaymentMethodValue'][2]['value'] = '';
 
+		$new_module['PaymentMethodValue'][3]['payment_method_id'] = $this->PaymentMethod->id;
+		$new_module['PaymentMethodValue'][3]['key'] = 'mode';
+		$new_module['PaymentMethodValue'][3]['value'] = '0';
+
 		$this->PaymentMethod->saveAll($new_module);
 
 		$this->Session->setFlash(__('Module Installed'));
@@ -70,10 +74,19 @@ class YandexController extends PaymentAppController {
 		$yandex_settings_scid = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'scid')));
 		$yandex_scid = $yandex_settings_scid['PaymentMethodValue']['value'];
 
+		$yandex_settings_mode = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'mode')));
+		$yandex_mode = $yandex_settings_mode['PaymentMethodValue']['value'];
+		
+		if ($yandex_mode == '0') {
+			$action_url = 'https://demomoney.yandex.ru/eshop.xml';
+		} else {
+			$action_url = 'https://money.yandex.ru/eshop.xml';
+		}
+
 		$success_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/orders/place_order/';
 		$fail_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/page/checkout' . $config['URL_EXTENSION'];
 		
-		$content = '<form action="https://money.yandex.ru/eshop.xml" method="post">
+		$content = '<form action="'.$action_url.'">
 			<input type="hidden" name="shopId" value="'.$yandex_shopid.'">
 			<input type="hidden" name="scid" value="'.$yandex_scid.'">
 			<input type="hidden" name="sum" value="' . $order['Order']['total'] . '">
@@ -122,14 +135,9 @@ class YandexController extends PaymentAppController {
 		$inv_id = $_POST['orderNumber'];
 		$order_summ = number_format($order['Order']['total'], 2);
 		
-		$hash = strtoupper(md5($_POST['action'].';'.$_POST['orderSumAmount'].';'.$_POST['orderSumCurrencyPaycash'].';'.$_POST['orderSumBankPaycash'].';'.$_POST['shopId'].';'.$_POST['invoiceId'].';'.$_POST['customerNumber'].';'.MODULE_PAYMENT_YANDEX_MERCHANT_SECRET_KEY));
-
 		$yandex_settings_shopid = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'shopid')));
 		$yandex_shopid = $yandex_settings_shopid['PaymentMethodValue']['value'];
 
-		$yandex_settings_scid = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'scid')));
-		$yandex_scid = $yandex_settings_scid['PaymentMethodValue']['value'];
-		
 		if ($_POST['action'] == 'process' or $_POST['action'] == 'checkOrder') {
 		if ($hash == $crc) {
 		echo '<?xml version="1.0" encoding="UTF-8"?>

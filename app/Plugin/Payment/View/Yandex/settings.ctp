@@ -23,4 +23,13 @@ echo $this->Form->input('yandex.secret_key', array(
 	'type' => 'text',
 	'value' => $data['PaymentMethodValue'][2]['value']
 	));
+
+echo $this->Form->input('yandex.mode', array(
+	'label' => __('Yandex.Money Mode'),
+	'type' => 'radio',
+	'options' => array('0' => __('Test Mode'), '1' => __('Production Mode')),
+	'legend' => false,
+	'value' => $data['PaymentMethodValue'][3]['value']
+	));
+
 ?>

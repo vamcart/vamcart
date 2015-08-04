@@ -4942,6 +4942,18 @@ msgstr "Номер витрины магазина в ЦПП (scid). Выдае�
 msgid "Yandex.Money shopPassword"
 msgstr "Пароль магазина в ЦПП (shopPassword)."
 
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money Mode"
+msgstr "Режим работы"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Test Mode"
+msgstr "Тестовый режим"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Production Mode"
+msgstr "Рабочий режим"
+
 #: /app/View/Search/admin_global_search.ctp:22
 msgid "ContentDescription"
 msgstr "Описание"
