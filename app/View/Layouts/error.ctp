@@ -48,7 +48,7 @@
 <!-- Header -->
 <div class="row-fluid">
 	<div class="col-sm-4">
-		<?php echo $this->Html->image('admin/logo.png', array('alt' => __('VamShop',true)))?>
+		<?php echo $this->Html->link($this->Html->image('admin/logo.png', array('alt' => __('VamShop',true))), FULL_BASE_URL . BASE, array('escape'=>false)); ?>
 	</div>
 </div>
 <!-- /Header -->
