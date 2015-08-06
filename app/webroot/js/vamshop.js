@@ -91,7 +91,7 @@ var currentTallest = 0,
 }
 
 if ($(window).width() > 767) {
-$(document).ready(function(){
+$(window).load(function() {
   equalheight('.featured-categories .thumbnails .thumbnail');
   equalheight('.shop-products .thumbnails .thumbnail');
 });
