@@ -59,6 +59,8 @@ $(document).ready(function(){
 // Responsive equal height
 // http://codepen.io/micahgodbolt/pen/FgqLc
 
+$(document).ready(function(){
+
 equalheight = function(container){
 
 var currentTallest = 0,
@@ -102,7 +104,13 @@ $(window).resize(function(){
 });
 }
 
+});
+
+
 // Make ColorBox responsive
+
+$(document).ready(function(){
+
 	jQuery.colorbox.settings.maxWidth  = '95%';
 	jQuery.colorbox.settings.maxHeight = '95%';
 
@@ -120,3 +128,5 @@ $(window).resize(function(){
 
 	// Resize ColorBox when resizing window or changing mobile device orientation
 	jQuery(window).resize(resizeColorBox);
+
+});
