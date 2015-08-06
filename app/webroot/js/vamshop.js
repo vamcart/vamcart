@@ -59,8 +59,6 @@ $(document).ready(function(){
 // Responsive equal height
 // http://codepen.io/micahgodbolt/pen/FgqLc
 
-$(document).ready(function(){
-
 equalheight = function(container){
 
 var currentTallest = 0,
@@ -93,7 +91,7 @@ var currentTallest = 0,
 }
 
 if ($(window).width() > 767) {
-$(window).load(function() {
+$(document).ready(function(){
   equalheight('.featured-categories .thumbnails .thumbnail');
   equalheight('.shop-products .thumbnails .thumbnail');
 });
@@ -103,9 +101,6 @@ $(window).resize(function(){
   equalheight('.shop-products .thumbnails .thumbnail');
 });
 }
-
-});
-
 
 // Make ColorBox responsive
 
