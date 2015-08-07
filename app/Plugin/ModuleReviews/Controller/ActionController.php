@@ -21,7 +21,7 @@ class ActionController extends ModuleReviewsAppController {
 	
 	public function create ()
 	{
-			global $content, $config, $filter_list;
+			global $content, $config, $filter_list, $sort_by;
 
 		if(!empty($_POST) && !$this->request->is('ajax'))
 		{
@@ -70,8 +70,8 @@ class ActionController extends ModuleReviewsAppController {
 			
 			$this->ModuleReview->save($new_review);
 			
-			Cache::delete('vam_content_' . $_SESSION['Customer']['customer_group_id'] . '_' . $_SESSION['Customer']['language_id'] . '_' . $content['Content']['alias'], 'catalog');
-			Cache::delete('vam_page_content_' . $_SESSION['Customer']['customer_group_id'] . '_' . $content['Content']['id'] . '_' . $_SESSION['Customer']['language_id']. '_' . $_SESSION['Customer']['currency_id']. '_' . $_SESSION['Customer']['page'] . (isset($filter_list)?md5(serialize($filter_list)):''), 'catalog');
+			Cache::delete('vam_content_' . $_SESSION['Customer']['customer_group_id'] . '_' . $_SESSION['Customer']['language_id'] . '_' . $_SESSION['Customer']['currency_id'] . '_' . $content['Content']['alias'], 'catalog');
+			Cache::delete('vam_page_content_' . $_SESSION['Customer']['customer_group_id'] . '_' . $content['Content']['id'] . '_' . $_SESSION['Customer']['language_id']. '_' . $_SESSION['Customer']['currency_id']. '_' . (isset($_SESSION['Customer']['page'])?'_'.$_SESSION['Customer']['page']:'') . (isset($sort_by)?'_'.$sort_by:'') . (isset($filter_list)?md5(serialize($filter_list)):''), 'catalog');
 
 			$this->redirect('/' . $content['ContentType']['name'] . '/' . $content['Content']['alias'] . $config['URL_EXTENSION']);
 		}
