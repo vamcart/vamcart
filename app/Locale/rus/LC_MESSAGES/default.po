@@ -1115,6 +1115,10 @@ msgid "Reviews"
 msgstr "Отзывы"
 
 #: /plugins/module_reviews/controllers/setup_controller.php:32
+msgid "Your review has successfully added."
+msgstr "Ваш отзыв успешно добавлен."
+
+#: /plugins/module_reviews/controllers/setup_controller.php:32
 msgid "Rating"
 msgstr "Оценка"
 
