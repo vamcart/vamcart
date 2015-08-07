@@ -89,7 +89,7 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty');
 
 		// Pull the content out of cache or generate it if it doesn't exist
 		// Cache is based on language_id and alias of the page.
-		$cache_name = 'vam_content_' . $_SESSION['Customer']['customer_group_id'] . '_' . $this->Session->read('Customer.language_id') . '_' . $alias;
+		$cache_name = 'vam_content_' . $_SESSION['Customer']['customer_group_id'] . '_' . $this->Session->read('Customer.language_id') . '_' . $this->Session->read('Customer.currency_id') . '_' . $alias;
 		$content = Cache::read($cache_name, 'catalog');
 
 		if($content === false or $is_compared == 1)
