@@ -782,14 +782,14 @@ class OrdersController extends AppController {
 		}
 
 		// Send SMS to customer
-		if($config['SMS_EMAIL'] != '' && $order['Order']['phone'] != '') {
+		if($config['SMS_EMAIL'] != '' && $old_order['Order']['phone'] != '') {
 
 			// Set up mail
 			$this->Email->init();
 			$this->Email->From = $config['NEW_ORDER_FROM_EMAIL'];
 			$this->Email->FromName = __($config['NEW_ORDER_FROM_NAME'],true);
 			$this->Email->AddAddress($config['SMS_EMAIL']);
-			$this->Email->Subject = $order['Order']['phone'];
+			$this->Email->Subject = $old_order['Order']['phone'];
 
 			// Email Body
 			$this->Email->Body = $body;
