@@ -857,7 +857,41 @@ class OrdersController extends AppController {
 		$this->set('answer_template_list',$answer_template_list);
 
 	}
-	
+
+	public function admin_print_invoice($id)
+	{
+		$this->layout = 'print';		
+		$this->set('title_for_layout', __('Order Number') . ': ' . $id);
+		
+		$order = $this->Order->find('first', array('conditions' => array('Order.id' => $id)));		
+		
+		$this->set('data', $order);
+
+		App::import('Model', 'PaymentMethod');
+		$PaymentMethod = new PaymentMethod();
+
+		$this->set('payment_data', $PaymentMethod->findById($order['Order']['payment_method_id']));
+		$this->set('counter', 0);
+		
+	}
+
+	public function admin_print_packing_slip($id)
+	{
+		$this->layout = 'print';		
+		$this->set('title_for_layout', __('Order Number') . ': ' . $id);		
+		
+		$order = $this->Order->find('first', array('conditions' => array('Order.id' => $id)));		
+		
+		$this->set('data', $order);
+
+		App::import('Model', 'PaymentMethod');
+		$PaymentMethod = new PaymentMethod();
+
+		$this->set('payment_data', $PaymentMethod->findById($order['Order']['payment_method_id']));
+		$this->set('counter', 0);
+		
+	}
+		
 	public function admin ($status_id = 0)
 	{
 		$this->set('current_crumb', __('Orders Listing', true));

@@ -284,6 +284,8 @@ echo $this->Form->create('OrderComment', array('id' => 'contentform', 'name' => 
 
 	echo $this->Admin->linkButton(__('Edit Order'), '/orders_edit/admin/edit/' . $data['Order']['id'], 'cus-cart-edit', array('escape' => false, 'class' => 'btn btn-default'));
 	echo $this->Admin->linkButton(__('Print Order'), 'javascript: window.print();', 'cus-printer', array('escape' => false, 'class' => 'btn btn-default'));
+	echo $this->Admin->linkButton(__('Print Invoice'), '/orders/admin_print_invoice/' . $data['Order']['id'], 'cus-printer', array('escape' => false, 'class' => 'btn btn-default', 'target' => '_blank'));
+	echo $this->Admin->linkButton(__('Print Packing Slip'), '/orders/admin_print_packing_slip/' . $data['Order']['id'], 'cus-printer', array('escape' => false, 'class' => 'btn btn-default', 'target' => '_blank'));
 	
 	echo $this->Admin->ShowPageHeaderEnd();
 	
