@@ -96,6 +96,7 @@ class InvoiceController extends PaymentAppController {
 	{
 		$content = '
 		<a class="button" href="http://'.$_SERVER['HTTP_HOST'] .  BASE . '/payment/invoice/print_order/' . $_SESSION['Customer']['order_id'] . '" target="_blank"><span>{lang}Print Invoice{/lang}</span></a><br />
+		<a class="button" href="http://'.$_SERVER['HTTP_HOST'] .  BASE . '/payment/invoice/print_packing_slip/' . $_SESSION['Customer']['order_id'] . '" target="_blank"><span>{lang}Print Packing Slip{/lang}</span></a><br />
 		<form action="' . BASE . '/orders/place_order/" method="post">
 		<button class="btn btn-default" type="submit" value="{lang}Confirm Order{/lang}"><i class="fa fa-check"></i> {lang}Confirm Order{/lang}</button>
 		</form>';
@@ -108,6 +109,17 @@ class InvoiceController extends PaymentAppController {
 	
 	
 	public function print_order($id)
+	{
+		$this->layout = 'print';		
+		$this->set('title_for_layout', __('Order Number') . ': ' . $_SESSION['Customer']['order_id']);		
+		
+		$this->set('data', $this->Order->find('first', array('conditions' => array('Order.id' => $_SESSION['Customer']['order_id']))));
+		$this->set('payment_data', $this->PaymentMethod->findByAlias($this->module_name));
+		$this->set('counter', 0);
+		
+	}
+
+	public function print_packing_slip($id)
 	{
 		$this->layout = 'print';		
 		$this->set('title_for_layout', __('Order Number') . ': ' . $_SESSION['Customer']['order_id']);		

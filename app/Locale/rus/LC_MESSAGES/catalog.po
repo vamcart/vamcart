@@ -339,6 +339,9 @@ msgstr "Цена / шт."
 msgid "Print Invoice"
 msgstr "Распечатать счёт"
 
+msgid "Print Packing Slip"
+msgstr "Распечатать накладную"
+
 msgid "Print Order"
 msgstr "Распечатать квитанцию"
 

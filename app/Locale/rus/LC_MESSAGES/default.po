@@ -3235,6 +3235,10 @@ msgid "Invoice #"
 msgstr "Счёт №"
 
 #: /plugins/payment/views/invoice/settings.ctp:52
+msgid "Packing Slip #"
+msgstr "Накладная №"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
 msgid "on"
 msgstr "от"
 
@@ -3257,6 +3261,14 @@ msgstr "Директор"
 #: /plugins/payment/views/invoice/settings.ctp:52
 msgid "Accountant"
 msgstr "Главный бухгалтер"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "Packed by"
+msgstr "Отпустил"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "Checked by"
+msgstr "Получил"
 
 #: /plugins/payment/views/invoice/settings.ctp:52
 msgid "Last Name"
@@ -3857,6 +3869,14 @@ msgstr "Редактировать заказ"
 #: /View/Order/admin_view.ctp:61
 msgid "Print Order"
 msgstr "Распечатать заказ"
+
+#: /View/Order/admin_view.ctp:61
+msgid "Print Invoice"
+msgstr "Распечатать счёт"
+
+#: /View/Order/admin_view.ctp:61
+msgid "Print Packing Slip"
+msgstr "Распечатать накладную"
 
 #: /app/controllers/OrdersEditController.php:61
 msgid "Order Edit"
