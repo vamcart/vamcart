@@ -80,6 +80,9 @@ class AppController extends Controller {
 	public function setDefaultItem($id)
 	{
 
+
+		$this->Content->unbindAll();	
+
 		$current_model = $this->modelClass;
 		$current_controller = $this->params['controller'];
 		$grab_info = $this->$current_model->find('all');
