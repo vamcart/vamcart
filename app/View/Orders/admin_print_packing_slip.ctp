@@ -35,6 +35,12 @@
 <p>
 <b><?php echo __('Company Address'); ?></b> <?php echo $data['Order']['bill_line_1']; ?><br />
 <?php } ?>
+<?php if ($data['Order']['phone'] != '') { ?>
+<p><b><?php echo __('Phone'); ?></b> <?php echo $data['Order']['phone']; ?></p>
+<?php } ?>
+<?php if ($data['Order']['email'] != '') { ?>
+<p><b><?php echo __('Email'); ?></b> <?php echo $data['Order']['email']; ?></p>
+<?php } ?>
 <hr>
 <p><b><font size="5"><?php echo __('Packing Slip #'); ?> <?php echo $data['Order']['id']; ?> <?php echo __('on'); ?> <?php echo $data['Order']['created']; ?></font></b></p>
 <p>&nbsp;</p>
