@@ -95,8 +95,8 @@ class InvoiceController extends PaymentAppController {
 	public function before_process () 
 	{
 		$content = '
-		<a class="button" href="http://'.$_SERVER['HTTP_HOST'] .  BASE . '/payment/invoice/print_invoice/' . $_SESSION['Customer']['order_id'] . '" target="_blank"><span>{lang}Print Invoice{/lang}</span></a><br />
-		<a class="button" href="http://'.$_SERVER['HTTP_HOST'] .  BASE . '/payment/invoice/print_packing_slip/' . $_SESSION['Customer']['order_id'] . '" target="_blank"><span>{lang}Print Packing Slip{/lang}</span></a><br />
+		<a class="btn btn-default" href="http://'.$_SERVER['HTTP_HOST'] .  BASE . '/payment/invoice/print_invoice/' . $_SESSION['Customer']['order_id'] . '" target="_blank"><i class="fa fa-print"></i> {lang}Print Invoice{/lang}</a>
+		<a class="btn btn-default" href="http://'.$_SERVER['HTTP_HOST'] .  BASE . '/payment/invoice/print_packing_slip/' . $_SESSION['Customer']['order_id'] . '" target="_blank"><i class="fa fa-print"></i> {lang}Print Packing Slip{/lang}</a><br /><br />
 		<form action="' . BASE . '/orders/place_order/" method="post">
 		<button class="btn btn-default" type="submit" value="{lang}Confirm Order{/lang}"><i class="fa fa-check"></i> {lang}Confirm Order{/lang}</button>
 		</form>';
