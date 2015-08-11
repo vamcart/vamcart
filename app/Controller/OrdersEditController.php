@@ -424,7 +424,7 @@ class OrdersEditController extends AppController
                             ,'order_status_id' => '1'
                             ,'shipping_method_id' => $order['ship_metd']['id_selected']
                             ,'payment_method_id' => $order['pay_metd']['id_selected']
-                            ,'shipping' => $order['shipping']
+                            ,'shipping' => 0
                             ,'tax' => $order['tax']
                             ,'total' => $order['total']
                             ,'bill_name' => $order['bill_inf']['Customer_Name']
