@@ -868,6 +868,11 @@ class ContentsController extends AppController {
 		$last_content_id = $this->Content->find('first', array('order' => array('Content.id DESC')));
 		$last_content_id = $last_content_id['Content']['id']+1;
 		$this->set('last_content_id', $last_content_id);
+		$this->set('parent_id', $parent_id);
+
+		if(isset($this->data['ContentCategories']['content_id']) and $this->data['ContentCategories']['content_id'] > 0)
+			$this->redirect('/contents/admin/0/' . $this->data['ContentCategories']['content_id']);
+
 	}
 
 	public function admin_parents_tree()

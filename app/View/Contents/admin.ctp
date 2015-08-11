@@ -85,6 +85,26 @@ echo $this->Html->css('jquery-ui.css', null, array('inline' => false));
 
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-table');
 
+echo '<table class="contentHeader">';
+echo '<tr><td>';
+echo '<div class="text-left">';
+echo $this->Form->create('ContentCategories', array('action' => '/contents/admin/0/', 'url' => '/contents/admin/0/', 'type' => 'post'));
+echo $this->Form->input('content_id', 
+			array(
+				'type' => 'select',
+	   		'label' => false,
+				'options' => $this->requestAction('/contents/admin_parents_tree/'),
+				'escape' => false,
+				'onchange' => "this.form.submit()",
+				'empty' => array(0 => __('All Categories')),
+				'selected' => $parent_id
+         ));
+echo $this->Form->end();
+echo '</div>';
+echo '</td>';
+echo '</tr>';
+echo '</table>';
+
 echo $this->Form->create('Content', array('action' => '/contents/admin_modify_selected/', 'url' => '/contents/admin_modify_selected/', 'onsubmit' => 'return beforeSubmit(this);'));
 
 echo '<table class="contentTable">';
