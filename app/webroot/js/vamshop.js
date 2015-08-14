@@ -100,3 +100,13 @@ $(document).ready(function(){
 	jQuery(window).resize(resizeColorBox);
 
 });
+
+// Select tab by url
+
+$(document).ready(function(event) {
+    $('ul.nav.nav-tabs a:first').tab('show'); // Select first tab
+    $('ul.nav.nav-tabs a[href="'+ window.location.hash+ '"]').tab('show'); // Select tab by name if provided in location hash
+    $('ul.nav.nav-tabs a[data-toggle="tab"]').on('shown', function (event) {    // Update the location hash to current tab
+        window.location.hash= event.target.hash;
+    })
+});
