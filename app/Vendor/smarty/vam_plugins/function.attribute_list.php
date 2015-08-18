@@ -13,7 +13,7 @@ function default_template_attribute_list()
                     {foreach from=$attr.element_list item=attr_element}
                         {if isset($attr_element.values_attribute)}
                             {if $attr_element@first} <ul class="specs"> {/if}                
-                                <li>{value_filter template=$attr_element.template.template_catalog 
+                                <li class="{cycle values="odd,even"}">{value_filter template=$attr_element.template.template_catalog 
                                                   id_attribute=$attr_element.values_attribute.id 
                                                   name_attribute=$attr_element.name 
                                                   values_attribute=$attr_element.values_attribute}</li>
@@ -24,7 +24,7 @@ function default_template_attribute_list()
                     {foreach from=$attr.element_list item=attr_element}
                         {if isset($attr_element.values_attribute)}
                             {if $attr_element@first} <ul class="specs"> {/if}                
-                                <li>{value_filter template=$attr_element.template.template_product 
+                                <li class="{cycle values="odd,even"}">{value_filter template=$attr_element.template.template_product 
                                                   id_attribute=$attr_element.values_attribute.id 
                                                   name_attribute=$attr_element.name 
                                                   values_attribute=$attr_element.values_attribute}</li>
@@ -44,13 +44,13 @@ function default_template_attribute_list()
                     <form id="set_attr_form" method="post" action={$base_content}>
                     {foreach from=$attr.element_list item=attr_element}
                         {if $attr_element@first}<ul class="specs">{/if}                     
-                        <li>{if $attr_element.make}<b>{/if}
+                        <li class="{cycle values="odd,even"}">{if $attr_element.make}<b>{/if}
                                 {$attr_element.name}:
                             {if $attr_element.make}</b>{/if}                                
                                 {$attr_element.values_attribute.name}
                         <ul class="attributes">
                         {foreach from=$attr_element.group_attributes item=attr_val}                        
-                            <li>
+                            <li class="{cycle values="odd,even"}">
                                 {if $attr_val.make}<b>{/if}
                                     <a class="confirm" href={$attr_val.content_chng_url} onclick=\'$("#attr{$attr_val.values_attribute.id}").attr("value","1");\'> {$attr_val.values_attribute.name} </a>
                                     <input id="attr{$attr_val.values_attribute.id}" name="data[set_attr][{$attr_val.values_attribute.id}]" type="hidden" />
