@@ -93,26 +93,31 @@ $this->Html->css(array(
 	echo $this->Html->scriptBlock('
         CodeMirror.fromTextArea(document.getElementById("code_template_filter"), {
           mode: "text/html",
+          viewportMargin: Infinity,
           lineNumbers: true,
           lineWrapping: true
         });
         CodeMirror.fromTextArea(document.getElementById("code_template_editor"), {
           mode: "text/html",
+          viewportMargin: Infinity,
           lineNumbers: true,
           lineWrapping: true
         });
         CodeMirror.fromTextArea(document.getElementById("code_template_catalog"), {
           mode: "text/html",
+          viewportMargin: Infinity,
           lineNumbers: true,
           lineWrapping: true
         });
         CodeMirror.fromTextArea(document.getElementById("code_template_product"), {
           mode: "text/html",
+          viewportMargin: Infinity,
           lineNumbers: true,
           lineWrapping: true
         });
         CodeMirror.fromTextArea(document.getElementById("code_template_compare"), {
           mode: "text/html",
+          viewportMargin: Infinity,
           lineNumbers: true,
           lineWrapping: true
         });

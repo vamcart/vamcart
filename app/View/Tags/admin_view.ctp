@@ -67,6 +67,7 @@ if(isset($default_template))
 echo $this->Html->scriptBlock('
 var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   mode: "text/html",
+  viewportMargin: Infinity,
   lineNumbers: true,
   lineWrapping: true
 });

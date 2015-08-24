@@ -42,6 +42,7 @@ $this->Html->css(array(
 	echo $this->Html->scriptBlock('
 var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
   mode: "text/html",
+  viewportMargin: Infinity,
   lineNumbers: true,
   lineWrapping: true
 });
