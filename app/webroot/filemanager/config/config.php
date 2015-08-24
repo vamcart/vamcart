@@ -1,17 +1,18 @@
 <?php
-  if (isset($_GET['akey'])) {
-    session_name($_GET['akey']);
+  //if (isset($_GET['akey'])) {
+    session_name('vamshop');
     session_start();
     if (isset($_SESSION['User']['username'])) {
-      $auth = 1;
+      $_SESSION['auth'] = 1;
     } else {
-      $auth = 0;
+      $_SESSION['auth'] = 0;
     }
-  } else {
-    $auth = 0;
-  }
+  //} else {
+    //session_start();
+    //$_SESSION['auth'] = 0;
+  //}
 
-if ($auth == 0) die();
+if ($_SESSION['auth'] == 0) die();
   
 mb_internal_encoding('UTF-8');
 date_default_timezone_set('Europe/Moscow');
@@ -34,7 +35,7 @@ date_default_timezone_set('Europe/Moscow');
 |
 */
 
-define('USE_ACCESS_KEYS', false); // TRUE or FALSE
+define('USE_ACCESS_KEYS', true); // TRUE or FALSE
 
 /*
 |--------------------------------------------------------------------------
@@ -118,7 +119,7 @@ $config = array(
 	|
 	*/
 
-	'access_keys' => array(),
+	'access_keys' => array('vamshop'),
 
 	//--------------------------------------------------------------------------------------------------------
 	// YOU CAN COPY AND CHANGE THESE VARIABLES INTO FOLDERS config.php FILES TO CUSTOMIZE EACH FOLDER OPTIONS
