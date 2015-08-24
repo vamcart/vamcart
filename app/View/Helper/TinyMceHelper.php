@@ -28,8 +28,7 @@ class TinyMceHelper extends Helper {
 						"searchreplace visualblocks code fullscreen",
 						"insertdatetime media table contextmenu paste responsivefilemanager"
 					],
-					toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
-					toolbar2: "| responsivefilemanager | link unlink anchor | image media | forecolor backcolor  | print preview code ",
+					toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image| responsivefilemanager | link unlink anchor | image media | forecolor backcolor  | print preview code ",
 					image_advtab: true ,
 					external_filemanager_path: '.BASE.'"/filemanager/",
 					filemanager_title:"VamShop" ,
