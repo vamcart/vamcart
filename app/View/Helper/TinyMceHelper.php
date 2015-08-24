@@ -15,7 +15,7 @@ class TinyMceHelper extends Helper {
 	$code .= $this->Html->script('tinymce/tinymce.min.js', false);
 	if($options){
 	$code .= $this->Html->scriptBlock('
-		tinyMCE.init(
+		tinymce.init(
 		'.json_encode($options).'
 		);    
 	', array('allowCache'=> false,'safe'=> false,'inline'=> false));
@@ -44,10 +44,10 @@ class TinyMceHelper extends Helper {
 				});
  	
 		function toggleHTMLEditor(id) {
-			if (!tinyMCE.get(id))
-				tinymce.execCommand("mceAddControl", false, id);
+			if (!tinymce.get(id))
+				tinymce.execCommand("mceAddEditor", false, id);
 			else
-				tinymce.execCommand("mceRemoveControl", false, id);
+				tinymce.execCommand("mceRemoveEditor", false, id);
 		}    	
 	
 	', array('allowCache'=> false,'safe'=> false,'inline'=> false));
