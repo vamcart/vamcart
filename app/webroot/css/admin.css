@@ -737,6 +737,7 @@ div.clear
 		border-top: 1px solid #eee; 
 		border-bottom: 1px solid #eee;
 		background: #fff;
+		height: auto;
 	}
 	
 .activeline 
