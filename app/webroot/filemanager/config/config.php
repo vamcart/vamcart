@@ -13,7 +13,7 @@
   //}
 
 if ($_SESSION['auth'] == 0) die();
-  
+
 mb_internal_encoding('UTF-8');
 date_default_timezone_set('Europe/Moscow');
 
@@ -80,7 +80,7 @@ $config = array(
 	| with start and final /
 	|
 	*/
-	'upload_dir' => '/img/',
+	'upload_dir' => str_replace('filemanager','', pathinfo($_SERVER['REQUEST_URI'], 1)).'img/',
 
 	/*
 	|--------------------------------------------------------------------------
