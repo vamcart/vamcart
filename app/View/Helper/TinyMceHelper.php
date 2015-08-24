@@ -26,9 +26,15 @@ class TinyMceHelper extends Helper {
 					plugins: [
 						"advlist autolink lists link image charmap print preview anchor",
 						"searchreplace visualblocks code fullscreen",
-						"insertdatetime media table contextmenu paste"
+						"insertdatetime media table contextmenu paste responsivefilemanager"
 					],
 					toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+					toolbar2: "| responsivefilemanager | link unlink anchor | image media | forecolor backcolor  | print preview code ",
+					image_advtab: true ,
+					external_filemanager_path: '.BASE.'"/filemanager/",
+					filemanager_title:"VamShop" ,
+					filemanager_access_key:"'. session_name() .'" ,
+					external_plugins: { "filemanager" : '.BASE.'"/filemanager/plugin.min.js"},
 					autosave_ask_before_unload: false,
 					max_height: 200,
 					forced_root_block : false,

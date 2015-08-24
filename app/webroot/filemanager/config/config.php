@@ -1,5 +1,18 @@
 <?php
-session_start();
+  if (isset($_GET['akey'])) {
+    session_name($_GET['akey']);
+    session_start();
+    if (isset($_SESSION['User']['username'])) {
+      $auth = 1;
+    } else {
+      $auth = 0;
+    }
+  } else {
+    $auth = 0;
+  }
+
+if ($auth == 0) die();
+  
 mb_internal_encoding('UTF-8');
 date_default_timezone_set('Europe/Moscow');
 
