@@ -50,6 +50,9 @@ function smarty_function_compare($params, $template)
                                         ))));
         $content_list_data = $Content->find('all', array('conditions' => array('Content.id' => $compare_list)));
 
+	if(!$content_list_data)
+		return;
+		
 	$assignments = array();
         $assignments = array('element_list' => $content_list_data
                         ,'base_url' => BASE . '/' . $content['ContentType']['name']
