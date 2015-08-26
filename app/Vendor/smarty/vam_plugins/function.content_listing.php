@@ -424,16 +424,18 @@ function smarty_function_content_listing($params, $template)
 							))));
 		
         		$content_manufacturers_id = $Content_Manufactures->find('all', array('conditions' => $content_manufacturers, 'limit' => isset($params['limit']) ? $params['limit'] : null,'order' => array('Content.order ASC')));
-
-        		$manufacturers_id = array();
-        		foreach($content_manufacturers_id AS $manufacturers_data) {
-        			$manufacturers_id[] =  $manufacturers_data['ContentProduct']['manufacturer_id'];
+        		
+        		$manufacturers_id = null;
+        		foreach($content_manufacturers_id AS $key => $value) {
+        			if ($value['ContentProduct']['manufacturer_id'] > 0) $manufacturers_id[$key] =  $value['ContentProduct']['manufacturer_id'];
         		
         		}
+        		
+        		if (is_array($manufacturers_id)) {
         		$manufacturers_id = array_unique($manufacturers_id);
-
 				$content_list_data_conditions = array_merge($content_list_data_conditions,array('Content.id' => $manufacturers_id));
-
+				}
+				
 			}
             $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => isset($params['limit']) ? $params['limit'] : null,'order' => array('Content.order ASC')));
         }
