@@ -262,6 +262,9 @@ function smarty_function_content_listing($params, $template)
         if(!isset($params['label_id'])) 
             $params['label_id'] = 0;
 
+        if(!isset($params['category'])) 
+            $params['category'] = 0;
+
 
 	// Loop through the values in $params['type'] and set some more condiitons
 	$allowed_types = array();
@@ -406,6 +409,32 @@ function smarty_function_content_listing($params, $template)
             //$content_total = count($content_list_data);
         }
         else{
+        	
+        	if ($params['type'] == 'manufacturer' && isset($params['category']) && $params['category'] > 0) {
+        		$content_manufacturers = array_replace($content_list_data_conditions, array('Content.parent_id' => $params['category']));
+
+				App::import('Model', 'Content');
+				$Content_Manufactures = new Content();		
+		
+				$Content_Manufactures->unbindAll();	
+		
+				$Content_Manufactures->bindModel(array('hasOne' => array(
+						'ContentProduct' => array(
+		                    'className' => 'ContentProduct'
+							))));
+		
+        		$content_manufacturers_id = $Content_Manufactures->find('all', array('conditions' => $content_manufacturers, 'limit' => isset($params['limit']) ? $params['limit'] : null,'order' => array('Content.order ASC')));
+
+        		$manufacturers_id = array();
+        		foreach($content_manufacturers_id AS $manufacturers_data) {
+        			$manufacturers_id[] =  $manufacturers_data['ContentProduct']['manufacturer_id'];
+        		
+        		}
+        		$manufacturers_id = array_unique($manufacturers_id);
+
+				$content_list_data_conditions = array_merge($content_list_data_conditions,array('Content.id' => $manufacturers_id));
+
+			}
             $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => isset($params['limit']) ? $params['limit'] : null,'order' => array('Content.order ASC')));
         }
 	
