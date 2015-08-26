@@ -417,7 +417,8 @@ CREATE TABLE `content_specials` (
   `date_start` date,
   `date_end` date,
   PRIMARY KEY  (`id`),
-  INDEX content_id (content_id,groups_customer_id)
+  INDEX content_id (content_id),
+  INDEX groups_customer_id (groups_customer_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `content_specials` (`id`, `content_id`, `groups_customer_id`, `price`, `date_start`, `date_end`) VALUES
@@ -1251,7 +1252,9 @@ CREATE TABLE `attributes` (
   `is_show_flt` tinyint(4) DEFAULT NULL,
   `is_show_cmp` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  INDEX content_id (content_id)
+  INDEX content_id (`content_id`),
+  INDEX parent_id (`parent_id`),
+  INDEX order_id (`order`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `attributes` VALUES 
