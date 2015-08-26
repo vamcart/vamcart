@@ -26,6 +26,8 @@ return $template;
 function smarty_function_breadcrumbs($params, $template)
 {
 	global $content, $config;
+	
+	if ($content['Content']['parent_id'] > 0) {
 
 	// Cache the output.
 	$cache_name = 'vam_breadcrumbs_output' . (isset($params['template'])?'_'.$params['template']:'') . '_' . $content['Content']['id'] .'_' . $_SESSION['Customer']['language_id'];
@@ -90,6 +92,8 @@ function smarty_function_breadcrumbs($params, $template)
 	}
 	
 	echo $output;
+	
+	}
 	
 }
 
