@@ -1,23 +1,23 @@
 <p>
-<?php if ($payment_data["PaymentMethodValue"][5]['value'] != '') { ?>
+<?php if (isset($payment_data["PaymentMethodValue"][5]['value']) && $payment_data["PaymentMethodValue"][5]['value'] != '') { ?>
 <b><?php echo __('Supplier'); ?></b> <?php echo $payment_data["PaymentMethodValue"][5]['value']; ?><br />
 <?php } ?>
-<?php if ($payment_data["PaymentMethodValue"][8]['value'] != '') { ?>
+<?php if (isset($payment_data["PaymentMethodValue"][8]['value']) && $payment_data["PaymentMethodValue"][8]['value'] != '') { ?>
 <b><?php echo __('Company Address'); ?></b> <?php echo $payment_data["PaymentMethodValue"][8]['value']; ?><br />
 <?php } ?>
-<?php if ($payment_data["PaymentMethodValue"][9]['value'] != '') { ?>
+<?php if (isset($payment_data["PaymentMethodValue"][9]['value']) && $payment_data["PaymentMethodValue"][9]['value'] !== '') { ?>
 <b><?php echo __('Company Phone'); ?></b>&nbsp;<?php echo $payment_data["PaymentMethodValue"][9]['value']; ?><br />
 <?php } ?>
-<?php if ($payment_data["PaymentMethodValue"][1]['value'] != '') { ?>
+<?php if (isset($payment_data["PaymentMethodValue"][1]['value']) && $payment_data["PaymentMethodValue"][1]['value'] !== '') { ?>
 <b><?php echo __('Account Number 1'); ?></b> 
-<?php echo $payment_data["PaymentMethodValue"][1]['value']; ?><?php } ?> <?php if ($payment_data["PaymentMethodValue"][0]['value'] != '') { ?><b><?php echo __('in bank'); ?></b> <?php echo $payment_data["PaymentMethodValue"][0]['value']; ?><br />
+<?php echo $payment_data["PaymentMethodValue"][1]['value']; ?><?php } ?> <?php if (isset($payment_data["PaymentMethodValue"][0]['value']) && $payment_data["PaymentMethodValue"][0]['value'] !== '') { ?><b><?php echo __('in bank'); ?></b> <?php echo $payment_data["PaymentMethodValue"][0]['value']; ?><br />
 <?php } ?>
-<?php if ($payment_data["PaymentMethodValue"][3]['value'] != '') { ?>
+<?php if (isset($payment_data["PaymentMethodValue"][3]['value']) && $payment_data["PaymentMethodValue"][3]['value'] !== '') { ?>
 <b><?php echo __('Account Number 2'); ?></b> 
-<?php echo $payment_data["PaymentMethodValue"][3]['value']; ?><?php } ?> <?php if ($payment_data["PaymentMethodValue"][2]['value'] != '') { ?><b><?php echo __('BIK'); ?></b> <?php echo $payment_data["PaymentMethodValue"][2]['value']; ?><br />
+<?php echo $payment_data["PaymentMethodValue"][3]['value']; ?><?php } ?> <?php if (isset($payment_data["PaymentMethodValue"][2]['value']) && $payment_data["PaymentMethodValue"][2]['value'] !== '') { ?><b><?php echo __('BIK'); ?></b> <?php echo $payment_data["PaymentMethodValue"][2]['value']; ?><br />
 <?php } ?>
-<?php if ($payment_data["PaymentMethodValue"][4]['value'] != '') { ?>
-<b><?php echo __('INN'); ?></b> <?php echo $payment_data["PaymentMethodValue"][4]['value']; ?><?php } ?><?php if ($payment_data["PaymentMethodValue"][6]['value'] != '') { ?>&nbsp; <b><?php echo __('KPP'); ?></b> <?php echo $payment_data["PaymentMethodValue"][6]['value']; ?><?php } ?>&nbsp; <?php if ($payment_data["PaymentMethodValue"][10]['value'] != '') { ?><b><?php echo __('OGRN'); ?></b> <?php echo $payment_data["PaymentMethodValue"][10]['value']; ?><?php } ?> <?php if ($payment_data["PaymentMethodValue"][11]['value'] != '') { ?><b><?php echo __('OKPO'); ?></b> <?php echo $payment_data["PaymentMethodValue"][11]['value']; ?><br />
+<?php if (isset($payment_data["PaymentMethodValue"][4]['value']) && $payment_data["PaymentMethodValue"][4]['value'] !== '') { ?>
+<b><?php echo __('INN'); ?></b> <?php echo $payment_data["PaymentMethodValue"][4]['value']; ?><?php } ?><?php if (isset($payment_data["PaymentMethodValue"][6]['value']) && $payment_data["PaymentMethodValue"][6]['value'] !== '') { ?>&nbsp; <b><?php echo __('KPP'); ?></b> <?php echo $payment_data["PaymentMethodValue"][6]['value']; ?><?php } ?>&nbsp; <?php if (isset($payment_data["PaymentMethodValue"][10]['value'])  && $payment_data["PaymentMethodValue"][10]['value'] !== '') { ?><b><?php echo __('OGRN'); ?></b> <?php echo $payment_data["PaymentMethodValue"][10]['value']; ?><?php } ?> <?php if (isset($payment_data["PaymentMethodValue"][11]['value']) && $payment_data["PaymentMethodValue"][11]['value'] !== '') { ?><b><?php echo __('OKPO'); ?></b> <?php echo $payment_data["PaymentMethodValue"][11]['value']; ?><br />
 <?php } ?>
 </p>
 
