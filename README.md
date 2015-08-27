@@ -56,13 +56,13 @@ Apps: <a href="http://apps.vamshop.com" target="_blank">http://apps.vamshop.com<
 <h4>Catalog</h4>
 
 <p>
-<a href="http://demo.vamcart.com/" target="_blank">http://demo.vamcart.com/</a>
+<a href="http://demo.vamshop.com/" target="_blank">http://demo.vamshop.com/</a>
 </p>
 
 <h4>Admin</h4>
 
 <p>
-<a href="http://demo.vamcart.com/admin/" target="_blank">http://demo.vamcart.com/admin/</a>
+<a href="http://demo.vamshop.com/admin/" target="_blank">http://demo.vamshop.com/admin/</a>
 </p>
 
 <ul>
