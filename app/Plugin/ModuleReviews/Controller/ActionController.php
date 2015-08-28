@@ -43,6 +43,7 @@ class ActionController extends ModuleReviewsAppController {
 			$content = $this->ContentBase->get_content_information($content_id);			
 
 			$spam_flag = false;
+			$antispam_error_message = '';
 	
 			if ( trim( $_POST['anti-bot-q'] ) != date('Y') ) { // answer is wrong - maybe spam
 				$spam_flag = true;
