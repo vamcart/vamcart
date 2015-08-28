@@ -19,6 +19,8 @@ class SiteController extends AppController {
 		$clean->clean($_POST);
 
 		$spam_flag = false;
+		$antispam_error_message = '';
+		
 
 		if ( trim( $_POST['anti-bot-q'] ) != date('Y') ) { // answer is wrong - maybe spam
 			$spam_flag = true;
@@ -233,6 +235,7 @@ class SiteController extends AppController {
 		global $config;
 
   	$spam_flag = false;
+  	$antispam_error_message = '';
 
 		if ( trim( $_POST['anti-bot-q'] ) != date('Y') ) { // answer is wrong - maybe spam
 			$spam_flag = true;

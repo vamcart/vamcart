@@ -47,6 +47,7 @@ class GetController extends ModuleAskAProductQuestionAppController {
 			$_POST[$key] = $clean->html($value);
 		
 			$spam_flag = false;
+			$antispam_error_message = '';
 	
 			if ( trim( $_POST['anti-bot-q'] ) != date('Y') ) { // answer is wrong - maybe spam
 				$spam_flag = true;

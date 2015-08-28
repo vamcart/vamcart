@@ -26,7 +26,23 @@ class OrdersController extends AppController {
 		foreach($_POST AS $key => $value)
 			$_POST[$key] = $clean->html($value);
 
-		if (isset($_SESSION['Customer']['order_id'])) {
+		$spam_flag = false;
+		$antispam_error_message = '';
+
+		if ( trim( $_POST['anti-bot-q'] ) != date('Y') ) { // answer is wrong - maybe spam
+			$spam_flag = true;
+			if ( empty( $_POST['anti-bot-q'] ) ) { // empty answer - maybe spam
+				$antispam_error_message .= 'Error: empty answer. ['.$_POST['anti-bot-q'].']<br> ';
+			} else {
+				$antispam_error_message .= 'Error: answer is wrong. ['.$_POST['anti-bot-q'].']<br> ';
+			}
+		}
+		if ( ! empty( $_POST['anti-bot-e-email-url'] ) ) { // field is not empty - maybe spam
+			$spam_flag = true;
+			$antispam_error_message .= 'Error: field should be empty. ['.$_POST['anti-bot-e-email-url'].']<br> ';
+		}
+
+		if (isset($_SESSION['Customer']['order_id']) && $spam_flag == false) {
 
 		foreach($_POST AS $key => $value)
 			$order['Order'][$key] = $value;
@@ -159,6 +175,10 @@ class OrdersController extends AppController {
 		$this->Order->save($order);
 		
 		$this->redirect('/page/confirmation' . $config['URL_EXTENSION']);				
+
+		} else {
+
+		$this->redirect('/page/checkout' . $config['URL_EXTENSION']);				
 
 		}
 				
