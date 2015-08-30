@@ -1,4 +1,7 @@
 <?php
+
+error_reporting(0);
+
   //if (isset($_GET['akey'])) {
     session_name('vamshop');
     session_start();
@@ -101,7 +104,7 @@ $config = array(
 	| DO NOT put inside upload folder
 	|
 	*/
-	'thumbs_base_path' => '../img/',
+	'thumbs_base_path' => '../img/thumbs/',
 
 	/*
 	|--------------------------------------------------------------------------
