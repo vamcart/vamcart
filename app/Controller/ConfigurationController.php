@@ -20,7 +20,7 @@ class ConfigurationController extends AppController {
 		}
         		
 		$this->Session->setFlash(__('Cache cleared.',true));
-		$this->redirect('/configuration/admin/');
+		$this->redirect('/admin/admin_top/');
 	}
 	
 	public function admin_edit ()

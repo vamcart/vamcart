@@ -44,7 +44,7 @@ echo $this->Form->create('Configuration', array('id' => 'contentform', 'action' 
 	echo $this->Admin->EndTabs();
 
 	echo '<div class="clear"></div>';
-	echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit')) . $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'cancelbutton')) . $this->Admin->linkButton(__('Reset Cache'),'/configuration/admin_clear_cache/','cus-arrow-refresh-small',array('escape' => false, 'class' => 'btn btn-default'));
+	echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit')) . $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'cancelbutton'));
 	echo $this->Form->end();
 
 echo $this->Admin->ShowPageHeaderEnd();

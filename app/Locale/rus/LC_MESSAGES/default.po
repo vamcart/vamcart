@@ -19,6 +19,10 @@ msgstr ""
 msgid "Dashboard"
 msgstr "Панель управления"
 
+#: /app_controller.php:183
+msgid "Quick links"
+msgstr "Быстрые ссылки"
+
 #: /app_controller.php:185
 msgid "Orders"
 msgstr "Заказы"

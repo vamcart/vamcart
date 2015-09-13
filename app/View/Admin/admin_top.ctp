@@ -171,7 +171,25 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 
 
 	echo '<br />
-	
+
+			<div class="row-fluid">
+			<div class="col-sm-12">
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <h3 class="panel-title"><i class="cus-cart"></i> '.__('Quick links').'</h3>
+			  </div>
+			  <div class="panel-body text-left">
+			'.$this->Admin->linkButton(__('New Order'),'/orders_edit/admin/','cus-cart-add',array('escape' => false, 'class' => 'btn btn-default')).'
+			'.$this->Admin->linkButton(__('All Orders'),'/orders/admin/','cus-cart-go',array('escape' => false, 'class' => 'btn btn-default')).'
+			'.$this->Admin->linkButton(__('Categories/Products'),'/contents/admin/','cus-book-add',array('escape' => false, 'class' => 'btn btn-default')).'
+			'.$this->Admin->linkButton(__('Reset Cache'),'/configuration/admin_clear_cache/','cus-arrow-refresh-small',array('escape' => false, 'class' => 'btn btn-default')).'
+			  </div>
+			</div>
+			</div>
+			</div>
+			
+			<div class="clear"></div>
+			
 			<div class="row-fluid">
 			<div class="col-sm-3">
 			<div class="panel panel-default">
