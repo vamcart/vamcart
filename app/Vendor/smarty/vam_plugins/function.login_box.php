@@ -3,7 +3,7 @@
    VamShop - http://vamshop.com
    -----------------------------------------------------------------------------------------
    Copyright (c) 2014 VamSoft Ltd.
-   License - http://vamshop.com/license.html
+   License - http://vamshop.com/license{config value=url_extension}
    ---------------------------------------------------------------------------------------*/
 
 function default_template_login_box()
@@ -33,14 +33,14 @@ $template = '
 		</form>
 		<br /><br />
 		<ul class="list-inline">
-		<li><a href="{base_path}/customer/register.html">{lang}Registration{/lang}</a></li>
-		<li><a href="{base_path}/customer/password_recovery.html">{lang}Forgot your password?{/lang}</a></li>
+		<li><a href="{base_path}/customer/register{config value=url_extension}">{lang}Registration{/lang}</a></li>
+		<li><a href="{base_path}/customer/password_recovery{config value=url_extension}">{lang}Forgot your password?{/lang}</a></li>
 		</ul>
 		{else}
 		<ul class="icons clearfix">
-			<li><a href="{base_path}/customer/account_edit.html">{lang}Account Edit{/lang}</a></li>
-			<li><a href="{base_path}/customer/address_book.html">{lang}Address Book{/lang}</a></li>
-			<li><a href="{base_path}/customer/my_orders.html">{lang}My Orders{/lang}</a></li>
+			<li><a href="{base_path}/customer/account_edit{config value=url_extension}">{lang}Account Edit{/lang}</a></li>
+			<li><a href="{base_path}/customer/address_book{config value=url_extension}">{lang}Address Book{/lang}</a></li>
+			<li><a href="{base_path}/customer/my_orders{config value=url_extension}">{lang}My Orders{/lang}</a></li>
 		</ul>
 		<form action="{base_path}/site/logout?return_url={$return_url}" method="post">
 			<button type="submit" class="btn btn-default"><i class="fa fa-sign-out"></i> {lang}Logout{/lang}</button>
