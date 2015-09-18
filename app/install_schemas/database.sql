@@ -16,8 +16,7 @@ CREATE TABLE `configuration_groups` (
 
 INSERT INTO `configuration_groups` (`id`, `key`, `name`, `description`, `group_icon`, `visible`, `sort_order`) VALUES 
 (1, 'main', 'Main','','cus-application','1','1'),
-(2, 'cache', 'Caching','','cus-compress','1','2'),
-(3, 'email', 'Email Settings','','cus-email','1','3');
+(2, 'email', 'Email Settings','','cus-email','1','3');
 
 DROP TABLE IF EXISTS configurations;
 CREATE TABLE `configurations` (
@@ -46,12 +45,12 @@ INSERT INTO `configurations` (`id`, `configuration_group_id`, `key`, `value`, `t
 (10,'1','GOOGLE_ANALYTICS', '','text', '', 'Google Analytics ID','','10'),
 (11,'1','YANDEX_METRIKA', '','text', '', 'Yandex.Metrika ID','','11'),
 (12,'1','PRODUCTS_PER_PAGE', '20','text', '', 'Products Per Page','','12'),
-(13,'3','SEND_EXTRA_EMAIL', 'vam@test.com','text', '', 'Send extra order emails to','','14'),
-(14,'3','NEW_ORDER_FROM_EMAIL', 'vam@test.com','text', '', 'New Order: From','','15'),
-(15,'3','NEW_ORDER_FROM_NAME', 'VamShop','text', '', 'New Order: From Name','','16'),
-(16,'3','NEW_ORDER_STATUS_FROM_EMAIL', 'vam@test.com','text', '', 'New Order Status: From','','17'),
-(17,'3','NEW_ORDER_STATUS_FROM_NAME', 'VamShop','text', '', 'New Order Status: From Name','','18'),
-(18,'3','SEND_CONTACT_US_EMAIL', 'vam@test.com','text', '', 'Send contact us emails to','','19'),
+(13,'2','SEND_EXTRA_EMAIL', 'vam@test.com','text', '', 'Send extra order emails to','','14'),
+(14,'2','NEW_ORDER_FROM_EMAIL', 'vam@test.com','text', '', 'New Order: From','','15'),
+(15,'2','NEW_ORDER_FROM_NAME', 'VamShop','text', '', 'New Order: From Name','','16'),
+(16,'2','NEW_ORDER_STATUS_FROM_EMAIL', 'vam@test.com','text', '', 'New Order Status: From','','17'),
+(17,'2','NEW_ORDER_STATUS_FROM_NAME', 'VamShop','text', '', 'New Order Status: From Name','','18'),
+(18,'2','SEND_CONTACT_US_EMAIL', 'vam@test.com','text', '', 'Send contact us emails to','','19'),
 (19,'1','AJAX_ENABLE', '1', 'select', '0,1', 'Ajax Enable', '', '20'),
 (20,'1','DADATA_API_KEY', 'd54b2e521766960e89c4c5f871483b33eae9a364','text', '', 'DaData API Key','','21'),
 (21,'1','PHONE_MASK', '(999) 999-99-99','text', '', 'Phone Input Mask','','22'),
