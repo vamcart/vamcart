@@ -105,19 +105,16 @@ function smarty_function_content_listing($params, $template)
 {
 	global $config,$content,$filter_list,$sort_by;
 			
+			if (!isset ($params['current_order'])) 
+			    $params['current_order'] = false;
+
 			if (!isset ($params['order'])) 
 			    $params['order'] = 'id-desc';
 
-			if (!isset ($params['current_order'])) 
-			    $params['current_order'] = null;
-
-			if (isset ($params['current_order'])) 
-			    $params['order'] = $params['current_order'];
-			
-			if ($params['current_order'] != $params['order']) 
+			if (isset ($params['current_order']) && $params['current_order'] == '') 
 			    $params['current_order'] = $params['order'];
-
-        switch ($params['current_order']):
+			    
+        switch ($params['current_order']) {
 
         case 'order':
             $params['order_column'] = 'Content.order';
@@ -193,8 +190,9 @@ function smarty_function_content_listing($params, $template)
 
         default:
             $params['order_column'] = 'Content.id DESC';
+        break;        
             
-        endswitch;
+        }
 
 	// Cache the output.
 	$cache_name = 'vam_content_listing_output_' . $_SESSION['Customer']['customer_group_id'] . '_' . $content['Content']['id'] . '_' . (isset($params['template'])?$params['template']:'') . (isset($params['parent'])?'_'.$params['parent']:'') . (isset($params['label_id'])?'_'.$params['label_id']:'') . (isset($params['current_order'])?'_'.$params['current_order']:'') . (isset($params['order'])?'_'.$params['order']:'') . '_' . $_SESSION['Customer']['language_id'] . '_' . $_SESSION['Customer']['currency_id'] . '_' . $_SESSION['Customer']['page'] . (isset($filter_list)?md5(serialize($filter_list)):'');
