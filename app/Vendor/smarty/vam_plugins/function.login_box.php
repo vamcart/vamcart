@@ -3,7 +3,7 @@
    VamShop - http://vamshop.com
    -----------------------------------------------------------------------------------------
    Copyright (c) 2014 VamSoft Ltd.
-   License - http://vamshop.com/license{config value=url_extension}
+   License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
 
 function default_template_login_box()
