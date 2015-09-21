@@ -49,12 +49,26 @@ class AdminController extends ModuleReviewsAppController {
 		$this->set('current_crumb', __('Reviews'));
 		$this->set('title_for_layout', __('Read Review'));
 
+		if(empty($this->data))
+		{
+
 		$data = $this->ModuleReview->read(null,$id);
+		$this->request->data = $this->ModuleReview->read(null,$id);
 		
 		$content_description = $this->ContentBase->get_content_description($data['ModuleReview']['content_id']);
     $data['ModuleReview']['product_name'] = $content_description['ContentDescription']['name'];
 
 		$this->set('data',$data);
+		$this->set('id',$id);
+
+		}
+		else
+		{
+			$this->ModuleReview->save($this->data);		
+			$this->Session->setFlash(__('Record saved.', true));
+			$this->redirect('/module_reviews/admin/admin_edit/'.$id);
+		}		
+		
 	}
 	
 	public function admin_index()
