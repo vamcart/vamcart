@@ -56,7 +56,7 @@ class AdminController extends ModuleReviewsAppController {
 		$this->request->data = $this->ModuleReview->read(null,$id);
 		
 		$content_description = $this->ContentBase->get_content_description($data['ModuleReview']['content_id']);
-    $data['ModuleReview']['product_name'] = $content_description['ContentDescription']['name'];
+    	$data['ModuleReview']['product_name'] = $content_description['ContentDescription']['name'];
 
 		$this->set('data',$data);
 		$this->set('id',$id);
