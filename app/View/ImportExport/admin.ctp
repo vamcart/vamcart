@@ -72,6 +72,26 @@ function renumber_table(tableID) {
 	});
 }
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
+
+<?php echo $this->Html->scriptBlock('
+
+$(document).ready(function () {
+
+$("#myTab a:first").tab("show"); // Select first tab	
+$("#myTabProducts a:first").tab("show"); // Select first tab	
+$("#myTabBrands a:first").tab("show"); // Select first tab	
+$("#myTabCategories a:first").tab("show"); // Select first tab	
+$("#myTabPages a:first").tab("show"); // Select first tab	
+$("#myTabArticles a:first").tab("show"); // Select first tab	
+$("#myTabNews a:first").tab("show"); // Select first tab	
+$("#myTabCustomers a:first").tab("show"); // Select first tab	
+$("#myTabOrders a:first").tab("show"); // Select first tab	
+	
+});
+	
+', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
+
+
 <?php
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-database-refresh');
 
@@ -92,7 +112,7 @@ echo $this->Admin->StartTabContent('products');
 
 echo '<!-- Products Tab Start -->';
 
-echo '<ul id="myTabLang" class="nav nav-tabs">';
+echo '<ul id="myTabProducts" class="nav nav-tabs">';
 echo $this->Admin->CreateTab('export-products',__('Export',true), 'cus-arrow-out');
 echo $this->Admin->CreateTab('import-products',__('Import',true), 'cus-arrow-in');
 echo '</ul>';
@@ -122,8 +142,8 @@ echo '
 	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">8</td><td>weight</td><td>Вес товара в граммах. <span class="text-danger">Например, вес товара товара 110 грамм, пишем как 0.110</span></td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
 	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">9</td><td>label</td><td>Ярлык товара, например: Новинка, Хит, Распродажа и т.д.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
 	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">10</td><td>brand</td><td>Производитель. Указываем название производителя товара (брэнд).</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">11</td><td>description</td><td>Описание товара</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">12</td><td>short_description</td><td>Краткое описание товара</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">11</td><td>description</td><td>Описание товара.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">12</td><td>short_description</td><td>Краткое описание товара.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
 	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">13</td><td>meta_title</td><td>Заголовок Meta Title.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
 	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">14</td><td>meta_description</td><td>Значение для тэга Meta Description.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
 	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">15</td><td>meta_keywords</td><td>Значение для тэга Meta Keywords.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
@@ -226,8 +246,8 @@ echo '
 	<tr><td>weight</td><td>Вес товара в граммах. <span class="text-danger">Например, вес товара товара 110 грамм, пишем как 0.110</span></td></tr>
 	<tr><td>label</td><td>Ярлык товара, например: Новинка, Хит, Распродажа и т.д.</td></tr>
 	<tr><td>brand</td><td>Производитель. Указываем название производителя товара (брэнд).</td></tr>
-	<tr><td>description</td><td>Описание товара</td></tr>
-	<tr><td>short_description</td><td>Краткое описание товара</td></tr>
+	<tr><td>description</td><td>Описание товара.</td></tr>
+	<tr><td>short_description</td><td>Краткое описание товара.</td></tr>
 	<tr><td>meta_title</td><td>Заголовок Meta Title.</td></tr>
 	<tr><td>meta_description</td><td>Значение для тэга Meta Description.</td></tr>
 	<tr><td>meta_keywords</td><td>Значение для тэга Meta Keywords.</td></tr>
@@ -350,17 +370,6 @@ echo '
             
 ';            
 
-    
-    echo '<div class="form-group input text">';
-        echo '<label>'.__('Категории') . ':</label> <select class="form-control" name="data[form_Export][sel_content]" id="selected_content" multiple>';
-        echo '<option value="0">' .  __('Все') . '</option>';
-        foreach ($sel_content AS $k => $sel_category)
-        {
-            echo '<option value="' . $k . '">' . __($sel_category[0]) . '</option></div>';
-        }
-        echo '</select>';
-    echo '</div>';
-
 	echo $this->Form->input('ImportExport.language', 
 				array(
 					'label' => __('Language'),
@@ -388,6 +397,971 @@ echo '
 echo $this->Admin->EndTabContent();
 
 echo $this->Admin->StartTabContent('import-brands');
+
+    echo '<div class="alert alert-error"><i class="cus-error"></i> '.__('Don\'t forget backup your database before import at Admin - Tools - Database Backup.').'</div>';
+    echo $this->Form->create('form_Import', array('enctype' => 'multipart/form-data', 'id' => 'contentform_import', 'action' => '/import_export/import/', 'url' => '/import_export/import/'));
+
+echo '
+
+<h3>Допустимые поля</h3>
+
+<div><span class="text-warning">Поля alias, name, parent - должны в обязательном порядке присутствовать в импортируемом файле.</span></div>
+
+<table class="table" id="diagnosis_list_">
+    <thead>
+        <tr><th>Название колонки</th><th>Описание</th></tr>
+    </thead>
+    <tbody>
+	<tr class="warning"><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td></tr>
+	<tr class="warning"><td>name</td><td>Название.</td></tr>
+	<tr class="warning"><td>parent</td><td>Категория, к которой относится элемент. <span class="text-danger">К какой категории относится элемент. Указывается название категории, подкатегории.</span></td></tr>
+	<tr><td>description</td><td>Описание.</td></tr>
+	<tr><td>short_description</td><td>Краткое описание.</td></tr>
+	<tr><td>meta_title</td><td>Заголовок Meta Title.</td></tr>
+	<tr><td>meta_description</td><td>Значение для тэга Meta Description.</td></tr>
+	<tr><td>meta_keywords</td><td>Значение для тэга Meta Keywords.</td></tr>
+	<tr><td>image</td><td>Картинка. Название файла картинки, если картинок несколько, указывайте через точку с запятой, например: image.png;image1.png. Кроме того, можно указывать URL адрес с картинкой, например: http://адрес.ру/image/kartinka.png;http://адрес.ру/image/kartinka1.png</td></tr>
+	<tr><td>order</td><td>Порядок сортировки.</td></tr>
+	<tr><td>active</td><td>Активный элемент или нет, т.е. виден посетителям или нет. 1 - виден, 0 - не виден.</td></tr>
+	<tr><td>show_in_menu</td><td>Показывать элемент в меню. Можно выводить элемент в любом меню магазина, а не только в категории. 1 - показывать в меню, 0 - не показывать.</td></tr>
+	<tr><td>viewed</td><td>Количество просмотров элемента.</td></tr>
+	<tr><td>created</td><td>Дата создания элемента.</td></tr>
+	<tr><td>modified</td><td>Дата модификации элемента.</td></tr>
+	<tr><td>action</td><td>Действие. <span class="text-danger">С помощью данной колонки можно массово удалять элементы из интернет-магазина. Укажите в данной колонке <strong>delete</strong> напротив того элемента, который Вы хотите удалить.</span></td></tr>
+	<tr><td>template_id</td><td>Шаблон элемента.</td></tr>
+    </tbody>
+</table>
+            
+';            
+
+    
+	echo $this->Form->input('ImportExport.language', 
+				array(
+					'label' => __('Language'),
+					'type' => 'select',
+					'options' => $available_languages,
+					'selected' => $current_language
+				));
+
+	echo $this->Form->input('ImportExport.delimiter', 
+				array(
+					'label' => __('Разделитель колонок в CSV'),
+					'value' => ';'
+				));
+
+
+	echo $this->Form->input('ImportExport.cat_delimiter', 
+				array(
+					'label' => __('Разделитель категории/подкатегории'),
+					'value' => '/'
+				));
+
+
+    echo $this->Form->file('submittedfile');
+
+
+    echo '<br />' . $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submit'));
+    echo $this->Form->end();
+
+echo $this->Admin->EndTabContent();
+
+echo $this->Admin->EndTabs();
+
+
+echo '<!-- /Brands Tab End -->'; 
+    
+echo $this->Admin->EndTabContent();
+
+echo $this->Admin->StartTabContent('categories');
+
+echo '<!-- Categories Tab Start -->';
+
+
+echo '<ul id="myTabCategories" class="nav nav-tabs">';
+echo $this->Admin->CreateTab('export-categories',__('Export',true), 'cus-arrow-out');
+echo $this->Admin->CreateTab('import-categories',__('Import',true), 'cus-arrow-in');
+echo '</ul>';
+
+echo $this->Admin->StartTabs();
+
+echo $this->Admin->StartTabContent('export-categories');
+
+    echo $this->Form->create('ImportExport', array('id' => 'contentform_export', 'class' => 'form-horizontal', 'action' => '/import_export/export/', 'url' => '/import_export/export/'));
+
+echo '
+
+<h3>Экспортируемые поля</h3>
+
+<table class="table" id="diagnosis_list">
+    <thead>
+        <tr><th align="center"><input type="checkbox" onclick="checkAll(this)" /></th><th>Порядок</th><th>Название колонки</th><th>Описание</th><th>&nbsp;</th></tr>
+    </thead>
+    <tbody>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">1</td><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">2</td><td>name</td><td>Название.</td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">3</td><td>parent</td><td>Категория, к которой относится элемент. <span class="text-danger">К какой категории относится элемент. Указывается название категории, подкатегории.</span></td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">4</td><td>description</td><td>Описание.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">5</td><td>short_description</td><td>Краткое описание.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">6</td><td>meta_title</td><td>Заголовок Meta Title.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">7</td><td>meta_description</td><td>Значение для тэга Meta Description.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">8</td><td>meta_keywords</td><td>Значение для тэга Meta Keywords.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">9</td><td>image</td><td>Картинка. Название файла картинки, если картинок несколько, указывайте через точку с запятой, например: image.png;image1.png. Кроме того, можно указывать URL адрес с картинкой, например: http://адрес.ру/image/kartinka.png;http://адрес.ру/image/kartinka1.png</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">10</td><td>order</td><td>Порядок сортировки.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">11</td><td>active</td><td>Активный элемент или нет, т.е. виден посетителям или нет. 1 - виден, 0 - не виден.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">12</td><td>show_in_menu</td><td>Показывать элемент в меню. Можно выводить элемент в любом меню магазина, а не только в категории. 1 - показывать в меню, 0 - не показывать.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">13</td><td>viewed</td><td>Количество просмотров элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">14</td><td>created</td><td>Дата создания элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">15</td><td>modified</td><td>Дата модификации элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+    </tbody>
+</table>
+
+<a class="btn btn-delete btn-danger">Удалить выделенные</a> <a class="btn btn-delete btn-danger">Удалить все</a>
+            
+';            
+
+echo '
+
+<h3>Доступные поля</h3>
+
+<table class="table" id="diagnosis_list">
+    <thead>
+        <tr><th><input type="checkbox" onclick="checkAll(this)" /></th><th>Порядок</th><th>Название</th><th>Описание</th><th>&nbsp;</th></tr>
+    </thead>
+    <tbody>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">1</td><td>action</td><td>Действие. <span class="text-danger">С помощью данной колонки можно массово удалять элементы из интернет-магазина. Укажите в данной колонке <strong>delete</strong> напротив того элемента, который Вы хотите удалить.</span></td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">2</td><td>template_id</td><td>Шаблон элемента.</td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
+    </tbody>
+</table>
+
+<a class="btn btn-success">Добавить выделенные</a> <a class="btn btn-success">Добавить все</a>
+            
+';            
+
+    
+	echo $this->Form->input('ImportExport.language', 
+				array(
+					'label' => __('Language'),
+					'type' => 'select',
+					'options' => $available_languages,
+					'selected' => $current_language
+				));
+
+	echo $this->Form->input('ImportExport.delimiter', 
+				array(
+					'label' => __('Разделитель колонок в CSV'),
+					'value' => ';'
+				));
+
+
+	echo $this->Form->input('ImportExport.cat_delimiter', 
+				array(
+					'label' => __('Разделитель категории/подкатегории'),
+					'value' => '/'
+				));
+
+    echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submit'));
+    echo $this->Form->end();
+
+echo $this->Admin->EndTabContent();
+
+echo $this->Admin->StartTabContent('import-categories');
+
+    echo '<div class="alert alert-error"><i class="cus-error"></i> '.__('Don\'t forget backup your database before import at Admin - Tools - Database Backup.').'</div>';
+    echo $this->Form->create('form_Import', array('enctype' => 'multipart/form-data', 'id' => 'contentform_import', 'action' => '/import_export/import/', 'url' => '/import_export/import/'));
+
+echo '
+
+<h3>Допустимые поля</h3>
+
+<div><span class="text-warning">Поля alias, name, parent - должны в обязательном порядке присутствовать в импортируемом файле.</span></div>
+
+<table class="table" id="diagnosis_list_">
+    <thead>
+        <tr><th>Название колонки</th><th>Описание</th></tr>
+    </thead>
+    <tbody>
+	<tr class="warning"><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td></tr>
+	<tr class="warning"><td>name</td><td>Название.</td></tr>
+	<tr class="warning"><td>parent</td><td>Категория, к которой относится элемент. <span class="text-danger">К какой категории относится элемент. Указывается название категории, подкатегории.</span></td></tr>
+	<tr><td>description</td><td>Описание.</td></tr>
+	<tr><td>short_description</td><td>Краткое описание.</td></tr>
+	<tr><td>meta_title</td><td>Заголовок Meta Title.</td></tr>
+	<tr><td>meta_description</td><td>Значение для тэга Meta Description.</td></tr>
+	<tr><td>meta_keywords</td><td>Значение для тэга Meta Keywords.</td></tr>
+	<tr><td>image</td><td>Картинка. Название файла картинки, если картинок несколько, указывайте через точку с запятой, например: image.png;image1.png. Кроме того, можно указывать URL адрес с картинкой, например: http://адрес.ру/image/kartinka.png;http://адрес.ру/image/kartinka1.png</td></tr>
+	<tr><td>order</td><td>Порядок сортировки.</td></tr>
+	<tr><td>active</td><td>Активный элемент или нет, т.е. виден посетителям или нет. 1 - виден, 0 - не виден.</td></tr>
+	<tr><td>show_in_menu</td><td>Показывать элемент в меню. Можно выводить элемент в любом меню магазина, а не только в категории. 1 - показывать в меню, 0 - не показывать.</td></tr>
+	<tr><td>viewed</td><td>Количество просмотров элемента.</td></tr>
+	<tr><td>created</td><td>Дата создания элемента.</td></tr>
+	<tr><td>modified</td><td>Дата модификации элемента.</td></tr>
+	<tr><td>action</td><td>Действие. <span class="text-danger">С помощью данной колонки можно массово удалять элементы из интернет-магазина. Укажите в данной колонке <strong>delete</strong> напротив того элемента, который Вы хотите удалить.</span></td></tr>
+	<tr><td>template_id</td><td>Шаблон элемента.</td></tr>
+    </tbody>
+</table>
+            
+';            
+
+    
+	echo $this->Form->input('ImportExport.language', 
+				array(
+					'label' => __('Language'),
+					'type' => 'select',
+					'options' => $available_languages,
+					'selected' => $current_language
+				));
+
+	echo $this->Form->input('ImportExport.delimiter', 
+				array(
+					'label' => __('Разделитель колонок в CSV'),
+					'value' => ';'
+				));
+
+
+	echo $this->Form->input('ImportExport.cat_delimiter', 
+				array(
+					'label' => __('Разделитель категории/подкатегории'),
+					'value' => '/'
+				));
+
+
+    echo $this->Form->file('submittedfile');
+
+
+    echo '<br />' . $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submit'));
+    echo $this->Form->end();
+
+echo $this->Admin->EndTabContent();
+
+echo $this->Admin->EndTabs();
+
+
+echo '<!-- /Categories Tab End -->'; 
+    
+echo $this->Admin->EndTabContent();
+
+echo $this->Admin->StartTabContent('pages');
+
+echo '<!-- Pages Tab Start -->';
+
+echo '<ul id="myTabPages" class="nav nav-tabs">';
+echo $this->Admin->CreateTab('export-pages',__('Export',true), 'cus-arrow-out');
+echo $this->Admin->CreateTab('import-pages',__('Import',true), 'cus-arrow-in');
+echo '</ul>';
+
+echo $this->Admin->StartTabs();
+
+echo $this->Admin->StartTabContent('export-pages');
+
+    echo $this->Form->create('ImportExport', array('id' => 'contentform_export', 'class' => 'form-horizontal', 'action' => '/import_export/export/', 'url' => '/import_export/export/'));
+
+echo '
+
+<h3>Экспортируемые поля</h3>
+
+<table class="table" id="diagnosis_list">
+    <thead>
+        <tr><th align="center"><input type="checkbox" onclick="checkAll(this)" /></th><th>Порядок</th><th>Название колонки</th><th>Описание</th><th>&nbsp;</th></tr>
+    </thead>
+    <tbody>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">1</td><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">2</td><td>name</td><td>Название.</td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">3</td><td>parent</td><td>Категория, к которой относится элемент. <span class="text-danger">К какой категории относится элемент. Указывается название категории, подкатегории.</span></td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">4</td><td>description</td><td>Описание.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">5</td><td>short_description</td><td>Краткое описание.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">6</td><td>meta_title</td><td>Заголовок Meta Title.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">7</td><td>meta_description</td><td>Значение для тэга Meta Description.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">8</td><td>meta_keywords</td><td>Значение для тэга Meta Keywords.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">9</td><td>image</td><td>Картинка. Название файла картинки, если картинок несколько, указывайте через точку с запятой, например: image.png;image1.png. Кроме того, можно указывать URL адрес с картинкой, например: http://адрес.ру/image/kartinka.png;http://адрес.ру/image/kartinka1.png</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">10</td><td>order</td><td>Порядок сортировки.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">11</td><td>active</td><td>Активный элемент или нет, т.е. виден посетителям или нет. 1 - виден, 0 - не виден.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">12</td><td>show_in_menu</td><td>Показывать элемент в меню. Можно выводить элемент в любом меню магазина, а не только в категории. 1 - показывать в меню, 0 - не показывать.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">13</td><td>viewed</td><td>Количество просмотров элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">14</td><td>created</td><td>Дата создания элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">15</td><td>modified</td><td>Дата модификации элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+    </tbody>
+</table>
+
+<a class="btn btn-delete btn-danger">Удалить выделенные</a> <a class="btn btn-delete btn-danger">Удалить все</a>
+            
+';            
+
+echo '
+
+<h3>Доступные поля</h3>
+
+<table class="table" id="diagnosis_list">
+    <thead>
+        <tr><th><input type="checkbox" onclick="checkAll(this)" /></th><th>Порядок</th><th>Название</th><th>Описание</th><th>&nbsp;</th></tr>
+    </thead>
+    <tbody>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">1</td><td>action</td><td>Действие. <span class="text-danger">С помощью данной колонки можно массово удалять элементы из интернет-магазина. Укажите в данной колонке <strong>delete</strong> напротив того элемента, который Вы хотите удалить.</span></td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">2</td><td>template_id</td><td>Шаблон элемента.</td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
+    </tbody>
+</table>
+
+<a class="btn btn-success">Добавить выделенные</a> <a class="btn btn-success">Добавить все</a>
+            
+';            
+
+    
+	echo $this->Form->input('ImportExport.language', 
+				array(
+					'label' => __('Language'),
+					'type' => 'select',
+					'options' => $available_languages,
+					'selected' => $current_language
+				));
+
+	echo $this->Form->input('ImportExport.delimiter', 
+				array(
+					'label' => __('Разделитель колонок в CSV'),
+					'value' => ';'
+				));
+
+
+	echo $this->Form->input('ImportExport.cat_delimiter', 
+				array(
+					'label' => __('Разделитель категории/подкатегории'),
+					'value' => '/'
+				));
+
+    echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submit'));
+    echo $this->Form->end();
+
+echo $this->Admin->EndTabContent();
+
+echo $this->Admin->StartTabContent('import-pages');
+
+    echo '<div class="alert alert-error"><i class="cus-error"></i> '.__('Don\'t forget backup your database before import at Admin - Tools - Database Backup.').'</div>';
+    echo $this->Form->create('form_Import', array('enctype' => 'multipart/form-data', 'id' => 'contentform_import', 'action' => '/import_export/import/', 'url' => '/import_export/import/'));
+
+echo '
+
+<h3>Допустимые поля</h3>
+
+<div><span class="text-warning">Поля alias, name, parent - должны в обязательном порядке присутствовать в импортируемом файле.</span></div>
+
+<table class="table" id="diagnosis_list_">
+    <thead>
+        <tr><th>Название колонки</th><th>Описание</th></tr>
+    </thead>
+    <tbody>
+	<tr class="warning"><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td></tr>
+	<tr class="warning"><td>name</td><td>Название.</td></tr>
+	<tr class="warning"><td>parent</td><td>Категория, к которой относится элемент. <span class="text-danger">К какой категории относится элемент. Указывается название категории, подкатегории.</span></td></tr>
+	<tr><td>description</td><td>Описание.</td></tr>
+	<tr><td>short_description</td><td>Краткое описание.</td></tr>
+	<tr><td>meta_title</td><td>Заголовок Meta Title.</td></tr>
+	<tr><td>meta_description</td><td>Значение для тэга Meta Description.</td></tr>
+	<tr><td>meta_keywords</td><td>Значение для тэга Meta Keywords.</td></tr>
+	<tr><td>image</td><td>Картинка. Название файла картинки, если картинок несколько, указывайте через точку с запятой, например: image.png;image1.png. Кроме того, можно указывать URL адрес с картинкой, например: http://адрес.ру/image/kartinka.png;http://адрес.ру/image/kartinka1.png</td></tr>
+	<tr><td>order</td><td>Порядок сортировки.</td></tr>
+	<tr><td>active</td><td>Активный элемент или нет, т.е. виден посетителям или нет. 1 - виден, 0 - не виден.</td></tr>
+	<tr><td>show_in_menu</td><td>Показывать элемент в меню. Можно выводить элемент в любом меню магазина, а не только в категории. 1 - показывать в меню, 0 - не показывать.</td></tr>
+	<tr><td>viewed</td><td>Количество просмотров элемента.</td></tr>
+	<tr><td>created</td><td>Дата создания элемента.</td></tr>
+	<tr><td>modified</td><td>Дата модификации элемента.</td></tr>
+	<tr><td>action</td><td>Действие. <span class="text-danger">С помощью данной колонки можно массово удалять элементы из интернет-магазина. Укажите в данной колонке <strong>delete</strong> напротив того элемента, который Вы хотите удалить.</span></td></tr>
+	<tr><td>template_id</td><td>Шаблон элемента.</td></tr>
+    </tbody>
+</table>
+            
+';            
+
+    
+	echo $this->Form->input('ImportExport.language', 
+				array(
+					'label' => __('Language'),
+					'type' => 'select',
+					'options' => $available_languages,
+					'selected' => $current_language
+				));
+
+	echo $this->Form->input('ImportExport.delimiter', 
+				array(
+					'label' => __('Разделитель колонок в CSV'),
+					'value' => ';'
+				));
+
+
+	echo $this->Form->input('ImportExport.cat_delimiter', 
+				array(
+					'label' => __('Разделитель категории/подкатегории'),
+					'value' => '/'
+				));
+
+
+    echo $this->Form->file('submittedfile');
+
+
+    echo '<br />' . $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submit'));
+    echo $this->Form->end();
+
+echo $this->Admin->EndTabContent();
+
+echo $this->Admin->EndTabs();
+
+
+echo '<!-- /Pages Tab End -->'; 
+    
+echo $this->Admin->EndTabContent();
+
+echo $this->Admin->StartTabContent('articles');
+
+echo '<!-- Articles Tab Start -->';
+
+echo '<ul id="myTabArticles" class="nav nav-tabs">';
+echo $this->Admin->CreateTab('export-articles',__('Export',true), 'cus-arrow-out');
+echo $this->Admin->CreateTab('import-articles',__('Import',true), 'cus-arrow-in');
+echo '</ul>';
+
+echo $this->Admin->StartTabs();
+
+echo $this->Admin->StartTabContent('export-articles');
+
+    echo $this->Form->create('ImportExport', array('id' => 'contentform_export', 'class' => 'form-horizontal', 'action' => '/import_export/export/', 'url' => '/import_export/export/'));
+
+echo '
+
+<h3>Экспортируемые поля</h3>
+
+<table class="table" id="diagnosis_list">
+    <thead>
+        <tr><th align="center"><input type="checkbox" onclick="checkAll(this)" /></th><th>Порядок</th><th>Название колонки</th><th>Описание</th><th>&nbsp;</th></tr>
+    </thead>
+    <tbody>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">1</td><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">2</td><td>name</td><td>Название.</td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">3</td><td>parent</td><td>Категория, к которой относится элемент. <span class="text-danger">К какой категории относится элемент. Указывается название категории, подкатегории.</span></td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">4</td><td>description</td><td>Описание.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">5</td><td>short_description</td><td>Краткое описание.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">6</td><td>meta_title</td><td>Заголовок Meta Title.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">7</td><td>meta_description</td><td>Значение для тэга Meta Description.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">8</td><td>meta_keywords</td><td>Значение для тэга Meta Keywords.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">9</td><td>image</td><td>Картинка. Название файла картинки, если картинок несколько, указывайте через точку с запятой, например: image.png;image1.png. Кроме того, можно указывать URL адрес с картинкой, например: http://адрес.ру/image/kartinka.png;http://адрес.ру/image/kartinka1.png</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">10</td><td>order</td><td>Порядок сортировки.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">11</td><td>active</td><td>Активный элемент или нет, т.е. виден посетителям или нет. 1 - виден, 0 - не виден.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">12</td><td>show_in_menu</td><td>Показывать элемент в меню. Можно выводить элемент в любом меню магазина, а не только в категории. 1 - показывать в меню, 0 - не показывать.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">13</td><td>viewed</td><td>Количество просмотров элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">14</td><td>created</td><td>Дата создания элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">15</td><td>modified</td><td>Дата модификации элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+    </tbody>
+</table>
+
+<a class="btn btn-delete btn-danger">Удалить выделенные</a> <a class="btn btn-delete btn-danger">Удалить все</a>
+            
+';            
+
+echo '
+
+<h3>Доступные поля</h3>
+
+<table class="table" id="diagnosis_list">
+    <thead>
+        <tr><th><input type="checkbox" onclick="checkAll(this)" /></th><th>Порядок</th><th>Название</th><th>Описание</th><th>&nbsp;</th></tr>
+    </thead>
+    <tbody>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">1</td><td>action</td><td>Действие. <span class="text-danger">С помощью данной колонки можно массово удалять элементы из интернет-магазина. Укажите в данной колонке <strong>delete</strong> напротив того элемента, который Вы хотите удалить.</span></td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">2</td><td>template_id</td><td>Шаблон элемента.</td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
+    </tbody>
+</table>
+
+<a class="btn btn-success">Добавить выделенные</a> <a class="btn btn-success">Добавить все</a>
+            
+';            
+
+    
+	echo $this->Form->input('ImportExport.language', 
+				array(
+					'label' => __('Language'),
+					'type' => 'select',
+					'options' => $available_languages,
+					'selected' => $current_language
+				));
+
+	echo $this->Form->input('ImportExport.delimiter', 
+				array(
+					'label' => __('Разделитель колонок в CSV'),
+					'value' => ';'
+				));
+
+
+	echo $this->Form->input('ImportExport.cat_delimiter', 
+				array(
+					'label' => __('Разделитель категории/подкатегории'),
+					'value' => '/'
+				));
+
+    echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submit'));
+    echo $this->Form->end();
+
+echo $this->Admin->EndTabContent();
+
+echo $this->Admin->StartTabContent('import-articles');
+
+    echo '<div class="alert alert-error"><i class="cus-error"></i> '.__('Don\'t forget backup your database before import at Admin - Tools - Database Backup.').'</div>';
+    echo $this->Form->create('form_Import', array('enctype' => 'multipart/form-data', 'id' => 'contentform_import', 'action' => '/import_export/import/', 'url' => '/import_export/import/'));
+
+echo '
+
+<h3>Допустимые поля</h3>
+
+<div><span class="text-warning">Поля alias, name, parent - должны в обязательном порядке присутствовать в импортируемом файле.</span></div>
+
+<table class="table" id="diagnosis_list_">
+    <thead>
+        <tr><th>Название колонки</th><th>Описание</th></tr>
+    </thead>
+    <tbody>
+	<tr class="warning"><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td></tr>
+	<tr class="warning"><td>name</td><td>Название.</td></tr>
+	<tr class="warning"><td>parent</td><td>Категория, к которой относится элемент. <span class="text-danger">К какой категории относится элемент. Указывается название категории, подкатегории.</span></td></tr>
+	<tr><td>description</td><td>Описание.</td></tr>
+	<tr><td>short_description</td><td>Краткое описание.</td></tr>
+	<tr><td>meta_title</td><td>Заголовок Meta Title.</td></tr>
+	<tr><td>meta_description</td><td>Значение для тэга Meta Description.</td></tr>
+	<tr><td>meta_keywords</td><td>Значение для тэга Meta Keywords.</td></tr>
+	<tr><td>image</td><td>Картинка. Название файла картинки, если картинок несколько, указывайте через точку с запятой, например: image.png;image1.png. Кроме того, можно указывать URL адрес с картинкой, например: http://адрес.ру/image/kartinka.png;http://адрес.ру/image/kartinka1.png</td></tr>
+	<tr><td>order</td><td>Порядок сортировки.</td></tr>
+	<tr><td>active</td><td>Активный элемент или нет, т.е. виден посетителям или нет. 1 - виден, 0 - не виден.</td></tr>
+	<tr><td>show_in_menu</td><td>Показывать элемент в меню. Можно выводить элемент в любом меню магазина, а не только в категории. 1 - показывать в меню, 0 - не показывать.</td></tr>
+	<tr><td>viewed</td><td>Количество просмотров элемента.</td></tr>
+	<tr><td>created</td><td>Дата создания элемента.</td></tr>
+	<tr><td>modified</td><td>Дата модификации элемента.</td></tr>
+	<tr><td>action</td><td>Действие. <span class="text-danger">С помощью данной колонки можно массово удалять элементы из интернет-магазина. Укажите в данной колонке <strong>delete</strong> напротив того элемента, который Вы хотите удалить.</span></td></tr>
+	<tr><td>template_id</td><td>Шаблон элемента.</td></tr>
+    </tbody>
+</table>
+            
+';            
+
+    
+	echo $this->Form->input('ImportExport.language', 
+				array(
+					'label' => __('Language'),
+					'type' => 'select',
+					'options' => $available_languages,
+					'selected' => $current_language
+				));
+
+	echo $this->Form->input('ImportExport.delimiter', 
+				array(
+					'label' => __('Разделитель колонок в CSV'),
+					'value' => ';'
+				));
+
+
+	echo $this->Form->input('ImportExport.cat_delimiter', 
+				array(
+					'label' => __('Разделитель категории/подкатегории'),
+					'value' => '/'
+				));
+
+
+    echo $this->Form->file('submittedfile');
+
+
+    echo '<br />' . $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submit'));
+    echo $this->Form->end();
+
+echo $this->Admin->EndTabContent();
+
+echo $this->Admin->EndTabs();
+
+
+echo '<!-- /Articles Tab End -->';
+    
+echo $this->Admin->EndTabContent();
+
+echo $this->Admin->StartTabContent('news');
+
+echo '<!-- News Tab Start -->';
+
+echo '<ul id="myTabNews" class="nav nav-tabs">';
+echo $this->Admin->CreateTab('export-news',__('Export',true), 'cus-arrow-out');
+echo $this->Admin->CreateTab('import-news',__('Import',true), 'cus-arrow-in');
+echo '</ul>';
+
+echo $this->Admin->StartTabs();
+
+echo $this->Admin->StartTabContent('export-news');
+
+    echo $this->Form->create('ImportExport', array('id' => 'contentform_export', 'class' => 'form-horizontal', 'action' => '/import_export/export/', 'url' => '/import_export/export/'));
+
+echo '
+
+<h3>Экспортируемые поля</h3>
+
+<table class="table" id="diagnosis_list">
+    <thead>
+        <tr><th align="center"><input type="checkbox" onclick="checkAll(this)" /></th><th>Порядок</th><th>Название колонки</th><th>Описание</th><th>&nbsp;</th></tr>
+    </thead>
+    <tbody>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">1</td><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">2</td><td>name</td><td>Название.</td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">3</td><td>parent</td><td>Категория, к которой относится элемент. <span class="text-danger">К какой категории относится элемент. Указывается название категории, подкатегории.</span></td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">4</td><td>description</td><td>Описание.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">5</td><td>short_description</td><td>Краткое описание.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">6</td><td>meta_title</td><td>Заголовок Meta Title.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">7</td><td>meta_description</td><td>Значение для тэга Meta Description.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">8</td><td>meta_keywords</td><td>Значение для тэга Meta Keywords.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">9</td><td>image</td><td>Картинка. Название файла картинки, если картинок несколько, указывайте через точку с запятой, например: image.png;image1.png. Кроме того, можно указывать URL адрес с картинкой, например: http://адрес.ру/image/kartinka.png;http://адрес.ру/image/kartinka1.png</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">10</td><td>order</td><td>Порядок сортировки.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">11</td><td>active</td><td>Активный элемент или нет, т.е. виден посетителям или нет. 1 - виден, 0 - не виден.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">12</td><td>show_in_menu</td><td>Показывать элемент в меню. Можно выводить элемент в любом меню магазина, а не только в категории. 1 - показывать в меню, 0 - не показывать.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">13</td><td>viewed</td><td>Количество просмотров элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">14</td><td>created</td><td>Дата создания элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">15</td><td>modified</td><td>Дата модификации элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+    </tbody>
+</table>
+
+<a class="btn btn-delete btn-danger">Удалить выделенные</a> <a class="btn btn-delete btn-danger">Удалить все</a>
+            
+';            
+
+echo '
+
+<h3>Доступные поля</h3>
+
+<table class="table" id="diagnosis_list">
+    <thead>
+        <tr><th><input type="checkbox" onclick="checkAll(this)" /></th><th>Порядок</th><th>Название</th><th>Описание</th><th>&nbsp;</th></tr>
+    </thead>
+    <tbody>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">1</td><td>action</td><td>Действие. <span class="text-danger">С помощью данной колонки можно массово удалять элементы из интернет-магазина. Укажите в данной колонке <strong>delete</strong> напротив того элемента, который Вы хотите удалить.</span></td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">2</td><td>template_id</td><td>Шаблон элемента.</td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
+    </tbody>
+</table>
+
+<a class="btn btn-success">Добавить выделенные</a> <a class="btn btn-success">Добавить все</a>
+            
+';            
+
+    
+	echo $this->Form->input('ImportExport.language', 
+				array(
+					'label' => __('Language'),
+					'type' => 'select',
+					'options' => $available_languages,
+					'selected' => $current_language
+				));
+
+	echo $this->Form->input('ImportExport.delimiter', 
+				array(
+					'label' => __('Разделитель колонок в CSV'),
+					'value' => ';'
+				));
+
+
+	echo $this->Form->input('ImportExport.cat_delimiter', 
+				array(
+					'label' => __('Разделитель категории/подкатегории'),
+					'value' => '/'
+				));
+
+    echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submit'));
+    echo $this->Form->end();
+
+echo $this->Admin->EndTabContent();
+
+echo $this->Admin->StartTabContent('import-news');
+
+    echo '<div class="alert alert-error"><i class="cus-error"></i> '.__('Don\'t forget backup your database before import at Admin - Tools - Database Backup.').'</div>';
+    echo $this->Form->create('form_Import', array('enctype' => 'multipart/form-data', 'id' => 'contentform_import', 'action' => '/import_export/import/', 'url' => '/import_export/import/'));
+
+echo '
+
+<h3>Допустимые поля</h3>
+
+<div><span class="text-warning">Поля alias, name, parent - должны в обязательном порядке присутствовать в импортируемом файле.</span></div>
+
+<table class="table" id="diagnosis_list_">
+    <thead>
+        <tr><th>Название колонки</th><th>Описание</th></tr>
+    </thead>
+    <tbody>
+	<tr class="warning"><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td></tr>
+	<tr class="warning"><td>name</td><td>Название.</td></tr>
+	<tr class="warning"><td>parent</td><td>Категория, к которой относится элемент. <span class="text-danger">К какой категории относится элемент. Указывается название категории, подкатегории.</span></td></tr>
+	<tr><td>description</td><td>Описание.</td></tr>
+	<tr><td>short_description</td><td>Краткое описание.</td></tr>
+	<tr><td>meta_title</td><td>Заголовок Meta Title.</td></tr>
+	<tr><td>meta_description</td><td>Значение для тэга Meta Description.</td></tr>
+	<tr><td>meta_keywords</td><td>Значение для тэга Meta Keywords.</td></tr>
+	<tr><td>image</td><td>Картинка. Название файла картинки, если картинок несколько, указывайте через точку с запятой, например: image.png;image1.png. Кроме того, можно указывать URL адрес с картинкой, например: http://адрес.ру/image/kartinka.png;http://адрес.ру/image/kartinka1.png</td></tr>
+	<tr><td>order</td><td>Порядок сортировки.</td></tr>
+	<tr><td>active</td><td>Активный элемент или нет, т.е. виден посетителям или нет. 1 - виден, 0 - не виден.</td></tr>
+	<tr><td>show_in_menu</td><td>Показывать элемент в меню. Можно выводить элемент в любом меню магазина, а не только в категории. 1 - показывать в меню, 0 - не показывать.</td></tr>
+	<tr><td>viewed</td><td>Количество просмотров элемента.</td></tr>
+	<tr><td>created</td><td>Дата создания элемента.</td></tr>
+	<tr><td>modified</td><td>Дата модификации элемента.</td></tr>
+	<tr><td>action</td><td>Действие. <span class="text-danger">С помощью данной колонки можно массово удалять элементы из интернет-магазина. Укажите в данной колонке <strong>delete</strong> напротив того элемента, который Вы хотите удалить.</span></td></tr>
+	<tr><td>template_id</td><td>Шаблон элемента.</td></tr>
+    </tbody>
+</table>
+            
+';            
+
+    
+	echo $this->Form->input('ImportExport.language', 
+				array(
+					'label' => __('Language'),
+					'type' => 'select',
+					'options' => $available_languages,
+					'selected' => $current_language
+				));
+
+	echo $this->Form->input('ImportExport.delimiter', 
+				array(
+					'label' => __('Разделитель колонок в CSV'),
+					'value' => ';'
+				));
+
+
+	echo $this->Form->input('ImportExport.cat_delimiter', 
+				array(
+					'label' => __('Разделитель категории/подкатегории'),
+					'value' => '/'
+				));
+
+
+    echo $this->Form->file('submittedfile');
+
+
+    echo '<br />' . $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submit'));
+    echo $this->Form->end();
+
+echo $this->Admin->EndTabContent();
+
+echo $this->Admin->EndTabs();
+
+
+echo '<!-- /News Tab End -->'; 
+    
+echo $this->Admin->EndTabContent();
+
+echo $this->Admin->StartTabContent('customers');
+
+echo '<!-- Customers Tab Start -->';
+
+echo '<ul id="myTabCustomers" class="nav nav-tabs">';
+echo $this->Admin->CreateTab('export-customers',__('Export',true), 'cus-arrow-out');
+echo $this->Admin->CreateTab('import-customers',__('Import',true), 'cus-arrow-in');
+echo '</ul>';
+
+echo $this->Admin->StartTabs();
+
+echo $this->Admin->StartTabContent('export-customers');
+
+    echo $this->Form->create('ImportExport', array('id' => 'contentform_export', 'class' => 'form-horizontal', 'action' => '/import_export/export/', 'url' => '/import_export/export/'));
+
+echo '
+
+<h3>Экспортируемые поля</h3>
+
+<table class="table" id="diagnosis_list">
+    <thead>
+        <tr><th align="center"><input type="checkbox" onclick="checkAll(this)" /></th><th>Порядок</th><th>Название колонки</th><th>Описание</th><th>&nbsp;</th></tr>
+    </thead>
+    <tbody>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">1</td><td>email</td><td>Email адрес покупателя. <span class="text-danger">Данное поле является ключом - проверяется, если клиента с таким email нет, то добавляется новый клиент, если есть - обновляются данные покупателя.</span></td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">2</td><td>password</td><td>Пароль.</td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">3</td><td>name</td><td>Имя.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">6</td><td>ship_name</td><td>Имя получателя заказа.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">7</td><td>ship_line_1</td><td>Адрес.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">8</td><td>ship_line_2</td><td>Дополнительная адресная информация.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">9</td><td>ship_city</td><td>Город.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">10</td><td>ship_state</td><td>Регион.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">11</td><td>ship_country</td><td>Страна.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">12</td><td>ship_zip</td><td>Почтовый индекс.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">13</td><td>phone</td><td>Телефон.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">14</td><td>created</td><td>Дата регистрации покупателя.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">15</td><td>modified</td><td>Дата модификации покупателя.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+    </tbody>
+</table>
+
+<a class="btn btn-delete btn-danger">Удалить выделенные</a> <a class="btn btn-delete btn-danger">Удалить все</a>
+            
+';            
+
+echo '
+
+<h3>Доступные поля</h3>
+
+<table class="table" id="diagnosis_list">
+    <thead>
+        <tr><th><input type="checkbox" onclick="checkAll(this)" /></th><th>Порядок</th><th>Название</th><th>Описание</th><th>&nbsp;</th></tr>
+    </thead>
+    <tbody>
+	<tr><td colspan="4">Все доступные поля уже добавлены в экспортируемые, готовы к выгрузке в csv файл.</td></tr>
+    </tbody>
+</table>
+
+<a class="btn btn-success">Добавить выделенные</a> <a class="btn btn-success">Добавить все</a>
+            
+';            
+
+    
+	echo $this->Form->input('ImportExport.delimiter', 
+				array(
+					'label' => __('Разделитель колонок в CSV'),
+					'value' => ';'
+				));
+
+
+    echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submit'));
+    echo $this->Form->end();
+
+echo $this->Admin->EndTabContent();
+
+echo $this->Admin->StartTabContent('import-customers');
+
+    echo '<div class="alert alert-error"><i class="cus-error"></i> '.__('Don\'t forget backup your database before import at Admin - Tools - Database Backup.').'</div>';
+    echo $this->Form->create('form_Import', array('enctype' => 'multipart/form-data', 'id' => 'contentform_import', 'action' => '/import_export/import/', 'url' => '/import_export/import/'));
+
+echo '
+
+<h3>Допустимые поля</h3>
+
+<div><span class="text-warning">Поля email, password - должны в обязательном порядке присутствовать в импортируемом файле.</span></div>
+
+<table class="table" id="diagnosis_list_">
+    <thead>
+        <tr><th>Название колонки</th><th>Описание</th></tr>
+    </thead>
+    <tbody>
+	<tr class="warning"><td>email</td><td>Email адрес покупателя.</tr>
+	<tr class="warning"><td>password</td><td>Пароль.</td></tr>
+	<tr><td>name</td><td>Имя.</td></tr>
+	<tr><td>ship_name</td><td>Имя получателя заказа.</td></tr>
+	<tr><td>ship_line_1</td><td>Адрес.</td></tr>
+	<tr><td>ship_line_2</td><td>Дополнительная адресная информация.</td></tr>
+	<tr><td>ship_city</td><td>Город.</td></tr>
+	<tr><td>ship_state</td><td>Регион.</td></tr>
+	<tr><td>ship_country</td><td>Страна.</td></tr>
+	<tr><td>ship_zip</td><td>Почтовый индекс.</td></tr>
+	<tr><td>phone</td><td>Телефон.</td></tr>
+	<tr><td>created</td><td>Дата регистрации покупателя.</td></tr>
+	<tr><td>modified</td><td>Дата модификации покупателя.</td></tr>
+    </tbody>
+</table>
+            
+';            
+
+    
+	echo $this->Form->input('ImportExport.delimiter', 
+				array(
+					'label' => __('Разделитель колонок в CSV'),
+					'value' => ';'
+				));
+
+    echo $this->Form->file('submittedfile');
+
+
+    echo '<br />' . $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submit'));
+    echo $this->Form->end();
+
+echo $this->Admin->EndTabContent();
+
+echo $this->Admin->EndTabs();
+
+echo '<!-- /Customers Tab End -->'; 
+    
+echo $this->Admin->EndTabContent();
+
+echo $this->Admin->StartTabContent('orders');
+
+echo '<!-- Orders Tab Start -->';
+
+echo '<ul id="myTabOrders" class="nav nav-tabs">';
+echo $this->Admin->CreateTab('export-orders',__('Export',true), 'cus-arrow-out');
+echo $this->Admin->CreateTab('import-orders',__('Import',true), 'cus-arrow-in');
+echo '</ul>';
+
+echo $this->Admin->StartTabs();
+
+echo $this->Admin->StartTabContent('export-orders');
+
+    echo $this->Form->create('ImportExport', array('id' => 'contentform_export', 'class' => 'form-horizontal', 'action' => '/import_export/export/', 'url' => '/import_export/export/'));
+
+echo '
+
+<h3>Экспортируемые поля</h3>
+
+<table class="table" id="diagnosis_list">
+    <thead>
+        <tr><th align="center"><input type="checkbox" onclick="checkAll(this)" /></th><th>Порядок</th><th>Название колонки</th><th>Описание</th><th>&nbsp;</th></tr>
+    </thead>
+    <tbody>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">1</td><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">2</td><td>name</td><td>Название.</td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">3</td><td>parent</td><td>Категория, к которой относится элемент. <span class="text-danger">К какой категории относится элемент. Указывается название категории, подкатегории.</span></td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">4</td><td>description</td><td>Описание.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">5</td><td>short_description</td><td>Краткое описание.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">6</td><td>meta_title</td><td>Заголовок Meta Title.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">7</td><td>meta_description</td><td>Значение для тэга Meta Description.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">8</td><td>meta_keywords</td><td>Значение для тэга Meta Keywords.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">9</td><td>image</td><td>Картинка. Название файла картинки, если картинок несколько, указывайте через точку с запятой, например: image.png;image1.png. Кроме того, можно указывать URL адрес с картинкой, например: http://адрес.ру/image/kartinka.png;http://адрес.ру/image/kartinka1.png</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">10</td><td>order</td><td>Порядок сортировки.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">11</td><td>active</td><td>Активный элемент или нет, т.е. виден посетителям или нет. 1 - виден, 0 - не виден.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">12</td><td>show_in_menu</td><td>Показывать элемент в меню. Можно выводить элемент в любом меню магазина, а не только в категории. 1 - показывать в меню, 0 - не показывать.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">13</td><td>viewed</td><td>Количество просмотров элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">14</td><td>created</td><td>Дата создания элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">15</td><td>modified</td><td>Дата модификации элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+    </tbody>
+</table>
+
+<a class="btn btn-delete btn-danger">Удалить выделенные</a> <a class="btn btn-delete btn-danger">Удалить все</a>
+            
+';            
+
+echo '
+
+<h3>Доступные поля</h3>
+
+<table class="table" id="diagnosis_list">
+    <thead>
+        <tr><th><input type="checkbox" onclick="checkAll(this)" /></th><th>Порядок</th><th>Название</th><th>Описание</th><th>&nbsp;</th></tr>
+    </thead>
+    <tbody>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">1</td><td>action</td><td>Действие. <span class="text-danger">С помощью данной колонки можно массово удалять элементы из интернет-магазина. Укажите в данной колонке <strong>delete</strong> напротив того элемента, который Вы хотите удалить.</span></td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
+	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">2</td><td>template_id</td><td>Шаблон элемента.</td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
+    </tbody>
+</table>
+
+<a class="btn btn-success">Добавить выделенные</a> <a class="btn btn-success">Добавить все</a>
+            
+';            
+
+    
+	echo $this->Form->input('ImportExport.language', 
+				array(
+					'label' => __('Language'),
+					'type' => 'select',
+					'options' => $available_languages,
+					'selected' => $current_language
+				));
+
+	echo $this->Form->input('ImportExport.delimiter', 
+				array(
+					'label' => __('Разделитель колонок в CSV'),
+					'value' => ';'
+				));
+
+
+	echo $this->Form->input('ImportExport.cat_delimiter', 
+				array(
+					'label' => __('Разделитель категории/подкатегории'),
+					'value' => '/'
+				));
+
+    echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submit'));
+    echo $this->Form->end();
+
+echo $this->Admin->EndTabContent();
+
+echo $this->Admin->StartTabContent('import-orders');
 
     echo '<div class="alert alert-error"><i class="cus-error"></i> '.__('Don\'t forget backup your database before import at Admin - Tools - Database Backup.').'</div>';
     echo $this->Form->create('form_Import', array('enctype' => 'multipart/form-data', 'id' => 'contentform_import', 'action' => '/import_export/import/', 'url' => '/import_export/import/'));
@@ -459,48 +1433,6 @@ echo $this->Admin->EndTabContent();
 echo $this->Admin->EndTabs();
 
 
-echo '<!-- /Brands Tab End -->'; 
-    
-echo $this->Admin->EndTabContent();
-
-echo $this->Admin->StartTabContent('categories');
-
-echo '<!-- Categories Tab Start -->';
-echo '<!-- /Categories Tab End -->'; 
-    
-echo $this->Admin->EndTabContent();
-
-echo $this->Admin->StartTabContent('pages');
-
-echo '<!-- Pages Tab Start -->';
-echo '<!-- /Pages Tab End -->'; 
-    
-echo $this->Admin->EndTabContent();
-
-echo $this->Admin->StartTabContent('articles');
-
-echo '<!-- Articles Tab Start -->';
-echo '<!-- /Articles Tab End -->';
-    
-echo $this->Admin->EndTabContent();
-
-echo $this->Admin->StartTabContent('news');
-
-echo '<!-- News Tab Start -->';
-echo '<!-- /News Tab End -->'; 
-    
-echo $this->Admin->EndTabContent();
-
-echo $this->Admin->StartTabContent('customers');
-
-echo '<!-- Customers Tab Start -->';
-echo '<!-- /Customers Tab End -->'; 
-    
-echo $this->Admin->EndTabContent();
-
-echo $this->Admin->StartTabContent('orders');
-
-echo '<!-- Orders Tab Start -->';
 echo '<!-- /Orders Tab End -->';
     
 echo $this->Admin->EndTabContent();
