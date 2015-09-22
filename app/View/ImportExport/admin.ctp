@@ -1412,8 +1412,8 @@ echo '
         <tr><th>Название колонки</th><th>Описание</th></tr>
     </thead>
     <tbody>
-	<tr class="warning"><td class="priority">1</td><td>id</td></tr>
-	<tr class="warning"><td class="priority">2</td><td>total</td></tr>
+	<tr class="warning"><td>id</td><td>Номер заказа.</td></tr>
+	<tr class="warning"><td>total</td><td>Сумма заказа.</td></tr>
 	<tr><td>shipping</td><td>Стоимость доставки.</td></tr>
 	<tr><td>tax</td><td>Налог.</td></tr>
 	<tr><td>order_status_id</td><td>Имя.</td></tr>
