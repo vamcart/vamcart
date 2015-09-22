@@ -42,6 +42,23 @@ class ImportExportController extends AppController {
             
             $this->set('current_crumb', __('Import/Export', true));
             $this->set('title_for_layout', __('Import/Export', true));
+
+		App::import('Model', 'Language');
+		$Language = new Language();
+
+		$languages = $Language->find('all', array('order' => array('Language.id ASC')));
+		$languages_list = array();
+		
+		foreach($languages AS $language)
+		{
+			$language_key = $language['Language']['iso_code_2'];
+			$languages_list[$language_key] = $language['Language']['name'];
+		}
+		
+		$this->set('available_languages', $languages_list);	
+		$this->set('current_language', $this->Session->read('Customer.language_id'));	
+
+
 	}
 
 	public function import ()
