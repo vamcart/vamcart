@@ -1233,6 +1233,12 @@ echo '
 				));
 
 
+	echo $this->Form->input('ImportExport.groups_customer_id',array(
+				'type' => 'select',
+				'label' => __('Group')
+				,'options' => $groups
+                                ));   
+
     echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submit'));
     echo $this->Form->end();
 

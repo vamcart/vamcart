@@ -58,6 +58,18 @@ class ImportExportController extends AppController {
 		$this->set('available_languages', $languages_list);	
 		$this->set('current_language', $this->Session->read('Customer.language_id'));	
 
+                        $this->loadModel('GroupsCustomer');                    
+                        $this->GroupsCustomer->unbindModel(array('hasMany' => array('GroupsCustomerDescription')));
+                        $this->GroupsCustomer->bindModel(array('hasOne' => array('GroupsCustomerDescription' => array(
+						'className' => 'GroupsCustomerDescription',
+						'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
+					)))); 
+                        $groups = $this->GroupsCustomer->find('all',array('fields' => array('GroupsCustomer.id', 'GroupsCustomerDescription.name')));
+                        $groups = Set::combine($groups,'{n}.GroupsCustomer.id','{n}.GroupsCustomerDescription.name');
+                        $groups[0] = __('no');
+                        asort($groups);
+                        $this->set('groups',$groups);
+
 
 	}
 
