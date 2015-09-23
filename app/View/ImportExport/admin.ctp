@@ -215,7 +215,7 @@ echo '
 			   		'label' => __('Категории'),
 						'options' => $this->requestAction('/contents/admin_parents_tree/'),
 						'escape' => false,
-						'empty' => array(0 => __('Все категории'))
+						//'empty' => array(0 => __('Все категории'))
                ));
 
 	echo $this->Form->input('ImportExport.language', 
