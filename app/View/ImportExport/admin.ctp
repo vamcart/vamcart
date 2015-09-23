@@ -139,7 +139,7 @@ echo $this->Admin->CreateTab('export-products',__('Export',true), 'cus-arrow-out
 echo $this->Admin->CreateTab('import-products',__('Import',true), 'cus-arrow-in');
 echo '</ul>';
 
-echo $this->Admin->StartTabs();
+echo $this->Admin->StartTabs('products');
 
 echo $this->Admin->StartTabContent('export-products');
 
@@ -339,7 +339,7 @@ echo $this->Admin->CreateTab('export-manufacturers',__('Export',true), 'cus-arro
 echo $this->Admin->CreateTab('import-manufacturers',__('Import',true), 'cus-arrow-in');
 echo '</ul>';
 
-echo $this->Admin->StartTabs();
+echo $this->Admin->StartTabs('manufacturers');
 
 echo $this->Admin->StartTabContent('export-manufacturers');
 
@@ -506,7 +506,7 @@ echo $this->Admin->CreateTab('export-categories',__('Export',true), 'cus-arrow-o
 echo $this->Admin->CreateTab('import-categories',__('Import',true), 'cus-arrow-in');
 echo '</ul>';
 
-echo $this->Admin->StartTabs();
+echo $this->Admin->StartTabs('categories');
 
 echo $this->Admin->StartTabContent('export-categories');
 
@@ -673,7 +673,7 @@ echo $this->Admin->CreateTab('export-pages',__('Export',true), 'cus-arrow-out');
 echo $this->Admin->CreateTab('import-pages',__('Import',true), 'cus-arrow-in');
 echo '</ul>';
 
-echo $this->Admin->StartTabs();
+echo $this->Admin->StartTabs('pages');
 
 echo $this->Admin->StartTabContent('export-pages');
 
@@ -840,7 +840,7 @@ echo $this->Admin->CreateTab('export-articles',__('Export',true), 'cus-arrow-out
 echo $this->Admin->CreateTab('import-articles',__('Import',true), 'cus-arrow-in');
 echo '</ul>';
 
-echo $this->Admin->StartTabs();
+echo $this->Admin->StartTabs('articles');
 
 echo $this->Admin->StartTabContent('export-articles');
 
@@ -1007,7 +1007,7 @@ echo $this->Admin->CreateTab('export-news',__('Export',true), 'cus-arrow-out');
 echo $this->Admin->CreateTab('import-news',__('Import',true), 'cus-arrow-in');
 echo '</ul>';
 
-echo $this->Admin->StartTabs();
+echo $this->Admin->StartTabs('news');
 
 echo $this->Admin->StartTabContent('export-news');
 
@@ -1174,7 +1174,7 @@ echo $this->Admin->CreateTab('export-customers',__('Export',true), 'cus-arrow-ou
 echo $this->Admin->CreateTab('import-customers',__('Import',true), 'cus-arrow-in');
 echo '</ul>';
 
-echo $this->Admin->StartTabs();
+echo $this->Admin->StartTabs('customers');
 
 echo $this->Admin->StartTabContent('export-customers');
 
@@ -1309,7 +1309,7 @@ echo $this->Admin->CreateTab('export-orders',__('Export',true), 'cus-arrow-out')
 echo $this->Admin->CreateTab('import-orders',__('Import',true), 'cus-arrow-in');
 echo '</ul>';
 
-echo $this->Admin->StartTabs();
+echo $this->Admin->StartTabs('orders');
 
 echo $this->Admin->StartTabContent('export-orders');
 
@@ -1512,7 +1512,7 @@ echo '&lt;!-- Products Tab Start --&gt;';<br />заканчивается:<br />
 А может и что-то другое типа local storage, думаю, что Вам виднее.
 Выбор категорий в настройках тоже нужно удобно сделать, например с помощью - boostrap chosen, вот пример - https://github.com/alxlit/bootstrap-chosen
 Смысл в том, что б выбрать сразу несколько категорий. Bootstrap Chosen очень удобная вещь, можно и поиском внутри select искать и несколько категорий выбрать.
-Я его уже подключи к полю Категории.
+Я его уже подключил к полю Категории.
 
 Таблицы Экспортируемые поля и Доступные поля должны быть связаны между собой.
 
