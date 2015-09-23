@@ -211,11 +211,12 @@ echo '
 					array(
 						'type' => 'select',
 						'id' => 'selected_content',
+						'multiple' => true,
 			   		'label' => __('Категории'),
 						'options' => $this->requestAction('/contents/admin_parents_tree/'),
 						'escape' => false,
 						'empty' => array(0 => __('Все категории'))
-               ), array('multiple' => true));
+               ));
 
 	echo $this->Form->input('ImportExport.language', 
 				array(
