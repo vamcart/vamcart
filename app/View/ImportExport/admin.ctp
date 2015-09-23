@@ -21,13 +21,13 @@ if (!file_exists(WWW_ROOT . 'js/jquery/plugins/jquery-ui/' . $fname)) {
 }
 
 $this->Html->script(array(
-	'jquery/plugins/multiselect/bootstrap-multiselect.js',
+	'jquery/plugins/chosen/chosen.jquery.js',
 	'jquery/plugins/jquery-ui-min.js',
 	'jquery/plugins/jquery-ui/' . $fname,
 	'selectall.js'
 ), array('inline' => false));
 
-$this->Html->css(array('jquery/plugins/multiselect/bootstrap-multiselect.css','jquery-ui.css'), null, array('inline' => false));
+$this->Html->css(array('jquery/plugins/chosen/bootstrap-chosen.css','jquery-ui.css'), null, array('inline' => false));
 ?>
 <style type="text/css">
 .ui-sortable tr {
@@ -47,11 +47,11 @@ $this->Html->css(array('jquery/plugins/multiselect/bootstrap-multiselect.css','j
 			$( "#date_end" ).datepicker({ dateFormat: "yy-mm-dd" }).val();
 		});
 
+      $(function() {
+        $(".chosen-select").chosen();
+        $(".chosen-select-deselect").chosen({ allow_single_deselect: true });
+      });
 
-        $("#selected_content").multiselect({
-            includeSelectAllOption: true,
-            enableFiltering: true
-        });
     });
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
 <?php echo $this->Html->scriptBlock('
@@ -211,6 +211,7 @@ echo '
 					array(
 						'type' => 'select',
 						'id' => 'selected_content',
+						'class' => 'chosen-select',
 						'multiple' => true,
 			   		'label' => __('Категории'),
 						'options' => $this->requestAction('/contents/admin_parents_tree/'),
@@ -1510,8 +1511,8 @@ echo '&lt;!-- Products Tab Start --&gt;';<br />заканчивается:<br />
 Сортировка сделана с помощью jQueryUI Sortable - http://jqueryui.com/sortable/
 Что б запоминать отсортированный порядок, наверное можно использовать jQuery Cookie, который уже есть в /app/webroot/js/jquery/plugins/jquery.cookie.js
 А может и что-то другое типа local storage, думаю, что Вам виднее.
-Выбор категорий в настройках тоже нужно удобно сделать, например с помощью - boostrap multiselect, вот пример - http://davidstutz.github.io/bootstrap-multiselect/#post
-т.е. там в примере в выборе есть поиск и Select all, вроде бы удобно, т.е. смысл в том, что б выбрать сразу несколько категорий. Если как-то проще можно сделать, сделайте проще. Это как вариант.
+Выбор категорий в настройках тоже нужно удобно сделать, например с помощью - boostrap chosen, вот пример - https://github.com/alxlit/bootstrap-chosen
+Смысл в том, что б выбрать сразу несколько категорий. Если как-то проще можно сделать, сделайте проще. Это как вариант.
 
 Таблицы Экспортируемые поля и Доступные поля должны быть связаны между собой.
 
