@@ -49,7 +49,6 @@ $this->Html->css(array('jquery/plugins/chosen/bootstrap-chosen.css','jquery-ui.c
 
       $(function() {
         $(".chosen-select").chosen();
-        $(".chosen-select-deselect").chosen({ allow_single_deselect: true });
       });
 
     });
