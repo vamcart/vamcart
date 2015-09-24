@@ -51,7 +51,7 @@ class ImportExportController extends AppController {
 		
 		foreach($languages AS $language)
 		{
-			$language_key = $language['Language']['iso_code_2'];
+			$language_key = $language['Language']['id'];
 			$languages_list[$language_key] = $language['Language']['name'];
 		}
 		
