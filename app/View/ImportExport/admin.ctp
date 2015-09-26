@@ -21,13 +21,18 @@ if (!file_exists(WWW_ROOT . 'js/jquery/plugins/jquery-ui/' . $fname)) {
 }
 
 $this->Html->script(array(
+	'jquery/plugins/switch/bootstrap-switch.js',
 	'jquery/plugins/chosen/chosen.jquery.js',
 	'jquery/plugins/jquery-ui-min.js',
 	'jquery/plugins/jquery-ui/' . $fname,
 	'selectall.js'
 ), array('inline' => false));
 
-$this->Html->css(array('jquery/plugins/chosen/bootstrap-chosen.css','jquery-ui.css'), null, array('inline' => false));
+$this->Html->css(array(
+	'jquery/plugins/switch/bootstrap-switch.css',
+	'jquery/plugins/chosen/bootstrap-chosen.css',
+	'jquery-ui.css'
+	), null, array('inline' => false));
 ?>
 <style type="text/css">
 .ui-sortable tr {
@@ -35,7 +40,7 @@ $this->Html->css(array('jquery/plugins/chosen/bootstrap-chosen.css','jquery-ui.c
 }
 		
 .ui-sortable tr:hover {
-	background:rgba(244,251,17,0.45);
+	background: #fcf8e3;
 }
 
 </style>
@@ -50,6 +55,17 @@ $this->Html->css(array('jquery/plugins/chosen/bootstrap-chosen.css','jquery-ui.c
       $(function() {
         $(".chosen-select").chosen();
       });
+      
+      $(function() {
+      $("input[type=\"checkbox\"], input[type=\"radio\"]").not("[data-switch-no-init]").bootstrapSwitch();
+      });
+
+
+    $("[data-switch-toggle]").on("click", function() {
+      var type;
+      type = $(this).data("switch-toggle");
+      return $(".export-" + type).bootstrapSwitch("toggle" + type.charAt(0).toUpperCase() + type.slice(1));
+    });
 
     });
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
@@ -149,63 +165,48 @@ echo '
 
 <h3>Экспортируемые поля</h3>
 
-<table class="table" id="diagnosis_list">
-    <thead>
-        <tr><th align="center"><input type="checkbox" onclick="checkAll(this)" /></th><th>Порядок</th><th>Название колонки</th><th>Описание</th><th>&nbsp;</th></tr>
-    </thead>
-    <tbody>
-	<tr class="warning"><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">1</td><td>model</td><td>Артикул. <span class="text-danger">С помощью артикула производится идентификация товаров магазина, т.е. артикул - это ключ. Если товар с указанным артикулом есть уже в магазине, информация по данному товару обновляется при импорте csv файла. Если в магазине не найден товар с указанным артикулом, добавляется новый товар.</span></td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
-	<tr class="warning"><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">2</td><td>name</td><td>Название товара.</td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
-	<tr class="warning"><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">3</td><td>parent</td><td>Категория товара. <span class="text-danger">К какой категории относится товара. Указывается название категории, подкатегории. Например добаляет новый телефон в категорию Смартфоны, пишем: Смартфоны. Добавляем товар в подкатегорию Аксессуары категории Смартфоны, пишем: Cмартфоны/Аксессуары.</span></td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
-	<tr class="warning"><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">4</td><td>alias</td><td>Псевдоним товара. <span class="text-danger">Проще говоря, псевдоним - это url адрес для товара, именно на основе псевдонима строится url адрес товара в магазине. Например, если укажите: tovar, то url адрес данного товара в магазине будет: http://магазин.ру/product/tovar.html.</span></td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">5</td><td>sku</td><td>SKU - идентификатор товарной позиции, учетная единица, складской номер.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">6</td><td>stock</td><td>Количество товара на складе.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">7</td><td>price</td><td>Цена. <span class="text-danger">Разделитель целых чисел - точка. Например, цена товара 1000 рублей 50 копеек, пишем как 1000.50</span></td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">8</td><td>weight</td><td>Вес товара в граммах. <span class="text-danger">Например, вес товара товара 110 грамм, пишем как 0.110</span></td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">9</td><td>label</td><td>Ярлык товара, например: Новинка, Хит, Распродажа и т.д.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">10</td><td>manufacturer</td><td>Производитель. Указываем название производителя товара (брэнд).</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">11</td><td>description</td><td>Описание товара.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">12</td><td>short_description</td><td>Краткое описание товара.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">13</td><td>meta_title</td><td>Заголовок Meta Title.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">14</td><td>meta_description</td><td>Значение для тэга Meta Description.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">15</td><td>meta_keywords</td><td>Значение для тэга Meta Keywords.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">16</td><td>image</td><td>Картинка товара. Название файла картинки товара, если картинок несколько, указывайте через точку с запятой, например: image.png;image1.png. Кроме того, можно указывать URL адрес с картинкой, например: http://адрес.ру/image/kartinka.png;http://адрес.ру/image/kartinka1.png</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">17</td><td>order</td><td>Порядок сортировки.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">18</td><td>active</td><td>Активный товар или нет, т.е. виден посетителям или нет. 1 - виден, 0 - не виден.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">19</td><td>show_in_menu</td><td>Показывать товар в меню. Можно выводить товар в любом меню магазина, а не только в категории. 1 - показывать в меню, 0 - не показывать.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">20</td><td>yml_export</td><td>Экспортировать товар в Яндекс Маркет или не экспортировать. 1 - экспортировать. 0 - не экспортировать.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">21</td><td>viewed</td><td>Количество просмотров товара.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">22</td><td>created</td><td>Дата создания товара.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">23</td><td>modified</td><td>Дата модификации товара.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-    </tbody>
-</table>
-
-<a class="btn btn-delete btn-danger">Удалить выделенные</a> <a class="btn btn-delete btn-danger">Удалить все</a>
-            
-';            
-
-echo '
-
-<h3>Доступные поля</h3>
+<div><span class="text-warning">Поля alias, model, name, parent - обязательный минимум, их отключать/удалять нельзя.</span></div>
 
 <table class="table" id="diagnosis_list">
     <thead>
-        <tr><th><input type="checkbox" onclick="checkAll(this)" /></th><th>Порядок</th><th>Название</th><th>Описание</th><th>&nbsp;</th></tr>
+        <tr><th align="center">Экспортировать</th><th>Порядок</th><th>Название</th><th>Описание</th></tr>
     </thead>
     <tbody>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">1</td><td>action</td><td>Действие. <span class="text-danger">С помощью данной колонки можно массово удалять товары из интернет-магазина. Укажите в данной колонке <strong>delete</strong> напротив того товара, который Вы хотите удалить.</span></td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">1</td><td>tax_id</td><td>Налог.</td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">2</td><td>template_id</td><td>Шаблон товара.</td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">3</td><td>is_group</td><td>Сгруппированный товар.</td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">4</td><td>id_group</td><td>Группа.</td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
+	<tr class="warning"><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked disabled /></td><td class="priority">1</td><td>model</td><td>Артикул. <span class="text-danger">С помощью артикула производится идентификация товаров магазина, т.е. артикул - это ключ. Если товар с указанным артикулом есть уже в магазине, информация по данному товару обновляется при импорте csv файла. Если в магазине не найден товар с указанным артикулом, добавляется новый товар.</span></td></tr>
+	<tr class="warning"><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked disabled /></td><td class="priority">2</td><td>name</td><td>Название товара.</td></tr>
+	<tr class="warning"><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked disabled /></td><td class="priority">3</td><td>parent</td><td>Категория товара. <span class="text-danger">К какой категории относится товара. Указывается название категории, подкатегории. Например добаляет новый телефон в категорию Смартфоны, пишем: Смартфоны. Добавляем товар в подкатегорию Аксессуары категории Смартфоны, пишем: Cмартфоны/Аксессуары.</span></td></tr>
+	<tr class="warning"><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked disabled /></td><td class="priority">4</td><td>alias</td><td>Псевдоним товара. <span class="text-danger">Проще говоря, псевдоним - это url адрес для товара, именно на основе псевдонима строится url адрес товара в магазине. Например, если укажите: tovar, то url адрес данного товара в магазине будет: http://магазин.ру/product/tovar.html.</span></td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">5</td><td>sku</td><td>SKU - идентификатор товарной позиции, учетная единица, складской номер.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">6</td><td>stock</td><td>Количество товара на складе.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">7</td><td>price</td><td>Цена. <span class="text-danger">Разделитель целых чисел - точка. Например, цена товара 1000 рублей 50 копеек, пишем как 1000.50</span></td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">8</td><td>weight</td><td>Вес товара в граммах. <span class="text-danger">Например, вес товара товара 110 грамм, пишем как 0.110</span></td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">9</td><td>label</td><td>Ярлык товара, например: Новинка, Хит, Распродажа и т.д.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">10</td><td>manufacturer</td><td>Производитель. Указываем название производителя товара (брэнд).</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">11</td><td>description</td><td>Описание товара.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">12</td><td>short_description</td><td>Краткое описание товара.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">13</td><td>meta_title</td><td>Заголовок Meta Title.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">14</td><td>meta_description</td><td>Значение для тэга Meta Description.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">15</td><td>meta_keywords</td><td>Значение для тэга Meta Keywords.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">16</td><td>image</td><td>Картинка товара. Название файла картинки товара, если картинок несколько, указывайте через точку с запятой, например: image.png;image1.png. Кроме того, можно указывать URL адрес с картинкой, например: http://адрес.ру/image/kartinka.png;http://адрес.ру/image/kartinka1.png</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">17</td><td>order</td><td>Порядок сортировки.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">18</td><td>active</td><td>Активный товар или нет, т.е. виден посетителям или нет. 1 - виден, 0 - не виден.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">19</td><td>show_in_menu</td><td>Показывать товар в меню. Можно выводить товар в любом меню магазина, а не только в категории. 1 - показывать в меню, 0 - не показывать.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">20</td><td>yml_export</td><td>Экспортировать товар в Яндекс Маркет или не экспортировать. 1 - экспортировать. 0 - не экспортировать.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">21</td><td>viewed</td><td>Количество просмотров товара.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">22</td><td>created</td><td>Дата создания товара.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">23</td><td>modified</td><td>Дата модификации товара.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">24</td><td>action</td><td>Действие. <span class="text-danger">С помощью данной колонки можно массово удалять товары из интернет-магазина. Укажите в данной колонке <strong>delete</strong> напротив того товара, который Вы хотите удалить.</span></td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">25</td><td>tax_id</td><td>Налог.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">26</td><td>template_id</td><td>Шаблон товара.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">27</td><td>is_group</td><td>Сгруппированный товар.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">28</td><td>id_group</td><td>Группа.</td></tr>
     </tbody>
 </table>
 
-<a class="btn btn-success">Добавить выделенные</a> <a class="btn btn-success">Добавить все</a>
+<a class="btn btn-delete btn-primary" data-switch-toggle="state">Переключить все</a>
             
 ';            
 
-    
 		echo $this->Form->input('ImportExport.parent_id', 
 					array(
 						'type' => 'select',
@@ -218,7 +219,7 @@ echo '
 						//'empty' => array(0 => __('Все категории'))
                ));
 
-	echo $this->Form->input('ImportExport.language', 
+	echo $this->Form->input('ImportExport.language_id', 
 				array(
 					'label' => __('Language'),
 					'type' => 'select',
@@ -253,11 +254,11 @@ echo '
 
 <h3>Допустимые поля</h3>
 
-<div><span class="text-warning">Поля model, name, parent, alias - должны в обязательном порядке присутствовать в импортируемом файле.</span></div>
+<div><span class="text-warning">Поля alias, model, name, parent - обязательный минимум, их отключать/удалять нельзя.</span></div>
 
 <table class="table" id="diagnosis_list_">
     <thead>
-        <tr><th>Название колонки</th><th>Описание</th></tr>
+        <tr><th>Название</th><th>Описание</th></tr>
     </thead>
     <tbody>
 	<tr class="warning"><td>model</td><td>Артикул. <span class="text-danger">С помощью артикула производится идентификация товаров магазина, т.е. артикул - это ключ. Если товар с указанным артикулом есть уже в магазине, информация по данному товару обновляется при импорте csv файла. Если в магазине не найден товар с указанным артикулом, добавляется новый товар.</span></td></tr>
@@ -294,7 +295,7 @@ echo '
 ';            
 
     
-	echo $this->Form->input('ImportExport.language', 
+	echo $this->Form->input('ImportExport.language_id', 
 				array(
 					'label' => __('Language'),
 					'type' => 'select',
@@ -349,26 +350,30 @@ echo '
 
 <h3>Экспортируемые поля</h3>
 
+<div><span class="text-warning">Поля alias, name, parent - обязательный минимум, их отключать/удалять нельзя.</span></div>
+
 <table class="table" id="diagnosis_list">
     <thead>
-        <tr><th align="center"><input type="checkbox" onclick="checkAll(this)" /></th><th>Порядок</th><th>Название колонки</th><th>Описание</th><th>&nbsp;</th></tr>
+        <tr><th align="center">Экспортировать</th><th>Порядок</th><th>Название</th><th>Описание</th></tr>
     </thead>
     <tbody>
-	<tr class="warning"><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">1</td><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
-	<tr class="warning"><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">2</td><td>name</td><td>Название.</td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
-	<tr class="warning"><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">3</td><td>parent</td><td>Категория, к которой относится элемент. <span class="text-danger">К какой категории относится элемент. Указывается название категории, подкатегории.</span></td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">4</td><td>description</td><td>Описание.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">5</td><td>short_description</td><td>Краткое описание.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">6</td><td>meta_title</td><td>Заголовок Meta Title.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">7</td><td>meta_description</td><td>Значение для тэга Meta Description.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">8</td><td>meta_keywords</td><td>Значение для тэга Meta Keywords.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">9</td><td>image</td><td>Картинка. Название файла картинки, если картинок несколько, указывайте через точку с запятой, например: image.png;image1.png. Кроме того, можно указывать URL адрес с картинкой, например: http://адрес.ру/image/kartinka.png;http://адрес.ру/image/kartinka1.png</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">10</td><td>order</td><td>Порядок сортировки.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">11</td><td>active</td><td>Активный элемент или нет, т.е. виден посетителям или нет. 1 - виден, 0 - не виден.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">12</td><td>show_in_menu</td><td>Показывать элемент в меню. Можно выводить элемент в любом меню магазина, а не только в категории. 1 - показывать в меню, 0 - не показывать.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">13</td><td>viewed</td><td>Количество просмотров элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">14</td><td>created</td><td>Дата создания элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">15</td><td>modified</td><td>Дата модификации элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr class="warning"><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked disabled /></td><td class="priority">1</td><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td></tr>
+	<tr class="warning"><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked disabled /></td><td class="priority">2</td><td>name</td><td>Название.</td></tr>
+	<tr class="warning"><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked disabled /></td><td class="priority">3</td><td>parent</td><td>Категория, к которой относится элемент. <span class="text-danger">К какой категории относится элемент. Указывается название категории, подкатегории.</span></td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">4</td><td>description</td><td>Описание.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">5</td><td>short_description</td><td>Краткое описание.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">6</td><td>meta_title</td><td>Заголовок Meta Title.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">7</td><td>meta_description</td><td>Значение для тэга Meta Description.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">8</td><td>meta_keywords</td><td>Значение для тэга Meta Keywords.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">9</td><td>image</td><td>Картинка. Название файла картинки, если картинок несколько, указывайте через точку с запятой, например: image.png;image1.png. Кроме того, можно указывать URL адрес с картинкой, например: http://адрес.ру/image/kartinka.png;http://адрес.ру/image/kartinka1.png</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">10</td><td>order</td><td>Порядок сортировки.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">11</td><td>active</td><td>Активный элемент или нет, т.е. виден посетителям или нет. 1 - виден, 0 - не виден.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">12</td><td>show_in_menu</td><td>Показывать элемент в меню. Можно выводить элемент в любом меню магазина, а не только в категории. 1 - показывать в меню, 0 - не показывать.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">13</td><td>viewed</td><td>Количество просмотров элемента.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">14</td><td>created</td><td>Дата создания элемента.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">15</td><td>modified</td><td>Дата модификации элемента.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">16</td><td>action</td><td>Действие. <span class="text-danger">С помощью данной колонки можно массово удалять элементы из интернет-магазина. Укажите в данной колонке <strong>delete</strong> напротив того элемента, который Вы хотите удалить.</span></td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">17</td><td>template_id</td><td>Шаблон элемента.</td></tr>
     </tbody>
 </table>
 
@@ -376,25 +381,7 @@ echo '
             
 ';            
 
-echo '
-
-<h3>Доступные поля</h3>
-
-<table class="table" id="diagnosis_list">
-    <thead>
-        <tr><th><input type="checkbox" onclick="checkAll(this)" /></th><th>Порядок</th><th>Название</th><th>Описание</th><th>&nbsp;</th></tr>
-    </thead>
-    <tbody>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">1</td><td>action</td><td>Действие. <span class="text-danger">С помощью данной колонки можно массово удалять элементы из интернет-магазина. Укажите в данной колонке <strong>delete</strong> напротив того элемента, который Вы хотите удалить.</span></td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">2</td><td>template_id</td><td>Шаблон элемента.</td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
-    </tbody>
-</table>
-
-<a class="btn btn-success">Добавить выделенные</a> <a class="btn btn-success">Добавить все</a>
-            
-';            
-
-	echo $this->Form->input('ImportExport.language', 
+	echo $this->Form->input('ImportExport.language_id', 
 				array(
 					'label' => __('Language'),
 					'type' => 'select',
@@ -429,11 +416,11 @@ echo '
 
 <h3>Допустимые поля</h3>
 
-<div><span class="text-warning">Поля alias, name, parent - должны в обязательном порядке присутствовать в импортируемом файле.</span></div>
+<div><span class="text-warning">Поля alias, name, parent - обязательный минимум, их отключать/удалять нельзя.</span></div>
 
 <table class="table" id="diagnosis_list_">
     <thead>
-        <tr><th>Название колонки</th><th>Описание</th></tr>
+        <tr><th>Название</th><th>Описание</th></tr>
     </thead>
     <tbody>
 	<tr class="warning"><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td></tr>
@@ -459,7 +446,7 @@ echo '
 ';            
 
     
-	echo $this->Form->input('ImportExport.language', 
+	echo $this->Form->input('ImportExport.language_id', 
 				array(
 					'label' => __('Language'),
 					'type' => 'select',
@@ -516,53 +503,38 @@ echo '
 
 <h3>Экспортируемые поля</h3>
 
+<div><span class="text-warning">Поля alias, name, parent - обязательный минимум, их отключать/удалять нельзя.</span></div>
+
 <table class="table" id="diagnosis_list">
     <thead>
-        <tr><th align="center"><input type="checkbox" onclick="checkAll(this)" /></th><th>Порядок</th><th>Название колонки</th><th>Описание</th><th>&nbsp;</th></tr>
+        <tr><th align="center">Экспортировать</th><th>Порядок</th><th>Название</th><th>Описание</th></tr>
     </thead>
     <tbody>
-	<tr class="warning"><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">1</td><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
-	<tr class="warning"><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">2</td><td>name</td><td>Название.</td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
-	<tr class="warning"><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">3</td><td>parent</td><td>Категория, к которой относится элемент. <span class="text-danger">К какой категории относится элемент. Указывается название категории, подкатегории.</span></td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">4</td><td>description</td><td>Описание.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">5</td><td>short_description</td><td>Краткое описание.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">6</td><td>meta_title</td><td>Заголовок Meta Title.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">7</td><td>meta_description</td><td>Значение для тэга Meta Description.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">8</td><td>meta_keywords</td><td>Значение для тэга Meta Keywords.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">9</td><td>image</td><td>Картинка. Название файла картинки, если картинок несколько, указывайте через точку с запятой, например: image.png;image1.png. Кроме того, можно указывать URL адрес с картинкой, например: http://адрес.ру/image/kartinka.png;http://адрес.ру/image/kartinka1.png</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">10</td><td>order</td><td>Порядок сортировки.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">11</td><td>active</td><td>Активный элемент или нет, т.е. виден посетителям или нет. 1 - виден, 0 - не виден.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">12</td><td>show_in_menu</td><td>Показывать элемент в меню. Можно выводить элемент в любом меню магазина, а не только в категории. 1 - показывать в меню, 0 - не показывать.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">13</td><td>viewed</td><td>Количество просмотров элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">14</td><td>created</td><td>Дата создания элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">15</td><td>modified</td><td>Дата модификации элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr class="warning"><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked disabled /></td><td class="priority">1</td><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td></tr>
+	<tr class="warning"><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked disabled /></td><td class="priority">2</td><td>name</td><td>Название.</td></tr>
+	<tr class="warning"><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked disabled /></td><td class="priority">3</td><td>parent</td><td>Категория, к которой относится элемент. <span class="text-danger">К какой категории относится элемент. Указывается название категории, подкатегории.</span></td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">4</td><td>description</td><td>Описание.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">5</td><td>short_description</td><td>Краткое описание.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">6</td><td>meta_title</td><td>Заголовок Meta Title.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">7</td><td>meta_description</td><td>Значение для тэга Meta Description.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">8</td><td>meta_keywords</td><td>Значение для тэга Meta Keywords.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">9</td><td>image</td><td>Картинка. Название файла картинки, если картинок несколько, указывайте через точку с запятой, например: image.png;image1.png. Кроме того, можно указывать URL адрес с картинкой, например: http://адрес.ру/image/kartinka.png;http://адрес.ру/image/kartinka1.png</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">10</td><td>order</td><td>Порядок сортировки.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">11</td><td>active</td><td>Активный элемент или нет, т.е. виден посетителям или нет. 1 - виден, 0 - не виден.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">12</td><td>show_in_menu</td><td>Показывать элемент в меню. Можно выводить элемент в любом меню магазина, а не только в категории. 1 - показывать в меню, 0 - не показывать.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">13</td><td>viewed</td><td>Количество просмотров элемента.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">14</td><td>created</td><td>Дата создания элемента.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">15</td><td>modified</td><td>Дата модификации элемента.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">16</td><td>action</td><td>Действие. <span class="text-danger">С помощью данной колонки можно массово удалять элементы из интернет-магазина. Укажите в данной колонке <strong>delete</strong> напротив того элемента, который Вы хотите удалить.</span></td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">17</td><td>template_id</td><td>Шаблон элемента.</td></tr>
     </tbody>
 </table>
 
 <a class="btn btn-delete btn-danger">Удалить выделенные</a> <a class="btn btn-delete btn-danger">Удалить все</a>
             
 ';            
-
-echo '
-
-<h3>Доступные поля</h3>
-
-<table class="table" id="diagnosis_list">
-    <thead>
-        <tr><th><input type="checkbox" onclick="checkAll(this)" /></th><th>Порядок</th><th>Название</th><th>Описание</th><th>&nbsp;</th></tr>
-    </thead>
-    <tbody>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">1</td><td>action</td><td>Действие. <span class="text-danger">С помощью данной колонки можно массово удалять элементы из интернет-магазина. Укажите в данной колонке <strong>delete</strong> напротив того элемента, который Вы хотите удалить.</span></td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">2</td><td>template_id</td><td>Шаблон элемента.</td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
-    </tbody>
-</table>
-
-<a class="btn btn-success">Добавить выделенные</a> <a class="btn btn-success">Добавить все</a>
-            
-';            
-
     
-	echo $this->Form->input('ImportExport.language', 
+	echo $this->Form->input('ImportExport.language_id', 
 				array(
 					'label' => __('Language'),
 					'type' => 'select',
@@ -597,11 +569,11 @@ echo '
 
 <h3>Допустимые поля</h3>
 
-<div><span class="text-warning">Поля alias, name, parent - должны в обязательном порядке присутствовать в импортируемом файле.</span></div>
+<div><span class="text-warning">Поля alias, name, parent - обязательный минимум, их отключать/удалять нельзя.</span></div>
 
 <table class="table" id="diagnosis_list_">
     <thead>
-        <tr><th>Название колонки</th><th>Описание</th></tr>
+        <tr><th>Название</th><th>Описание</th></tr>
     </thead>
     <tbody>
 	<tr class="warning"><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td></tr>
@@ -627,7 +599,7 @@ echo '
 ';            
 
     
-	echo $this->Form->input('ImportExport.language', 
+	echo $this->Form->input('ImportExport.language_id', 
 				array(
 					'label' => __('Language'),
 					'type' => 'select',
@@ -683,53 +655,38 @@ echo '
 
 <h3>Экспортируемые поля</h3>
 
+<div><span class="text-warning">Поля alias, name, parent - обязательный минимум, их отключать/удалять нельзя.</span></div>
+
 <table class="table" id="diagnosis_list">
     <thead>
-        <tr><th align="center"><input type="checkbox" onclick="checkAll(this)" /></th><th>Порядок</th><th>Название колонки</th><th>Описание</th><th>&nbsp;</th></tr>
+        <tr><th align="center">Экспортировать</th><th>Порядок</th><th>Название</th><th>Описание</th></tr>
     </thead>
     <tbody>
-	<tr class="warning"><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">1</td><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
-	<tr class="warning"><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">2</td><td>name</td><td>Название.</td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
-	<tr class="warning"><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">3</td><td>parent</td><td>Категория, к которой относится элемент. <span class="text-danger">К какой категории относится элемент. Указывается название категории, подкатегории.</span></td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">4</td><td>description</td><td>Описание.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">5</td><td>short_description</td><td>Краткое описание.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">6</td><td>meta_title</td><td>Заголовок Meta Title.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">7</td><td>meta_description</td><td>Значение для тэга Meta Description.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">8</td><td>meta_keywords</td><td>Значение для тэга Meta Keywords.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">9</td><td>image</td><td>Картинка. Название файла картинки, если картинок несколько, указывайте через точку с запятой, например: image.png;image1.png. Кроме того, можно указывать URL адрес с картинкой, например: http://адрес.ру/image/kartinka.png;http://адрес.ру/image/kartinka1.png</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">10</td><td>order</td><td>Порядок сортировки.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">11</td><td>active</td><td>Активный элемент или нет, т.е. виден посетителям или нет. 1 - виден, 0 - не виден.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">12</td><td>show_in_menu</td><td>Показывать элемент в меню. Можно выводить элемент в любом меню магазина, а не только в категории. 1 - показывать в меню, 0 - не показывать.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">13</td><td>viewed</td><td>Количество просмотров элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">14</td><td>created</td><td>Дата создания элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">15</td><td>modified</td><td>Дата модификации элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr class="warning"><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked disabled /></td><td class="priority">1</td><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td></tr>
+	<tr class="warning"><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked disabled /></td><td class="priority">2</td><td>name</td><td>Название.</td></tr>
+	<tr class="warning"><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked disabled /></td><td class="priority">3</td><td>parent</td><td>Категория, к которой относится элемент. <span class="text-danger">К какой категории относится элемент. Указывается название категории, подкатегории.</span></td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">4</td><td>description</td><td>Описание.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">5</td><td>short_description</td><td>Краткое описание.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">6</td><td>meta_title</td><td>Заголовок Meta Title.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">7</td><td>meta_description</td><td>Значение для тэга Meta Description.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">8</td><td>meta_keywords</td><td>Значение для тэга Meta Keywords.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">9</td><td>image</td><td>Картинка. Название файла картинки, если картинок несколько, указывайте через точку с запятой, например: image.png;image1.png. Кроме того, можно указывать URL адрес с картинкой, например: http://адрес.ру/image/kartinka.png;http://адрес.ру/image/kartinka1.png</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">10</td><td>order</td><td>Порядок сортировки.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">11</td><td>active</td><td>Активный элемент или нет, т.е. виден посетителям или нет. 1 - виден, 0 - не виден.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">12</td><td>show_in_menu</td><td>Показывать элемент в меню. Можно выводить элемент в любом меню магазина, а не только в категории. 1 - показывать в меню, 0 - не показывать.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">13</td><td>viewed</td><td>Количество просмотров элемента.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">14</td><td>created</td><td>Дата создания элемента.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">15</td><td>modified</td><td>Дата модификации элемента.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">16</td><td>action</td><td>Действие. <span class="text-danger">С помощью данной колонки можно массово удалять элементы из интернет-магазина. Укажите в данной колонке <strong>delete</strong> напротив того элемента, который Вы хотите удалить.</span></td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">17</td><td>template_id</td><td>Шаблон элемента.</td></tr>
     </tbody>
 </table>
 
 <a class="btn btn-delete btn-danger">Удалить выделенные</a> <a class="btn btn-delete btn-danger">Удалить все</a>
             
 ';            
-
-echo '
-
-<h3>Доступные поля</h3>
-
-<table class="table" id="diagnosis_list">
-    <thead>
-        <tr><th><input type="checkbox" onclick="checkAll(this)" /></th><th>Порядок</th><th>Название</th><th>Описание</th><th>&nbsp;</th></tr>
-    </thead>
-    <tbody>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">1</td><td>action</td><td>Действие. <span class="text-danger">С помощью данной колонки можно массово удалять элементы из интернет-магазина. Укажите в данной колонке <strong>delete</strong> напротив того элемента, который Вы хотите удалить.</span></td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">2</td><td>template_id</td><td>Шаблон элемента.</td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
-    </tbody>
-</table>
-
-<a class="btn btn-success">Добавить выделенные</a> <a class="btn btn-success">Добавить все</a>
-            
-';            
-
     
-	echo $this->Form->input('ImportExport.language', 
+	echo $this->Form->input('ImportExport.language_id', 
 				array(
 					'label' => __('Language'),
 					'type' => 'select',
@@ -764,11 +721,11 @@ echo '
 
 <h3>Допустимые поля</h3>
 
-<div><span class="text-warning">Поля alias, name, parent - должны в обязательном порядке присутствовать в импортируемом файле.</span></div>
+<div><span class="text-warning">Поля alias, name, parent - обязательный минимум, их отключать/удалять нельзя.</span></div>
 
 <table class="table" id="diagnosis_list_">
     <thead>
-        <tr><th>Название колонки</th><th>Описание</th></tr>
+        <tr><th>Название</th><th>Описание</th></tr>
     </thead>
     <tbody>
 	<tr class="warning"><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td></tr>
@@ -794,7 +751,7 @@ echo '
 ';            
 
     
-	echo $this->Form->input('ImportExport.language', 
+	echo $this->Form->input('ImportExport.language_id', 
 				array(
 					'label' => __('Language'),
 					'type' => 'select',
@@ -850,53 +807,38 @@ echo '
 
 <h3>Экспортируемые поля</h3>
 
+<div><span class="text-warning">Поля alias, name, parent - обязательный минимум, их отключать/удалять нельзя.</span></div>
+
 <table class="table" id="diagnosis_list">
     <thead>
-        <tr><th align="center"><input type="checkbox" onclick="checkAll(this)" /></th><th>Порядок</th><th>Название колонки</th><th>Описание</th><th>&nbsp;</th></tr>
+        <tr><th align="center">Экспортировать</th><th>Порядок</th><th>Название</th><th>Описание</th></tr>
     </thead>
     <tbody>
-	<tr class="warning"><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">1</td><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
-	<tr class="warning"><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">2</td><td>name</td><td>Название.</td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
-	<tr class="warning"><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">3</td><td>parent</td><td>Категория, к которой относится элемент. <span class="text-danger">К какой категории относится элемент. Указывается название категории, подкатегории.</span></td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">4</td><td>description</td><td>Описание.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">5</td><td>short_description</td><td>Краткое описание.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">6</td><td>meta_title</td><td>Заголовок Meta Title.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">7</td><td>meta_description</td><td>Значение для тэга Meta Description.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">8</td><td>meta_keywords</td><td>Значение для тэга Meta Keywords.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">9</td><td>image</td><td>Картинка. Название файла картинки, если картинок несколько, указывайте через точку с запятой, например: image.png;image1.png. Кроме того, можно указывать URL адрес с картинкой, например: http://адрес.ру/image/kartinka.png;http://адрес.ру/image/kartinka1.png</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">10</td><td>order</td><td>Порядок сортировки.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">11</td><td>active</td><td>Активный элемент или нет, т.е. виден посетителям или нет. 1 - виден, 0 - не виден.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">12</td><td>show_in_menu</td><td>Показывать элемент в меню. Можно выводить элемент в любом меню магазина, а не только в категории. 1 - показывать в меню, 0 - не показывать.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">13</td><td>viewed</td><td>Количество просмотров элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">14</td><td>created</td><td>Дата создания элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">15</td><td>modified</td><td>Дата модификации элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr class="warning"><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked disabled /></td><td class="priority">1</td><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td></tr>
+	<tr class="warning"><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked disabled /></td><td class="priority">2</td><td>name</td><td>Название.</td></tr>
+	<tr class="warning"><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked disabled /></td><td class="priority">3</td><td>parent</td><td>Категория, к которой относится элемент. <span class="text-danger">К какой категории относится элемент. Указывается название категории, подкатегории.</span></td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">4</td><td>description</td><td>Описание.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">5</td><td>short_description</td><td>Краткое описание.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">6</td><td>meta_title</td><td>Заголовок Meta Title.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">7</td><td>meta_description</td><td>Значение для тэга Meta Description.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">8</td><td>meta_keywords</td><td>Значение для тэга Meta Keywords.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">9</td><td>image</td><td>Картинка. Название файла картинки, если картинок несколько, указывайте через точку с запятой, например: image.png;image1.png. Кроме того, можно указывать URL адрес с картинкой, например: http://адрес.ру/image/kartinka.png;http://адрес.ру/image/kartinka1.png</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">10</td><td>order</td><td>Порядок сортировки.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">11</td><td>active</td><td>Активный элемент или нет, т.е. виден посетителям или нет. 1 - виден, 0 - не виден.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">12</td><td>show_in_menu</td><td>Показывать элемент в меню. Можно выводить элемент в любом меню магазина, а не только в категории. 1 - показывать в меню, 0 - не показывать.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">13</td><td>viewed</td><td>Количество просмотров элемента.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">14</td><td>created</td><td>Дата создания элемента.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">15</td><td>modified</td><td>Дата модификации элемента.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">16</td><td>action</td><td>Действие. <span class="text-danger">С помощью данной колонки можно массово удалять элементы из интернет-магазина. Укажите в данной колонке <strong>delete</strong> напротив того элемента, который Вы хотите удалить.</span></td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">17</td><td>template_id</td><td>Шаблон элемента.</td></tr>
     </tbody>
 </table>
 
 <a class="btn btn-delete btn-danger">Удалить выделенные</a> <a class="btn btn-delete btn-danger">Удалить все</a>
             
 ';            
-
-echo '
-
-<h3>Доступные поля</h3>
-
-<table class="table" id="diagnosis_list">
-    <thead>
-        <tr><th><input type="checkbox" onclick="checkAll(this)" /></th><th>Порядок</th><th>Название</th><th>Описание</th><th>&nbsp;</th></tr>
-    </thead>
-    <tbody>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">1</td><td>action</td><td>Действие. <span class="text-danger">С помощью данной колонки можно массово удалять элементы из интернет-магазина. Укажите в данной колонке <strong>delete</strong> напротив того элемента, который Вы хотите удалить.</span></td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">2</td><td>template_id</td><td>Шаблон элемента.</td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
-    </tbody>
-</table>
-
-<a class="btn btn-success">Добавить выделенные</a> <a class="btn btn-success">Добавить все</a>
-            
-';            
-
     
-	echo $this->Form->input('ImportExport.language', 
+	echo $this->Form->input('ImportExport.language_id', 
 				array(
 					'label' => __('Language'),
 					'type' => 'select',
@@ -931,11 +873,11 @@ echo '
 
 <h3>Допустимые поля</h3>
 
-<div><span class="text-warning">Поля alias, name, parent - должны в обязательном порядке присутствовать в импортируемом файле.</span></div>
+<div><span class="text-warning">Поля alias, name, parent - обязательный минимум, их отключать/удалять нельзя.</span></div>
 
 <table class="table" id="diagnosis_list_">
     <thead>
-        <tr><th>Название колонки</th><th>Описание</th></tr>
+        <tr><th>Название</th><th>Описание</th></tr>
     </thead>
     <tbody>
 	<tr class="warning"><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td></tr>
@@ -961,7 +903,7 @@ echo '
 ';            
 
     
-	echo $this->Form->input('ImportExport.language', 
+	echo $this->Form->input('ImportExport.language_id', 
 				array(
 					'label' => __('Language'),
 					'type' => 'select',
@@ -1017,53 +959,38 @@ echo '
 
 <h3>Экспортируемые поля</h3>
 
+<div><span class="text-warning">Поля alias, name, parent - обязательный минимум, их отключать/удалять нельзя.</span></div>
+
 <table class="table" id="diagnosis_list">
     <thead>
-        <tr><th align="center"><input type="checkbox" onclick="checkAll(this)" /></th><th>Порядок</th><th>Название колонки</th><th>Описание</th><th>&nbsp;</th></tr>
+        <tr><th align="center">Экспортировать</th><th>Порядок</th><th>Название</th><th>Описание</th></tr>
     </thead>
     <tbody>
-	<tr class="warning"><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">1</td><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
-	<tr class="warning"><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">2</td><td>name</td><td>Название.</td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
-	<tr class="warning"><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">3</td><td>parent</td><td>Категория, к которой относится элемент. <span class="text-danger">К какой категории относится элемент. Указывается название категории, подкатегории.</span></td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">4</td><td>description</td><td>Описание.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">5</td><td>short_description</td><td>Краткое описание.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">6</td><td>meta_title</td><td>Заголовок Meta Title.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">7</td><td>meta_description</td><td>Значение для тэга Meta Description.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">8</td><td>meta_keywords</td><td>Значение для тэга Meta Keywords.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">9</td><td>image</td><td>Картинка. Название файла картинки, если картинок несколько, указывайте через точку с запятой, например: image.png;image1.png. Кроме того, можно указывать URL адрес с картинкой, например: http://адрес.ру/image/kartinka.png;http://адрес.ру/image/kartinka1.png</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">10</td><td>order</td><td>Порядок сортировки.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">11</td><td>active</td><td>Активный элемент или нет, т.е. виден посетителям или нет. 1 - виден, 0 - не виден.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">12</td><td>show_in_menu</td><td>Показывать элемент в меню. Можно выводить элемент в любом меню магазина, а не только в категории. 1 - показывать в меню, 0 - не показывать.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">13</td><td>viewed</td><td>Количество просмотров элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">14</td><td>created</td><td>Дата создания элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">15</td><td>modified</td><td>Дата модификации элемента.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr class="warning"><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked disabled /></td><td class="priority">1</td><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td></tr>
+	<tr class="warning"><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked disabled /></td><td class="priority">2</td><td>name</td><td>Название.</td></tr>
+	<tr class="warning"><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked disabled /></td><td class="priority">3</td><td>parent</td><td>Категория, к которой относится элемент. <span class="text-danger">К какой категории относится элемент. Указывается название категории, подкатегории.</span></td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">4</td><td>description</td><td>Описание.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">5</td><td>short_description</td><td>Краткое описание.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">6</td><td>meta_title</td><td>Заголовок Meta Title.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">7</td><td>meta_description</td><td>Значение для тэга Meta Description.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">8</td><td>meta_keywords</td><td>Значение для тэга Meta Keywords.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">9</td><td>image</td><td>Картинка. Название файла картинки, если картинок несколько, указывайте через точку с запятой, например: image.png;image1.png. Кроме того, можно указывать URL адрес с картинкой, например: http://адрес.ру/image/kartinka.png;http://адрес.ру/image/kartinka1.png</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">10</td><td>order</td><td>Порядок сортировки.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">11</td><td>active</td><td>Активный элемент или нет, т.е. виден посетителям или нет. 1 - виден, 0 - не виден.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">12</td><td>show_in_menu</td><td>Показывать элемент в меню. Можно выводить элемент в любом меню магазина, а не только в категории. 1 - показывать в меню, 0 - не показывать.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">13</td><td>viewed</td><td>Количество просмотров элемента.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">14</td><td>created</td><td>Дата создания элемента.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">15</td><td>modified</td><td>Дата модификации элемента.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">16</td><td>action</td><td>Действие. <span class="text-danger">С помощью данной колонки можно массово удалять элементы из интернет-магазина. Укажите в данной колонке <strong>delete</strong> напротив того элемента, который Вы хотите удалить.</span></td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">17</td><td>template_id</td><td>Шаблон элемента.</td></tr>
     </tbody>
 </table>
 
 <a class="btn btn-delete btn-danger">Удалить выделенные</a> <a class="btn btn-delete btn-danger">Удалить все</a>
             
 ';            
-
-echo '
-
-<h3>Доступные поля</h3>
-
-<table class="table" id="diagnosis_list">
-    <thead>
-        <tr><th><input type="checkbox" onclick="checkAll(this)" /></th><th>Порядок</th><th>Название</th><th>Описание</th><th>&nbsp;</th></tr>
-    </thead>
-    <tbody>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">1</td><td>action</td><td>Действие. <span class="text-danger">С помощью данной колонки можно массово удалять элементы из интернет-магазина. Укажите в данной колонке <strong>delete</strong> напротив того элемента, который Вы хотите удалить.</span></td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">2</td><td>template_id</td><td>Шаблон элемента.</td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
-    </tbody>
-</table>
-
-<a class="btn btn-success">Добавить выделенные</a> <a class="btn btn-success">Добавить все</a>
-            
-';            
-
     
-	echo $this->Form->input('ImportExport.language', 
+	echo $this->Form->input('ImportExport.language_id', 
 				array(
 					'label' => __('Language'),
 					'type' => 'select',
@@ -1098,11 +1025,11 @@ echo '
 
 <h3>Допустимые поля</h3>
 
-<div><span class="text-warning">Поля alias, name, parent - должны в обязательном порядке присутствовать в импортируемом файле.</span></div>
+<div><span class="text-warning">Поля alias, name, parent - обязательный минимум, их отключать/удалять нельзя.</span></div>
 
 <table class="table" id="diagnosis_list_">
     <thead>
-        <tr><th>Название колонки</th><th>Описание</th></tr>
+        <tr><th>Название</th><th>Описание</th></tr>
     </thead>
     <tbody>
 	<tr class="warning"><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td></tr>
@@ -1128,7 +1055,7 @@ echo '
 ';            
 
     
-	echo $this->Form->input('ImportExport.language', 
+	echo $this->Form->input('ImportExport.language_id', 
 				array(
 					'label' => __('Language'),
 					'type' => 'select',
@@ -1184,48 +1111,32 @@ echo '
 
 <h3>Экспортируемые поля</h3>
 
+<div><span class="text-warning">Поля email, password - обязательный минимум, их отключать/удалять нельзя.</span></div>
+
 <table class="table" id="diagnosis_list">
     <thead>
-        <tr><th align="center"><input type="checkbox" onclick="checkAll(this)" /></th><th>Порядок</th><th>Название колонки</th><th>Описание</th><th>&nbsp;</th></tr>
+        <tr><th align="center">Экспортировать</th><th>Порядок</th><th>Название</th><th>Описание</th></tr>
     </thead>
     <tbody>
-	<tr class="warning"><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">1</td><td>email</td><td>Email адрес покупателя. <span class="text-danger">Данное поле является ключом - проверяется, если клиента с таким email нет, то добавляется новый клиент, если есть - обновляются данные покупателя.</span></td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
-	<tr class="warning"><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">2</td><td>password</td><td>Пароль.</td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">3</td><td>name</td><td>Имя.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">6</td><td>ship_name</td><td>Имя получателя заказа.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">7</td><td>ship_line_1</td><td>Адрес.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">8</td><td>ship_line_2</td><td>Дополнительная адресная информация.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">9</td><td>ship_city</td><td>Город.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">10</td><td>ship_state</td><td>Регион.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">11</td><td>ship_country</td><td>Страна.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">12</td><td>ship_zip</td><td>Почтовый индекс.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">13</td><td>phone</td><td>Телефон.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">14</td><td>created</td><td>Дата регистрации покупателя.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">15</td><td>modified</td><td>Дата модификации покупателя.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr class="warning"><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked disabled /></td><td class="priority">1</td><td>email</td><td>Email адрес покупателя. <span class="text-danger">Данное поле является ключом - проверяется, если клиента с таким email нет, то добавляется новый клиент, если есть - обновляются данные покупателя.</span></td></tr>
+	<tr class="warning"><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">2</td><td>password</td><td>Пароль.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">3</td><td>name</td><td>Имя.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">6</td><td>ship_name</td><td>Имя получателя заказа.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">7</td><td>ship_line_1</td><td>Адрес.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">8</td><td>ship_line_2</td><td>Дополнительная адресная информация.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">9</td><td>ship_city</td><td>Город.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">10</td><td>ship_state</td><td>Регион.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">11</td><td>ship_country</td><td>Страна.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">12</td><td>ship_zip</td><td>Почтовый индекс.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">13</td><td>phone</td><td>Телефон.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">14</td><td>created</td><td>Дата регистрации покупателя.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">15</td><td>modified</td><td>Дата модификации покупателя.</td></tr>
     </tbody>
 </table>
 
 <a class="btn btn-delete btn-danger">Удалить выделенные</a> <a class="btn btn-delete btn-danger">Удалить все</a>
             
 ';            
-
-echo '
-
-<h3>Доступные поля</h3>
-
-<table class="table" id="diagnosis_list">
-    <thead>
-        <tr><th><input type="checkbox" onclick="checkAll(this)" /></th><th>Порядок</th><th>Название</th><th>Описание</th><th>&nbsp;</th></tr>
-    </thead>
-    <tbody>
-	<tr><td colspan="4">Все доступные поля уже добавлены в экспортируемые, готовы к выгрузке в csv файл.</td></tr>
-    </tbody>
-</table>
-
-<a class="btn btn-success">Добавить выделенные</a> <a class="btn btn-success">Добавить все</a>
-            
-';            
-
     
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
@@ -1254,11 +1165,11 @@ echo '
 
 <h3>Допустимые поля</h3>
 
-<div><span class="text-warning">Поля email, password - должны в обязательном порядке присутствовать в импортируемом файле.</span></div>
+<div><span class="text-warning">Поля email, password - обязательный минимум, их отключать/удалять нельзя.</span></div>
 
 <table class="table" id="diagnosis_list_">
     <thead>
-        <tr><th>Название колонки</th><th>Описание</th></tr>
+        <tr><th>Название</th><th>Описание</th></tr>
     </thead>
     <tbody>
 	<tr class="warning"><td>email</td><td>Email адрес покупателя.</tr>
@@ -1319,59 +1230,45 @@ echo '
 
 <h3>Экспортируемые поля</h3>
 
+<div><span class="text-warning">Поля id, total - обязательный минимум, их отключать/удалять нельзя.</span></div>
+
 <table class="table" id="diagnosis_list">
     <thead>
-        <tr><th align="center"><input type="checkbox" onclick="checkAll(this)" /></th><th>Порядок</th><th>Название колонки</th><th>Описание</th><th>&nbsp;</th></tr>
+        <tr><th align="center">Экспортировать</th><th>Порядок</th><th>Название</th><th>Описание</th></tr>
     </thead>
     <tbody>
-	<tr class="warning"><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">1</td><td>id</td><td>Номер заказа.</td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
-	<tr class="warning"><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify][" disabled /></td><td class="priority">2</td><td>total</td><td>Сумма заказа.</td><td><a class="btn btn-delete btn-warning disabled">Обязательное поле</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">3</td><td>shipping</td><td>Стоимость доставки.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">4</td><td>tax</td><td>Налог.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">5</td><td>order_status_id</td><td>Имя.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">6</td><td>bill_name</td><td>Имя покупателя.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">7</td><td>bil_line_1</td><td>Адрес покупателя.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">8</td><td>bill_line_2</td><td>Дополнительная адресная информация покупателя.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">9</td><td>bill_city</td><td>Город покупателя.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">10</td><td>bill_state</td><td>Регион покупателя.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">11</td><td>bill_country</td><td>Страна покупателя.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">12</td><td>bill_zip</td><td>Почтовый индекс покупателя.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">13</td><td>email</td><td>Email адрес.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">14</td><td>phone</td><td>Телефон.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">15</td><td>created</td><td>Дата заказа.</td><td><a class="btn btn-delete btn-danger">Удалить</a></td></tr>
+	<tr class="warning"><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked disabled /></td><td class="priority">1</td><td>id</td><td>Номер заказа.</td></tr>
+	<tr class="warning"><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked disabled /></td><td class="priority">2</td><td>total</td><td>Сумма заказа.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">3</td><td>shipping</td><td>Стоимость доставки.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">4</td><td>tax</td><td>Налог.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">5</td><td>order_status_id</td><td>Имя.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">6</td><td>bill_name</td><td>Имя покупателя.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">7</td><td>bil_line_1</td><td>Адрес покупателя.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">8</td><td>bill_line_2</td><td>Дополнительная адресная информация покупателя.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">9</td><td>bill_city</td><td>Город покупателя.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">10</td><td>bill_state</td><td>Регион покупателя.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">11</td><td>bill_country</td><td>Страна покупателя.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">12</td><td>bill_zip</td><td>Почтовый индекс покупателя.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">13</td><td>email</td><td>Email адрес.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">14</td><td>phone</td><td>Телефон.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">15</td><td>created</td><td>Дата заказа.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">16</td><td>customer_id</td><td>Номер покупателя.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">17</td><td>payment_method_id</td><td>Способ оплаты.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">18</td><td>shipping_method_id</td><td>Способ доставки.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">19</td><td>ship_name</td><td>Имя получателя заказа.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">20</td><td>ship_line_1</td><td>Адрес получателя.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">21</td><td>ship_line_2</td><td>Дополнительная адресная информация получателя.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">22</td><td>ship_city</td><td>Город получателя.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">23</td><td>ship_state</td><td>Регион получателя.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">24</td><td>ship_country</td><td>Страна получателя.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">25</td><td>ship_zip</td><td>Почтовый индекс получателя.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">26</td><td>company_name</td><td>Название компании.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">27</td><td>company_info</td><td>Дополнительная информация о компании.</td></tr>
+	<tr><td><input type="checkbox" name="export" value="1" class="export-state" data-on-color="success" data-off-color="danger" data-on-text="'.__('yes', true).'" data-off-text="'.__('no', true).'" checked /></td><td class="priority">28</td><td>compant_vat</td><td>ИНН компании.</td></tr>
 	 </tbody>
 </table>
 
 <a class="btn btn-delete btn-danger">Удалить выделенные</a> <a class="btn btn-delete btn-danger">Удалить все</a>
-            
-';            
-
-echo '
-
-<h3>Доступные поля</h3>
-
-<table class="table" id="diagnosis_list">
-    <thead>
-        <tr><th><input type="checkbox" onclick="checkAll(this)" /></th><th>Порядок</th><th>Название</th><th>Описание</th><th>&nbsp;</th></tr>
-    </thead>
-    <tbody>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">1</td><td>customer_id</td><td>Номер покупателя.</td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">2</td><td>payment_method_id</td><td>Способ оплаты.</td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">3</td><td>shipping_method_id</td><td>Способ доставки.</td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">4</td><td>ship_name</td><td>Имя получателя заказа.</td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">5</td><td>ship_line_1</td><td>Адрес получателя.</td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">6</td><td>ship_line_2</td><td>Дополнительная адресная информация получателя.</td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">7</td><td>ship_city</td><td>Город получателя.</td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">8</td><td>ship_state</td><td>Регион получателя.</td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">9</td><td>ship_country</td><td>Страна получателя.</td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">10</td><td>ship_zip</td><td>Почтовый индекс получателя.</td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">11</td><td>company_name</td><td>Название компании.</td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">12</td><td>company_info</td><td>Дополнительная информация о компании.</td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
-	<tr><td><input type="checkbox" name="data[Content][modify][]"  value="X" id="ContentModify]["/></td><td class="priority">13</td><td>compant_vat</td><td>ИНН компании.</td><td><a class="btn btn-delete btn-success">Добавить</a></td></tr>
-    </tbody>
-</table>
-
-<a class="btn btn-success">Добавить выделенные</a> <a class="btn btn-success">Добавить все</a>
             
 ';            
 
@@ -1412,11 +1309,11 @@ echo '
 
 <h3>Допустимые поля</h3>
 
-<div><span class="text-warning">Поля id, total - должны в обязательном порядке присутствовать в импортируемом файле.</span></div>
+<div><span class="text-warning">Поля id, total - обязательный минимум, их отключать/удалять нельзя.</span></div>
 
 <table class="table" id="diagnosis_list_">
     <thead>
-        <tr><th>Название колонки</th><th>Описание</th></tr>
+        <tr><th>Название</th><th>Описание</th></tr>
     </thead>
     <tbody>
 	<tr class="warning"><td>id</td><td>Номер заказа.</td></tr>
@@ -1513,6 +1410,8 @@ echo '&lt;!-- Products Tab Start --&gt;';<br />заканчивается:<br />
 Выбор категорий в настройках тоже нужно удобно сделать, например с помощью - boostrap chosen, вот пример - https://github.com/alxlit/bootstrap-chosen
 Смысл в том, что б выбрать сразу несколько категорий. Bootstrap Chosen очень удобная вещь, можно и поиском внутри select искать и несколько категорий выбрать.
 Я его уже подключил к полю Категории.
+
+Для чекбоксов используется переключатель - Bootstrap Switch - http://www.bootstrap-switch.org
 
 Таблицы Экспортируемые поля и Доступные поля должны быть связаны между собой.
 
