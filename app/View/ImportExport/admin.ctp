@@ -88,17 +88,6 @@ $(document).ready(function() {
 		stop: function(event,ui) {renumber_table("#diagnosis_list")}
 	}).disableSelection();
 
-
-	//Delete button in table rows
-	$("table").on("click",".btn-delete",function() {
-		tableID = "#" + $(this).closest("table").attr("id");
-		r = confirm("Delete this item?");
-		if(r) {
-			$(this).closest("tr").remove();
-			renumber_table(tableID);
-			}
-	});
-
 });
 
 //Renumber table rows
@@ -203,7 +192,7 @@ echo '
     </tbody>
 </table>
 
-<a class="btn btn-delete btn-primary" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
+<a class="btn btn-default" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
             
 ';            
 
@@ -240,7 +229,7 @@ echo '
 					'value' => '/'
 				));
 
-    echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submit'));
+    echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit'));
     echo $this->Form->end();
 
 echo $this->Admin->EndTabContent();
@@ -320,7 +309,7 @@ echo '
     echo $this->Form->file('submittedfile');
 
 
-    echo '<br />' . $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submit'));
+    echo '<br />' . $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit'));
     echo $this->Form->end();
 
 echo $this->Admin->EndTabContent();
@@ -377,7 +366,7 @@ echo '
     </tbody>
 </table>
 
-<a class="btn btn-delete btn-primary" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
+<a class="btn btn-default" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
             
 ';            
 
@@ -402,7 +391,7 @@ echo '
 					'value' => '/'
 				));
 
-    echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submit'));
+    echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit'));
     echo $this->Form->end();
 
 echo $this->Admin->EndTabContent();
@@ -471,7 +460,7 @@ echo '
     echo $this->Form->file('submittedfile');
 
 
-    echo '<br />' . $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submit'));
+    echo '<br />' . $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit'));
     echo $this->Form->end();
 
 echo $this->Admin->EndTabContent();
@@ -530,7 +519,7 @@ echo '
     </tbody>
 </table>
 
-<a class="btn btn-delete btn-primary" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
+<a class="btn btn-default" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
             
 ';            
     
@@ -555,7 +544,7 @@ echo '
 					'value' => '/'
 				));
 
-    echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submit'));
+    echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit'));
     echo $this->Form->end();
 
 echo $this->Admin->EndTabContent();
@@ -624,7 +613,7 @@ echo '
     echo $this->Form->file('submittedfile');
 
 
-    echo '<br />' . $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submit'));
+    echo '<br />' . $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit'));
     echo $this->Form->end();
 
 echo $this->Admin->EndTabContent();
@@ -682,7 +671,7 @@ echo '
     </tbody>
 </table>
 
-<a class="btn btn-delete btn-primary" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
+<a class="btn btn-default" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
             
 ';            
     
@@ -707,7 +696,7 @@ echo '
 					'value' => '/'
 				));
 
-    echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submit'));
+    echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit'));
     echo $this->Form->end();
 
 echo $this->Admin->EndTabContent();
@@ -776,7 +765,7 @@ echo '
     echo $this->Form->file('submittedfile');
 
 
-    echo '<br />' . $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submit'));
+    echo '<br />' . $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit'));
     echo $this->Form->end();
 
 echo $this->Admin->EndTabContent();
@@ -834,7 +823,7 @@ echo '
     </tbody>
 </table>
 
-<a class="btn btn-delete btn-primary" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
+<a class="btn btn-default" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
             
 ';            
     
@@ -859,7 +848,7 @@ echo '
 					'value' => '/'
 				));
 
-    echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submit'));
+    echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit'));
     echo $this->Form->end();
 
 echo $this->Admin->EndTabContent();
@@ -928,7 +917,7 @@ echo '
     echo $this->Form->file('submittedfile');
 
 
-    echo '<br />' . $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submit'));
+    echo '<br />' . $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit'));
     echo $this->Form->end();
 
 echo $this->Admin->EndTabContent();
@@ -986,7 +975,7 @@ echo '
     </tbody>
 </table>
 
-<a class="btn btn-delete btn-primary" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
+<a class="btn btn-default" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
             
 ';            
     
@@ -1011,7 +1000,7 @@ echo '
 					'value' => '/'
 				));
 
-    echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submit'));
+    echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit'));
     echo $this->Form->end();
 
 echo $this->Admin->EndTabContent();
@@ -1080,7 +1069,7 @@ echo '
     echo $this->Form->file('submittedfile');
 
 
-    echo '<br />' . $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submit'));
+    echo '<br />' . $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit'));
     echo $this->Form->end();
 
 echo $this->Admin->EndTabContent();
@@ -1134,7 +1123,7 @@ echo '
     </tbody>
 </table>
 
-<a class="btn btn-delete btn-primary" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
+<a class="btn btn-default" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
             
 ';            
     
@@ -1151,7 +1140,7 @@ echo '
 				,'options' => $groups
                                 ));   
 
-    echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submit'));
+    echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit'));
     echo $this->Form->end();
 
 echo $this->Admin->EndTabContent();
@@ -1200,7 +1189,7 @@ echo '
     echo $this->Form->file('submittedfile');
 
 
-    echo '<br />' . $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submit'));
+    echo '<br />' . $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit'));
     echo $this->Form->end();
 
 echo $this->Admin->EndTabContent();
@@ -1268,7 +1257,7 @@ echo '
 	 </tbody>
 </table>
 
-<a class="btn btn-delete btn-primary" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
+<a class="btn btn-default" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
             
 ';            
 
@@ -1295,7 +1284,7 @@ echo '
 				));
 
 
-    echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submit'));
+    echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit'));
     echo $this->Form->end();
 
 echo $this->Admin->EndTabContent();
@@ -1359,7 +1348,7 @@ echo '
     echo $this->Form->file('submittedfile');
 
 
-    echo '<br />' . $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'submit'));
+    echo '<br />' . $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit'));
     echo $this->Form->end();
 
 echo $this->Admin->EndTabContent();
