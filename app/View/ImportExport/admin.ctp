@@ -203,7 +203,7 @@ echo '
     </tbody>
 </table>
 
-<a class="btn btn-delete btn-primary" data-switch-toggle="state">Переключить все</a>
+<a class="btn btn-delete btn-primary" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
             
 ';            
 
@@ -377,7 +377,7 @@ echo '
     </tbody>
 </table>
 
-<a class="btn btn-delete btn-danger">Удалить выделенные</a> <a class="btn btn-delete btn-danger">Удалить все</a>
+<a class="btn btn-delete btn-primary" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
             
 ';            
 
@@ -530,7 +530,7 @@ echo '
     </tbody>
 </table>
 
-<a class="btn btn-delete btn-danger">Удалить выделенные</a> <a class="btn btn-delete btn-danger">Удалить все</a>
+<a class="btn btn-delete btn-primary" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
             
 ';            
     
@@ -682,7 +682,7 @@ echo '
     </tbody>
 </table>
 
-<a class="btn btn-delete btn-danger">Удалить выделенные</a> <a class="btn btn-delete btn-danger">Удалить все</a>
+<a class="btn btn-delete btn-primary" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
             
 ';            
     
@@ -834,7 +834,7 @@ echo '
     </tbody>
 </table>
 
-<a class="btn btn-delete btn-danger">Удалить выделенные</a> <a class="btn btn-delete btn-danger">Удалить все</a>
+<a class="btn btn-delete btn-primary" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
             
 ';            
     
@@ -986,7 +986,7 @@ echo '
     </tbody>
 </table>
 
-<a class="btn btn-delete btn-danger">Удалить выделенные</a> <a class="btn btn-delete btn-danger">Удалить все</a>
+<a class="btn btn-delete btn-primary" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
             
 ';            
     
@@ -1134,7 +1134,7 @@ echo '
     </tbody>
 </table>
 
-<a class="btn btn-delete btn-danger">Удалить выделенные</a> <a class="btn btn-delete btn-danger">Удалить все</a>
+<a class="btn btn-delete btn-primary" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
             
 ';            
     
@@ -1268,7 +1268,7 @@ echo '
 	 </tbody>
 </table>
 
-<a class="btn btn-delete btn-danger">Удалить выделенные</a> <a class="btn btn-delete btn-danger">Удалить все</a>
+<a class="btn btn-delete btn-primary" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
             
 ';            
 
