@@ -865,9 +865,19 @@ msgid "no"
 msgstr "нет"
 
 #: /plugins/module_coupons/controllers/admin_controller.php:31
+#: /views/configuration/admin_edit.ctp:17
+msgid "No"
+msgstr "Нет"
+
+#: /plugins/module_coupons/controllers/admin_controller.php:31
 #: /views/configuration/admin_edit.ctp:18
 msgid "yes"
 msgstr "да"
+
+#: /plugins/module_coupons/controllers/admin_controller.php:31
+#: /views/configuration/admin_edit.ctp:18
+msgid "Yes"
+msgstr "Да"
 
 #: /plugins/module_coupons/controllers/admin_controller.php:44
 msgid "You have updated a coupon."
