@@ -246,13 +246,13 @@ class AppController extends Controller {
 		
 				$new_customer['currency_id'] = $default_currency['Currency']['id']; 
 				$new_customer['currency_code'] = $default_currency['Currency']['code'];
-				$new_customer['name'] = $default_currency['Currency']['name'];
-				$new_customer['symbol_left'] = $default_currency['Currency']['symbol_left'];
-				$new_customer['symbol_right'] = $default_currency['Currency']['symbol_right'];
-				$new_customer['decimal_point'] = $default_currency['Currency']['decimal_point'];
-				$new_customer['thousands_point'] = $default_currency['Currency']['thousands_point'];
-				$new_customer['decimal_places'] = $default_currency['Currency']['decimal_places'];
-				$new_customer['value'] = $default_currency['Currency']['value'];
+				$new_customer['currency_name'] = $default_currency['Currency']['name'];
+				$new_customer['currency_symbol_left'] = $default_currency['Currency']['symbol_left'];
+				$new_customer['currency_symbol_right'] = $default_currency['Currency']['symbol_right'];
+				$new_customer['currency_decimal_point'] = $default_currency['Currency']['decimal_point'];
+				$new_customer['currency_thousands_point'] = $default_currency['Currency']['thousands_point'];
+				$new_customer['currency_decimal_places'] = $default_currency['Currency']['decimal_places'];
+				$new_customer['currency_value'] = $default_currency['Currency']['value'];
 				
 				if(!isset($_SESSION['Customer']))
 				$this->Session->write('Customer', $new_customer);
