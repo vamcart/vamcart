@@ -412,7 +412,7 @@ background: #fff;
 .shopping-cart-widget .products {
   margin: 0 0 20px 0;
   overflow-y: auto;
-  max-height: 500px;
+  max-height: 450px;
 }
 .shopping-cart-widget .products .media-heading {
   font-weight: bold;
