@@ -12,7 +12,8 @@ class Content extends AppModel {
 	public $belongsTo = array('ContentType','Template');
 	public $hasMany = array('ContentImage','ContentDescription' => array('dependent' => true),'Attribute' => array('dependent' => true));
 	public $hasOne = array('ContentLink' => array('dependent' => true),'ContentProduct' => array('dependent' => true),'ContentPage' => array('dependent' => true),'ContentCategory' => array('dependent' => true),'ContentArticle' => array('dependent' => true),'ContentNews' => array('dependent' => true),'ContentDownloadable' => array('dependent' => true),'ContentManufacturer' => array('dependent' => true), 'ContentSpecial' => array('dependent' => true));
-	
+        
+        
 	public $hasAndBelongsToMany = array(
 	    'xsell' =>
 		array(
@@ -23,11 +24,35 @@ class Content extends AppModel {
 		    'unique' => true
 		)
 	);
+        
+        private $save_associations = false;
+        private $associations = null;
 
+        public function set_save_associations($save = true)   {
+            $this->save_associations = $save;       
+        }
+        
 	public function beforeFind($queryData)   {
 		//$this->query("SET SQL_MODE=''");
 		//$this->query("SET SQL_BIG_SELECTS=1");
+            if($this->save_associations) {
+                $this->associations['hasOne'] = $this->hasOne;
+                $this->associations['hasMany'] = $this->hasMany;
+                $this->associations['belongsTo'] = $this->belongsTo;
+                $this->associations['hasAndBelongsToMany'] = $this->hasAndBelongsToMany;
+            }
 	}
+        
+        public function afterFind($results, $primary = false)
+        {
+            if($this->save_associations) {
+                $this->hasOne = $this->associations['hasOne'];
+                $this->hasMany = $this->associations['hasMany'];
+                $this->belongsTo = $this->associations['belongsTo'];
+                $this->hasAndBelongsToMany = $this->associations['hasAndBelongsToMany'];
+            }
+            return $results;
+        }        
 	
 	public $validate = array(
 		'parent_id' => array(
@@ -223,6 +248,48 @@ class Content extends AppModel {
             }     
             } 
             return $attr_list;
+        }
+        
+        public function get_childrens($content_id = null, $get_categories = false, $is_first = true)
+        {
+            $childrens = array();
+            if(!isset($content_id)&&isset($this->id)) $content_id = $this->id;
+            $content = $this->find('all',array('conditions' => array('Content.parent_id' => $content_id)));
+            foreach ($content as $value) {
+                $children = $this->get_childrens($value['Content']['id'],$get_categories,false);             
+                if(key(current($children)) == 'Content') {
+                    if($get_categories) $childrens[] = $value;
+                    foreach ($children as $key => $child) {
+                        if($is_first) $children[$key]['Tree'] = array($content_id);
+                        $children[$key]['Tree'] = array_merge((isset($children[$key]['Tree'])?$children[$key]['Tree']:array()),array($value['Content']['id']));            
+                    }
+                    $childrens = array_merge($childrens,$children);
+                } else $childrens[] = $children;
+            }          
+            if(!empty($childrens)) return $childrens;
+            else {
+                if($is_first) return false;
+                else $this->find('first',array('conditions' => array('Content.id' => $content_id)));
+            }
+        }
+        
+        public function get_parents($content_id = null, $is_first = true)
+        {     
+            $parents = array();
+            if(!isset($content_id)&&isset($this->id)) $content_id = $this->id;
+            $content = $this->find('first',array('conditions' => array('Content.id' => $content_id)));
+            if(!empty($content)) $parent_content = $this->find('first',array('conditions' => array('Content.id' => $content['Content']['parent_id'])));        
+            if($parent_content['Content']['parent_id'] != 0) $parents = array_merge(array($parent_content),$this->get_parents($parent_content['Content']['id'],false));
+            else $parents = array($parent_content);              
+            return $parents;
+        }
+        
+        public function get_content_type($type_name = null)
+        {
+            $types = $this->ContentType->find('list',array('fields' => array('id','id'),'conditions' => array('type' => $type_name)));
+            if(is_array($type_name))
+                return $types;
+            else return current($types);
         }
         
 }
