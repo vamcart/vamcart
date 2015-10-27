@@ -3997,6 +3997,10 @@ msgid "Import suсcess!"
 msgstr "Импорт успешно завершён!"
 
 #: /View/OrdersEdit/admin.ctp:61
+msgid "Categories"
+msgstr "Категории"
+
+#: /View/OrdersEdit/admin.ctp:61
 msgid "Data"
 msgstr "Данные"
 

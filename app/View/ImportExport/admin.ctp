@@ -200,9 +200,10 @@ echo '
 					array(
 						'type' => 'select',
 						'id' => 'selected_content',
+						'data-placeholder' => __('All Categories'),
 						'class' => 'chosen-select',
 						'multiple' => true,
-			   		'label' => __('Категории'),
+			   		'label' => __('Categories'),
 						'options' => $this->requestAction('/contents/admin_parents_tree/'),
 						'escape' => false,
 						//'empty' => array(0 => __('Все категории'))
