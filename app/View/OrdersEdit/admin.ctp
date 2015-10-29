@@ -222,7 +222,7 @@ echo $this->Html->scriptBlock('
                       ));		
         }  
        
-        if ($order['shipping'] > 0) {	  
+        //if ($order['shipping'] > 0) {	  
         echo $this->Admin->TableCells(
                       array(
                                     '<strong>' . __('Shipping') . '</strong>',
@@ -237,7 +237,7 @@ echo $this->Html->scriptBlock('
                                                                   ,'placeholder' => '_'
                                                                   ,'onblur' => 'submit'));
         
-        }   
+        //}   
         echo $this->Admin->TableCells(
                       array(
                                     '<strong>' . __('Order Total') . '</strong>',
