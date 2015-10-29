@@ -24,22 +24,46 @@
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false));
 
     
-    echo $this->Html->scriptBlock('
-        function saveform(){
-                    my_global_formNavigate = true;
-                }
+echo $this->Html->scriptBlock('
+    function saveform() {
+        my_global_formNavigate = true;
+    }
+    
+    function getNum(val) {
+       if (isNaN(val)) {
+         return 0;
+       }
+       return val;
+    }
+    
+    function recount_total() {
+        var shipping_sum = $("#price_shipping").html();     
+        shipping_sum = Math.round(getNum(shipping_sum) *100)/100;
+        
+        var tax_sum = $("#price_tax").html();
+        tax_sum = Math.round(getNum(tax_sum) *100)/100;
+        
+        var total_sum = 0;
+        $.each($(".product_total"), function(key, value) {
+            total_sum += $(this).html();
+	});
 
-        function changeContentTable(id,row,column_1,column_2,column_sum){
-                                    var rows = document.getElementById(id).rows;
-                                    var old_sum = rows[row].cells[column_sum].innerHTML;
-                                    var new_sum = Math.round((rows[row].cells[column_1].innerHTML*rows[row].cells[column_2].innerHTML)*100)/100;
-                                    rows[row].cells[column_sum].innerHTML = new_sum;
-                                    var total_sum = 0;
-                                    for(i=1;i<rows.length - 2;i++) total_sum += Number(rows[i].cells[column_sum].innerHTML);
-                                    total_sum = Math.round(total_sum *100)/100;
-                                    rows[rows.length - 1].cells[column_sum].innerHTML = "<strong>"+total_sum+"</strong>";
-                                   }'
-    , array('allowCache'=>false,'safe'=>false,'inline'=>false));
+        total_sum = Math.round(total_sum *100)/100;
+        total_sum += shipping_sum + tax_sum;
+
+        $("#price_total").html("<strong>"+total_sum+"</strong>");
+    }
+
+    function changeContentTable(id,value)
+    {
+        var old_sum = $("#price" + id).html();
+        var new_sum = old_sum * value;
+        new_sum = Math.round(new_sum *100)/100;
+        $("#product_total" + id).html(new_sum);
+
+        recount_total();
+    }'
+, array('allowCache'=>false,'safe'=>false,'inline'=>false));
 
     echo $this->Admin->ShowPageHeaderStart(__('Edit Order #').' '.$order['id'], 'cus-cart-edit');
     
@@ -164,12 +188,12 @@
                       array(
                                     $product['name'],
                                     $product['model'],
-                                    $product['price'],
+                                    array($product['price'],array('id' => 'price' . $k)),
                                     array($product['quantity'],array('id' => 'quantity' . $k,'class' => 'edit')),
-                                    $product['quantity']*$product['price'],
+                                    array($product['quantity'] * $product['price'],array('id' => 'product_total' . $k,'class' => 'product_total')),
                                     $this->Ajax->link($this->Html->tag('i', '',array('class' => 'cus-bin-empty')), 'null', $options = array('escape' => false, 'url' => '/orders_edit/admin_delete_product/' . $k, 'update' => 'content'), null, false),
                        ));
-            echo $this->Ajax->editor('quantity' . $k,'/orders_edit/edit_field/OrderProduct/' . $k . '/quantity/',  array('callback' => 'function(value,settings){changeContentTable("content_t",' . ($k + 1) . ',2,3,4);my_global_formNavigate = false;}'
+            echo $this->Ajax->editor('quantity' . $k,'/orders_edit/edit_field/OrderProduct/' . $k . '/quantity/',  array('callback' => 'function(value,settings){changeContentTable(' . $k . ',value);my_global_formNavigate = false;}'
                                                                   ,'tooltip' => __('quantity')
                                                                   ,'placeholder' => '_'
                                                                   ,'onblur' => 'submit'));
@@ -193,17 +217,34 @@
                                     '&nbsp;',
                                     '&nbsp;',
                                     '&nbsp;',
-                                    '<strong>' . $order['tax'] .'</strong>',
+                                    array($order['tax'],array('id' => 'price_tax')),
                                     ''
                       ));		
-        }                        
+        }  
+       
+        if ($order['shipping'] > 0) {	  
+        echo $this->Admin->TableCells(
+                      array(
+                                    '<strong>' . __('Shipping') . '</strong>',
+                                    '&nbsp;',
+                                    '&nbsp;',
+                                    '&nbsp;',
+                                    array($order['shipping'],array('id' => 'price_shipping','class' => 'edit')),
+                                    ''
+                      ));
+            echo $this->Ajax->editor('price_shipping','/orders_edit/edit_field/shipping/',  array('callback' => 'function(value,settings){recount_total();my_global_formNavigate = false;}'
+                                                                  ,'tooltip' => __('quantity')
+                                                                  ,'placeholder' => '_'
+                                                                  ,'onblur' => 'submit'));
+        
+        }   
         echo $this->Admin->TableCells(
                       array(
                                     '<strong>' . __('Order Total') . '</strong>',
                                     '&nbsp;',
                                     '&nbsp;',
                                     '&nbsp;',
-                                    '<strong>' . $order['total'] .'</strong>',
+                                    array('<strong>' . $order['total'] .'</strong>',array('id' => 'price_total')),
                                     ''
                       ));		  
 

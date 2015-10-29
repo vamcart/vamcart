@@ -80,8 +80,9 @@ class OrdersEditController extends AppController
             $order['bill_inf'] = array('Customer_Name' => '','Address_Line_1' => '','Address_Line_2' => '','City' => '','Zip' => '');
             $order['ship_inf'] = array('Ship_Customer_Name' => '','Ship_Address_Line_1' => '','Ship_Address_Line_2' => '','Ship_City' => '','Ship_Zip' => '');
             $order['contact_inf'] = array('Email' => '','Phone' => '','Company' => '0');
-            $order['total'] = 0;
+            $order['shipping'] = 0;
             $order['tax'] = 0;
+            $order['total'] = 0;
             $order['OrderProduct'] = array();
             
             $this->Session->write('order_edit.order', $order);
@@ -96,7 +97,6 @@ class OrdersEditController extends AppController
             $this->loadModel('Order');
             $this->Order->Behaviors->attach('Containable');
             $o = $this->Order->find('first',array('conditions' => array('Order.id' => $id)
-                                                       //,'order' => 'Order.id DESC LIMIT 1'
                                                        ,'contain' => array('OrderProduct','ShippingMethod','PaymentMethod', 'BillCountry', 'BillState', 'ShipCountry', 'ShipState')
                                                                 ));
             if(isset($o['Order']))
@@ -126,9 +126,11 @@ class OrdersEditController extends AppController
                                              );
                     
                 $order['OrderProduct'] = $o['OrderProduct'];
-                $order['total'] = $o['Order']['total'];
-                $order['tax'] = $o['Order']['tax'];
-          
+                $order['shipping'] = $o['Order']['shipping'];
+                $order['tax'] = $o['Order']['tax']; 
+                $order['total'] = $o['Order']['total'] + $order['shipping'] + $order['tax'];
+         
+                
                 if(isset($o['BillState']['id']))
                 $order['bill_state'] = array('data' => $order['bill_state']['data']
                                           ,'json_data' => $order['bill_state']['json_data']
@@ -336,17 +338,13 @@ class OrdersEditController extends AppController
             $order['OrderProduct'][$index]['download_key'] = '0';
             $order['OrderProduct'][$index]['order_status_id'] = '1';
 
-            $order['tax'] = 0;
+            $order['total'] = $order['tax'] = 0;
             foreach ($order['OrderProduct'] as $value) 
             {
                 $order['tax'] += $value['tax'] * $value['quantity'];
+                $order['total'] += ($value['price'] * $value['quantity']);
             }
-            
-            $order['total'] = 0;
-            foreach ($order['OrderProduct'] as $value) 
-            {
-                $order['total'] += ($value['price'] * $value['quantity']) + ($value['tax'] * $value['quantity']);
-            }
+            $order['total'] += $order['tax'] + $order['shipping'];
             
             $this->Session->write('order_edit.order', $order);
             $this->redirect('/orders_edit/admin/redirect/');
@@ -370,17 +368,13 @@ class OrdersEditController extends AppController
         array_splice($order['OrderProduct'],$index,1);
         if(!empty($order['OrderProduct']))
         {
-            $order['tax'] = 0;
+            $order['total'] = $order['tax'] = 0;
             foreach ($order['OrderProduct'] as $value) 
             {
                 $order['tax'] += $value['tax'] * $value['quantity'];
+                $order['total'] += ($value['price'] * $value['quantity']);
             }
-
-            $order['total'] = 0;
-            foreach ($order['OrderProduct'] as $value) 
-            {
-                $order['total'] += ($value['price'] * $value['quantity']) + ($value['tax'] * $value['quantity']);
-            }
+            $order['total'] += $order['tax'] + $order['shipping'];
         }
         else $order['total'] = 0;
         
@@ -405,20 +399,13 @@ class OrdersEditController extends AppController
 
             if(!empty($order['OrderProduct']))
             {    
-            $order['tax'] = 0;
-            foreach ($order['OrderProduct'] as $value) 
-            {
-                $order['tax'] += $value['tax'] * $value['quantity'];
-            }
-            }
-            
-            $order['total'] = 0;
-            if(!empty($order['OrderProduct']))
-            {    
+               $order['total'] = $order['tax'] = 0;
                 foreach ($order['OrderProduct'] as $value) 
                 {
-                    $order['total'] += ($value['price'] * $value['quantity']) + ($value['tax'] * $value['quantity']);
-                }   
+                    $order['tax'] += $value['tax'] * $value['quantity'];
+                    $order['total'] += ($value['price'] * $value['quantity']);
+                }
+                $order['total'] += $order['tax'] + $order['shipping'];
             }
             $temp_order = array('Order' => array( 'id' => $order['id']
                             ,'order_status_id' => '1'
