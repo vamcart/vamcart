@@ -98,7 +98,7 @@ class OrdersEditController extends AppController
             $this->Order->Behaviors->attach('Containable');
             $o = $this->Order->find('first',array('conditions' => array('Order.id' => $id)
                                                        ,'contain' => array('OrderProduct','ShippingMethod','PaymentMethod', 'BillCountry', 'BillState', 'ShipCountry', 'ShipState')
-                                                                ));
+                                                                ));          
             if(isset($o['Order']))
             {
                 $order['id'] = $id;
@@ -130,7 +130,6 @@ class OrdersEditController extends AppController
                 $order['tax'] = $o['Order']['tax']; 
                 $order['total'] = $o['Order']['total'];
          
-                
                 if(isset($o['BillState']['id']))
                 $order['bill_state'] = array('data' => $order['bill_state']['data']
                                           ,'json_data' => $order['bill_state']['json_data']
@@ -246,6 +245,15 @@ class OrdersEditController extends AppController
         $this->Session->write('order_edit.order', $order);
         $this->set('return',$this->data['value']);
 
+        $this->render('/Elements/ajaxreturn');
+    }
+    
+    public function edit_shipping()
+    {
+        $order = $this->Session->read('order_edit.order');
+        $order['shipping'] = $this->data['value'];
+        $this->Session->write('order_edit.order', $order);
+        $this->set('return',$this->data['value']);
         $this->render('/Elements/ajaxreturn');
     }
         
@@ -407,6 +415,7 @@ class OrdersEditController extends AppController
                 }
                 $order['total'] += $order['tax'] + $order['shipping'];
             }
+
             $temp_order = array('Order' => array( 'id' => $order['id']
                             ,'order_status_id' => '1'
                             ,'shipping_method_id' => $order['ship_metd']['id_selected']
@@ -435,7 +444,7 @@ class OrdersEditController extends AppController
                             ,'company_vat' => null
                             ,'created' => date("Y-m-d H:i:s")
                     ));
-            
+
            $max_id = $this->Order->OrderProduct->find('first',array('fields' => array('MAX(OrderProduct.id) as id')));
            $max_id = $max_id[0]['id'];
            foreach ($order['OrderProduct'] AS $k => $orderproduct)
