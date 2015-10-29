@@ -128,7 +128,6 @@ class OrdersEditController extends AppController
                 $order['OrderProduct'] = $o['OrderProduct'];
                 $order['shipping'] = $o['Order']['shipping'];
                 $order['tax'] = $o['Order']['tax']; 
-                //$order['total'] = $o['Order']['total'] + $order['shipping'] + $order['tax'];
                 $order['total'] = $o['Order']['total'];
          
                 
