@@ -232,7 +232,7 @@ echo $this->Html->scriptBlock('
                                     array($order['shipping'],array('id' => 'price_shipping','class' => 'edit')),
                                     ''
                       ));
-            echo $this->Ajax->editor('price_shipping','/orders_edit/edit_field/shipping/',  array('callback' => 'function(value,settings){recount_total();my_global_formNavigate = false;}'
+            echo $this->Ajax->editor('price_shipping','/orders_edit/edit_shipping/',  array('callback' => 'function(value,settings){recount_total();my_global_formNavigate = false;}'
                                                                   ,'tooltip' => __('quantity')
                                                                   ,'placeholder' => '_'
                                                                   ,'onblur' => 'submit'));
