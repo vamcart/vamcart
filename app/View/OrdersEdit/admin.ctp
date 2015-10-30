@@ -162,8 +162,8 @@ echo $this->Html->scriptBlock('
     echo '<table class = "contentTable">';
     echo $this->Html->tableHeaders(array(__('Payment Methods'),__('Shipping Methods')));
     echo $this->Admin->TableCells(array(array(
-                                 array($order['pay_metd']['selected'],array('id' => 'pay_metd','class' => 'edit','width' => '50%'))
-                                ,array($order['ship_metd']['selected'],array('id' => 'ship_metd','class' => 'edit','width' => '50%'))
+                                 array(__($order['pay_metd']['selected']),array('id' => 'pay_metd','class' => 'edit','width' => '50%'))
+                                ,array(__($order['ship_metd']['selected']),array('id' => 'ship_metd','class' => 'edit','width' => '50%'))
                                     )));
 
     echo $this->Ajax->editor('pay_metd','/orders_edit/change_shipORpay_method/',  array('tooltip' => 'pay_metd'

@@ -56,16 +56,18 @@ class OrdersEditController extends AppController
                                           ,'selected' => '_');
         $order['ship_country']['json_data'] = json_encode($ship_country);
                 
-        $pay_metd = $this->Order->PaymentMethod->find('all',array('conditions' => array('PaymentMethod.active = 1')));            
-        $pay_metd = Set::combine($pay_metd,'{n}.PaymentMethod.id','{n}.PaymentMethod.name');
+        $pay_metd = $this->Order->PaymentMethod->find('list',array('fields' => array('id','name'), 'conditions' => array('PaymentMethod.active = 1')));            
+        function v3($v){return __($v);}           
+        $pay_metd = array_map("v3",$pay_metd);
         $order['pay_metd'] = array('data' => $pay_metd
                                           ,'json_data' => array()
                                           ,'id_selected' => '0'
                                           ,'selected' => '_');
         $order['pay_metd']['json_data'] = json_encode($order['pay_metd']['data']);
 
-        $ship_metd = $this->Order->ShippingMethod->find('all',array('conditions' => array('ShippingMethod.active = 1')));
-        $ship_metd = Set::combine($ship_metd,'{n}.ShippingMethod.id','{n}.ShippingMethod.name');
+        $ship_metd = $this->Order->ShippingMethod->find('list',array('fields' => array('id','name'), 'conditions' => array('ShippingMethod.active = 1')));
+        function v4($v){return __($v);}           
+        $ship_metd = array_map("v4",$ship_metd);
         $order['ship_metd'] = array('data' => $ship_metd
                                           ,'json_data' => array()
                                           ,'id_selected' => '0'
