@@ -409,6 +409,7 @@ class OrdersController extends AppController {
 				$this->Email->From = $config['NEW_ORDER_FROM_EMAIL'];
 				$this->Email->FromName = __($config['NEW_ORDER_FROM_NAME'],true);
 				$this->Email->AddAddress($config['SEND_EXTRA_EMAIL']);
+				if ($order['Order']['email'] != '') $this->Email->AddReplyTo($order['Order']['email']);
 				$this->Email->Subject = $subject;
 
 				// Email Body
