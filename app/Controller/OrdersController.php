@@ -11,7 +11,7 @@ class OrdersController extends AppController {
 	public $helpers = array('Time');
 	public $uses = array('EmailTemplate', 'AnswerTemplate', 'Order');
 	public $components = array('EventBase', 'Email', 'Smarty','ConfigurationBase');
-	public $paginate = array('limit' => 20, 'order' => array('Order.created' => 'desc'));
+	public $paginate = array('limit' => 20, 'order' => array('Order.id' => 'desc'));
 
 	public function confirmation ()
 	{
