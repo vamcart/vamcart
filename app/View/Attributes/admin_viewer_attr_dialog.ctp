@@ -40,6 +40,7 @@ $content_id = $content_id['Attribute']['content_id'];
                                    ,''
                                    ,''
                                    ,''
+                                   ,''
                               ));
     echo $this->Js->writeBuffer(); 
 echo '</table>';
