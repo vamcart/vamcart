@@ -95,6 +95,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 			echo $this->Admin->CreateTab('upload_images',__('Upload Images'), 'cus-picture-add');
 			echo $this->Admin->CreateTab('options',__('Options'), 'cus-cog');
 			if (isset($data['Content']['id']) && ($data['Content']['content_type_id'] == 2 or $data['Content']['content_type_id'] == 7)) echo $this->Admin->CreateTab('relations', __('Cross-Sell'), 'cus-cart-put');
+                        if(isset($data['Content']['id'])) echo $this->Admin->CreateTab('atributes',__('Attributes'), 'cus-tag-green');
 			echo '</ul>';
 
 	echo $this->Admin->StartTabs();
@@ -221,7 +222,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 						));
 	echo '</div>';	
 
-	echo $this->Admin->EndTabContent();
+	echo $this->Admin->EndTabContent();            
 
 	if (isset($data['Content']['content_type_id'])) {
 	if (($data['Content']['content_type_id'] == 2 or $data['Content']['content_type_id'] == 7)) {	
@@ -350,6 +351,22 @@ $(document).ready(function()
 	echo $this->Admin->EndTabContent();
 	}
 
+        if(isset($data['Content']['id'])) {
+            echo $this->Admin->StartTabContent('atributes');                            
+                if ($data['Content']['content_type_id'] == 2) { 
+                    echo $this->Js->link('Установить значения&nbsp' . $this->Html->image(null, array('title' => __('Attributes'),'class' => 'cus-tag-green')), '/attributes/admin_editor_value_dialog/edit/' . $data['Content']['id'], array('escape' => false, 'update' => '#dialog_attr','class' => 'btn btn-default'));
+                    echo $this->Js->writeBuffer();  
+                    echo '<div id="dialog_attr">';
+                } else if($data['Content']['content_type_id'] == 1) {               
+                    echo '<div id="dialog_add_attr"></div>';
+                    echo '<div id="view_attr">';
+                        echo $this->requestAction('/attributes/admin_viewer_attr_dialog/' . $data['Content']['id'], array('return'));	
+                    echo '</div>';
+                }
+            echo $this->Admin->EndTabContent();        
+        }
+        
+        
 	echo $this->Admin->EndTabs();
 
 	echo '<div class="clear"></div>';

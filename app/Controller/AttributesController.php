@@ -113,7 +113,8 @@ class AttributesController extends AppController
                 //Сортировка
                 if ($type == 'attr' && (!isset($attribute['Attribute']['order']) || $attribute['Attribute']['order'] == 0)) $attribute['Attribute']['order'] = $this->Attribute->find('count',array('conditions' => array('Attribute.content_id' => $attribute['Attribute']['content_id']))) + 1;
                 else if ($type == 'val' && (!isset($attribute['Attribute']['order']) || $attribute['Attribute']['order'] == 0)) $attribute['Attribute']['order'] = $this->Attribute->find('count',array('conditions' => array('Attribute.parent_id' => $attribute['Attribute']['parent_id']))) + 1;
-                //Создаем запись
+                if ($type == 'val')$attribute['Attribute']['content_id'] = 0;
+                //Создаем запись 
                 if($attribute['Attribute']['id'] == 0) $this->Attribute->create();
                 if($this->Attribute->saveAll($attribute))
                 {
@@ -124,15 +125,18 @@ class AttributesController extends AppController
                     $this->Session->setFlash(__('Attributes saved.'));
                 } else $this->Session->setFlash(__('Attributes not saved!'), 'default', array('class' => 'error-message red'));  
 
-                if ($type == 'attr') $this->redirect('/attributes/admin_viewer_attr/' . $this->data['Attribute']['content_id']);
-                else if ($type == 'val') $this->redirect('/attributes/admin_editor_attr/edit/attr/' . $this->data['Attribute']['parent_id']);
+                $this->redirect('/attributes/admin_viewer_attr_dialog/' . $this->data['Attribute']['content_id']);
             break;
             case 'delete':
+                $attribute = $this->Attribute->read(false,$id);               
                 if($this->Attribute->delete($id))
                 {
                     $this->Session->setFlash(__('Attributes deleted.'));
                 } else $this->Session->setFlash(__('Attributes not deleted!'), 'default', array('class' => 'error-message red'));
-                $this->redirect($this->referer());
+                if ($type == 'val') {
+                    $parent_attr = $this->Attribute->read(false,$attribute['Attribute']['parent_id']);
+                    $this->redirect('/attributes/admin_viewer_attr_dialog/'  . $parent_attr['Attribute']['content_id']);
+                } else $this->redirect('/attributes/admin_viewer_attr_dialog/'  . $attribute['Attribute']['content_id']);
             break;
             default:
                 die();
@@ -147,13 +151,14 @@ class AttributesController extends AppController
         {   
             $this->Attribute->id = $id;
             $this->Attribute->recursive = -1;
-            $tmpl_id = $this->Attribute->read('attribute_template_id'); 
-            $template = $this->AttributeTemplate->find('first',array('conditions' => array('id' => $tmpl_id['Attribute'])));
+            $parent_attr = $this->Attribute->read(); 
+            $template = $this->AttributeTemplate->find('first',array('conditions' => array('id' => $parent_attr['Attribute']['attribute_template_id'])));
             $template = unserialize($template['AttributeTemplate']['setting']);
             function v($var){return($var == 1);}
             $template = array_filter($template,"v");
             foreach ($template AS $k => $val) $template[$k] = $k;
-            $this->set('template',$template);            
+            $this->set('template',$template);
+            $attribute['Attribute']['content_id'] = $parent_attr['Attribute']['content_id'];
         }
         else $this->set('template', $this->AttributeTemplate->find('list'));
         $this->set('attribute',$attribute);
@@ -162,25 +167,34 @@ class AttributesController extends AppController
 	$this->set('title_for_layout', __('Attribute Editor', true)); 
     }
     
-    public function admin_viewer_attr($content_id = 0) 
-    {        
-        $this->loadModel('Content');
-        $this->Content->recursive = 2;
-        $this->Content->unbindAll();
-	$this->Content->bindModel(array('hasOne' => array('ContentDescription' => array(
-						'className' => 'ContentDescription'
-                                                ,'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
-					))));
-	$this->Content->bindModel(array('hasMany' => array('Attribute' => array(
-						'className' => 'Attribute'
-                                               ,'order' => array('Attribute.order ASC')
-					))));
-        $this->Content->Attribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
-        $content_data = $this->Content->find('first',array('conditions' => array('Content.id' => $content_id)));
-        $this->set('content_data',$content_data);
-        $this->set('current_crumb', __('Attributes Listing', true));
-	$this->set('title_for_layout', __('Attributes Listing', true)); 
+    public function admin_editor_attr_dialog($action = 'init' ,$type = 'attr' ,$id = 0) 
+    {
+        $this->layout = 'ajax';
+        $this->autoRender = false;   
+        $this->admin_editor_attr($action,$type,$id);
+        $this->render('admin_editor_attr_dialog');
     }
+    
+    public function admin_viewer_attr($content_id = 0) 
+    {
+        $this->loadModel('Attribute');
+        $this->Attribute->recursive = 2;
+        $this->Attribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
+        $this->Attribute->ValAttribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
+        $attributes = $this->Attribute->find('all',array('conditions' => array('Attribute.content_id' => $content_id)));
+        $this->set('attributes',$attributes);
+        $this->set('current_crumb', __('Attributes Listing', true));
+	$this->set('title_for_layout', __('Attributes Listing', true));         
+        
+    }
+    
+    public function admin_viewer_attr_dialog($content_id = 0) 
+    {                
+        if($this->request->isAjax()) {
+            $this->layout = 'ajax';
+        }        
+        $this->admin_viewer_attr($content_id);
+    }    
     
     public function change_field_status($field = 'is_active' ,$id = 0, $model = 'this')
     {
@@ -197,7 +211,7 @@ class AttributesController extends AppController
             $record[$current_model_name][$field] = 0;		
 	}      
 	$this->$current_model->save($record);
-        $this->redirect($this->referer());
+        $this->redirect('/attributes/admin_viewer_attr_dialog/'  . $record['Attribute']['content_id']);
     }
     
     public function set_group_content($content_id = 0)
@@ -401,7 +415,6 @@ class AttributesController extends AppController
         
         $this->redirect($this->referer());	
     }
-         
 }
 
 ?>
