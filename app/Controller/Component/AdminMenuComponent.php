@@ -49,8 +49,7 @@ class AdminMenuComponent extends Component
 					1 => array('icon' => 'cus-book-add', 'text' => __('Categories/Products', true), 'path' => '/contents/admin/'),
 					2 => array('icon' => 'cus-database-refresh', 'text' => __('Import/Export', true), 'path' => '/import_export/admin/'),
 					3 => array('icon' => 'cus-page', 'text' => __('Pages', true), 'path' => '/contents/admin_core_pages/'),
-					4 => array('icon' => 'cus-application-cascade', 'text' => __('Content Blocks', true), 'path' => '/global_content_blocks/admin/'),
-					5 => array('icon' => 'cus-tag-green', 'text' => __('Attributes', true), 'path' => '/attributes/admin/')
+					4 => array('icon' => 'cus-application-cascade', 'text' => __('Content Blocks', true), 'path' => '/global_content_blocks/admin/')
 				)
 			),
 			4 => array('icon' => 'cus-paintbrush', 'text' => __('Layout', true), 'path' => '/admin/admin_top/4',
