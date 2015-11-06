@@ -282,12 +282,23 @@ class AttributesController extends AppController
                 $element_list = array();
                 foreach($attr_data AS $k => $attr)
                 {
+                
                     $element_list[$k]['id_attribute'] = $attr['Attribute']['id'];
                     $element_list[$k]['name_attribute'] = $attr['Attribute']['name'];
                     $element_list[$k]['template_attribute'] = $attr['AttributeTemplate']['template_editor'];
                     $element_list[$k]['values_attribute'] = array();   
+                                        
+                    if($attr['AttributeTemplate']['name']=='list')
+                        $element_list[$k]['values_attribute'][-1] = array(
+                            'name' => 'Не установленно'
+                           ,'type_attr' => $attr['Attribute']['type_attr']
+                           ,'id' => 0
+                           ,'parent_id' => 0
+                           ,'val' => ''
+                        );
+                    
                     foreach($attr['ValAttribute'] AS $k_v => $def_val)
-                    {   
+                    {
                         $val = $this->Attribute->find('first',array('conditions' => array('Attribute.content_id' => $content_id
                                                                               ,'Attribute.parent_id' => $def_val['id']
                                                                                )));
@@ -308,7 +319,7 @@ class AttributesController extends AppController
                             $element_list[$k]['values_attribute'][$k_v]['parent_id'] = $val['Attribute']['parent_id'];
                             $element_list[$k]['values_attribute'][$k_v]['val'] = $val['Attribute']['val'];
                         }
-                    }                                    
+                    }
                 }
                 
             break;
