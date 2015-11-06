@@ -1,6 +1,6 @@
 <?php 
-    echo $this->Html->css('../js/chosen/bootstrap-chosen.css');
-    echo $this->Html->script(array('chosen/chosen.jquery.min.js'),array('inline' => true));
+    echo $this->Html->css('jquery/plugins/chosen/bootstrap-chosen.css');
+    echo $this->Html->script(array('jquery/plugins/chosen/chosen.jquery.js'),array('inline' => true));
 ?>
 <div class="modal fade" id="editAttrModal" tabindex="-1" role="dialog">
   <div class="modal-dialog">
