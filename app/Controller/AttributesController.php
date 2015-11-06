@@ -12,7 +12,7 @@ class AttributesController extends AppController
     public $paginate = null;
     public $helpers = array('Smarty');
     
-    public function admin ($type = 'category' ,$id = 0)
+    public function admin($type = 'category' ,$id = 0)
     {              
         $this->loadModel('Content');
 
@@ -40,14 +40,14 @@ class AttributesController extends AppController
 					))));
         $this->Content->recursive = 2;
         
-        if($type == 'category') $this->paginate['Content'] = array('conditions' => array('Content.content_type_id = 1')
+        if($type == 'category') $this->paginate['Content'] = array('conditions' => array('Content.content_type_id' => $this->Content->get_content_type('ContentCategory'))
                                           ,'limit' => '30'
                                           ,'order' => array('Content.order ASC')
                                            );
-        else $this->paginate['Content'] = array('conditions' => array('Content.parent_id' => $id , 'Content.content_type_id = 2')
+        /*else $this->paginate['Content'] = array('conditions' => array('Content.parent_id' => $id , 'Content.content_type_id = 2')
                                           ,'limit' => '30'
                                           ,'order' => array('Content.order ASC')
-                                           );
+                                           );*/
         $content_data = $this->paginate('Content');
        
         $this->set('content_data',$content_data);
@@ -318,6 +318,15 @@ class AttributesController extends AppController
                     }
                 }
                 
+                if(isset($this->data['Content']['id_groups'])) {
+                    $this->Content->updateAll(array('Content.is_group' => 0,'Content.id_group' => 0),array('Content.parent_id' => $this->data['Attribute']['parent_id']));
+                    if(!empty($this->data['Content']['id_groups'])) {
+                        $this->loadModel('Content');                        
+                        $this->Content->updateAll(array('Content.id_group' => $this->data['Attribute']['content_id']),array('Content.id' => $this->data['Content']['id_groups']));
+                        $this->Content->updateAll(array('Content.is_group' => 1, 'Content.id_group' => $this->data['Attribute']['content_id']),array('Content.id' => $this->data['Attribute']['content_id']));
+                    } 
+                }
+                
                 if($this->Attribute->saveAll($save_data))
                 {
                     $this->Session->setFlash(__('Attributes Value Saved.'));
@@ -337,11 +346,36 @@ class AttributesController extends AppController
         $this->set('parent_id', $content_data['Content']['parent_id']); 
         $this->set('current_crumb', __('Attributes Value Editor', true));
 	$this->set('title_for_layout', __('Attributes Value Editor', true)); 
-
-    }    
+    }
     
-    public function constructDefValue($type_attr, $id_attr) 
-    { 
+    public function admin_editor_value_dialog($action = 'init' ,$content_id = 0)
+    {
+        $this->layout = 'ajax';
+        $this->autoRender = false;     
+        $this->admin_editor_value($action,$content_id);
+        
+        $this->loadModel('Content');      
+        $this->Content->set_save_associations();
+        $this->Content->unbindAll();
+        $content = $this->Content->read(false,$content_id);        
+	$this->Content->bindModel(array('hasOne' => array('ContentDescription' => array(
+						'className' => 'ContentDescription',
+						'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
+					))));
+        
+        $selected_group_contents = $this->Content->find('all',array('conditions' => array('Content.id_group' => $content_id,'Content.id <>' => $content_id,'content_type_id' => $this->Content->get_content_type('ContentProduct'))));
+        $selected_group_contents = Set::combine($selected_group_contents,'{n}.Content.id','{n}.ContentDescription.name');
+        $this->set('selected_group_contents',$selected_group_contents);        
+        
+        $group_contents = $this->Content->find('all',array('conditions' => array('Content.parent_id' => $content['Content']['parent_id'],'Content.id <>' => $content_id,'content_type_id' => $this->Content->get_content_type('ContentProduct'))));
+        $group_contents = Set::combine($group_contents,'{n}.Content.id','{n}.ContentDescription.name');
+        $this->set('group_contents',$group_contents);                
+        
+        $this->render('admin_editor_value_dialog');
+    }
+    
+    public function constructDefValue($type_attr, $id_attr)
+    {
         
     }
     

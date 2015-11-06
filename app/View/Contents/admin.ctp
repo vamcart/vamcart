@@ -27,6 +27,9 @@ $this->Html->script(array(
 	$fname
 ), array('inline' => false));
 ?>
+
+<div id="dialog_attr"></div>
+
 <?php echo $this->Html->scriptBlock('
 
 var submit_flag = false;
@@ -113,7 +116,6 @@ echo $this->Html->tableHeaders(array(	 __('Title'), __('Type'), __('Active'), __
 
 foreach ($content_data AS $content)
 {
-
 	// Link to child view, link to the edit screen
 	if ($content['ContentType']['name']=='category') {
 		$name_link = $this->Html->link($this->Html->image('admin/icons/folder.png'), '/contents/admin/0/' . $content['Content']['id'], array('escape' => false));
@@ -136,9 +138,12 @@ foreach ($content_data AS $content)
 	}
 	
 	if ($content['ContentType']['name']=='product' || $content['ContentType']['name']=='downloadable') {
-		$discounts = $this->Admin->ActionButton('discounts', '/discounts/admin/' . $content['ContentProduct']['id'],__('Discounts')); 
+		$add_action_btn = $this->Admin->ActionButton('discounts', '/discounts/admin/' . $content['ContentProduct']['id'],__('Discounts'))
+                                //. $this->Html->link($this->Html->image(null, array('title' => __('Attributes'),'class' => 'cus-tag-green')), '/attributes/admin_editor_value_dialog/edit/' . $content['Content']['id'], array('escape' => false))                
+                                . $this->Js->link($this->Html->image(null, array('title' => __('Attributes'),'class' => 'cus-tag-green')), '/attributes/admin_editor_value_dialog/edit/' . $content['Content']['id'], array('escape' => false, 'update' => '#dialog_attr'));
+                echo $this->Js->writeBuffer();        
 	} else {
-		$discounts = null; 
+		$add_action_btn = null; 
 	}
 	
 	echo $this->Admin->TableCells(
@@ -152,7 +157,9 @@ foreach ($content_data AS $content)
 			($content['Content']['content_type_id'] == 2 or $content['Content']['content_type_id'] == 7) ? array($price,array('id' => $content['Content']['id'],'align' => 'center', 'class' => 'edit'))	: false,
 			($content['Content']['content_type_id'] == 2 or $content['Content']['content_type_id'] == 7) ? array($stock,array('id' => 'stock'.$content['Content']['id'],'align' => 'center', 'class' => 'edit'))	: false,
 			array($content['Content']['order'], array('align'=>'center')),
-			array($this->Admin->ActionButton('edit','/contents/admin_edit/' . $content['Content']['id'].'/'.(isset($parent_content) ? $parent_content['Content']['id'] : 0),__('Edit')) . $this->Admin->ActionButton('delete','/contents/admin_delete/' . $content['Content']['id'],__('Delete')) . $discounts, array('align'=>'center')),
+			array($this->Admin->ActionButton('edit','/contents/admin_edit/' . $content['Content']['id'].'/'.(isset($parent_content) ? $parent_content['Content']['id'] : 0),__('Edit')) 
+                            . $this->Admin->ActionButton('delete','/contents/admin_delete/' . $content['Content']['id'],__('Delete')) 
+                            . $add_action_btn, array('align'=>'center')),
 			array($this->Form->checkbox('modify][', array('value' => $content['Content']['id'])), array('align'=>'center'))
 		));
 

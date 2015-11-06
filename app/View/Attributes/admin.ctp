@@ -17,7 +17,7 @@ foreach ($content_data AS $content)
         {
             $val = $val . $attr['name'] . ' ';
         }
-        echo $this->Admin->TableCells(array(($this->Html->link($this->Html->image('admin/icons/folder.png', array('alt' => __(''))) . $content['ContentDescription']['name'], '/attributes/admin_attr/' . $content['Content']['id'], array('escape' => false)))
+        echo $this->Admin->TableCells(array($this->Html->image('admin/icons/folder.png', array('alt' => __(''))) . $content['ContentDescription']['name']
                                        ,$val
                                        ,array($this->Html->link($this->Html->tag('i', '',array('class' => 'cus-application-view-tile')) . ' ' . __('Attributes'), '/attributes/admin_viewer_attr/' . $content['Content']['id'], array('class' => 'btn btn-default', 'escape' => false)),array('align'=>'center'))
                                         ));

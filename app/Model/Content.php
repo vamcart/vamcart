@@ -52,7 +52,7 @@ class Content extends AppModel {
                 $this->hasAndBelongsToMany = $this->associations['hasAndBelongsToMany'];
             }
             return $results;
-        }        
+        }
 	
 	public $validate = array(
 		'parent_id' => array(
@@ -119,8 +119,8 @@ class Content extends AppModel {
             if($content_id == 0&&isset($this->id)) $content_id = $this->id;
             $is_group = false;
             if($content_id == 0&&isset($this->id)) $content_id = $this->id;
-            $this->unbindAll();
-            $product = $this->find('first', array('conditions' => array('id' => $content_id,'id_group IS NOT NULL')));
+            $this->unbindAll();           
+            $product = $this->find('first', array('conditions' => array('id' => $content_id,'id_group IS NOT NULL', 'id_group <>' => 0)));
             if(!empty($product)) $is_group = true;
             return $is_group;
         }
@@ -129,7 +129,7 @@ class Content extends AppModel {
         {
             if($content_id == 0&&isset($this->id)) $content_id = $this->id;
             $this->unbindAll();
-            $product = $this->find('first', array('conditions' => array('id' => $content_id,'id_group IS NOT NULL')));
+            $product = $this->find('first', array('conditions' => array('id' => $content_id,'id_group IS NOT NULL', 'id_group <>' => 0)));
             if(!empty($product))
                 return $product['Content']['id_group'];
             else
@@ -142,13 +142,13 @@ class Content extends AppModel {
             $current_group_list_attr = $this->__getListSetAttributesForProduct($content_id);
             $list_attr = $this->getSetAttributesForProduct($content_id);
             $list_attr = Set::combine($list_attr,'{n}.id','{n}');        
-            $this->unbindAll();
-            $products = $this->find('list', array('fields' => array('id','parent_id'),'conditions' => array('id_group' => $this->getGroup($content_id), 'Content.id <>' => $content_id))); 
+            $this->unbindAll();          
+            $products = $this->find('list', array('fields' => array('id','parent_id'),'conditions' => array('id_group' => $this->getGroup($content_id), 'Content.id <>' => $content_id)));                      
             foreach($products AS $product_id => $product_parent_id)
             {
-                $group_list_attr = $this->getSetAttributesForProduct($product_id);            
+                $group_list_attr = $this->getSetAttributesForProduct($product_id);               
                 foreach($group_list_attr AS $attr)
-                {  
+                {
                     if($current_group_list_attr[$attr['values_attribute']['id']] == 0&&$attr['values_attribute'] != null)
                     {
                         $attr['content_id'] = $product_id;
@@ -158,7 +158,7 @@ class Content extends AppModel {
                         $attr['content_chng_url'] = $this->getUrlForContent($product_id,'product');
                         if($list_attr[$attr['id']]['values_attribute']['id'] != $make_attr_product)$attr['make'] = false;
                         if($unique) //Проверим на уникальность
-                        {                        
+                        {
                             $key_unique = true;
                             foreach($list_attr[$attr['id']]['group_attributes'] AS $set_attr)
                             {
@@ -171,7 +171,7 @@ class Content extends AppModel {
                         else $list_attr[$attr['id']]['group_attributes'] = array_merge($list_attr[$attr['id']]['group_attributes'],array($attr));
                     }
                 }
-            }          
+            }
             return $list_attr;
         }
         
@@ -246,8 +246,8 @@ class Content extends AppModel {
                 //Для установленных значений добавлена проверка на checked_list
                 if($is_set&&$values_attribute['type_attr']!='checked_list')$attr_list[$key_attr]['values_attribute'] = empty($attr_list[$key_attr]['values_attribute']) ? null : reset($attr_list[$key_attr]['values_attribute']);
             }     
-            } 
-            return $attr_list;
+            }          
+            return $attr_list;            
         }
         
         public function get_childrens($content_id = null, $get_categories = false, $is_first = true)
