@@ -29,12 +29,12 @@ $content_id = $content_id['Attribute']['content_id'];
                                           ));
         }
         echo $this->Admin->TableCells(array('','','','',''
-                                               ,$this->Js->link('Добавить значение&nbsp' . $this->Html->image('admin/transparency.png', array('title' => __('Attributes'),'class' => 'cus-tag-blue-add')), '/attributes/admin_editor_attr_dialog/' . 'add/val/' . $attribute['Attribute']['id'], array('escape' => false, 'update' => '#dialog_add_attr','class' => 'btn btn-default'))
+                                               ,$this->Js->link($this->Html->image('admin/transparency.png', array('title' => __('Attributes'),'class' => 'cus-tag-blue-add')) . ' ' . 'Добавить значение', '/attributes/admin_editor_attr_dialog/' . 'add/val/' . $attribute['Attribute']['id'], array('escape' => false, 'update' => '#dialog_add_attr','class' => 'btn btn-default'))
                                             ,''
                                           ));
         
     }
-    echo $this->Admin->TableCells(array($this->Js->link('Добавить атрибут&nbsp' . $this->Html->image('admin/transparency.png', array('title' => __('Attributes'),'class' => 'cus-tag-green')), '/attributes/admin_editor_attr_dialog/' . 'add/attr/' . $content_id, array('escape' => false, 'update' => '#dialog_add_attr','class' => 'btn btn-default'))
+    echo $this->Admin->TableCells(array($this->Js->link($this->Html->image('admin/transparency.png', array('title' => __('Attributes'),'class' => 'cus-tag-green')) . ' ' . 'Добавить атрибут', '/attributes/admin_editor_attr_dialog/' . 'add/attr/' . $content_id, array('escape' => false, 'update' => '#dialog_add_attr','class' => 'btn btn-default'))
                                    ,''
                                    ,''
                                    ,''

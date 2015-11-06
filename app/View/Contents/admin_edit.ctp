@@ -354,7 +354,9 @@ $(document).ready(function()
         if(isset($data['Content']['id'])) {
             echo $this->Admin->StartTabContent('atributes');                            
                 if ($data['Content']['content_type_id'] == 2) { 
-                    echo $this->Js->link('Установить значения&nbsp' . $this->Html->image('admin/transparency.png', array('title' => __('Attributes'),'class' => 'cus-tag-green')), '/attributes/admin_editor_value_dialog/edit/' . $data['Content']['id'], array('escape' => false, 'update' => '#dialog_attr','class' => 'btn btn-default'));
+                    echo '<br />';
+                    echo $this->Js->link($this->Html->image('admin/transparency.png', array('title' => __('Attributes'),'class' => 'cus-tag-green')) . ' ' . 'Установить значения', '/attributes/admin_editor_value_dialog/edit/' . $data['Content']['id'], array('escape' => false, 'update' => '#dialog_attr','class' => 'btn btn-default'));
+                    echo '<br /><br />';
                     echo $this->Js->writeBuffer();  
                     echo '<div id="dialog_attr">';
                 } else if($data['Content']['content_type_id'] == 1) {               
