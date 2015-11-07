@@ -34,7 +34,7 @@ $content_id = $content_id['Attribute']['content_id'];
                                           ));
         
     }
-    echo $this->Admin->TableCells(array($this->Js->link($this->Html->image('admin/transparency.png', array('title' => __('Attributes'),'class' => 'cus-tag-green')) . ' ' . 'Добавить атрибут', '/attributes/admin_editor_attr_dialog/' . 'add/attr/' . $content_id, array('escape' => false, 'update' => '#dialog_add_attr','class' => 'btn btn-default'))
+    echo $this->Admin->TableCells(array($this->Js->link($this->Html->image('admin/transparency.png', array('title' => __('Attributes'),'class' => 'cus-tag-green')) . ' ' . 'Добавить атрибут', '/attributes/admin_editor_attr_dialog/' . 'add/attr/' . $content_id, array('escape' => false, 'update' => '#dialog_add_attr','class' => 'btn btn-default')).$this->Js->link($this->Html->image('admin/transparency.png', array('title' => __('Attributes'),'class' => 'cus-tag-green')) . ' ' . 'Копировать атрибуты с другой категории', '/attributes/admin_editor_attr_dialog/' . 'add/attr/' . $content_id, array('escape' => false, 'update' => '#dialog_add_attr','class' => 'btn btn-default'))
                                    ,''
                                    ,''
                                    ,''

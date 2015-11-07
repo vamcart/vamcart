@@ -184,7 +184,8 @@ class AttributesController extends AppController
         $attributes = $this->Attribute->find('all',array('conditions' => array('Attribute.content_id' => $content_id)));
         $this->set('attributes',$attributes);
         $this->set('current_crumb', __('Attributes Listing', true));
-	$this->set('title_for_layout', __('Attributes Listing', true));         
+	$this->set('title_for_layout', __('Attributes Listing', true)); 
+        $this->set('content_id', $content_id);  
         
     }
     
