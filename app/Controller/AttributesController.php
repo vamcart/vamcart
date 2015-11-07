@@ -194,6 +194,7 @@ class AttributesController extends AppController
         if($this->request->isAjax()) {
             $this->layout = 'ajax';
         }        
+        $this->set('id',$content_id);
         $this->admin_viewer_attr($content_id);
     }    
     

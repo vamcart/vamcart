@@ -9,8 +9,6 @@
 echo '<table class="contentTable">';
 echo $this->Html->tableHeaders(array(__('Name'),__('Type'),__('Status'),__('Filter'),__('Compare'),__('Value'),__('Action')));
 $count_attr = count($attributes);
-$content_id = current($attributes);   
-$content_id = $content_id['Attribute']['content_id'];
     foreach ($attributes AS $attribute) {       
         echo $this->Admin->TableCells(array($attribute['Attribute']['name']
                                            ,$attribute['AttributeTemplate']['name']
@@ -34,7 +32,7 @@ $content_id = $content_id['Attribute']['content_id'];
                                           ));
         
     }
-    echo $this->Admin->TableCells(array($this->Js->link($this->Html->image('admin/transparency.png', array('title' => __('Attributes'),'class' => 'cus-tag-green')) . ' ' . 'Добавить атрибут', '/attributes/admin_editor_attr_dialog/' . 'add/attr/' . $content_id, array('escape' => false, 'update' => '#dialog_add_attr','class' => 'btn btn-default')).$this->Js->link($this->Html->image('admin/transparency.png', array('title' => __('Attributes'),'class' => 'cus-tag-green')) . ' ' . 'Копировать атрибуты с другой категории', '/attributes/admin_editor_attr_dialog/' . 'add/attr/' . $content_id, array('escape' => false, 'update' => '#dialog_add_attr','class' => 'btn btn-default'))
+    echo $this->Admin->TableCells(array($this->Js->link($this->Html->image('admin/transparency.png', array('title' => __('Attributes'),'class' => 'cus-tag-green')) . ' ' . 'Добавить атрибут', '/attributes/admin_editor_attr_dialog/' . 'add/attr/' . $id, array('escape' => false, 'update' => '#dialog_add_attr','class' => 'btn btn-default')).$this->Js->link($this->Html->image('admin/transparency.png', array('title' => __('Attributes'),'class' => 'cus-tag-green')) . ' ' . 'Копировать атрибуты с другой категории', '/attributes/admin_editor_attr_dialog/' . 'add/attr/' . $id, array('escape' => false, 'update' => '#dialog_add_attr','class' => 'btn btn-default'))
                                    ,''
                                    ,''
                                    ,''
