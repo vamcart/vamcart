@@ -184,17 +184,16 @@ class AttributesController extends AppController
         $attributes = $this->Attribute->find('all',array('conditions' => array('Attribute.content_id' => $content_id)));
         $this->set('attributes',$attributes);
         $this->set('current_crumb', __('Attributes Listing', true));
-	$this->set('title_for_layout', __('Attributes Listing', true)); 
-        $this->set('content_id', $content_id);  
-        
+	$this->set('title_for_layout', __('Attributes Listing', true));
+        $this->set('content_id', $content_id);
     }
     
     public function admin_viewer_attr_dialog($content_id = 0) 
-    {                
+    {
         if($this->request->isAjax()) {
             $this->layout = 'ajax';
-        }        
-        $this->set('id',$content_id);
+        }
+        
         $this->admin_viewer_attr($content_id);
     }    
     
@@ -428,6 +427,77 @@ class AttributesController extends AppController
         
         $this->redirect($this->referer());	
     }
+    
+    public function admin_copy_attr_dialog($content_id = 0)
+    {
+        $this->layout = 'ajax';
+        $this->set('content_id',$content_id);
+    }
+    
+    public function admin_copy_attr()
+    {
+        $this->autoRender = false;
+        $attributes = $this->Attribute->all($this->data['Attribute']['category_id']);
+        foreach ($attributes as $attribute) {
+            $data = array(
+                'Attribute' => array_merge($attribute['Attribute'],array('AttributeDescription' => $attribute['AttributeDescription']))
+            );
+            $data['Attribute']['id'] = 0;
+            $data['Attribute']['content_id'] = $this->data['Attribute']['content_id'];
+            foreach ($data['Attribute']['AttributeDescription'] as $key => $value) {
+                $data['Attribute']['AttributeDescription'][$key]['dsc_id'] = 0;
+            }
+            $this->Attribute->saveAll($data,array('deep' => true));
+        }
+        
+        $this->redirect('/attributes/admin_viewer_attr_dialog/' . $this->data['Attribute']['content_id']);
+    }    
+    
+    public function admin_copy_attrvalues_dialog($content_id = 0,$attribute_id = 0)
+    {
+        $this->layout = 'ajax';
+        
+        $this->loadModel('Content');
+	$this->Content->unbindAll();
+	$this->Content->unbindModel(array('hasMany' => array('ContentDescription')));
+	$this->Content->bindModel(array('hasOne' => array('ContentDescription' => array(
+						'className' => 'ContentDescription',
+						'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
+					))));
+        $this->Content->unbindModel(array('hasMany' => array('Attribute')));
+	$this->Content->bindModel(array('hasMany' => array('Attribute' => array(
+						'className' => 'Attribute'
+                                               ,'order' => array('Attribute.order ASC')
+					))));
+        $this->Content->Attribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));        
+        
+        $content = $this->Content->find('all',array('conditions' => array('Content.content_type_id' => $this->Content->get_content_type('ContentCategory'))));
+        foreach ($content as $value) 
+            foreach ($value['Attribute'] as $attribute) 
+                $content['return'][$value['ContentDescription']['name']][$attribute['id']] = $attribute['name'];
+        $this->set('attributes',$content['return']);
+        $this->set('attribute_id',$attribute_id);
+        $this->set('content_id',$content_id);
+    }
+    
+    public function admin_copy_attrvalues()
+    {      
+        $this->autoRender = false;
+        $val_attributes = $this->Attribute->find('all',array('conditions' => array('Attribute.parent_id' => $this->data['Attribute']['parrent_id'])));
+        foreach ($val_attributes as $val_attribute) {
+            $data = array(
+                'Attribute' => array_merge($val_attribute['Attribute'],array('AttributeDescription' => $val_attribute['AttributeDescription']))
+            );
+            $data['Attribute']['id'] = 0;
+            $data['Attribute']['parent_id'] = $this->data['Attribute']['id'];
+            foreach ($data['Attribute']['AttributeDescription'] as $key => $value) {
+                $data['Attribute']['AttributeDescription'][$key]['dsc_id'] = 0;
+            }
+            $this->Attribute->saveAll($data,array('deep' => true));
+        }   
+        $this->redirect('/attributes/admin_viewer_attr_dialog/' . $this->data['Attribute']['content_id']);
+    }        
+    
 }
 
 ?>

@@ -9,7 +9,7 @@
 App::uses('Model', 'AppModel');
 class Attribute extends AppModel {
 	public $name = 'Attribute';
-	public $belongsTo = array('AttributeTemplate');
+	public $belongsTo = array('AttributeTemplate','Content');
 	public $hasMany = array('AttributeDescription' => array('dependent' => true)
                                ,'ValAttribute' => array('className' => 'Attribute'
                                                     ,'foreignKey'    => 'parent_id'
@@ -135,6 +135,13 @@ class Attribute extends AppModel {
             {
                $this->save($table_row);
             }
+        }
+        
+        public function all($content_id = null)
+        {
+            if(isset($content_id))
+                return $this->find('all',array('conditions' => array('Attribute.parent_id' => 0, 'Attribute.content_id' => $content_id)));
+            else return $this->find('all',array('conditions' => array('Attribute.parent_id' => 0)));
         }
 
 }

@@ -115,7 +115,7 @@
 
             }
             
-            echo $this->Js->link('<i class="cus-disk"></i>' . __('Apply'), '/attributes/admin_editor_attr/save/' . $type,
+            echo $this->Js->link('<i class="cus-disk"></i> ' . __('Apply'), '/attributes/admin_editor_attr/save/' . $type,
                 array(
                     'class' => 'btn btn-default'
                    ,'escape' => false
@@ -133,9 +133,6 @@
             echo $this->Admin->ShowPageHeaderEnd();
             ?>
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
