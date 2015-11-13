@@ -26,7 +26,7 @@ $count_attr = count($attributes);
                                           ));
         }
         echo $this->Admin->TableCells(array('','','','',''
-                                               ,'<div class="btn-group">' . $this->Js->link($this->Html->image('admin/transparency.png', array('title' => __('Attributes'),'class' => 'cus-tag-blue-add')) . ' ' . 'Добавить значение', '/attributes/admin_editor_attr_dialog/' . 'add/val/' . $attribute['Attribute']['id'], array('escape' => false, 'update' => '#dialog_add_attr','class' => 'btn btn-default')).$this->Js->link($this->Html->image('admin/transparency.png', array('title' => __('Attributes'),'class' => 'cus-tag-blue-add')) . ' ' . 'Копировать значения', '/attributes/admin_copy_attrvalues_dialog/' . $content_id . '/' . $attribute['Attribute']['id'], array('escape' => false, 'update' => '#dialog_add_attr','class' => 'btn btn-default')) . '</div>'
+                                               ,'<div class="btn-group">' . $this->Js->link($this->Html->image('admin/transparency.png', array('title' => __('Add Attribute Values'),'class' => 'cus-tag-blue-add')) . ' ' . __('Add Attribute Values'), '/attributes/admin_editor_attr_dialog/' . 'add/val/' . $attribute['Attribute']['id'], array('escape' => false, 'update' => '#dialog_add_attr','class' => 'btn btn-default')).$this->Js->link($this->Html->image('admin/transparency.png', array('title' => __('Copy Attribute Values'),'class' => 'cus-tag-blue-add')) . ' ' . __('Copy Attribute Values'), '/attributes/admin_copy_attrvalues_dialog/' . $content_id . '/' . $attribute['Attribute']['id'], array('escape' => false, 'update' => '#dialog_add_attr','class' => 'btn btn-default')) . '</div>'
                                             ,''
                                           ));
         
@@ -37,10 +37,11 @@ echo '</table>';
 ?>  
 <div class="btn-group">
 <?php    
-    echo $this->Js->link($this->Html->image('admin/transparency.png', array('title' => __('Attributes'),'class' => 'cus-tag-green')) . ' ' . 'Добавить атрибут', '/attributes/admin_editor_attr_dialog/' . 'add/attr/' . $content_id, array('escape' => false, 'update' => '#dialog_add_attr','class' => 'btn btn-default'))
-  . $this->Js->link($this->Html->image('admin/transparency.png', array('title' => __('Attributes'),'class' => 'cus-tag-green')) . ' ' . 'Копировать атрибуты', '/attributes/admin_copy_attr_dialog/' . $content_id, array('escape' => false, 'update' => '#dialog_add_attr','class' => 'btn btn-default'));
+    echo $this->Js->link($this->Html->image('admin/transparency.png', array('title' => __('Add Attributes'),'class' => 'cus-tag-blue-add')) . ' ' . __('Add Attributes'), '/attributes/admin_editor_attr_dialog/' . 'add/attr/' . $content_id, array('escape' => false, 'update' => '#dialog_add_attr','class' => 'btn btn-default'))
+  . $this->Js->link($this->Html->image('admin/transparency.png', array('title' => __('Copy Attributes'),'class' => 'cus-tag-blue-add')) . ' ' . __('Copy Attributes'), '/attributes/admin_copy_attr_dialog/' . $content_id, array('escape' => false, 'update' => '#dialog_add_attr','class' => 'btn btn-default'));
 ?>
 </div>
+<br /><br />
 <?php    
     echo $this->Js->writeBuffer(); 
 ?>

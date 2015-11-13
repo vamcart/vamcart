@@ -1,10 +1,17 @@
-<?php ?>
+<?php
+/* -----------------------------------------------------------------------------------------
+   VamShop - http://vamshop.com
+   -----------------------------------------------------------------------------------------
+   Copyright (c) 2014 VamSoft Ltd.
+   License - http://vamshop.com/license.html
+   ---------------------------------------------------------------------------------------*/
+?>
 <div class="modal fade" id="copyAttrModal" tabindex="-1" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title text-primary" id="feature-title">Копирование атрибутов</h4>
+        <h4 class="modal-title text-primary" id="feature-title"><?php echo __('Copy Attributes');?></h4>
       </div>
       <div class="modal-body clearfix">
       
@@ -14,7 +21,7 @@
             echo $this->Form->input('Attribute.category_id', 
                 array(
                     'type' => 'select',
-                    'label' => __('Категории'),
+                    'label' => __('Category'),
                     'options' => $this->requestAction('/contents/admin_parents_tree/'),
                     'escape' => false
            ));

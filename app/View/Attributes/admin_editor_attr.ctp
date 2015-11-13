@@ -24,9 +24,11 @@ echo $this->Form->input('order',array('type' => 'hidden',
 
 
 echo '<ul id="myTabLang" class="nav nav-tabs">';
+$i = 0;
 foreach($languages AS $language)
 {
-    echo $this->Admin->CreateTab('language_'.$language['Language']['id'],$language['Language']['name'],'cus-page-white');
+    echo $this->Admin->CreateTab('language_'.$language['Language']['id'],$language['Language']['name'],'cus-page-white',($i == 0 ? 'active' : null));
+$i++;
 }
 echo '</ul>';
 echo $this->Admin->StartTabs('sub-tabs');

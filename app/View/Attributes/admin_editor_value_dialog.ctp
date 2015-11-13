@@ -1,3 +1,11 @@
+<?php
+/* -----------------------------------------------------------------------------------------
+   VamShop - http://vamshop.com
+   -----------------------------------------------------------------------------------------
+   Copyright (c) 2014 VamSoft Ltd.
+   License - http://vamshop.com/license.html
+   ---------------------------------------------------------------------------------------*/
+?>
 <?php 
     echo $this->Html->css('jquery/plugins/chosen/bootstrap-chosen.css');
     echo $this->Html->script(array('jquery/plugins/chosen/chosen.jquery.js'),array('inline' => true));
@@ -7,7 +15,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title text-primary" id="feature-title">Добавление/Редактирование</h4>
+        <h4 class="modal-title text-primary" id="feature-title"><?php echo __('Add/Edit');?></h4>
       </div>
       <div class="modal-body clearfix">
         <?php
@@ -21,12 +29,12 @@
                                    ));     
             echo $this->Form->input('Content.id_groups',array(
                                     'type' => 'select'
-                                    ,'label' => 'Зависимый товар'
+                                    ,'label' => __('Product Grouping')
                                     ,'class' => 'chosen-select'
                                     ,'multiple' => true
                                     ,'options' => $group_contents
                                     ,'selected' => array_keys($selected_group_contents)
-                                    ,'data-placeholder' => 'Выберите товар для группировки'
+                                    ,'data-placeholder' => __('Select Products')
                                     ));
             
             foreach ($element_list AS $k => $element) {
@@ -66,10 +74,10 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $(".chosen-select").chosen({
-            no_results_text:"Совпадений не обнаружено",
+            no_results_text:"<?php echo __('Product is not found.'); ?>",
             search_contains:true,
-            placeholder_text_single:"Выберите значение",
-            width: "75%"
+            placeholder_text_single:"<?php echo __('Select Products'); ?>",
+            width: "300px"
         });        
     });    
 </script>

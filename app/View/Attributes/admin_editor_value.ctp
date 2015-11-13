@@ -18,15 +18,10 @@ echo $this->Form->input('parent_id',array('type' => 'hidden',
 
 foreach ($element_list AS $k => $element)
 {
-    //echo $attribute['name'];
-    /*echo $this->Form->input('values.' . $k . '.value_id',array('type' => 'text',
-                                           'value' => isset($value['value']['id']) ? $value['value']['id'] : 0
-                        ));*/
     $this->Smarty->display($element['template_attribute'],array('id_attribute' => $element['id_attribute']
                                                        ,'values_attribute' => $element['values_attribute']
                                                        ,'name_attribute' => $element['name_attribute']
                                                      ));
-
 }
 
 echo $this->Admin->formButton(__('Apply'), 'cus-disk', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'applybutton')) . ' ' . $this->Admin->formButton(__('Cancel'), 'cus-cancel', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'cancelbutton'));

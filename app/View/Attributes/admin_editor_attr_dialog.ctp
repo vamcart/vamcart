@@ -1,10 +1,17 @@
-<?php ?>
+<?php
+/* -----------------------------------------------------------------------------------------
+   VamShop - http://vamshop.com
+   -----------------------------------------------------------------------------------------
+   Copyright (c) 2014 VamSoft Ltd.
+   License - http://vamshop.com/license.html
+   ---------------------------------------------------------------------------------------*/
+?>
 <div class="modal fade" id="editAttrModal" tabindex="-1" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title text-primary" id="feature-title">Добавление/Редактирование</h4>
+        <h4 class="modal-title text-primary" id="feature-title"><?php echo __('Add/Edit');?></h4>
       </div>
       <div class="modal-body clearfix">
       
@@ -27,9 +34,11 @@
 
 
             echo '<ul id="myTabLang" class="nav nav-tabs">';
+            $i = 0;
             foreach($languages AS $language)
             {
-                echo $this->Admin->CreateTab('language_attr_'.$language['Language']['id'],$language['Language']['name'],'cus-page-white');
+                echo $this->Admin->CreateTab('language_attr_'.$language['Language']['id'],$language['Language']['name'],'cus-page-white',($i == 0 ? 'active' : null));
+            $i++;
             }
             echo '</ul>';
             echo $this->Admin->StartTabs('sub-tabs');
@@ -91,27 +100,6 @@
                                             'selected' => isset($attribute['Attribute']['attribute_template_id']) ? $attribute['Attribute']['attribute_template_id'] : '',
                                             'after' => ' '.$this->Html->link($this->Html->image("admin/icons/new.png", array('alt' => __('Attribute Templates'), 'title' => __('Attribute Templates'))),'/attribute_templates/admin/', array('escape' => false, 'target' => '_blank'))
                                     ));
-
-                /*echo __('Attribute Values');
-
-                echo '<table class="contentTable">';
-                echo $this->Html->tableHeaders(array(__('Name'),__('Sort Order'),__('Action')));
-                $count_attr = count($attribute['ValAttribute']);
-                //var_dump($attribute['ValAttribute']);
-                //die();
-                foreach ($attribute['ValAttribute'] AS $val_ttribute)
-                {
-                    echo $this->Admin->TableCells(array($val_ttribute['name'],
-                                                       array($this->Admin->MoveButtons($val_ttribute, $count_attr), array('align'=>'center')),	
-                                                       array($this->Admin->ActionButton('edit','/attributes/admin_editor_attr/' . 'edit/val/' . $val_ttribute['id'],__('Edit')) . $this->Admin->ActionButton('delete','/attributes/admin_editor_attr/' . 'delete/val/' . $val_ttribute['id'],__('Delete')),array('align'=>'center'))
-                                                      ));  
-                }
-                if($attribute['Attribute']['id'] != 0)
-                    echo $this->Admin->TableCells(array($this->Html->link($this->Html->tag('i', '',array('class' => 'cus-add')) . ' ' . __('Add'), '/attributes/admin_editor_attr/' . 'add/val/' . $attribute['Attribute']['id'], array('class' => 'btn btn-default', 'escape' => false)),
-                                                       '',    												        
-                                                       ''
-                                                       ));
-                echo '</table>';*/
 
             }
             
