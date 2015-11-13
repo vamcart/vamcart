@@ -5,8 +5,7 @@
    Copyright (c) 2014 VamSoft Ltd.
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
-
-echo '<table class="contentTable">';
+echo '<div id="table-wrapper"><div id="table-scroll"><table class="contentTable">';
 echo $this->Html->tableHeaders(array(__('Name'),__('Type'),__('Status'),__('Filter'),__('Compare'),__('Value'),__('Action')));
 $count_attr = count($attributes);
     foreach ($attributes AS $attribute) {       
@@ -34,6 +33,7 @@ $count_attr = count($attributes);
     }
     echo $this->Js->writeBuffer(); 
 echo '</table>';
+
 ?>  
 <div class="btn-group">
 <?php    
@@ -44,3 +44,4 @@ echo '</table>';
 <?php    
     echo $this->Js->writeBuffer(); 
 ?>
+</div></div>

@@ -355,6 +355,13 @@ div#content table.contentTable
 		border-bottom-right-radius: 0px;
 	}
 
+table.content div.attributes
+	{
+		height: 200px;
+		max-height: 200px;
+		overflow-y: auto;
+	}
+
 div#content table.contentHeader
 	{
 		width: 100%;
@@ -446,6 +453,20 @@ div#content table.contentTable td
 		margin: 0;
 	}
 
+#table-wrapper 
+	{
+		position:relative;
+	}
+	
+#table-scroll 
+	{
+		height:660px;
+		max-height:660px;
+		overflow-y:auto;  
+	}
+
+/* /Tables */
+
 /* Pagination */
 	
 div#content table.contentPagination
@@ -510,8 +531,6 @@ div#content .noData
 		background: transparent;
 	}
 	
-
-/* /Tables */
 
 /* Messages */
 
@@ -989,5 +1008,6 @@ a#scrollup i{
 }			
 
 /* /ScrollUp */
- 
+
 /*]]>*/
+
