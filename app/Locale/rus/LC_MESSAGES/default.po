@@ -2260,6 +2260,67 @@ msgid "Please save your data (click Apply button) and attributes manager will be
 msgstr "Пожалуйста, сохраните данные (нажмите кнопку Сохранить) и управление атрибутами станет доступно."
 
 #: /views/contents/admin_edit.ctp:136
+msgid "Copy Attributes"
+msgstr "Копировать атрибуты"
+
+#: /views/contents/admin_edit.ctp:136
+msgid "Copy Attributes Values"
+msgstr "Копировать значения атрибутов"
+
+#: /views/contents/admin_edit.ctp:136
+msgid "Copy Attribute Values"
+msgstr "Копировать значения атрибутов"
+
+#: /views/contents/admin_edit.ctp:136
+msgid "Add Attributes"
+msgstr "Добавить атрибуты"
+
+#: /views/contents/admin_edit.ctp:136
+msgid "Add Attribute Values"
+msgstr "Добавить значения атрибутов"
+
+#: /views/contents/admin_edit.ctp:136
+msgid "Category"
+msgstr "Категория"
+
+#: /views/contents/admin_edit.ctp:136
+msgid "Attribute Value"
+msgstr "Значение атрибута"
+
+#: /views/contents/admin_edit.ctp:136
+msgid "Add/Edit"
+msgstr "Добавление/Редактирование"
+
+#: /views/contents/admin_edit.ctp:136
+msgid "Product Grouping"
+msgstr "Группировка товара"
+
+#: /views/contents/admin_edit.ctp:136
+msgid "Select products for grouping"
+msgstr "Выберите товар для группировки"
+
+#: /views/contents/admin_edit.ctp:136
+msgid "Not Found"
+msgstr "Ничего не найдено"
+
+#: /views/contents/admin_edit.ctp:136
+msgid "Select Slave Products"
+msgstr "Веберите зависимые товары"
+
+#: /views/contents/admin_edit.ctp:136
+msgid "Select Products"
+msgstr "Веберите товары"
+
+#: /views/contents/admin_edit.ctp:136
+msgid ""
+msgstr ""
+
+#: /views/contents/admin_edit.ctp:136
+msgid ""
+msgstr ""
+
+
+#: /views/contents/admin_edit.ctp:136
 msgid "Download"
 msgstr "Скачать"
 
