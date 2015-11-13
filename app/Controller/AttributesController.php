@@ -291,7 +291,7 @@ class AttributesController extends AppController
                                         
                     if($attr['AttributeTemplate']['name']=='list')
                         $element_list[$k]['values_attribute'][-1] = array(
-                            'name' => 'Не установленно'
+                            'name' => __('Select Value')
                            ,'type_attr' => $attr['Attribute']['type_attr']
                            ,'id' => 0
                            ,'parent_id' => 0

@@ -5228,6 +5228,10 @@ msgstr "Товар, зависимый от"
 msgid "Select"
 msgstr "Выберите"
 
+#: /app/View/Attributes/admin_attr.ctp:22
+msgid "Select Value"
+msgstr "Выберите значение"
+
 #: /vendors/smarty/vam_plugins/function.discount_group.php:53
 msgid "Displays customers group discount."
 msgstr "Выводит скидку группы."
