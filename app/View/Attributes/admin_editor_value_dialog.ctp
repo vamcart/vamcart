@@ -34,7 +34,7 @@
                                     ,'multiple' => true
                                     ,'options' => $group_contents
                                     ,'selected' => array_keys($selected_group_contents)
-                                    ,'data-placeholder' => __('Select Products')
+                                    ,'data-placeholder' => __('Select Slave Products')
                                     ));
             
             foreach ($element_list AS $k => $element) {
@@ -76,7 +76,7 @@
         $(".chosen-select").chosen({
             no_results_text:"<?php echo __('Product is not found.'); ?>",
             search_contains:true,
-            placeholder_text_single:"<?php echo __('Select Products'); ?>",
+            placeholder_text_single:"<?php echo __('Select Slave Products'); ?>",
             width: "300px"
         });        
     });    
