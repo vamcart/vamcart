@@ -75,7 +75,7 @@ $this->Html->css('jquery-ui.css', null, array('inline' => false));
 	});
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
 <?php
-echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
+echo $this->Admin->ShowPageHeaderStart($current_crumb . ' ' . $data['ContentDescription'][$_SESSION['Customer']['language_id']]['name'], 'cus-application-edit');
 ?>
 <?php
 	
