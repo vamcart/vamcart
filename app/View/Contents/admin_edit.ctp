@@ -95,7 +95,8 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 			echo $this->Admin->CreateTab('upload_images',__('Upload Images'), 'cus-picture-add');
 			echo $this->Admin->CreateTab('options',__('Options'), 'cus-cog');
 			if (isset($data['Content']['id']) && ($data['Content']['content_type_id'] == 2 or $data['Content']['content_type_id'] == 7)) echo $this->Admin->CreateTab('relations', __('Cross-Sell'), 'cus-cart-put');
-                        if(isset($data['Content']['id'])) echo $this->Admin->CreateTab('atributes',__('Attributes'), 'cus-tag-green');
+         //if (isset($data['Content']['id']) and ($data['Content']['content_type_id'] == 1 or $data['Content']['content_type_id'] == 2 or $data['Content']['content_type_id'] == 7)) 
+         echo $this->Admin->CreateTab('atributes',__('Attributes'), 'cus-tag-green');
 			echo '</ul>';
 
 	echo $this->Admin->StartTabs();
@@ -351,11 +352,11 @@ $(document).ready(function()
 	echo $this->Admin->EndTabContent();
 	}
 
-        if(isset($data['Content']['id'])) {
+        if (isset($data['Content']['id']) and ($data['Content']['content_type_id'] == 1 or $data['Content']['content_type_id'] == 2 or $data['Content']['content_type_id'] == 7)) {
             echo $this->Admin->StartTabContent('atributes');                            
                 if ($data['Content']['content_type_id'] == 2) { 
                     echo '<br />';
-                    echo $this->Js->link($this->Html->image('admin/transparency.png', array('title' => __('Attributes'),'class' => 'cus-tag-green')) . ' ' . 'Установить значения', '/attributes/admin_editor_value_dialog/edit/' . $data['Content']['id'], array('escape' => false, 'update' => '#dialog_attr','class' => 'btn btn-default'));
+                    echo $this->Js->link($this->Html->image('admin/transparency.png', array('title' => __('Attributes'),'class' => 'cus-tag-green')) . ' ' . __('Set attributes values'), '/attributes/admin_editor_value_dialog/edit/' . $data['Content']['id'], array('escape' => false, 'update' => '#dialog_attr','class' => 'btn btn-default'));
                     echo '<br /><br />';
                     echo $this->Js->writeBuffer();  
                     echo '<div id="dialog_attr">';
@@ -366,6 +367,11 @@ $(document).ready(function()
                     echo '</div>';
                 }
             echo $this->Admin->EndTabContent();        
+        } else {
+         echo $this->Admin->StartTabContent('atributes');                            
+			echo '<div class="alert alert-info"><i class="fa fa-lightbulb-o"></i> ' . __('Attributes manager available for categories and products content types.') . '</div>';
+			if (!isset($data['Content']['id']) and ($data['Content']['content_type_id'] != 1 or $data['Content']['content_type_id'] != 2 or $data['Content']['content_type_id'] != 7)) echo '<div class="alert alert-danger"><i class="fa fa-warning"></i> ' . __('Please save your data (click Apply button) and attributes manager will be available.') . '</div>';
+         echo $this->Admin->EndTabContent();        
         }
         
         

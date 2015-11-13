@@ -2248,6 +2248,18 @@ msgid " is not allowed. Maximum allowed files are: "
 msgstr " не может быть загружен. Максимально разрешённое количество файлов: "
 
 #: /views/contents/admin_edit.ctp:136
+msgid "Set attributes values"
+msgstr "Установить значения атрибутов"
+
+#: /views/contents/admin_edit.ctp:136
+msgid "Attributes manager available for categories and products content types."
+msgstr "Атрибуты доступны только для категорий и товаров."
+
+#: /views/contents/admin_edit.ctp:136
+msgid "Please save your data (click Apply button) and attributes manager will be available."
+msgstr "Пожалуйста, сохраните данные (нажмите кнопку Сохранить) и управление атрибутами станет доступно."
+
+#: /views/contents/admin_edit.ctp:136
 msgid "Download"
 msgstr "Скачать"
 
