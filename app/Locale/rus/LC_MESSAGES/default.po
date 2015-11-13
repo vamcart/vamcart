@@ -2265,11 +2265,11 @@ msgstr "Копировать атрибуты"
 
 #: /views/contents/admin_edit.ctp:136
 msgid "Copy Attributes Values"
-msgstr "Копировать значения атрибутов"
+msgstr "Копировать значения"
 
 #: /views/contents/admin_edit.ctp:136
 msgid "Copy Attribute Values"
-msgstr "Копировать значения атрибутов"
+msgstr "Копировать значения"
 
 #: /views/contents/admin_edit.ctp:136
 msgid "Add Attributes"
@@ -2277,7 +2277,7 @@ msgstr "Добавить атрибуты"
 
 #: /views/contents/admin_edit.ctp:136
 msgid "Add Attribute Values"
-msgstr "Добавить значения атрибутов"
+msgstr "Добавить значения"
 
 #: /views/contents/admin_edit.ctp:136
 msgid "Category"
