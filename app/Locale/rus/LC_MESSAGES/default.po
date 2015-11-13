@@ -2312,15 +2312,6 @@ msgid "Select Products"
 msgstr "Веберите товары"
 
 #: /views/contents/admin_edit.ctp:136
-msgid ""
-msgstr ""
-
-#: /views/contents/admin_edit.ctp:136
-msgid ""
-msgstr ""
-
-
-#: /views/contents/admin_edit.ctp:136
 msgid "Download"
 msgstr "Скачать"
 
