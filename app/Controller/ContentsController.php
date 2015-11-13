@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 class ContentsController extends AppController {
 	public $helpers = array('TinyMce');
-	public $components = array('Paginator');	
+	public $components = array('Paginator', 'ContentBase');	
 	public $name = 'Contents';
 
 	/**
@@ -413,8 +413,11 @@ class ContentsController extends AppController {
 	*/		
 	public function admin_edit ($content_id = 0, $parent_id = 0)
 	{
-		$this->set('current_crumb', __('Edit', true));
-		$this->set('title_for_layout', __('Content', true));
+		$content_description = $this->ContentBase->get_content_description($content_id);
+
+
+		$this->set('current_crumb', __('Edit', true) . ' ' . $content_description['ContentDescription']['name']);
+		$this->set('title_for_layout', __('Edit', true) . ' ' . $content_description['ContentDescription']['name']);
 		// IF we submitted the form
 		if(!empty($this->data))
 		{
