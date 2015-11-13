@@ -275,6 +275,27 @@ div.radio label
 		border: 0px solid red;
 	}
 
+.modal-body div.input label, 
+.modal-body div.radio label 
+	{
+		width: 35%;
+		color: #545452; 
+		text-align: right; 
+		padding: 0 10px 0 0; 
+		margin-bottom: 0;
+		font-weight: normal;
+		border: 0px solid red;
+	}
+
+.modal-body div.input.checkbox input, 
+.modal-body div.input.radio input[type="radio"], 
+.modal-body div.radio input[type="radio"] 
+	{
+		width: auto;
+		margin: 0 0 0 36%;
+		padding: 0;
+	}
+	
 div.input
 	{
 		margin: 0;
