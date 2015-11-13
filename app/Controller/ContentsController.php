@@ -415,9 +415,9 @@ class ContentsController extends AppController {
 	{
 		$content_description = $this->ContentBase->get_content_description($content_id);
 
-
 		$this->set('current_crumb', __('Edit', true) . ' ' . $content_description['ContentDescription']['name']);
 		$this->set('title_for_layout', __('Edit', true) . ' ' . $content_description['ContentDescription']['name']);
+
 		// IF we submitted the form
 		if(!empty($this->data))
 		{
@@ -787,8 +787,15 @@ class ContentsController extends AppController {
 	*/		
 	public function admin ($ajax = false, $parent_id = 0)
 	{
+		if ($parent_id > 0) {
+		$content_description = $this->ContentBase->get_content_description($parent_id);
+
+		$this->set('current_crumb', $content_description['ContentDescription']['name']);
+		$this->set('title_for_layout', $content_description['ContentDescription']['name']);
+		} else { 
 		$this->set('current_crumb', __('Listing', true));
 		$this->set('title_for_layout', __('Content', true));
+		}
 		
 		// Assign the parent content if $parent_id > 0
 		if($parent_id > 0)
