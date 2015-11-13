@@ -63,12 +63,12 @@ class AdminHelper extends Helper {
 	* @param  string  $tab_alias Alias of the tab.
 	* @return string	A <div> element to be used as a tab.
 	*/	
-	public function CreateTab ($tab_alias, $tab_name = null, $icon = null)
+	public function CreateTab ($tab_alias, $tab_name = null, $icon = null, $class = null)
 	{
 		if (!empty($icon)) {
-			$content = '<li><a href ="#' . $tab_alias . '" data-toggle="tab"><i class="'.$icon.'"></i> ' . $tab_name . '</a></li>';
+			$content = '<li'.(!is_null($class) ? ' class="'.$class.'"' : null).'><a href ="#' . $tab_alias . '" data-toggle="tab"><i class="'.$icon.'"></i> ' . $tab_name . '</a></li>';
 		} else {
-			$content = '<li><a href ="#' . $tab_alias . '" data-toggle="tab">' . $tab_name . '</a></li>';
+			$content = '<li'.(!is_null($class) ? ' class="'.$class.'"' : null).'><a href ="#' . $tab_alias . '" data-toggle="tab">' . $tab_name . '</a></li>';
 		}
 		return $content;
 	}	
