@@ -1,3 +1,4 @@
+$(document).ready(function(){
 /*global $, jQuery*/
 (function ($, window, document, undefined) {
     "use strict";
@@ -439,3 +440,4 @@
     }; // $.fn.waSlideMenu
 
 }(jQuery, window, document));
+});
