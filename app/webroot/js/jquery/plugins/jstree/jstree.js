@@ -1,3 +1,4 @@
+$(document).ready(function(){
 /*globals jQuery, define, exports, require, window, document */
 (function (factory) {
 	"use strict";
@@ -6840,3 +6841,4 @@
 	}
 }(jQuery));
 }));
+});
