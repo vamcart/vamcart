@@ -85,7 +85,8 @@ function default_template_attribute_list()
                     });
                     </script>
                     </form>
-                {/if}              
+                {/if}
+                <br />              
     ';
     return $template;
 }
