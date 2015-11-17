@@ -39,7 +39,8 @@ select:focus {
   padding: 15px;
 }
 
-ul.thumbnails {
+ul.thumbnails,
+ul.specs {
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -1066,4 +1067,17 @@ div#spinner {
 }
 .featured-categories .thumbnail:hover .link {
   left: 0;
+}
+
+.attributes li {
+    background-color: #fff;
+    margin: .5em .5em .5em 0;
+    border: 1px solid #eee;
+}
+
+.attributes span.active {
+    display: block;
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    border: 1px solid #ff6633;
 }

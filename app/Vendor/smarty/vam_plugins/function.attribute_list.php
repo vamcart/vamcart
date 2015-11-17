@@ -44,11 +44,11 @@ function default_template_attribute_list()
                     <form id="set_attr_form" method="post" action={$base_content}>
                     {foreach from=$attr.element_list item=attr_element}
                         {if $attr_element@first}<ul class="specs">{/if}                     
-                        <li class="{cycle values="odd,even"}">{if $attr_element.make}<b>{/if}
+                        <li class="{cycle values="odd,even"}">{if !empty($attr_element.values_attribute.name)}<b>{/if}
                                 {$attr_element.name}:
-                            {if $attr_element.make}</b>{/if}                                
-                                {$attr_element.values_attribute.name}
-                        <ul class="attributes">
+                            {if !empty($attr_element.values_attribute.name)}</b>{/if}                                
+                        <ul class="attributes nav nav-pills">
+                            <li class="active"><span class="active">{$attr_element.values_attribute.name}</span></li>
                         {foreach from=$attr_element.group_attributes item=attr_val}                        
                             <li class="{cycle values="odd,even"}">
                                 {if $attr_val.make}<b>{/if}
