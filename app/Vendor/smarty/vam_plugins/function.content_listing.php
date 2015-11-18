@@ -320,17 +320,21 @@ function smarty_function_content_listing($params, $template)
             {
                 if($filter_list['is_active'][$filter_value['parent_id']] == '1')
                 {
-                    if(!isset($attribute_conditions[$filter_value['parent_id']]))$attribute_conditions[$filter_value['parent_id']] = array();
+                    //if(!isset($attribute_conditions[$filter_value['parent_id']]))$attribute_conditions[$filter_value['parent_id']] = array();
                     $not_val = $in_val = array();
                     switch ($filter_value['type_attr']) 
                     {
                         case 'max_value':
                             if(trim($filter_value['value']) != '')
-                            $not_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val <= ' . $filter_value['value'] . ' OR (AttributeDefValue.val <= ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
+                            if(isset($attribute_conditions[$filter_value['parent_id']][0])) 
+                                $attribute_conditions[$filter_value['parent_id']][0] = array_merge($attribute_conditions[$filter_value['parent_id']][0],array('AttributeValue.val <= ' . $filter_value['value'] . ' OR (AttributeDefValue.val <= ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)'));
+                            else $attribute_conditions[$filter_value['parent_id']][1000] = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val >= ' . $filter_value['value'] . ' OR (AttributeDefValue.val <= ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');                                
                         break;
                         case 'min_value':
                             if(trim($filter_value['value']) != '')
-                            $not_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val >= ' . $filter_value['value'] . ' OR (AttributeDefValue.val >= ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
+                            if(isset($attribute_conditions[$filter_value['parent_id']][1000])) 
+                                $attribute_conditions[$filter_value['parent_id']][1000] = array_merge($attribute_conditions[$filter_value['parent_id']][1000],array('AttributeValue.val >= ' . $filter_value['value'] . ' OR (AttributeDefValue.val >= ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)'));
+                            else $attribute_conditions[$filter_value['parent_id']][0] = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val >= ' . $filter_value['value'] . ' OR (AttributeDefValue.val >= ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
                         break;
                         case 'like_value':
                             $filter_value['value'] = "'%" . $filter_value['value'] . "%'";
@@ -353,12 +357,12 @@ function smarty_function_content_listing($params, $template)
                             $not_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val != ' . $filter_value['value'] . ' OR (AttributeDefValue.val != ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
                         break;
                     }
-                    if(!empty($not_val))array_push($attribute_conditions[$filter_value['parent_id']], $not_val);
+                    if(!empty($not_val))$attribute_conditions[$filter_value['parent_id']][$k] = $not_val;
                 }
             }
-            
+         
             $next_flt = $content_list_data_conditions;
-            foreach ($attribute_conditions as $key => $value) 
+            foreach ($attribute_conditions as $value) 
             {
                 $value = array('OR' => $value);
                 $tmp_content_list_data_conditions = array_merge($next_flt, $value);
@@ -368,6 +372,7 @@ function smarty_function_content_listing($params, $template)
 //(старый вариант без групп)
                 $content_filtered_list_data = $ContentFiltered->find('list', array('fields' => 'id','conditions' => $tmp_content_list_data_conditions, 'order' => array('Content.order ASC') ,'joins' => $content_list_data_joins ,'group' => array('Content.id')));                
 //                
+
                 $next_flt = array('Content.id' => $content_filtered_list_data);
             }
             $content_list_data_conditions = array_merge($content_list_data_conditions,$next_flt);
