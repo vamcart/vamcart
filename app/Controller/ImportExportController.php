@@ -78,7 +78,7 @@ class ImportExportController extends AppController {
             if (isset($this->data['form_Import']['submittedfile'])
 			&& $this->data['form_Import']['submittedfile']['error'] == 0
 			&& is_uploaded_file($this->data['form_Import']['submittedfile']['tmp_name'])) 
-            {                
+            {                                                           
                 $tmp_table_name = $this->Session->read('import_export.table_name');
                 $file_name = $this->data['form_Import']['submittedfile']['name'];
                 @unlink('./files/' . $file_name); 
@@ -113,6 +113,14 @@ class ImportExportController extends AppController {
                 fclose($handle);             
 
                 $this->loadModel('Content');    
+                $this->Content->set_save_associations();
+                $this->Content->unbindModel(array('hasOne' => array('ContentDescription')));
+                $this->Content->bindModel(array('hasOne' => array('ContentDescription' => array(
+                                'className' => 'ContentDescription',
+                                'conditions'   => 'language_id = ' . ((isset($this->data['ImportExport']['language_id']))?$this->data['ImportExport']['language_id']:'')
+                ))));     
+                
+              
                 switch ($action) 
                 {
                     case 'products':
@@ -125,8 +133,13 @@ class ImportExportController extends AppController {
                             $data['Content']['ContentDescription']= array($data['Content']['ContentDescription']);
                             $data = $this->unpack_dependent_content($data);                           
                             //Смотрим существование артикула
-                            $product = $this->Content->ContentProduct->find('first',array('conditions' => array('ContentProduct.model' => $data['Content']['ContentProduct']['model'])));
-                            if(isset($product['Content']['id'])) $data['Content']['id'] = $product['Content']['id'];
+                            $content = $this->Content->find('first',array('conditions' => array('ContentProduct.model' => $data['Content']['ContentProduct']['model'])));
+                            if(isset($content['Content']['id'])) {
+                                $data['Content']['id'] = $content['Content']['id'];
+                                $data['Content']['ContentProduct']['id'] = $content['ContentProduct']['id'];
+                                $data['Content']['ContentDescription'][0]['id'] = $content['ContentDescription']['id'];
+                                unset($data['Content']['ContentImage']);
+                            }
                             //Метка
                             $label = $this->Content->ContentProduct->Label->find('first',array('conditions' => array('Label.name' => $data['Content']['ContentProduct']['label'])));
                             if(isset($label['Label']['id'])) $data['Content']['ContentProduct']['label_id'] = $label['Label']['id'];
@@ -153,8 +166,11 @@ class ImportExportController extends AppController {
                             $data = $this->unpack_dependent_content($data);
                             //Смотрим существование производителя
                             $content = $this->Content->find('first',array('conditions' => array('Content.alias' => $data['Content']['alias'])));
-                            if(isset($content['Content']['id'])) $data['Content']['id'] = $content['Content']['id'];
-
+                            if(isset($content['Content']['id'])) {
+                                $data['Content']['id'] = $content['Content']['id'];
+                                $data['Content']['ContentDescription'][0]['id'] = $content['ContentDescription']['id'];
+                                unset($data['Content']['ContentImage']);
+                            }
                             if($data['Content']['action'] == 'delete')
                                $this->Content->deleteAll(array('Content.id' => $data['Content']['id']));
                             else $this->Content->saveAll($data,array('deep' => true));                            
@@ -171,7 +187,11 @@ class ImportExportController extends AppController {
                             $data = $this->unpack_dependent_content($data);
                             //
                             $content = $this->Content->find('first',array('conditions' => array('Content.alias' => $data['Content']['alias'])));
-                            if(isset($content['Content']['id'])) $data['Content']['id'] = $content['Content']['id'];
+                            if(isset($content['Content']['id'])) {
+                                $data['Content']['id'] = $content['Content']['id'];
+                                $data['Content']['ContentDescription'][0]['id'] = $content['ContentDescription']['id'];
+                                unset($data['Content']['ContentImage']);
+                            }                            
 
                             if($data['Content']['action'] == 'delete')
                                $this->Content->deleteAll(array('Content.id' => $data['Content']['id']));
@@ -189,7 +209,11 @@ class ImportExportController extends AppController {
                             $data = $this->unpack_dependent_content($data);
                             //
                             $content = $this->Content->find('first',array('conditions' => array('Content.alias' => $data['Content']['alias'])));
-                            if(isset($content['Content']['id'])) $data['Content']['id'] = $content['Content']['id'];
+                            if(isset($content['Content']['id'])) {
+                                $data['Content']['id'] = $content['Content']['id'];
+                                $data['Content']['ContentDescription'][0]['id'] = $content['ContentDescription']['id'];
+                                unset($data['Content']['ContentImage']);
+                            }                                
 
                             if($data['Content']['action'] == 'delete')
                                $this->Content->deleteAll(array('Content.id' => $data['Content']['id']));
@@ -207,7 +231,11 @@ class ImportExportController extends AppController {
                             $data = $this->unpack_dependent_content($data);
                             //
                             $content = $this->Content->find('first',array('conditions' => array('Content.alias' => $data['Content']['alias'])));
-                            if(isset($content['Content']['id'])) $data['Content']['id'] = $content['Content']['id'];
+                            if(isset($content['Content']['id'])) {
+                                $data['Content']['id'] = $content['Content']['id'];
+                                $data['Content']['ContentDescription'][0]['id'] = $content['ContentDescription']['id'];
+                                unset($data['Content']['ContentImage']);
+                            }                                
 
                             if($data['Content']['action'] == 'delete')
                                $this->Content->deleteAll(array('Content.id' => $data['Content']['id']));
@@ -225,7 +253,11 @@ class ImportExportController extends AppController {
                             $data = $this->unpack_dependent_content($data);
                             //
                             $content = $this->Content->find('first',array('conditions' => array('Content.alias' => $data['Content']['alias'])));
-                            if(isset($content['Content']['id'])) $data['Content']['id'] = $content['Content']['id'];
+                            if(isset($content['Content']['id'])) {
+                                $data['Content']['id'] = $content['Content']['id'];
+                                $data['Content']['ContentDescription'][0]['id'] = $content['ContentDescription']['id'];
+                                unset($data['Content']['ContentImage']);
+                            }                                
 
                             if($data['Content']['action'] == 'delete')
                                $this->Content->deleteAll(array('Content.id' => $data['Content']['id']));
@@ -244,14 +276,14 @@ class ImportExportController extends AppController {
                         }
                     break;
                     case 'orders':
-                        $this->loadModel('Order');                      
+                        $this->loadModel('Order');                              
                         foreach ($content as $imp_content) {
                             $data = $this->unpack_dependent_content($this->generate_data($imp_content,$this->data['Fields']));
                             $shipping_method = $this->Order->ShippingMethod->find('first',array('conditions' => array('ShippingMethod.name' => $data['Order']['shipping_method_id'])));
                             if(isset($shipping_method['ShippingMethod']['id'])) $data['Order']['shipping_method_id'] = $shipping_method['ShippingMethod']['id']; 
                             $payment_method = $this->Order->PaymentMethod->find('first',array('conditions' => array('PaymentMethod.name' => $data['Order']['payment_method_id'])));
                             if(isset($payment_method['PaymentMethod']['id'])) $data['Order']['payment_method_id'] = $payment_method['PaymentMethod']['id']; 
-                        
+                    
                             $this->Order->saveAll($data,array('deep' => true));
                         }
                     break;
