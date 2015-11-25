@@ -122,14 +122,14 @@ $("#myTabOrders a:first").tab("show"); // Select first tab
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-database-refresh');
 
 echo '<ul id="myTab" class="nav nav-tabs">';
-echo $this->Admin->CreateTab('products',__('Товары',true), 'cus-table');
-echo $this->Admin->CreateTab('manufacturers',__('Производители',true), 'cus-tag-blue');
-echo $this->Admin->CreateTab('categories',__('Категории',true), 'cus-report');
-echo $this->Admin->CreateTab('pages',__('Страницы',true), 'cus-page');
-echo $this->Admin->CreateTab('articles',__('Статьи',true), 'cus-book-add');
-echo $this->Admin->CreateTab('news',__('Новости',true), 'cus-newspaper');
-echo $this->Admin->CreateTab('customers',__('Покупатели',true), 'cus-user');
-echo $this->Admin->CreateTab('orders',__('Заказы',true), 'cus-cart');
+echo $this->Admin->CreateTab('products',__('Products',true), 'cus-table');
+echo $this->Admin->CreateTab('manufacturers',__('Brands',true), 'cus-tag-blue');
+echo $this->Admin->CreateTab('categories',__('Categories',true), 'cus-report');
+echo $this->Admin->CreateTab('pages',__('Pages',true), 'cus-page');
+echo $this->Admin->CreateTab('articles',__('Articles',true), 'cus-book-add');
+echo $this->Admin->CreateTab('news',__('News',true), 'cus-newspaper');
+echo $this->Admin->CreateTab('customers',__('Customers',true), 'cus-user');
+echo $this->Admin->CreateTab('orders',__('Orders',true), 'cus-cart');
 echo '</ul>';
 
 echo $this->Admin->StartTabs();
@@ -151,13 +151,13 @@ echo $this->Admin->StartTabContent('export-products');
 
 echo '
 
-<h3>Экспортируемые поля</h3>
+<h3>' . __('Exported Fileds') . '</h3>
 
-<div><span class="text-warning">Поля alias, model, name, parent - обязательный минимум, их отключать/удалять нельзя.</span></div>
+<div><span class="text-warning">' . __('Fields: alias, model, name, parent - required minimum, do not delete it from the file.') . '</span></div>
 
 <table class="table sortable_list">
     <thead>
-        <tr><th align="center">Экспортировать</th><th>Название</th><th>Описание</th></tr>
+        <tr><th align="center">' . __('Export') . '</th><th>' . __('Name') . '</th><th>' . __('Description') . '</th></tr>
     </thead>
     <tbody>        
         <tr class="warning"><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'ContentProduct.model','readonly' => true,'order' => 1)) . '</td><td>model</td><td>Артикул. <span class="text-danger">С помощью артикула производится идентификация товаров магазина, т.е. артикул - это ключ. Если товар с указанным артикулом есть уже в магазине, информация по данному товару обновляется при импорте csv файла. Если в магазине не найден товар с указанным артикулом, добавляется новый товар.</span></td></tr>
@@ -179,7 +179,7 @@ echo '
 	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.order','order' => 17)) . '</td><td>order</td><td>Порядок сортировки.</td></tr>
 	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.active','order' => 18)) . '</td><td>active</td><td>Активный товар или нет, т.е. виден посетителям или нет. 1 - виден, 0 - не виден.</td></tr>
 	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.show_in_menu','order' => 19)) . '</td><td>show_in_menu</td><td>Показывать товар в меню. Можно выводить товар в любом меню магазина, а не только в категории. 1 - показывать в меню, 0 - не показывать.</td></tr>
-	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.yml_export','order' => 20)) . '</td><td>yml_export</td><td>Экспортировать товар в Яндекс Маркет или не экспортировать. 1 - экспортировать. 0 - не экспортировать.</td></tr>
+	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.yml_export','order' => 20)) . '</td><td>yml_export</td><td>' . __('Export') . ' товар в Яндекс Маркет или не экспортировать. 1 - экспортировать. 0 - не экспортировать.</td></tr>
 	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.viewed','order' => 21)) . '</td><td>viewed</td><td>Количество просмотров товара.</td></tr>
 	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.created','order' => 22)) . '</td><td>created</td><td>Дата создания товара.</td></tr>
 	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.modified','order' => 23)) . '</td><td>modified</td><td>Дата модификации товара.</td></tr>
@@ -191,7 +191,7 @@ echo '
     </tbody>
 </table>
 
-<a class="btn btn-default" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
+<a class="btn btn-default" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> ' . __('Toggle All') . '</a>
             
 ';            
 
@@ -218,14 +218,14 @@ echo '
 
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
-					'label' => __('Разделитель колонок в CSV'),
+					'label' => __('CSV File Delimiter'),
 					'value' => ';'
 				));
 
 
 	echo $this->Form->input('ImportExport.cat_delimiter', 
 				array(
-					'label' => __('Разделитель категории/подкатегории'),
+					'label' => __('Categories/Subcategories Delimiter'),
 					'value' => '/'
 				));
 
@@ -241,13 +241,13 @@ echo $this->Admin->StartTabContent('import-products');
 
 echo '
 
-<h3>Допустимые поля</h3>
+<h3>' . __('Allowed Fileds') . '</h3>
 
-<div><span class="text-warning">Поля alias, model, name, parent - обязательный минимум, их отключать/удалять нельзя.</span></div>
+<div><span class="text-warning">' . __('Fields: alias, model, name, parent - required minimum, do not delete it from the file.') . '</span></div>
 
 <table class="table sortable_list">
     <thead>
-        <tr><th>Название</th><th>Описание</th></tr>
+        <tr><th>' . __('Name') . '</th><th>' . __('Description') . '</th></tr>
     </thead>
     <tbody>
 	<tr class="warning"><td>' . $this->Form->input('Fields.1.Content.ContentProduct.model',array('type' => 'hidden')) . 'model</td><td>Артикул. <span class="text-danger">С помощью артикула производится идентификация товаров магазина, т.е. артикул - это ключ. Если товар с указанным артикулом есть уже в магазине, информация по данному товару обновляется при импорте csv файла. Если в магазине не найден товар с указанным артикулом, добавляется новый товар.</span></td></tr>
@@ -269,7 +269,7 @@ echo '
 	<tr><td>' . $this->Form->input('Fields.17.Content.order',array('type' => 'hidden')) . 'order</td><td>Порядок сортировки.</td></tr>
 	<tr><td>' . $this->Form->input('Fields.18.Content.active',array('type' => 'hidden')) . 'active</td><td>Активный товар или нет, т.е. виден посетителям или нет. 1 - виден, 0 - не виден.</td></tr>
 	<tr><td>' . $this->Form->input('Fields.19.Content.show_in_menu',array('type' => 'hidden')) . 'show_in_menu</td><td>Показывать товар в меню. Можно выводить товар в любом меню магазина, а не только в категории. 1 - показывать в меню, 0 - не показывать.</td></tr>
-	<tr><td>' . $this->Form->input('Fields.20.Content.yml_export',array('type' => 'hidden')) . 'yml_export</td><td>Экспортировать товар в Яндекс Маркет или не экспортировать. 1 - экспортировать. 0 - не экспортировать.</td></tr>
+	<tr><td>' . $this->Form->input('Fields.20.Content.yml_export',array('type' => 'hidden')) . 'yml_export</td><td>' . __('Export') . ' товар в Яндекс Маркет или не экспортировать. 1 - экспортировать. 0 - не экспортировать.</td></tr>
 	<tr><td>' . $this->Form->input('Fields.21.Content.viewed',array('type' => 'hidden')) . 'viewed</td><td>Количество просмотров товара.</td></tr>
 	<tr><td>' . $this->Form->input('Fields.22.Content.created',array('type' => 'hidden')) . 'created</td><td>Дата создания товара.</td></tr>
 	<tr><td>' . $this->Form->input('Fields.23.Content.modified',array('type' => 'hidden')) . 'modified</td><td>Дата модификации товара.</td></tr>
@@ -294,14 +294,14 @@ echo '
 
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
-					'label' => __('Разделитель колонок в CSV'),
+					'label' => __('CSV File Delimiter'),
 					'value' => ';'
 				));
 
 
 	echo $this->Form->input('ImportExport.cat_delimiter', 
 				array(
-					'label' => __('Разделитель категории/подкатегории'),
+					'label' => __('Categories/Subcategories Delimiter'),
 					'value' => '/'
 				));
 
@@ -337,13 +337,13 @@ echo $this->Admin->StartTabContent('export-manufacturers');
 
 echo '
 
-<h3>Экспортируемые поля</h3>
+<h3>' . __('Exported Fileds') . '</h3>
 
-<div><span class="text-warning">Поля alias, name, parent - обязательный минимум, их отключать/удалять нельзя.</span></div>
+<div><span class="text-warning">' .  __('Fields: alias, name, parent - required minimum, do not delete it from the file.') . '</span></div>
 
 <table class="table sortable_list">
     <thead>
-        <tr><th align="center">Экспортировать</th><th>Название</th><th>Описание</th></tr>
+        <tr><th align="center">' . __('Export') . '</th><th>' . __('Name') . '</th><th>' . __('Description') . '</th></tr>
     </thead>
     <tbody>
 	<tr class="warning"><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.alias','readonly' => true,'order' => 1)) . '</td><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td></tr>
@@ -366,7 +366,7 @@ echo '
     </tbody>
 </table>
 
-<a class="btn btn-default" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
+<a class="btn btn-default" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> ' . __('Toggle All') . '</a>
             
 ';            
 
@@ -380,14 +380,14 @@ echo '
 
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
-					'label' => __('Разделитель колонок в CSV'),
+					'label' => __('CSV File Delimiter'),
 					'value' => ';'
 				));
 
 
 	echo $this->Form->input('ImportExport.cat_delimiter', 
 				array(
-					'label' => __('Разделитель категории/подкатегории'),
+					'label' => __('Categories/Subcategories Delimiter'),
 					'value' => '/'
 				));
 
@@ -403,13 +403,13 @@ echo $this->Admin->StartTabContent('import-manufacturers');
 
 echo '
 
-<h3>Допустимые поля</h3>
+<h3>' . __('Allowed Fileds') . '</h3>
 
-<div><span class="text-warning">Поля alias, name, parent - обязательный минимум, их отключать/удалять нельзя.</span></div>
+<div><span class="text-warning">' .  __('Fields: alias, name, parent - required minimum, do not delete it from the file.') . '</span></div>
 
 <table class="table sortable_list">
     <thead>
-        <tr><th>Название</th><th>Описание</th></tr>
+        <tr><th>' . __('Name') . '</th><th>' . __('Description') . '</th></tr>
     </thead>
     <tbody>
 	<tr class="warning"><td>' . $this->Form->input('Fields.1.Content.alias',array('type' => 'hidden')) . 'alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td></tr>
@@ -445,14 +445,14 @@ echo '
 
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
-					'label' => __('Разделитель колонок в CSV'),
+					'label' => __('CSV File Delimiter'),
 					'value' => ';'
 				));
 
 
 	echo $this->Form->input('ImportExport.cat_delimiter', 
 				array(
-					'label' => __('Разделитель категории/подкатегории'),
+					'label' => __('Categories/Subcategories Delimiter'),
 					'value' => '/'
 				));
 
@@ -490,13 +490,13 @@ echo $this->Admin->StartTabContent('export-categories');
 
 echo '
 
-<h3>Экспортируемые поля</h3>
+<h3>' . __('Exported Fileds') . '</h3>
 
-<div><span class="text-warning">Поля alias, name, parent - обязательный минимум, их отключать/удалять нельзя.</span></div>
+<div><span class="text-warning">' .  __('Fields: alias, name, parent - required minimum, do not delete it from the file.') . '</span></div>
 
 <table class="table sortable_list">
     <thead>
-        <tr><th align="center">Экспортировать</th><th>Название</th><th>Описание</th></tr>
+        <tr><th align="center">' . __('Export') . '</th><th>' . __('Name') . '</th><th>' . __('Description') . '</th></tr>
     </thead>
     <tbody>
 	<tr class="warning"><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.alias','readonly' => true,'order' => 1)) . '</td><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td></tr>
@@ -519,7 +519,7 @@ echo '
     </tbody>
 </table>
 
-<a class="btn btn-default" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
+<a class="btn btn-default" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> ' . __('Toggle All') . '</a>
             
 ';            
     
@@ -533,14 +533,14 @@ echo '
 
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
-					'label' => __('Разделитель колонок в CSV'),
+					'label' => __('CSV File Delimiter'),
 					'value' => ';'
 				));
 
 
 	echo $this->Form->input('ImportExport.cat_delimiter', 
 				array(
-					'label' => __('Разделитель категории/подкатегории'),
+					'label' => __('Categories/Subcategories Delimiter'),
 					'value' => '/'
 				));
 
@@ -556,13 +556,13 @@ echo $this->Admin->StartTabContent('import-categories');
 
 echo '
 
-<h3>Допустимые поля</h3>
+<h3>' . __('Allowed Fileds') . '</h3>
 
-<div><span class="text-warning">Поля alias, name, parent - обязательный минимум, их отключать/удалять нельзя.</span></div>
+<div><span class="text-warning">' .  __('Fields: alias, name, parent - required minimum, do not delete it from the file.') . '</span></div>
 
 <table class="table sortable_list">
     <thead>
-        <tr><th>Название</th><th>Описание</th></tr>
+        <tr><th>' . __('Name') . '</th><th>' . __('Description') . '</th></tr>
     </thead>
     <tbody>
 	<tr class="warning"><td>' . $this->Form->input('Fields.1.Content.alias',array('type' => 'hidden')) . 'alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td></tr>
@@ -598,14 +598,14 @@ echo '
 
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
-					'label' => __('Разделитель колонок в CSV'),
+					'label' => __('CSV File Delimiter'),
 					'value' => ';'
 				));
 
 
 	echo $this->Form->input('ImportExport.cat_delimiter', 
 				array(
-					'label' => __('Разделитель категории/подкатегории'),
+					'label' => __('Categories/Subcategories Delimiter'),
 					'value' => '/'
 				));
 
@@ -642,13 +642,13 @@ echo $this->Admin->StartTabContent('export-pages');
 
 echo '
 
-<h3>Экспортируемые поля</h3>
+<h3>' . __('Exported Fileds') . '</h3>
 
-<div><span class="text-warning">Поля alias, name, parent - обязательный минимум, их отключать/удалять нельзя.</span></div>
+<div><span class="text-warning">' .  __('Fields: alias, name, parent - required minimum, do not delete it from the file.') . '</span></div>
 
 <table class="table sortable_list">
     <thead>
-        <tr><th align="center">Экспортировать</th><th>Название</th><th>Описание</th></tr>
+        <tr><th align="center">' . __('Export') . '</th><th>' . __('Name') . '</th><th>' . __('Description') . '</th></tr>
     </thead>
     <tbody>
 	<tr class="warning"><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.alias','readonly' => true,'order' => 1)) . '</td><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td></tr>
@@ -671,7 +671,7 @@ echo '
     </tbody>
 </table>
 
-<a class="btn btn-default" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
+<a class="btn btn-default" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> ' . __('Toggle All') . '</a>
             
 ';            
     
@@ -685,14 +685,14 @@ echo '
 
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
-					'label' => __('Разделитель колонок в CSV'),
+					'label' => __('CSV File Delimiter'),
 					'value' => ';'
 				));
 
 
 	echo $this->Form->input('ImportExport.cat_delimiter', 
 				array(
-					'label' => __('Разделитель категории/подкатегории'),
+					'label' => __('Categories/Subcategories Delimiter'),
 					'value' => '/'
 				));
 
@@ -708,13 +708,13 @@ echo $this->Admin->StartTabContent('import-pages');
 
 echo '
 
-<h3>Допустимые поля</h3>
+<h3>' . __('Allowed Fileds') . '</h3>
 
-<div><span class="text-warning">Поля alias, name, parent - обязательный минимум, их отключать/удалять нельзя.</span></div>
+<div><span class="text-warning">' .  __('Fields: alias, name, parent - required minimum, do not delete it from the file.') . '</span></div>
 
 <table class="table sortable_list">
     <thead>
-        <tr><th>Название</th><th>Описание</th></tr>
+        <tr><th>' . __('Name') . '</th><th>' . __('Description') . '</th></tr>
     </thead>
     <tbody>
 	<tr class="warning"><td>' . $this->Form->input('Fields.1.Content.alias',array('type' => 'hidden')) . 'alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td></tr>
@@ -750,14 +750,14 @@ echo '
 
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
-					'label' => __('Разделитель колонок в CSV'),
+					'label' => __('CSV File Delimiter'),
 					'value' => ';'
 				));
 
 
 	echo $this->Form->input('ImportExport.cat_delimiter', 
 				array(
-					'label' => __('Разделитель категории/подкатегории'),
+					'label' => __('Categories/Subcategories Delimiter'),
 					'value' => '/'
 				));
 
@@ -794,13 +794,13 @@ echo $this->Admin->StartTabContent('export-articles');
 
 echo '
 
-<h3>Экспортируемые поля</h3>
+<h3>' . __('Exported Fileds') . '</h3>
 
-<div><span class="text-warning">Поля alias, name, parent - обязательный минимум, их отключать/удалять нельзя.</span></div>
+<div><span class="text-warning">' .  __('Fields: alias, name, parent - required minimum, do not delete it from the file.') . '</span></div>
 
 <table class="table sortable_list">
     <thead>
-        <tr><th align="center">Экспортировать</th><th>Название</th><th>Описание</th></tr>
+        <tr><th align="center">' . __('Export') . '</th><th>' . __('Name') . '</th><th>' . __('Description') . '</th></tr>
     </thead>
     <tbody>
 	<tr class="warning"><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.alias','readonly' => true,'order' => 1)) . '</td><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td></tr>
@@ -823,7 +823,7 @@ echo '
     </tbody>
 </table>
 
-<a class="btn btn-default" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
+<a class="btn btn-default" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> ' . __('Toggle All') . '</a>
             
 ';            
     
@@ -837,14 +837,14 @@ echo '
 
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
-					'label' => __('Разделитель колонок в CSV'),
+					'label' => __('CSV File Delimiter'),
 					'value' => ';'
 				));
 
 
 	echo $this->Form->input('ImportExport.cat_delimiter', 
 				array(
-					'label' => __('Разделитель категории/подкатегории'),
+					'label' => __('Categories/Subcategories Delimiter'),
 					'value' => '/'
 				));
 
@@ -860,13 +860,13 @@ echo $this->Admin->StartTabContent('import-articles');
 
 echo '
 
-<h3>Допустимые поля</h3>
+<h3>' . __('Allowed Fileds') . '</h3>
 
-<div><span class="text-warning">Поля alias, name, parent - обязательный минимум, их отключать/удалять нельзя.</span></div>
+<div><span class="text-warning">' .  __('Fields: alias, name, parent - required minimum, do not delete it from the file.') . '</span></div>
 
 <table class="table sortable_list">
     <thead>
-        <tr><th>Название</th><th>Описание</th></tr>
+        <tr><th>' . __('Name') . '</th><th>' . __('Description') . '</th></tr>
     </thead>
     <tbody>
 	<tr class="warning"><td>' . $this->Form->input('Fields.1.Content.alias',array('type' => 'hidden')) . 'alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td></tr>
@@ -902,14 +902,14 @@ echo '
 
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
-					'label' => __('Разделитель колонок в CSV'),
+					'label' => __('CSV File Delimiter'),
 					'value' => ';'
 				));
 
 
 	echo $this->Form->input('ImportExport.cat_delimiter', 
 				array(
-					'label' => __('Разделитель категории/подкатегории'),
+					'label' => __('Categories/Subcategories Delimiter'),
 					'value' => '/'
 				));
 
@@ -946,13 +946,13 @@ echo $this->Admin->StartTabContent('export-news');
 
 echo '
 
-<h3>Экспортируемые поля</h3>
+<h3>' . __('Exported Fileds') . '</h3>
 
-<div><span class="text-warning">Поля alias, name, parent - обязательный минимум, их отключать/удалять нельзя.</span></div>
+<div><span class="text-warning">' .  __('Fields: alias, name, parent - required minimum, do not delete it from the file.') . '</span></div>
 
 <table class="table sortable_list">
     <thead>
-        <tr><th align="center">Экспортировать</th><th>Название</th><th>Описание</th></tr>
+        <tr><th align="center">' . __('Export') . '</th><th>' . __('Name') . '</th><th>' . __('Description') . '</th></tr>
     </thead>
     <tbody>
 	<tr class="warning"><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.alias','readonly' => true,'order' => 1)) . '</td><td>alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td></tr>
@@ -975,7 +975,7 @@ echo '
     </tbody>
 </table>
 
-<a class="btn btn-default" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
+<a class="btn btn-default" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> ' . __('Toggle All') . '</a>
             
 ';            
     
@@ -989,14 +989,14 @@ echo '
 
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
-					'label' => __('Разделитель колонок в CSV'),
+					'label' => __('CSV File Delimiter'),
 					'value' => ';'
 				));
 
 
 	echo $this->Form->input('ImportExport.cat_delimiter', 
 				array(
-					'label' => __('Разделитель категории/подкатегории'),
+					'label' => __('Categories/Subcategories Delimiter'),
 					'value' => '/'
 				));
 
@@ -1012,13 +1012,13 @@ echo $this->Admin->StartTabContent('import-news');
 
 echo '
 
-<h3>Допустимые поля</h3>
+<h3>' . __('Allowed Fileds') . '</h3>
 
-<div><span class="text-warning">Поля alias, name, parent - обязательный минимум, их отключать/удалять нельзя.</span></div>
+<div><span class="text-warning">' .  __('Fields: alias, name, parent - required minimum, do not delete it from the file.') . '</span></div>
 
 <table class="table sortable_list">
     <thead>
-        <tr><th>Название</th><th>Описание</th></tr>
+        <tr><th>' . __('Name') . '</th><th>' . __('Description') . '</th></tr>
     </thead>
     <tbody>
 	<tr class="warning"><td>' . $this->Form->input('Fields.1.Content.alias',array('type' => 'hidden')) . 'alias</td><td>Псевдоним элемента. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span></td></tr>
@@ -1054,14 +1054,14 @@ echo '
 
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
-					'label' => __('Разделитель колонок в CSV'),
+					'label' => __('CSV File Delimiter'),
 					'value' => ';'
 				));
 
 
 	echo $this->Form->input('ImportExport.cat_delimiter', 
 				array(
-					'label' => __('Разделитель категории/подкатегории'),
+					'label' => __('Categories/Subcategories Delimiter'),
 					'value' => '/'
 				));
 
@@ -1098,13 +1098,13 @@ echo $this->Admin->StartTabContent('export-customers');
 
 echo '
 
-<h3>Экспортируемые поля</h3>
+<h3>' . __('Exported Fileds') . '</h3>
 
-<div><span class="text-warning">Поля email, password - обязательный минимум, их отключать/удалять нельзя.</span></div>
+<div><span class="text-warning">' . __('Fields: email, password - required minimum, do not delete it from the file.') . '</span></div>
 
 <table class="table sortable_list">
     <thead>
-        <tr><th align="center">Экспортировать</th><th>Название</th><th>Описание</th></tr>
+        <tr><th align="center">' . __('Export') . '</th><th>' . __('Name') . '</th><th>' . __('Description') . '</th></tr>
     </thead>
     <tbody>
 	<tr class="warning"><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Customer.email','readonly' => true,'order' => 1)) . '</td><td>email</td><td>Email адрес покупателя. <span class="text-danger">Данное поле является ключом - проверяется, если клиента с таким email нет, то добавляется новый клиент, если есть - обновляются данные покупателя.</span></td></tr>
@@ -1123,13 +1123,13 @@ echo '
     </tbody>
 </table>
 
-<a class="btn btn-default" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
+<a class="btn btn-default" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> ' . __('Toggle All') . '</a>
             
 ';            
     
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
-					'label' => __('Разделитель колонок в CSV'),
+					'label' => __('CSV File Delimiter'),
 					'value' => ';'
 				));
 
@@ -1152,13 +1152,13 @@ echo $this->Admin->StartTabContent('import-customers');
 
 echo '
 
-<h3>Допустимые поля</h3>
+<h3>' . __('Allowed Fileds') . '</h3>
 
-<div><span class="text-warning">Поля email, password - обязательный минимум, их отключать/удалять нельзя.</span></div>
+<div><span class="text-warning">' . __('Fields: email, password - required minimum, do not delete it from the file.') . '</span></div>
 
 <table class="table sortable_list">
     <thead>
-        <tr><th>Название</th><th>Описание</th></tr>
+        <tr><th>' . __('Name') . '</th><th>' . __('Description') . '</th></tr>
     </thead>
     <tbody>
 	<tr class="warning"><td>' . $this->Form->input('Fields.1.Customer.email',array('type' => 'hidden')) . 'email</td><td>Email адрес покупателя.</tr>
@@ -1182,7 +1182,7 @@ echo '
     
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
-					'label' => __('Разделитель колонок в CSV'),
+					'label' => __('CSV File Delimiter'),
 					'value' => ';'
 				));
 
@@ -1217,13 +1217,13 @@ echo $this->Admin->StartTabContent('export-orders');
 
 echo '
 
-<h3>Экспортируемые поля</h3>
+<h3>' . __('Exported Fileds') . '</h3>
 
-<div><span class="text-warning">Поля id, total - обязательный минимум, их отключать/удалять нельзя.</span></div>
+<div><span class="text-warning">' . __('Fields: id, total - required minimum, do not delete it from the file.') . '</span></div>
 
 <table class="table sortable_list">
     <thead>
-        <tr><th align="center">Экспортировать</th><th>Название</th><th>Описание</th></tr>
+        <tr><th align="center">' . __('Export') . '</th><th>' . __('Name') . '</th><th>' . __('Description') . '</th></tr>
     </thead>
     <tbody>
 	<tr class="warning"><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Order.id','readonly' => true,'order' => 1)) . '</td><td>id</td><td>Номер заказа.</td></tr>
@@ -1257,13 +1257,13 @@ echo '
     </tbody>
 </table>
 
-<a class="btn btn-default" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> Переключить все</a>
+<a class="btn btn-default" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> ' . __('Toggle All') . '</a>
             
 ';            
 
 	echo $this->Form->input('ImportExport.date_start', 
 		array(
-			'label' => __('Дата заказа от'),
+			'label' => __('Order Date From'),
 			'type' => 'text',
 			'dateFormat' => 'Y-m-d H:i:s',
 			'id' => 'date_start'
@@ -1271,7 +1271,7 @@ echo '
 
 	echo $this->Form->input('ImportExport.date_end', 
 		array(
-			'label' => __('до'),
+			'label' => __('To'),
 			'type' => 'text',
 			'id' => 'date_end'
 		));
@@ -1279,7 +1279,7 @@ echo '
     
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
-					'label' => __('Разделитель колонок в CSV'),
+					'label' => __('CSV File Delimiter'),
 					'value' => ';'
 				));
 
@@ -1296,13 +1296,13 @@ echo $this->Admin->StartTabContent('import-orders');
 
 echo '
 
-<h3>Допустимые поля</h3>
+<h3>' . __('Allowed Fileds') . '</h3>
 
-<div><span class="text-warning">Поля id, total - обязательный минимум, их отключать/удалять нельзя.</span></div>
+<div><span class="text-warning">' . __('Fields: id, total - required minimum, do not delete it from the file.') . '</span></div>
 
 <table class="table sortable_list">
     <thead>
-        <tr><th>Название</th><th>Описание</th></tr>
+        <tr><th>' . __('Name') . '</th><th>' . __('Description') . '</th></tr>
     </thead>
     <tbody>
 	<tr class="warning"><td>' . $this->Form->input('Fields.1.Order.id',array('type' => 'hidden')) . 'id</td><td>Номер заказа.</td></tr>
@@ -1341,7 +1341,7 @@ echo '
     
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
-					'label' => __('Разделитель колонок в CSV'),
+					'label' => __('CSV File Delimiter'),
 					'value' => ';'
 				));
 

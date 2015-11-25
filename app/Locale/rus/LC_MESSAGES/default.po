@@ -5380,3 +5380,156 @@ msgstr "Оплата по счёту"
 
 msgid "Kvitancia"
 msgstr "Оплата по квитанции СБ РФ"
+
+#: /views/import_export/admin.ctp:93
+msgid "Toggle All"
+msgstr "Переключить все"
+
+#: /views/import_export/admin.ctp:93
+msgid "CSV File Delimiter"
+msgstr "Разделитель колонок в CSV"
+
+#: /views/import_export/admin.ctp:93
+msgid "Categories/Subcategories Delimiter"
+msgstr "Разделитель категории/подкатегории"
+
+#: /views/import_export/admin.ctp:93
+msgid "Order Date From"
+msgstr "Дата заказа от"
+
+#: /views/import_export/admin.ctp:93
+msgid "To"
+msgstr "до"
+
+#: /views/import_export/admin.ctp:93
+msgid "Fields: alias, name, parent - required minimum, do not delete it from the file."
+msgstr "Поля: alias, name, parent - обязательный минимум, их отключать/удалять нельзя."
+
+#: /views/import_export/admin.ctp:93
+msgid "Fields: email, password - required minimum, do not delete it from the file."
+msgstr "Поля: email, password - обязательный минимум, их отключать/удалять нельзя."
+
+#: /views/import_export/admin.ctp:93
+msgid "Fields: id, total - required minimum, do not delete it from the file."
+msgstr "Поля: id, total - обязательный минимум, их отключать/удалять нельзя."
+
+#: /views/import_export/admin.ctp:93
+msgid "Fields: alias, model, name, parent - required minimum, do not delete it from the file."
+msgstr "Поля: alias, model, name, parent - обязательный минимум, их отключать/удалять нельзя."
+
+#: /views/import_export/admin.ctp:93
+msgid "Allowed Fileds"
+msgstr "Доступные поля"
+
+#: /views/import_export/admin.ctp:93
+msgid "Exported Fileds"
+msgstr "Экспортируемые поля"
+
+#: /views/import_export/admin.ctp:93
+msgid "Brands"
+msgstr "Производители"
+
+#: /views/import_export/admin.ctp:93
+msgid "Brand"
+msgstr "Производитель"
+
+#: /views/import_export/admin.ctp:93
+msgid "Articles"
+msgstr "Статьи"
+
+#: /views/import_export/admin.ctp:93
+msgid "Article"
+msgstr "Статья"
+
+#: /views/import_export/admin.ctp:93
+msgid "News"
+msgstr "Новости"
+
+#: /views/import_export/admin.ctp:93
+msgid ""
+msgstr ""
+
+#: /views/import_export/admin.ctp:93
+msgid ""
+msgstr ""
+
+#: /views/import_export/admin.ctp:93
+msgid ""
+msgstr ""
+
+#: /views/import_export/admin.ctp:93
+msgid ""
+msgstr ""
+
+#: /views/import_export/admin.ctp:93
+msgid ""
+msgstr ""
+
+#: /views/import_export/admin.ctp:93
+msgid ""
+msgstr ""
+
+#: /views/import_export/admin.ctp:93
+msgid ""
+msgstr ""
+
+#: /views/import_export/admin.ctp:93
+msgid ""
+msgstr ""
+
+#: /views/import_export/admin.ctp:93
+msgid ""
+msgstr ""
+
+#: /views/import_export/admin.ctp:93
+msgid ""
+msgstr ""
+
+#: /views/import_export/admin.ctp:93
+msgid ""
+msgstr ""
+
+#: /views/import_export/admin.ctp:93
+msgid ""
+msgstr ""
+
+#: /views/import_export/admin.ctp:93
+msgid ""
+msgstr ""
+
+#: /views/import_export/admin.ctp:93
+msgid ""
+msgstr ""
+
+#: /views/import_export/admin.ctp:93
+msgid ""
+msgstr ""
+
+#: /views/import_export/admin.ctp:93
+msgid ""
+msgstr ""
+
+#: /views/import_export/admin.ctp:93
+msgid ""
+msgstr ""
+
+#: /views/import_export/admin.ctp:93
+msgid ""
+msgstr ""
+
+#: /views/import_export/admin.ctp:93
+msgid ""
+msgstr ""
+
+#: /views/import_export/admin.ctp:93
+msgid ""
+msgstr ""
+
+#: /views/import_export/admin.ctp:93
+msgid ""
+msgstr ""
+
+#: /views/import_export/admin.ctp:93
+msgid ""
+msgstr ""
+
