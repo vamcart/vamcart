@@ -5418,12 +5418,12 @@ msgid "Fields: alias, model, name, parent - required minimum, do not delete it f
 msgstr "Поля: alias, model, name, parent - обязательный минимум, их отключать/удалять нельзя."
 
 #: /views/import_export/admin.ctp:93
-msgid "Allowed Fileds"
-msgstr "Доступные поля"
+msgid "Allowed Fields"
+msgstr "Допустимые поля"
 
 #: /views/import_export/admin.ctp:93
-msgid "Exported Fileds"
-msgstr "Экспортируемые поля"
+msgid "Available Fields"
+msgstr "Доступные поля"
 
 #: /views/import_export/admin.ctp:93
 msgid "Brands"

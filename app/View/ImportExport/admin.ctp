@@ -151,7 +151,7 @@ echo $this->Admin->StartTabContent('export-products');
 
 echo '
 
-<h3>' . __('Exported Fileds') . '</h3>
+<h3>' . __('Available Fields') . '</h3>
 
 <div><span class="text-warning">' . __('Fields: alias, model, name, parent - required minimum, do not delete it from the file.') . '</span></div>
 
@@ -241,7 +241,7 @@ echo $this->Admin->StartTabContent('import-products');
 
 echo '
 
-<h3>' . __('Allowed Fileds') . '</h3>
+<h3>' . __('Allowed Fields') . '</h3>
 
 <div><span class="text-warning">' . __('Fields: alias, model, name, parent - required minimum, do not delete it from the file.') . '</span></div>
 
@@ -337,7 +337,7 @@ echo $this->Admin->StartTabContent('export-manufacturers');
 
 echo '
 
-<h3>' . __('Exported Fileds') . '</h3>
+<h3>' . __('Available Fields') . '</h3>
 
 <div><span class="text-warning">' .  __('Fields: alias, name, parent - required minimum, do not delete it from the file.') . '</span></div>
 
@@ -403,7 +403,7 @@ echo $this->Admin->StartTabContent('import-manufacturers');
 
 echo '
 
-<h3>' . __('Allowed Fileds') . '</h3>
+<h3>' . __('Allowed Fields') . '</h3>
 
 <div><span class="text-warning">' .  __('Fields: alias, name, parent - required minimum, do not delete it from the file.') . '</span></div>
 
@@ -490,7 +490,7 @@ echo $this->Admin->StartTabContent('export-categories');
 
 echo '
 
-<h3>' . __('Exported Fileds') . '</h3>
+<h3>' . __('Available Fields') . '</h3>
 
 <div><span class="text-warning">' .  __('Fields: alias, name, parent - required minimum, do not delete it from the file.') . '</span></div>
 
@@ -556,7 +556,7 @@ echo $this->Admin->StartTabContent('import-categories');
 
 echo '
 
-<h3>' . __('Allowed Fileds') . '</h3>
+<h3>' . __('Allowed Fields') . '</h3>
 
 <div><span class="text-warning">' .  __('Fields: alias, name, parent - required minimum, do not delete it from the file.') . '</span></div>
 
@@ -642,7 +642,7 @@ echo $this->Admin->StartTabContent('export-pages');
 
 echo '
 
-<h3>' . __('Exported Fileds') . '</h3>
+<h3>' . __('Available Fields') . '</h3>
 
 <div><span class="text-warning">' .  __('Fields: alias, name, parent - required minimum, do not delete it from the file.') . '</span></div>
 
@@ -708,7 +708,7 @@ echo $this->Admin->StartTabContent('import-pages');
 
 echo '
 
-<h3>' . __('Allowed Fileds') . '</h3>
+<h3>' . __('Allowed Fields') . '</h3>
 
 <div><span class="text-warning">' .  __('Fields: alias, name, parent - required minimum, do not delete it from the file.') . '</span></div>
 
@@ -794,7 +794,7 @@ echo $this->Admin->StartTabContent('export-articles');
 
 echo '
 
-<h3>' . __('Exported Fileds') . '</h3>
+<h3>' . __('Available Fields') . '</h3>
 
 <div><span class="text-warning">' .  __('Fields: alias, name, parent - required minimum, do not delete it from the file.') . '</span></div>
 
@@ -860,7 +860,7 @@ echo $this->Admin->StartTabContent('import-articles');
 
 echo '
 
-<h3>' . __('Allowed Fileds') . '</h3>
+<h3>' . __('Allowed Fields') . '</h3>
 
 <div><span class="text-warning">' .  __('Fields: alias, name, parent - required minimum, do not delete it from the file.') . '</span></div>
 
@@ -946,7 +946,7 @@ echo $this->Admin->StartTabContent('export-news');
 
 echo '
 
-<h3>' . __('Exported Fileds') . '</h3>
+<h3>' . __('Available Fields') . '</h3>
 
 <div><span class="text-warning">' .  __('Fields: alias, name, parent - required minimum, do not delete it from the file.') . '</span></div>
 
@@ -1012,7 +1012,7 @@ echo $this->Admin->StartTabContent('import-news');
 
 echo '
 
-<h3>' . __('Allowed Fileds') . '</h3>
+<h3>' . __('Allowed Fields') . '</h3>
 
 <div><span class="text-warning">' .  __('Fields: alias, name, parent - required minimum, do not delete it from the file.') . '</span></div>
 
@@ -1098,7 +1098,7 @@ echo $this->Admin->StartTabContent('export-customers');
 
 echo '
 
-<h3>' . __('Exported Fileds') . '</h3>
+<h3>' . __('Available Fields') . '</h3>
 
 <div><span class="text-warning">' . __('Fields: email, password - required minimum, do not delete it from the file.') . '</span></div>
 
@@ -1152,7 +1152,7 @@ echo $this->Admin->StartTabContent('import-customers');
 
 echo '
 
-<h3>' . __('Allowed Fileds') . '</h3>
+<h3>' . __('Allowed Fields') . '</h3>
 
 <div><span class="text-warning">' . __('Fields: email, password - required minimum, do not delete it from the file.') . '</span></div>
 
@@ -1217,7 +1217,7 @@ echo $this->Admin->StartTabContent('export-orders');
 
 echo '
 
-<h3>' . __('Exported Fileds') . '</h3>
+<h3>' . __('Available Fields') . '</h3>
 
 <div><span class="text-warning">' . __('Fields: id, total - required minimum, do not delete it from the file.') . '</span></div>
 
@@ -1296,7 +1296,7 @@ echo $this->Admin->StartTabContent('import-orders');
 
 echo '
 
-<h3>' . __('Allowed Fileds') . '</h3>
+<h3>' . __('Allowed Fields') . '</h3>
 
 <div><span class="text-warning">' . __('Fields: id, total - required minimum, do not delete it from the file.') . '</span></div>
 
