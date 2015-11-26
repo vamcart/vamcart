@@ -5402,20 +5402,20 @@ msgid "To"
 msgstr "до"
 
 #: /views/import_export/admin.ctp:93
-msgid "Fields: alias, name, parent - required minimum, do not delete it from the file."
-msgstr "Поля: alias, name, parent - обязательный минимум, их отключать/удалять нельзя."
+msgid "Required Fields: alias, name, parent."
+msgstr "Обязательные поля: alias, name, parent."
 
 #: /views/import_export/admin.ctp:93
-msgid "Fields: email, password - required minimum, do not delete it from the file."
-msgstr "Поля: email, password - обязательный минимум, их отключать/удалять нельзя."
+msgid "Required Fields: email, password."
+msgstr "Обязательные поля: email, password."
 
 #: /views/import_export/admin.ctp:93
-msgid "Fields: id, total - required minimum, do not delete it from the file."
-msgstr "Поля: id, total - обязательный минимум, их отключать/удалять нельзя."
+msgid "Required Fields: id, total."
+msgstr "Обязательные поля: id, total."
 
 #: /views/import_export/admin.ctp:93
-msgid "Fields: alias, model, name, parent - required minimum, do not delete it from the file."
-msgstr "Поля: alias, model, name, parent - обязательный минимум, их отключать/удалять нельзя."
+msgid "Required Fields: alias, model, name, parent."
+msgstr "Обязательные поля: alias, model, name, parent."
 
 #: /views/import_export/admin.ctp:93
 msgid "Allowed Fields"
@@ -5446,90 +5446,286 @@ msgid "News"
 msgstr "Новости"
 
 #: /views/import_export/admin.ctp:93
-msgid ""
-msgstr ""
+msgid "Content alias. Alias must be unique for every content element. <span class="text-danger">Alias used for url generation of content. For example, if you set: test, url for this content element will be: http://your-store.com/content-type/test.html.</span>"
+msgstr "Псевдоним элемента. Псевдоним должен быть уникальным для каждого элемента, не должно быть одинаковых значений. <span class="text-danger">Проще говоря, псевдоним - это url адрес для контента, именно на основе псевдонима строится url адрес в магазине. Например, если укажите: test, то url адрес данного элемента в магазине будет: http://магазин.ру/тип-контента/test.html.</span>"
 
 #: /views/import_export/admin.ctp:93
-msgid ""
-msgstr ""
+msgid "Product alias. Alias must be unique for every product. <span class="text-danger">Alias used for url generation of product. For example, if you set: iphone, url for this product will be: http://your-store.com/product/iphone.html.</span>"
+msgstr "Псевдоним товара. <span class="text-danger">Проще говоря, псевдоним - это url адрес для товара, именно на основе псевдонима строится url адрес товара в магазине. Например, если укажите: iphone, то url адрес данного товара в магазине будет: http://магазин.ру/product/iphone.html.</span>"
 
 #: /views/import_export/admin.ctp:93
-msgid ""
-msgstr ""
+msgid "Product Model. <span class="text-danger">Product Model must be unique for every product.</span>"
+msgstr "Артикул. <span class="text-danger">С помощью артикула производится идентификация товаров магазина, т.е. артикул - это ключ. Если товар с указанным артикулом есть уже в магазине, информация по данному товару обновляется при импорте csv файла. Если в магазине не найден товар с указанным артикулом, добавляется новый товар.</span>"
 
 #: /views/import_export/admin.ctp:93
-msgid ""
-msgstr ""
+msgid "Product Category."
+msgstr "Категория товара. <span class="text-danger">К какой категории относится товара. Указывается название категории, подкатегории. Например добаляет новый телефон в категорию Смартфоны, пишем: Смартфоны. Добавляем товар в подкатегорию Аксессуары категории Смартфоны, пишем: Cмартфоны/Аксессуары.</span>"
 
 #: /views/import_export/admin.ctp:93
-msgid ""
-msgstr ""
+msgid "Product Name."
+msgstr "Название товара."
 
 #: /views/import_export/admin.ctp:93
-msgid ""
-msgstr ""
+msgid "Stock."
+msgstr "Количество на складе."
 
 #: /views/import_export/admin.ctp:93
-msgid ""
-msgstr ""
+msgid "Product Price."
+msgstr "Цена. <span class="text-danger">Разделитель целых чисел - точка. Например, цена товара 1000 рублей 50 копеек, пишем как 1000.50</span>"
 
 #: /views/import_export/admin.ctp:93
-msgid ""
-msgstr ""
+msgid "Weight."
+msgstr "Вес товара в граммах. <span class="text-danger">Например, вес товара товара 110 грамм, пишем как 0.110</span>"
 
 #: /views/import_export/admin.ctp:93
-msgid ""
-msgstr ""
+msgid "Product Label."
+msgstr "Ярлык товара, например: Новинка, Хит, Распродажа и т.д."
 
 #: /views/import_export/admin.ctp:93
-msgid ""
-msgstr ""
+msgid "Brand."
+msgstr "Производитель. Указываем название производителя товара (брэнд)."
 
 #: /views/import_export/admin.ctp:93
-msgid ""
-msgstr ""
+msgid "SKU."
+msgstr "SKU - идентификатор товарной позиции, учетная единица, складской номер."
 
 #: /views/import_export/admin.ctp:93
-msgid ""
-msgstr ""
+msgid "Name."
+msgstr "Название."
 
 #: /views/import_export/admin.ctp:93
-msgid ""
-msgstr ""
+msgid "Content Category."
+msgstr "Категория, к которой относится элемент. <span class="text-danger">К какой категории относится элемент. Указывается название категории, подкатегории.</span>"
 
 #: /views/import_export/admin.ctp:93
-msgid ""
-msgstr ""
+msgid "Description."
+msgstr "Описание."
 
 #: /views/import_export/admin.ctp:93
-msgid ""
-msgstr ""
+msgid "Short Description."
+msgstr "Краткое описание."
 
 #: /views/import_export/admin.ctp:93
-msgid ""
-msgstr ""
+msgid "Meta Title."
+msgstr "Заголовок Meta Title."
 
 #: /views/import_export/admin.ctp:93
-msgid ""
-msgstr ""
+msgid "Meta Description."
+msgstr "Значение для тэга Meta Description."
 
 #: /views/import_export/admin.ctp:93
-msgid ""
-msgstr ""
+msgid "Meta Keywords."
+msgstr "Значение для тэга Meta Keywords."
 
 #: /views/import_export/admin.ctp:93
-msgid ""
-msgstr ""
+msgid "Content Images."
+msgstr "Картинка. Название файла картинки, если картинок несколько, указывайте через точку с запятой, например: image.png|image1.png. Кроме того, можно указывать URL адрес с картинкой, например: http://адрес.ру/image/kartinka.png;http://адрес.ру/image/kartinka1.png"
 
 #: /views/import_export/admin.ctp:93
-msgid ""
-msgstr ""
+msgid "Sort Order."
+msgstr "Порядок сортировки."
 
 #: /views/import_export/admin.ctp:93
-msgid ""
-msgstr ""
+msgid "Content Status. 1 - Active. 0 - Inactive."
+msgstr "Активный элемент или нет, т.е. виден посетителям или нет. 1 - виден, 0 - не виден."
 
 #: /views/import_export/admin.ctp:93
-msgid ""
-msgstr ""
+msgid "Show In Menu. 1 - Yes. 0 - No."
+msgstr "Показывать элемент в меню. Можно выводить элемент в любом меню магазина, а не только в категории. 1 - показывать в меню, 0 - не показывать."
+
+#: /views/import_export/admin.ctp:93
+msgid "Content Viewed Count."
+msgstr "Количество просмотров элемента."
+
+#: /views/import_export/admin.ctp:93
+msgid "Creation Date."
+msgstr "Дата создания элемента."
+
+#: /views/import_export/admin.ctp:93
+msgid "YML Export. 1 - Yes. 0 - No."
+msgstr "Экспортировать товар в Яндекс Маркет или не экспортировать. 1 - экспортировать. 0 - не экспортировать."
+
+#: /views/import_export/admin.ctp:93
+msgid "Modification Date."
+msgstr "Дата модификации элемента."
+
+#: /views/import_export/admin.ctp:93
+msgid "Action. <span class="text-danger">You can delete content from your store. Set <strong>delete</strong> at this column.</span>"
+msgstr "Действие. <span class="text-danger">С помощью данной колонки можно массово удалять элементы из интернет-магазина. Укажите в данной колонке <strong>delete</strong> напротив того элемента, который Вы хотите удалить.</span>"
+
+#: /views/import_export/admin.ctp:93
+msgid "Template Id."
+msgstr "Шаблон элемента."
+
+#: /views/import_export/admin.ctp:93
+msgid "Tax Id."
+msgstr "Налог."
+
+#: /views/import_export/admin.ctp:93
+msgid "Grouped Product."
+msgstr "Сгруппированный товар."
+
+#: /views/import_export/admin.ctp:93
+msgid "Group."
+msgstr "Группа."
+
+#: /views/import_export/admin.ctp:93
+msgid "Email. <span class="text-danger">Email must be unique for every customer.</span>"
+msgstr "Email адрес покупателя. <span class="text-danger">Данное поле является ключом - проверяется, если клиента с таким email нет, то добавляется новый клиент, если есть - обновляются данные покупателя.</span>"
+
+#: /views/import_export/admin.ctp:93
+msgid "Password."
+msgstr "Пароль."
+
+#: /views/import_export/admin.ctp:93
+msgid "Name."
+msgstr "Имя."
+
+#: /views/import_export/admin.ctp:93
+msgid "Shipping Name."
+msgstr "Имя получателя заказа."
+
+#: /views/import_export/admin.ctp:93
+msgid "Address."
+msgstr "Адрес."
+
+#: /views/import_export/admin.ctp:93
+msgid "Additional Info."
+msgstr "Дополнительная адресная информация."
+
+#: /views/import_export/admin.ctp:93
+msgid "City."
+msgstr "Город."
+
+#: /views/import_export/admin.ctp:93
+msgid "State."
+msgstr "Регион."
+
+#: /views/import_export/admin.ctp:93
+msgid "Country."
+msgstr "Страна."
+
+#: /views/import_export/admin.ctp:93
+msgid "ZIP."
+msgstr "Почтовый индекс."
+
+#: /views/import_export/admin.ctp:93
+msgid "Phone."
+msgstr "Телефон."
+
+#: /views/import_export/admin.ctp:93
+msgid "Customer Creation Date."
+msgstr "Дата регистрации покупателя."
+
+#: /views/import_export/admin.ctp:93
+msgid "Customer Modification Date."
+msgstr "Дата модификации покупателя."
+
+#: /views/import_export/admin.ctp:93
+msgid "Order Number."
+msgstr "Номер заказа."
+
+#: /views/import_export/admin.ctp:93
+msgid "Order Total."
+msgstr "Сумма заказа."
+
+#: /views/import_export/admin.ctp:93
+msgid "Shipping."
+msgstr "Стоимость доставки."
+
+#: /views/import_export/admin.ctp:93
+msgid "Order Status Id."
+msgstr "Статус заказа."
+
+#: /views/import_export/admin.ctp:93
+msgid "Email."
+msgstr "Email."
+
+#: /views/import_export/admin.ctp:93
+msgid "Billing Name."
+msgstr "Имя покупателя."
+
+#: /views/import_export/admin.ctp:93
+msgid "Billing Address."
+msgstr "Адрес покупателя."
+
+#: /views/import_export/admin.ctp:93
+msgid "Billing Additional Info."
+msgstr "Дополнительная адресная информация покупателя."
+
+#: /views/import_export/admin.ctp:93
+msgid "Billing City."
+msgstr "Город покупателя."
+
+#: /views/import_export/admin.ctp:93
+msgid "Billing State."
+msgstr "Регион покупателя."
+
+#: /views/import_export/admin.ctp:93
+msgid "Billing Country."
+msgstr "Страна покупателя."
+
+#: /views/import_export/admin.ctp:93
+msgid "Billing ZIP."
+msgstr "Почтовый индекс покупателя."
+
+#: /views/import_export/admin.ctp:93
+msgid "Shipping Name."
+msgstr "Имя получателя."
+
+#: /views/import_export/admin.ctp:93
+msgid "Shipping Address."
+msgstr "Адрес получателя."
+
+#: /views/import_export/admin.ctp:93
+msgid "Shipping Additional Info."
+msgstr "Дополнительная адресная информация получателя."
+
+#: /views/import_export/admin.ctp:93
+msgid "Shipping City."
+msgstr "Город получателя."
+
+#: /views/import_export/admin.ctp:93
+msgid "Shipping State."
+msgstr "Регион получателя."
+
+#: /views/import_export/admin.ctp:93
+msgid "Shipping Country."
+msgstr "Страна получателя."
+
+#: /views/import_export/admin.ctp:93
+msgid "Shipping ZIP."
+msgstr "Почтовый индекс получателя."
+
+#: /views/import_export/admin.ctp:93
+msgid "Phone."
+msgstr "Телефон."
+
+#: /views/import_export/admin.ctp:93
+msgid "Order Date."
+msgstr "Дата заказа."
+
+#: /views/import_export/admin.ctp:93
+msgid "Customer Id."
+msgstr "Номер покупателя."
+
+#: /views/import_export/admin.ctp:93
+msgid "Payment Method."
+msgstr "Способ оплаты."
+
+#: /views/import_export/admin.ctp:93
+msgid "Shipping Method."
+msgstr "Способ доставки."
+
+#: /views/import_export/admin.ctp:93
+msgid "Company Name."
+msgstr "Название компании."
+
+#: /views/import_export/admin.ctp:93
+msgid "Additional Company Info."
+msgstr "Дополнительная информация о компании."
+
+#: /views/import_export/admin.ctp:93
+msgid "Company VAT."
+msgstr "ИНН компании."
 

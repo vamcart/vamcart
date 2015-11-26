@@ -23,7 +23,6 @@ class ImportExportController extends AppController {
             $this->contain_table['ContentDescription'] = array('conditions' => array('ContentDescription.language_id' => $this->Session->read('Customer.language_id')));    
             $contents = $this->Content->find('all',array('contain' => $this->contain_table 
                                                         ,'conditions' => array('Content.content_type_id = 1')));
-            //$hasMany = $this->Content->hasMany;
 
             foreach ($contents[0] AS $k_c => $content)
             {
