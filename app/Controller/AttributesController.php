@@ -344,13 +344,11 @@ class AttributesController extends AppController
                     }
                 }
                 
-                if(isset($this->data['Content']['id_groups'])) {
+                if(isset($this->data['Content']['id_groups'])&&!empty($this->data['Content']['id_groups'])) {
                     $this->Content->updateAll(array('Content.is_group' => 0,'Content.id_group' => 0),array('Content.parent_id' => $this->data['Attribute']['parent_id']));
-                    if(!empty($this->data['Content']['id_groups'])) {
-                        $this->loadModel('Content');                        
-                        $this->Content->updateAll(array('Content.id_group' => $this->data['Attribute']['content_id']),array('Content.id' => $this->data['Content']['id_groups']));
-                        $this->Content->updateAll(array('Content.is_group' => 1, 'Content.id_group' => $this->data['Attribute']['content_id']),array('Content.id' => $this->data['Attribute']['content_id']));
-                    } 
+                    $this->loadModel('Content');                        
+                    $this->Content->updateAll(array('Content.id_group' => $this->data['Attribute']['content_id']),array('Content.id' => $this->data['Content']['id_groups']));
+                    $this->Content->updateAll(array('Content.is_group' => 1, 'Content.id_group' => $this->data['Attribute']['content_id']),array('Content.id' => $this->data['Attribute']['content_id']));
                 }
                 
                 if($this->Attribute->saveAll($save_data))
