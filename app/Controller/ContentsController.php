@@ -492,6 +492,17 @@ class ContentsController extends AppController {
 			//{
 				//$this->request->data['Content']['alias'] = $this->generateAlias($this->data['Content']['alias']);
 			//}
+
+			// Generate the product based depending on whether or not it's empty
+			// If the alias is empty, generate it by the name, otherwise generate it with the alias again just for protection.
+			if($this->data['ContentProduct']['model'] == "")
+			{	
+				// If we're generating the alias by the name we first have to get the name from the default language
+				// TODO: Change the way this gets the default language id for now its jsut set on english
+				$default_language_id = $this->Session->read('Customer.language_id');
+				$content_name = $this->data['ContentDescription'][$default_language_id]['name'][$default_language_id];
+				$this->request->data['ContentProduct']['model'] = $this->generateAlias($content_name);
+			}	
 			
 			// Get the content with the highest order set with the same parent_id and increase that by 1 if it's new
 			if($this->data['Content']['order'] < 1)
