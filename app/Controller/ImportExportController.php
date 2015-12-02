@@ -23,6 +23,7 @@ class ImportExportController extends AppController {
             $this->contain_table['ContentDescription'] = array('conditions' => array('ContentDescription.language_id' => $this->Session->read('Customer.language_id')));    
             $contents = $this->Content->find('all',array('contain' => $this->contain_table 
                                                         ,'conditions' => array('Content.content_type_id = 1')));
+            //$hasMany = $this->Content->hasMany;
 
             foreach ($contents[0] AS $k_c => $content)
             {
@@ -148,11 +149,12 @@ class ImportExportController extends AppController {
                             //Производитель
                             $manufacturer = $this->Content->ContentDescription->find('first',array('conditions' => array('ContentDescription.name' => $data['Content']['ContentProduct']['manufacturer'])));                           
                             if(isset($manufacturer['ContentDescription']['content_id'])) $data['Content']['ContentProduct']['manufacturer_id'] = $manufacturer['ContentDescription']['content_id'];
-
+                            
                             if($data['Content']['action'] == 'delete')
                                $this->Content->deleteAll(array('Content.id' => $data['Content']['id']));
                             else $this->Content->saveAll($data,array('deep' => true));
                         }
+                        
                     break;                    
                     case 'manufacturers':
                         foreach ($content as $imp_content) {
@@ -454,14 +456,13 @@ class ImportExportController extends AppController {
             $fields_out = array();
             $key = 0;
             foreach ($fields as $k => $value) {
-                if($data[$key]=='')$data[$key] = '0';
-                if(isset($value[key($value)][key(current($value))] )&&current(current($value)))
-                    $value[key($value)][key(current($value))][key(current(current($value)))] = $data[$key];
-                else if(isset($value[key($value)][key(current($value))]))
-                    $value[key($value)][key(current($value))] = $data[$key]; 
-
-                                $fields_out = array_merge_recursive($fields_out,$value);
-                                $key++;
+                if($data[$key]!='') {//$data[$key] = '0';
+                    if(isset($value[key($value)][key(current($value))] )&&current(current($value)))
+                        $value[key($value)][key(current($value))][key(current(current($value)))] = $data[$key];
+                    else if(isset($value[key($value)][key(current($value))])) $value[key($value)][key(current($value))] = $data[$key]; 
+                    $fields_out = array_merge_recursive($fields_out,$value);
+                }
+                $key++;
             }         
             return $fields_out;
         }        
