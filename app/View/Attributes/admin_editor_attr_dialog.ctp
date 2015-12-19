@@ -102,6 +102,12 @@
                                     ));
 
             }
+
+            echo $this->Form->input('Attribute.order',array(
+				'type' => 'text',
+				'label' => __('Sort Order'),
+				'value' => isset($attribute['Attribute']['order']) ? $attribute['Attribute']['order'] : ''
+            ));
             
             echo $this->Js->link('<i class="cus-disk"></i> ' . __('Apply'), '/attributes/admin_editor_attr/save/' . $type,
                 array(
