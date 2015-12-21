@@ -378,7 +378,7 @@ function smarty_function_content_listing($params, $template)
             $content_list_data_conditions = array_merge($content_list_data_conditions,$next_flt);
         }
 //2.Добавим фильтр для групп        
-        $content_list_data_conditions = array_merge($content_list_data_conditions,array('OR' => array('Content.id_group' => 0,'Content.id_group is null','Content.id' => $content_list_group)));
+        $content_list_data_conditions = array_merge($content_list_data_conditions,array('OR' => array('Content.is_group' => 1,'Content.id_group is null','Content.id' => $content_list_group)));
 //               
 
 				// Sort products by manufacturer
