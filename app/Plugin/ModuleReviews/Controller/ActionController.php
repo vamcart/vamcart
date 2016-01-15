@@ -169,6 +169,63 @@ class ActionController extends ModuleReviewsAppController {
 
 	}
 
+	public function display_all () 
+	{
+		global $content,$config;
+		$assignments = array();
+		
+		$CurrencyBase = new CurrencyBaseComponent(new ComponentCollection());
+		
+		$this->ModuleReview->unbindAll();		
+		$reviews = $this->ModuleReview->find('all', array('conditions' => array(), 'order' => 'ModuleReview.id DESC'));
+		
+		App::uses('CakeTime', 'Utility');
+		
+		$assigned_reviews = array();
+		$col = 0;
+		$total_rating = null;
+		$max = null;
+		$min = 99999999; //to make sure it's not below all the values
+		foreach($reviews AS $review)
+		{
+			$col++;
+			$total_rating += (int) $review['ModuleReview']['rating'];
+			$max = (int) max($max, $review['ModuleReview']['rating']);
+			$min = (int) min($min, $review['ModuleReview']['rating']);
+			$review['ModuleReview']['created'] = CakeTime::i18nFormat($review['ModuleReview']['created']);
+			$assigned_reviews[] = $review['ModuleReview'];
+		}
+
+		$content_id = $review['ModuleReview'];
+
+		// Assign some content vars
+		$content_description = $this->ContentBase->get_content_description($content_id);			
+			
+		$assignments = array();
+		if ($col > 0) {
+		$assignments['content_id'] = $content_id;
+		$assignments['content_alias'] = $content['Content']['alias'];
+		$assignments['content_name'] = $content_description['ContentDescription']['name'];		
+		$assignments['content_description'] = $content_description['ContentDescription']['description'];
+		$assignments['content_short_description'] = $content_description['ContentDescription']['short_description'];
+		if (isset($content['ContentProduct']['price']) && $content['ContentProduct']['price'] > 0) $assignments['content_price'] = $CurrencyBase->display_price($content['ContentProduct']['price']);	
+		$assignments['content_url'] = BASE . '/' . $content_description['ContentDescription']['name'] . '/' . $content['Content']['alias'] . $config['URL_EXTENSION'];
+		$assignments['total'] = $col;
+		$assignments['total_rating'] = $total_rating;
+		$assignments['average_rating'] = number_format($total_rating/$col, 2);
+		$assignments['star_rating'] = '';
+		for($i=0;$i<number_format($total_rating/$col);$i++)	{
+		$assignments['star_rating'] .= '<span class="rating"><i class="fa fa-star"></i></span> ';
+		}
+		$assignments['max_rating'] = $max;
+		$assignments['min_rating'] = $min;
+		}
+		$assignments['reviews'] = $assigned_reviews;
+		
+		return $assignments;
+
+	}
+
 	public function reviews_total () 
 	{
 		return $this->display();
