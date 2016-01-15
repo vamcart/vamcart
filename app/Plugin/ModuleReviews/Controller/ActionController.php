@@ -196,7 +196,7 @@ class ActionController extends ModuleReviewsAppController {
 			$assigned_reviews[] = $review['ModuleReview'];
 		}
 
-		$content_id = $review['ModuleReview'];
+		$content_id = $review['ModuleReview']['content_id'];
 
 		// Assign some content vars
 		$content_description = $this->ContentBase->get_content_description($content_id);			
