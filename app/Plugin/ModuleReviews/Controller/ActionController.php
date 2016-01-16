@@ -189,10 +189,17 @@ class ActionController extends ModuleReviewsAppController {
 		foreach($reviews AS $review)
 		{
 			$col++;
+
+			$content_description = $this->ContentBase->get_content_description($review['ModuleReview']['content_id']);			
+
 			$total_rating += (int) $review['ModuleReview']['rating'];
 			$max = (int) max($max, $review['ModuleReview']['rating']);
 			$min = (int) min($min, $review['ModuleReview']['rating']);
 			$review['ModuleReview']['created'] = CakeTime::i18nFormat($review['ModuleReview']['created']);
+			$review['ModuleReview']['content_id'] = $review['ModuleReview']['content_id'];
+			$review['ModuleReview']['content_name'] = $content_description['ContentDescription']['name'];
+			$review['ModuleReview']['content_description'] = $content_description['ContentDescription']['name'];
+			$review['ModuleReview']['content_short_descrption'] = $content_description['ContentDescription']['short_description'];
 			$assigned_reviews[] = $review['ModuleReview'];
 		}
 
