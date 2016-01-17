@@ -190,6 +190,7 @@ class ActionController extends ModuleReviewsAppController {
 		{
 			$col++;
 
+			$content = $this->ContentBase->get_content_information($review['ModuleReview']['content_id']);			
 			$content_description = $this->ContentBase->get_content_description($review['ModuleReview']['content_id']);			
 
 			$total_rating += (int) $review['ModuleReview']['rating'];
@@ -200,6 +201,56 @@ class ActionController extends ModuleReviewsAppController {
 			$review['ModuleReview']['content_name'] = $content_description['ContentDescription']['name'];
 			$review['ModuleReview']['content_description'] = $content_description['ContentDescription']['name'];
 			$review['ModuleReview']['content_short_descrption'] = $content_description['ContentDescription']['short_description'];
+			$review['ModuleReview']['content_alias'] = $content['Content']['alias'];
+			$review['ModuleReview']['content_url'] = BASE . '/' . $content['ContentType']['name'] . '/' . $content['Content']['alias'] . $config['URL_EXTENSION'];
+
+			// Content Image
+
+			App::import('Model', 'ContentImage');
+			$ContentImage = new ContentImage();
+
+			$image = $ContentImage->find('first', array('limit' => 1, 'conditions' => array('content_id' => $review['ModuleReview']['content_id'])));
+			
+			if($image['ContentImage']['image'] != "") {
+				$image_url = $review['ModuleReview']['content_id'] . '/' . $image['ContentImage']['image'];
+				$image_path = BASE . '/img/content/' . $review['ModuleReview']['content_id'] . '/' . $image['ContentImage']['image'];
+				$thumb_name = substr_replace($image['ContentImage']['image'] , '', strrpos($image['ContentImage']['image'] , '.')).'-'.$config['THUMBNAIL_SIZE'].'.png';	
+				$thumb_path = IMAGES . 'content' . '/' . $review['ModuleReview']['content_id'] . '/' . $thumb_name;
+				$thumb_url = BASE . '/img/content/' . $review['ModuleReview']['content_id'] . '/' . $thumb_name;
+
+					if(file_exists($thumb_path) && is_file($thumb_path)) {
+						list($width, $height, $type, $attr) = getimagesize($thumb_path);
+						$review['ModuleReview']['content_image']['image']=  $thumb_url;
+						$review['ModuleReview']['content_image']['image_original'] =  $image_path;
+						$review['ModuleReview']['content_image']['image_width'] = $width;
+						$review['ModuleReview']['content_image']['image_height'] = $height;
+					} else {
+						$review['ModuleReview']['content_image']['image'] = BASE . '/images/thumb/' . $image_url;
+						$review['ModuleReview']['content_image']['image_original'] =  $image_path;
+						$review['ModuleReview']['content_image']['image_width'] = null;
+						$review['ModuleReview']['content_image']['image_height'] = null;
+					}
+
+			} else { 
+
+				$image_url = '0/noimage.png';
+				$thumb_name = 'noimage-'.$config['THUMBNAIL_SIZE'].'.png';	
+				$thumb_path = IMAGES . 'content' . '/0/' . $thumb_name;
+				$thumb_url = BASE . '/img/content' . '/0/' . $thumb_name;
+
+					if(file_exists($thumb_path) && is_file($thumb_path)) {
+						list($width, $height, $type, $attr) = getimagesize($thumb_path);
+						$review['ModuleReview']['content_image']['image'] =  $thumb_url;
+						$review['ModuleReview']['content_image']['image_width'] = $width;
+						$review['ModuleReview']['content_image']['image_height'] = $height;
+					} else {
+						$review['ModuleReview']['content_image']['image'] = BASE . '/images/thumb/' . $image_url;
+						$review['ModuleReview']['content_image']['image_width'] = null;
+						$review['ModuleReview']['content_image']['image_height'] = null;
+					}
+
+			}
+
 			$assigned_reviews[] = $review['ModuleReview'];
 		}
 
