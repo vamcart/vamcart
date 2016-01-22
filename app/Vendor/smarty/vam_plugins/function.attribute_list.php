@@ -19,7 +19,7 @@ function default_template_attribute_list()
                                                   values_attribute=$attr_element.values_attribute}</li>
                             {if $attr_element@last} </ul> {/if}
                         {/if}
-                    {/foreach}                
+                    {/foreach}   
                 {else if $attr.target=="PRODUCT"}
                     {foreach from=$attr.element_list item=attr_element}
                         {if isset($attr_element.values_attribute)}
@@ -106,6 +106,8 @@ function smarty_function_attribute_list($params)
     { 
         $attr['element_list'] = $Content->getSetAttributesForProduct($params['product_id']);
         $attr['target'] = 'CATALOG';
+        $attr['is_group'] = $Content->is_group($params['product_id']);
+        
         $content_id = $params['product_id'];
     }
     else //Для карточки товара
