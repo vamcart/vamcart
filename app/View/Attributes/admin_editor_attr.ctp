@@ -94,20 +94,18 @@ else if($type == 'attr')
     echo __('Attribute Values');
     
     echo '<table class="contentTable">';
-    echo $this->Html->tableHeaders(array(__('Name'),__('Sort Order'),__('Action')));
+    echo $this->Html->tableHeaders(array(__('Name'),__('Action')));
     $count_attr = count($attribute['ValAttribute']);
     //var_dump($attribute['ValAttribute']);
     //die();
     foreach ($attribute['ValAttribute'] AS $val_ttribute)
     {
         echo $this->Admin->TableCells(array($val_ttribute['name'],
-                                           array($this->Admin->MoveButtons($val_ttribute, $count_attr), array('align'=>'center')),	
                                            array($this->Admin->ActionButton('edit','/attributes/admin_editor_attr/' . 'edit/val/' . $val_ttribute['id'],__('Edit')) . $this->Admin->ActionButton('delete','/attributes/admin_editor_attr/' . 'delete/val/' . $val_ttribute['id'],__('Delete')),array('align'=>'center'))
                                           ));  
     }
     if($attribute['Attribute']['id'] != 0)
         echo $this->Admin->TableCells(array($this->Html->link($this->Html->tag('i', '',array('class' => 'cus-add')) . ' ' . __('Add'), '/attributes/admin_editor_attr/' . 'add/val/' . $attribute['Attribute']['id'], array('class' => 'btn btn-default', 'escape' => false)),
-                                           '',    												        
                                            ''
                                            ));
     echo '</table>';
