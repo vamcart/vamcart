@@ -17,7 +17,7 @@
         </categories>
         <offers>
 <?php foreach ($products as $product) { ?>
-            <offer id="<?php echo $product['id'] ?>" available="true">
+            <offer id="<?php echo $product['id']; ?>" available="<?php echo ($product['stock'] > 0 ? "true" : "false"); ?>">
                 <url><?php echo Router::url($product['url'], true) ?></url>
                 <price><?php echo $product['price'] ?></price>
                 <currencyId><?php echo $default_currency ?></currencyId>
