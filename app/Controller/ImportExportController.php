@@ -108,7 +108,7 @@ class ImportExportController extends AppController {
                 while (!feof($handle)) {                    
                     $str = fgets($handle);
                     if($str)
-                        $content[] = array_merge(explode($this->data['ImportExport']['delimiter'],$str),array_fill(0, 30, null));
+                        $content[] = array_merge(explode($this->data['ImportExport']['delimiter'],str_replace(array("\""), "", $str)),array_fill(0, 30, null));
                 }
                 fclose($handle);             
 
