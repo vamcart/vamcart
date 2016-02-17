@@ -379,7 +379,7 @@ class ImportExportController extends AppController {
             }                
             if ($handle = fopen('./files/' . $action . '.csv', 'w')) {
                 foreach ($body as $line)
-                    fwrite($handle, $line);
+                    fwrite($handle, str_replace(array("\r\n"), "", $line));
             }
             fclose($handle);
             
