@@ -370,7 +370,8 @@ class ImportExportController extends AppController {
                 $body_string = null;                         
                 foreach ($this->data['Fields'] as $field) {
                     if(isset($value[key($field)][key(current($field))])&&current(current($field))==1) {                     
-                        $body_string .= str_replace($this->data['ImportExport']['delimiter'],'<del>',$value[key($field)][key(current($field))]);
+                        //$body_string .= str_replace($this->data['ImportExport']['delimiter'],'<del>',$value[key($field)][key(current($field))]);
+                        $body_string .= str_replace($this->data['ImportExport']['delimiter'],'',$value[key($field)][key(current($field))]);
                     }   
                     $body_string .= $this->data['ImportExport']['delimiter'];                    
                 }                  
