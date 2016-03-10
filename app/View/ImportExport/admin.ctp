@@ -219,7 +219,7 @@ echo '
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
 					'label' => __('CSV File Delimiter'),
-					'value' => ';'
+					'value' => '~'
 				));
 
 
@@ -295,7 +295,7 @@ echo '
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
 					'label' => __('CSV File Delimiter'),
-					'value' => ';'
+					'value' => '~'
 				));
 
 
@@ -381,7 +381,7 @@ echo '
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
 					'label' => __('CSV File Delimiter'),
-					'value' => ';'
+					'value' => '~'
 				));
 
 
@@ -446,7 +446,7 @@ echo '
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
 					'label' => __('CSV File Delimiter'),
-					'value' => ';'
+					'value' => '~'
 				));
 
 
@@ -534,7 +534,7 @@ echo '
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
 					'label' => __('CSV File Delimiter'),
-					'value' => ';'
+					'value' => '~'
 				));
 
 
@@ -599,7 +599,7 @@ echo '
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
 					'label' => __('CSV File Delimiter'),
-					'value' => ';'
+					'value' => '~'
 				));
 
 
@@ -686,7 +686,7 @@ echo '
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
 					'label' => __('CSV File Delimiter'),
-					'value' => ';'
+					'value' => '~'
 				));
 
 
@@ -751,7 +751,7 @@ echo '
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
 					'label' => __('CSV File Delimiter'),
-					'value' => ';'
+					'value' => '~'
 				));
 
 
@@ -838,7 +838,7 @@ echo '
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
 					'label' => __('CSV File Delimiter'),
-					'value' => ';'
+					'value' => '~'
 				));
 
 
@@ -903,7 +903,7 @@ echo '
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
 					'label' => __('CSV File Delimiter'),
-					'value' => ';'
+					'value' => '~'
 				));
 
 
@@ -990,7 +990,7 @@ echo '
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
 					'label' => __('CSV File Delimiter'),
-					'value' => ';'
+					'value' => '~'
 				));
 
 
@@ -1055,7 +1055,7 @@ echo '
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
 					'label' => __('CSV File Delimiter'),
-					'value' => ';'
+					'value' => '~'
 				));
 
 
@@ -1130,7 +1130,7 @@ echo '
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
 					'label' => __('CSV File Delimiter'),
-					'value' => ';'
+					'value' => '~'
 				));
 
 
@@ -1183,7 +1183,7 @@ echo '
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
 					'label' => __('CSV File Delimiter'),
-					'value' => ';'
+					'value' => '~'
 				));
 
     echo $this->Form->file('submittedfile');
@@ -1280,7 +1280,7 @@ echo '
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
 					'label' => __('CSV File Delimiter'),
-					'value' => ';'
+					'value' => '~'
 				));
 
 
@@ -1342,7 +1342,7 @@ echo '
 	echo $this->Form->input('ImportExport.delimiter', 
 				array(
 					'label' => __('CSV File Delimiter'),
-					'value' => ';'
+					'value' => '~'
 				));
 
     echo $this->Form->file('submittedfile');
