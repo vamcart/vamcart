@@ -24,11 +24,15 @@ class TinyMceHelper extends Helper {
 				tinymce.init({
 					selector: "textarea.pagesmalltextarea",
 					plugins: [
-						"advlist autolink lists link image charmap print preview anchor",
-						"searchreplace visualblocks code fullscreen",
-						"insertdatetime media table contextmenu paste responsivefilemanager"
-					],
-					toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+					    "advlist autolink autosave link image lists charmap print preview hr anchor pagebreak spellchecker",
+					    "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media responsivefilemanager nonbreaking",
+					    "table contextmenu directionality emoticons template textcolor paste textcolor colorpicker textpattern"
+					  ],
+					toolbar1: "newdocument | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect",
+					toolbar2: "cut copy paste | searchreplace | bullist numlist | outdent indent blockquote | undo redo | link unlink anchor image media code | insertdatetime preview | forecolor backcolor",
+					toolbar3: "table | hr removeformat | subscript superscript | charmap emoticons | print fullscreen | ltr rtl | spellchecker | visualchars visualblocks nonbreaking template pagebreak restoredraft",
+					menubar: false,
+					toolbar_items_size: "small",    
 					image_advtab: true ,
 					external_filemanager_path: "'.BASE.'/filemanager/",
 					filemanager_title:"VamShop" ,
