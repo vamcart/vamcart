@@ -48,7 +48,7 @@ ul.specs {
 
 ul li a {
   display: block;
-  padding: 12px 0 12px 0;
+  padding: 6px 0 6px 0;
 }
 
 ul.icons {
@@ -72,7 +72,7 @@ ul.icons li:before {
   display: block;
   position: absolute;
   left: 3px;
-  top: 12px;
+  top: 6px;
   width: 20px;
   text-align: left;
 }
