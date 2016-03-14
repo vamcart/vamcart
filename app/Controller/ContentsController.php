@@ -290,8 +290,10 @@ class ContentsController extends AppController {
 			$view = $content_type['ContentType']['type'];
 		}
 
+		if ($content_id > 0) {		
 		$data = $this->Content->$model->find('first', array('conditions' => array('content_id' => $content_id)));
 		$this->set('data', $data);
+		}
 		$this->set('content_type_id', $content_type_id);
 	}
 	
@@ -915,7 +917,7 @@ class ContentsController extends AppController {
 						)
 		);
 		
-		$categories_query = $this->Content->find('threaded', array('conditions' => array('Content.content_type_id' => 1)));
+		$categories_query = $this->Content->find('threaded', array('conditions' => array('Content.active' => 1, 'Content.content_type_id' => 1)));
 		$parents = array();
 		foreach ($categories_query as $parent) {
 			$this->_add_tree_node($parents, $parent, 0);
