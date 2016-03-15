@@ -5069,6 +5069,10 @@ msgid "Yandex Wallet"
 msgstr "Номер кошелька в Яндекс.Деньгах"
 
 #: /plugins/payment/views/yandex/settings.ctp:22
+msgid "YandexFizlico"
+msgstr "Яндекс.Касса (Яндекс.Деньги, Visa, MasterCard)"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
 msgid "Yandex Secret Key"
 msgstr "Секретный ключ в Яндекс.Деньгах"
 
