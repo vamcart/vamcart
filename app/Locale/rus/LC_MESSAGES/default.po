@@ -5065,6 +5065,14 @@ msgid "Yandex.Money Wallet"
 msgstr "Оплата из кошелька в Яндекс.Деньгах"
 
 #: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex Wallet"
+msgstr "Номер кошелька в Яндекс.Деньгах"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex Secret Key"
+msgstr "Секретный ключ в Яндекс.Деньгах"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
 msgid "Yandex.Money Credit Card"
 msgstr "Оплата с произвольной банковской карты"
 
