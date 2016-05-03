@@ -53,7 +53,7 @@ class AppModel extends Model {
 	* This method clears the cache if we're saving to one of the specified models to check.
 	*
 	*/			
-	public function afterSave($created)
+	public function afterSave($created, $options = array()) 
 	{
 		$check_models = array('Content','Template','Stylesheet','MicroTemplate','Language','UserTag','Currency','Configuration','GlobalContentBlock');
 		if(in_array($this->name,$check_models))
