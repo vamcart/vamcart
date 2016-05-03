@@ -13,23 +13,23 @@ class AddressBook extends AppModel {
 	{
 	//$this->validate = array(
 		//'ship_name' => array(
-			//'rule' => 'notEmpty',
+			//'rule' => 'notBlank',
 			//'message' => __('Name must only contain letters and numbers.', true)
 		//),
 		//'ship_line_1' => array(
-			//'rule' => 'notEmpty',
+			//'rule' => 'notBlank',
 			//'message' => __('Address Line 1 must only contain letters and numbers.', true)
 		//),
 		//'ship_city' => array(
-			//'rule' => 'notEmpty',
+			//'rule' => 'notBlank',
 			//'message' => __('City must only contain letters and numbers.', true)
 		//),
 		//'ship_state' => array(
-			//'rule' => 'notEmpty',
+			//'rule' => 'notBlank',
 			//'message' => __('State must only contain letters and numbers.', true)
 		//),
 		//'ship_country' => array(
-			//'rule' => 'notEmpty',
+			//'rule' => 'notBlank',
 			//'message' => __('Country must only contain letters and numbers.', true)
 		//),
 		//'ship_zip' => array(

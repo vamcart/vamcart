@@ -14,13 +14,13 @@ class ContentProduct extends AppModel {
 	
 	public $validate = array(
 	'price' => array(
-		'rule' => 'notEmpty'
+		'rule' => 'notBlank'
 	),
 	'weight' => array(
-		'rule' => 'notEmpty'
+		'rule' => 'notBlank'
 	),
 	'stock' => array(
-		'rule' => 'notEmpty'
+		'rule' => 'notBlank'
 	)
 	);
         

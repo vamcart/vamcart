@@ -11,7 +11,7 @@ class ContentManufacturer extends AppModel {
 	
 	public $validate = array(
 	'content_id' => array(
-		'rule' => 'notEmpty'
+		'rule' => 'notBlank'
 	)
 	);
 	

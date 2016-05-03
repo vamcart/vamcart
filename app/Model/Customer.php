@@ -16,12 +16,12 @@ class Customer extends AppModel {
 	{
 	$this->validate = array(
 		'name' => array(
-			'rule'    => 'notEmpty',
+			'rule'    => 'notBlank',
 			'message' => __('Name must only contain letters and numbers.', true)
 		),
 		//'password' => array(
 			//'passwordlength' => array(
-				//'rule' => 'notEmpty',
+				//'rule' => 'notBlank',
 				//'message' => __('Password can not be blank', true)
 			//),
 			//'passwordequal' => array(

@@ -56,7 +56,7 @@ class Content extends AppModel {
 	
 	public $validate = array(
 		'parent_id' => array(
-			'rule' => 'notEmpty'
+			'rule' => 'notBlank'
 		)
 	);
         

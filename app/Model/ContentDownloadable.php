@@ -14,7 +14,7 @@ class ContentDownloadable extends AppModel {
 
 	public $validate = array(
 		'price' => array(
-			'rule' => 'notEmpty'
+			'rule' => 'notBlank'
 		)
 	);
 
