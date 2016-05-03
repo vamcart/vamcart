@@ -2,8 +2,6 @@
 /**
  * TestSuiteShell test case
  *
- * PHP 5
- *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
@@ -15,12 +13,17 @@
  * @link          http://cakephp.org CakePHP(tm) Project
  * @package       Cake.Test.Case.Console.Command
  * @since         CakePHP(tm) v 2.0
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('ShellDispatcher', 'Console');
 App::uses('TestShell', 'Console/Command');
 
+/**
+ * Class TestTestShell
+ *
+ * @package       Cake.Test.Case.Console.Command
+ */
 class TestTestShell extends TestShell {
 
 	public function mapFileToCase($file, $category, $throwOnMissingFile = true) {
@@ -33,6 +36,11 @@ class TestTestShell extends TestShell {
 
 }
 
+/**
+ * Class TestShellTest
+ *
+ * @package       Cake.Test.Case.Console.Command
+ */
 class TestShellTest extends CakeTestCase {
 
 /**
@@ -330,6 +338,24 @@ class TestShellTest extends CakeTestCase {
 			->with(
 				array('app' => false, 'plugin' => null, 'core' => true, 'output' => 'text', 'case' => 'Basics'),
 				array('--filter', 'myFilter', '--colors', '--verbose')
+			);
+		$this->Shell->main();
+	}
+
+/**
+ * Tests that the 'quiet' parameter gets swallowed before calling PHPUnit
+ *
+ * @return void
+ */
+	public function testRunnerOptionsQuiet() {
+		$this->Shell->startup();
+		$this->Shell->args = array('core', 'Basics');
+		$this->Shell->params = array('quiet' => true);
+
+		$this->Shell->expects($this->once())->method('_run')
+			->with(
+				array('app' => false, 'plugin' => null, 'core' => true, 'output' => 'text', 'case' => 'Basics'),
+				array('--colors')
 			);
 		$this->Shell->main();
 	}

@@ -2,8 +2,6 @@
 /**
  * RedisEngineTest file
  *
- * PHP 5
- *
  * CakePHP(tm) Tests <http://book.cakephp.org/view/1196/Testing>
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
@@ -15,7 +13,7 @@
  * @link          http://book.cakephp.org/view/1196/Testing CakePHP(tm) Tests
  * @package       Cake.Test.Case.Cache.Engine
  * @since         CakePHP(tm) v 2.2
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('Cache', 'Cache');
@@ -26,7 +24,7 @@ App::uses('RedisEngine', 'Cache/Engine');
  *
  * @package       Cake.Test.Case.Cache.Engine
  */
-class RegisEngineTest extends CakeTestCase {
+class RedisEngineTest extends CakeTestCase {
 
 /**
  * setUp method
@@ -34,10 +32,18 @@ class RegisEngineTest extends CakeTestCase {
  * @return void
  */
 	public function setUp() {
+		parent::setUp();
 		$this->skipIf(!class_exists('Redis'), 'Redis is not installed or configured properly.');
 
 		$this->_cacheDisable = Configure::read('Cache.disable');
 		Configure::write('Cache.disable', false);
+
+		// @codingStandardsIgnoreStart
+		$socket = @fsockopen('127.0.0.1', 6379, $errno, $errstr, 1);
+		// @codingStandardsIgnoreEnd
+		$this->skipIf(!$socket, 'Redis is not running.');
+		fclose($socket);
+
 		Cache::config('redis', array(
 			'engine' => 'Redis',
 			'prefix' => 'cake_',
@@ -51,6 +57,7 @@ class RegisEngineTest extends CakeTestCase {
  * @return void
  */
 	public function tearDown() {
+		parent::tearDown();
 		Configure::write('Cache.disable', $this->_cacheDisable);
 		Cache::drop('');
 		Cache::drop('redis_groups');
@@ -76,6 +83,8 @@ class RegisEngineTest extends CakeTestCase {
 			'timeout' => 0,
 			'persistent' => true,
 			'password' => false,
+			'database' => 0,
+			'unix_socket' => false,
 		);
 		$this->assertEquals($expecting, $settings);
 	}
@@ -88,6 +97,67 @@ class RegisEngineTest extends CakeTestCase {
 	public function testConnect() {
 		$Redis = new RedisEngine();
 		$this->assertTrue($Redis->init(Cache::settings('redis')));
+	}
+
+/**
+ * testMultiDatabaseOperations method
+ *
+ * @return void
+ */
+	public function testMultiDatabaseOperations() {
+		Cache::config('redisdb0', array(
+			'engine' => 'Redis',
+			'prefix' => 'cake2_',
+			'duration' => 3600,
+			'persistent' => false,
+		));
+
+		Cache::config('redisdb1', array(
+			'engine' => 'Redis',
+			'database' => 1,
+			'prefix' => 'cake2_',
+			'duration' => 3600,
+			'persistent' => false,
+		));
+
+		$result = Cache::write('save_in_0', true, 'redisdb0');
+		$exist = Cache::read('save_in_0', 'redisdb0');
+		$this->assertTrue($result);
+		$this->assertTrue($exist);
+
+		$result = Cache::write('save_in_1', true, 'redisdb1');
+		$this->assertTrue($result);
+		$exist = Cache::read('save_in_0', 'redisdb1');
+		$this->assertFalse($exist);
+		$exist = Cache::read('save_in_1', 'redisdb1');
+		$this->assertTrue($exist);
+
+		Cache::delete('save_in_0', 'redisdb0');
+		$exist = Cache::read('save_in_0', 'redisdb0');
+		$this->assertFalse($exist);
+
+		Cache::delete('save_in_1', 'redisdb1');
+		$exist = Cache::read('save_in_1', 'redisdb1');
+		$this->assertFalse($exist);
+
+		Cache::drop('redisdb0');
+		Cache::drop('redisdb1');
+	}
+
+/**
+ * test write numbers method
+ *
+ * @return void
+ */
+	public function testWriteNumbers() {
+		$result = Cache::write('test-counter', 1, 'redis');
+		$this->assertSame(1, Cache::read('test-counter', 'redis'));
+
+		$result = Cache::write('test-counter', 0, 'redis');
+		$this->assertSame(0, Cache::read('test-counter', 'redis'));
+
+		$result = Cache::write('test-counter', -1, 'redis');
+		$this->assertSame(-1, Cache::read('test-counter', 'redis'));
 	}
 
 /**
@@ -334,4 +404,22 @@ class RegisEngineTest extends CakeTestCase {
 		$this->assertFalse(Cache::read('test_groups', 'redis_groups'));
 	}
 
+/**
+ * Test add method.
+ *
+ * @return void
+ */
+	public function testAdd() {
+		Cache::delete('test_add_key', 'redis');
+
+		$result = Cache::add('test_add_key', 'test data', 'redis');
+		$this->assertTrue($result);
+
+		$expected = 'test data';
+		$result = Cache::read('test_add_key', 'redis');
+		$this->assertEquals($expected, $result);
+
+		$result = Cache::add('test_add_key', 'test data 2', 'redis');
+		$this->assertFalse($result);
+	}
 }

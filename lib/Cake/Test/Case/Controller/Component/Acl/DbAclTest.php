@@ -2,8 +2,6 @@
 /**
  * DbAclTest file.
  *
- * PHP 5
- *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
@@ -15,7 +13,7 @@
  * @link          http://cakephp.org CakePHP(tm) Project
  * @package       Cake.Test.Case.Controller.Component.Acl
  * @since         CakePHP(tm) v 2.0
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
 App::uses('ComponentCollection', 'Controller');
@@ -35,14 +33,14 @@ class AclNodeTwoTestBase extends AclNode {
 /**
  * useDbConfig property
  *
- * @var string 'test'
+ * @var string
  */
 	public $useDbConfig = 'test';
 
 /**
  * cacheSources property
  *
- * @var bool false
+ * @var bool
  */
 	public $cacheSources = false;
 }
@@ -57,14 +55,14 @@ class AroTwoTest extends AclNodeTwoTestBase {
 /**
  * name property
  *
- * @var string 'AroTwoTest'
+ * @var string
  */
 	public $name = 'AroTwoTest';
 
 /**
  * useTable property
  *
- * @var string 'aro_twos'
+ * @var string
  */
 	public $useTable = 'aro_twos';
 
@@ -86,14 +84,14 @@ class AcoTwoTest extends AclNodeTwoTestBase {
 /**
  * name property
  *
- * @var string 'AcoTwoTest'
+ * @var string
  */
 	public $name = 'AcoTwoTest';
 
 /**
  * useTable property
  *
- * @var string 'aco_twos'
+ * @var string
  */
 	public $useTable = 'aco_twos';
 
@@ -115,21 +113,21 @@ class PermissionTwoTest extends Permission {
 /**
  * name property
  *
- * @var string 'PermissionTwoTest'
+ * @var string
  */
 	public $name = 'PermissionTwoTest';
 
 /**
  * useTable property
  *
- * @var string 'aros_aco_twos'
+ * @var string
  */
 	public $useTable = 'aros_aco_twos';
 
 /**
  * cacheQueries property
  *
- * @var bool false
+ * @var bool
  */
 	public $cacheQueries = false;
 
@@ -143,7 +141,7 @@ class PermissionTwoTest extends Permission {
 /**
  * actsAs property
  *
- * @var mixed null
+ * @var mixed
  */
 	public $actsAs = null;
 }
@@ -157,8 +155,6 @@ class DbAclTwoTest extends DbAcl {
 
 /**
  * construct method
- *
- * @return void
  */
 	public function __construct() {
 		$this->Aro = new AroTwoTest();
@@ -259,7 +255,6 @@ class DbAclTest extends CakeTestCase {
 /**
  * testDbAclAllow method
  *
- * @expectedException PHPUnit_Framework_Error_Warning
  * @return void
  */
 	public function testAllow() {
@@ -283,7 +278,7 @@ class DbAclTest extends CakeTestCase {
 		$this->assertTrue($this->Acl->check('Samir', 'view', 'read'));
 		$this->assertTrue($this->Acl->check('root/users/Samir', 'ROOT/tpsReports/view', 'update'));
 
-		$this->assertFalse($this->Acl->check('root/users/Samir', 'ROOT/tpsReports/update','*'));
+		$this->assertFalse($this->Acl->check('root/users/Samir', 'ROOT/tpsReports/update', '*'));
 		$this->assertTrue($this->Acl->allow('root/users/Samir', 'ROOT/tpsReports/update', '*'));
 		$this->assertTrue($this->Acl->check('Samir', 'update', 'read'));
 		$this->assertTrue($this->Acl->check('root/users/Samir', 'ROOT/tpsReports/update', 'update'));
@@ -294,13 +289,22 @@ class DbAclTest extends CakeTestCase {
 	}
 
 /**
+ * Test that allow() with an invalid permission name triggers an error.
+ *
+ * @expectedException CakeException
+ * @return void
+ */
+	public function testAllowInvalidPermission() {
+		$this->assertFalse($this->Acl->allow('Micheal', 'tpsReports', 'derp'));
+	}
+
+/**
  * testAllowInvalidNode method
  *
- * @expectedException PHPUnit_Framework_Error_Warning
  * @return void
  */
 	public function testAllowInvalidNode() {
-		$this->Acl->allow('Homer', 'tpsReports', 'create');
+		$this->assertFalse($this->Acl->allow('Homer', 'tpsReports', 'create'));
 	}
 
 /**
@@ -326,7 +330,6 @@ class DbAclTest extends CakeTestCase {
 /**
  * testCheckInvalidNode method
  *
- * @expectedException PHPUnit_Framework_Error_Warning
  * @return void
  */
 	public function testCheckInvalidNode() {
@@ -336,21 +339,19 @@ class DbAclTest extends CakeTestCase {
 /**
  * testCheckInvalidPermission method
  *
- * @expectedException PHPUnit_Framework_Error_Notice
  * @return void
  */
 	public function testCheckInvalidPermission() {
-		$this->Acl->check('Lumbergh', 'smash', 'foobar');
+		$this->assertFalse($this->Acl->check('Lumbergh', 'smash', 'foobar'));
 	}
 
 /**
  * testCheckMissingPermission method
  *
- * @expectedException PHPUnit_Framework_Error_Warning
  * @return void
  */
 	public function testCheckMissingPermission() {
-		$this->Acl->check('users', 'NonExistent', 'read');
+		$this->assertFalse($this->Acl->check('users', 'NonExistent', 'read'));
 	}
 
 /**
@@ -373,7 +374,6 @@ class DbAclTest extends CakeTestCase {
 /**
  * testDbAclDeny method
  *
- * @expectedException PHPUnit_Framework_Error_Warning
  * @return void
  */
 	public function testDeny() {
@@ -429,21 +429,63 @@ class DbAclTest extends CakeTestCase {
  * @return void
  */
 	public function testInherit() {
-		//parent doesn't have access inherit should still deny
+		// parent doesn't have access inherit should still deny
 		$this->assertFalse($this->Acl->check('Milton', 'smash', 'delete'));
 		$this->Acl->inherit('Milton', 'smash', 'delete');
 		$this->assertFalse($this->Acl->check('Milton', 'smash', 'delete'));
 
-		//inherit parent
+		// inherit parent
 		$this->assertFalse($this->Acl->check('Milton', 'smash', 'read'));
 		$this->Acl->inherit('Milton', 'smash', 'read');
 		$this->assertTrue($this->Acl->check('Milton', 'smash', 'read'));
 	}
 
 /**
+ * test inherit from deny method
+ *
+ * @return void
+ */
+	public function testInheritParentDeny() {
+		$this->Acl->Aco->create(array('parent_id' => null, 'alias' => 'world'));
+		$this->Acl->Aco->save();
+
+		$this->Acl->Aco->create(array('parent_id' => $this->Acl->Aco->id, 'alias' => 'town'));
+		$this->Acl->Aco->save();
+
+		$this->Acl->Aco->create(array('parent_id' => null, 'alias' => 'bizzaro_world'));
+		$this->Acl->Aco->save();
+
+		$this->Acl->Aco->create(array('parent_id' => $this->Acl->Aco->id, 'alias' => 'bizzaro_town'));
+		$this->Acl->Aco->save();
+
+		$this->Acl->Aro->create(array('parent_id' => null, 'alias' => 'Jane'));
+		$this->Acl->Aro->save();
+
+		// Setup deny on create for parent
+		$this->Acl->allow('Jane', 'world', '*');
+		$this->Acl->deny('Jane', 'world', 'create');
+
+		// Setup inherit and specify allow for create on child.
+		$this->Acl->inherit('Jane', 'town', '*');
+		$this->Acl->allow('Jane', 'town', 'create');
+
+		// Setup deny on create for parent
+		$this->Acl->deny('Jane', 'bizzaro_world', '*');
+		$this->Acl->allow('Jane', 'bizzaro_world', 'create');
+
+		// Setup inherit.
+		$this->Acl->inherit('Jane', 'bizzaro_town', '*');
+
+		$this->assertTrue($this->Acl->check('Jane', 'town', 'create'), 'Should have access due to override');
+		$this->assertTrue($this->Acl->check('Jane', 'town', '*'), 'Should have access due to inherit');
+
+		$this->assertTrue($this->Acl->check('Jane', 'bizzaro_town', 'create'), 'Should have access due explicit allow');
+		$this->assertFalse($this->Acl->check('Jane', 'bizzaro_town', '*'), 'Should not have access due to inherit');
+	}
+
+/**
  * testDbGrant method
  *
- * @expectedException PHPUnit_Framework_Error_Warning
  * @return void
  */
 	public function testGrant() {
@@ -464,7 +506,6 @@ class DbAclTest extends CakeTestCase {
 /**
  * testDbRevoke method
  *
- * @expectedException PHPUnit_Framework_Error_Warning
  * @return void
  */
 	public function testRevoke() {
@@ -520,7 +561,7 @@ class DbAclTest extends CakeTestCase {
 		foreach ($permissions as $key => $values) {
 			array_unshift($values, $key);
 			$values = array_map(array(&$this, '_pad'), $values);
-			$permissions[$key] = implode (' ', $values);
+			$permissions[$key] = implode(' ', $values);
 		}
 		$permissions = array_map(array(&$this, '_pad'), $permissions);
 		array_unshift($permissions, 'Current Permissions :');
@@ -535,7 +576,7 @@ class DbAclTest extends CakeTestCase {
  * Used by debug to format strings used in the data dump
  *
  * @param string $string
- * @param integer $len
+ * @param int $len
  * @return void
  */
 	protected function _pad($string = '', $len = 14) {
