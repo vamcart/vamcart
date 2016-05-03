@@ -24,7 +24,7 @@ echo $this->requestAction(array('controller' => 'install', 'action' => 'check_pe
 ?>
 <br />
 <?php
-echo $this->Form->create('Install', array('id' => 'contentform', 'action' => '/install/create/', 'url' => '/install/create/'));
+echo $this->Form->create('Install', array('id' => 'contentform', 'url' => '/install/create/', 'url' => '/install/create/'));
 echo $this->Form->input('db_host', array('label' => __('Host'), 'value' => $values['Install']['db_host']));
 echo $this->Form->input('db_name', array('label' => __('Database Name'), 'value' => $values['Install']['db_name']));
 echo $this->Form->input('db_username', array('label' => __('Database Username'), 'value' => $values['Install']['db_username']));
