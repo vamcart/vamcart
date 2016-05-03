@@ -8,7 +8,7 @@
 
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-plugin-add');
 
-	echo $this->Form->create('AddModule', array('enctype' => 'multipart/form-data', 'id' => 'contentform', 'action' => '/modules/admin_upload/', 'url' => '/modules/admin_upload/'));
+	echo $this->Form->create('AddModule', array('enctype' => 'multipart/form-data', 'id' => 'contentform', 'url' => '/modules/admin_upload/'));
 
 	echo $this->Form->input('AddModule.submittedfile', 
 					array(

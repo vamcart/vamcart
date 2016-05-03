@@ -12,7 +12,7 @@ $this->Html->script(array(
 
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-world');
 
-echo $this->Form->create('Country', array('action' => '/countries/admin_modify_selected/', 'url' => '/countries/admin_modify_selected/'));
+echo $this->Form->create('Country', array('url' => '/countries/admin_modify_selected/'));
 
 echo '<table class="contentTable">';
 

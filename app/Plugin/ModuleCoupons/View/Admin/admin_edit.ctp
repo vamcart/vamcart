@@ -14,7 +14,7 @@ $this->Html->script(array(
 	echo $this->Admin->ShowPageHeaderStart($title_for_layout, 'cus-application-edit');
 
 	$coupon_id = $this->data['ModuleCoupon']['id'];
-	echo $this->Form->create('ModuleCoupon', array('id' => 'contentform', 'action' => '/module_coupons/admin/admin_edit/'.$coupon_id, 'url' => '/module_coupons/admin/admin_edit/'.$coupon_id));
+	echo $this->Form->create('ModuleCoupon', array('id' => 'contentform', 'url' => '/module_coupons/admin/admin_edit/'.$coupon_id));
 
 			echo '<ul id="myTab" class="nav nav-tabs">';
 			echo $this->Admin->CreateTab('main',__('Main'), 'cus-application');

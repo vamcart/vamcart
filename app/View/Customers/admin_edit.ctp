@@ -22,7 +22,7 @@ $this->Html->script(array(
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-user-edit');
 
-	echo $this->Form->create('Customer', array('id' => 'contentform', 'action' => '/customers/admin_edit/', 'url' => '/customers/admin_edit/'));
+	echo $this->Form->create('Customer', array('id' => 'contentform', 'url' => '/customers/admin_edit/'));
 	echo $this->Form->input('Customer.id', 
 						array(
 				   		'type' => 'hidden'

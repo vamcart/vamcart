@@ -24,7 +24,7 @@ $this->Html->script(array(
 
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-add');
 
-echo $this->Form->create('TaxCountryZoneRate', array('id' => 'contentform', 'action' => '/tax_country_zone_rates/admin_new/' . $tax['Tax']['id'], 'url' => '/tax_country_zone_rates/admin_new/' . $tax['Tax']['id']));
+echo $this->Form->create('TaxCountryZoneRate', array('id' => 'contentform', 'url' => '/tax_country_zone_rates/admin_new/' . $tax['Tax']['id']));
 	
 	echo $this->Form->input('TaxCountryZoneRate.tax_id', 
 					array(

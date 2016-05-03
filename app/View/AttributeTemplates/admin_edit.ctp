@@ -22,7 +22,7 @@ $this->Html->css(array(
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 
-	echo $this->Form->create('AttributeTemplate', array('id' => 'contentform', 'action' => '/admin_edit/save/'));		
+	echo $this->Form->create('AttributeTemplate', array('id' => 'contentform', 'url' => '/admin_edit/save/'));		
 	echo $this->Form->input('AttributeTemplate.id',array('type' => 'hidden'));  
         
         

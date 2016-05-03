@@ -22,7 +22,7 @@ $this->Html->css(array(
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-palette');
 
-	echo $this->Form->create('Stylesheet', array('id' => 'contentform', 'action' => '/stylesheets/admin_edit/'.$data['Stylesheet']['id'], 'url' => '/stylesheets/admin_edit/'.$data['Stylesheet']['id']));
+	echo $this->Form->create('Stylesheet', array('id' => 'contentform', 'url' => '/stylesheets/admin_edit/'.$data['Stylesheet']['id']));
 
 			echo '<ul id="myTab" class="nav nav-tabs">';
 			echo $this->Admin->CreateTab('main',__('Main'), 'cus-application');

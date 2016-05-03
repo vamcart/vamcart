@@ -13,7 +13,7 @@ $this->Html->script(array(
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-group-key');
 
-	echo $this->Form->create('UserPref', array('id' => 'contentform', 'action' => '/users/admin_user_preferences/', 'url' => '/users/admin_user_preferences/'));
+	echo $this->Form->create('UserPref', array('id' => 'contentform', 'url' => '/users/admin_user_preferences/'));
 
 	echo $this->Form->input('UserPref.language', 
 				array(

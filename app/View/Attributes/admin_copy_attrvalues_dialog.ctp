@@ -16,7 +16,7 @@
       <div class="modal-body clearfix">
       
         <?php    
-            echo $this->Form->create('Attribute', array('id' => 'copyvaluesattributeform', 'name' => 'attributeform','enctype' => 'multipart/form-data', 'action' => '/admin_copy_attrvalues/'));
+            echo $this->Form->create('Attribute', array('id' => 'copyvaluesattributeform', 'name' => 'attributeform','enctype' => 'multipart/form-data', 'url' => '/admin_copy_attrvalues/'));
             echo $this->Form->input('Attribute.id',array('type' => 'hidden','value' => $attribute_id));
             echo $this->Form->input('Attribute.content_id',array('type' => 'hidden','value' => $content_id));
             

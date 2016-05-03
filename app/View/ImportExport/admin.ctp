@@ -147,7 +147,7 @@ echo $this->Admin->StartTabs('products');
 
 echo $this->Admin->StartTabContent('export-products');
 
-    echo $this->Form->create('ImportExport', array('id' => 'products_form_export', 'class' => 'form-horizontal', 'action' => '/import_export/export/products', 'url' => '/import_export/export/products'));
+    echo $this->Form->create('ImportExport', array('id' => 'products_form_export', 'class' => 'form-horizontal', 'url' => '/import_export/export/products'));
 
 echo '
 
@@ -237,7 +237,7 @@ echo $this->Admin->EndTabContent();
 echo $this->Admin->StartTabContent('import-products');
 
     echo '<div class="alert alert-error"><i class="cus-error"></i> '.__('Don\'t forget backup your database before import at Admin - Tools - Database Backup.').'</div>';
-    echo $this->Form->create('form_Import', array('enctype' => 'multipart/form-data', 'id' => 'contentform_import', 'action' => '/import_export/import/products', 'url' => '/import_export/import/products'));
+    echo $this->Form->create('form_Import', array('enctype' => 'multipart/form-data', 'id' => 'contentform_import', 'url' => '/import_export/import/products'));
 
 echo '
 
@@ -333,7 +333,7 @@ echo $this->Admin->StartTabs('manufacturers');
 
 echo $this->Admin->StartTabContent('export-manufacturers');
 
-    echo $this->Form->create('ImportExport', array('id' => 'manufacturers_form_export', 'class' => 'form-horizontal', 'action' => '/import_export/export/manufacturers', 'url' => '/import_export/export/manufacturers'));
+    echo $this->Form->create('ImportExport', array('id' => 'manufacturers_form_export', 'class' => 'form-horizontal', 'url' => '/import_export/export/manufacturers'));
 
 echo '
 
@@ -399,7 +399,7 @@ echo $this->Admin->EndTabContent();
 echo $this->Admin->StartTabContent('import-manufacturers');
 
     echo '<div class="alert alert-error"><i class="cus-error"></i> '.__('Don\'t forget backup your database before import at Admin - Tools - Database Backup.').'</div>';
-    echo $this->Form->create('form_Import', array('enctype' => 'multipart/form-data', 'id' => 'contentform_import', 'action' => '/import_export/import/manufacturers', 'url' => '/import_export/import/manufacturers'));
+    echo $this->Form->create('form_Import', array('enctype' => 'multipart/form-data', 'id' => 'contentform_import', 'url' => '/import_export/import/manufacturers'));
 
 echo '
 
@@ -486,7 +486,7 @@ echo $this->Admin->StartTabs('categories');
 
 echo $this->Admin->StartTabContent('export-categories');
 
-    echo $this->Form->create('ImportExport', array('id' => 'categories_form_export', 'class' => 'form-horizontal', 'action' => '/import_export/export/categories', 'url' => '/import_export/export/categories'));
+    echo $this->Form->create('ImportExport', array('id' => 'categories_form_export', 'class' => 'form-horizontal', 'url' => '/import_export/export/categories'));
 
 echo '
 
@@ -552,7 +552,7 @@ echo $this->Admin->EndTabContent();
 echo $this->Admin->StartTabContent('import-categories');
 
     echo '<div class="alert alert-error"><i class="cus-error"></i> '.__('Don\'t forget backup your database before import at Admin - Tools - Database Backup.').'</div>';
-    echo $this->Form->create('form_Import', array('enctype' => 'multipart/form-data', 'id' => 'contentform_import', 'action' => '/import_export/import/categories', 'url' => '/import_export/import/categories'));
+    echo $this->Form->create('form_Import', array('enctype' => 'multipart/form-data', 'id' => 'contentform_import', 'url' => '/import_export/import/categories'));
 
 echo '
 
@@ -638,7 +638,7 @@ echo $this->Admin->StartTabs('pages');
 
 echo $this->Admin->StartTabContent('export-pages');
 
-    echo $this->Form->create('ImportExport', array('id' => 'pages_form_export', 'class' => 'form-horizontal', 'action' => '/import_export/export/pages', 'url' => '/import_export/export/pages'));
+    echo $this->Form->create('ImportExport', array('id' => 'pages_form_export', 'class' => 'form-horizontal', 'url' => '/import_export/export/pages'));
 
 echo '
 
@@ -704,7 +704,7 @@ echo $this->Admin->EndTabContent();
 echo $this->Admin->StartTabContent('import-pages');
 
     echo '<div class="alert alert-error"><i class="cus-error"></i> '.__('Don\'t forget backup your database before import at Admin - Tools - Database Backup.').'</div>';
-    echo $this->Form->create('form_Import', array('enctype' => 'multipart/form-data', 'id' => 'contentform_import', 'action' => '/import_export/import/pages', 'url' => '/import_export/import/pages'));
+    echo $this->Form->create('form_Import', array('enctype' => 'multipart/form-data', 'id' => 'contentform_import', 'url' => '/import_export/import/pages'));
 
 echo '
 
@@ -790,7 +790,7 @@ echo $this->Admin->StartTabs('articles');
 
 echo $this->Admin->StartTabContent('export-articles');
 
-    echo $this->Form->create('ImportExport', array('id' => 'articles_form_export', 'class' => 'form-horizontal', 'action' => '/import_export/export/articles', 'url' => '/import_export/export/articles'));
+    echo $this->Form->create('ImportExport', array('id' => 'articles_form_export', 'class' => 'form-horizontal', 'url' => '/import_export/export/articles'));
 
 echo '
 
@@ -856,7 +856,7 @@ echo $this->Admin->EndTabContent();
 echo $this->Admin->StartTabContent('import-articles');
 
     echo '<div class="alert alert-error"><i class="cus-error"></i> '.__('Don\'t forget backup your database before import at Admin - Tools - Database Backup.').'</div>';
-    echo $this->Form->create('form_Import', array('enctype' => 'multipart/form-data', 'id' => 'contentform_import', 'action' => '/import_export/import/articles', 'url' => '/import_export/import/articles'));
+    echo $this->Form->create('form_Import', array('enctype' => 'multipart/form-data', 'id' => 'contentform_import', 'url' => '/import_export/import/articles'));
 
 echo '
 
@@ -942,7 +942,7 @@ echo $this->Admin->StartTabs('news');
 
 echo $this->Admin->StartTabContent('export-news');
 
-    echo $this->Form->create('ImportExport', array('id' => 'news_form_export', 'class' => 'form-horizontal', 'action' => '/import_export/export/news', 'url' => '/import_export/export/news'));
+    echo $this->Form->create('ImportExport', array('id' => 'news_form_export', 'class' => 'form-horizontal', 'url' => '/import_export/export/news'));
 
 echo '
 
@@ -1008,7 +1008,7 @@ echo $this->Admin->EndTabContent();
 echo $this->Admin->StartTabContent('import-news');
 
     echo '<div class="alert alert-error"><i class="cus-error"></i> '.__('Don\'t forget backup your database before import at Admin - Tools - Database Backup.').'</div>';
-    echo $this->Form->create('form_Import', array('enctype' => 'multipart/form-data', 'id' => 'contentform_import', 'action' => '/import_export/import/news', 'url' => '/import_export/import/news'));
+    echo $this->Form->create('form_Import', array('enctype' => 'multipart/form-data', 'id' => 'contentform_import', 'url' => '/import_export/import/news'));
 
 echo '
 
@@ -1094,7 +1094,7 @@ echo $this->Admin->StartTabs('customers');
 
 echo $this->Admin->StartTabContent('export-customers');
 
-    echo $this->Form->create('ImportExport', array('id' => 'customers_form_export', 'class' => 'form-horizontal', 'action' => '/import_export/export/customers', 'url' => '/import_export/export/customers'));
+    echo $this->Form->create('ImportExport', array('id' => 'customers_form_export', 'class' => 'form-horizontal', 'url' => '/import_export/export/customers'));
 
 echo '
 
@@ -1148,7 +1148,7 @@ echo $this->Admin->EndTabContent();
 echo $this->Admin->StartTabContent('import-customers');
 
     echo '<div class="alert alert-error"><i class="cus-error"></i> '.__('Don\'t forget backup your database before import at Admin - Tools - Database Backup.').'</div>';
-    echo $this->Form->create('form_Import', array('enctype' => 'multipart/form-data', 'id' => 'contentform_import', 'action' => '/import_export/import/customers', 'url' => '/import_export/import/customers'));
+    echo $this->Form->create('form_Import', array('enctype' => 'multipart/form-data', 'id' => 'contentform_import', 'url' => '/import_export/import/customers'));
 
 echo '
 
@@ -1213,7 +1213,7 @@ echo $this->Admin->StartTabs('orders');
 
 echo $this->Admin->StartTabContent('export-orders');
 
-    echo $this->Form->create('ImportExport', array('id' => 'orders_form_export', 'class' => 'form-horizontal', 'action' => '/import_export/export/orders', 'url' => '/import_export/export/orders'));
+    echo $this->Form->create('ImportExport', array('id' => 'orders_form_export', 'class' => 'form-horizontal', 'url' => '/import_export/export/orders'));
 
 echo '
 
@@ -1292,7 +1292,7 @@ echo $this->Admin->EndTabContent();
 echo $this->Admin->StartTabContent('import-orders');
 
     echo '<div class="alert alert-error"><i class="cus-error"></i> '.__('Don\'t forget backup your database before import at Admin - Tools - Database Backup.').'</div>';
-    echo $this->Form->create('form_Import', array('enctype' => 'multipart/form-data', 'id' => 'contentform_import', 'action' => '/import_export/import/orders', 'url' => '/import_export/import/orders'));
+    echo $this->Form->create('form_Import', array('enctype' => 'multipart/form-data', 'id' => 'contentform_import', 'url' => '/import_export/import/orders'));
 
 echo '
 

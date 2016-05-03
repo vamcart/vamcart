@@ -8,7 +8,7 @@
 
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-cascade');
 
-echo $this->Form->create('GlobalContentBlock', array('action' => '/global_content_blocks/admin_modify_selected/', 'url' => '/global_content_blocks/admin_modify_selected/'));
+echo $this->Form->create('GlobalContentBlock', array('url' => '/global_content_blocks/admin_modify_selected/'));
 
 echo '<table class="contentTable">';
 echo $this->Html->tableHeaders(array( __('Title'), __('Call (Template Placeholder)'), __('Active'), __('Action'), '<input type="checkbox" onclick="checkAll(this)" />'));

@@ -33,7 +33,7 @@ if(isset($default_template))
 {
 	echo '<div class="pageheader">' . __('Default Template') . '</div>';
 	
-		echo $this->Form->create('MicroTemplate', array('id' => 'contentform', 'action' => '/micro_templates/admin_create_from_tag/', 'url' => '/micro_templates/admin_create_from_tag/'));
+		echo $this->Form->create('MicroTemplate', array('id' => 'contentform', 'url' => '/micro_templates/admin_create_from_tag/'));
 		
 		echo $this->Form->input('MicroTemplate.tag_name', 
 					array(

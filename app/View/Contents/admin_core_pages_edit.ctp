@@ -13,7 +13,7 @@ $this->Html->script(array(
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 
-	echo $this->Form->create('Content', array('id' => 'contentform', 'name' => 'contentform','enctype' => 'multipart/form-data', 'action' => '/contents/admin_edit/'.$data['Content']['id'], 'url' => '/contents/admin_edit/'.$data['Content']['id']));
+	echo $this->Form->create('Content', array('id' => 'contentform', 'name' => 'contentform','enctype' => 'multipart/form-data', 'url' => '/contents/admin_edit/'.$data['Content']['id']));
 	
 			//echo '<ul id="myTab" class="nav nav-tabs">';
 			//echo $this->Admin->CreateTab('main',__('Main'), 'cus-application');

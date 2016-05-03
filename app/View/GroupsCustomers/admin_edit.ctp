@@ -12,7 +12,7 @@
     ), array('inline' => false));
 
     echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-group-edit');
-    echo $this->Form->create('GroupsCustomer', array('id' => 'contentform', 'action' => '/groups_customers/admin_save/', 'url' => '/groups_customers/admin_save/'));
+    echo $this->Form->create('GroupsCustomer', array('id' => 'contentform', 'url' => '/groups_customers/admin_save/'));
     echo $this->Form->input('GroupsCustomer.id', 
 						array(
 				   		'type' => 'hidden'

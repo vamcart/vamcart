@@ -14,7 +14,7 @@ $this->Html->script(array(
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 
 	$user_tag_id = $this->data['UserTag']['id'];
-	echo $this->Form->create('UserTag', array('id' => 'contentform', 'action' => '/user_tags/admin_edit/'.$user_tag_id, 'url' => '/user_tags/admin_edit/'.$user_tag_id));
+	echo $this->Form->create('UserTag', array('id' => 'contentform', 'url' => '/user_tags/admin_edit/'.$user_tag_id));
 	
 			echo '<ul id="myTab" class="nav nav-tabs">';
 			echo $this->Admin->CreateTab('main',__('Main'), 'cus-application');

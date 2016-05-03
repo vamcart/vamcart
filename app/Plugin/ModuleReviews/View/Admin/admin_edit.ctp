@@ -18,7 +18,7 @@ echo __('Rating: ') . $data['ModuleReview']['rating'];
 echo '<br /><br />';
 echo __('Product: ') . $data['ModuleReview']['product_name'];
 echo '<br /><br />';
-echo $this->Form->create('ModuleReview', array('id' => 'contentform', 'action' => '/module_reviews/admin/admin_edit/'.$id, 'url' => '/module_reviews/admin/admin_edit/'.$id));
+echo $this->Form->create('ModuleReview', array('id' => 'contentform', 'url' => '/module_reviews/admin/admin_edit/'.$id));
 echo $this->Form->input('ModuleReview.id', 
 					array(
 			   		'type' => 'hidden'

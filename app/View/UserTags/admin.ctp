@@ -10,7 +10,7 @@ echo $this->Html->script('selectall', array('inline' => false));
 
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-tag-blue-add');
 
-echo $this->Form->create('UserTag', array('action' => '/UserTags/admin_modify_selected/', 'url' => '/UserTags/admin_modify_selected/'));
+echo $this->Form->create('UserTag', array('url' => '/UserTags/admin_modify_selected/'));
 
 echo '<table class="contentTable">';
 echo $this->Html->tableHeaders(array( __('Title'), __('Call (Template Placeholder)'), __('Action'), '<input type="checkbox" onclick="checkAll(this)" />'));

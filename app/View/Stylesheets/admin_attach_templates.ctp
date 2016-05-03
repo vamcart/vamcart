@@ -35,7 +35,7 @@ foreach ($attached_template AS $template)
 if(!empty( $available_templates))
 {
 	echo '<div class="attach_select">';
-	echo $this->Form->create('Stylesheet.Template', array('action' => '/stylesheets/admin_attach_templates/'.$stylesheet['Stylesheet']['id'], 'url' => '/stylesheets/admin_attach_templates/'.$stylesheet['Stylesheet']['id']));
+	echo $this->Form->create('Stylesheet.Template', array('url' => '/stylesheets/admin_attach_templates/'.$stylesheet['Stylesheet']['id']));
 	echo $this->Form->select('Template.Template', $available_templates);
 	echo '<div class="clear"></div>';
 	echo $this->Admin->formButton(__('Attach Template'), 'cus-add', array('class' => 'btn btn-default', 'type' => 'submit', 'name' => 'attach_template'));	

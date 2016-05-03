@@ -13,7 +13,7 @@
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-table-multiple');
 
-	echo $this->Form->create('Stylesheet', array('id' => 'contentform', 'action' => '/stylesheets/admin_copy/' . $stylesheet['Stylesheet']['id'], 'url' => '/stylesheets/admin_copy/' . $stylesheet['Stylesheet']['id']));
+	echo $this->Form->create('Stylesheet', array('id' => 'contentform', 'url' => '/stylesheets/admin_copy/' . $stylesheet['Stylesheet']['id']));
 	echo $this->Form->input('Stylesheet.name', 
 						array(
 							'type' => 'text',

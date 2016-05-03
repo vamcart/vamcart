@@ -12,7 +12,7 @@ $this->Html->script(array(
 
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-user');
 
-echo $this->Form->create('Customer', array('action' => '/customers/admin_modify_selected/', 'url' => '/customers/admin_modify_selected/'));
+echo $this->Form->create('Customer', array('url' => '/customers/admin_modify_selected/'));
 
 echo '<table class="contentTable">';
 

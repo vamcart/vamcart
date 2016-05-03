@@ -13,7 +13,7 @@ $this->Html->script(array(
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 
-        echo $this->Form->create('TaxCountryZoneRate', array('id' => 'contentform', 'action' => '/tax_country_zone_rates/admin_edit/' . $data['Tax']['id'] . '/' . $data['TaxCountryZoneRate']['id'], 'url' => '/tax_country_zone_rates/admin_edit/' . $data['Tax']['id'] . '/' . $data['TaxCountryZoneRate']['id']));
+        echo $this->Form->create('TaxCountryZoneRate', array('id' => 'contentform', 'url' => '/tax_country_zone_rates/admin_edit/' . $data['Tax']['id'] . '/' . $data['TaxCountryZoneRate']['id']));
 	echo $this->Form->input('TaxCountryZoneRate.id', 
 						array(
 				   		'type' => 'hidden',

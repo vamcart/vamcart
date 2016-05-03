@@ -13,7 +13,7 @@ $this->Html->script(array(
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 
-	echo $this->Form->create('EmailTemplate', array('id' => 'contentform', 'action' => '/email_template/admin_edit/' . $data['EmailTemplate']['id'], 'url' => '/email_template/admin_edit/' . $data['EmailTemplate']['id']));
+	echo $this->Form->create('EmailTemplate', array('id' => 'contentform', 'url' => '/email_template/admin_edit/' . $data['EmailTemplate']['id']));
 	echo $this->Form->input('EmailTemplate.id', 
 						array(
 				   		'type' => 'hidden',

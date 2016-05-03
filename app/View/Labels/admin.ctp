@@ -12,7 +12,7 @@ $this->Html->script(array(
 
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-tag-blue');
 
-echo $this->Form->create('Label', array('action' => '/labels/admin_modify_selected/', 'url' => '/labels/admin_modify_selected/'));
+echo $this->Form->create('Label', array('url' => '/labels/admin_modify_selected/'));
 
 echo '<table class="contentTable">';
 

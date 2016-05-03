@@ -12,7 +12,7 @@ $this->Html->script(array(
 
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-palette');
 
-echo $this->Form->create('Stylesheet', array('action' => '/stylesheets/admin_modify_selected/', 'url' => '/stylesheets/admin_modify_selected/'));
+echo $this->Form->create('Stylesheet', array('url' => '/stylesheets/admin_modify_selected/'));
 
 echo '<table class="contentTable">';
 

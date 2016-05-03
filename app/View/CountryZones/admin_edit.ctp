@@ -13,7 +13,7 @@ $this->Html->script(array(
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 	
-	echo $this->Form->create('CountryZone', array('id' => 'contentform', 'action' => '/country_zones/admin_edit/' . $country_id, 'url' => '/country_zones/admin_edit/' . $country_id));
+	echo $this->Form->create('CountryZone', array('id' => 'contentform', 'url' => '/country_zones/admin_edit/' . $country_id));
 		echo $this->Form->input('CountryZone.country_id', array(
 				   		'type' => 'hidden',
 						'value' => $country_id

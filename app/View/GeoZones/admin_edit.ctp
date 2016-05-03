@@ -13,7 +13,7 @@ $this->Html->script(array(
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 
-	echo $this->Form->create('Geozone', array('id' => 'contentform', 'action' => '/geo_zones/admin_edit/', 'url' => '/geo_zones/admin_edit/'));
+	echo $this->Form->create('Geozone', array('id' => 'contentform', 'url' => '/geo_zones/admin_edit/'));
 	
 	echo $this->Form->input('GeoZone.id', 
 					array(

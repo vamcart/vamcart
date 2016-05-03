@@ -65,7 +65,7 @@ $(document).ready(function () {$(\'[rel=tooltip],input[data-title]\').tooltip();
 		</ul>
 
 			<?php 
-			echo $this->form->create('Search', array('class' => 'navbar-form navbar-right', 'action' => '/search/admin_global_search/', 'url' => '/search/admin_global_search/'));
+			echo $this->form->create('Search', array('class' => 'navbar-form navbar-right', 'url' => '/search/admin_global_search/'));
 			echo $this->form->input('Search.term',array('div' => false, 'class' => 'form-control input-medium', 'label' => false,'placeholder' => __('Global Record Search',true)));
 			//echo $this->form->submit( __('Submit', true));
 			echo $this->form->end();

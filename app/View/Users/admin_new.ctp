@@ -13,7 +13,7 @@ $this->Html->script(array(
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-add');
 
-	echo $this->Form->create('User', array('id' => 'contentform', 'action' => '/users/admin_new/', 'url' => '/users/admin_new/'));
+	echo $this->Form->create('User', array('id' => 'contentform', 'url' => '/users/admin_new/'));
 	echo $this->Form->input('User.username', 
 						array(
 				   		'label' => __('Username')

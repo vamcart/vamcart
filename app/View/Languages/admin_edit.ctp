@@ -13,7 +13,7 @@ $this->Html->script(array(
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 
-	echo $this->Form->create('Language', array('id' => 'contentform', 'action' => '/languages/admin_edit/', 'url' => '/languages/admin_edit/'));
+	echo $this->Form->create('Language', array('id' => 'contentform', 'url' => '/languages/admin_edit/'));
 	echo $this->Form->input('Language.id', 
 						array(
 				   		'type' => 'hidden'

@@ -12,7 +12,7 @@ $this->Html->script(array(
 
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-page-white-world');
 
-echo $this->Form->create('GeoZone', array('action' => '/geo_zones/admin_modify_selected/', 'url' => '/geo_zones/admin_modify_selected/'));
+echo $this->Form->create('GeoZone', array('url' => '/geo_zones/admin_modify_selected/'));
 
 echo '<table class="contentTable">';
 

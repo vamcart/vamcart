@@ -13,7 +13,7 @@ $this->Html->script(array(
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 
-        echo $this->Form->create('ShippingMethod', array('id' => 'contentform', 'name' => 'contentform', 'action' => '/shipping_methods/admin_edit/'.$data['ShippingMethod']['id'], 'url' => '/shipping_methods/admin_edit/'.$data['ShippingMethod']['id']));
+        echo $this->Form->create('ShippingMethod', array('id' => 'contentform', 'name' => 'contentform', 'url' => '/shipping_methods/admin_edit/'.$data['ShippingMethod']['id']));
 		echo $this->Form->input('ShippingMethod.id', 
 					array(
 						'type' => 'hidden',

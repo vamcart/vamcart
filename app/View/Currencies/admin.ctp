@@ -12,7 +12,7 @@ $this->Html->script(array(
 
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-table-edit');
 
-echo $this->Form->create('Currency', array('action' => '/currencies/admin_modify_selected/', 'url' => '/currencies/admin_modify_selected/'));
+echo $this->Form->create('Currency', array('url' => '/currencies/admin_modify_selected/'));
 
 echo '<table class="contentTable">';
 

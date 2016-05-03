@@ -13,7 +13,7 @@ $this->Html->script(array(
 	
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 
-	echo $this->Form->create('OrderStatus', array('id' => 'contentform', 'action' => '/order_status/admin_edit/' . $data['OrderStatus']['id'], 'url' => '/order_status/admin_edit/' . $data['OrderStatus']['id']));
+	echo $this->Form->create('OrderStatus', array('id' => 'contentform', 'url' => '/order_status/admin_edit/' . $data['OrderStatus']['id']));
 	echo $this->Form->input('OrderStatus.id', 
 						array(
 				   		'type' => 'hidden',

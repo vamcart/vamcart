@@ -227,7 +227,7 @@ echo '</table>';
 
 	echo $this->Admin->StartTabContent('status');
 
-echo $this->Form->create('OrderComment', array('id' => 'contentform', 'name' => 'contentform', 'action' => '/orders/admin_new_comment/', 'url' => '/orders/admin_new_comment/'));
+echo $this->Form->create('OrderComment', array('id' => 'contentform', 'name' => 'contentform', 'url' => '/orders/admin_new_comment/'));
 
 	echo $this->Form->input('Order.id', 
 			array(

@@ -13,7 +13,7 @@ $this->Html->script(array(
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 
-	echo $this->Form->create('Country', array('id' => 'contentform', 'action' => '/countries/admin_edit/' . $data['Country']['id'], 'url' => '/countries/admin_edit/' . $data['Country']['id']));
+	echo $this->Form->create('Country', array('id' => 'contentform', 'url' => '/countries/admin_edit/' . $data['Country']['id']));
 	
 			echo '<ul id="myTab" class="nav nav-tabs">';
 			echo $this->Admin->CreateTab('main',__('Main'), 'cus-application');

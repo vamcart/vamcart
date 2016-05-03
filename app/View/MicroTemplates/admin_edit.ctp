@@ -24,7 +24,7 @@ $this->Html->css(array(
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 
-	echo $this->Form->create('MicroTemplate', array('id' => 'contentform', 'action' => '/micro_templates/admin_edit/'.$id, 'url' => '/micro_templates/admin_edit/'.$id));
+	echo $this->Form->create('MicroTemplate', array('id' => 'contentform', 'url' => '/micro_templates/admin_edit/'.$id));
 		
 		echo $this->Form->input('MicroTemplate.id', 
 							array(

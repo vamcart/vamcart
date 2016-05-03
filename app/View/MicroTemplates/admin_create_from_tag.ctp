@@ -13,7 +13,7 @@ $this->Html->script(array(
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-add');
 
-	echo $this->Form->create('MicroTemplate', array('id' => 'contentform', 'action' => '/micro_templates/admin_edit/', 'url' => '/micro_templates/admin_edit/'));
+	echo $this->Form->create('MicroTemplate', array('id' => 'contentform', 'url' => '/micro_templates/admin_edit/'));
 		
 		echo $this->Form->input('MicroTemplate.id', 
 							array(

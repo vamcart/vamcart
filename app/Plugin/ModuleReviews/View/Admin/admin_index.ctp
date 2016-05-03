@@ -12,7 +12,7 @@ $this->Html->script(array(
 
 echo $this->Admin->ShowPageHeaderStart($title_for_layout, 'cus-user-comment');
 
-echo $this->Form->create('ModuleReview', array('action' => '/module_reviews/admin/admin_modify_selected/', 'url' => '/module_reviews/admin/admin_modify_selected/'));
+echo $this->Form->create('ModuleReview', array('url' => '/module_reviews/admin/admin_modify_selected/'));
 
 echo '<table class="contentTable">';
 echo $this->Html->tableHeaders(array( __('Author'), __('Rating'), __('Product'), __('Date'), __('Action'), '<input type="checkbox" onclick="checkAll(this)" />'));

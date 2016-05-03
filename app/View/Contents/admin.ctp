@@ -91,7 +91,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-table');
 echo '<table class="contentHeader">';
 echo '<tr><td>';
 echo '<div class="text-left">';
-echo $this->Form->create('ContentCategories', array('action' => '/contents/admin/0/', 'url' => '/contents/admin/0/', 'type' => 'post'));
+echo $this->Form->create('ContentCategories', array('url' => '/contents/admin/0/', 'type' => 'post'));
 echo $this->Form->input('content_id', 
 			array(
 				'type' => 'select',
@@ -108,7 +108,7 @@ echo '</td>';
 echo '</tr>';
 echo '</table>';
 
-echo $this->Form->create('Content', array('action' => '/contents/admin_modify_selected/', 'url' => '/contents/admin_modify_selected/', 'onsubmit' => 'return beforeSubmit(this);'));
+echo $this->Form->create('Content', array('url' => '/contents/admin_modify_selected/', 'onsubmit' => 'return beforeSubmit(this);'));
 
 echo '<table class="contentTable">';
 

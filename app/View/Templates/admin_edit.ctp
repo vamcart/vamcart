@@ -24,7 +24,7 @@ $this->Html->css(array(
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 
-	echo $this->Form->create('Template', array('id' => 'contentform', 'action' => '/templates/admin_edit/'.$template_id, 'url' => '/templates/admin_edit/'.$template_id));
+	echo $this->Form->create('Template', array('id' => 'contentform', 'url' => '/templates/admin_edit/'.$template_id));
 	echo $this->Form->input('Template.id', 
 						array(
 				   		'type' => 'hidden'

@@ -13,7 +13,7 @@ $this->Html->script(array(
 
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-cog');
 
-echo $this->Form->create('Configuration', array('id' => 'contentform', 'action' => '/configuration/admin_edit/', 'url' => '/configuration/admin_edit/'));
+echo $this->Form->create('Configuration', array('id' => 'contentform', 'url' => '/configuration/admin_edit/'));
 
 		$gr = '';	
 		$st = '';	

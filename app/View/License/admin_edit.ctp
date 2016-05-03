@@ -13,7 +13,7 @@ $this->Html->script(array(
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-lock');
 
-	echo $this->Form->create('License', array('id' => 'contentform', 'action' => '/license/admin_edit/', 'url' => '/license/admin_edit/'));
+	echo $this->Form->create('License', array('id' => 'contentform', 'url' => '/license/admin_edit/'));
 	echo $this->Form->input('License.id', 
 						array(
 				   		'type' => 'hidden'

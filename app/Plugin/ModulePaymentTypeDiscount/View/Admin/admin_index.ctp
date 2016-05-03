@@ -13,7 +13,7 @@ $this->Html->script(array(
 
 	echo $this->Admin->ShowPageHeaderStart($title_for_layout, 'cus-application-edit');
 
-	echo $this->Form->create('ModulePaymentTypeDiscount', array('id' => 'contentform', 'action' => '/module_payment_type_discount/admin/admin_index/', 'url' => '/module_payment_type_discount/admin/admin_index/'));
+	echo $this->Form->create('ModulePaymentTypeDiscount', array('id' => 'contentform', 'url' => '/module_payment_type_discount/admin/admin_index/'));
 
 	$i = 0;
 	foreach ($payment_methods AS $payment_method)

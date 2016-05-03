@@ -13,7 +13,7 @@ $this->Html->script(array(
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 
-	echo $this->Form->create('Tax', array('id' => 'contentform', 'action' => '/taxes/admin_edit/', 'url' => '/taxes/admin_edit/'));
+	echo $this->Form->create('Tax', array('id' => 'contentform', 'url' => '/taxes/admin_edit/'));
 	echo $this->Form->input('Tax.id', 
 						array(
 				   		'type' => 'hidden'

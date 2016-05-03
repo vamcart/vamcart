@@ -13,7 +13,7 @@
 		'modified.js'
 	), array('inline' => false));
 	
-	echo $this->Form->create('User', array('id' => 'contentform', 'action' => '/users/admin_login/', 'url' => '/users/admin_login/'));
+	echo $this->Form->create('User', array('id' => 'contentform', 'url' => '/users/admin_login/'));
 
 	echo $this->Form->input('username', array('label' => __('Username')));
 	echo $this->Form->input('password', array('label' => __('Password'), 'autocomplete' => 'off'));

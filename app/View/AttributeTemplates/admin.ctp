@@ -8,7 +8,7 @@
 
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-tag-blue-add');
 
-echo $this->Form->create('AttributeTemplate', array('action' => '/admin_edit/new/'));
+echo $this->Form->create('AttributeTemplate', array('url' => '/admin_edit/new/'));
 
 echo '<table class="contentTable">';
 echo $this->Html->tableHeaders(array( __('Title'), __('Action')));

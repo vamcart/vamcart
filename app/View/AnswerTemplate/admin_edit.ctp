@@ -13,7 +13,7 @@ $this->Html->script(array(
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 
-	echo $this->Form->create('AnswerTemplate', array('id' => 'contentform', 'action' => '/answer_template/admin_edit/' . $data['AnswerTemplate']['id'], 'url' => '/answer_template/admin_edit/' . $data['AnswerTemplate']['id']));
+	echo $this->Form->create('AnswerTemplate', array('id' => 'contentform', 'url' => '/answer_template/admin_edit/' . $data['AnswerTemplate']['id']));
 	echo $this->Form->input('AnswerTemplate.id', 
 						array(
 				   		'type' => 'hidden',

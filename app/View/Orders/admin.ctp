@@ -96,7 +96,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-cart');
 echo '<table class="contentHeader">';
 echo '<tr><td>';
 echo '<div class="text-left">';
-echo $this->Form->create('Order', array('action' => '/orders/admin/', 'url' => '/orders/admin/', 'type' => 'get'));
+echo $this->Form->create('Order', array('url' => '/orders/admin/', 'type' => 'get'));
 echo $this->Form->input('Order.status_id', 
 			array(
 				'type' => 'select',
@@ -111,7 +111,7 @@ echo '</div>';
 echo '</td>';
 echo '<td>';
 echo '<div class="search-orders">';
-echo $this->Form->create('Search', array('action' => '/orders/admin_search/', 'url' => '/orders/admin_search/'));
+echo $this->Form->create('Search', array('url' => '/orders/admin_search/'));
 echo $this->Form->input('Search.term',array('label' => __('Search'),'placeholder' => __('Order Search')));
 echo $this->Form->submit( __('Submit'));
 echo $this->Form->end();
@@ -121,7 +121,7 @@ echo '</tr>';
 echo '</table>';
 
 
-echo $this->Form->create('Order', array('action' => '/orders/admin_modify_selected/', 'url' => '/orders/admin_modify_selected/', 'onsubmit' => 'return beforeSubmit(this);'));
+echo $this->Form->create('Order', array('url' => '/orders/admin_modify_selected/', 'onsubmit' => 'return beforeSubmit(this);'));
 
 echo '<table class="contentTable">';
 

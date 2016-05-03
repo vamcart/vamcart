@@ -17,7 +17,7 @@
       
         <?php
             echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-table');
-            echo $this->Form->create('Attribute', array('id' => 'attributeform', 'name' => 'attributeform','enctype' => 'multipart/form-data', 'action' => '/admin_editor_attr/save/' . $type));
+            echo $this->Form->create('Attribute', array('id' => 'attributeform', 'name' => 'attributeform','enctype' => 'multipart/form-data', 'url' => '/admin_editor_attr/save/' . $type));
 
             echo $this->Form->input('id',array('type' => 'hidden',
                                                        'value' => $attribute['Attribute']['id']

@@ -13,7 +13,7 @@ $this->Html->script(array(
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 
-	echo $this->Form->create('PaymentMethod', array('id' => 'contentform', 'action' => '/payment_methods/admin_edit/' . $data['PaymentMethod']['id'], 'url' => '/payment_methods/admin_edit/' . $data['PaymentMethod']['id']));
+	echo $this->Form->create('PaymentMethod', array('id' => 'contentform', 'url' => '/payment_methods/admin_edit/' . $data['PaymentMethod']['id']));
 	echo $this->Form->input('PaymentMethod.id', 
 						array(
 				   		'type' => 'hidden',

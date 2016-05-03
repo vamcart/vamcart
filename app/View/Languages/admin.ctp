@@ -12,7 +12,7 @@ $this->Html->script(array(
 
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-flag-green');
 
-echo $this->Form->create('Language', array('action' => '/languages/admin_modify_selected/', 'url' => '/languages/admin_modify_selected/'));
+echo $this->Form->create('Language', array('url' => '/languages/admin_modify_selected/'));
 
 echo '<table class="contentTable">';
 

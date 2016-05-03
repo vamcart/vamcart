@@ -12,7 +12,7 @@ $this->Html->script(array(
 
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-group');
 
-echo $this->Form->create('GroupsCustomer', array('action' => '/groups_customers/admin_modify_selected/', 'url' => '/groups_customers/admin_modify_selected/'));
+echo $this->Form->create('GroupsCustomer', array('url' => '/groups_customers/admin_modify_selected/'));
 
 echo '<table class="contentTable">';
 

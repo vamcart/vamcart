@@ -93,7 +93,7 @@ echo $this->Html->css('jquery-ui.css', null, array('inline' => false));
 
 	echo $this->Admin->ShowPageHeaderStart($title_for_layout, 'cus-cart-error');
 
-	echo $this->Form->create('Order', array('action' => '/module_abandoned_carts/admin/admin_modify_selected/', 'url' => '/module_abandoned_carts/admin/admin_modify_selected/', 'onsubmit' => 'return beforeSubmit(this);'));
+	echo $this->Form->create('Order', array('url' => '/module_abandoned_carts/admin/admin_modify_selected/', 'onsubmit' => 'return beforeSubmit(this);'));
 
 			echo '<ul id="myTab" class="nav nav-tabs">';
 			echo $this->Admin->CreateTab('main',__('Report'), 'cus-application');

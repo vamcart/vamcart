@@ -13,7 +13,7 @@ $this->Html->script(array(
 
 	echo $this->Admin->ShowPageHeaderStart($title_for_layout, 'cus-application-edit');
 
-	echo $this->Form->create('ContentProductPrice', array('id' => 'contentform', 'action' => '/discounts/admin_edit/', 'url' => '/discounts/admin_edit/'));
+	echo $this->Form->create('ContentProductPrice', array('id' => 'contentform', 'url' => '/discounts/admin_edit/'));
 	echo $this->Form->input('ContentProductPrice.id', 
 						array(
 				   		'type' => 'hidden'

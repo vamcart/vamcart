@@ -13,7 +13,7 @@ $this->Html->script(array(
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-tag-blue-edit');
 
-	echo $this->Form->create('Label', array('id' => 'contentform', 'action' => '/labels/admin_edit/', 'url' => '/labels/admin_edit/'));
+	echo $this->Form->create('Label', array('id' => 'contentform', 'url' => '/labels/admin_edit/'));
 	echo $this->Form->input('Label.id', 
 						array(
 				   		'type' => 'hidden'
