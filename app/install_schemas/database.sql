@@ -1,3 +1,4 @@
+SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
 SET SQL_MODE='';
 SET SQL_BIG_SELECTS=1;
 SET NAMES 'utf8';
@@ -38,7 +39,7 @@ INSERT INTO `configurations` (`id`, `configuration_group_id`, `key`, `value`, `t
 (3,'1','FACEBOOK', 'http://facebook.com/your-account','text', '', 'Facebook','','3'),
 (4,'1','TWITTER', 'http://twitter.com/your-account','text', '', 'Twitter','','4'),
 (5,'1','GOOGLE', 'http://plus.google.com/your-account','text', '', 'Google+','','5'),
-(6,'1','METADATA', '<meta name="generator" content="Bluefish 2.2.5" />','textarea', '', 'Metadata','','6'),
+(6,'1','METADATA', '<meta name="generator" content="Bluefish 2.2.7" />','textarea', '', 'Metadata','','6'),
 (7,'1','URL_EXTENSION', '.html','text', '', 'URL Extension','','7'),
 (8,'1','GD_LIBRARY', '1','select', '0,1', 'GD Library Enabled','','8'),
 (9,'1','THUMBNAIL_SIZE', '250','text', '', 'Image Thumbnail Size','','9'),
@@ -2202,8 +2203,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `created`, `modified`) VALUES 
 (1, 'admin', 'vam@test.com', '4e825adacc62644d112a2f4e41d395bfb31f55a9', '0000-00-00 00:00:00', '2009-07-23 15:34:53');
 
-DROP TABLE IF EXISTS user_prefs;
-CREATE TABLE `user_prefs` (
+DROP TABLE IF EXISTS user_preves;
+CREATE TABLE `user_preves` (
   `id` int(10) auto_increment,
   `user_id` int(10),
   `name` varchar(255) collate utf8_unicode_ci,
@@ -2211,7 +2212,7 @@ CREATE TABLE `user_prefs` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `user_prefs` (`id`, `user_id`, `name`, `value`) VALUES 
+INSERT INTO `user_preves` (`id`, `user_id`, `name`, `value`) VALUES 
 (1, 1, 'content_collapse', ''),
 (2, 1, 'template_collpase', ''),
 (3, 1, 'language', 'en');
