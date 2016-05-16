@@ -293,7 +293,7 @@ function smarty_function_content_listing($params, $template)
         $ContentGroup->recursive = -1;
         $content_list_group = $ContentGroup->find('list', array('fields' => array('Content.id_group', 'COUNT(Content.id) AS grp_cnt')
                                                          ,'conditions' => $content_list_data_conditions
-                                                         ,'group' => array('Content.order', 'Content.id_group HAVING grp_cnt > 1')
+                                                         ,'group' => array('Content.id_group HAVING grp_cnt > 1')
                                                          ,'order' => array('Content.order' => 'ASC')
                                                          ));
         $content_list_group = array_keys($content_list_group);            
