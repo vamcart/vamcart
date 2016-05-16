@@ -155,7 +155,8 @@ class DATABASE_CONFIG {
 		\'password\' => \'' . $this->data['Install']['db_password'] . '\',
 		\'database\' => \'' . $this->data['Install']['db_name'] . '\',
 		\'prefix\' => \'\',
-		\'encoding\' => \'utf8\' 
+		\'encoding\' => \'utf8\', 
+		\'settings\' => array(\'SQL_BIG_SELECTS\' => \'1\', \'SQL_MODE\' => \'(SELECT REPLACE(@@sql_mode,"ONLY_FULL_GROUP_BY",""))\')
 	);
 
 }
