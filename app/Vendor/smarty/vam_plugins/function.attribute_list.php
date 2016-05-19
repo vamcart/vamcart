@@ -43,10 +43,12 @@ function default_template_attribute_list()
 
                     <form id="set_attr_form" method="post" action={$base_content}>
                     {foreach from=$attr.element_list item=attr_element}
-                        {if $attr_element@first}<ul class="specs">{/if}                     
+                    {if $attr_element@first}<ul class="specs">{/if}                     
+                    {if $attr_element.values_attribute}                    
                         <li class="{cycle values="odd,even"}">{if !empty($attr_element.values_attribute.name)}<b>{/if}
                                 {$attr_element.name}:
                             {if !empty($attr_element.values_attribute.name)}</b>{/if}                                
+{if $attr_element.group_attributes}
                         <ul class="attributes nav nav-pills">
                             <li class="active"><span class="active">{$attr_element.values_attribute.name}</span></li>
                         {foreach from=$attr_element.group_attributes item=attr_val}                        
@@ -58,8 +60,10 @@ function default_template_attribute_list()
                             </li>                          
                         {/foreach}
                         </ul>
+{/if}                        
                         </li>
-                        {if $attr_element@last}</ul>{/if}                      
+                    {/if}                      
+                    {if $attr_element@last}</ul>{/if}
                     {/foreach}
                     <script type="text/javascript">
                     $(function () {      
