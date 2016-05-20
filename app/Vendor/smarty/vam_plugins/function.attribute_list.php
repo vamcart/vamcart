@@ -32,6 +32,19 @@ function default_template_attribute_list()
                         {/if}
                     {/foreach} 
                 {else if $attr.target=="PRODUCT_GROUP"}
+
+	                 {foreach from=$attr.element_list item=attr_element}
+	                     {if isset($attr_element.values_attribute)}
+	                         <ul class="specs">               
+	                             <li class="{cycle values="odd,even"}">{value_filter template=$attr_element.template.template_product 
+	                                               id_attribute=$attr_element.values_attribute.id 
+	                                               name_attribute=$attr_element.name 
+	                                               values_attribute=$attr_element.values_attribute}</li>
+	                         </ul>
+	                     {/if}
+	                 {/foreach}
+	                 <br /> 
+
 						<div id="spinner">
 							<img src="{base_path}/img/ajax-loader.gif" alt="" width="31" height="31" />
 						</div>
@@ -44,9 +57,9 @@ function default_template_attribute_list()
                     <form id="set_attr_form" method="post" action={$base_content}>
                     {foreach from=$attr.element_list item=attr_element}
                     {if $attr_element@first}<ul class="specs">{/if}                     
-                    {if $attr_element.values_attribute}                    
+                    {if $attr_element.values_attribute && $attr_element.group_attributes}                    
                         <li class="{cycle values="odd,even"}">{if !empty($attr_element.values_attribute.name)}<b>{/if}
-                                {$attr_element.name}:
+                                {lang}Select{/lang} {$attr_element.name}:
                             {if !empty($attr_element.values_attribute.name)}</b>{/if}                                
 {if $attr_element.group_attributes}
                         <ul class="attributes nav nav-pills">
@@ -89,6 +102,7 @@ function default_template_attribute_list()
                     });
                     </script>
                     </form>
+
                 {/if}
                 <br />              
     ';
