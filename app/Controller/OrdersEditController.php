@@ -428,7 +428,7 @@ class OrdersEditController extends AppController
                 $order['total'] += $order['tax'] + $order['shipping'];
             }
             
-            if (null !== $this->Session->read('order_edit.order.total_temp')) $order['total'] = $this->Session->read('order_edit.order.total');
+            //if (null !== $this->Session->read('order_edit.order.total_temp')) $order['total'] = $this->Session->read('order_edit.order.total');
 
             $temp_order = array('Order' => array( 'id' => $order['id']
                             ,'order_status_id' => '1'
