@@ -258,6 +258,16 @@ class OrdersEditController extends AppController
         $this->set('return',$this->data['value']);
         $this->render('/Elements/ajaxreturn');
     }
+
+    public function edit_total()
+    {
+        $order = $this->Session->read('order_edit.order');
+        $order['total'] = strip_tags($this->data['value']);
+        $order['total_temp'] = strip_tags($this->data['value']);
+        $this->Session->write('order_edit.order', $order);
+        $this->set('return',$this->data['value']);
+        $this->render('/Elements/ajaxreturn');
+    }
         
     public function admin_add_product ($category = 'group', $id = 0)
     {
@@ -417,6 +427,8 @@ class OrdersEditController extends AppController
                 }
                 $order['total'] += $order['tax'] + $order['shipping'];
             }
+            
+            if (null !== $this->Session->read('order_edit.order.total_temp')) $order['total'] = $this->Session->read('order_edit.order.total');
 
             $temp_order = array('Order' => array( 'id' => $order['id']
                             ,'order_status_id' => '1'

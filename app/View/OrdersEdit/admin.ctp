@@ -51,7 +51,7 @@ echo $this->Html->scriptBlock('
         total_sum = Math.round(total_sum *100)/100;
         total_sum += shipping_sum + tax_sum;
 
-        $("#price_total").html("<strong>"+total_sum+"</strong>");
+        $("#price_total").html(total_sum);
     }
 
     function changeContentTable(id,value)
@@ -244,9 +244,13 @@ echo $this->Html->scriptBlock('
                                     '&nbsp;',
                                     '&nbsp;',
                                     '&nbsp;',
-                                    array('<strong>' . $order['total'] .'</strong>',array('id' => 'price_total')),
+                                    array($order['total'],array('id' => 'price_total','class' => 'edit')),
                                     ''
                       ));		  
+            echo $this->Ajax->editor('price_total','/orders_edit/edit_total/',  array('callback' => ''
+                                                                  ,'tooltip' => __('quantity')
+                                                                  ,'placeholder' => '_'
+                                                                  ,'onblur' => 'submit'));
 
     }
     echo '</table>';
