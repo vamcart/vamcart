@@ -417,6 +417,12 @@ class OrdersEditController extends AppController
             $this->ContentProduct->UnbindAll();
             $order = $this->Session->read('order_edit.order');
 
+            if(!empty($order['total_temp'])) {
+            	
+            	$order['total'] = $this->Session->read('order_edit.order.total_temp');
+            
+            } else {
+
             if(!empty($order['OrderProduct']))
             {    
                $order['total'] = $order['tax'] = 0;
@@ -426,6 +432,8 @@ class OrdersEditController extends AppController
                     $order['total'] += ($value['price'] * $value['quantity']);
                 }
                 $order['total'] += $order['tax'] + $order['shipping'];
+            }
+            
             }
             
             //if (null !== $this->Session->read('order_edit.order.total_temp')) $order['total'] = $this->Session->read('order_edit.order.total');
@@ -532,6 +540,7 @@ class OrdersEditController extends AppController
                 $msg = __('Order saved!');
             } else $msg = __('Order not saved!');
             $this->Session->write('order_edit.order', $order);     
+            $this->Session->delete('order_edit.order.total_temp');     
             $this->Session->setFlash($msg);
             $this->redirect('/orders_edit/admin/redirect/');
         }
