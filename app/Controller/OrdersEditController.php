@@ -262,8 +262,8 @@ class OrdersEditController extends AppController
     public function edit_total()
     {
         $order = $this->Session->read('order_edit.order');
-        $order['total'] = strip_tags($this->data['value']);
-        $order['total_temp'] = strip_tags($this->data['value']);
+        $order['total'] = $this->data['value'];
+        $order['total_temp'] = $this->data['value'];
         $this->Session->write('order_edit.order', $order);
         $this->set('return',$this->data['value']);
         $this->render('/Elements/ajaxreturn');
