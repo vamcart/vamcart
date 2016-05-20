@@ -503,3 +503,6 @@ msgstr "Почтовый индекс"
 
 msgid "ZoneBased"
 msgstr "Зональный тариф"
+
+msgid "Select"
+msgstr "Выберите"
