@@ -1,3 +1,7 @@
+SET SQL_MODE=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+SET SQL_BIG_SELECTS=1;
+SET NAMES 'utf8';
+  
 DROP TABLE IF EXISTS configuration_groups;
 CREATE TABLE `configuration_groups` (
   `id` int(10) auto_increment,
