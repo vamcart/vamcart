@@ -75,7 +75,7 @@ class CartController extends AppController {
 		global $config;
 		$content = $this->Content->read(null, $_POST['product_id']);
 
-		if ($qty > 0 & $qty < $content['ContentProduct']['stock']) {
+		if ($qty < $content['ContentProduct']['stock']) {
 		// Add the product to the order from the component
 		$this->OrderBase->add_product($_POST['product_id'], $qty);
 		} else {
