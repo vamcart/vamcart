@@ -5741,3 +5741,5 @@ msgstr "Дополнительная информация о компании."
 msgid "Company VAT."
 msgstr "ИНН компании."
 
+msgid "Maximum product quantity available at our stock: "
+msgstr "Максимально доступное количество товара на нашем складе: "

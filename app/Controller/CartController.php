@@ -72,14 +72,18 @@ class CartController extends AppController {
 
 		$qty = (isset($_POST['product_quantity']) && $_POST['product_quantity'] > 0) ? $_POST['product_quantity'] : 1;
 
-		// Add the product to the order from the component
-		$this->OrderBase->add_product($_POST['product_id'], $qty);
-
 		global $config;
 		$content = $this->Content->read(null, $_POST['product_id']);
 
+		if ($qty > 0 & $qty < $content['ContentProduct']['stock']) {
+		// Add the product to the order from the component
+		$this->OrderBase->add_product($_POST['product_id'], $qty);
+		} else {
+		$this->Session->setFlash(__('Maximum product quantity available at our stock: ').$content['ContentProduct']['stock'], 'bootstrap_alert_error');
+		}
+
 		if ($this->RequestHandler->isAjax()) {
-			$this->Smarty->display("{shopping_cart template='cart-content-box'}");
+			$this->Smarty->display("{flash_message}{shopping_cart template='cart-content-box'}");
 			die();
 		} else {
 			$this->redirect('/page/cart-contents' . $config['URL_EXTENSION']);
