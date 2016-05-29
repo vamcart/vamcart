@@ -246,7 +246,7 @@ INSERT INTO `content_descriptions` VALUES
 (815, 106, 1, 'One Click Buy', '{module alias=''one_click_buy'' controller=''buy'' action=''success''}', NULL, NULL, NULL, NULL),
 (816, 106, 2, 'Купить за 1 клик', '{module alias=''one_click_buy'' controller=''buy'' action=''success''}', NULL, NULL, NULL, NULL),
 (817, 107, 1, 'Brands', '', NULL, NULL, NULL, NULL),
-(818, 107, 2, 'Производители', '', NULL, NULL, NULL, NULL),
+(818, 107, 2, 'Брэнды', '', NULL, NULL, NULL, NULL),
 (819, 108, 1, 'Samsung', '', NULL, NULL, NULL, NULL),
 (820, 108, 2, 'Samsung', '', NULL, NULL, NULL, NULL),
 (821, 109, 1, 'Password Recovery', '{password_recovery}', '', '', '', ''),
