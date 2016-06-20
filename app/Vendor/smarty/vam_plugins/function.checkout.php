@@ -134,12 +134,12 @@ $(this).parent().addClass("selected");
   });
 </script>
 {if $dadata_api_key != "" and $smarty.session.Config.language == "ru"}
-<link href="https://dadata.ru/static/css/lib/suggestions-15.7.css" type="text/css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/jquery.suggestions/16.5.3/css/suggestions.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <!--[if lt IE 10]>
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.1/jquery.xdomainrequest.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.1/jquery.xdomainrequest.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="https://dadata.ru/static/js/lib/jquery.suggestions-15.7.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.suggestions/16.5.3/js/jquery.suggestions.min.js"></script>
 <script type="text/javascript">
 (function($) {
 
@@ -149,7 +149,8 @@ var token = "{$dadata_api_key}";
 
 {literal}
 $("#bill_name").suggestions({
-  serviceUrl: "https://dadata.ru/api/v2",
+  serviceUrl: "https://suggestions.dadata.ru/suggestions/api/4_1/rs",
+  partner: "VAMSHOP",
   token: token,
   type: "NAME",
   params: {
@@ -158,7 +159,8 @@ $("#bill_name").suggestions({
 });
 
 $("#email").suggestions({
-  serviceUrl: "https://dadata.ru/api/v2",
+  serviceUrl: "https://suggestions.dadata.ru/suggestions/api/4_1/rs",
+  partner: "VAMSHOP",
   token: token,
   type: "EMAIL",
   params: {
@@ -167,7 +169,8 @@ $("#email").suggestions({
 });
       
 $("#bill_line_1").suggestions({
-  serviceUrl: "https://dadata.ru/api/v2",
+  serviceUrl: "https://suggestions.dadata.ru/suggestions/api/4_1/rs",
+  partner: "VAMSHOP",
   token: token,
   type: "ADDRESS",
   geoLocation: true,
