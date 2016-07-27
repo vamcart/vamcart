@@ -45,7 +45,8 @@ class CurrencyBaseComponent extends Object
 
 		$price = $price * $currency['Currency']['value'];
 		$price = number_format($price,$currency['Currency']['decimal_places'],$currency['Currency']['decimal_point'],$currency['Currency']['thousands_point']);
-		$price = $currency['Currency']['symbol_left'] . ' ' . $price . ' ' . $currency['Currency']['symbol_right'];
+		$price = (($currency['Currency']['symbol_left'] != '') ? '<span itemprop="priceCurrency" content="'.$currency['Currency']['code'].'">'.$currency['Currency']['symbol_left'] . '</span>' . ' ': '') . $price . (($currency['Currency']['symbol_right'] != '') ? '<span itemprop="priceCurrency" content="'.$currency['Currency']['code'].'">' . ' ' . $currency['Currency']['symbol_right'] . '</span>' : '');
+
 		return $price;
 	}
 
