@@ -45,31 +45,10 @@ class CurrencyBaseComponent extends Object
 
 		$price = $price * $currency['Currency']['value'];
 		$price = number_format($price,$currency['Currency']['decimal_places'],$currency['Currency']['decimal_point'],$currency['Currency']['thousands_point']);
-		$price = (($currency['Currency']['symbol_left'] != '') ? '<span itemprop="priceCurrency" content="'.$currency['Currency']['code'].'">'.$currency['Currency']['symbol_left'] . '</span>': '') . $price . (($currency['Currency']['symbol_right'] != '') ? '<span itemprop="priceCurrency" content="'.$currency['Currency']['code'].'">' . ' ' . $currency['Currency']['symbol_right'] . '</span>' : '');
-
+		$price = $currency['Currency']['symbol_left'] . ' ' . $price . ' ' . $currency['Currency']['symbol_right'];
 		return $price;
 	}
 
-	public function display_price_plain ($price)
-	{
-		// Start Cache
-		$currency = Cache::read('vam_currency_' . $_SESSION['Customer']['currency_id'], 'catalog');
-		if($currency === false)
-		{
-		
-			App::import('Model', 'Currency');
-			$Currency = new Currency();
-	
-			$currency = $Currency->read(null, $_SESSION['Customer']['currency_id']);
-
-			Cache::write('vam_currency_' . $_SESSION['Customer']['currency_id'], $currency, 'catalog');
-		}
-
-		$price = $price * $currency['Currency']['value'];
-		$price = number_format($price,$currency['Currency']['decimal_places'],$currency['Currency']['decimal_point'],$currency['Currency']['thousands_point']);
-
-		return $price;
-	}
 
 	
 	
