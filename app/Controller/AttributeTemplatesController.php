@@ -9,7 +9,7 @@
 class AttributeTemplatesController extends AppController {
     public $name = 'AttributeTemplates';
 	
-    public function admin_edit ($action = 'init' ,$id = null)
+    public function admin_edit ($action = 'init' ,$id)
     {
         switch ($action) 
 	{
@@ -36,8 +36,8 @@ class AttributeTemplatesController extends AppController {
                     } else $this->Session->setFlash(__('Record not saved!'), 'default', array('class' => 'error-message red'));  
                     if(isset($this->data['apply'])) 
                     {
-                        if($id == null) $id = $this->AttributeTemplate->getLastInsertId();
-                        $this->redirect('/attribute_templates/admin_edit/edit/' . $id);
+                        //if($id == null) $id = $this->AttributeTemplate->getLastInsertId();
+                        //$this->redirect('/attribute_templates/admin_edit/edit/' . $id);
                     }
                 }
                 $this->redirect('/attribute_templates/admin');
