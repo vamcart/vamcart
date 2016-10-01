@@ -5,7 +5,7 @@
 | (c) 2003-2011 zapimir      zapimir@zapimir.net       http://sypex.net/    |
 | (c) 2005-2011 BINOVATOR    info@sypex.net                                 |
 |---------------------------------------------------------------------------|
-|     created: 2003.09.02 19:07              modified: 2013.08.27 06:27     |
+|     created: 2003.09.02 19:07              modified: 2016.08.27 06:27     |
 |---------------------------------------------------------------------------|
 | Sypex Dumper is released under the terms of the BSD license               |
 |   http://sypex.net/bsd_license.txt                                        |
