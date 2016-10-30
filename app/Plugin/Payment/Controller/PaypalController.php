@@ -54,7 +54,7 @@ class PaypalController extends PaymentAppController {
 		
 		$paypal_email = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'paypal_email')));
 		$email = $paypal_email['PaymentMethodValue']['value'];
-		$return_url = $_SERVER['HTTP_HOST'] .  BASE . '/orders/place_order/';
+		$return_url = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] .  BASE . '/orders/place_order/';
 		$cancel_url = $_SERVER['HTTP_HOST'];
 		
 		$content = '
