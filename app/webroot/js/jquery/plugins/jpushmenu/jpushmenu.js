@@ -1,3 +1,11 @@
+/*!
+ * jPushMenu.js
+ * 1.1.1
+ * @author: takien
+ * http://takien.com
+ * Original version (pure JS) is created by Mary Lou http://tympanus.net/
+ */
+
 (function($) {
 		
 	$.fn.jPushMenu = function(customOptions) {
@@ -46,25 +54,23 @@
 			}
 		}
 
-    if(o.closeOnClickInside) {
-       $(document).click(function() {
-          jPushMenu.close();
-        });
-
-       $('.cbp-spmenu,.toggle-menu').click(function(e){
-         e.stopPropagation();
-       });
-    }
-		
-		if(o.closeOnClickOutside) {
-			 $(document).click(function() { 
+    if(o.closeOnClickOutside) {
+			$(document).click(function() {
 				jPushMenu.close();
-			 }); 
+			});
 
-			 $('.cbp-spmenu,.toggle-menu').click(function(e){ 
-				 e.stopPropagation(); 
-			 });
-		 }
+			$(document).on('click touchstart', function(){
+				jPushMenu.close();
+			});
+
+			$('.cbp-spmenu,.toggle-menu').click(function(e){
+				e.stopPropagation();
+			});
+
+			$('.cbp-spmenu,.toggle-menu').on('click touchstart', function(e){
+				e.stopPropagation();
+			});
+		}
 
         // On Click Link
         if(o.closeOnClickLink) {
