@@ -358,7 +358,9 @@ class OrdersController extends AppController {
 			$order = $order[0];
 
 			$body = str_replace('{$shipping_method}', __($order['ShippingMethod']['name'], true), $body);
+			$body = str_replace('{$shipping_method_description}', __($order['ShippingMethod']['description'], true), $body);
 			$body = str_replace('{$payment_method}', __($order['PaymentMethod']['name'], true), $body);
+			$body = str_replace('{$payment_method_description}', __($order['PaymentMethod']['description'], true), $body);
 			$body = str_replace('{$date}', $order['Order']['created'], $body);
 			$body = str_replace('{$phone}', $order['Order']['phone'], $body);
 			$body = str_replace('{$email}', $order['Order']['email'], $body);
@@ -588,13 +590,28 @@ class OrdersController extends AppController {
 		$body = str_replace('{$ship_country}', $order['ShipCountry']['name'], $body);
 		$body = str_replace('{$ship_zip}', $order['Order']['ship_zip'], $body);
 
-		$body = str_replace('{$shipping_method}', $order['ShippingMethod']['name'], $body);
-		$body = str_replace('{$payment_method}', $order['PaymentMethod']['name'], $body);
+		$body = str_replace('{$shipping_method}', __($order['ShippingMethod']['name'],true), $body);
+		$body = str_replace('{$shipping_method_description}', __($order['ShippingMethod']['description'],true), $body);
+		$body = str_replace('{$payment_method}', __($order['PaymentMethod']['name'],true), $body);
+		$body = str_replace('{$payment_method_description}', __($order['PaymentMethod']['description'],true), $body);
 		$body = str_replace('{$date}', $order['Order']['created'], $body);
 		$body = str_replace('{$phone}', $order['Order']['phone'], $body);
 		$body = str_replace('{$email}', $order['Order']['email'], $body);
 		$body = str_replace('{$order_total}', $order['Order']['total'], $body);
-		
+
+		$order_products = '';
+		foreach($order['OrderProduct'] AS $product) {
+			$order_products .= $product['quantity'] . ' x ' . $product['name'] . ' = ' . $product['quantity']*$product['price'] . "\n";
+			if ('' != $product['filename']) {
+				$order_products .= __('Download link: ', true) . FULL_BASE_URL . BASE . '/download/' . $order['Order']['id'] . '/' . $product['id'] . '/' . $product['download_key'] . "\n";
+			}
+		}
+
+		$order_products .= "\n" . __($order['ShippingMethod']['name'], true) . ': ' . $order['Order']['shipping'] . "\n";
+		$order_products .= __('Order Total',true) . ': ' . $order['Order']['total'] . "\n";
+
+		$body = str_replace('{$products}', $order_products, $body);
+					
 		// Email Body
 		$this->Email->Body = $body;
 		
@@ -789,11 +806,26 @@ class OrdersController extends AppController {
 		$body = str_replace('{$ship_country}', $old_order['Order']['ship_country'], $body);
 		$body = str_replace('{$ship_zip}', $old_order['Order']['ship_zip'], $body);
 
-		$body = str_replace('{$shipping_method}', $old_order['ShippingMethod']['name'], $body);
-		$body = str_replace('{$payment_method}', $old_order['PaymentMethod']['name'], $body);
+		$body = str_replace('{$shipping_method}', __($old_order['ShippingMethod']['name'],true), $body);
+		$body = str_replace('{$shipping_method_description}', __($old_order['ShippingMethod']['description'],true), $body);
+		$body = str_replace('{$payment_method}', __($old_order['PaymentMethod']['name'],true), $body);
+		$body = str_replace('{$payment_method_description}', __($old_order['PaymentMethod']['description'],true), $body);
 		$body = str_replace('{$date}', $old_order['Order']['created'], $body);
 		$body = str_replace('{$phone}', $old_order['Order']['phone'], $body);
 		$body = str_replace('{$email}', $old_order['Order']['email'], $body);
+
+		$order_products = '';
+		foreach($old_order['OrderProduct'] AS $product) {
+			$order_products .= $product['quantity'] . ' x ' . $product['name'] . ' = ' . $product['quantity']*$product['price'] . "\n";
+			if ('' != $product['filename']) {
+				$order_products .= __('Download link: ', true) . FULL_BASE_URL . BASE . '/download/' . $old_order['Order']['id'] . '/' . $product['id'] . '/' . $product['download_key'] . "\n";
+			}
+		}
+
+		$order_products .= "\n" . __($old_order['ShippingMethod']['name'], true) . ': ' . $old_order['Order']['shipping'] . "\n";
+		$order_products .= __('Order Total',true) . ': ' . $old_order['Order']['total'] . "\n";
+
+		$body = str_replace('{$products}', $order_products, $body);
 		
 		// Email Body
 		$this->Email->Body = $body;
