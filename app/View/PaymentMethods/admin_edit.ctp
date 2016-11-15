@@ -24,6 +24,13 @@ $this->Html->script(array(
 				   		'label' => __('Name'),
    						'value' => $data['PaymentMethod']['name']
 	               ));				     				   	   																									
+	echo $this->Form->input('PaymentMethod.description', 
+						array(
+							'type' => 'textarea',
+							'label' => __('Description'),
+							'class' => 'pagesmalltextarea',
+							'value' => $data['PaymentMethod']['description']
+	               ));				     				   	   																									
 	echo $this->Form->input('PaymentMethod.order', 
 						array(
 				   		'label' => __('Sort Order'),

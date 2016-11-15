@@ -25,6 +25,13 @@ $this->Html->script(array(
 						'label' => __('Name'),
 						'value' => $data['ShippingMethod']['name']
 					));					
+		echo $this->Form->input('ShippingMethod.description', 
+					array(
+						'type' => 'textarea',
+						'label' => __('Description'),
+						'class' => 'pagesmalltextarea',
+						'value' => $data['ShippingMethod']['description']
+					));					
 		echo $this->Form->input('ShippingMethod.order', 
 					array(
 						'type' => 'text',
