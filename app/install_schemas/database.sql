@@ -1941,6 +1941,7 @@ CREATE TABLE `payment_methods` (
   `active` tinyint(4),
   `default` tinyint(4),
   `name` varchar(255) collate utf8_unicode_ci,
+  `description` text collate utf8_unicode_ci,
   `icon` varchar(255) collate utf8_unicode_ci,
   `alias` varchar(255) collate utf8_unicode_ci,
   `order` int(10),
@@ -1948,13 +1949,13 @@ CREATE TABLE `payment_methods` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `payment_methods` (`id`, `active`, `default`, `name`, `icon`, `alias`, `order`, `order_status_id`) VALUES 
-(1, 1, 0, 'In-store Pickup', 'pickup.png', 'StorePickup', 0, 0),
-(2, 1, 1, 'Money Order Check', 'moneyorder.png', 'MoneyOrderCheck', 0, 0),
-(3, 1, 0, 'Paypal', 'paypal.png', 'Paypal', 0, 0),
-(4, 1, 0, 'Credit Card', 'creditcard.png', 'CreditCard', 0, 0),
-(5, 1, 0, 'Authorize.Net', 'authorize.png', 'Authorize', 0, 0),
-(6, 1, 0, 'Google Checkout', 'googlecheckout.png', 'GoogleHtml', 0, 0);
+INSERT INTO `payment_methods` (`id`, `active`, `default`, `name`, `description`, `icon`, `alias`, `order`, `order_status_id`) VALUES 
+(1, 1, 0, 'In-store Pickup', 'Description', 'pickup.png', 'StorePickup', 0, 0),
+(2, 1, 1, 'Money Order Check', '', 'moneyorder.png', 'MoneyOrderCheck', 0, 0),
+(3, 1, 0, 'Paypal', '', 'paypal.png', 'Paypal', 0, 0),
+(4, 1, 0, 'Credit Card', '', 'creditcard.png', 'CreditCard', 0, 0),
+(5, 1, 0, 'Authorize.Net', '', 'authorize.png', 'Authorize', 0, 0),
+(6, 1, 0, 'Google Checkout', '', 'googlecheckout.png', 'GoogleHtml', 0, 0);
 
 DROP TABLE IF EXISTS payment_method_values;
 CREATE TABLE `payment_method_values` (
@@ -2000,6 +2001,7 @@ DROP TABLE IF EXISTS shipping_methods;
 CREATE TABLE `shipping_methods` (
   `id` int(10) auto_increment,
   `name` varchar(255) collate utf8_unicode_ci,
+  `description` text collate utf8_unicode_ci,
   `icon` varchar(255) collate utf8_unicode_ci,
   `code` varchar(255) collate utf8_unicode_ci,
   `default` tinyint(4) default '0',
@@ -2008,12 +2010,12 @@ CREATE TABLE `shipping_methods` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `shipping_methods` (`id`, `name`, `icon`, `code`, `default`, `active`, `order`) VALUES
-(1, 'FlatRate', 'flat.png', 'FlatRate', 1, 1, 0),
-(2, 'PerItem', 'item.png', 'PerItem', 0, 1, 0),
-(3, 'RussianPost', 'russianpost.png', 'RussianPost', 0, 1, 0),
-(4, 'TableBased', 'table.png', 'TableBased', 0, 1, 0),
-(5, 'ZoneBased', 'zone.png', 'ZoneBased', 0, 1, 0);
+INSERT INTO `shipping_methods` (`id`, `name`, `description`, `icon`, `code`, `default`, `active`, `order`) VALUES
+(1, 'FlatRate', 'Description', 'flat.png', 'FlatRate', 1, 1, 0),
+(2, 'PerItem', '', 'item.png', 'PerItem', 0, 1, 0),
+(3, 'RussianPost', '', 'russianpost.png', 'RussianPost', 0, 1, 0),
+(4, 'TableBased', '', 'table.png', 'TableBased', 0, 1, 0),
+(5, 'ZoneBased', '', 'zone.png', 'ZoneBased', 0, 1, 0);
 
 DROP TABLE IF EXISTS shipping_method_values;
 CREATE TABLE `shipping_method_values` (
