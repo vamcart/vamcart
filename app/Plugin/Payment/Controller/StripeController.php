@@ -53,6 +53,8 @@ class StripeController extends PaymentAppController {
 
 	public function before_process () 
 	{
+		global $config;
+		
 		$order = $this->Order->read(null,$_SESSION['Customer']['order_id']);
 		
 		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
@@ -62,32 +64,83 @@ class StripeController extends PaymentAppController {
 
 		$publish_key_query = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'publish_key')));
 		$publish_key = $publish_key_query['PaymentMethodValue']['value'];
+
+        App::import('Vendor', 'stripe', array('file' => 'stripe'.DS.'init.php'));
+
+$stripe = array(
+  'secret_key'      => 'sk_test_pMHNYyqsni45QoKGAJ7DlFYv',
+  'publishable_key' => 'pk_test_L83k75ErjGIy0tOg7ptmeIUn'
+);
+
+\Stripe\Stripe::setApiKey($stripe['secret_key']);
+
 		
 				$content = '	
-		<form action="' . BASE . '/orders/place_order/" method="post">
-		<button class="btn btn-default" type="submit" value="{lang}Pay With Card{/lang}"><i class="fa fa-check"></i> {lang}Pay With Card{/lang}</button>
+		<form action="' . BASE . '/payment/stripe/process_payment/" method="post">
+		<button class="btn btn-default" type="submit" value="{lang}Confirm Order{/lang}"><i class="fa fa-check"></i> {lang}Confirm Order{/lang}</button>
 		  <script
 		    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 		    data-key="'.$publish_key.'"
 		    data-amount="' . $order['Order']['total'] . '"
-		    data-name="' . $_SESSION['Customer']['order_id'] . ' ' . $order['Order']['email'] . '"
-		    data-description="'.$_SESSION['Customer']['order_id'].'"
+		    data-name="'.$config['SITE_NAME'].'"
+		    data-description="'.$_SESSION['Customer']['order_id'] . ' ' . $order['Order']['email'].'"
 		    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
 		    data-locale="auto">
 		  </script>
 		</form>';
 		return $content;
 	}
-	
-	public function after_process()
+
+	public function process_payment()
 	{
 		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 		$order_data = $this->Order->find('first', array('conditions' => array('Order.id' => $_SESSION['Customer']['order_id'])));
+
+        App::import('Vendor', 'stripe', array('file' => 'stripe'.DS.'init.php'));
+
+$stripe = array(
+  'secret_key'      => 'sk_test_pMHNYyqsni45QoKGAJ7DlFYv',
+  'publishable_key' => 'pk_test_L83k75ErjGIy0tOg7ptmeIUn'
+);
+
+\Stripe\Stripe::setApiKey($stripe['secret_key']);
+
+		  $token  = $_POST['stripeToken'];
+		
+		  $customer = \Stripe\Customer::create(array(
+		      'email' => $order_data['Order']['email'],
+		      'card'  => $token
+		  ));
+		
+		  $charge = \Stripe\Charge::create(array(
+		      'customer' => $customer->id,
+		      'amount'   => $order_data['Order']['total'],
+		      'currency' => 'usd'
+		  ));
+
 		if ($payment_method['PaymentMethod']['order_status_id'] > 0) {
 		$order_data['Order']['order_status_id'] = $payment_method['PaymentMethod']['order_status_id'];
-		
+
 		$this->Order->save($order_data);
+
 		}
+		
+		//$this->redirect('/page/success' . $config['URL_EXTENSION']);
+	}
+		
+	public function after_process()
+	{
+	// Save the order
+	
+		foreach($_POST AS $key => $value)
+			$order['Order'][$key] = $value;
+		
+		// Get the default order status
+		$default_status = $this->Order->OrderStatus->find('first', array('conditions' => array('default' => '1')));
+		$order['Order']['order_status_id'] = $default_status['OrderStatus']['id'];
+
+		// Save the order
+		$this->Order->save($order);
 	}
 	
 	
