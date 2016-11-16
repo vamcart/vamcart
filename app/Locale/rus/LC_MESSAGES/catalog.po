@@ -506,3 +506,15 @@ msgstr "Зональный тариф"
 
 msgid "Select"
 msgstr "Выберите"
+
+msgid "Card Number:"
+msgstr "Номер карточки:"
+
+msgid "Card Expiry Date:"
+msgstr "Срок действия:"
+
+msgid "CVC:"
+msgstr "CVC:"
+
+msgid "Pay with Card"
+msgstr "Оплатить карточкой"

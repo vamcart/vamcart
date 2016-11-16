@@ -127,27 +127,49 @@ function stripeResponseHandler(status, response) {
 		<span class="payment-errors"></span>
 		<div id="stripe">
 		<div class="form-group">
-			<label class="col-sm-3 control-label" for="email">{lang}Card Number{/lang}:</label>
+			<label class="col-sm-3 control-label" for="email">{lang}Card Number:{/lang}</label>
 			<div class="col-sm-9">
 				<input type="text" class="form-control" data-stripe="number" />
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-3 control-label" for="email">{lang}Expiration month (MM){/lang}:</label>
-			<div class="col-sm-9">
-				<input type="text" class="form-control" size="2" data-stripe="exp_month" />
+		<label class="col-sm-3 control-label" for="textinput">{lang}Card Expiry Date:{/lang}</label>
+		<div class="col-sm-9">
+			<div class="form-inline">
+				<select name="select2" data-stripe="exp_month" class="card-expiry-month stripe-sensitive required form-control">
+				<option value="01" selected="selected">01</option>
+				<option value="02">02</option>
+				<option value="03">03</option>
+				<option value="04">04</option>
+				<option value="05">05</option>
+				<option value="06">06</option>
+				<option value="07">07</option>
+				<option value="08">08</option>
+				<option value="09">09</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+				</select>
+			<span> / </span>
+			<select name="select2" data-stripe="exp_year" class="card-expiry-year stripe-sensitive required form-control">
+			</select>
+			<script type="text/javascript">
+			$(function() {
+				var select = $(".card-expiry-year"),
+				year = new Date().getFullYear();
+ 
+				for (var i = 0; i < 12; i++) {
+					select.append($("<option value=\'"+(i + year)+"\' "+(i === 0 ? "selected" : "")+">"+(i + year)+"</option>"))
+				}
+			});
+			</script> 
 			</div>
 		</div>
-		<div class="form-group">
-			<label class="col-sm-3 control-label" for="email">{lang}Expiration year (YY){/lang}:</label>
-			<div class="col-sm-9">
-				<input type="text" class="form-control" size="2" data-stripe="exp_year" />
-			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-3 control-label" for="email">{lang}CVC{/lang}:</label>
+			<label class="col-sm-3 control-label" for="email">{lang}CVC:{/lang}</label>
 			<div class="col-sm-9">
-				<input type="text" class="form-control" size="3" data-stripe="cvc" />
+				<input type="text" class="form-control" maxlength="4" data-stripe="cvc" />
 			</div>
 		</div>
 		<button class="btn btn-default submit" type="submit" value="{lang}Pay with Card{/lang}"><i class="fa fa-check"></i> {lang}Pay with Card{/lang}</button>
@@ -197,25 +219,11 @@ function stripeResponseHandler(status, response) {
 
 		}
 
-		// Empty the cart
-		$_SESSION['Customer']['order_id'] = null;
-					
-		$this->redirect('/page/success' . $config['URL_EXTENSION']);
+		$this->redirect('/orders/place_order/');
 	}
 		
 	public function after_process()
 	{
-	// Save the order
-	
-		foreach($_POST AS $key => $value)
-			$order['Order'][$key] = $value;
-		
-		// Get the default order status
-		$default_status = $this->Order->OrderStatus->find('first', array('conditions' => array('default' => '1')));
-		$order['Order']['order_status_id'] = $default_status['OrderStatus']['id'];
-
-		// Save the order
-		$this->Order->save($order);
 	}
 	
 	
