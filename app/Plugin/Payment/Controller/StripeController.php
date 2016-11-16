@@ -74,36 +74,108 @@ $stripe = array(
 
 \Stripe\Stripe::setApiKey($stripe['secret_key']);
 
-		
 				$content = '	
-		<form action="' . BASE . '/payment/stripe/process_payment/" method="post">
-		<button class="btn btn-default" type="submit" value="{lang}Confirm Order{/lang}"><i class="fa fa-check"></i> {lang}Confirm Order{/lang}</button>
-		  <script
-		    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-		    data-key="'.$publish_key.'"
-		    data-amount="' . $order['Order']['total'] . '"
-		    data-name="'.$config['SITE_NAME'].'"
-		    data-description="'.$_SESSION['Customer']['order_id'] . ' ' . $order['Order']['email'].'"
-		    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-		    data-locale="auto">
-		  </script>
+
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+
+<script type="text/javascript">
+  Stripe.setPublishableKey("'.$publish_key.'");
+</script>
+
+<script>
+
+$(function() {
+  var $form = $("#payment-form");
+  $form.submit(function(event) {
+    // Disable the submit button to prevent repeated clicks:
+    $form.find(".submit").prop("disabled", true);
+
+    // Request a token from Stripe:
+    Stripe.card.createToken($form, stripeResponseHandler);
+
+    // Prevent the form from being submitted:
+    return false;
+  });
+});
+
+function stripeResponseHandler(status, response) {
+  // Grab the form:
+  var $form = $("#payment-form");
+
+  if (response.error) { // Problem!
+
+    // Show the errors on the form:
+    $form.find(".payment-errors").text(response.error.message);
+    $form.find(".submit").prop("disabled", false); // Re-enable submission
+
+  } else { // Token was created!
+
+    // Get the token ID:
+    var token = response.id;
+
+    // Insert the token ID into the form so it gets submitted to the server:
+    $form.append($(\'<input type="hidden" name="stripeToken">\').val(token));
+
+    // Submit the form:
+    $form.get(0).submit();
+  }
+};
+
+</script>
+
+		<form action="' . BASE . '/payment/stripe/process_payment/" method="post" id="payment-form" class="form-horizontal">
+		<span class="payment-errors"></span>
+		<div id="stripe">
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="email">{lang}Card Number{/lang}:</label>
+			<div class="col-sm-9">
+				<input type="text" class="form-control" data-stripe="number" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="email">{lang}Expiration month (MM){/lang}:</label>
+			<div class="col-sm-9">
+				<input type="text" class="form-control" size="2" data-stripe="exp_month" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="email">{lang}Expiration year (YY){/lang}:</label>
+			<div class="col-sm-9">
+				<input type="text" class="form-control" size="2" data-stripe="exp_year" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-sm-3 control-label" for="email">{lang}CVC{/lang}:</label>
+			<div class="col-sm-9">
+				<input type="text" class="form-control" size="3" data-stripe="cvc" />
+			</div>
+		</div>
+		<button class="btn btn-default submit" type="submit" value="{lang}Pay with Card{/lang}"><i class="fa fa-check"></i> {lang}Pay with Card{/lang}</button>
 		</form>';
 		return $content;
 	}
 
 	public function process_payment()
 	{
+		global $config;
+		
 		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 		$order_data = $this->Order->find('first', array('conditions' => array('Order.id' => $_SESSION['Customer']['order_id'])));
 
-        App::import('Vendor', 'stripe', array('file' => 'stripe'.DS.'init.php'));
+		$secret_key_query = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'secret_key')));
+		$secret_key = $secret_key_query['PaymentMethodValue']['value'];
 
-$stripe = array(
-  'secret_key'      => 'sk_test_pMHNYyqsni45QoKGAJ7DlFYv',
-  'publishable_key' => 'pk_test_L83k75ErjGIy0tOg7ptmeIUn'
-);
+		$publish_key_query = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'publish_key')));
+		$publish_key = $publish_key_query['PaymentMethodValue']['value'];
 
-\Stripe\Stripe::setApiKey($stripe['secret_key']);
+      App::import('Vendor', 'stripe', array('file' => 'stripe'.DS.'init.php'));
+
+		$stripe = array(
+		  'secret_key'      => $secret_key,
+		  'publishable_key' => $publish_key
+		);
+
+		\Stripe\Stripe::setApiKey($stripe['secret_key']);
 
 		  $token  = $_POST['stripeToken'];
 		
@@ -115,7 +187,7 @@ $stripe = array(
 		  $charge = \Stripe\Charge::create(array(
 		      'customer' => $customer->id,
 		      'amount'   => $order_data['Order']['total'],
-		      'currency' => 'usd'
+		      'currency' => $_SESSION['Customer']['currency_code']
 		  ));
 
 		if ($payment_method['PaymentMethod']['order_status_id'] > 0) {
@@ -124,8 +196,11 @@ $stripe = array(
 		$this->Order->save($order_data);
 
 		}
-		
-		//$this->redirect('/page/success' . $config['URL_EXTENSION']);
+
+		// Empty the cart
+		$_SESSION['Customer']['order_id'] = null;
+					
+		$this->redirect('/page/success' . $config['URL_EXTENSION']);
 	}
 		
 	public function after_process()
