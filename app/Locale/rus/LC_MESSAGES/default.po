@@ -5743,3 +5743,9 @@ msgstr "ИНН компании."
 
 msgid "Maximum product quantity available at our stock: "
 msgstr "Максимально доступное количество товара на нашем складе: "
+
+msgid "Stripe Secret Key"
+msgstr "Секретный ключ Stripe"
+
+msgid "Stripe Publishable Key"
+msgstr "Публикуемый ключ Stripe"

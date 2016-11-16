@@ -13,7 +13,7 @@ echo $this->Form->input('stripe.secret_key', array(
 	));
 
 echo $this->Form->input('stripe.publish_key', array(
-	'label' => __('Stripe Publish Key'),
+	'label' => __('Stripe Publishable Key'),
 	'type' => 'text',
 	'value' => $data['PaymentMethodValue'][1]['value']
 	));
