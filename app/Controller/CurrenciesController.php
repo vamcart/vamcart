@@ -9,10 +9,8 @@ class CurrenciesController extends AppController {
 	public $name = 'Currencies';
 	public $components = array('EventBase');
 
-	public function pick_currency ($id)
+	public function pick_currency ()
 	{
-		if ($id > 0) $_POST['currency_picker'] = $id;
-		
 		$this->Session->write('Customer.currency_id', $_POST['currency_picker']);
 		
 		// Get the currency data		

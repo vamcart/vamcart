@@ -213,10 +213,10 @@ class ActionController extends ModuleReviewsAppController {
 			
 			if($image['ContentImage']['image'] != "") {
 				$image_url = $review['ModuleReview']['content_id'] . '/' . $image['ContentImage']['image'];
-				$image_path = BASE . '/img/content/' . $review['ModuleReview']['content_id'] . '/' . $image['ContentImage']['image'];
+				$image_path = BASE . '/img/content/' . $image['ContentImage']['image'];
 				$thumb_name = substr_replace($image['ContentImage']['image'] , '', strrpos($image['ContentImage']['image'] , '.')).'-'.$config['THUMBNAIL_SIZE'].'.png';	
-				$thumb_path = IMAGES . 'content' . '/' . $review['ModuleReview']['content_id'] . '/' . $thumb_name;
-				$thumb_url = BASE . '/img/content/' . $review['ModuleReview']['content_id'] . '/' . $thumb_name;
+				$thumb_path = IMAGES . 'content' . '/' . $thumb_name;
+				$thumb_url = BASE . '/img/content/' . $thumb_name;
 
 					if(file_exists($thumb_path) && is_file($thumb_path)) {
 						list($width, $height, $type, $attr) = getimagesize($thumb_path);
@@ -233,10 +233,10 @@ class ActionController extends ModuleReviewsAppController {
 
 			} else { 
 
-				$image_url = '0/noimage.png';
+				$image_url = 'noimage.png';
 				$thumb_name = 'noimage-'.$config['THUMBNAIL_SIZE'].'.png';	
-				$thumb_path = IMAGES . 'content' . '/0/' . $thumb_name;
-				$thumb_url = BASE . '/img/content' . '/0/' . $thumb_name;
+				$thumb_path = IMAGES . 'content' . '/' . $thumb_name;
+				$thumb_url = BASE . '/img/content' . '/' . $thumb_name;
 
 					if(file_exists($thumb_path) && is_file($thumb_path)) {
 						list($width, $height, $type, $attr) = getimagesize($thumb_path);

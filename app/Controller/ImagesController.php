@@ -25,7 +25,7 @@ class ImagesController extends AppController {
 				if ($src == 'noimage.png') {
 				$sourceFilename = IMAGES . DS . 'noimage.png';
 				} else {
-				$sourceFilename = IMAGES . DS . 'content/'.$id.'/'.$src;
+				$sourceFilename = IMAGES . DS . 'content/'.$src;
 				}
 
 				if(!is_readable($sourceFilename)){
@@ -55,7 +55,7 @@ class ImagesController extends AppController {
                 $phpThumb->config_error_die_on_error = true;
                 $phpThumb->config_document_root = '';
                 $phpThumb->config_temp_directory = APP . 'tmp';
-                $phpThumb->config_cache_directory = IMAGES . 'content' . DS . $id . DS;
+                $phpThumb->config_cache_directory = IMAGES . 'content' . DS;
                 $phpThumb->config_cache_disable_warning = true;
                 
                 
@@ -76,7 +76,7 @@ class ImagesController extends AppController {
             
             if(file_exists($phpThumb->cache_filename)){ // If thumb was already generated we want to use cached version
                 header('HTTP/1.1 301 Moved Permanently');
-                header('Location: '.Router::url('/img/content/' . $id . '/' . $cacheFilename, true).'');
+                header('Location: '.Router::url('/img/content/' . $cacheFilename, true).'');
                 die();
             }
             
@@ -94,10 +94,10 @@ class ImagesController extends AppController {
 			
 			$image = $this->ContentImage->read(null,$image_id);
 			
-			$filename =  IMAGES . 'content/' . $image['ContentImage']['content_id'] . '/' . $image['ContentImage']['image'];
+			$filename =  IMAGES . 'content/' . $image['ContentImage']['image'];
 			unlink($filename);
 
-			$filename =  IMAGES . 'content/' . $image['ContentImage']['content_id'] . '/' . substr_replace($image['ContentImage']['image'] , '', strrpos($image['ContentImage']['image'] , '.')).'-'.$config['THUMBNAIL_SIZE'].'.png';
+			$filename =  IMAGES . 'content/' . substr_replace($image['ContentImage']['image'] , '', strrpos($image['ContentImage']['image'] , '.')).'-'.$config['THUMBNAIL_SIZE'].'.png';
 			unlink($filename);
 			
 			$this->ContentImage->delete($image_id);			

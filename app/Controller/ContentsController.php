@@ -21,7 +21,7 @@ class ContentsController extends AppController {
 	if(isset($_FILES["myfile"]))
 	{
  		
-		$directory = IMAGES . '/content/' . $content_id;
+		$directory = IMAGES . '/content/';
 		if(!is_dir($directory)) {
 			mkdir($directory);
 		}
@@ -74,7 +74,7 @@ class ContentsController extends AppController {
           $phpThumb->config_error_die_on_error = true;
           $phpThumb->config_document_root = '';
           $phpThumb->config_temp_directory = APP . 'tmp';
-          $phpThumb->config_cache_directory = IMAGES . 'content' . DS . $id . DS;
+          $phpThumb->config_cache_directory = IMAGES . 'content' . DS;
           $phpThumb->config_cache_disable_warning = true;
           
           
@@ -1073,15 +1073,15 @@ class ContentsController extends AppController {
 	public function _copy_content_images($content, $dst_content_id)
 	{
 		foreach ($content['ContentImage'] as $image) {
-			$src_filename = WWW_ROOT . IMAGES_URL . '/content/' . $image['content_id'] . '/' . $image['image'];
-			$dst_filename = WWW_ROOT . IMAGES_URL . '/content/' . $dst_content_id . '/' . $image['image'];
-			$dst_dir = WWW_ROOT . IMAGES_URL . '/content/' . $dst_content_id;
+			//$src_filename = WWW_ROOT . IMAGES_URL . '/content/' . $image['content_id'] . '/' . $image['image'];
+			//$dst_filename = WWW_ROOT . IMAGES_URL . '/content/' . $dst_content_id . '/' . $image['image'];
+			//$dst_dir = WWW_ROOT . IMAGES_URL . '/content/' . $dst_content_id;
 			
-			if(!is_dir($dst_dir)) {
-				@mkdir($dst_dir);
-			}
+			//if(!is_dir($dst_dir)) {
+				//@mkdir($dst_dir);
+			//}
 			
-			@copy($src_filename, $dst_filename);
+			//@copy($src_filename, $dst_filename);
 			
 			$image['id'] = null;
 			$image['content_id'] = $dst_content_id;

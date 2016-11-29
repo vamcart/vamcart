@@ -291,7 +291,7 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 									$image_url = $ordered['Content']['id'] . '/' . $ordered['ContentImage']['image'] . '/40';
 									$thumb_name = substr_replace($ordered['ContentImage']['image'] , '', strrpos($ordered['ContentImage']['image'] , '.')).'-40.png';	
 									$thumb_path = IMAGES . 'content' . '/' . $ordered['Content']['id'] . '/' . $thumb_name;
-									$thumb_url = BASE . '/img/content/' . $ordered['Content']['id'] . '/' . $thumb_name;
+									$thumb_url = BASE . '/img/content/' . $thumb_name;
 					
 										if(file_exists($thumb_path) && is_file($thumb_path)) {
 											list($width, $height, $type, $attr) = getimagesize($thumb_path);
@@ -306,10 +306,10 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 					
 								} else { 
 					
-									$image_url = '0/noimage.png/40';
+									$image_url = 'noimage.png/40';
 									$thumb_name = 'noimage-40.png';	
-									$thumb_path = IMAGES . 'content' . '/0/' . $thumb_name;
-									$thumb_url = BASE . '/img/content' . '/0/' . $thumb_name;
+									$thumb_path = IMAGES . 'content' . '/' . $thumb_name;
+									$thumb_url = BASE . '/img/content' . '/' . $thumb_name;
 					
 										if(file_exists($thumb_path) && is_file($thumb_path)) {
 											list($width, $height, $type, $attr) = getimagesize($thumb_path);
