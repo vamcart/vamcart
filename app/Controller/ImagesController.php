@@ -23,9 +23,9 @@ class ImagesController extends AppController {
             }
 
 				if ($src == 'noimage.png') {
-				$sourceFilename = IMAGES . DS . 'noimage.png';
+				$sourceFilename = IMAGES . DS . 'content/' . 'noimage.png';
 				} else {
-				$sourceFilename = IMAGES . DS . 'content/'.$src;
+				$sourceFilename = IMAGES . DS . 'content/' . $src;
 				}
 
 				if(!is_readable($sourceFilename)){

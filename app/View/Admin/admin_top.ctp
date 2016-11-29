@@ -308,8 +308,8 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 					
 									$image_url = 'noimage.png/40';
 									$thumb_name = 'noimage-40.png';	
-									$thumb_path = IMAGES . 'content' . '/' . $thumb_name;
-									$thumb_url = BASE . '/img/content' . '/' . $thumb_name;
+									$thumb_path = IMAGES . 'content/' . $thumb_name;
+									$thumb_url = BASE . '/img/content/' . $thumb_name;
 					
 										if(file_exists($thumb_path) && is_file($thumb_path)) {
 											list($width, $height, $type, $attr) = getimagesize($thumb_path);

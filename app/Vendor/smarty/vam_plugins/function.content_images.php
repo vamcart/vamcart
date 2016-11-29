@@ -111,13 +111,13 @@ function smarty_function_content_images($params, $template)
 					if(file_exists($thumb_path) && is_file($thumb_path)) {
 						list($width, $height, $type, $attr) = getimagesize($thumb_path);
 						$keyed_images[$key]['name'] =  $content['ContentDescription']['name'];
-						$keyed_images[$key]['image_path'] =  BASE . '/img/noimage.png';
+						$keyed_images[$key]['image_path'] =  BASE . '/img/content/noimage.png';
 						$keyed_images[$key]['image_thumb'] =  $thumb_url;
 						$keyed_images[$key]['image_width'] = $width;
 						$keyed_images[$key]['image_height'] = $height;
 					} else {
 						$keyed_images[$key]['name'] =  $content['ContentDescription']['name'];
-						$keyed_images[$key]['image'] =  BASE . '/img/noimage.png';
+						$keyed_images[$key]['image'] =  BASE . '/img/content/noimage.png';
 						$keyed_images[$key]['image_thumb'] = BASE . '/images/thumb/' . $image_url;
 						$keyed_images[$key]['image_width'] = null;
 						$keyed_images[$key]['image_height'] = null;
@@ -131,7 +131,7 @@ function smarty_function_content_images($params, $template)
 	           'images' => $keyed_images,
 	           'images_count' => $cnt,
 						 'noimg_thumb' => BASE . '/images/thumb/noimage.png',
-						 'noimg_path' => BASE . '/img/noimage.png',
+						 'noimg_path' => BASE . '/img/content/noimage.png',
 						 'thumbnail_size' => $config['THUMBNAIL_SIZE']);
 
 	$display_template = $Smarty->load_template($params,'content_images');
