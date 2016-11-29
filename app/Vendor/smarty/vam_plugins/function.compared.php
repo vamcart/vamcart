@@ -203,7 +203,7 @@ function smarty_function_compared($params)
 									$image_url = $product['Content']['id'] . '/' . $product['ContentImage']['image'];
 									$image_path = BASE . '/img/content/' . $product['ContentImage']['image'];
 									$thumb_name = substr_replace($product['ContentImage']['image'] , '', strrpos($product['ContentImage']['image'] , '.')).'-'.$config['THUMBNAIL_SIZE'].'.png';	
-									$thumb_path = IMAGES . 'content' . '/' . $product['Content']['id'] . '/' . $thumb_name;
+									$thumb_path = IMAGES . 'content/' . $thumb_name;
 									$thumb_url = BASE . '/img/content/' . $thumb_name;
 					
 										if(file_exists($thumb_path) && is_file($thumb_path)) {
@@ -223,8 +223,8 @@ function smarty_function_compared($params)
 					
 									$image_url = 'noimage.png';
 									$thumb_name = 'noimage-'.$config['THUMBNAIL_SIZE'].'.png';	
-									$thumb_path = IMAGES . 'content' . '/' . $thumb_name;
-									$thumb_url = BASE . '/img/content' . '/' . $thumb_name;
+									$thumb_path = IMAGES . 'content/' . $thumb_name;
+									$thumb_url = BASE . '/img/content/' . $thumb_name;
 					
 										if(file_exists($thumb_path) && is_file($thumb_path)) {
 											list($width, $height, $type, $attr) = getimagesize($thumb_path);
