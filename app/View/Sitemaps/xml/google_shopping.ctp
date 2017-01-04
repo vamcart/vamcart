@@ -8,14 +8,13 @@ xmlns:g="http://base.google.com/ns/1.0">'; ?>
 
 <?php foreach ($products as $product) { ?>
             <item>
-                <title><?php echo $product['name'] ?></title>
+                <title><?php echo $this->Text->truncate($product['name'],140,array('ellipsis' => '','exact' => false,'html' => true)); ?></title>
                 <link><?php echo Router::url($product['url'], true) ?></link>
                 <description>
                 <?php echo $product['description'] ?>
                 </description>
                 <g:image_link><?php echo htmlentities(Router::url($product['image'], true)) ?></g:image_link>
-                <price><?php echo $product['price'] ?></price>
-                <g:price><?php echo $price; ?></g:price>
+                <g:price><?php echo $product['price'] ?></g:price>
                 <g:condition>новый</g:condition>
                 <g:availability>in stock</g:availability>
                 <g:id><?php echo $product['id']; ?></g:id>
