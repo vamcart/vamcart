@@ -2325,6 +2325,10 @@ msgstr "Скачать"
 msgid "Alias"
 msgstr "Псевдоним"
 
+#: /views/contents/admin_edit_type.ctp:38
+msgid "Google Shopping Category ID"
+msgstr "Номер категории в Google Shopping"
+
 #: /views/contents/admin_edit_type.ctp:33
 #: /views/orders/admin_view.ctp:125
 msgid "Price"

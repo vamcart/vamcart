@@ -12,6 +12,12 @@ switch($content_type_id) {
 				'type' => 'hidden',
 				'value' => 1
 			));
+		echo $this->Form->input('ContentCategory.google_product_category_id', 
+			array(
+				'label' => __('Google Shopping Category ID'),
+				'type' => 'text',
+				'value' => !isset($data['ContentCategory']['google_product_category_id'])? 0 : $data['ContentCategory']['google_product_category_id']
+			));
 		break;
 	case '2':
 	default:
