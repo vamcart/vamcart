@@ -55,6 +55,7 @@
 	Router::connect('/customer/:content_alias', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/google_sitemap', array('controller' => 'sitemaps', 'action' => 'google', 'ext' => 'xml'));
 	Router::connect('/yandex_market', array('controller' => 'sitemaps', 'action' => 'yandex', 'ext' => 'xml'));
+	Router::connect('/google_shopping', array('controller' => 'sitemaps', 'action' => 'google_shopping', 'ext' => 'xml'));
 
 	Router::connect('/tests', array('controller' => 'tests', 'action' => 'index'));
 	
