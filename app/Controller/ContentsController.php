@@ -593,6 +593,22 @@ class ContentsController extends AppController {
 			
 			}
 
+			// Save category info to the database
+			if (!empty($this->data['ContentCategory'])) {
+
+			// Check if we already have a record for this type of special content, if so delete it.
+			// I'm sure there's a better way to do this
+			$check_special = $this->Content->ContentCategory->find('first', array('conditions' => array('content_id' => $content_id)));
+
+			if(!empty($check_special))
+				$this->request->data['ContentCategory']['id'] = $check_special['ContentCategory']['id'];
+
+			$this->request->data['ContentCategory']['content_id'] = $content_id;
+
+			$this->Content->ContentCategory->save($this->data['ContentCategory']);
+			
+			}
+
 			$this->Session->setFlash(__('Record saved.', true));
 			
 			// Check if we pressed 'apply' otherwise just render
