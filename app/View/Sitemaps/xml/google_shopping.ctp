@@ -1,34 +1,26 @@
-<?php echo '<?xml version="1.0" encoding="utf-8"?>' . "\n" ?>
-<!DOCTYPE yml_catalog SYSTEM "shops.dtd">
-<yml_catalog date="<?php echo date('Y-m-d H:m'); ?>">
-    <shop>
-        <name><?php echo $sitename ?></name>
-        <company><?php echo $sitename ?></company>
-        <url><?php echo Router::url('/', true) ?></url>
-        <currencies>
-<?php foreach($currencies as $currency) { ?>
-            <currency id="<?php echo $currency['id'] ?>" rate="<?php echo $currency['rate'] ?>" />
-<?php } ?>
-        </currencies>
-        <categories>
-<?php foreach ($categories as $category) { ?>
-            <category id="<?php echo $category['id'] ?>" <?php if ($category['parentId'] > 0) { echo 'parentId="' . $category['parentId'] . '"';} ?>><?php echo $category['name'] ?></category>
-<?php } ?>
-        </categories>
-        <offers>
+<?php echo '<?xml version="1.0"?>'; ?>
+<?php echo '<rss version="2.0" 
+xmlns:g="http://base.google.com/ns/1.0">'; ?>
+<?php echo '<channel>'; ?>
+<?php echo '<title>' . $sitename .'</title>'; ?>
+<?php echo '<link>' . Router::url('/', true) . '</link>'; ?>
+<?php echo '<description>' . $sitename . '</description>'; ?>
+
 <?php foreach ($products as $product) { ?>
-            <offer id="<?php echo $product['id']; ?>" available="<?php echo ($product['stock'] > 0 ? "true" : "false"); ?>">
-                <url><?php echo Router::url($product['url'], true) ?></url>
-                <price><?php echo $product['price'] ?></price>
-                <currencyId><?php echo $default_currency ?></currencyId>
-                <categoryId><?php echo $product['parentId'] ?></categoryId>
-                <picture><?php echo htmlentities(Router::url($product['image'], true)) ?></picture>
-                <name><?php echo $product['name'] ?></name>
+            <item>
+                <title><?php echo $product['name'] ?></title>
+                <link><?php echo Router::url($product['url'], true) ?></link>
                 <description>
                 <?php echo $product['description'] ?>
                 </description>
-            </offer>
+                <g:image_link><?php echo htmlentities(Router::url($product['image'], true)) ?></g:image_link>
+                <price><?php echo $product['price'] ?></price>
+                <g:price><?php echo $price; ?></g:price>
+                <g:condition>новый</g:condition>
+                <g:availability>in stock</g:availability>
+                <g:id><?php echo $product['id']; ?></g:id>
+                <?php if ($product['google_shopping_category_id'] > 0) { ?><g:google_product_category><?php echo $product['google_shopping_category_id']; ?></g:google_product_category><?php } ?>
+            </item>
 <?php } ?>
-        </offers>
-    </shop>
-</yml_catalog>
+</channel>
+</rss>
