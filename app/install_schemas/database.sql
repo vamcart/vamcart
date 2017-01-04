@@ -132,18 +132,19 @@ DROP TABLE IF EXISTS content_categories;
 CREATE TABLE `content_categories` (
   `id` int(10) auto_increment,
   `content_id` int(10),
+  `google_product_category_id` int(10),
   `extra` varchar(1) collate utf8_unicode_ci,
   PRIMARY KEY  (`id`),
   INDEX content_id (content_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `content_categories` VALUES 
-(8,36,'1'),
-(9,39,'1'),
-(12,51,'1'),
-(13,43,'1'),
-(14,101,'1'),
-(15,107,'1')	;
+(8,36,0,'1'),
+(9,39,0,'1'),
+(12,51,0,'1'),
+(13,43,0,'1'),
+(14,101,0,'1'),
+(15,107,0,'1')	;
 
 DROP TABLE IF EXISTS content_descriptions;
 CREATE TABLE `content_descriptions` (
