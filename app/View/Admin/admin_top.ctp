@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 
 echo $this->Html->script(array(
-	'jquery/plugins/jquery.zrssfeed.min.js',
+	'jquery/plugins/rss/jquery.rss.js',
 	'jquery/plugins/jqplot/jquery.jqplot.js',
 	'jquery/plugins/jqplot/plugins/jqplot.highlighter.min.js',
 	'jquery/plugins/jqplot/plugins/jqplot.canvasTextRenderer.min.js',
@@ -20,20 +20,12 @@ echo $this->Html->css(array(
 
 echo $this->Html->scriptBlock('
 $(document).ready(function () {
-	$("#news").rssfeed("http://support.'.__('vamshop.com',true).'/modules/news/backendt.php?topicid=2", {
-		header: false,
-		date: false,
-		content: false,
-		linktarget: "_blank",
-		limit: 1,
+	$("#news").rss("http://support.'.__('vamshop.com',true).'/modules/news/backendt.php?topicid=2", {
+		limit: 1
 	});
 
-	$("#vamshop-rss").rssfeed("http://support.'.__('vamshop.com',true).'/modules/news/backendt.php?topicid=1", {
-		header: false,
-		date: false,
-		content: true,
-		linktarget: "_blank",
-		limit: 5,
+	$("#vamshop-rss").rss("http://support.'.__('vamshop.com',true).'/modules/news/backendt.php?topicid=1", {
+		limit: 5
 	});
 });
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false));
