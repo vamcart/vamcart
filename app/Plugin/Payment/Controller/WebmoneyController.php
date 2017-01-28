@@ -99,7 +99,7 @@ class WebmoneyController extends PaymentAppController {
       $webmoney_secret_key = $webmoney_data['PaymentMethodValue']['value'];
 		$order = $this->Order->read(null,$_POST['LMI_PAYMENT_NO']);
 		$crc = $_POST['LMI_HASH'];
-		$hash = strtoupper(md5($_POST['LMI_PAYEE_PURSE'].$_POST['LMI_PAYMENT_AMOUNT'].$_POST['LMI_PAYMENT_NO'].$_POST['LMI_MODE'].$_POST['LMI_SYS_INVS_NO'].$_POST['LMI_SYS_TRANS_NO'].$_POST['LMI_SYS_TRANS_DATE'].$webmoney_secret_key. 
+		$hash = strtoupper(hash('sha256',$_POST['LMI_PAYEE_PURSE'].$_POST['LMI_PAYMENT_AMOUNT'].$_POST['LMI_PAYMENT_NO'].$_POST['LMI_MODE'].$_POST['LMI_SYS_INVS_NO'].$_POST['LMI_SYS_TRANS_NO'].$_POST['LMI_SYS_TRANS_DATE'].$webmoney_secret_key. 
 $_POST['LMI_PAYER_PURSE'].$_POST['LMI_PAYER_WM']));
 		$merchant_summ = number_format($_POST['LMI_PAYMENT_AMOUNT'], 2);
 		$order_summ = number_format($order['Order']['total'], 2);
