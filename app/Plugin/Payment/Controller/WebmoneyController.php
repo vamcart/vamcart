@@ -87,8 +87,31 @@ class WebmoneyController extends PaymentAppController {
 		return $content;
 	}
 
-	public function after_process()
+	public function after_process($order_id = 0)
 	{
+
+		if(empty($order_id))
+		return;
+		
+		$order = $this->Order->read(null,$order_id);
+		
+		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
+
+		$webmoney_settings = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'webmoney_purse')));
+		$webmoney_purse = $webmoney_settings['PaymentMethodValue']['value'];
+		
+		$content = '<form action="https://merchant.webmoney.ru/lmi/payment.asp" method="post">
+			<input type="hidden" name="LMI_PAYMENT_NO" value="' . $order_id . '">
+			<input type="hidden" name="LMI_PAYEE_PURSE" value="'.$webmoney_purse.'">
+			<input type="hidden" name="LMI_PAYMENT_DESC" value="' . $order_id . ' ' . $order['Order']['email'] . '">
+			<input type="hidden" name="LMI_PAYMENT_AMOUNT" value="' . $order['Order']['total'] . '">
+			<input type="hidden" name="LMI_SIM_MODE" value="0">';
+						
+		$content .= '
+			<button class="btn btn-warning" type="submit" value="{lang}Pay Now{/lang}"><i class="fa fa-dollar"></i> {lang}Pay Now{/lang}</button>
+			</form>';
+
+		return $content;
 	}
 	
 	

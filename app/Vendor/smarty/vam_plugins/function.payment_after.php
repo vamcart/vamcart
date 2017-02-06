@@ -29,6 +29,8 @@ function smarty_function_payment_after($params, $template)
 	// Get the order 
 	$order = $Order->read(null,$params['order_id']);
 
+	if($order['Order']['order_status_id'] <= 2) {
+
 	// Get the payment method 
 	$payment = $PaymentMethod->read(null,$order['Order']['payment_method_id']);
 	
@@ -37,10 +39,12 @@ function smarty_function_payment_after($params, $template)
 	App::uses('SmartyComponent', 'Controller/Component');
 		$Smarty = new SmartyComponent(new ComponentCollection());
 
-	$payment_after = $Smarty->requestAction( '/payment/' . $payment_alias . '/after_process/');	
+	$payment_after = $Smarty->requestAction( '/payment/' . $payment_alias . '/after_process/'.$params['order_id']);	
 
 	$Smarty->display($payment_after);
-	
+
+	}
+		
 }
 
 function smarty_help_function_payment_after() {

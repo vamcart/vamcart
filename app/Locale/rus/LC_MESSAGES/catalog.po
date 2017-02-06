@@ -518,3 +518,6 @@ msgstr "CVC:"
 
 msgid "Pay with Card"
 msgstr "Оплатить карточкой"
+
+msgid "Pay Now"
+msgstr "Оплатить заказ"

@@ -28,7 +28,7 @@ $template = '
 		  <thead>
 		  <tr>
 			<th>{lang}Order number{/lang}: {$order.Order.id}</th>
-			<th>&nbsp;</th>
+			<th>{payment_after order_id={$order.Order.id}}</th>
 			</tr>
 		  </thead>
 		  <tbody>
