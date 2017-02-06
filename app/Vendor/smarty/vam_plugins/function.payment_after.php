@@ -29,7 +29,7 @@ function smarty_function_payment_after($params, $template)
 	// Get the order 
 	$order = $Order->read(null,$params['order_id']);
 
-	if($order['Order']['order_status_id'] <= 2) {
+	if($order && $order['Order']['order_status_id'] <= 2) {
 
 	// Get the payment method 
 	$payment = $PaymentMethod->read(null,$order['Order']['payment_method_id']);
