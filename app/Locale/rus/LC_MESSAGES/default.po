@@ -1676,7 +1676,15 @@ msgstr "перезаписывает текущий шаблон оплаты."
 
 #: /vendors/smarty/vam_plugins/function.payment_content.php:44
 msgid "Displays any necessary payment fields before sending the user off to process the order."
-msgstr "Показывать необходимые поля оплаты до отправки пользователя к процессу оформления заказа."
+msgstr "Показывает необходимые поля оплаты до отправки пользователя к процессу оформления заказа."
+
+#: /vendors/smarty/vam_plugins/function.payment_after.php:44
+msgid "Displays payment form for sending the user payment process."
+msgstr "Выводит форму для оплаты заказа с кнопкой для перехода к оплате заказа."
+
+#: /vendors/smarty/vam_plugins/function.payment_after.php:44
+msgid "Set order number to get payment details."
+msgstr "Устанавливает номер заказа для вывода платёжной информации."
 
 #: /vendors/smarty/vam_plugins/function.payment_content.php:46
 msgid "This tag is called from the confirmation page like:"
