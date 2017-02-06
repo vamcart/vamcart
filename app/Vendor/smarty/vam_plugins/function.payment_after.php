@@ -39,7 +39,7 @@ function smarty_function_payment_after($params, $template)
 	App::uses('SmartyComponent', 'Controller/Component');
 		$Smarty = new SmartyComponent(new ComponentCollection());
 
-	$payment_after = $Smarty->requestAction( '/payment/' . $payment_alias . '/after_process/'.$params['order_id']);	
+	$payment_after = $Smarty->requestAction( '/payment/' . $payment_alias . '/payment_after/'.$params['order_id']);	
 
 	$Smarty->display($payment_after);
 
