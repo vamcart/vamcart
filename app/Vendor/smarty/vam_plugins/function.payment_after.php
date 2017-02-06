@@ -52,7 +52,7 @@ function smarty_help_function_payment_after() {
 	<h3><?php echo __('What does this tag do?') ?></h3>
 	<p><?php echo __('Displays payment form for sending the user payment process.') ?></p>
 	<h3><?php echo __('How do I use it?') ?></h3>
-	<p><?php echo __('This tag is called from the confirmation page like:') ?> <code>{payment_after order_id=123}</code></p>
+	<p><?php echo __('Just insert the tag into your template like:') ?> <code>{payment_after order_id=123}</code></p>
 	<h3><?php echo __('What parameters does it take?') ?></h3>
 	<ul>
 		<li><em><?php echo __('(order_id)') ?></em> - <?php echo __('Set order number to get payment details.') ?></li>
