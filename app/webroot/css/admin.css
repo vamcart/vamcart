@@ -1030,5 +1030,18 @@ a#scrollup i{
 
 /* /ScrollUp */
 
-/*]]>*/
+pre {
+    display: block;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    font-weight: normal;
+    color: #000;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: transparent;
+    border: 0px solid transparent;
+    border-radius: 0px;
+    font-family: Arial !important;
+}
 
+/*]]>*/
