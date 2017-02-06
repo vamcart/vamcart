@@ -74,6 +74,10 @@ class AuthorizeController extends PaymentAppController {
 		
 	}
 
+	public function payment_after($order_id = 0)
+	{
+	}
+
 	public function after_process()
 	{
 		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));

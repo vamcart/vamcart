@@ -105,6 +105,10 @@ class InterkassaController extends PaymentAppController {
 		return $content;
 	}
 
+	public function payment_after($order_id = 0)
+	{
+	}
+
 	public function after_process()
 	{
 	}

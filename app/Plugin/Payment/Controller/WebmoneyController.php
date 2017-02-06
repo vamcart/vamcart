@@ -87,7 +87,7 @@ class WebmoneyController extends PaymentAppController {
 		return $content;
 	}
 
-	public function after_process($order_id = 0)
+	public function payment_after($order_id = 0)
 	{
 
 		if(empty($order_id))

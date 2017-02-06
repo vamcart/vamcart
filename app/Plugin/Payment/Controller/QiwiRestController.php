@@ -124,6 +124,10 @@ class QiwiRestController extends PaymentAppController {
 		
 		$this->redirect($redirect_url);
 	}
+
+	public function payment_after($order_id = 0)
+	{
+	}
 	
 	public function after_process()
 	{
