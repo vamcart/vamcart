@@ -114,6 +114,9 @@ class WebmoneyController extends PaymentAppController {
 		return $content;
 	}
 	
+	public function after_process()
+	{
+	}
 	
 	public function result()
 	{
