@@ -28,7 +28,7 @@ class AdminController extends ModuleAbandonedCartsAppController {
 	{
 		$this->set('current_crumb', __('Abandoned Carts'));
 		$this->set('title_for_layout', __('Abandoned Carts'));
-		$this->set('data',$this->paginate('Order',"Order.order_status_id <= '0'"));
+		$this->set('data',$this->paginate('Order',"Order.order_status_id <= '0' and Order.phone != '' and Order.email != ''"));
 		
 	}
 
