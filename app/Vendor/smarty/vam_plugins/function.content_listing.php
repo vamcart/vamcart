@@ -282,7 +282,11 @@ function smarty_function_content_listing($params, $template)
 	}
 	$content_list_group = '';
 
+	if ($params['parent'] > 0) {
 	$content_list_data_conditions = array('Content.parent_id' => $params['parent'],'Content.active' => '1','Content.show_in_menu' => '1');
+	} else {
+	$content_list_data_conditions = array('Content.active' => '1','Content.show_in_menu' => '1');
+	}
 
 	$Content->recursive = 1;
 
