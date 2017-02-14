@@ -62,6 +62,10 @@ class StorePickupController extends PaymentAppController {
 		$this->Order->save($order_data);
 		}
 	}
+
+	public function payment_after($order_id = 0)
+	{
+	}
 	
 }
 

@@ -91,6 +91,9 @@ class ZpaymentController extends PaymentAppController {
 	{
 	}
 	
+	public function payment_after($order_id = 0)
+	{
+	}
 	
 	public function result()
 	{
