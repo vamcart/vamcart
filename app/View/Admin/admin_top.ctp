@@ -7,7 +7,6 @@
    ---------------------------------------------------------------------------------------*/
 
 echo $this->Html->script(array(
-	'jquery/plugins/rss/jquery.rss.js',
 	'jquery/plugins/jqplot/jquery.jqplot.js',
 	'jquery/plugins/jqplot/plugins/jqplot.highlighter.min.js',
 	'jquery/plugins/jqplot/plugins/jqplot.canvasTextRenderer.min.js',
@@ -17,18 +16,6 @@ echo $this->Html->script(array(
 echo $this->Html->css(array(
 	'jquery/plugins/jqplot/jquery.jqplot.min.css',
 ), null, array('inline' => true));
-
-echo $this->Html->scriptBlock('
-$(document).ready(function () {
-	$("#news").rss("http://support.'.__('vamshop.com',true).'/modules/news/backendt.php?topicid=2", {
-		limit: 1
-	});
-
-	$("#vamshop-rss").rss("http://support.'.__('vamshop.com',true).'/modules/news/backendt.php?topicid=1", {
-		limit: 5
-	});
-});
-', array('allowCache'=>false,'safe'=>false,'inline'=>false));
 
 if($level == 1) {
 if ($result) {
@@ -157,7 +144,39 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 
 	echo $this->admin->ShowPageHeaderStart();
 
-	echo '<div id="news"></div>';
+
+		// Include the class file and create SimplePie instance
+		App::import('Vendor', 'simplepie', array('file' => 'simplepie'.DS.'autoloader.php'));
+		$feed = new SimplePie();
+		
+		
+		// We'll process this feed with all of the default options.
+		$url = 'http://support.'.__('vamshop.com',true).'/modules/news/backendt.php?topicid=2';
+		
+		// Set which feed to process.
+		$feed->set_cache_location(CACHE);
+		 
+		// Set which feed to process.
+		$feed->set_feed_url($url);
+		
+		// Run SimplePie.
+		$feed->init();
+		
+		$feed->handle_content_type();
+		
+			echo '<div class="rssFeed" id="news">';
+		   echo '<ul>';
+		
+			foreach ($feed->get_items(0,1) as $item) {
+				echo '<li class="rssRow">';
+				echo '<h3><strong><a href="' . $item->get_permalink() .'" target="_blank">' . $item->get_title() .'</a></strong></h3>';
+				echo '<p>' . CakeText::truncate($item->get_description(),90) . '</p>';
+				echo '</li>';
+		 
+			}
+			
+			echo '</ul>';
+			echo '</div>';	
 
 	if($level == 1) {
 
@@ -412,8 +431,39 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 	
 		echo $this->admin->StartTabContent('vamshop-news');
 
-			echo '<div id="vamshop-rss"></div>';
+		// Include the class file and create SimplePie instance
+		App::import('Vendor', 'simplepie', array('file' => 'simplepie'.DS.'autoloader.php'));
+		$feed = new SimplePie();
+		
+		
+		// We'll process this feed with all of the default options.
+		$url = 'http://support.'.__('vamshop.com',true).'/modules/news/backendt.php?topicid=1';
+		
+		// Set which feed to process.
+		$feed->set_cache_location(CACHE);
+		 
+		// Set which feed to process.
+		$feed->set_feed_url($url);
+		
+		// Run SimplePie.
+		$feed->init();
+		
+		$feed->handle_content_type();
+		
+			echo '<div id="vamshop-rss">';
+		   echo '<ul>';
+		
+			foreach ($feed->get_items(0,5) as $item) {
+				echo '<li class="item">';
+				echo '<h3><strong><a href="' . $item->get_permalink() .'" target="_blank">' . $item->get_title() .'</a></strong></h3>';
+				echo '<p>' . CakeText::truncate($item->get_description(),90) . '</p>';
+				echo '</li>';
+		 
+			}
 			
+			echo '</ul>';
+			echo '</div>';	
+				
 		echo $this->admin->EndTabContent();
 
 	echo $this->admin->EndTabs();
