@@ -170,7 +170,7 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 			foreach ($feed->get_items(0,1) as $item) {
 				echo '<li class="rssRow">';
 				echo '<h3><strong><a href="' . $item->get_permalink() .'" target="_blank">' . $item->get_title() .'</a></strong></h3>';
-				echo '<p>' . CakeText::truncate($item->get_description(),90) . '</p>';
+				echo '<p>' . CakeText::truncate($item->get_description(),90,array('html' => true)) . '</p>';
 				echo '</li>';
 		 
 			}
@@ -456,7 +456,7 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 			foreach ($feed->get_items(0,5) as $item) {
 				echo '<li class="item">';
 				echo '<h3><strong><a href="' . $item->get_permalink() .'" target="_blank">' . $item->get_title() .'</a></strong></h3>';
-				echo '<p>' . CakeText::truncate($item->get_description(),90) . '</p>';
+				echo '<p>' . CakeText::truncate($item->get_description(),90,array('html' => true)) . '</p>';
 				echo '</li>';
 		 
 			}
