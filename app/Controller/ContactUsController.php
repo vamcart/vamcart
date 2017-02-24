@@ -44,10 +44,9 @@ class ContactUsController extends AppController {
 		
 		// Set up mail
 		$this->Email->init();
-		$this->Email->From = $config['SEND_CONTACT_US_EMAIL'];
-		$this->Email->FromName = $config['SEND_CONTACT_US_EMAIL'];
+		$this->Email->From = $_POST['email'];
+		$this->Email->FromName = $_POST['name'];
 		$this->Email->AddAddress($config['SEND_CONTACT_US_EMAIL']);
-		$this->Email->AddReplyTo($_POST['email'], $_POST['name']);
 		$this->Email->Subject = $config['SITE_NAME'] . ' - ' . __('Contact Us' ,true);
 
 		// Email Body
