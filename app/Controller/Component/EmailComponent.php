@@ -46,13 +46,23 @@ class EmailComponent extends Object
         
         // Set default PHPMailer variables (see PHPMailer API for more info)
 		
-		$this->IsMail();
+			$this->IsMail();
 		
-		$this->CharSet = 'utf-8';
-		$this->IsHTML(false);
-		// set more PHPMailer vars, for smtp etc.
-//		$this->IsSMTP();
-//		$this->SMTPKeepAlive = true; // set mailer to use SMTP//		$this->SMTPAuth = true; // turn on SMTP authentication true/false//		$this->Username = user; // SMTP username//		$this->Password = password; // SMTP password//		$this-> = server; // specify smtp server		
+			$this->CharSet = 'utf-8';
+			$this->IsHTML(false);
+
+			//DKIM Settings
+		
+			//$this->DKIM_domain = 'your-store.com';
+			//$this->DKIM_private = '/path/to/private/key';
+			//$this->DKIM_selector = 'phpmailer';
+			//$this->DKIM_passphrase = '12345';
+			//$this->DKIM_identity = 'your@email.com';
+
+			// set more PHPMailer vars, for smtp etc.
+
+			//$this->IsSMTP();
+			//$this->SMTPKeepAlive = true; // set mailer to use SMTP			//$this->SMTPAuth = true; // turn on SMTP authentication true/false			//$this->Username = user; // SMTP username			//$this->Password = password; // SMTP password			//$this-> = server; // specify smtp server		
      }
 
     public function __set($name, $value)
