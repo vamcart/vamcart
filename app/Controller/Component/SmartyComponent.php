@@ -69,7 +69,7 @@ class SmartyComponent extends Component
 		);
 
 		// Minify html
-		//$smarty->loadFilter('output','minify_html');
+		$smarty->loadFilter('output','minify_html');
 
 		$smarty->setCacheDir(CACHE . 'smarty_cache');
 		$smarty->setCompileDir(CACHE . 'smarty_templates_c');
