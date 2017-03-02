@@ -63,16 +63,16 @@ class SmartyComponent extends Component
 		$smarty = new Smarty();
 
 		$smarty->plugins_dir = array(
-			'../Vendor/smarty/plugins',
-			'../Vendor/smarty/local_plugins',
-			'../Vendor/smarty/vam_plugins'
+			APP . 'Vendor/smarty/plugins',
+			APP . 'Vendor/smarty/local_plugins',
+			APP . 'Vendor/smarty/vam_plugins'
 		);
 
 		// Minify html
-		$smarty->loadFilter('output','minify_html');
+		//$smarty->loadFilter('output','minify_html');
 
-		$smarty->setCacheDir(CACHE . '/smarty_cache');
-		$smarty->setCompileDir(CACHE . '/smarty_templates_c');
+		$smarty->setCacheDir(CACHE . 'smarty_cache');
+		$smarty->setCompileDir(CACHE . 'smarty_templates_c');
 				
 		return $smarty;
 	}
