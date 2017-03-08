@@ -34,7 +34,7 @@ CREATE TABLE `configurations` (
 
 INSERT INTO `configurations` (`id`, `configuration_group_id`, `key`, `value`, `type`, `options`, `name`, `description`, `sort_order`) VALUES 
 (1,'1','SITE_NAME', 'VamShop','text', '', 'Site Name','','1'),
-(2,'1','TELEPHONE', '+1 800 123-45-67','text', '', 'Telephone','','2'),
+(2,'1','TELEPHONE', '+1-800-123-45-67','text', '', 'Telephone','','2'),
 (3,'1','FACEBOOK', 'http://facebook.com/your-account','text', '', 'Facebook','','3'),
 (4,'1','TWITTER', 'http://twitter.com/your-account','text', '', 'Twitter','','4'),
 (5,'1','GOOGLE', 'http://plus.google.com/your-account','text', '', 'Google+','','5'),
