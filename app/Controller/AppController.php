@@ -185,6 +185,8 @@ class AppController extends Controller {
 			return($this->generateAlias($name,$tail+1));
 		}
 
+		$alias = strtolower($alias);
+
 		// Return the newly formatted alias
 		return($alias);
 	}
