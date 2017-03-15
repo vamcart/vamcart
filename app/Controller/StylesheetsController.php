@@ -45,7 +45,7 @@ class StylesheetsController extends AppController {
 	{
 		$images = array();
 		$z = new ZipArchive();
-		$res = $z->open('./files/styles.zip', ZIPARCHIVE::OVERWRITE);
+		$res = $z->open('./files/styles.zip', ZipArchive::CREATE|ZipArchive::OVERWRITE);
 
 		$stylesheets = $this->Stylesheet->find('all');
 		$output  = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
