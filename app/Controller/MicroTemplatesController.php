@@ -76,7 +76,7 @@ class MicroTemplatesController extends AppController {
 		$scripts = array();
 		$images = array();
 		$z = new ZipArchive();
-		$res = $z->open('./files/micro_templates.zip', ZIPARCHIVE::OVERWRITE);
+		$res = $z->open('./files/micro_templates.zip', ZipArchive::CREATE|ZipArchive::OVERWRITE);
 
 		$micro_templates = $this->MicroTemplate->find('all');
 

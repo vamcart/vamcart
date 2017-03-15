@@ -307,7 +307,7 @@ class TemplatesController extends AppController {
 		$scripts = array();
 		$images = array();
 		$z = new ZipArchive();
-		$res = $z->open('./files/templates.zip', ZIPARCHIVE::OVERWRITE);
+		$res = $z->open('./files/templates.zip', ZipArchive::CREATE|ZipArchive::OVERWRITE);
 
 		$templates = $this->Template->find('threaded', array('order' => array('Template.id ASC')));
 
