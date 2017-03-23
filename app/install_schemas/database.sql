@@ -1166,7 +1166,8 @@ CREATE TABLE `currencies` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `currencies` (`id`, `active`, `default`, `name`, `code`, `symbol_left`, `symbol_right`, `decimal_point`, `thousands_point`, `decimal_places`, `value`, `created`, `modified`) VALUES 
-(1, 1, 1, 'US Dollar', 'USD', '$', '', '.', ',', '2', 1, '2009-07-15 11:39:15', '2009-07-15 13:08:23');
+(1, 1, 1, 'US Dollar', 'USD', '$', '', '.', ',', '2', 1, '2009-07-15 11:39:15', '2009-07-15 13:08:23'),
+(2, 1, 0, 'Рубль', 'RUB', '', 'руб.', '.', ',', '2', 1, '2009-07-15 11:39:15', '2009-07-15 13:08:23');
 
 DROP TABLE IF EXISTS email_templates;
 CREATE TABLE `email_templates` (
