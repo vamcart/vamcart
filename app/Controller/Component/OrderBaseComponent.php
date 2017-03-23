@@ -95,12 +95,8 @@ class OrderBaseComponent extends Object
 	{
 		$running_total = 0;
 
-		if ($order['OrderProduct']) {
 		foreach($order['OrderProduct'] AS $product) {
-			if ($product['tax'] > 0) {
 			$running_total += ($product['quantity'] * $product['tax']);
-			}
-		}
 		}
 
 		return $running_total;
