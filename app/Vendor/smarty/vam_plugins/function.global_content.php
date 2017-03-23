@@ -27,7 +27,7 @@ function smarty_function_global_content($params, $template)
 
 	$gcb = $GlobalContentBlock->find('first', array('conditions' => array('alias' => $params['alias'])));
 
-	$Smarty->display($gcb['GlobalContentBlock']['content'], $template->smarty->tpl_vars);
+	if ($gcb) $Smarty->display($gcb['GlobalContentBlock']['content'], $template->smarty->tpl_vars);
 		
 		
 		// Write the output to cache and echo them
