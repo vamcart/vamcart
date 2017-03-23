@@ -1167,7 +1167,7 @@ CREATE TABLE `currencies` (
 
 INSERT INTO `currencies` (`id`, `active`, `default`, `name`, `code`, `symbol_left`, `symbol_right`, `decimal_point`, `thousands_point`, `decimal_places`, `value`, `created`, `modified`) VALUES 
 (1, 1, 1, 'US Dollar', 'USD', '$', '', '.', ',', '2', 1, '2009-07-15 11:39:15', '2009-07-15 13:08:23'),
-(2, 1, 0, 'Рубль', 'RUB', '', 'руб.', '.', ',', '2', 1, '2009-07-15 11:39:15', '2009-07-15 13:08:23');
+(2, 0, 0, 'Рубль', 'RUB', '', 'руб.', '.', ',', '2', 1, '2009-07-15 11:39:15', '2009-07-15 13:08:23');
 
 DROP TABLE IF EXISTS email_templates;
 CREATE TABLE `email_templates` (
@@ -1730,7 +1730,7 @@ CREATE TABLE `languages` (
 
 INSERT INTO `languages` (`id`, `default`, `name`, `code`, `iso_code_2`, `active`, `sort_order`) VALUES 
 (1, 1, 'English', 'eng', 'en', 1, 1),
-(2, 0, 'Русский', 'rus', 'ru', 1, 0);
+(2, 0, 'Русский', 'rus', 'ru', 0, 2);
 
 DROP TABLE IF EXISTS micro_templates;
 CREATE TABLE `micro_templates` (
