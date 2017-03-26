@@ -162,13 +162,14 @@ echo '</table>';
 	echo $this->Admin->StartTabContent('order');
 
 echo '<table class="contentTable">';
-echo $this->Html->tableHeaders(array( __('Product Name'), __('Model'), __('Price'), __('Quantity'), __('Total')));
+echo $this->Html->tableHeaders(array( __('Product Name'), __('Model'), __('SKU'), __('Price'), __('Quantity'), __('Total')));
 foreach($data['OrderProduct'] AS $product) 
 {
 	echo $this->Admin->TableCells(
 		  array(
 				$this->Html->link($product['name'], '/contents/admin_edit/' . $product['content_id']),
 				$product['model'],
+				$product['sku'],
 				$product['price'],
 				$product['quantity'],
 				$product['quantity']*$product['price']

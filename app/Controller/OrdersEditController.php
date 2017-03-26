@@ -346,6 +346,7 @@ class OrdersEditController extends AppController
             $order['OrderProduct'][$index]['content_id'] = $content['Content']['id'];
             $order['OrderProduct'][$index]['name'] = $content['ContentDescription']['name'];
             $order['OrderProduct'][$index]['model'] = $content['ContentProduct']['model'];
+            $order['OrderProduct'][$index]['sku'] = $content['ContentProduct']['sku'];
             $order['OrderProduct'][$index]['price'] = $content['ContentProduct']['price'];
             $order['OrderProduct'][$index]['quantity'] = '1';
             $order['OrderProduct'][$index]['weight'] = '';
@@ -477,6 +478,7 @@ class OrdersEditController extends AppController
                                ,'content_id' => $orderproduct['content_id']
                                ,'name' => $orderproduct['name']
                                ,'model' => $orderproduct['model']
+                               ,'sku' => $orderproduct['sku']
                                ,'quantity' => $orderproduct['quantity']
                                ,'price' => $orderproduct['price']
                                ,'weight' => $orderproduct['weight']

@@ -1886,6 +1886,7 @@ CREATE TABLE `order_products` (
   `content_id` int(10),
   `name` varchar(255) collate utf8_unicode_ci,
   `model` varchar(255) collate utf8_unicode_ci,
+  `sku` varchar(255) collate utf8_unicode_ci,
   `quantity` int(10),
   `price` double,
   `weight` varchar(10) collate utf8_unicode_ci,
