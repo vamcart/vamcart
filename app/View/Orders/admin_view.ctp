@@ -180,6 +180,7 @@ foreach($data['OrderProduct'] AS $product)
 		  array(
 		  		'<strong>' . __($data['ShippingMethod']['name']) . ' ' . '</strong>',
 				'',
+				'',
 				__($data['Order']['shipping']),
 				'1',
 				__($data['Order']['shipping'])					
@@ -191,12 +192,14 @@ foreach($data['OrderProduct'] AS $product)
 				'&nbsp;',
 				'&nbsp;',
 				'&nbsp;',
+				'&nbsp;',
 				'<strong>' . $data['Order']['tax'] .'</strong>'
 		  ));		  
 	}
 	echo $this->Admin->TableCells(
 		  array(
 		  		'<strong>' . __('Order Total') . '</strong>',
+				'&nbsp;',
 				'&nbsp;',
 				'&nbsp;',
 				'&nbsp;',
