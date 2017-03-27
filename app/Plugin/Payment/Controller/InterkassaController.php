@@ -107,6 +107,48 @@ class InterkassaController extends PaymentAppController {
 
 	public function payment_after($order_id = 0)
 	{
+
+		if(empty($order_id))
+		return;
+		
+		$order = $this->Order->read(null,$order_id);
+
+		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
+
+		$interkassa_settings = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'interkassa_id')));
+		$interkassa_id = $interkassa_settings['PaymentMethodValue']['value'];
+
+      $interkassa_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'interkassa_secret_key')));
+      $interkassa_secret_key = $interkassa_data['PaymentMethodValue']['value'];
+      
+		$result = array(
+			'ik_am' => $order['Order']['total'], // Сумма платежа
+			'ik_pm_no' => $order_id, // Номер заказа
+			'ik_desc' => 'Order-'.$order_id, // Описание платежа
+			'ik_cur' => $_SESSION['Customer']['currency_code'], // Валюта платежа
+			'ik_co_id' => $interkassa_id, // Идентификатор кассы
+		);
+
+		// Формируем подпись
+		$result['ik_sign'] = $this->getSign($result);
+
+		$process_button_string = '';
+
+		$process_button_string .= '<form action="https://sci.interkassa.com/" method="post">';
+
+		foreach ($result as $k => $val)
+		{
+			$process_button_string .= '<input type="hidden" name="'. $k . '" value="' . $val . '">';
+		}
+      		
+		$content = $process_button_string;
+						
+		$content .= '
+			<button class="btn btn-default" type="submit" value="{lang}Pay Now{/lang}"><i class="fa fa-check"></i> {lang}Pay Now{/lang}</button>
+			</form>';
+
+		return $content;
+
 	}
 
 	public function after_process()

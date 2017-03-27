@@ -93,11 +93,35 @@ class ProchangeController extends PaymentAppController {
 		return $content;
 	}
 
-	public function after_process()
-	{
-	}
-	
 	public function payment_after($order_id = 0)
+	{
+		if(empty($order_id))
+		return;
+		
+		$order = $this->Order->read(null,$order_id);
+
+		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
+
+		$prochange_settings = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'pro_client')));
+		$pro_client = $prochange_settings['PaymentMethodValue']['value'];
+		$prochange_ra_settings = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'pro_ra')));
+		$pro_ra = $prochange_ra_settings['PaymentMethodValue']['value'];
+		
+		$content = '<form action="http://merchant.prochange.ru/pay.pro" method="post">
+			<input type="hidden" name="PRO_FIELD_1" value="' . $order_id . '">
+			<input type="hidden" name="PRO_CLIENT" value="'.$pro_client.'">
+			<input type="hidden" name="PRO_RA" value="'.$pro_ra.'">
+			<input type="hidden" name="PRO_PAYMENT_DESC" value="' . $order_id . ' ' . $order['Order']['email'] . '">
+			<input type="hidden" name="PRO_SUMMA" value="' . $order['Order']['total'] . '">';
+						
+		$content .= '
+			<button class="btn btn-default" type="submit" value="{lang}Pay Now{/lang}"><i class="fa fa-check"></i> {lang}Pay Now{/lang}</button>
+			</form>';
+
+		return $content;
+	}
+
+	public function after_process()
 	{
 	}
 	

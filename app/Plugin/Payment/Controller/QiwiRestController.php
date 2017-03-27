@@ -127,6 +127,78 @@ class QiwiRestController extends PaymentAppController {
 
 	public function payment_after($order_id = 0)
 	{
+		global $config;
+		
+		if(empty($order_id))
+		return;
+
+		$content = '<form action="' . BASE . '/payment/qiwi_rest/process_payment_after/'.$order_id.'" method="post">
+		<button class="btn btn-default" type="submit" value="{lang}Pay Now{/lang}"><i class="fa fa-check"></i> {lang}Pay Now{/lang}</button>
+		</form>';
+
+		return $content;	
+	}
+
+	public function process_payment_after ($order_id = 0)
+	{
+		if(empty($order_id))
+		return;
+		
+		$order = $this->Order->read(null,$order_id);
+
+		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
+
+		$qiwi_rest_settings = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'qiwi_id')));
+		$qiwi_rest_id = $qiwi_rest_settings['PaymentMethodValue']['value'];
+
+		$qiwi_api_id_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'qiwi_api_id')));
+		$qiwi_api_id = $qiwi_api_id_data['PaymentMethodValue']['value'];
+
+		$qiwi_notify_pass_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'qiwi_notify_pass')));
+		$qiwi_notify_pass = $qiwi_notify_pass_data['PaymentMethodValue']['value'];
+
+		$shop_id = $qiwi_rest_id;
+		$order_id = $order['Order']['id'];		
+		$api_id = $qiwi_api_id;
+		$notify_pass = $qiwi_notify_pass;
+		
+		$service_url = 'https://w.qiwi.com/api/v2/prv/' . $shop_id . '/bills/' . $order_id;
+		$ch = curl_init($service_url);
+
+		curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC); 
+    		curl_setopt($ch, CURLOPT_USERPWD, $api_id . ":" . $notify_pass);
+		
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+
+	    	curl_setopt($ch, CURLOPT_HTTPHEADER, array (
+		    "Accept: application/json"
+    		));
+
+
+		$currency_code = 'RUB';
+		$summ = number_format($order['Order']['total'],2,'.','');
+		$life_time = date('c', strtotime("+7 days"));
+
+		$_data = "user=" . urlencode("tel:+7" . $order['Order']['phone']) . "&amount=" . urlencode($summ) . "&ccy=" . urlencode($currency_code) . "&comment=" . urlencode($order_id) . "&lifetime=" . urlencode($life_time). "&prv_name=" . urlencode(STORE_NAME);
+		
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $_data);
+
+		$results = curl_exec ($ch) or die(curl_error($ch));
+		//echo $results; 
+		//echo curl_error($ch); 
+
+		curl_close($ch);
+
+		$success_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/orders/place_order/';
+		$fail_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/page/checkout' . $config['URL_EXTENSION'];
+		
+		$redirect_url = 'https://w.qiwi.com/order/external/main.action?shop='.$qiwi_rest_id.'&transaction='.$order_id.'&successUrl='.$success_url.'&failUrl='.$fail_url;
+		
+		$this->redirect($redirect_url);
 	}
 	
 	public function after_process()

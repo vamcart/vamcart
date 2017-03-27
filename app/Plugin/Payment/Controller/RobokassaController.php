@@ -102,6 +102,33 @@ class RobokassaController extends PaymentAppController {
 
 	public function payment_after($order_id = 0)
 	{
+		if(empty($order_id))
+		return;
+
+		$order = $this->Order->read(null,$order_id);
+
+		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
+
+		$robokassa_settings = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'login')));
+		$login = $robokassa_settings['PaymentMethodValue']['value'];
+		$robokassa_pass_settings = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'password1')));
+		$password1 = $robokassa_pass_settings['PaymentMethodValue']['value'];
+		
+		
+		$content = '<form action="https://merchant.roboxchange.com/Index.aspx" method="post">
+			<input type="hidden" name="InvId" value="' . $order_id . '">
+			<input type="hidden" name="MrchLogin" value="'.$login.'">
+			<input type="hidden" name="SignatureValue" value="'.md5($login.':'.$order['Order']['total'].':'.$order_id.':'.$password1).'">
+			<input type="hidden" name="IncCurrLabel" value="' . $_SESSION['Customer']['currency_code'] . '">
+			<input type="hidden" name="Email" value="' . $order['Order']['email'] . '">
+			<input type="hidden" name="Desc" value="' . $order_id . ' ' . $order['Order']['email'] . '">
+			<input type="hidden" name="OutSum" value="' . $order['Order']['total'] . '">';
+						
+		$content .= '
+			<button class="btn btn-default" type="submit" value="{lang}Pay Now{/lang}"><i class="fa fa-check"></i> {lang}Pay Now{/lang}</button>
+			</form>';
+
+		return $content;
 	}
 	
 	public function result()

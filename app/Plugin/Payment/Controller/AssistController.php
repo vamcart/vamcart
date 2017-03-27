@@ -87,6 +87,32 @@ class AssistController extends PaymentAppController {
 
 	public function payment_after($order_id = 0)
 	{
+
+		if(empty($order_id))
+		return;
+		
+		$order = $this->Order->read(null,$order_id);
+
+		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
+
+		$assist_settings = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'assist_shop_id')));
+		$assist_shop_id = $assist_settings['PaymentMethodValue']['value'];
+		$return_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/orders/place_order/';
+		
+		$content = '<form action="https://secure.assist.ru/shops/purchase.cfm" method="post">
+			<input type="hidden" name="Shop_IDP" value="'.$assist_shop_id.'">
+			<input type="hidden" name="Order_IDP" value="' . $order_id . '">
+			<input type="hidden" name="Subtotal_P" value="' . $order['Order']['total'] . '">
+			<input type="hidden" name="Currency" value="' . $_SESSION['Customer']['currency_code'] . '">
+			<input type="hidden" name="URL_RETURN" value="' . $return_url . '">
+			<input type="hidden" name="Comment" value="' . $order_id . ' ' . $order['Order']['email'] . '">';
+						
+		$content .= '
+			<button class="btn btn-default" type="submit" value="{lang}Pay Now{/lang}"><i class="fa fa-check"></i> {lang}Pay Now{/lang}</button>
+			</form>';
+
+		return $content;
+
 	}
 
 	public function after_process()

@@ -93,6 +93,28 @@ class ZpaymentController extends PaymentAppController {
 	
 	public function payment_after($order_id = 0)
 	{
+		if(empty($order_id))
+		return;
+
+		$order = $this->Order->read(null,$order_id);
+
+		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
+
+		$zpayment_settings = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'zpayment_purse')));
+		$zpayment_purse = $zpayment_settings['PaymentMethodValue']['value'];
+		
+		$content = '<form action="http://www.z-payment.ru/merchant.php" method="post">
+			<input type="hidden" name="LMI_PAYEE_PURSE" value="'.$zpayment_purse.'">
+			<input type="hidden" name="LMI_PAYMENT_AMOUNT" value="' . $order['Order']['total'] . '">
+			<input type="hidden" name="LMI_PAYMENT_DESC" value="' . $order_id . ' ' . $order['Order']['email'] . '">
+			<input type="hidden" name="LMI_PAYMENT_NO" value="' . $order_id . '">
+			<input type="hidden" name="CLIENT_MAIL" value="' . $order['Order']['email'] . '">';
+						
+		$content .= '
+			<button class="btn btn-default" type="submit" value="{lang}Pay Now{/lang}"><i class="fa fa-check"></i> {lang}Pay Now{/lang}</button>
+			</form>';
+
+		return $content;
 	}
 	
 	public function result()

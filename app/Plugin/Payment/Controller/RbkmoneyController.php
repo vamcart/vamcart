@@ -93,14 +93,42 @@ class RbkmoneyController extends PaymentAppController {
 		return $content;
 	}
 
+	public function payment_after($order_id = 0)
+	{
+		global $config;
+		
+		if(empty($order_id))
+		return;
+		
+		$order = $this->Order->read(null,$order_id);
+
+		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
+
+		$rbkmoney_settings = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'store_id')));
+		$rbkmoney_store_id = $rbkmoney_settings['PaymentMethodValue']['value'];
+		$success_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/orders/place_order/';
+		$fail_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/page/checkout' . $config['URL_EXTENSION'];
+		
+		$content = '<form action="https://rbkmoney.ru/acceptpurchase.aspx" method="post">
+			<input type="hidden" name="orderId" value="' . $order_id . '">
+			<input type="hidden" name="eshopId" value="'.$rbkmoney_store_id.'">
+			<input type="hidden" name="serviceName" value="' . $order_id . ' ' . $order['Order']['email'] . '">
+			<input type="hidden" name="recipientAmount" value="' . $order['Order']['total'] . '">
+			<input type="hidden" name="recipientCurrency" value="' . $_SESSION['Customer']['currency_code'] . '">
+			<input type="hidden" name="successUrl" value="' . $success_url . '">
+			<input type="hidden" name="failUrl" value="' . $fail_url . '">';
+						
+		$content .= '
+			<button class="btn btn-default" type="submit" value="{lang}Pay Now{/lang}"><i class="fa fa-check"></i> {lang}Pay Now{/lang}</button>
+			</form>';
+
+		return $content;
+	}
+	
 	public function after_process()
 	{
 	}
-	
-	public function payment_after($order_id = 0)
-	{
-	}
-	
+
 	public function result()
 	{
 		$this->layout = false;

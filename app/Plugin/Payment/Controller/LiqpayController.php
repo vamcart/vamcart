@@ -98,6 +98,39 @@ class LiqpayController extends PaymentAppController {
 
 	public function payment_after($order_id = 0)
 	{
+
+		if(empty($order_id))
+		return;
+		
+		$order = $this->Order->read(null,$order_id);
+
+		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
+
+		$liqpay_settings = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'liqpay_id')));
+		$liqpay_id = $liqpay_settings['PaymentMethodValue']['value'];
+
+      $liqpay_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'liqpay_secret_key')));
+      $liqpay_secret_key = $liqpay_data['PaymentMethodValue']['value'];
+
+		$server_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/payment/liqpay/result/';
+		$result_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/orders/place_order/';
+      
+		$content = '<form action="https://liqpay.com/?do=clickNbuy" method="post">
+			<input type="hidden" name="order_id" value="' . $order_id . '">
+			<input type="hidden" name="merchant_id" value="'.$liqpay_id.'">
+			<input type="hidden" name="description" value="' . $order_id . ' ' . $order['Order']['email'] . '">
+			<input type="hidden" name="amount" value="' . $order['Order']['total'] . '">
+			<input type="hidden" name="currency" value="' . $_SESSION['Customer']['currency_code'] . '">
+			<input type="hidden" name="version" value="1.1">
+			<input type="hidden" name="server_url" value="' . $server_url . '">
+			<input type="hidden" name="result_url" value="' . $result_url . '">';
+						
+		$content .= '
+			<button class="btn btn-default" type="submit" value="{lang}Pay Now{/lang}"><i class="fa fa-check"></i> {lang}Pay Now{/lang}</button>
+			</form>';
+
+		return $content;
+
 	}
 
 	public function after_process()

@@ -132,6 +132,55 @@ class YandexController extends PaymentAppController {
 
 	public function payment_after($order_id = 0)
 	{
+		global $config;
+		
+		if(empty($order_id))
+		return;
+
+		$order = $this->Order->read(null,$order_id);
+
+		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
+
+		$yandex_settings_shopid = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'shopid')));
+		$yandex_shopid = $yandex_settings_shopid['PaymentMethodValue']['value'];
+
+		$yandex_settings_scid = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'scid')));
+		$yandex_scid = $yandex_settings_scid['PaymentMethodValue']['value'];
+
+		$yandex_settings_mode = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'mode')));
+		$yandex_mode = $yandex_settings_mode['PaymentMethodValue']['value'];
+
+		$yandex_settings_payment_type = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'payment_type')));
+		$yandex_payment_type = $yandex_settings_payment_type['PaymentMethodValue']['value'];
+		
+		if ($yandex_mode == '0') {
+			$action_url = 'https://demomoney.yandex.ru/eshop.xml';
+		} else {
+			$action_url = 'https://money.yandex.ru/eshop.xml';
+		}
+
+		$success_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/orders/place_order/';
+		$fail_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/page/checkout' . $config['URL_EXTENSION'];
+		
+		$content = '<form action="'.$action_url.'">
+			<input type="hidden" name="shopId" value="'.$yandex_shopid.'">
+			<input type="hidden" name="scid" value="'.$yandex_scid.'">
+			<input type="hidden" name="sum" value="' . $order['Order']['total'] . '">
+			<input type="hidden" name="customerNumber" value="' . $order_id . '">
+			<input type="hidden" name="orderNumber" value="' . $order_id . '">
+			<input type="hidden" name="shopSuccessURL" value="' . $success_url . '">
+			<input type="hidden" name="shopFailURL" value="' . $fail_url . '">
+			<input type="hidden" name="cps_email" value="' . $order['Order']['email'] . '">
+			<input type="hidden" name="cps_phone" value="' . $order['Order']['phone'] . '">
+			<input type="hidden" name="cms_name" value="vamshop">
+			<input type="hidden" name="paymentType" value="'.$yandex_payment_type.'">
+			';
+						
+		$content .= '
+			<button class="btn btn-default" type="submit" value="{lang}Pay Now{/lang}"><i class="fa fa-check"></i> {lang}Pay Now{/lang}</button>
+			</form>';
+
+		return $content;
 	}
 	
 	public function result()
