@@ -126,7 +126,7 @@ class LiqpayController extends PaymentAppController {
 			<input type="hidden" name="result_url" value="' . $result_url . '">';
 						
 		$content .= '
-			<button class="btn btn-default" type="submit" value="{lang}Pay Now{/lang}"><i class="fa fa-check"></i> {lang}Pay Now{/lang}</button>
+			<button class="btn btn-default" type="submit" value="{lang}Pay Now{/lang}"><i class="fa fa-dollar"></i> {lang}Pay Now{/lang}</button>
 			</form>';
 
 		return $content;

@@ -124,7 +124,7 @@ class PaypalController extends PaymentAppController {
 					 <input type="hidden" name="amount_' . $product_count . '" value="' . $order['Order']['shipping'] . '">';		
 						
 		$content .= '
-			<button class="btn btn-default" type="submit" value="{lang}Pay Now{/lang}"><i class="fa fa-check"></i> {lang}Pay Now{/lang}</button>
+			<button class="btn btn-default" type="submit" value="{lang}Pay Now{/lang}"><i class="fa fa-dollar"></i> {lang}Pay Now{/lang}</button>
 			</form>';
 
 		return $content;

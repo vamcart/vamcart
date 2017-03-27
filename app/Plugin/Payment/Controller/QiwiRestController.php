@@ -133,7 +133,7 @@ class QiwiRestController extends PaymentAppController {
 		return;
 
 		$content = '<form action="' . BASE . '/payment/qiwi_rest/process_payment_after/'.$order_id.'" method="post">
-		<button class="btn btn-default" type="submit" value="{lang}Pay Now{/lang}"><i class="fa fa-check"></i> {lang}Pay Now{/lang}</button>
+		<button class="btn btn-default" type="submit" value="{lang}Pay Now{/lang}"><i class="fa fa-dollar"></i> {lang}Pay Now{/lang}</button>
 		</form>';
 
 		return $content;	

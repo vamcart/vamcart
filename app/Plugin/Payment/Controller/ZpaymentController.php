@@ -111,7 +111,7 @@ class ZpaymentController extends PaymentAppController {
 			<input type="hidden" name="CLIENT_MAIL" value="' . $order['Order']['email'] . '">';
 						
 		$content .= '
-			<button class="btn btn-default" type="submit" value="{lang}Pay Now{/lang}"><i class="fa fa-check"></i> {lang}Pay Now{/lang}</button>
+			<button class="btn btn-default" type="submit" value="{lang}Pay Now{/lang}"><i class="fa fa-dollar"></i> {lang}Pay Now{/lang}</button>
 			</form>';
 
 		return $content;
