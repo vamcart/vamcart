@@ -8,7 +8,7 @@
    
 class CustomersController extends AppController {
 	public $name = 'Customers';
-	public $paginate = array('limit' => 20, 'order' => array('Customer.id' => 'asc'));
+	public $paginate = array('limit' => 20, 'order' => array('Customer.id' => 'desc'));
 
 	public function admin_delete ($customer_id)
 	{
