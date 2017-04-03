@@ -99,8 +99,8 @@ class BuyController extends ModuleOneClickBuyAppController {
 			if (filter_var($_POST['phone'], FILTER_VALIDATE_EMAIL)) {
 
 				$this->Email->init();
-				$this->Email->From = $_POST['phone'];
-				$this->Email->FromName = $_POST['phone'];
+				$this->Email->From = $config['NEW_ORDER_FROM_EMAIL'];
+				$this->Email->FromName = __($config['NEW_ORDER_FROM_NAME'],true);
 
 				// Send email to customer
 				if (filter_var($_POST['phone'], FILTER_VALIDATE_EMAIL)) {
@@ -120,8 +120,9 @@ class BuyController extends ModuleOneClickBuyAppController {
 
 				// Send email to admin
 				$this->Email->init();
-				$this->Email->From = $config['SEND_EXTRA_EMAIL'];
-				$this->Email->FromName = $config['SEND_EXTRA_EMAIL'];
+				$this->Email->From = $config['NEW_ORDER_FROM_EMAIL'];
+				$this->Email->FromName = __($config['NEW_ORDER_FROM_NAME'],true);
+				$this->Email->AddReplyTo($_POST['phone'], $_POST['phone']);
 
 				// Send email to admin
 				if (filter_var($config['SEND_EXTRA_EMAIL'], FILTER_VALIDATE_EMAIL)) {

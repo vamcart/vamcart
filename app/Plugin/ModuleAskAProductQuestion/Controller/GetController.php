@@ -93,8 +93,9 @@ class GetController extends ModuleAskAProductQuestionAppController {
 				$body = str_replace('{$question}', $_POST['content'], $body);
 
 				$this->Email->init();
-				$this->Email->From = $_POST['email'];
-				$this->Email->FromName = $_POST['name'];
+				$this->Email->From = $config['SEND_CONTACT_US_EMAIL'];
+				$this->Email->FromName = $config['SEND_CONTACT_US_EMAIL'];
+				$this->Email->AddReplyTo($_POST['email'], $_POST['name']);
 
 				// Send email to admin
 				if (filter_var($config['SEND_CONTACT_US_EMAIL'], FILTER_VALIDATE_EMAIL)) {
