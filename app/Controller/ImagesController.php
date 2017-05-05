@@ -39,7 +39,7 @@ class ImagesController extends AppController {
             //height
             $height = (!isset($h)) ? $config['THUMBNAIL_SIZE'] : $h;
             //quality    
-            $quality = (!isset($q)) ? 100 : $q;
+            $quality = (!isset($q)) ? 75 : $q;
             
             if(is_readable($sourceFilename)){
                 App::import('Vendor', 'Phpthumb', array('file' => 'phpthumb'.DS.'phpthumb.class.php'));
