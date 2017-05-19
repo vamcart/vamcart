@@ -61,10 +61,7 @@ $(this).parent().addClass("selected");
       phone: {
         required: true,
         minlength: 10,
-     },
-      agree: {
-        required: true
-     }    
+     }
     },
     messages: {
       bill_name: {
@@ -78,10 +75,7 @@ $(this).parent().addClass("selected");
       phone: {
         required: "{lang}Required field{/lang}",
         minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 10"
-      },
-      agree: {
-        required: "{lang}Required field{/lang}"
-      }      
+      }
     }
   });
 
@@ -428,8 +422,7 @@ function showSelected(suggestion) {
 		<div class="col-sm-offset-2 col-sm-10">
 			<div class="checkbox">
 				<label>
-					<input type="checkbox" class="checkbox" id="agree" name="agree" />
-					{lang}Please agree to our policy.{/lang} <a href="{base_path}/page/conditions-of-use.html" target="_blank">{lang}Terms & Conditions.{/lang}</a>
+					{lang}By clicking Continue button you are agree to our policy.{/lang} <a href="{base_path}/page/conditions-of-use.html" target="_blank">{lang}Terms & Conditions.{/lang}</a>
 				</label>
 			</div>
 		</div>
