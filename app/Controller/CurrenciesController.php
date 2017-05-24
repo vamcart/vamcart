@@ -26,6 +26,15 @@ class CurrenciesController extends AppController {
 		{
 			Cache::delete('vam_currency_output');
 		}
+		
+		// clear Cache::write() items
+		Cache::clear();
+		// clear core cache
+		$cachePaths = array('views', 'persistent', 'models', 'catalog');
+		foreach($cachePaths as $config) {
+				clearCache(null, $config);
+		}		
+		
 		$this->redirect($_SERVER['HTTP_REFERER']);
 	}
 		
