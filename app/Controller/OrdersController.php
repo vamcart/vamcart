@@ -170,6 +170,8 @@ class OrdersController extends AppController {
 			$default_status = $this->Order->OrderStatus->find('first', array('conditions' => array('default' => '1')));
 			$order['Order']['order_status_id'] = $default_status['OrderStatus']['id'];
 		}
+
+		$_SESSION['Customer']['email'] = $order['Order']['email'];
 		
 		// Save order data
 		$this->Order->save($order);
