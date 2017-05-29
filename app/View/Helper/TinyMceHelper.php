@@ -33,7 +33,7 @@ class TinyMceHelper extends Helper {
 					toolbar3: "table | hr removeformat | subscript superscript | charmap emoticons | print fullscreen | ltr rtl | spellchecker | visualchars visualblocks nonbreaking template pagebreak restoredraft",
 					menubar: false,
 					toolbar_items_size: "small",
-					extended_valid_elements : "script[language|type|src]", 
+					extended_valid_elements : "script[language|type|src],iframe[src|width|height|name|align|class]", 
 					image_advtab: true ,
 					external_filemanager_path: "'.BASE.'/filemanager/",
 					filemanager_title:"VamShop" ,
