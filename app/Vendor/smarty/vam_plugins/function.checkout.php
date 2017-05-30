@@ -420,11 +420,7 @@ function showSelected(suggestion) {
   </div>
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-10">
-			<div class="checkbox">
-				<label>
 					{lang}By clicking Continue button you are agree to our policy.{/lang} <a href="{base_path}/page/conditions-of-use.html" target="_blank">{lang}Terms & Conditions.{/lang}</a>
-				</label>
-			</div>
 		</div>
 	</div>
 	<div class="form-group">
