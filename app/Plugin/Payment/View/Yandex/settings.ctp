@@ -53,5 +53,14 @@ echo $this->Form->input('yandex.payment_type', array(
 	'legend' => false,
 	'value' => $data['PaymentMethodValue'][4]['value']
 	));
+echo '<br />';
+echo $this->Form->input('yandex.send_check', array(
+	'label' => __('Yandex.Money Send Check'),
+	'type' => 'radio',
+	'separator' => '<br /><br />',
+	'options' => array('0' => __('Don\'t Send Yandex.Money Check Data'), '1' => __('Send Yandex.Money Check Data')),
+	'legend' => false,
+	'value' => $data['PaymentMethodValue'][5]['value']
+	));
 
 ?>

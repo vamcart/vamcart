@@ -46,6 +46,10 @@ class YandexController extends PaymentAppController {
 		$new_module['PaymentMethodValue'][4]['key'] = 'payment_type';
 		$new_module['PaymentMethodValue'][4]['value'] = 'PC';
 
+		$new_module['PaymentMethodValue'][5]['payment_method_id'] = $this->PaymentMethod->id;
+		$new_module['PaymentMethodValue'][5]['key'] = 'send_check';
+		$new_module['PaymentMethodValue'][5]['value'] = '0';
+
 		$this->PaymentMethod->saveAll($new_module);
 
 		$this->Session->setFlash(__('Module Installed'));
@@ -81,6 +85,9 @@ class YandexController extends PaymentAppController {
 		$yandex_settings_mode = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'mode')));
 		$yandex_mode = $yandex_settings_mode['PaymentMethodValue']['value'];
 
+		$yandex_settings_send_check = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'send_check')));
+		$yandex_send_check = $yandex_settings_send_check['PaymentMethodValue']['value'];
+
 		$yandex_settings_payment_type = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'payment_type')));
 		$yandex_payment_type = $yandex_settings_payment_type['PaymentMethodValue']['value'];
 		
@@ -92,6 +99,42 @@ class YandexController extends PaymentAppController {
 
 		$success_url = FULL_BASE_URL . BASE . '/orders/place_order/';
 		$fail_url = FULL_BASE_URL . BASE . '/page/checkout' . $config['URL_EXTENSION'];
+
+		if ($yandex_send_check == '1') {
+
+            $receipt = array(
+                'customerContact' => $order['Order']['email'],
+                'items' => array(),
+            );
+
+            foreach ($order['OrderProduct'] as $product) {
+
+                $id_tax = 1;
+
+                $receipt['items'][] = array(
+                    'quantity' => $product['quantity'],
+                    'text' => substr($product['name'], 0, 128),
+                    'tax' => $id_tax,
+                    'price' => array(
+                        'amount' => number_format($product['price'], 2, '.', ''),
+                        'currency' => 'RUB'
+                    ),
+                );
+            }
+
+            if ($order['Order']['shipping'] > 0) {
+                $id_tax = 1;
+                $receipt['items'][] = array(
+                    'quantity' => 1,
+                    'text' => substr($order['ShippingMethod']['name'], 0, 128),
+                    'tax' => $id_tax,
+                    'price' => array(
+                        'amount' => number_format($order['Order']['shipping'], 2, '.', ''),
+                        'currency' => 'RUB'
+                    ),
+                );
+            }
+        }
 		
 		$content = '<form action="'.$action_url.'">
 			<input type="hidden" name="shopId" value="'.$yandex_shopid.'">
@@ -104,6 +147,7 @@ class YandexController extends PaymentAppController {
 			<input type="hidden" name="cps_email" value="' . $order['Order']['email'] . '">
 			<input type="hidden" name="cps_phone" value="' . $order['Order']['phone'] . '">
 			<input type="hidden" name="cms_name" value="vamshop">
+			'.($yandex_send_check == 1 ? '<input type="hidden" name="receipt" value="{literal}'.json_encode($receipt).'{/literal}>' : null).'
 			<input type="hidden" name="paymentType" value="'.$yandex_payment_type.'">
 			';
 						

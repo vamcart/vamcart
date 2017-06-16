@@ -5117,6 +5117,14 @@ msgid "Yandex.Money Mode"
 msgstr "Режим работы"
 
 #: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Don\'t Send Yandex.Money Check Data"
+msgstr "Не отправлять в Яндекс.Кассу данные для чеков (54-ФЗ)"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Send Yandex.Money Check Data"
+msgstr "Отправлять в Яндекс.Кассу данные для чеков (54-ФЗ)"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
 msgid "Yandex.Money Payment Type"
 msgstr "Способ оплаты"
 
