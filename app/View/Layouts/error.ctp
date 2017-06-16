@@ -25,7 +25,7 @@
 <?php 
 if (Configure::read('debug') == 0) {
 ?>	
-<meta http-equiv="refresh" content="10; url=<?php echo FULL_BASE_URL . BASE . '/page/404.html'; ?>">
+<meta http-equiv="refresh" content="0; url=<?php echo FULL_BASE_URL . BASE . '/page/404.html'; ?>">
 <?php
 }
 ?>
