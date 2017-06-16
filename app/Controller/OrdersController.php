@@ -128,6 +128,7 @@ class OrdersController extends AppController {
 			$order['Order']['customer_id'] = $_SESSION['Customer']['customer_id'];
 		} else {
 			$order['Order']['customer_id'] = (isset($Customer) && $Customer->id > 0) ? $Customer->id : 0;
+			if ($order['Order']['customer_id'] > 0) $_SESSION['Customer']['customer_id'] = $order['Order']['customer_id'];
 		}
 
 		// Update order products tax
