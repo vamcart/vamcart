@@ -1865,6 +1865,10 @@ msgstr "Кэширование"
 msgid "Email Settings"
 msgstr "Настройка email"
 
+#: /views/configuration/admin_edit.ctp:23
+msgid "Checkout Settings"
+msgstr "Настройка оформления заказа"
+
 #: /views/configuration/admin_edit.ctp:28
 msgid "Site Name"
 msgstr "Название магазина"
@@ -1964,6 +1968,50 @@ msgstr "Маска для телефона"
 #: /views/configuration/admin_edit.ctp:40
 msgid "SMS Email Gateway"
 msgstr "SMS Email шлюз"
+
+#: /views/configuration/admin_edit.ctp:23
+msgid "Display Address Line 1 Field"
+msgstr "Показывать поле Адрес"
+
+#: /views/configuration/admin_edit.ctp:23
+msgid "Display Address Line 2 Field"
+msgstr "Показывать поле Доп. информация"
+
+#: /views/configuration/admin_edit.ctp:23
+msgid "Display City Field"
+msgstr "Показывать поле Город"
+
+#: /views/configuration/admin_edit.ctp:23
+msgid "Display Zipcode Field"
+msgstr "Показывать поле Почтовый индекс"
+
+#: /views/configuration/admin_edit.ctp:23
+msgid "Display Country Field"
+msgstr "Показывать поле Страна"
+
+#: /views/configuration/admin_edit.ctp:23
+msgid "Display State Field"
+msgstr "Показывать поле Регион"
+
+#: /views/configuration/admin_edit.ctp:23
+msgid "Display Shipping Info Block"
+msgstr "Показывать блок Информация о доставке"
+
+#: /views/configuration/admin_edit.ctp:23
+msgid "Display Email Field"
+msgstr "Показывать поле Email"
+
+#: /views/configuration/admin_edit.ctp:23
+msgid "Display Order Comments Field"
+msgstr "Показывать поле Комментарии к заказу"
+
+#: /views/configuration/admin_edit.ctp:23
+msgid "Display Shipping Methods Block"
+msgstr "Показывать блок Способы доставки"
+
+#: /views/configuration/admin_edit.ctp:23
+msgid "Display Payment Methods Block"
+msgstr "Показывать блок Способы оплаты"
 
 #: /views/contents/admin.ctp:18
 #: /views/contents/admin_core_pages.ctp:16
