@@ -497,7 +497,7 @@ class ContentsController extends AppController {
 
 			// Generate the product based depending on whether or not it's empty
 			// If the alias is empty, generate it by the name, otherwise generate it with the alias again just for protection.
-			if($this->data['ContentProduct']['model'] == "")
+			if($this->data['Content']['content_type_id'] == 2 && $this->data['ContentProduct']['model'] == "")
 			{	
 				// If we're generating the alias by the name we first have to get the name from the default language
 				// TODO: Change the way this gets the default language id for now its jsut set on english

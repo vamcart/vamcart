@@ -89,6 +89,13 @@ $this->Html->script(array(
 							));
 		echo '</div>';
 
+			echo $this->Form->input('ContentDescription]['.$language['Language']['id'].'][short_description.' . $language['Language']['id'], 
+							array(
+				   			'label' => false,
+								'type' => 'hidden',
+								'value' => ' ',
+							));
+
 		echo $this->Form->input('ContentDescription]['.$language['Language']['id'].'][meta_title.' . $language['Language']['id'], 
 							array(
 				   			'label' => $this->Admin->ShowFlag($language['Language']) . '&nbsp;' . __('Meta Title'),
