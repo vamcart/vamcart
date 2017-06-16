@@ -93,7 +93,7 @@ class OrderStatusController extends AppController {
 			// If it's a new order status set the sort order to the highest + 1
 			if($order_status_id == null)
 			{
-				$highest = $this->OrderStatus->find('all', array('order' => array('OrderStatus.order DESC')));
+				$highest = $this->OrderStatus->find('first', array('order' => array('OrderStatus.order DESC')));
 				$order = $highest['OrderStatus']['order'] + 1;
 				$this->request->data['OrderStatus']['order'] = $order;
 				

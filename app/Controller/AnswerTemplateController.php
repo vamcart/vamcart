@@ -68,7 +68,7 @@ class AnswerTemplateController extends AppController {
 			// If it's a new order status set the sort order to the highest + 1
 			if($answer_template_id == null)
 			{
-				$highest = $this->AnswerTemplate->find('all', array('order' => array('AnswerTemplate.order DESC')));
+				$highest = $this->AnswerTemplate->find('first', array('order' => array('AnswerTemplate.order DESC')));
 				$order = $highest['AnswerTemplate']['order'] + 1;
 				$this->request->data['AnswerTemplate']['order'] = $order;
 				

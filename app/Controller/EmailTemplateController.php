@@ -68,7 +68,7 @@ class EmailTemplateController extends AppController {
 			// If it's a new order status set the sort order to the highest + 1
 			if($email_template_id == null)
 			{
-				$highest = $this->EmailTemplate->find('all', array('order' => array('EmailTemplate.order DESC')));
+				$highest = $this->EmailTemplate->find('first', array('order' => array('EmailTemplate.order DESC')));
 				$order = $highest['EmailTemplate']['order'] + 1;
 				$this->request->data['EmailTemplate']['order'] = $order;
 				
