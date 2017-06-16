@@ -64,8 +64,8 @@ class LiqpayController extends PaymentAppController {
       $liqpay_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'liqpay_secret_key')));
       $liqpay_secret_key = $liqpay_data['PaymentMethodValue']['value'];
 
-		$server_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/payment/liqpay/result/';
-		$result_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/orders/place_order/';
+		$server_url = FULL_BASE_URL . BASE . '/payment/liqpay/result/';
+		$result_url = FULL_BASE_URL . BASE . '/orders/place_order/';
       
 		$content = '<form action="https://liqpay.com/?do=clickNbuy" method="post">
 			<input type="hidden" name="order_id" value="' . $_SESSION['Customer']['order_id'] . '">
@@ -112,8 +112,8 @@ class LiqpayController extends PaymentAppController {
       $liqpay_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'liqpay_secret_key')));
       $liqpay_secret_key = $liqpay_data['PaymentMethodValue']['value'];
 
-		$server_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/payment/liqpay/result/';
-		$result_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/orders/place_order/';
+		$server_url = FULL_BASE_URL . BASE . '/payment/liqpay/result/';
+		$result_url = FULL_BASE_URL . BASE . '/orders/place_order/';
       
 		$content = '<form action="https://liqpay.com/?do=clickNbuy" method="post">
 			<input type="hidden" name="order_id" value="' . $order_id . '">

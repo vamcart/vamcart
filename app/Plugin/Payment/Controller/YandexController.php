@@ -90,8 +90,8 @@ class YandexController extends PaymentAppController {
 			$action_url = 'https://money.yandex.ru/eshop.xml';
 		}
 
-		$success_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/orders/place_order/';
-		$fail_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/page/checkout' . $config['URL_EXTENSION'];
+		$success_url = FULL_BASE_URL . BASE . '/orders/place_order/';
+		$fail_url = FULL_BASE_URL . BASE . '/page/checkout' . $config['URL_EXTENSION'];
 		
 		$content = '<form action="'.$action_url.'">
 			<input type="hidden" name="shopId" value="'.$yandex_shopid.'">
@@ -159,8 +159,8 @@ class YandexController extends PaymentAppController {
 			$action_url = 'https://money.yandex.ru/eshop.xml';
 		}
 
-		$success_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/orders/place_order/';
-		$fail_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/page/checkout' . $config['URL_EXTENSION'];
+		$success_url = FULL_BASE_URL . BASE . '/orders/place_order/';
+		$fail_url = FULL_BASE_URL . BASE . '/page/checkout' . $config['URL_EXTENSION'];
 		
 		$content = '<form action="'.$action_url.'">
 			<input type="hidden" name="shopId" value="'.$yandex_shopid.'">

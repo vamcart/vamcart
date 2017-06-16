@@ -67,8 +67,8 @@ class YandexFizlicoController extends PaymentAppController {
 		$yandex_settings_key = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'secret_key')));
 		$yandex_key = $yandex_settings_key['PaymentMethodValue']['value'];
 
-		$success_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/orders/place_order/';
-		$fail_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/page/checkout' . $config['URL_EXTENSION'];
+		$success_url = FULL_BASE_URL . BASE . '/orders/place_order/';
+		$fail_url = FULL_BASE_URL . BASE . '/page/checkout' . $config['URL_EXTENSION'];
 		
 		$content = '
 		
@@ -227,8 +227,8 @@ class YandexFizlicoController extends PaymentAppController {
 		$yandex_settings_key = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'secret_key')));
 		$yandex_key = $yandex_settings_key['PaymentMethodValue']['value'];
 
-		$success_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/orders/place_order/';
-		$fail_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/page/checkout' . $config['URL_EXTENSION'];
+		$success_url = FULL_BASE_URL . BASE . '/orders/place_order/';
+		$fail_url = FULL_BASE_URL . BASE . '/page/checkout' . $config['URL_EXTENSION'];
 		
 		$content = '
 			<a class="btn btn-default" href="https://money.yandex.ru/embed/shop.xml?account='.$yandex_wallet.'&quickpay=shop&payment-type-choice=on&mobile-payment-type-choice=on&writer=seller&label='.$order_id.'&targets=Заказ №'.$order_id.'&targets-hint=&default-sum='.number_format($order['Order']['total'], 2).'&button-text=01&hint=&successURL='.$success_url.'"" target="_blank" value="{lang}Pay Now{/lang}"><i class="fa fa-dollar"></i> {lang}Pay Now{/lang}</a>

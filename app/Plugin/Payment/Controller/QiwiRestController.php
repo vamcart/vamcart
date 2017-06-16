@@ -117,8 +117,8 @@ class QiwiRestController extends PaymentAppController {
 
 		curl_close($ch);
 
-		$success_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/orders/place_order/';
-		$fail_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/page/checkout' . $config['URL_EXTENSION'];
+		$success_url = FULL_BASE_URL . BASE . '/orders/place_order/';
+		$fail_url = FULL_BASE_URL . BASE . '/page/checkout' . $config['URL_EXTENSION'];
 		
 		$redirect_url = 'https://w.qiwi.com/order/external/main.action?shop='.$qiwi_rest_id.'&transaction='.$order_id.'&successUrl='.$success_url.'&failUrl='.$fail_url;
 		
@@ -193,8 +193,8 @@ class QiwiRestController extends PaymentAppController {
 
 		curl_close($ch);
 
-		$success_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/orders/place_order/';
-		$fail_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/page/checkout' . $config['URL_EXTENSION'];
+		$success_url = FULL_BASE_URL . BASE . '/orders/place_order/';
+		$fail_url = FULL_BASE_URL . BASE . '/page/checkout' . $config['URL_EXTENSION'];
 		
 		$redirect_url = 'https://w.qiwi.com/order/external/main.action?shop='.$qiwi_rest_id.'&transaction='.$order_id.'&successUrl='.$success_url.'&failUrl='.$fail_url;
 		

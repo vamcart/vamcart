@@ -62,8 +62,8 @@ class RbkmoneyController extends PaymentAppController {
 
 		$rbkmoney_settings = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'store_id')));
 		$rbkmoney_store_id = $rbkmoney_settings['PaymentMethodValue']['value'];
-		$success_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/orders/place_order/';
-		$fail_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/page/checkout' . $config['URL_EXTENSION'];
+		$success_url = FULL_BASE_URL . BASE . '/orders/place_order/';
+		$fail_url = FULL_BASE_URL . BASE . '/page/checkout' . $config['URL_EXTENSION'];
 		
 		$content = '<form action="https://rbkmoney.ru/acceptpurchase.aspx" method="post">
 			<input type="hidden" name="orderId" value="' . $_SESSION['Customer']['order_id'] . '">
@@ -106,8 +106,8 @@ class RbkmoneyController extends PaymentAppController {
 
 		$rbkmoney_settings = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'store_id')));
 		$rbkmoney_store_id = $rbkmoney_settings['PaymentMethodValue']['value'];
-		$success_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/orders/place_order/';
-		$fail_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/page/checkout' . $config['URL_EXTENSION'];
+		$success_url = FULL_BASE_URL . BASE . '/orders/place_order/';
+		$fail_url = FULL_BASE_URL . BASE . '/page/checkout' . $config['URL_EXTENSION'];
 		
 		$content = '<form action="https://rbkmoney.ru/acceptpurchase.aspx" method="post">
 			<input type="hidden" name="orderId" value="' . $order_id . '">

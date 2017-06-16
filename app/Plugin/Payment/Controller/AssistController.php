@@ -56,7 +56,7 @@ class AssistController extends PaymentAppController {
 
 		$assist_settings = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'assist_shop_id')));
 		$assist_shop_id = $assist_settings['PaymentMethodValue']['value'];
-		$return_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/orders/place_order/';
+		$return_url = FULL_BASE_URL . BASE . '/orders/place_order/';
 		
 		$content = '<form action="https://secure.assist.ru/shops/purchase.cfm" method="post">
 			<input type="hidden" name="Shop_IDP" value="'.$assist_shop_id.'">
@@ -97,7 +97,7 @@ class AssistController extends PaymentAppController {
 
 		$assist_settings = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'assist_shop_id')));
 		$assist_shop_id = $assist_settings['PaymentMethodValue']['value'];
-		$return_url = 'http://'.$_SERVER['HTTP_HOST'] .  BASE . '/orders/place_order/';
+		$return_url = FULL_BASE_URL . BASE . '/orders/place_order/';
 		
 		$content = '<form action="https://secure.assist.ru/shops/purchase.cfm" method="post">
 			<input type="hidden" name="Shop_IDP" value="'.$assist_shop_id.'">
