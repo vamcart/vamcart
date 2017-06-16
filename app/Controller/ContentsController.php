@@ -418,8 +418,8 @@ class ContentsController extends AppController {
 		if ($content_id > 0) {
 		$content_description = $this->ContentBase->get_content_description($content_id);
 
-		$this->set('current_crumb', __('Edit', true) . ' ' . $content_description['ContentDescription']['name']);
-		$this->set('title_for_layout', __('Edit', true) . ' ' . $content_description['ContentDescription']['name']);
+		$this->set('current_crumb', __('Edit', true) . (isset($content_description['ContentDescription']['name']) ? ' ' . $content_description['ContentDescription']['name'] : ''));
+		$this->set('title_for_layout', __('Edit', true) . (isset($content_description['ContentDescription']['name']) ? ' ' . $content_description['ContentDescription']['name'] : ''));
 		} else { 
 		$this->set('current_crumb', __('Edit', true));
 		$this->set('title_for_layout', __('Edit', true));
