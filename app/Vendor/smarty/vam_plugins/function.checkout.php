@@ -57,11 +57,11 @@ $(this).parent().addClass("selected");
         required: true,
         minlength: 2      
      },
-      //email: {
-        //required: true,
-        //minlength: 6,
-        //email: true      
-     //},
+      email: {
+        required: true,
+        minlength: 6,
+        email: true      
+     },
       phone: {
         required: true,
         minlength: 10,
@@ -72,10 +72,10 @@ $(this).parent().addClass("selected");
         required: "{lang}Required field{/lang}",
         minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 2"
       },
-      //email: {
-        //required: "{lang}Required field{/lang}",
-        //minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 6"
-      //},
+      email: {
+        required: "{lang}Required field{/lang}",
+        minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 6"
+      },
       phone: {
         required: "{lang}Required field{/lang}",
         minlength: "{lang}Required field{/lang}. {lang}Min length{/lang}: 10"
