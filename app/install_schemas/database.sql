@@ -138,7 +138,8 @@ INSERT INTO `contents` VALUES
 (106, -1, NULL, NULL, 3, 1, NULL, 'one_click_buy', NULL, 1, NULL, NULL, NULL, NULL, NULL, '2014-08-09 20:58:09', '2014-08-09 20:58:09'),
 (107,0,8,0,1,1,0,'brands','',1,0,0,0,NULL,NULL,'2014-07-11 19:18:53','2014-07-11 19:18:53'),
 (108,107,1,0,8,1,0,'samsung','',1,1,0,0,NULL,NULL,'2014-07-11 19:18:53','2014-07-11 19:18:53'),
-(109,-1,7,0,3,1,0,'password_recovery','',1,0,0,106,NULL,NULL,'2014-08-19 00:00:00','2014-08-19 21:18:34');
+(109,-1,7,0,3,1,0,'password_recovery','',1,0,0,106,NULL,NULL,'2014-08-19 00:00:00','2014-08-19 21:18:34'),
+(110,44,5,0,3,1,0,'404','',1,0,0,0,NULL,NULL,'2009-07-30 15:36:54','2009-07-30 15:37:09');
 
 DROP TABLE IF EXISTS content_categories;
 CREATE TABLE `content_categories` (
@@ -263,7 +264,9 @@ INSERT INTO `content_descriptions` VALUES
 (819, 108, 1, 'Samsung', '', NULL, NULL, NULL, NULL),
 (820, 108, 2, 'Samsung', '', NULL, NULL, NULL, NULL),
 (821, 109, 1, 'Password Recovery', '{password_recovery}', '', '', '', ''),
-(822, 109, 2, 'Восстановление пароля', '{password_recovery}', '', '', '', '');
+(822, 109, 2, 'Восстановление пароля', '{password_recovery}', '', '', '', ''),
+(823, 110, 1, '404', 'Page not found.<br /><br />We couldn\'t find that page.<br /><br />Try searching.<br /><br />{content_listing template="featured-products" label_id="3" type="product" limit="9"}', '', '', '', ''),
+(824, 110, 2, '404', 'Страница не найдена.<br /><br />Неправильно набран адрес, либо такой страницы больше не существует.<br /><br />Вы можете воспользоваться поиском.<br /><br />{content_listing template="featured-products" label_id="3" type="product" limit="9"}', '', '', '', '');
 
 DROP TABLE IF EXISTS content_images;
 CREATE TABLE `content_images` (
