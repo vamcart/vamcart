@@ -126,7 +126,7 @@ class YandexController extends PaymentAppController {
                 $id_tax = 1;
                 $receipt['items'][] = array(
                     'quantity' => 1,
-                    'text' => substr(__($order['ShippingMethod']['name']), 0, 128),
+                    'text' => substr('Доставка - ' . __($order['ShippingMethod']['name']), 0, 128),
                     'tax' => $id_tax,
                     'price' => array(
                         'amount' => number_format($order['Order']['shipping'], 2, '.', ''),
