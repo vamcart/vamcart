@@ -40,8 +40,8 @@ $template = '
 					<tr><td>{lang}Address Line 1{/lang}: {$order.Order.bill_line_1}</td></tr>
 					<tr><td>{lang}Address Line 2{/lang}: {$order.Order.bill_line_2}</td></tr>
 					<tr><td>{lang}City{/lang}: {$order.Order.bill_city}</td></tr>
-					<tr><td>{lang}State{/lang}: {$order.Order.bill_state}</td></tr>
-					<tr><td>{lang}Country{/lang}: {$order.Order.bill_country}</td></tr>
+					<tr><td>{lang}State{/lang}: {lang domain="default"}{$order.BillState.name}{/lang}</td></tr>
+					<tr><td>{lang}Country{/lang}: {lang domain="default"}{$order.BillCountry.name}{/lang}</td></tr>
 					<tr><td>{lang}Zipcode{/lang}: {$order.Order.bill_zip}</td></tr>
 				</tbody>
 			</table>
@@ -53,8 +53,8 @@ $template = '
 					<tr><td>{lang}Address Line 1{/lang}: {$order.Order.ship_line_1}</td></tr>
 					<tr><td>{lang}Address Line 2{/lang}: {$order.Order.ship_line_2}</td></tr>
 					<tr><td>{lang}City{/lang}: {$order.Order.ship_city}</td></tr>
-					<tr><td>{lang}State{/lang}: {$order.Order.ship_state}</td></tr>
-					<tr><td>{lang}Country{/lang}: {$order.Order.ship_country}</td></tr>
+					<tr><td>{lang}State{/lang}: {lang domain="default"}{$order.ShipState.name}{/lang}</td></tr>
+					<tr><td>{lang}Country{/lang}: {lang domain="default"}{$order.ShipCountry.name}{/lang}</td></tr>
 					<tr><td>{lang}Zipcode{/lang}: {$order.Order.ship_zip}</td></tr>
 				</tbody>
 			</table>
