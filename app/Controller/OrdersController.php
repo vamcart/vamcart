@@ -49,7 +49,7 @@ class OrdersController extends AppController {
 
 		if ($_POST['module_coupon_code'] != '') $_SESSION['module_coupon_code'] = $_POST['module_coupon_code'];
 		
-		if ($_POST['email'] != '') {
+		if (isset($_POST['email']) && $_POST['email'] != '') {
 
 		App::import('Model', 'Customer');
 		$Customer = new Customer();					
@@ -127,7 +127,7 @@ class OrdersController extends AppController {
 		if (isset($_SESSION['Customer']['customer_id'])) {
 			$order['Order']['customer_id'] = $_SESSION['Customer']['customer_id'];
 		} else {
-			$order['Order']['customer_id'] = ($Customer->id > 0) ? $Customer->id : 0;
+			$order['Order']['customer_id'] = (isset($Customer) && $Customer->id > 0) ? $Customer->id : 0;
 		}
 
 		// Update order products tax

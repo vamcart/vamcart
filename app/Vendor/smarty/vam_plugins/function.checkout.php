@@ -35,16 +35,20 @@ $(function () {
 	  var current_year = current_date.getFullYear();
 	  $(\'form#contentform\').append(\'<input type="hidden" name="anti-bot-q" id="anti-bot-q" value="\'+current_year+\'" />\'); // add whole input with answer via javascript to form
   }
-      	
+
+{if {$display_shipping_methods_block} == "1"}
 $("label.shipping-method").click(function(){
 $("label.shipping-method").parent().removeClass("selected");
 $(this).parent().addClass("selected");
 });
+{/if}
 
+{if {$display_payment_methods_block} == "1"}
 $("label.payment-method").click(function(){
 $("label.payment-method").parent().removeClass("selected");
 $(this).parent().addClass("selected");
 });
+{/if}
 	
   // validate form
   $("#contentform").validate({
@@ -79,6 +83,7 @@ $(this).parent().addClass("selected");
     }
   });
 
+	{if {$display_shipping_info_block} == "1"}
 	$(hidePay);		
 		function hidePay()	{
 		if ($("#diff_shipping").is(":checked") == "1")
@@ -105,13 +110,17 @@ $(this).parent().addClass("selected");
 			}
 		});
 		;}
+	{/if}
 
+	{if {$display_country_field} == "1"}
     $("#bill_country").change(function () {
       $("#bill_state_div").load("{base_path}/countries/billing_regions/" + $(this).val());
     });
     $("#ship_country").change(function () {
       $("#ship_state_div").load("{base_path}/countries/shipping_regions/" + $(this).val());
     });
+	{/if}    
+	{if {$display_state_field} == "1"}
     $("#bill_state").change(function(){            
         var http_send = "{base_path}/orders/save_data/";
         var form_data = $("#contentform").serialize();
@@ -130,6 +139,7 @@ $(this).parent().addClass("selected");
             });                            
         return false;
     });
+	{/if}    
 
   });
 </script>
@@ -227,36 +237,47 @@ function showSelected(suggestion) {
 			<input type="text" class="form-control" name="bill_name" id="bill_name" value="{if $customer.AddressBook.ship_name}{$customer.AddressBook.ship_name}{else}{$order.bill_name}{/if}"/>
 		</div>
 	</div>
+	{if {$display_address_field} == "1"}
 	<div class="form-group">
 		<label class="col-sm-3 control-label" for="bill_line_1">{lang}Address Line 1{/lang}:</label>
 		<div class="col-sm-9">
 			<input type="text" class="form-control" name="bill_line_1" id="bill_line_1" value="{if $customer.AddressBook.ship_line_1}{$customer.AddressBook.ship_line_1}{else}{$order.bill_line_1}{/if}" />
 		</div>
 	</div>
+	{/if}
+	{if {$display_address_1_field} == "1"}
 	<div class="form-group">
 		<label class="col-sm-3 control-label" for="bill_line_2">{lang}Address Line 2{/lang}:</label>
 		<div class="col-sm-9">
 			<input type="text" class="form-control" name="bill_line_2" id="bill_line_2" value="{if $customer.AddressBook.ship_line_2}{$customer.AddressBook.ship_line_2}{else}{$order.bill_line_2}{/if}" />
 		</div>
 	</div>
+	{/if}
+	{if {$display_city_field} == "1"}
 	<div class="form-group">
 		<label class="col-sm-3 control-label" for="bill_city">{lang}City{/lang}:</label>
 		<div class="col-sm-9">
 			<input type="text" class="form-control" name="bill_city" id="bill_city" value="{if $customer.AddressBook.ship_city}{$customer.AddressBook.ship_city}{else}{$order.bill_city}{/if}" />
 		</div>
 	</div>    
+	{/if}
+	{if {$display_postcode_field} == "1"}
 	<div class="form-group">
 		<label class="col-sm-3 control-label" for="bill_zip">{lang}Zipcode{/lang}:</label>
 		<div class="col-sm-9">
 			<input type="text" class="form-control" name="bill_zip" id="bill_zip" value="{if $customer.AddressBook.ship_zip}{$customer.AddressBook.ship_zip}{else}{$order.bill_zip}{/if}" />
 		</div>
 	</div>    
+	{/if}
+	{if {$display_country_field} == "1"}
 	<div class="form-group">
 		<label class="col-sm-3 control-label" for="bill_country">{lang}Country{/lang}:</label>
 		<div class="col-sm-9">
 			<select name="bill_country" class="form-control" id="bill_country">{if $customer.AddressBook.ship_country}{country_list selected={$customer.AddressBook.ship_country}}{else}{country_list}{/if}</select>
 		</div>
 	</div>
+	{/if}
+	{if {$display_state_field} == "1"}
 	<div class="form-group">
 	<div id="bill_state_div">
 		<label class="col-sm-3 control-label" for="bill_state">{lang}State{/lang}:</label>
@@ -265,8 +286,10 @@ function showSelected(suggestion) {
 		</div>
 	</div>
 	</div>
+	{/if}
   </div>    
 
+  {if {$display_shipping_info_block} == "1"}
   <div id="diff_ship">
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
@@ -278,7 +301,9 @@ function showSelected(suggestion) {
     </div>
   </div>
   </div>
+  {/if}
 
+  {if {$display_shipping_info_block} == "1"}
   <div id="ship_information">
     <div>
       <h3>{lang}Shipping Information{/lang}</h3>
@@ -289,36 +314,47 @@ function showSelected(suggestion) {
 			<input type="text" class="form-control" name="ship_name" id="ship_name" value="{$order.ship_name}" />
 		</div>
 	</div>
+	{if {$display_address_field} == "1"}
 	<div class="form-group">
 		<label class="col-sm-3 control-label" for="ship_line_1">{lang}Address Line 1{/lang}:</label>
 		<div class="col-sm-9">
 			<input type="text" class="form-control" name="ship_line_1" id="ship_line_1" value="{$order.ship_line_1}" />
 		</div>
 	</div>
+	{/if}
+	{if {$display_address_1_field} == "1"}
 	<div class="form-group">
 		<label class="col-sm-3 control-label" for="ship_line_2">{lang}Address Line 2{/lang}:</label>
 		<div class="col-sm-9">
 			<input type="text" class="form-control" name="ship_line_2" id="ship_line_2" value="{$order.ship_line_2}" />
 		</div>
 	</div>
+	{/if}
+	{if {$display_city_field} == "1"}
 	<div class="form-group">
 		<label class="col-sm-3 control-label" for="ship_city">{lang}City{/lang}:</label>
 		<div class="col-sm-9">
 			<input type="text" class="form-control" name="ship_city" id="ship_city" value="{$order.ship_city}" />
 		</div>
 	</div>    
+	{/if}
+	{if {$display_postcode_field} == "1"}
 	<div class="form-group">
 		<label class="col-sm-3 control-label" for="ship_zip">{lang}Zipcode{/lang}:</label>
 		<div class="col-sm-9">
 			<input type="text" class="form-control" name="ship_zip" id="ship_zip" value="{$order.ship_zip}" />
 		</div>
 	</div>    
+	{/if}
+	{if {$display_country_field} == "1"}
 	<div class="form-group">
 		<label class="col-sm-3 control-label" for="ship_country">{lang}Country{/lang}:</label>
 		<div class="col-sm-9">
 			<select name="ship_country" class="form-control" id="ship_country">{country_list}</select>
 		</div>
 	</div>
+	{/if}
+	{if {$display_state_field} == "1"}
 	<div class="form-group">
 	<div id="ship_state_div">
 		<label class="col-sm-3 control-label" for="ship_state">{lang}State{/lang}:</label>
@@ -327,31 +363,38 @@ function showSelected(suggestion) {
 		</div>
 	</div>
 	</div>
+	{/if}
   </div>
+  {/if}
   <div id="contact_information">
     <div>
       <h3>{lang}Contact Information{/lang}</h3>
     </div>
+	{if {$display_email_field} == "1"}
 	<div class="form-group">
 		<label class="col-sm-3 control-label" for="email">{lang}E-mail{/lang}:</label>
 		<div class="col-sm-9">
 			<input type="text" class="form-control" name="email" id="email" value="{if $customer.Customer.email}{$customer.Customer.email}{else}{$order.email}{/if}" />
 		</div>
 	</div>
+	{/if}
 	<div class="form-group">
 		<label class="col-sm-3 control-label" for="phone">{lang}Phone{/lang}:</label>
 		<div class="col-sm-9">
 			<input type="text" class="form-control" name="phone" id="phone" value="{if $customer.AddressBook.phone}{$customer.AddressBook.phone}{else}{$order.phone}{/if}" />
 		</div>
 	</div>
+	{if {$display_comments_field} == "1"}
 	<div class="form-group">
 		<label class="col-sm-3 control-label" for="comment">{lang}Order Comments{/lang}:</label>
 		<div class="col-sm-9">
 			<textarea class="form-control" name="comment" id="comment" cols="30" rows="5">{$order_comment}</textarea>
 		</div>
 	</div>
+	{/if}
   </div>
   {module alias="coupons" action="checkout_box"}
+  {if {$display_shipping_methods_block} == "1"}
   <div id="shipping_method">
     <div>
       <h3>{lang}Shipping Method{/lang}</h3>
@@ -380,7 +423,9 @@ function showSelected(suggestion) {
 	</ul>
 	</div>
   </div>
+  {/if}
 
+  {if {$display_payment_methods_block} == "1"}
   <div id="payment_method">
     <div>
       <h3>{lang}Payment Method{/lang}</h3>
@@ -418,6 +463,7 @@ function showSelected(suggestion) {
   </div>
 	    
   </div>
+  {/if}
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-10">
 					{lang}By clicking Continue button you are agree to our policy.{/lang} <a href="{base_path}/page/conditions-of-use.html" target="_blank">{lang}Terms & Conditions.{/lang}</a>
@@ -538,7 +584,18 @@ function smarty_function_checkout($params, $template)
 		'customer' => $customer,
 		'checkout_form_action' => BASE . '/orders/confirmation/',
 		'dadata_api_key' => $config['DADATA_API_KEY'],
-		'phone_mask' => $config['PHONE_MASK']
+		'phone_mask' => $config['PHONE_MASK'],
+		'display_address_field' => $config['CHECKOUT_DISPLAY_ADDRESS_FIELD'],
+		'display_address_1_field' => $config['CHECKOUT_DISPLAY_ADDRESS_1_FIELD'],
+		'display_city_field' => $config['CHECKOUT_DISPLAY_CITY_FIELD'],
+		'display_postcode_field' => $config['CHECKOUT_DISPLAY_POSTCODE_FIELD'],
+		'display_country_field' => $config['CHECKOUT_DISPLAY_COUNTRY_FIELD'],
+		'display_state_field' => $config['CHECKOUT_DISPLAY_STATE_FIELD'],
+		'display_shipping_info_block' => $config['CHECKOUT_DISPLAY_SHIPPING_INFO_BLOCK'],
+		'display_email_field' => $config['CHECKOUT_DISPLAY_EMAIL_FIELD'],
+		'display_comments_field' => $config['CHECKOUT_DISPLAY_COMMENTS_FIELD'],
+		'display_shipping_methods_block' => $config['CHECKOUT_DISPLAY_SHIPPING_METHODS_BLOCK'],
+		'display_payment_methods_block' => $config['CHECKOUT_DISPLAY_PAYMENT_METHODS_BLOCK']
 	);
 	
 	$display_template = $Smarty->load_template($params,'checkout');
