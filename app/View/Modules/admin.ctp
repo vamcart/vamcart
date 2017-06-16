@@ -14,15 +14,14 @@ echo $this->Html->tableHeaders(array( __('Name'), __('Alias'), __('Installed'), 
 
 foreach ($modules AS $module)
 {
-
 	if($module['installed'] == 0)
 	{
 		$action_button = $this->Admin->linkButton(__('Install'),'/module_' . $module['alias'] . '/setup/install/','cus-add', array('escape' => false, 'class' => 'btn btn-default'));
 	}
-	elseif((isset($module['installed_version']))&&($module['installed_version'] < $module['version']))
-	{
-		$action_button = $this->Admin->linkButton(__('Upgrade'),'/module_' . $module['alias'] . '/setup/upgrade/','cus-cog', array('escape' => false, 'class' => 'btn btn-default'),__('Are you sure?'));
-	}
+	//elseif((isset($module['installed_version']))&&($module['installed_version'] < $module['version']))
+	//{
+		//$action_button = $this->Admin->linkButton(__('Upgrade'),'/module_' . $module['alias'] . '/setup/upgrade/','cus-cog', array('escape' => false, 'class' => 'btn btn-default'),__('Are you sure?'));
+	//}
 	else
 	{
 		$action_button = $this->Admin->linkButton(__('Uninstall'),'/module_' . $module['alias'] . '/setup/uninstall/','cus-cancel', array('escape' => false, 'class' => 'btn btn-default'),__('Are you sure?'));
