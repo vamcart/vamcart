@@ -14,7 +14,7 @@ class ModuleBaseComponent extends Object
 	{
 	}
 
-	public function initialize(Controller &$controller, $settings = array()) {
+	public function initialize(Controller $controller, $settings = array()) {
 		$this->controller = $controller;
     }
     
