@@ -16,7 +16,8 @@ CREATE TABLE `configuration_groups` (
 
 INSERT INTO `configuration_groups` (`id`, `key`, `name`, `description`, `group_icon`, `visible`, `sort_order`) VALUES 
 (1, 'main', 'Main','','cus-application','1','1'),
-(2, 'email', 'Email Settings','','cus-email','1','3');
+(2, 'email', 'Email Settings','','cus-email','1','3'),
+(3, 'checkout', 'Checkout Settings','','cus-cart','1','3');
 
 DROP TABLE IF EXISTS configurations;
 CREATE TABLE `configurations` (
@@ -45,16 +46,27 @@ INSERT INTO `configurations` (`id`, `configuration_group_id`, `key`, `value`, `t
 (10,'1','GOOGLE_ANALYTICS', '','text', '', 'Google Analytics ID','','10'),
 (11,'1','YANDEX_METRIKA', '','text', '', 'Yandex.Metrika ID','','11'),
 (12,'1','PRODUCTS_PER_PAGE', '20','text', '', 'Products Per Page','','12'),
-(13,'2','SEND_EXTRA_EMAIL', 'vam@test.com','text', '', 'Send extra order emails to','','14'),
-(14,'2','NEW_ORDER_FROM_EMAIL', 'vam@test.com','text', '', 'New Order: From','','15'),
-(15,'2','NEW_ORDER_FROM_NAME', 'VamShop','text', '', 'New Order: From Name','','16'),
-(16,'2','NEW_ORDER_STATUS_FROM_EMAIL', 'vam@test.com','text', '', 'New Order Status: From','','17'),
-(17,'2','NEW_ORDER_STATUS_FROM_NAME', 'VamShop','text', '', 'New Order Status: From Name','','18'),
-(18,'2','SEND_CONTACT_US_EMAIL', 'vam@test.com','text', '', 'Send contact us emails to','','19'),
-(19,'1','AJAX_ENABLE', '1', 'select', '0,1', 'Ajax Enable', '', '20'),
-(20,'1','DADATA_API_KEY', 'd54b2e521766960e89c4c5f871483b33eae9a364','text', '', 'DaData API Key','','21'),
-(21,'1','PHONE_MASK', '(999) 999-99-99','text', '', 'Phone Input Mask','','22'),
-(22,'1','SMS_EMAIL', '','text', '', 'SMS Email Gateway','','23');
+(13,'2','SEND_EXTRA_EMAIL', 'vam@test.com','text', '', 'Send extra order emails to','','13'),
+(14,'2','NEW_ORDER_FROM_EMAIL', 'vam@test.com','text', '', 'New Order: From','','14'),
+(15,'2','NEW_ORDER_FROM_NAME', 'VamShop','text', '', 'New Order: From Name','','15'),
+(16,'2','NEW_ORDER_STATUS_FROM_EMAIL', 'vam@test.com','text', '', 'New Order Status: From','','16'),
+(17,'2','NEW_ORDER_STATUS_FROM_NAME', 'VamShop','text', '', 'New Order Status: From Name','','17'),
+(18,'2','SEND_CONTACT_US_EMAIL', 'vam@test.com','text', '', 'Send contact us emails to','','18'),
+(19,'1','AJAX_ENABLE', '1', 'select', '0,1', 'Ajax Enable', '', '19'),
+(20,'1','DADATA_API_KEY', 'd54b2e521766960e89c4c5f871483b33eae9a364','text', '', 'DaData API Key','','20'),
+(21,'1','PHONE_MASK', '(999) 999-99-99','text', '', 'Phone Input Mask','','21'),
+(22,'1','SMS_EMAIL', '','text', '', 'SMS Email Gateway','','22'),
+(23,'3','CHECKOUT_DISPLAY_ADDRESS_FIELD', '1','select', '0,1', 'Display Address Line 1 Field','','23'),
+(24,'3','CHECKOUT_DISPLAY_ADDRESS_1_FIELD', '1','select', '0,1', 'Display Address Line 2 Field','','24'),
+(25,'3','CHECKOUT_DISPLAY_CITY_FIELD', '1','select', '0,1', 'Display City Field','','25'),
+(26,'3','CHECKOUT_DISPLAY_POSTCODE_FIELD', '1','select', '0,1', 'Display Zipcode Field','','26'),
+(27,'3','CHECKOUT_DISPLAY_COUNTRY_FIELD', '1','select', '0,1', 'Display Country Field','','27'),
+(28,'3','CHECKOUT_DISPLAY_STATE_FIELD', '1','select', '0,1', 'Display State Field','','28'),
+(29,'3','CHECKOUT_DISPLAY_SHIPPING_INFO_BLOCK', '1','select', '0,1', 'Display Shipping Info Block','','29'),
+(30,'3','CHECKOUT_DISPLAY_EMAIL_FIELD', '1','select', '0,1', 'Display Email Field','','30'),
+(31,'3','CHECKOUT_DISPLAY_COMMENTS_FIELD', '1','select', '0,1', 'Display Order Comments Field','','31'),
+(32,'3','CHECKOUT_DISPLAY_SHIPPING_METHODS_BLOCK', '1','select', '0,1', 'Display Shipping Methods Block','','32'),
+(33,'3','CHECKOUT_DISPLAY_PAYMENT_METHODS_BLOCK', '1','select', '0,1', 'Display Payment Methods Block','','33');
 
 DROP TABLE IF EXISTS contents;
 CREATE TABLE `contents` (
