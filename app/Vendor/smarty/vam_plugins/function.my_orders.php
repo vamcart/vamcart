@@ -204,6 +204,10 @@ return $template;
 
 function smarty_function_my_orders($params, $template)
 {
+	if (!isset($_SESSION['Customer']['customer_id']) or $_SESSION['Customer']['customer_id'] == 0) {
+		return;
+	}
+
 	App::uses('SmartyComponent', 'Controller/Component');
 	$Smarty = new SmartyComponent(new ComponentCollection());
 
