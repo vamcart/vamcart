@@ -38,12 +38,6 @@ class SetupController extends ModuleAskAProductQuestionAppController {
 
 		$install_query = array();
 
-		$install_query[] = "
-		INSERT INTO `defined_languages` (`language_id`, `key`, `value`, `created`, `modified`) VALUES 
-		(1, 'Ask A Product Question', 'Ask A Product Question', '2013-10-10 20:08:49', '2013-10-10 20:08:49'),
-		(2, 'Ask A Product Question', 'Задать вопрос о товаре', '2013-10-10 20:08:49', '2013-10-10 20:08:49')
-		";		
-
 		$email_template = $this->EmailTemplate->findByAlias('ask_a_product_question');
 		if (empty($email_template)) {
 
@@ -75,10 +69,6 @@ INSERT INTO `email_template_descriptions` (`id`, `email_template_id`, `language_
 		
 		$core_page = $this->Content->find('first', array('conditions' => array('Content.parent_id' => '-1','alias' => 'ask_a_product_question')));
 		$this->Content->delete($core_page['Content']['id'],true);
-
-		// Delete the defined language record
-		$uninstall_query = "DELETE FROM `defined_languages` WHERE `key` = 'Ask A Product Question'";
-		$this->Module->query($uninstall_query);
 
 		// Deletes the email templates records
 		$email_template = $this->EmailTemplate->findByAlias('ask_a_product_question');

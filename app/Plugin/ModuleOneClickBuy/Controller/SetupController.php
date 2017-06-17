@@ -38,12 +38,6 @@ class SetupController extends ModuleOneClickBuyAppController {
 
 		$install_query = array();
 
-		$install_query[] = "
-		INSERT INTO `defined_languages` (`language_id`, `key`, `value`, `created`, `modified`) VALUES 
-		(1, 'One Click Buy', 'One Click Buy', '2013-10-10 20:08:49', '2013-10-10 20:08:49'),
-		(2, 'One Click Buy', 'Купить за 1 клик', '2013-10-10 20:08:49', '2013-10-10 20:08:49')
-		";		
-
 		$email_template = $this->EmailTemplate->findByAlias('one_click_buy');
 		if (empty($email_template)) {
 
@@ -75,10 +69,6 @@ INSERT INTO `email_template_descriptions` (`id`, `email_template_id`, `language_
 		
 		$core_page = $this->Content->find('first', array('conditions' => array('Content.parent_id' => '-1','alias' => 'one_click_buy')));
 		$this->Content->delete($core_page['Content']['id'],true);
-
-		// Delete the module record
-		$uninstall_query = "DELETE FROM `defined_languages` WHERE `key` = 'One Click Buy'";
-		$this->Module->query($uninstall_query);
 
 		// Deletes the email templates records
 		$email_template = $this->EmailTemplate->findByAlias('one_click_buy');
