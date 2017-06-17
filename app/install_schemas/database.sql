@@ -377,7 +377,8 @@ INSERT INTO `content_pages` VALUES
 (33,53,'1'),
 (34,73,'1'),
 (35,87,'1'),
-(36,88,'1')	;
+(36,88,'1'),
+(37,110,'1')	;
 
 DROP TABLE IF EXISTS content_products;
 CREATE TABLE `content_products` (
