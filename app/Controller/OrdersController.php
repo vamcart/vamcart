@@ -47,7 +47,7 @@ class OrdersController extends AppController {
 		foreach($_POST AS $key => $value)
 			$order['Order'][$key] = $value;
 
-		if ($_POST['module_coupon_code'] != '') $_SESSION['module_coupon_code'] = $_POST['module_coupon_code'];
+		if (isset($_POST['module_coupon_code']) && $_POST['module_coupon_code'] != '') $_SESSION['module_coupon_code'] = $_POST['module_coupon_code'];
 		
 		if (isset($_POST['email']) && $_POST['email'] != '') {
 
