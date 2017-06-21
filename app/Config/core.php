@@ -178,7 +178,8 @@
 		'cookie' => 'vamshop',
 		'timeout' => 60,
 		'cookieTimeout' => 1440,
-		'autoRegenerate' => true
+		'requestCountdown' => 1000,
+		'autoRegenerate' => false
 	));
 
 /**

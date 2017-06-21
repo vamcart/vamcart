@@ -202,7 +202,10 @@ CakeLog::config('error', array(
 ));
 
 //Configure::write('Asset.jsPath', 'js-packed');
-	//Configure::write('Asset.cssPath', 'css-packed');
+//Configure::write('Asset.cssPath', 'css-packed');
 
-	if(!defined('CryptKey')) define('CryptKey','VamShop');
-	if(!defined('CheckServer')) define('CheckServer','http://updates.vamshop.com/');
+App::uses('CakeSession', 'Model/Datasource');
+CakeSession::$requestCountdown = 1000;
+
+if(!defined('CryptKey')) define('CryptKey','VamShop');
+if(!defined('CheckServer')) define('CheckServer','http://updates.vamshop.com/');
