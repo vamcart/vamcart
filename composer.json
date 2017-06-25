@@ -1,0 +1,8 @@
+{
+    "name": "vamcart/vamcart",
+    "description": "VamCart is an online shop (php shopping cart cms) solution.",
+    "require": {
+        "php": ">=5.3",
+        "mysql": ">=4.1"
+    }
+}
