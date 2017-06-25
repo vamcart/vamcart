@@ -39,6 +39,11 @@ $(function($){
 		</div>
 		<div class="form-group">
 			<div>
+				<?php echo __d('catalog', 'By clicking button you are agree to our policy.'); ?> <a href="<?php echo BASE; ?>/page/conditions-of-use.html" target="_blank"><?php echo __d('catalog', 'Terms & Conditions.'); ?></a>
+			</div>
+		</div>
+		<div class="form-group">
+			<div>
 				<button class="btn btn-default btn-submit-question" type="submit" name="submit" value="<?php echo __d('module_one_click_buy', 'Submit'); ?>"><i class="fa fa-check"></i> <?php echo __d('module_one_click_buy', 'Submit'); ?></button>
 			</div>
 		</div>
