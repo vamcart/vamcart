@@ -207,6 +207,8 @@ CakeLog::config('error', array(
 if(!defined('CryptKey')) define('CryptKey','VamShop');
 if(!defined('CheckServer')) define('CheckServer','http://updates.vamshop.com/');
 
+//Configure::write('Config.language', 'rus');
+
 App::uses('CakeSession', 'Model/Datasource');
 CakeSession::$requestCountdown = 1000;
 
