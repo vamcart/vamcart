@@ -1,7 +1,7 @@
 {
     "name": "vamcart/vamcart",
     "description": "VamCart is an online shop (php shopping cart cms) solution.",
-    "type": "library",
+    "type": "project",
     "keywords": ["shopping cart","cart","php","commerce","e-commerce","shop","store","cms","cakephp","smarty","jquery"],
     "homepage": "https://github.com/vamcart/vamcart",
     "license": "MIT",
