@@ -1,6 +1,18 @@
 {
     "name": "vamcart/vamcart",
     "description": "VamCart is an online shop (php shopping cart cms) solution.",
+    "type": "library",
+    "keywords": ["shopping cart","cart","php","commerce","e-commerce","shop","store","cms","cakephp","smarty","jquery"],
+    "homepage": "https://github.com/vamcart/vamcart",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexander Menovchicov",
+            "email": "vamshop@gmail.com",
+            "homepage": "http://vamshop.com",
+            "role": "Developer"
+        }
+    ],
     "require": {
         "php": ">=5.3",
         "mysql": ">=4.1"
