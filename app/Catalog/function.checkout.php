@@ -466,7 +466,7 @@ function showSelected(suggestion) {
   {/if}
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-10">
-					{lang}By clicking Continue button you are agree to our policy.{/lang} <a href="{base_path}/page/conditions-of-use.html" target="_blank">{lang}Terms & Conditions.{/lang}</a>
+					{lang}By clicking button you are agree to our policy.{/lang} <a href="{base_path}/page/conditions-of-use.html" target="_blank">{lang}Terms & Conditions.{/lang}</a>
 		</div>
 	</div>
 	<div class="form-group">

@@ -315,8 +315,8 @@ msgstr "Нет доступа."
 msgid "Phone"
 msgstr "Телефон"
 
-msgid "By clicking Continue button you are agree to our policy."
-msgstr "Нажимая кнопку Продолжить, я даю согласие на обработку своих персональных данных."
+msgid "By clicking button you are agree to our policy."
+msgstr "Нажимая кнопку, я даю согласие на обработку своих персональных данных."
 
 msgid "Popular"
 msgstr "Популярность"

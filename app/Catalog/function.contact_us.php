@@ -85,6 +85,11 @@ $(function () {
 			<textarea class="form-control" name="message" id="message" rows="9"></textarea>
 		</div>
 	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+					{lang}By clicking button you are agree to our policy.{/lang} <a href="{base_path}/page/conditions-of-use.html" target="_blank">{lang}Terms & Conditions.{/lang}</a>
+		</div>
+	</div>
    <div class="form-group">
      <div class="col-sm-offset-2 col-sm-10">
        <button class="btn btn-default" type="submit" name="submit" value="{lang}Send{/lang}"><i class="fa fa-check"></i> {lang}Send{/lang}</button>
