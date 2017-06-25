@@ -202,10 +202,21 @@ CakeLog::config('error', array(
 ));
 
 //Configure::write('Asset.jsPath', 'js-packed');
-//Configure::write('Asset.cssPath', 'css-packed');
+	//Configure::write('Asset.cssPath', 'css-packed');
+
+	if(!defined('CryptKey')) define('CryptKey','VamShop');
+	if(!defined('CheckServer')) define('CheckServer','http://updates.vamshop.com/');
+
+Configure::write('Config.language', 'rus');
 
 App::uses('CakeSession', 'Model/Datasource');
 CakeSession::$requestCountdown = 1000;
 
-if(!defined('CryptKey')) define('CryptKey','VamShop');
-if(!defined('CheckServer')) define('CheckServer','http://updates.vamshop.com/');
+// Load Composer autoload.
+require APP . 'Vendor/autoload.php';
+
+// Remove and re-prepend CakePHP's autoloader as Composer thinks it is the
+// most important.
+// See: http://goo.gl/kKVJO7
+spl_autoload_unregister(array('App', 'load'));
+spl_autoload_register(array('App', 'load'), true, true);
