@@ -145,10 +145,8 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 	echo $this->admin->ShowPageHeaderStart();
 
 
-		// Include the class file and create SimplePie instance
-		App::import('Vendor', 'simplepie', array('file' => 'simplepie'.DS.'autoloader.php'));
+		// SimplePie instance
 		$feed = new SimplePie();
-		
 		
 		// We'll process this feed with all of the default options.
 		$url = 'http://support.'.__('vamshop.com',true).'/modules/news/backendt.php?topicid=2';
@@ -431,10 +429,8 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 	
 		echo $this->admin->StartTabContent('vamshop-news');
 
-		// Include the class file and create SimplePie instance
-		App::import('Vendor', 'simplepie', array('file' => 'simplepie'.DS.'autoloader.php'));
+		// SimplePie instance
 		$feed = new SimplePie();
-		
 		
 		// We'll process this feed with all of the default options.
 		$url = 'http://support.'.__('vamshop.com',true).'/modules/news/backendt.php?topicid=1';
