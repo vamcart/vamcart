@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ee4baa4b9127781688b578217cae668b",
-    "content-hash": "3a335395caba94fe43be38542f33bff0",
+    "hash": "e999fda06f305fe1378177a1bfd5bb2d",
+    "content-hash": "2b94e4280e8d702edb9ccbebc2ce58f1",
     "packages": [
         {
             "name": "simplepie/simplepie",
