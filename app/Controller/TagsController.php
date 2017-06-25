@@ -14,7 +14,7 @@ class TagsController extends AppController {
 	{
 		$this->set('current_crumb', __('Tag Details', true));
 		$this->set('title_for_layout', __('Tag Details', true));
-		require_once("../Vendor/smarty/vam_plugins/" . $type . "." . $tag . ".php");
+		require_once("../Catalog/" . $type . "." . $tag . ".php");
 		
 		// Get information for the help content
 		ob_start();
@@ -51,7 +51,7 @@ class TagsController extends AppController {
 		$this->set('current_crumb', __('Tags Listing', true));
 		$this->set('title_for_layout', __('Tags Listing', true));
 		$files = array();
-		if ($handle = opendir('../Vendor/smarty/vam_plugins/')) {
+		if ($handle = opendir('../Catalog/')) {
 			
 		while ($files[] = readdir($handle));
 		sort($files);
@@ -62,7 +62,7 @@ class TagsController extends AppController {
 
 				if(($smarty_plugin[0] == 'function') || ($smarty_plugin[0] == 'block'))
 				{
-					require_once("../Vendor/smarty/vam_plugins/".$file);
+					require_once("../Catalog/".$file);
 					$default_template_function = 'default_template_' . $smarty_plugin[1];
 		
 					if(function_exists($default_template_function))
@@ -112,7 +112,7 @@ class TagsController extends AppController {
 			$z->open(ROOT.'/app/tmp/modules/tags/' . $this->data['AddModule']['submittedfile']['name']);
 
 			$res = $z->extractTo(ROOT.'/app/tmp/modules/tags/');
-			$this->copyDir(ROOT.'/app/tmp/modules/tags/app/Vendor/smarty/vam_plugins', ROOT.'/app/Vendor/smarty/vam_plugins', true);
+			$this->copyDir(ROOT.'/app/tmp/modules/tags/app/Catalog', ROOT.'/app/Catalog', true);
 			$locale_dir = ROOT.'/app/tmp/modules/tags/app/Locale';
 			if (file_exists($locale_dir) && is_dir($locale_dir)) $this->copyDir($locale_dir, ROOT.'/app/Locale', true);
 						
