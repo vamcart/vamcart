@@ -41,7 +41,7 @@ $this->Html->css(array(
 							'type' => 'textarea',
 							'id' => 'code',
 					   	'label' => __('Template'),
-							'value' => $default_template,
+							'value' => isset($default_template) ? $default_template : null,
 							'onfocus' => 'this.select();'
 	                	));
 
