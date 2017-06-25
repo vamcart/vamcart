@@ -64,8 +64,8 @@ class SmartyComponent extends Component
 
 		$smarty->plugins_dir = array(
 			APP . 'Vendor/smarty/plugins',
-			APP . 'Vendor/smarty/local_plugins',
-			APP . 'Vendor/smarty/vam_plugins'
+			APP . 'Catalog/local',
+			APP . 'Catalog'
 		);
 
 		// Minify html
