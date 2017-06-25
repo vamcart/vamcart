@@ -4,6 +4,6 @@
         "simplepie/simplepie": "~1.5"
     },
     "config": {
-        "vendor-dir": "Vendor/"
+        "vendor-dir": "Vendor"
     }
 }
