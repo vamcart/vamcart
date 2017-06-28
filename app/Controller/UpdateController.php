@@ -88,6 +88,15 @@ class UpdateController extends AppController {
 			fwrite($handle, $this->data['current_version']);
 			fclose($handle);
          	$this->set('success','1');
+
+		// clear Cache::write() items
+		Cache::clear();
+		// clear core cache
+		$cachePaths = array('views', 'persistent', 'models', 'catalog');
+		foreach($cachePaths as $config) {
+				clearCache(null, $config);
+		}	
+
 		}
 	}
 
