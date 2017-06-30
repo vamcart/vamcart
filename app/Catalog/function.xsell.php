@@ -12,7 +12,7 @@ function default_template_xsell()
 <h3>{lang}Also purchased{/lang}</h3>
 <div class="row shop-products">
   <ul class="thumbnails">
-  {foreach from=$relations item=node}
+  {foreach from=$content_list item=node}
     <li class="item col-sm-6 col-md-4">
       <div class="thumbnail text-center">
         {if $node.discount > 0}<div class="description"><span class="discount">-{$node.discount|round}%</span></div>{/if}
@@ -84,15 +84,15 @@ function smarty_function_xsell($params, &$smarty)
 
 				if(file_exists($thumb_path) && is_file($thumb_path)) {
 					list($width, $height, $type, $attr) = getimagesize($thumb_path);
-					$content['ContentRelations'][$key]['image']['image'] =  $thumb_url;
-					$content['ContentRelations'][$key]['image']['image_original'] =  $image_path;
-					$content['ContentRelations'][$key]['image']['image_width'] = $width;
-					$content['ContentRelations'][$key]['image']['image_height'] = $height;
+					$content['ContentRelations'][$key]['image'] =  $thumb_url;
+					$content['ContentRelations'][$key]['image_original'] =  $image_path;
+					$content['ContentRelations'][$key]['image_width'] = $width;
+					$content['ContentRelations'][$key]['image_height'] = $height;
 				} else {
-					$content['ContentRelations'][$key]['image']['image'] = BASE . '/images/thumb/' . $image_url;
-					$content['ContentRelations'][$key]['image']['image_original'] =  $image_path;
-					$content['ContentRelations'][$key]['image']['image_width'] = null;
-					$content['ContentRelations'][$key]['image']['image_height'] = null;
+					$content['ContentRelations'][$key]['image'] = BASE . '/images/thumb/' . $image_url;
+					$content['ContentRelations'][$key]['image_original'] =  $image_path;
+					$content['ContentRelations'][$key]['image_width'] = null;
+					$content['ContentRelations'][$key]['image_height'] = null;
 				}
 
 		} else { 
@@ -187,7 +187,7 @@ function smarty_function_xsell($params, &$smarty)
 
 	}
 
-	$assignments = array('relations' => $content['ContentRelations']);
+	$assignments = array('content_list' => $content['ContentRelations']);
 
 	$display_template = $Smarty->load_template($params, 'xsell');
 	$Smarty->display($display_template, $assignments);
