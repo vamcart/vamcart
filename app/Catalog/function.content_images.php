@@ -46,6 +46,19 @@ $(document).ready(function(){
   });
 });
 </script>
+{if $images_count > 4}
+<script type="text/javascript">
+$(document).ready(function(){
+$(".product-images .row.small").bxSlider({
+  adaptiveHeight: true,
+  pager: false,
+  minSlides: 3,
+  maxSlides: 3,
+  slideWidth: 180
+});
+});
+</script>
+{/if}
 ';		
 
 return $template;
