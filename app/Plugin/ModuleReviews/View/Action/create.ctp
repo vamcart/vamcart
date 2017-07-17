@@ -81,6 +81,11 @@ $(function($){
 			</div>
 		</div>
 		<div class="form-group">
+			<div>
+				<?php echo __d('catalog', 'By clicking button you are agree to our policy.'); ?> <a href="<?php echo BASE; ?>/page/conditions-of-use.html" target="_blank"><?php echo __d('catalog', 'Terms & Conditions.'); ?></a>
+			</div>
+		</div>
+		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
 			<button class="btn btn-default" type="submit" name="submit" value="{lang}Submit{/lang}"><i class="fa fa-check"></i> {lang}Submit{/lang}</button>
 			</div>
