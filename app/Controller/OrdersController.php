@@ -121,7 +121,15 @@ class OrdersController extends AppController {
 		$this->Email->send();
 		
 		
-		}	
+		} else {
+
+		App::import('Model', 'Customer');
+		$ExistingCustomer = new Customer();		
+		
+		$customer_exists = $ExistingCustomer->find('first', array('order' => 'Customer.id DESC', 'conditions' => array('email' => $_POST['email'])));
+
+			$_SESSION['Customer']['customer_id'] = $customer_exists['Customer']['id'];				
+		}
 		}	
 
 		if (isset($_SESSION['Customer']['customer_id'])) {
