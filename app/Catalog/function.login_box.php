@@ -9,7 +9,7 @@
 function default_template_login_box()
 {
 $template = '
-<section class="widget inner">
+<div class="widget inner">
 		{if not $is_logged_in }
 	<h3 class="widget-title">{lang}Login{/lang}</h3>
 		<form action="{base_path}/site/login?return_url={$return_url}" method="post" class="form-horizontal">
@@ -46,7 +46,7 @@ $template = '
 			<button type="submit" class="btn btn-default"><i class="fa fa-sign-out"></i> {lang}Logout{/lang}</button>
 		</form>
 		{/if}
-</section>
+</div>
 ';
 
 return $template;

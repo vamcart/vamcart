@@ -103,7 +103,7 @@ if(isset($navigation)) {
 } 
 ?>
 
-            <section id="main-content">
+            <div id="main-content">
                
 <!-- Content -->
 <div id="wrapper">
@@ -117,7 +117,7 @@ if(isset($navigation)) {
 </div>
 <!-- /Content -->
                
-            </section> 
+            </div> 
         </div>
     </div>
 

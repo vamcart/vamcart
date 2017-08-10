@@ -9,7 +9,7 @@
 function default_template_currency_box()
 {
 $template = '
-<section class="widget inner currency-widget">
+<div class="widget inner currency-widget">
   <h3 class="widget-title">{lang}Currency{/lang}</h3>
     <form action="{base_path}/currencies/pick_currency/" method="post">
     <div class="form-group">
@@ -26,7 +26,7 @@ $template = '
       </div>
     </div>
     </form>
-</section>
+</div>
 ';		
 
 return $template;

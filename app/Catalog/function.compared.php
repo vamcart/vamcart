@@ -10,7 +10,7 @@ function default_template_compared()
 {
 $template = '
 <!-- start: Page section -->
-	<section class="content compared">
+	<div class="content compared">
 		<h2>{page_name}</h2>  
 
 		<!-- start: products listing -->
@@ -73,7 +73,7 @@ $template = '
 			</table>
 			<!-- end: compare_table -->
 
-	</section>
+	</div>
 <!-- end: Page section -->
 ';
 return $template;

@@ -35,12 +35,12 @@ $(document).ready(function(){
 	{/if}
 {/function}
 
-<section class="widget inner categories-widget">
+<div class="widget inner categories-widget">
 	<h3 class="widget-title">{lang}Categories{/lang}</h3>
 		<nav id="slidemenu">
 			{call name=menu data=$tree}
 		</nav>
-</section>
+</div>
 ';
 		
 return $template;

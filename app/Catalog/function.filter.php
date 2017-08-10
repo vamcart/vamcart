@@ -9,7 +9,7 @@
 function default_template_filter()
 {
     $template = '
-<section class="widget inner filter-widget">
+<div class="widget inner filter-widget">
 	<h3 class="widget-title">{lang}Filter{/lang}</h3>
 		<form class="form-horizontal" name="filter" action="{$base_url}/filtered/set/{$base_content}" method="post">
 			<div class="filter">
@@ -23,7 +23,7 @@ function default_template_filter()
 				<button class="btn btn-default btn-filter-reset" name="cancelbutton" type="submit"><i class="fa fa-times"></i> {lang}Reset{/lang}</button>
 			</div>
 		</form>
-</section>
+</div>
 ';
     return $template;
 }

@@ -9,7 +9,7 @@
 function default_template_compare()
 {
 $template = '
-<section class="widget inner compare-widget">
+<div class="widget inner compare-widget">
 	<h3 class="widget-title">{lang}Comparison{/lang}</h3>
 	<form name="compare" action="{$base_url}/compared/done/{$base_content}" method="post">
 		<ul class="icons clearfix">
@@ -20,7 +20,7 @@ $template = '
 		</ul>
 	<button type="submit" class="btn btn-default btn-compare"><i class="fa fa-bookmark"></i> {lang}Compare{/lang}</button>
 	</form>
-</section>
+</div>
 ';
 return $template;
 }
