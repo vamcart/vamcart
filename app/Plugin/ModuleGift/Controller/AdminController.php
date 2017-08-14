@@ -93,7 +93,7 @@ class AdminController extends ModuleGiftAppController {
 						)
 		);
 		
-		$categories_query = $this->Content->find('all', array('conditions' => array('Content.active' => 1, 'Content.content_type_id' => 2)));
+		$categories_query = $this->Content->find('all', array('conditions' => array('Content.active' => 1, 'Content.content_type_id' => 2), 'order' => array('ContentDescription.name' => 'asc')));
 		$parents = array();
 		foreach ($categories_query as $parent) {
 			$this->_add_tree_node($parents, $parent, 0);
