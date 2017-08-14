@@ -1714,6 +1714,10 @@ msgstr "Показывает производителя товара."
 msgid "Displays the product stock quantity for the current content."
 msgstr "Показывает количество единиц товара на складе."
 
+#: /vendors/smarty/vam_plugins/function.product_ordered.php:36
+msgid "Displays the product ordered count for the current content."
+msgstr "Показывает количество заказов товара."
+
 #: /vendors/smarty/vam_plugins/function.repeat.php:30
 msgid "Repeats a given string a certain number of times."
 msgstr "Повторяет строку указанное количество раз."
