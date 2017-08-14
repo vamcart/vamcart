@@ -10,6 +10,9 @@ msgstr "Редактирование подарка"
 msgid  "Manage Gifts"
 msgstr "Настройка подарков"
 
+msgid  "Select Gift"
+msgstr "Выберите подарок"
+
 msgid  "Order Total"
 msgstr "Сумма заказа"
 
