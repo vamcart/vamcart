@@ -1,0 +1,14 @@
+msgid  "Gift"
+msgstr "Подарок"
+
+msgid "The gift module allows you to set gifts for customers."
+msgstr "Модуль позволяет Вам дарить подарки покупателям."
+
+msgid "Once installed there will be a new menu item under Configurations called Gift. Here you can add gifts for customers. They will be applied during checkout."
+msgstr "После установки модуль будет доступен в разделе Настройки - Подарок. В данном разделе Вы можете добавлять подарки в зависимости от суммы заказа. Подарок будет добавляться при оформлении заказа в магазине."
+
+msgid "Settings saved."
+msgstr "Настройки сохранены."
+
+msgid "Module Name"
+msgstr "Название модуля"
