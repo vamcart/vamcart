@@ -16,7 +16,7 @@ foreach ($coupons AS $coupon)
 	echo $this->Admin->TableCells(
 		  array(
 			$this->Html->link($coupon['ModuleGift']['name'],'/module_gift/admin/admin_edit/' . $coupon['ModuleGift']['id']),
-			$coupon['ModuleGift']['code'],
+			$coupon['ModuleGift']['order_total'],
 			$this->Admin->ActionButton('edit','/module_gift/admin/admin_edit/' . $coupon['ModuleGift']['id'],__('Edit')) . $this->Admin->ActionButton('delete','/module_gift/admin/admin_delete/' . $coupon['ModuleGift']['id'],__('Delete'))
 		   ));
 }
