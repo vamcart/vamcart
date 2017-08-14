@@ -41,7 +41,7 @@ class AdminController extends ModuleGiftAppController {
 
 	public function get_gift ($id)
 	{
-		$this->set('data', $this->ModuleGift->findByPaymentMethodId($id));
+		$this->set('data', $this->ModuleGift->findId($id));
 	}
 
 }

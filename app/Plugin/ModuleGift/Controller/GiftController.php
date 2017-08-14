@@ -5,23 +5,23 @@
    Copyright (c) 2014 VamSoft Ltd.
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
-class PaymentDiscountController extends ModuleGiftAppController {
+class GiftController extends ModuleGiftAppController {
 	public $uses = array('ModuleGift');
 	
-	public function apply()
+	public function get_gift()
 	{
 		global $order;
 
 		$discount = 0;
-		$payment_discount = $this->ModuleGift->find('first', array('conditions' => array('payment_method_id' => $order['Order']['payment_method_id'])));
+		//$payment_discount = $this->ModuleGift->find('first', array('conditions' => array('payment_method_id' => $order['Order']['payment_method_id'])));
 
-		if($payment_discount['ModuleGift']['discount'] > 0) {
+		//if($payment_discount['ModuleGift']['discount'] > 0) {
 
-		$discount = $discount - (((int)$payment_discount['ModuleGift']['discount']/100)*$order['Order']['total']);	
+		//$discount = $discount - (((int)$payment_discount['ModuleGift']['discount']/100)*$order['Order']['total']);	
 		
 		$payment_discount_product = array();
 		$payment_discount_product['OrderProduct']['order_id'] = $order['Order']['id'];
-		$payment_discount_product['OrderProduct']['name'] = __('Discount') . ' ' . $payment_discount['ModuleGift']['discount'] . '%';
+		$payment_discount_product['OrderProduct']['name'] = __('Discount');
 		$payment_discount_product['OrderProduct']['quantity'] = 1;
 		$payment_discount_product['OrderProduct']['price'] = $discount;	
 
@@ -43,7 +43,7 @@ class PaymentDiscountController extends ModuleGiftAppController {
 
 		$this->Order->save($order);
 		
-		}
+		//}
 		
 	}
 	

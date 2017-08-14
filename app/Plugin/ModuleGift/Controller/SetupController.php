@@ -36,8 +36,8 @@ class SetupController extends ModuleGiftAppController {
 		
 		$new_handler = array();
 		$new_handler['EventHandler']['event_id'] = $event['Event']['id'];
-		$new_handler['EventHandler']['originator'] = 'PaymentTypeDiscountModule';		
-		$new_handler['EventHandler']['action'] = '/module_gift/gift/apply/';
+		$new_handler['EventHandler']['originator'] = 'ModuleGift';		
+		$new_handler['EventHandler']['action'] = '/module_gift/gift/get_gift/';
 		$this->Event->EventHandler->save($new_handler);
 		
 		
@@ -77,7 +77,7 @@ class SetupController extends ModuleGiftAppController {
 		$uninstall_query = "DROP TABLE `module_gifts`;";
 		$this->Module->query($uninstall_query);
 		
-		$handlers = $this->Event->EventHandler->find('all', array('conditions' => array('EventHandler.originator' => 'PaymentTypeDiscountModule')));
+		$handlers = $this->Event->EventHandler->find('all', array('conditions' => array('EventHandler.originator' => 'ModuleGift')));
 		foreach($handlers AS $value)
 		{
 			$this->Event->EventHandler->delete($value['EventHandler']['id']);
