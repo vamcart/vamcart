@@ -19,9 +19,8 @@ class GiftController extends ModuleGiftAppController {
 		
 		$gift = $this->ModuleGift->find('all', array('conditions' => array('ModuleGift.order_total <=' => $order['Order']['total'], 'ModuleGift.content_id >' => 0), 'order' => array('ModuleGift.order_total' => 'DESC')));
 		
+		if ($gift) {
 		foreach ($gift as $gifts) { 
-	
-		if ($gifts) {
 		if($order['Order']['total'] >= $gifts['ModuleGift']['order_total']) {
 			
 		$content_description = $this->ContentBase->get_content_description($gifts['ModuleGift']['content_id']);
@@ -52,7 +51,6 @@ class GiftController extends ModuleGiftAppController {
 		
 		}
 		}
-		
 		}
 	
 	}
