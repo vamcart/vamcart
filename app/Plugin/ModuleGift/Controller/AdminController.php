@@ -13,7 +13,7 @@ class AdminController extends ModuleGiftAppController {
 	public function admin_delete($id)
 	{
 		$this->ModuleGift->delete($id);
-		$this->Session->setFlash(__('You have deleted a coupon.'));
+		$this->Session->setFlash(__d('module_gift', 'You have deleted a gift.'));
 		$this->redirect('/module_gift/admin/admin_index/');
 	}
 	
@@ -36,7 +36,7 @@ class AdminController extends ModuleGiftAppController {
 			}
 			
 			$this->ModuleGift->save($this->data);
-			$this->Session->setFlash(__('You have updated a coupon.'));
+			$this->Session->setFlash(__d('module_gift', 'You have saved a gift.'));
 			
 			if($id == null)
 				$id = $this->ModuleGift->getLastInsertId();
@@ -58,7 +58,7 @@ class AdminController extends ModuleGiftAppController {
 	{
 		$this->set('current_crumb', __d('module_gift', 'Gifts'));
 		$this->set('title_for_layout', __d('module_gift', 'Manage Gifts'));
-		$this->set('coupons',$this->ModuleGift->find('all'));
+		$this->set('gifts',$this->ModuleGift->find('all'));
 	}
 	
 	public function admin_help()

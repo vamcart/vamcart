@@ -11,18 +11,18 @@ echo $this->Admin->ShowPageHeaderStart($title_for_layout, 'cus-calculator');
 echo '<table class="contentTable">';
 echo $this->Html->tableHeaders(array( __d('module_gift', 'Gift'), __d('module_gift', 'Order Total'), __('Action')));
 
-foreach ($coupons AS $coupon)
+foreach ($gifts AS $gift)
 {
 	echo $this->Admin->TableCells(
 		  array(
-			$this->Html->link($coupon['ModuleGift']['name'],'/module_gift/admin/admin_edit/' . $coupon['ModuleGift']['id']),
-			$coupon['ModuleGift']['order_total'],
-			$this->Admin->ActionButton('edit','/module_gift/admin/admin_edit/' . $coupon['ModuleGift']['id'],__('Edit')) . $this->Admin->ActionButton('delete','/module_gift/admin/admin_delete/' . $coupon['ModuleGift']['id'],__('Delete'))
+			$this->Html->link($gift['ModuleGift']['name'],'/module_gift/admin/admin_edit/' . $gift['ModuleGift']['id']),
+			$gift['ModuleGift']['order_total'],
+			$this->Admin->ActionButton('edit','/module_gift/admin/admin_edit/' . $gift['ModuleGift']['id'],__('Edit')) . $this->Admin->ActionButton('delete','/module_gift/admin/admin_delete/' . $coupon['ModuleGift']['id'],__('Delete'))
 		   ));
 }
 echo '</table>';
 
-echo $this->Admin->EmptyResults($coupons);
+echo $this->Admin->EmptyResults($gifts);
 
 echo $this->Admin->CreateNewLink();
 

@@ -13,6 +13,12 @@ msgstr "Настройка подарков"
 msgid  "Order Total"
 msgstr "Сумма заказа"
 
+msgid  "You have deleted a gift."
+msgstr "Подарок удалён."
+
+msgid  "You have saved a gift."
+msgstr "Подарок сохранён."
+
 msgid "The gift module allows you to set gifts for customers."
 msgstr "Модуль позволяет Вам дарить подарки покупателям."
 
