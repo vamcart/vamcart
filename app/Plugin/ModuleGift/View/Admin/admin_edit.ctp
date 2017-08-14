@@ -13,8 +13,8 @@ $this->Html->script(array(
 
 	echo $this->Admin->ShowPageHeaderStart($title_for_layout, 'cus-application-edit');
 
-	$coupon_id = $this->data['ModuleGift']['id'];
-	echo $this->Form->create('ModuleGift', array('id' => 'contentform', 'url' => '/module_gift/admin/admin_edit/'.$coupon_id));
+	$gift_id = $this->data['ModuleGift']['id'];
+	echo $this->Form->create('ModuleGift', array('id' => 'contentform', 'url' => '/module_gift/admin/admin_edit/'.$gift_id));
 
 			echo '<ul id="myTab" class="nav nav-tabs">';
 			echo $this->Admin->CreateTab('main',__d('module_gift', 'Gift'), 'cus-application');
@@ -26,9 +26,15 @@ echo $this->Admin->StartTabContent('main');
 	echo $this->Form->input('ModuleGift.id', array(
 				'type' => 'hidden'
              ));
-	echo $this->Form->input('ModuleGift.content_id', array(
-				'label' => __d('module_gift', 'Gift')
-             ));			 
+		echo $this->Form->input('ModuleGift.content_id', 
+					array(
+						'type' => 'select',
+			   		'label' => __d('module_gift', 'Gift'),
+						'options' => $this->requestAction('/module_gift/admin/admin_products_tree/'),
+						'escape' => false,
+						'empty' => array(0 => __d('module_gift', 'Select Gift'))
+               ));
+                            	 
 	echo $this->Form->input('ModuleGift.order_total', array(
 				'label' => __d('module_gift', 'Order Total')
              ));

@@ -15,7 +15,7 @@ foreach ($gifts AS $gift)
 {
 	echo $this->Admin->TableCells(
 		  array(
-			$this->Html->link($gift['ModuleGift']['name'],'/module_gift/admin/admin_edit/' . $gift['ModuleGift']['id']),
+			$this->Html->link($gift['ModuleGift']['product_name'],'/module_gift/admin/admin_edit/' . $gift['ModuleGift']['id']),
 			$gift['ModuleGift']['order_total'],
 			$this->Admin->ActionButton('edit','/module_gift/admin/admin_edit/' . $gift['ModuleGift']['id'],__('Edit')) . $this->Admin->ActionButton('delete','/module_gift/admin/admin_delete/' . $gift['ModuleGift']['id'],__('Delete'))
 		   ));
