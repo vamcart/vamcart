@@ -10,13 +10,24 @@ class AdminController extends ModuleGiftAppController {
 	public $helpers = array('Time','Admin');
 	public $uses = array('PaymentMethod', 'ModuleGift');
 
-	public function admin_index()
+	public function admin_delete($id)
 	{
-		$this->set('current_crumb', __d('module_gift', 'Gift'));
-		$this->set('title_for_layout', __d('module_gift', 'Gift'));
-		$this->set('payment_methods',$this->PaymentMethod->find('all', array('conditions' => array('active' => '1'),'order' => array('name' => 'asc'))));
+		$this->ModuleGift->delete($id);
+		$this->Session->setFlash(__('You have deleted a coupon.'));
+		$this->redirect('/module_gift/admin/admin_index/');
+	}
+	
+	public function admin_edit($id = null)
+	{
+		if(empty($this->data))
+		{
+			$this->set('current_crumb', __d('module_gift', 'Gift Edit'));
+			$this->set('title_for_layout', __d('module_gift', 'Gift Edit'));
 
-		if(!empty($this->data))
+			$this->request->data = $this->ModuleGift->read(null,$id);
+
+		}
+		else
 		{
 			if(isset($this->data['cancelbutton']))
 			{
@@ -24,24 +35,36 @@ class AdminController extends ModuleGiftAppController {
 				die();
 			}
 			
-			$this->ModuleGift->saveMany($this->data['ModuleGift']);
-			$this->Session->setFlash(__d('module_gift', 'Settings saved.'));
+			$this->ModuleGift->save($this->data);
+			$this->Session->setFlash(__('You have updated a coupon.'));
+			
+			if($id == null)
+				$id = $this->ModuleGift->getLastInsertId();
 			
 			if(isset($this->data['applybutton']))
-				$this->redirect('/module_gift/admin/admin_index/');		
-		}
+				$this->redirect('/module_gift/admin/admin_edit/' . $id);		
+			else
+				$this->redirect('/module_gift/admin/admin_index/');
 		
+		}
+	}
+	
+	public function admin_new()
+	{
+		$this->redirect('/module_gift/admin/admin_edit/');
+	}
+	
+	public function admin_index()
+	{
+		$this->set('current_crumb', __d('module_gift', 'Gifts'));
+		$this->set('title_for_layout', __d('module_gift', 'Manage Gifts'));
+		$this->set('coupons',$this->ModuleGift->find('all'));
 	}
 	
 	public function admin_help()
 	{
-		$this->set('current_crumb', __d('module_gift', 'Gift'));
-		$this->set('title_for_layout', __d('module_gift', 'Gift'));
-	}
-
-	public function get_gift ($id)
-	{
-		$this->set('data', $this->ModuleGift->findId($id));
+		$this->set('current_crumb', __d('module_gift', 'Gifts'));
+		$this->set('title_for_layout', __d('module_gift', 'Gifts'));
 	}
 
 }

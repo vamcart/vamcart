@@ -1,6 +1,18 @@
 msgid  "Gift"
 msgstr "Подарок"
 
+msgid  "Gifts"
+msgstr "Подарки"
+
+msgid  "Gift Edit"
+msgstr "Редактирование подарка"
+
+msgid  "Manage Gifts"
+msgstr "Настройка подарков"
+
+msgid  "Order Total"
+msgstr "Сумма заказа"
+
 msgid "The gift module allows you to set gifts for customers."
 msgstr "Модуль позволяет Вам дарить подарки покупателям."
 
