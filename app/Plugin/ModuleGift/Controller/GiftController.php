@@ -45,7 +45,7 @@ class GiftController extends ModuleGiftAppController {
 		$this->Order = new Order();
 		
 		$order = $this->Order->read(null,$_SESSION['Customer']['order_id']);
-		$order['Order']['total'] = $order['Order']['total'] + $discount;
+		$order['Order']['total'] = $order['Order']['total'] - $discount;
 
 		$this->Order->save($order);
 		
