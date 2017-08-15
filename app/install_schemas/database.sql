@@ -1679,8 +1679,9 @@ CREATE TABLE `event_handlers` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `event_handlers` (`id`, `event_id`, `originator`, `action`, `created`, `modified`) VALUES 
-(1, 2, 'CouponsModule', '/module_coupons/event/utilize_coupon/', '2009-09-13 11:11:08', '2009-09-13 11:11:08');
+INSERT INTO `event_handlers` (`id`, `event_id`, `originator`, `action`, `created`, `modified`) VALUES
+(1, 2, 'CouponsModule', '/module_coupons/event/utilize_coupon/', '2009-09-13 11:11:08', '2009-09-13 11:11:08'),
+(2, 2, 'ModuleGift', '/module_gift/gift/get_gift/', '2017-08-14 22:12:57', '2017-08-14 22:12:57');
 
 DROP TABLE IF EXISTS `geo_zones`;
 CREATE TABLE IF NOT EXISTS `geo_zones` (
@@ -1784,7 +1785,8 @@ INSERT INTO `modules` (`id`, `name`, `icon`, `alias`, `version`, `nav_level`) VA
 (2, 'Coupons', 'cus-calculator', 'coupons', '2', 3),
 (3, 'Abandoned Carts', 'cus-cart-error', 'abandoned_carts', '1', 2),
 (4, 'Ask A Product Question', 'cus-user-comment', 'ask_a_product_question', '1', -1),
-(5, 'One Click Buy', 'cus-cart', 'one_click_buy', '1', -1);
+(5, 'One Click Buy', 'cus-cart', 'one_click_buy', '1', -1),
+(6, 'Подарок', 'cus-cart-put', 'gift', '1', 5);
 
 DROP TABLE IF EXISTS module_coupons;
 CREATE TABLE `module_coupons` (
@@ -1801,6 +1803,16 @@ CREATE TABLE `module_coupons` (
   `max_order_total` int(10),
   `start_date` datetime,
   `expiration_date` datetime,
+  `created` datetime,
+  `modified` datetime,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+DROP TABLE IF EXISTS module_gifts;
+CREATE TABLE `module_gifts` (
+  `id` int(10) auto_increment,
+  `content_id` int(10),
+  `order_total` double,
   `created` datetime,
   `modified` datetime,
   PRIMARY KEY  (`id`)
