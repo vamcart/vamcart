@@ -42,7 +42,15 @@ class ModulesController extends AppController {
 
 		
 		$this->set('modules',$modules);
-				
+
+		// clear Cache::write() items
+		Cache::clear();
+		// clear core cache
+		$cachePaths = array('views', 'persistent', 'models', 'catalog');
+		foreach($cachePaths as $config) {
+				clearCache(null, $config);
+		}	
+		
 	}
 
 	public function admin_add ()
