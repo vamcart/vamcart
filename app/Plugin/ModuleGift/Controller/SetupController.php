@@ -60,9 +60,15 @@ class SetupController extends ModuleGiftAppController {
 		{
 			$this->Module->query($query);
 		}
-		
 
-		
+		// clear Cache::write() items
+		Cache::clear();
+		// clear core cache
+		$cachePaths = array('views', 'persistent', 'models', 'catalog');
+		foreach($cachePaths as $config) {
+				clearCache(null, $config);
+		}	
+				
 		$this->Session->setFlash(__('Module Installed'));
 		$this->redirect('/module_gift/admin/admin_help/');
 	}
