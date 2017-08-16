@@ -37,7 +37,7 @@ class GiftController extends ModuleGiftAppController {
 		App::import('Model', 'OrderProduct');
 		$this->OrderProduct = new OrderProduct();
 
-		// Make sure this coupon isn't already in our 'cart'	
+		// Make sure this gift isn't already in our 'cart'	
 		$coupon_count = $this->OrderProduct->find('count', array('conditions' => array('order_id' => $order['Order']['id'], 'name' => $order_product_gift['OrderProduct']['name'])));
 		if($coupon_count > 0)
 		{
