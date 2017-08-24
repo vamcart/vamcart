@@ -11,7 +11,7 @@
 <head>
 <?php echo $this->Html->charset(); ?>
 
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 
 <title><?php echo $title_for_layout; ?></title>
 <?php echo $this->Html->css(array(
