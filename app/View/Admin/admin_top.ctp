@@ -463,7 +463,6 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 
 	echo $this->admin->EndTabs();			
 
-	echo '</div>';	
 	echo '</div>';
 
 
