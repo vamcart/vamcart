@@ -876,7 +876,7 @@ div.rssError
 
 /* jQuery zRSSFeed News */
 
-#rss-news div.rssFeed 
+#rss-news div.rssFeed, 
 #rss-news div.rssFeed ul, 
 #rss-news div.rssFeed li, 
 #rss-news div.rssFeed li h4
@@ -914,6 +914,26 @@ div.rssError
 		display: none;
 	}		
 
+#rss-news #vamshop-rss ul 
+	{
+		padding: 0;
+		margin: 0;
+		font-weight: normal;
+		list-style:none;
+	}
+
+#rss-news #vamshop-rss li 
+	{
+		padding: 0 .5em;
+		margin: 0;
+	}
+
+#rss-news #vamshop-rss h3 
+	{
+		padding: 0;
+		margin: 0;
+	}
+	
 /* /jQuery zRSSFeed News */
 
 

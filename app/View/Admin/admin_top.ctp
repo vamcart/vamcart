@@ -244,7 +244,7 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 		';
 
 	echo '<div class="row-fluid">';
-	echo '<div class="col-sm-6">';
+	echo '<div class="col-sm-5">';
 
 	}
 
@@ -396,7 +396,7 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 	
 	if($level == 1) {
 
-	echo '<div class="col-sm-6">';
+	echo '<div class="col-sm-5">';
 
 			echo '<ul id="myTabSales" class="nav nav-tabs">';
 			echo $this->admin->CreateTab('sales',__('Sales Report',true), 'cus-chart-bar');
@@ -416,10 +416,9 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 	echo $this->admin->EndTabs();
 
 	echo '</div>';	
-	echo '</div>';
 
-	echo '<div class="row-fluid">';
-	echo '<div class="col-sm-12">';
+
+	echo '<div class="col-sm-2">';
 
 			echo '<ul id="myTabNews" class="nav nav-tabs">';
 			echo $this->admin->CreateTab('vamshop-news',__('VamShop News',true), 'cus-newspaper');
@@ -451,7 +450,7 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 		
 			foreach ($feed->get_items(0,5) as $item) {
 				echo '<li class="item">';
-				echo '<h3><strong><a href="' . $item->get_permalink() .'" target="_blank">' . $item->get_title() .'</a></strong></h3>';
+				echo '<h3><a href="' . $item->get_permalink() .'" target="_blank">' . $item->get_title() .'</a></h3>';
 				echo '<p>' . CakeText::truncate($item->get_description(),90,array('html' => true)) . '</p>';
 				echo '</li>';
 		 
@@ -462,12 +461,12 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 				
 		echo $this->admin->EndTabContent();
 
-	echo $this->admin->EndTabs();
+	echo $this->admin->EndTabs();			
 
 	echo '</div>';	
-	
 	echo '</div>';
-	
+
+
 	}
 
 	echo $this->admin->ShowPageHeaderEnd();
