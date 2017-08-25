@@ -149,7 +149,7 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 		$feed = new SimplePie();
 
 		// We'll process this feed with all of the default options.
-		$url = array('http://updates.vamshop.com/feed/'.$_SERVER['HTTP_HOST'].'.xml', 'http://support.'.__('vamshop.com',true).'/modules/news/backendt.php?topicid=2');
+		$url = array(CheckServer.'feed/'.$_SERVER['HTTP_HOST'].'.xml', 'http://support.'.__('vamshop.com',true).'/modules/news/backendt.php?topicid=2');
 		
 		// Set which feed to process.
 		$feed->set_cache_location(CACHE);
