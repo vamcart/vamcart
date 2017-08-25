@@ -147,9 +147,9 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 
 		// SimplePie instance
 		$feed = new SimplePie();
-		
+
 		// We'll process this feed with all of the default options.
-		$url = 'http://support.'.__('vamshop.com',true).'/modules/news/backendt.php?topicid=2';
+		$url = array('http://updates.vamshop.com/feed/'.$_SERVER['HTTP_HOST'].'.xml', 'http://support.'.__('vamshop.com',true).'/modules/news/backendt.php?topicid=2');
 		
 		// Set which feed to process.
 		$feed->set_cache_location(CACHE);
@@ -168,7 +168,7 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 			foreach ($feed->get_items(0,1) as $item) {
 				echo '<li class="rssRow">';
 				echo '<h3><strong><a href="' . $item->get_permalink() .'" target="_blank">' . $item->get_title() .'</a></strong></h3>';
-				echo '<p>' . CakeText::truncate($item->get_description(),90,array('html' => true)) . '</p>';
+				echo '<p>' . CakeText::truncate($item->get_description(),200,array('html' => true)) . '</p>';
 				echo '</li>';
 		 
 			}
