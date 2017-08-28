@@ -744,6 +744,10 @@ msgstr "Брошенные корзины очищены."
 msgid "Abandoned Carts"
 msgstr "Брошенные корзины"
 
+#: /plugins/module_abandoned_carts/controllers/setup_controller.php:34
+msgid "Gift"
+msgstr "Подарок"
+
 #: /plugins/module_abandoned_carts/controllers/admin_controller.php:37
 #: /plugins/module_abandoned_carts/controllers/setup_controller.php:34
 msgid "No data"
