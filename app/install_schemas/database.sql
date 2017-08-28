@@ -1786,7 +1786,7 @@ INSERT INTO `modules` (`id`, `name`, `icon`, `alias`, `version`, `nav_level`) VA
 (3, 'Abandoned Carts', 'cus-cart-error', 'abandoned_carts', '1', 2),
 (4, 'Ask A Product Question', 'cus-user-comment', 'ask_a_product_question', '1', -1),
 (5, 'One Click Buy', 'cus-cart', 'one_click_buy', '1', -1),
-(6, 'Подарок', 'cus-cart-put', 'gift', '1', 5);
+(6, 'Gift', 'cus-cart-put', 'gift', '1', 5);
 
 DROP TABLE IF EXISTS module_coupons;
 CREATE TABLE `module_coupons` (
