@@ -163,7 +163,7 @@ $("#myTabSales a:first").tab("show"); // Select first tab
 		
 		if(!empty($options))
 		{
-				$content .= '<select name="multiaction" id="multiaction" onchange="submitForm(this.form);">';
+				$content .= '<select name="multiaction" id="multiaction" onchange="if (this.form.onsubmit == undefined) { submitForm(this.form); } else { if (this.form.onsubmit() != false) { submitForm(this.form);} return false;} ">';
 				$content .= '<option value="">'.__('With Selected:', true).'</option>';
 			foreach($options AS $key => $value)
 			{
