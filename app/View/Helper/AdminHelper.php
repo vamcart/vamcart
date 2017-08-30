@@ -163,7 +163,7 @@ $("#myTabSales a:first").tab("show"); // Select first tab
 		
 		if(!empty($options))
 		{
-				$content .= '<select name="multiaction" onchange="if (this.form.onsubmit == undefined) { this.form.submit(); } else { if (this.form.onsubmit() != false) { this.form.submit();} return false;} ">';
+				$content .= '<select name="multiaction" onclick="return confirm(\'' . __('Are you sure? You may not be able to undo this action.', true) . '\');" onchange="if (this.form.onsubmit == undefined) { this.form.submit(); } else { if (this.form.onsubmit() != false) { this.form.submit();} return false;} ">';
 				$content .= '<option value="">'.__('With Selected:', true).'</option>';
 			foreach($options AS $key => $value)
 			{
