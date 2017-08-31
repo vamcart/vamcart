@@ -157,7 +157,7 @@ class CustomersController extends AppController {
 			unset($_SESSION['Search']['customer_search_term']);
 		}
 
-		$data = $this->paginate('Customer', "Customer.id > 0 and (Customer.name LIKE '%" . $customer_search_term . "%' or Customer.email LIKE '%" . $customer_search_term . "%')");
+		$data = $this->paginate('Customer', "Customer.id > 0 and (Customer.name LIKE '%" . $customer_search_term . "%' or Customer.email LIKE '%" . $customer_search_term . "%' or AddressBook.phone LIKE '%" . $customer_search_term . "%')");
 
 		$this->set('data',$data);
 
