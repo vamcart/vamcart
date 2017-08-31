@@ -545,6 +545,8 @@ div.search-orders .submit {
 }
 /* /Orders */
 
+/* Customers */
+
 div.search-customers {
 	float: right;
 	margin: 0;
@@ -557,6 +559,8 @@ div.search-customers label {
 div.search-customers .submit {
 	display: none;
 }
+
+/* /Customers */
 
 div#content .noData
 	{
