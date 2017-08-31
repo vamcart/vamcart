@@ -35,8 +35,15 @@ foreach ($data AS $order)
 echo '</table>';
 echo $this->Admin->EmptyResults($data);
 
+echo '<table class="contentFooter">';
+echo '<tr><td>';
+echo $this->Admin->linkButton(__('New Order'),'/orders_edit/admin/','cus-cart-add',array('escape' => false, 'class' => 'btn btn-default'));
+echo '</td>';
+echo '<td>';
+echo $this->Admin->ActionBar(array('delete'=>__('Delete'), 'change_status'=>__('Change Order Status'),), false);
 echo $this->Form->end();
-
+echo '</td></tr>';
+echo '</table>';
 ?>
 <table class="contentPagination">
 	<tr>
