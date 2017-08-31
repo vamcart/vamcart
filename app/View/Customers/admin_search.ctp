@@ -45,6 +45,7 @@ foreach ($data AS $customer)
 
 echo '</table>';
 
+echo $this->Admin->EmptyResults($data);
 echo $this->Admin->ActionBar(array('delete'=>__('Delete')));
 echo $this->Form->end();
 ?>

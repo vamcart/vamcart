@@ -139,6 +139,30 @@ class CustomersController extends AppController {
 
 	}	
 
+	public function admin_search() {
+		if (!isset($_SESSION['Search'])) {
+			$_SESSION['Search'] = array();
+		}
+
+		if (isset($this->data['Search']['customer_search_term'])) {
+			$_SESSION['Search']['customer_search_term'] = $this->data['Search']['customer_search_term'];
+		}
+		$this->set('current_crumb', __('Search Result', true));
+		$this->set('title_for_layout', __('Search Result', true));
+
+		if (isset($_SESSION['Search']['customer_search_term']) and ($this->RequestHandler->isPost() or isset($this->params['named']['page']) )) {
+			$customer_search_term = $_SESSION['Search']['customer_search_term'];
+		} else {
+			$customer_search_term ='~';
+			unset($_SESSION['Search']['customer_search_term']);
+		}
+
+		$data = $this->paginate('Customer', "Customer.id > 0 and (Customer.name LIKE '%" . $customer_search_term . "%' or Customer.email LIKE '%" . $customer_search_term . "%')");
+
+		$this->set('data',$data);
+
+	}
+	
 	public function generate_country_list($country_id = 0)
 	{
 		  App::import('Model', 'Country');
