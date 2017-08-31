@@ -545,6 +545,19 @@ div.search-orders .submit {
 }
 /* /Orders */
 
+div.search-customers {
+	float: right;
+	margin: 0;
+}
+
+div.search-customers label {
+	display: none;
+}
+
+div.search-customers .submit {
+	display: none;
+}
+
 div#content .noData
 	{
 		padding: .5em;
