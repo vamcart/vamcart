@@ -29,13 +29,14 @@ echo $this->Form->create('Customer', array('url' => '/customers/admin_modify_sel
 
 echo '<table class="contentTable">';
 
-echo $this->Html->tableHeaders(array( __('Customer Name'), __('Email'), __('Action'), '<input type="checkbox" onclick="checkAll(this)" />'));
+echo $this->Html->tableHeaders(array( __('Customer Name'), __('Phone'), __('Email'), __('Action'), '<input type="checkbox" onclick="checkAll(this)" />'));
 
 foreach ($data AS $customer)
 {
 	echo $this->Admin->TableCells(
 		  array(
 				$this->Html->link($customer['Customer']['name'], '/customers/admin_edit/' . $customer['Customer']['id']),
+				array($customer['AddressBook']['phone'], array('align'=>'center')),
 				array($customer['Customer']['email'], array('align'=>'center')),
 				array($this->Admin->ActionButton('edit','/customers/admin_edit/' . $customer['Customer']['id'],__('Edit')) . $this->Admin->ActionButton('delete','/customers/admin_delete/' . $customer['Customer']['id'],__('Delete')), array('align'=>'center')),
 				array($this->Form->checkbox('modify][', array('value' => $customer['Customer']['id'])), array('align'=>'center'))
