@@ -182,6 +182,8 @@ class OrdersController extends AppController {
 
 		$_SESSION['Customer']['email'] = $order['Order']['email'];
 		
+		$order['Order']['created'] = date("Y-m-d H:i:s");
+		
 		// Save order data
 		$this->Order->save($order);
 		
@@ -243,6 +245,8 @@ class OrdersController extends AppController {
 		$order['OrderComment']['comment'] = $order['Order']['comment'];
 		$this->Order->OrderComment->save($order['OrderComment']);
 		}
+		
+		$order['Order']['created'] = date("Y-m-d H:i:s");
 		
 		// Save order data
 		$this->Order->save($order);
