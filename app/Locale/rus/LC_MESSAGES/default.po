@@ -1480,6 +1480,14 @@ msgstr "(content_id)"
 msgid "Display images of selected content_id element."
 msgstr "Выводит картинки указанного content_id элемента."
 
+#: /vendors/smarty/vam_plugins/function.content_images.php:105
+msgid "Return shopping cart state by content id."
+msgstr "Определяет наличие товара в корзине по id номеру."
+
+#: /vendors/smarty/vam_plugins/function.content_images.php:105
+msgid "Content id number."
+msgstr "ID номер товара."
+
 #: /vendors/smarty/vam_plugins/function.content_listing.php:174
 msgid "Displays a list of content items depending on the parent of those items."
 msgstr "Выводит список содержимого."
