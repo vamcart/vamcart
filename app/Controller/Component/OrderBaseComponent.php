@@ -315,5 +315,18 @@ class OrderBaseComponent extends Object
 		}
 		return $randstring;
 	}
+	
+	
+	public function in_cart ($content_id = 0)
+	{
+		global $order;
+		$in_cart = false;
+
+		foreach($order['OrderProduct'] AS $product) {
+			(($product['content_id'] == $content_id) ? $in_cart = true : null);
+		}
+
+		return $in_cart;
+	}	
 }
 ?>
