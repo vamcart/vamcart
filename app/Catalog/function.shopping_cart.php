@@ -126,6 +126,7 @@ function smarty_function_shopping_cart($params, $template)
 		$total_weight += $cart_item['weight']*$cart_item['quantity'];
 		$image = array();
 		$content_image = $ContentBase->get_content_image($cart_item['content_id']);
+		$content_information = $ContentBase->get_content_information($cart_item['content_id']);
 
 		// Content Image
 		
@@ -180,7 +181,7 @@ function smarty_function_shopping_cart($params, $template)
 			'image' => $image,
 			'price' => $CurrencyBase->display_price($cart_item['price']),
 			'qty' => $cart_item['quantity'],
-			'url' => BASE . '/product/' . $cart_item['content_id'] . $config['URL_EXTENSION'],
+			'url' => BASE . '/product/' . $content_information['Content']['alias'] . $config['URL_EXTENSION'],
 			'line_total' => $CurrencyBase->display_price($cart_item['quantity']*$cart_item['price'])
 		);
 	}
