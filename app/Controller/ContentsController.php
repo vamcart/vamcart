@@ -182,7 +182,7 @@ class ContentsController extends AppController {
 	*
 	* @param  int  $content_id The id of the content we're going to change.
 	*/
-	public function admin_change_price ($content_id) 
+	public function admin_change_price () 
 	{
 		// Read the record
 		$this->Content->id = (int)$this->data['id'];
