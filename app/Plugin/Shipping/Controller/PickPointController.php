@@ -27,14 +27,11 @@ class PickPointController extends ShippingAppController {
 
 		$new_module['ShippingMethod']['description'] = '
 
-<script type="text/javascript" src="https://pickpoint.ru/select/postamat.js"></script>
-<form method="post">
+<script type="text/javascript" src="http://pickpoint.ru/select/postamat.js"></script>
 	<div id="address"></div>
 	<a href="#" class="btn btn-warning" onclick="PickPoint.open(my_function);return false"><i class="fa fa-check"></i> Выбрать постамат</a>
 	<input type="hidden" name="pickpoint_id" id="pickpoint_id" value="" />
 	<input type="hidden" name="pickpoint_address" id="pickpoint_address" value="" />
-</form>
-
 
 <script type="text/javascript">
 	function my_function(result){
@@ -63,7 +60,7 @@ class PickPointController extends ShippingAppController {
 
 		$new_module['ShippingMethodValue'][0]['shipping_method_id'] = $this->ShippingMethod->id;
 		$new_module['ShippingMethodValue'][0]['key'] = 'cost';
-		$new_module['ShippingMethodValue'][0]['value'] = '0';
+		$new_module['ShippingMethodValue'][0]['value'] = '400';
 
 		$this->ShippingMethod->saveAll($new_module);
 
