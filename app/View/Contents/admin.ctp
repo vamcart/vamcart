@@ -164,7 +164,7 @@ foreach ($content_data AS $content)
 
 		// Ajax price change
 		if ($content['Content']['content_type_id'] == 2 or $content['Content']['content_type_id'] == 7) {
-		echo $this->Ajax->editor($content['Content']['id'],'/contents/admin_change_price/',  array('width' => 55, 'tooltip' => $content['Content']['id'],'placeholder' => '_','onblur' => 'submit'));					
+		echo $this->Ajax->editor($content['Content']['id'],'/contents/admin_change_price/',  array('width' => 60, 'tooltip' => $content['Content']['id'],'placeholder' => '_','onblur' => 'submit'));					
 		}
 
 		// Ajax stock change
