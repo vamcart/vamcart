@@ -112,13 +112,55 @@ echo $this->Form->create('Content', array('url' => '/contents/admin_modify_selec
 
 echo '<table class="contentTable">';
 
-echo $this->Html->tableHeaders(array(	 __('Title'), __('Type'), __('Active'), __('Show in menu'), __('Export to YML'), __('Default'), __('Price'), __('Stock'), __('Sort Order'), __('Action'), '<input type="checkbox" onclick="checkAll(this)" />'));
+echo $this->Html->tableHeaders(array(__('Title'), __('Type'), __('Active'), __('Show in menu'), __('Export to YML'), __('Default'), __('Price'), __('Stock'), __('Sort Order'), __('Action'), '<input type="checkbox" onclick="checkAll(this)" />'));
 
 foreach ($content_data AS $content)
 {
+	
+								// Content Image
+								
+								if($content['ContentImage']['image'] != "") {
+									$image_url = $content['Content']['id'] . '/' . $content['ContentImage']['image'] . '/40';
+									$thumb_name = substr_replace($content['ContentImage']['image'] , '', strrpos($content['ContentImage']['image'] , '.')).'-40.png';	
+									$thumb_path = IMAGES . 'content' . '/' . $content['Content']['id'] . '/' . $thumb_name;
+									$thumb_url = BASE . '/img/content/' . $thumb_name;
+					
+										if(file_exists($thumb_path) && is_file($thumb_path)) {
+											list($width, $height, $type, $attr) = getimagesize($thumb_path);
+											$image =  $thumb_url;
+											$image_width = $width;
+											$image_height = $height;
+										} else {
+											$image = BASE . '/images/thumb/' . $image_url;
+											$image_width = null;
+											$image_height = null;
+										}
+					
+								} else { 
+					
+									$image_url = 'noimage.png/40';
+									$thumb_name = 'noimage-40.png';	
+									$thumb_path = IMAGES . 'content/' . $thumb_name;
+									$thumb_url = BASE . '/img/content/' . $thumb_name;
+					
+										if(file_exists($thumb_path) && is_file($thumb_path)) {
+											list($width, $height, $type, $attr) = getimagesize($thumb_path);
+											$image =  $thumb_url;
+											$image_width = $width;
+											$image_height = $height;
+										} else {
+											$image = BASE . '/images/thumb/' . $image_url;
+											$image_width = null;
+											$image_height = null;
+										}
+					
+								}	
+	
 	// Link to child view, link to the edit screen
 	if ($content['ContentType']['name']=='category') {
 		$name_link = $this->Html->link($this->Html->image('admin/icons/folder.png'), '/contents/admin/0/' . $content['Content']['id'], array('escape' => false));
+	} elseif ($content['Content']['content_type_id'] == 2 or $content['Content']['content_type_id'] == 7) {
+		$name_link = $this->Html->image($image, array('alt' => __('True'),'width' => $image_width,'height' => $image_height)).'&nbsp;';
 	} else {
 		$name_link = '';
 	}
