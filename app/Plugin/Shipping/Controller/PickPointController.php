@@ -27,7 +27,7 @@ class PickPointController extends ShippingAppController {
 
 		$new_module['ShippingMethod']['description'] = '
 
-<script type="text/javascript" src="http://pickpoint.ru/select/postamat.js"></script>
+<script type="text/javascript" src="https://pickpoint.ru/select/postamat.js"></script>
 <form method="post">
 	<div id="address"></div>
 	<a href="#" class="btn btn-warning" onclick="PickPoint.open(my_function);return false"><i class="fa fa-check"></i> Выбрать постамат</a>
@@ -46,6 +46,9 @@ class PickPointController extends ShippingAppController {
 
 		// показываем пользователю название точки и адрес доствки
 		document.getElementById("pickpoint_address").value=result["name"]+"<br />"+result["address"];
+
+		// показываем пользователю название точки и адрес доствки
+		document.getElementById("bill_line_2").value=result["name"]+"<br />"+result["address"];
 
 		document.getElementById("ship_7").checked="checked";
 
