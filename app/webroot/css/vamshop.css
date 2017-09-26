@@ -633,7 +633,7 @@ ul.payment-methods .selected
 ul.shipping-methods li label,
 ul.payment-methods li label
 	{
-		height: 180px;
+		height: 200px;
 		overflow: auto;
 		display: block;
 	}

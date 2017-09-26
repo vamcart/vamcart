@@ -45,10 +45,10 @@ class PickPointController extends ShippingAppController {
 		document.getElementById("address").innerHTML=result["name"]+"<br />"+result["address"];
 
 		// показываем пользователю название точки и адрес доствки
-		document.getElementById("pickpoint_address").value=result["name"]+"<br />"+result["address"];
+		document.getElementById("pickpoint_address").value=result["name"]+result["address"];
 
 		// показываем пользователю название точки и адрес доствки
-		document.getElementById("bill_line_2").value=result["name"]+"<br />"+result["address"];
+		document.getElementById("bill_line_2").value=result["name"]+result["address"];
 
 		document.getElementById("ship_7").checked="checked";
 
