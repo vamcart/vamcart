@@ -33,27 +33,27 @@ echo $this->Html->tableHeaders(array(__('Billing Information')));
 		  array(
 				__('Customer Name') . ': ' . $data['Order']['bill_name']
 		   ));
-	echo $this->Admin->TableCells(
+	if ($config['CHECKOUT_DISPLAY_ADDRESS_FIELD'] == 1) echo $this->Admin->TableCells(
 		  array(
 				__('Address Line 1') . ': ' . $data['Order']['bill_line_1']
 		   ));
-	echo $this->Admin->TableCells(
+	if ($config['CHECKOUT_DISPLAY_ADDRESS_1_FIELD'] == 1) echo $this->Admin->TableCells(
 		  array(
 				__('Address Line 2') . ': ' . $data['Order']['bill_line_2']
 		   ));
-	echo $this->Admin->TableCells(
+	if ($config['CHECKOUT_DISPLAY_CITY_FIELD'] == 1) echo $this->Admin->TableCells(
 		  array(
 				__('City') . ': ' . $data['Order']['bill_city']
 		   ));
-	echo $this->Admin->TableCells(
+	if ($config['CHECKOUT_DISPLAY_POSTCODE_FIELD'] == 1) echo $this->Admin->TableCells(
 		  array(
 				__('Zip') . ': ' . $data['Order']['bill_zip']
 		   ));
-	echo $this->Admin->TableCells(
+	if ($config['CHECKOUT_DISPLAY_COUNTRY_FIELD'] == 1) echo $this->Admin->TableCells(
 		  array(
 				__('Country') . ': ' . __($data['BillCountry']['name'])
 		   ));
-	echo $this->Admin->TableCells(
+	if ($config['CHECKOUT_DISPLAY_STATE_FIELD'] == 1) echo $this->Admin->TableCells(
 		  array(
 				__('State') . ': ' . $data['BillState']['name']
 		   ));
@@ -67,27 +67,27 @@ echo $this->Html->tableHeaders(array(__('Shipping Information')));
 		  array(
 				__('Customer Name') . ': ' . $data['Order']['ship_name']
 		   ));
-	echo $this->Admin->TableCells(
+	if ($config['CHECKOUT_DISPLAY_ADDRESS_FIELD'] == 1) echo $this->Admin->TableCells(
 		  array(
 				__('Address Line 1') . ': ' . $data['Order']['ship_line_1']
 		   ));
-	echo $this->Admin->TableCells(
+	if ($config['CHECKOUT_DISPLAY_ADDRESS_1_FIELD'] == 1) echo $this->Admin->TableCells(
 		  array(
 				__('Address Line 2') . ': ' . $data['Order']['ship_line_2']
 		   ));
-	echo $this->Admin->TableCells(
+	if ($config['CHECKOUT_DISPLAY_CITY_FIELD'] == 1) echo $this->Admin->TableCells(
 		  array(
 				__('City') . ': ' . $data['Order']['ship_city']
 		   ));
-	echo $this->Admin->TableCells(
+	if ($config['CHECKOUT_DISPLAY_POSTCODE_FIELD'] == 1) echo $this->Admin->TableCells(
 		  array(
 				__('Zip') . ': ' . $data['Order']['ship_zip']
 		   ));
-	echo $this->Admin->TableCells(
+	if ($config['CHECKOUT_DISPLAY_COUNTRY_FIELD'] == 1) echo $this->Admin->TableCells(
 		  array(
 				__('Country') . ': ' . __($data['ShipCountry']['name'])
 		   ));
-	echo $this->Admin->TableCells(
+	if ($config['CHECKOUT_DISPLAY_STATE_FIELD'] == 1) echo $this->Admin->TableCells(
 		  array(
 				__('State') . ': ' . $data['ShipState']['name']
 		   ));
@@ -114,7 +114,7 @@ echo $this->Html->tableHeaders(array(__('Contact Information')));
 		  array(
 				__('Order ID') . ': ' . $data['Order']['id']
 		   ));
-	echo $this->Admin->TableCells(
+	if ($config['CHECKOUT_DISPLAY_EMAIL_FIELD'] == 1) echo $this->Admin->TableCells(
 		  array(
 				__('Email') . ': ' . $data['Order']['email']
 		   ));
@@ -132,7 +132,7 @@ echo '</td></tr>';
 
 echo '<tr>';
 echo '<td>';
-
+if ($config['CHECKOUT_DISPLAY_PAYMENT_METHODS_BLOCK'] == 1) {
 echo '<table class="contentTable">';
 echo $this->Html->tableHeaders(array(__('Payment Method Details')));
 	echo $this->Admin->TableCells(
@@ -141,7 +141,8 @@ echo $this->Html->tableHeaders(array(__('Payment Method Details')));
 		   ));
 echo '</table>';
 echo '</td>';
-
+}
+if ($config['CHECKOUT_DISPLAY_SHIPPING_METHODS_BLOCK'] == 1) {
 echo '<td>';
 
 echo '<table class="contentTable">';
@@ -152,7 +153,7 @@ echo $this->Html->tableHeaders(array(__('Shipping Method Details')));
 		   ));
 echo '</table>';
 echo '</td>';
-
+}
 echo '</tr>';
 
 echo '</table>';
