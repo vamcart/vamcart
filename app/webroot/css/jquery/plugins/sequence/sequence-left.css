@@ -46,18 +46,6 @@
 #sequence-theme #sequence ul {
   margin: 0;
 }
-#sequence-theme #sequence1 {
-  height: 100%;
-  margin: 0 auto;
-  position: relative;
-  overflow: hidden;
-  max-width: 1170px;
-  width: 100%;
-  background-color: transparent;
-}
-#sequence-theme #sequence1 ul {
-  margin: 0;
-}
 #sequence-theme .sequence-next,
 #sequence-theme .sequence-prev {
   display: block;
@@ -197,16 +185,6 @@
   width: 100%;
 }
 #sequence-theme #sequence li > * {
-  position: absolute;
-}
-
-#sequence-theme #sequence1 li {
-  height: 100%;
-  position: absolute;
-  top: -50%;
-  width: 100%;
-}
-#sequence-theme #sequence1 li > * {
   position: absolute;
 }
 #sequence-theme .sequence-next,
