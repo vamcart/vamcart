@@ -874,8 +874,11 @@ class OrdersController extends AppController {
 	
 	public function admin_view ($id)
 	{
+		global $config;
+		
 		$this->set('current_crumb', __('Order View', true));
 		$this->set('title_for_layout', __('Order View', true));
+		$this->set('config', $config);
 		$order = $this->Order->find('all', array('conditions' => array('Order.id' => $id)));
 		$this->set('data',$order[0]);
 		
