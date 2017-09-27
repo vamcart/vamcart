@@ -37,12 +37,12 @@ $template = '
 				<thead><tr><th>{lang}Billing Information{/lang}</th></tr></thead>
 				<tbody>
 					<tr><td>{lang}Name{/lang}: {$order.Order.bill_name}</td></tr>
-					<tr><td>{lang}Address Line 1{/lang}: {$order.Order.bill_line_1}</td></tr>
-					<tr><td>{lang}Address Line 2{/lang}: {$order.Order.bill_line_2}</td></tr>
-					<tr><td>{lang}City{/lang}: {$order.Order.bill_city}</td></tr>
-					<tr><td>{lang}State{/lang}: {lang domain="default"}{$order.BillState.name}{/lang}</td></tr>
-					<tr><td>{lang}Country{/lang}: {lang domain="default"}{$order.BillCountry.name}{/lang}</td></tr>
-					<tr><td>{lang}Zipcode{/lang}: {$order.Order.bill_zip}</td></tr>
+					{if {$display_address_field} == "1"}<tr><td>{lang}Address Line 1{/lang}: {$order.Order.bill_line_1}</td></tr>{/if}
+					{if {$display_address_1_field} == "1"}<tr><td>{lang}Address Line 2{/lang}: {$order.Order.bill_line_2}</td></tr>{/if}
+					{if {$display_city_field} == "1"}<tr><td>{lang}City{/lang}: {$order.Order.bill_city}</td></tr>{/if}
+					{if {$display_state_field} == "1"}<tr><td>{lang}State{/lang}: {lang domain="default"}{$order.BillState.name}{/lang}</td></tr>{/if}
+					{if {$display_country_field} == "1"}<tr><td>{lang}Country{/lang}: {lang domain="default"}{$order.BillCountry.name}{/lang}</td></tr>{/if}
+					{if {$display_postcode_field} == "1"}<tr><td>{lang}Zipcode{/lang}: {$order.Order.bill_zip}</td></tr>{/if}
 				</tbody>
 			</table>
 			</td><td>
@@ -50,12 +50,12 @@ $template = '
 				<thead><tr><th>{lang}Shipping Information{/lang}</th></tr></thead>
 				<tbody>
 					<tr><td>{lang}Name{/lang}: {$order.Order.ship_name}</td></tr>
-					<tr><td>{lang}Address Line 1{/lang}: {$order.Order.ship_line_1}</td></tr>
-					<tr><td>{lang}Address Line 2{/lang}: {$order.Order.ship_line_2}</td></tr>
-					<tr><td>{lang}City{/lang}: {$order.Order.ship_city}</td></tr>
-					<tr><td>{lang}State{/lang}: {lang domain="default"}{$order.ShipState.name}{/lang}</td></tr>
-					<tr><td>{lang}Country{/lang}: {lang domain="default"}{$order.ShipCountry.name}{/lang}</td></tr>
-					<tr><td>{lang}Zipcode{/lang}: {$order.Order.ship_zip}</td></tr>
+					{if {$display_address_field} == "1"}<tr><td>{lang}Address Line 1{/lang}: {$order.Order.ship_line_1}</td></tr>{/if}
+					{if {$display_address_1_field} == "1"}<tr><td>{lang}Address Line 2{/lang}: {$order.Order.ship_line_2}</td></tr>{/if}
+					{if {$display_city_field} == "1"}<tr><td>{lang}City{/lang}: {$order.Order.ship_city}</td></tr>{/if}
+					{if {$display_state_field} == "1"}<tr><td>{lang}State{/lang}: {lang domain="default"}{$order.ShipState.name}{/lang}</td></tr>{/if}
+					{if {$display_country_field} == "1"}<tr><td>{lang}Country{/lang}: {lang domain="default"}{$order.ShipCountry.name}{/lang}</td></tr>{/if}
+					{if {$display_postcode_field} == "1"}<tr><td>{lang}Zipcode{/lang}: {$order.Order.ship_zip}</td></tr>{/if}
 				</tbody>
 			</table>
 		
@@ -227,9 +227,22 @@ function smarty_function_my_orders($params, $template)
 
 	$order_data = $Order->find('all', array('recursive' => 2, 'conditions' => array('Order.customer_id' => $_SESSION['Customer']['customer_id'], 'Order.order_status_id >' => '0'), 'order' => 'Order.id DESC'));
 
+	global $config;
+
 	$display_template = $Smarty->load_template($params, 'my_orders');
 	$assignments = array(
 		'orders' => $order_data,
+		'display_address_field' => $config['CHECKOUT_DISPLAY_ADDRESS_FIELD'],
+		'display_address_1_field' => $config['CHECKOUT_DISPLAY_ADDRESS_1_FIELD'],
+		'display_city_field' => $config['CHECKOUT_DISPLAY_CITY_FIELD'],
+		'display_postcode_field' => $config['CHECKOUT_DISPLAY_POSTCODE_FIELD'],
+		'display_country_field' => $config['CHECKOUT_DISPLAY_COUNTRY_FIELD'],
+		'display_state_field' => $config['CHECKOUT_DISPLAY_STATE_FIELD'],
+		'display_shipping_info_block' => $config['CHECKOUT_DISPLAY_SHIPPING_INFO_BLOCK'],
+		'display_email_field' => $config['CHECKOUT_DISPLAY_EMAIL_FIELD'],
+		'display_comments_field' => $config['CHECKOUT_DISPLAY_COMMENTS_FIELD'],
+		'display_shipping_methods_block' => $config['CHECKOUT_DISPLAY_SHIPPING_METHODS_BLOCK'],
+		'display_payment_methods_block' => $config['CHECKOUT_DISPLAY_PAYMENT_METHODS_BLOCK']
 	);
 
 	$Smarty->display($display_template, $assignments);
