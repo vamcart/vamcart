@@ -1,7 +1,6 @@
 <script type="text/javascript">
 $(document).ready(function(){
  $(".buy").colorbox({
-	width:"50%", height:"40%"
  });
 });
 </script>
