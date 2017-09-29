@@ -114,7 +114,7 @@ foreach($data AS $order)
 			$order['Order']['id'],
 			$order['Order']['total'],
 			count($order['OrderProduct']),
-			$this->Time->i18nFormat($order['Order']['created']),
+			$this->Time->i18nFormat($order['Order']['created'], "%e %b %Y, %H:%M"),
 			($order['Order']['phone'] == '') ? __('No data') : $order['Order']['phone'],
 			($order['Order']['email'] == '') ? __('No data') : $order['Order']['email'],
 			array(isset($order['OrderComment'][0]['sent_to_customer'])?$this->Html->image('admin/icons/true.png', array('alt' => __('True'),'title' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False'),'title' => __('False'))), array('align'=>'center')),

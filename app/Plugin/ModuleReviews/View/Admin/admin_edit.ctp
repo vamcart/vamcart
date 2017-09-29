@@ -10,7 +10,7 @@ echo $this->TinyMce->init();
 
 echo $this->Admin->ShowPageHeaderStart($title_for_layout, 'cus-application-edit');
 
-echo __('Date: ') . $this->Time->i18nFormat($data['ModuleReview']['created']);
+echo __('Date: ') . $this->Time->i18nFormat($data['ModuleReview']['created'], "%e %b %Y, %H:%M");
 echo '<br /><br />';
 echo __('Author: ') . $data['ModuleReview']['name'];
 echo '<br /><br />';

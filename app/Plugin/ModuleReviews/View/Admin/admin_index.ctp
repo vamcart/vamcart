@@ -24,7 +24,7 @@ foreach ($reviews AS $review)
 			$this->Html->link($review['ModuleReview']['name'],'/module_reviews/admin/admin_edit/' . $review['ModuleReview']['id']),
 			$review['ModuleReview']['rating'],
 			$review['ModuleReview']['product_name'],
-			$this->Time->i18nFormat($review['ModuleReview']['created']),
+			$this->Time->i18nFormat($review['ModuleReview']['created'], "%e %b %Y, %H:%M"),
 			$this->Admin->ActionButton('view','/module_reviews/admin/admin_edit/' . $review['ModuleReview']['id'], __('View')) . $this->Admin->ActionButton('delete','/module_reviews/admin/admin_delete/' . $review['ModuleReview']['id'], __('Delete')),
 			array($this->Form->checkbox('modify][', array('value' => $review['ModuleReview']['id'])), array('align'=>'center'))
 		   ));

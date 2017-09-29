@@ -169,7 +169,7 @@ foreach($data_comments AS $comment)
 {
 	echo $this->Admin->TableCells(
 		  array(
-				$this->Time->i18nFormat($comment['OrderComment']['created']),
+				$this->Time->i18nFormat($comment['OrderComment']['created'], "%e %b %Y, %H:%M"),
 				($comment['OrderComment']['sent_to_customer'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'),'title' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False'),'title' => __('False')))),
 				'<pre>'.$comment['OrderComment']['comment'].'</pre>'
 		   ));
