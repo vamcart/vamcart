@@ -11,8 +11,7 @@ function default_template_free_download()
 $template = '
 {if $price == 0}
 <a class="btn btn-warning" href="{$url}">{lang}Download{/lang}</a>
-{/if}
-';
+{/if}';
 		
 return $template;
 }
