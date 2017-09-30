@@ -7,6 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 class DownloadController extends AppController {
 	public $name = 'Download';
+	public $components = array('ContentBase');
 	public $uses = null;
 	
 
@@ -14,6 +15,38 @@ class DownloadController extends AppController {
 		App::import('Model', 'Order');
 		App::import('Model', 'OrderProduct');
 		$Order = new Order();
+
+
+		if ($this->params['download_key'] == 'free') { 
+
+			$content = $this->ContentBase->get_content_information($this->params['content_id']); 
+			
+			if ($content['Content']['content_type_id'] != 7) {
+			
+			die();
+			
+			} else {
+			
+					App::import('Model', 'ContentDownloadable');
+					$ContentDownloadable = new ContentDownloadable();
+					$product = $ContentDownloadable->find('first', array('conditions' => array('ContentDownloadable.content_id' => (int)$this->params['content_id'])));
+					if (null !== $product) {
+			
+			   if ($product['ContentDownloadable']['price'] == 0) {
+				if (file_exists('./downloads/' . $product['ContentDownloadable']['filestorename'])) {
+					header('Content-Disposition: attachment; filename="' . $product['ContentDownloadable']['filename'] . '"');
+					readfile('./downloads/' . $product['ContentDownloadable']['filestorename']);
+				}
+				} else {
+              die(); 				
+				}
+			
+			die();
+			
+			}
+			
+			}
+		}
 
 		$order = $Order->find('first', array('conditions' => array('Order.id' => (int)$this->params['order_id'])));
 		if (null !== $order) {
@@ -63,6 +96,19 @@ class DownloadController extends AppController {
 			echo __('Order is not found.', true);
 			die;
 		}
+		
 	}
+	
+	public function free_download($content_id = 0) {
+
+			$content = $this->ContentBase->get_content_information($content_id);                      
+			echo var_dump($content);
+	if (file_exists('./downloads/' . $file_store_name)) {
+		header('Content-Disposition: attachment; filename="' . $file_name . '"');
+		readfile('./downloads/' . $file_store_name);
+	}
+
+	}
+		
 }
 ?>
