@@ -21,8 +21,30 @@ return $template;
 function smarty_function_free_download($params, $template)
 {
 	global $content, $config;
+
+	if(isset($params['content_id']) && $params['content_id'] > 0) {
+
+	App::uses('ContentBaseComponent', 'Controller/Component');
+	$ContentBase = new ContentBaseComponent(new ComponentCollection());
+	
+	$content = $ContentBase->get_content_information($params['content_id']);
 	
 	if ($content['Content']['content_type_id'] == 7) {
+		
+		App::import('Model', 'ContentDownloadable');
+		$ContentDownloadable = new ContentDownloadable();
+		$product = $ContentDownloadable->find('first', array('conditions' => array('ContentDownloadable.content_id' => (int)$params['content_id'])));
+
+		$content['Content'] = $product['ContentDownloadable'];
+		$content['Content']['id'] = $product['ContentDownloadable']['content_id'];
+		
+	} else { return; }
+	
+	} else { 
+		$params['content_id'] = null;
+	}
+	
+	//if ($content['Content']['content_type_id'] == 7) {
 
 	// Cache the output.
 	$cache_name = 'vam_free_download_output' . (isset($params['template'])?'_'.$params['template']:'') . '_' . $content['Content']['id'] .'_' . $_SESSION['Customer']['language_id'];
@@ -34,7 +56,7 @@ function smarty_function_free_download($params, $template)
 	App::uses('SmartyComponent', 'Controller/Component');
 	$Smarty = new SmartyComponent(new ComponentCollection());
 
-	if ($content['Content']['content_type_id'] != 7) return;
+	//if ($content['Content']['content_type_id'] != 7) return;
 
 	$price = $content['ContentDownloadable']['price'];
 
@@ -61,7 +83,7 @@ function smarty_function_free_download($params, $template)
 	
 	echo $output;
 	
-	}
+	//}
 	
 }
 
@@ -74,6 +96,7 @@ function smarty_help_function_free_download () {
 	<h3><?php echo __('What parameters does it take?') ?></h3>
 	<ul>
 		<li><em><?php echo __('(template)') ?></em> - <?php echo __('Useful if you want to override the default content listing template. Setting this will utilize the template that matches this alias.') ?></li>
+		<li><em><?php echo __('(content_id)') ?></em> - <?php echo __('Content id number.') ?></li>
 	</ul>
 	<?php
 }
