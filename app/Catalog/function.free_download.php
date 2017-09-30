@@ -73,7 +73,7 @@ function smarty_help_function_free_download () {
 	<p><?php echo __('Just insert the tag into your template like:') ?> <code>{free_download}</code></p>
 	<h3><?php echo __('What parameters does it take?') ?></h3>
 	<ul>
-		<li><em>(<?php echo __('None') ?>)</em></li>
+		<li><em><?php echo __('(template)') ?></em> - <?php echo __('Useful if you want to override the default content listing template. Setting this will utilize the template that matches this alias.') ?></li>
 	</ul>
 	<?php
 }
