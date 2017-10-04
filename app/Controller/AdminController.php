@@ -27,12 +27,12 @@ class AdminController extends AppController {
                 
             $order_day = $this->Order->find('all', array('fields' => array('DATE_FORMAT(Order.created, \'%m-%d-%Y\') as dat','TRUNCATE(SUM(Order.total),2) as summ','COUNT(Order.id) as cnt')
                                                     ,'conditions' => array(/*'Order.order_status_id' => $listStatuses
-                                                                          ,*/'Order.created >' => date("Y-m-d H:i:s",time()-(14*24*3600)))
+                                                                          ,*/'Order.order_status_id >' => '0','Order.created >' => date("Y-m-d H:i:s",time()-(14*24*3600)))
                                                     ,'group' => array('dat')
                                                     ,'order' => array('dat')));
             $order_month = $this->Order->find('all', array('fields' => array('DATE_FORMAT(Order.created, \'%Y-%m\') as dat','TRUNCATE(SUM(Order.total),2) as summ','COUNT(Order.id) as cnt')
                                                     ,'conditions' => array(/*'Order.order_status_id' => $listStatuses
-                                                                          ,*/'Order.created >' => date("Y-m-d H:i:s",time()-(365*24*3600)))
+                                                                          ,*/'Order.order_status_id >' => '0','Order.created >' => date("Y-m-d H:i:s",time()-(365*24*3600)))
                                                     ,'group' => array('dat')
                                                     ,'order' => array('dat')));
 
