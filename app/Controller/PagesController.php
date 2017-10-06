@@ -119,7 +119,7 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty');
 		if ($template === false) {
 			$template = $this->Content->Template->find('first', array('conditions' => array('template_type_id' => '1', 'parent_id' => $content['Template']['id'])));
 			// Minify html                	
-			$template['Template']['template'] = str_replace(array("\n","\r","\t"),'',$template['Template']['template']);
+			if (Configure::read('debug') == 0) $template['Template']['template'] = str_replace(array("\n","\r","\t"),'',$template['Template']['template']);
 			Cache::write($cache_name, $template, 'catalog');
 		}
 
