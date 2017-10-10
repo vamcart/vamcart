@@ -26,9 +26,9 @@ function smarty_function_free_download($params, $template)
 	App::uses('ContentBaseComponent', 'Controller/Component');
 	$ContentBase = new ContentBaseComponent(new ComponentCollection());
 	
-	$content = $ContentBase->get_content_information($params['content_id']);
+	$content_free = $ContentBase->get_content_information($params['content_id']);
 	
-	if ($content['Content']['content_type_id'] == 7) {
+	if ($content_free['Content']['content_type_id'] == 7) {
 		
 		App::import('Model', 'ContentDownloadable');
 		$ContentDownloadable = new ContentDownloadable();
@@ -37,7 +37,11 @@ function smarty_function_free_download($params, $template)
 		$content['Content'] = $product['ContentDownloadable'];
 		$content['Content']['id'] = $product['ContentDownloadable']['content_id'];
 		
-	} else { return; }
+	} 
+	
+	else { 
+	    return; 
+	}
 	
 	} else { 
 		$params['content_id'] = null;
@@ -74,7 +78,8 @@ function smarty_function_free_download($params, $template)
 	$display_template = $Smarty->load_template($params, 'free_download');
 	$Smarty->display($display_template, $assignments);
 	 
-	// Write the output to cache and echo them	
+	// Write the output to cache and echo them
+	
 	$output = @ob_get_contents();
 	ob_end_clean();	
 	Cache::write($cache_name, $output, 'catalog');		
