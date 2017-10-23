@@ -2302,6 +2302,14 @@ CREATE TABLE IF NOT EXISTS `customers` (
   `email` varchar(96),
   `password` varchar(40),
   `code` varchar(255),
+  `tracking` varchar(255),
+  `ref` varchar(255),
+  `ip` varchar(255),
+  `forwarded_ip` varchar(255),
+  `user_agent` varchar(255),
+  `accept_language` varchar(255),
+  `created` datetime,
+  `modified` datetime,
   PRIMARY KEY (`id`),
   INDEX groups_customer_id (groups_customer_id)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
