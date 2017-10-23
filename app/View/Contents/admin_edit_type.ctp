@@ -59,9 +59,32 @@ switch($content_type_id) {
 		echo $this->Form->input('ContentProduct.weight', 
 			array(
 				'label' => __('Weight'),
-				'after' => ' '.__('kg.'),
 				'type' => 'text',
 				'value' => !isset($data['ContentProduct']['weight'])? 0 : $data['ContentProduct']['weight']
+			));
+		echo $this->Form->input('ContentProduct.length', 
+			array(
+				'label' => __('Length'),
+				'type' => 'text',
+				'value' => !isset($data['ContentProduct']['length'])? 0 : $data['ContentProduct']['length']
+			));
+		echo $this->Form->input('ContentProduct.width', 
+			array(
+				'label' => __('Width'),
+				'type' => 'text',
+				'value' => !isset($data['ContentProduct']['width'])? 0 : $data['ContentProduct']['width']
+			));
+		echo $this->Form->input('ContentProduct.height', 
+			array(
+				'label' => __('Height'),
+				'type' => 'text',
+				'value' => !isset($data['ContentProduct']['height'])? 0 : $data['ContentProduct']['height']
+			));
+		echo $this->Form->input('ContentProduct.volume', 
+			array(
+				'label' => __('Volume'),
+				'type' => 'text',
+				'value' => !isset($data['ContentProduct']['volume'])? 0 : $data['ContentProduct']['volume']
 			));
 		echo $this->Form->input('ContentProduct.manufacturer_id', 
 			array(
