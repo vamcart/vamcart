@@ -1245,6 +1245,31 @@ msgstr "Вес"
 
 #: /plugins/shipping/views/admin/table_based.ctp:16
 #: /views/contents/admin_edit_type.ctp:54
+msgid "Dimensions (L x W x H)"
+msgstr "Размеры (Д x Ш x В)"
+
+#: /plugins/shipping/views/admin/table_based.ctp:16
+#: /views/contents/admin_edit_type.ctp:54
+msgid "Length"
+msgstr "Длина"
+
+#: /plugins/shipping/views/admin/table_based.ctp:16
+#: /views/contents/admin_edit_type.ctp:54
+msgid "Width"
+msgstr "Ширина"
+
+#: /plugins/shipping/views/admin/table_based.ctp:16
+#: /views/contents/admin_edit_type.ctp:54
+msgid "Height"
+msgstr "Высота"
+
+#: /plugins/shipping/views/admin/table_based.ctp:16
+#: /views/contents/admin_edit_type.ctp:54
+msgid "Volume"
+msgstr "Объём"
+
+#: /plugins/shipping/views/admin/table_based.ctp:16
+#: /views/contents/admin_edit_type.ctp:54
 msgid "kg."
 msgstr "кг."
 
