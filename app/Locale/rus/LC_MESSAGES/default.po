@@ -5484,6 +5484,10 @@ msgstr "API Пароль"
 msgid "Store Zip Code"
 msgstr "Почтовый индекс отправителя"
 
+#: /Plugin/Shipping/RussianPostCalc
+msgid "Store Sender City"
+msgstr "Город отправителя"
+
 #: /plugins/shipping/views/admin/per_item.ctp:16
 msgid "RussianPostCalc"
 msgstr "Почта России"
