@@ -31,9 +31,12 @@ echo $this->Form->input('key_values.sender_city', array(
 	));
 
 echo $this->Form->input('key_values.debug', array(
-		'label' => __('Debug Mode'), 
-		'type' => 'text',
-		'value' => $data['ShippingMethodValue'][4]['value']
+	'label' => __('Debug Mode'),
+	'type' => 'radio',
+	'separator' => '<br /><br />',
+	'options' => array('0' => __('Production Mode'), '1' => __('Test Mode')),
+	'legend' => false,
+	'value' => $data['ShippingMethodValue'][4]['value']
 	));
 
 ?>
