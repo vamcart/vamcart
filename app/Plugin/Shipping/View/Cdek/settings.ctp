@@ -24,8 +24,8 @@ echo $this->Form->input('key_values.api_password', array(
 		'value' => $data['ShippingMethodValue'][2]['value']
 	));
 
-echo $this->Form->input('key_values.store_zip_code', array(
-		'label' => __('Store Zip Code'), 
+echo $this->Form->input('key_values.sender_city', array(
+		'label' => __('Store Sender City'), 
 		'type' => 'text',
 		'value' => $data['ShippingMethodValue'][3]['value']
 	));
