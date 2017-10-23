@@ -392,6 +392,10 @@ CREATE TABLE `content_products` (
   `price` double,
   `tax_id` int(10),
   `weight` double,
+  `length` double,
+  `width` double,
+  `height` double,
+  `volume` double,
   `moq` int(8) DEFAULT '1' COMMENT 'Minimum order quantity',
   `pf` int(8) DEFAULT '1' COMMENT 'Price For',
   `ordered` int(10),
@@ -400,18 +404,18 @@ CREATE TABLE `content_products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `content_products` VALUES 
-(17,38,108,0,999,'samsung-galaxy-tab-3','',399,2,3,1,1,0),
-(18,93,108,2,999,'samsung-galaxy-note-10-1','',299,1,0,1,1,0),
-(19,94,108,0,999,'samsung-galaxy-note-8','',199,1,0,1,1,0),
-(20,95,108,1,999,'samsung-galaxy-note-3','',499,1,0,1,1,0),
-(21,96,108,2,999,'samsung-galaxy-s4','',399,1,0,1,1,0),
-(22,97,108,3,999,'samsung-galaxy-ace-3','',299,1,0,1,1,0),
-(23,98,108,0,999,'samsung-ativ-book-9','',999,1,0,1,1,0),
-(24,99,108,0,999,'samsung-ativ-smart-pc','',899,1,0,1,1,0),
-(25,100,108,3,999,'samsung-ativ-book-4','',799,1,0,1,1,0),
-(26,102,108,0,999,'samsung-gear-2-wild-orange','',299,1,0,1,1,0),
-(27,103,108,0,999,'samsung-gear-2-gold-brown','',299,1,0,1,1,0),
-(28,104,108,0,999,'samsung-gear-2-charcoal-black','',299,1,0,1,1,0)	;
+(17,38,108,0,999,'samsung-galaxy-tab-3','',399,1,0.6,30,20,5,0.003,1,1,0),
+(18,93,108,2,999,'samsung-galaxy-note-10-1','',299,1,0.6,30,20,5,0.003,1,1,0),
+(19,94,108,0,999,'samsung-galaxy-note-8','',199,1,0.6,30,20,5,0.003,1,1,0),
+(20,95,108,1,999,'samsung-galaxy-note-3','',499,1,0.6,30,20,5,0.003,1,1,0),
+(21,96,108,2,999,'samsung-galaxy-s4','',399,1,0.6,30,20,5,0.003,1,1,0),
+(22,97,108,3,999,'samsung-galaxy-ace-3','',299,1,0.6,30,20,5,0.003,1,1,0),
+(23,98,108,0,999,'samsung-ativ-book-9','',999,1,0.6,30,20,5,0.003,1,1,0),
+(24,99,108,0,999,'samsung-ativ-smart-pc','',899,1,0.6,30,20,5,0.003,1,1,0),
+(25,100,108,3,999,'samsung-ativ-book-4','',799,1,0.6,30,20,5,0.003,1,1,0),
+(26,102,108,0,999,'samsung-gear-2-wild-orange','',299,1,0.6,30,20,5,0.003,1,1,0),
+(27,103,108,0,999,'samsung-gear-2-gold-brown','',299,1,0.6,30,20,5,0.003,1,1,0),
+(28,104,108,0,999,'samsung-gear-2-charcoal-black','',299,1,0.6,30,20,5,0.003,1,1,0);
 
 DROP TABLE IF EXISTS content_product_prices;
 CREATE TABLE IF NOT EXISTS `content_product_prices` (
