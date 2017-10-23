@@ -414,6 +414,9 @@ msgstr "Отзывы"
 msgid "RussianPost"
 msgstr "Почта России"
 
+msgid "Cdek"
+msgstr "Сдэк"
+
 msgid "RussianPostCalc"
 msgstr "Почта России"
 
