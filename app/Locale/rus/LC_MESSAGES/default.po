@@ -5377,6 +5377,10 @@ msgstr "Выводит информацию о скидках от количе�
 msgid "RussianPost"
 msgstr "Почта России"
 
+#: /plugins/shipping/views/admin/per_item.ctp:16
+msgid "Cdek"
+msgstr "Сдэк"
+
 #: /app/View/GeoZones/admin_zones_edit.ctp:16
 msgid "Back"
 msgstr "Вернуться"
