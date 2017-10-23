@@ -5381,6 +5381,10 @@ msgstr "Почта России"
 msgid "Cdek"
 msgstr "Сдэк"
 
+#: /plugins/shipping/views/admin/per_item.ctp:16
+msgid "Debug Mode"
+msgstr "Режим отладки"
+
 #: /app/View/GeoZones/admin_zones_edit.ctp:16
 msgid "Back"
 msgstr "Вернуться"
