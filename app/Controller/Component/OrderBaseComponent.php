@@ -223,6 +223,10 @@ class OrderBaseComponent extends Object
 						'quantity' => $qty,
 						'price' => $product['ContentProduct']['price'],
 						'weight' => $product['ContentProduct']['weight'],
+						'length' => $product['ContentProduct']['length'],
+						'width' => $product['ContentProduct']['width'],
+						'height' => $product['ContentProduct']['height'],
+						'volume' => $product['ContentProduct']['volume'],
 						'tax' => $this->get_product_tax($product['ContentProduct']['tax_id'])
 					);
 					break;
