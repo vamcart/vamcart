@@ -170,7 +170,7 @@ class CdekController extends ShippingAppController {
 		    if ($data_cdek['debug'] == 1) echo 'Ошибка: ' . $e->getMessage() . "<br />";
 		}
 			
-		return $res['result']['price'];
+		return $res['result']['price']+$data_cdek['handling'];
 	}
 
 	public function before_process()
