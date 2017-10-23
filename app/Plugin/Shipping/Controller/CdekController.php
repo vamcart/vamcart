@@ -85,7 +85,7 @@ class CdekController extends ShippingAppController {
 	    
 	    curl_close($curl);
 	    if($data === false) {
-		  //return "ID номер для города отправителя посылки не найден.";
+		  if ($data_cdek['debug'] == 1) echo "ID номер для города отправителя посылки не найден.";
 	    }
 	    
 	    $senderCity = json_decode($data, $assoc=true);
@@ -98,7 +98,7 @@ class CdekController extends ShippingAppController {
 	    
 	    curl_close($curl);
 	    if($data === false) {
-		  //return "ID номер для города получателя посылки не найден.";
+		  if ($data_cdek['debug'] == 1) echo "ID номер для города получателя посылки не найден.";
 	    }
 	    
 	    $receiverCity = json_decode($data, $assoc=true);
