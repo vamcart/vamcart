@@ -152,6 +152,12 @@ class OrderBaseComponent extends Object
 		$order['Order']['tax'] = $this->get_order_tax($order);
 		$order['Order']['total'] = $this->get_order_total($order) + $order['Order']['tax'] + $order['Order']['shipping'] ;
 
+		$order['Order']['ref'] = $_SERVER['HTTP_REFERER'];
+		$order['Order']['ip'] = $_SERVER['REMOTE_ADDR'];
+		$order['Order']['forwarded_ip'] = $_SERVER['HTTP_X_FORWARDED_FOR'];
+		$order['Order']['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
+		$order['Order']['accept_language'] = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+
 		$EventBase = new EventBaseComponent(new ComponentCollection());
 
 		$EventBase->ProcessEvent('UpdateOrderTotalsBeforeSave');

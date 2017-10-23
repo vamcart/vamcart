@@ -40,6 +40,15 @@ class SiteController extends AppController {
 		foreach($_POST['customer'] AS $key => $value)
 			$_POST['customer'][$key] = $clean->html($value);
 
+			$_POST['customer']['created'] = date("Y-m-d H:i:s");
+			$_POST['customer']['modified'] = date("Y-m-d H:i:s");
+
+			$_POST['customer']['ref'] = $_SERVER['HTTP_REFERER'];
+			$_POST['customer']['ip'] = $_SERVER['REMOTE_ADDR'];
+			$_POST['customer']['forwarded_ip'] = $_SERVER['HTTP_X_FORWARDED_FOR'];
+			$_POST['customer']['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
+			$_POST['customer']['accept_language'] = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+
 			$customer = new Customer();
 			$customer->set($_POST['customer']);
 			if ($customer->validates()) {
@@ -127,6 +136,15 @@ class SiteController extends AppController {
 				} else {
 					$_POST['customer']['password'] = Security::hash($_POST['customer']['password'], 'sha1', true);
 				}
+
+				$_POST['customer']['created'] = date("Y-m-d H:i:s");
+				$_POST['customer']['modified'] = date("Y-m-d H:i:s");
+	
+				$_POST['customer']['ref'] = $_SERVER['HTTP_REFERER'];
+				$_POST['customer']['ip'] = $_SERVER['REMOTE_ADDR'];
+				$_POST['customer']['forwarded_ip'] = $_SERVER['HTTP_X_FORWARDED_FOR'];
+				$_POST['customer']['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
+				$_POST['customer']['accept_language'] = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
 				
 				$ret = $customer->save($_POST['customer']);
 

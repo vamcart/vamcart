@@ -64,6 +64,16 @@ class OrdersController extends AppController {
 		if ($_POST['bill_name'] != '') $customer_data['Customer']['name'] = $_POST['bill_name'];
 		if ($_POST['email'] != '') $customer_data['Customer']['email'] = $_POST['email'];
 		$customer_data['Customer']['password'] = Security::hash($customer_password, 'sha1', true);
+
+		$customer_data['Customer']['ref'] = $_SERVER['HTTP_REFERER'];
+		$customer_data['Customer']['ip'] = $_SERVER['REMOTE_ADDR'];
+		$customer_data['Customer']['forwarded_ip'] = $_SERVER['HTTP_X_FORWARDED_FOR'];
+		$customer_data['Customer']['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
+		$customer_data['Customer']['accept_language'] = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+
+		$customer_data['Customer']['created'] = date("Y-m-d H:i:s");
+		$customer_data['Customer']['modified'] = date("Y-m-d H:i:s");
+
 		if ($_POST['bill_name'] != '') $customer_data['AddressBook']['ship_name'] = $_POST['bill_name'];
 		if ($_POST['bill_line_1'] != '') $customer_data['AddressBook']['ship_line_1'] = $_POST['bill_line_1'];
 		if ($_POST['bill_line_2'] != '') $customer_data['AddressBook']['ship_line_2'] = $_POST['bill_line_2'];
@@ -111,7 +121,7 @@ class OrdersController extends AppController {
 		// Send to customer
 		$this->Email->AddAddress($order['Order']['email']);
 		// Send to admin
-		//$this->Email->AddCC($config['SEND_EXTRA_EMAIL']);
+		$this->Email->AddCC($config['SEND_EXTRA_EMAIL']);
 		$this->Email->Subject = $subject;
 
 		// Email Body
@@ -183,6 +193,13 @@ class OrdersController extends AppController {
 		$_SESSION['Customer']['email'] = $order['Order']['email'];
 		
 		$order['Order']['created'] = date("Y-m-d H:i:s");
+		$order['Order']['modified'] = date("Y-m-d H:i:s");
+
+		$order['Order']['ref'] = $_SERVER['HTTP_REFERER'];
+		$order['Order']['ip'] = $_SERVER['REMOTE_ADDR'];
+		$order['Order']['forwarded_ip'] = $_SERVER['HTTP_X_FORWARDED_FOR'];
+		$order['Order']['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
+		$order['Order']['accept_language'] = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
 		
 		// Save order data
 		$this->Order->save($order);
@@ -247,6 +264,13 @@ class OrdersController extends AppController {
 		}
 		
 		$order['Order']['created'] = date("Y-m-d H:i:s");
+		$order['Order']['modified'] = date("Y-m-d H:i:s");
+
+		$order['Order']['ref'] = $_SERVER['HTTP_REFERER'];
+		$order['Order']['ip'] = $_SERVER['REMOTE_ADDR'];
+		$order['Order']['forwarded_ip'] = $_SERVER['HTTP_X_FORWARDED_FOR'];
+		$order['Order']['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
+		$order['Order']['accept_language'] = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
 		
 		// Save order data
 		$this->Order->save($order);
