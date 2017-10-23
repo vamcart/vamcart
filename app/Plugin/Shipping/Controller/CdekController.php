@@ -44,6 +44,10 @@ class CdekController extends ShippingAppController {
 		$new_module['ShippingMethodValue'][3]['key'] = 'sender_city';
 		$new_module['ShippingMethodValue'][3]['value'] = 'Москва';
 
+		$new_module['ShippingMethodValue'][4]['shipping_method_id'] = $this->ShippingMethod->id;
+		$new_module['ShippingMethodValue'][4]['key'] = 'debug';
+		$new_module['ShippingMethodValue'][4]['value'] = '0';
+
 		$this->ShippingMethod->saveAll($new_module);
 
 		$this->Session->setFlash(__('Module Installed'));
@@ -139,21 +143,21 @@ class CdekController extends ShippingAppController {
 			if ($calc->calculate() === true) {
 				$res = $calc->getResult();
 				
-				//echo 'Цена доставки: ' . $res['result']['price'] . 'руб.<br />';
-				//echo 'Срок доставки: ' . $res['result']['deliveryPeriodMin'] . '-' . 
+				if ($data_cdek['debug'] == 1) echo 'Цена доставки: ' . $res['result']['price'] . 'руб.<br />';
+				if ($data_cdek['debug'] == 1) echo 'Срок доставки: ' . $res['result']['deliveryPeriodMin'] . '-' . 
 										 $res['result']['deliveryPeriodMax'] . ' дн.<br />';
-				//echo 'Планируемая дата доставки: c ' . $res['result']['deliveryDateMin'] . ' по ' . $res['result']['deliveryDateMax'] . '.<br />';
-				//echo 'id тарифа, по которому произведён расчёт: ' . $res['result']['tariffId'] . '.<br />';
+				if ($data_cdek['debug'] == 1) echo 'Планируемая дата доставки: c ' . $res['result']['deliveryDateMin'] . ' по ' . $res['result']['deliveryDateMax'] . '.<br />';
+				if ($data_cdek['debug'] == 1) echo 'id тарифа, по которому произведён расчёт: ' . $res['result']['tariffId'] . '.<br />';
 		        if(array_key_exists('cashOnDelivery', $res['result'])) {
-		            //echo 'Ограничение оплаты наличными, от (руб): ' . $res['result']['cashOnDelivery'] . '.<br />';
+		            if ($data_cdek['debug'] == 1) echo 'Ограничение оплаты наличными, от (руб): ' . $res['result']['cashOnDelivery'] . '.<br />';
 		        }
 			} else {
 				$err = $calc->getError();
 				if( isset($err['error']) && !empty($err) ) {
-					//var_dump($err);
+					if ($data_cdek['debug'] == 1) var_dump($err);
 					foreach($err['error'] as $e) {
-						//echo 'Код ошибки: ' . $e['code'] . '.<br />';
-						//echo 'Текст ошибки: ' . $e['text'] . '.<br />';
+						if ($data_cdek['debug'] == 1) echo 'Код ошибки: ' . $e['code'] . '.<br />';
+						if ($data_cdek['debug'] == 1) echo 'Текст ошибки: ' . $e['text'] . '.<br />';
 					}
 				}
 			}
@@ -163,7 +167,7 @@ class CdekController extends ShippingAppController {
 		     //var_dump($calc->getError());
 		
 		} catch (Exception $e) {
-		    //echo 'Ошибка: ' . $e->getMessage() . "<br />";
+		    if ($data_cdek['debug'] == 1) echo 'Ошибка: ' . $e->getMessage() . "<br />";
 		}
 			
 		return $res['result']['price'];

@@ -30,4 +30,10 @@ echo $this->Form->input('key_values.sender_city', array(
 		'value' => $data['ShippingMethodValue'][3]['value']
 	));
 
+echo $this->Form->input('key_values.debug', array(
+		'label' => __('Debug Mode'), 
+		'type' => 'text',
+		'value' => $data['ShippingMethodValue'][4]['value']
+	));
+
 ?>
