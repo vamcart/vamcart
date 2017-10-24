@@ -1926,7 +1926,7 @@ CREATE TABLE `order_products` (
   `name` varchar(255) collate utf8_unicode_ci,
   `model` varchar(255) collate utf8_unicode_ci,
   `sku` varchar(255) collate utf8_unicode_ci,
-  `quantity` double,
+  `quantity` int(10),
   `price` double,
   `weight` double,
   `length` double,
