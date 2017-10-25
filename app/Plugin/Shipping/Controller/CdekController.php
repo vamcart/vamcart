@@ -115,7 +115,7 @@ class CdekController extends ShippingAppController {
 			$calc = new CalculatePriceDeliveryCdek();
 			
 		    //Авторизация.
-		    if ($data_cdek['api_key'] != '' && $data_cdek['api_password'] != '') $calc->setAuth('authLoginString', 'passwordString');
+		    if ($data_cdek['api_key'] != '' && $data_cdek['api_password'] != '') $calc->setAuth($data_cdek['api_key'], $data_cdek['api_password']);
 			
 			//устанавливаем город-отправитель
 			$calc->setSenderCityId($senderCityId);
