@@ -25,6 +25,7 @@ class CdekController extends ShippingAppController {
 		$new_module['ShippingMethod']['order'] = '0';
 		$new_module['ShippingMethod']['default'] = '0';
 		$new_module['ShippingMethod']['name'] = Inflector::humanize($this->module_name);
+		$new_module['ShippingMethod']['description'] = '';
 		$new_module['ShippingMethod']['icon'] = $this->icon;
 		$new_module['ShippingMethod']['code'] = $this->module_name;
 
