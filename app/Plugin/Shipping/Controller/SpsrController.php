@@ -118,7 +118,6 @@ class SpsrController extends ShippingAppController {
  
     $xml_string_from_city = simplexml_load_string($result_from_city);
 
-
     $xml_to_city = '
 <root xmlns="http://spsr.ru/webapi/Info/GetCities/1.0">
 <p:Params Name="WAGetCities" Ver="1.0" xmlns:p="http://spsr.ru/webapi/WA/1.0" />
@@ -157,12 +156,12 @@ class SpsrController extends ShippingAppController {
 		//составление запроса стоимости доставки
 		if(isset($_POST['error_tocity']))
 			{
-			$request='http://www.cpcr.ru/cgi-bin/postxml.pl?'.$data_spsr['ship_type'].'&ToCity='.$xml_string_error_to_city->City->Cities['City_ID'].'|0&FromCity='.$xml_string_from_city->City->Cities['City_ID'].'|0&Weight='. $shipping_weight .'&ToBeCalledFor=0&SID='.$xml_sid->Login['SID'].'';
+			$request='http://www.cpcr.ru/cgi-bin/postxml.pl?TARIFFCOMPUTE_2&ToCity='.$xml_string_error_to_city->City->Cities['City_ID'].'|0&FromCity='.$xml_string_from_city->City->Cities['City_ID'].'|0&Weight='. $shipping_weight .'&ToBeCalledFor=0&SID='.$xml_sid->Login['SID'].'';
 			//$request='http://cpcr.ru/cgi-bin/postxml.pl?TariffCompute&FromRegion='.$own_cpcr_id.'|0&FromCityName='.iconv("UTF-8","windows-1251", $data_spsr['sender_city']).'&Weight='. $shipping_weight .'&Nature='.MODULE_SHIPPING_SPSR_NATURE.'&Amount=0&Country=209|0&ToCity='.iconv("UTF-8","windows-1251", $_POST['error_tocity']);
 			}
 		else
 			{
-			$request='http://www.cpcr.ru/cgi-bin/postxml.pl?'.$data_spsr['ship_type'].'&ToCity='.$xml_string_to_city->City->Cities['City_ID'].'|0&FromCity='.$xml_string_from_city->City->Cities['City_ID'].'|0&Weight='. $shipping_weight .'&ToBeCalledFor==0&SID='.$xml_sid->Login['SID'].'';
+			$request='http://www.cpcr.ru/cgi-bin/postxml.pl?TARIFFCOMPUTE_2&ToCity='.$xml_string_to_city->City->Cities['City_ID'].'|0&FromCity='.$xml_string_from_city->City->Cities['City_ID'].'|0&Weight='. $shipping_weight .'&ToBeCalledFor==0&SID='.$xml_sid->Login['SID'].'';
 			//$request='http://cpcr.ru/cgi-bin/postxml.pl?TariffCompute&FromRegion='.$own_cpcr_id.'|0&FromCityName='.iconv("UTF-8","windows-1251", $data_spsr['sender_city']).'&Weight='. $shipping_weight .'&Nature='.MODULE_SHIPPING_SPSR_NATURE.'&Amount=0&Country=209|0&ToRegion='.$region_id.'|0&ToCityName='.iconv("UTF-8","windows-1251", $order['Order']['bill_city']);
 			}
 		
@@ -202,31 +201,31 @@ class SpsrController extends ShippingAppController {
 			{
 			$find_symbols = array(chr(160),'р.',' '); //вместо пробела в стоимости доставки cpcr.ru использует симовл с ascii кодом 160.
 			$cost = ceil(str_replace(',','.',str_replace($find_symbols,'',$xmlstring->Tariff->Total_Dost)));
-			$title .= 'Доставка в '.$order['Order']['bill_city'].', '.$order['Order']['bill_state'];
+			$title .= 'Доставка в '.$order['Order']['bill_city'].', '.$order['BillState']['name'];
 			if ($cost>0) {$title .= '<input type="hidden" name="cost" value="'.$cost.'">';}			
 			}
 	//если $cost уже был определен
 	}else{
 		$cost = $_POST['cost'];
-		$title .= 'Доставка в '.$order['Order']['bill_city'].', '.$order['Order']['bill_state'];
+		$title .= 'Доставка в '.$order['Order']['bill_city'].', '.$order['BillState']['name'];
 		if ($cost>0) {$title .= '<input type="hidden" name="cost" value="'.$cost.'">';}	
 	}			
 		
 		//Обработка ошибки Город не найден
 		if ($xmlstring->Error->ToCity && $server_link == true)
 			{
-			$title .= "<font color=red>Ошибка, город \"".$order['Order']['bill_city']."\" не найден. Либо в названии города допущена ошибка, либо в данный город СПСР доставку не производит.</font><br>";
+			$title .= "<font color=red>Ошибка, город \"".$order['Order']['bill_city']."\" не найден. Либо в названии города допущена ошибка, либо в данный город СПСР доставку не производит.</font><br />";
 			}
 		
 			//Уточнение названия города, для получения City_Id c сервера cpcr.ru
 		if (!$xmlstring->Error->ToCity->City->CityName=='')
 			{
-			$title .= "<font color=red>Пожалуйста уточните название вашего города:</font><br>";
+			$title .= "<font color=red>Пожалуйста уточните название вашего города:</font><br />";
 			if ($xmlstring->Error->ToCity->City)
 				{
 				foreach ($xmlstring->Error->ToCity->City as $city_value)
 					{		
-					$title .= "<input type=radio name=error_tocity value=\"".$city_value->City_Id."|".$city_value->City_Owner_Id."\" onChange=\"this.form.submit()\">".$city_value->CityName.", ".$city_value->RegionName."<br>";
+					$title .= "<input type=radio name=error_tocity value=\"".$city_value->City_Id."|".$city_value->City_Owner_Id."\" onChange=\"this.form.submit()\">".$city_value->CityName.", ".$city_value->RegionName."<br />";
 					//начало код для унификации с калькулятором
 					echo "<input type=hidden name=\"".$city_value->City_Id."|".$city_value->City_Owner_Id."\" value=\"".$city_value->CityName.", ".$city_value->RegionName."\">";	
 					//конец код для унификации с калькулятором						
@@ -237,58 +236,56 @@ class SpsrController extends ShippingAppController {
 		//Обработка ошибки Веса
 		if ($xmlstring->Error->Weight)
 			{
-			$title .= "<br><font color=red>Ошибка! Неправильный формат веса</font>";
+			$title .= "<br /><font color=red>Ошибка! Неправильный формат веса</font>";
 			}
 		
 		//Оюработка ошибки Оценочной стоимости	
 		if ($xmlstring->Error->Amount)
 			{
-			$title .= "<br><font color=red>Ошибка! Неправильный формат оценочной стоимости</font>";
+			$title .= "<br /><font color=red>Ошибка! Неправильный формат оценочной стоимости</font>";
 			}
 		if (!isset($own_cpcr_id))
 			{
-			$title .= "<br><font color=red>Ошибка! Вы не выбрали зону! (Администрирование>Настройки>My store>Zone)</font>";
+			$title .= "<br /><font color=red>Ошибка! Вы не выбрали зону! (Администрирование>Настройки>My store>Zone)</font>";
 			}
 			
 		//Обработка ошибки Mutex Wait Timeout
 		if ($xmlstring->Error['Type']=='Mutex' & $xmlstring->Error['SubType']=='Wait Timeout')  {
-			$title .= "<br><font color=red>Ошибка! cpcr.ru не вернул ответ на запрос. Попробуйте обновить страницу.</font>";
+			$title .= "<br /><font color=red>Ошибка! cpcr.ru не вернул ответ на запрос. Попробуйте обновить страницу.</font>";
 		}
 		
 		//Обработка ошибки ComputeTariff CalcError
 		if ($xmlstring->Error['Type']=='ComputeTariff' & $xmlstring->Error['SubType']=='CalcError')  {
-			$title .= "<br><font color=red>Ошибка! Ошибка вычисления стоимости доставки.</font>";
+			$title .= "<br /><font color=red>Ошибка! Ошибка вычисления стоимости доставки.</font>";
 		}		
 		
 		//Обработка ошибки Command Unknown
 		if ($xmlstring->Error['Type']=='Command' & $xmlstring->Error['SubType']=='Unknown')  {
-			$title .= "<br><font color=red>Ошибка! Неизвестная команда.</font>";
+			$title .= "<br /><font color=red>Ошибка! Неизвестная команда.</font>";
 		}
 		
 		//Обработка ошибки Unknown Unknown (прочие ошибки)
 		if ($xmlstring->Error['Type'])  {
-			$title .= "<br><font color=red>Неизвестная ошибка, попробуйте позже.</font>";
+			$title .= "<br /><font color=red>Неизвестная ошибка, попробуйте позже.</font>";
 		}		
 		
 		//Отображдение отладочной информации
 		if($data_spsr['debug'] == 1)
 			{
-			$title .= "<br>".'$own_zone_id='.$own_zone_id."<br>".
-			'$order->delivery[\'zone_id\']='.$order->delivery['zone_id']."<br>".
-			'$own_cpcr_id='.$own_cpcr_id."<br>".
-			'Город отправки='.$data_spsr['sender_city']."<br>".
-			'$shipping_weight='.$shipping_weight."<br>".
-			'Тип отправления='.$data_spsr['ship_type']."<br>".
-			'$request='.$request."<br>".
-			'$cost='.$cost."<br>".
+			$title .= "<br />".'$own_zone_id='.$own_zone_id."<br />".
+			'Город отправки='.$data_spsr['sender_city']."<br />".
+			'$shipping_weight='.$shipping_weight."<br />".
+			'Тип отправления='.$data_spsr['ship_type']."<br />".
+			'$request='.$request."<br />".
+			'$cost='.$cost."<br />".
 			'$_POST[\'cost\']='.$_POST['cost'];
-			'$xmlstring:'."<br>".
+			'$xmlstring:'."<br />".
 			(is_object($xmlstring)?"<textarea readonly=\"readonly\" rows=\"5\">".$xmlstring->asXML()."</textarea>":'');			
 			}
 
 		if ($data_spsr['debug'] == 1) echo $title;
 
-		return $res['result']['price']+$data_spsr['handling'];
+		return $cost+$data_spsr['handling'];
 
 	}
 
