@@ -423,6 +423,9 @@ msgstr "Спср"
 msgid "IKN"
 msgstr "ИКН"
 
+msgid "Shipment Type"
+msgstr "Вид отправления"
+
 msgid "RussianPostCalc"
 msgstr "Почта России"
 

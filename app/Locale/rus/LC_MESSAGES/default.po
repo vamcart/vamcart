@@ -5390,6 +5390,42 @@ msgid "IKN"
 msgstr "ИКН"
 
 #: /plugins/shipping/views/admin/per_item.ctp:16
+msgid "Shipment Type"
+msgstr "Вид отправления"
+
+#: /plugins/shipping/views/admin/per_item.ctp:16
+msgid "Documents"
+msgstr "Документы"
+
+#: /plugins/shipping/views/admin/per_item.ctp:16
+msgid "Mobile Phones"
+msgstr "Мобильные телефоны"
+
+#: /plugins/shipping/views/admin/per_item.ctp:16
+msgid "Electronis & Computers"
+msgstr "Бытовая и оргтехника"
+
+#: /plugins/shipping/views/admin/per_item.ctp:16
+msgid "Securities"
+msgstr "Ценные бумаги"
+
+#: /plugins/shipping/views/admin/per_item.ctp:16
+msgid "Jewelry"
+msgstr "Ювелирные изделия"
+
+#: /plugins/shipping/views/admin/per_item.ctp:16
+msgid "Cosmetics"
+msgstr "Косметика"
+
+#: /plugins/shipping/views/admin/per_item.ctp:16
+msgid "Clothing"
+msgstr "Одежда и текстильные изд."
+
+#: /plugins/shipping/views/admin/per_item.ctp:16
+msgid "Other"
+msgstr "Другое"
+
+#: /plugins/shipping/views/admin/per_item.ctp:16
 msgid "Debug Mode"
 msgstr "Режим отладки"
 
