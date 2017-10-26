@@ -5382,6 +5382,10 @@ msgid "Cdek"
 msgstr "Сдэк"
 
 #: /plugins/shipping/views/admin/per_item.ctp:16
+msgid "Spsr"
+msgstr "Спср"
+
+#: /plugins/shipping/views/admin/per_item.ctp:16
 msgid "Debug Mode"
 msgstr "Режим отладки"
 

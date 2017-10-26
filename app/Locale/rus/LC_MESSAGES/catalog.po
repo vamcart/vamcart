@@ -417,6 +417,9 @@ msgstr "Почта России"
 msgid "Cdek"
 msgstr "Сдэк"
 
+msgid "Spsr"
+msgstr "Спср"
+
 msgid "RussianPostCalc"
 msgstr "Почта России"
 
