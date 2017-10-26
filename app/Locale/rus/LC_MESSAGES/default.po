@@ -5386,6 +5386,10 @@ msgid "Spsr"
 msgstr "Спср"
 
 #: /plugins/shipping/views/admin/per_item.ctp:16
+msgid "IKN"
+msgstr "ИКН"
+
+#: /plugins/shipping/views/admin/per_item.ctp:16
 msgid "Debug Mode"
 msgstr "Режим отладки"
 

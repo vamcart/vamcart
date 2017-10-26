@@ -420,6 +420,9 @@ msgstr "Сдэк"
 msgid "Spsr"
 msgstr "Спср"
 
+msgid "IKN"
+msgstr "ИКН"
+
 msgid "RussianPostCalc"
 msgstr "Почта России"
 
