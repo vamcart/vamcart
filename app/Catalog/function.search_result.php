@@ -215,6 +215,10 @@ function smarty_function_search_result($params, $template)
 			if ($raw_data['Content']['content_type_id'] == 2 or $raw_data['Content']['content_type_id'] == 7) $content_list[$count]['stock']	= $raw_data[$content_type]['stock'];	
 			if ($raw_data['Content']['content_type_id'] == 2 or $raw_data['Content']['content_type_id'] == 7) $content_list[$count]['model']	= $raw_data[$content_type]['model'];	
 			if ($raw_data['Content']['content_type_id'] == 2) $content_list[$count]['weight']	= $raw_data[$content_type]['weight'];	
+			if ($raw_data['Content']['content_type_id'] == 2) $content_list[$count]['length']	= ($raw_data['ContentProduct']['length'] > 0) ? $raw_data['ContentProduct']['length'] : false;	
+			if ($raw_data['Content']['content_type_id'] == 2) $content_list[$count]['width']	= ($raw_data['ContentProduct']['width'] > 0) ? $raw_data['ContentProduct']['width'] : false;	
+			if ($raw_data['Content']['content_type_id'] == 2) $content_list[$count]['height']	= ($raw_data['ContentProduct']['height'] > 0) ? $raw_data['ContentProduct']['height'] : false;	
+			if ($raw_data['Content']['content_type_id'] == 2) $content_list[$count]['volume']	= ($raw_data['ContentProduct']['volume'] > 0) ? $raw_data['ContentProduct']['volume'] : false;	
 			if ($raw_data['Content']['content_type_id'] == 2 or $raw_data['Content']['content_type_id'] == 7) $content_list[$count]['manufacturer']	= $ContentBase->getManufacturerName($raw_data[$content_type]['manufacturer_id']);	
 			if ($raw_data['Content']['content_type_id'] == 2 or $raw_data['Content']['content_type_id'] == 7) $content_list[$count]['label_id']	= $raw_data[$content_type]['label_id'];	
 			$content_list[$count]['date_added']	= CakeTime::i18nFormat($raw_data['Content']['created']);	
