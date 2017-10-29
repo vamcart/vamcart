@@ -80,7 +80,7 @@ function smarty_function_shipping_methods($params, $template)
 	if(!isset($params['state']))
 		$params['state'] = false;		
 		
-	//echo debug($content);
+	//echo var_dump($content);
 	
 	$order['Order']['bill_city'] = 'Казань';
 
