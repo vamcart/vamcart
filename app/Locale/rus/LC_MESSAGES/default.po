@@ -1747,6 +1747,10 @@ msgstr "Показывает стоимость товара."
 msgid "Displays the product weight for the current content."
 msgstr "Показывает вес товара."
 
+#: /vendors/smarty/vam_plugins/function.product_weight.php:36
+msgid "Displays the product length for the current content."
+msgstr "Показывает длину товара."
+
 #: /vendors/smarty/vam_plugins/function.product_model.php:36
 msgid "Displays the product model for the current content."
 msgstr "Показывает артикул товара."
