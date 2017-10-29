@@ -1759,6 +1759,10 @@ msgstr "Показывает ширину товара."
 msgid "Displays the product height for the current content."
 msgstr "Показывает высоту товара."
 
+#: /vendors/smarty/vam_plugins/function.product_weight.php:36
+msgid "Displays the product volume for the current content."
+msgstr "Показывает объём товара."
+
 #: /vendors/smarty/vam_plugins/function.product_model.php:36
 msgid "Displays the product model for the current content."
 msgstr "Показывает артикул товара."
