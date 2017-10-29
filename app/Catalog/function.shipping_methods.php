@@ -9,34 +9,21 @@
 function default_template_shipping_methods()
 {
 $template = '
-  <div id="shipping_method">
-    <div>
-      <h3>{lang}Shipping Method{/lang}</h3>
-    </div>  
-  <div class="clearfix">
-	<ul class="shipping-methods">
-    {foreach from=$ship_methods item=ship_method}
-		<li class="item col-sm-6 col-md-4{if $ship_method.id == $order.shipping_method_id} selected{/if}">
-      <label class="shipping-method">
-      <span class="title">
-        <input type="radio" name="shipping_method_id" value="{$ship_method.id}" id="ship_{$ship_method.id}" 
-        {if $ship_method.id == $order.shipping_method_id}
-          checked="checked"
-         {/if}
-        />
-		<span class="name">{lang}{$ship_method.name}{/lang}</span>
-		</span>
-		<span class="image text-center">
-				{if $ship_method.icon}<img src="{base_path}/img/icons/shipping/{$ship_method.icon}" alt="{$ship_method.name}" title="{$ship_method.name}" /> {/if}
-		</span>
-		{if $ship_method.cost_plain > 0}<span class="description">{$ship_method.cost}</span>{/if}
-		{if $ship_method.description}<span class="description">{$ship_method.description}</span>{/if}
-		</label>	
-		</li>
-    {/foreach}
-	</ul>
-	</div>
-  </div>
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped">
+<thead>
+<tr>
+<th colspan="2" class="ship-title"><div>Доставка в <span><u><a href="">{$city}</a></span></u></div></th>
+</tr>
+</thead>
+<tbody>
+{foreach from=$ship_methods item=ship_method}
+<tr>
+<td>{lang}{$ship_method.name}{/lang}</td>
+<td class="text-right">{$ship_method.cost}</td>
+</tr>
+{/foreach}
+</tbody>
+</table>  
 ';
 		
 return $template;
@@ -46,7 +33,7 @@ return $template;
 function smarty_function_shipping_methods($params, $template)
 {
 	global $content, $config, $order;
-
+	
 	// Cache the output.
 	$cache_name = 'vam_shipping_methods_output' . (isset($params['template'])?'_'.$params['template']:'') . '_' . $content['Content']['id'] .'_' . $_SESSION['Customer']['language_id'];
 	$output = Cache::read($cache_name, 'catalog');
@@ -92,6 +79,21 @@ function smarty_function_shipping_methods($params, $template)
 
 	if(!isset($params['state']))
 		$params['state'] = false;		
+		
+	//echo debug($content);
+	
+	$order['Order']['bill_city'] = 'Казань';
+
+	$city = $order['Order']['bill_city'];
+	$state = $order['Order']['bill_state'];
+
+	$order['OrderProduct'][1]['name'] = $content['ContentDescription']['name'];	
+	$order['OrderProduct'][1]['quantity'] = 1;	
+	$order['OrderProduct'][1]['weight'] = $content['ContentProduct']['weight'];	
+	$order['OrderProduct'][1]['length'] = $content['ContentProduct']['length'];	
+	$order['OrderProduct'][1]['width'] = $content['ContentProduct']['width'];	
+	$order['OrderProduct'][1]['height'] = $content['ContentProduct']['height'];	
+	$order['OrderProduct'][1]['volume'] = $content['ContentProduct']['volume'];	
 
 	$active_ship_methods = $ShippingMethod->find('all', array('conditions' => array('active' => '1'),'order' => array('order')));
 
@@ -134,6 +136,8 @@ function smarty_function_shipping_methods($params, $template)
 	}			
 
 	$assignments = array(
+		'city' => $city,
+		'state' => $state,
 		'ship_methods' => $keyed_ship_methods,
 		'payment_methods' => $keyed_payment_methods
 	);
