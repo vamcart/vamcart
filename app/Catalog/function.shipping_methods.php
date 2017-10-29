@@ -94,7 +94,7 @@ function smarty_function_shipping_methods($params, $template)
 function smarty_help_function_shipping_methods () {
 	?>
 	<h3><?php echo __('What does this tag do?') ?></h3>
-	<p><?php echo __('Displays the product download link. Only for free products (product price must be 0).') ?></p>
+	<p><?php echo __('Displays the active shipping methods and calculations for the current product.') ?></p>
 	<h3><?php echo __('How do I use it?') ?></h3>
 	<p><?php echo __('Just insert the tag into your template like:') ?> <code>{shipping_methods}</code></p>
 	<h3><?php echo __('What parameters does it take?') ?></h3>

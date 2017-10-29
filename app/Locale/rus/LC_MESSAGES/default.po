@@ -1739,6 +1739,14 @@ msgstr "Вы должны использовать данный тэг на ст
 msgid "Displays the product download link. Only for free products (product price must be 0)."
 msgstr "Выводит ссылку на загрузку товара. Только для бесплатных товаров (цена товара должна быть 0)."
 
+#: /vendors/smarty/vam_plugins/function.product_price.php:36
+msgid "Displays the active shipping methods and calculations for the current product."
+msgstr "Выводит список активных модулей доставки и расчёт доставки для указанного товара."
+
+#: /vendors/smarty/vam_plugins/function.product_price.php:36
+msgid "Displays the active payment methods."
+msgstr "Выводит список активных модулей оплаты."
+
 #: /vendors/smarty/vam_plugins/function.free_download.php:36
 msgid "Displays the product price for the current content."
 msgstr "Показывает стоимость товара."
