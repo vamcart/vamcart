@@ -137,7 +137,7 @@ class CdekController extends ShippingAppController {
 			
 				foreach($order['OrderProduct'] AS $products)
 				{
-					$calc->addGoodsItemBySize($products['weight']*$products['quantity'], $products['length'], $products['width'], $products['height']*$products['quantity']);
+					$calc->addGoodsItemBySize($products['weight'], $products['length'], $products['width'], $products['height']*$products['quantity']);
 		
 				}	
 			
