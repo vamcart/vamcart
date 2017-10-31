@@ -303,6 +303,9 @@ msgstr "Пароль"
 msgid "Payment Method"
 msgstr "Способы оплаты"
 
+msgid "Payment Methods"
+msgstr "Способы оплаты"
+
 msgid "per"
 msgstr "за"
 
