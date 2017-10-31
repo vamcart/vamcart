@@ -9,9 +9,11 @@
 function default_template_payment_methods()
 {
 $template = '
-{if $price == 0}
-<a class="btn btn-warning" href="{$url}">{lang}Download{/lang}</a>
-{/if}';
+<h4>{lang}Payment Methods{/lang}</h4>
+{foreach from=$payment_methods item=payment_method}
+{if $payment_method.icon}<img class="text-center" src="{base_path}/img/icons/payment/{$payment_method.icon}" alt="{lang}{$payment_method.name}{/lang}" title="{lang}{$payment_method.name}{/lang}" /> {/if}
+{/foreach}
+';
 		
 return $template;
 }
@@ -19,35 +21,7 @@ return $template;
 
 function smarty_function_payment_methods($params, $template)
 {
-	global $content, $config;
-
-	if(isset($params['content_id']) && $params['content_id'] > 0) {
-
-	App::uses('ContentBaseComponent', 'Controller/Component');
-	$ContentBase = new ContentBaseComponent(new ComponentCollection());
-	
-	$content_free = $ContentBase->get_content_information($params['content_id']);
-	
-	if ($content_free['Content']['content_type_id'] == 7) {
-		
-		App::import('Model', 'ContentDownloadable');
-		$ContentDownloadable = new ContentDownloadable();
-		$product = $ContentDownloadable->find('first', array('conditions' => array('ContentDownloadable.content_id' => (int)$params['content_id'])));
-
-		$content['Content'] = $product['ContentDownloadable'];
-		$content['Content']['id'] = $product['ContentDownloadable']['content_id'];
-		
-	} 
-	
-	else { 
-	    return; 
-	}
-	
-	} else { 
-		$params['content_id'] = null;
-	}
-	
-	//if ($content['Content']['content_type_id'] == 7) {
+	global $content, $config, $order;
 
 	// Cache the output.
 	$cache_name = 'vam_payment_methods_output' . (isset($params['template'])?'_'.$params['template']:'') . '_' . $content['Content']['id'] .'_' . $_SESSION['Customer']['language_id'];
@@ -59,35 +33,43 @@ function smarty_function_payment_methods($params, $template)
 	App::uses('SmartyComponent', 'Controller/Component');
 	$Smarty = new SmartyComponent(new ComponentCollection());
 
-	//if ($content['Content']['content_type_id'] != 7) return;
+	App::import('Model', 'PaymentMethod');
+		$PaymentMethod = new PaymentMethod();
 
-	$price = $content['ContentDownloadable']['price'];
+	if(!isset ($params['content_id']))
+		$params['content_id'] = $content['Content']['id'];
+	
+	// Assign the payment methods
+	$active_payment_methods = $PaymentMethod->find('all', array('conditions' => array('active' => '1'),'order' => array('order')));
 
-	if ($content['ContentDownloadable']['price'] == 0) {
-	$filename = $content['ContentDownloadable']['filename'];
-	}
+	$keyed_payment_methods = array();
+	foreach($active_payment_methods AS $method)
+	{
+		$payment_method_id = $method['PaymentMethod']['id'];
 
-	$url = FULL_BASE_URL . BASE . '/download/0/' . $content['Content']['id'] . '/free';
+		$keyed_payment_methods[$payment_method_id] = array(
+										  'id' => $payment_method_id,
+										  'name' => $method['PaymentMethod']['name'],
+										  'description' => (isset($method['PaymentMethod']['description'])) ? __($method['PaymentMethod']['description']) : false,
+										  'icon' => (isset($method['PaymentMethod']['icon']) && file_exists(IMAGES . 'icons/payment/' . $method['PaymentMethod']['icon'])) ? $method['PaymentMethod']['icon'] : false
+										  );
+
+	}			
 
 	$assignments = array(
-		'filename' => $filename,
-		'url' => $url,
-		'price' => $price
+		'payment_methods' => $keyed_payment_methods
 	);
 
 	$display_template = $Smarty->load_template($params, 'payment_methods');
 	$Smarty->display($display_template, $assignments);
 	 
-	// Write the output to cache and echo them
-	
+	// Write the output to cache and echo them	
 	$output = @ob_get_contents();
 	ob_end_clean();	
 	Cache::write($cache_name, $output, 'catalog');		
 	}
 	
 	echo $output;
-	
-	//}
 	
 }
 
