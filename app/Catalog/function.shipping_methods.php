@@ -69,9 +69,6 @@ function smarty_function_shipping_methods($params, $template)
 	App::import('Model', 'ShippingMethod');
 		$ShippingMethod = new ShippingMethod();
 
-	App::import('Model', 'PaymentMethod');
-		$PaymentMethod = new PaymentMethod();
-
 	if(!isset ($params['content_id']))
 		$params['content_id'] = $content['Content']['id'];
 
@@ -132,28 +129,11 @@ function smarty_function_shipping_methods($params, $template)
 
 	}	
 	
-	// Assign the payment methods
-	$active_payment_methods = $PaymentMethod->find('all', array('conditions' => array('active' => '1'),'order' => array('order')));
-
-	$keyed_payment_methods = array();
-	foreach($active_payment_methods AS $method)
-	{
-		$payment_method_id = $method['PaymentMethod']['id'];
-
-		$keyed_payment_methods[$payment_method_id] = array(
-										  'id' => $payment_method_id,
-										  'name' => $method['PaymentMethod']['name'],
-										  'description' => (isset($method['PaymentMethod']['description'])) ? __($method['PaymentMethod']['description']) : false,
-										  'icon' => (isset($method['PaymentMethod']['icon']) && file_exists(IMAGES . 'icons/payment/' . $method['PaymentMethod']['icon'])) ? $method['PaymentMethod']['icon'] : false
-										  );
-
-	}			
-
 	$assignments = array(
 		'city' => $city,
 		'state' => $state,
-		'ship_methods' => $keyed_ship_methods,
-		'payment_methods' => $keyed_payment_methods
+		'country' => $country,
+		'ship_methods' => $keyed_ship_methods
 	);
 
 	$display_template = $Smarty->load_template($params, 'shipping_methods');
