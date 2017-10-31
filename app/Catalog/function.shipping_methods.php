@@ -12,7 +12,7 @@ $template = '
 <table cellpadding="0" cellspacing="0" border="0" class="table table-striped">
 <thead>
 <tr>
-<th colspan="2" class="ship-title"><div>Доставка в <span><u>{$city}</span></u></div></th>
+<th colspan="2" class="ship-title">{lang}Shipping{/lang} <span><u>{$city}</span></u></th>
 </tr>
 </thead>
 <tbody>
