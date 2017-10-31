@@ -33,9 +33,28 @@ return $template;
 function smarty_function_shipping_methods($params, $template)
 {
 	global $content, $config, $order;
+
+   $ip = $_SERVER['REMOTE_ADDR'];
+	
+   $curl = curl_init();
+   curl_setopt($curl, CURLOPT_URL, "https://ru.sxgeo.city/json/".$ip);
+   curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+   $data = curl_exec($curl);
+    
+   curl_close($curl);
+   if($data === false) {
+	 echo "Город не определён.";
+   }
+    
+   $ip_geo = json_decode($data, $assoc=true);
+    
+	$city = $ip_geo["city"]["name_ru"];
+	
+	$state = $ip_geo["region"]["name_ru"];
+	$country = $ip_geo["country"]["name_ru"];
 	
 	// Cache the output.
-	$cache_name = 'vam_shipping_methods_output' . (isset($params['template'])?'_'.$params['template']:'') . '_' . $content['Content']['id'] .'_' . $_SESSION['Customer']['language_id'];
+	$cache_name = 'vam_shipping_methods_output' . (isset($params['template'])?'_'.$params['template']:'') . (isset($city)?'_'.$city:'') . '_' . $content['Content']['id'] .'_' . $_SESSION['Customer']['language_id'];
 	$output = Cache::read($cache_name, 'catalog');
 	if($output === false)
 	{
@@ -79,24 +98,6 @@ function smarty_function_shipping_methods($params, $template)
 
 	if(!isset($params['state']))
 		$params['state'] = false;		
-
-   $ip = $_SERVER['REMOTE_ADDR'];
-	
-   $curl = curl_init();
-   curl_setopt($curl, CURLOPT_URL, "https://ru.sxgeo.city/json/".$ip);
-   curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-   $data = curl_exec($curl);
-    
-   curl_close($curl);
-   if($data === false) {
-	 echo "Город не определён.";
-   }
-    
-   $ip_geo = json_decode($data, $assoc=true);
-    
-	$city = $ip_geo["city"]["name_ru"];
-	$state = $ip_geo["region"]["name_ru"];
-	$country = $ip_geo["country"]["name_ru"];
 
 	$order['Order']['bill_city'] = $ip_geo["city"]["name_ru"];
 
