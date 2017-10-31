@@ -25,7 +25,7 @@ foreach($files AS $tag)
 		
 		echo $this->Admin->TableCells(array(
 			$this->Html->link($tag[1],'/tags/admin_view/' . $tag[0] . '/' . $tag[1]),
-			$import_link
+			$tag['about']
 		));
 	}
 }

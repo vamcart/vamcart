@@ -68,14 +68,21 @@ class TagsController extends AppController {
 					if(function_exists($default_template_function))
 					{
 						$smarty_plugin['template'] = 1;
-					}				
+					}		
+					
+		ob_start();
+		call_user_func_array('smarty_help_function_'.$smarty_plugin[1], array());
+		$about_content = @ob_get_contents();
+		ob_end_clean();		
+
+						$smarty_plugin['about'] = $about_content;
+									
 			        $files[] = $smarty_plugin;				
 				}
 	    	}
 		    closedir($handle);
 		}
 		$this->set('files',$files);
-		
 	}
 
 	public function admin_add ()
