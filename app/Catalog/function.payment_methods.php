@@ -36,9 +36,6 @@ function smarty_function_payment_methods($params, $template)
 	App::import('Model', 'PaymentMethod');
 		$PaymentMethod = new PaymentMethod();
 
-	if(!isset ($params['content_id']))
-		$params['content_id'] = $content['Content']['id'];
-	
 	// Assign the payment methods
 	$active_payment_methods = $PaymentMethod->find('all', array('conditions' => array('active' => '1'),'order' => array('order')));
 
@@ -82,7 +79,6 @@ function smarty_help_function_payment_methods () {
 	<h3><?php echo __('What parameters does it take?') ?></h3>
 	<ul>
 		<li><em><?php echo __('(template)') ?></em> - <?php echo __('Useful if you want to override the default content listing template. Setting this will utilize the template that matches this alias.') ?></li>
-		<li><em><?php echo __('(content_id)') ?></em> - <?php echo __('Content id number.') ?></li>
 	</ul>
 	<?php
 }

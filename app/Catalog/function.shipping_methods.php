@@ -69,9 +69,6 @@ function smarty_function_shipping_methods($params, $template)
 	App::import('Model', 'ShippingMethod');
 		$ShippingMethod = new ShippingMethod();
 
-	if(!isset ($params['content_id']))
-		$params['content_id'] = $content['Content']['id'];
-
 	if(!isset($params['price']))
 		$params['price'] = 0;		
 
@@ -158,7 +155,6 @@ function smarty_help_function_shipping_methods() {
 	<h3><?php echo __('What parameters does it take?') ?></h3>
 	<ul>
 		<li><em><?php echo __('(template)') ?></em> - <?php echo __('Useful if you want to override the default content listing template. Setting this will utilize the template that matches this alias.') ?></li>
-		<li><em><?php echo __('(content_id)') ?></em> - <?php echo __('Content id number.') ?></li>
 	</ul>
 	<?php
 }
