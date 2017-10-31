@@ -12,7 +12,7 @@ $template = '
 <table cellpadding="0" cellspacing="0" border="0" class="table table-striped">
 <thead>
 <tr>
-<th colspan="2" class="ship-title"><div>Доставка в <span><u><a href="">{$city}</a></span></u></div></th>
+<th colspan="2" class="ship-title"><div>Доставка в <span><u>{$city}</span></u></div></th>
 </tr>
 </thead>
 <tbody>
@@ -79,13 +79,26 @@ function smarty_function_shipping_methods($params, $template)
 
 	if(!isset($params['state']))
 		$params['state'] = false;		
-		
-	//echo var_dump($content);
-	
-	$order['Order']['bill_city'] = 'Казань';
 
-	$city = $order['Order']['bill_city'];
-	$state = $order['Order']['bill_state'];
+   $ip = $_SERVER['REMOTE_ADDR'];
+	
+   $curl = curl_init();
+   curl_setopt($curl, CURLOPT_URL, "https://ru.sxgeo.city/json/".$ip);
+   curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+   $data = curl_exec($curl);
+    
+   curl_close($curl);
+   if($data === false) {
+	 echo "Город не определён.";
+   }
+    
+   $ip_geo = json_decode($data, $assoc=true);
+    
+	$city = $ip_geo["city"]["name_ru"];
+	$state = $ip_geo["region"]["name_ru"];
+	$country = $ip_geo["country"]["name_ru"];
+
+	$order['Order']['bill_city'] = $ip_geo["city"]["name_ru"];
 
 	$order['OrderProduct'][1]['name'] = $content['ContentDescription']['name'];	
 	$order['OrderProduct'][1]['quantity'] = 1;	
