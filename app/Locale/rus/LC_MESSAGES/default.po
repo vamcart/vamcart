@@ -1329,6 +1329,10 @@ msgstr "Что делает данный тэг?"
 msgid "Displays the base program path."
 msgstr "Выводит базовый путь программы."
 
+#: /vendors/smarty/vam_plugins/function.base_path.php:23
+msgid "Displays the cookie value."
+msgstr "Выводит значение cookie."
+
 #: /vendors/smarty/vam_plugins/function.xsell.php:23
 msgid "Displays also purchased products for the current content."
 msgstr "Выводит сопутствующие товары текущего товара."
@@ -1504,6 +1508,14 @@ msgstr "(content_id)"
 #: /vendors/smarty/vam_plugins/function.content_images.php:105
 msgid "Display images of selected content_id element."
 msgstr "Выводит картинки указанного content_id элемента."
+
+#: /vendors/smarty/vam_plugins/function.content_images.php:105
+msgid "(name)"
+msgstr "(name)"
+
+#: /vendors/smarty/vam_plugins/function.content_images.php:105
+msgid "Display value of selected cookie."
+msgstr "Выводит значение cookie."
 
 #: /vendors/smarty/vam_plugins/function.content_images.php:105
 msgid "Return shopping cart state by content id."
