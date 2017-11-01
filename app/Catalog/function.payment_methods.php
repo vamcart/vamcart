@@ -47,6 +47,7 @@ function smarty_function_payment_methods($params, $template)
 		$keyed_payment_methods[$payment_method_id] = array(
 										  'id' => $payment_method_id,
 										  'name' => $method['PaymentMethod']['name'],
+										  'code' => $method['PaymentMethod']['code'],
 										  'description' => (isset($method['PaymentMethod']['description'])) ? __($method['PaymentMethod']['description']) : false,
 										  'icon' => (isset($method['PaymentMethod']['icon']) && file_exists(IMAGES . 'icons/payment/' . $method['PaymentMethod']['icon'])) ? $method['PaymentMethod']['icon'] : false
 										  );

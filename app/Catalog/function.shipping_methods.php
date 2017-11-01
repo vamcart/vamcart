@@ -118,6 +118,7 @@ function smarty_function_shipping_methods($params, $template)
 		$keyed_ship_methods[$ship_method_id] = array(
 										  'id' => $ship_method_id,
 										  'name' => $method['ShippingMethod']['name'],
+										  'code' => $method['ShippingMethod']['code'],
 										  'description' => (isset($method['ShippingMethod']['description'])) ? __($method['ShippingMethod']['description']) : false,
 										  'icon' => (isset($method['ShippingMethod']['icon']) && file_exists(IMAGES . 'icons/shipping/' . $method['ShippingMethod']['icon'])) ? $method['ShippingMethod']['icon'] : false,
 										  'cost_plain' => $MethodBase->calculate(),
