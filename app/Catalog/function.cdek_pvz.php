@@ -74,24 +74,7 @@ function smarty_function_cdek_pvz($params, $template)
     
 	$city = $ip_geo["city"]["name_ru"];
 	
-	$state = $ip_geo["region"]["name_ru"];
-	$country = $ip_geo["country"]["name_ru"];
-	
-	// Cache the output.
-	$cache_name = 'vam_cdek_pvz_output' . (isset($params['template'])?'_'.$params['template']:'') . (isset($city)?'_'.$city:'') . '_' . $content['Content']['id'] .'_' . $_SESSION['Customer']['language_id'];
-	$output = Cache::read($cache_name, 'catalog');
-	if($output === false)
-	{
-	ob_start();
-
-	App::uses('SmartyComponent', 'Controller/Component');
-	$Smarty = new SmartyComponent(new ComponentCollection());
-
-	App::uses('CurrencyBaseComponent', 'Controller/Component');
-	$CurrencyBase = new CurrencyBaseComponent(new ComponentCollection());
-
-	App::import('Model', 'ShippingMethod');
-		$ShippingMethod = new ShippingMethod();
+	if ($_COOKIE['vamshop-city']) $city = $_COOKIE['vamshop-city'];
 
 	if(!isset($params['city'])) {
 		$params['city'] = $city;	
@@ -111,7 +94,20 @@ function smarty_function_cdek_pvz($params, $template)
     
     $senderCity = json_decode($data, $assoc=true);
     $senderCityId = $senderCity["geonames"][0]["id"];
-    
+	
+	$state = $ip_geo["region"]["name_ru"];
+	$country = $ip_geo["country"]["name_ru"];
+	
+	// Cache the output.
+	$cache_name = 'vam_cdek_pvz_output' . (isset($params['template'])?'_'.$params['template']:'') . (isset($city)?'_'.$city:'') . '_' . $content['Content']['id'] .'_' . $_SESSION['Customer']['language_id'];
+	$output = Cache::read($cache_name, 'catalog');
+	if($output === false)
+	{
+	ob_start();
+
+	App::uses('SmartyComponent', 'Controller/Component');
+	$Smarty = new SmartyComponent(new ComponentCollection());
+
      $cdek_pvz = "https://integration.cdek.ru/pvzlist.php?cityid=".$senderCityId;
      
      // create curl resource
