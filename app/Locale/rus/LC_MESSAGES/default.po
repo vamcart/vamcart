@@ -1330,6 +1330,18 @@ msgid "Displays the base program path."
 msgstr "Выводит базовый путь программы."
 
 #: /vendors/smarty/vam_plugins/function.base_path.php:23
+msgid "Displays the cdek shipping offices."
+msgstr "Выводит список пунктов выдачи заказов курьерской компании СДЭК."
+
+#: /vendors/smarty/vam_plugins/block.product_form.php:42
+msgid "(city)"
+msgstr "(city)"
+
+#: /vendors/smarty/vam_plugins/block.product_form.php:42
+msgid "City name."
+msgstr "Назване города."
+
+#: /vendors/smarty/vam_plugins/function.base_path.php:23
 msgid "Displays the cookie value."
 msgstr "Выводит значение cookie."
 
