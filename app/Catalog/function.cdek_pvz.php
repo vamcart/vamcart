@@ -113,7 +113,7 @@ function smarty_function_cdek_pvz($params, $template)
     $senderCityId = $senderCity["geonames"][0]["id"];
     
      $cdek_pvz = "https://integration.cdek.ru/pvzlist.php?cityid=".$senderCityId;
-
+     
      // create curl resource
      $ch = curl_init();
 
