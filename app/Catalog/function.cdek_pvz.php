@@ -93,8 +93,11 @@ function smarty_function_cdek_pvz($params, $template)
 	App::import('Model', 'ShippingMethod');
 		$ShippingMethod = new ShippingMethod();
 
-	if(!isset($params['city']))
-		$params['city'] = $city;		
+	if(!isset($params['city'])) {
+		$params['city'] = $city;	
+	} else {
+		$city = $params['city'];	
+	}	
 
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, "http://api.cdek.ru/city/getListByTerm/json.php?q=".$city);
