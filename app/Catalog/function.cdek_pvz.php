@@ -10,7 +10,7 @@ function default_template_cdek_pvz()
 {
 $template = '
 <!-- Button trigger modal -->
-<span><u><a href="" data-toggle="modal" data-target="#myModalPvz">{if {cookie name="vamshop-city"}}{cookie name="vamshop-city"}{else}{$city}{/if}</a></span></u>
+<!--<span><u><a href="" data-toggle="modal" data-target="#myModalPvz">{if {cookie name="vamshop-city"}}{cookie name="vamshop-city"}{else}{$city}{/if}</a></span></u>-->
 
 <!-- Modal -->
 <div class="modal fade" id="myModalPvz" tabindex="-1" role="dialog" aria-labelledby="myModalPvzLabel">
