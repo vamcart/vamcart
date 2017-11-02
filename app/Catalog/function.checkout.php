@@ -529,6 +529,7 @@ function smarty_function_checkout($params, $template)
 		$keyed_ship_methods[$ship_method_id] = array(
 										  'id' => $ship_method_id,
 										  'name' => $method['ShippingMethod']['name'],
+										  'code' => $method['ShippingMethod']['code'],
 										  'description' => (isset($method['ShippingMethod']['description'])) ? __($method['ShippingMethod']['description']) : false,
 										  'icon' => (isset($method['ShippingMethod']['icon']) && file_exists(IMAGES . 'icons/shipping/' . $method['ShippingMethod']['icon'])) ? $method['ShippingMethod']['icon'] : false,
 										  'cost_plain' => $MethodBase->calculate(),
@@ -548,6 +549,7 @@ function smarty_function_checkout($params, $template)
 		$keyed_payment_methods[$payment_method_id] = array(
 										  'id' => $payment_method_id,
 										  'name' => $method['PaymentMethod']['name'],
+										  'code' => $method['PaymentMethod']['code'],
 										  'description' => (isset($method['PaymentMethod']['description'])) ? __($method['PaymentMethod']['description']) : false,
 										  'icon' => (isset($method['PaymentMethod']['icon']) && file_exists(IMAGES . 'icons/payment/' . $method['PaymentMethod']['icon'])) ? $method['PaymentMethod']['icon'] : false
 										  );
