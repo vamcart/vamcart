@@ -140,6 +140,8 @@ $(this).parent().addClass("selected");
         return false;
     });
 	{/if}    
+
+	{if {$display_state_field} == "1"}
     $("#bill_city").change(function(){            
         var http_send = "{base_path}/orders/save_data/";
         var form_data = $("#contentform").serialize();
@@ -158,6 +160,7 @@ $(this).parent().addClass("selected");
             });                            
         return false;
     });
+	{/if}    
 
   });
 </script>
