@@ -141,7 +141,7 @@ $(this).parent().addClass("selected");
     });
 	{/if}    
 
-	{if {$display_state_field} == "1"}
+	{if {$display_city_field} == "1"}
     $("#bill_city").change(function(){            
         var http_send = "{base_path}/orders/save_data/";
         var form_data = $("#contentform").serialize();
