@@ -85,23 +85,25 @@ class ImportExportController extends AppController {
                 move_uploaded_file($this->data['form_Import']['submittedfile']['tmp_name'], './files/' . $file_name);
                 $f_inf = pathinfo($file_name);
               
-                if($f_inf['extension'] == 'zip')
-                {                  
-                    $zip = new ZipArchive();
-                    $res = $zip->open('./files/' . $file_name);
-                    if ($res === TRUE) 
-                    {                        
-                        $zip->extractTo('./files/','content.csv');
-                        $zip->close();
-                        @unlink('./files/' . $file_name); 
-                        $file_name = './files/content.csv';
-                    }
-                    else 
-                    {
-                        $this->Session->setFlash(__('Error extracting.',true));
-                        $this->redirect('/import_export/admin');  
-                    }
-                } else $file_name = './files/' . $file_name;
+                //if($f_inf['extension'] == 'zip')
+                //{                  
+                    //$zip = new ZipArchive();
+                    //$res = $zip->open('./files/' . $file_name);
+                    //if ($res === TRUE) 
+                    //{                        
+                        //$zip->extractTo('./files/','content.csv');
+                        //$zip->close();
+                        //@unlink('./files/' . $file_name); 
+                        //$file_name = './files/content.csv';
+                    //}
+                    //else 
+                    //{
+                        //$this->Session->setFlash(__('Error extracting.',true));
+                        //$this->redirect('/import_export/admin');  
+                    //}
+                //} else {
+                	$file_name = './files/' . $file_name;
+                //}
                 
                 $content = array();
                 $handle = fopen($file_name, "r");
@@ -343,7 +345,7 @@ class ImportExportController extends AppController {
                     $content = $this->pack_dependent_content($this->Content->find('all',array('conditions' => array('content_type_id' => $this->Content->get_content_type('ContentCategory')))));
                 break;
                 case 'pages':
-                    $content = $this->pack_dependent_content($this->Content->find('all',array('conditions' => array('content_type_id' => $this->Content->get_content_type('ContentPage')))));                    
+                    $content = $this->pack_dependent_content($this->Content->find('all',array('conditions' => array('parent_id >' => '0', 'content_type_id' => $this->Content->get_content_type('ContentPage')))));                    
                 break;
                 case 'articles':
                     $content = $this->pack_dependent_content($this->Content->find('all',array('conditions' => array('content_type_id' => $this->Content->get_content_type('ContentArticle')))));
@@ -384,18 +386,20 @@ class ImportExportController extends AppController {
             }
             fclose($handle);
             
-            $zip = new ZipArchive();
-            $res = $zip->open('./files/' . $action . '.zip', ZIPARCHIVE::CREATE | ZIPARCHIVE::OVERWRITE);
-            if ($res === TRUE)
-            {
-                $zip->addFile('./files/' . $action . '.csv','content.csv');
-                $zip->close();                
+            //$zip = new ZipArchive();
+            //$res = $zip->open('./files/' . $action . '.zip', ZIPARCHIVE::CREATE | ZIPARCHIVE::OVERWRITE);
+            //if ($res === TRUE)
+            //{
+                //$zip->addFile('./files/' . $action . '.csv','content.csv');
+                //$zip->close();                
                 header('Content-Type: application/octet-stream');
-                header('Content-Disposition: attachment; filename="' . $action . '.zip"');
-                readfile('./files/' . $action . '.zip');
+                header('Content-Disposition: attachment; filename="' . $action . '.csv"');
+                //header('Content-Disposition: attachment; filename="' . $action . '.zip"');
+                readfile('./files/' . $action . '.csv');
+                //readfile('./files/' . $action . '.zip');
                 //@unlink('./files/' . $action . '.zip');
                 //@unlink('./files/' . $action . '.csv');
-            }
+            //}
             die();        
         }
         
