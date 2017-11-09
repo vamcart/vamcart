@@ -187,7 +187,7 @@ class ImportExportController extends AppController {
                             $data['Content']['image'] = explode('|',$data['Content']['image']);
                             $data['Content']['ContentDescription']['language_id'] = $this->data['ImportExport']['language_id'];
                             $data['Content']['ContentDescription']= array($data['Content']['ContentDescription']);
-                            $data = $this->unpack_dependent_content($data);
+                            //$data = $this->unpack_dependent_content($data);
                             //
                             $content = $this->Content->find('first',array('conditions' => array('Content.alias' => $data['Content']['alias'])));
                             if(isset($content['Content']['id'])) {
