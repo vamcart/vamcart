@@ -157,6 +157,7 @@ function smarty_function_xsell($params, &$smarty)
 				$price = $product['ContentProduct']['price'];
 			}
 			$content['ContentRelations'][$key]['id']	= $content['ContentRelations'][$key]['id'];
+			$content['ContentRelations'][$key]['parent_id']	= $content['ContentRelations'][$key]['parent_id'];
 			$content['ContentRelations'][$key]['alias']	= $content['ContentRelations'][$key]['alias'];
 			if ($content['ContentRelations'][$key]['content_type_id'] == 2 or $content['ContentRelations'][$key]['content_type_id'] == 7) $content['ContentRelations'][$key]['price']	= ($price > 0) ? $CurrencyBase->display_price($price) : false;	
 			if ($content['ContentRelations'][$key]['content_type_id'] == 2 or $content['ContentRelations'][$key]['content_type_id'] == 7) $content['ContentRelations'][$key]['old_price']	= (($product[$content_type]['old_price'] > $price) ? $CurrencyBase->display_price($product[$content_type]['old_price']) : false);	

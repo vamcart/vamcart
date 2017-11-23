@@ -473,6 +473,7 @@ function smarty_function_content_listing($params, $template)
 			$content_list[$count]['meta_description']	= $raw_data['ContentDescription']['meta_description'];
 			$content_list[$count]['meta_keywords']	= $raw_data['ContentDescription']['meta_keywords'];
 			$content_list[$count]['id']	= $raw_data['Content']['id'];
+			$content_list[$count]['parent_id']	= $raw_data['Content']['parent_id'];
 			$content_list[$count]['alias']	= $raw_data['Content']['alias'];
 			if ($raw_data['Content']['content_type_id'] == 2 or $raw_data['Content']['content_type_id'] == 7) $content_list[$count]['price']	= ($price > 0) ? $CurrencyBase->display_price($price) : false;	
 			if ($raw_data['Content']['content_type_id'] == 2 or $raw_data['Content']['content_type_id'] == 7) $content_list[$count]['old_price']	= (($raw_data[$content_type]['old_price'] > $price) ? $CurrencyBase->display_price($raw_data[$content_type]['old_price']) : false);	
