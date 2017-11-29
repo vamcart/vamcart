@@ -31,7 +31,7 @@
  * how to customize the loading of plugin routes.
  */
 
-	Router::parseExtensions('rss','xml');
+	Router::parseExtensions('rss','xml','json');
 
 	Router::connect('/', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/pages/*', array('controller' => 'pages'));
