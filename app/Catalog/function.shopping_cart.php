@@ -182,6 +182,7 @@ function smarty_function_shopping_cart($params, $template)
 			'height' => $cart_item['height'],
 			'length' => $cart_item['length'],
 			'volume' => $cart_item['volume'],
+			'model' => $cart_item['model'],
 			'sku' => $cart_item['sku'],
 			'weight' => $cart_item['weight'],
 			'image' => $image,
