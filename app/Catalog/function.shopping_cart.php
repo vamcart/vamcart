@@ -27,7 +27,7 @@ $template = '
 {foreach from=$order_items item=product}
 		<tr>
 			<td class="text-center"><img class="media-object" src="{$product.image.image_thumb}" alt=""{if {$product.image.image_width} > 0} width="{$product.image.image_width}"{/if}{if {$product.image.image_height} > 0} height="{$product.image.image_height}"{/if} /></td>
-			<td><a href="{$product.link}">{$product.name}-{$product.width}-{$product.length}-{$product.height}-{$product.volume}-{$product.sku}</a> <a href="{base_path}/cart/remove_product/{$product.id}/1" class="remove" title="{lang}Remove{/lang}"><i class="fa fa-trash-o"></i></a></td>
+			<td><a href="{$product.link}">{$product.name}</a> <a href="{base_path}/cart/remove_product/{$product.id}/1" class="remove" title="{lang}Remove{/lang}"><i class="fa fa-trash-o"></i></a></td>
 			<td>{$product.price}</td>
 			<td><input type="text" name="qty[{$product.id}]" class="form-control" value="{$product.qty}" size="3" /></td>
 			<td>{$product.line_total}</td>
@@ -183,6 +183,7 @@ function smarty_function_shopping_cart($params, $template)
 			'length' => $cart_item['length'],
 			'volume' => $cart_item['volume'],
 			'sku' => $cart_item['sku'],
+			'weight' => $cart_item['weight'],
 			'image' => $image,
 			'price' => $CurrencyBase->display_price($cart_item['price']),
 			'qty' => $cart_item['quantity'],
