@@ -1522,6 +1522,18 @@ msgid "Display images of selected content_id element."
 msgstr "Выводит картинки указанного content_id элемента."
 
 #: /vendors/smarty/vam_plugins/function.content_images.php:105
+msgid "(content_alias)"
+msgstr "(content_alias)"
+
+#: /vendors/smarty/vam_plugins/function.content_images.php:105
+msgid "Content alias."
+msgstr "Псевдоним элемента."
+
+#: /vendors/smarty/vam_plugins/function.content_images.php:105
+msgid "Display content of selected content_alias element."
+msgstr "Выводит описание указанного в content_alias элемента."
+
+#: /vendors/smarty/vam_plugins/function.content_images.php:105
 msgid "(name)"
 msgstr "(name)"
 
