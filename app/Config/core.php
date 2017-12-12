@@ -179,7 +179,8 @@
 		'timeout' => 60,
 		'cookieTimeout' => 1440,
 		'requestCountdown' => 1000,
-		'autoRegenerate' => false
+		'autoRegenerate' => false,
+		'checkAgent' => false
 	));
 
 /**
