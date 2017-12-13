@@ -147,7 +147,7 @@ class YandexController extends PaymentAppController {
 			<input type="hidden" name="cps_email" value="' . $order['Order']['email'] . '">
 			<input type="hidden" name="cps_phone" value="' . $order['Order']['phone'] . '">
 			<input type="hidden" name="cms_name" value="vamshop">
-			'.($yandex_send_check == 1 ? '<input type="hidden" name="ym_merchant_receipt" value="{literal}'.json_encode($receipt).'{/literal}>' : null).'
+			'.($yandex_send_check == 1 ? '<input type="hidden" name="ym_merchant_receipt" value="{literal}'.json_encode($receipt, JSON_UNESCAPED_UNICODE).'{/literal}>' : null).'
 			<input type="hidden" name="paymentType" value="'.$yandex_payment_type.'">
 			';
 						
