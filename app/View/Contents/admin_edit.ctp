@@ -28,11 +28,17 @@ $this->Html->script(array(
 	'jquery/plugins/uploadfile/jquery.uploadfile.js',
 	'jquery/plugins/jquery-ui/' . $fname,
 	'jquery/plugins/dynatree/jquery.dynatree.js',
+	'jquery/plugins/chosen/chosen.jquery.js',
 	'modified.js',
 	'focus-first-input.js'
 ), array('inline' => false));
 
-$this->Html->css('jquery-ui.css', null, array('inline' => false));
+$this->Html->css(
+array(
+'jquery-ui.css',
+'jquery/plugins/chosen/bootstrap-chosen.css'
+)
+, null, array('inline' => false));
 	
 	echo $this->TinyMce->init();
 ?>
@@ -73,6 +79,17 @@ $this->Html->css('jquery-ui.css', null, array('inline' => false));
 			}
 		});
 	});
+	
+    $(document).ready(function() {
+        $(".chosen-select").chosen({
+            no_results_text:"'. __("Product is not found.") .'",
+            search_contains:true,
+            placeholder_text_single:"'. __("Select Slave Products") .'",
+            width: "300px"
+        });        
+    });    
+	
+	
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
 <?php
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
@@ -118,6 +135,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 						'type' => 'select',
 			   		'label' => __('Parent'),
 						'options' => $this->requestAction('/contents/admin_parents_tree/'),
+						'class' => "chosen-select",
 						'escape' => false,
 						'empty' => array(0 => __('Top Level')),
 						'selected' => $parent_id
