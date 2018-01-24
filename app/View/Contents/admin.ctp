@@ -23,6 +23,7 @@ if (!file_exists(WWW_ROOT . 'js/' . $fname)) {
 $this->Html->script(array(
 	'jquery/plugins/jquery-ui-min.js',
 	'jquery/plugins/jquery.jeditable.js',
+	'jquery/plugins/chosen/chosen.jquery.js',
 	'selectall.js',
 	$fname
 ), array('inline' => false));
@@ -32,6 +33,15 @@ $this->Html->script(array(
 
 <?php echo $this->Html->scriptBlock('
 
+    $(document).ready(function() {
+        $(".chosen-select").chosen({
+            no_results_text:"'. __("Product is not found.") .'",
+            search_contains:true,
+            placeholder_text_single:"'. __("Select Slave Products") .'",
+            width: "300px"
+        });        
+    });    
+	
 var submit_flag = false;
 
 function beforeSubmit(form)
@@ -84,7 +94,12 @@ function categorySelection(form)
 }', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
 <?php
 
-echo $this->Html->css('jquery-ui.css', null, array('inline' => false));
+$this->Html->css(
+array(
+'jquery-ui.css',
+'jquery/plugins/chosen/bootstrap-chosen.css'
+)
+, null, array('inline' => false));
 
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-table');
 
@@ -95,6 +110,7 @@ echo $this->Form->create('ContentCategories', array('url' => '/contents/admin/0/
 echo $this->Form->input('content_id', 
 			array(
 				'type' => 'select',
+	   		'class' => 'chosen-select',
 	   		'label' => false,
 				'options' => $this->requestAction('/contents/admin_parents_tree/'),
 				'escape' => false,
