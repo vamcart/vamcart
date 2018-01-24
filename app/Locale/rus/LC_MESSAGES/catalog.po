@@ -294,6 +294,9 @@ msgstr "Стоимость заказа"
 msgid "Orders Not Found!"
 msgstr "Заказы не найдены!"
 
+msgid "Not Found"
+msgstr "Ничего не найдено"
+
 msgid "Pages"
 msgstr "Страницы"
 

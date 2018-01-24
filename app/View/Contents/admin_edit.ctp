@@ -82,9 +82,9 @@ array(
 	
     $(document).ready(function() {
         $(".chosen-select").chosen({
-            no_results_text:"'. __("Product is not found.") .'",
+            no_results_text:"'. __("Not Found") .'",
             search_contains:true,
-            placeholder_text_single:"'. __("Select Slave Products") .'",
+            placeholder_text_single:"'. __("Select") .'",
             width: "300px"
         });        
     });    
