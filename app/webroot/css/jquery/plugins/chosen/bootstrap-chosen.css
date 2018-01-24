@@ -12,8 +12,8 @@
   .chosen-container .chosen-drop {
     background: #fff;
     border: 1px solid #ccc;
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
     -webkit-box-shadow: 0 8px 8px rgba(0, 0, 0, 0.25);
     box-shadow: 0 8px 8px rgba(0, 0, 0, 0.25);
     margin-top: -1px;
@@ -89,10 +89,10 @@
   -moz-background-clip: padding;
   background-clip: padding-box;
   border: 1px solid #ccc;
-  border-top-right-radius: 4px;
-  border-top-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  border-bottom-left-radius: 4px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   color: #555555;
@@ -146,10 +146,10 @@
   .chosen-container-single .chosen-search input[type="text"] {
     background: url("chosen-sprite.png") no-repeat 100% -20px, #fff;
     border: 1px solid #ccc;
-    border-top-right-radius: 4px;
-    border-top-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     margin: 1px 0;
@@ -157,8 +157,8 @@
     width: 100%; }
 .chosen-container-single .chosen-drop {
   margin-top: -1px;
-  border-bottom-right-radius: 4px;
-  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding;
   background-clip: padding-box; }
@@ -170,10 +170,10 @@
 .chosen-container-multi .chosen-choices {
   background-color: #fff;
   border: 1px solid #ccc;
-  border-top-right-radius: 4px;
-  border-top-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  border-bottom-left-radius: 4px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   cursor: text;
@@ -208,10 +208,10 @@
     background-clip: padding-box;
     background-color: #eeeeee;
     border: 1px solid #ccc;
-    border-top-right-radius: 4px;
-    border-top-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
     background-image: -webkit-linear-gradient(top, white 0%, #eeeeee 100%);
     background-image: -o-linear-gradient(top, white 0%, #eeeeee 100%);
     background-image: linear-gradient(to bottom, white 0%, #eeeeee 100%);
