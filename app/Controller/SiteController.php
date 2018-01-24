@@ -45,7 +45,7 @@ class SiteController extends AppController {
 
 			$_POST['customer']['ref'] = $_SERVER['HTTP_REFERER'];
 			$_POST['customer']['ip'] = $_SERVER['REMOTE_ADDR'];
-			$_POST['customer']['forwarded_ip'] = $_SERVER['HTTP_X_FORWARDED_FOR'];
+			$_POST['customer']['forwarded_ip'] = $_SERVER['REMOTE_ADDR'];
 			$_POST['customer']['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
 			$_POST['customer']['accept_language'] = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
 
@@ -142,7 +142,7 @@ class SiteController extends AppController {
 	
 				$_POST['customer']['ref'] = $_SERVER['HTTP_REFERER'];
 				$_POST['customer']['ip'] = $_SERVER['REMOTE_ADDR'];
-				$_POST['customer']['forwarded_ip'] = $_SERVER['HTTP_X_FORWARDED_FOR'];
+				$_POST['customer']['forwarded_ip'] = $_SERVER['REMOTE_ADDR'];
 				$_POST['customer']['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
 				$_POST['customer']['accept_language'] = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
 				

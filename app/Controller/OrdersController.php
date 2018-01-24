@@ -67,7 +67,7 @@ class OrdersController extends AppController {
 
 		$customer_data['Customer']['ref'] = $_SERVER['HTTP_REFERER'];
 		$customer_data['Customer']['ip'] = $_SERVER['REMOTE_ADDR'];
-		$customer_data['Customer']['forwarded_ip'] = $_SERVER['HTTP_X_FORWARDED_FOR'];
+		$customer_data['Customer']['forwarded_ip'] = $_SERVER['REMOTE_ADDR'];
 		$customer_data['Customer']['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
 		$customer_data['Customer']['accept_language'] = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
 
@@ -197,7 +197,7 @@ class OrdersController extends AppController {
 
 		$order['Order']['ref'] = $_SERVER['HTTP_REFERER'];
 		$order['Order']['ip'] = $_SERVER['REMOTE_ADDR'];
-		$order['Order']['forwarded_ip'] = $_SERVER['HTTP_X_FORWARDED_FOR'];
+		$order['Order']['forwarded_ip'] = $_SERVER['REMOTE_ADDR'];
 		$order['Order']['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
 		$order['Order']['accept_language'] = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
 		
@@ -268,7 +268,7 @@ class OrdersController extends AppController {
 
 		$order['Order']['ref'] = $_SERVER['HTTP_REFERER'];
 		$order['Order']['ip'] = $_SERVER['REMOTE_ADDR'];
-		$order['Order']['forwarded_ip'] = $_SERVER['HTTP_X_FORWARDED_FOR'];
+		$order['Order']['forwarded_ip'] = $_SERVER['REMOTE_ADDR'];
 		$order['Order']['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
 		$order['Order']['accept_language'] = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
 		
