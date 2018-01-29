@@ -11,7 +11,7 @@ function default_template_category_box_jstree()
 $template = '
 <link href="{base_path}/js/jquery/plugins/jstree/themes/default/style.min.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="{base_path}/js/jquery/plugins/jstree/jstree.min.js"></script>
-<script type="text/javascript">
+<script>
 $(document).ready(function(){
 
 $("#jstree").jstree({ 

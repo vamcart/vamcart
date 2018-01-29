@@ -38,7 +38,7 @@ $template = '
 	</div>
 {/foreach}   
 </div> 
-<script type="text/javascript">
+<script>
 $(document).ready(function(){
   $(".colorbox").colorbox({
     rel: "colorbox",
@@ -47,7 +47,7 @@ $(document).ready(function(){
 });
 </script>
 {if $images_count > 4}
-<script type="text/javascript">
+<script>
 $(document).ready(function(){
 $(".product-images .row.small").bxSlider({
   adaptiveHeight: true,

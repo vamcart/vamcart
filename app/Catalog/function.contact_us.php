@@ -9,7 +9,7 @@
 function default_template_contact_us()
 {
 $template = '
-<script type="text/javascript">
+<script>
 $(function () {
 
   $("#contentform :input:text:visible:enabled:first").focus();

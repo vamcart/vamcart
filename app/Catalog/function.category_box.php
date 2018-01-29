@@ -11,7 +11,7 @@ function default_template_category_box()
 $template = '
 <link href="{base_path}/js/jquery/plugins/waslidemenu/waslidemenu.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="{base_path}/js/jquery/plugins/waslidemenu/waslidemenu.js"></script>
-<script type="text/javascript">
+<script>
 $(document).ready(function(){
    $("#slidemenu").waSlideMenu({
 		autoHeightMenu: true,

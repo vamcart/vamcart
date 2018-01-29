@@ -78,7 +78,7 @@ $stripe = array(
 
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
-<script type="text/javascript">
+<script>
   Stripe.setPublishableKey("'.$publish_key.'");
 </script>
 
@@ -153,7 +153,7 @@ function stripeResponseHandler(status, response) {
 			<span> / </span>
 			<select name="select2" data-stripe="exp_year" class="card-expiry-year stripe-sensitive required form-control">
 			</select>
-			<script type="text/javascript">
+			<script>
 			$(function() {
 				var select = $(".card-expiry-year"),
 				year = new Date().getFullYear();
@@ -306,7 +306,7 @@ $stripe = array(
 
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
-<script type="text/javascript">
+<script>
   Stripe.setPublishableKey("'.$publish_key.'");
 </script>
 
@@ -381,7 +381,7 @@ function stripeResponseHandler(status, response) {
 			<span> / </span>
 			<select name="select2" data-stripe="exp_year" class="card-expiry-year stripe-sensitive required form-control">
 			</select>
-			<script type="text/javascript">
+			<script>
 			$(function() {
 				var select = $(".card-expiry-year"),
 				year = new Date().getFullYear();

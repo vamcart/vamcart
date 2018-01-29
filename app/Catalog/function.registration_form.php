@@ -9,7 +9,7 @@
 function default_template_registration_form()
 {
 $template = '
-<script type="text/javascript">
+<script>
 $(function () {
 
   $("#contentform :input:text:visible:enabled:first").focus();

@@ -31,10 +31,10 @@ function smarty_function_yandex_metrika($params, $template)
     }
     
 			$result = '
-<script type="text/javascript">
+<script>
 window.dataLayer = window.dataLayer || [];
 </script>			
-<script type="text/javascript">
+<script>
 dataLayer.push({
     "ecommerce": {
         "purchase": {
@@ -50,7 +50,7 @@ dataLayer.push({
 	
 </script>
 <!-- Yandex.Metrika counter -->
-<div style="display:none;"><script type="text/javascript">
+<div style="display:none;"><script>
     (function (d, w, c) {
         (w[c] = w[c] || []).push(function() {
             try {
@@ -88,7 +88,7 @@ dataLayer.push({
 			$result = '
 
 <!-- Yandex.Metrika counter -->
-<div style="display:none;"><script type="text/javascript">
+<div style="display:none;"><script>
     (function (d, w, c) {
         (w[c] = w[c] || []).push(function() {
             try {

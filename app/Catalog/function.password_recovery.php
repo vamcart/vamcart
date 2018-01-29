@@ -9,7 +9,7 @@
 function default_template_password_recovery()
 {
 $template = '
-<script type="text/javascript">
+<script>
 $(function () {
 
   $("#contentform :input:text:visible:enabled:first").focus();

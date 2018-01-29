@@ -48,7 +48,7 @@ function default_template_attribute_list()
 						<div id="spinner">
 							<img src="{base_path}/img/ajax-loader.gif" alt="" width="31" height="31" />
 						</div>
-                    <script type="text/javascript"> 
+                    <script> 
                         $(document).ready(function () { 
                             global_spinner = $("#spinner");
                         });
@@ -78,7 +78,7 @@ function default_template_attribute_list()
                     {/if}                      
                     {if $attr_element@last}</ul>{/if}
                     {/foreach}
-                    <script type="text/javascript">
+                    <script>
                     $(function () {      
                         $(".confirm").click(function(){            
                             var http_send = $(this).attr("href");

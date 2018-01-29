@@ -187,7 +187,7 @@ $template = '
 </div>
 
 <hr>
-<script type="text/javascript">
+<script>
 $(document).ready(function () {
 
 $("#myTab{$order.Order.id} a:first").tab("show"); // Select first tab	

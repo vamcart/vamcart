@@ -9,7 +9,7 @@
 function default_template_address_book()
 {
 $template = '
-<script type="text/javascript">
+<script>
 $(function () {
 
 {if $phone_mask != ""}
@@ -107,7 +107,7 @@ $(function () {
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.1/jquery.xdomainrequest.min.js"></script>
 <![endif]-->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.suggestions/16.5.3/js/jquery.suggestions.min.js"></script>
-<script type="text/javascript">
+<script>
 (function($) {
 
 // DaData.Ru Suggestions 

@@ -33,7 +33,7 @@ class PickPointController extends ShippingAppController {
 	<input type="hidden" name="pickpoint_id" id="pickpoint_id" value="" />
 	<input type="hidden" name="pickpoint_address" id="pickpoint_address" value="" />
 
-<script type="text/javascript">
+<script>
 	function my_function(result){
 		// устанавливаем в скрытое поле ID терминала
 		document.getElementById("pickpoint_id").value=result["id"];
