@@ -143,6 +143,7 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty');
 		if ($template_vars === false) {
 			$template_vars = array(
 				'content_id' => $content['Content']['id'],
+				'language' => $this->Session->read('Customer.language'),
 				'content_alias' => $content['Content']['alias'],
 				'content_type' => $content['ContentType']['name'],
 				'parent_id' => $content['Content']['parent_id'],
