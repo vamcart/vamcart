@@ -131,7 +131,7 @@ border: 0px;
 }
 
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-background-color: #f44336;
+background-color: #c92600;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -152,7 +152,7 @@ background-color: #555;
 }
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
-border-color: #f44336;
+border-color: #c92600;
 }
 
 .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
@@ -249,7 +249,7 @@ border: 1px solid #eee;
 .navbar-categories .navbar-nav > li > a:active {
 color: #fff;
 background: #dd2c00;
-border: 1px solid #f44336;
+border: 1px solid #c92600;
 }
 
 .navbar-categories .navbar-collapse {
@@ -268,6 +268,10 @@ padding-left: 0;
 .form-control,
 .breadcrumb {
   border-radius: 0px;
+}
+
+.breadcrumb> .active {
+    color: #000;
 }
 
 .btn-toolbar .btn-default {
