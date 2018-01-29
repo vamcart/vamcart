@@ -127,7 +127,7 @@ class Bender
             case "js":
                 $this->check_recombine( $output, $_javascripts );
                 $this->minify( $_javascripts, "js", $output );
-                return '<script type="text/javascript" src="' . $this->get_src($output) . '"></script>';
+                return '<script src="' . $this->get_src($output) . '"></script>';
                 //return '<script>function loadJS(e,t){"use strict";var n=window.document.getElementsByTagName("script")[0],o=window.document.createElement("script");return o.src=e,o.async=!0,n.parentNode.insertBefore(o,n),t&&"function"==typeof t&&(o.onload=t),o}loadJS("' . $this->get_src($output) . '");</script>';
                 
                 break;
