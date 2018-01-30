@@ -23,6 +23,9 @@ function smarty_function_payment_methods($params, $template)
 {
 	global $content, $config, $order;
 
+	if(!isset ($params['limit']))
+		$params['limit'] = $config['PRODUCTS_PER_PAGE'];
+
 	// Cache the output.
 	$cache_name = 'vam_payment_methods_output' . (isset($params['template'])?'_'.$params['template']:'') . '_' . $content['Content']['id'] .'_' . $_SESSION['Customer']['language_id'];
 	$output = Cache::read($cache_name, 'catalog');
@@ -37,7 +40,7 @@ function smarty_function_payment_methods($params, $template)
 		$PaymentMethod = new PaymentMethod();
 
 	// Assign the payment methods
-	$active_payment_methods = $PaymentMethod->find('all', array('conditions' => array('active' => '1'),'order' => array('order')));
+	$active_payment_methods = $PaymentMethod->find('all', array('conditions' => array('active' => '1'), 'limit' => $params['limit'], 'order' => array('order')));
 
 	$keyed_payment_methods = array();
 	foreach($active_payment_methods AS $method)
@@ -80,6 +83,7 @@ function smarty_help_function_payment_methods () {
 	<h3><?php echo __('What parameters does it take?') ?></h3>
 	<ul>
 		<li><em><?php echo __('(template)') ?></em> - <?php echo __('Useful if you want to override the default content listing template. Setting this will utilize the template that matches this alias.') ?></li>
+		<li><em><?php echo __('(limit)') ?></em> - <?php echo __('Limit displayed items.') ?></li>
 	</ul>
 	<?php
 }

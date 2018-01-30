@@ -1622,6 +1622,10 @@ msgstr "(limit)"
 msgid "Items per page."
 msgstr "Количество записей на одной странице."
 
+#: /vendors/smarty/vam_plugins/function.content_listing.php:183
+msgid "Limit displayed items."
+msgstr "Ограничение отображаемых элементов."
+
 #: /vendors/smarty/vam_plugins/function.currency_box.php:87
 msgid "Allows the user to select a currency."
 msgstr "Позволяет пользователю выбирать валюту магазина."

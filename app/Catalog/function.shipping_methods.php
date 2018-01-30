@@ -9,17 +9,16 @@
 function default_template_shipping_methods()
 {
 $template = '
-<table cellpadding="0" cellspacing="0" border="0" class="table table-striped">
+<table class="table table-striped">
 <thead>
 <tr>
-<th colspan="2" class="ship-title">{lang}Shipping{/lang} <span><u>{$city}</span></u></th>
+<th class="ship-title">{lang}Shipping{/lang}</th>
 </tr>
 </thead>
 <tbody>
 {foreach from=$ship_methods item=ship_method}
 <tr>
 <td>{lang}{$ship_method.name}{/lang}</td>
-<td class="text-right">{$ship_method.cost}</td>
 </tr>
 {/foreach}
 </tbody>
@@ -34,27 +33,11 @@ function smarty_function_shipping_methods($params, $template)
 {
 	global $content, $config, $order;
 
-   $ip = $_SERVER['REMOTE_ADDR'];
-	
-   $curl = curl_init();
-   curl_setopt($curl, CURLOPT_URL, "https://ru.sxgeo.city/json/".$ip);
-   curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-   $data = curl_exec($curl);
-    
-   curl_close($curl);
-   if($data === false) {
-	 echo "Город не определён.";
-   }
-    
-   $ip_geo = json_decode($data, $assoc=true);
-    
-	$city = $ip_geo["city"]["name_ru"];
-	
-	$state = $ip_geo["region"]["name_ru"];
-	$country = $ip_geo["country"]["name_ru"];
-	
+	if(!isset ($params['limit']))
+		$params['limit'] = $config['PRODUCTS_PER_PAGE'];
+
 	// Cache the output.
-	$cache_name = 'vam_shipping_methods_output' . (isset($params['template'])?'_'.$params['template']:'') . (isset($city)?'_'.$city:'') . '_' . $content['Content']['id'] .'_' . $_SESSION['Customer']['language_id'];
+	$cache_name = 'vam_shipping_methods_output' . (isset($params['template'])?'_'.$params['template']:'') . $content['Content']['id'] .'_' . $_SESSION['Customer']['language_id'];
 	$output = Cache::read($cache_name, 'catalog');
 	if($output === false)
 	{
@@ -69,41 +52,7 @@ function smarty_function_shipping_methods($params, $template)
 	App::import('Model', 'ShippingMethod');
 		$ShippingMethod = new ShippingMethod();
 
-	if(!isset($params['price']))
-		$params['price'] = 0;		
-
-	if(!isset($params['weight']))
-		$params['weight'] = 0;		
-
-	if(!isset($params['length']))
-		$params['length'] = 0;		
-
-	if(!isset($params['width']))
-		$params['width'] = 0;		
-
-	if(!isset($params['height']))
-		$params['height'] = 0;		
-
-	if(!isset($params['volume']))
-		$params['volume'] = 0;		
-
-	if(!isset($params['city']))
-		$params['city'] = false;		
-
-	if(!isset($params['state']))
-		$params['state'] = false;		
-
-	$order['Order']['bill_city'] = $ip_geo["city"]["name_ru"];
-
-	$order['OrderProduct'][1]['name'] = $content['ContentDescription']['name'];	
-	$order['OrderProduct'][1]['quantity'] = 1;	
-	$order['OrderProduct'][1]['weight'] = $content['ContentProduct']['weight'];	
-	$order['OrderProduct'][1]['length'] = $content['ContentProduct']['length'];	
-	$order['OrderProduct'][1]['width'] = $content['ContentProduct']['width'];	
-	$order['OrderProduct'][1]['height'] = $content['ContentProduct']['height'];	
-	$order['OrderProduct'][1]['volume'] = $content['ContentProduct']['volume'];	
-
-	$active_ship_methods = $ShippingMethod->find('all', array('conditions' => array('active' => '1'),'order' => array('order')));
+	$active_ship_methods = $ShippingMethod->find('all', array('conditions' => array('active' => '1'), 'limit' => $params['limit'], 'order' => array('order')));
 
 	$keyed_ship_methods = array();
 	foreach($active_ship_methods AS $method)
@@ -156,6 +105,7 @@ function smarty_help_function_shipping_methods() {
 	<h3><?php echo __('What parameters does it take?') ?></h3>
 	<ul>
 		<li><em><?php echo __('(template)') ?></em> - <?php echo __('Useful if you want to override the default content listing template. Setting this will utilize the template that matches this alias.') ?></li>
+		<li><em><?php echo __('(limit)') ?></em> - <?php echo __('Limit displayed items.') ?></li>
 	</ul>
 	<?php
 }
