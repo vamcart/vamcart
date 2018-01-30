@@ -18,11 +18,7 @@ $template = '
 <tbody>
 {foreach from=$ship_methods item=ship_method}
 <tr>
-<td>{lang}{$ship_method.name}{/lang}
-{if $ship_method.icon}<img class="text-center" src="{$ship_method.icon}" alt="{lang}{$ship_method.name}{/lang}" title="{lang}{$ship_method.name}{/lang}"{if {$ship_method.width} > 0} width="{$ship_method.width}"{/if}{if {$ship_method.height} > 0} height="{$ship_method.height}"{/if} /> {/if}
-
-
-</td>
+<td>{lang}{$ship_method.name}{/lang}</td>
 </tr>
 {/foreach}
 </tbody>
