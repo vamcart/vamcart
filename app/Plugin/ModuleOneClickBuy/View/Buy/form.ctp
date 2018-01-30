@@ -1,5 +1,5 @@
 <?php if ($content_id > 0) { ?>
-<script type="text/javascript">
+<script>
 $(function($){
 
     $('.form-anti-bot, .form-anti-bot-2').hide(); // hide inputs from users
