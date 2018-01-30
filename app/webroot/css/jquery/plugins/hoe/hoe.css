@@ -45,7 +45,7 @@ body{position:relative;}
 	font-family: "lato", sans-serif;
 	direction: ltr;
     line-height: 20px;
-    font-size: 14px;
+    font-size: 16px;
     overflow-x: hidden;
     overflow-y: hidden;
 	width: 100%;
@@ -119,13 +119,13 @@ body{position:relative;}
 }
 .hoe-right-header a i {
     color: #7e7e7e;
-    font-size: 14px;
+    font-size: 16px;
 }
 .right-navbar {
     float: right;
 }
 .right-navbar li a i {
-    font-size: 14px;
+    font-size: 16px;
 }
 .left-navbar li:first-child {
     padding-left: 50px;
@@ -135,7 +135,7 @@ body{position:relative;}
     border: 0px solid #efefef;
     content: "\f0c9";
     font-family: FontAwesome;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 50px;
     padding: 0px 17px;
     position: absolute;
@@ -232,7 +232,7 @@ body{position:relative;}
     border-top: 1px solid #efefef;
     color: #7e7e7e;
     display: block;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
     padding: 10px 16px;
     position: relative;
@@ -255,7 +255,7 @@ body{position:relative;}
 }
 #hoe-left-panel .panel-list > li > a > i {
     display: inline;
-    font-size: 14px;
+    font-size: 16px;
     padding-right: 20px;
 }
 #hoe-left-panel .panel-list > li > a span.menu-text {
@@ -302,7 +302,7 @@ body{position:relative;}
     border-top: 1px solid #efefef;
     color: #7e7e7e;
     display: block;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 500;
     padding: 10px 16px;
     position: relative;
@@ -359,7 +359,7 @@ body{position:relative;}
 }
 #hoe-left-panel .panel-list > li.hoe-has-menu > ul.hoe-sub-menu > li > a span.menu-text:before {
     font-family: FontAwesome;
-    font-size: 14px;
+    font-size: 16px;
     position: relative;
     float: left;
     left: 4px;
@@ -373,7 +373,7 @@ body{position:relative;}
 }
 #hoe-left-panel .panel-list > li.hoe-has-menu > ul.hoe-sub-menu > li.hoe-has-menu > ul.hoe-sub-menu > li > a span.menu-text:before {
     font-family: FontAwesome;
-    font-size: 14px;
+    font-size: 16px;
     position: relative;
     float: left;
     left: 18px;
@@ -667,7 +667,7 @@ body{position:relative;}
     display: block !important;
     color: #fff;
     border: 0px solid #fff;
-    font-size: 14px;
+    font-size: 16px;
 }
 #hoeapp-wrapper[hoe-device-type="phone"].hoe-hide-lpanel  #hoeapp-container[hoe-lpanel-effect="shrink"] #main-content {
   margin-left: 0px;

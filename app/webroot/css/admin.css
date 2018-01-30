@@ -12,6 +12,9 @@ html,body
 		margin: 0;
 		padding: 0;
 		background-color: #fff;
+		font-family: "Roboto", sans-serif;
+		font-weight: normal;
+		font-size: 16px;
 	}
 		 
 /* Links color */
@@ -186,7 +189,7 @@ div.breadCrumbs a:hover
 	{
 		color: #dd2c00;
 		font-weight: bold;
-		font-size: 12pt;
+		font-size: 16px;
 	}
 
 /* /Page header */
@@ -312,7 +315,6 @@ div.input textarea
 		width: auto;
 		height: 34px;
 		padding: 6px 12px;
-		font-size: 14px;
 		line-height: 1.42857143;
 		color: #555;
 		background-color: #fff;
@@ -665,9 +667,6 @@ div.error input
 		background-color: #e4685d;
 		display: inline-block;
 		color: #fff;
-		font-family: arial;
-		font-size: 13px;
-		font-weight: normal;
 		padding: 4px 15px;
 		text-decoration: none;
 		text-shadow: 0 1px 0 #b23e35;
@@ -683,9 +682,6 @@ div.error input
 		padding: 0;
 		display: inline-block;
 		color: #fff;
-		font-family: arial;
-		font-size: 13px;
-		font-weight: normal;
 		padding: 4px 15px;
 		text-decoration: none;
 		cursor: pointer;
@@ -696,9 +692,6 @@ div.error input
 
 .ajax-file-upload 
 	{
-		font-family: Arial, Helvetica, sans-serif;
-		font-size: 16px;
-		font-weight: bold;
 		padding: 15px 20px;
 		cursor:pointer;	
 		line-height:20px;
@@ -1078,7 +1071,8 @@ pre {
     background-color: transparent;
     border: 0px solid transparent;
     border-radius: 0px;
-    font-family: Arial !important;
+    font-family: "Roboto", sans-serif !important;
+    font-size: 16px !important;
 }
 
 /*]]>*/

@@ -16,6 +16,7 @@
 <title><?php echo $title_for_layout; ?></title>
 <?php echo $this->Html->css(array(
 										'font-awesome.min.css',
+										'font-roboto.css',
 										'bootstrap3/bootstrap.min.css',
 										'cus-icons.css',
 										'admin.css',
