@@ -11,7 +11,7 @@ function default_template_payment_methods()
 $template = '
 <h4>{lang}Payment Methods{/lang}</h4>
 {foreach from=$payment_methods item=payment_method}
-{if $payment_method.icon}<img class="text-center" src="{base_path}/img/icons/payment/{$payment_method.icon}" alt="{lang}{$payment_method.name}{/lang}" title="{lang}{$payment_method.name}{/lang}" /> {/if}
+{if $payment_method.icon}<img class="text-center" src="{$payment_method.icon}" alt="{lang}{$payment_method.name}{/lang}" title="{lang}{$payment_method.name}{/lang}"{if {$payment_method.width} > 0} width="{$payment_method.width}"{/if}{if {$payment_method.height} > 0} height="{$payment_method.height}"{/if} /> {/if}
 {/foreach}
 ';
 		
@@ -47,12 +47,22 @@ function smarty_function_payment_methods($params, $template)
 	{
 		$payment_method_id = $method['PaymentMethod']['id'];
 
+		$icon_name = $method['PaymentMethod']['icon'];	
+		$icon_path = IMAGES . 'icons/payment/' . $icon_name;
+		$icon_url = BASE . '/img/icons/payment/' . $icon_name;
+
+		if(file_exists($icon_path) && is_file($icon_path)) {
+			list($width, $height, $type, $attr) = getimagesize($icon_path);
+		}
+
 		$keyed_payment_methods[$payment_method_id] = array(
 										  'id' => $payment_method_id,
 										  'name' => $method['PaymentMethod']['name'],
-										  'code' => $method['PaymentMethod']['code'],
+										  'code' => (isset($method['PaymentMethod']['alias']) && $method['PaymentMethod']['alias'] !== '') ? $method['PaymentMethod']['alias'] : false,
 										  'description' => (isset($method['PaymentMethod']['description'])) ? __($method['PaymentMethod']['description']) : false,
-										  'icon' => (isset($method['PaymentMethod']['icon']) && file_exists(IMAGES . 'icons/payment/' . $method['PaymentMethod']['icon'])) ? $method['PaymentMethod']['icon'] : false
+										  'icon' => (isset($icon_name) && file_exists($icon_path)) ? $icon_url : false,
+										  'width' => (isset($icon_name) && file_exists($icon_path)) ? $width : false,
+										  'height' => (isset($icon_name) && file_exists($icon_path)) ? $height : false
 										  );
 
 	}			

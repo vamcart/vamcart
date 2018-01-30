@@ -18,7 +18,11 @@ $template = '
 <tbody>
 {foreach from=$ship_methods item=ship_method}
 <tr>
-<td>{lang}{$ship_method.name}{/lang}</td>
+<td>{lang}{$ship_method.name}{/lang}
+{if $ship_method.icon}<img class="text-center" src="{$ship_method.icon}" alt="{lang}{$ship_method.name}{/lang}" title="{lang}{$ship_method.name}{/lang}"{if {$ship_method.width} > 0} width="{$ship_method.width}"{/if}{if {$ship_method.height} > 0} height="{$ship_method.height}"{/if} /> {/if}
+
+
+</td>
 </tr>
 {/foreach}
 </tbody>
@@ -63,13 +67,23 @@ function smarty_function_shipping_methods($params, $template)
 		$MethodBase = new $shipping_controller();
 		
 		$ship_method_id = $method['ShippingMethod']['id'];
+
+		$icon_name = $method['ShippingMethod']['icon'];	
+		$icon_path = IMAGES . 'icons/shipping/' . $icon_name;
+		$icon_url = BASE . '/img/icons/shipping/' . $icon_name;
+
+		if(file_exists($icon_path) && is_file($icon_path)) {
+			list($width, $height, $type, $attr) = getimagesize($icon_path);
+		}
 		
 		$keyed_ship_methods[$ship_method_id] = array(
 										  'id' => $ship_method_id,
 										  'name' => $method['ShippingMethod']['name'],
-										  'code' => $method['ShippingMethod']['code'],
+										  'code' => (isset($method['ShippingMethod']['code']) && $method['ShippingMethod']['code'] !== '') ? $method['ShippingMethod']['code'] : false,
 										  'description' => (isset($method['ShippingMethod']['description'])) ? __($method['ShippingMethod']['description']) : false,
-										  'icon' => (isset($method['ShippingMethod']['icon']) && file_exists(IMAGES . 'icons/shipping/' . $method['ShippingMethod']['icon'])) ? $method['ShippingMethod']['icon'] : false,
+										  'icon' => (isset($icon_name) && file_exists($icon_path)) ? $icon_url : false,
+										  'width' => (isset($icon_name) && file_exists($icon_path)) ? $width : false,
+										  'height' => (isset($icon_name) && file_exists($icon_path)) ? $height : false,
 										  'cost_plain' => $MethodBase->calculate(),
 										  'cost' => $CurrencyBase->display_price($MethodBase->calculate())
 										  );
@@ -77,9 +91,6 @@ function smarty_function_shipping_methods($params, $template)
 	}	
 	
 	$assignments = array(
-		'city' => $city,
-		'state' => $state,
-		'country' => $country,
 		'ship_methods' => $keyed_ship_methods
 	);
 
