@@ -154,7 +154,7 @@ class OrderBaseComponent extends Object
 
 		$order['Order']['ref'] = $_SERVER['HTTP_REFERER'];
 		$order['Order']['ip'] = $_SERVER['REMOTE_ADDR'];
-		$order['Order']['forwarded_ip'] = $_SERVER['HTTP_X_FORWARDED_FOR'];
+		$order['Order']['forwarded_ip'] = $_SERVER['REMOTE_ADDR'];
 		$order['Order']['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
 		$order['Order']['accept_language'] = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
 
