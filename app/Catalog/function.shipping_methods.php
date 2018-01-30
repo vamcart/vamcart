@@ -80,8 +80,8 @@ function smarty_function_shipping_methods($params, $template)
 										  'icon' => (isset($icon_name) && file_exists($icon_path)) ? $icon_url : false,
 										  'width' => (isset($icon_name) && file_exists($icon_path)) ? $width : false,
 										  'height' => (isset($icon_name) && file_exists($icon_path)) ? $height : false,
-										  'cost_plain' => $MethodBase->calculate(),
-										  'cost' => $CurrencyBase->display_price($MethodBase->calculate())
+										  'cost_plain' => (isset($order['Order']['id'])) ? $MethodBase->calculate() : false,
+										  'cost' => (isset($order['Order']['id'])) ? $CurrencyBase->display_price($MethodBase->calculate()) : false
 										  );
 
 	}	
