@@ -184,7 +184,7 @@ div.breadCrumbs a:hover
 #content h2,
 #content h3
 	{
-		color: #ff7b08;
+		color: #dd2c00;
 		font-weight: bold;
 		font-size: 12pt;
 	}
@@ -1057,7 +1057,7 @@ a#scrollup {
   bottom: 20px;
   right: 30px;
   padding: 5px 10px;
-  background: #ff6633;
+  background: #dd2c00;
   color: #fff;
 }
 
