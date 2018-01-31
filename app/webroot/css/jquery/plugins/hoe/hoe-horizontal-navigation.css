@@ -69,20 +69,20 @@ body[hoe-navigation-type="horizontal"] #hoeapp-wrapper[hoe-device-type="desktop"
 body[hoe-navigation-type="horizontal"] #hoeapp-wrapper[hoe-device-type="desktop"] #hoe-left-panel .panel-list > li.hoe-has-menu > ul.hoe-sub-menu {
   display: none;
   list-style: outside none none;
-  width: 250px;
+  width: 230px;
   position:absolute;
 }
 body[hoe-navigation-type="horizontal"] #hoeapp-wrapper[hoe-device-type="desktop"] #hoe-left-panel .panel-list > li.hoe-has-menu > ul.hoe-sub-menu > li.hoe-has-menu > ul.hoe-sub-menu {
-  left: 250px;
+  left: 230px;
   position: absolute;
-  width: 250px;
+  width: 230px;
   z-index: 1;
   margin-top:-41px;
 }
 body[hoe-navigation-type="horizontal"] #hoeapp-wrapper[hoe-device-type="desktop"] #hoe-left-panel .panel-list > li.hoe-has-menu > ul.hoe-sub-menu > li.hoe-has-menu > ul.hoe-sub-menu > li.hoe-has-menu > ul.hoe-sub-menu{
-  left: 250px;
+  left: 230px;
   position: absolute;
-  width: 250px;
+  width: 230px;
   z-index: 1;
   margin-top:-41px;
 }

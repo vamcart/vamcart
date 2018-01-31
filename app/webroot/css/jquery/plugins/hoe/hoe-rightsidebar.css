@@ -8,7 +8,7 @@ body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="tablet"] .hoe-l
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="desktop"] .hoe-right-header,
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="tablet"] .hoe-right-header  {
   margin-left: 0;
-  margin-right: 250px;
+  margin-right: 230px;
 }
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="desktop"].left-navbar,
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="tablet"].left-navbar {
@@ -38,16 +38,16 @@ body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="tablet"] #hoe-l
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="desktop"] #main-content,
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="tablet"] #main-content {
   margin-left: 0;
-  margin-right: 250px;
+  margin-right: 230px;
 }
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="desktop"] #styleSelector,
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="tablet"] #styleSelector {
-  left: -250px;
+  left: -230px;
 }
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="desktop"] .selector-toggle > a,
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="tablet"] .selector-toggle > a {
   border-radius: 0 0 0 0;
-  left: 248px;
+  left: 228px;
 }
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="desktop"] #styleSelector.open,
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="tablet"] #styleSelector.open {
