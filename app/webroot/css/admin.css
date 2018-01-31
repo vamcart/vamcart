@@ -96,7 +96,7 @@ div#footer
 	{
 		clear: left;
 		width: 100%;
-		background: #fff;
+		background: transparent;
 		border-top: 0px solid #67748B;
 		text-align: center;
 		color: #000;
