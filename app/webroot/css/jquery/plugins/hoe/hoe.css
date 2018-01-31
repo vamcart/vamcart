@@ -47,10 +47,9 @@ body{position:relative;}
     width: 100%;
     height: 100%;
     position: relative;
-	font-family: "lato", sans-serif;
 	direction: ltr;
     line-height: 20px;
-    font-size: 13px;
+    /*font-size: 16px;*/
     overflow-x: hidden;
     overflow-y: hidden;
 	width: 100%;
@@ -72,7 +71,7 @@ body{position:relative;}
 }
 .hoe-left-header {
     background: #555;
-    font-size: 16px;
+    /*font-size: 16px;*/
     font-weight: 600;
     line-height: 50px;
     position: absolute;
@@ -124,14 +123,14 @@ body{position:relative;}
 }
 .hoe-right-header a i {
     color: #7e7e7e;
-    font-size: 14px;
+    /*font-size: 14px;*/
 }
 .right-navbar {
     float: right;
 	padding-right: 7px !important;
 }
 .right-navbar li a i {
-    font-size: 14px;
+    /*font-size: 14px;*/
 }
 .left-navbar > li:first-child {
     padding-left: 50px;
@@ -238,7 +237,7 @@ body{position:relative;}
     border-top: 1px solid #efefef;
     color: #7e7e7e;
     display: block;
-    font-size: 13px;
+    /*font-size: 13px;*/
     font-weight: 500;
     padding: 10px 10px;
     position: relative;
@@ -261,7 +260,7 @@ body{position:relative;}
 }
 #hoe-left-panel .panel-list > li > a > i {
     display: inline;
-    font-size: 14px;
+    /*font-size: 14px;*/
     padding-right: 6px;
 }
 #hoe-left-panel .panel-list > li > a span.menu-text {
@@ -308,7 +307,7 @@ body{position:relative;}
     border-top: 1px solid #efefef;
     color: #7e7e7e;
     display: block;
-    font-size: 13px;
+    /*font-size: 13px;*/
     font-weight: 500;
     padding: 10px 10px;
     position: relative;
@@ -424,7 +423,7 @@ body{position:relative;}
     border-radius: 0.25em;
     color: #7e7e7e;
     display: inline;
-    font-size: 75%;
+    /*font-size: 75%;*/
     font-weight: 700;
     line-height: 1;
     padding: 4px 3px;
@@ -494,7 +493,7 @@ body{position:relative;}
 }
 .hoe-minimized-lpanel #hoe-left-panel .panel-list > li > a > i {
     display: inline;
-    font-size: 15px;
+    /*font-size: 15px;*/
     padding-left: 6px;
     padding-right: 6px;
 }
@@ -685,7 +684,7 @@ body{position:relative;}
     display: block !important;
     color: #fff;
     border: 0px solid #fff;
-    font-size: 14px;
+    /*font-size: 14px;*/
 }
 #hoeapp-wrapper[hoe-device-type="phone"].hoe-hide-lpanel  #hoeapp-container[hoe-lpanel-effect="shrink"] #main-content {
   margin-left: 0px;
@@ -775,31 +774,22 @@ body[theme-layout="box-layout" hoe-nav-placement="right"] #hoeapp-wrapper[hoe-de
 	margin:0 auto;
 }
 body[theme-bg="bg1"]{
-	 background-image: url("../images/bg1.png");
 }
 body[theme-bg="bg2"]{
-	 background-image: url("../images/bg2.png");
 }
 body[theme-bg="bg3"]{
-	 background-image: url("../images/bg3.png");
 }
 body[theme-bg="bg4"]{
-	 background-image: url("../images/bg4.png");
 }
 body[theme-bg="bg5"]{
-	 background-image: url("../images/bg5.png");
 }
 body[theme-bg="bg6"]{
-	 background-image: url("../images/bg6.png");
 }
 body[theme-bg="bg7"]{
-	 background-image: url("../images/bg7.png");
 }
 body[theme-bg="bg8"]{
-	 background-image: url("../images/bg8.png");
 }
 body[theme-bg="bg9"]{
-	 background-image: url("../images/bg9.png");
 }
 /*Theme Background Color in Close */
 

@@ -52,7 +52,7 @@
 .feature-box h6 {
     margin-bottom: 2px;
     margin-top: 2px;
-    font-size: 16px;
+    /*font-size: 16px;*/
 }
 .hoe-minimized-lpanel #main-content {
     margin-left: 50px;
@@ -154,14 +154,14 @@
 #styleSelector ul li p.selector-title {
     border-bottom: 1px solid #e9e9e9;
     color: #9c9c9c;
-    font-size: 14px;
+    /*font-size: 14px;*/
     margin: 0;
     padding: 6px;
     text-align: center;
 }
 #styleSelector > ul > li > .sub-title {
     color: #9c9c9c;
-    font-size: 13px;
+    /*font-size: 13px;*/
     line-height: 30px;
     margin: 0;
     padding: 6px 2px;

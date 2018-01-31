@@ -96,7 +96,6 @@
 	clear: both;
     color: #7e7e7e;
     display: block;
-    font-family: "lato",sans-serif;
     font-weight: 400;
     line-height: 1.42857;
     padding: 6px 10px;
@@ -110,7 +109,7 @@
 .hoe-right-header .hoe-rheader-submenu .dropdown-menu > li > a > .badge {
   border-radius: 12px !important;
   display: inline;
-  font-size: 11px;
+  /*font-size: 11px;*/
   font-weight: 300;
   height: 18px;
   margin-top: 1px;
@@ -136,7 +135,7 @@
 .hoe-right-header .hoe-rheader-submenu .dropdown-menu li.hoe-submenu-label h3 {
   background: #eaedf2 none repeat scroll 0 0;
   color: #62878f;
-  font-size: 13px;
+  /*font-size: 13px;*/
   margin-bottom: 0;
   margin-top: 0;
   padding: 12px 8px;
@@ -156,24 +155,24 @@
 }
 .hoe-right-header  .hoe-rheader-submenu > .dropdown-menu .notification-title {
   font-weight: 600;
-  font-size: 13px;
+  /*font-size: 13px;*/
   color:#62878f;
 }
 .hoe-right-header  .hoe-rheader-submenu > .dropdown-menu .notification-ago {
-  font-size: 11px;
+  /*font-size: 11px;*/
   padding-top: 5px;
   position: absolute;
   right: 7px;
 }
 .hoe-right-header .hoe-rheader-submenu > .dropdown-menu .notification-ago-1 {
-  font-size: 11px;
+  /*font-size: 11px;*/
   position: absolute;
   right: 6px;
   top: 2px;
 }
 
 .hoe-right-header  .hoe-rheader-submenu > .dropdown-menu .notification-message {
-  font-size: 13px;
+  /*font-size: 13px;*/
   margin: 0 0 2px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -189,7 +188,7 @@
   overflow: hidden;
 }
 .hoe-right-header .progress-bar {
-  font-size: 7px;
+  /*font-size: 7px;*/
   line-height: 8px;
 }
 .green-text {
@@ -237,7 +236,7 @@
 }
 
 .left-navbar .hoe-rheader-submenu span.badge {
-  font-size: 11px;
+  /*font-size: 11px;*/
   min-width: 8px;
   padding: 2px 5px;
   position: absolute;
@@ -274,7 +273,7 @@
   border-radius: 30px;
   box-shadow: none;
   float: right;
-  font-size: 14px;
+  /*font-size: 14px;*/
   height: 35px;
   margin: 7px 4px 0;
   width: 100px;
@@ -301,7 +300,7 @@
   border-radius: 30px;
   box-shadow: none;
   float: right;
-  font-size: 14px;
+  /*font-size: 14px;*/
   height: 33px;
   margin: 9px 3px 0;
   padding-left: 21px;
