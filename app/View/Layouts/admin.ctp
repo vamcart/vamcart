@@ -126,7 +126,7 @@ if(isset($navigation)) {
 </div>
 <!-- /Content -->
          
-         
+         <!--
 			<div id="styleSelector">
                 <div class="selector-toggle">
                     <a href="javascript:void(0)"></a>
@@ -214,6 +214,7 @@ if(isset($navigation)) {
             </div> 
         </div>
     </div>
+    -->
 
 <!-- Footer -->
 <div id="footer">

@@ -116,6 +116,10 @@ div#footer p
     background: transparent;
 }
 
+.breadcrumb>.active {
+    color: #000;
+}
+
 section {
     background: #f8f8f8;
 }
