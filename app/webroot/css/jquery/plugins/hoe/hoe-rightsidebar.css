@@ -46,7 +46,7 @@ body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="tablet"] #style
 }
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="desktop"] .selector-toggle > a,
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="tablet"] .selector-toggle > a {
-  border-radius: 0 0 0 0;
+  border-radius: 0 4px 4px 0;
   left: 228px;
 }
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="desktop"] #styleSelector.open,
@@ -106,7 +106,7 @@ body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="desktop"] .hoe-
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="desktop"] .hoe-minimized-lpanel #hoe-left-panel .panel-list > li:focus > a,
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="tablet"] .hoe-minimized-lpanel #hoe-left-panel .panel-list > li:hover > a, 
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="tablet"] .hoe-minimized-lpanel #hoe-left-panel .panel-list > li:focus > a {
-  border-radius: 0px 0px 0px 0px;
+  border-radius: 4px 0px 0px 4px;
 }
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="desktop"] .hoe-minimized-lpanel #hoe-left-panel .panel-list > li.hoe-has-menu:hover > ul.hoe-sub-menu, 
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="desktop"] .hoe-minimized-lpanel #hoe-left-panel .panel-list > li.hoe-has-menu:focus > ul.hoe-sub-menu,

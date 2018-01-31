@@ -55,8 +55,7 @@ body[hoe-navigation-type="horizontal"] #hoeapp-wrapper[hoe-device-type="desktop"
 
 }
 body[hoe-navigation-type="horizontal"] #hoeapp-wrapper[hoe-device-type="desktop"]  #hoe-left-panel .panel-list > li > a > i {
-    padding-left: 15px;
-    padding-right: 6px;
+    padding-right: 0;
 }
 body[hoe-navigation-type="horizontal"] #hoeapp-wrapper[hoe-device-type="desktop"] #hoe-left-panel .panel-list > li.hoe-has-menu > ul.hoe-sub-menu {
   display: none;
@@ -69,20 +68,20 @@ body[hoe-navigation-type="horizontal"] #hoeapp-wrapper[hoe-device-type="desktop"
 body[hoe-navigation-type="horizontal"] #hoeapp-wrapper[hoe-device-type="desktop"] #hoe-left-panel .panel-list > li.hoe-has-menu > ul.hoe-sub-menu {
   display: none;
   list-style: outside none none;
-  width: 230px;
+  width: 156px;
   position:absolute;
 }
 body[hoe-navigation-type="horizontal"] #hoeapp-wrapper[hoe-device-type="desktop"] #hoe-left-panel .panel-list > li.hoe-has-menu > ul.hoe-sub-menu > li.hoe-has-menu > ul.hoe-sub-menu {
-  left: 230px;
+  left: 156px;
   position: absolute;
-  width: 230px;
+  width: 156px;
   z-index: 1;
   margin-top:-41px;
 }
 body[hoe-navigation-type="horizontal"] #hoeapp-wrapper[hoe-device-type="desktop"] #hoe-left-panel .panel-list > li.hoe-has-menu > ul.hoe-sub-menu > li.hoe-has-menu > ul.hoe-sub-menu > li.hoe-has-menu > ul.hoe-sub-menu{
-  left: 230px;
+  left: 156px;
   position: absolute;
-  width: 230px;
+  width: 156px;
   z-index: 1;
   margin-top:-41px;
 }
@@ -111,15 +110,18 @@ body[hoe-navigation-type="horizontal"] #hoeapp-wrapper[hoe-device-type="desktop"
   margin: 0 35px;
 }
 body[hoe-navigation-type="horizontal"] #hoeapp-wrapper[hoe-device-type="desktop"] #hoe-left-panel .panel-list > li.hoe-has-menu > ul.hoe-sub-menu > li > a span.menu-text:before {
+    content: "\f105";
     font-size: 14px;
     float: left;
     left: 4px;
 }
 body[hoe-navigation-type="horizontal"] #hoeapp-wrapper[hoe-device-type="desktop"] #hoe-left-panel .panel-list > li.hoe-has-menu > ul.hoe-sub-menu > li.hoe-has-menu > ul.hoe-sub-menu > li > a span.menu-text:before {
+    content: "\f105";
     font-size: 14px;
     left: 4px;
 }
 body[hoe-navigation-type="horizontal"] #hoeapp-wrapper[hoe-device-type="desktop"] #hoe-left-panel .panel-list > li.hoe-has-menu > ul.hoe-sub-menu > li.hoe-has-menu > ul.hoe-sub-menu > li.hoe-has-menu > ul.hoe-sub-menu > li > a span.menu-text:before {
+    content: "\f105";
     font-size: 14px;
     float: left;
     left: 4px;

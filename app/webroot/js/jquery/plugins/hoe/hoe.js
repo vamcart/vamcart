@@ -12,20 +12,46 @@ $(document).ready(function() {
 			HoeDatapp.Handlenavigationtype();
 			HoeDatapp.Handlesidebarside();
 			HoeDatapp.Handleactivestatemenu();
+			HoeDatapp.Handlethemelayout();
+			HoeDatapp.Handlethemebackground();
 			 
 
         },
+		Handlethemebackground: function() {
+            function setthemebgcolor() {
+                $('#theme-color > a.theme-bg').on("click", function() {
+                    $('body').attr("theme-bg", $(this).attr("hoe-themebg-type"));
+                });
+            };
+			setthemebgcolor(); 
+        },
+		Handlethemelayout: function() {
+			 $('#theme-layout').on("change", function() {
+                if ($(this).val() == 'box-layout') {
+                  $('body').attr("theme-layout", "box-layout");
+                }else {
+				 $('body').attr("theme-layout", "wide-layout");
+				}
+            });
+        },
 		Handleactivestatemenu: function() {
-			 $(".panel-list li > a").on("click", function() {
+			 $(".panel-list li:not('.hoe-has-menu') > a").on("click", function() {
 				if ($('body').attr("hoe-navigation-type") == "vertical" || $('body').attr("hoe-navigation-type") == "vertical-compact")   {
-					if ($(this).parent('li.hoe-has-menu').length ===0) {
-						$(this).parents('.panel-list').find('li.active').removeClass('active'); 
-						$(this).parent().addClass('active'); 	
+					if ($(this).closest('li.hoe-has-menu').length === 1){
+						$(this).closest('.panel-list').find('li.active').removeClass('active');
+						$(this).parent().addClass('active');
+						$(this).parent().closest('.hoe-has-menu').addClass('active');
+						$(this).parent('li').closest('li').closest('.hoe-has-menu').addClass('active');
+					} else {
+						$(this).closest('.panel-list').find('li.active').removeClass('active');
+						$(this).closest('.panel-list').find('li.opened').removeClass('opened');
+						$(this).closest('.panel-list').find('ul:visible').slideUp('fast');
+						$(this).parent().addClass('active');
+						 
 					}
-					//return false;
 				}
 			});
-        },
+        }, 
 		Handlesidebarside: function() {
 			 $('#navigation-side').on("change", function() {
                 if ($(this).val() == 'rightside') {
@@ -113,9 +139,9 @@ $(document).ready(function() {
 
             $('#sidebar-position').on("change", function() {
                 if ($(this).val() == 'fixed') {
-                    $('#hoe-left-panel,.hoe-left-header').attr("hoe-position-type", "fixed");
+                    $('#hoe-left-panel,.hoe-left-header,.hoe-right-header').attr("hoe-position-type", "fixed");
                 } else {
-                    $('#hoe-left-panel,.hoe-left-header').attr("hoe-position-type", "absolute");
+                    $('#hoe-left-panel,.hoe-left-header,.hoe-right-header').attr("hoe-position-type", "absolute");
                 }
             });
         },
