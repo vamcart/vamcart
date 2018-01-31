@@ -1,6 +1,6 @@
 /*################ Theme Header With shrink Effect Start #####################*/
 #hoe-header[hoe-lpanel-effect="shrink"] .hoe-right-header[hoe-position-type="relative"] {
-  margin-left: 230px;
+  margin-left: 250px;
    padding-right: 0;
 }
 #hoe-header[hoe-lpanel-effect="shrink"].hoe-minimized-lpanel .hoe-right-header[hoe-position-type="relative"] {
@@ -8,8 +8,8 @@
   padding-right: 0;
 }
 #hoe-header[hoe-lpanel-effect="shrink"] .hoe-right-header[hoe-position-type="fixed"] {
-	padding-right: 230px;
-	margin-left: 230px;
+	padding-right: 250px;
+	margin-left: 250px;
 }
 #hoe-header[hoe-lpanel-effect="shrink"].hoe-minimized-lpanel .hoe-right-header[hoe-position-type="fixed"] {
 padding-right: 50px;
@@ -29,7 +29,7 @@ padding-right: 50px;
 }
 
 #hoeapp-container[hoe-lpanel-effect="shrink"] #main-content{
-	margin-left: 230px;
+	margin-left: 250px;
 }
 #hoeapp-container[hoe-lpanel-effect="shrink"].hoe-minimized-lpanel #main-content{
 	margin-left: 50px;

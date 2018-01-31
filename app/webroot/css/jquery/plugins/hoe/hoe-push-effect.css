@@ -1,7 +1,7 @@
 /*################ Theme Header With Content Push Effect Start #####################*/
 #hoe-header[hoe-lpanel-effect="push"] .hoe-right-header[hoe-position-type="fixed"] {
-    margin-left: 230px;
-    margin-right: -230px;
+    margin-left: 250px;
+    margin-right: -250px;
 	padding-right:0px
 }
 #hoe-header.hoe-minimized-lpanel[hoe-lpanel-effect="push"] .hoe-right-header[hoe-position-type="fixed"] {
@@ -10,8 +10,8 @@
 	padding-right:50px
 }
 #hoe-header[hoe-lpanel-effect="push"] .hoe-right-header[hoe-position-type="relative"] {
-    margin-left: 230px;
-    margin-right: -230px;
+    margin-left: 250px;
+    margin-right: -250px;
 }
 #hoe-header[hoe-lpanel-effect="push"].hoe-minimized-lpanel .hoe-right-header[hoe-position-type="relative"] {
     margin-left: 50px;
@@ -31,8 +31,8 @@
 }
 
 #hoeapp-container[hoe-lpanel-effect="push"] #main-content{
-	margin-left: 230px;
-	margin-right: -230px;
+	margin-left: 250px;
+	margin-right: -250px;
 }
 #hoeapp-container[hoe-lpanel-effect="push"].hoe-minimized-lpanel #main-content{
 	 margin-left: 50px;

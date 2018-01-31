@@ -8,7 +8,7 @@ body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="tablet"] .hoe-l
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="desktop"] .hoe-right-header,
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="tablet"] .hoe-right-header  {
   margin-left: 0;
-  margin-right: 230px;
+  margin-right: 250px;
 }
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="desktop"].left-navbar,
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="tablet"].left-navbar {
@@ -38,16 +38,16 @@ body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="tablet"] #hoe-l
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="desktop"] #main-content,
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="tablet"] #main-content {
   margin-left: 0;
-  margin-right: 230px;
+  margin-right: 250px;
 }
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="desktop"] #styleSelector,
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="tablet"] #styleSelector {
-  left: -230px;
+  left: -250px;
 }
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="desktop"] .selector-toggle > a,
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="tablet"] .selector-toggle > a {
-  border-radius: 0 4px 4px 0;
-  left: 228px;
+  border-radius: 0 0 0 0;
+  left: 248px;
 }
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="desktop"] #styleSelector.open,
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="tablet"] #styleSelector.open {
@@ -106,7 +106,7 @@ body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="desktop"] .hoe-
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="desktop"] .hoe-minimized-lpanel #hoe-left-panel .panel-list > li:focus > a,
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="tablet"] .hoe-minimized-lpanel #hoe-left-panel .panel-list > li:hover > a, 
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="tablet"] .hoe-minimized-lpanel #hoe-left-panel .panel-list > li:focus > a {
-  border-radius: 4px 0px 0px 4px;
+  border-radius: 0px 0px 0px 0px;
 }
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="desktop"] .hoe-minimized-lpanel #hoe-left-panel .panel-list > li.hoe-has-menu:hover > ul.hoe-sub-menu, 
 body[hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="desktop"] .hoe-minimized-lpanel #hoe-left-panel .panel-list > li.hoe-has-menu:focus > ul.hoe-sub-menu,

@@ -77,7 +77,7 @@ body{position:relative;}
     position: absolute;
     float: left;
     text-align: center;
-    width: 230px;
+    width: 250px;
     z-index: 999;
 }
 .hoe-left-header a {
@@ -100,7 +100,7 @@ body{position:relative;}
     line-height: 50px;
     z-index: 101;
 	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
-	margin-left: 230px;
+	margin-left: 250px;
 	position: fixed;
 }
 .hoe-right-header > ul {
@@ -169,7 +169,7 @@ body{position:relative;}
     position: relative;
 }
 #hoe-header .hoe-right-header[hoe-position-type="fixed"] {
-	padding-right: 230px;
+	padding-right: 250px;
     position: fixed;
     width: 100%;
 }
@@ -187,7 +187,7 @@ body{position:relative;}
 #hoe-left-panel {
     background: #FFF none repeat scroll 0 0;
     color: #7e7e7e;
-    width: 230px;
+    width: 250px;
     top: 0;
 	position:absolute;
 	float:left;
@@ -224,7 +224,7 @@ body{position:relative;}
 #hoe-left-panel .nav-level {
     padding: 5px 15px;
     border-top: 1px solid #efefef;
-    font-weight: bold;
+    font-weight: normal;
 }
 #hoe-left-panel .panel-list > li.hoe-has-menu > ul.hoe-sub-menu {
   list-style: none;}
@@ -239,7 +239,7 @@ body{position:relative;}
     display: block;
     /*font-size: 13px;*/
     font-weight: 500;
-    padding: 10px 10px;
+    padding: 10px 16px;
     position: relative;
 }
 #hoe-left-panel .panel-list > li:last-child > a {
@@ -260,8 +260,8 @@ body{position:relative;}
 }
 #hoe-left-panel .panel-list > li > a > i {
     display: inline;
-    /*font-size: 14px;*/
-    padding-right: 6px;
+    font-size: 14px;
+    padding-right: 20px;
 }
 #hoe-left-panel .panel-list > li > a span.menu-text {
     display: inline-block;
@@ -309,7 +309,7 @@ body{position:relative;}
     display: block;
     /*font-size: 13px;*/
     font-weight: 500;
-    padding: 10px 10px;
+    padding: 10px 16px;
     position: relative;
 }
 #hoe-left-panel .panel-list > li.hoe-has-menu > ul.hoe-sub-menu {
@@ -374,15 +374,13 @@ body{position:relative;}
 }
 #hoe-left-panel .panel-list > li.hoe-has-menu > ul.hoe-sub-menu > li > a span.menu-text:before {
     font-family: FontAwesome;
-    content: "\f0da";
-    font-size: 14px;
+    font-size: 16px;
     position: relative;
     float: left;
     left: 4px;
 }
 #hoe-left-panel .panel-list > li.hoe-has-menu > ul.hoe-sub-menu > li.hoe-has-menu > ul.hoe-sub-menu > li > a span.menu-text:before {
     font-family: FontAwesome;
-    content: "\f0da";
     font-size: 12px;
     position: relative;
     float: left;
@@ -390,15 +388,13 @@ body{position:relative;}
 }
 #hoe-left-panel .panel-list > li.hoe-has-menu > ul.hoe-sub-menu > li.hoe-has-menu > ul.hoe-sub-menu > li > a span.menu-text:before {
     font-family: FontAwesome;
-    content: "\f0da";
-    font-size: 14px;
+    font-size: 16px;
     position: relative;
     float: left;
     left: 18px;
 }
 #hoe-left-panel .panel-list > li.hoe-has-menu > ul.hoe-sub-menu > li.hoe-has-menu > ul.hoe-sub-menu > li.hoe-has-menu > ul.hoe-sub-menu > li > a span.menu-text:before {
     font-family: FontAwesome;
-    content: "\f0da";
     font-size: 12px;
     position: relative;
     float: left;
@@ -420,7 +416,7 @@ body{position:relative;}
     display: none;
 }
 #hoe-left-panel .panel-list li a .label {
-    border-radius: 0.25em;
+    border-radius: 0em;
     color: #7e7e7e;
     display: inline;
     /*font-size: 75%;*/
@@ -451,7 +447,7 @@ body{position:relative;}
 /********************************** Theme Left Panel Style Close Here ******************************/
 /*************************** 4.2 Theme Content Section Style Start Here ********************************/
 #main-content {
-    margin-left: 230px;
+    margin-left: 250px;
 	position:relative;
 }
 /******************* Theme Content Section Style Close Here *******************************/
@@ -494,24 +490,24 @@ body{position:relative;}
 .hoe-minimized-lpanel #hoe-left-panel .panel-list > li > a > i {
     display: inline;
     /*font-size: 15px;*/
-    padding-left: 6px;
+    padding-left: 15px;
     padding-right: 6px;
 }
 .hoe-minimized-lpanel #hoe-left-panel .panel-list > li:hover > a,
 .hoe-minimized-lpanel #hoe-left-panel .panel-list > li:focus > a {
     display: block;
     position: relative;
-    width: 230px;
+    width: 300px;
     margin-bottom: -1px;
-    border-radius: 0px 4px 4px 0px;
+    border-radius: 0px 0px 0px 0px;
 }
 .hoe-minimized-lpanel #hoe-left-panel .panel-list > li:hover > a,
 .hoe-minimized-lpanel #hoe-left-panel .panel-list > li:focus > a {
-    border-radius: 0px 4px 4px 0px;
+    border-radius: 0px 0px 0px 0px;
 }
 .hoe-minimized-lpanel #hoe-left-panel .panel-list > li.hoe-has-menu:hover > a,
 .hoe-minimized-lpanel #hoe-left-panel .panel-list > li.hoe-has-menu:focus > a {
-    border-radius: 0px 4px 0px 0px;
+    border-radius: 0px 0px 0px 0px;
     background: #f1f1f1;
 }
 .hoe-minimized-lpanel #hoe-left-panel .panel-list > li:hover > a span.menu-text,
@@ -528,19 +524,19 @@ body{position:relative;}
     display: none !important;
     position: absolute;
     left: 50px;
-    width: 180px;
+    width: 250px;
 }
 .hoe-minimized-lpanel #hoe-left-panel .panel-list > li.hoe-has-menu:hover > ul.hoe-sub-menu,
 .hoe-minimized-lpanel #hoe-left-panel .panel-list > li.hoe-has-menu:focus > ul.hoe-sub-menu {
     display: block !important;
     border-right: 1px solid #efefef;
-	width: 180px;
-	left: 50px;
+	 width: 250px;
+	 left: 50px;
 }
 .hoe-minimized-lpanel #hoe-left-panel .panel-list > li.hoe-has-menu > ul.hoe-sub-menu ul.hoe-sub-menu {
     display: none !important;
     position: absolute;
-    width: 180px;
+    width: 250px;
     left: 0;
 }
 .hoe-minimized-lpanel #hoe-left-panel .panel-list > li.hoe-has-menu:hover > ul.hoe-sub-menu ul.hoe-sub-menu,
@@ -646,7 +642,9 @@ body{position:relative;}
 #hoeapp-wrapper[hoe-device-type="phone"] .hoe-right-header {
   margin-left: 0px;
 }
-
+#hoeapp-wrapper[hoe-device-type="phone"] .hoe-right-header li a {
+  padding: 17px 13px;
+}
 #hoeapp-wrapper[hoe-device-type="phone"] #hoe-left-panel {
     display: block;
     z-index: 1024;
@@ -654,9 +652,9 @@ body{position:relative;}
 #hoeapp-wrapper[hoe-device-type="phone"] #main-content {
     margin-left: 0px;
 }
-
-
-
+#hoeapp-wrapper[hoe-device-type="phone"] .hoe-right-header .left-navbar li:first-child {
+    padding-left: 5px;
+}
 #hoeapp-wrapper[hoe-device-type="phone"] .hoe-left-header > .hoe-sidebar-toggle > a {
     display: block;
 }
@@ -671,7 +669,7 @@ body{position:relative;}
 }
 #hoeapp-wrapper[hoe-device-type="phone"] .hoe-left-header .hoe-sidebar-toggle a:after {
     background: transparent;
-    border-radius: 4px;
+    border-radius: 0px;
     content: "";
     font-family: FontAwesome;
     font-size: 16px;
@@ -690,7 +688,7 @@ body{position:relative;}
   margin-left: 0px;
 }
 #hoeapp-wrapper[hoe-device-type="phone"]  #hoeapp-container[hoe-lpanel-effect="shrink"] #main-content {
-  margin-left: 230px;
+  margin-left: 250px;
 }
 #hoeapp-wrapper[hoe-device-type="phone"].hoe-hide-lpanel  #hoeapp-container[hoe-lpanel-effect="overlay"] #main-content {
    margin-left: 0px;
@@ -703,8 +701,8 @@ body{position:relative;}
    margin-right: 0px;
 }
 #hoeapp-wrapper[hoe-device-type="phone"]  #hoeapp-container[hoe-lpanel-effect="push"] #main-content {
-   margin-left: 230px;
-   margin-right:-230px;
+   margin-left: 250px;
+   margin-right:-250px;
 }
 #hoeapp-wrapper[hoe-device-type="phone"].hoe-hide-lpanel #hoe-header[hoe-lpanel-effect="shrink"] .hoe-right-header[hoe-position-type="relative"] {
     margin-left: 0px;
@@ -792,6 +790,3 @@ body[theme-bg="bg8"]{
 body[theme-bg="bg9"]{
 }
 /*Theme Background Color in Close */
-
-
-
