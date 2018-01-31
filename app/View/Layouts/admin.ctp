@@ -42,7 +42,7 @@ $(document).ready(function () {$(\'[rel=tooltip],input[data-title]\').tooltip();
 <?php echo $scripts_for_layout; ?>
 </head>
 
-<body hoe-navigation-type="vertical-compact" hoe-nav-placement="left" theme-layout="wide-layout" theme-bg="bg1" >
+<body hoe-navigation-type="vertical-compact" hoe-nav-placement="left" theme-layout="wide-layout">
     <div id="hoeapp-wrapper" class="hoe-hide-lpanel" hoe-device-type="desktop">
         <header id="hoe-header" hoe-lpanel-effect="shrink" class="hoe-minimized-lpanel">
             <div class="hoe-left-header" hoe-position-type="fixed">

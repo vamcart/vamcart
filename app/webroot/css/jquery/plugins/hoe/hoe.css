@@ -767,26 +767,3 @@ body[theme-layout="box-layout"] #hoeapp-wrapper[hoe-device-type="desktop"] {
 }
 /*Boxed Theme Layout Style Close*/
  
-/*Theme Background Color in Start */
-body[theme-layout="box-layout" hoe-nav-placement="right"] #hoeapp-wrapper[hoe-device-type="desktop"]{
-	margin:0 auto;
-}
-body[theme-bg="bg1"]{
-}
-body[theme-bg="bg2"]{
-}
-body[theme-bg="bg3"]{
-}
-body[theme-bg="bg4"]{
-}
-body[theme-bg="bg5"]{
-}
-body[theme-bg="bg6"]{
-}
-body[theme-bg="bg7"]{
-}
-body[theme-bg="bg8"]{
-}
-body[theme-bg="bg9"]{
-}
-/*Theme Background Color in Close */
