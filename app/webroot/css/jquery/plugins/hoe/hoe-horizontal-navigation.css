@@ -156,7 +156,7 @@ body[hoe-navigation-type="horizontal"] #hoeapp-wrapper.compact-hmenu[hoe-device-
 body[hoe-navigation-type="horizontal"] #hoeapp-wrapper.compact-hmenu[hoe-device-type="desktop"] #hoe-left-panel .panel-list > li > a > i {
   display: block;
   padding-right: 0;
-  margin: -2px auto;
+  margin: 0 auto;
   text-align: center;
 }
 body[hoe-navigation-type="horizontal"] #hoeapp-container[hoe-lpanel-effect="push"] #main-content {

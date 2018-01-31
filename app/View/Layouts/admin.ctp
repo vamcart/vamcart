@@ -60,6 +60,31 @@ $(document).ready(function () {$(\'[rel=tooltip],input[data-title]\').tooltip();
                 <ul class="right-navbar">
 						<li class="dropdown hoe-rheader-submenu hoe-header-profile">
 							<a href="#" class="dropdown-toggle icon-circle" data-toggle="dropdown">
+	                    <span><i class=" fa fa-search"></i></span>
+							</a> 
+							<ul class="dropdown-menu ">
+								<li>
+									<?php 
+									echo $this->form->create('Search', array('class' => 'search-form', 'url' => '/search/admin_global_search/'));
+									echo $this->form->input('Search.term',array('div' => false, 'class' => 'form-control input-medium', 'label' => false,'placeholder' => __('Global Record Search',true)));
+									//echo $this->form->submit( __('Submit', true));
+									echo $this->form->end();
+									?>								
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown hoe-rheader-submenu hoe-header-profile">
+							<a href="#" class="dropdown-toggle icon-circle" data-toggle="dropdown">
+	                    <span><i class=" fa fa-question-circle"></i></span>
+							</a> 
+							<ul class="dropdown-menu ">
+								<li><a href="http://apps.<?php echo __('vamshop.com'); ?>/" target="_blank" title="<?php echo __('Apps'); ?>"><i class="fa fa-th"></i> <?php echo __('Apps'); ?></a></li>
+								<li><a href="http://support.<?php echo __('vamshop.com'); ?>/" target="_blank" title="<?php echo __('Support'); ?>"><i class="fa fa-question"></i> <?php echo __('Support'); ?></a></li>
+								<li><?php echo $this->Html->link('<i class="fa fa-shopping-cart"></i> ' . __('Launch Site'), '/', array('escape'=> false, 'target' => 'blank', 'title' => __('Launch Site'))); ?></li>
+							</ul>
+						</li>
+						<li class="dropdown hoe-rheader-submenu hoe-header-profile">
+							<a href="#" class="dropdown-toggle icon-circle" data-toggle="dropdown">
 	                    <span><i class=" fa fa-user"></i></span>
 							</a> 
 							<ul class="dropdown-menu ">
@@ -81,17 +106,6 @@ if(isset($navigation)) {
             <ul class="nav panel-list">
 
                 <?php echo $this->admin->DrawMenu($navigation); ?>
-
-                <li class="nav-level">
-                
-						<?php 
-						echo $this->form->create('Search', array('class' => 'search-form', 'url' => '/search/admin_global_search/'));
-						echo $this->form->input('Search.term',array('div' => false, 'class' => 'form-control input-medium', 'label' => false,'placeholder' => __('Global Record Search',true)));
-						//echo $this->form->submit( __('Submit', true));
-						echo $this->form->end();
-						?>
-                
-                </li>
 
             </ul>				 
             </aside>
