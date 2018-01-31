@@ -125,16 +125,16 @@ body[hoe-navigation-type="horizontal"] #hoeapp-wrapper[hoe-device-type="desktop"
     left: 4px;
 }
 body[hoe-navigation-type="horizontal"] #hoeapp-wrapper[hoe-device-type="desktop"] #hoe-left-panel .panel-list > li.hoe-has-menu > ul > li > a span.menu-text {
-    padding-left: 13px;
+    padding-left: 5px;
 }
 body[hoe-navigation-type="horizontal"] #hoeapp-wrapper[hoe-device-type="desktop"] #hoe-left-panel .panel-list > li.hoe-has-menu > ul > li.hoe-has-menu > ul > li > a span.menu-text {
-    padding-left: 13px;
+    padding-left: 5px;
 }
 body[hoe-navigation-type="horizontal"] #hoeapp-wrapper[hoe-device-type="desktop"] #hoe-left-panel .panel-list > li.hoe-has-menu > ul > li.hoe-has-menu > ul > li > ul > li > a span.menu-text {
-    padding-left: 13px;
+    padding-left: 5px;
 }
 body[hoe-navigation-type="horizontal"] #hoeapp-wrapper[hoe-device-type="desktop"] #hoe-left-panel .panel-list > li.hoe-has-menu > ul > li.hoe-has-menu > ul > li > ul > li > ul > li > a span.menu-text {
-    padding-left: 13px;
+    padding-left: 5px;
 }
 body[hoe-navigation-type="horizontal"] #hoeapp-wrapper[hoe-device-type="desktop"] #main-content {
   margin-left: 0;
@@ -156,7 +156,7 @@ body[hoe-navigation-type="horizontal"] #hoeapp-wrapper.compact-hmenu[hoe-device-
 body[hoe-navigation-type="horizontal"] #hoeapp-wrapper.compact-hmenu[hoe-device-type="desktop"] #hoe-left-panel .panel-list > li > a > i {
   display: block;
   padding-right: 0;
-  margin: 0 auto;
+  margin: -2px auto;
   text-align: center;
 }
 body[hoe-navigation-type="horizontal"] #hoeapp-container[hoe-lpanel-effect="push"] #main-content {

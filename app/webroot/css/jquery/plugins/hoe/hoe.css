@@ -344,7 +344,7 @@ body{position:relative;}
     display: block;
 }
 #hoe-left-panel .panel-list > li.hoe-has-menu > ul > li > a span.menu-text {
-    padding-left: 15px;
+    padding-left: 5px;
     position: relative;
 }
 #hoe-left-panel .panel-list > li.hoe-has-menu > ul.hoe-sub-menu {
