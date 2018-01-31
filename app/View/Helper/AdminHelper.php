@@ -274,7 +274,7 @@ function submitForm(form){
 	public function DrawMenu ($navigation_walk)
 	{
 		$navigation = '';
-		$navigation .= '<ul class="nav panel-list">';
+		//$navigation .= '<ul class="nav panel-list">';
 
 		$path = '/' . $this->params['controller'] . '/' . $this->params['action'] . '/';
 
@@ -309,7 +309,7 @@ function submitForm(form){
 			$navigation .= '</li>';
 			}
 		}
-		$navigation .= '</ul>';
+		//$navigation .= '</ul>';
 		
 		return($navigation);
 	}
@@ -320,7 +320,7 @@ function submitForm(form){
 		$divider = '';
 		
 		$breadcrumbs = '';
-		$breadcrumbs .= '<ul class="left-navbar breadcrumb">';
+		//$breadcrumbs .= '<ul class="left-navbar breadcrumb">';
 
 		// Loop through to generage the child breadcrumb, then the top level
 		foreach($navigation_walk AS $walk_key => $navigation)
@@ -346,7 +346,7 @@ function submitForm(form){
 		// Set the current breadcrumb
 		$breadcrumbs .= '<li class="active">'.__($current_crumb, true).'</li>';
 
-		$breadcrumbs .= '</ul>';
+		//$breadcrumbs .= '</ul>';
 		
 		return($breadcrumbs);
 	
