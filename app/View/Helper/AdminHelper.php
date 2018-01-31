@@ -344,7 +344,7 @@ function submitForm(form){
 		}
 		
 		// Set the current breadcrumb
-		//$breadcrumbs .= '<li class="active">'.__($current_crumb, true).'</li>';
+		if ($this->params['action'] == "admin_top" or $this->params['action'] == "admin_index") $breadcrumbs .= '<li class="active">'.__($current_crumb, true).'</li>';
 
 		//$breadcrumbs .= '</ul>';
 		
