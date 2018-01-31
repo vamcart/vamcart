@@ -36,6 +36,25 @@ function smarty_function_shipping_methods($params, $template)
 	if(!isset ($params['limit']))
 		$params['limit'] = $config['PRODUCTS_PER_PAGE'];
 
+	//App::import('Vendor', 'GeoCity', array('file' => 'GeoCity'.DS.'SxGeo.php'));
+	//$SxGeo= new SxGeo(APP.'Vendor/GeoCity/SxGeo.dat');
+	//$geo_data = $SxGeo->get($_SERVER['REMOTE_ADDR']);
+	//$city = $geo_data['city']['name_ru'];
+  
+	//$order['Order']['bill_city'] = $city;
+	//if ($params['city'] != '') $order['Order']['bill_city'] = $params['city'];
+
+	//$city = $order['Order']['bill_city'];
+	//$state = $order['Order']['bill_state'];
+
+	//$order['OrderProduct'][1]['name'] = $content['ContentDescription']['name'];	
+	//$order['OrderProduct'][1]['quantity'] = 1;	
+	//$order['OrderProduct'][1]['weight'] = $content['ContentProduct']['weight'];	
+	//$order['OrderProduct'][1]['length'] = $content['ContentProduct']['length'];	
+	//$order['OrderProduct'][1]['width'] = $content['ContentProduct']['width'];	
+	//$order['OrderProduct'][1]['height'] = $content['ContentProduct']['height'];	
+	//$order['OrderProduct'][1]['volume'] = $content['ContentProduct']['volume'];	
+
 	// Cache the output.
 	$cache_name = 'vam_shipping_methods_output' . (isset($params['template'])?'_'.$params['template']:'') . $content['Content']['id'] .'_' . $_SESSION['Customer']['language_id'];
 	$output = Cache::read($cache_name, 'catalog');
@@ -87,6 +106,8 @@ function smarty_function_shipping_methods($params, $template)
 	}	
 	
 	$assignments = array(
+		//'city' => $city,
+		//'state' => $state,
 		'ship_methods' => $keyed_ship_methods
 	);
 
