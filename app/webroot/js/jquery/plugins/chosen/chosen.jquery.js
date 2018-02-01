@@ -805,7 +805,7 @@ $(document).ready(function() {
       this.container.addClass("chosen-container-active");
       this.active_field = true;
       this.search_field.val(this.search_field.val());
-      return this.search_field.focus();
+      return this.search_field.trigger("focus");
     };
 
     Chosen.prototype.test_active_click = function(evt) {
@@ -878,7 +878,7 @@ $(document).ready(function() {
       }
       this.container.addClass("chosen-with-drop");
       this.results_showing = true;
-      this.search_field.focus();
+      this.search_field.trigger("focus");
       this.search_field.val(this.search_field.val());
       this.winnow_results();
       return this.form_field_jq.trigger("chosen:showing_dropdown", {
@@ -943,7 +943,7 @@ $(document).ready(function() {
       if (target.length) {
         this.result_highlight = target;
         this.result_select(evt);
-        return this.search_field.focus();
+        return this.search_field.trigger("focus");
       }
     };
 
