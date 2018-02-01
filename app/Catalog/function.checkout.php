@@ -26,7 +26,7 @@ $(function () {
     $("textarea[id=\'" + this.id + "\']").addClass("modified");
   });
 
-  $(\'.form-anti-bot, .form-anti-bot-2\').hide(); // hide inputs from users
+  $(\'.form-anti-bot, .form-anti-bot-2\').trigger("hide"); // hide inputs from users
   var answer = $(\'.form-anti-bot input#anti-bot-a\').val(); // get answer
   $(\'.form-anti-bot input#anti-bot-q\').val( answer ); // set answer into other input
 	
@@ -106,7 +106,7 @@ $(this).parent().addClass("selected");
 	        }
 			else
 			{
-			$("#ship_information").hide("fast");
+			$("#ship_information").trigger("hide");
 			}
 		});
 		;}
@@ -114,10 +114,10 @@ $(this).parent().addClass("selected");
 
 	{if {$display_country_field} == "1"}
     $("#bill_country").on("change",function () {
-      $("#bill_state_div").load("{base_path}/countries/billing_regions/" + $(this).val());
+      $("#bill_state_div").on("load","{base_path}/countries/billing_regions/" + $(this).val());
     });
     $("#ship_country").on("change",function () {
-      $("#ship_state_div").load("{base_path}/countries/shipping_regions/" + $(this).val());
+      $("#ship_state_div").on("load","{base_path}/countries/shipping_regions/" + $(this).val());
     });
 	{/if}    
 	{if {$display_state_field} == "1"}
