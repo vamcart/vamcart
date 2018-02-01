@@ -135,9 +135,7 @@ $(this).parent().addClass("selected");
                 async: true,
                 success: function (data, textStatus) {
                     global_spinner.fadeOut("fast");
-                    $("#checkout").html(data);
-                    //$("#bill_state").val($(this).val());
-                   },
+                    $("#checkout").html(data);},
                 beforeSend: function () {
                     global_spinner.fadeIn("fast");
                     },
@@ -161,7 +159,6 @@ $(this).parent().addClass("selected");
                 success: function (data, textStatus) {
                     global_spinner.fadeOut("fast");
                     $("#checkout").html(data);
-                    //$("#bill_city").val($(this).val());
                     },
                 beforeSend: function () {
                     global_spinner.fadeIn("fast");
@@ -177,12 +174,12 @@ $(this).parent().addClass("selected");
   });
 </script>
 {if $dadata_api_key != "" and $smarty.session.Config.language == "ru"}
-<link href="https://cdn.jsdelivr.net/npm/suggestions-jquery@17.10.1/dist/css/suggestions.min.css" type="text/css" rel="stylesheet" />
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/jquery.suggestions/16.5.3/css/suggestions.css" type="text/css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <!--[if lt IE 10]>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.1/jquery.xdomainrequest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.1/jquery.xdomainrequest.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/suggestions-jquery@17.10.1/dist/js/jquery.suggestions.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.suggestions/16.5.3/js/jquery.suggestions.min.js"></script>
 <script>
 (function($) {
 
