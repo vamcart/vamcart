@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 
 $this->Html->script(array(
-	'selectall.js'
+	'admin/selectall.js'
 ), array('inline' => false));
 
 echo $this->Admin->ShowPageHeaderStart($title_for_layout, 'cus-table-edit');

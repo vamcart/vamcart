@@ -23,7 +23,7 @@ $this->Html->script(array(
     'jquery/plugins/ui/jquery-ui.min.js',
     'lou-multi-select/jquery.multi-select.js',
     'lou-multi-select/jquery.quicksearch.js',
-    'selectall.js',
+    'admin/selectall.js',
     $fname
 ), array('inline' => false));
 ?>

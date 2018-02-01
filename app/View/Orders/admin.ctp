@@ -22,8 +22,8 @@ if (!file_exists(WWW_ROOT . 'js/' . $fname)) {
     
 $this->Html->script(array(
 	'jquery/plugins/ui/jquery-ui.min.js',
-	'selectall.js',
-	$fname
+	'admin/selectall.js',
+	'admin/'.$fname
 ), array('inline' => false));
 ?>
 <?php echo $this->Html->scriptBlock('

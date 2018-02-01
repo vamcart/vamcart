@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 
 $this->Html->script(array(
-	'selectall.js'
+	'admin/selectall.js'
 ), array('inline' => false));
 
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-palette');

@@ -25,7 +25,7 @@ $this->Html->script(array(
 	'jquery/plugins/chosen/chosen.jquery.js',
 	'jquery/plugins/ui/jquery-ui.min.js',
 	'jquery/plugins/jquery-ui/' . $fname,
-	'selectall.js'
+	'admin/selectall.js'
 ), array('inline' => false));
 
 $this->Html->css(array(

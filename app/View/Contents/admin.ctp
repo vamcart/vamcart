@@ -24,8 +24,8 @@ $this->Html->script(array(
 	'jquery/plugins/ui/jquery-ui.min.js',
 	'jquery/plugins/jquery.jeditable.js',
 	'jquery/plugins/chosen/chosen.jquery.js',
-	'selectall.js',
-	$fname
+	'admin/selectall.js',
+	'admin/'.$fname
 ), array('inline' => false));
 ?>
 

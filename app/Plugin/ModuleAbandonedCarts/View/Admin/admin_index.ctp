@@ -21,9 +21,9 @@ if (!file_exists(WWW_ROOT . 'js/' . $fname)) {
 }
     
 $this->Html->script(array(
-	'jquery/plugins/jquery-ui-min.js',
-	'selectall.js',
-	$fname
+	'jquery/plugins/ui/jquery-ui.min.js',
+	'admin/selectall.js',
+	'admin/'.$fname
 ), array('inline' => false));
 ?>
 <?php echo $this->Html->scriptBlock('
@@ -89,7 +89,7 @@ function statusSelection(form)
 }', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
 <?php
 
-echo $this->Html->css('jquery-ui.css', null, array('inline' => false));
+echo $this->Html->css('jquery/plugins/ui/jquery-ui.css', null, array('inline' => false));
 
 	echo $this->Admin->ShowPageHeaderStart($title_for_layout, 'cus-cart-error');
 
