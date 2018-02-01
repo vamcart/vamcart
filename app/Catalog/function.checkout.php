@@ -16,7 +16,7 @@ $(function () {
   $("#phone").mask("{$phone_mask}");
 {/if}  
 
-  $("#contentform :input:text:visible:enabled:first").trigger("focus");
+  //$("#contentform :input:text:visible:enabled:first").trigger("focus");
 
   $("form#contentform :input").on("change",function() {
     $("input[id=\'" + this.id + "\']").addClass("modified");
@@ -114,10 +114,10 @@ $(this).parent().addClass("selected");
 
 	{if {$display_country_field} == "1"}
     $("#bill_country").on("change",function () {
-      $("#bill_state_div").on("load","{base_path}/countries/billing_regions/" + $(this).val());
+      $("#bill_state_div").load("{base_path}/countries/billing_regions/" + $(this).val());
     });
     $("#ship_country").on("change",function () {
-      $("#ship_state_div").on("load","{base_path}/countries/shipping_regions/" + $(this).val());
+      $("#ship_state_div").load("{base_path}/countries/shipping_regions/" + $(this).val());
     });
 	{/if}    
 	{if {$display_state_field} == "1"}
