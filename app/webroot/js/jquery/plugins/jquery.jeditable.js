@@ -122,7 +122,7 @@
                 $(this).html(settings.placeholder);
             }
             
-            $(this).bind(settings.event, function(e) {
+            $(this).on(settings.event, function(e) {
                 
                 /* abort if disabled for this element */
                 if (true === $(this).data('disabled.editable')) {
@@ -250,7 +250,7 @@
                 plugin.apply(form, [settings, self]);
 
                 /* focus to first visible form element */
-                $(':input:visible:enabled:first', form).focus();
+                $(':input:visible:enabled:first', form).trigger("focus");
 
                 /* highlight input contents when requested */
                 if (settings.select) {
@@ -258,7 +258,7 @@
                 }
         
                 /* discard changes if pressing esc */
-                input.keydown(function(e) {
+                input.on("keydown",function(e) {
                     if (e.keyCode == 27) {
                         e.preventDefault();
                         //self.reset();
@@ -270,30 +270,30 @@
                 /* do nothing is usable when navigating with tab */
                 var t;
                 if ('cancel' == settings.onblur) {
-                    input.blur(function(e) {
+                    input.on("blur",function(e) {
                         /* prevent canceling if submit was clicked */
                         t = setTimeout(function() {
                             reset.apply(form, [settings, self]);
                         }, 500);
                     });
                 } else if ('submit' == settings.onblur) {
-                    input.blur(function(e) {
+                    input.on("blur",function(e) {
                         /* prevent double submit if submit was clicked */
                         t = setTimeout(function() {
-                            form.submit();
+                            form.trigger("submit");
                         }, 200);
                     });
                 } else if ($.isFunction(settings.onblur)) {
-                    input.blur(function(e) {
+                    input.on("blur",function(e) {
                         settings.onblur.apply(self, [input.val(), settings]);
                     });
                 } else {
-                    input.blur(function(e) {
+                    input.on("blur",function(e) {
                       /* TODO: maybe something here */
                     });
                 }
 
-                form.submit(function(e) {
+                form.on("submit",function(e) {
 
                     if (t) { 
                         clearTimeout(t);
@@ -419,7 +419,7 @@
                         if (settings.submit.match(/>$/)) {
                             var submit = $(settings.submit).click(function() {
                                 if (submit.attr("type") != "submit") {
-                                    form.submit();
+                                    form.trigger("submit");
                                 }
                             });
                         /* otherwise use button with given string as text */
