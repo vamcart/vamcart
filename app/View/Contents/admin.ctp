@@ -22,7 +22,7 @@ if (!file_exists(WWW_ROOT . 'js/admin/' . $fname)) {
     
 $this->Html->script(array(
 	'jquery/plugins/ui/jquery-ui.min.js',
-	'jquery/plugins/jquery.jeditable.js',
+	'jquery/plugins/jeditable/jquery.jeditable.js',
 	'jquery/plugins/chosen/chosen.jquery.js',
 	'admin/selectall.js',
 	'admin/'.$fname

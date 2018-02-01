@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 
     $this->Html->script(array(
-            'jquery/plugins/jquery.jeditable.js'
+            'jquery/plugins/jeditable/jquery.jeditable.js'
            ,'jquery/plugins/form/jquery.form.js'
     ), array('inline' => false));
     
