@@ -131,7 +131,7 @@ $(document).ready(function() {
             };
             setHeight();
 
-            $(window).resize(function() {
+            $(window).on("resize",function() {
                 setHeight();
             });
         },
@@ -229,7 +229,7 @@ $(document).ready(function() {
                 }
             }
             Responsivelpanel();
-            $(window).resize(Responsivelpanel);
+            $(window).on("resize",Responsivelpanel);
 
         },
 
