@@ -9,8 +9,8 @@
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-lock');
 	
 	$this->Html->script(array(
-			'focus-first-input.js',
-		'modified.js'
+			'admin/focus-first-input.js',
+		'admin/modified.js'
 	), array('inline' => false));
 	
 	echo $this->Form->create('User', array('id' => 'contentform', 'url' => '/users/admin_login/'));

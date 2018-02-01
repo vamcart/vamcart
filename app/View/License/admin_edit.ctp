@@ -7,8 +7,8 @@
    ---------------------------------------------------------------------------------------*/
 
 $this->Html->script(array(
-	'modified.js',
-	'focus-first-input.js'
+	'admin/modified.js',
+	'admin/focus-first-input.js'
 ), array('inline' => false));
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-lock');

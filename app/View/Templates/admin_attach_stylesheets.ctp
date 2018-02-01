@@ -14,8 +14,8 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-palette');
 
 <?php
 $this->Html->script(array(
-	'modified.js',
-	'focus-first-input.js'
+	'admin/modified.js',
+	'admin/focus-first-input.js'
 ), array('inline' => false));
 
 $attached_stylesheet = $template['Stylesheet'];

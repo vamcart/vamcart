@@ -29,8 +29,8 @@ $this->Html->script(array(
 	'jquery/plugins/jquery-ui/' . $fname,
 	'jquery/plugins/dynatree/jquery.dynatree.js',
 	'jquery/plugins/chosen/chosen.jquery.js',
-	'modified.js',
-	'focus-first-input.js'
+	'admin/modified.js',
+	'admin/focus-first-input.js'
 ), array('inline' => false));
 
 $this->Html->css(

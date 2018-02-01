@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 
 $this->Html->script(array(
-	'modified.js'
+	'admin/modified.js'
 ), array('inline' => false));
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb . ' ' . __('#') . $data['Order']['id'] . ', ' . __('Order Status') . ': ' . $order_status_list[$data['OrderStatus']['id']], 'cus-table');

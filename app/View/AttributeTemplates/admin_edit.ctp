@@ -7,8 +7,8 @@
    ---------------------------------------------------------------------------------------*/
 
 $this->Html->script(array(
-	'modified.js',
-	'focus-first-input.js',
+	'admin/modified.js',
+	'admin/focus-first-input.js',
 	'codemirror/lib/codemirror.js',
 	'codemirror/mode/javascript/javascript.js',
 	'codemirror/mode/css/css.js',
