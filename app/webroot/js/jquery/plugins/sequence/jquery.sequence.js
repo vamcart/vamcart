@@ -11,7 +11,7 @@ http://www.opensource.org/licenses/mit-license.php
 
 ;(function($) {
 	var windowLoaded = false;
-	$(window).bind("load", function() {
+	$(window).on("load", function() {
 		windowLoaded = true;
 	});
 
@@ -201,14 +201,14 @@ http://www.opensource.org/licenses/mit-license.php
 
 				if($images.length === loaded.length) { // call doneLoading and clean listeners if all images are loaded
 					setTimeout(doneLoading);
-					$images.unbind('.imagesLoaded');
+					$images.off('.imagesLoaded');
 				}
 			}
 
 			if(!$images.length) { // if no images, trigger immediately
 				doneLoading();
 			}else{
-				$images.bind('load.imagesLoaded error.imagesLoaded', function(event) {
+				$images.on('load.imagesLoaded error.imagesLoaded', function(event) {
 					imgLoaded(event.target, event.type === 'error'); // trigger imgLoaded
 				}).each(function(i, el) {
 					var src = el.src;
@@ -241,11 +241,11 @@ http://www.opensource.org/licenses/mit-license.php
 		}else{ //if not using the preloader...
 			if(windowLoaded === true) { //if the window has already loaded...
 				oncePreloaded(); //run the init functionality when the preloader has finished
-				$(this).unbind("load.sequence"); //unbind the load event as it's no longer needed
+				$(this).off("load.sequence"); //unbind the load event as it's no longer needed
 			}else{ //if the window hasn't already loaded...
-				$(window).bind("load.sequence", function() { //when the window loads...	
+				$(window).on("load.sequence", function() { //when the window loads...	
 					oncePreloaded(); //run the init functionality when the preloader has finished
-					$(this).unbind("load.sequence"); //unbind the load event as it's no longer needed
+					$(this).off("load.sequence"); //unbind the load event as it's no longer needed
 				});
 			}
 		}
@@ -353,19 +353,19 @@ http://www.opensource.org/licenses/mit-license.php
 			//END INIT
 			//EVENTS
 			if(self.nextButton !== undefined) { //if a next button is defined...
-				self.nextButton.bind('click.sequence', function() { //when the next button is clicked...
+				self.nextButton.on('click.sequence', function() { //when the next button is clicked...
 					self.next(); //go to the next frame
 				});
 			}
 
 			if(self.prevButton !== undefined) { //if a previous button is defined...
-				self.prevButton.bind('click.sequence', function() { //when the previous button is clicked...
+				self.prevButton.on('click.sequence', function() { //when the previous button is clicked...
 					self.prev(); //go to the previous frame
 				});
 			}
 
 			if(self.pauseButton !== undefined) { //if a pause button is defined...
-				self.pauseButton.bind('click.sequence', function() { //when the pause button is clicked...
+				self.pauseButton.on('click.sequence', function() { //when the pause button is clicked...
 					self.pause(true); //pause Sequence and set hardPause to true
 				});
 			}
@@ -393,7 +393,7 @@ http://www.opensource.org/licenses/mit-license.php
 					'right'	: 39
 				};
 
-				$(document).bind('keydown.sequence', function(e) { //when a key is pressed...
+				$(document).on('keydown.sequence', function(e) { //when a key is pressed...
 					var keyCodeChar = String.fromCharCode(e.keyCode);
 					if((keyCodeChar > 0 && keyCodeChar <= self.numberOfFrames) && (self.settings.numericKeysGoToFrames)) {
 						self.nextFrameID = keyCodeChar;
@@ -425,7 +425,7 @@ http://www.opensource.org/licenses/mit-license.php
 			});
 
 			if(self.settings.hashTags) { //if hashchange is enabled in the settings...
-				$(window).bind('hashchange.sequence', function() { //when the hashtag changes...
+				$(window).on('hashchange.sequence', function() { //when the hashtag changes...
 					var newTag = location.hash.replace("#", ""); //grab the new hashtag
 
 					if(self.currentHashTag !== newTag) { //if the last hashtag is not the same as the current one...
@@ -673,8 +673,8 @@ http://www.opensource.org/licenses/mit-license.php
 					}
 
 					self.active = true; //Sequence is now animating
-					self.currentFrame.unbind(self.transitionEnd); //remove the animation end event
-					self.nextFrame.unbind(self.transitionEnd); //remove the animation end event
+					self.currentFrame.off(self.transitionEnd); //remove the animation end event
+					self.nextFrame.off(self.transitionEnd); //remove the animation end event
 
 					if(self.settings.fadeFrameWhenSkipped && self.settings.navigationSkip) { //if a frame may have faded out when it was previously skipped...
 						self.nextFrame.css("opacity", 1); //show it again
@@ -812,22 +812,22 @@ http://www.opensource.org/licenses/mit-license.php
 
 			//REMOVE EVENTS
 			if(self.nextButton !== undefined) { //remove the next button click event if a next button is defined
-				self.nextButton.unbind('click.sequence');
+				self.nextButton.off('click.sequence');
 			}
 			if(self.prevButton !== undefined) { //remove the previous button click event if a previous button is defined
-				self.prevButton.unbind('click.sequence');
+				self.prevButton.off('click.sequence');
 			}
 			if(self.pauseButton !== undefined) { //remove the pause button click event if a pause button is defined
-				self.pauseButton.unbind('click.sequence');
+				self.pauseButton.off('click.sequence');
 			}
 
 			if(self.pagination !== undefined) {
-				self.paginationLinks.unbind('click.sequence');
+				self.paginationLinks.off('click.sequence');
 			}
 
-			$(document).unbind('keydown.sequence'); //unbind key events
-			self.canvas.unbind('mouseenter.sequence, mouseleave.sequence, touchstart.sequence, touchmove.sequence'); //unbind mouse and touch events
-			$(window).unbind('hashchange.sequence'); //unbind hashchange
+			$(document).off('keydown.sequence'); //unbind key events
+			self.canvas.off('mouseenter.sequence, mouseleave.sequence, touchstart.sequence, touchmove.sequence'); //unbind mouse and touch events
+			$(window).off('hashchange.sequence'); //unbind hashchange
 
 			//CLEAR TIMERS
 			self.stopAutoPlay();
@@ -1101,7 +1101,7 @@ http://www.opensource.org/licenses/mit-license.php
 			}
 
 			currentFrameChildren.data('animationEnded', false); // set the data attribute of each animated element to indicate that the animation has not yet ended
-			frame.bind(self.transitionEnd, function(e) { //when an element finishes animating...
+			frame.on(self.transitionEnd, function(e) { //when an element finishes animating...
 				$(e.target).data('animationEnded', true); // set the data attrbiute to indicate that the element has finished it's animation
 
 				// now check if all elements have finished animating
@@ -1114,7 +1114,7 @@ http://www.opensource.org/licenses/mit-license.php
 				});
 
 				if(allAnimationsEnded) { //if all animations have ended...
-					frame.unbind(self.transitionEnd); //stop waiting for animations to end
+					frame.off(self.transitionEnd); //stop waiting for animations to end
 					onceComplete();
 				}
 			});
@@ -1140,7 +1140,7 @@ http://www.opensource.org/licenses/mit-license.php
 		 * Build: http://modernizr.com/download/#-svg-prefixed-testprop-testallprops-domprefixes
 		 */
 		_modernizrForSequence: function() {
-			;window.ModernizrForSequence=function(a,b,c){function x(a){i.cssText=a}function y(a,b){return x(prefixes.join(a+";")+(b||""))}function z(a,b){return typeof a===b}function A(a,b){return!!~(""+a).indexOf(b)}function B(a,b){for(var d in a){var e=a[d];if(!A(e,"-")&&i[e]!==c)return b=="pfx"?e:!0}return!1}function C(a,b,d){for(var e in a){var f=b[a[e]];if(f!==c)return d===!1?a[e]:z(f,"function")?f.bind(d||b):f}return!1}function D(a,b,c){var d=a.charAt(0).toUpperCase()+a.slice(1),e=(a+" "+m.join(d+" ")+d).split(" ");return z(b,"string")||z(b,"undefined")?B(e,b):(e=(a+" "+n.join(d+" ")+d).split(" "),C(e,b,c))}var d="2.6.1",e={},f=b.documentElement,g="modernizrForSequence",h=b.createElement(g),i=h.style,j,k={}.toString,l="Webkit Moz O ms",m=l.split(" "),n=l.toLowerCase().split(" "),o={svg:"http://www.w3.org/2000/svg"},p={},q={},r={},s=[],t=s.slice,u,v={}.hasOwnProperty,w;!z(v,"undefined")&&!z(v.call,"undefined")?w=function(a,b){return v.call(a,b)}:w=function(a,b){return b in a&&z(a.constructor.prototype[b],"undefined")},Function.prototype.bind||(Function.prototype.bind=function(b){var c=self;if(typeof c!="function")throw new TypeError;var d=t.call(arguments,1),e=function(){if(self instanceof e){var a=function(){};a.prototype=c.prototype;var f=new a,g=c.apply(f,d.concat(t.call(arguments)));return Object(g)===g?g:f}return c.apply(b,d.concat(t.call(arguments)))};return e}),p.svg=function(){return!!b.createElementNS&&!!b.createElementNS(o.svg,"svg").createSVGRect};for(var E in p)w(p,E)&&(u=E.toLowerCase(),e[u]=p[E](),s.push((e[u]?"":"no-")+u));return e.addTest=function(a,b){if(typeof a=="object")for(var d in a)w(a,d)&&e.addTest(d,a[d]);else{a=a.toLowerCase();if(e[a]!==c)return e;b=typeof b=="function"?b():b,enableClasses&&(f.className+=" "+(b?"":"no-")+a),e[a]=b}return e},x(""),h=j=null,e._version=d,e._domPrefixes=n,e._cssomPrefixes=m,e.testProp=function(a){return B([a])},e.testAllProps=D,e.prefixed=function(a,b,c){return b?D(a,b,c):D(a,"pfx")},e}(self,self.document);
+			;window.ModernizrForSequence=function(a,b,c){function x(a){i.cssText=a}function y(a,b){return x(prefixes.join(a+";")+(b||""))}function z(a,b){return typeof a===b}function A(a,b){return!!~(""+a).indexOf(b)}function B(a,b){for(var d in a){var e=a[d];if(!A(e,"-")&&i[e]!==c)return b=="pfx"?e:!0}return!1}function C(a,b,d){for(var e in a){var f=b[a[e]];if(f!==c)return d===!1?a[e]:z(f,"function")?f.on(d||b):f}return!1}function D(a,b,c){var d=a.charAt(0).toUpperCase()+a.slice(1),e=(a+" "+m.join(d+" ")+d).split(" ");return z(b,"string")||z(b,"undefined")?B(e,b):(e=(a+" "+n.join(d+" ")+d).split(" "),C(e,b,c))}var d="2.6.1",e={},f=b.documentElement,g="modernizrForSequence",h=b.createElement(g),i=h.style,j,k={}.toString,l="Webkit Moz O ms",m=l.split(" "),n=l.toLowerCase().split(" "),o={svg:"http://www.w3.org/2000/svg"},p={},q={},r={},s=[],t=s.slice,u,v={}.hasOwnProperty,w;!z(v,"undefined")&&!z(v.call,"undefined")?w=function(a,b){return v.call(a,b)}:w=function(a,b){return b in a&&z(a.constructor.prototype[b],"undefined")},Function.prototype.on||(Function.prototype.on=function(b){var c=self;if(typeof c!="function")throw new TypeError;var d=t.call(arguments,1),e=function(){if(self instanceof e){var a=function(){};a.prototype=c.prototype;var f=new a,g=c.apply(f,d.concat(t.call(arguments)));return Object(g)===g?g:f}return c.apply(b,d.concat(t.call(arguments)))};return e}),p.svg=function(){return!!b.createElementNS&&!!b.createElementNS(o.svg,"svg").createSVGRect};for(var E in p)w(p,E)&&(u=E.toLowerCase(),e[u]=p[E](),s.push((e[u]?"":"no-")+u));return e.addTest=function(a,b){if(typeof a=="object")for(var d in a)w(a,d)&&e.addTest(d,a[d]);else{a=a.toLowerCase();if(e[a]!==c)return e;b=typeof b=="function"?b():b,enableClasses&&(f.className+=" "+(b?"":"no-")+a),e[a]=b}return e},x(""),h=j=null,e._version=d,e._domPrefixes=n,e._cssomPrefixes=m,e.testProp=function(a){return B([a])},e.testAllProps=D,e.prefixed=function(a,b,c){return b?D(a,b,c):D(a,"pfx")},e}(self,self.document);
 		},
 
 		/* Set up Sequence's default preloader

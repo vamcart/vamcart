@@ -15,7 +15,7 @@
 		
 		$('body').addClass(o.bodyClass);
 		$(this).addClass('jPushMenuBtn');
-		$(this).click(function() {
+		$(this).on("click", function() {
 			var target         = '',
 			push_direction     = '';
 			
@@ -55,7 +55,7 @@
 		}
 
     if(o.closeOnClickOutside) {
-			$(document).click(function() {
+			$(document).on("click", function() {
 				jPushMenu.close();
 			});
 
@@ -63,7 +63,7 @@
 				jPushMenu.close();
 			});
 
-			$('.cbp-spmenu,.toggle-menu').click(function(e){
+			$('.cbp-spmenu,.toggle-menu').on("click",function(e){
 				e.stopPropagation();
 			});
 
