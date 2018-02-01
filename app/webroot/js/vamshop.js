@@ -70,12 +70,12 @@ this.options)});b._afterUpdate&&b._afterUpdate(a,b._groups)};b._update=function(
 
 // Responsive equal height
 
+$(document).ready(function(){
 if ($(window).width() > 767) {
-$(window).load(function() {
     $('.featured-categories .thumbnails .thumbnail').matchHeight();
     $('.shop-products .thumbnails .thumbnail').matchHeight();
-});
 }
+});
 
 // Make ColorBox responsive
 
@@ -97,7 +97,7 @@ $(document).ready(function(){
 	}
 
 	// Resize ColorBox when resizing window or changing mobile device orientation
-	jQuery(window).resize(resizeColorBox);
+	jQuery(window).on("resize",resizeColorBox);
 
 });
 
