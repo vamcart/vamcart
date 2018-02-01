@@ -37,8 +37,8 @@ $(document).ready(function(){
       //$("html, body").animate({ scrollTop: 0 }, "slow");
       //$(".shopping-cart-widget").addClass("ajax-cart-hightlight");
       $("nav .dropdown-toggle.cart").dropdown("toggle");
-      $("nav .navbar-toggle").click();
-      $("nav .navbar-toggle").focus();
+      $("nav .navbar-toggle").trigger("click");
+      $("nav .navbar-toggle").trigger("focus");
     });
   }
 
