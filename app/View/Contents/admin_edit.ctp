@@ -24,7 +24,7 @@ if (!file_exists(WWW_ROOT . 'js/jquery/plugins/jquery-ui/' . $fname)) {
 
 $this->Html->script(array(
 	'jquery/plugins/jquery.cookie.js',
-	'jquery/plugins/jquery-ui-min.js',
+	'jquery/plugins/ui/jquery-ui.min.js',
 	'jquery/plugins/uploadfile/jquery.uploadfile.js',
 	'jquery/plugins/jquery-ui/' . $fname,
 	'jquery/plugins/dynatree/jquery.dynatree.js',
@@ -35,7 +35,7 @@ $this->Html->script(array(
 
 $this->Html->css(
 array(
-'jquery-ui.css',
+'jquery/plugins/ui/jquery-ui.css',
 'jquery/plugins/chosen/bootstrap-chosen.css'
 )
 , null, array('inline' => false));

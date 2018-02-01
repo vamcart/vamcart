@@ -23,7 +23,7 @@ if (!file_exists(WWW_ROOT . 'js/jquery/plugins/jquery-ui/' . $fname)) {
 $this->Html->script(array(
 	'jquery/plugins/switch/bootstrap-switch.js',
 	'jquery/plugins/chosen/chosen.jquery.js',
-	'jquery/plugins/jquery-ui-min.js',
+	'jquery/plugins/ui/jquery-ui.min.js',
 	'jquery/plugins/jquery-ui/' . $fname,
 	'selectall.js'
 ), array('inline' => false));
@@ -31,7 +31,7 @@ $this->Html->script(array(
 $this->Html->css(array(
 	'jquery/plugins/switch/bootstrap-switch.css',
 	'jquery/plugins/chosen/bootstrap-chosen.css',
-	'jquery-ui.css'
+	'jquery/plugins/ui/jquery-ui.css'
 	), null, array('inline' => false));
 ?>
 <style type="text/css">

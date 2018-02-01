@@ -21,7 +21,7 @@ if (!file_exists(WWW_ROOT . 'js/' . $fname)) {
 }
     
 $this->Html->script(array(
-	'jquery/plugins/jquery-ui-min.js',
+	'jquery/plugins/ui/jquery-ui.min.js',
 	'jquery/plugins/jquery.jeditable.js',
 	'jquery/plugins/chosen/chosen.jquery.js',
 	'selectall.js',
@@ -96,7 +96,7 @@ function categorySelection(form)
 
 $this->Html->css(
 array(
-'jquery-ui.css',
+'jquery/plugins/ui/jquery-ui.css',
 'jquery/plugins/chosen/bootstrap-chosen.css'
 )
 , null, array('inline' => false));
