@@ -21,8 +21,8 @@ if (!file_exists(WWW_ROOT . 'js/' . $fname)) {
 
 $this->Html->script(array(
     'jquery/plugins/ui/jquery-ui.min.js',
-    'lou-multi-select/jquery.multi-select.js',
-    'lou-multi-select/jquery.quicksearch.js',
+    'jquery/plugins/lou-multi-select/jquery.multi-select.js',
+    'jquery/plugins/lou-multi-select/jquery.quicksearch.js',
     'admin/selectall.js',
     $fname
 ), array('inline' => false));
@@ -102,7 +102,7 @@ function onCountriesChanged()
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
 <?php
 echo $this->Html->css('jquery/plugins/ui/jquery-ui.css', null, array('inline' => false));
-echo $this->Html->css('multi-select.css', null, array('inline' => false));
+echo $this->Html->css('jquery/plugins/lou-multi-select/multi-select.css', null, array('inline' => false));
 
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-page-white-world');
 echo $this->Form->create('GeoZoneZones', array('url' => '/geo_zones/admin_modify_country_zones_selected/'));

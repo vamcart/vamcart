@@ -1,5 +1,5 @@
 .ms-container{
-  background: transparent url('../img/lou-multi-select/arrow.png') no-repeat 175px 83px;
+  background: transparent url('../img/jquery/plugins/lou-multi-select/arrow.png') no-repeat 175px 83px;
 }
 
 .ms-container:after{
@@ -57,13 +57,13 @@
 
 .ms-container .ms-optgroup-label{
   padding: 5px 0px 0px 20px;
-  background: transparent url('../img/lou-multi-select/plus.png') no-repeat 5px 10px;
+  background: transparent url('../img/jquery/plugins/lou-multi-select/plus.png') no-repeat 5px 10px;
   cursor: pointer;
   color: #999;
 }
 
 .ms-container .ms-optgroup-label.collapse{
-  background-image: url('../img/lou-multi-select/minus.png');
+  background-image: url('../img/jquery/plugins/lou-multi-select/minus.png');
 }
 
 .ms-container li.ms-elem-selectable:not(.disabled):hover,
@@ -74,5 +74,5 @@
 }
 
 .ms-container .ms-selection li:not(.disabled):hover{
-  background: #eee url('../img/lou-multi-select/delete.png') no-repeat 3px 3px;
+  background: #eee url('../img/jquery/plugins/lou-multi-select/delete.png') no-repeat 3px 3px;
 }
