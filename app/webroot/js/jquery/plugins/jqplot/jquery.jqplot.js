@@ -314,7 +314,7 @@
             else {
                 var canvas = $.jqplot.CanvasManager.canvases[idx];
                 canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
-                $(canvas).unbind().removeAttr('class').removeAttr('style');
+                $(canvas).off().removeAttr('class').removeAttr('style');
                 // Style attributes seemed to be still hanging around.  wierd.  Some ticks
                 // still retained a left: 0px attribute after reusing a canvas.
                 $(canvas).css({left: '', top: '', position: ''});
@@ -2822,7 +2822,7 @@
         this.destroy = function() {
             this.canvasManager.freeAllCanvases();
             if (this.eventCanvas && this.eventCanvas._elem) {
-                this.eventCanvas._elem.unbind();
+                this.eventCanvas._elem.off();
             }
             // Couple of posts on Stack Overflow indicate that empty() doesn't
             // always cear up the dom and release memory.  Sometimes setting
@@ -2891,10 +2891,10 @@
             this.target.trigger('jqplotPreRedraw');
             if (clear) {
                 this.canvasManager.freeAllCanvases();
-                this.eventCanvas._elem.unbind();
+                this.eventCanvas._elem.off();
                 // Dont think I bind any events to the target, this shouldn't be necessary.
                 // It will remove user's events.
-                // this.target.unbind();
+                // this.target.off();
                 this.target.empty();
             }
              for (var ax in this.axes) {
@@ -3102,14 +3102,14 @@
                 for (var i=0, l=$.jqplot.eventListenerHooks.length; i<l; i++) {
                     // in the handler, this will refer to the eventCanvas dom element.
                     // make sure there are references back into plot objects.
-                    this.eventCanvas._elem.bind($.jqplot.eventListenerHooks[i][0], {plot:this}, $.jqplot.eventListenerHooks[i][1]);
+                    this.eventCanvas._elem.on($.jqplot.eventListenerHooks[i][0], {plot:this}, $.jqplot.eventListenerHooks[i][1]);
                 }
             
                 // register event listeners on the overlay canvas
                 for (var i=0, l=this.eventListenerHooks.hooks.length; i<l; i++) {
                     // in the handler, this will refer to the eventCanvas dom element.
                     // make sure there are references back into plot objects.
-                    this.eventCanvas._elem.bind(this.eventListenerHooks.hooks[i][0], {plot:this}, this.eventListenerHooks.hooks[i][1]);
+                    this.eventCanvas._elem.on(this.eventListenerHooks.hooks[i][0], {plot:this}, this.eventListenerHooks.hooks[i][1]);
                 }
 
                 var fb = this.fillBetween;
@@ -3190,20 +3190,20 @@
         };
         
         this.bindCustomEvents = function() {
-            this.eventCanvas._elem.bind('click', {plot:this}, this.onClick);
-            this.eventCanvas._elem.bind('dblclick', {plot:this}, this.onDblClick);
-            this.eventCanvas._elem.bind('mousedown', {plot:this}, this.onMouseDown);
-            this.eventCanvas._elem.bind('mousemove', {plot:this}, this.onMouseMove);
-            this.eventCanvas._elem.bind('mouseenter', {plot:this}, this.onMouseEnter);
-            this.eventCanvas._elem.bind('mouseleave', {plot:this}, this.onMouseLeave);
+            this.eventCanvas._elem.on('click', {plot:this}, this.onClick);
+            this.eventCanvas._elem.on('dblclick', {plot:this}, this.onDblClick);
+            this.eventCanvas._elem.on('mousedown', {plot:this}, this.onMouseDown);
+            this.eventCanvas._elem.on('mousemove', {plot:this}, this.onMouseMove);
+            this.eventCanvas._elem.on('mouseenter', {plot:this}, this.onMouseEnter);
+            this.eventCanvas._elem.on('mouseleave', {plot:this}, this.onMouseLeave);
             if (this.captureRightClick) {
-                this.eventCanvas._elem.bind('mouseup', {plot:this}, this.onRightClick);
+                this.eventCanvas._elem.on('mouseup', {plot:this}, this.onRightClick);
                 this.eventCanvas._elem.get(0).oncontextmenu = function() {
                     return false;
                 };
             }
             else {
-                this.eventCanvas._elem.bind('mouseup', {plot:this}, this.onMouseUp);
+                this.eventCanvas._elem.on('mouseup', {plot:this}, this.onMouseUp);
             }
         };
         
@@ -5957,7 +5957,7 @@
         
         this.eventCanvas._elem.before(this.plugins.lineRenderer.highlightCanvas.createElement(this._gridPadding, 'jqplot-lineRenderer-highlight-canvas', this._plotDimensions, this));
         this.plugins.lineRenderer.highlightCanvas.setContext();
-        this.eventCanvas._elem.bind('mouseleave', {plot:this}, function (ev) { unhighlight(ev.data.plot); });
+        this.eventCanvas._elem.on('mouseleave', {plot:this}, function (ev) { unhighlight(ev.data.plot); });
     } 
     
     function highlight (plot, sidx, pidx, points) {
