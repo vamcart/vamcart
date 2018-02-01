@@ -46,8 +46,8 @@ array(
 <?php echo $this->Html->scriptBlock('
 	$(document).ready(function(){
 
-		$("select#ContentContentTypeId").on("change",function () {
-			$("div#content_type_fields").on("load","'. BASE . '/contents/admin_edit_type/"+$("select#ContentContentTypeId").val());
+		$("select#ContentContentTypeId").change(function () {
+			$("div#content_type_fields").load("'. BASE . '/contents/admin_edit_type/"+$("select#ContentContentTypeId").val());
 		})
 
 		$(function() {

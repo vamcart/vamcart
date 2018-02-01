@@ -26,7 +26,7 @@ $(function () {
     $("textarea[id=\'" + this.id + "\']").addClass("modified");
   });
 
-  $(\'.form-anti-bot, .form-anti-bot-2\').trigger("hide"); // hide inputs from users
+  $(\'.form-anti-bot, .form-anti-bot-2\').hide(); // hide inputs from users
   var answer = $(\'.form-anti-bot input#anti-bot-a\').val(); // get answer
   $(\'.form-anti-bot input#anti-bot-q\').val( answer ); // set answer into other input
 	
@@ -106,7 +106,7 @@ $(this).parent().addClass("selected");
 	        }
 			else
 			{
-			$("#ship_information").trigger("hide");
+			$("#ship_information").hide();
 			}
 		});
 		;}
