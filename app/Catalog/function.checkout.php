@@ -12,6 +12,8 @@ $template = '
 <script>
 $(function () {
 
+global_spinner = $("#spinner");
+
 {if $phone_mask != ""}
   $("#phone").mask("{$phone_mask}");
 {/if}  
@@ -115,9 +117,11 @@ $(this).parent().addClass("selected");
 	{if {$display_country_field} == "1"}
     $("#bill_country").on("change",function () {
       $("#bill_state_div").load("{base_path}/countries/billing_regions/" + $(this).val());
+      $("#bill_country").trigger("focus");
     });
     $("#ship_country").on("change",function () {
       $("#ship_state_div").load("{base_path}/countries/shipping_regions/" + $(this).val());
+      $("#ship_country").trigger("focus");
     });
 	{/if}    
 	{if {$display_state_field} == "1"}
@@ -130,8 +134,10 @@ $(this).parent().addClass("selected");
                 data: form_data,
                 async: true,
                 success: function (data, textStatus) {
+                    global_spinner.fadeOut("fast");
                     $("#checkout").html(data);},
                 beforeSend: function () {
+                    global_spinner.fadeIn("fast");
                     },
                 complete: function () {
                     $("#bill_state").trigger("focus");
@@ -151,8 +157,11 @@ $(this).parent().addClass("selected");
                 data: form_data,
                 async: true,
                 success: function (data, textStatus) {
-                    $("#checkout").html(data);},
+                    global_spinner.fadeOut("fast");
+                    $("#checkout").html(data);
+                    },
                 beforeSend: function () {
+                    global_spinner.fadeIn("fast");
                     },
                 complete: function () {
                     $("#bill_city").trigger("focus");
@@ -496,6 +505,10 @@ function showSelected(suggestion) {
 	  </div>
 	</div>
 </form>
+</div>
+
+<div id="spinner">
+	<img src="{base_path}/img/ajax-loader.gif" alt="" width="31" height="31" />
 </div>
 ';		
 
