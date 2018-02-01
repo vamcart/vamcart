@@ -97,7 +97,7 @@ class AjaxHelper extends Helper {
 		$htmlOptions['onclick'] .= ' return false;';
 		$return = $this->Html->link($title, '#', $htmlOptions, null, $escapeTitle);
 		$script = $this->Html->scriptBlock(
-			"jQuery('#{$htmlOptions['id']}').click( function() {" . $this->remoteFunction($options) . "; return false;});"
+			"jQuery('#{$htmlOptions['id']}').on('click', function() {" . $this->remoteFunction($options) . "; return false;});"
 		);
 
 		if (is_string($script)) {
@@ -165,7 +165,7 @@ class AjaxHelper extends Helper {
 			$options['data'] = "$('#{$htmlOptions['id']}').parents('form').formSerialize()";
 		}*/
 		return $this->Form->submit($title, $htmlOptions)
-			. $this->Html->scriptBlock("jQuery('#{$htmlOptions['id']}').click( function() { " . $this->remoteFunction($options, "jQuery('#{$htmlOptions['id']}').parents('form').ajaxSubmit") . "; return false;});");
+			. $this->Html->scriptBlock("jQuery('#{$htmlOptions['id']}').on('click', function() { " . $this->remoteFunction($options, "jQuery('#{$htmlOptions['id']}').parents('form').ajaxSubmit") . "; return false;});");
 	}
 
 /**
@@ -211,7 +211,7 @@ class AjaxHelper extends Helper {
 		$defaults = array('model' => $model);
 		$options = array_merge($defaults, $options);
 		$form = $this->Form->create($options['model'], $htmlOptions);
-		$script =  $this->Html->scriptBlock("jQuery('#{$htmlOptions['id']}').submit( function() { " . $this->remoteFunction($options, "jQuery('#{$htmlOptions['id']}').ajaxSubmit") . "; return false;});");
+		$script =  $this->Html->scriptBlock("jQuery('#{$htmlOptions['id']}').on('submit', function() { " . $this->remoteFunction($options, "jQuery('#{$htmlOptions['id']}').ajaxSubmit") . "; return false;});");
 		return $form . $script;
 	}
 
@@ -268,7 +268,7 @@ class AjaxHelper extends Helper {
 	}
 
 	public function observeField($field, $options = array()) {
-		return $this->Html->scriptBlock("jQuery('#{$field}').change( function() { " . $this->remoteFunction($options, "jQuery('#{$field}').parents('form').ajaxSubmit") . "; return false;});");
+		return $this->Html->scriptBlock("jQuery('#{$field}').on('change', function() { " . $this->remoteFunction($options, "jQuery('#{$field}').parents('form').ajaxSubmit") . "; return false;});");
 	}
 
 
@@ -344,17 +344,17 @@ class AjaxHelper extends Helper {
 				if (!empty($options['loading']) && substr(trim($options['loading']), -1, 1) != ';') {
 					$options['loading'] .= '; ';
 				}
-				$options['loading'] .= "jQuery('#{$options['indicator']}').show();";
+				$options['loading'] .= "jQuery('#{$options['indicator']}').trigger('show');";
 			} else {
-				$options['loading'] = "jQuery('#{$options['indicator']}').show();";
+				$options['loading'] = "jQuery('#{$options['indicator']}').trigger('show');";
 			}
 			if (isset($options['complete'])) {
 				if (!empty($options['complete']) && substr(trim($options['complete']), -1, 1) != ';') {
 					$options['complete'] .= '; ';
 				}
-				$options['complete'] .= "jQuery('#{$options['indicator']}').hide();";
+				$options['complete'] .= "jQuery('#{$options['indicator']}').trigger('hide');";
 			} else {
-				$options['complete'] = "jQuery('#{$options['indicator']}').hide();";
+				$options['complete'] = "jQuery('#{$options['indicator']}').trigger('hide');";
 			}
 			unset($options['indicator']);
 		}
