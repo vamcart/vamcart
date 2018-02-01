@@ -23,7 +23,7 @@ if (!file_exists(WWW_ROOT . 'js/jquery/plugins/jquery-ui/' . $fname)) {
 }
 
 $this->Html->script(array(
-	'jquery/plugins/jquery.cookie.js',
+	'jquery/plugins/cookie/jquery.cookie.js',
 	'jquery/plugins/ui/jquery-ui.min.js',
 	'jquery/plugins/uploadfile/jquery.uploadfile.js',
 	'jquery/plugins/jquery-ui/' . $fname,
