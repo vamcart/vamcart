@@ -80,7 +80,7 @@ function default_template_attribute_list()
                     {/foreach}
                     <script>
                     $(function () {      
-                        $(".confirm").click(function(){            
+                        $(".confirm").on("click",function(){            
                             var http_send = $(this).attr("href");
                             var form_data = $("#set_attr_form").serialize();
                             $.ajax({
