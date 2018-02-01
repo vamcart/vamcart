@@ -12,7 +12,7 @@ $template = '
 <script>
 $(function () {
 
-  $("#contentform :input:text:visible:enabled:first").focus();
+  $("#contentform :input:text:visible:enabled:first").trigger("focus");
 
   $("form#contentform :input").change(function() {
     $("input[id=\'" + this.id + "\']").addClass("modified");

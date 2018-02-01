@@ -12,9 +12,9 @@ $template = '
 <script>
 $(function () {
 
-  $("#contentform :input:text:visible:enabled:first").focus();
+  $("#contentform :input:text:visible:enabled:first").trigger("focus");
 
-  $("form#contentform :input").change(function() {
+  $("form#contentform :input").on("change",function() {
     $("input[id=\'" + this.id + "\']").addClass("modified");
     $("radio[id=\'" + this.id + "\']").addClass("modified");
     $("select[id=\'" + this.id + "\']").addClass("modified");

@@ -16,7 +16,7 @@ $(function () {
   $("#phone").mask("{$phone_mask}");
 {/if}  
 
-  $("#contentform :input:text:visible:enabled:first").focus();
+  $("#contentform :input:text:visible:enabled:first").trigger("focus");
 
   $("form#contentform :input").change(function() {
     $("input[id=\'" + this.id + "\']").addClass("modified");
@@ -37,14 +37,14 @@ $(function () {
   }
 
 {if {$display_shipping_methods_block} == "1"}
-$("label.shipping-method").click(function(){
+$("label.shipping-method").on("click",function(){
 $("label.shipping-method").parent().removeClass("selected");
 $(this).parent().addClass("selected");
 });
 {/if}
 
 {if {$display_payment_methods_block} == "1"}
-$("label.payment-method").click(function(){
+$("label.payment-method").on("click",function(){
 $("label.payment-method").parent().removeClass("selected");
 $(this).parent().addClass("selected");
 });
@@ -97,7 +97,7 @@ $(this).parent().addClass("selected");
 		}
 		
 	
-		$("#diff_shipping").click(function(){
+		$("#diff_shipping").on("click",function(){
 	// If checked
 	        if ($("#diff_shipping").is(":checked"))
 			{
@@ -134,7 +134,7 @@ $(this).parent().addClass("selected");
                 beforeSend: function () {
                     },
                 complete: function () {
-                    $("#bill_state").focus();
+                    $("#bill_state").trigger("focus");
                     }                                                    
             });                            
         return false;
@@ -155,7 +155,7 @@ $(this).parent().addClass("selected");
                 beforeSend: function () {
                     },
                 complete: function () {
-                    $("#bill_city").focus();
+                    $("#bill_city").trigger("focus");
                     }                                                    
             });                            
         return false;

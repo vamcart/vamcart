@@ -16,7 +16,7 @@ $(function () {
   $("#ship_phone").mask("{$phone_mask}");
 {/if}  
 
-  $("#contentform :input:text:visible:enabled:first").focus();
+  $("#contentform :input:text:visible:enabled:first").trigger("focus");
 
   $("form#contentform :input").change(function() {
     $("input[id=\'" + this.id + "\']").addClass("modified");
