@@ -71,7 +71,7 @@
         }
         if ('destroy' == target) {
             $(this)
-                .unbind($(this).data('event.editable'))
+                .off($(this).data('event.editable'))
                 .removeData('disabled.editable')
                 .removeData('event.editable');
             return;

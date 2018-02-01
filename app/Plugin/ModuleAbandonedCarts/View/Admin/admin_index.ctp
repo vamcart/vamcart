@@ -16,7 +16,7 @@ $l = substr($l, 0, 2);
 
 $fname = 'admin_content_i18n_' . $l . '.js';
 
-if (!file_exists(WWW_ROOT . 'js/' . $fname)) {
+if (!file_exists(WWW_ROOT . 'js/admin/' . $fname)) {
 	$fname = 'admin_content_i18n_en.js';
 }
     
