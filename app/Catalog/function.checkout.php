@@ -171,6 +171,43 @@ $(this).parent().addClass("selected");
     });
 	{/if}    
 
+	{if {$display_state_field} == "1"}
+
+	  $("#bill_state").chosen({
+	      no_results_text:"{lang}Not Found{/lang}",
+	      search_contains:true,
+	      placeholder_text_single:"{lang}Select{/lang}",
+	      width: "100%"
+	  }); 
+
+	  $("#ship_state").chosen({
+	      no_results_text:"{lang}Not Found{/lang}",
+	      search_contains:true,
+	      placeholder_text_single:"{lang}Select{/lang}",
+	      width: "100%"
+	  });         
+
+	{/if}    
+	
+	{if {$display_country_field} == "1"}
+
+	  $("#bill_country").chosen({
+	      no_results_text:"{lang}Not Found{/lang}",
+	      search_contains:true,
+	      placeholder_text_single:"{lang}Select{/lang}",
+	      width: "100%"
+	  }); 
+	  
+	
+	  $("#ship_country").chosen({
+	      no_results_text:"{lang}Not Found{/lang}",
+	      search_contains:true,
+	      placeholder_text_single:"{lang}Select{/lang}",
+	      width: "100%"
+	  });         
+
+	{/if}    
+
   });
 </script>
 {if $dadata_api_key != "" and $smarty.session.Config.language == "ru"}
@@ -303,7 +340,7 @@ function showSelected(suggestion) {
 	<div class="form-group">
 		<label class="col-sm-3 control-label" for="bill_country">{lang}Country{/lang}:</label>
 		<div class="col-sm-9">
-			<select name="bill_country" class="form-control" id="bill_country">{if $customer.AddressBook.ship_country}{country_list selected={$customer.AddressBook.ship_country}}{else}{country_list}{/if}</select>
+			<select name="bill_country" class="chosen-select form-control" id="bill_country">{if $customer.AddressBook.ship_country}{country_list selected={$customer.AddressBook.ship_country}}{else}{country_list}{/if}</select>
 		</div>
 	</div>
 	{/if}
@@ -312,7 +349,7 @@ function showSelected(suggestion) {
 	<div id="bill_state_div">
 		<label class="col-sm-3 control-label" for="bill_state">{lang}State{/lang}:</label>
 		<div class="col-sm-9">
-			<select name="bill_state" class="form-control" id="bill_state">{if $customer.AddressBook.ship_state}{state_list country={$customer.AddressBook.ship_country} selected={$customer.AddressBook.ship_state}}{else}{state_list selected={$smarty.post.bill_state}}{/if}</select>
+			<select name="bill_state" class="chosen-select form-control" id="bill_state">{if $customer.AddressBook.ship_state}{state_list country={$customer.AddressBook.ship_country} selected={$customer.AddressBook.ship_state}}{else}{state_list selected={$smarty.post.bill_state}}{/if}</select>
 		</div>
 	</div>
 	</div>
@@ -380,7 +417,7 @@ function showSelected(suggestion) {
 	<div class="form-group">
 		<label class="col-sm-3 control-label" for="ship_country">{lang}Country{/lang}:</label>
 		<div class="col-sm-9">
-			<select name="ship_country" class="form-control" id="ship_country">{country_list}</select>
+			<select name="ship_country" class="chosen-select form-control" id="ship_country">{country_list}</select>
 		</div>
 	</div>
 	{/if}
@@ -389,7 +426,7 @@ function showSelected(suggestion) {
 	<div id="ship_state_div">
 		<label class="col-sm-3 control-label" for="ship_state">{lang}State{/lang}:</label>
 		<div class="col-sm-9">
-			<select name="ship_state" class="form-control" id="ship_state">{state_list}</select>
+			<select name="ship_state" class="chosen-select form-control" id="ship_state">{state_list}</select>
 		</div>
 	</div>
 	</div>
