@@ -18,7 +18,7 @@ $(function () {
 
   $("#contentform :input:text:visible:enabled:first").trigger("focus");
 
-  $("form#contentform :input")on("change",function() {
+  $("form#contentform :input").on("change",function() {
     $("input[id=\'" + this.id + "\']").addClass("modified");
     $("radio[id=\'" + this.id + "\']").addClass("modified");
     $("select[id=\'" + this.id + "\']").addClass("modified");
@@ -95,7 +95,7 @@ $(function () {
     }
   });
 
-    $("#ship_country")on("change",function () {
+    $("#ship_country").on("change",function () {
       $("#ship_state_div").load(\'{base_path}/countries/address_book_regions/\' + $(this).val());
     });
   });
