@@ -20,8 +20,8 @@
 										'bootstrap3/bootstrap.min.css',
 										'dynatree/ui.dynatree.css',
 										'jquery/plugins/hoe/hoe.css',
-										'cus-icons.css',
-										'admin.css',
+										'admin/cus-icons.css',
+										'admin/admin.css',
 											), null, array('inline' => true)); ?>
 
 <?php echo $this->Html->script(array(

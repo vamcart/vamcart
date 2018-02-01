@@ -583,7 +583,7 @@ div#flashMessage
 		border: 0px solid #97c850;
 		padding: .5em 0 .5em 1.5em;
 		margin: 0 0 .5em 0;
-		background: #99ff00 url(../img/admin/icons/error.png) no-repeat center left;
+		background: #99ff00 url(../../img/admin/icons/error.png) no-repeat center left;
 		border-top-left-radius: 0px;
 		border-top-right-radius: 0px;
 		border-bottom-left-radius: 0px;
@@ -595,7 +595,7 @@ div.error-message
 		padding: .5em 0 .5em 1.5em;
 		margin: .5em;
 		font-weight: bold;
-		background: transparent url(../img/admin/icons/error.png) no-repeat center left;
+		background: transparent url(../../img/admin/icons/error.png) no-repeat center left;
 	}
 
 div.error input
@@ -830,7 +830,7 @@ select#countries, select#country_zones
 		border-radius: 0px;
 		/* ie fix */
 		-pie-lazy-init: true;
-		behavior: url(../img/PIE.htc);
+		behavior: url(../../img/PIE.htc);
 	}
 
 .white-on-black .jquery-msg-content 
@@ -842,7 +842,7 @@ select#countries, select#country_zones
 		border-radius: 0px;
 		/* ie fix */
 		-pie-lazy-init: true;
-		behavior: url(../img/PIE.htc);
+		behavior: url(../../img/PIE.htc);
 	}
 
 /* /jQuery PopUp */
@@ -864,7 +864,7 @@ div.rssFeed li.rssRow
 		border: 1px solid #B50000;
 		padding: .5em 0 .5em 1.5em;
 		margin: 0 0 .5em 0;
-		background: #FFEBEB url(../img/admin/icons/error.png) no-repeat center left;
+		background: #FFEBEB url(../../img/admin/icons/error.png) no-repeat center left;
 		border-top-left-radius: 0px;
 		border-top-right-radius: 0px;
 		border-bottom-left-radius: 0px;
