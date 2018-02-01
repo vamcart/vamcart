@@ -18,7 +18,6 @@
 										'font-awesome.min.css',
 										'font-roboto.css',
 										'bootstrap3/bootstrap.min.css',
-										'dynatree/ui.dynatree.css',
 										'jquery/plugins/hoe/hoe.css',
 										'admin/cus-icons.css',
 										'admin/admin.css',
