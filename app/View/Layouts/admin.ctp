@@ -32,7 +32,6 @@
 												),
 											array('inline' => true)); ?>
 											
-<script src="https://code.jquery.com/jquery-migrate-3.0.1.js"></script>
 											
 											
 <?php echo $this->Html->scriptBlock('

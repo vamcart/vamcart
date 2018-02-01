@@ -59,7 +59,7 @@ class AjaxHelper extends Helper {
 	public function beforeRender($viewFile = '') {
 //	   if ( ClassRegistry::getObject('view') ) {
 //		$this->Html->script('jquery/jquery.min', false);
-//		$this->Html->script('jquery/plugins/jquery.form', false);
+//		$this->Html->script('jquery/plugins/form/jquery.form', false);
 //	   }
 	}
 
