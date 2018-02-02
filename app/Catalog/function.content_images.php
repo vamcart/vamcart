@@ -102,6 +102,7 @@ function smarty_function_content_images($params, $template)
 					if(file_exists($thumb_path) && is_file($thumb_path)) {
 						list($width, $height, $type, $attr) = getimagesize($thumb_path);
 						$keyed_images[$key]['name'] =  $content['ContentDescription']['name'];
+						$keyed_images[$key]['image'] =  BASE . '/img/content/' . $value['ContentImage']['image'];
 						$keyed_images[$key]['image_path'] =  BASE . '/img/content/' . $value['ContentImage']['image'];
 						$keyed_images[$key]['image_thumb'] =  $thumb_url;
 						$keyed_images[$key]['image_width'] = $width;
@@ -109,6 +110,7 @@ function smarty_function_content_images($params, $template)
 					} else {
 						$keyed_images[$key]['name'] =  $content['ContentDescription']['name'];
 						$keyed_images[$key]['image'] =  BASE . '/img/content/' . $value['ContentImage']['image'];
+						$keyed_images[$key]['image_path'] =  BASE . '/img/content/' . $value['ContentImage']['image'];
 						$keyed_images[$key]['image_thumb'] = BASE . '/images/thumb/' . $image_url;
 						$keyed_images[$key]['image_width'] = null;
 						$keyed_images[$key]['image_height'] = null;
@@ -124,6 +126,7 @@ function smarty_function_content_images($params, $template)
 					if(file_exists($thumb_path) && is_file($thumb_path)) {
 						list($width, $height, $type, $attr) = getimagesize($thumb_path);
 						$keyed_images[$key]['name'] =  $content['ContentDescription']['name'];
+						$keyed_images[$key]['image'] =  BASE . '/img/content/noimage.png';
 						$keyed_images[$key]['image_path'] =  BASE . '/img/content/noimage.png';
 						$keyed_images[$key]['image_thumb'] =  $thumb_url;
 						$keyed_images[$key]['image_width'] = $width;
@@ -131,6 +134,7 @@ function smarty_function_content_images($params, $template)
 					} else {
 						$keyed_images[$key]['name'] =  $content['ContentDescription']['name'];
 						$keyed_images[$key]['image'] =  BASE . '/img/content/noimage.png';
+						$keyed_images[$key]['image_path'] =  BASE . '/img/content/noimage.png';
 						$keyed_images[$key]['image_thumb'] = BASE . '/images/thumb/' . $image_url;
 						$keyed_images[$key]['image_width'] = null;
 						$keyed_images[$key]['image_height'] = null;
