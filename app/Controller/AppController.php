@@ -201,7 +201,7 @@ class AppController extends Controller {
 
 		if (isset($_GET['return_url'])) {
 			
-			$this->Auth->loginRedirect = urldecode(base64_decode($_GET['return_url']));
+			//$this->Auth->loginRedirect = urldecode(base64_decode($_GET['return_url']));
 		}
 		
 		$this->Auth->allow();
@@ -214,17 +214,17 @@ class AppController extends Controller {
 		if(strstr($_SERVER['REQUEST_URI'],'/install'))
 		{
 			$install = 1;
-			$this->Auth->userModel = 'UserInstall';
-			$this->Auth->authenticate = ClassRegistry::init('UserInstall');
+			//$this->Auth->userModel = 'UserInstall';
+			//$this->Auth->authenticate = ClassRegistry::init('UserInstall');
 		}
 		
 		if(!isset($install)) // We're viewing the front end
 		{
-			$this->Auth->userModel = 'Customer';
-			$this->Auth->fields = array('username' => 'email', 'password' => 'password');
-			$this->Auth->loginAction = array('admin' => false, 'controller' => 'site', 'action' => 'login');
-			$this->Auth->logoutAction = array('admin' => false, 'controller' => 'site', 'action' => 'logout');
-			$this->Auth->authenticate = ClassRegistry::init('Customer');
+			//$this->Auth->userModel = 'Customer';
+			//$this->Auth->fields = array('username' => 'email', 'password' => 'password');
+			//$this->Auth->loginAction = array('admin' => false, 'controller' => 'site', 'action' => 'login');
+			//$this->Auth->logoutAction = array('admin' => false, 'controller' => 'site', 'action' => 'logout');
+			//$this->Auth->authenticate = ClassRegistry::init('Customer');
 
 			if(!$this->Session->check('Customer'))
 			{
@@ -285,9 +285,9 @@ class AppController extends Controller {
 		// If we're in the admin area
 		if(substr($this->action, 0, 5) == 'admin')
 		{
-			$this->Auth->userModel = 'User';
-			$this->Auth->fields = array('username' => 'username', 'password' => 'password');
-			$this->Auth->authenticate = ClassRegistry::init('User');
+			//$this->Auth->userModel = 'User';
+			//$this->Auth->fields = array('username' => 'username', 'password' => 'password');
+			//$this->Auth->authenticate = ClassRegistry::init('User');
 			// Set the menu if the action is prefixed with admin_
 			$this->set('navigation',$this->AdminMenu->getAdminNavigation());	
 
