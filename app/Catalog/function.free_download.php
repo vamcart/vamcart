@@ -34,8 +34,8 @@ function smarty_function_free_download($params, $template)
 		$ContentDownloadable = new ContentDownloadable();
 		$product = $ContentDownloadable->find('first', array('conditions' => array('ContentDownloadable.content_id' => (int)$params['content_id'])));
 
-		$content['Content'] = $product['ContentDownloadable'];
-		$content['Content']['id'] = $product['ContentDownloadable']['content_id'];
+		$content_free['Content'] = $product['ContentDownloadable'];
+		$content_free['Content']['id'] = $product['ContentDownloadable']['content_id'];
 		
 	} 
 	
@@ -50,7 +50,7 @@ function smarty_function_free_download($params, $template)
 	//if ($content['Content']['content_type_id'] == 7) {
 
 	// Cache the output.
-	$cache_name = 'vam_free_download_output' . (isset($params['template'])?'_'.$params['template']:'') . '_' . $content['Content']['id'] .'_' . $_SESSION['Customer']['language_id'];
+	$cache_name = 'vam_free_download_output' . (isset($params['template'])?'_'.$params['template']:'') . '_' . $content_free['Content']['id'] .'_' . $_SESSION['Customer']['language_id'];
 	$output = Cache::read($cache_name, 'catalog');
 	if($output === false)
 	{
@@ -61,13 +61,13 @@ function smarty_function_free_download($params, $template)
 
 	//if ($content['Content']['content_type_id'] != 7) return;
 
-	$price = $content['ContentDownloadable']['price'];
+	$price = $content_free['ContentDownloadable']['price'];
 
-	if ($content['ContentDownloadable']['price'] == 0) {
-	$filename = $content['ContentDownloadable']['filename'];
+	if ($content_free['ContentDownloadable']['price'] == 0) {
+	$filename = $content_free['ContentDownloadable']['filename'];
 	}
 
-	$url = FULL_BASE_URL . BASE . '/download/0/' . $content['Content']['id'] . '/free';
+	$url = FULL_BASE_URL . BASE . '/download/0/' . $content_free['Content']['id'] . '/free';
 
 	$assignments = array(
 		'filename' => $filename,
