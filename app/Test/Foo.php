@@ -1,6 +1,6 @@
 <?php
 
-namespace Stuff\dummyPHP;
+//namespace Stuff\dummyPHP;
 
 /**
  * Interersting class Foo

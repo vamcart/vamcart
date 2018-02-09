@@ -2,8 +2,8 @@
 
 //require_once '../Vendor/autoload.php';
 
-use Stuff\dummyPHP;
-use Stuff\dummyPHP\Foo;
+//use Stuff\dummyPHP;
+//use Stuff\dummyPHP\Foo;
 
 class FooTest extends PHPUnit_Framework_TestCase
 {
