@@ -1,6 +1,6 @@
 <?php
 
-//require_once '../Vendor/autoload.php';
+require_once 'Foo.php';
 
 //use Stuff\dummyPHP;
 //use Stuff\dummyPHP\Foo;
