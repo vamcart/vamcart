@@ -5,7 +5,7 @@ require_once 'Foo.php';
 //use Stuff\dummyPHP;
 //use Stuff\dummyPHP\Foo;
 
-class FooTest extends PHPUnit_Framework_TestCase
+class FooTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testThatBarReturnsBar()
