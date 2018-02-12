@@ -70,6 +70,8 @@ function smarty_function_xsell($params, &$smarty)
 
 	$language_id = $content['ContentDescription']['language_id'];
 
+$price = 0;
+
 	foreach ($content['ContentRelations'] as $key => $related) {
 		$image = $ContentImage->find('first', array('conditions' => array('content_id' => $content['ContentRelations'][$key]['id'])));
 
@@ -115,46 +117,13 @@ function smarty_function_xsell($params, &$smarty)
 
 		}
 
-		$Content->unbindAll();	
-		$Content->bindModel(array('hasOne' => array(
-				'ContentDescription' => array(
-                    'className' => 'ContentDescription',
-					'conditions'   => 'language_id = '.$_SESSION['Customer']['language_id']
-                ))));
-		$Content->bindModel(array('belongsTo' => array(
-				'ContentType' => array(
-                    'className' => 'ContentType'
-					))));			
-		$Content->bindModel(array('hasOne' => array(
-				'ContentImage' => array(
-                    'className' => 'ContentImage',
-                    'conditions'=>array('ContentImage.order' => '1')
-					))));						
-		$Content->bindModel(array('hasOne' => array(
-				'ContentLink' => array(
-                    'className' => 'ContentLink'
-					))));		
-		$Content->bindModel(array('hasOne' => array(
-				'ContentProduct' => array(
-                    'className' => 'ContentProduct'
-					))));
-		$Content->bindModel(array('hasOne' => array(
-				'ContentDownloadable' => array(
-                    'className' => 'ContentDownloadable'
-					))));
-
-		$Content->bindModel(array('hasOne' => array(
-				'ContentSpecial' => array(
-                    'className' => 'ContentSpecial'
-					))));
-											
 		$product = $Content->find('first', array('recursive' => 1, 'conditions' => array('Content.id' => $content['ContentRelations'][$key]['id'])));
 			$content_type = 'ContentProduct';
-			$price = $product['ContentProduct']['price'];
+			$price = $product[$content_type]['price'];
 	
 			if ($content['ContentRelations'][$key]['content_type_id'] == 7) {
 				$content_type = 'ContentDownloadable';
-				$price = $product['ContentProduct']['price'];
+				$price = $product[$content_type]['price'];
 			}
 			$content['ContentRelations'][$key]['id']	= $content['ContentRelations'][$key]['id'];
 			$content['ContentRelations'][$key]['parent_id']	= $content['ContentRelations'][$key]['parent_id'];
