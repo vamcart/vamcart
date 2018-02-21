@@ -491,6 +491,7 @@ function smarty_function_content_listing($params, $template)
 			if ($raw_data['Content']['content_type_id'] == 2) $content_list[$count]['height']	= ($raw_data['ContentProduct']['height'] > 0) ? $raw_data['ContentProduct']['height'] : false;	
 			if ($raw_data['Content']['content_type_id'] == 2) $content_list[$count]['volume']	= ($raw_data['ContentProduct']['volume'] > 0) ? $raw_data['ContentProduct']['volume'] : false;	
 			if ($raw_data['Content']['content_type_id'] == 2 or $raw_data['Content']['content_type_id'] == 7) $content_list[$count]['manufacturer']	= $ContentBase->getManufacturerName($raw_data[$content_type]['manufacturer_id']);	
+			if ($raw_data['Content']['content_type_id'] == 2 or $raw_data['Content']['content_type_id'] == 7) $content_list[$count]['manufacturer_url']	= BASE . '/manufacturer/' . $ContentBase->getManufacturerAlias($raw_data[$content_type]['manufacturer_id']) . $config['URL_EXTENSION'];
 			if ($raw_data['Content']['content_type_id'] == 2 or $raw_data['Content']['content_type_id'] == 7) $content_list[$count]['label_id']	= $raw_data[$content_type]['label_id'];	
 			$content_list[$count]['date_added']	= CakeTime::i18nFormat($raw_data['Content']['created']);	
 			$content_list[$count]['date_modified']	= CakeTime::i18nFormat($raw_data['Content']['modified']);	
