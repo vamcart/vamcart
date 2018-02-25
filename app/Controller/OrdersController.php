@@ -10,7 +10,7 @@ class OrdersController extends AppController {
 	public $name = 'Orders';
 	public $helpers = array('Time');
 	public $uses = array('EmailTemplate', 'AnswerTemplate', 'Order');
-	public $components = array('EventBase', 'Email', 'Smarty','ConfigurationBase');
+	public $components = array('EventBase', 'Email', 'Smarty','ConfigurationBase','CurrencyBase');
 	public $paginate = array('limit' => 20, 'order' => array('Order.id' => 'desc'));
 
 	public function confirmation ()
@@ -403,7 +403,8 @@ class OrdersController extends AppController {
 			$body = str_replace('{$date}', $order['Order']['created'], $body);
 			$body = str_replace('{$phone}', $order['Order']['phone'], $body);
 			$body = str_replace('{$email}', $order['Order']['email'], $body);
-			$body = str_replace('{$order_total}', $order['Order']['total'], $body);
+
+			$body = str_replace('{$order_total}', $this->CurrencyBase->display_price($order['Order']['total']), $body);
 
 			$order_comment = $this->Order->OrderComment->find('first', array('order'   => 'OrderComment.id DESC', 'conditions' => array('OrderComment.order_id' => $order['Order']['id'])));
 
@@ -415,14 +416,14 @@ class OrdersController extends AppController {
 
 			$order_products = '';
 			foreach($order['OrderProduct'] AS $product) {
-				$order_products .= $product['quantity'] . ' x ' . $product['name'] . ' = ' . $product['quantity']*$product['price'] . "\n";
+				$order_products .= $product['quantity'] . ' x ' . $product['name'] . ' = ' . $this->CurrencyBase->display_price($product['quantity']*$product['price']) . "\n";
 				if ('' != $product['filename']) {
 					$order_products .= __('Download link: ', true) . FULL_BASE_URL . BASE . '/download/' . $order['Order']['id'] . '/' . $product['id'] . '/' . $product['download_key'] . "\n";
 				}
 			}
 
-			$order_products .= "\n" . __($order['ShippingMethod']['name'], true) . ': ' . $order['Order']['shipping'] . "\n";
-			$order_products .= __('Order Total',true) . ': ' . $order['Order']['total'] . "\n";
+			$order_products .= "\n" . __($order['ShippingMethod']['name'], true) . ': ' . $this->CurrencyBase->display_price($order['Order']['shipping']) . "\n";
+			$order_products .= __('Order Total',true) . ': ' . $this->CurrencyBase->display_price($order['Order']['total']) . "\n";
 
 			$body = str_replace('{$products}', $order_products, $body);
 
@@ -636,18 +637,28 @@ class OrdersController extends AppController {
 		$body = str_replace('{$date}', $order['Order']['created'], $body);
 		$body = str_replace('{$phone}', $order['Order']['phone'], $body);
 		$body = str_replace('{$email}', $order['Order']['email'], $body);
-		$body = str_replace('{$order_total}', $order['Order']['total'], $body);
 
-		$order_products = '';
-		foreach($order['OrderProduct'] AS $product) {
-			$order_products .= $product['quantity'] . ' x ' . $product['name'] . ' = ' . $product['quantity']*$product['price'] . "\n";
-			if ('' != $product['filename']) {
-				$order_products .= __('Download link: ', true) . FULL_BASE_URL . BASE . '/download/' . $order['Order']['id'] . '/' . $product['id'] . '/' . $product['download_key'] . "\n";
+
+			$body = str_replace('{$order_total}', $this->CurrencyBase->display_price($order['Order']['total']), $body);
+
+			$order_comment = $this->Order->OrderComment->find('first', array('order'   => 'OrderComment.id DESC', 'conditions' => array('OrderComment.order_id' => $order['Order']['id'])));
+
+			$comments = '';
+			if (isset($order_comment['OrderComment']['comment']) && $order_comment['OrderComment']['comment'] != '')
+			$comments = $order_comment['OrderComment']['comment'];
+
+			$body = str_replace('{$comments}', $comments, $body);
+
+			$order_products = '';
+			foreach($order['OrderProduct'] AS $product) {
+				$order_products .= $product['quantity'] . ' x ' . $product['name'] . ' = ' . $this->CurrencyBase->display_price($product['quantity']*$product['price']) . "\n";
+				if ('' != $product['filename']) {
+					$order_products .= __('Download link: ', true) . FULL_BASE_URL . BASE . '/download/' . $order['Order']['id'] . '/' . $product['id'] . '/' . $product['download_key'] . "\n";
+				}
 			}
-		}
-
-		$order_products .= "\n" . __($order['ShippingMethod']['name'], true) . ': ' . $order['Order']['shipping'] . "\n";
-		$order_products .= __('Order Total',true) . ': ' . $order['Order']['total'] . "\n";
+			
+		$order_products .= "\n" . __($order['ShippingMethod']['name'], true) . ': ' . $this->CurrencyBase->display_price($order['Order']['shipping']) . "\n";
+		$order_products .= __('Order Total',true) . ': ' . $this->CurrencyBase->display_price($order['Order']['total']) . "\n";
 
 		$body = str_replace('{$products}', $order_products, $body);
 					
@@ -855,14 +866,14 @@ class OrdersController extends AppController {
 
 		$order_products = '';
 		foreach($old_order['OrderProduct'] AS $product) {
-			$order_products .= $product['quantity'] . ' x ' . $product['name'] . ' = ' . $product['quantity']*$product['price'] . "\n";
+			$order_products .= $product['quantity'] . ' x ' . $product['name'] . ' = ' . $this->CurrencyBase->display_price($product['quantity']*$product['price']) . "\n";
 			if ('' != $product['filename']) {
 				$order_products .= __('Download link: ', true) . FULL_BASE_URL . BASE . '/download/' . $old_order['Order']['id'] . '/' . $product['id'] . '/' . $product['download_key'] . "\n";
 			}
 		}
 
-		$order_products .= "\n" . __($old_order['ShippingMethod']['name'], true) . ': ' . $old_order['Order']['shipping'] . "\n";
-		$order_products .= __('Order Total',true) . ': ' . $old_order['Order']['total'] . "\n";
+		$order_products .= "\n" . __($old_order['ShippingMethod']['name'], true) . ': ' . $this->CurrencyBase->display_price($old_order['Order']['shipping']) . "\n";
+		$order_products .= __('Order Total',true) . ': ' . $this->CurrencyBase->display_price($old_order['Order']['total']) . "\n";
 
 		$body = str_replace('{$products}', $order_products, $body);
 		
