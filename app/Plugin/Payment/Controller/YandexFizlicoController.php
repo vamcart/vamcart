@@ -139,8 +139,11 @@ class YandexFizlicoController extends PaymentAppController {
 
 			$order = $order[0];
 
-			$body = str_replace('{$shipping_method}', __($order['ShippingMethod']['name'], true), $body);
-			$body = str_replace('{$payment_method}', __($order['PaymentMethod']['name'], true), $body);
+			$body = str_replace('{$shipping_method}', __($order['ShippingMethod']['name'],true), $body);
+			$body = str_replace('{$shipping_method_description}', __($order['ShippingMethod']['description'],true), $body);
+			$body = str_replace('{$payment_method}', __($order['PaymentMethod']['name'],true), $body);
+			$body = str_replace('{$payment_method_description}', __($order['PaymentMethod']['description'],true), $body);
+
 			$body = str_replace('{$date}', $order['Order']['created'], $body);
 			$body = str_replace('{$phone}', $order['Order']['phone'], $body);
 			$body = str_replace('{$email}', $order['Order']['email'], $body);
