@@ -6,10 +6,8 @@
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
-class Ethereum extends AppModel {
-	public $name = 'Ethereum';
-	public $useTable = false;
-
+class EthereumInvoice extends AppModel {
+	public $name = 'EthereumInvoice';
 
    public function wei2eth($wei)
    {

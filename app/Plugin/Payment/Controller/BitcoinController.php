@@ -8,7 +8,7 @@
 App::uses('PaymentAppController', 'Payment.Controller');
 
 class BitcoinController extends PaymentAppController {
-	public $uses = array('Module', 'PaymentMethod', 'Order', 'EmailTemplate');
+	public $uses = array('Module', 'BitcoinInvoice', 'PaymentMethod', 'Order', 'EmailTemplate');
 	public $components = array('Email');
 	public $module_name = 'Bitcoin';
 	public $icon = 'bitcoin.png';

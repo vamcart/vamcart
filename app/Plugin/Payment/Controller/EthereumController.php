@@ -8,7 +8,7 @@
 App::uses('PaymentAppController', 'Payment.Controller');
 
 class EthereumController extends PaymentAppController {
-	public $uses = array('Module', 'PaymentMethod', 'Order', 'EmailTemplate');
+	public $uses = array('Module', 'EthereumInvoice', 'PaymentMethod', 'Order', 'EmailTemplate');
 	public $components = array('Email');
 	public $module_name = 'Ethereum';
 	public $icon = 'ethereum.png';
@@ -85,15 +85,28 @@ class EthereumController extends PaymentAppController {
 
 		$ethereum_settings_key = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'api_key')));
 		$ethereum_key = $ethereum_settings_key['PaymentMethodValue']['value'];
-
+		
+		$order_currency = $this->Session->read('Customer.currency_code');
+		$eth_invoice = array();
+		
 		$success_url = FULL_BASE_URL . BASE . '/orders/place_order/';
 		$fail_url = FULL_BASE_URL . BASE . '/page/checkout' . $config['URL_EXTENSION'];
 		
-		$content = '
+		$eth_wallet_data = json_decode(file_get_contents('https://api.coinbase.com/v2/prices/ETH-'.$order_currency.'/spot'),true);
+
+		$eth_order_total = $order['Order']['total']*(1/$eth_wallet_data['data']['amount']);		
 		
-			<iframe frameborder="0" allowtransparency="true" scrolling="no" src="https://money.ethereum.ru/embed/shop.xml?account='.$ethereum_wallet.'&quickpay=shop&payment-type-choice=on&mobile-payment-type-choice=on&writer=seller&label='.$_SESSION['Customer']['order_id'].'&targets=Заказ №'.$_SESSION['Customer']['order_id'].'&targets-hint=&default-sum='.number_format($order['Order']['total'], 2).'&button-text=01&hint=&successURL='.$success_url.'" width="450" height="255"></iframe>
-			
-			';
+		$eth_invoice['EthereumInvoice']['order_id'] = $order['Order']['id'];
+		$eth_invoice['EthereumInvoice']['value'] = $eth_order_total;
+
+		// Save the eth invoice
+		$this->EthereumInvoice->saveAll($eth_invoice);
+
+		
+		$content = '	
+		<form action="' . BASE . '/orders/place_order/" method="post">
+		<button class="btn btn-default" type="submit" value="{lang}Confirm Order{/lang}"><i class="fa fa-check"></i> {lang}Confirm Order{/lang}</button>
+		</form>';
 						
 	// Save the order
 	

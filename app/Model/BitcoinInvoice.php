@@ -6,7 +6,7 @@
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
 App::uses('Model', 'AppModel');
-class Bitcoin extends AppModel {
-	public $name = 'Bitcoin';
+class BitcoinInvoice extends AppModel {
+	public $name = 'BitcoinInvoice';
 }
 ?>
