@@ -6018,3 +6018,15 @@ msgstr "Bitcon Кошелёк"
 
 msgid "Bitcoin API Key"
 msgstr "Bitcoin API ключ"
+
+msgid "Our eth wallet is:"
+msgstr "Наш eth кошелёк:"
+
+msgid "Please make transaction to our eth wallet!"
+msgstr "Пожалуйста, оплатите Ваш заказ на наш eth кошелёк!"
+
+msgid "Order Total:"
+msgstr "Сумма заказа:"
+
+msgid "Order Total (ETH):"
+msgstr "Сумма заказа (ETH):"
