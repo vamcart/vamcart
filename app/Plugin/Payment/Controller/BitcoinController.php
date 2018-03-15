@@ -47,7 +47,7 @@ class BitcoinController extends PaymentAppController {
 		  `created` datetime,
 		  `modified` datetime,
 		  PRIMARY KEY  (`id`),
-		  INDEX order_id (content_id)
+		  INDEX order_id (order_id)
 		) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 		";		
 		$this->Module->query($install_query);
@@ -64,7 +64,7 @@ class BitcoinController extends PaymentAppController {
 		$this->PaymentMethod->delete($module_id['PaymentMethod']['id'], true);
 
 		// Delete the module record
-		$uninstall_query = "DROP TABLE `bitcoin_invoices`;";
+		$uninstall_query = "DROP TABLE IF EXISTS `bitcoin_invoices`;";
 		$this->Module->query($uninstall_query);
 			
 		$this->Session->setFlash(__('Module Uninstalled'));
