@@ -8,7 +8,7 @@
 App::uses('PaymentAppController', 'Payment.Controller');
 
 class BitcoinController extends PaymentAppController {
-	public $uses = array('PaymentMethod', 'Order', 'EmailTemplate');
+	public $uses = array('Module', 'PaymentMethod', 'Order', 'EmailTemplate');
 	public $components = array('Email');
 	public $module_name = 'Bitcoin';
 	public $icon = 'bitcoin.png';
@@ -37,6 +37,21 @@ class BitcoinController extends PaymentAppController {
 
 		$this->PaymentMethod->saveAll($new_module);
 
+		// Create the database table
+		$install_query = "
+		DROP TABLE IF EXISTS bitcoin_invoices;
+		CREATE TABLE `bitcoin_invoices` (
+		  `id` int(10) auto_increment,
+		  `order_id` int(10),
+		  `value` double,
+		  `created` datetime,
+		  `modified` datetime,
+		  PRIMARY KEY  (`id`),
+		  INDEX order_id (content_id)
+		) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+		";		
+		$this->Module->query($install_query);
+
 		$this->Session->setFlash(__('Module Installed'));
 		$this->redirect('/payment_methods/admin/');
 	}
@@ -47,6 +62,10 @@ class BitcoinController extends PaymentAppController {
 		$module_id = $this->PaymentMethod->findByAlias($this->module_name);
 
 		$this->PaymentMethod->delete($module_id['PaymentMethod']['id'], true);
+
+		// Delete the module record
+		$uninstall_query = "DROP TABLE `bitcoin_invoices`;";
+		$this->Module->query($uninstall_query);
 			
 		$this->Session->setFlash(__('Module Uninstalled'));
 		$this->redirect('/payment_methods/admin/');
