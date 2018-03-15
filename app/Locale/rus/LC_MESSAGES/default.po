@@ -6030,3 +6030,13 @@ msgstr "Сумма заказа:"
 
 msgid "Order Total (ETH):"
 msgstr "Сумма заказа (ETH):"
+
+msgid "Payment transaction for this order confirmed!"
+msgstr "Данный заказ успешно оплачен!"
+
+msgid "Payment transaction for this order not found!"
+msgstr "Платёж за данный заказ не найден!"
+
+msgid "Check your order payment confirmation!"
+msgstr "Проверить статус оплаты Вашего заказа!"
+
