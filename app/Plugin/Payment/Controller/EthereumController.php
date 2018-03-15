@@ -79,7 +79,7 @@ class EthereumController extends PaymentAppController {
 		$order = $this->Order->read(null,$_SESSION['Customer']['order_id']);
 		
 		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
-
+		
 		$ethereum_settings_wallet = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'wallet')));
 		$ethereum_wallet = $ethereum_settings_wallet['PaymentMethodValue']['value'];
 
@@ -87,23 +87,45 @@ class EthereumController extends PaymentAppController {
 		$ethereum_key = $ethereum_settings_key['PaymentMethodValue']['value'];
 		
 		$order_currency = $this->Session->read('Customer.currency_code');
-		$eth_invoice = array();
+		$ethereum_invoice = array();
+		$content = '';
 		
 		$success_url = FULL_BASE_URL . BASE . '/orders/place_order/';
 		$fail_url = FULL_BASE_URL . BASE . '/page/checkout' . $config['URL_EXTENSION'];
 		
-		$eth_wallet_data = json_decode(file_get_contents('https://api.coinbase.com/v2/prices/ETH-'.$order_currency.'/spot'),true);
+		$ethereum_wallet_data = json_decode(file_get_contents('https://api.coinbase.com/v2/prices/ETH-'.$order_currency.'/spot'),true);
 
-		$eth_order_total = $order['Order']['total']*(1/$eth_wallet_data['data']['amount']);		
+		$order_total = $order['Order']['total'];
+		$ethereum_order_total = $order['Order']['total']*(1/$ethereum_wallet_data['data']['amount']);		
+
+		$eth_invoice = $this->EthereumInvoice->find('first', array('conditions' => array('order_id' => $order['Order']['id'])));
 		
-		$eth_invoice['EthereumInvoice']['order_id'] = $order['Order']['id'];
-		$eth_invoice['EthereumInvoice']['value'] = $eth_order_total;
+		if(!$eth_invoice) {
+		
+		$ethereum_invoice['EthereumInvoice']['order_id'] = $order['Order']['id'];
+		$ethereum_invoice['EthereumInvoice']['value'] = $ethereum_order_total;
 
 		// Save the eth invoice
-		$this->EthereumInvoice->saveAll($eth_invoice);
-
+		$this->EthereumInvoice->saveAll($ethereum_invoice);
 		
-		$content = '	
+		} else {
+
+		$ethereum_order_total = $eth_invoice['EthereumInvoice']['value'];		
+		
+		}
+		
+		$content .= '<img src="https://chart.googleapis.com/chart?cht=qr&chs=250x250&chl='.$ethereum_wallet.'" alt="'.$ethereum_wallet.'" width="250" height="250" />';
+		$content .= "<br />";
+		$content .= __("Our eth wallet is:") . " " . "<h3><strong>" . $ethereum_wallet . "</strong></h3>";
+		$content .= "<br />";
+		$content .= __("Order Total (ETH):") . " <h3><strong>" . number_format($ethereum_order_total, 4) . "</strong></h3>";
+		$content .= "<br />";
+		$content .= "<br />";
+		$content .= __("Please make transaction to our eth wallet!");
+		$content .= "<br />";
+		$content .= "<br />";
+		
+		$content .= '	
 		<form action="' . BASE . '/orders/place_order/" method="post">
 		<button class="btn btn-default" type="submit" value="{lang}Confirm Order{/lang}"><i class="fa fa-check"></i> {lang}Confirm Order{/lang}</button>
 		</form>';
@@ -390,10 +412,21 @@ class EthereumController extends PaymentAppController {
 	
 	public function result()
 	{
+		global $order;
+		
 		$this->layout = false;
+  
+		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
+
+		$ethereum_settings_wallet = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'wallet')));
+		$ethereum_wallet = $ethereum_settings_wallet['PaymentMethodValue']['value'];
+
+		$ethereum_settings_key = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'api_key')));
+		$ethereum_key = $ethereum_settings_key['PaymentMethodValue']['value'];
+  
       $api_key_data = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'api_key')));
       $api_key = $api_key_data['PaymentMethodValue']['value'];
-		$order = $this->Order->read(null,$_POST['label']);
+		//$order = $this->Order->read(null,$_POST['label']);
 		$crc = $_POST['sha1_hash'];
 		$hash = sha1($_POST['notification_type'].'&'.$_POST['operation_id'].'&'.$_POST['amount'].'&'.$_POST['currency'].'&'.$_POST['datetime'].'&'.$_POST['sender'].'&'.$_POST['codepro'].'&'.$api_key.'&'.$_POST['label']);
 		$merchant_summ = number_format($_POST['withdraw_amount'], 2);
@@ -408,6 +441,42 @@ class EthereumController extends PaymentAppController {
 		$this->Order->save($order_data);
 		
 		}
+
+
+
+
+
+		$eth_invoice = $this->EthereumInvoice->find('first', array('conditions' => array('order_id' => $order['Order']['id'])));
+		
+		//if($eth_invoice) {
+		
+		//echo $eth_invoice['EthereumInvoice']['value'];
+		//echo number_format($eth_invoice['EthereumInvoice']['value'],4);
+		//echo "<br />";
+
+		//}
+
+
+		
+		$eth_transactions_data = json_decode(file_get_contents('https://api.etherscan.io/api?module=account&action=txlist&address='.$ethereum_wallet.'&startblock=0&endblock=9999999999999999&page=1&offset=10&sort=desc&apikey='.$ethereum_key),true);
+		
+		//echo var_dump($eth_transactions_data['result']);
+	
+	
+//0.050009654345601	
+//50009654345601644
+		
+      $tx_found = array_search($eth_invoice['EthereumInvoice']['value'], array_column($eth_transactions_data['result'], 'value'), false);
+      
+      if ($tx_found) {
+      	echo var_dump($eth_transactions_data['result'][$tx_found]);
+      } else {
+			echo 'Платёж не найден!';      
+      }
+    
+    //echo $this->EthereumInvoice->wei2eth(50003160818987000);
+    
+    //echo "<br />".$this->EthereumInvoice->eth2wei(0.05000316081898712);
 	
 	}
 	
