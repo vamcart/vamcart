@@ -291,7 +291,7 @@ class EthereumController extends PaymentAppController {
 
 
 		
-		$eth_transactions_data = json_decode(file_get_contents('https://api.etherscan.io/api?module=account&action=txlist&address='.$ethereum_wallet.'&startblock=0&endblock=9999999999999999&page=1&offset=10&sort=desc&apikey='.$ethereum_key),true);
+		$eth_transactions_data = json_decode(file_get_contents('https://api.etherscan.io/api?module=account&action=txlist&address='.$ethereum_wallet.'&startblock=0&endblock=9999999999999999&page=1&offset=5&sort=desc&apikey='.$ethereum_key),true);
 		
 		function search_array(&$array, $val)
 		{
