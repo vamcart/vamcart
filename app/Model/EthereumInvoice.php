@@ -14,5 +14,10 @@ class EthereumInvoice extends AppModel {
        return bcdiv($wei,1000000000000000000,18);
    }
 
+   public function eth2wei($eth)
+   {
+       return bcmul($eth,1000000000000000000);
+   }
+
 }
 ?>
