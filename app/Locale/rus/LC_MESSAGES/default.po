@@ -6006,3 +6006,15 @@ msgstr "Секретный ключ Stripe"
 
 msgid "Stripe Publishable Key"
 msgstr "Публикуемый ключ Stripe"
+
+msgid "Ethereum Wallet"
+msgstr "Ethereum Кошелёк"
+
+msgid "Ethereum API Key"
+msgstr "Ethereum API ключ"
+
+msgid "Bitcoin Wallet"
+msgstr "Bitcon Кошелёк"
+
+msgid "Bitcoin API Key"
+msgstr "Bitcoin API ключ"
