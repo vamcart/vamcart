@@ -6,13 +6,13 @@
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $this->Form->input('ethereum.wallet', array(
+echo $this->Form->input('ethereum.eth_wallet', array(
 	'label' => __('Ethereum Wallet'),
 	'type' => 'text',
 	'value' => $data['PaymentMethodValue'][0]['value']
 	));
 
-echo $this->Form->input('ethereum.api_key', array(
+echo $this->Form->input('ethereum.eth_api_key', array(
 	'label' => __('Ethereum API Key'),
 	'type' => 'text',
 	'value' => $data['PaymentMethodValue'][1]['value']

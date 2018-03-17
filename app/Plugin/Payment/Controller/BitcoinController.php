@@ -28,11 +28,11 @@ class BitcoinController extends PaymentAppController {
 		$new_module['PaymentMethod']['alias'] = $this->module_name;
 
 		$new_module['PaymentMethodValue'][0]['payment_method_id'] = $this->PaymentMethod->id;
-		$new_module['PaymentMethodValue'][0]['key'] = 'wallet';
+		$new_module['PaymentMethodValue'][0]['key'] = 'btc_wallet';
 		$new_module['PaymentMethodValue'][0]['value'] = '';
 
 		$new_module['PaymentMethodValue'][1]['payment_method_id'] = $this->PaymentMethod->id;
-		$new_module['PaymentMethodValue'][1]['key'] = 'api_key';
+		$new_module['PaymentMethodValue'][1]['key'] = 'btc_api_key';
 		$new_module['PaymentMethodValue'][1]['value'] = '';
 
 		$this->PaymentMethod->saveAll($new_module);
@@ -80,10 +80,10 @@ class BitcoinController extends PaymentAppController {
 		
 		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 		
-		$bitcoin_settings_wallet = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'wallet')));
+		$bitcoin_settings_wallet = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'btc_wallet')));
 		$bitcoin_wallet = $bitcoin_settings_wallet['PaymentMethodValue']['value'];
 
-		$bitcoin_settings_key = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'api_key')));
+		$bitcoin_settings_key = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'btc_api_key')));
 		$bitcoin_key = $bitcoin_settings_key['PaymentMethodValue']['value'];
 		
 		$order_currency = $this->Session->read('Customer.currency_code');
@@ -281,10 +281,10 @@ class BitcoinController extends PaymentAppController {
   
 		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 
-		$bitcoin_settings_wallet = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'wallet')));
+		$bitcoin_settings_wallet = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'btc_wallet')));
 		$bitcoin_wallet = $bitcoin_settings_wallet['PaymentMethodValue']['value'];
 
-		$bitcoin_settings_key = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'api_key')));
+		$bitcoin_settings_key = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'btc_api_key')));
 		$bitcoin_key = $bitcoin_settings_key['PaymentMethodValue']['value'];
   
 		$btc_invoice = $this->BitcoinInvoice->find('first', array('conditions' => array('order_id' => $order['Order']['id'])));

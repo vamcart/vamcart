@@ -28,11 +28,11 @@ class EthereumController extends PaymentAppController {
 		$new_module['PaymentMethod']['alias'] = $this->module_name;
 
 		$new_module['PaymentMethodValue'][0]['payment_method_id'] = $this->PaymentMethod->id;
-		$new_module['PaymentMethodValue'][0]['key'] = 'wallet';
+		$new_module['PaymentMethodValue'][0]['key'] = 'eth_wallet';
 		$new_module['PaymentMethodValue'][0]['value'] = '';
 
 		$new_module['PaymentMethodValue'][1]['payment_method_id'] = $this->PaymentMethod->id;
-		$new_module['PaymentMethodValue'][1]['key'] = 'api_key';
+		$new_module['PaymentMethodValue'][1]['key'] = 'eth_api_key';
 		$new_module['PaymentMethodValue'][1]['value'] = '';
 
 		$this->PaymentMethod->saveAll($new_module);
@@ -80,10 +80,10 @@ class EthereumController extends PaymentAppController {
 		
 		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 		
-		$ethereum_settings_wallet = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'wallet')));
+		$ethereum_settings_wallet = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'eth_wallet')));
 		$ethereum_wallet = $ethereum_settings_wallet['PaymentMethodValue']['value'];
 
-		$ethereum_settings_key = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'api_key')));
+		$ethereum_settings_key = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'eth_api_key')));
 		$ethereum_key = $ethereum_settings_key['PaymentMethodValue']['value'];
 		
 		$order_currency = $this->Session->read('Customer.currency_code');
@@ -281,10 +281,10 @@ class EthereumController extends PaymentAppController {
   
 		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 
-		$ethereum_settings_wallet = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'wallet')));
+		$ethereum_settings_wallet = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'eth_wallet')));
 		$ethereum_wallet = $ethereum_settings_wallet['PaymentMethodValue']['value'];
 
-		$ethereum_settings_key = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'api_key')));
+		$ethereum_settings_key = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'eth_api_key')));
 		$ethereum_key = $ethereum_settings_key['PaymentMethodValue']['value'];
   
 		$eth_invoice = $this->EthereumInvoice->find('first', array('conditions' => array('order_id' => $order['Order']['id'])));

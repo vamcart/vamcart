@@ -6,13 +6,13 @@
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-echo $this->Form->input('bitcoin.wallet', array(
+echo $this->Form->input('bitcoin.btc_wallet', array(
 	'label' => __('Bitcoin Wallet'),
 	'type' => 'text',
 	'value' => $data['PaymentMethodValue'][0]['value']
 	));
 
-echo $this->Form->input('bitcoin.api_key', array(
+echo $this->Form->input('bitcoin.btc_api_key', array(
 	'label' => __('Bitcoin API Key'),
 	'type' => 'text',
 	'value' => $data['PaymentMethodValue'][1]['value']
