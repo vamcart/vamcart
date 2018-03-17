@@ -9,14 +9,14 @@ App::uses('Model', 'AppModel');
 class BitcoinInvoice extends AppModel {
 	public $name = 'BitcoinInvoice';
 
-   public function wei2btc($wei)
+   public function value2btc($value)
    {
-       return bcdiv($wei,1000000000000000000,18);
+       return $value/100000000;
    }
 
-   public function btc2wei($eth)
+   public function btc2value($value)
    {
-       return bcmul($eth,1000000000000000000);
+       return $value*100000000;
    }
 
 }
