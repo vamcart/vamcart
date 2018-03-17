@@ -29,11 +29,11 @@ class BitcoinController extends PaymentAppController {
 
 		$new_module['PaymentMethodValue'][0]['payment_method_id'] = $this->PaymentMethod->id;
 		$new_module['PaymentMethodValue'][0]['key'] = 'wallet';
-		$new_module['PaymentMethodValue'][0]['value'] = '0xbcadf92124808f644d55f45fb853c534c854fab1';
+		$new_module['PaymentMethodValue'][0]['value'] = '';
 
 		$new_module['PaymentMethodValue'][1]['payment_method_id'] = $this->PaymentMethod->id;
 		$new_module['PaymentMethodValue'][1]['key'] = 'api_key';
-		$new_module['PaymentMethodValue'][1]['value'] = 'QI4D6XAUQR42JGYFX537CUJY2QA7A4VE7B';
+		$new_module['PaymentMethodValue'][1]['value'] = '';
 
 		$this->PaymentMethod->saveAll($new_module);
 
