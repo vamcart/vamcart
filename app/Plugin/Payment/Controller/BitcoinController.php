@@ -311,7 +311,7 @@ class BitcoinController extends PaymentAppController {
 		search_array($btc_transactions_data['txs'], substr($this->BitcoinInvoice->btc2value($btc_invoice['BitcoinInvoice']['value']),0,3));
 		$result = array_filter($btc_transactions_data['txs']);
 		
-	     if ($result[0]['out'][0]['value'] > 0) {
+	     if (isset($result[0]['out'][0]['value']) && $result[0]['out'][0]['value'] > 0) {
 				echo __('Payment transaction for this order confirmed!');     
 				
 					$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
