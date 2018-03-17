@@ -6019,17 +6019,26 @@ msgstr "Bitcon Кошелёк"
 msgid "Bitcoin API Key"
 msgstr "Bitcoin API ключ"
 
+msgid "Our btc wallet is:"
+msgstr "Наш btc кошелёк:"
+
 msgid "Our eth wallet is:"
 msgstr "Наш eth кошелёк:"
 
 msgid "Please make transaction to our eth wallet!"
 msgstr "Пожалуйста, оплатите Ваш заказ на наш eth кошелёк!"
 
+msgid "Please make transaction to our btc wallet!"
+msgstr "Пожалуйста, оплатите Ваш заказ на наш btc кошелёк!"
+
 msgid "Order Total:"
 msgstr "Сумма заказа:"
 
 msgid "Order Total (ETH):"
 msgstr "Сумма заказа (ETH):"
+
+msgid "Order Total (BTC):"
+msgstr "Сумма заказа (BTC):"
 
 msgid "Payment transaction for this order confirmed!"
 msgstr "Данный заказ успешно оплачен!"
