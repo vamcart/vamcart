@@ -6010,14 +6010,14 @@ msgstr "Публикуемый ключ Stripe"
 msgid "Ethereum Wallet"
 msgstr "Ethereum Кошелёк"
 
-msgid "Ethereum API Key"
-msgstr "Ethereum API ключ"
+msgid "Etherscan.io API Key"
+msgstr "Etherscan.io API ключ"
 
 msgid "Bitcoin Wallet"
 msgstr "Bitcon Кошелёк"
 
-msgid "Bitcoin API Key"
-msgstr "Bitcoin API ключ"
+msgid "Blockchain.info API Key"
+msgstr "Blockchain.info API ключ"
 
 msgid "Our btc wallet is:"
 msgstr "Наш btc кошелёк:"

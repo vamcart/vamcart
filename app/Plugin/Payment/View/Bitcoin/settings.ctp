@@ -13,7 +13,7 @@ echo $this->Form->input('bitcoin.btc_wallet', array(
 	));
 
 echo $this->Form->input('bitcoin.btc_api_key', array(
-	'label' => __('Bitcoin API Key'),
+	'label' => __('Blockchain.info API Key'),
 	'type' => 'text',
 	'value' => $data['PaymentMethodValue'][1]['value']
 	));

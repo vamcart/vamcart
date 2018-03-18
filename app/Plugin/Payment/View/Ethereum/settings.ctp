@@ -13,7 +13,7 @@ echo $this->Form->input('ethereum.eth_wallet', array(
 	));
 
 echo $this->Form->input('ethereum.eth_api_key', array(
-	'label' => __('Ethereum API Key'),
+	'label' => __('Etherscan.io API Key'),
 	'type' => 'text',
 	'value' => $data['PaymentMethodValue'][1]['value']
 	));
