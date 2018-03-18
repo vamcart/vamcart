@@ -3038,8 +3038,9 @@ class DboSource extends DataSource {
 		$keys = array_filter($keys);
 
 		$result = array();
-		while (!empty($keys)) {
-			list($key, $dir) = each($keys);
+		if (!empty($keys)) {
+		foreach ($keys as $key => $dir) {
+
 			array_shift($keys);
 
 			if (is_numeric($key)) {
@@ -3097,6 +3098,7 @@ class DboSource extends DataSource {
 			$key .= ' ' . trim($dir);
 
 			$result[] = $key;
+		}
 		}
 
 		if (!empty($result)) {
