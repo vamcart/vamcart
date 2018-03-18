@@ -6,7 +6,7 @@
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class LocaleComponent extends Object
+class LocaleComponent extends CakeObject
 {
 
 	public function beforeFilter ()

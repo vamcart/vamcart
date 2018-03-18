@@ -6,7 +6,7 @@
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class EventBaseComponent extends Object 
+class EventBaseComponent extends CakeObject 
 {
 
 	public function beforeFilter ()

@@ -10,7 +10,7 @@ App::uses('Controller/Component', 'SessionComponent');
 App::uses('Model', 'Content');
 App::uses('Model', 'ContentDescription');
 
-class ContentBaseComponent extends Object
+class ContentBaseComponent extends CakeObject
 {
     public $components = array('Session','Smarty');
 

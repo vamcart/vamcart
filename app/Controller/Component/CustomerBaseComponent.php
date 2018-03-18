@@ -6,7 +6,7 @@
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class CustomerBaseComponent extends Object 
+class CustomerBaseComponent extends CakeObject 
 {
 
    public function initialize(Controller $controller) {

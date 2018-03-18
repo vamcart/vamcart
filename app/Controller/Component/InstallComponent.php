@@ -6,7 +6,7 @@
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class InstallComponent extends Object 
+class InstallComponent extends CakeObject 
 {
     public $components = array('Session','Smarty');
 

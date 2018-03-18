@@ -6,7 +6,7 @@
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class UserTagBaseComponent extends Object 
+class UserTagBaseComponent extends CakeObject 
 {
 
 	public function beforeFilter ()

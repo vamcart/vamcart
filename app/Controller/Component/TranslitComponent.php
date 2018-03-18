@@ -6,12 +6,13 @@
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class TranslitComponent extends Component 
+class TranslitComponent extends CakeObject 
 {
 
-	public function beforeFilter () {
+	public function beforeFilter ()
+	{
 	}
-	
+
 	public function initialize(Controller $controller) {
 	}
     
@@ -20,10 +21,10 @@ class TranslitComponent extends Component
 
 	public function shutdown(Controller $controller) {
 	}
-    
+
 	public function beforeRender(Controller $controller){
 	}
-
+	
 	public function beforeRedirect(Controller $controller, $url, $status = NULL, $exit = true){
 	}
 	
@@ -42,7 +43,7 @@ class TranslitComponent extends Component
 		"щ"=>"sch",
 		"э"=>"je",
 		"ю"=>"ju",
-		"я"=>"ya",
+		"я"=>"ja",
 		
 		"а"=>"a",
 		"б"=>"b",
@@ -77,7 +78,7 @@ class TranslitComponent extends Component
 		"Щ"=>"SCH",
 		"Э"=>"JE",
 		"Ю"=>"JU",
-		"Я"=>"YA",
+		"Я"=>"JA",
 		
 		"А"=>"A",
 		"Б"=>"B",

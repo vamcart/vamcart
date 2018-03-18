@@ -6,7 +6,7 @@
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class SummaComponent extends Object 
+class SummaComponent extends CakeObject 
 {
 
 	public function beforeFilter ()

@@ -6,7 +6,7 @@
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class PaymentMethodBaseComponent extends Object 
+class PaymentMethodBaseComponent extends CakeObject 
 {
 
 	public function beforeFilter ()

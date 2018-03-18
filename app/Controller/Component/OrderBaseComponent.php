@@ -14,7 +14,7 @@ App::import('Model', 'Order');
 App::import('Model', 'ContentProduct');
 App::import('Model', 'ContentDownloadable');
 
-class OrderBaseComponent extends Object
+class OrderBaseComponent extends CakeObject
 {
 
 	public function initialize(Controller $controller) {

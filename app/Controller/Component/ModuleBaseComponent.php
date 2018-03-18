@@ -6,7 +6,7 @@
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class ModuleBaseComponent extends Object 
+class ModuleBaseComponent extends CakeObject 
 {
 	public $components = array('Session');
 	

@@ -6,7 +6,7 @@
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class ConfigurationBaseComponent extends Object 
+class ConfigurationBaseComponent extends CakeObject 
 {
 
 	public function beforeFilter ()

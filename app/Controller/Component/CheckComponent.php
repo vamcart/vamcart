@@ -5,7 +5,7 @@
    Copyright (c) 2014 VamSoft Ltd.
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
-class CheckComponent extends Object
+class CheckComponent extends CakeObject
 {
 
 	public $demo_period_days = 14;	
