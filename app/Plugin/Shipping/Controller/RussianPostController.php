@@ -141,7 +141,7 @@ class RussianPostController extends ShippingAppController {
 
 					}
 
-                return $shipping_price + $handling;
+                return (int)$shipping_price + (int)$handling;
         }
 
         public function before_process()
