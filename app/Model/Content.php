@@ -292,6 +292,97 @@ class Content extends AppModel {
             else return current($types);
         }
         
+        public function get_filtered_conditions($filter = null, $alias = '')
+        {                 
+            if(isset($filter)) {
+                $this->unbindAll();
+                $this->bindModel(array('hasMany' => array(
+                                'Attribute' => array(
+                                    'className' => 'Attribute'
+                ))));                
+                $content_list_data_joins = array(array('table' => 'attributes'
+                                                      ,'alias' => 'Attribute'
+                                                      ,'type' => 'inner'
+                                                      ,'conditions' => array('Content.parent_id = Attribute.content_id'))
+                                                ,array('table' => 'attributes'
+                                                      ,'alias' => 'AttributeDefValue'
+                                                      ,'type' => 'inner'
+                                                      ,'conditions' => array('Attribute.id = AttributeDefValue.parent_id'))
+                                                ,array('table' => 'attributes'
+                                                      ,'alias' => 'AttributeValue'
+                                                      ,'type' => 'left'
+                                                      ,'conditions' => array('Content.id = AttributeValue.content_id' ,'AttributeDefValue.id = AttributeValue.parent_id'))
+                                                );
+                $attribute_conditions = $group = array();  
+
+                foreach($filter['values_attribute'] AS $k => $filter_value)
+                {
+                    if($filter['is_active'][$filter_value['parent_id']] == '1')
+                    {   $group[$filter_value['parent_id']] = true;
+                        //if(!isset($attribute_conditions[$filter_value['parent_id']]))$attribute_conditions[$filter_value['parent_id']] = array();
+                        $not_val = array();
+                        switch ($filter_value['type_attr']) 
+                        {
+                            case 'max_value':
+                                if(trim($filter_value['value']) != '')
+                                if(isset($attribute_conditions[$filter_value['parent_id']][0])) 
+                                    $attribute_conditions[$filter_value['parent_id']][0] = array_merge($attribute_conditions[$filter_value['parent_id']][0],array('AttributeValue.val <= ' . $filter_value['value'] . ' OR (AttributeDefValue.val <= ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)'));
+                                else $attribute_conditions[$filter_value['parent_id']][1000] = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val >= ' . $filter_value['value'] . ' OR (AttributeDefValue.val <= ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');                                
+                            break;
+                            case 'min_value':
+                                if(trim($filter_value['value']) != '')
+                                if(isset($attribute_conditions[$filter_value['parent_id']][1000])) 
+                                    $attribute_conditions[$filter_value['parent_id']][1000] = array_merge($attribute_conditions[$filter_value['parent_id']][1000],array('AttributeValue.val >= ' . $filter_value['value'] . ' OR (AttributeDefValue.val >= ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)'));
+                                else $attribute_conditions[$filter_value['parent_id']][0] = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val >= ' . $filter_value['value'] . ' OR (AttributeDefValue.val >= ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
+                            break;
+                            case 'like_value':
+                                $filter_value['value'] = "'%" . $filter_value['value'] . "%'";
+                                $not_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val like ' . $filter_value['value'] . ' OR (AttributeDefValue.val like ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
+                            break;
+                            case 'dig_value':
+                                if(trim($filter_value['value']) != '' && is_numeric($filter_value['value']))
+                                $not_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val = ' . $filter_value['value'] . ' OR (AttributeDefValue.val = ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
+                            break;
+                            case 'checked_list':
+                                $filter_value['value'] = $filter_value['value'] + 0;
+                                if($filter_value['value'] != 0)$not_val = array("AttributeDefValue.id = " . $k ,"AttributeValue.val = '" . $filter_value['value'] . "' OR (AttributeDefValue.val = '" . $filter_value['value'] . "' AND AttributeValue.val IS NULL)");
+                            break;
+                            case 'list_value':
+                                $filter_value['value'] = $filter_value['value'] + 0;
+                                if($filter_value['value'] != 0)$not_val = array("AttributeDefValue.id = " . $k ,"AttributeValue.val = '" . $filter_value['value'] . "' OR (AttributeDefValue.val = '" . $filter_value['value'] . "' AND AttributeValue.val IS NULL)");
+                            break;
+                            default:
+                                $filter_value['value'] = $filter_value['value'] + 0;
+                                $not_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val != ' . $filter_value['value'] . ' OR (AttributeDefValue.val != ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
+                            break;
+                        }
+                        if(!empty($not_val))$attribute_conditions[] = $not_val;
+                    }
+                }
+
+                $get_content = $this->findByAlias($alias);
+                $conditions =  array('Content.parent_id' => $get_content['Content']['id'],'Content.active' => '1','Content.show_in_menu' => '1');
+                
+                $conditions = array_merge($conditions, array('OR' => $attribute_conditions));                 
+                if(!empty($attribute_conditions))
+                    $group = array('Content.id HAVING COUNT(*)=' . count($group));
+                else $group = array('Content.id');
+                $content_filtered_list_data = $this->find('all', array('conditions' => $conditions, 'order' => array('Content.order ASC') ,'joins' => $content_list_data_joins ,'group' => $group));
+                $attribute_ids = $content_ids = array();
+                foreach ($content_filtered_list_data as $val){
+                    foreach ($val['Attribute'] as $atr){
+                        if($atr['val'] == 1)
+                            $attribute_ids[$atr['parent_id']] = $atr['val'];
+                    }
+                    $content_ids[$val['Content']['id']] = $val['Content']['id'];
+                }
+//$arr = $this->getDataSource()->getLog();                
+//var_dump(end($arr['log']));
+                return array('content_ids' => $content_ids,'attribute_ids' => $attribute_ids);
+            }
+            return null;
+        }
+        
 }
 
 ?>

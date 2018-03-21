@@ -69,23 +69,25 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty');
                 }
                 if(isset($this->params['compared'])) $is_compared = 1; else $is_compared = null;
                 
-                global $filter_list;
-                $filter_list = $this->Session->read('filter_list.' . $alias);//текущее состояние
-                if(isset($this->params['filtered']) && $this->params['filtered'] == 'set')
+
+                global $filter_list,$filtered_content,$filtered_attributes;  
+                $filter_list = $this->Session->read('filter_list.' . $alias);//текущее состояние фильтра                            
+                if(isset($this->params['filtered']))
                 {
-                    App::import('Model', 'Attribute');
-                    $Attribute = new Attribute;
-                    $filter_list = $Attribute->getFilterFromFormData($this->data);
-                    if(!empty($filter_list))
-                    {
-                        $this->Session->write('filter_list.' . $alias ,$filter_list);//сохраняем состояние для пагинации
-                    }
+                    if($this->params['filtered'] == 'set'&&!isset($this->data['cancelbutton'])) {
+                        $filter_list = $this->Content->Attribute->getFilterFromFormData($this->data);
+                        if(!empty($filter_list))
+                            $this->Session->write('filter_list.' . $alias ,$filter_list);//сохраняем состояние(например для пагинации)
+                    } else if($this->params['filtered'] == 'unset'||isset($this->data['cancelbutton']))
+                    {                                                
+                        $filter_list = $filtered_attributes = $filtered_content = null;
+                        $this->Session->delete('filter_list.' . $alias);
+                    }        
                 }
-                if(isset($this->params['filtered']) && $this->params['filtered'] == 'set' && isset($this->data['cancelbutton']))
-                {
-                    $filter_list = array();
-                    $this->Session->delete('filter_list.' . $alias);
-                }
+                $content_filtered_list_data = $this->Content->get_filtered_conditions($filter_list,$alias);                  
+                $filtered_content = $content_filtered_list_data['content_ids'];
+                $filtered_attributes = $content_filtered_list_data['attribute_ids'];                  
+                
 
 		// Pull the content out of cache or generate it if it doesn't exist
 		// Cache is based on language_id and alias of the page.

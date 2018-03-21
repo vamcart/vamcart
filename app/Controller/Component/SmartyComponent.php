@@ -8,6 +8,8 @@
 
 class SmartyComponent extends Component
 {
+	private $smarty;
+    
 	public function beforeFilter () {
 	}
 	
@@ -59,33 +61,34 @@ class SmartyComponent extends Component
 
 	public function load_smarty ()
 	{
+            if(!isset($this->smarty)) {
 		App::import('Vendor', 'Smarty', array('file' => 'smarty'.DS.'Smarty.class.php'));
-		$smarty = new Smarty();
+		$this->smarty = new Smarty();
 
-		$smarty->plugins_dir = array(
+		$this->smarty->plugins_dir = array(
 			APP . 'Vendor/smarty/plugins',
 			APP . 'Catalog/local',
 			APP . 'Catalog'
 		);
 
 		// Minify html
-		if (Configure::read('debug') == 0) $smarty->loadFilter('output','minify_html');
+		if (Configure::read('debug') == 0) $this->smarty->loadFilter('output','minify_html');
 
-		$smarty->setCacheDir(CACHE . 'smarty_cache');
-		$smarty->setCompileDir(CACHE . 'smarty_templates_c');
-				
-		return $smarty;
+		$this->smarty->setCacheDir(CACHE . 'smarty_cache');
+		$this->smarty->setCompileDir(CACHE . 'smarty_templates_c');
+            }
+		return $this->smarty;
 	}
 
 	public function fetch($str, $assigns = array())
 	{
-		$smarty = $this->load_smarty();
+		$this->smarty = $this->load_smarty();
 
 		foreach($assigns AS $key => $value) {
-			$smarty->assign($key, $value);
+			$this->smarty->assign($key, $value);
 		}
 
-		return $smarty->fetch('string:' . $str);
+		return $this->smarty->fetch('string:' . $str);
 	}
 
 	public function display($str, $assigns = array())

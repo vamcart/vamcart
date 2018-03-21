@@ -47,7 +47,7 @@
 	Router::connect('/category/addcmp/:add_alias/:content_alias', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/category/delcmp/:del_alias/:content_alias', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/category/compared/:compared/:content_alias', array('controller' => 'pages', 'action' => 'index'));
-	Router::connect('/category/filtered/:filtered/:content_alias', array('controller' => 'pages', 'action' => 'index'));
+	Router::connect('/category/filtered/:filtered/:hash/:content_alias', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/page/:content_alias', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/news/:content_alias', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/article/:content_alias', array('controller' => 'pages', 'action' => 'index'));
