@@ -103,7 +103,7 @@ return $template;
 
 function smarty_function_content_listing($params, $template)
 {
-	global $config,$content,$filter_list,$sort_by;
+	global $config,$content,$filter_list,$filtered_content,$sort_by;
 			
 			if (!isset ($params['current_order'])) 
 			    $params['current_order'] = false;
@@ -291,100 +291,18 @@ function smarty_function_content_listing($params, $template)
 	$Content->recursive = 1;
 
         // Applying pagination for products only
-        if(strpos($params['type'],'product') !== false){
-//1.Найдем группы        
-        $ContentGroup = new Content();
-        $ContentGroup->recursive = -1;
-        $content_list_group = $ContentGroup->find('list', array('fields' => array('Content.id_group', 'COUNT(Content.id) AS grp_cnt')
-                                                         ,'conditions' => $content_list_data_conditions
-                                                         ,'group' => array('Content.id_group HAVING grp_cnt > 1')
-                                                         ,'order' => array('Content.order' => 'ASC')
-                                                         ));
-        $content_list_group = array_keys($content_list_group);            
-//
-        if(!empty($filter_list))
-        {
-            $ContentFiltered = new Content();
-            $ContentFiltered->recursive = -1;
-            $content_list_data_joins = array(array('table' => 'attributes'
-                                                  ,'alias' => 'Attribute'
-                                                  ,'type' => 'inner'
-                                                  ,'conditions' => array('Content.parent_id = Attribute.content_id'))
-                                            ,array('table' => 'attributes'
-                                                  ,'alias' => 'AttributeDefValue'
-                                                  ,'type' => 'inner'
-                                                  ,'conditions' => array('Attribute.id = AttributeDefValue.parent_id'))
-                                            ,array('table' => 'attributes'
-                                                  ,'alias' => 'AttributeValue'
-                                                  ,'type' => 'left'
-                                                  ,'conditions' => array('Content.id = AttributeValue.content_id' ,'AttributeDefValue.id = AttributeValue.parent_id'))
-                                            );
-            $attribute_conditions = array();  
+        if(strpos($params['type'],'product') !== false) {
 
-            foreach($filter_list['values_attribute'] AS $k => $filter_value)
-            {
-                if($filter_list['is_active'][$filter_value['parent_id']] == '1')
-                {
-                    //if(!isset($attribute_conditions[$filter_value['parent_id']]))$attribute_conditions[$filter_value['parent_id']] = array();
-                    $not_val = $in_val = array();
-                    switch ($filter_value['type_attr']) 
-                    {
-                        case 'max_value':
-                            if(trim($filter_value['value']) != '')
-                            if(isset($attribute_conditions[$filter_value['parent_id']][0])) 
-                                $attribute_conditions[$filter_value['parent_id']][0] = array_merge($attribute_conditions[$filter_value['parent_id']][0],array('AttributeValue.val <= ' . $filter_value['value'] . ' OR (AttributeDefValue.val <= ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)'));
-                            else $attribute_conditions[$filter_value['parent_id']][1000] = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val >= ' . $filter_value['value'] . ' OR (AttributeDefValue.val <= ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');                                
-                        break;
-                        case 'min_value':
-                            if(trim($filter_value['value']) != '')
-                            if(isset($attribute_conditions[$filter_value['parent_id']][1000])) 
-                                $attribute_conditions[$filter_value['parent_id']][1000] = array_merge($attribute_conditions[$filter_value['parent_id']][1000],array('AttributeValue.val >= ' . $filter_value['value'] . ' OR (AttributeDefValue.val >= ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)'));
-                            else $attribute_conditions[$filter_value['parent_id']][0] = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val >= ' . $filter_value['value'] . ' OR (AttributeDefValue.val >= ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
-                        break;
-                        case 'like_value':
-                            $filter_value['value'] = "'%" . $filter_value['value'] . "%'";
-                            $not_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val like ' . $filter_value['value'] . ' OR (AttributeDefValue.val like ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
-                        break;
-                        case 'dig_value':
-                            if(trim($filter_value['value']) != '' && is_numeric($filter_value['value']))
-                            $not_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val = ' . $filter_value['value'] . ' OR (AttributeDefValue.val = ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
-                        break;
-                        case 'checked_list':
-                            $filter_value['value'] = $filter_value['value'] + 0;
-                            if($filter_value['value'] != 0)$not_val = array("AttributeDefValue.id = " . $k ,"AttributeValue.val = '" . $filter_value['value'] . "' OR (AttributeDefValue.val = '" . $filter_value['value'] . "' AND AttributeValue.val IS NULL)");
-                        break;
-                        case 'list_value':
-                            $filter_value['value'] = $filter_value['value'] + 0;
-                            if($filter_value['value'] != 0)$not_val = array("AttributeDefValue.id = " . $k ,"AttributeValue.val = '" . $filter_value['value'] . "' OR (AttributeDefValue.val = '" . $filter_value['value'] . "' AND AttributeValue.val IS NULL)");
-                        break;
-                        default:
-                            $filter_value['value'] = $filter_value['value'] + 0;
-                            $not_val = array('AttributeDefValue.id = ' . $k ,'AttributeValue.val != ' . $filter_value['value'] . ' OR (AttributeDefValue.val != ' . $filter_value['value'] . ' AND AttributeValue.val IS NULL)');
-                        break;
-                    }
-                    if(!empty($not_val))$attribute_conditions[$filter_value['parent_id']][$k] = $not_val;
-                }
-            }
-         
-            $next_flt = $content_list_data_conditions;
-            foreach ($attribute_conditions as $value) 
-            {
-                $value = array('OR' => $value);
-                $tmp_content_list_data_conditions = array_merge($next_flt, $value);
-//Добавляем фильтр (новый вариант с группами)                
-//                $content_filtered_list_data = $ContentFiltered->find('all', array('fields' => array('Content.id','IFNULL(Content.id_group,Content.id) as grp'),'conditions' => $tmp_content_list_data_conditions, 'order' => array($params['order_column']) ,'joins' => $content_list_data_joins ,'group' => array('Content.id')));
-//                $content_filtered_list_data = Set::combine($content_filtered_list_data,'{n}.Content.id', '{n}.0.grp');//нормализуем в list
-//(старый вариант без групп)
-                $content_filtered_list_data = $ContentFiltered->find('list', array('fields' => 'id','conditions' => $tmp_content_list_data_conditions, 'order' => array('Content.order ASC') ,'joins' => $content_list_data_joins ,'group' => array('Content.id')));                
-//                
-
-                $next_flt = array('Content.id' => $content_filtered_list_data);
-            }
-            $content_list_data_conditions = array_merge($content_list_data_conditions,$next_flt);
-        }
-//2.Добавим фильтр для групп        
-        $content_list_data_conditions = array_merge($content_list_data_conditions,array('OR' => array('Content.is_group' => 1,'Content.id_group is null or Content.id_group = 0', 'Content.id' => $content_list_group)));
-//               
+            if(!empty($filter_list))
+            {        
+                $content_list_data_conditions = array_merge($content_list_data_conditions,array('Content.id' => $filtered_content));        
+            } else {     
+                $content_list_data_conditions = array_merge($content_list_data_conditions,array('OR' => array(
+                   'Content.id_group' => 0
+                  ,'Content.id_group is null'
+                  ,'Content.is_group' => 1
+                ))); 
+            } 
 
 				// Sort products by manufacturer
 				if(isset($params['manufacturer']) && $params['manufacturer'] > 0) {
