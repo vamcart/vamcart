@@ -9,7 +9,7 @@
 class AttributeTemplatesController extends AppController {
     public $name = 'AttributeTemplates';
 	
-    public function admin_edit ($action = 'init' ,$id)
+    public function admin_edit ($action = 'init' ,$id = 0)
     {
         switch ($action) 
 	{
