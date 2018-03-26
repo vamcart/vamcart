@@ -53,7 +53,7 @@ $this->Html->css(array(
 		});
 
       $(function() {
-        $(".chosen-select").chosen();
+        $(".chosen-select").chosen({width: "200px"});
       });
       
       $(function() {
@@ -105,14 +105,14 @@ $(document).ready(function () {
 
 $("#myTab a:first").tab("show"); // Select first tab	
 $("#myTabProducts a:first").tab("show"); // Select first tab	
+$("#myAttrProducts a:first").tab("show"); //
 $("#myTabManufacturers a:first").tab("show"); // Select first tab	
 $("#myTabCategories a:first").tab("show"); // Select first tab	
 $("#myTabPages a:first").tab("show"); // Select first tab	
 $("#myTabArticles a:first").tab("show"); // Select first tab	
 $("#myTabNews a:first").tab("show"); // Select first tab	
 $("#myTabCustomers a:first").tab("show"); // Select first tab	
-$("#myTabOrders a:first").tab("show"); // Select first tab	
-	
+$("#myTabOrders a:first").tab("show"); // Select first tab
 });
 	
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
@@ -123,6 +123,8 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-database-refresh');
 
 echo '<ul id="myTab" class="nav nav-tabs">';
 echo $this->Admin->CreateTab('products',__('Products',true), 'cus-table');
+echo $this->Admin->CreateTab('attr',__('Attributes',true), 'cus-table');
+echo $this->Admin->CreateTab('img',__('Images',true), 'cus-table');
 echo $this->Admin->CreateTab('manufacturers',__('Brands',true), 'cus-tag-blue');
 echo $this->Admin->CreateTab('categories',__('Categories',true), 'cus-report');
 echo $this->Admin->CreateTab('pages',__('Pages',true), 'cus-page');
@@ -168,30 +170,26 @@ echo '
 	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'ContentProduct.stock','order' => 6)) . '</td><td>stock</td><td>' . __('Stock.') . '</td></tr>
 	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'ContentProduct.price','order' => 7)) . '</td><td>price</td><td>' . __('Product Price.') . '</td></tr>
 	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'ContentProduct.weight','order' => 8)) . '</td><td>weight</td><td>' . __('Weight.') . '</span></td></tr>
-	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'ContentProduct.length','order' => 9)) . '</td><td>length</td><td>' . __('Length.') . '</span></td></tr>
-	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'ContentProduct.width','order' => 10)) . '</td><td>width</td><td>' . __('Width.') . '</span></td></tr>
-	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'ContentProduct.height','order' => 11)) . '</td><td>height</td><td>' . __('Height.') . '</span></td></tr>
-	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'ContentProduct.volume','order' => 12)) . '</td><td>volume</td><td>' . __('Volume.') . '</span></td></tr>
-	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'ContentProduct.label','order' => 13)) . '</td><td>label</td><td>' . __('Product Label.') . '</td></tr>
-	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'ContentProduct.manufacturer','order' => 14)) . '</td><td>manufacturer</td><td>' . __('Brand.') . '</td></tr>
-	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'ContentDescription.description','order' => 15)) . '</td><td>description</td><td>' . __('Description.') . '</td></tr>
-	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'ContentDescription.short_description','order' => 16)) . '</td><td>short_description</td><td>' . __('Short Description.') . '</td></tr>
-	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'ContentDescription.meta_title','order' => 17)) . '</td><td>meta_title</td><td>' . __('Meta Title.') . '</td></tr>
-	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'ContentDescription.meta_description','order' => 18)) . '</td><td>meta_description</td><td>' . __('Meta Description.') . '</td></tr>
-	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'ContentDescription.meta_keywords','order' => 19)) . '</td><td>meta_keywords</td><td>' . __('Meta Keywords.') . '</td></tr>
-	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.image','order' => 20)) . '</td><td>image</td><td>' . __('Content Images.') . '</td></tr>
-	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.order','order' => 21)) . '</td><td>order</td><td>' . __('Sort Order.') . '</td></tr>
-	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.active','order' => 22)) . '</td><td>active</td><td>' . __('Content Status. 1 - Active. 0 - Inactive.') . '</td></tr>
-	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.show_in_menu','order' => 23)) . '</td><td>show_in_menu</td><td>' . __('Show In Menu. 1 - Yes. 0 - No.') . '</td></tr>
-	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.yml_export','order' => 24)) . '</td><td>yml_export</td><td>' . __('YML Export. 1 - Yes. 0 - No.') . '</td></tr>
-	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.viewed','order' => 25)) . '</td><td>viewed</td><td>' . __('Content Viewed Count.') . '</td></tr>
-	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.created','order' => 26)) . '</td><td>created</td><td>' . __('Creation Date.') . '</td></tr>
-	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.modified','order' => 27)) . '</td><td>modified</td><td>' . __('Modification Date.') . '</td></tr>
-	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.action','order' => 28)) . '</td><td>action</td><td>' . __('Action. <span class="text-danger">You can delete content from your store. Set <strong>delete</strong> at this column.</span>') . '</td></tr>
-	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'ContentProduct.tax_id','order' => 29)) . '</td><td>tax_id</td><td>' . __('Tax Id.') . '</td></tr>
-	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.template_id','order' => 30)) . '</td><td>template_id</td><td>' . __('Template Id.') . '</td></tr>
-	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.is_group','order' => 31)) . '</td><td>is_group</td><td>' . __('Grouped Product.') . '</td></tr>
-	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.id_group','order' => 32)) . '</td><td>id_group</td><td>' . __('Group.') . '</td></tr>
+	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'ContentProduct.label','order' => 9)) . '</td><td>label</td><td>' . __('Product Label.') . '</td></tr>
+	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'ContentProduct.manufacturer','order' => 10)) . '</td><td>manufacturer</td><td>' . __('Brand.') . '</td></tr>
+	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'ContentDescription.description','order' => 11)) . '</td><td>description</td><td>' . __('Description.') . '</td></tr>
+	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'ContentDescription.short_description','order' => 12)) . '</td><td>short_description</td><td>' . __('Short Description.') . '</td></tr>
+	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'ContentDescription.meta_title','order' => 13)) . '</td><td>meta_title</td><td>' . __('Meta Title.') . '</td></tr>
+	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'ContentDescription.meta_description','order' => 14)) . '</td><td>meta_description</td><td>' . __('Meta Description.') . '</td></tr>
+	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'ContentDescription.meta_keywords','order' => 15)) . '</td><td>meta_keywords</td><td>' . __('Meta Keywords.') . '</td></tr>
+	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.image','order' => 16)) . '</td><td>image</td><td>' . __('Content Images.') . '</td></tr>
+	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.order','order' => 17)) . '</td><td>order</td><td>' . __('Sort Order.') . '</td></tr>
+	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.active','order' => 18)) . '</td><td>active</td><td>' . __('Content Status. 1 - Active. 0 - Inactive.') . '</td></tr>
+	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.show_in_menu','order' => 19)) . '</td><td>show_in_menu</td><td>' . __('Show In Menu. 1 - Yes. 0 - No.') . '</td></tr>
+	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.yml_export','order' => 20)) . '</td><td>yml_export</td><td>' . __('YML Export. 1 - Yes. 0 - No.') . '</td></tr>
+	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.viewed','order' => 21)) . '</td><td>viewed</td><td>' . __('Content Viewed Count.') . '</td></tr>
+	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.created','order' => 22)) . '</td><td>created</td><td>' . __('Creation Date.') . '</td></tr>
+	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.modified','order' => 23)) . '</td><td>modified</td><td>' . __('Modification Date.') . '</td></tr>
+	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.action','order' => 24)) . '</td><td>action</td><td>' . __('Action. <span class="text-danger">You can delete content from your store. Set <strong>delete</strong> at this column.</span>') . '</td></tr>
+	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'ContentProduct.tax_id','order' => 25)) . '</td><td>tax_id</td><td>' . __('Tax Id.') . '</td></tr>
+	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.template_id','order' => 26)) . '</td><td>template_id</td><td>' . __('Template Id.') . '</td></tr>
+	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.is_group','order' => 27)) . '</td><td>is_group</td><td>' . __('Grouped Product.') . '</td></tr>
+	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.id_group','order' => 28)) . '</td><td>id_group</td><td>' . __('Group.') . '</td></tr>
     </tbody>
 </table>
 
@@ -262,30 +260,26 @@ echo '
 	<tr><td>' . $this->Form->input('Fields.6.Content.ContentProduct.stock',array('type' => 'hidden')) . 'stock</td><td>' . __('Stock.') . '</td></tr>
 	<tr><td>' . $this->Form->input('Fields.7.Content.ContentProduct.price',array('type' => 'hidden')) . 'price</td><td>' . __('Product Price.') . '</td></tr>
 	<tr><td>' . $this->Form->input('Fields.8.Content.ContentProduct.weight',array('type' => 'hidden')) . 'weight</td><td>' . __('Weight.') . '</span></td></tr>
-	<tr><td>' . $this->Form->input('Fields.9.Content.ContentProduct.length',array('type' => 'hidden')) . 'length</td><td>' . __('Length.') . '</span></td></tr>
-	<tr><td>' . $this->Form->input('Fields.10.Content.ContentProduct.width',array('type' => 'hidden')) . 'width</td><td>' . __('Width.') . '</span></td></tr>
-	<tr><td>' . $this->Form->input('Fields.11.Content.ContentProduct.height',array('type' => 'hidden')) . 'height</td><td>' . __('Height.') . '</span></td></tr>
-	<tr><td>' . $this->Form->input('Fields.12.Content.ContentProduct.volume',array('type' => 'hidden')) . 'volume</td><td>' . __('Volume.') . '</span></td></tr>
-	<tr><td>' . $this->Form->input('Fields.13.Content.ContentProduct.label',array('type' => 'hidden')) . 'label</td><td>' . __('Product Label.') . '</td></tr>
-	<tr><td>' . $this->Form->input('Fields.14.Content.ContentProduct.manufacturer',array('type' => 'hidden')) . 'manufacturer</td><td>' . __('Brand.') . '</td></tr>
-	<tr><td>' . $this->Form->input('Fields.15.Content.ContentDescription.description',array('type' => 'hidden')) . 'description</td><td>' . __('Description.') . '</td></tr>
-	<tr><td>' . $this->Form->input('Fields.16.Content.ContentDescription.short_description',array('type' => 'hidden')) . 'short_description</td><td>' . __('Short Description.') . '</td></tr>
-	<tr><td>' . $this->Form->input('Fields.17.Content.ContentDescription.meta_title',array('type' => 'hidden')) . 'meta_title</td><td>' . __('Meta Title.') . '</td></tr>
-	<tr><td>' . $this->Form->input('Fields.18.Content.ContentDescription.meta_description',array('type' => 'hidden')) . 'meta_description</td><td>' . __('Meta Description.') . '</td></tr>
-	<tr><td>' . $this->Form->input('Fields.19.Content.ContentDescription.meta_keywords',array('type' => 'hidden')) . 'meta_keywords</td><td>' . __('Meta Keywords.') . '</td></tr>
-	<tr><td>' . $this->Form->input('Fields.20.Content.image',array('type' => 'hidden')) . 'image</td><td>' . __('Content Images.') . '</td></tr>
-	<tr><td>' . $this->Form->input('Fields.21.Content.order',array('type' => 'hidden')) . 'order</td><td>' . __('Sort Order.') . '</td></tr>
-	<tr><td>' . $this->Form->input('Fields.22.Content.active',array('type' => 'hidden')) . 'active</td><td>' . __('Content Status. 1 - Active. 0 - Inactive.') . '</td></tr>
-	<tr><td>' . $this->Form->input('Fields.23.Content.show_in_menu',array('type' => 'hidden')) . 'show_in_menu</td><td>' . __('Show In Menu. 1 - Yes. 0 - No.') . '</td></tr>
-	<tr><td>' . $this->Form->input('Fields.24.Content.yml_export',array('type' => 'hidden')) . 'yml_export</td><td>' . __('YML Export. 1 - Yes. 0 - No.') . '</td></tr>
-	<tr><td>' . $this->Form->input('Fields.25.Content.viewed',array('type' => 'hidden')) . 'viewed</td><td>' . __('Content Viewed Count.') . '</td></tr>
-	<tr><td>' . $this->Form->input('Fields.26.Content.created',array('type' => 'hidden')) . 'created</td><td>' . __('Creation Date.') . '</td></tr>
-	<tr><td>' . $this->Form->input('Fields.27.Content.modified',array('type' => 'hidden')) . 'modified</td><td>' . __('Modification Date.') . '</td></tr>
-	<tr><td>' . $this->Form->input('Fields.28.Content.action',array('type' => 'hidden')) . 'action</td><td>' . __('Action. <span class="text-danger">You can delete content from your store. Set <strong>delete</strong> at this column.</span>') . '</td></tr>
-	<tr><td>' . $this->Form->input('Fields.29.Content.ContentProduct.tax_id',array('type' => 'hidden')) . 'tax_id</td><td>' . __('Tax Id.') . '</td></tr>
-	<tr><td>' . $this->Form->input('Fields.30.Content.template_id',array('type' => 'hidden')) . 'template_id</td><td>' . __('Template Id.') . '</td></tr>
-	<tr><td>' . $this->Form->input('Fields.31.Content.is_group',array('type' => 'hidden')) . 'is_group</td><td>' . __('Grouped Product.') . '</td></tr>
-	<tr><td>' . $this->Form->input('Fields.32.Content.id_group',array('type' => 'hidden')) . 'id_group</td><td>' . __('Group.') . '</td></tr>
+	<tr><td>' . $this->Form->input('Fields.9.Content.ContentProduct.label',array('type' => 'hidden')) . 'label</td><td>' . __('Product Label.') . '</td></tr>
+	<tr><td>' . $this->Form->input('Fields.10.Content.ContentProduct.manufacturer',array('type' => 'hidden')) . 'manufacturer</td><td>' . __('Brand.') . '</td></tr>
+	<tr><td>' . $this->Form->input('Fields.11.Content.ContentDescription.description',array('type' => 'hidden')) . 'description</td><td>' . __('Description.') . '</td></tr>
+	<tr><td>' . $this->Form->input('Fields.12.Content.ContentDescription.short_description',array('type' => 'hidden')) . 'short_description</td><td>' . __('Short Description.') . '</td></tr>
+	<tr><td>' . $this->Form->input('Fields.13.Content.ContentDescription.meta_title',array('type' => 'hidden')) . 'meta_title</td><td>' . __('Meta Title.') . '</td></tr>
+	<tr><td>' . $this->Form->input('Fields.14.Content.ContentDescription.meta_description',array('type' => 'hidden')) . 'meta_description</td><td>' . __('Meta Description.') . '</td></tr>
+	<tr><td>' . $this->Form->input('Fields.15.Content.ContentDescription.meta_keywords',array('type' => 'hidden')) . 'meta_keywords</td><td>' . __('Meta Keywords.') . '</td></tr>
+	<tr><td>' . $this->Form->input('Fields.16.Content.image',array('type' => 'hidden')) . 'image</td><td>' . __('Content Images.') . '</td></tr>
+	<tr><td>' . $this->Form->input('Fields.17.Content.order',array('type' => 'hidden')) . 'order</td><td>' . __('Sort Order.') . '</td></tr>
+	<tr><td>' . $this->Form->input('Fields.18.Content.active',array('type' => 'hidden')) . 'active</td><td>' . __('Content Status. 1 - Active. 0 - Inactive.') . '</td></tr>
+	<tr><td>' . $this->Form->input('Fields.19.Content.show_in_menu',array('type' => 'hidden')) . 'show_in_menu</td><td>' . __('Show In Menu. 1 - Yes. 0 - No.') . '</td></tr>
+	<tr><td>' . $this->Form->input('Fields.20.Content.yml_export',array('type' => 'hidden')) . 'yml_export</td><td>' . __('YML Export. 1 - Yes. 0 - No.') . '</td></tr>
+	<tr><td>' . $this->Form->input('Fields.21.Content.viewed',array('type' => 'hidden')) . 'viewed</td><td>' . __('Content Viewed Count.') . '</td></tr>
+	<tr><td>' . $this->Form->input('Fields.22.Content.created',array('type' => 'hidden')) . 'created</td><td>' . __('Creation Date.') . '</td></tr>
+	<tr><td>' . $this->Form->input('Fields.23.Content.modified',array('type' => 'hidden')) . 'modified</td><td>' . __('Modification Date.') . '</td></tr>
+	<tr><td>' . $this->Form->input('Fields.24.Content.action',array('type' => 'hidden')) . 'action</td><td>' . __('Action. <span class="text-danger">You can delete content from your store. Set <strong>delete</strong> at this column.</span>') . '</td></tr>
+	<tr><td>' . $this->Form->input('Fields.25.Content.ContentProduct.tax_id',array('type' => 'hidden')) . 'tax_id</td><td>' . __('Tax Id.') . '</td></tr>
+	<tr><td>' . $this->Form->input('Fields.26.Content.template_id',array('type' => 'hidden')) . 'template_id</td><td>' . __('Template Id.') . '</td></tr>
+	<tr><td>' . $this->Form->input('Fields.27.Content.is_group',array('type' => 'hidden')) . 'is_group</td><td>' . __('Grouped Product.') . '</td></tr>
+	<tr><td>' . $this->Form->input('Fields.28.Content.id_group',array('type' => 'hidden')) . 'id_group</td><td>' . __('Group.') . '</td></tr>
     </tbody>
 </table>
             
@@ -325,8 +319,161 @@ echo $this->Admin->EndTabContent();
 echo $this->Admin->EndTabs();
 
 echo '<!-- /Products Tab End -->';
-    
+
 echo $this->Admin->EndTabContent();
+
+
+echo $this->Admin->StartTabContent('attr');
+echo '<ul id="myAttrProducts" class="nav nav-tabs">';
+echo $this->Admin->CreateTab('export-attr',__('Export',true), 'cus-arrow-out');
+echo $this->Admin->CreateTab('import-attr',__('Import',true), 'cus-arrow-in');
+echo '</ul>';
+
+echo $this->Admin->StartTabs('attr');
+
+echo $this->Admin->StartTabContent('export-attr');
+
+    echo $this->Form->create('ImportExport', array('id' => 'attr_form_export', 'class' => 'form-horizontal', 'url' => '/import_export/export/attr'));
+
+echo '
+
+<h3>' . __('Available Fields') . '</h3>
+
+<div><span class="text-warning">' . __('') . '</span></div>
+
+<table class="table sortable_list">
+    <thead>
+        <tr><th align="center">' . __('Export') . '</th><th>' . __('Name') . '</th><th>' . __('Description') . '</th></tr>
+    </thead>
+    <tbody>        
+        <tr class="warning"><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'ContentProduct.model','readonly' => true,'order' => 1)) . '</td><td>model</td><td>' . __('Product Model.') . '</td></tr>
+	<tr class="warning"><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Attribute.name','readonly' => true,'order' => 2)) . '</td><td>name</td><td>' . __('Attribute Name.') . '</td></tr>
+	<tr class="warning"><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Attribute.value','readonly' => true,'order' => 3)) . '</td><td>value</td><td>' . __('Attribute Value.') . '</td></tr>
+        <tr class="warning"><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'AttributeTemplate.name','readonly' => true,'order' => 4)) . '</td><td>template</td><td>' . __('Attribute Template.') . '</td></tr>
+	<tr class="warning"><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Attribute.type_attr','readonly' => true,'order' => 5)) . '</td><td>type_attr</td><td>' . __('Attribute Type.') . '</td></tr>
+        <tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Attribute.order','order' => 6)) . '</td><td>order</td><td>' . __('Sort Order.') . '</span></td></tr>            
+	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Attribute.price_modificator','order' => 7)) . '</td><td>price_modificator</td><td>' . __('Price Modificator.') . '</span></td></tr>
+	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Attribute.price_value','order' => 8)) . '</td><td>price_value</td><td>' . __('Price Modificator Value.') . '</td></tr>
+        <tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Attribute.is_active','order' => 9)) . '</td><td>is_active</td><td>' . __('Active State.') . '</td></tr>
+        <tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Attribute.is_show_flt','order' => 10)) . '</td><td>is_show_flt</td><td>' . __('Show Filter.') . '</td></tr>    
+            <tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Attribute.is_show_cmp','order' => 11)) . '</td><td>is_show_cmp</td><td>' . __('Show Comparison.') . '</td></tr>    
+    </tbody>
+</table>
+
+<a class="btn btn-default" data-switch-toggle="state"><i class="cus-arrow-refresh"></i> ' . __('Toggle All') . '</a>
+            
+';            
+
+		echo $this->Form->input('ImportExport.category_id', 
+					array(
+						'type' => 'select',
+						'data-placeholder' => __('All Categories'),
+						'class' => 'chosen-select',
+						'multiple' => true,
+			   		'label' => __('Categories'),
+						'options' => $this->requestAction('/contents/admin_parents_tree/'),
+						'escape' => false,
+						//'empty' => array(0 => __('Все категории'))
+               ));
+
+	echo $this->Form->input('ImportExport.language_id', 
+				array(
+					'label' => __('Language'),
+					'type' => 'select',
+					'options' => $available_languages,
+					'selected' => $current_language
+				));
+
+	echo $this->Form->input('ImportExport.delimiter', 
+				array(
+					'label' => __('CSV File Delimiter'),
+					'value' => '~'
+				));
+
+
+    echo $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit'));
+    echo $this->Form->end();
+
+echo $this->Admin->EndTabContent();
+
+echo $this->Admin->StartTabContent('import-attr');
+
+    echo '<div class="alert alert-error"><i class="cus-error"></i> '.__('Don\'t forget backup your database before import at Admin - Tools - Database Backup.').'</div>';
+    echo $this->Form->create('form_Import', array('enctype' => 'multipart/form-data', 'id' => 'contentform_import', 'url' => '/import_export/import/attr'));
+
+echo '
+
+<h3>' . __('Allowed Fields') . '</h3>
+
+<div><span class="text-warning">' . __('') . '</span></div>
+
+<table class="table sortable_list">
+    <thead>
+        <tr><th>' . __('Name') . '</th><th>' . __('Description') . '</th></tr>
+    </thead>
+    <tbody>
+	<tr class="warning"><td>' . $this->Form->input('Fields.1.Content.ContentProduct.model',array('type' => 'hidden')) . 'model</td><td>' . __('Product Model.') . '</td></tr>
+	<tr class="warning"><td>' . $this->Form->input('Fields.2.Content.Attribute.name',array('type' => 'hidden')) . 'name</td><td>' . __('Attribute Name.') . '</td></tr>
+	<tr class="warning"><td>' . $this->Form->input('Fields.3.Content.Attribute.value',array('type' => 'hidden')) . 'value</td><td>' . __('Attribute Value.') . '</td></tr>
+	<tr class="warning"><td>' . $this->Form->input('Fields.4.Content.AttributeTemplate.name',array('type' => 'hidden')) . 'template</td><td>' . __('Attribute Template.') . '</td></tr>            
+	<tr class="warning"><td>' . $this->Form->input('Fields.5.Content.Attribute.type_attr',array('type' => 'hidden')) . 'type_attr</td><td>' . __('Attribute Type.') . '</td></tr>
+        <tr class="warning"><td>' . $this->Form->input('Fields.6.Content.Attribute.order',array('type' => 'hidden')) . 'order</td><td>' . __('Sort Order.') . '</td></tr>            
+	<tr><td>' . $this->Form->input('Fields.7.Content.Attribute.price_modificator',array('type' => 'hidden')) . 'price_modificator</td><td>' . __('Price Modificator.') . '</span></td></tr>
+	<tr><td>' . $this->Form->input('Fields.8.Content.Attribute.price_value',array('type' => 'hidden')) . 'price_value</td><td>' . __('Price Modificator Value.') . '</td></tr>
+        <tr><td>' . $this->Form->input('Fields.9.Content.Attribute.is_active',array('type' => 'hidden')) . 'is_active</td><td>' . __('Active State.') . '</td></tr>
+        <tr><td>' . $this->Form->input('Fields.10.Content.Attribute.is_show_flt',array('type' => 'hidden')) . 'is_show_flt</td><td>' . __('Show Filter.') . '</td></tr>
+        <tr><td>' . $this->Form->input('Fields.11.Content.Attribute.is_show_cmp',array('type' => 'hidden')) . 'is_show_cmp</td><td>' . __('Show Comparison.') . '</td></tr>
+    </tbody>
+</table>
+            
+';            
+
+    
+	echo $this->Form->input('ImportExport.language_id', 
+				array(
+					'label' => __('Language'),
+					'type' => 'select',
+					'options' => $available_languages,
+					'selected' => $current_language
+				));
+
+	echo $this->Form->input('ImportExport.delimiter', 
+				array(
+					'label' => __('CSV File Delimiter'),
+					'value' => '~'
+				));
+
+    echo $this->Form->file('submittedfile');
+
+
+    echo '<br />' . $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit'));
+    echo $this->Form->end();
+
+echo $this->Admin->EndTabContent();
+
+echo $this->Admin->EndTabs();
+
+echo $this->Admin->EndTabContent();
+
+
+echo $this->Admin->StartTabContent('img');
+echo '<ul id="myImgProducts" class="nav nav-tabs">';
+echo $this->Admin->CreateTab('import-img',__('Import',true), 'cus-arrow-in');
+echo '</ul>';
+echo $this->Admin->StartTabs('img');
+
+echo $this->Admin->StartTabContent('export-img');
+echo $this->Admin->EndTabContent();
+ echo '<div class="alert alert-error"><i class="cus-error"></i> '.__('Don\'t forget backup your database before import at Admin - Tools - Database Backup.').'</div>';
+    echo $this->Form->create('form_Import', array('enctype' => 'multipart/form-data', 'id' => 'contentform_import', 'url' => '/import_export/import/images'));
+
+    echo $this->Form->file('submittedfile');
+
+    echo '<br />' . $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit'));
+    echo $this->Form->end();
+echo $this->Admin->EndTabs();
+echo $this->Admin->EndTabContent();
+
 
 echo $this->Admin->StartTabContent('manufacturers');
 
