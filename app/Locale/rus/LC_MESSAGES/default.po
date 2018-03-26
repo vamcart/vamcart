@@ -5839,6 +5839,50 @@ msgid "Group."
 msgstr "Группа."
 
 #: /views/import_export/admin.ctp:93
+msgid "Product Model."
+msgstr "Артикул товара."
+
+#: /views/import_export/admin.ctp:93
+msgid "Attribute Name."
+msgstr "Наименование атрибута."
+
+#: /views/import_export/admin.ctp:93
+msgid "Attribute Value."
+msgstr "Значение атрибута."
+
+#: /views/import_export/admin.ctp:93
+msgid "Attribute Template."
+msgstr "Шаблон атрибута."
+
+#: /views/import_export/admin.ctp:93
+msgid "Attribute Type."
+msgstr "Тип атрибута."
+
+#: /views/import_export/admin.ctp:93
+msgid "Price Modificator."
+msgstr "Модификатор цены."
+
+#: /views/import_export/admin.ctp:93
+msgid "Price Modificator Value."
+msgstr "Значение модификатора цены."
+
+#: /views/import_export/admin.ctp:93
+msgid "Active State."
+msgstr "Активный стаус."
+
+#: /views/import_export/admin.ctp:93
+msgid "Show Filter."
+msgstr "Отображать в фильтре."
+
+#: /views/import_export/admin.ctp:93
+msgid "Show Comparison."
+msgstr "Отображать при сравнении."
+
+#: /views/import_export/admin.ctp:93
+msgid "Images"
+msgstr "Картинки"
+
+#: /views/import_export/admin.ctp:93
 msgid "Email. <span class="text-danger">Email must be unique for every customer.</span>"
 msgstr "Email адрес покупателя. <span class="text-danger">Данное поле является ключом - проверяется, если клиента с таким email нет, то добавляется новый клиент, если есть - обновляются данные покупателя.</span>"
 
