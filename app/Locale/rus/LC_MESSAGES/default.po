@@ -5868,7 +5868,7 @@ msgstr "Значение модификатора цены."
 
 #: /views/import_export/admin.ctp:93
 msgid "Active State."
-msgstr "Активный стаус."
+msgstr "Активный статус."
 
 #: /views/import_export/admin.ctp:93
 msgid "Show Filter."
