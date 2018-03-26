@@ -106,6 +106,7 @@ $(document).ready(function () {
 $("#myTab a:first").tab("show"); // Select first tab	
 $("#myTabProducts a:first").tab("show"); // Select first tab	
 $("#myAttrProducts a:first").tab("show"); //
+$("#myImgProducts a:first").tab("show"); //
 $("#myTabManufacturers a:first").tab("show"); // Select first tab	
 $("#myTabCategories a:first").tab("show"); // Select first tab	
 $("#myTabPages a:first").tab("show"); // Select first tab	
