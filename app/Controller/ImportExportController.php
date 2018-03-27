@@ -117,14 +117,16 @@ class ImportExportController extends AppController {
                             if($res&&$res!=0){
                                 $content = $this->Content->find('first',array('conditions' => array('ContentProduct.model' => $matches[2])));
                                 if(isset($content['Content']['id'])) {
-                                    $dir = WWW_ROOT . '/img/content/' . $content['Content']['id'];
+                                    //$dir = WWW_ROOT . '/img/content/' . $content['Content']['id'];
+                                    $dir = WWW_ROOT . '/img/content/';
                                     if(!is_dir($dir)) mkdir($dir);
                                     if(copy($file, $dir . '/' . $matches[1]))
                                     {
                                         $img = array(
                                             'id' => 0,
                                             'content_id' => $content['Content']['id'],
-                                            'order' => count($content['ContentImage']) + 1,
+                                            //'order' => count($content['ContentImage']) + 1,
+                                            'order' => 1,
                                             'image' => $matches[1]
                                         );
                                         $this->Content->ContentImage->save($img);
