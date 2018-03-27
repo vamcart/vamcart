@@ -650,7 +650,7 @@ class ImportExportController extends AppController {
             foreach ($data['Content']['image'] as $k => $value) {
                 $images[] = array(
                     'image' => $value
-                   ,'order' => $k
+                   ,'order' => 1
                 );
             }
             $data['Content']['ContentImage'] = $images;
