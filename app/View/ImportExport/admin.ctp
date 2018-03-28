@@ -106,7 +106,7 @@ $(document).ready(function () {
 $("#myTab a:first").tab("show"); // Select first tab	
 $("#myTabProducts a:first").tab("show"); // Select first tab	
 $("#myAttrProducts a:first").tab("show"); //
-$("#myImgProducts a:first").tab("show"); //
+//$("#myImgProducts a:first").tab("show"); //
 $("#myTabManufacturers a:first").tab("show"); // Select first tab	
 $("#myTabCategories a:first").tab("show"); // Select first tab	
 $("#myTabPages a:first").tab("show"); // Select first tab	
@@ -125,7 +125,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-database-refresh');
 echo '<ul id="myTab" class="nav nav-tabs">';
 echo $this->Admin->CreateTab('products',__('Products',true), 'cus-table');
 echo $this->Admin->CreateTab('attr',__('Attributes',true), 'cus-table');
-echo $this->Admin->CreateTab('img',__('Images',true), 'cus-table');
+//echo $this->Admin->CreateTab('img',__('Images',true), 'cus-table');
 echo $this->Admin->CreateTab('manufacturers',__('Brands',true), 'cus-tag-blue');
 echo $this->Admin->CreateTab('categories',__('Categories',true), 'cus-report');
 echo $this->Admin->CreateTab('pages',__('Pages',true), 'cus-page');
@@ -457,23 +457,23 @@ echo $this->Admin->EndTabs();
 echo $this->Admin->EndTabContent();
 
 
-echo $this->Admin->StartTabContent('img');
-echo '<ul id="myImgProducts" class="nav nav-tabs">';
-echo $this->Admin->CreateTab('import-img',__('Import',true), 'cus-arrow-in');
-echo '</ul>';
-echo $this->Admin->StartTabs('img');
+//echo $this->Admin->StartTabContent('img');
+//echo '<ul id="myImgProducts" class="nav nav-tabs">';
+//echo $this->Admin->CreateTab('import-img',__('Import',true), 'cus-arrow-in');
+//echo '</ul>';
+//echo $this->Admin->StartTabs('img');
 
-echo $this->Admin->StartTabContent('export-img');
-echo $this->Admin->EndTabContent();
- echo '<div class="alert alert-error"><i class="cus-error"></i> '.__('Don\'t forget backup your database before import at Admin - Tools - Database Backup.').'</div>';
-    echo $this->Form->create('form_Import', array('enctype' => 'multipart/form-data', 'id' => 'contentform_import', 'url' => '/import_export/import/images'));
+//echo $this->Admin->StartTabContent('export-img');
+//echo $this->Admin->EndTabContent();
+// echo '<div class="alert alert-error"><i class="cus-error"></i> '.__('Don\'t forget backup your database before import at Admin - Tools - Database Backup.').'</div>';
+    //echo $this->Form->create('form_Import', array('enctype' => 'multipart/form-data', 'id' => 'contentform_import', 'url' => '/import_export/import/images'));
 
-    echo $this->Form->file('submittedfile');
+    //echo $this->Form->file('submittedfile');
 
-    echo '<br />' . $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit'));
-    echo $this->Form->end();
-echo $this->Admin->EndTabs();
-echo $this->Admin->EndTabContent();
+    //echo '<br />' . $this->Admin->formButton(__('Submit'), 'cus-tick', array('class' => 'btn btn-primary', 'type' => 'submit', 'name' => 'submit'));
+    //echo $this->Form->end();
+//echo $this->Admin->EndTabs();
+//echo $this->Admin->EndTabContent();
 
 
 echo $this->Admin->StartTabContent('manufacturers');
