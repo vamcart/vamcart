@@ -49,6 +49,7 @@ class SiteController extends AppController {
 			$_POST['customer']['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
 			$_POST['customer']['accept_language'] = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
 
+			App::import('Model', 'Customer');
 			$customer = new Customer();
 			$customer->set($_POST['customer']);
 			if ($customer->validates()) {
@@ -120,6 +121,7 @@ class SiteController extends AppController {
 		$clean = new Sanitize();
 		$clean->clean($_POST);
 		if (isset($_POST['customer'])) {
+			App::import('Model', 'Customer');
 			$customer = new Customer();
 			$customer->set($_POST['customer']);
 			if ($customer->validates()) {
@@ -171,6 +173,7 @@ class SiteController extends AppController {
 		$clean = new Sanitize();
 		$clean->clean($_POST);
 		if (isset($_POST)) {
+			App::import('Model', 'Customer');
 			$customer = new Customer();
 			$customer->set($_POST);
 			$customer->AddressBook->set($_POST['AddressBook']);
@@ -270,6 +273,7 @@ class SiteController extends AppController {
 		}
 					
 		if (isset($_POST['customer']) && $spam_flag == false) {
+			App::import('Model', 'Customer');
 			$customer = new Customer();
 			$customer->set($_POST['customer']);
 			if ($customer->validates()) {
@@ -365,6 +369,7 @@ class SiteController extends AppController {
 			if(!empty($user))
 			{
 			  
+			App::import('Model', 'Customer');
   			$customer = new Customer();
 
 			  $customer_data = array();
