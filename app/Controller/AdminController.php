@@ -33,6 +33,15 @@ class AdminController extends AppController {
                                                     ,'conditions' => array('Order.order_status_id >' => '0','Order.created >' => date("Y-m-d H:i:s",time()-(365*24*3600)))
                                                     ,'group' => array('dat')
                                                     ,'order' => array('dat')));
+                                                    
+            $order_day_year_ago = $this->Order->find('all', array('fields' => array('DATE_FORMAT(Order.created, \'%m-%d-%Y\') as dat','TRUNCATE(SUM(Order.total),2) as summ','COUNT(Order.id) as cnt')
+                                                    ,'conditions' => array('Order.order_status_id >' => '0','Order.created >' => date("Y-m-d H:i:s",strtotime("-1 year", time())-(14*24*3600)),'Order.created <' => date("Y-m-d H:i:s",time()-(14*24*3600)))
+                                                    ,'group' => array('dat')
+                                                    ,'order' => array('dat')));
+            $order_month_year_ago = $this->Order->find('all', array('fields' => array('DATE_FORMAT(Order.created, \'%Y-%m\') as dat','TRUNCATE(SUM(Order.total),2) as summ','COUNT(Order.id) as cnt')
+                                                    ,'conditions' => array('Order.order_status_id >' => '0','Order.created >' => date("Y-m-d H:i:s",strtotime("-1 year", time())-(365*24*3600)),'Order.created <' => date("Y-m-d H:i:s",time()-(365*24*3600)))
+                                                    ,'group' => array('dat')
+                                                    ,'order' => array('dat')));
 
             $result = false;
 
@@ -56,6 +65,34 @@ class AdminController extends AppController {
                 $result['month']['summ'][$k] = $ord[0]['summ'];
                 $result['month']['jq_plot_cnt'][$k] = '["'.$ord[0]['dat'].'" , '.$ord[0]['cnt'].']';
                 $result['month']['jq_plot_summ'][$k] = '["'.$ord[0]['dat'].'" , '.$ord[0]['summ'].']';
+            }
+
+				}
+
+            $result_year_ago = false;
+
+				if ($order_day_year_ago or $order_day_year_ago) {
+            $result_year_ago = array();
+
+            foreach ($order_day_year_ago as $k_year_ago => $ord_year_ago) 
+            {
+                $ord_year_ago[0]['dat'] = date("Y-m", strtotime("+1 year", strtotime($ord_year_ago[0]['dat'])));
+                $result_year_ago['dat'][$k_year_ago] = $ord_year_ago[0]['dat'];
+                $result_year_ago['cnt'][$k_year_ago] = $ord_year_ago[0]['cnt'];
+                $result_year_ago['summ'][$k_year_ago] = $ord_year_ago[0]['summ'];
+                $result_year_ago['jq_plot_cnt'][$k] = '["'.$ord_year_ago[0]['dat'].'" ,'.$ord_year_ago[0]['cnt'].']';
+                $result_year_ago['jq_plot_summ'][$k] = '["'.$ord_year_ago[0]['dat'].'" ,'.$ord_year_ago[0]['summ'].']';
+            } 
+            $result_year_ago = array('day_year_ago' => $result_year_ago
+                           ,'month_year_ago' => array());
+            foreach ($order_month_year_ago as $k_year_ago => $ord_year_ago) 
+            {
+                $ord_year_ago[0]['dat'] = date("Y-m", strtotime("+1 year", strtotime($ord_year_ago[0]['dat'])));
+                $result_year_ago['month_year_ago']['dat'][$k_year_ago] = $ord_year_ago[0]['dat'];
+                $result_year_ago['month_year_ago']['cnt'][$k_year_ago] = $ord_year_ago[0]['cnt'];
+                $result_year_ago['month_year_ago']['summ'][$k_year_ago] = $ord_year_ago[0]['summ'];
+                $result_year_ago['month_year_ago']['jq_plot_cnt'][$k_year_ago] = '["'.$ord_year_ago[0]['dat'].'" , '.$ord_year_ago[0]['cnt'].']';
+                $result_year_ago['month_year_ago']['jq_plot_summ'][$k_year_ago] = '["'.$ord_year_ago[0]['dat'].'" , '.$ord_year_ago[0]['summ'].']';
             }
 
 				}
@@ -94,6 +131,7 @@ class AdminController extends AppController {
             }
 
             $this->set('result',$result);	
+            $this->set('result_year_ago',$result_year_ago);	
             $this->set('top_products',$top_products);	
             $this->set('level', $level);
 

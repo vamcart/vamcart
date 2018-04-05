@@ -87,13 +87,15 @@ echo $this->Html->scriptBlock('
 
         var l1 = ['.implode(",",$result['month']['jq_plot_summ']).'];
         var l2 = ['.implode(",",$result['month']['jq_plot_cnt']).'];
+        var l3 = ['.implode(",",$result_year_ago['month_year_ago']['jq_plot_cnt']).'];
 
-        var plot2 = $.jqplot("chart2", [l1, l2],  {
+        var plot2 = $.jqplot("chart2", [l2, l1, l3],  {
           animate: true,
           animateReplot: true,         	
           title: "'.__('Sales Report', true).': '.__('month', true).'",
-          legend:{show:true,location:"se",labels:["'.__('Total', true).'","'.__('Number of Orders', true).'"]},
-          
+          legend:{show:true,location:"se",labels:["'.__('Number of Orders', true).'","'.__('Total', true).'","'.__('Number of Orders (year ago)', true).'"]},
+          seriesColors:["#e2e2e2"],
+
           series:[
           {color:"#0077cc"},
           {yaxis:"y2axis",color:"#ff9900"} 
