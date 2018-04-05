@@ -89,12 +89,13 @@ echo $this->Html->scriptBlock('
         var l1 = ['.implode(",",$result['month']['jq_plot_summ']).'];
         var l2 = ['.implode(",",$result['month']['jq_plot_cnt']).'];
         var l3 = ['.implode(",",$result_year_ago['month_year_ago']['jq_plot_cnt']).'];
+        var l4 = ['.implode(",",$result_year_ago['month_year_ago']['jq_plot_summ']).'];
 
-        var plot2 = $.jqplot("chart2", [l2, l1, l3],  {
+        var plot2 = $.jqplot("chart2", [l4, l2, l1, l3],  {
           animate: true,
           animateReplot: true,         	
           title: "'.__('Sales Report', true).': '.__('month', true).'",
-          legend:{show:true,location:"se",labels:["'.__('Number of Orders', true).'","'.__('Total', true).'","'.__('Number of Orders (year ago)', true).'"]},
+          legend:{show:true,location:"se",labels:["'.__('Number of Orders', true).'","'.__('Total', true).'","'.__('Total (year ago)', true).'","'.__('Number of Orders (year ago)', true).'"]},
 
           series:[
           {
@@ -112,8 +113,8 @@ echo $this->Html->scriptBlock('
 	       animation: {
 	           speed: 2500
 	       },
-	       barWidth: 20,
-	       barPadding: -20,
+	       barWidth: 25,
+	       barPadding: -25,
 	       barMargin: 0,
 	       highlightMouseOver: false          
           
@@ -125,6 +126,28 @@ echo $this->Html->scriptBlock('
             linePattern: "dashed",
             shadow: false                  
      
+          },
+          {
+          
+          renderer: $.jqplot.BarRenderer,
+          
+          
+          rendererOptions: { 
+          
+          
+          alignTicks: true,
+	       animation: {
+	           speed: 2500
+	       },
+	       barWidth: 25,
+	       barPadding: -20,
+	       barMargin: 0,
+	       highlightMouseOver: false,
+	       shadow: true
+	                 
+          
+          }
+                    
           } 
           ],
           axesDefaults:{padMin: 1.5,useSeriesColor:true, rendererOptions: { alignTicks: true}},
