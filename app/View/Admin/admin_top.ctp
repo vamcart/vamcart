@@ -10,6 +10,7 @@ echo $this->Html->script(array(
 	'jquery/plugins/jqplot/jquery.jqplot.js',
 	'jquery/plugins/jqplot/plugins/jqplot.highlighter.min.js',
 	'jquery/plugins/jqplot/plugins/jqplot.canvasTextRenderer.min.js',
+	'jquery/plugins/jqplot/plugins/jqplot.barRenderer.min.js',
 	'jquery/plugins/jqplot/plugins/jqplot.dateAxisRenderer.min.js'
 ), array('inline' => false));
 
@@ -94,11 +95,37 @@ echo $this->Html->scriptBlock('
           animateReplot: true,         	
           title: "'.__('Sales Report', true).': '.__('month', true).'",
           legend:{show:true,location:"se",labels:["'.__('Number of Orders', true).'","'.__('Total', true).'","'.__('Number of Orders (year ago)', true).'"]},
-          seriesColors:["#e2e2e2"],
 
           series:[
-          {color:"#0077cc"},
-          {yaxis:"y2axis",color:"#ff9900"} 
+          {
+          	color:"#0077cc"
+          },
+          {yaxis:"y2axis",color:"#ff9900",
+          
+          renderer: $.jqplot.BarRenderer,
+          
+          
+          rendererOptions: { 
+          
+          
+          alignTicks: true,
+	       animation: {
+	           speed: 2500
+	       },
+	       barWidth: 20,
+	       barPadding: -20,
+	       barMargin: 0,
+	       highlightMouseOver: false          
+          
+          }
+           
+          }, 
+          {
+            color: "gray",     
+            linePattern: "dashed",
+            shadow: false                  
+     
+          } 
           ],
           axesDefaults:{padMin: 1.5,useSeriesColor:true, rendererOptions: { alignTicks: true}},
 
