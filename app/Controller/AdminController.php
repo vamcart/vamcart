@@ -35,7 +35,7 @@ class AdminController extends AppController {
                                                     ,'order' => array('dat')));
                                                     
             $order_day_year_ago = $this->Order->find('all', array('fields' => array('DATE_FORMAT(Order.created, \'%m-%d-%Y\') as dat','TRUNCATE(SUM(Order.total),2) as summ','COUNT(Order.id) as cnt')
-                                                    ,'conditions' => array('Order.order_status_id >' => '0','Order.created >' => date("Y-m-d H:i:s",strtotime("-1 year", time())-(14*24*3600)),'Order.created <' => date("Y-m-d H:i:s",time()-(14*24*3600)))
+                                                    ,'conditions' => array('Order.order_status_id >' => '0','Order.created >' => date("Y-m-d H:i:s",strtotime("-1 year", time())-(14*24*3600)),'Order.created <' => date("Y-m-d H:i:s",time()-(365*24*3600)))
                                                     ,'group' => array('dat')
                                                     ,'order' => array('dat')));
             $order_month_year_ago = $this->Order->find('all', array('fields' => array('DATE_FORMAT(Order.created, \'%Y-%m\') as dat','TRUNCATE(SUM(Order.total),2) as summ','COUNT(Order.id) as cnt')
@@ -87,7 +87,7 @@ class AdminController extends AppController {
                            ,'month_year_ago' => array());
             foreach ($order_month_year_ago as $k_year_ago => $ord_year_ago) 
             {
-                $ord_year_ago[0]['dat'] = date("Y-m", strtotime("+1 year", strtotime($ord_year_ago[0]['dat'])));
+                $ord_year_ago[0]['dat'] = date("m-d-Y", strtotime("+1 year", strtotime($ord_year_ago[0]['dat'])));
                 $result_year_ago['month_year_ago']['dat'][$k_year_ago] = $ord_year_ago[0]['dat'];
                 $result_year_ago['month_year_ago']['cnt'][$k_year_ago] = $ord_year_ago[0]['cnt'];
                 $result_year_ago['month_year_ago']['summ'][$k_year_ago] = $ord_year_ago[0]['summ'];
@@ -96,7 +96,7 @@ class AdminController extends AppController {
             }
 
 				}
-
+				
 				App::import('Model', 'Content');
 				$Content = new Content();	
 		                        
