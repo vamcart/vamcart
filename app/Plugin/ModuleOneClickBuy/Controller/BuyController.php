@@ -100,6 +100,7 @@ class BuyController extends ModuleOneClickBuyAppController {
 				$body = $email_template['EmailTemplateDescription']['content'];
 				$body = str_replace('{$store_name}', $config['SITE_NAME'], $body);
 				$body = str_replace('{$product_name}', $content_description['ContentDescription']['name'], $body);
+				$body = str_replace('{$product_model}', $ContentProduct['ContentProduct']['model'], $body);
 				$body = str_replace('{$contact}', $_POST['phone'], $body);
 			
 			if (filter_var($_POST['phone'], FILTER_VALIDATE_EMAIL)) {
