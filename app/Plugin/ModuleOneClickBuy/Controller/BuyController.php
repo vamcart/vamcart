@@ -33,6 +33,11 @@ class BuyController extends ModuleOneClickBuyAppController {
 		$content = $this->ContentBase->get_content_information($content_id);			
 		$content_description = $this->ContentBase->get_content_description($content_id);			
 
+		App::import('Model', 'ContentProduct');
+		$ContentProduct = new ContentProduct();
+
+		$ContentProduct = $ContentProduct->find('first', array('conditions' => array('ContentProduct.content_id' => $content_id)));
+				
 		$this->set('content_id', $content_id);
 		$this->set('content_name', $content_description['ContentDescription']['name']);
 
@@ -89,6 +94,7 @@ class BuyController extends ModuleOneClickBuyAppController {
 				// Email Subject
 				$subject = $email_template['EmailTemplateDescription']['subject'];
 				$subject = str_replace('{$product_name}',$content_description['ContentDescription']['name'], $subject);
+				$subject = str_replace('{$product_model}',$ContentProduct['ContentProduct']['model'], $subject);
 				$subject = str_replace('{$store_name}',$config['SITE_NAME'], $subject);
 
 				$body = $email_template['EmailTemplateDescription']['content'];
