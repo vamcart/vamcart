@@ -82,13 +82,18 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 
 if($level == 1) {
 if ($result) {
+$year_ago = false;	
+if (isset($result_year_ago['month_year_ago']['jq_plot_cnt'])) { $year_ago = 'var l3 = ['.implode(",",$result_year_ago['month_year_ago']['jq_plot_cnt']).'];';
+} else {
+$year_ago = 'var l3 = [];';
+}
 echo $this->Html->scriptBlock('
     $(document).ready(function() {
         $.jqplot.config.enablePlugins = true;
 
         var l1 = ['.implode(",",$result['month']['jq_plot_summ']).'];
         var l2 = ['.implode(",",$result['month']['jq_plot_cnt']).'];
-        var l3 = ['.implode(",",$result_year_ago['month_year_ago']['jq_plot_cnt']).'];
+        '.$year_ago.'
 
         var plot2 = $.jqplot("chart2", [l2, l1, l3],  {
           animate: true,
