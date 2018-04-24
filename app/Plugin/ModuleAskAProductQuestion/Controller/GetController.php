@@ -10,9 +10,10 @@ class GetController extends ModuleAskAProductQuestionAppController {
 	public $uses = array('EmailTemplate');
 	public $components = array('Email', 'Smarty', 'ContentBase');
 		
-	public function ask_link ()
+	public function ask_link ($id = null)
 	{
 		global $content, $config;
+		if ($id > 0) $content['Content']['id'] = $id;
 		$assignments = array('ask_a_product_question_link' => BASE . '/module_ask_a_product_question/get/ask_form/'.$content['Content']['id']);
 		return $assignments;
 	}
