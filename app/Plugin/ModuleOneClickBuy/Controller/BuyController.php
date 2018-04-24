@@ -10,9 +10,11 @@ class BuyController extends ModuleOneClickBuyAppController {
 	public $uses = array('Order', 'EmailTemplate');
 	public $components = array('Email', 'Smarty', 'ContentBase', 'OrderBase');
 		
-	public function link ()
+	public function link ($id = null)
 	{
 		global $content, $config;
+		
+		if ($id > 0) $content['Content']['id'] = $id;
 		$assignments = array('one_click_buy_link' => BASE . '/module_one_click_buy/buy/form/'.$content['Content']['id']);
 		return $assignments;
 	}
