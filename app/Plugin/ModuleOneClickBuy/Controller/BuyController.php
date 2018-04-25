@@ -43,6 +43,13 @@ class BuyController extends ModuleOneClickBuyAppController {
 		$this->set('content_id', $content_id);
 		$this->set('content_name', $content_description['ContentDescription']['name']);
 
+		App::import('Model', 'ContentImage');
+		$ContentImage = new ContentImage();
+
+		$ContentImage = $ContentImage->find('first', array('conditions' => array('ContentImage.content_id' => $content_id)));
+
+		$this->set('content_image', $ContentImage['ContentImage']['image']);
+
 		$_POST['phone'] = (!empty($_POST['phone'])) ? $_POST['phone'] : null;
 
 		if(!empty($_POST) && $_POST['phone'] != '')
