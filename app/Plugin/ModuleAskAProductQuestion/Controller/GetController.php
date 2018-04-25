@@ -37,6 +37,15 @@ class GetController extends ModuleAskAProductQuestionAppController {
 		$this->set('content_id', $content_id);
 		$this->set('content_name', $content_description['ContentDescription']['name']);
 
+		$this->set('content_name', $content_description['ContentDescription']['name']);
+
+		App::import('Model', 'ContentImage');
+		$ContentImage = new ContentImage();
+
+		$ContentImage = $ContentImage->find('first', array('conditions' => array('ContentImage.content_id' => $content_id)));
+
+		$this->set('content_image', $ContentImage['ContentImage']['image']);
+
 		if(!empty($_POST) && !$this->request->is('ajax'))
 		{
 
