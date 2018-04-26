@@ -207,7 +207,7 @@ class Content extends AppModel {
             $value_list = $this->__getListSetAttributesForProduct($content_id);
             $this->unbindAll();            
             $this->bindModel(array('hasMany' => array('Attributes' => array('className' => 'Attribute'
-                                                                               ,'conditions' =>array('Attributes.is_active' => '1')))));
+                                                                               ,'conditions' =>array('Attributes.is_active' => '1'),'order' => array('order ASC')))));
             $this->Attributes->unbindAll();
             $this->Attributes->bindModel(array('hasMany' => array('DefValAttributes' => array('className' => 'Attribute'
                                                     ,'foreignKey'    => 'parent_id'
