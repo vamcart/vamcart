@@ -9,7 +9,7 @@ xmlns:g="http://base.google.com/ns/1.0">'; ?>
 <?php foreach ($products as $product) { ?>
             <item>
                 <title><?php echo $this->Text->truncate($product['name'],140,array('ellipsis' => '','exact' => false,'html' => true)); ?></title>
-                <link><?php echo Router::url($product['url'], true) ?></link>
+                <link><?php echo Router::url(htmlspecialchars($product['url']), true) ?></link>
                 <description>
                 <?php echo $product['description'] ?>
                 </description>

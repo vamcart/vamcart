@@ -5,7 +5,7 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <?php foreach ($content_list as $item) { ?>
 	<url>
-		<loc><?php echo Router::url($item['url'], true) ?></loc>
+		<loc><?php echo Router::url(htmlspecialchars($item['url']), true) ?></loc>
 		<priority><?php echo $item['priority'] ?></priority>
 		<lastmod><?php echo $this->Time->format($item['lastmod'], '%Y-%m-%d') ?></lastmod>
 		<changefreq><?php echo $item['changefreq'] ?></changefreq>
