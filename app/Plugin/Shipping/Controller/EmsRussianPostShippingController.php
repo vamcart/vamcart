@@ -29,7 +29,7 @@ class EmsRussianPostShippingController extends ShippingAppController {
 
 		$new_module['ShippingMethodValue'][0]['shipping_method_id'] = $this->ShippingMethod->id;
 		$new_module['ShippingMethodValue'][0]['key'] = 'city';
-		$new_module['ShippingMethodValue'][0]['value'] = 'Москва';
+		$new_module['ShippingMethodValue'][0]['value'] = '103426';
 
 		$this->ShippingMethod->saveAll($new_module);
 
@@ -50,24 +50,29 @@ class EmsRussianPostShippingController extends ShippingAppController {
 
 	public function calculate ()
 	{
-		$method = $this->ShippingMethod->findByCode($this->module_name);
+		global $order;
 
-			global $order;
+		$key_values = $this->ShippingMethod->findByCode($this->module_name);
 
-			App::uses('TranslitComponent', 'Controller/Component');
-			$Translit = new TranslitComponent(new ComponentCollection());
-			
-        $from_city = strtolower('city--Moskva');
-        $to_city = strtolower('city--'.$Translit->convert($order['Order']['bill_city']));
+		$data_ems = array();
+		if(!empty($key_values['ShippingMethodValue']))
+			$data_ems = array_combine(Set::extract($key_values, 'ShippingMethodValue.{n}.key'),
+				Set::extract($key_values, 'ShippingMethodValue.{n}.value'));
+	
+	    $from_zip = $data_ems['city'];
+	    			
+       $to_zip = $order['Order']['bill_zip'];
 
 			$total_weight = 0;
 			
 			foreach($order['OrderProduct'] AS $products)
 			{
-				$total_weight += (int) $products['weight']*$products['quantity'];
+				$total_weight += $products['weight']*$products['quantity'];
 			}
+			
+			$total_weight = $total_weight * 1000;
         
-        $ems = "http://emspost.ru/api/rest?method=ems.calculate&from=".$from_city."&to=".$to_city."&weight=".$total_weight;
+        $ems = "http://tariff.russianpost.ru/tariff/v1/calculate?json&object=7030&from=".$from_zip."&to=".$to_zip."&weight=".$total_weight."";
 
         // create curl resource
         $ch = curl_init();
@@ -85,10 +90,9 @@ class EmsRussianPostShippingController extends ShippingAppController {
         curl_close($ch);  
 
         $contents = $output;
-        $contents = utf8_encode($contents);
         $results = json_decode($contents, true); 
 
-		return $results['rsp']['price'];
+		return $results["pay"]/100;
 	}
 
 	public function before_process()

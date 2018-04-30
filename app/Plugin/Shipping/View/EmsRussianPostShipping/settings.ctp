@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 
 echo $this->Form->input('key_values.city', array(
-		'label' => __('Store City'), 
+		'label' => __('Store Zip Code'), 
 		'type' => 'text',
 		'value' => $data['ShippingMethodValue'][0]['value']
 	));
