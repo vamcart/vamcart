@@ -373,6 +373,7 @@ function smarty_function_content_listing($params, $template)
 	$CurrencyBase = new CurrencyBaseComponent(new ComponentCollection());
 	$ContentBase = new ContentBaseComponent(new ComponentCollection());
 	
+	$i = 0;
 	foreach($content_list_data AS $raw_data)
 	{
 		$content_type = 'ContentProduct';
@@ -448,10 +449,16 @@ function smarty_function_content_listing($params, $template)
 						$content_list[$count]['image_width'] = $width;
 						$content_list[$count]['image_height'] = $height;
 					} else {
-						$content_list[$count]['image'] = BASE . '/images/thumb/' . $image_url;
-						$content_list[$count]['image_original'] =  $image_path;
-						$content_list[$count]['image_width'] = null;
-						$content_list[$count]['image_height'] = null;
+						$image_url = 'noimage.png';
+						$thumb_name = 'noimage-'.$config['THUMBNAIL_SIZE'].'.png';	
+						$thumb_path = IMAGES . 'content/' . $thumb_name;
+						$thumb_url = BASE . '/img/content/' . $thumb_name;
+
+						$content_list[$count]['image'] =  BASE . '/img/content/' . $thumb_name;
+						$content_list[$count]['image_thumb'] = BASE . '/img/content/' . $image_url;
+						$content_list[$count]['image_original'] =  $thumb_url;
+						$content_list[$count]['image_width'] = $config['THUMBNAIL_SIZE'];
+						$content_list[$count]['image_height'] = $config['THUMBNAIL_SIZE'];
 					}
 
 			} else { 
@@ -484,7 +491,71 @@ function smarty_function_content_listing($params, $template)
 			}
 			$count ++;
 		}
+		$i++;
 	}
+	
+if ($params['template'] == "product-listing") {
+	
+			$rand = rand(0,$config['PRODUCTS_PER_PAGE']);
+			
+			$content_list_ad[$rand]['name']	= 'тест';
+			$content_list_ad[$rand]['description']	= 'описание';
+			$content_list_ad[$rand]['short_description']	= 'краткое описание';
+			$content_list_ad[$rand]['meta_title']	= '';
+			$content_list_ad[$rand]['meta_description']	= '';
+			$content_list_ad[$rand]['meta_keywords']	= '';
+			$content_list_ad[$rand]['id']	= maxValueInArray($content_list,'id')-$rand;
+			$content_list_ad[$rand]['parent_id']	= 9999;
+			$content_list_ad[$rand]['alias']	= 'ads';
+			$content_list_ad[$rand]['price']	= false;	
+			$content_list_ad[$rand]['old_price']	= false;	
+			$content_list_ad[$rand]['price_save']	= false;	
+			$content_list_ad[$rand]['price_save_percent']	= false;	
+			$content_list_ad[$rand]['discount']	= 0;	
+			$content_list_ad[$rand]['rating']	= 0;	
+			$content_list_ad[$rand]['star_rating']	= 0;	
+			$content_list_ad[$rand]['reviews']	= 0;	
+			$content_list_ad[$rand]['stock']	= 0;	
+			$content_list_ad[$rand]['model']	= 'ads';	
+			$content_list_ad[$rand]['weight']	= 0;	
+			$content_list_ad[$rand]['length']	= false;	
+			$content_list_ad[$rand]['width']	= false;	
+			$content_list_ad[$rand]['height']	= false;	
+			$content_list_ad[$rand]['volume']	= false;	
+			$content_list_ad[$rand]['manufacturer']	= false;	
+			$content_list_ad[$rand]['manufacturer_url']	= false;
+			$content_list_ad[$rand]['label_id']	= false;	
+			$content_list_ad[$rand]['date_added']	= CakeTime::i18nFormat(time());	
+			$content_list_ad[$rand]['date_modified']	= CakeTime::i18nFormat(time());	
+			$content_list_ad[$rand]['viewed']	= 0;
+
+			$content_list_ad[$rand]['image']	= '/img/content/noimage-250.png';
+			$content_list_ad[$rand]['image_original']	= '/img/content/noimage.png';
+			$content_list_ad[$rand]['image_width']	= 250;
+			$content_list_ad[$rand]['image_height']	= 250;
+
+			$content_list_ad[$rand]['url']	= '/page/test.html';
+			$content_list_ad[$rand]['attributes']	= null;
+			
+			//echo var_dump($content_list_ad);
+
+	//$content_list = array_replace($content_list, $content_list_ad);
+	
+//unset($content_list[$rand]);
+	
+	//$content_list = array_merge($content_list, $content_list_ad);
+	
+	//$content_list = shuffle($content_list);
+		$content_list = array_replace($content_list, array($rand => $content_list_ad[$rand]));
+
+//echo '-'.maxValueInArray($content_list,'id');
+
+ksort($content_list);
+
+			//echo debug($content_list);
+	
+	}
+	
 	$vars = $template->smarty->tpl_vars;
 	$vars['content_list'] = $content_list;
 	$vars['count'] = $count;
@@ -545,5 +616,22 @@ function smarty_help_function_content_listing() {
 }
 
 function smarty_about_function_content_listing() {
+}
+
+function maxValueInArray($array, $keyToSearch)
+{
+    $currentMax = NULL;
+    foreach($array as $arr)
+    {
+        foreach($arr as $key => $value)
+        {
+            if ($key == $keyToSearch && ($value >= $currentMax))
+            {
+                $currentMax = $value;
+            }
+        }
+    }
+
+    return $currentMax;
 }
 ?>

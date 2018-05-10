@@ -241,10 +241,18 @@ function smarty_function_search_result($params, $template)
 						$content_list[$count]['image_width'] = $width;
 						$content_list[$count]['image_height'] = $height;
 					} else {
-						$content_list[$count]['image'] = BASE . '/images/thumb/' . $image_url;
-						$content_list[$count]['image_original'] =  $image_path;
-						$content_list[$count]['image_width'] = null;
-						$content_list[$count]['image_height'] = null;
+						$image_url = 'noimage.png';
+						$thumb_name = 'noimage-'.$config['THUMBNAIL_SIZE'].'.png';	
+						$thumb_path = IMAGES . 'content/' . $thumb_name;
+						$thumb_url = BASE . '/img/content/' . $thumb_name;
+
+						$content_list[$count]['image'] =  BASE . '/img/content/' . $thumb_name;
+						$content_list[$count]['image_thumb'] = BASE . '/img/content/' . $image_url;
+						$content_list[$count]['image_original'] =  $thumb_url;
+						$content_list[$count]['image_width'] = $config['THUMBNAIL_SIZE'];
+						$content_list[$count]['image_height'] = $config['THUMBNAIL_SIZE'];
+
+
 					}
 
 			} else { 

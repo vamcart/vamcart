@@ -124,10 +124,17 @@ function smarty_function_xsell($params, &$smarty)
 					$content['ContentRelations'][$key]['image_width'] = $width;
 					$content['ContentRelations'][$key]['image_height'] = $height;
 				} else {
-					$content['ContentRelations'][$key]['image'] = BASE . '/images/thumb/' . $image_url;
-					$content['ContentRelations'][$key]['image_original'] =  $image_path;
-					$content['ContentRelations'][$key]['image_width'] = null;
-					$content['ContentRelations'][$key]['image_height'] = null;
+
+					$image_url = 'noimage.png';
+					$thumb_name = 'noimage-'.$config['THUMBNAIL_SIZE'].'.png';	
+					$thumb_path = IMAGES . 'content/' . $thumb_name;
+					$thumb_url = BASE . '/img/content/' . $thumb_name;
+
+					$content['ContentRelations'][$key]['image'] =  BASE . '/img/content/' . $thumb_name;
+					$content['ContentRelations'][$key]['image_thumb'] = BASE . '/img/content/' . $image_url;
+					$content['ContentRelations'][$key]['image_original'] =  $thumb_url;
+					$content['ContentRelations'][$key]['image_width'] = $config['THUMBNAIL_SIZE'];
+					$content['ContentRelations'][$key]['image_height'] = $config['THUMBNAIL_SIZE'];
 				}
 
 		} else { 

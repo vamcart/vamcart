@@ -108,12 +108,18 @@ function smarty_function_content_images($params, $template)
 						$keyed_images[$key]['image_width'] = $width;
 						$keyed_images[$key]['image_height'] = $height;
 					} else {
+
+						$image_url = 'noimage.png';
+						$thumb_name = 'noimage-'.$config['THUMBNAIL_SIZE'].'.png';	
+						$thumb_path = IMAGES . 'content/' . $thumb_name;
+						$thumb_url = BASE . '/img/content/' . $thumb_name;
+
 						$keyed_images[$key]['name'] =  $content['ContentDescription']['name'];
-						$keyed_images[$key]['image'] =  BASE . '/img/content/' . $value['ContentImage']['image'];
-						$keyed_images[$key]['image_path'] =  BASE . '/img/content/' . $value['ContentImage']['image'];
-						$keyed_images[$key]['image_thumb'] = BASE . '/images/thumb/' . $image_url;
-						$keyed_images[$key]['image_width'] = null;
-						$keyed_images[$key]['image_height'] = null;
+						$keyed_images[$key]['image'] =  BASE . '/img/content/' . $image_url;
+						$keyed_images[$key]['image_path'] =  BASE . '/img/content/' . $image_url;
+						$keyed_images[$key]['image_thumb'] = BASE . '/img/content/' . $thumb_name;
+						$keyed_images[$key]['image_width'] = $config['THUMBNAIL_SIZE'];
+						$keyed_images[$key]['image_height'] = $config['THUMBNAIL_SIZE'];
 					}
 
 			} else { 
