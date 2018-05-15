@@ -42,8 +42,8 @@ class TinyMceHelper extends Helper {
 					autosave_ask_before_unload: false,
 					max_height: 200,
 					forced_root_block : false,
-					min_height: 160,
-					height : 180,
+					min_height: 360,
+					height : 360,
 					image_class_list: [
 				    {title: "img-responsive", value: "img-responsive"}
 					],					
