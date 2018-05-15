@@ -49,7 +49,7 @@ class EmailComponent extends CakeObject
 			$this->IsMail();
 		
 			$this->CharSet = 'utf-8';
-			$this->IsHTML(false);
+			$this->IsHTML(true);
 
 			//DKIM Settings
 		
