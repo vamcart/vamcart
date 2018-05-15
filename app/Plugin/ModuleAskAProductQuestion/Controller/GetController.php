@@ -98,9 +98,12 @@ class GetController extends ModuleAskAProductQuestionAppController {
 				$subject = str_replace('{$product_name}',$content_description['ContentDescription']['name'], $subject);
 				$subject = str_replace('{$store_name}',$config['SITE_NAME'], $subject);
 
-				$body = $email_template['EmailTemplateDescription']['content'];
-				$body = str_replace('{$product_name}', $content_description['ContentDescription']['name'], $body);
-				$body = str_replace('{$question}', $_POST['content'], $body);
+				$assignments = array(
+				'product_name' => $content_description['ContentDescription']['name'],
+				'question' => $_POST['content']
+				);
+		
+				$body = $this->Smarty->fetch($email_template['EmailTemplateDescription']['content'], $assignments);
 
 				$this->Email->init();
 				$this->Email->From = $config['SEND_CONTACT_US_EMAIL'];
