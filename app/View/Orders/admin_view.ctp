@@ -276,6 +276,7 @@ echo $this->Form->create('OrderComment', array('id' => 'contentform', 'name' => 
 	echo $this->Form->input('OrderComment.sent_to_customer', 
 			array(
 				'type' => 'checkbox',
+				'checked' => true,
 				'label' => __('Send To Customer'),
 				'class' => 'checkbox_group'
 			));
