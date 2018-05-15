@@ -11,6 +11,8 @@ $this->Html->script(array(
 	'admin/focus-first-input.js'
 ), array('inline' => false));
 
+	echo $this->TinyMce->init();
+	
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 
 	echo $this->Form->create('EmailTemplate', array('id' => 'contentform', 'url' => '/email_template/admin_edit/' . $data['EmailTemplate']['id']));
@@ -53,7 +55,9 @@ $this->Html->script(array(
 						'class' => 'pagesmalltextarea',											
 						'value' => $data['EmailTemplateDescription'][$language_key]['content']
             	  ));
-	
+
+		echo $this->TinyMce->toggleEditor('EmailTemplateDescription.' . $language['Language']['id'].'.content');						  
+			
 	echo $this->Admin->EndTabContent();
 	
 	}
