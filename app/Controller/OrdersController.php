@@ -106,13 +106,17 @@ class OrdersController extends AppController {
 		$subject = $email_template['EmailTemplateDescription']['subject'];
 		$subject = $config['SITE_NAME'] . ' - ' . $subject;
 
-		$body = $email_template['EmailTemplateDescription']['content'];
-		$body = str_replace('{$name}', $_POST['bill_name'], $body);
 		$fio = explode(" ", $_POST['bill_name']);				
-		$body = str_replace('{$firstname}', isset($fio[0]) ? $fio[0] : $_POST['bill_name'], $body);
-		$body = str_replace('{$lastname}', isset($fio[1]) ? $fio[1] : $_POST['bill_name'], $body);
-		$body = str_replace('{$email}', $_POST['email'], $body);
-		$body = str_replace('{$password}', $customer_password, $body);
+
+		$assignments = array(
+		'name' => $_POST['bill_name'],
+		'firstname' => isset($fio[0]) ? $fio[0] : $_POST['bill_name'],
+		'lastname' => isset($fio[1]) ? $fio[1] : $_POST['bill_name'],
+		'email' => $_POST['email'],
+		'password' => $customer_password
+		);
+
+		$body = $this->Smarty->fetch($email_template['EmailTemplateDescription']['content'], $assignments);
 
 		$this->Email->init();
 		$this->Email->From = $config['NEW_ORDER_FROM_EMAIL'];
@@ -418,7 +422,7 @@ class OrdersController extends AppController {
 			$comments = $order_comment['OrderComment']['comment'];
 
 			$assignments4 = array(
-			'$comments' => $comments
+			'comments' => $comments
 			);
 
 			$order_products = '';
@@ -619,63 +623,75 @@ class OrdersController extends AppController {
 		$subject = $config['SITE_NAME'] . ' - ' . $subject;
 		$this->Email->Subject = $subject;
 		
-		$body = $email_template['EmailTemplateDescription']['content'];
-		$body = str_replace('{$name}', $order['Order']['bill_name'], $body);
-		$fio = explode(" ", $order['Order']['bill_name']);				
-		$body = str_replace('{$firstname}', isset($fio[0]) ? $fio[0] : $order['Order']['bill_name'], $body);
-		$body = str_replace('{$lastname}', isset($fio[1]) ? $fio[1] : $order['Order']['bill_name'], $body);
-		$body = str_replace('{$order_number}', $order['Order']['id'], $body);
-		$body = str_replace('{$order_status}', $current_order_status['OrderStatusDescription']['name'], $body);
-		$body = str_replace('{$comments}', $order['OrderComment']['comment'], $body);
+		$fio = explode(" ", $order['Order']['bill_name']);		
 
-		$body = str_replace('{$bill_name}', $order['Order']['bill_name'], $body);
-		$body = str_replace('{$bill_line_1}', $order['Order']['bill_line_1'], $body);
-		$body = str_replace('{$bill_line_2}', $order['Order']['bill_line_2'], $body);
-		$body = str_replace('{$bill_city}', $order['Order']['bill_city'], $body);
-		$body = str_replace('{$bill_state}', $order['BillState']['name'], $body);
-		$body = str_replace('{$bill_country}', $order['BillCountry']['name'], $body);
-		$body = str_replace('{$bill_zip}', $order['Order']['bill_zip'], $body);
+		$assignments1 = array(
+		'name' => $order['Order']['bill_name'],
+		'firstname' => isset($fio[0]) ? $fio[0] : $order['Order']['bill_name'],
+		'lastname' => isset($fio[1]) ? $fio[1] : $order['Order']['bill_name'],
+		'order_number' => $order['Order']['id'],
+		'order_status' => $current_order_status['OrderStatusDescription']['name'],
+		'bill_name' => $order['Order']['bill_name'],
+		'bill_line_1' => $order['Order']['bill_line_1'],
+		'bill_line_2' => $order['Order']['bill_line_2'],
+		'bill_city' => $order['Order']['bill_city'],
+		'bill_state' => $order['BillState']['name'],
+		'bill_country' => $order['BillCountry']['name'],
+		'bill_zip' => $order['Order']['bill_zip'],
+		'ship_name' => $order['Order']['ship_name'],
+		'ship_line_1' => $order['Order']['ship_line_1'],
+		'ship_line_2' => $order['Order']['ship_line_2'],
+		'ship_city' => $order['Order']['ship_city'],
+		'ship_state' => $order['ShipState']['name'],
+		'ship_country' => $order['ShipCountry']['name'],
+		'ship_zip' => $order['Order']['ship_zip']
+		);
 
-		$body = str_replace('{$ship_name}', $order['Order']['ship_name'], $body);
-		$body = str_replace('{$ship_line_1}', $order['Order']['ship_line_1'], $body);
-		$body = str_replace('{$ship_line_2}', $order['Order']['ship_line_2'], $body);
-		$body = str_replace('{$ship_city}', $order['Order']['ship_city'], $body);
-		$body = str_replace('{$ship_state}', $order['ShipState']['name'], $body);
-		$body = str_replace('{$ship_country}', $order['ShipCountry']['name'], $body);
-		$body = str_replace('{$ship_zip}', $order['Order']['ship_zip'], $body);
+		$assignments2 = array(
+		'shipping_method' => __($order['ShippingMethod']['name'], true),
+		'shipping_method_description' => __($order['ShippingMethod']['description'], true),
+		'payment_method' => __($order['PaymentMethod']['name'], true),
+		'payment_method_description' => __($order['PaymentMethod']['description'], true),
+		'date' => $order['Order']['created'],
+		'phone' => $order['Order']['phone'],
+		'email' => $order['Order']['email']
+		);
 
-		$body = str_replace('{$shipping_method}', __($order['ShippingMethod']['name'],true), $body);
-		$body = str_replace('{$shipping_method_description}', __($order['ShippingMethod']['description'],true), $body);
-		$body = str_replace('{$payment_method}', __($order['PaymentMethod']['name'],true), $body);
-		$body = str_replace('{$payment_method_description}', __($order['PaymentMethod']['description'],true), $body);
-		$body = str_replace('{$date}', $order['Order']['created'], $body);
-		$body = str_replace('{$phone}', $order['Order']['phone'], $body);
-		$body = str_replace('{$email}', $order['Order']['email'], $body);
+		$assignments3 = array(
+		'order_total' => $this->CurrencyBase->display_price($order['Order']['total'])
+		);
+		
+		
+		$order_comment = $this->Order->OrderComment->find('first', array('order'   => 'OrderComment.id DESC', 'conditions' => array('OrderComment.order_id' => $order['Order']['id'])));
 
+		$comments = '';
+		if (isset($order_comment['OrderComment']['comment']) && $order_comment['OrderComment']['comment'] != '')
+		$comments = $order_comment['OrderComment']['comment'];
 
-			$body = str_replace('{$order_total}', $this->CurrencyBase->display_price($order['Order']['total']), $body);
+		$assignments4 = array(
+		'comments' => $comments
+		);
 
-			$order_comment = $this->Order->OrderComment->find('first', array('order'   => 'OrderComment.id DESC', 'conditions' => array('OrderComment.order_id' => $order['Order']['id'])));
-
-			$comments = '';
-			if (isset($order_comment['OrderComment']['comment']) && $order_comment['OrderComment']['comment'] != '')
-			$comments = $order_comment['OrderComment']['comment'];
-
-			$body = str_replace('{$comments}', $comments, $body);
-
-			$order_products = '';
-			foreach($order['OrderProduct'] AS $product) {
-				$order_products .= $product['quantity'] . ' x ' . $product['name'] . ' = ' . $this->CurrencyBase->display_price($product['quantity']*$product['price']) . "\n";
-				if ('' != $product['filename']) {
-					$order_products .= __('Download link: ', true) . FULL_BASE_URL . BASE . '/download/' . $order['Order']['id'] . '/' . $product['id'] . '/' . $product['download_key'] . "\n";
-				}
+		$order_products = '';
+		foreach($order['OrderProduct'] AS $product) {
+			$order_products .= $product['quantity'] . ' x ' . $product['name'] . ' = ' . $this->CurrencyBase->display_price($product['quantity']*$product['price']) . "\n";
+			if ('' != $product['filename']) {
+				$order_products .= __('Download link: ', true) . FULL_BASE_URL . BASE . '/download/' . $order['Order']['id'] . '/' . $product['id'] . '/' . $product['download_key'] . "\n";
 			}
-			
+		}
+
 		$order_products .= "\n" . __($order['ShippingMethod']['name'], true) . ': ' . $this->CurrencyBase->display_price($order['Order']['shipping']) . "\n";
 		$order_products .= __('Order Total',true) . ': ' . $this->CurrencyBase->display_price($order['Order']['total']) . "\n";
 
-		$body = str_replace('{$products}', $order_products, $body);
-					
+		$assignments5 = array(
+		'products' => $order_products,
+		'products_array' => $order['OrderProduct']
+		);
+		
+		$assignments = array_merge($assignments1, $assignments2, $assignments3, $assignments4, $assignments5);
+
+		$body = $this->Smarty->fetch($email_template['EmailTemplateDescription']['content'], $assignments);
+				
 		// Email Body
 		$this->Email->Body = $body;
 		
@@ -798,9 +814,9 @@ class OrdersController extends AppController {
 	public function admin_new_comment ($user = null)
 	{
 		// First get the original order, and see if we're changing status
-		$old_order = $this->Order->read(null,$this->data['Order']['id']);
+		$order = $this->Order->read(null,$this->data['Order']['id']);
 
-		if($old_order['Order']['order_status_id'] != $this->data['Order']['order_status_id'])
+		if($order['Order']['order_status_id'] != $this->data['Order']['order_status_id'])
 		{
 			// Do nothing for now, but we'll do something later I think....
 		}
@@ -830,12 +846,12 @@ class OrdersController extends AppController {
 		// Get current order status
 		$current_order_status = $this->Order->OrderStatus->OrderStatusDescription->find('first', array('conditions' => array('OrderStatusDescription.order_status_id =' => $this->data['Order']['order_status_id'], 'OrderStatusDescription.language_id =' => $this->Session->read('Customer.language_id'))));
 		
-		if ($old_order['Order']['email'] != '') {
+		if ($order['Order']['email'] != '') {
 		// Set up mail
 		$this->Email->init();
 		$this->Email->From = $config['NEW_ORDER_STATUS_FROM_EMAIL'];
 		$this->Email->FromName = __($config['NEW_ORDER_STATUS_FROM_NAME'],true);
-		$this->Email->AddAddress($old_order['Order']['email']);
+		$this->Email->AddAddress($order['Order']['email']);
 		
 		// Email Subject
 		$subject = $email_template['EmailTemplateDescription']['subject'];
@@ -843,54 +859,73 @@ class OrdersController extends AppController {
 		$subject = $config['SITE_NAME'] . ' - ' . $subject;
 		$this->Email->Subject = $subject;
 		
-		$body = $email_template['EmailTemplateDescription']['content'];
+		$fio = explode(" ", $order['Order']['bill_name']);		
 
-		$body = str_replace('{$name}', $old_order['Order']['bill_name'], $body);
-		$fio = explode(" ", $old_order['Order']['bill_name']);				
-		$body = str_replace('{$firstname}', isset($fio[0]) ? $fio[0] : $old_order['Order']['bill_name'], $body);
-		$body = str_replace('{$lastname}', isset($fio[1]) ? $fio[1] : $old_order['Order']['bill_name'], $body);
+		$assignments1 = array(
+		'name' => $order['Order']['bill_name'],
+		'firstname' => isset($fio[0]) ? $fio[0] : $order['Order']['bill_name'],
+		'lastname' => isset($fio[1]) ? $fio[1] : $order['Order']['bill_name'],
+		'order_number' => $order['Order']['id'],
+		'order_status' => $current_order_status['OrderStatusDescription']['name'],
+		'bill_name' => $order['Order']['bill_name'],
+		'bill_line_1' => $order['Order']['bill_line_1'],
+		'bill_line_2' => $order['Order']['bill_line_2'],
+		'bill_city' => $order['Order']['bill_city'],
+		'bill_state' => $order['BillState']['name'],
+		'bill_country' => $order['BillCountry']['name'],
+		'bill_zip' => $order['Order']['bill_zip'],
+		'ship_name' => $order['Order']['ship_name'],
+		'ship_line_1' => $order['Order']['ship_line_1'],
+		'ship_line_2' => $order['Order']['ship_line_2'],
+		'ship_city' => $order['Order']['ship_city'],
+		'ship_state' => $order['ShipState']['name'],
+		'ship_country' => $order['ShipCountry']['name'],
+		'ship_zip' => $order['Order']['ship_zip']
+		);
 
-		$body = str_replace('{$order_number}', $this->data['Order']['id'], $body);
-		$body = str_replace('{$order_status}', $current_order_status['OrderStatusDescription']['name'], $body);
-		$body = str_replace('{$comments}', $this->data['OrderComment']['comment'], $body);
+		$assignments2 = array(
+		'shipping_method' => __($order['ShippingMethod']['name'], true),
+		'shipping_method_description' => __($order['ShippingMethod']['description'], true),
+		'payment_method' => __($order['PaymentMethod']['name'], true),
+		'payment_method_description' => __($order['PaymentMethod']['description'], true),
+		'date' => $order['Order']['created'],
+		'phone' => $order['Order']['phone'],
+		'email' => $order['Order']['email']
+		);
 
-		$body = str_replace('{$bill_name}', $old_order['Order']['bill_name'], $body);
-		$body = str_replace('{$bill_line_1}', $old_order['Order']['bill_line_1'], $body);
-		$body = str_replace('{$bill_line_2}', $old_order['Order']['bill_line_2'], $body);
-		$body = str_replace('{$bill_city}', $old_order['Order']['bill_city'], $body);
-		$body = str_replace('{$bill_state}', $old_order['BillState']['name'], $body);
-		$body = str_replace('{$bill_country}', $old_order['Order']['bill_country'], $body);
-		$body = str_replace('{$bill_zip}', $old_order['Order']['bill_zip'], $body);
+		$assignments3 = array(
+		'order_total' => $this->CurrencyBase->display_price($order['Order']['total'])
+		);
+		
+		
+		$order_comment = $this->Order->OrderComment->find('first', array('order'   => 'OrderComment.id DESC', 'conditions' => array('OrderComment.order_id' => $order['Order']['id'])));
 
-		$body = str_replace('{$ship_name}', $old_order['Order']['ship_name'], $body);
-		$body = str_replace('{$ship_line_1}', $old_order['Order']['ship_line_1'], $body);
-		$body = str_replace('{$ship_line_2}', $old_order['Order']['ship_line_2'], $body);
-		$body = str_replace('{$ship_city}', $old_order['Order']['ship_city'], $body);
-		$body = str_replace('{$ship_state}', $old_order['ShipState']['name'], $body);
-		$body = str_replace('{$ship_country}', $old_order['Order']['ship_country'], $body);
-		$body = str_replace('{$ship_zip}', $old_order['Order']['ship_zip'], $body);
+		$comments = $this->data['OrderComment']['comment'];
 
-		$body = str_replace('{$shipping_method}', __($old_order['ShippingMethod']['name'],true), $body);
-		$body = str_replace('{$shipping_method_description}', __($old_order['ShippingMethod']['description'],true), $body);
-		$body = str_replace('{$payment_method}', __($old_order['PaymentMethod']['name'],true), $body);
-		$body = str_replace('{$payment_method_description}', __($old_order['PaymentMethod']['description'],true), $body);
-		$body = str_replace('{$date}', $old_order['Order']['created'], $body);
-		$body = str_replace('{$phone}', $old_order['Order']['phone'], $body);
-		$body = str_replace('{$email}', $old_order['Order']['email'], $body);
+		$assignments4 = array(
+		'comments' => $comments
+		);
 
 		$order_products = '';
-		foreach($old_order['OrderProduct'] AS $product) {
+		foreach($order['OrderProduct'] AS $product) {
 			$order_products .= $product['quantity'] . ' x ' . $product['name'] . ' = ' . $this->CurrencyBase->display_price($product['quantity']*$product['price']) . "\n";
 			if ('' != $product['filename']) {
-				$order_products .= __('Download link: ', true) . FULL_BASE_URL . BASE . '/download/' . $old_order['Order']['id'] . '/' . $product['id'] . '/' . $product['download_key'] . "\n";
+				$order_products .= __('Download link: ', true) . FULL_BASE_URL . BASE . '/download/' . $order['Order']['id'] . '/' . $product['id'] . '/' . $product['download_key'] . "\n";
 			}
 		}
 
-		$order_products .= "\n" . __($old_order['ShippingMethod']['name'], true) . ': ' . $this->CurrencyBase->display_price($old_order['Order']['shipping']) . "\n";
-		$order_products .= __('Order Total',true) . ': ' . $this->CurrencyBase->display_price($old_order['Order']['total']) . "\n";
+		$order_products .= "\n" . __($order['ShippingMethod']['name'], true) . ': ' . $this->CurrencyBase->display_price($order['Order']['shipping']) . "\n";
+		$order_products .= __('Order Total',true) . ': ' . $this->CurrencyBase->display_price($order['Order']['total']) . "\n";
 
-		$body = str_replace('{$products}', $order_products, $body);
+		$assignments5 = array(
+		'products' => $order_products,
+		'products_array' => $order['OrderProduct']
+		);
 		
+		$assignments = array_merge($assignments1, $assignments2, $assignments3, $assignments4, $assignments5);
+
+		$body = $this->Smarty->fetch($email_template['EmailTemplateDescription']['content'], $assignments);
+	
 		// Email Body
 		$this->Email->Body = $body;
 		
@@ -899,14 +934,14 @@ class OrdersController extends AppController {
 		}
 
 		// Send SMS to customer
-		if($config['SMS_EMAIL'] != '' && $old_order['Order']['phone'] != '') {
+		if($config['SMS_EMAIL'] != '' && $order['Order']['phone'] != '') {
 
 			// Set up mail
 			$this->Email->init();
 			$this->Email->From = $config['NEW_ORDER_FROM_EMAIL'];
 			$this->Email->FromName = __($config['NEW_ORDER_FROM_NAME'],true);
 			$this->Email->AddAddress($config['SMS_EMAIL']);
-			$this->Email->Subject = $old_order['Order']['phone'];
+			$this->Email->Subject = $order['Order']['phone'];
 
 			// Email Body
 			$this->Email->Body = $body;
