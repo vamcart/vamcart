@@ -150,7 +150,8 @@ class YandexFizlicoController extends PaymentAppController {
 			);
 
 			$assignments3 = array(
-			'order_total' => $this->CurrencyBase->display_price($order['Order']['total'])
+			'order_total' => $this->CurrencyBase->display_price($order['Order']['total']),
+			'shipping_total' => $this->CurrencyBase->display_price($order['Order']['shipping'])
 			);
 			
 			
@@ -314,7 +315,8 @@ class YandexFizlicoController extends PaymentAppController {
 			);
 
 			$assignments3 = array(
-			'order_total' => $this->CurrencyBase->display_price($order['Order']['total'])
+			'order_total' => $this->CurrencyBase->display_price($order['Order']['total']),
+			'shipping_total' => $this->CurrencyBase->display_price($order['Order']['shipping'])
 			);
 			
 			
