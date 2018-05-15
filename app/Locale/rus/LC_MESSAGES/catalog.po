@@ -539,3 +539,9 @@ msgstr "Оплатить карточкой"
 
 msgid "Pay Now"
 msgstr "Оплатить заказ"
+
+msgid "Download link:"
+msgstr "Загрузить:"
+
+msgid "Order Total:"
+msgstr "Стоимость заказа:"
