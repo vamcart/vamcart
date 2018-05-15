@@ -72,13 +72,15 @@ class SiteController extends AppController {
 				$subject = $email_template['EmailTemplateDescription']['subject'];
 				$subject = $config['SITE_NAME'] . ' - ' . $subject;
 
-				$body = $email_template['EmailTemplateDescription']['content'];
-				$body = str_replace('{$name}', $_POST['customer']['name'], $body);
-				$fio = explode(" ", $_POST['customer']['name']);				
-				$body = str_replace('{$firstname}', isset($fio[0]) ? $fio[0] : $_POST['customer']['name'], $body);
-				$body = str_replace('{$lastname}', isset($fio[1]) ? $fio[1] : $_POST['customer']['name'], $body);
-				$body = str_replace('{$email}', $_POST['customer']['email'], $body);
-				$body = str_replace('{$password}', $_POST['customer']['password'], $body);
+				$assignments = array(
+				'name' => $_POST['customer']['name'],
+				'firstname' => isset($fio[0]) ? $fio[0] : $_POST['customer']['name'],
+				'lastname' => isset($fio[1]) ? $fio[1] : $_POST['customer']['name'],
+				'email' => $_POST['customer']['email'],
+				'password' => $_POST['customer']['password']
+				);
+		
+				$body = $this->Smarty->fetch($email_template['EmailTemplateDescription']['content'], $assignments);
 
 				$this->Email->init();
 				$this->Email->From = $config['NEW_ORDER_FROM_EMAIL'];
@@ -318,8 +320,11 @@ class SiteController extends AppController {
 				$subject = $email_template['EmailTemplateDescription']['subject'];
 				$subject = $config['SITE_NAME'] . ' - ' . $subject;
 
-				$body = $email_template['EmailTemplateDescription']['content'];
-				$body = str_replace('{$link}', FULL_BASE_URL . BASE . '/site/new_password/' . $customer_data['Customer']['code'] . '/', $body);
+				$assignments = array(
+				'link' => FULL_BASE_URL . BASE . '/site/new_password/' . $customer_data['Customer']['code'] . '/'
+				);
+		
+				$body = $this->Smarty->fetch($email_template['EmailTemplateDescription']['content'], $assignments);
 
 				$this->Email->init();
 				$this->Email->From = $config['NEW_ORDER_FROM_EMAIL'];
@@ -399,10 +404,16 @@ class SiteController extends AppController {
 				$subject = $email_template['EmailTemplateDescription']['subject'];
 				$subject = $config['SITE_NAME'] . ' - ' . $subject;
 
-				$body = $email_template['EmailTemplateDescription']['content'];
-				$body = str_replace('{$email}', $user['Customer']['email'], $body);
-				$body = str_replace('{$password}', $customer_password, $body);
-				$body = str_replace('{$account_page}', FULL_BASE_URL . BASE . '/page/account' . $config['URL_EXTENSION'], $body);
+				$assignments = array(
+				'name' => $_POST['customer']['name'],
+				'firstname' => isset($fio[0]) ? $fio[0] : $_POST['customer']['name'],
+				'lastname' => isset($fio[1]) ? $fio[1] : $_POST['customer']['name'],
+				'email' => $user['Customer']['email'],
+				'password' => $customer_password,
+				'account_page' => FULL_BASE_URL . BASE . '/page/account' . $config['URL_EXTENSION']
+				);
+		
+				$body = $this->Smarty->fetch($email_template['EmailTemplateDescription']['content'], $assignments);
 
 				$this->Email->init();
 				$this->Email->From = $config['NEW_ORDER_FROM_EMAIL'];
