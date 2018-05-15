@@ -46,8 +46,8 @@ INSERT INTO email_templates (`id`, `alias`, `default`, `order`) VALUES (NULL, 'o
 ";
 		$install_query[] = "
 INSERT INTO `email_template_descriptions` (`id`, `email_template_id`, `language_id`, `subject`, `content`) VALUES
-(NULL, LAST_INSERT_ID(), 1, 'One Click Buy - {\$product_name}', 'Hello!\r\n\r\nThank you for stopping by {\$store_name} and considering us for your purchase. Ordered product:\r\n\r\n{\$product_name}\r\n\r\nContact information: {\$contact}'),
-(NULL, LAST_INSERT_ID(), 2, 'Купить за 1 клик - {\$product_name}', 'Здравствуйте!\r\n\r\nВы оформили заказ в интернет-магазине {\$store_name}!\r\n\r\nТовар, который Вы заказали:\r\n\r\n{\$product_name}\r\n\r\nКонтактные данные: {\$contact}');
+(NULL, LAST_INSERT_ID(), 1, 'One Click Buy - {$product_name}', 'Hello!<br /><br />Thank you for stopping by {$store_name} and considering us for your purchase. Ordered product:<br /><br />{$product_name}<br /><br />Contact information: {$contact}'),
+(NULL, LAST_INSERT_ID(), 2, 'Купить за 1 клик - {$product_name}', 'Здравствуйте!<br /><br />Вы оформили заказ в интернет-магазине {$store_name}!<br /><br />Товар, который Вы заказали:<br /><br />{$product_name}<br /><br />Контактные данные: {$contact}');
 		";
 				
 		foreach($install_query AS $query)
