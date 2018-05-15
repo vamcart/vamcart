@@ -11,7 +11,7 @@ class AdminController extends ModuleAbandonedCartsAppController {
 	public $helpers = array('Time','Admin');
 	public $uses = array('EmailTemplate', 'AnswerTemplate', 'Order');
 	public $paginate = array('limit' => 20, 'order' => array('Order.created' => 'desc'));
-	public $components = array('EventBase', 'Email', 'Smarty','ConfigurationBase');
+	public $components = array('EventBase', 'Email', 'Smarty', 'ConfigurationBase', 'CurrencyBase');
 		
 	public function purge_old_carts()
 	{
@@ -117,29 +117,77 @@ class AdminController extends ModuleAbandonedCartsAppController {
 		$subject = str_replace('{$store_name}', $config['SITE_NAME'], $subject);
 		$subject = $config['SITE_NAME'] . ' - ' . $subject;
 		$this->Email->Subject = $subject;
-		
-		$body = $email_template['EmailTemplateDescription']['content'];
-		$body = str_replace('{$name}', $order['Order']['bill_name'], $body);
-		$body = str_replace('{$store_name}', $config['SITE_NAME'], $body);
-		$body = str_replace('{$order_number}', $order['Order']['id'], $body);
-		$body = str_replace('{$order_status}', $current_order_status['OrderStatusDescription']['name'], $body);
-		$body = str_replace('{$comments}', $order['OrderComment']['comment'], $body);
 
-		$body = str_replace('{$order_total}', $order['Order']['total'], $body);
+		$fio = explode(" ", $order['Order']['bill_name']);		
+
+		$assignments1 = array(
+		'store_name' => $config['SITE_NAME'],
+		'name' => $order['Order']['bill_name'],
+		'firstname' => isset($fio[0]) ? $fio[0] : $order['Order']['bill_name'],
+		'lastname' => isset($fio[1]) ? $fio[1] : $order['Order']['bill_name'],
+		'order_number' => $order['Order']['id'],
+		'order_status' => $current_order_status['OrderStatusDescription']['name'],
+		'bill_name' => $order['Order']['bill_name'],
+		'bill_line_1' => $order['Order']['bill_line_1'],
+		'bill_line_2' => $order['Order']['bill_line_2'],
+		'bill_city' => $order['Order']['bill_city'],
+		'bill_state' => $order['BillState']['name'],
+		'bill_country' => $order['BillCountry']['name'],
+		'bill_zip' => $order['Order']['bill_zip'],
+		'ship_name' => $order['Order']['ship_name'],
+		'ship_line_1' => $order['Order']['ship_line_1'],
+		'ship_line_2' => $order['Order']['ship_line_2'],
+		'ship_city' => $order['Order']['ship_city'],
+		'ship_state' => $order['ShipState']['name'],
+		'ship_country' => $order['ShipCountry']['name'],
+		'ship_zip' => $order['Order']['ship_zip']
+		);
+
+		$assignments2 = array(
+		'shipping_method' => __($order['ShippingMethod']['name'], true),
+		'shipping_method_description' => __($order['ShippingMethod']['description'], true),
+		'payment_method' => __($order['PaymentMethod']['name'], true),
+		'payment_method_description' => __($order['PaymentMethod']['description'], true),
+		'date' => $order['Order']['created'],
+		'phone' => $order['Order']['phone'],
+		'email' => $order['Order']['email']
+		);
+
+		$assignments3 = array(
+		'order_total' => $this->CurrencyBase->display_price($order['Order']['total'])
+		);
+		
+		
+		$order_comment = $this->Order->OrderComment->find('first', array('order'   => 'OrderComment.id DESC', 'conditions' => array('OrderComment.order_id' => $order['Order']['id'])));
+
+		$comments = '';
+		if (isset($order_comment['OrderComment']['comment']) && $order_comment['OrderComment']['comment'] != '')
+		$comments = $order_comment['OrderComment']['comment'];
+
+		$assignments4 = array(
+		'comments' => $comments
+		);
 
 		$order_products = '';
 		foreach($order['OrderProduct'] AS $product) {
-			$order_products .= $product['quantity'] . ' x ' . $product['name'] . ' = ' . $product['quantity']*$product['price'] . "\n";
+			$order_products .= $product['quantity'] . ' x ' . $product['name'] . ' = ' . $this->CurrencyBase->display_price($product['quantity']*$product['price']) . "\n";
 			if ('' != $product['filename']) {
 				$order_products .= __('Download link: ', true) . FULL_BASE_URL . BASE . '/download/' . $order['Order']['id'] . '/' . $product['id'] . '/' . $product['download_key'] . "\n";
 			}
 		}
 
-		$order_products .= "\n" . $order['ShippingMethod']['name'] . ': ' . $order['Order']['shipping'] . "\n";
-		$order_products .= __('Order Total',true) . ': ' . $order['Order']['total'] . "\n";
+		$order_products .= "\n" . __($order['ShippingMethod']['name'], true) . ': ' . $this->CurrencyBase->display_price($order['Order']['shipping']) . "\n";
+		$order_products .= __('Order Total',true) . ': ' . $this->CurrencyBase->display_price($order['Order']['total']) . "\n";
 
-		$body = str_replace('{$products}', $order_products, $body);
+		$assignments5 = array(
+		'products' => $order_products,
+		'products_array' => $order['OrderProduct']
+		);
 		
+		$assignments = array_merge($assignments1, $assignments2, $assignments3, $assignments4, $assignments5);
+
+		$body = $this->Smarty->fetch($email_template['EmailTemplateDescription']['content'], $assignments);
+
 		// Email Body
 		$this->Email->Body = $body;
 		

@@ -106,11 +106,14 @@ class BuyController extends ModuleOneClickBuyAppController {
 				$subject = str_replace('{$product_model}',$ContentProduct['ContentProduct']['model'], $subject);
 				$subject = str_replace('{$store_name}',$config['SITE_NAME'], $subject);
 
-				$body = $email_template['EmailTemplateDescription']['content'];
-				$body = str_replace('{$store_name}', $config['SITE_NAME'], $body);
-				$body = str_replace('{$product_name}', $content_description['ContentDescription']['name'], $body);
-				$body = str_replace('{$product_model}', $ContentProduct['ContentProduct']['model'], $body);
-				$body = str_replace('{$contact}', $_POST['phone'], $body);
+				$assignments = array(
+				'store_name' => $config['SITE_NAME'],
+				'product_name' => $content_description['ContentDescription']['name'],
+				'product_model' => $ContentProduct['ContentProduct']['model'],
+				'contact' => $_POST['phone']
+				);
+		
+				$body = $this->Smarty->fetch($email_template['EmailTemplateDescription']['content'], $assignments);
 			
 			if (filter_var($_POST['phone'], FILTER_VALIDATE_EMAIL)) {
 
