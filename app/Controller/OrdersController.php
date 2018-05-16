@@ -10,7 +10,7 @@ class OrdersController extends AppController {
 	public $name = 'Orders';
 	public $helpers = array('Time');
 	public $uses = array('EmailTemplate', 'AnswerTemplate', 'Order');
-	public $components = array('EventBase', 'Email', 'Smarty','ConfigurationBase','CurrencyBase');
+	public $components = array('EventBase', 'Email', 'Smarty','ConfigurationBase', 'CurrencyBase', 'ContentBase');
 	public $paginate = array('limit' => 20, 'order' => array('Order.id' => 'desc'));
 
 	public function confirmation ()
@@ -426,20 +426,26 @@ class OrdersController extends AppController {
 			'comments' => $comments
 			);
 
-			$order_products = '';
-			foreach($order['OrderProduct'] AS $product) {
-				$order_products .= $product['quantity'] . ' x ' . $product['name'] . ' = ' . $this->CurrencyBase->display_price($product['quantity']*$product['price']) . "\n";
-				if ('' != $product['filename']) {
-					$order_products .= __('Download link: ', true) . FULL_BASE_URL . BASE . '/download/' . $order['Order']['id'] . '/' . $product['id'] . '/' . $product['download_key'] . "\n";
-				}
+			$order_products = array();
+			foreach($order['OrderProduct'] AS $key => $value) {
+
+			$content_information = $this->ContentBase->get_content_information($order['OrderProduct'][$key]['content_id']);			
+			$content_description = $this->ContentBase->get_content_description($order['OrderProduct'][$key]['content_id']);			
+	
+			App::import('Model', 'ContentImage');
+			$ContentImage = new ContentImage();
+	
+			$ContentImage = $ContentImage->find('first', array('conditions' => array('ContentImage.content_id' => $order['OrderProduct'][$key]['content_id'])));
+	
+				$order_products[$key] = $value;
+				$order_products[$key]['total'] = $this->CurrencyBase->display_price($order['OrderProduct'][$key]['quantity']*$order['OrderProduct'][$key]['price']);
+				$order_products[$key]['content_information'] = $content_information['Content'];
+				$order_products[$key]['content_description'] = $content_description['ContentDescription'];
+				$order_products[$key]['content_image'] = $ContentImage['ContentImage']['image'];
 			}
 
-			$order_products .= "\n" . __($order['ShippingMethod']['name'], true) . ': ' . $this->CurrencyBase->display_price($order['Order']['shipping']) . "\n";
-			$order_products .= __('Order Total',true) . ': ' . $this->CurrencyBase->display_price($order['Order']['total']) . "\n";
-
 			$assignments5 = array(
-			'products' => $order_products,
-			'products_array' => $order['OrderProduct']
+			'order_products' => $order_products
 			);
 			
 			$assignments = array_merge($assignments1, $assignments2, $assignments3, $assignments4, $assignments5);
@@ -674,20 +680,26 @@ class OrdersController extends AppController {
 		'comments' => $comments
 		);
 
-		$order_products = '';
-		foreach($order['OrderProduct'] AS $product) {
-			$order_products .= $product['quantity'] . ' x ' . $product['name'] . ' = ' . $this->CurrencyBase->display_price($product['quantity']*$product['price']) . "\n";
-			if ('' != $product['filename']) {
-				$order_products .= __('Download link: ', true) . FULL_BASE_URL . BASE . '/download/' . $order['Order']['id'] . '/' . $product['id'] . '/' . $product['download_key'] . "\n";
-			}
+		$order_products = array();
+		foreach($order['OrderProduct'] AS $key => $value) {
+
+		$content_information = $this->ContentBase->get_content_information($order['OrderProduct'][$key]['content_id']);			
+		$content_description = $this->ContentBase->get_content_description($order['OrderProduct'][$key]['content_id']);			
+
+		App::import('Model', 'ContentImage');
+		$ContentImage = new ContentImage();
+
+		$ContentImage = $ContentImage->find('first', array('conditions' => array('ContentImage.content_id' => $order['OrderProduct'][$key]['content_id'])));
+
+			$order_products[$key] = $value;
+			$order_products[$key]['total'] = $this->CurrencyBase->display_price($order['OrderProduct'][$key]['quantity']*$order['OrderProduct'][$key]['price']);
+			$order_products[$key]['content_information'] = $content_information['Content'];
+			$order_products[$key]['content_description'] = $content_description['ContentDescription'];
+			$order_products[$key]['content_image'] = $ContentImage['ContentImage']['image'];
 		}
 
-		$order_products .= "\n" . __($order['ShippingMethod']['name'], true) . ': ' . $this->CurrencyBase->display_price($order['Order']['shipping']) . "\n";
-		$order_products .= __('Order Total',true) . ': ' . $this->CurrencyBase->display_price($order['Order']['total']) . "\n";
-
 		$assignments5 = array(
-		'products' => $order_products,
-		'products_array' => $order['OrderProduct']
+		'order_products' => $order_products
 		);
 		
 		$assignments = array_merge($assignments1, $assignments2, $assignments3, $assignments4, $assignments5);
@@ -908,20 +920,26 @@ class OrdersController extends AppController {
 		'comments' => $comments
 		);
 
-		$order_products = '';
-		foreach($order['OrderProduct'] AS $product) {
-			$order_products .= $product['quantity'] . ' x ' . $product['name'] . ' = ' . $this->CurrencyBase->display_price($product['quantity']*$product['price']) . "\n";
-			if ('' != $product['filename']) {
-				$order_products .= __('Download link: ', true) . FULL_BASE_URL . BASE . '/download/' . $order['Order']['id'] . '/' . $product['id'] . '/' . $product['download_key'] . "\n";
-			}
+		$order_products = array();
+		foreach($order['OrderProduct'] AS $key => $value) {
+
+		$content_information = $this->ContentBase->get_content_information($order['OrderProduct'][$key]['content_id']);			
+		$content_description = $this->ContentBase->get_content_description($order['OrderProduct'][$key]['content_id']);			
+
+		App::import('Model', 'ContentImage');
+		$ContentImage = new ContentImage();
+
+		$ContentImage = $ContentImage->find('first', array('conditions' => array('ContentImage.content_id' => $order['OrderProduct'][$key]['content_id'])));
+
+			$order_products[$key] = $value;
+			$order_products[$key]['total'] = $this->CurrencyBase->display_price($order['OrderProduct'][$key]['quantity']*$order['OrderProduct'][$key]['price']);
+			$order_products[$key]['content_information'] = $content_information['Content'];
+			$order_products[$key]['content_description'] = $content_description['ContentDescription'];
+			$order_products[$key]['content_image'] = $ContentImage['ContentImage']['image'];
 		}
 
-		$order_products .= "\n" . __($order['ShippingMethod']['name'], true) . ': ' . $this->CurrencyBase->display_price($order['Order']['shipping']) . "\n";
-		$order_products .= __('Order Total',true) . ': ' . $this->CurrencyBase->display_price($order['Order']['total']) . "\n";
-
 		$assignments5 = array(
-		'products' => $order_products,
-		'products_array' => $order['OrderProduct']
+		'order_products' => $order_products
 		);
 		
 		$assignments = array_merge($assignments1, $assignments2, $assignments3, $assignments4, $assignments5);
