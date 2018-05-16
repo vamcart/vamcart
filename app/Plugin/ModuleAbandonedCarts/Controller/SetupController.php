@@ -36,9 +36,9 @@ class SetupController extends ModuleAbandonedCartsAppController {
 		if (empty($email_template)) {
 		$install_query = array();
 
-		$install_query[] = "
-INSERT INTO email_templates (`id`, `alias`, `default`, `order`) VALUES (NULL, 'abandoned-cart', 0, 4);
-";
+		$install_query[] = '
+INSERT INTO email_templates (`id`, `alias`, `default`, `order`) VALUES (NULL, "abandoned-cart", 0, 4);
+';
 		$install_query[] = '
 INSERT INTO `email_template_descriptions` (`id`, `email_template_id`, `language_id`, `subject`, `content`) VALUES
 (NULL, LAST_INSERT_ID(), 1, "Abandoned cart", "Thank you for stopping by {$store_name} and considering us for your purchase.<br /><br />We noticed that during a visit to our store you placed the following item(s) in your shopping cart, but did not complete the transaction.<br /><br />Shopping Cart Contents:<br />{foreach item=products from=$order_products}<br />{$products.quantity} x {$products.name} = {$products.total}<br />{if $products.filename != ""}{lang}Download link:{/lang} {$smarty.const.FULL_BASE_URL}{$smarty.const.BASE}/download/{$order_number}/{$products.id}/{$products.download_key}{/if}<br />{/foreach}<br /><br />{lang}{$shipping_method}{/lang}:  {$shipping_total}<br />{lang}Order Total:{/lang} {$order_total}<br /><br />{$comments}<br /><br />We are always interested in knowing what happened and if there was a reason that you decided not to purchase at this time. If you could be so kind as to let us know if you had any issues or concerns, we would appreciate it.  We are asking for feedback from you and others as to how we can help make your experience at {$store_name} better.<br /><br />PLEASE NOTE: If you believe you completed your purchase and are wondering why it was not delivered, this email is an indication that your order was NOT completed, and that you have NOT been charged! Please return to the store in order to complete your order.<br /><br />Our apologies if you already completed your purchase, we try not to send these messages in those cases, but sometimes it is hard for us to tell depending on individual circumstances.<br /><br />Again, thank you for your time and consideration in helping us improve {$store_name}."),

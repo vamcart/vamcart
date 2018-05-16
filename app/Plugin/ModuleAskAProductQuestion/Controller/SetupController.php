@@ -41,14 +41,14 @@ class SetupController extends ModuleAskAProductQuestionAppController {
 		$email_template = $this->EmailTemplate->findByAlias('ask_a_product_question');
 		if (empty($email_template)) {
 
-		$install_query[] = "
-INSERT INTO email_templates (`id`, `alias`, `default`, `order`) VALUES (NULL, 'ask_a_product_question', 0, 0);
-";
-		$install_query[] = "
+		$install_query[] = '
+INSERT INTO email_templates (`id`, `alias`, `default`, `order`) VALUES (NULL, "ask_a_product_question", 0, 0);
+';
+		$install_query[] = '
 INSERT INTO `email_template_descriptions` (`id`, `email_template_id`, `language_id`, `subject`, `content`) VALUES
-(NULL, LAST_INSERT_ID(), 1, 'Ask a product question - {\$product_name}', 'Hello!<br /><br />Thank you for your question! We''ll reply you shortly.<br /><br />Product name: {\$product_name}<br /><br />Your question:<br /><br />{\$question}'),
-(NULL, LAST_INSERT_ID(), 2, 'Задать вопрос о товаре - {\$product_name}', 'Здравствуйте!<br /><br />Спасибо за Ваш вопрос! Мы ответим Вам в самое ближайшее время.<br /><br />Название товара: {\$product_name}<br /><br />Ваш вопрос:<br /><br />{\$question}');
-		";
+(NULL, LAST_INSERT_ID(), 1, "Ask a product question - {$product_name}", "Hello!<br /><br />Thank you for your question! We''ll reply you shortly.<br /><br />Product name: {$product_name}<br /><br />Your question:<br /><br />{$question}"),
+(NULL, LAST_INSERT_ID(), 2, "Задать вопрос о товаре - {$product_name}", "Здравствуйте!<br /><br />Спасибо за Ваш вопрос! Мы ответим Вам в самое ближайшее время.<br /><br />Название товара: {$product_name}<br /><br />Ваш вопрос:<br /><br />{$question}");
+		';
 				
 		foreach($install_query AS $query)
 		{
