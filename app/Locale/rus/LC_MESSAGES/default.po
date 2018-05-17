@@ -6097,5 +6097,8 @@ msgstr "Платёж за данный заказ не найден!"
 msgid "Check your order payment confirmation!"
 msgstr "Проверить статус оплаты Вашего заказа!"
 
+msgid "EmsRussianPostShipping"
+msgstr "EMS Почта России"
+
 msgid "Pek"
 msgstr "ПЭК"

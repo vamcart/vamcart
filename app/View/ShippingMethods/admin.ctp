@@ -26,7 +26,7 @@ foreach ($modules AS $module)
 
 	echo $this->Admin->TableCells(
 		  array(
-		  	(isset($module['id'])?$this->Html->link($module['name'],'/shipping_methods/admin_edit/' . $module['id']):$module['name']),
+		  	(isset($module['id'])?$this->Html->link(__($module['name']),'/shipping_methods/admin_edit/' . $module['id']):__($module['name'])),
 		  	$module['code'],
 			array(($module['installed'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'),'title' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False'),'title' => __('False')))), array('align'=>'center')),
 			array((isset($module['id'])?$this->Admin->DefaultButton($module):''), array('align'=>'center')),

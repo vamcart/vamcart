@@ -546,5 +546,8 @@ msgstr "Загрузить:"
 msgid "Order Total:"
 msgstr "Стоимость заказа:"
 
+msgid "EmsRussianPostShipping"
+msgstr "EMS Почта России"
+
 msgid "Pek"
 msgstr "ПЭК"
