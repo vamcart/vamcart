@@ -132,7 +132,7 @@ class PekController extends ShippingAppController {
 									"&places[".$num."][]=".($products['length']/100).
 									"&places[".$num."][]=".($products['height']/100).
 									"&places[".$num."][]=".$products['volume'].
-									"&places[".$num."][]=".$products['weight'].
+									"&places[".$num."][]=".$products['weight']*$products['quantity'].
 									"&places[".$num."][]=1&places[".$num."][]=1";
 		
 	    $num++;
