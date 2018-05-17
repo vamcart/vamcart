@@ -119,10 +119,30 @@ class PekController extends ShippingAppController {
 
 	    //echo var_dump($deliveryCity);
 	    //echo var_dump($delivery_city_id);
+	    
+	    //echo var_dump($order['OrderProduct']);
+	    
+	    $num = 0;
+	    $goods_list = null;
 
+	    foreach($order['OrderProduct'] AS $products)
+	    {
+
+	    $goods_list .= "&places[".$num."][]=".($products['width']/100).
+									"&places[".$num."][]=".($products['length']/100).
+									"&places[".$num."][]=".($products['height']/100).
+									"&places[".$num."][]=".$products['volume'].
+									"&places[".$num."][]=".$products['weight'].
+									"&places[".$num."][]=1&places[".$num."][]=1";
+		
+	    $num++;
+	    }	
+	    
+	    //echo var_dump($goods_list);
+			
 	    // Получаем расчёт стоимости доставки
 	    $curl = curl_init();
-	    curl_setopt($curl, CURLOPT_URL, "http://calc.pecom.ru/bitrix/components/pecom/calc/ajax.php?places[0][]=1&places[0][]=2&places[0][]=3&places[0][]=4&places[0][]=5&places[0][]=1&places[0][]=1&take[town]=".$city_id."&deliver[town]=".$delivery_city_id."");
+	    curl_setopt($curl, CURLOPT_URL, "http://calc.pecom.ru/bitrix/components/pecom/calc/ajax.php?take[town]=".$city_id."&deliver[town]=".$delivery_city_id.$goods_list."");
 	    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 	    $data = curl_exec($curl);
 	    
