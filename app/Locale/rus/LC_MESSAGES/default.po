@@ -6097,3 +6097,5 @@ msgstr "Платёж за данный заказ не найден!"
 msgid "Check your order payment confirmation!"
 msgstr "Проверить статус оплаты Вашего заказа!"
 
+msgid "Pek"
+msgstr "ПЭК"
