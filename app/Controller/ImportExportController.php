@@ -96,51 +96,7 @@ class ImportExportController extends AppController {
                     $this->removeDir('./files/content_img_upload');
                 mkdir('./files/content_img_upload');
                         
-                if($action == 'images') {
-                    if($f_inf['extension'] == 'zip') //если архив
-                    {  
-                        $zip = new ZipArchive();
-                        $res = $zip->open('./files/' . $file_name);
-                        if ($res === TRUE) {
-                            $zip->extractTo('./files/content_img_upload/');
-                            $zip->close();
-                            @unlink('./files/' . $file_name);
-                        }
-                        else {
-                            $this->Session->setFlash(__('Error extracting.',true));
-                            $this->redirect('/import_export/admin');  
-                        } 
-                        
-                        $files = $this->Dir('./files/content_img_upload/');
-                        foreach ($files as $file) {
-                            $res = preg_match('#^.*/(([0-9]*-[0-9]*).*$)#im',$file,$matches);
-                            if($res&&$res!=0){
-                                $content = $this->Content->find('first',array('conditions' => array('ContentProduct.model' => $matches[2])));
-                                if(isset($content['Content']['id'])) {
-                                    //$dir = WWW_ROOT . '/img/content/' . $content['Content']['id'];
-                                    $dir = WWW_ROOT . '/img/content/';
-                                    if(!is_dir($dir)) mkdir($dir);
-                                    if(copy($file, $dir . '/' . $matches[1]))
-                                    {
-                                        $img = array(
-                                            'id' => 0,
-                                            'content_id' => $content['Content']['id'],
-                                            //'order' => count($content['ContentImage']) + 1,
-                                            'order' => 1,
-                                            'image' => $matches[1]
-                                        );
-                                        $this->Content->ContentImage->save($img);
-                                    }
-                                }
-                            }
-                        }            
-                    }
-                    
-                    
-                    $this->Session->setFlash(__('Import suсcess!', true));
-                    $this->redirect('/import_export/admin');
-                    die();
-                }
+
                 
                 
                 //if($f_inf['extension'] == 'zip')
