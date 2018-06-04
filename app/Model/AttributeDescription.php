@@ -16,7 +16,7 @@ class AttributeDescription extends AppModel {
 	public $primaryKey = 'dsc_id';
 	public $validate = array(
 		'attribute_id' => array(
-			'rule' => 'notEmpty'
+			'rule' => 'notBlank'
 		)
 	);
 }
