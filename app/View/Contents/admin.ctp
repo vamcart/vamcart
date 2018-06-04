@@ -34,7 +34,7 @@ $this->Html->script(array(
 <?php echo $this->Html->scriptBlock('
 
     $(document).ready(function() {
-        $(".chosen-select").chosen({
+        $("#chosen-select").chosen({
             no_results_text:"'. __("Not Found") .'",
             search_contains:true,
             placeholder_text_single:"'. __("Select") .'",
@@ -110,7 +110,7 @@ echo $this->Form->create('ContentCategories', array('url' => '/contents/admin/0/
 echo $this->Form->input('content_id', 
 			array(
 				'type' => 'select',
-	   		'class' => 'chosen-select',
+	   		'id' => 'chosen-select',
 	   		'label' => false,
 				'options' => $this->requestAction('/contents/admin_parents_tree/'),
 				'escape' => false,
