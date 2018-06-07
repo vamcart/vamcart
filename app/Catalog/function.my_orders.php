@@ -214,6 +214,8 @@ function smarty_function_my_orders($params, $template)
 	App::import('Model', 'Order');
 	$Order = new Order();
 
+	if (!$_SESSION['Customer']['customer_id']) return;
+	
 		$Order->OrderStatus->unbindModel(array('hasMany' => array('OrderStatusDescription')));
 		$Order->OrderStatus->bindModel(
 	        array('hasOne' => array(
