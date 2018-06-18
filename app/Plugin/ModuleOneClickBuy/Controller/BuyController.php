@@ -42,6 +42,7 @@ class BuyController extends ModuleOneClickBuyAppController {
 				
 		$this->set('content_id', $content_id);
 		$this->set('content_name', $content_description['ContentDescription']['name']);
+		$this->set('content_price', $this->CurrencyBase->display_price($ContentProduct['ContentProduct']['price']));
 
 		App::import('Model', 'ContentImage');
 		$ContentImage = new ContentImage();

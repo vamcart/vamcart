@@ -34,11 +34,15 @@ class GetController extends ModuleAskAProductQuestionAppController {
 		$content = $this->ContentBase->get_content_information($content_id);			
 		$content_description = $this->ContentBase->get_content_description($content_id);			
 
+		App::import('Model', 'ContentProduct');
+		$ContentProduct = new ContentProduct();
+
+		$ContentProduct = $ContentProduct->find('first', array('conditions' => array('ContentProduct.content_id' => $content_id)));
+			
 		$this->set('content_id', $content_id);
 		$this->set('content_name', $content_description['ContentDescription']['name']);
-
-		$this->set('content_name', $content_description['ContentDescription']['name']);
-
+		$this->set('content_price', $this->CurrencyBase->display_price($ContentProduct['ContentProduct']['price']));
+		
 		App::import('Model', 'ContentImage');
 		$ContentImage = new ContentImage();
 
