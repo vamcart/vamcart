@@ -135,7 +135,8 @@ $(this).parent().addClass("selected");
                 async: true,
                 success: function (data, textStatus) {
                     global_spinner.fadeOut("fast");
-                    $("#checkout").html(data);},
+                    $("#ajaxcontent").html(data);
+                    },
                 beforeSend: function () {
                     global_spinner.fadeIn("fast");
                     },
@@ -158,7 +159,7 @@ $(this).parent().addClass("selected");
                 async: true,
                 success: function (data, textStatus) {
                     global_spinner.fadeOut("fast");
-                    $("#checkout").html(data);
+                    $("#ajaxcontent").html(data);
                     },
                 beforeSend: function () {
                     global_spinner.fadeIn("fast");
