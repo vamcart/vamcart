@@ -248,6 +248,7 @@ class SiteController extends AppController {
 	{
 
 		$this->Session->delete('Customer.customer_id');
+		$this->Session->delete('Customer.customer_group_id');
 
 		//$this->Auth->logout();
 
