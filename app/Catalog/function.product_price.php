@@ -36,7 +36,7 @@ function smarty_help_function_product_price () {
 	<p><?php echo __('Just insert the tag into your template like:') ?> <code>{product_price}</code></p>
 	<h3><?php echo __('What parameters does it take?') ?></h3>
 	<ul>
-		<li><em>(<?php echo __('None') ?>)</em></li>
+        <li><em><?php echo __('(plain=true)') ?></em> - <?php echo __('Displays price without currency, just numeric value.') ?></li>
 	</ul>
 	<?php
 }

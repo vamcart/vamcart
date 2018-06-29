@@ -6102,3 +6102,6 @@ msgstr "EMS Почта России"
 
 msgid "Pek"
 msgstr "ПЭК"
+
+msgid "Displays price without currency, just numeric value."
+msgstr "Выводит стоимость товара без валюты, просто числовое значение."
