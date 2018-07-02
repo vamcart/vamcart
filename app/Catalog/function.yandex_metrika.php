@@ -50,7 +50,7 @@ dataLayer.push({
 	
 </script>
 <!-- Yandex.Metrika counter -->
-<div style="display:none;"><script>
+<script>
     (function (d, w, c) {
         (w[c] = w[c] || []).push(function() {
             try {
@@ -78,7 +78,7 @@ dataLayer.push({
             d.addEventListener("DOMContentLoaded", f, false);
         } else { f(); }
     })(document, window, "yandex_metrika_callbacks");
-</script></div>
+</script>
 
 <noscript><div><img src="https://mc.yandex.ru/watch/'.$config['YANDEX_METRIKA'].'?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
@@ -88,7 +88,7 @@ dataLayer.push({
 			$result = '
 
 <!-- Yandex.Metrika counter -->
-<div style="display:none;"><script>
+<script>
     (function (d, w, c) {
         (w[c] = w[c] || []).push(function() {
             try {
@@ -116,7 +116,7 @@ dataLayer.push({
             d.addEventListener("DOMContentLoaded", f, false);
         } else { f(); }
     })(document, window, "yandex_metrika_callbacks");
-</script></div>
+</script>
 
 <noscript><div><img src="https://mc.yandex.ru/watch/'.$config['YANDEX_METRIKA'].'?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
