@@ -168,8 +168,26 @@ function smarty_function_search_result($params, $template)
 		$content_total = $content_list_data = $Content->find('count', array('conditions' => $search_conditions 
 																									, 'group' => array('Content.alias')
 																									));
+		// SearchLog
+		
+		App::import('Model', 'SearchLog');
+		$searchlog = new SearchLog();
+		
+		$search_log_data = array();
 
+		$search_log_data['keyword'] = $_GET['keyword'];
+		$search_log_data['customer_id'] = $_SESSION['Customer']['customer_id'];
+		$search_log_data['created'] = date("Y-m-d H:i:s");
+		$search_log_data['modified'] = date("Y-m-d H:i:s");
+		$search_log_data['ref'] = $_SERVER['HTTP_REFERER'];
+		$search_log_data['ip'] = $_SERVER['REMOTE_ADDR'];
+		$search_log_data['forwarded_ip'] = $_SERVER['REMOTE_ADDR'];
+		$search_log_data['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
+		$search_log_data['accept_language'] = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
 
+		$searchlog->save($search_log_data);
+
+		// Pagination
 		if ($vars['page'] == 'all') {
 			$content_list_data = $Content->find('all', array('conditions' => $search_conditions
 			, 'group' => array('Content.alias')
