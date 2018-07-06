@@ -235,6 +235,10 @@ ul#myTab
 		padding: .5em 0 .5em 0;
 		margin: 0 0 .5em 0;
 		background: #fff;
+		border-top: 1px solid #ddd;
+		border-left: 1px solid #ddd;
+		border-right: 1px solid #ddd;
+		border-bottom: 1px solid #ddd;
 	}
 	
 .nav-tabs > .active > a, .nav-tabs > .active > a:hover 
