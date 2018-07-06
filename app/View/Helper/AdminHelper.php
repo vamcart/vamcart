@@ -344,7 +344,8 @@ function submitForm(form){
 		}
 		
 		// Set the current breadcrumb
-		if ($this->params['action'] == "admin_top" or $this->params['action'] == "admin_index") $breadcrumbs .= '<li class="active">'.__($current_crumb, true).'</li>';
+		//if ($this->params['action'] == "admin_top" or $this->params['action'] == "admin_index") $breadcrumbs .= '<li class="active">'.__($current_crumb, true).'</li>';
+		if ($current_crumb) $breadcrumbs .= '<li class="active">'.__($current_crumb, true).'</li>';
 
 		//$breadcrumbs .= '</ul>';
 		
@@ -379,19 +380,19 @@ function submitForm(form){
 	public function ShowPageHeaderStart($page_name = null, $icon = null)
 	{
 		$content = '';
-		if ($page_name) {
+		//if ($page_name) {
 		$content .= '<div id="page">';
-		$content .= '<h2>';
+		//$content .= '<h2>';
 
-		if (!empty($icon)) {
-			$content .= '<i class="'.$icon.'"></i>'.' ' . $page_name;
-		} else {
-			$content .= $page_name;
-		}
+		//if (!empty($icon)) {
+			//$content .= '<i class="'.$icon.'"></i>'.' ' . $page_name;
+		//} else {
+			//$content .= $page_name;
+		//}
 
-		$content .= '</h2>';
+		//$content .= '</h2>';
 		$content .= '<div id="pageContent">';
-		}
+		//}
 		
 		return $content;
 	}

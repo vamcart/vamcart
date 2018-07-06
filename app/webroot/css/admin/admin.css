@@ -203,7 +203,7 @@ div.breadCrumbs a:hover
 div#page
 	{
 		margin: 0;
-		padding: 0;
+		padding: 15px 0 0 0;
 	}
 
 div#page h2
@@ -306,7 +306,7 @@ div.radio label
 div.input
 	{
 		margin: 0;
-		padding: 10px 0;
+		padding: 0 0 10px 0;
 		clear: both;
 		border: 0px solid green;
 	}
