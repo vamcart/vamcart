@@ -7049,6 +7049,7 @@ input[type=number].input-lg,
 [contenteditable].form-control.input-lg {
   font-size: 17px;
 }
+/*
 select,
 select.form-control {
   border: 0;
@@ -7068,6 +7069,7 @@ select.form-control {
   font-size: 16px;
   line-height: 1.5;
 }
+*/
 select::-ms-expand,
 select.form-control::-ms-expand {
   display: none;
