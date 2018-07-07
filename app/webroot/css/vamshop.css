@@ -956,7 +956,7 @@ div#spinner {
   }
 }
 .featured-categories .thumbnail {
-  padding: 0;
+  padding: .5em 0;
   margin: 0;
   overflow: hidden;
   box-shadow: none;
