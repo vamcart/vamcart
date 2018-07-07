@@ -580,7 +580,7 @@ ul.shipping-methods li,
 ul.payment-methods li
 	{
 		border: 2px solid transparent;
-		border-radius: 0px;
+		border-radius: .25em;
 		margin: 0 0 1.5em 0;
 		padding: 0;
 	}
@@ -590,8 +590,8 @@ ul.payment-methods li:hover,
 ul.shipping-methods .selected,
 ul.payment-methods .selected
 	{
-		border: 2px solid #dd2c00;
-		border-radius: 0px;
+    border: 2px solid #dd2c00;
+    border-radius: .25em;
 	}
 
 ul.shipping-methods li label,
@@ -617,6 +617,8 @@ ul.shipping-methods li label span.title,
 ul.payment-methods li label span.title
 	{
 		background: #eee;
+		border: 2px solid #eee;
+		border-radius: .25em;
 	}
 
 /* /Checkout */
@@ -1025,13 +1027,15 @@ div#spinner {
     background-color: #fff;
     margin: .5em .5em .5em 0;
     border: 1px solid #eee;
+    border-radius: .25em;
 }
 
 .attributes span.active {
     display: block;
     padding: 10px 15px;
     background-color: #f5f5f5;
-    border: 1px solid #2192f3;
+    border: 1px solid #dd2c00;
+    border-radius: .25em;
 }
 
 pre {
