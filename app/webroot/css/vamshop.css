@@ -13,6 +13,7 @@ a:hover,
 a:active,
 a:focus {
   text-decoration: underline;
+  color: #a82200;
 }
 a,
 a:active,
@@ -28,9 +29,14 @@ select:focus {
 }
 .row.content {
   background: #fff;
-  padding: 20px;
+  padding: 10px;
   margin-bottom: 20px;
   box-shadow: 0 1px 8px rgba(0,0,0,.23),0 1px 8px rgba(0,0,0,.16);
+}
+
+.row.small {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .product-tabs, 
@@ -258,6 +264,9 @@ padding-left: 0;
 
 .btn-default,
 .btn-primary {
+background-color: #555;
+border: 1px solid #555;
+color: #fff;	
 }
 
 .btn:hover,
@@ -269,15 +278,24 @@ padding-left: 0;
 .btn-warning:hover,
 .btn-warning:focus,
 .btn-warning:active {
+background-color: #dd2c00;
+border: 1px solid #dd2c00;
+color: #fff;
 }
 
 .btn-warning {
+background-color: #dd2c00;
+border: 1px solid #dd2c00;
+color: #fff;
 }
 
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: #dd2c00;
+  border-color: #dd2c00;
 }
 
 /* ========================================================================== */
@@ -323,29 +341,40 @@ padding-left: 0;
 /* ========================================================================== */
 .pagination > li > a,
 .pagination > li > span {
+  color: #555;
+  background-color: transparent;
+  border: 0px;
   padding: 10px 15px;
 }
 
 .pagination > li:first-child > a,
 .pagination > li:first-child > span {
   margin-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 .pagination > li:last-child > a,
 .pagination > li:last-child > span {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .pagination > li > a:hover,
 .pagination > li > span:hover,
 .pagination > li > a:focus,
 .pagination > li > span:focus {
-    }
+  color: #fff;
+  background-color: #dd2c00;
+}
 .pagination > .active > a,
 .pagination > .active > span,
 .pagination > .active > a:hover,
 .pagination > .active > span:hover,
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
-    }
+  color: #fff;
+  background-color: #dd2c00;
+}
 
 /* Shopping Cart Widget
 /* ========================================================================== */
@@ -397,6 +426,7 @@ footer .copyright {
   left: -30px;
   padding: 7px 15px 8px 50px;
   background-color: #dd2c00;
+  border-radius: .25em;
   color: #ffffff;
   font-size: 16px;
   font-weight: bold;
@@ -670,6 +700,7 @@ div#spinner {
   padding: 10px 15px 10px 50px;
   color: #fff;
   background-color: #dd2c00;
+  border-radius: .25em;
   font-size: 16px;
   font-weight: bold;
   z-index: 5;
@@ -951,6 +982,7 @@ div#spinner {
   color: #fff;
   padding: 10px 15px;
   background-color: #dd2c00;
+  border-radius: .25em;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -ms-transition: all 0.3s ease-out;
@@ -965,6 +997,7 @@ div#spinner {
   color: #fff;
   padding: 10px 15px;
   background-color: #dd2c00;
+  border-radius: .25em;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -ms-transition: all 0.3s ease-out;

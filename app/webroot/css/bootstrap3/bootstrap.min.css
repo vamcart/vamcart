@@ -1340,7 +1340,7 @@ mark,
   color: #575757;
 }
 .text-primary {
-  color: #0D3AED;
+  color: #000;
 }
 a.text-primary:hover,
 a.text-primary:focus {
@@ -3043,8 +3043,8 @@ select[multiple].input-lg {
 .btn.active {
   outline: 0;
   background-image: none;
-  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  /*-webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);*/
 }
 .btn.disabled,
 .btn[disabled],
@@ -3092,7 +3092,7 @@ fieldset[disabled] a.btn {
 .btn-default.active.focus,
 .open > .dropdown-toggle.btn-default.focus {
   color: #444444;
-  background-color: #d4d4d4;
+  background-color: #dd2c00;
   border-color: rgba(0, 0, 0, 0);
 }
 .btn-default:active,
@@ -4007,7 +4007,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav .open > a:hover,
 .nav .open > a:focus {
   background-color: #eeeeee;
-  border-color: #0D3AED;
+  border-color: #dd2c00;
 }
 .nav .nav-divider {
   height: 1px;
@@ -4761,7 +4761,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   z-index: 3;
   color: #ffffff;
   background-color: #dd2c00;
-  border-color: #0D3AED;
+  border-color: #dd2c00;
   cursor: default;
 }
 .pagination > .disabled > span,
@@ -5021,7 +5021,7 @@ a.badge:focus {
 a.thumbnail:hover,
 a.thumbnail:focus,
 a.thumbnail.active {
-  border-color: #0D3AED;
+  border-color: #dd2c00;
 }
 .thumbnail .caption {
   padding: 9px;
@@ -5308,7 +5308,7 @@ button.list-group-item {
   z-index: 2;
   color: #ffffff;
   background-color: #dd2c00;
-  border-color: #0D3AED;
+  border-color: #dd2c00;
 }
 .list-group-item.active .list-group-item-heading,
 .list-group-item.active:hover .list-group-item-heading,
@@ -5704,12 +5704,12 @@ button.list-group-item-danger.active:focus {
   border-bottom-color: #575757;
 }
 .panel-primary {
-  border-color: #0D3AED;
+  border-color: #dd2c00;
 }
 .panel-primary > .panel-heading {
   color: #ffffff;
   background-color: #dd2c00;
-  border-color: #0D3AED;
+  border-color: #dd2c00;
 }
 .panel-primary > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: #0D3AED;
@@ -6990,8 +6990,8 @@ input[type=number]:focus,
 [type=email].form-control:focus,
 [type=tel].form-control:focus,
 [contenteditable].form-control:focus {
-  -webkit-box-shadow: inset 0 -2px 0 #0D3AED;
-  box-shadow: inset 0 -2px 0 #0D3AED;
+  -webkit-box-shadow: inset 0 -2px 0 #dd2c00;
+  box-shadow: inset 0 -2px 0 #dd2c00;
 }
 textarea[disabled],
 textarea.form-control[disabled],
@@ -7082,8 +7082,8 @@ select.form-control.input-lg {
 }
 select:focus,
 select.form-control:focus {
-  -webkit-box-shadow: inset 0 -2px 0 #0D3AED;
-  box-shadow: inset 0 -2px 0 #0D3AED;
+  -webkit-box-shadow: inset 0 -2px 0 #dd2c00;
+  box-shadow: inset 0 -2px 0 #dd2c00;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAMAAACelLz8AAAAJ1BMVEUhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISF8S9ewAAAADHRSTlMAAgMJC0uWpKa6wMxMdjkoAAAANUlEQVR4AeXJyQEAERAAsNl7Hf3X6xt0QL6JpZWq30pdvdadme+0PMdzvHm8YThHcT1H7K0BtOMDniZhWOgAAAAASUVORK5CYII=);
 }
 select[multiple],
@@ -7174,7 +7174,7 @@ input[type="radio"]:disabled:checked:before,
 input[type="radio"]:checked:after,
 .radio input[type="radio"]:checked:after,
 .radio-inline input[type="radio"]:checked:after {
-  border-color: #0D3AED;
+  border-color: #dd2c00;
 }
 input[type="radio"]:disabled:after,
 .radio input[type="radio"]:disabled:after,
@@ -7202,7 +7202,7 @@ input[type="checkbox"]:focus,
 input[type="checkbox"]:focus:after,
 .checkbox input[type="checkbox"]:focus:after,
 .checkbox-inline input[type="checkbox"]:focus:after {
-  border-color: #0D3AED;
+  border-color: #dd2c00;
 }
 input[type="checkbox"]:after,
 .checkbox input[type="checkbox"]:after,
@@ -7241,7 +7241,7 @@ input[type="checkbox"]:checked:after,
 .checkbox input[type="checkbox"]:checked:after,
 .checkbox-inline input[type="checkbox"]:checked:after {
   background-color: #dd2c00;
-  border-color: #0D3AED;
+  border-color: #dd2c00;
 }
 input[type="checkbox"]:disabled:after,
 .checkbox input[type="checkbox"]:disabled:after,
