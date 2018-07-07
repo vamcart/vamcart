@@ -22,13 +22,13 @@ html,body
 a, 
 a:visited 
 	{
-		color: #494a4e;
+		color: #000;
 		text-decoration: none;
 	}
 
 a:hover 
 	{
-		color: #494a4e;
+		color: #000;
 		text-decoration: underline;
 	}
 
@@ -121,7 +121,7 @@ div#footer p
 }
 
 section {
-    background: #f8f8f8;
+    background: #fff;
 }
 
 .nav, .navbar {
@@ -153,7 +153,7 @@ color: #fff;
 
 #hoeapp-wrapper {
 color: #000;
-background: #f8f8f8;
+background: #fff;
 }
 
 /* /Menu */
@@ -179,7 +179,7 @@ div.breadCrumbs a,
 div.breadCrumbs a:visited,
 div.breadCrumbs a:hover  
 	{
-		color: #494a4e;
+		color: #000;
 		text-decoration: none;
 	}
 	
@@ -235,10 +235,10 @@ ul#myTab
 		padding: .5em 0 .5em 0;
 		margin: 0 0 .5em 0;
 		background: #fff;
-		border-top: 1px solid #ddd;
-		border-left: 1px solid #ddd;
-		border-right: 1px solid #ddd;
-		border-bottom: 1px solid #ddd;
+		border-top: 0px solid #ddd;
+		border-left: 0px solid #ddd;
+		border-right: 0px solid #ddd;
+		border-bottom: 0px solid #ddd;
 	}
 	
 .nav-tabs > .active > a, .nav-tabs > .active > a:hover 
@@ -379,7 +379,7 @@ div#content table.contentTable
 		width: 100%;
 		padding: 0 0 0 0;
 		margin: 0 0 .2em 0;
-		border: 1px solid #97a5b0;
+		border: 0px solid #97a5b0;
 		border-top-left-radius: 0px;
 		border-top-right-radius: 0px;
 		border-bottom-left-radius: 0px;
@@ -432,7 +432,7 @@ div#content table.contentTable tr.contentRowOddHover
 	{
 		padding: 0;
 		margin: 0;
-		background: #ffc;
+		background: #e7e7e7;
 	}
 
 div#content table.contentTable tr.contentRowEven.highlight
@@ -465,13 +465,14 @@ div#content table.contentTable tr.contentRowOddHover.highlight
 
 div#content table.contentTable th
 	{
-		color: #000;
-		font-weight: normal;
+		color: #575757;
+		text-align: center;
+		font-weight: 500;
 		padding: .9em;
 		margin: 0 auto;
-		text-align: center;
-		background-color: #e3eff7;
-		border: 1px solid #97a5b0;
+		background-color: transparent;
+		border-top: 1px solid #dee2e6;
+		border-bottom: 2px solid #dee2e6;
 		border-top-left-radius: 0px;
 		border-top-right-radius: 0px;
 		border-bottom-left-radius: 0px;
@@ -480,7 +481,8 @@ div#content table.contentTable th
 
 div#content table.contentTable td
 	{
-		padding: .3em .3em .3em .3em;
+		padding: .5em;
+		border-top: 1px solid #dee2e6;
 		margin: 0;
 	}
 
@@ -618,7 +620,6 @@ div.error input
 
 .btn
 	{
-		border-radius: 0;
 		margin: 0 5px 0 0;
 	}
 	
@@ -1058,7 +1059,7 @@ a#scrollup {
   bottom: 20px;
   right: 30px;
   padding: 5px 10px;
-  background: #dd2c00;
+  background: #1c6cf2;
   color: #fff;
 }
 
