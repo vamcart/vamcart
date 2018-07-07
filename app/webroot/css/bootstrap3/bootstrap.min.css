@@ -6790,7 +6790,7 @@ button.close {
 }
 .btn-default:hover,
 .btn-default:active:hover {
-  background-color: #dd2c00;
+  background-color: #f0f0f0;
 }
 .btn-default:active {
   -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
@@ -6856,7 +6856,7 @@ button.close {
 }
 .btn-link:hover,
 .btn-link:active:hover {
-  background-color: #dd2c00;
+  background-color: #f0f0f0;
 }
 .btn-link:active {
   -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
