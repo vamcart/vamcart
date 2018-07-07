@@ -81,7 +81,7 @@ a#scrollup {
   bottom: 20px;
   right: 30px;
   padding: 5px 10px;
-  background: #1c6cf2;
+  background: #dd2c00;
   color: #fff;
 }
 
@@ -421,15 +421,15 @@ footer .copyright {
 }
 
 .thumbnail .label.new {
-  background-color: #005E8F;
+  background-color: #005685;
 }
 
 .thumbnail .label.hit {
-  background-color: #B01212;
+  background-color: #d91414;
 }
 
 .thumbnail .label.sale {
-  background-color: #006600;
+  background-color: #006100;
 }
 
 .thumbnail .label.html {
@@ -560,7 +560,7 @@ ul.payment-methods li:hover,
 ul.shipping-methods .selected,
 ul.payment-methods .selected
 	{
-		border: 2px solid #1c6cf2;
+		border: 2px solid #dd2c00;
 		border-radius: 0px;
 	}
 
@@ -669,7 +669,7 @@ div#spinner {
   left: -30px;
   padding: 10px 15px 10px 50px;
   color: #fff;
-  background-color: #1c6cf2;
+  background-color: #dd2c00;
   font-size: 16px;
   font-weight: bold;
   z-index: 5;
@@ -683,7 +683,7 @@ div#spinner {
   transition: all 0.2s ease-out;
 }
 .shop-products .thumbnail .zoom {
-  background-color: #1c6cf2;
+  background-color: #dd2c00;
   color: #ffffff;
   position: absolute;
   left: 50%;
@@ -841,7 +841,7 @@ div#spinner {
   transition: all 0.3s ease-out;
 }
 .product-images .thumbnail .zoom {
-  background-color: #1c6cf2;
+  background-color: #dd2c00;
   color: #ffffff;
   position: absolute;
   left: 50%;
@@ -950,7 +950,7 @@ div#spinner {
   font-size: 16px;
   color: #fff;
   padding: 10px 15px;
-  background-color: #1c6cf2;
+  background-color: #dd2c00;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -ms-transition: all 0.3s ease-out;
@@ -964,7 +964,7 @@ div#spinner {
   font-size: 16px;
   color: #fff;
   padding: 10px 15px;
-  background-color: #1c6cf2;
+  background-color: #dd2c00;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -ms-transition: all 0.3s ease-out;
