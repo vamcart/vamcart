@@ -250,9 +250,10 @@ ul#myTab
 		border-bottom: 0px solid #ddd;
 	}
 
-.tab-pane {
-padding-bottom: .5em;
-}
+.tab-pane 
+	{
+		padding-bottom: .5em;
+	}
 	
 .nav-tabs > .active > a, .nav-tabs > .active > a:hover 
 	{
