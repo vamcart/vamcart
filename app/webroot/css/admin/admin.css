@@ -219,6 +219,15 @@ div#pageContent
 		margin: 0;
 		padding: 0 15px;
 	}
+	
+div#pageContent .col-sm-12,
+div#pageContent .col-sm-5,
+div#pageContent .col-sm-3,
+div#pageContent .col-sm-2
+	{
+		padding-left: 0;
+		padding-right: 15px;
+	}	
 
 /* /Page content */
 
@@ -232,7 +241,7 @@ ul#myTab
 
 #myTabContent, .tab-content
 	{
-		padding: .5em 0 .5em 0;
+		padding: .5em;
 		margin: 0 0 .5em 0;
 		background: #fff;
 		border-top: 1px solid #ddd;
@@ -481,7 +490,7 @@ div#content table.contentTable th
 div#content table.contentTable td
 	{
 		padding: .5em;
-		border-top: 1px solid #dee2e6;
+		border-top: 0px solid #dee2e6;
 		margin: 0;
 	}
 
