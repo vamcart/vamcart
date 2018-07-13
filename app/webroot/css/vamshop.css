@@ -121,20 +121,26 @@ a#scrollup i{
 position: relative;
 min-height: 50px;
 margin-bottom: 20px;
+border: 0px;
+border-radius: 0px;
 }
 
 .navbar-toggle {
+border: 0px;
 }
 
 .navbar-default .navbar-nav > li > a:hover, 
 .navbar-default .navbar-nav > li > a:focus, 
 .navbar-default .navbar-nav > li > a:active {
+ color: #fff; 
 }
 
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+background-color: #c92600;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
+  background-color: #fff;
 }
 
 .nav, .navbar {
@@ -142,26 +148,35 @@ margin-bottom: 0;
 }
 
 .navbar-default {
+background-color: #dd2c00;
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+color: #fff;
+background-color: #555;
 }
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
-border-color: #dee2e6;
+border-color: #c92600;
 }
 
 .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
 .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
 .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-  }
+  color: #fff;
+  background-color: #005685;
+}
 
 .navbar-default .navbar-nav .open .dropdown-menu > li > a,
 .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
 .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+color: #fff;
 }
 
 .dropdown-menu {
+  background-color: #555;
+  border: 1px solid #555;
+  border-radius: 0;
 }
 
 ul.dropdown-menu.cart {
@@ -176,6 +191,9 @@ margin: 0;
 .dropdown-menu.cart {
   min-width: 250px;
   width: 250px;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 0;
   z-index: 2000;
 }
 
@@ -183,19 +201,25 @@ margin: 0;
 .dropdown-menu > li > a:focus,
 .dropdown-menu > .active > a:hover,
 .dropdown-menu > .active > a:focus {
+  background-color: #005685;
 }
 
 .dropdown-menu>li>a {
+color: #fff;
 }
 
 .navbar-default .navbar-nav > li >a {
+color: #fff;
 }
 
 .navbar-default .navbar-brand {
+color: #fff;
 }
 
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
+  color: #fff;
+  background-color: transparent;
 }
 
 /* Categories Navbar
