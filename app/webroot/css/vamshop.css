@@ -278,6 +278,12 @@ padding-left: 0;
   border-radius: 0px;
 }
 
+label,
+th
+ {
+  font-weight: 500;
+}
+
 .breadcrumb> .active {
     color: #000;
 }

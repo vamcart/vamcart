@@ -382,6 +382,12 @@ div.radio input[type="radio"]
 
 /* Tables */
 
+label,
+th
+	{
+		font-weight: 500;
+	}
+
 div#content table.contentTable
 	{
 		width: 100%;
