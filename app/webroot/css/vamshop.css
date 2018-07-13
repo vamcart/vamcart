@@ -276,6 +276,7 @@ padding-left: 0;
 .form-control,
 .breadcrumb {
   border-radius: 0px;
+  font-size: 16px;
 }
 
 label,
@@ -435,7 +436,7 @@ background: #fff;
 }
 .shopping-cart-widget .products .media-heading {
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
   color: #dd2c00;
 }
 .shopping-cart-widget .products .media-heading a {
