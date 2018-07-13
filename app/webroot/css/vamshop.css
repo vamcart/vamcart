@@ -270,13 +270,29 @@ padding-left: 0;
 }
 
 .btn,
+.btn.active {
+box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+transition: all 0.4s;
+}
+
+.btn:hover,
+.btn:active,
+.btn:focus {
+background-color: #dd2c00;
+border: 1px solid #dd2c00;
+box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+transition: all 0.4s;
+color: #fff;
+}
+
+
+.btn,
 .alert,
 .nav-tabs > li > a,
 .nav-pills > li > a,
 .form-control,
 .breadcrumb {
   border-radius: 0px;
-  font-size: 16px;
 }
 
 label,

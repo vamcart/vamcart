@@ -636,6 +636,8 @@ div.error input
 	{
 		border-radius: 0;
 		margin: 0 5px 0 0;
+		box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+		transition: all 0.4s;
 	}
 	
 /* /Buttons */
@@ -1053,6 +1055,8 @@ a[href]:after
 .panel
 	{
 		border-radius: 0;
+		box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+		transition: all 0.4s;
 	}
 
 .badge
