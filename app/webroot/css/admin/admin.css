@@ -249,6 +249,10 @@ ul#myTab
 		border-right: 0px solid #ddd;
 		border-bottom: 0px solid #ddd;
 	}
+
+.tab-pane {
+padding-bottom: .5em;
+}
 	
 .nav-tabs > .active > a, .nav-tabs > .active > a:hover 
 	{
