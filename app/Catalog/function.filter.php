@@ -42,7 +42,7 @@ function default_template_filter()
                     {/if}
                 {/foreach}        
             </ul>
-		<form class="form-horizontal" name="filter" action="{$base_url}/filtered/set/{$hash}/{$base_content}" method="post">
+		<form class="form-horizontal" name="filter" action="{$base_url}/filtered/set/{$hash}/{$base_content}" method="get">
 			<div class="filter">
 				{foreach from=$element_list item=element}
 					{$element["out_elements"]}
