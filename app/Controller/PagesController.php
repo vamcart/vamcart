@@ -71,7 +71,11 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty');
                 
 
                 global $filter_list,$filtered_content,$filtered_attributes;  
-                $filter_list = $this->Session->read('filter_list.' . $alias);//текущее состояние фильтра                            
+                $filter_list = $this->Session->read('filter_list.' . $alias);//текущее состояние фильтра
+
+                // Фильтры через get форму                
+                if(isset($this->params->query['data'])) $this->data = $this->params->query['data'];
+                                            
                 if(isset($this->params['filtered']))
                 {
                     if($this->params['filtered'] == 'set'&&!isset($this->data['cancelbutton'])) {

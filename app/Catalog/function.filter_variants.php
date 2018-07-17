@@ -6,11 +6,10 @@
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-function default_template_filter()
+function default_template_filter_variants()
 {
     $template = '
-<div class="widget inner filter-widget">
-	<h3 class="widget-title">{lang}Filter{/lang}</h3>
+    <div class="filter-variants">
             <ul class="list-group">
                 {foreach from=$element_list item=element}
                     {if $element["filter"]["is_active"] == 1}
@@ -18,12 +17,12 @@ function default_template_filter()
                                 {if $value["val"] == 1}
                                     <li class="list-group-item"> 
                                         {$element["filter"]["name_attribute"]} : {$value["name"]} 
-                                        <button type="button" class="close" id="clear-filter-{$value["id"]}">
+                                        <button type="button" class="close" id="clear-filter-link-{$value["id"]}">
                                             <span aria-hidden="true">×</span>
                                         </button>    
                                         <script>
                                         $(function($){
-                                          $("#clear-filter-{$value["id"]}").click(function() {
+                                          $("#clear-filter-link-{$value["id"]}").click(function() {
                                             $("#value{$value["id"]}").attr("checked",false);
                                             var checked = false;
                                             $("#value{$value["id"]}").closest(".filter-group").find(".filter-value").each(function( index ) {
@@ -41,23 +40,20 @@ function default_template_filter()
                             {/foreach} 
                     {/if}
                 {/foreach}        
-            </ul>
-		<form class="form-horizontal" name="filter" action="{$base_url}/filtered/set/{$hash}/{$base_content}" method="post">
+            </ul>    
+   
 			<div class="filter">
 				{foreach from=$element_list item=element}
 					{$element["out_elements"]}
 				{/foreach}
-				<button class="btn btn-default btn-filter-apply" id="filterbutton" name="applybutton" type="submit"><i class="fa fa-check"></i> {lang}Apply{/lang}</button>
-				<button class="btn btn-default btn-filter-reset" name="cancelbutton" type="submit"><i class="fa fa-times"></i> {lang}Reset{/lang}</button>
 			</div>
-		</form>
-</div>
+    </div>
 ';
     return $template;
 }
 
 
-function smarty_function_filter($params)
+function smarty_function_filter_variants($params)
 {
     global $filter_list,$filtered_attributes;
     global $content;
@@ -96,10 +92,28 @@ function smarty_function_filter($params)
         $element_list[$k]['filter'] = array(
             'id_attribute' => $attribute['id']
             ,'name_attribute' => $attribute['name']
+            ,'base_url' => BASE . '/' . $content['ContentType']['name'] . '/' . $content['Content']['alias'] . $config['URL_EXTENSION']
+            ,'url' => BASE . '/' . $content['ContentType']['name'] . '/filtered/set/'.md5(serialize($filter_list)).'/'.$content['Content']['alias'] . $config['URL_EXTENSION']
             ,'values_attribute' => $value_attributes
             ,'is_active' => (isset($filter_list['is_active'][$attribute['id']]))?$filter_list['is_active'][$attribute['id']]:0
         );
-        $element_list[$k]['out_elements'] = $Smarty->fetch($attribute['AttributeTemplate']['template_filter'],$element_list[$k]['filter']);
+        
+        
+        
+$links_template = '
+<ul class="list-inline">
+{foreach from=$values_attribute item=val}
+<li{if $val.val == 1 && $is_active == 1} class="active"{/if}>
+	<a href="{$url}?data%5Bvalues_f%5D%5B{$id_attribute}%5D%5Bis_active%5D=1&data%5Bvalues_f%5D%5B{$id_attribute}%5D%5Bset%5D={$val.id}&data%5Bvalues_f%5D%5B{$id_attribute}%5D%5Bdata%5D%5B{$val.id}%5D%5Btype_attr%5D={$val.type_attr}&data%5Bvalues_f%5D%5B{$id_attribute}%5D%5Bdata%5D%5B{$val.id}%5D%5Bid%5D={$val.id}"{if $val.val == 1 && $is_active == 1} class="active"{/if}>
+	{page_name} {$val.name}
+	</a>
+</li>
+{/foreach}
+</ul>
+';        
+        
+        //$element_list[$k]['out_elements'] = $Smarty->fetch($attribute['AttributeTemplate']['template_filter'],$element_list[$k]['filter']);
+        $element_list[$k]['out_elements'] = $Smarty->fetch($links_template,$element_list[$k]['filter']);
     }
     $assignments = array();
     $assignments = array('element_list' => $element_list
@@ -107,18 +121,19 @@ function smarty_function_filter($params)
                         ,'base_content' => $content['Content']['alias'] . $config['URL_EXTENSION'] 
                         ,'hash' => md5(serialize($filter_list))
                         );
-    $display_template = $Smarty->load_template($params, 'filter');
+    $display_template = $Smarty->load_template($params, 'filter_variants');
     $Smarty->display($display_template, $assignments);
+
 
 }
 
-function smarty_help_function_filter() 
+function smarty_help_function_filter_variants() 
 {
     ?>
     <h3><?php echo __('What does this tag do?') ?></h3>
     <p><?php echo __('Displays filter box.') ?></p>
     <h3><?php echo __('How do I use it?') ?></h3>
-    <p><?php echo __('Just insert the tag into your template/page like:') ?> <code>{filter}</code></p>
+    <p><?php echo __('Just insert the tag into your template/page like:') ?> <code>{filter_variants}</code></p>
     <h3><?php echo __('What parameters does it take?') ?></h3>
     <ul>
     	<li><em><?php echo __('(template)') ?></em> - <?php echo __('Overrides the default template.') ?></li>
@@ -126,7 +141,7 @@ function smarty_help_function_filter()
     <?php
 }
 
-function smarty_about_function_filter() 
+function smarty_about_function_filter_variants() 
 {
 }
 ?>
