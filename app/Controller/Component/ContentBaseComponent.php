@@ -131,7 +131,7 @@ class ContentBaseComponent extends CakeObject
                 $this->Content->Attribute->ValAttribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
 
 		$content_conditions = "Content.id = '" . $content_alias . "' OR BINARY Content.alias = '" . $content_alias . "' AND Content.active ='1'";
-		$content = $this->Content->find('first', array('recursive' => 2, 'order' => 'Content.id ASC', 'conditions' => $content_conditions));
+		$content = $this->Content->find('first', array('recursive' => 2, 'order' => 'Content.id DESC', 'conditions' => $content_conditions));
 
 		// Error page
 	    if (!$content) {
