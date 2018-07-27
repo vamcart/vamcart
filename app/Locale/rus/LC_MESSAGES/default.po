@@ -1614,6 +1614,10 @@ msgstr "Доступные значения"
 msgid "Display products with selected product label."
 msgstr "Выводит товары с указанным ярлыком."
 
+#: /vendors/smarty/vam_plugins/function.content_listing.php:183
+msgid "Display products with selected brand (manufacturer_id)."
+msgstr "Выводит товары указанного брэнда (manufacturer_id)."
+
 #: /vendors/smarty/vam_plugins/function.content_listing.php:182
 msgid "(limit)"
 msgstr "(limit)"
@@ -6099,6 +6103,9 @@ msgstr "Проверить статус оплаты Вашего заказа!"
 
 msgid "EmsRussianPostShipping"
 msgstr "EMS Почта России"
+
+msgid "Pek"
+msgstr "ПЭК"
 
 msgid "Pek"
 msgstr "ПЭК"

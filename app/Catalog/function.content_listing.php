@@ -543,6 +543,7 @@ function smarty_help_function_content_listing() {
 		<li><em><?php echo __('(template)') ?></em> - <?php echo __('Useful if you want to override the default content listing template. Setting this will utilize the template that matches this alias.') ?></li>
 		<li><em><?php echo __('(page)') ?></em> - <?php echo __('Current page.') ?></li>
 		<li><em><?php echo __('(label_id)') ?></em> - <?php echo __('Display products with selected product label.') ?></li>
+		<li><em><?php echo __('(manufacturer)') ?></em> - <?php echo __('Display products with selected brand (manufacturer_id).') ?></li>
 		<li><em><?php echo __('(order)') ?></em> - <?php echo __('Content listing sort order. Available values: ') . 'order,order-asc,order-desc,price,price-asc,price-desc,stock,stock-asc,stock-desc,name,name-asc,name-desc,id,id-asc,id-desc,ordered,ordered-asc,ordered-desc' ?></li>
 		<li><em><?php echo __('(current_order)') ?></em> - <?php echo __('Current product listing sort order. Available values: ') . '$current_order' ?></li>
 		<li><em><?php echo __('(limit)') ?></em> - <?php echo __('Items per page.') ?></li>
