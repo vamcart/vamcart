@@ -202,6 +202,25 @@ class ContentBaseComponent extends CakeObject
 		}
 	}
 
+	public function getContentAlias($content_id)
+	{
+		if ($content_id > 0) {
+
+	App::import('Model', 'Content');
+		$Content = new Content();		
+		$Content->unbindAll();	
+		$Content->bindModel(array('hasOne' => array(
+				'ContentDescription' => array(
+                    'className' => 'ContentDescription',
+					'conditions'   => 'language_id = '.$_SESSION['Customer']['language_id']
+                ))));
+		
+		$content_alias = $Content->find('first', array('conditions' => array('Content.active' => 1, 'Content.id' => $content_id)));
+
+		return $content_alias['Content']['alias'];
+		}
+	}
+
 	public function getReviewsInfo($content_id, $info)
 	{
 		if ($content_id > 0) {
