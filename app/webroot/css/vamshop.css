@@ -120,6 +120,12 @@ a#scrollup i{
   z-index:10000;
 }
 
+.nav-wrapper
+{
+    min-height:50px;
+}
+
+
 .navbar {
 position: relative;
 min-height: 50px;
