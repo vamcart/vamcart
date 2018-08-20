@@ -15,7 +15,11 @@ $(function () {
 global_spinner = $("#spinner");
 
 {if $phone_mask != ""}
-  $("#phone").mask("{$phone_mask}");
+new Cleave("#phone", {
+  numericOnly: true,
+  blocks: [0, 3, 0, 3, 2, 2],
+  delimiters: ["(", ")", " ", "-","-"],
+});
 {/if}  
 
   //$("#contentform :input:text:visible:enabled:first").trigger("focus");
