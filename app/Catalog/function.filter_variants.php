@@ -101,9 +101,9 @@ function smarty_function_filter_variants($params)
         
         
 $links_template = '
-<ul class="list-inline">
+<ul class="attributes nav nav-pills" role="tablist">
 {foreach from=$values_attribute item=val}
-<li{if $val.val == 1 && $is_active == 1} class="active"{/if}>
+<li role="presentation"{if $val.val == 1 && $is_active == 1} class="active"{/if}>
 	<a href="{$url}?data%5Bvalues_f%5D%5B{$id_attribute}%5D%5Bis_active%5D=1&data%5Bvalues_f%5D%5B{$id_attribute}%5D%5Bset%5D={$val.id}&data%5Bvalues_f%5D%5B{$id_attribute}%5D%5Bdata%5D%5B{$val.id}%5D%5Btype_attr%5D={$val.type_attr}&data%5Bvalues_f%5D%5B{$id_attribute}%5D%5Bdata%5D%5B{$val.id}%5D%5Bid%5D={$val.id}"{if $val.val == 1 && $is_active == 1} class="active"{/if}>
 	{page_name} {$val.name}
 	</a>
