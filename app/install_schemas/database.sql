@@ -2434,6 +2434,7 @@ CREATE TABLE `contacts` (
   `name` varchar(255) collate utf8_unicode_ci,
   `email` varchar(255) collate utf8_unicode_ci,
   `message` text COLLATE utf8_unicode_ci,
+  `answered` int(10),
   `tracking` varchar(255),
   `ref` varchar(255),
   `ip` varchar(255),

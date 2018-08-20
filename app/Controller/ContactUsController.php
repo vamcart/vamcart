@@ -35,6 +35,33 @@ class ContactUsController extends AppController {
 			$spam_flag = true;
 			$antispam_error_message .= 'Error: field should be empty. ['.$_POST['anti-bot-e-email-url'].']<br> ';
 		}
+
+
+		// Save to database
+		
+		App::import('Model', 'Contact');
+		$contact = new Contact();
+		
+		$contact = array();
+
+		$contact['name'] = $_POST['name'];
+		$contact['email'] = $_POST['email'];
+		$contact['message'] = $_POST['message'];
+
+		$contact['customer_id'] = (($_SESSION['Customer']['customer_id'] > 0) ? $_SESSION['Customer']['customer_id'] : 0);
+		$contact['answered'] = 0;
+
+		$contact['created'] = date("Y-m-d H:i:s");
+		$contact['modified'] = date("Y-m-d H:i:s");
+
+		$contact['ref'] = $_SERVER['HTTP_REFERER'];
+		$contact['ip'] = $_SERVER['REMOTE_ADDR'];
+		$contact['forwarded_ip'] = $_SERVER['REMOTE_ADDR'];
+		$contact['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
+		$contact['accept_language'] = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+
+		$contact->save($contact);
+
 		
 		$config = $this->ConfigurationBase->load_configuration();
 		
