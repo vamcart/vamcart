@@ -2412,3 +2412,36 @@ CREATE TABLE IF NOT EXISTS `search_logs` (
   `modified` datetime,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+DROP TABLE IF EXISTS contacts;
+CREATE TABLE `contacts` (
+  `id` int(10) auto_increment,
+  `customer_id` int(10),
+  `name` varchar(255) collate utf8_unicode_ci,
+  `email` varchar(255) collate utf8_unicode_ci,
+  `message` text COLLATE utf8_unicode_ci,
+  `tracking` varchar(255),
+  `ref` varchar(255),
+  `ip` varchar(255),
+  `forwarded_ip` varchar(255),
+  `user_agent` varchar(255),
+  `accept_language` varchar(255),
+  `created` datetime,
+  `modified` datetime,
+  PRIMARY KEY  (`id`),
+  INDEX name (name)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+DROP TABLE IF EXISTS contact_answers;
+CREATE TABLE `contact_answers` (
+  `id` int(10) auto_increment,
+  `contact_id` int(10),
+  `user_id` int(10),
+  `user_name` varchar(255),
+  `answer` text COLLATE utf8_unicode_ci,
+  `sent_to_customer` tinyint(4),
+  `created` datetime,
+  `modified` datetime,
+  PRIMARY KEY  (`id`),
+  INDEX contact_id (contact_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
