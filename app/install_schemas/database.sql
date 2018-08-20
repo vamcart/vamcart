@@ -2314,6 +2314,20 @@ CREATE TABLE IF NOT EXISTS `customers` (
   INDEX groups_customer_id (groups_customer_id)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+DROP TABLE IF EXISTS customer_messages;
+CREATE TABLE `customer_messages` (
+  `id` int(10) auto_increment,
+  `customer_id` int(10),
+  `user_id` int(10),
+  `user_name` varchar(255),
+  `message` text COLLATE utf8_unicode_ci,
+  `sent_to_customer` tinyint(4),
+  `created` datetime,
+  `modified` datetime,
+  PRIMARY KEY  (`id`),
+  INDEX customer_id (customer_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 DROP TABLE IF EXISTS groups_customers;
 CREATE TABLE IF NOT EXISTS `groups_customers` (
   `id` int(10) AUTO_INCREMENT,
