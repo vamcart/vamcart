@@ -33,12 +33,10 @@ $this->Html->script(array(
 	echo $this->Form->input('Contact.name', 
 						array(
 				   		'label' => __('Contact Name:')
-
 	               ));
 	echo $this->Form->input('Contact.email', 
 						array(
    				   		'label' => __('Contact Email:')
-
 	               ));	
 
 	echo $this->Form->input('Contact.message', 

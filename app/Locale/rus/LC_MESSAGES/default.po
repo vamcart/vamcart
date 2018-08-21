@@ -2083,6 +2083,18 @@ msgid "Messages List"
 msgstr "Список сообщений"
 
 #: /views/configuration/admin_edit.ctp:40
+msgid "Reply"
+msgstr "Ответить"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "Answers List"
+msgstr "Список ответов"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "Answer"
+msgstr "Ответ"
+
+#: /views/configuration/admin_edit.ctp:40
 msgid "Answer Form"
 msgstr "Форма ответа"
 

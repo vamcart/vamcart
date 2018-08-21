@@ -26,7 +26,7 @@ foreach ($data AS $contact_data)
 				$this->Html->link($contact_data['Contact']['email'], '/contact_us/admin_edit/' . $contact_data['Contact']['id']),
 				$this->Html->link(CakeText::truncate($contact_data['Contact']['message'],50,array('html' => true)), '/contact_us/admin_edit/' . $contact_data['Contact']['id']),
 				array(($contact_data['Contact']['answered'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('Yes'),'title' => __('Yes'))):$this->Html->image('admin/icons/false.png', array('alt' => __('No'),'title' => __('No')))), array('align'=>'center')),
-				array($this->Admin->ActionButton('edit','/contact_us/admin_edit/' . $contact_data['Contact']['id'],__('Edit')) . $this->Admin->ActionButton('delete','/contact_us/admin_delete/' . $contact_data['Contact']['id'],__('Delete')), array('align'=>'center')),
+				array($this->Admin->ActionButton('edit','/contact_us/admin_edit/' . $contact_data['Contact']['id'],__('Reply')) . $this->Admin->ActionButton('delete','/contact_us/admin_delete/' . $contact_data['Contact']['id'],__('Delete')) . $this->Admin->ActionButton('view','/contact_us/admin_view/' . $contact_data['Contact']['id'],__('Answers List')), array('align'=>'center')),
 				array($this->Form->checkbox('modify][', array('value' => $contact_data['Contact']['id'])), array('align'=>'center'))
 		   ));
 		   	

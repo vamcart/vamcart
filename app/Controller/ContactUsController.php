@@ -326,7 +326,14 @@ class ContactUsController extends AppController {
 
 		$this->redirect('/contact_us/admin/');
 	}
-	
+
+	public function admin_delete_answer ($answer_id,$contact_id)
+	{
+		$this->ContactAnswer->delete($answer_id);	
+		$this->Session->setFlash( __('Record deleted.', true));		
+
+		$this->redirect('/contact_us/admin_view/'.$contact_id);
+	}	
 	
 	public function admin_edit ($contact_id = null)
 	{
@@ -531,6 +538,18 @@ class ContactUsController extends AppController {
 		}
 		
 		$this->redirect('/orders/admin_view/' . $this->data['Order']['id']);
+	}	
+	
+	public function admin_view ($id)
+	{
+		global $config;
+		
+		$this->set('current_crumb', __('Answers List', true));
+		$this->set('title_for_layout', __('Answers List', true));
+		$this->set('config', $config);
+		$answers = $this->ContactAnswer->find('all', array('conditions' => array('ContactAnswer.contact_id' => $id)));
+		$this->set('data',$answers);
+		
 	}	
 	
 	public function admin ($ajax = false)
