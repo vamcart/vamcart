@@ -2079,6 +2079,26 @@ msgid "Send contact us emails to"
 msgstr "Получатель писем со страницы обратной связи"
 
 #: /views/configuration/admin_edit.ctp:40
+msgid "Messages List"
+msgstr "Список сообщений"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "Contact Name"
+msgstr "Имя"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "Contact Email"
+msgstr "Email"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "Contact Message"
+msgstr "Сообщение"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "Reply Sent"
+msgstr "Ответ отправлен"
+
+#: /views/configuration/admin_edit.ctp:40
 msgid "DaData API Key"
 msgstr "DaData.Ru API ключ подсказок"
 
