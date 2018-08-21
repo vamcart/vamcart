@@ -8,7 +8,7 @@
 class ContactUsController extends AppController {
 	public $name = 'ContactUs';
 	public $components = array('Email', 'ConfigurationBase');
-	public $helpers = array('Time','Text');
+	public $helpers = array('Time','Text','TinyMce');
 	public $uses = array('EmailTemplate', 'AnswerTemplate', 'Contact', 'ContactAnswer');
 	public $paginate = array('limit' => 20, 'order' => array('Contact.id' => 'desc'));
 
@@ -315,95 +315,71 @@ class ContactUsController extends AppController {
 		}
 	}
 
-	public function admin_order_statuses()
+	public function admin_delete ($contact_id)
 	{
-		// Bind and set the order status select list
-		$this->Order->OrderStatus->unbindModel(array('hasMany' => array('OrderStatusDescription')));
-		$this->Order->OrderStatus->bindModel(
-	        array('hasOne' => array(
-				'OrderStatusDescription' => array(
-                    'className' => 'OrderStatusDescription',
-					'conditions'   => 'language_id = ' . $this->Session->read('Customer.language_id')
-                )
-            )
-           	)
-	    );		
+		// Get the contact and make sure it's not the default
+		$this->Contact->id = $contact_id;
+		$contact = $this->Contact->read();
 		
-		$status_list = $this->Order->OrderStatus->find('all', array('order' => array('OrderStatus.order ASC')));
-		$order_status_list = array();
-		
-		foreach($status_list AS $status)
-		{
-			$status_key = $status['OrderStatus']['id'];
-			$order_status_list[$status_key] = $status['OrderStatusDescription']['name'];
-		}
-		
-		$this->set('order_status_list',$order_status_list);
+		$this->Contact->delete($contact_id);	
+		$this->Session->setFlash( __('Record deleted.', true));		
 
-			// Retrieve answer template
-			$this->AnswerTemplate->unbindModel(array('hasMany' => array('AnswerTemplateDescription')));
-			$this->AnswerTemplate->bindModel(
-				array('hasOne' => array(
-					'AnswerTemplateDescription' => array(
-						'className'  => 'AnswerTemplateDescription',
-						'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
-					)
-				))
-			);
-
-		$answer_status_list = $this->AnswerTemplate->find('all', array('order' => array('AnswerTemplate.order ASC')));
-		$answer_template_list = array();
-
-		foreach($answer_status_list AS $answer_status)
-		{
-			$answer_status_key = $answer_status['AnswerTemplateDescription']['content'];
-			$answer_template_list[$answer_status_key] = $answer_status['AnswerTemplateDescription']['name'];
-		}
-		
-		$this->set('answer_template_list',$answer_template_list);
-		
+		$this->redirect('/contact_us/admin/');
 	}
-		
-	public function admin_delete ($id)
+	
+	
+	public function admin_edit ($contact_id = null)
 	{
-		$this->Session->setFlash(__('Record deleted.',true));
+		$this->set('current_crumb', __('Answer Form', true));
+		$this->set('title_for_layout', __('Answer Form', true));
+		// If they pressed cancel
+		if(isset($this->data['cancelbutton']))
+		{
+			$this->redirect('/contact_us/admin/');
+			die();
+		}
+		
+		if(empty($this->data))
+		{
+			$this->request->data = $this->Contact->read(null,$contact_id);
+		}
+		else
+		{
+			$this->Contact->save($this->data['Contact']);	
+			
+			$answer = array();
+			$answer['ContactAnswer'] = $this->data['ContactAnswer'];
 
-			$order = $this->Order->read(null,$id);
+			$answer['ContactAnswer']['contact_id']= $this->data['Contact']['id'];
 
-			// Restock 
-			foreach($order['OrderProduct'] as $order_data) {
+			$this->ContactAnswer->save($answer);
+						
+			global $config;
+			$config = $this->ConfigurationBase->load_configuration();
+					
+			// Send to admin
+			if($config['SEND_CONTACT_US_EMAIL'] != '')
+			{
+			
+			// Set up mail
+			$this->Email->init();
+			$this->Email->From = $config['SEND_CONTACT_US_EMAIL'];
+			$this->Email->FromName = $config['SEND_CONTACT_US_EMAIL'];
+			$this->Email->AddAddress($this->data['Contact']['email'], $this->data['Contact']['name']);
+			$this->Email->Subject = 'Re: '.$config['SITE_NAME'] . ' - ' . __('Contact Us' ,true);
+	
+			// Email Body
+			$this->Email->Body = str_replace("\r\n","<br />",$this->data['ContactAnswer']['answer'])."<br /><br />>>".str_replace("\r\n","<br />>>",$this->data['Contact']['message']);
+			
+			// Sending mail
+			$this->Email->send();
+			
+			}			
 
-					$filename = (isset($order['OrderProduct']['filename'])) ? $order['OrderProduct']['filename'] : false;
-
-					if (!$filename) {
-
-					App::import('Model', 'ContentProduct');
-					$ContentProduct = new ContentProduct();
-					//$product_data = $ContentProduct->findByContentId($order_data['content_id']);
-                                        $product_data = $ContentProduct->find('first',array('conditions' => array('ContentProduct.content_id' => $order_data['content_id'])
-                                                                                           ,'fields' => array('ContentProduct.id','ContentProduct.ordered','ContentProduct.stock')
-                                                                                           ));                                        
-					$product_data['ContentProduct']['ordered'] = $product_data['ContentProduct']['ordered'] - $order_data['quantity'];
-					$product_data['ContentProduct']['stock'] = $product_data['ContentProduct']['stock'] + $order_data['quantity'];
-					$ContentProduct->save($product_data);
-				} else {
-					App::import('Model', 'ContentDownloadable');
-					$ContentDownloadable = new ContentDownloadable();
-					//$product_data = $ContentDownloadable->findByContentId($order_data['content_id']);
-                                        $product_data = $ContentDownloadable->find('first',array('conditions' => array('ContentDownloadable.content_id' => $order_data['content_id'])
-                                                                                           ,'fields' => array('ContentDownloadable.id','ContentDownloadable.ordered','ContentDownloadable.stock')
-                                                                                           )); 
-					$product_data['ContentDownloadable']['ordered'] = $product_data['ContentDownloadable']['ordered'] - $order_data['quantity'];
-					$product_data['ContentDownloadable']['stock'] = $product_data['ContentDownloadable']['stock'] + $order_data['quantity'];
-					$ContentDownloadable->save($product_data);
-				}
-
-			}
-
-			// Delete the order
-			$this->Order->delete($id,true);
-
-		$this->redirect('/orders/admin/');
+			$this->Session->setFlash(__('Reply Sent.', true));
+			
+			$this->redirect('/contact_us/admin');
+		}		
 	}
 
 	public function admin_new_comment ($user = null)
@@ -557,63 +533,6 @@ class ContactUsController extends AppController {
 		$this->redirect('/orders/admin_view/' . $this->data['Order']['id']);
 	}	
 	
-	public function admin_view ($id)
-	{
-		global $config;
-		
-		$this->set('current_crumb', __('Order View', true));
-		$this->set('title_for_layout', __('Order View', true));
-		$this->set('config', $config);
-		$order = $this->Order->find('all', array('conditions' => array('Order.id' => $id)));
-		$this->set('data',$order[0]);
-		
-		// Bind and set the order status select list
-		$this->Order->OrderStatus->unbindModel(array('hasMany' => array('OrderStatusDescription')));
-		$this->Order->OrderStatus->bindModel(
-	        array('hasOne' => array(
-				'OrderStatusDescription' => array(
-                    'className' => 'OrderStatusDescription',
-					'conditions'   => 'language_id = ' . $this->Session->read('Customer.language_id')
-                )
-            )
-           	)
-	    );		
-		
-		$status_list = $this->Order->OrderStatus->find('all', array('order' => array('OrderStatus.order ASC')));
-		$order_status_list = array();
-		
-		foreach($status_list AS $status)
-		{
-			$status_key = $status['OrderStatus']['id'];
-			$order_status_list[$status_key] = $status['OrderStatusDescription']['name'];
-		}
-		
-		$this->set('order_status_list',$order_status_list);
-
-			// Retrieve answer template
-			$this->AnswerTemplate->unbindModel(array('hasMany' => array('AnswerTemplateDescription')));
-			$this->AnswerTemplate->bindModel(
-				array('hasOne' => array(
-					'AnswerTemplateDescription' => array(
-						'className'  => 'AnswerTemplateDescription',
-						'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
-					)
-				))
-			);
-			
-		$answer_status_list = $this->AnswerTemplate->find('all', array('order' => array('AnswerTemplate.order ASC')));
-		$answer_template_list = array();
-		
-		foreach($answer_status_list AS $answer_status)
-		{
-			$answer_status_key = $answer_status['AnswerTemplateDescription']['content'];
-			$answer_template_list[$answer_status_key] = $answer_status['AnswerTemplateDescription']['name'];
-		}
-		
-		$this->set('answer_template_list',$answer_template_list);
-
-	}
-
 	public function admin ($ajax = false)
 	{
 		$this->set('current_crumb', __('Messages List', true));

@@ -25,7 +25,7 @@ foreach ($data AS $contact_data)
 				$this->Html->link($contact_data['Contact']['name'], '/contact_us/admin_edit/' . $contact_data['Contact']['id']),
 				$this->Html->link($contact_data['Contact']['email'], '/contact_us/admin_edit/' . $contact_data['Contact']['id']),
 				$this->Html->link(CakeText::truncate($contact_data['Contact']['message'],50,array('html' => true)), '/contact_us/admin_edit/' . $contact_data['Contact']['id']),
-				array($this->Ajax->link(($contact_data['Contact']['active'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'),'title' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False'),'title' => __('False')))), 'null', $options = array('escape' => false, 'url' => '/contact_us/admin_change_active_status/' . $contact_data['Contact']['id'], 'update' => 'content'), null, false), array('align'=>'center')),
+				array(($contact_data['Contact']['answered'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('Yes'),'title' => __('Yes'))):$this->Html->image('admin/icons/false.png', array('alt' => __('No'),'title' => __('No')))), array('align'=>'center')),
 				array($this->Admin->ActionButton('edit','/contact_us/admin_edit/' . $contact_data['Contact']['id'],__('Edit')) . $this->Admin->ActionButton('delete','/contact_us/admin_delete/' . $contact_data['Contact']['id'],__('Delete')), array('align'=>'center')),
 				array($this->Form->checkbox('modify][', array('value' => $contact_data['Contact']['id'])), array('align'=>'center'))
 		   ));
