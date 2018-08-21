@@ -102,7 +102,8 @@ class AdminMenuComponent extends Component
 			9 => array('icon' => 'cus-wrench', 'text' => __('Tools', true), 'path' => '/admin/admin_top/9',
 				'children' => array(
 					1 => array('icon' => 'cus-database-save', 'text' => __('Database Backup', true), 'path' => '/tools/admin_backup/'),
-					2 => array('icon' => 'cus-chart-curve', 'text' => __('Sales Report', true), 'path' => '/reports/admin/')
+					2 => array('icon' => 'cus-chart-curve', 'text' => __('Sales Report', true), 'path' => '/reports/admin/'),
+					2 => array('icon' => 'cus-comments', 'text' => __('Contact Us Messages', true), 'path' => '/contact_us/admin/')
 				)
 			),
 			//10 => array('icon' => 'cus-application-go', 'text' => __('Launch Site', true), 'path' => '/', 'attributes' => array('target' => 'blank'))

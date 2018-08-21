@@ -3174,7 +3174,11 @@ msgstr "Настройки"
 
 #: /controllers/contact_us_controller.php:38
 msgid "Contact Us"
-msgstr "Связаться с нами"
+msgstr "Обратная связь"
+
+#: /controllers/contact_us_controller.php:38
+msgid "Contact Us Messages"
+msgstr "Сообщения со страницы обратной связи"
 
 #: /vendors/smarty/vam_plugins/function.contact_us.php:53
 msgid "Creates a contact us form."
