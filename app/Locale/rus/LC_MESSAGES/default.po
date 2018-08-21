@@ -2083,20 +2083,48 @@ msgid "Messages List"
 msgstr "Список сообщений"
 
 #: /views/configuration/admin_edit.ctp:40
+msgid "Answer Form"
+msgstr "Форма ответа"
+
+#: /views/configuration/admin_edit.ctp:40
 msgid "Contact Name"
 msgstr "Имя"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "Contact Name:"
+msgstr "Имя:"
 
 #: /views/configuration/admin_edit.ctp:40
 msgid "Contact Email"
 msgstr "Email"
 
 #: /views/configuration/admin_edit.ctp:40
+msgid "Contact Email:"
+msgstr "Email:"
+
+#: /views/configuration/admin_edit.ctp:40
 msgid "Contact Message"
 msgstr "Сообщение"
 
 #: /views/configuration/admin_edit.ctp:40
+msgid "Contact Message:"
+msgstr "Сообщение:"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "Contact Answer"
+msgstr "Ответ"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "Contact Answer:"
+msgstr "Ответ:"
+
+#: /views/configuration/admin_edit.ctp:40
 msgid "Reply Sent"
 msgstr "Ответ отправлен"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "Reply Sent."
+msgstr "Ответ отправлен."
 
 #: /views/configuration/admin_edit.ctp:40
 msgid "Search Log"
