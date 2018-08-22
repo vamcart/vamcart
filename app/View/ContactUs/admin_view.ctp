@@ -26,7 +26,7 @@ foreach ($data AS $answer)
 
 echo '</table>';
 echo '<br />';
-echo $this->Admin->linkButton(__('Return to menu'),'/contact_us/admin/','cus-arrow-left',array('escape' => false, 'class' => 'btn btn-default'));
+echo $this->Admin->linkButton(__('Return'),'/contact_us/admin/','cus-arrow-left',array('escape' => false, 'class' => 'btn btn-default'));
 
 echo $this->Admin->ShowPageHeaderEnd();
 	

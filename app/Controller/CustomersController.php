@@ -202,7 +202,33 @@ class CustomersController extends AppController {
 		$this->set('answer_template_list',$answer_template_list);
 		
 	}
-			
+
+	public function admin_delete_message ($message_id,$customer_id)
+	{
+		App::import('Model', 'CustomerMessage');
+		$CustomerMessage = new CustomerMessage();
+
+		$CustomerMessage->delete($message_id);	
+		$this->Session->setFlash( __('Record deleted.', true));		
+
+		$this->redirect('/customers/admin_view/'.$customer_id);
+	}	
+
+	public function admin_view ($id)
+	{
+		global $config;
+		
+		App::import('Model', 'CustomerMessage');
+		$CustomerMessage = new CustomerMessage();
+
+		$this->set('current_crumb', __('Messages List', true));
+		$this->set('title_for_layout', __('Messages List', true));
+		$this->set('config', $config);
+		$answers = $CustomerMessage->find('all', array('conditions' => array('CustomerMessage.customer_id' => $id)));
+		$this->set('data',$messages);
+		
+	}	
+					
 	public function admin ($ajax = false)
 	{
 		$this->set('current_crumb', __('Customers Listing', true));
