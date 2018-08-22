@@ -144,6 +144,31 @@ class ContactUsController extends AppController {
 	{
 		$this->set('current_crumb', __('Answer Form', true));
 		$this->set('title_for_layout', __('Answer Form', true));
+
+
+		// Retrieve answer template
+		$this->AnswerTemplate->unbindModel(array('hasMany' => array('AnswerTemplateDescription')));
+		$this->AnswerTemplate->bindModel(
+			array('hasOne' => array(
+				'AnswerTemplateDescription' => array(
+					'className'  => 'AnswerTemplateDescription',
+					'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
+				)
+			))
+		);
+			
+		$answer_status_list = $this->AnswerTemplate->find('all', array('order' => array('AnswerTemplate.order ASC')));
+		$answer_template_list = array();
+		
+		foreach($answer_status_list AS $answer_status)
+		{
+			$answer_status_key = $answer_status['AnswerTemplateDescription']['content'];
+			$answer_template_list[$answer_status_key] = $answer_status['AnswerTemplateDescription']['name'];
+		}
+		
+		$this->set('answer_template_list',$answer_template_list);
+
+
 		// If they pressed cancel
 		if(isset($this->data['cancelbutton']))
 		{

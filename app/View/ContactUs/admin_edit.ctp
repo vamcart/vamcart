@@ -11,11 +11,11 @@ $this->Html->script(array(
 	'admin/focus-first-input.js'
 ), array('inline' => false));
 
-	echo $this->TinyMce->init();
+	//echo $this->TinyMce->init();
 
 	echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 
-	echo $this->Form->create('Contact', array('id' => 'contentform', 'url' => '/contact_us/admin_edit/'));
+	echo $this->Form->create('Contact', array('id' => 'contentform', 'name' => 'contentform', 'url' => '/contact_us/admin_edit/'));
 	echo $this->Form->input('Contact.id', 
 						array(
 				   		'type' => 'hidden'
@@ -45,12 +45,23 @@ $this->Html->script(array(
 			'class' => 'notinymce'
    	));	
    	
+	echo $this->Form->input('Contact.answer_template_id', 
+			array(
+				'type' => 'select',
+				'options' => $answer_template_list,
+				'label' => __('Answer Template'),
+				'name' => 'menu',
+				'empty' => __('Select'),
+				'onclick' => 'var textarea = document.getElementById("answer"); textarea.value=document.contentform.menu.options[document.contentform.menu.selectedIndex].value;',
+				'after' => ' '.$this->Html->link($this->Html->image("admin/icons/new.png", array('alt' => __('Add Answer Template'), 'title' => __('Add Answer Template'))),'/answer_template/admin/', array('escape' => false, 'target' => '_blank'))
+			));
    	
 	echo $this->Form->input('ContactAnswer.answer', 
 		array(
 			'type' => 'textarea',
    		'class' => 'pagesmalltextarea',
-			'label' => __('Contact Answer:')
+			'label' => __('Contact Answer:'),
+			'id' => 'answer'
    	));	
 
 	echo '<div class="clear"></div>';
