@@ -8,6 +8,8 @@
    
 class CustomersController extends AppController {
 	public $name = 'Customers';
+	public $helpers = array('Time');
+	public $components = array('EventBase', 'Email', 'Smarty','ConfigurationBase', 'CurrencyBase', 'ContentBase');
 	public $paginate = array('limit' => 20, 'order' => array('Customer.id' => 'desc'));
 
 	public function admin_delete ($customer_id)
@@ -123,13 +125,86 @@ class CustomersController extends AppController {
 						   $this->Customer->delete($value);
 							$build_flash .= __('Record deleted.', true) . ' (' . $customer['Customer']['name'] . ')<br />';									
 					break;
+					case "send_message":
+						$customer_id = $value;
+						$name = $customer['Customer']['name'];
+						$email = $customer['Customer']['email'];
+						$message = $this->data['message'];
+						$this->_send_message($customer_id, $name, $email, $message);
+						$build_flash .= __('Message sent successfully.', true);
+						$target_page = '/customers/admin/';
+					break;
 				}
 			}
 		}
 		$this->Session->setFlash($build_flash);
 		$this->redirect('/customers/admin/');
 	}	
-	
+
+	public function _send_message($customer_id, $name, $email, $message)
+	{
+		App::import('Model', 'CustomerMessage');
+		$CustomerMessage = new CustomerMessage();
+		
+		$message_data = array();
+
+		if ($message != '') {
+		$message_data['CustomerMessage']['customer_id'] = $customer_id;
+		$message_data['CustomerMessage']['messsage'] = $message;
+		$message_data['CustomerMessage']['sent_to_customer'] = 1;
+		$message_data['CustomerMessage']['created'] = date("Y-m-d H:i:s");
+		$message_data['CustomerMessage']['modified'] = date("Y-m-d H:i:s");
+		}
+		
+		$CustomerMessage->save($message_data);
+
+		global $config;
+		$config = $this->ConfigurationBase->load_configuration();
+					
+		// Set up mail
+		$this->Email->init();
+		$this->Email->From = $config['SEND_CONTACT_US_EMAIL'];
+		$this->Email->FromName = $config['SEND_CONTACT_US_EMAIL'];
+		$this->Email->AddAddress($email, $name);
+		$this->Email->Subject = $config['SITE_NAME'] . ' - ' . __('Message' ,true);
+
+		// Email Body
+		$this->Email->Body = str_replace("\r\n","<br />",$message);
+		
+		// Sending mail
+		$this->Email->send();
+
+	}
+
+	public function send_message()
+	{
+			App::import('Model', 'AnswerTemplate');
+			$AnswerTemplate = new AnswerTemplate();
+		
+			// Retrieve answer template
+			$AnswerTemplate->unbindModel(array('hasMany' => array('AnswerTemplateDescription')));
+			$AnswerTemplate->bindModel(
+				array('hasOne' => array(
+					'AnswerTemplateDescription' => array(
+						'className'  => 'AnswerTemplateDescription',
+						'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
+					)
+				))
+			);
+
+		$answer_status_list = $AnswerTemplate->find('all', array('order' => array('AnswerTemplate.order ASC')));
+		$answer_template_list = array();
+
+		foreach($answer_status_list AS $answer_status)
+		{
+			$answer_status_key = $answer_status['AnswerTemplateDescription']['content'];
+			$answer_template_list[$answer_status_key] = $answer_status['AnswerTemplateDescription']['name'];
+		}
+		
+		$this->set('answer_template_list',$answer_template_list);
+		
+	}
+			
 	public function admin ($ajax = false)
 	{
 		$this->set('current_crumb', __('Customers Listing', true));
