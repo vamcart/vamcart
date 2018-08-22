@@ -225,6 +225,7 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 			'.$this->Admin->linkButton(__('New Order'),'/orders_edit/admin/','cus-cart-add',array('escape' => false, 'class' => 'btn btn-default')).'
 			'.$this->Admin->linkButton(__('All Orders'),'/orders/admin/','cus-cart-go',array('escape' => false, 'class' => 'btn btn-default')).'
 			'.$this->Admin->linkButton(__('Categories/Products'),'/contents/admin/','cus-book-add',array('escape' => false, 'class' => 'btn btn-default')).'
+			'.$this->Admin->linkButton(__('Customers'),'/customers/admin/','cus-group',array('escape' => false, 'class' => 'btn btn-default')).'
 			'.$this->Admin->linkButton(__('Reset Cache'),'/configuration/admin_clear_cache/','cus-arrow-refresh-small',array('escape' => false, 'class' => 'btn btn-default')).'
 			  </div>
 			</div>
