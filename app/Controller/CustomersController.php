@@ -135,10 +135,10 @@ class CustomersController extends AppController {
 						$build_flash .= __('Message sent successfully.', true);
 						$target_page = '/customers/admin/';
 					break;
-					case "customer_orders":
-						$build_flash .= __('Customer Orders List.', true);
-						$target_page = '/orders/admin/?email=' . $customer['Customer']['email'];
-						break;
+					//case "customer_orders":
+						//$build_flash .= __('Customer Orders List.', true);
+						//$target_page = '/orders/admin/?email=' . $customer['Customer']['email'];
+						//break;
 				}
 			}
 		}

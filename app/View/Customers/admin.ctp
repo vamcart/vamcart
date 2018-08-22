@@ -118,7 +118,7 @@ foreach ($data AS $customer)
 
 echo '</table>';
 
-echo $this->Admin->ActionBar(array('delete'=>__('Delete'), 'send_message'=>__('Send Message'), 'customer_orders'=>__('Customer Orders')), false);
+echo $this->Admin->ActionBar(array('delete'=>__('Delete'), 'send_message'=>__('Send Message')), false);
 echo $this->Form->end();
 ?>
 
