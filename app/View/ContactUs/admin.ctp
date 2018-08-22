@@ -12,7 +12,7 @@ $this->Html->script(array(
 
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-comments');
 
-echo $this->Form->create('Contact', array('url' => '/contacts/admin_modify_selected/'));
+echo $this->Form->create('Contact', array('url' => '/contact_us/admin_modify_selected/'));
 
 echo '<table class="contentTable">';
 
@@ -34,7 +34,7 @@ foreach ($data AS $contact_data)
 
 echo '</table>';
 
-echo $this->Admin->ActionBar(array('activate'=>__('Activate'),'deactivate'=>__('Deactivate'),'delete'=>__('Delete')),false);
+echo $this->Admin->ActionBar(array('delete'=>__('Delete')),false);
 echo $this->Form->end();
 
 ?>
