@@ -50,7 +50,7 @@ function beforeSubmit(form)
 
 function sendMessage(form)
 {
-	return $(\'<div id="statuses-dialog"></div>\').load(\''. BASE . '/customers/send_message/\').dialog({
+	return $(\'<div id="statuses-dialog"></div>\').load(\''. BASE . '/customers/admin_send_message/\').dialog({
 		modal: true,
 		title: i18n.SendMessage,
 		width: 600,
