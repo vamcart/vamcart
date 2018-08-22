@@ -174,7 +174,7 @@ class CustomersController extends AppController {
 
 	}
 
-	public function send_message()
+	public function admin_send_message()
 	{
 			App::import('Model', 'AnswerTemplate');
 			$AnswerTemplate = new AnswerTemplate();
