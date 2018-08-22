@@ -569,7 +569,7 @@ class OrdersController extends AppController {
 						$this->_change_status($order, $status_id, $comment, $notify);
 						$build_flash .= __('Order status changed.', true);
 						$target_page = '/orders/admin/';
-						break;
+					break;
 				}
 			}
 		}
