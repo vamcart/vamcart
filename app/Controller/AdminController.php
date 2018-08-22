@@ -141,7 +141,7 @@ class AdminController extends AppController {
 				App::import('Model', 'Contact');
 				$Contact = new Contact();	
 
-				$contact = $Contact->find('all', array('limit' => 10, 'order' => array('Contact.id' => 'DESC')));
+				$contact = $Contact->find('all', array('limit' => 18, 'order' => array('Contact.id' => 'DESC')));
 				$this->set('contact_data',$contact);
 
             $pending_messages = $Contact->find('count', array('order' => array('Contact.id' => 'DESC'), 'conditions' => array('Contact.answered' => 0)));
