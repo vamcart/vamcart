@@ -1099,6 +1099,10 @@ class OrdersController extends AppController {
 		$status_id = $this->params->query['status_id'];
 		}
 
+		if (isset($this->params->query['email'])) {
+		$email = $this->params->query['email'];
+		}
+
 		$this->set('order_status_dropdown', array(0 => __('Order Status'))+$order_status_list);
 		if ($status_id > 0) {		
 		$data = $this->paginate('Order',"Order.order_status_id = ".$status_id."");
@@ -1106,6 +1110,9 @@ class OrdersController extends AppController {
 		} else {
 		$data = $this->paginate('Order',"Order.order_status_id > 0");
 		$this->set('status_id', $status_id);
+		}
+		if ($email != "") {		
+		$data = $this->paginate('Order',"Order.email = '".$email."'");
 		}
 
 		$this->set('data',$data);
