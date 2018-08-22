@@ -110,7 +110,7 @@ foreach ($data AS $customer)
 				$this->Html->link($customer['Customer']['name'], '/customers/admin_edit/' . $customer['Customer']['id']),
 				array($customer['AddressBook']['phone'], array('align'=>'center')),
 				array($customer['Customer']['email'], array('align'=>'center')),
-				array($this->Admin->ActionButton('edit','/customers/admin_edit/' . $customer['Customer']['id'],__('Edit')) . $this->Admin->ActionButton('delete','/customers/admin_delete/' . $customer['Customer']['id'],__('Delete')) . $this->Admin->ActionButton('view','/customers/admin_view/' . $customer['Customer']['id'],__('Messages List')), array('align'=>'center')),
+				array($this->Admin->ActionButton('edit','/customers/admin_edit/' . $customer['Customer']['id'],__('Edit')) . $this->Admin->ActionButton('delete','/customers/admin_delete/' . $customer['Customer']['id'],__('Delete')) . $this->Admin->ActionButton('view','/customers/admin_view/' . $customer['Customer']['id'],__('Messages List')) . $this->Admin->ActionButton('import','/orders/admin/?email=' . $customer['Customer']['email'],__('Customer Orders')), array('align'=>'center')),
 				array($this->Form->checkbox('modify][', array('value' => $customer['Customer']['id'])), array('align'=>'center'))
 		   ));
 		   	
@@ -118,7 +118,7 @@ foreach ($data AS $customer)
 
 echo '</table>';
 
-echo $this->Admin->ActionBar(array('delete'=>__('Delete'), 'send_message'=>__('Send Message'),), false);
+echo $this->Admin->ActionBar(array('delete'=>__('Delete'), 'send_message'=>__('Send Message'), 'customer_orders'=>__('Customer Orders')), false);
 echo $this->Form->end();
 ?>
 

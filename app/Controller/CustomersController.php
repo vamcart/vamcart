@@ -118,6 +118,7 @@ class CustomersController extends AppController {
 			{
 				$this->Customer->id = $value;
 				$customer = $this->Customer->read();
+				$target_page = '/customers/admin/';
 		
 				switch ($this->data['multiaction']) 
 				{
@@ -134,11 +135,15 @@ class CustomersController extends AppController {
 						$build_flash .= __('Message sent successfully.', true);
 						$target_page = '/customers/admin/';
 					break;
+					case "customer_orders":
+						$build_flash .= __('Customer Orders List.', true);
+						$target_page = '/orders/admin/?email=' . $customer['Customer']['email'];
+						break;
 				}
 			}
 		}
 		$this->Session->setFlash($build_flash);
-		$this->redirect('/customers/admin/');
+		$this->redirect($target_page);
 	}	
 
 	public function _send_message($customer_id, $name, $email, $message)
@@ -224,7 +229,7 @@ class CustomersController extends AppController {
 		$this->set('current_crumb', __('Messages List', true));
 		$this->set('title_for_layout', __('Messages List', true));
 		$this->set('config', $config);
-		$answers = $CustomerMessage->find('all', array('conditions' => array('CustomerMessage.customer_id' => $id)));
+		$messages = $CustomerMessage->find('all', array('conditions' => array('CustomerMessage.customer_id' => $id)));
 		$this->set('data',$messages);
 		
 	}	
