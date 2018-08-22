@@ -150,10 +150,8 @@ class CustomersController extends AppController {
 
 		if ($message != '') {
 		$message_data['CustomerMessage']['customer_id'] = $customer_id;
-		$message_data['CustomerMessage']['messsage'] = $message;
+		$message_data['CustomerMessage']['message'] = $message;
 		$message_data['CustomerMessage']['sent_to_customer'] = 1;
-		$message_data['CustomerMessage']['created'] = date("Y-m-d H:i:s");
-		$message_data['CustomerMessage']['modified'] = date("Y-m-d H:i:s");
 		}
 		
 		$CustomerMessage->save($message_data);
