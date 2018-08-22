@@ -135,6 +135,19 @@ class AdminController extends AppController {
             $this->set('top_products',$top_products);	
             $this->set('level', $level);
 
+
+				// Contact Us Messages
+				
+				App::import('Model', 'Contact');
+				$Contact = new Contact();	
+
+				$contact = $Contact->find('all', array('limit' => 10, 'order' => array('Contact.id' => 'DESC')));
+				$this->set('contact_data',$contact);
+
+            $pending_messages = $Contact->find('count', array('order' => array('Contact.id' => 'DESC'), 'conditions' => array('Contact.answered' => 0)));
+
+				$this->set('pending_messages',$pending_messages);
+
 		// Last orders
 
 		$data = $this->Order->find('all', array(	'conditions' => array('Order.order_status_id >' => '0'), 

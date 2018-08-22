@@ -284,7 +284,8 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 
 			echo '<ul id="myTab" class="nav nav-tabs">';
 			if($level == 1) {
-			echo $this->admin->CreateTab('orders',__('Orders',true), 'cus-cart');
+			echo $this->admin->CreateTab('orders',__('Orders',true) . (($pending_orders > 0) ? ' <span class="badge">' . $pending_orders . '</span>' : null), 'cus-cart');
+			echo $this->admin->CreateTab('contactus',__('Contact Us',true) . (($pending_messages > 0) ? ' <span class="badge">' . $pending_messages . '</span>' : null), 'cus-comments');
 			echo $this->admin->CreateTab('top',__('Top Products',true), 'cus-chart-pie');
 			} else {
 			echo $this->admin->CreateTab('home',__('Menu',true), 'cus-chart-organisation');
@@ -317,6 +318,30 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 			echo '</table>';
 
 		echo $this->admin->EndTabContent();
+
+                echo $this->admin->StartTabContent('contactus');
+                
+                    echo '<table class="orderTable"><tr><td>';
+                        echo '<table class="contentTable"><tr><td colspan="3">';
+                        echo $this->Html->tableHeaders(array( __('Contact Name'), __('Contact Email'), __('Contact Message'), __('Reply Sent'), __('Action')));
+                        if ($contact_data) {
+								foreach ($contact_data AS $contact)
+								{
+									echo $this->Admin->TableCells(
+										  array(
+												$this->Html->link($contact['Contact']['name'], '/contact_us/admin_edit/' . $contact['Contact']['id']),
+												$this->Html->link($contact['Contact']['email'], '/contact_us/admin_edit/' . $contact['Contact']['id']),
+												$this->Html->link(CakeText::truncate($contact['Contact']['message'],10,array('html' => true)), '/contact_us/admin_edit/' . $contact['Contact']['id']),
+												array(($contact['Contact']['answered'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('Yes'),'title' => __('Yes'))):$this->Html->image('admin/icons/false.png', array('alt' => __('No'),'title' => __('No')))), array('align'=>'center')),
+												array($this->Admin->ActionButton('edit','/contact_us/admin_edit/' . $contact['Contact']['id'],__('Reply')) . $this->Admin->ActionButton('delete','/contact_us/admin_delete/' . $contact['Contact']['id'],__('Delete')) . $this->Admin->ActionButton('view','/contact_us/admin_view/' . $contact['Contact']['id'],__('Answers List')), array('align'=>'center')),
+										   ));
+										   	
+								}
+                        }
+                   echo '</td></tr></table>';
+                    echo '</td></tr></table>';
+                    
+                echo $this->admin->EndTabContent();
 				
                 echo $this->admin->StartTabContent('top');
                 
@@ -378,7 +403,7 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
                     echo '</td></tr></table>';
                     
                 echo $this->admin->EndTabContent();
-
+               
 		} else {
 		
 	echo $this->admin->StartTabContent('home');
