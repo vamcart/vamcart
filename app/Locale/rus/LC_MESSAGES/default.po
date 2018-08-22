@@ -1164,6 +1164,10 @@ msgstr "Отзыв: "
 msgid "Return to menu"
 msgstr "Вернуться в меню"
 
+#: /plugins/module_reviews/views/admin/admin_edit.ctp:20
+msgid "Return"
+msgstr "Вернуться"
+
 #: /plugins/module_reviews/views/admin/admin_help.ctp:15
 msgid "The reviews module will allow customers to publish reviews and rate your products."
 msgstr "Модуль отзывов позволяет покупателям оставлять отзывы и выставлять рейтинг товарам."
@@ -2091,6 +2095,10 @@ msgid "Answers List"
 msgstr "Список ответов"
 
 #: /views/configuration/admin_edit.ctp:40
+msgid "Messages List"
+msgstr "Список сообщений"
+
+#: /views/configuration/admin_edit.ctp:40
 msgid "Answer"
 msgstr "Ответ"
 
@@ -2137,6 +2145,22 @@ msgstr "Ответ отправлен"
 #: /views/configuration/admin_edit.ctp:40
 msgid "Reply Sent."
 msgstr "Ответ отправлен."
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "Send Message"
+msgstr "Отправить сообщение"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "Message sent successfully."
+msgstr "Cообщение успешно отправлено."
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "Sent To Customer"
+msgstr "Cообщение отправлено"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "Message"
+msgstr "Cообщение"
 
 #: /views/configuration/admin_edit.ctp:40
 msgid "Search Log"
