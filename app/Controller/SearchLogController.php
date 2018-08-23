@@ -8,15 +8,25 @@
 
 class SearchLogController extends AppController {
 	public $name = 'SearchLog';
-        public $paginate = array('limit' => 20, 'order' => array('SearchLog.id' => 'asc'));
-        
+	public $components = array('Paginator');
+
+	public $paginate = array(
+	    'SearchLog' => array(
+	        'limit' => 20,
+	        'order' => array('SearchLog.total' => 'desc'),
+	        'group' => array('SearchLog.keyword')
+	    )
+	);
+
         public function admin ()
 			{
             $this->set('current_crumb', __('Search Log Listing', true));
             $this->set('title_for_layout', __('Search Log Listing', true));
             
-            $data = $this->paginate('SearchLog');
-            $this->set('data',$data);
+				$this->Paginator->settings = $this->paginate;
+				$data = $this->Paginator->paginate('SearchLog');
+				$this->set('data', $data);            
+            
         	}          
         
 			public function admin_delete ($group_id = null)

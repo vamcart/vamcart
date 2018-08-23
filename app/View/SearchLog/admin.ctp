@@ -16,13 +16,14 @@ echo $this->Form->create('SearchLog', array('url' => '/search_log/admin_modify_s
 
 echo '<table class="contentTable">';
 
-echo $this->Html->tableHeaders(array( __('Search Keywords'),  __('Action'), '<input type="checkbox" onclick="checkAll(this)" />'));
+echo $this->Html->tableHeaders(array( __('Search Keywords'), __('Number of queries'), __('Action'), '<input type="checkbox" onclick="checkAll(this)" />'));
 
 foreach ($data AS $search_keywords)
 {
 	echo $this->Admin->TableCells(
 		  array(
 				$this->Html->link($search_keywords['SearchLog']['keyword'], ''),
+				array($search_keywords['SearchLog']['total'], array('align'=>'center')),
 				array($this->Admin->ActionButton('delete','/search_log/admin_delete/' . $search_keywords['SearchLog']['id'],__('Delete')), array('align'=>'center')),
 				array($this->Form->checkbox('modify][', array('value' => $search_keywords['SearchLog']['id'])), array('align'=>'center'))
 		   ));

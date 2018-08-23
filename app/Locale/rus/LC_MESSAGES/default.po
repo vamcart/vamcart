@@ -2179,6 +2179,10 @@ msgid "Search Log Listing"
 msgstr "Список поисковых запросов"
 
 #: /views/configuration/admin_edit.ctp:40
+msgid "Number of queries"
+msgstr "Количество запросов"
+
+#: /views/configuration/admin_edit.ctp:40
 msgid "Search Keywords"
 msgstr "Поисковые запросы"
 
