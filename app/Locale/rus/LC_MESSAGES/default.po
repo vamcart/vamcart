@@ -1168,6 +1168,14 @@ msgstr "Вернуться в меню"
 msgid "Return"
 msgstr "Вернуться"
 
+#: /plugins/module_reviews/views/admin/admin_edit.ctp:20
+msgid "Customer Orders"
+msgstr "Заказы покупателя"
+
+#: /plugins/module_reviews/views/admin/admin_edit.ctp:20
+msgid "Customer Orders List."
+msgstr "Список заказов выбранного покупателя."
+
 #: /plugins/module_reviews/views/admin/admin_help.ctp:15
 msgid "The reviews module will allow customers to publish reviews and rate your products."
 msgstr "Модуль отзывов позволяет покупателям оставлять отзывы и выставлять рейтинг товарам."
@@ -2164,6 +2172,14 @@ msgstr "Cообщение"
 
 #: /views/configuration/admin_edit.ctp:40
 msgid "Search Log"
+msgstr "Поисковые запросы"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "Search Log Listing"
+msgstr "Список поисковых запросов"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "Search Keywords"
 msgstr "Поисковые запросы"
 
 #: /views/configuration/admin_edit.ctp:40
