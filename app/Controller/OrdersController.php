@@ -1112,7 +1112,7 @@ class OrdersController extends AppController {
 		$this->set('status_id', $status_id);
 		}
 		if ($email != "") {		
-		$data = $this->paginate('Order',"Order.email = '".$email."'");
+		$data = $this->paginate('Order',"Order.order_status_id > 0 and Order.email = '".$email."'");
 		}
 
 		$this->set('data',$data);
