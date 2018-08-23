@@ -8,5 +8,9 @@
 App::uses('Model', 'AppModel');
 class SearchLog extends AppModel {
 	public $name = 'SearchLog';
+
+	public $virtualFields = array(
+		'total' => 'count(SearchLog.keyword)'
+	);
 }
 ?>

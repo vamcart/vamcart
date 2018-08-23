@@ -12,7 +12,7 @@ class SearchLogController extends AppController {
         
         public function admin ()
 			{
-            $this->set('current_crumb', __('Search Log', true));
+            $this->set('current_crumb', __('Search Log Listing', true));
             $this->set('title_for_layout', __('Search Log Listing', true));
             
             $data = $this->paginate('SearchLog');
