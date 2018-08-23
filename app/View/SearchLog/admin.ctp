@@ -22,7 +22,7 @@ foreach ($data AS $search_keywords)
 {
 	echo $this->Admin->TableCells(
 		  array(
-				$this->Html->link($search_keywords['SearchLog']['keyword'], ''),
+				$this->Html->link($search_keywords['SearchLog']['keyword'], FULL_BASE_URL.BASE.'/page/search-result.html?keyword='.$search_keywords['SearchLog']['keyword']),
 				array($search_keywords['SearchLog']['total'], array('align'=>'center')),
 				array($this->Admin->ActionButton('delete','/search_log/admin_delete/' . $search_keywords['SearchLog']['id'],__('Delete')), array('align'=>'center')),
 				array($this->Form->checkbox('modify][', array('value' => $search_keywords['SearchLog']['id'])), array('align'=>'center'))
