@@ -125,6 +125,19 @@ a#scrollup i{
     min-height:50px;
 }
 
+@media (max-width: 767px) {
+.nav-wrapper
+{
+    min-height:6px;
+}
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+.nav-wrapper
+{
+    min-height:50px;
+}
+}
 
 .navbar {
 position: relative;
