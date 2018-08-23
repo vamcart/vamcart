@@ -286,7 +286,8 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 			echo '<ul id="myTab" class="nav nav-tabs">';
 			if($level == 1) {
 			echo $this->admin->CreateTab('orders',__('Orders',true) . (($pending_orders > 0) ? ' <span class="badge">' . $pending_orders . '</span>' : null), 'cus-cart');
-			echo $this->admin->CreateTab('contactus',__('Contact Us',true) . (($pending_messages > 0) ? ' <span class="badge">' . $pending_messages . '</span>' : null), 'cus-comments');
+			echo $this->admin->CreateTab('contact-us',__('Contact Us',true) . (($pending_messages > 0) ? ' <span class="badge">' . $pending_messages . '</span>' : null), 'cus-comments');
+			echo $this->admin->CreateTab('search-log',__('Search Log',true), 'cus-zoom');
 			echo $this->admin->CreateTab('top',__('Top Products',true), 'cus-chart-pie');
 			} else {
 			echo $this->admin->CreateTab('home',__('Menu',true), 'cus-chart-organisation');
@@ -320,7 +321,7 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 
 		echo $this->admin->EndTabContent();
 
-                echo $this->admin->StartTabContent('contactus');
+                echo $this->admin->StartTabContent('contact-us');
                 
                     echo '<table class="orderTable"><tr><td>';
                         echo '<table class="contentTable"><tr><td colspan="3">';
@@ -335,6 +336,28 @@ $(\'a[href="#sales"]\').on(\'shown\', function(e) {
 												$this->Html->link(CakeText::truncate($contact['Contact']['message'],10,array('html' => true)), '/contact_us/admin_edit/' . $contact['Contact']['id']),
 												array(($contact['Contact']['answered'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('Yes'),'title' => __('Yes'))):$this->Html->image('admin/icons/false.png', array('alt' => __('No'),'title' => __('No')))), array('align'=>'center')),
 												array($this->Admin->ActionButton('edit','/contact_us/admin_edit/' . $contact['Contact']['id'],__('Reply')) . $this->Admin->ActionButton('delete','/contact_us/admin_delete/' . $contact['Contact']['id'],__('Delete')) . $this->Admin->ActionButton('view','/contact_us/admin_view/' . $contact['Contact']['id'],__('Answers List')), array('align'=>'center')),
+										   ));
+										   	
+								}
+                        }
+                   echo '</td></tr></table>';
+                    echo '</td></tr></table>';
+                    
+                echo $this->admin->EndTabContent();
+
+                echo $this->admin->StartTabContent('search-log');
+                
+                    echo '<table class="orderTable"><tr><td>';
+                        echo '<table class="contentTable"><tr><td colspan="3">';
+                        echo $this->Html->tableHeaders(array( __('Search Keywords'), __('Number of queries'), __('Action')));
+                        if ($search_data) {
+								foreach ($search_data AS $search_keywords)
+								{
+									echo $this->Admin->TableCells(
+										  array(
+												$this->Html->link($search_keywords['SearchLog']['keyword'], FULL_BASE_URL.BASE.'/page/search-result.html?keyword='.$search_keywords['SearchLog']['keyword']),
+												array($search_keywords['SearchLog']['total'], array('align'=>'center')),
+												array($this->Admin->ActionButton('delete','/search_log/admin_delete/' . $search_keywords['SearchLog']['id'],__('Delete')), array('align'=>'center'))
 										   ));
 										   	
 								}

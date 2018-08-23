@@ -148,6 +148,18 @@ class AdminController extends AppController {
 
 				$this->set('pending_messages',$pending_messages);
 
+
+				// Search Log
+				
+				App::import('Model', 'SearchLog');
+				$SearchLog = new SearchLog();	
+
+				$search = $SearchLog->find('all', array('limit' => 18, 
+																	'order' => array('SearchLog.total' => 'desc'),
+	        														'group' => array('SearchLog.keyword')
+				));
+				$this->set('search_data',$search);
+
 		// Last orders
 
 		$data = $this->Order->find('all', array(	'conditions' => array('Order.order_status_id >' => '0'), 
