@@ -4429,6 +4429,10 @@ msgstr "Выводит данные для сравнения товаров."
 msgid "Displays filter box."
 msgstr "Выводит бокс фильтрации товаров."
 
+#: /vendors/smarty/vam_plugins/function.filter.php:33
+msgid "Displays current filter name."
+msgstr "Выводит название текущего фильтра."
+
 #: /vendors/smarty/vam_plugins/function.value_filter.php:33
 msgid "Displays a filter value."
 msgstr "Выводит значения фильтров."
