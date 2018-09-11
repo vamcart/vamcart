@@ -17,10 +17,12 @@
                    <header>
                        <h1><?php echo $product['name'] ?></h1>
                    </header>
+                   <?php if ($product['rating'] > 0) { ?>
                    <div itemscope itemtype="http://schema.org/Rating">
                        <meta itemprop="ratingValue" content="<?php echo $product['rating'] ?>">
                        <meta itemprop="bestRating" content="<?php echo $product['max_rating'] ?>">
                    </div>
+                   <?php } ?>
                    <p><?php echo __("Price") ?>: <strong><?php echo $product['price'] ?></strong></p>
                    <button
                     formaction="<?php echo Router::url(htmlspecialchars($product['url']), true) ?>"
