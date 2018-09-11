@@ -165,6 +165,8 @@ class SitemapsController extends AppController {
 		$count_categories = 0;
 		$count_products = 0;
 
+ 		$ContentBase = new ContentBaseComponent(new ComponentCollection());
+	
 		foreach($content_list_data as $raw_data) {
 
 			if (in_array(strtolower($raw_data['ContentType']['name']), $allowed_types)) {
@@ -177,11 +179,16 @@ class SitemapsController extends AppController {
 					$content_list_products[$count_products]['id']     = $raw_data['Content']['id'];
 					$content_list_products[$count_products]['parentId'] = $raw_data['Content']['parent_id'];
 					$content_list_products[$count_products]['url']    = '/' . $raw_data['ContentType']['name'] . '/' . $raw_data['Content']['alias'] . $config['URL_EXTENSION'];
-					$content_list_products[$count_products]['price'] = ($raw_data['Content']['content_type_id'] == 7) ? $raw_data['ContentDownloadable']['price'] . ' ' . $this->Session->read('Customer.currency_code') : $raw_data['ContentProduct']['price'] . ' ' . $this->Session->read('Customer.currency_code');
+					$content_list_products[$count_products]['price'] = ($raw_data['Content']['content_type_id'] == 7) ? $raw_data['ContentDownloadable']['price'] . ' ' . $this->Session->read('Customer.currency_symbol_left') : $raw_data['ContentProduct']['price'] . ' ' . $this->Session->read('Customer.currency_symbol_right');
 					$content_list_products[$count_products]['stock'] = $raw_data['ContentProduct']['stock'];
 					$content_list_products[$count_products]['name'] = $raw_data['ContentDescription']['name'];
-					$content_list_products[$count_products]['description'] = strip_tags(htmlentities($raw_data['ContentDescription']['description']));
-					$content_list_products[$count_products]['short_description'] = strip_tags(htmlentities($raw_data['ContentDescription']['short_description']));
+					$content_list_products[$count_products]['description'] = strip_tags($raw_data['ContentDescription']['description']);
+					$content_list_products[$count_products]['short_description'] = strip_tags($raw_data['ContentDescription']['short_description']);
+
+					$content_list_products[$count_products]['rating']	= $ContentBase->getReviewsInfo($raw_data['Content']['id'], 'average_rating');	
+					$content_list_products[$count_products]['max_rating']	= $ContentBase->getReviewsInfo($raw_data['Content']['id'], 'max_rating');	
+					$content_list_products[$count_products]['star_rating']	= $ContentBase->getReviewsInfo($raw_data['Content']['id'], 'star_rating');	
+					$content_list_products[$count_products]['reviews']	= $ContentBase->getReviewsInfo($raw_data['Content']['id'], 'reviews_total');	
 
 					// Content Image
 					
@@ -252,6 +259,7 @@ class SitemapsController extends AppController {
 		$this->set('currencies', $currencies);
 		$this->set('default_currency', $default_currency);
 		$this->set('sitename', $config['SITE_NAME']);
+		$this->set('telephone', $config['TELEPHONE']);
 		$this->set('categories', $content_list_categories);
 		$this->set('products', $content_list_products);
 
