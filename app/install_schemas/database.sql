@@ -1776,6 +1776,7 @@ INSERT INTO `micro_templates` (`id`, `alias`, `template`, `created`, `modified`,
 DROP TABLE IF EXISTS micro_template_logs;
 CREATE TABLE `micro_template_logs` (
   `id` int(10) auto_increment,
+  `micro_template_id` int(10),
   `alias` varchar(255) collate utf8_unicode_ci,
   `template` longtext collate utf8_unicode_ci,
   `created` datetime,
@@ -2157,6 +2158,7 @@ INSERT INTO `stylesheets` (`id`, `active`, `name`, `alias`, `stylesheet`, `style
 DROP TABLE IF EXISTS stylesheet_logs;
 CREATE TABLE `stylesheet_logs` (
   `id` int(10) auto_increment,
+  `stylesheet_id` int(10),
   `active` tinyint(4),
   `name` varchar(255) collate utf8_unicode_ci,
   `alias` varchar(255) collate utf8_unicode_ci,
@@ -2237,6 +2239,7 @@ INSERT INTO `templates` (`id`, `parent_id`, `template_type_id`, `default`, `name
 DROP TABLE IF EXISTS template_logs;
 CREATE TABLE `template_logs` (
   `id` int(10) auto_increment,
+  `template_id` int(10),
   `parent_id` int(10),
   `template_type_id` int(10),
   `default` tinyint(4) default '0',
