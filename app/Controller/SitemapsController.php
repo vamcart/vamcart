@@ -146,7 +146,7 @@ class SitemapsController extends AppController {
 
 
 		//$allowed_types = array('category', 'product', 'downloadable');
-		$allowed_types = array('product');
+		$allowed_types = array('product', 'downloadable');
 		
 		$content_list_data_conditions = array(
 			'Content.active' => '1'
