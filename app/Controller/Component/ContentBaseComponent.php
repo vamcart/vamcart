@@ -278,6 +278,14 @@ class ContentBaseComponent extends CakeObject
 		return $assignments['average_rating'];
 		}
 
+		if ($info == 'max_rating') {
+		return $assignments['max_rating'];
+		}
+
+		if ($info == 'min_rating') {
+		return $assignments['min_rating'];
+		}
+
 		if ($info == 'star_rating') {
 		return $assignments['star_rating'];
 		}
