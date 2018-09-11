@@ -235,7 +235,16 @@ class StylesheetsController extends AppController {
 
 			
 				// Do the save
-				$this->Stylesheet->save($this->data);			
+				$this->Stylesheet->save($this->data);
+				
+
+				//Save Stylesheet Copy to Archive
+				App::import('Model', 'StylesheetLog');
+				$StylesheetLog = new StylesheetLog();
+				$this->request->data['StylesheetLog'] = $this->data['Stylesheet'];
+				$this->request->data['StylesheetLog']['stylesheet_id'] = $this->data['Stylesheet']['id'];			
+				$this->request->data['StylesheetLog']['id'] = '';			
+				$StylesheetLog->save($this->request->data['StylesheetLog']);
 				
 				// Set the flash and stylesheet_id depending on if it's a new stylesheet
 				if($this->data['Stylesheet']['id'] == "")	

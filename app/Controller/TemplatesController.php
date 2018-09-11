@@ -220,6 +220,15 @@ class TemplatesController extends AppController {
 			}
 
 			$this->Template->save($this->data);		
+
+			//Save Template Copy to Archive
+			App::import('Model', 'TemplateLog');
+			$TemplateLog = new TemplateLog();
+			$this->request->data['TemplateLog'] = $this->data['Template'];
+			$this->request->data['TemplateLog']['template_id'] = $this->data['Template']['id'];			
+			$this->request->data['TemplateLog']['id'] = '';			
+			$TemplateLog->save($this->request->data['TemplateLog']);
+
 			$this->Session->setFlash(__('Record saved.', true));
 
 			if(isset($this->data['apply']))

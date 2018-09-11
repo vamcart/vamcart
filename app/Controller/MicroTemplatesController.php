@@ -45,6 +45,14 @@ class MicroTemplatesController extends AppController {
 		
 			$this->MicroTemplate->save($this->data);
 
+			//Save MicroTemplate Copy to Archive
+			App::import('Model', 'MicroTemplateLog');
+			$MicroTemplateLog = new MicroTemplateLog();
+			$this->request->data['MicroTemplateLog'] = $this->data['MicroTemplate'];
+			$this->request->data['MicroTemplateLog']['micro_template_id'] = $this->data['MicroTemplate']['id'];			
+			$this->request->data['MicroTemplateLog']['id'] = '';			
+			$MicroTemplateLog->save($this->request->data['MicroTemplateLog']);
+
 			$this->Session->setFlash( __('Micro Template Saved.',true));
 
 			if(isset($this->data['apply']))
