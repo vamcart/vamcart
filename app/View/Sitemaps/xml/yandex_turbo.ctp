@@ -6,6 +6,7 @@
 >
     <channel>
 <?php foreach ($products as $product) { ?>
+        <turbo:cms_plugin>vamshop</turbo:cms_plugin>	
         <item turbo="true">
            <link><?php echo Router::url(htmlspecialchars($product['url']), true) ?></link>
            <turbo:content>
