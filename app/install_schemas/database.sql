@@ -1773,6 +1773,17 @@ INSERT INTO `micro_templates` (`id`, `alias`, `template`, `created`, `modified`,
 (6, 'cart-confirm-view', '{if $order_items}\r\n<div class="cart">\r\n<h3>{lang}Cart Contents{/lang}</h3>\r\n<table class="table table-striped table-hover">\r\n  <thead>\r\n	<tr>\r\n		<th></th>\r\n		<th>{lang}Product{/lang}</th>\r\n		<th>{lang}Price Ea.{/lang}</th>\r\n		<th>{lang}Qty{/lang}</th>\r\n		<th>{lang}Total{/lang}</th>\r\n	</tr>\r\n	</thead>\r\n\r\n  <tbody>\r\n{foreach from=$order_items item=product}\r\n	<tr>\r\n		<td class="text-center"><img class="media-object" src="{$product.image.image_thumb}" alt=""{if {$product.image.image_width} > 0} width="{$product.image.image_width}"{/if}{if {$product.image.image_height} > 0} height="{$product.image.image_height}"{/if} /></td>\r\n		<td><a href="{$product.url}">{$product.name}</a></td>\r\n		<td>{$product.price}</td>\r\n		<td>{$product.qty}</td>\r\n		<td>{$product.line_total}</td>\r\n	</tr>\r\n{foreachelse}\r\n	<tr>\r\n		<td colspan="5">{lang}No Cart Items{/lang}</td>\r\n	</tr>\r\n{/foreach}\r\n    {if $shipping_total_value > 0}\r\n	<tr class="cart_total">\r\n		<td colspan="3">&nbsp;</td>\r\n		<td class="total-name">{lang}Shipping{/lang}:</td>\r\n		<td class="total-value">{$shipping_total}</td>\r\n	</tr>\r\n    {/if}\r\n    {if $tax_total_value > 0}\r\n	<tr class="cart_total">\r\n		<td colspan="3">&nbsp;</td>\r\n		<td class="total-name">{lang}Tax{/lang}:</td>\r\n		<td class="total-value">{$tax_total}</td>\r\n	</tr>\r\n    {/if}\r\n    {if $order_total_value > 0}\r\n	<tr class="cart_total">\r\n		<td colspan="3">&nbsp;</td>\r\n		<td class="total-name"><strong>{lang}Total{/lang}:</strong></td>\r\n		<td class="total-value">{$order_total}</td>\r\n	</tr>\r\n    {/if}\r\n  </tbody>\r\n</table>\r\n</div>\r\n{else}\r\n	{lang}No Cart Items{/lang}\r\n{/if}', '2013-10-16 21:54:14', '2015-07-22 00:20:33', 'shopping_cart'),
 (7, 'cart-content-box', '{if $order_items}\r\n<div class="widget inner shopping-cart-widget">\r\n	<h3 class="widget-title">{lang}Shopping Cart{/lang}</h3>\r\n		<div class="products">\r\n			{foreach from=$order_items item=product}\r\n				<div class="media">\r\n					<a class="pull-right" href="{$product.url}">\r\n						<img class="media-object" src="{$product.image.image_thumb}" alt=""{if {$product.image.image_width} > 0} width="{$product.image.image_width}"{/if}{if {$product.image.image_height} > 0} height="{$product.image.image_height}"{/if} />\r\n					</a>\r\n				<div class="media-body">\r\n					<h4 class="media-heading"><a href="{$product.url}">{$product.name}</a> <a href="{base_path}/cart/remove_product/{$product.id}/1" class="remove" title="{lang}Remove{/lang}"><i class="fa fa-trash-o"></i></a></h4>\r\n					{$product.qty} x {$product.price}\r\n				</div>\r\n				</div>\r\n			{/foreach}\r\n		</div>\r\n		{if $shipping_total_value > 0}\r\n		<p class="subtotal">\r\n			{lang}Shipping{/lang}:\r\n			<span class="amount">{$shipping_total}</span>\r\n		</p>\r\n		{/if}\r\n		{if $tax_total_value > 0}\r\n		<p class="subtotal">\r\n			{lang}Tax{/lang}:\r\n			<span class="amount">{$tax_total}</span>\r\n		</p>\r\n		{/if}\r\n		{if $order_total_value > 0}\r\n		<p class="subtotal">\r\n			<strong>{lang}Total{/lang}:</strong>\r\n			<span class="amount">{$order_total}</span>\r\n		</p>\r\n		{/if}\r\n		<p class="buttons">\r\n			<a class="btn btn-default viewcart" href="{$cart_link}"><i class="fa fa-shopping-cart"></i> {lang}View Cart{/lang}</a>\r\n			<a class="btn btn-warning checkout" href="{$checkout_link}"><i class="fa fa-check"></i> {lang}Checkout{/lang}</a>\r\n		</p>\r\n</div>\r\n{else}\r\n<div class="widget inner shopping-cart-widget">\r\n	<h3 class="widget-title">{lang}Shopping Cart{/lang}</h3>\r\n        <div class="cart-body">{lang}No Cart Items{/lang}</div>\r\n</div>\r\n{/if}\r\n', '2013-10-01 17:08:06', '2015-07-22 00:20:52', 'shopping_cart');
 
+DROP TABLE IF EXISTS micro_template_logs;
+CREATE TABLE `micro_template_logs` (
+  `id` int(10) auto_increment,
+  `alias` varchar(255) collate utf8_unicode_ci,
+  `template` longtext collate utf8_unicode_ci,
+  `created` datetime,
+  `modified` datetime,
+  `tag_name` varchar(255) collate utf8_unicode_ci,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 DROP TABLE IF EXISTS modules;
 CREATE TABLE `modules` (
   `id` int(10) auto_increment,
@@ -2143,6 +2154,20 @@ CREATE TABLE `stylesheets` (
 INSERT INTO `stylesheets` (`id`, `active`, `name`, `alias`, `stylesheet`, `stylesheet_media_type_id`, `created`, `modified`) VALUES
 (1, 1, 'VamShop', 'vamshop', '', 0, '2009-07-14 18:44:00', '2014-07-13 15:42:53');
 
+DROP TABLE IF EXISTS stylesheet_logs;
+CREATE TABLE `stylesheet_logs` (
+  `id` int(10) auto_increment,
+  `active` tinyint(4),
+  `name` varchar(255) collate utf8_unicode_ci,
+  `alias` varchar(255) collate utf8_unicode_ci,
+  `stylesheet` longtext collate utf8_unicode_ci,
+  `stylesheet_media_type_id` int(10),
+  `created` datetime,
+  `modified` datetime,
+  PRIMARY KEY  (`id`),
+  INDEX indx (active,alias)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 DROP TABLE IF EXISTS stylesheet_media_types;
 CREATE TABLE `stylesheet_media_types` (
   `id` int(10) auto_increment,
@@ -2208,6 +2233,19 @@ INSERT INTO `templates` (`id`, `parent_id`, `template_type_id`, `default`, `name
 (6, 1, 5, 0, 'News Page', '<!-- start: Page section -->\r\n  <div class="content news">\r\n      {if $content_alias != "home-page"}<h2>{page_name}</h2>{/if}              \r\n      {description}\r\n  </div>\r\n<!-- end: Page section -->', '2013-10-01 16:07:25', '2014-12-28 17:20:24'),
 (7, 1, 6, 0, 'Article Page', '<!-- start: Page section -->\r\n  <div class="content article">\r\n      {if $content_alias != "home-page"}<h2>{page_name}</h2>{/if}              \r\n      {description}\r\n  </div>\r\n<!-- end: Page section -->', '2013-10-01 16:07:25', '2014-12-28 17:20:32'),
 (8, 1, 7, 0, 'Manufacturer Info', '<!-- start: Page section -->\r\n  <div class="content manufacturer">\r\n    {if $content_alias != "home-page"}<h2>{page_name}</h2>{/if}              \r\n    {description}\r\n    {content_images number=1 content_id={$content_id}}\r\n\r\n    {if $sub_count->value.manufacturer_products}\r\n    <div class="content_listing">\r\n      {content_listing template="product-listing" manufacturer={$content_id} page={$page} type="product,downloadable" current_order={$current_order}}\r\n    </div>\r\n    {/if}\r\n</div>\r\n<!-- end: Page section -->', '2013-10-01 16:07:25', '2014-12-28 17:20:41');
+
+DROP TABLE IF EXISTS template_logs;
+CREATE TABLE `template_logs` (
+  `id` int(10) auto_increment,
+  `parent_id` int(10),
+  `template_type_id` int(10),
+  `default` tinyint(4) default '0',
+  `name` varchar(255) collate utf8_unicode_ci,
+  `template` longtext collate utf8_unicode_ci,
+  `created` datetime,
+  `modified` datetime,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 DROP TABLE IF EXISTS templates_stylesheets;
 CREATE TABLE `templates_stylesheets` (
