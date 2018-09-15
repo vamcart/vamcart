@@ -146,7 +146,7 @@ class SitemapsController extends AppController {
 
 
 		//$allowed_types = array('category', 'product', 'downloadable');
-		$allowed_types = array('product', 'downloadable');
+		$allowed_types = array('product', 'downloadable', 'article', 'news');
 		
 		$content_list_data_conditions = array(
 			'Content.active' => '1'
@@ -175,7 +175,7 @@ class SitemapsController extends AppController {
 					$content_list_categories[$count_categories]['parentId'] = $raw_data['Content']['parent_id'];
 					$content_list_categories[$count_categories]['name'] = $raw_data['ContentDescription']['name'];
 					$count_categories++;
-				} elseif($raw_data['ContentType']['name'] == 'product' or $raw_data['ContentType']['name'] == 'downloadable') {
+				} elseif($raw_data['ContentType']['name'] == 'product' or $raw_data['ContentType']['name'] == 'downloadable' or $raw_data['ContentType']['name'] == 'article' or $raw_data['ContentType']['name'] == 'news' or $raw_data['ContentType']['name'] == 'page') {
 					$content_list_products[$count_products]['id']     = $raw_data['Content']['id'];
 					$content_list_products[$count_products]['parentId'] = $raw_data['Content']['parent_id'];
 					$content_list_products[$count_products]['url']    = '/' . $raw_data['ContentType']['name'] . '/' . $raw_data['Content']['alias'] . $config['URL_EXTENSION'];
