@@ -182,6 +182,78 @@ new Cleave("#ship_phone", {
 	  </div>
 	</div>
 </form>
+{if $dadata_api_key != "" and $smarty.session.Config.language == "ru"}
+<link href="https://cdn.jsdelivr.net/jquery.suggestions/16.5.3/css/suggestions.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!--[if lt IE 10]>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxtransport-xdomainrequest/1.0.1/jquery.xdomainrequest.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.suggestions/16.5.3/js/jquery.suggestions.min.js"></script>
+<script>
+(function($) {
+
+// DaData.Ru Suggestions 
+
+var token = "{$dadata_api_key}";
+
+{literal}
+$("#ship_name").suggestions({
+  serviceUrl: "https://suggestions.dadata.ru/suggestions/api/4_1/rs",
+  partner: "VAMSHOP",
+  token: token,
+  type: "NAME",
+  params: {
+    parts: ["NAME", "SURNAME"]
+  }
+});
+
+$("#ship_line_1").suggestions({
+  serviceUrl: "https://suggestions.dadata.ru/suggestions/api/4_1/rs",
+  partner: "VAMSHOP",
+  token: token,
+  type: "ADDRESS",
+  geoLocation: true,
+  onSelect: showSelected
+});
+
+function join(arr /*, separator */) {
+  var separator = arguments.length > 1 ? arguments[1] : " ";
+  return arr.filter(function(n){return n}).join(separator);
+}
+
+function showSelected(suggestion) {
+  var address = suggestion.data;
+  $("#ship_zip").val(address.postal_code);
+  if (address.region == "Москва" || address.region == "Санкт-Петербург") {
+  var reg = address.region;
+  } else {
+  var reg = join([
+    join([address.region, address.region_type_full], " ")
+    //join([address.region, address.region_type], " "),
+    //join([address.area_type, address.area], " ")
+  ]);
+  }
+  $("select#ship_state option").filter(function() {
+      return $(this).text() == reg; 
+  }).prop("selected", true);
+  
+  $("#ship_city").val(join([
+    join([address.city_type, address.city], " "),
+    join([address.settlement_type, address.settlement], " ")
+  ]));
+  //$("#ship_line_1").val(
+    //join([address.street_type, address.street], " "),
+    //join([address.house_type, address.house], " "),
+    //join([address.block_type, address.block], " "),
+    //join([address.flat_type, address.flat], " ")
+  //);
+}
+{/literal}
+
+})(jQuery);
+  
+</script>
+{/if}
 ';
 
 return $template;
