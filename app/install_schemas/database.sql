@@ -2339,6 +2339,9 @@ DROP TABLE IF EXISTS customers;
 CREATE TABLE IF NOT EXISTS `customers` (
   `id` int(10) AUTO_INCREMENT,
   `groups_customer_id` int(10),
+  `oauth_provider` varchar(255),
+  `oauth_uid` varchar(255),
+  `avatar` varchar(255),
   `name` varchar(32),
   `email` varchar(96),
   `password` varchar(40),
