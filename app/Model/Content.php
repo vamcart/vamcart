@@ -234,7 +234,7 @@ class Content extends AppModel {
                 foreach($attribute['DefValAttributes'] AS $key_val => $values_attribute)
                 {
                     //Для установленных значений добавлена проверка на checked_list
-                    if(isset($value_list[$values_attribute['id']])&&($value_list[$values_attribute['id']]!= 0||$is_set==false||$values_attribute['type_attr']=='checked_list' ||$values_attribute['type_attr']=='any_value'))
+                    if(isset($value_list[$values_attribute['id']])&&($value_list[$values_attribute['id']]!= 0||$is_set==false||$values_attribute['type_attr']=='checked_list'||$values_attribute['type_attr']=='any_value'||$values_attribute['type_attr']=='dig_value'))
                     {
                         $attr_list[$key_attr]['values_attribute'][$key_val]['id'] = $values_attribute['id'];
                         $attr_list[$key_attr]['values_attribute'][$key_val]['name'] = $values_attribute['name'];
