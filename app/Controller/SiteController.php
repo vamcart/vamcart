@@ -39,6 +39,8 @@ class SiteController extends AppController {
 
 		foreach($_POST['customer'] AS $key => $value)
 			$_POST['customer'][$key] = $clean->html($value);
+			
+			$_POST['customer']['name'] = html_entity_decode($_POST['customer']['name']);
 
 			$_POST['customer']['created'] = date("Y-m-d H:i:s");
 			$_POST['customer']['modified'] = date("Y-m-d H:i:s");
@@ -74,6 +76,12 @@ class SiteController extends AppController {
 
 				$assignments = array(
 				'name' => $_POST['customer']['name'],
+				'inn' => $_POST['customer']['inn'],
+				'ogrn' => $_POST['customer']['ogrn'],
+				'kpp' => $_POST['customer']['kpp'],
+				'company_name' => $_POST['customer']['company_name'],
+				'company_city' => $_POST['customer']['company_city'],
+				'company_state' => $_POST['customer']['company_state'],
 				'firstname' => isset($fio[0]) ? $fio[0] : $_POST['customer']['name'],
 				'lastname' => isset($fio[1]) ? $fio[1] : $_POST['customer']['name'],
 				'email' => $_POST['customer']['email'],
