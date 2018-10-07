@@ -4334,6 +4334,10 @@ msgid "Displays registration page."
 msgstr "Выводит страницу регистрации пользователя."
 
 #: /vendors/smarty/vam_plugins/function.registration_form.php:33
+msgid "Displays company registration page."
+msgstr "Выводит страницу регистрации компании."
+
+#: /vendors/smarty/vam_plugins/function.registration_form.php:33
 msgid "Displays password recovery page."
 msgstr "Выводит страницу восстановления пароля."
 
@@ -6157,6 +6161,10 @@ msgstr "Способ доставки."
 #: /views/import_export/admin.ctp:93
 msgid "Company Name."
 msgstr "Название компании."
+
+#: /views/import_export/admin.ctp:93
+msgid "Company Name"
+msgstr "Название компании"
 
 #: /views/import_export/admin.ctp:93
 msgid "Additional Company Info."
