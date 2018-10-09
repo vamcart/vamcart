@@ -6242,3 +6242,6 @@ msgstr "Возвращает id номер города из API СДЭК."
 
 msgid "Displays the cdek shipping time."
 msgstr "Выводит время доставки СДЭК."
+
+msgid "Displays the current user city name."
+msgstr "Выводит название города посетителя."
