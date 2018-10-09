@@ -6236,3 +6236,6 @@ msgstr "ПЭК"
 
 msgid "Displays price without currency, just numeric value."
 msgstr "Выводит стоимость товара без валюты, просто числовое значение."
+
+msgid "Returns the city id number from API CDEK."
+msgstr "Возвращает id номер города из API СДЭК."
