@@ -11,7 +11,7 @@ function smarty_function_meta_description($params, $template)
 	global $content;
 	
 	if ($content['ContentDescription']['meta_description']) { 
-	$result = '<meta name="description" content="'.$content['ContentDescription']['meta_description'].'" />';
+	$result = $content['ContentDescription']['meta_description'];
 	} else {
 	$result = null;
 	}

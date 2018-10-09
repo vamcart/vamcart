@@ -11,7 +11,7 @@ function smarty_function_meta_keywords($params, $template)
 	global $content;
 	
 	if ($content['ContentDescription']['meta_keywords']) { 
-	$result = '<meta name="keywords" content="'.$content['ContentDescription']['meta_keywords'].'" />';
+	$result = $content['ContentDescription']['meta_keywords'];
 	} else {
 	$result = null;
 	}
