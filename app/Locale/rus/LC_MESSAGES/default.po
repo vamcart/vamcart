@@ -6239,3 +6239,6 @@ msgstr "Выводит стоимость товара без валюты, пр
 
 msgid "Returns the city id number from API CDEK."
 msgstr "Возвращает id номер города из API СДЭК."
+
+msgid "Displays the cdek shipping time."
+msgstr "Выводит время доставки СДЭК."
