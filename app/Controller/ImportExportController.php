@@ -207,6 +207,7 @@ class ImportExportController extends AppController {
                                         ,'is_active' => $data['Content']['Attribute']['is_active']
                                         ,'is_show_flt' => $data['Content']['Attribute']['is_show_flt']
                                         ,'is_show_cmp' => $data['Content']['Attribute']['is_show_cmp']                                        
+                                        ,'is_show_var' => $data['Content']['Attribute']['is_show_var']
                                     ));
                                     $atttr_id = $this->Content->Attribute->getLastInsertid();
                                     $this->Content->Attribute->AttributeDescription->save(array(
@@ -235,6 +236,7 @@ class ImportExportController extends AppController {
                                         ,'is_active' => 1
                                         ,'is_show_flt' => 1
                                         ,'is_show_cmp' => null
+                                        ,'is_show_var' => null
                                     ));      
                                     $atttr_id = $this->Content->Attribute->getLastInsertid();
                                     $this->Content->Attribute->AttributeDescription->save(array(
@@ -263,6 +265,7 @@ class ImportExportController extends AppController {
                                             ,'is_active' => null
                                             ,'is_show_flt' => null
                                             ,'is_show_cmp' => null
+                                            ,'is_show_var' => null
                                     ));
                                 }                            
                             }
@@ -484,6 +487,7 @@ class ImportExportController extends AppController {
                                     ,'is_active' => $attribute_parrent['Attribute']['is_active']
                                     ,'is_show_flt' => $attribute_parrent['Attribute']['is_show_flt']
                                     ,'is_show_cmp' => $attribute_parrent['Attribute']['is_show_cmp']),
+                                    ,'is_show_var' => $attribute_parrent['Attribute']['is_show_var']
                                 'ContentProduct' => array('model' => $value['ContentProduct']['model']),
                                 'AttributeTemplate' => array('name' => $attribute_parrent['AttributeTemplate']['name'])
                             );
