@@ -486,8 +486,8 @@ class ImportExportController extends AppController {
                                     ,'price_value' => $attribute_value['Attribute']['price_value']
                                     ,'is_active' => $attribute_parrent['Attribute']['is_active']
                                     ,'is_show_flt' => $attribute_parrent['Attribute']['is_show_flt']
-                                    ,'is_show_cmp' => $attribute_parrent['Attribute']['is_show_cmp']),
-                                    ,'is_show_var' => $attribute_parrent['Attribute']['is_show_var']
+                                    ,'is_show_cmp' => $attribute_parrent['Attribute']['is_show_cmp'])
+                                    ,'is_show_var' => $attribute_parrent['Attribute']['is_show_var'],
                                 'ContentProduct' => array('model' => $value['ContentProduct']['model']),
                                 'AttributeTemplate' => array('name' => $attribute_parrent['AttributeTemplate']['name'])
                             );
