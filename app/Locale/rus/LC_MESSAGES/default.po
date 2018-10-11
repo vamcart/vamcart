@@ -4542,6 +4542,14 @@ msgid "Compare"
 msgstr "Сравнение"
 
 #: /app/View/Attributes/admin_viewer_attr.ctp:61
+msgid "Filter Links"
+msgstr "Ссылки на фильтры"
+
+#: /app/View/Attributes/admin_viewer_attr.ctp:61
+msgid "Show Filter Links."
+msgstr "Отображать ссылку на фильтр."
+
+#: /app/View/Attributes/admin_viewer_attr.ctp:61
 msgid "Attribute Type"
 msgstr "Тип атрибута"
 
