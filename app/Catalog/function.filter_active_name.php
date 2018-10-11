@@ -14,7 +14,7 @@ function default_template_filter_active_name()
 {if $value["val"] == 1}
 {$element["filter"]["name_attribute"]} {$value["name"]}
 {/if}
-{/foreach} 
+{/foreach}
 {/if}
 {/foreach}';
 
