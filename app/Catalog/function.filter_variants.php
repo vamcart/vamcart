@@ -41,7 +41,6 @@ function default_template_filter_variants()
                     {/if}
                 {/foreach}        
             </ul>    
-   
 			<div class="filter">
 				{foreach from=$element_list item=element}
 					{$element["out_elements"]}
@@ -71,11 +70,13 @@ function smarty_function_filter_variants($params)
     }
 
     $element_list = array();
+    
     foreach($content['FilteredAttribute'] AS $k => $attribute)
     {
         $value_attributes = array();
+
         foreach($attribute['ValAttribute'] AS $k_v => $value)
-        {            
+        {     
             if(isset($value['type_attr'])&&$value['type_attr']!=''
                         &&$value['type_attr']!='list_value'&&$value['type_attr']!='checked_list')$k_v = $value['type_attr'];//Если задан тип то передаем его качестве ключа
             $value_attributes[$k_v]['id'] = $value['id']; //id default значения атрибута         
@@ -92,15 +93,16 @@ function smarty_function_filter_variants($params)
         $element_list[$k]['filter'] = array(
             'id_attribute' => $attribute['id']
             ,'name_attribute' => $attribute['name']
+            ,'is_show_var' => $attribute['is_show_var']
             ,'base_url' => BASE . '/' . $content['ContentType']['name'] . '/' . $content['Content']['alias'] . $config['URL_EXTENSION']
             ,'url' => BASE . '/' . $content['ContentType']['name'] . '/filtered/set/'.md5(serialize($filter_list)).'/'.$content['Content']['alias'] . $config['URL_EXTENSION']
             ,'values_attribute' => $value_attributes
             ,'is_active' => (isset($filter_list['is_active'][$attribute['id']]))?$filter_list['is_active'][$attribute['id']]:0
+
         );
         
-        
-        
 $links_template = '
+{if $is_show_var == 1}
 <ul class="attributes nav nav-pills" role="tablist">
 {foreach from=$values_attribute item=val}
 <li role="presentation"{if $val.val == 1 && $is_active == 1} class="active"{/if}>
@@ -110,6 +112,7 @@ $links_template = '
 </li>
 {/foreach}
 </ul>
+{/if}
 ';        
         
         //$element_list[$k]['out_elements'] = $Smarty->fetch($attribute['AttributeTemplate']['template_filter'],$element_list[$k]['filter']);
