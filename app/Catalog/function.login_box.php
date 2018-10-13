@@ -33,6 +33,10 @@ $template = '
 		</form>
 		<br /><br />
 		<ul class="list-inline">
+		<li>{lang}Social Login:{/lang}</li>
+		<li><a href="{base_path}/site/social_login/google"><i class="fa fa-google" title="Google"></i></a></li>
+		</ul>
+		<ul class="list-inline">
 		<li><a href="{base_path}/customer/register{config value=url_extension}">{lang}Registration{/lang}</a></li>
 		<li><a href="{base_path}/customer/password_recovery{config value=url_extension}">{lang}Forgot your password?{/lang}</a></li>
 		</ul>
