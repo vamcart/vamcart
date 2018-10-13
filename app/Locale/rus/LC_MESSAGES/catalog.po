@@ -551,3 +551,9 @@ msgstr "EMS Почта России"
 
 msgid "Pek"
 msgstr "ПЭК"
+
+msgid "Social Login:"
+msgstr "Войти через:"
+
+msgid "Social Login"
+msgstr "Войти через"

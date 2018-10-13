@@ -180,6 +180,18 @@ msgstr "Настройки"
 msgid "Logout"
 msgstr "Выход"
 
+msgid "You successfully logout."
+msgstr "Вы успешно вышли из магазина."
+
+msgid "You successfully login."
+msgstr "Вы успешно авторизовались в магазине."
+
+msgid "Social Login:"
+msgstr "Войти через:"
+
+msgid "Social Login"
+msgstr "Войти через"
+
 #: /app_controller.php:235
 msgid "Tools"
 msgstr "Инструменты"
@@ -5923,8 +5935,8 @@ msgid "Meta Keywords."
 msgstr "Значение для тэга Meta Keywords."
 
 #: /views/import_export/admin.ctp:93
-msgid "Content Images."
-msgstr "Картинка. Название файла картинки, если картинок несколько, указывайте через точку с запятой, например: image.png|image1.png. Кроме того, можно указывать URL адрес с картинкой, например: http://адрес.ру/image/kartinka.png;http://адрес.ру/image/kartinka1.png"
+msgid "Content Images. Multiple images example: image.png|image1.png."
+msgstr "Картинка. Название файла картинки, если картинок несколько, указывайте через точку с запятой, например: image.png|image1.png."
 
 #: /views/import_export/admin.ctp:93
 msgid "Sort Order."
