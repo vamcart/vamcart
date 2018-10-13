@@ -252,7 +252,7 @@ class SiteController extends AppController {
 
 	}
 
-	public function social_login()
+	public function social_login($provider = "google")
 	{
 		global $config;
 		
@@ -294,7 +294,7 @@ class SiteController extends AppController {
 			if(!empty($check))
 			$_POST['customer']['id']= $check['Customer']['id'];
 				
-			$_POST['customer']['oauth_provider'] = "google";
+			$_POST['customer']['oauth_provider'] = $provider;
 			$_POST['customer']['oauth_uid'] = html_entity_decode($userProfile['id']);
 			$_POST['customer']['avatar'] = html_entity_decode($userProfile['picture']);
 			
@@ -414,16 +414,17 @@ class SiteController extends AppController {
 		$this->redirect('/');
 	}
 
-	public function social_logout()
+	public function social_logout($provider = "google")
 	{
-
+		global $config;
+		
 		$this->Session->delete('Customer.customer_id');
 		$this->Session->delete('Customer.customer_group_id');
 
 		$clientId = '849405182417-7i9u890vlp0l998u0tcc3giup6ldmqgb.apps.googleusercontent.com'; //Google CLIENT ID
 		$clientSecret = 'nX550tbB6mGcSlHjXNzxfCHQ'; //Google CLIENT SECRET
-		$redirectUrl = 'http://demo2.vamshop.ru/site/social_login';  //return url (url to script)
-		$homeUrl = 'http://demo2.vamshop.ru';  //return to home
+		$redirectUrl = FULL_BASE_URL.BASE.'/site/social_login';  //return url (url to script)
+		$homeUrl = FULL_BASE_URL.BASE.;  //return to home
 
 		App::import('Vendor', 'Google', array('file' => 'google'.DS.'Google_Client.php'));
 		$gClient = new Google_Client();
