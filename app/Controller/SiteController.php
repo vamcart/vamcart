@@ -252,6 +252,155 @@ class SiteController extends AppController {
 
 	}
 
+	public function social_login()
+	{
+		global $config;
+		
+		$clientId = '849405182417-7i9u890vlp0l998u0tcc3giup6ldmqgb.apps.googleusercontent.com'; //Google CLIENT ID
+		$clientSecret = 'nX550tbB6mGcSlHjXNzxfCHQ'; //Google CLIENT SECRET
+		$redirectUrl = FULL_BASE_URL.BASE.'/site/social_login';  //return url (url to script)
+		$homeUrl = FULL_BASE_URL.BASE;  //return to home
+
+		App::import('Vendor', 'Google', array('file' => 'google'.DS.'Google_Client.php'));
+		$gClient = new Google_Client();
+		$gClient->setApplicationName('VamShop');
+		$gClient->setClientId($clientId);
+		$gClient->setClientSecret($clientSecret);
+		$gClient->setRedirectUri($redirectUrl);
+		
+		App::import('Vendor', 'Google_OAuth', array('file' => 'google'.DS.'contrib'.DS.'Google_Oauth2Service.php'));
+		$google_oauthV2 = new Google_Oauth2Service($gClient);
+
+		//print_r($_GET);die;
+		//echo debug($_REQUEST);
+		//echo debug($gClient);
+		
+		if(isset($_REQUEST['code'])){
+			$gClient->authenticate();
+			$_SESSION['token'] = $gClient->getAccessToken();
+			header('Location: ' . filter_var($redirectUrl, FILTER_SANITIZE_URL));
+		}
+		
+		if (isset($_SESSION['token'])) {
+			$gClient->setAccessToken($_SESSION['token']);
+		}
+		
+		if ($gClient->getAccessToken()) {
+			$userProfile = $google_oauthV2->userinfo->get();
+			//echo debug($userProfile);
+
+			// Register Customer
+			$check = $this->Customer->find('first', array('conditions' => array('Customer.email' => $userProfile['email'])));
+			if(!empty($check))
+			$_POST['customer']['id']= $check['Customer']['id'];
+				
+			$_POST['customer']['oauth_provider'] = "google";
+			$_POST['customer']['oauth_uid'] = html_entity_decode($userProfile['id']);
+			$_POST['customer']['avatar'] = html_entity_decode($userProfile['picture']);
+			
+			$_POST['customer']['name'] = html_entity_decode($userProfile['given_name']." ".$userProfile['family_name']);
+			$_POST['customer']['email'] = html_entity_decode($userProfile['email']);
+
+			$_POST['customer']['password'] = $this->RandomString(8);
+
+			$_POST['customer']['created'] = date("Y-m-d H:i:s");
+			$_POST['customer']['modified'] = date("Y-m-d H:i:s");
+
+			$_POST['customer']['ref'] = $_SERVER['HTTP_REFERER'];
+			$_POST['customer']['ip'] = $_SERVER['REMOTE_ADDR'];
+			$_POST['customer']['forwarded_ip'] = $_SERVER['REMOTE_ADDR'];
+			$_POST['customer']['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
+			$_POST['customer']['accept_language'] = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
+
+			App::import('Model', 'Customer');
+			$customer = new Customer();
+			$customer->set($_POST['customer']);
+			if ($customer->validates()) {
+				
+				// Retrieve email template
+				$this->EmailTemplate->unbindModel(array('hasMany' => array('EmailTemplateDescription')));
+				$this->EmailTemplate->bindModel(array(
+					'hasOne' => array(
+						'EmailTemplateDescription' => array(
+							'className'  => 'EmailTemplateDescription',
+							'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
+						)
+					)
+				));
+
+				// Get email template
+				$email_template = $this->EmailTemplate->findByAlias('new-customer');
+
+				// Email Subject
+				$subject = $email_template['EmailTemplateDescription']['subject'];
+				$subject = $config['SITE_NAME'] . ' - ' . $subject;
+
+				$assignments = array(
+				'name' => $_POST['customer']['name'],
+				'inn' => $_POST['customer']['inn'],
+				'ogrn' => $_POST['customer']['ogrn'],
+				'kpp' => $_POST['customer']['kpp'],
+				'company_name' => $_POST['customer']['company_name'],
+				'company_city' => $_POST['customer']['company_city'],
+				'company_state' => $_POST['customer']['company_state'],
+				'firstname' => isset($fio[0]) ? $fio[0] : $_POST['customer']['name'],
+				'lastname' => isset($fio[1]) ? $fio[1] : $_POST['customer']['name'],
+				'email' => $_POST['customer']['email'],
+				'password' => $_POST['customer']['password']
+				);
+		
+				$body = $this->Smarty->fetch($email_template['EmailTemplateDescription']['content'], $assignments);
+
+				$this->Email->init();
+				$this->Email->From = $config['NEW_ORDER_FROM_EMAIL'];
+				$this->Email->FromName = __($config['NEW_ORDER_FROM_NAME'],true);
+
+				// Send to customer
+				$this->Email->AddAddress($_POST['customer']['email']);
+				// Send to admin
+				//$this->Email->AddCC($config['SEND_EXTRA_EMAIL']);
+				$this->Email->Subject = $subject;
+
+				// Email Body
+				$this->Email->Body = $body;
+
+				// Sending mail
+				$this->Email->send();
+
+				$_POST['customer']['password'] = Security::hash($_POST['customer']['password'], 'sha1', true);
+				$ret = $customer->save($_POST['customer']);
+				}
+
+				// Customer Login
+				$customer_id = $this->Customer->find('first', array('order' => 'Customer.id DESC', 'conditions' => array('email' => $userProfile['email'])));
+
+				if(!empty($customer_id)) {		
+				$this->Session->write('Customer.customer_id', $customer_id['Customer']['id']);
+				$this->Session->write('Customer.name', $customer_id['Customer']['name']);
+		
+				if(isset($customer_id['GroupsCustomer']['id']))$this->Session->write('Customer.customer_group_id', $customer_id['GroupsCustomer']['id']);
+				else $this->Session->write('Customer.customer_group_id', 0);
+				}
+
+			$_SESSION['google_data'] = $userProfile; // Storing Google User Data in Session
+			$_SESSION['token'] = $gClient->getAccessToken();
+
+			$this->Session->setFlash(__('You successfully login.', true), 'bootstrap_alert_success');
+
+			$this->redirect('/customer/register-success'  . $config['URL_EXTENSION']);
+
+		} else {
+			$authUrl = $gClient->createAuthUrl();
+		}
+		
+		//if(isset($authUrl)) {
+			//echo '<a href="'.$authUrl.'">Login</a>';
+		//} else {
+			//echo '<a href="/site/social_logout">Logout</a>';
+		//}
+		
+	}
+	
 	public function logout()
 	{
 
@@ -259,6 +408,41 @@ class SiteController extends AppController {
 		$this->Session->delete('Customer.customer_group_id');
 
 		//$this->Auth->logout();
+
+		$this->Session->setFlash(__('You successfully logout.', true), 'bootstrap_alert_success');
+
+		$this->redirect('/');
+	}
+
+	public function social_logout()
+	{
+
+		$this->Session->delete('Customer.customer_id');
+		$this->Session->delete('Customer.customer_group_id');
+
+		$clientId = '849405182417-7i9u890vlp0l998u0tcc3giup6ldmqgb.apps.googleusercontent.com'; //Google CLIENT ID
+		$clientSecret = 'nX550tbB6mGcSlHjXNzxfCHQ'; //Google CLIENT SECRET
+		$redirectUrl = 'http://demo2.vamshop.ru/site/social_login';  //return url (url to script)
+		$homeUrl = 'http://demo2.vamshop.ru';  //return to home
+
+		App::import('Vendor', 'Google', array('file' => 'google'.DS.'Google_Client.php'));
+		$gClient = new Google_Client();
+		$gClient->setApplicationName('VamShop');
+		$gClient->setClientId($clientId);
+		$gClient->setClientSecret($clientSecret);
+		$gClient->setRedirectUri($redirectUrl);
+		
+		App::import('Vendor', 'Google_OAuth', array('file' => 'google'.DS.'contrib'.DS.'Google_Oauth2Service.php'));
+		$google_oauthV2 = new Google_Oauth2Service($gClient);
+
+		unset($_SESSION['token']);
+		unset($_SESSION['google_data']); //Google session data unset
+		$gClient->revokeToken();
+		session_destroy();
+	
+		//$this->Auth->logout();
+
+		$this->Session->setFlash(__('You successfully logout.', true), 'bootstrap_alert_success');
 
 		$this->redirect('/');
 	}
