@@ -393,11 +393,11 @@ class SiteController extends AppController {
 			$authUrl = $gClient->createAuthUrl();
 		}
 		
-		//if(isset($authUrl)) {
-			//echo '<a href="'.$authUrl.'">Login</a>';
-		//} else {
+		if(isset($authUrl)) {
+			echo $this->redirect($authUrl);
+		} else {
 			//echo '<a href="/site/social_logout">Logout</a>';
-		//}
+		}
 		
 	}
 	
@@ -416,15 +416,14 @@ class SiteController extends AppController {
 
 	public function social_logout($provider = "google")
 	{
-		global $config;
-		
+
 		$this->Session->delete('Customer.customer_id');
 		$this->Session->delete('Customer.customer_group_id');
 
 		$clientId = '849405182417-7i9u890vlp0l998u0tcc3giup6ldmqgb.apps.googleusercontent.com'; //Google CLIENT ID
 		$clientSecret = 'nX550tbB6mGcSlHjXNzxfCHQ'; //Google CLIENT SECRET
-		$redirectUrl = FULL_BASE_URL.BASE.'/site/social_login';  //return url (url to script)
-		$homeUrl = FULL_BASE_URL.BASE.;  //return to home
+		$redirectUrl = 'http://demo2.vamshop.ru/site/social_login';  //return url (url to script)
+		$homeUrl = 'http://demo2.vamshop.ru';  //return to home
 
 		App::import('Vendor', 'Google', array('file' => 'google'.DS.'Google_Client.php'));
 		$gClient = new Google_Client();
