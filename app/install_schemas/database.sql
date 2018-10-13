@@ -66,7 +66,9 @@ INSERT INTO `configurations` (`id`, `configuration_group_id`, `key`, `value`, `t
 (30,'3','CHECKOUT_DISPLAY_EMAIL_FIELD', '1','select', '0,1', 'Display Email Field','','30'),
 (31,'3','CHECKOUT_DISPLAY_COMMENTS_FIELD', '1','select', '0,1', 'Display Order Comments Field','','31'),
 (32,'3','CHECKOUT_DISPLAY_SHIPPING_METHODS_BLOCK', '1','select', '0,1', 'Display Shipping Methods Block','','32'),
-(33,'3','CHECKOUT_DISPLAY_PAYMENT_METHODS_BLOCK', '1','select', '0,1', 'Display Payment Methods Block','','33');
+(33,'3','CHECKOUT_DISPLAY_PAYMENT_METHODS_BLOCK', '1','select', '0,1', 'Display Payment Methods Block','','33'),
+(34,'1','GOOGLE_OAUTH_CLIENT_ID', '','text', '', 'Google OAuth Client ID','','34'),
+(35,'1','GOOGLE_OAUTH_SECRET_KEY', '','text', '', 'Google OAuth Secret Key','','35');
 
 DROP TABLE IF EXISTS contents;
 CREATE TABLE `contents` (
