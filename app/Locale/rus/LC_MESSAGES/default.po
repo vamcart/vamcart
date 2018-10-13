@@ -2203,6 +2203,14 @@ msgid "DaData API Key"
 msgstr "DaData.Ru API ключ подсказок"
 
 #: /views/configuration/admin_edit.ctp:40
+msgid "Google OAuth Client ID"
+msgstr "Google OAuth ID Клиента"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "Google OAuth Secret Key"
+msgstr "Google OAuth Секретный Ключ"
+
+#: /views/configuration/admin_edit.ctp:40
 msgid "Phone Input Mask"
 msgstr "Маска для телефона"
 
