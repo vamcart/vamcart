@@ -258,7 +258,7 @@ class SiteController extends AppController {
 		
 		$clientId = $config['GOOGLE_OAUTH_CLIENT_ID']; //Google CLIENT ID
 		$clientSecret = $config['GOOGLE_OAUTH_SECRET_KEY']; //Google CLIENT SECRET
-		$redirectUrl = FULL_BASE_URL.BASE.'/site/social_login';  //return url (url to script)
+		$redirectUrl = FULL_BASE_URL.BASE.'/site/social_login/'.$provider;  //return url (url to script)
 		$homeUrl = FULL_BASE_URL.BASE;  //return to home
 
 		App::import('Vendor', 'Google', array('file' => 'google'.DS.'Google_Client.php'));
@@ -290,7 +290,7 @@ class SiteController extends AppController {
 			//echo debug($userProfile);
 
 			// Register Customer
-			$check = $this->Customer->find('first', array('conditions' => array('Customer.email' => $userProfile['email'])));
+			$check = $this->Customer->find('first', array('order' => 'Customer.id DESC', 'conditions' => array('Customer.email' => $userProfile['email'])));
 			if(!empty($check))
 			$_POST['customer']['id']= $check['Customer']['id'];
 				
@@ -422,8 +422,8 @@ class SiteController extends AppController {
 
 		$clientId = $config['GOOGLE_OAUTH_CLIENT_ID']; //Google CLIENT ID
 		$clientSecret = $config['GOOGLE_OAUTH_SECRET_KEY']; //Google CLIENT SECRET
-		$redirectUrl = 'http://demo2.vamshop.ru/site/social_login';  //return url (url to script)
-		$homeUrl = 'http://demo2.vamshop.ru';  //return to home
+		$redirectUrl = FULL_BASE_URL.BASE;  //return url (url to script)
+		$homeUrl = FULL_BASE_URL.BASE;  //return to home
 
 		App::import('Vendor', 'Google', array('file' => 'google'.DS.'Google_Client.php'));
 		$gClient = new Google_Client();
