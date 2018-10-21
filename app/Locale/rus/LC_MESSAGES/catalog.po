@@ -557,3 +557,6 @@ msgstr "Войти через:"
 
 msgid "Social Login"
 msgstr "Войти через"
+
+msgid "Google"
+msgstr "Google"

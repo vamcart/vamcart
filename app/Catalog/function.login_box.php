@@ -34,7 +34,7 @@ $template = '
 		<br /><br />
 		<ul class="list-inline">
 		<li>{lang}Social Login:{/lang}</li>
-		<li><a href="{base_path}/site/social_login/google"><i class="fa fa-google" title="Google"></i></a></li>
+		<li><a href="{base_path}/site/social_login/google"><i class="fa fa-google" title="Google"></i> {lang}Google{/lang}</a></li>
 		</ul>
 		<ul class="list-inline">
 		<li><a href="{base_path}/customer/register{config value=url_extension}">{lang}Registration{/lang}</a></li>

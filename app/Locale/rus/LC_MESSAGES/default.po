@@ -192,6 +192,9 @@ msgstr "Войти через:"
 msgid "Social Login"
 msgstr "Войти через"
 
+msgid "Google"
+msgstr "Google"
+
 #: /app_controller.php:235
 msgid "Tools"
 msgstr "Инструменты"
