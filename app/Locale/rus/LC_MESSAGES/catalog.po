@@ -560,3 +560,6 @@ msgstr "Войти через"
 
 msgid "Google"
 msgstr "Google"
+
+msgid "Top 10 results..."
+msgstr "Первые 10 позиций..."

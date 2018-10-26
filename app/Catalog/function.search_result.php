@@ -89,7 +89,9 @@ function smarty_function_search_result($params, $template)
 
 	App::uses('CakeTime', 'Utility');
 
-	$params['limit'] = $config['PRODUCTS_PER_PAGE'];
+	if(!isset ($params['limit']))
+		$params['limit'] = $config['PRODUCTS_PER_PAGE'];
+		
 	$content_total = 0;
 
 	$vars = $template->smarty->tpl_vars;

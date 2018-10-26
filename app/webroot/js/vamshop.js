@@ -110,3 +110,17 @@ $(document).ready(function(event) {
         window.location.hash= event.target.hash;
     })
 });
+
+// Search Preview
+
+  $("#search-keywords").keyup(function(){
+      var action = $("#search").attr("action");
+      var searchString = $("#search-keywords").val(); 
+      $.ajax({
+          url: "/site/search_preview",             
+          dataType : "html",
+          type: "POST",
+          data: "keyword="+searchString,
+          success: function(msg){$("#searchPreview").html(msg);}            
+ });   
+ });

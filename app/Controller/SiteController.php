@@ -633,6 +633,20 @@ class SiteController extends AppController {
 		}	
 	}
 
+    public function search_preview () {
+        // Clean up the post
+        App::uses('Sanitize', 'Utility');
+        $clean = new Sanitize();
+        $clean->paranoid($_POST);
+
+        $_GET['keyword'] = $_POST['keyword']; 
+
+    if ($this->RequestHandler->isAjax()) {
+        $this->Smarty->display("{search_result template='search-result-ajax' limit=10}");
+        die();
+    } 
+        
+    }
 
 	private function RandomString($length) 
 		{

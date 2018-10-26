@@ -1150,3 +1150,18 @@ pre {
     font-family: "Roboto", sans-serif !important;
     font-size: 16px !important;
 }
+
+#searchPreview {
+    position: absolute;
+    z-index: 999999;
+    width: 50%;
+    height: auto;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    background: #fff; 
+}
+
+#searchPreview img.media-object {
+    width: 40px; 
+    height: 40px; 
+}
