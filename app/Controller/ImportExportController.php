@@ -257,7 +257,7 @@ class ImportExportController extends AppController {
                                             ,'parent_id' => $atttr_id
                                             ,'content_id' => $content['Content']['id']
                                             ,'type_attr' => null
-                                            ,'val' => 1
+                                            ,'val' => ($data['Content']['Attribute']['type_attr'] == "dig_value") ? $data['Content']['Attribute']['value'] : 1
                                             ,'order' => null
                                             ,'attribute_template_id' => null
                                             ,'price_modificator' => null
