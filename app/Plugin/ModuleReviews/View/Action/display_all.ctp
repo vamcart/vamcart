@@ -14,7 +14,7 @@
 					
 					<h4 itemprop="name"><a href="{$review.content_url}">{$review.content_name}</a></h4>
 
-					<a href="{$review.content_url}" class="image"><img src="{$review.content_image.image}" alt="{$review.content_name}"{if {$review.content_image.image_width} > 0} width="{$review.content_image.image_width}"{/if}{if {$review.content_image.image_height} > 0} height="{$review.content_image.image_height}"{/if} />
+					<a href="{$review.content_url}" class="image"><img src="{$review.content_image.image}" alt="{$review.content_name}"{if {$review.content_image.image_width} > 0} width="{$review.content_image.image_width}"{/if}{if {$review.content_image.image_height} > 0} height="{$review.content_image.image_height}"{/if} /></a>
 
 					<h4 class="media-heading"><span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{$review.name}</span></span> - <span content="{$review.created|date_format:"%Y-%m-%d"}" itemprop="datePublished">{$review.created|date_format:"%Y-%m-%d"}</span>:</h4>
 				
