@@ -561,5 +561,8 @@ msgstr "Войти через"
 msgid "Google"
 msgstr "Google"
 
-msgid "Top 10 results..."
-msgstr "Первые 10 позиций..."
+msgid "Top 10 results:"
+msgstr "Первые 10 позиций:"
+
+msgid "Display all search results."
+msgstr "Показать все результаты поиска."
