@@ -1155,13 +1155,23 @@ pre {
     position: absolute;
     z-index: 999999;
     width: 50%;
-    height: auto;
-    overflow-y: hidden;
+}
+
+#searchResults {
+    height: 300px;
+    overflow-y: scroll;
     overflow-x: hidden;
     background: #fff; 
+    box-shadow: 0 1px 8px rgba(0,0,0,.23),0 1px 8px rgba(0,0,0,.16);
+}
+
+#searchPreview table {
+    border: 1px solid #e5e5e5;
 }
 
 #searchPreview img.media-object {
     width: 40px; 
-    height: 40px; 
+    height: 40px;
+    text-align: center;
+    margin: 0 auto; 
 }
