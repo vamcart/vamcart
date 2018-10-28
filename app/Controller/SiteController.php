@@ -642,7 +642,7 @@ class SiteController extends AppController {
         $_GET['keyword'] = $_POST['keyword']; 
 
     if ($this->RequestHandler->isAjax()) {
-        $this->Smarty->display("{search_result template='search-result-ajax' limit=10}");
+        $this->Smarty->display("{search_result template='search-result-ajax' limit=5}");
         die();
     } 
         
