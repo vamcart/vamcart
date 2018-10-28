@@ -1158,15 +1158,15 @@ pre {
 }
 
 #searchResults {
-    height: 300px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    background: #fff; 
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 #searchPreview table {
     border: 1px solid #e5e5e5;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    background: #fff; 
+    height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 #searchPreview img.media-object {
