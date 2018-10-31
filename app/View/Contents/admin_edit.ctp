@@ -82,7 +82,13 @@ array(
 	});
 	
     $(document).ready(function() {
-        $(".chosen-select").chosen({
+        $("#chosen-select-parent").chosen({
+            no_results_text:"'. __("Not Found") .'",
+            search_contains:true,
+            placeholder_text_single:"'. __("Select") .'",
+            width: "300px"
+        });        
+        $("#chosen-select-brand").chosen({
             no_results_text:"'. __("Not Found") .'",
             search_contains:true,
             placeholder_text_single:"'. __("Select") .'",
@@ -136,7 +142,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 						'type' => 'select',
 			   		'label' => __('Parent'),
 						'options' => $this->requestAction('/contents/admin_parents_tree/'),
-						'class' => "chosen-select",
+						'id' => 'chosen-select-parent',
 						'escape' => false,
 						'empty' => array(0 => __('Top Level')),
 						'selected' => $parent_id
