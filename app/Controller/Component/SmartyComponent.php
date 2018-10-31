@@ -43,6 +43,9 @@ class SmartyComponent extends Component
 				$template = $MicroTemplate->find('first', array('conditions' => array('alias' => $params['template'])));
 				$display_template = $template['MicroTemplate']['template'];
 
+				// Minify html                	
+				//if (Configure::read('debug') == 0) $display_template = str_replace(array("\n","\r","\t"),'',$display_template);
+
 				echo $display_template;
 
 				// End of cache
