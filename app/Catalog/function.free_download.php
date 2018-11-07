@@ -21,7 +21,7 @@ function smarty_function_free_download($params, $template)
 {
 	global $content, $config;
 	
-	if (!isset($params['content_id']) $params['content_id'] = $content['Content']['id'];
+	if (!isset($params['content_id'])) $params['content_id'] = $content['Content']['id'];
 
 	if(isset($params['content_id']) && $params['content_id'] > 0) {
 
