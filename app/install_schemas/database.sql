@@ -1754,14 +1754,7 @@ CREATE TABLE `languages` (
 
 INSERT INTO `languages` (`id`, `default`, `name`, `code`, `iso_code_2`, `active`, `sort_order`) VALUES 
 (1, 1, 'English', 'eng', 'en', 1, 1),
-(2, 0, 'Русский', 'rus', 'ru', 0, 2),
-(3, 0, 'Spanish', 'spa', 'es', 0, 3),
-(4, 0, 'Portuguese', 'prt', 'pt', 0, 4),
-(5, 0, 'Italian', 'ita', 'it', 0, 5),
-(6, 0, 'French', 'fra', 'fr', 0, 6),
-(7, 0, 'Ukrainian', 'ukr', 'ua', 0, 7),
-(8, 0, 'Swedish', 'swe', 'sv', 0, 8),
-(9, 0, 'Arabic', 'ara', 'ar', 0, 9);
+(2, 0, 'Русский', 'rus', 'ru', 0, 2);
 
 DROP TABLE IF EXISTS micro_templates;
 CREATE TABLE `micro_templates` (
