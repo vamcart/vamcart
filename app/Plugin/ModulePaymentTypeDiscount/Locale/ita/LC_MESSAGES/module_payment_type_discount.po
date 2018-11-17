@@ -1,0 +1,28 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Project-Id-Version: 3dphoenyx\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Français <saidhamadou@3dphoenyx.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr_FR\n"
+"X-Generator: Poedit 1.8.7\n"
+
+msgid "The payment type discount module allows you to create discounts for payment methods."
+msgstr "Le module des bons de réduction vous permet de créer des escomptes promotionnels et des coupons pour vos clients d’utiliser."
+
+msgid "Once installed there will be a new menu item under Configurations called Payment Type Discount. Here you can add discounts for payment methods. They will be applied during checkout."
+msgstr "Une fois installé, il sera un nouvel élément de menu sous Configurations appelé paiement Type Discount. Ici, vous pouvez ajouter des réductions pour les modes de paiement. Elles seront appliquées lors de la commande."
+
+msgid "Discounts saved."
+msgstr "Réductions enregistrées."
+
+msgid "Module Name"
+msgstr "Nom du module"
+
+msgid "discount"
+msgstr "Remise"

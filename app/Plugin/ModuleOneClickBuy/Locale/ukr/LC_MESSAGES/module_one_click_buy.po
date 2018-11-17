@@ -1,0 +1,64 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# No version information was available in the source files.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2012-01-10 14:22+0400\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: Alexandr Menovchicov <vam@kypi.ru>\n"
+"Language-Team: Russian <vam@kypi.ru>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#: /app_controller.php:183
+msgid "One Click Buy"
+msgstr "Купити в 1 клік"
+
+#: /app_controller.php:183
+msgid "One click buy"
+msgstr "Купити в 1 клік"
+
+#: /app_controller.php:183
+msgid "Customer can send request to store admin email about any product in your store from product page."
+msgstr "Покупець має можливість замовити будь-який товар в магазині в 1 клік, заявка буде відправлено ​​на email адміністратора магазину."
+
+#: /app_controller.php:183
+msgid "Template placeholder to create a link to a product request form:"
+msgstr "Ярлик для шаблону для створення посилання на форму замовлення товару в 1 клік:"
+
+#: /app_controller.php:183
+msgid "This call will create link to javascript popup window with product request form."
+msgstr "Цей ярлик створює посилання на javascript вікно з формою замовлення товару в 1 клік."
+
+#: /app_controller.php:183
+msgid "Insert this placeholder at product page template (Admin - Layout - Template - Product Info)."
+msgstr "Вставте цей ярлик в шаблон картки товару (Панель адміністрування - Оформлення - Шаблони - Шаблон картки товару)."
+
+#: /app_controller.php:183
+msgid "Required field"
+msgstr "Обов`язкове поле"
+
+#: /app_controller.php:183
+msgid "Min length"
+msgstr "Мінімум символів"
+
+#: /app_controller.php:183
+msgid "Your Phone (or Email)"
+msgstr "Ваш Телефон (або Email)"
+
+#: /app_controller.php:183
+msgid "Submit"
+msgstr "Відправити"
+
+#: /app_controller.php:183
+msgid "Your request successfully sended."
+msgstr "Ваше замовлення успішно оформлено. Ви отримаєте відповідь найближчим часом."
+
+#: /app_controller.php:183
+msgid "Thank you!"
+msgstr "Дякуємо!"

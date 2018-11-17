@@ -1,0 +1,517 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# No version information was available in the source files.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2015-03-10 14:22+0400\n"
+"PO-Revision-Date: 2017-03-19 14:17+0100\n"
+"Language-Team: Francais <saidhamadou@3dphoenyx.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.9\n"
+"Last-Translator: marco cassisa <marco.cassisa@gmaildot.com>\n"
+"Language: it\n"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "Price"
+msgstr "Prezzo"
+
+msgid "About Us"
+msgstr "A proposito"
+
+msgid "Account Edit"
+msgstr "Modifica account"
+
+msgid "Add Review"
+msgstr "Aggiungi valutazione"
+
+msgid "Add to cart"
+msgstr "Aggiungi al carrello"
+
+msgid "Add to compare"
+msgstr "Aggiungi alla comparazione"
+
+msgid "Address Book"
+msgstr "Elenco Contatti"
+
+msgid "Address Line 1"
+msgstr "Indirizzo 1"
+
+msgid "Address Line 2"
+msgstr "Indirizzo 2"
+
+msgid "All"
+msgstr "Tutto"
+
+# vedere contesto, manca ALSO
+msgid "Also purchased"
+msgstr "Acquistato"
+
+msgid "Apply"
+msgstr "Applica"
+
+msgid "Articles"
+msgstr "Articoli"
+
+msgid "Ask A Product Question"
+msgstr "Fai una domanda sul prodotto"
+
+msgid "best buy!"
+msgstr "miglior acquisto!"
+
+msgid "Best rating"
+msgstr "Miglior valutazione"
+
+msgid "Billing Information"
+msgstr "Informazioni di fatturazione"
+
+msgid "Brands"
+msgstr "Marche"
+
+msgid "Buy"
+msgstr "Acquista"
+
+msgid "Cart"
+msgstr "Carrello"
+
+msgid "Cart Contents"
+msgstr "Contenuti del carrello"
+
+msgid "Categories"
+msgstr "Categorie"
+
+# even in italian checkout is widely understood. It can be "Vai alla cassa"
+msgid "Checkout"
+msgstr "Checkout"
+
+msgid "City"
+msgstr "Città"
+
+msgid "Comment"
+msgstr "Commento"
+
+msgid "Company"
+msgstr "Compagnia"
+
+msgid "Compare"
+msgstr "Compara"
+
+msgid "Comparison"
+msgstr "Comparazione"
+
+msgid "Confirm Order"
+msgstr "Conferma l'ordine"
+
+msgid "Contact Information"
+msgstr "Informazioni di contatto"
+
+msgid "Contact Us"
+msgstr "Contatti"
+
+msgid "Continue"
+msgstr "Continua"
+
+msgid "Continue Shopping"
+msgstr "Continua lo shopping"
+
+msgid "Country"
+msgstr "Stato"
+
+msgid "Coupon Code"
+msgstr "Codice coupon"
+
+msgid "Credit Card"
+msgstr "Carta di credito"
+
+msgid "Currency"
+msgstr "Valuta"
+
+msgid "Customer"
+msgstr "Cliente"
+
+msgid "Date"
+msgstr "Data"
+
+msgid "Description"
+msgstr "Descrizione"
+
+msgid "Details"
+msgstr "Dettagli"
+
+msgid "Discount"
+msgstr "Sconto"
+
+msgid "Download"
+msgstr "Download"
+
+msgid "Download file"
+msgstr "Download del file"
+
+msgid "E-mail"
+msgstr "E-mail"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Example"
+msgstr "Esempio"
+
+msgid "Featured Products"
+msgstr "Prodotti interessanti"
+
+msgid "Feedback"
+msgstr "Feedback"
+
+msgid "Filter"
+msgstr "Filtra"
+
+# one word?
+msgid "FreeShipping"
+msgstr "SpedizioneGratuita"
+
+msgid "FlatRate"
+msgstr "Costo fisso"
+
+msgid "Forgot your password?"
+msgstr "Dimenticata la password?"
+
+msgid "Free Shipping"
+msgstr "Spedizione gratuita"
+
+msgid "from"
+msgstr "da"
+
+msgid "Go"
+msgstr "Vai"
+
+# check
+msgid "Hit"
+msgstr ""
+
+msgid "Home"
+msgstr "Home"
+
+msgid "In-store Pickup"
+msgstr "Ritiro in negozio"
+
+msgid "Information"
+msgstr "Informazione"
+
+msgid "Invoice"
+msgstr "Fattura"
+
+# should be "invoice"
+msgid "Kvitancia"
+msgstr "Fattura"
+
+msgid "Language"
+msgstr "Lingua"
+
+msgid "Leave empty to use current password."
+msgstr "Lasciare vuoto per non cambiare password"
+
+# check. why not "price list"?
+msgid "List Price"
+msgstr "Elenco dei prezzi"
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Logout"
+msgstr "Logout"
+
+msgid "Manufacturers List"
+msgstr "Elenco dei produttori"
+
+msgid "Message"
+msgstr "Messaggio"
+
+msgid "Min length"
+msgstr "Lungh. min."
+
+msgid "Model"
+msgstr "Modello"
+
+# not sure: money order or check?
+msgid "Money Order Check"
+msgstr "Vaglia"
+
+msgid "My Account"
+msgstr "Il mio account"
+
+msgid "My delivery and billing addresses are not the same."
+msgstr "Gli indirizzi di consegna e di fatturazione sono diversi"
+
+msgid "My Orders"
+msgstr "I miei ordini"
+
+msgid "Product Name"
+msgstr "Nome del prodotto"
+
+msgid "Product Name (A-Z)"
+msgstr "Nome del prodotto (A-Z)"
+
+msgid "Product Name (Z-A)"
+msgstr "Nome del prodotto (Z-A)"
+
+msgid "New"
+msgstr "Nuovo"
+
+msgid "New Password"
+msgstr "Nuova password"
+
+msgid "News"
+msgstr "Notizie"
+
+msgid "No Cart Items"
+msgstr "Nessun articolo nel carrello"
+
+msgid "No Image"
+msgstr "Nessuna immagine"
+
+msgid "No Items Found"
+msgstr "Nessun articolo trovato"
+
+msgid "No reviews were found for this product."
+msgstr "Nessuna valutazione per questo prodotto"
+
+msgid "One Click Buy"
+msgstr "Acquista 1-click"
+
+msgid "Order Comments"
+msgstr "Ordina i commenti"
+
+# check
+msgid "Order number"
+msgstr "Ordina per numero"
+
+msgid "Order Status"
+msgstr "Stato dell'ordine"
+
+msgid "Order Total"
+msgstr "Totale dell'ordine"
+
+msgid "Orders Not Found!"
+msgstr "Ordini non trovati"
+
+msgid "Pages"
+msgstr "Pagine"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Payment Method"
+msgstr "Metodo di pagamento"
+
+msgid "per"
+msgstr "per"
+
+# one word?
+msgid "PerItem"
+msgstr "PerArticolo"
+
+msgid "Permission Denied."
+msgstr "Permesso negato"
+
+msgid "Phone"
+msgstr "Telefono"
+
+msgid "Please agree to our policy."
+msgstr "Accettare le nostre policies, grazie"
+
+msgid "Popular"
+msgstr "Popolare"
+
+msgid "Popular (asc)"
+msgstr "Popolare (asc)"
+
+msgid "Popular (desc)"
+msgstr "Popolare (disc)"
+
+# may be "fornito da", but powered is common in italian sites
+msgid "Powered by"
+msgstr "Powered by"
+
+# easier to use: ↓
+msgid "Price (High to Low)"
+msgstr "Prezzo (dal più costoso)"
+
+# ↑
+msgid "Price (Low to High)"
+msgstr "Prezzo (dal meno costoso)"
+
+# shorter: prezzo pz.
+msgid "Price Ea."
+msgstr "Prezzo unitario"
+
+msgid "Print Invoice"
+msgstr "Stampa fattura"
+
+msgid "Print Order"
+msgstr "Stampa ordine"
+
+msgid "Process to Payment"
+msgstr "Procedi al pagamento"
+
+msgid "Product"
+msgstr "Prodotto"
+
+msgid "Products"
+msgstr "Prodotti"
+
+# alliteration sound's weird. Could be "Prodotti di questa marca" if manufacturer==brand
+msgid "Products by this Manufacturer"
+msgstr "Prodotti di questo produttore"
+
+msgid "Products in this Category"
+msgstr "Prodotti in questa categoria"
+
+msgid "Qty"
+msgstr "Qtà"
+
+msgid "qty."
+msgstr "qtà"
+
+msgid "Quantity"
+msgstr "Quantità"
+
+msgid "Quantity discounts"
+msgstr "Sconti quantità"
+
+msgid "Rating"
+msgstr "Valutazione"
+
+msgid "Rating value"
+msgstr "Valutazione"
+
+msgid "read more"
+msgstr "leggi ancora"
+
+msgid "Read Reviews"
+msgstr "Leggi le valutazioni"
+
+msgid "Register"
+msgstr "Registrati"
+
+msgid "Registration"
+msgstr "Registrazione"
+
+msgid "Remove"
+msgstr "Rimuovi"
+
+msgid "Required field"
+msgstr "Campo richiesto"
+
+msgid "Reset"
+msgstr "Reset"
+
+msgid "Retype Password"
+msgstr "Riscrivi la password"
+
+msgid "Review"
+msgstr "Valutazione"
+
+msgid "Reviews"
+msgstr "Valutazioni"
+
+# shouldn't be there
+msgid "RussianPost"
+msgstr ""
+
+# shouldn't be there
+msgid "RussianPostCalc"
+msgstr ""
+
+msgid "Sale"
+msgstr "Vendita"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "Search"
+msgstr "Cerca"
+
+msgid "Send"
+msgstr "Invia"
+
+msgid "Sent To Customer"
+msgstr "Inviato al cliente"
+
+msgid "Shipping"
+msgstr "Spedizione"
+
+msgid "Shipping Information"
+msgstr "Informazioni di spedizione"
+
+msgid "Shipping Method"
+msgstr "Metodo di spedizione"
+
+msgid "Shopping Cart"
+msgstr "Carrello"
+
+msgid "Short Description"
+msgstr "Descrizione breve"
+
+msgid "Sort by"
+msgstr "Ordina per"
+
+msgid "State"
+msgstr "Stato"
+
+msgid "Sub Categories"
+msgstr "Sotto-categorie"
+
+msgid "Submit"
+msgstr "Invia"
+
+# shouldn't be there
+msgid "TableBased"
+msgstr ""
+
+msgid "Terms & Conditions."
+msgstr "Condizioni e termini"
+
+msgid "Tax"
+msgstr "Tasse"
+
+msgid "Total"
+msgstr "Totale"
+
+msgid "Update"
+msgstr "Aggiorna"
+
+msgid "vamshop.com"
+msgstr ""
+
+msgid "View Cart"
+msgstr "Vedi carrello"
+
+msgid "view products"
+msgstr "vedi prodotti"
+
+msgid "Worst rating"
+msgstr "Peggior valutazione"
+
+msgid "Write a Review"
+msgstr "Scrivi una valutazione"
+
+msgid "You Save"
+msgstr "Hai risparmiato"
+
+msgid "Your Email"
+msgstr "La tua email"
+
+msgid "Your Name"
+msgstr "Il tuo nome"
+
+msgid "Zipcode"
+msgstr "Codice postale"
+
+msgid "ZoneBased"
+msgstr "Zona"

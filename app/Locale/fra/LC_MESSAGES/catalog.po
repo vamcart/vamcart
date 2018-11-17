@@ -1,0 +1,500 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# No version information was available in the source files.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2015-03-10 14:22+0400\n"
+"PO-Revision-Date: 2016-04-22 18:11+0200\n"
+"Last-Translator: Borre Petrovic <bp@exept.eu>\n"
+"Language-Team: Francais <saidhamadou@3dphoenyx.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: fr\n"
+"X-Generator: Poedit 1.8.7\n"
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "Price"
+msgstr "Prix"
+
+msgid "About Us"
+msgstr "A propos"
+
+msgid "Account Edit"
+msgstr "Modifier compte"
+
+msgid "Add Review"
+msgstr "Ajouter un avis"
+
+msgid "Add to cart"
+msgstr "Ajouter au Panier"
+
+msgid "Add to compare"
+msgstr "Ajouter pour comparer"
+
+msgid "Address Book"
+msgstr "Carnet d’adresses"
+
+msgid "Address Line 1"
+msgstr "Adresse ligne 1"
+
+msgid "Address Line 2"
+msgstr "Adresse ligne 2"
+
+msgid "All"
+msgstr "Veuillez remplir tous les champs."
+
+msgid "Also purchased"
+msgstr "Affiche également acheté les produits pour le contenu actuel."
+
+msgid "Apply"
+msgstr "Appliquer"
+
+msgid "Articles"
+msgstr "Article"
+
+msgid "Ask A Product Question"
+msgstr "Question sur les produits"
+
+msgid "best buy!"
+msgstr "meilleur achat !"
+
+msgid "Best rating"
+msgstr "Meilleure note"
+
+msgid "Billing Information"
+msgstr "Numéro de facturation"
+
+msgid "Brands"
+msgstr "Marques"
+
+msgid "Buy"
+msgstr "Achetez"
+
+msgid "Cart"
+msgstr "Panier"
+
+msgid "Cart Contents"
+msgstr "Contenu du panier"
+
+msgid "Categories"
+msgstr "Catégories"
+
+msgid "Checkout"
+msgstr "Payer"
+
+msgid "City"
+msgstr "Ville"
+
+msgid "Comment"
+msgstr "Commentaire"
+
+msgid "Company"
+msgstr "Entreprise"
+
+msgid "Compare"
+msgstr "Comparer"
+
+msgid "Comparison"
+msgstr "Comparaison"
+
+msgid "Confirm Order"
+msgstr "Confirmer Commande"
+
+msgid "Contact Information"
+msgstr "Informations de contact"
+
+msgid "Contact Us"
+msgstr "Contactez-nous"
+
+msgid "Continue"
+msgstr "Continuer"
+
+msgid "Continue Shopping"
+msgstr "Continuez vos Achats"
+
+msgid "Country"
+msgstr "Pays"
+
+msgid "Coupon Code"
+msgstr "Code Promo"
+
+msgid "Credit Card"
+msgstr "Carte de crédit"
+
+msgid "Currency"
+msgstr "Détails de la monnaie"
+
+msgid "Customer"
+msgstr "Client"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Details"
+msgstr "Détails"
+
+msgid "Discount"
+msgstr "Remise"
+
+msgid "Download"
+msgstr "Téléchargement"
+
+msgid "Download file"
+msgstr "Télécharger ci-dessous"
+
+msgid "E-mail"
+msgstr "E-mail"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Example"
+msgstr "Exemple"
+
+msgid "Featured Products"
+msgstr "Produits Mis en Avant"
+
+msgid "Feedback"
+msgstr "Commentaire"
+
+msgid "Filter"
+msgstr "Filtre"
+
+msgid "FreeShipping"
+msgstr "Expédition gratuite"
+
+msgid "FlatRate"
+msgstr "Forfait illimité"
+
+msgid "Forgot your password?"
+msgstr "Mot de passe oublié ?"
+
+msgid "Free Shipping"
+msgstr "Franco de port"
+
+msgid "from"
+msgstr "De"
+
+msgid "Go"
+msgstr "Afficher"
+
+msgid "Hit"
+msgstr "Coup"
+
+msgid "Home"
+msgstr "Accueil"
+
+msgid "In-store Pickup"
+msgstr "En magasin"
+
+msgid "Information"
+msgstr "Information"
+
+msgid "Invoice"
+msgstr "Facture"
+
+msgid "Kvitancia"
+msgstr "Betalning vid mottagandet av RF SB"
+
+msgid "Language"
+msgstr "Language"
+
+msgid "Leave empty to use current password."
+msgstr "Laisser vide pour utiliser le mot de passe actuel."
+
+msgid "List Price"
+msgstr "Prix courant"
+
+msgid "Login"
+msgstr "Identification"
+
+msgid "Logout"
+msgstr "Déconnexion"
+
+msgid "Manufacturers List"
+msgstr "Liste des fabricants"
+
+msgid "Message"
+msgstr "Message"
+
+msgid "Min length"
+msgstr "Longueur mini"
+
+msgid "Model"
+msgstr "Modèle"
+
+msgid "Money Order Check"
+msgstr "Chèque mandat-poste"
+
+msgid "My Account"
+msgstr "Mon Compte"
+
+msgid "My delivery and billing addresses are not the same."
+msgstr "Ma livraison et la facturation adresse n’est pas les mêmes."
+
+msgid "My Orders"
+msgstr "Mes commandes"
+
+msgid "Product Name"
+msgstr "Nom du produit"
+
+msgid "Product Name (A-Z)"
+msgstr "Nom du produit (A-Z)"
+
+msgid "Product Name (Z-A)"
+msgstr "Nom du produit (Z-A)"
+
+msgid "New"
+msgstr "Nouveau"
+
+msgid "New Password"
+msgstr "Nouveau mot de passe"
+
+msgid "News"
+msgstr "Actualités"
+
+msgid "No Cart Items"
+msgstr "Articles dans le Panier"
+
+msgid "No Image"
+msgstr "Aucune image"
+
+msgid "No Items Found"
+msgstr "Aucun article trouvé"
+
+msgid "No reviews were found for this product."
+msgstr "Aucun avis ont été trouvés pour ce produit."
+
+msgid "One Click Buy"
+msgstr "Achat d’un seul clic"
+
+msgid "Order Comments"
+msgstr "Commentaires sur la commande"
+
+msgid "Order number"
+msgstr "Numéro de commande"
+
+msgid "Order Status"
+msgstr "Statut de la commande"
+
+msgid "Order Total"
+msgstr "Total de la commande"
+
+msgid "Orders Not Found!"
+msgstr "Commandes non trouvés !"
+
+msgid "Pages"
+msgstr "Pages"
+
+msgid "Password"
+msgstr "Votre mot de passe"
+
+msgid "Payment Method"
+msgstr "Méthode de paiement"
+
+msgid "per"
+msgstr "par"
+
+msgid "PerItem"
+msgstr "Par article"
+
+msgid "Permission Denied."
+msgstr "Permission refusée"
+
+msgid "Phone"
+msgstr "Tel"
+
+msgid "Please agree to our policy."
+msgstr "S’il vous plaît accepter notre politique."
+
+msgid "Popular"
+msgstr "Populaire"
+
+msgid "Popular (asc)"
+msgstr "Popular (sac)"
+
+msgid "Popular (desc)"
+msgstr "Populaire (desc)"
+
+msgid "Powered by"
+msgstr "Généré par"
+
+msgid "Price (High to Low)"
+msgstr "Prix (d’élevé à faible)"
+
+msgid "Price (Low to High)"
+msgstr "Prix (Min-Max)"
+
+msgid "Price Ea."
+msgstr "Prix ​​(/pièce)"
+
+msgid "Print Invoice"
+msgstr "Imprimer la Facture"
+
+msgid "Print Order"
+msgstr "Imprimer la facture"
+
+msgid "Process to Payment"
+msgstr "Processus de Paiement"
+
+msgid "Product"
+msgstr "produit"
+
+msgid "Products"
+msgstr "Produits"
+
+msgid "Products by this Manufacturer"
+msgstr "Produits de ce fabricant"
+
+msgid "Products in this Category"
+msgstr "produits dans cette catégorie"
+
+msgid "Qty"
+msgstr "Qté"
+
+msgid "qty."
+msgstr "Sté"
+
+msgid "Quantity"
+msgstr "Quantité"
+
+msgid "Quantity discounts"
+msgstr "Prix dégressifs"
+
+msgid "Rating"
+msgstr "Évaluation"
+
+msgid "Rating value"
+msgstr "Valeur des notes"
+
+msgid "read more"
+msgstr "lire plus"
+
+msgid "Read Reviews"
+msgstr "Lire les avis"
+
+msgid "Register"
+msgstr "Inscription"
+
+msgid "Registration"
+msgstr "Inscription"
+
+msgid "Remove"
+msgstr "Supprimer"
+
+msgid "Required field"
+msgstr "Champ obligatoire"
+
+msgid "Reset"
+msgstr "Réinitialiser"
+
+msgid "Retype Password"
+msgstr "Confirmer le mot de passe"
+
+msgid "Review"
+msgstr "Lire l’avis du produit"
+
+msgid "Reviews"
+msgstr "Avis"
+
+msgid "RussianPost"
+msgstr "Ryska posten"
+
+msgid "RussianPostCalc"
+msgstr "Ryska posten"
+
+msgid "Sale"
+msgstr "Promo"
+
+msgid "Save"
+msgstr "Sauvegarder"
+
+msgid "Search"
+msgstr "Rechercher"
+
+msgid "Send"
+msgstr "Envoyer à la clientèle"
+
+msgid "Sent To Customer"
+msgstr "Envoyé au client"
+
+msgid "Shipping"
+msgstr "Expédition"
+
+msgid "Shipping Information"
+msgstr "Informations sur la livraison"
+
+msgid "Shipping Method"
+msgstr "Méthode d’expédition"
+
+msgid "Shopping Cart"
+msgstr "Panier"
+
+msgid "Short Description"
+msgstr "Courte description"
+
+msgid "Sort by"
+msgstr "Trier par"
+
+msgid "State"
+msgstr "Province/État"
+
+msgid "Sub Categories"
+msgstr "Sous-Catégories"
+
+msgid "Submit"
+msgstr "Envoyer"
+
+msgid "TableBased"
+msgstr "TableBased"
+
+msgid "Terms & Conditions."
+msgstr "Termes & Conditions"
+
+msgid "Tax"
+msgstr "Taxe"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Update"
+msgstr "Mettre à jour"
+
+msgid "vamshop.com"
+msgstr "3dphoenyx.com"
+
+msgid "View Cart"
+msgstr "Voir Panier"
+
+msgid "view products"
+msgstr "Voir Produits"
+
+msgid "Worst rating"
+msgstr "Pire classement"
+
+msgid "Write a Review"
+msgstr "Écrire un avis"
+
+msgid "You Save"
+msgstr "Vous enregistrez"
+
+msgid "Your Email"
+msgstr "Votre adresse E-mail"
+
+msgid "Your Name"
+msgstr "Votre nom"
+
+msgid "Zipcode"
+msgstr "Code postal"
+
+msgid "ZoneBased"
+msgstr "ZoneBased"

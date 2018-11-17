@@ -1,0 +1,5276 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# No version information was available in the source files.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2015-03-10 14:22+0400\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: Borre Petrovic <bp@exept.eu>\n"
+"Language-Team: Swedish <bp@exept.eu>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#: /app_controller.php:183
+msgid "Dashboard"
+msgstr "Panelen"
+
+#: /app_controller.php:185
+msgid "Orders"
+msgstr "Beställningar"
+
+#: /app_controller.php:187
+msgid "All Orders"
+msgstr "Alla beställningar"
+
+#: /app_controller.php:190
+#: /views/global_content_blocks/admin_edit.ctp:33
+msgid "Contents"
+msgstr "Innehåll"
+
+#: /app_controller.php:192
+#: /views/contents/admin_edit.ctp:43
+msgid "Categories/Products"
+msgstr "Kategorier/Produkter"
+
+#: /app_controller.php:193
+msgid "Import/Export"
+msgstr "Import/Export"
+
+#: /app_controller.php:193
+msgid "Pages"
+msgstr "Sidor"
+
+#: /app_controller.php:194
+msgid "Content Blocks"
+msgstr "Innehållsblock"
+
+#: /app_controller.php:197
+msgid "Layout"
+msgstr "Layout"
+
+#: /app_controller.php:199
+msgid "Templates"
+msgstr "Mallar"
+
+#: /app_controller.php:200
+#: /views/stylesheets/admin_edit.ctp:34
+msgid "Stylesheets"
+msgstr "Stilmallar"
+
+#: /app_controller.php:201
+msgid "Micro Templates"
+msgstr "Micro Mallar"
+
+#: /app_controller.php:204
+msgid "Configurations"
+msgstr "Konfigurationer"
+
+#: /app_controller.php:206
+msgid "Store Settings"
+msgstr "Butiks Inställningar"
+
+#: /app_controller.php:206
+msgid "License"
+msgstr "License"
+
+#: /app_controller.php:206
+msgid "Update"
+msgstr "Uppdatera"
+
+#: /app_controller.php:207
+msgid "Order status"
+msgstr "Orderstatus"
+
+#: /app_controller.php:208
+msgid "Payment Methods"
+msgstr "Betalningsmetoder"
+
+#: /app_controller.php:209
+msgid "Shipping Methods"
+msgstr "Leveransmetoder"
+
+#: /app_controller.php:210
+msgid "Tax Classes"
+msgstr "Skatteklasser"
+
+#: /app_controller.php:211
+msgid "Tax Rates"
+msgstr "Skattesatser"
+
+#: /app_controller.php:212
+#: /controllers/email_template_controller.php:28
+msgid "Email Templates"
+msgstr "E-postmallar"
+
+#: /app_controller.php:212
+#: /controllers/answer_template_controller.php:28
+msgid "Answer Templates"
+msgstr "Besvarade Mallar"
+
+#: /app_controller.php:214
+msgid "Locale"
+msgstr "Lokalisering"
+
+#: /app_controller.php:216
+msgid "Currencies"
+msgstr "Valutor"
+
+#: /app_controller.php:217
+msgid "Languages"
+msgstr "Språk"
+
+#: /app_controller.php:218
+msgid "Countries"
+msgstr "Länder"
+
+#: /app_controller.php:219
+msgid "Defined Languages"
+msgstr "Definierade språk"
+
+#: /app_controller.php:219
+msgid "Geo Zones"
+msgstr "Zon"
+
+#: /app_controller.php:222
+msgid "Extensions"
+msgstr "Förlängningar"
+
+#: /app_controller.php:224
+msgid "Modules"
+msgstr "Moduler"
+
+#: /app_controller.php:225
+msgid "Tags"
+msgstr "Nyckelord"
+
+#: /app_controller.php:226
+msgid "User Tags"
+msgstr "Användarnas nyckelord"
+
+#: /app_controller.php:227
+msgid "Events"
+msgstr "Händelser"
+
+#: /app_controller.php:230
+msgid "Account"
+msgstr "Konto"
+
+#: /app_controller.php:232
+msgid "Manage Accounts"
+msgstr "Hantera konton"
+
+#: /app_controller.php:233
+msgid "My Account"
+msgstr "Mitt konto"
+
+#: /app_controller.php:234
+msgid "Prefences"
+msgstr "Inställningar"
+
+#: /app_controller.php:235
+msgid "Logout"
+msgstr "Logga Ut"
+
+#: /app_controller.php:235
+msgid "Tools"
+msgstr "Verktyg"
+
+#: /app_controller.php:235
+msgid "Database Backup"
+msgstr "Databas Backup"
+
+#: /app_controller.php:235
+msgid "Sales Report"
+msgstr "Försäljningsrapport"
+
+#: /app_controller.php:235
+msgid "Database Manager"
+msgstr "Databashanteraren"
+
+#: /app_controller.php:238
+msgid "Launch Site"
+msgstr "Butiken Online"
+
+#: /app_controller.php:290
+msgid "Login Error."
+msgstr "Inloggningsfel."
+
+#: /controllers/configuration_controller.php:20
+msgid "Cache cleared."
+msgstr "Cacheminne rensas."
+
+#: /controllers/configuration_controller.php:26
+msgid "Store Configuration"
+msgstr "Butik konfigurations"
+
+#: /controllers/configuration_controller.php:41
+#: /controllers/contents_controller.php:339
+#: /controllers/countries_controller.php:40
+#: /controllers/country_zones_controller.php:47
+#: /controllers/currencies_controller.php:79
+#: /controllers/global_content_blocks_controller.php:64
+#: /controllers/order_status_controller.php:110
+#: /controllers/payment_methods_controller.php:60
+#: /controllers/shipping_methods_controller.php:60
+#: /controllers/tax_country_zone_rates_controller.php:50;93
+#: /controllers/templates_controller.php:213;239
+#: /controllers/users_controller.php:88
+msgid "Record saved."
+msgstr "Posten sparad."
+
+#: /controllers/contents_controller.php:127
+#: /controllers/currencies_controller.php:50;111
+#: /controllers/languages_controller.php:52;113
+#: /controllers/order_status_controller.php:37
+msgid "Error: Could not delete default record."
+msgstr "Fel: Det gick inte att ta bort standard post."
+
+#: /controllers/contents_controller.php:132
+msgid "You have deleted a record."
+msgstr "Du har tagit bort en post."
+
+#: /controllers/contents_controller.php:189
+#: /views/contents/admin.ctp:44
+#: /views/contents/admin_core_pages.ctp:27
+#: /views/countries/admin.ctp:30
+#: /views/country_zones/admin.ctp:24
+#: /views/currencies/admin.ctp:28
+#: /views/defined_languages/admin.ctp:23
+#: /views/global_content_blocks/admin.ctp:26
+#: /views/languages/admin.ctp:29
+#: /views/micro_templates/admin.ctp:23
+#: /views/order_status/admin.ctp:25
+#: /views/payment_methods/admin.ctp:25
+#: /views/shipping_methods/admin.ctp:26
+#: /views/stylesheets/admin.ctp:27
+#: /views/tax_country_zone_rates/admin.ctp:26
+#: /views/taxes/admin.ctp:26
+#: /views/templates/admin.ctp:38
+#: /views/user_tags/admin.ctp:25
+msgid "Edit"
+msgstr "Redigera"
+
+#: /controllers/contents_controller.php:233
+#: /views/contents/admin_core_pages_edit.ctp:80
+#: /views/contents/admin_edit.ctp:166
+msgid "Content Details"
+msgstr "Innehålls Detaljer"
+
+#: /controllers/contents_controller.php:446
+msgid "Unable to delete content item with children."
+msgstr "Det går inte att ta bort innehållsobjekt med barn."
+
+#: /controllers/contents_controller.php:451
+msgid "Deleted a content item."
+msgstr "Raderad ett innehållsobjekt."
+
+#: /controllers/contents_controller.php:457
+msgid "Now showing in menu."
+msgstr "Nu visas det i menyn."
+
+#: /controllers/contents_controller.php:457
+msgid "Export to YML"
+msgstr "Export till YML"
+
+#: /controllers/contents_controller.php:457
+msgid "Not export to YML"
+msgstr "Inte exporterade till YML"
+
+#: /controllers/contents_controller.php:462
+msgid "Now hiding from menu."
+msgstr "Nu gömmer sig från menyn."
+
+#: /controllers/contents_controller.php:467
+msgid "Activated content item."
+msgstr "Aktiverad innehållsobjekt."
+
+#: /controllers/contents_controller.php:472
+msgid "Inactivated content item."
+msgstr "Inaktivinnehållspost."
+
+#: /controllers/contents_controller.php:488
+msgid "Pages Listing"
+msgstr "Sid Notering"
+
+#: /controllers/contents_controller.php:519
+msgid "Listing"
+msgstr "Notering"
+
+#: /controllers/countries_controller.php:21
+#: /views/countries/admin_edit.ctp:24;46
+msgid "Country Details"
+msgstr "Land Information"
+
+#: /controllers/countries_controller.php:38
+#: /controllers/country_zones_controller.php:45
+#: /controllers/global_content_blocks_controller.php:62
+#: /controllers/languages_controller.php:81
+#: /controllers/order_status_controller.php:106
+#: /controllers/taxes_controller.php:61
+#: /controllers/templates_controller.php:276
+#: /controllers/users_controller.php:190
+msgid "Record created."
+msgstr "Post skapade."
+
+#: /controllers/countries_controller.php:61;73
+#: /controllers/country_zones_controller.php:22
+#: /controllers/currencies_controller.php:56;107
+#: /controllers/defined_languages_controller.php:28
+#: /controllers/global_content_blocks_controller.php:25;102
+#: /controllers/languages_controller.php:58;109
+#: /controllers/micro_templates_controller.php:26
+#: /controllers/order_status_controller.php:41;57
+#: /controllers/orders_controller.php:49
+#: /controllers/tax_country_zone_rates_controller.php:28;115
+#: /controllers/taxes_controller.php:40
+#: /controllers/user_tags_controller.php:20
+#: /controllers/users_controller.php:29
+msgid "Record deleted."
+msgstr "Post utgår."
+
+#: /controllers/countries_controller.php:83
+msgid "Countries Listing"
+msgstr "Länder Notering"
+
+#: /controllers/country_zones_controller.php:28
+#: /views/country_zones/admin_edit.ctp:16
+msgid "Country Zone Details"
+msgstr "Land Zon Detaljer"
+
+#: /controllers/country_zones_controller.php:60
+msgid "Country Zones Listing"
+msgstr "Land Zoner Notering"
+
+#: /controllers/currencies_controller.php:64
+#: /views/currencies/admin_edit.ctp:16
+msgid "Currency Details"
+msgstr "Valuta Detaljer"
+
+#: /controllers/currencies_controller.php:117
+#: /controllers/global_content_blocks_controller.php:107
+#: /controllers/languages_controller.php:119
+msgid "Record activated."
+msgstr "Post aktiverad."
+
+#: /controllers/currencies_controller.php:123
+#: /controllers/languages_controller.php:125
+msgid "Error: Could not deactivate default record."
+msgstr "Fel: Det gick inte att inaktivera standard post."
+
+#: /controllers/currencies_controller.php:129
+#: /controllers/global_content_blocks_controller.php:112
+#: /controllers/languages_controller.php:131
+msgid "Record deactivated."
+msgstr "Post deaktiverad."
+
+#: /controllers/currencies_controller.php:141
+msgid "Currencies Listing"
+msgstr "Valutor Notering"
+
+#: /controllers/defined_languages_controller.php:35
+#: /views/defined_languages/admin_edit.ctp:17
+msgid "Defined Language Details"
+msgstr "Definierade Språk Detaljer"
+
+#: /controllers/defined_languages_controller.php:93
+msgid "Defined Language Listing"
+msgstr "Definierade Språk Notering"
+
+#: /controllers/email_template_controller.php:117
+msgid "Email Templates Listing"
+msgstr "E-postmallar Notering"
+
+#: /controllers/answer_template_controller.php:117
+msgid "Answer Templates Listing"
+msgstr "Besvarade Mallar Notering"
+
+#: /controllers/events_controller.php:20
+msgid "Event Details"
+msgstr "Händelse Detaljer"
+
+#: /controllers/events_controller.php:31
+msgid "Events Listing"
+msgstr "Händelser Notering"
+
+#: /controllers/global_content_blocks_controller.php:31
+#: /views/global_content_blocks/admin_edit.ctp:25;40
+msgid "Global Content Block Details"
+msgstr "Global Innehålls grupp Detaljer"
+
+#: /controllers/global_content_blocks_controller.php:123
+msgid "Global Content Blocks Listing"
+msgstr "Global innehållsblock Notering"
+
+#: /controllers/install_controller.php:76
+msgid "Install VamShop"
+msgstr "Installera VamShop"
+
+#: /controllers/install_controller.php:103
+#: /controllers/install_controller.php:104
+msgid "VamShop Installed"
+msgstr "VamShop Installerad"
+
+#: /controllers/install_controller.php:108
+msgid "Unable to connect to database."
+msgstr "Det går inte att ansluta till databasen."
+
+#: /controllers/install_controller.php:115
+msgid "Could not select database. Are you sure you created it?"
+msgstr "Det gick inte att välja databas. Är du säker på att du skapade den?"
+
+#: /controllers/install_controller.php:122
+msgid "Can't open config.php. Please check you have proper permissions to write to that file."
+msgstr "Kan inte öppna config.php. Kontrollera att du har rätt behörighet att skriva till den filen."
+
+#: /controllers/languages_controller.php:66
+#: /views/languages/admin_edit.ctp:16
+msgid "Language Details"
+msgstr "Språk Detaljer"
+
+#: /controllers/languages_controller.php:143
+msgid "Languages Listing"
+msgstr "Språk Notering"
+
+#: /controllers/micro_templates_controller.php:19
+msgid "Enter an alias to use"
+msgstr "Ange ett alias för att använda"
+
+#: /controllers/micro_templates_controller.php:32
+msgid "Micro Template"
+msgstr "Mikro mall"
+
+#: /controllers/micro_templates_controller.php:52
+msgid "Micro Template Saved."
+msgstr "Mikro mall sparad."
+
+#: /controllers/micro_templates_controller.php:74
+msgid "Micro Templates Listing"
+msgstr "Mikro Mallar Notering"
+
+#: /controllers/modules_controller.php:19
+msgid "Modules Listing"
+msgstr "Moduler Notering"
+
+#: /controllers/order_status_controller.php:65
+msgid "Order Status"
+msgstr "Orderstatus"
+
+#: /controllers/order_status_controller.php:153
+msgid "Order Status Listing"
+msgstr "Orderstatus Notering"
+
+#: /controllers/orders_controller.php:70
+msgid "Order View"
+msgstr "Visa Beställning"
+
+#: /controllers/orders_controller.php:70
+msgid "Order ID"
+msgstr "Order ID"
+
+#: /controllers/orders_controller.php:105
+msgid "Orders Listing"
+msgstr "Beställningar Notering"
+
+#: /controllers/payment_methods_controller.php:30
+msgid "Edit Payment Method"
+msgstr "Redigera betalningsmetod"
+
+#: /controllers/payment_methods_controller.php:68
+msgid "Payment Methods Listing"
+msgstr "Betalning Notering"
+
+#: /controllers/payment_methods_controller.php:68
+msgid "Add module"
+msgstr "Lägg till modul"
+
+#: /controllers/payment_methods_controller.php:68
+msgid "Module Upload"
+msgstr "Modul Överför"
+
+#: /controllers/payment_methods_controller.php:68
+msgid "Upload New Module"
+msgstr "Ladda upp ny modul"
+
+#: /controllers/payment_methods_controller.php:68
+msgid "Module Uploaded"
+msgstr "Modul Uppladdat"
+
+#: /controllers/payment_methods_controller.php:68
+msgid "Error : Unable to unzip archive"
+msgstr "Fel: Det går inte att packa upp arkiv"
+
+#: /controllers/payment_methods_controller.php:68
+msgid "Module Not Uploaded"
+msgstr "Modul är inte uppladdat"
+
+#: /controllers/search_controller.php:19
+msgid "Search Results"
+msgstr "Sökresultat"
+
+#: /controllers/shipping_methods_controller.php:29
+msgid "Edit Shipping Method"
+msgstr "Redigera Sändningsmetod"
+
+#: /controllers/shipping_methods_controller.php:67
+msgid "Shipping Methods Listing"
+msgstr "Frakt Metoder Notering"
+
+#: /controllers/stylesheets_controller.php:42
+msgid "You have deleted a template association."
+msgstr "Du har tagit bort en mall sammanslutning."
+
+#: /controllers/stylesheets_controller.php:65
+#: /views/stylesheets/admin.ctp:27
+#: /views/stylesheets/admin_attach_templates.ctp:42
+msgid "Attach Template"
+msgstr "Fäst mall"
+
+#: /controllers/stylesheets_controller.php:94
+#: /views/stylesheets/admin_copy.ctp:16
+msgid "Copy Stylesheet"
+msgstr "Kopiera formatet"
+
+#: /controllers/stylesheets_controller.php:129
+msgid "Could not delete stylesheet. Stylesheet is in use."
+msgstr "Det gick inte att ta bort formatet. Format används."
+
+#: /controllers/stylesheets_controller.php:135
+msgid "You deleted a stylesheet."
+msgstr "Du har tagit bort en format."
+
+#: /controllers/stylesheets_controller.php:142
+#: /views/stylesheets/admin_attach_templates.ctp:14
+msgid "Stylesheet"
+msgstr "Format"
+
+#: /controllers/stylesheets_controller.php:183
+msgid "You have created a new stylesheet."
+msgstr "Du har skapat en ny formatmall."
+
+#: /controllers/stylesheets_controller.php:187
+msgid "You have updated a stylesheet."
+msgstr "Du har uppdaterat en formatmall."
+
+#: /controllers/stylesheets_controller.php:219
+msgid "You have deleted multiple stylesheets."
+msgstr "Du har tagit bort flera formatmallar."
+
+#: /controllers/stylesheets_controller.php:224
+msgid "You have activated multiple stylesheets."
+msgstr "Du har aktiverat flera formatmallar."
+
+#: /controllers/stylesheets_controller.php:229
+msgid "You have inactivated multiple stylesheets."
+msgstr "Du har inaktiverat flera formatmallar."
+
+#: /controllers/stylesheets_controller.php:239
+msgid "Stylesheets Listing"
+msgstr "Formatmallar Notering"
+
+#: /controllers/tags_controller.php:20
+msgid "Tag Details"
+msgstr "Information om taggen"
+
+#: /controllers/tags_controller.php:55
+msgid "Tags Listing"
+msgstr "Tagglista"
+
+#: /controllers/tax_country_zone_rates_controller.php:20
+msgid "All Country Zones"
+msgstr "Alla Lands zoner"
+
+#: /controllers/tax_country_zone_rates_controller.php:34
+msgid "Tax Edit"
+msgstr "Redigera moms"
+
+#: /controllers/tax_country_zone_rates_controller.php:57
+msgid "New Tax Zone"
+msgstr "Ny moms Zon"
+
+#: /controllers/tax_country_zone_rates_controller.php:121
+msgid "Tax Zones"
+msgstr "Moms zoner"
+
+#: /controllers/tax_country_zone_rates_controller.php:124
+msgid "Please select a tax class."
+msgstr "Välj en momsklass."
+
+#: /controllers/taxes_controller.php:28
+msgid "You have updated multiple records."
+msgstr "Du har uppdaterat flera poster."
+
+#: /controllers/taxes_controller.php:46
+msgid "Tax"
+msgstr "Moms"
+
+#: /controllers/taxes_controller.php:73
+msgid "Taxes Listing"
+msgstr "Moms Notering"
+
+#: /controllers/templates_controller.php:69
+msgid "You have deleted a stylesheet association."
+msgstr "Du har tagit bort en format sammanslutning."
+
+#: /controllers/templates_controller.php:76
+#: /views/templates/admin.ctp:38
+msgid "Attach Stylesheets"
+msgstr "Bifoga formatmallar"
+
+#: /views/templates/admin.ctp:38
+msgid "Are you sure you want to set all products to this template?"
+msgstr "Är du säker på att du vill sätta alla produkter till den här mallen?"
+
+#: /controllers/templates_controller.php:121
+#: /views/templates/admin_copy.ctp:16
+msgid "Copy Template"
+msgstr "Kopiera mall"
+
+#: /controllers/templates_controller.php:149
+msgid "Record copied."
+msgstr "Inspelning copierad."
+
+#: /controllers/templates_controller.php:165
+msgid "Could not delete template. Template is in use."
+msgstr "Det gick inte att ta bort mallen. Mallen används."
+
+#: /controllers/templates_controller.php:178
+msgid "You deleted a template."
+msgstr "Du har tagit bort en mall."
+
+#: /controllers/templates_controller.php:185
+msgid "Template Content"
+msgstr "Mall innehåll"
+
+#: /controllers/templates_controller.php:229
+msgid "Edit Template"
+msgstr "Redigera mall"
+
+#: /controllers/templates_controller.php:246
+msgid "New Template"
+msgstr "Ny mall"
+
+#: /controllers/templates_controller.php:283
+msgid "Templates Listing"
+msgstr "Mallar Notering"
+
+#: /controllers/user_tags_controller.php:26
+msgid "User Tag"
+msgstr "Användar Etikett"
+
+#: /controllers/user_tags_controller.php:61
+msgid "Invalid Tag Code"
+msgstr "Ogiltig Etikett kod"
+
+#: /controllers/user_tags_controller.php:77
+msgid "User tag created."
+msgstr "Tag skapad av."
+
+#: /controllers/user_tags_controller.php:82
+msgid "User tag updated."
+msgstr "Användar tagg uppdateras."
+
+#: /controllers/user_tags_controller.php:119
+msgid "User tag deleted."
+msgstr "Användar tagg utgår."
+
+#: /controllers/user_tags_controller.php:130
+msgid "User Tags Listing"
+msgstr "Användar Taggar Notering"
+
+#: /controllers/users_controller.php:24
+msgid "Could not delete that account."
+msgstr "Det gick inte att ta bort kontot."
+
+#: /controllers/users_controller.php:36
+msgid "My Account Details"
+msgstr "Mitt konto Detaljer"
+
+#: /controllers/users_controller.php:50
+msgid "Sorry, passwords did not match."
+msgstr "Tyvärr lösenorden matchar inte."
+
+#: /controllers/users_controller.php:60
+msgid "Your account settings have been updated."
+msgstr "Dina kontoinställningar har uppdaterats."
+
+#: /controllers/users_controller.php:73
+msgid "My Prefences"
+msgstr "Mina inställningar"
+
+#: /controllers/users_controller.php:114
+msgid "You have logged out."
+msgstr "Du har loggats ut."
+
+#: /controllers/users_controller.php:135
+msgid "No match for Username and/or Password."
+msgstr "Ingen match för användarnamn och / eller lösenord."
+
+#: /controllers/users_controller.php:146
+#: /views/users/admin_new.ctp:16
+msgid "New Admin"
+msgstr "Nya Admin"
+
+#: /controllers/users_controller.php:164
+msgid "Could not create user account. User exists."
+msgstr "Det gick inte att skapa användarkonto. Användar existerar."
+
+#: /controllers/users_controller.php:197
+msgid "Admins Listing"
+msgstr "Admins Notering"
+
+#: /controllers/components/module_base.php:48
+msgid "Could not install module."
+msgstr "Det gick inte att installera modulen."
+
+#: /controllers/components/module_base.php:129
+msgid "module exists."
+msgstr "modul existerar"
+
+#: /plugins/module_abandoned_carts/controllers/admin_controller.php:28
+msgid "Abandoned carts have been purged."
+msgstr "Övergivna vagnar har rensats."
+
+#: /plugins/module_abandoned_carts/controllers/admin_controller.php:37
+#: /plugins/module_abandoned_carts/controllers/setup_controller.php:34
+msgid "Abandoned Carts"
+msgstr "Övergiven kundvagn"
+
+#: /plugins/module_abandoned_carts/controllers/admin_controller.php:37
+#: /plugins/module_abandoned_carts/controllers/setup_controller.php:34
+msgid "No data"
+msgstr "Ingen data"
+
+#: /plugins/module_abandoned_carts/controllers/setup_controller.php:21
+#: /plugins/module_coupons/controllers/setup_controller.php:21
+#: /plugins/module_reviews/controllers/setup_controller.php:21
+msgid "Module Upgraded"
+msgstr "Modul uppgraderad"
+
+#: /plugins/module_abandoned_carts/controllers/setup_controller.php:42
+#: /plugins/module_coupons/controllers/setup_controller.php:91
+#: /plugins/module_reviews/controllers/setup_controller.php:64
+msgid "Module Installed"
+msgstr "Modul Installerad"
+
+#: /plugins/module_abandoned_carts/controllers/setup_controller.php:56
+#: /plugins/module_coupons/controllers/setup_controller.php:125
+#: /plugins/module_reviews/controllers/setup_controller.php:91
+msgid "Module Uninstalled"
+msgstr "Modul avinstalle"
+
+#: /plugins/module_abandoned_carts/views/admin/admin_help.ctp:15
+#: /plugins/module_coupons/views/admin/admin_help.ctp:15
+#: /plugins/module_reviews/views/admin/admin_help.ctp:14
+msgid "What does this do?"
+msgstr "Vad gör den här modulen?"
+
+#: /plugins/module_abandoned_carts/views/admin/admin_help.ctp:16
+msgid "The Abandoned Carts module allows you to view the contents of customer's carts who did not complete checkout."
+msgstr "Den övergivna vagnar modulen kan du visa innehållet i kundens varuvagn som inte slutfördes kassan."
+
+#: /plugins/module_abandoned_carts/views/admin/admin_help.ctp:17
+#: /plugins/module_coupons/views/admin/admin_help.ctp:17
+#: /plugins/module_reviews/views/admin/admin_help.ctp:16
+msgid "How do I use this?"
+msgstr "Hur använder jag detta?"
+
+#: /plugins/module_abandoned_carts/views/admin/admin_help.ctp:18
+msgid "Simply navigate to Orders -> Abandoned Carts to use this module."
+msgstr "Bara navigera till beställningar - Övergivna vagnar att använda denna modul."
+
+#: /plugins/module_abandoned_carts/views/admin/admin_index.ctp:16
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:19
+#: /views/configuration/admin_edit.ctp:22
+#: /views/contents/admin_core_pages_edit.ctp:18
+#: /views/contents/admin_edit.ctp:35
+#: /views/countries/admin_edit.ctp:18
+#: /views/global_content_blocks/admin_edit.ctp:19
+#: /views/stylesheets/admin_edit.ctp:18
+#: /views/user_tags/admin_edit.ctp:19
+msgid "Main"
+msgstr "Huvud"
+
+#: /views/contents/admin_edit.ctp:35
+#: /views/countries/admin_edit.ctp:18
+#: /views/global_content_blocks/admin_edit.ctp:19
+#: /views/stylesheets/admin_edit.ctp:18
+#: /views/user_tags/admin_edit.ctp:19
+msgid "General"
+msgstr "Allmänt"
+
+#: /views/admin/admin_top.ctp:24
+msgid "Menu"
+msgstr "Meny"
+
+#: /views/admin/admin_top.ctp:24
+msgid "Top Products"
+msgstr "Storsäljare"
+
+#: /plugins/module_abandoned_carts/views/admin/admin_index.ctp:17
+#: /views/admin/admin_top.ctp:40
+#: /views/contents/admin_core_pages_edit.ctp:19
+#: /views/contents/admin_edit.ctp:38
+#: /views/countries/admin_edit.ctp:19
+#: /views/global_content_blocks/admin_edit.ctp:20
+#: /views/stylesheets/admin_edit.ctp:19
+#: /views/user_tags/admin_edit.ctp:20
+msgid "Options"
+msgstr "Alternativen"
+
+#: /plugins/module_abandoned_carts/views/admin/admin_index.ctp:23
+msgid "Report"
+msgstr "Report"
+
+#: /plugins/module_abandoned_carts/views/admin/admin_index.ctp:23
+msgid "Order Id"
+msgstr "Order Id"
+
+#: /plugins/module_abandoned_carts/views/admin/admin_index.ctp:23
+msgid "Number of Products"
+msgstr "Antal produkter"
+
+#: /plugins/module_abandoned_carts/views/admin/admin_index.ctp:23
+msgid "Date Placed"
+msgstr "Datum Placerad"
+
+#: /plugins/module_abandoned_carts/views/admin/admin_index.ctp:41
+msgid "Click here to purge all Abandoned Carts."
+msgstr "Rensa alla övergivna kundvagn."
+
+#: /plugins/module_abandoned_carts/views/admin/admin_index.ctp:41
+#: /views/modules/admin.ctp:27;31
+msgid "Are you sure?"
+msgstr "Är du säker?"
+
+#: /plugins/module_coupons/controllers/admin_controller.php:21
+msgid "You have deleted a coupon."
+msgstr "Du har tagit bort en kupong."
+
+#: /plugins/module_coupons/controllers/admin_controller.php:29
+msgid "Edit Coupon"
+msgstr "Redigera kupong"
+
+#: /plugins/module_coupons/controllers/admin_controller.php:31
+#: /views/configuration/admin_edit.ctp:17
+msgid "no"
+msgstr "nej"
+
+#: /plugins/module_coupons/controllers/admin_controller.php:31
+#: /views/configuration/admin_edit.ctp:18
+msgid "yes"
+msgstr "ja"
+
+#: /plugins/module_coupons/controllers/admin_controller.php:44
+msgid "You have updated a coupon."
+msgstr "Du har uppdaterat en kupong."
+
+#: /plugins/module_coupons/controllers/admin_controller.php:64
+msgid "Manage Coupons"
+msgstr "Hantera kuponger"
+
+#: /plugins/module_coupons/controllers/event_controller.php:30
+msgid "Not enough products in cart for coupon. Requires: "
+msgstr "Inte tillräckligt med produkter i varukorgen för kupongen. Kräver: "
+
+#: /plugins/module_coupons/controllers/event_controller.php:30;32
+msgid " products."
+msgstr " produkter."
+
+#: /plugins/module_coupons/controllers/event_controller.php:32
+msgid "Too many products in cart for coupon. Requires less than: "
+msgstr "Alltför många produkter i varukorgen för kupongen. Kräver mindre än: "
+
+#: /plugins/module_coupons/controllers/event_controller.php:34
+msgid "Order total not enough. Requires at least: "
+msgstr "Otillräcklig mängd ordning. Minimi: "
+
+#: /plugins/module_coupons/controllers/event_controller.php:36
+msgid "Order total too high. Requires less than: "
+msgstr "Beställnings mängd är för hög. det bör vara mindre än: "
+
+#: /plugins/module_coupons/controllers/event_controller.php:74
+msgid "Error: Coupon already used."
+msgstr "Fel: kupongen har redan används."
+
+#: /plugins/module_coupons/controllers/setup_controller.php:34
+msgid "Coupons"
+msgstr "kupongen"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:20
+msgid "Restrictions"
+msgstr "Begränsningar"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:25;50
+msgid "Coupon Details"
+msgstr "Kupong Detaljer"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:30
+#: /plugins/module_coupons/views/admin/admin_index.ctp:15
+#: /views/countries/admin_edit.ctp:30
+#: /views/country_zones/admin_edit.ctp:25
+#: /views/currencies/admin_edit.ctp:21
+#: /views/events/admin.ctp:16
+#: /views/global_content_blocks/admin_edit.ctp:30
+#: /views/languages/admin_edit.ctp:21
+#: /views/modules/admin.ctp:16
+#: /views/order_status/admin.ctp:16
+#: /views/payment_methods/admin.ctp:16
+#: /views/payment_methods/admin_edit.ctp:22
+#: /views/shipping_methods/admin.ctp:16
+#: /views/shipping_methods/admin_edit.ctp:23
+#: /views/stylesheets/admin_edit.ctp:30
+#: /views/tax_country_zone_rates/admin.ctp:18
+#: /views/taxes/admin.ctp:16
+#: /views/taxes/admin_edit.ctp:21
+#: /views/templates/admin_edit_details.ctp:22
+#: /views/templates/admin_new.ctp:18
+#: /views/user_tags/admin_edit.ctp:30
+msgid "Name"
+msgstr "Namn"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:33
+msgid "Coupon Code"
+msgstr "Kupongskod"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:36
+msgid "Free Shipping"
+msgstr "Gratis Frakt"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:40
+msgid "Percent Off Total"
+msgstr "Procent Av Totalt"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:43
+msgid "Amount Off Total"
+msgstr "Belopp Av Totalt"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:52
+msgid "Max Uses"
+msgstr "Max Använder"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:56
+msgid "Min Product Count"
+msgstr "Minsta Produktantal"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:59
+msgid "Max Product Count"
+msgstr "Max Produkt Antal"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:62
+msgid "Min Order Total"
+msgstr "Minsta Order Total"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:65
+msgid "Max Order Total"
+msgstr "Max Order Total"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:72
+#: /views/helpers/admin.php:120
+#: /views/contents/admin_core_pages_edit.ctp:100
+#: /views/contents/admin_edit.ctp:196
+#: /views/countries/admin_edit.ctp:57
+#: /views/country_zones/admin_edit.ctp:31
+#: /views/currencies/admin_edit.ctp:45
+#: /views/defined_languages/admin_edit.ctp:41
+#: /views/global_content_blocks/admin_edit.ctp:55
+#: /views/install/start.ctp:31
+#: /views/languages/admin_edit.ctp:30
+#: /views/layouts/admin.ctp:44
+#: /views/micro_templates/admin_create_from_tag.ctp:33
+#: /views/micro_templates/admin_edit.ctp:34
+#: /views/order_status/admin_edit.ctp:34
+#: /views/orders/admin_view.ctp:211
+#: /views/payment_methods/admin_edit.ctp:29
+#: /views/shipping_methods/admin_edit.ctp:30
+#: /views/stylesheets/admin_copy.ctp:26
+#: /views/stylesheets/admin_edit.ctp:59
+#: /views/tax_country_zone_rates/admin_edit.ctp:26
+#: /views/tax_country_zone_rates/admin_new.ctp:49
+#: /views/taxes/admin_edit.ctp:24
+#: /views/templates/admin_copy.ctp:26
+#: /views/templates/admin_edit.ctp:25
+#: /views/templates/admin_edit_details.ctp:26
+#: /views/user_tags/admin_edit.ctp:49
+#: /views/users/admin_new.ctp:28
+#: /views/users/admin_user_account.ctp:35
+msgid "Submit"
+msgstr "Lägg till"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:72
+#: /views/configuration/admin_edit.ctp:45
+#: /views/contents/admin_core_pages_edit.ctp:100
+#: /views/contents/admin_edit.ctp:196
+#: /views/global_content_blocks/admin_edit.ctp:55
+#: /views/micro_templates/admin_create_from_tag.ctp:33
+#: /views/micro_templates/admin_edit.ctp:34
+#: /views/stylesheets/admin_edit.ctp:59
+#: /views/templates/admin_edit.ctp:25
+#: /views/user_tags/admin_edit.ctp:49
+#: /views/users/admin_user_preferences.ctp:26
+msgid "Apply"
+msgstr "Tillämpa"
+
+#: /plugins/module_coupons/views/admin/admin_edit.ctp:72
+#: /views/configuration/admin_edit.ctp:45
+#: /views/contents/admin_core_pages_edit.ctp:100
+#: /views/contents/admin_edit.ctp:196
+#: /views/countries/admin_edit.ctp:57
+#: /views/country_zones/admin_edit.ctp:31
+#: /views/currencies/admin_edit.ctp:45
+#: /views/defined_languages/admin_edit.ctp:41
+#: /views/global_content_blocks/admin_edit.ctp:55
+#: /views/languages/admin_edit.ctp:30
+#: /views/micro_templates/admin_create_from_tag.ctp:33
+#: /views/micro_templates/admin_edit.ctp:34
+#: /views/order_status/admin_edit.ctp:34
+#: /views/payment_methods/admin_edit.ctp:29
+#: /views/shipping_methods/admin_edit.ctp:30
+#: /views/stylesheets/admin_copy.ctp:26
+#: /views/stylesheets/admin_edit.ctp:59
+#: /views/tax_country_zone_rates/admin_edit.ctp:26
+#: /views/tax_country_zone_rates/admin_new.ctp:49
+#: /views/taxes/admin_edit.ctp:24
+#: /views/templates/admin_copy.ctp:26
+#: /views/templates/admin_edit.ctp:25
+#: /views/templates/admin_edit_details.ctp:26
+#: /views/templates/admin_new.ctp:21
+#: /views/user_tags/admin_edit.ctp:49
+#: /views/users/admin_new.ctp:28
+#: /views/users/admin_user_account.ctp:35
+#: /views/users/admin_user_preferences.ctp:26
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: /plugins/module_coupons/views/admin/admin_help.ctp:16
+msgid "The coupons module allows you to create promotional discounts and coupons for your customers to use."
+msgstr "Den kuponger modulen kan du skapa rabatterbjudanden och kuponger för dina kunder att använda."
+
+#: /plugins/module_coupons/views/admin/admin_help.ctp:18
+msgid "Once installed there will be a new menu item under Content called Coupons. Here you can create coupons for your customers to use. They will be presented with a box during checkout to enter any promotional coupons they have."
+msgstr "När du har installerat kommer det att finnas en ny menyalternativ enligt innehåll kallas kuponger. Här kan du skapa kuponger för dina kunder att använda. De kommer att presenteras med en låda under kassan för att ange några rabattkuponger som de har.."
+
+#: /plugins/module_coupons/views/admin/admin_help.ctp:19
+msgid "To use during checkout:"
+msgstr "Om du vill använda i kassan:"
+
+#: /plugins/module_coupons/views/admin/admin_index.ctp:15
+#: /views/countries/admin.ctp:20;20
+#: /views/country_zones/admin.ctp:16
+#: /views/country_zones/admin_edit.ctp:28
+#: /views/currencies/admin.ctp:18
+#: /views/currencies/admin_edit.ctp:24
+#: /views/languages/admin.ctp:18
+#: /views/languages/admin_edit.ctp:24
+#: /views/shipping_methods/admin.ctp:16
+msgid "Code"
+msgstr "Kod"
+
+#: /plugins/module_coupons/views/admin/admin_index.ctp:15
+#: /plugins/module_reviews/views/admin/admin_index.ctp:15
+#: /views/contents/admin.ctp:18
+#: /views/contents/admin_core_pages.ctp:16
+#: /views/countries/admin.ctp:20
+#: /views/country_zones/admin.ctp:16
+#: /views/currencies/admin.ctp:18
+#: /views/defined_languages/admin.ctp:15
+#: /views/events/admin_view.ctp:16
+#: /views/global_content_blocks/admin.ctp:17
+#: /views/languages/admin.ctp:18
+#: /views/micro_templates/admin.ctp:15
+#: /views/modules/admin.ctp:16
+#: /views/order_status/admin.ctp:16
+#: /views/orders/admin.ctp:18
+#: /views/payment_methods/admin.ctp:16
+#: /views/shipping_methods/admin.ctp:16
+#: /views/stylesheets/admin.ctp:18
+#: /views/stylesheets/admin_attach_templates.ctp:22
+#: /views/tax_country_zone_rates/admin.ctp:18
+#: /views/taxes/admin.ctp:16
+#: /views/templates/admin.ctp:16
+#: /views/templates/admin_attach_stylesheets.ctp:21
+#: /views/user_tags/admin.ctp:17
+#: /views/users/admin.ctp:16
+msgid "Action"
+msgstr "Åtgärd"
+
+#: /plugins/module_reviews/controllers/admin_controller.php:21
+msgid "Record Deleted."
+msgstr "Skivan raderas."
+
+#: /plugins/module_reviews/controllers/admin_controller.php:27
+msgid "Read Review"
+msgstr "Läs recension"
+
+#: /plugins/module_reviews/controllers/admin_controller.php:33
+msgid "Manage Reviews"
+msgstr "Hantera Recensioner"
+
+#: /plugins/module_reviews/controllers/setup_controller.php:32
+msgid "Reviews"
+msgstr "Omdömen"
+
+#: /plugins/module_reviews/controllers/setup_controller.php:32
+msgid "Your review has successfully added."
+msgstr "Din kommentar har lagts till."
+
+#: /plugins/module_reviews/controllers/setup_controller.php:32
+msgid "Rating"
+msgstr "Betyg"
+
+#: /plugins/module_reviews/views/admin/admin_edit.ctp:14
+msgid "Date: "
+msgstr "Datum: "
+
+#: /plugins/module_reviews/views/admin/admin_edit.ctp:16
+msgid "Author: "
+msgstr "Författare: "
+
+#: /plugins/module_reviews/views/admin/admin_edit.ctp:16
+msgid "Rating: "
+msgstr "Betyg: "
+
+#: /plugins/module_reviews/views/admin/admin_edit.ctp:16
+msgid "Product: "
+msgstr "Produkt: "
+
+#: /plugins/module_reviews/views/admin/admin_edit.ctp:18
+msgid "Review: "
+msgstr "Omdöme: "
+
+#: /plugins/module_reviews/views/admin/admin_edit.ctp:20
+msgid "Return to menu"
+msgstr "Återgå till menyn"
+
+#: /plugins/module_reviews/views/admin/admin_help.ctp:15
+msgid "The reviews module will allow customers to publish reviews and rate your products."
+msgstr "Åsikterna Modulen gör det möjligt för kunderna att publicera recensioner och betygsätta dina produkter."
+
+#: /plugins/module_reviews/views/admin/admin_help.ctp:17
+msgid "Upon installation the Reviews Module will create a new Core Page for your store called Product Reviews."
+msgstr "Vid installationen av omdömen Module kommer att skapa en ny kärna sidan för din butik kallas Produkt recensioner."
+
+#: /plugins/module_reviews/views/admin/admin_help.ctp:18
+msgid "To create a link to a products reviews:"
+msgstr "Så här skapar du en länk till en produkter omdömen:"
+
+#: /plugins/module_reviews/views/admin/admin_help.ctp:20
+msgid "This call will create two links in your page/template. One to read reviews of the current content, and the other to publish your own review."
+msgstr "Denna inbjudan kommer att skapa två länkar på din sida / mall. En att läsa recensioner av det aktuella innehållet, och den andra att publicera din recension.."
+
+#: /plugins/module_reviews/views/admin/admin_help.ctp:21
+msgid "To create a listing of reviews:"
+msgstr "Så här skapar du en lista över recensioner:"
+
+#: /plugins/module_reviews/views/admin/admin_help.ctp:23
+msgid "Generally called from the core page. If called from a template will display a listing of reviews for that content item."
+msgstr "Generellt anropas från kärnans sida. Om anropas från en mall kommer att visa en lista över recensioner för innehållet objektet.."
+
+#: /plugins/module_reviews/views/admin/admin_index.ctp:15
+msgid "Author"
+msgstr "Författare"
+
+#: /plugins/module_reviews/views/admin/admin_index.ctp:15
+#: /views/orders/admin.ctp:18
+#: /views/orders/admin_view.ctp:160
+msgid "Date"
+msgstr "Datum"
+
+#: /plugins/module_reviews/views/admin/admin_index.ctp:15
+msgid "Product"
+msgstr "Produkt"
+
+#: /plugins/payment/views/admin/authorize.ctp:15
+msgid "Authorize.Net ID"
+msgstr "Authorize.Net ID"
+
+#: /plugins/payment/views/admin/google_html.ctp:15
+msgid "Merchant ID"
+msgstr "Merchant ID"
+
+#: /plugins/payment/views/admin/paypal.ctp:15
+msgid "Paypal Email"
+msgstr "Paypal Email"
+
+#: /plugins/shipping/views/admin/flat_rate.ctp:16
+msgid "Shipping Cost"
+msgstr "Fraktkostnad"
+
+#: /plugins/shipping/views/admin/free_shipping.ctp:14
+msgid "Free shipping is just that, FREE! No configuration is needed."
+msgstr "Fri frakt just NU, GRATIS! Ingen konfiguration behövs."
+
+#: /plugins/shipping/views/admin/per_item.ctp:16
+msgid "Per Item Amount"
+msgstr "Per Produkt Antal"
+
+#: /plugins/shipping/views/admin/per_item.ctp:20
+msgid "Handling"
+msgstr "Hantering"
+
+#: /plugins/shipping/views/admin/table_based.ctp:14
+msgid "Table based shipping can be set to work off of number of products in cart, weight of products, or total price of products. In the textarea below specify value to cost pairs with a colon followed by a comma. Example: 0:1.00,1:2.50,2:3.00. Units of measure must be integers."
+msgstr "Tabell baserad frakt kan ställas in för att arbeta bort av antalet produkter i kundvagnen, vikt produkter eller totala kostnaden för produkter. I textområdet nedan anger värdet kosta par med ett kolon följt av ett kommatecken. Exempel: 0: 1.00,1: 2.50,2: 3.00. Måttenheter måste vara heltal."
+
+#: /plugins/shipping/views/admin/zone_based.ctp:14
+msgid "Zone based shipping can be set to work off of number of products in cart, weight of products, or total price of products. In the textarea below specify value to cost pairs with a colon followed by a comma. Example: 0:1.00,1:2.50,2:3.00. Units of measure must be integers."
+msgstr "Zon baserad frakt kan ställas in för att arbeta bort av antalet produkter i kundvagnen, vikt produkter eller totala kostnaden för produkter. I textområdet nedan anger värdet kosta par med ett kolon följt av ett kommatecken. Exempel: 0: 1.00,1: 2.50,2: 3.00. Måttenheter måste vara heltal."
+
+#: /plugins/shipping/views/admin/table_based.ctp:16
+#: /views/contents/admin_edit_type.ctp:54
+msgid "Weight"
+msgstr "Vikt"
+
+#: /plugins/shipping/views/admin/table_based.ctp:16
+#: /views/contents/admin_edit_type.ctp:54
+msgid "kg."
+msgstr "kg."
+
+#: /plugins/shipping/views/admin/table_based.ctp:17
+#: /views/orders/admin.ctp:18
+#: /views/orders/admin_view.ctp:125
+msgid "Tax"
+msgstr "Moms"
+
+#: /plugins/shipping/views/admin/table_based.ctp:17
+#: /views/orders/admin.ctp:18
+#: /views/orders/admin_view.ctp:125
+msgid "Total"
+msgstr "Total"
+
+#: /plugins/shipping/views/admin/table_based.ctp:18
+#: /views/orders/admin_view.ctp:17
+msgid "Products"
+msgstr "Produkter"
+
+#: /plugins/shipping/views/admin/table_based.ctp:24
+msgid "Based Off"
+msgstr "Baserat Från"
+
+#: /plugins/shipping/views/admin/table_based.ctp:30
+msgid "Rates"
+msgstr "Betygsätt"
+
+#: /vendors/smarty/vam_plugins/block.lang.php:60
+#: /vendors/smarty/vam_plugins/block.product_form.php:41
+#: /vendors/smarty/vam_plugins/function.admin_area_link.php:35
+#: /vendors/smarty/vam_plugins/function.admin_edit_link.php:37
+#: /vendors/smarty/vam_plugins/function.checkout.php:218
+#: /vendors/smarty/vam_plugins/function.content.php:53
+#: /vendors/smarty/vam_plugins/function.content_images.php:99
+#: /vendors/smarty/vam_plugins/function.content_listing.php:173
+#: /vendors/smarty/vam_plugins/function.currency_box.php:86
+#: /vendors/smarty/vam_plugins/function.description.php:35
+#: /vendors/smarty/vam_plugins/function.get_template_vars.php:44
+#: /vendors/smarty/vam_plugins/function.global_content.php:56
+#: /vendors/smarty/vam_plugins/function.headdata.php:32
+#: /vendors/smarty/vam_plugins/function.language_box.php:83
+#: /vendors/smarty/vam_plugins/function.metadata.php:35
+#: /vendors/smarty/vam_plugins/function.module.php:77
+#: /vendors/smarty/vam_plugins/function.page_name.php:32
+#: /vendors/smarty/vam_plugins/function.payment.php:63
+#: /vendors/smarty/vam_plugins/function.payment_content.php:43
+#: /vendors/smarty/vam_plugins/function.product_price.php:35
+#: /vendors/smarty/vam_plugins/function.repeat.php:29
+#: /vendors/smarty/vam_plugins/function.shopping_cart.php:116
+#: /vendors/smarty/vam_plugins/function.stylesheet.php:52
+#: /vendors/smarty/vam_plugins/function.user_tag.php:33
+msgid "What does this tag do?"
+msgstr "Vad gör denna tagg?"
+
+#: /vendors/smarty/vam_plugins/function.base_path.php:23
+msgid "Displays the base program path."
+msgstr "Visar basens sökvägen till programmet."
+
+#: /vendors/smarty/vam_plugins/function.xsell.php:23
+msgid "Displays also purchased products for the current content."
+msgstr "Visar relaterade produkter för aktuell produkt."
+
+#: /vendors/smarty/vam_plugins/function.google_analytics.php:23
+msgid "Displays the google analytics code."
+msgstr "Visar Google Analytics-koden."
+
+#: /vendors/smarty/vam_plugins/function.yandex_metrika.php:23
+msgid "Displays the yandex metrika code."
+msgstr "Visar yandex metrika koden."
+
+#: /vendors/smarty/vam_plugins/block.lang.php:61
+msgid "Outputs the correct language value specified by the key between the brackets."
+msgstr "Matar rätt språk värde som anges av nyckeln mellan konsolerna."
+
+#: /vendors/smarty/vam_plugins/block.lang.php:62
+#: /vendors/smarty/vam_plugins/block.product_form.php:43
+#: /vendors/smarty/vam_plugins/function.admin_area_link.php:38
+#: /vendors/smarty/vam_plugins/function.admin_edit_link.php:40
+#: /vendors/smarty/vam_plugins/function.checkout.php:220
+#: /vendors/smarty/vam_plugins/function.content.php:55
+#: /vendors/smarty/vam_plugins/function.content_images.php:101
+#: /vendors/smarty/vam_plugins/function.content_listing.php:175
+#: /vendors/smarty/vam_plugins/function.currency_box.php:88
+#: /vendors/smarty/vam_plugins/function.description.php:37
+#: /vendors/smarty/vam_plugins/function.get_template_vars.php:46
+#: /vendors/smarty/vam_plugins/function.global_content.php:58
+#: /vendors/smarty/vam_plugins/function.headdata.php:34
+#: /vendors/smarty/vam_plugins/function.language_box.php:85
+#: /vendors/smarty/vam_plugins/function.metadata.php:37
+#: /vendors/smarty/vam_plugins/function.page_name.php:34
+#: /vendors/smarty/vam_plugins/function.payment.php:65
+#: /vendors/smarty/vam_plugins/function.payment_content.php:45
+#: /vendors/smarty/vam_plugins/function.product_price.php:37
+#: /vendors/smarty/vam_plugins/function.repeat.php:31
+#: /vendors/smarty/vam_plugins/function.shopping_cart.php:118
+#: /vendors/smarty/vam_plugins/function.stylesheet.php:54
+#: /vendors/smarty/vam_plugins/function.user_tag.php:35
+msgid "How do I use it?"
+msgstr "Hur använder jag det?"
+
+#: /vendors/smarty/vam_plugins/block.lang.php:63
+#: /vendors/smarty/vam_plugins/function.admin_area_link.php:39
+#: /vendors/smarty/vam_plugins/function.admin_edit_link.php:41
+#: /vendors/smarty/vam_plugins/function.content.php:56
+#: /vendors/smarty/vam_plugins/function.content_listing.php:176
+#: /vendors/smarty/vam_plugins/function.currency_box.php:89
+#: /vendors/smarty/vam_plugins/function.description.php:38
+#: /vendors/smarty/vam_plugins/function.get_template_vars.php:47
+#: /vendors/smarty/vam_plugins/function.global_content.php:59
+#: /vendors/smarty/vam_plugins/function.headdata.php:35
+#: /vendors/smarty/vam_plugins/function.language_box.php:86
+#: /vendors/smarty/vam_plugins/function.metadata.php:38
+#: /vendors/smarty/vam_plugins/function.page_name.php:35
+#: /vendors/smarty/vam_plugins/function.product_price.php:38
+#: /vendors/smarty/vam_plugins/function.repeat.php:32
+#: /vendors/smarty/vam_plugins/function.user_tag.php:36
+msgid "Just insert the tag into your template like:"
+msgstr "Helt enkelt infoga en tagg i mallen, till exempel:"
+
+#: /vendors/smarty/vam_plugins/block.lang.php:63
+msgid "Language Text"
+msgstr "Språktext"
+
+#: /vendors/smarty/vam_plugins/block.lang.php:64
+msgid "Make sure you define the language key in /app/Locale/your-locale/LC_MESSAGES/catalog.po."
+msgstr "Se till att du ange språket nyckeln i /app/Locale/rus/LC_MESSAGES/catalog.po."
+
+#: /vendors/smarty/vam_plugins/block.product_form.php:42
+msgid "Wraps the product purchase button with a form."
+msgstr "Infogar ett formulär med en knapp för att köpa."
+
+#: /vendors/smarty/vam_plugins/block.product_form.php:42
+msgid "(product_id)"
+msgstr "(product_id)"
+
+#: /vendors/smarty/vam_plugins/block.product_form.php:42
+msgid "Product ID."
+msgstr "Produkt ID."
+
+#: /vendors/smarty/vam_plugins/block.product_form_ajax.php:42
+msgid "Wraps the product purchase button with a ajax form."
+msgstr "Infogar ajax form med en knapp för att köpa."
+
+#: /vendors/smarty/vam_plugins/block.product_form.php:44
+msgid "Just wrap your product purchase with:"
+msgstr "Bara linda din produkt köp med:"
+
+#: /vendors/smarty/vam_plugins/block.product_form.php:44
+msgid "stuff"
+msgstr "grejer"
+
+#: /vendors/smarty/vam_plugins/function.admin_area_link.php:27
+msgid "Administration"
+msgstr "Administrering"
+
+#: /vendors/smarty/vam_plugins/function.admin_area_link.php:36
+msgid "Creates a link to the admin area inside of the front end template."
+msgstr "Skapar en länk till admin området innanför den främre änden mall."
+
+#: /vendors/smarty/vam_plugins/function.admin_area_link.php:37
+msgid "The link will only be displayed if the user has an active admin session."
+msgstr "Länken visas endast om användaren har en aktiv admin session."
+
+#: /vendors/smarty/vam_plugins/function.admin_area_link.php:40
+#: /vendors/smarty/vam_plugins/function.admin_edit_link.php:42
+#: /vendors/smarty/vam_plugins/function.checkout.php:222
+#: /vendors/smarty/vam_plugins/function.content.php:57
+#: /vendors/smarty/vam_plugins/function.content_images.php:103
+#: /vendors/smarty/vam_plugins/function.content_listing.php:177
+#: /vendors/smarty/vam_plugins/function.currency_box.php:90
+#: /vendors/smarty/vam_plugins/function.description.php:39
+#: /vendors/smarty/vam_plugins/function.get_template_vars.php:48
+#: /vendors/smarty/vam_plugins/function.global_content.php:60
+#: /vendors/smarty/vam_plugins/function.headdata.php:36
+#: /vendors/smarty/vam_plugins/function.language_box.php:87
+#: /vendors/smarty/vam_plugins/function.metadata.php:39
+#: /vendors/smarty/vam_plugins/function.module.php:80
+#: /vendors/smarty/vam_plugins/function.page_name.php:36
+#: /vendors/smarty/vam_plugins/function.payment.php:67
+#: /vendors/smarty/vam_plugins/function.payment_content.php:47
+#: /vendors/smarty/vam_plugins/function.product_price.php:39
+#: /vendors/smarty/vam_plugins/function.repeat.php:33
+#: /vendors/smarty/vam_plugins/function.shopping_cart.php:120
+#: /vendors/smarty/vam_plugins/function.stylesheet.php:56
+#: /vendors/smarty/vam_plugins/function.user_tag.php:37
+msgid "What parameters does it take?"
+msgstr "Vilka parametrar tar det?"
+
+#: /vendors/smarty/vam_plugins/function.admin_edit_link.php:29
+msgid "Edit Content"
+msgstr "Redigera innehåll"
+
+#: /vendors/smarty/vam_plugins/function.admin_edit_link.php:38
+msgid "Creates a link to edit the current content page."
+msgstr "Skapar en länk för att redigera den aktuella innehållssida."
+
+#: /vendors/smarty/vam_plugins/function.admin_edit_link.php:39
+msgid "Links are only shown if you have an active admin session and the page is not a core page."
+msgstr "Länkar visas endast om du har en aktiv admin session och sidan är inte en kärnsida."
+
+#: /vendors/smarty/vam_plugins/function.checkout.php:219
+msgid "This plugin handles the entire checkout process."
+msgstr "Detta plugin hanterar hela kassan."
+
+#: /vendors/smarty/vam_plugins/function.checkout.php:221
+#: /vendors/smarty/vam_plugins/function.content_images.php:102
+#: /vendors/smarty/vam_plugins/function.shopping_cart.php:119
+msgid "Just insert the tag into your template/page like:"
+msgstr "Sätt bara in taggen i din mall / sida som:"
+
+#: /vendors/smarty/vam_plugins/function.content.php:54
+msgid "This is where the content for your page will be displayed. It's inserted into the template and changed based on the current page being displayed. This tag will call any sub-templates that are required to display the page."
+msgstr "Det är där innehållet på din sida kommer att visas. Det är in i mallen och ändrade baserat på den aktuella sidan som visas. Den här taggen kommer att kalla alla under mallar som krävs för att visa sidan."
+
+#: /vendors/smarty/vam_plugins/function.content_images.php:100
+msgid "Displays an unordered list of images for the current content page."
+msgstr "Visar en oordnad lista med bilder för den aktuella innehållssida."
+
+#: /vendors/smarty/vam_plugins/function.content_images.php:105
+msgid "(number)"
+msgstr "(number)"
+
+#: /vendors/smarty/vam_plugins/function.content_images.php:105
+msgid "Number of images to display."
+msgstr "Antal bilder som ska visas."
+
+#: /vendors/smarty/vam_plugins/function.content_images.php:105
+msgid "(content_id)"
+msgstr "(content_id)"
+
+#: /vendors/smarty/vam_plugins/function.content_images.php:105
+msgid "Display images of selected content_id element."
+msgstr "Visa bilder av utvalda content_id inslag."
+
+#: /vendors/smarty/vam_plugins/function.content_listing.php:174
+msgid "Displays a list of content items depending on the parent of those items."
+msgstr "Visar en lista över innehållsposter beroende på den överordnade för dessa poster."
+
+#: /vendors/smarty/vam_plugins/function.category_box.php:174
+msgid "Displays a list of categories."
+msgstr "Visar en lista över kategorier."
+
+#: /vendors/smarty/vam_plugins/function.content_listing.php:179
+msgid "(type)"
+msgstr "(type)"
+
+#: /vendors/smarty/vam_plugins/function.content_listing.php:179
+msgid "Type of content to display. Seperate multiple values with commas, example:"
+msgstr "Typ av innehåll som ska visas. Separata flera värden med kommatecken, t.ex.: "
+
+#: /vendors/smarty/vam_plugins/function.content_listing.php:179
+msgid "Defaults to"
+msgstr "Standardvärdet:"
+
+#: /vendors/smarty/vam_plugins/function.content_listing.php:180
+msgid "(parent)"
+msgstr "(parent)"
+
+#: /vendors/smarty/vam_plugins/function.content_listing.php:180
+msgid "The parent of the content items to be shown. Accepts an alias or id, defaults to 0."
+msgstr "Moderbolaget innehåll. Du kan ange som värdet av ett alias eller id-nummer, standardvärdet: 0."
+
+#: /vendors/smarty/vam_plugins/function.content_listing.php:181
+#: /vendors/smarty/vam_plugins/function.currency_box.php:92
+#: /vendors/smarty/vam_plugins/function.language_box.php:89
+#: /vendors/smarty/vam_plugins/function.module.php:84
+#: /vendors/smarty/vam_plugins/function.payment.php:69
+#: /vendors/smarty/vam_plugins/function.shopping_cart.php:122
+msgid "(template)"
+msgstr "(template)"
+
+#: /vendors/smarty/vam_plugins/function.content_listing.php:181
+msgid "Useful if you want to override the default content listing template. Setting this will utilize the template that matches this alias."
+msgstr "Användbart om du vill åsidosätta standardinnehållet notering mall. Ställa detta kommer att utnyttja den mall som matchar detta alias."
+
+#: /vendors/smarty/vam_plugins/function.content_listing.php:182
+msgid "(page)"
+msgstr "(page)"
+
+#: /vendors/smarty/vam_plugins/function.content_listing.php:183
+msgid "Current page."
+msgstr "Nuvarande sida."
+
+#: /vendors/smarty/vam_plugins/function.content_listing.php:183
+msgid "Content listing sort order. Available values: "
+msgstr "Innehåll notering sorteringsordning. Tillgängliga värden: "
+
+#: /vendors/smarty/vam_plugins/function.content_listing.php:183
+msgid "Current product listing sort order. Available values: "
+msgstr "Aktuell artikel notering sorteringsordning. Tillgängliga värden: "
+
+#: /vendors/smarty/vam_plugins/function.content_listing.php:183
+msgid "Display products with selected product label."
+msgstr "Visa produkter med utvalda produktetiketten."
+
+#: /vendors/smarty/vam_plugins/function.content_listing.php:182
+msgid "(limit)"
+msgstr "(limit)"
+
+#: /vendors/smarty/vam_plugins/function.content_listing.php:183
+msgid "Items per page."
+msgstr "Artiklar per sida."
+
+#: /vendors/smarty/vam_plugins/function.currency_box.php:87
+msgid "Allows the user to select a currency."
+msgstr "Tillåter användaren att välja en valuta."
+
+#: /vendors/smarty/vam_plugins/function.currency_box.php:92
+msgid "Overrides the default template for the currency_box plugin."
+msgstr "Åsidosätter standardmallen för currency_box plugin."
+
+#: /vendors/smarty/vam_plugins/function.description.php:36
+msgid "Outputs the description of the current page, product, or category depending on the user's default selected language."
+msgstr "Utmatar beskrivningen av den aktuella sidan, produkt eller kategori beroende på användarens standard valda språket."
+
+#: /vendors/smarty/vam_plugins/function.short_description.php:36
+msgid "Outputs the short description of the current page, product, or category depending on the user's default selected language."
+msgstr "Utmatar KORT beskrivningen av den aktuella sidan, produkt eller kategori beroende på användarens standard valda språket."
+
+#: /vendors/smarty/vam_plugins/function.get_template_vars.php:45
+msgid "Dumps all available smarty template variables onto the page. If you wanted to use one you would use it like:"
+msgstr "Dumpar alla tillgängliga smarty mallvariabler på sida. Om du vill använda som du skulle använda den som:"
+
+#: /vendors/smarty/vam_plugins/function.global_content.php:57
+msgid "Outputs the global_content of the current page, product, or category depending on the user's default selected language."
+msgstr "Matar ut global_content av den aktuella sidan, produkt eller kategori beroende på användarens standard valda språket."
+
+#: /vendors/smarty/vam_plugins/function.global_content.php:62
+#: /vendors/smarty/vam_plugins/function.user_tag.php:39
+msgid "(alias)"
+msgstr "(alias)"
+
+#: /vendors/smarty/vam_plugins/function.global_content.php:62
+msgid "Alias of the global content block to display."
+msgstr "Alias av den globala innehållsblocket för att visa."
+
+#: /vendors/smarty/vam_plugins/function.headdata.php:33
+msgid "Displays the head data for this content. Edit the head data for each content item under the options tab."
+msgstr "Visar datahuvudet för detta innehåll. Redigera datahuvudet för varje innehållsobjekt under fliken alternativ."
+
+#: /vendors/smarty/vam_plugins/function.language_box.php:84
+msgid "Allows the user to select a language."
+msgstr "Tillåter användaren att välja ett språk."
+
+#: /vendors/smarty/vam_plugins/function.language_box.php:89
+msgid "Overrides the default template for the language_box plugin."
+msgstr "Åsidosätter standardmallen för language_box plugin."
+
+#: /vendors/smarty/vam_plugins/function.meta_description.php:30
+msgid "Displays the current meta description."
+msgstr "Visar aktuell metabeskrivning."
+
+#: /vendors/smarty/vam_plugins/function.meta_description.php:30
+msgid "Displays the current meta title."
+msgstr "Visar aktuell metabeskrivning."
+
+#: /vendors/smarty/vam_plugins/function.meta_keywords.php:30
+msgid "Displays the current meta keywords."
+msgstr "Visar aktuella meta sökord."
+
+#: /vendors/smarty/vam_plugins/function.metadata.php:36
+msgid "Displays the metadata for this content. Edit the metadata under the options tab."
+msgstr "Visar metadata för detta innehåll. Redigera metadata under fliken alternativ."
+
+#: /vendors/smarty/vam_plugins/function.module.php:78
+msgid "Makes a call to the installed module.  If the module is not found, this does nothing."
+msgstr "Gör ett samtal till den installerade modulen. Om modulen inte hittas, gör detta ingenting."
+
+#: /vendors/smarty/vam_plugins/function.module.php:79
+msgid "See the specific module documentation for more information."
+msgstr "Se särskild modul dokumentation för mer information."
+
+#: /vendors/smarty/vam_plugins/function.module.php:82
+msgid "(controller)"
+msgstr "(controller)"
+
+#: /vendors/smarty/vam_plugins/function.module.php:82
+msgid "Module to call. Alias name"
+msgstr "Modul för att ringa. Alias namn"
+
+#: /vendors/smarty/vam_plugins/function.module.php:82
+msgid "Controller to call. Defaults to action"
+msgstr "Controller för att ringa. Inställningar till handling"
+
+#: /vendors/smarty/vam_plugins/function.module.php:83
+msgid "(action)"
+msgstr "(action)"
+
+#: /vendors/smarty/vam_plugins/function.module.php:83
+msgid "Method to call of the action controller."
+msgstr "Metod för att ringa om de åtgärder controller."
+
+#: /vendors/smarty/vam_plugins/function.module.php:84
+msgid "Overrides the module's default template for the action specified."
+msgstr "Åsidosätter modulens standardmallen för åtgärden anges."
+
+#: /vendors/smarty/vam_plugins/function.page_name.php:33
+msgid "Displays the current page name."
+msgstr "Visar den aktuella sidan namn."
+
+#: /vendors/smarty/vam_plugins/function.shopping_cart_total.php:33
+msgid "Displays the total quantity products in shopping cart."
+msgstr "Visar den totala mängden produkter i varukorgen."
+
+#: /vendors/smarty/vam_plugins/function.shopping_cart_amount.php:33
+msgid "Displays the shopping cart amount."
+msgstr "Visar kundvagnen beloppet."
+
+#: /vendors/smarty/vam_plugins/function.page_url.php:33
+msgid "Displays the current page url."
+msgstr "Visar den aktuella sidan url."
+
+#: /vendors/smarty/vam_plugins/function.payment.php:64
+msgid "This plugin handles the payment process."
+msgstr "Denna taggen hanterar betalningsprocessen."
+
+#: /vendors/smarty/vam_plugins/function.shipping.php:50
+msgid "This plugin returns the shipping info text."
+msgstr "Den här taggen visar information om modulen leverans."
+
+#: /vendors/smarty/vam_plugins/function.shipping_content.php:37
+msgid "Displays any necessary shipping text before sending the user off to process the order."
+msgstr "Visar alla nödvändiga frakt texten innan du skickar ut användaren att bearbeta ordern."
+
+#: /vendors/smarty/vam_plugins/function.payment.php:66
+msgid "You should only use this tag in the confirmation core page. Just insert the tag into your page like:"
+msgstr "Du bör endast använda den här taggen i bekräftelsen kärn sida. Sätt bara in taggen i din sida som:"
+
+#: /vendors/smarty/vam_plugins/function.payment.php:69
+msgid "overrides the default payment template."
+msgstr "åsidosätter standardmallen betalning."
+
+#: /vendors/smarty/vam_plugins/function.payment_content.php:44
+msgid "Displays any necessary payment fields before sending the user off to process the order."
+msgstr "Visar eventuella betalnings fält innan du skickar ut användaren att bearbeta ordern."
+
+#: /vendors/smarty/vam_plugins/function.payment_content.php:46
+msgid "This tag is called from the confirmation page like:"
+msgstr "Den här taggen anropas från bekräftelsesidan som:"
+
+#: /vendors/smarty/vam_plugins/function.product_price.php:36
+msgid "Displays the product price for the current content."
+msgstr "Visar produktpriset för det aktuella innehållet."
+
+#: /vendors/smarty/vam_plugins/function.product_weight.php:36
+msgid "Displays the product weight for the current content."
+msgstr "Visar produktvikt för det aktuella innehållet."
+
+#: /vendors/smarty/vam_plugins/function.product_model.php:36
+msgid "Displays the product model for the current content."
+msgstr "Visar produktmodell för det aktuella innehållet."
+
+#: /vendors/smarty/vam_plugins/function.product_manufacturer.php:36
+msgid "Displays the product manufacturer for the current content."
+msgstr "Visar tillverkaren för det aktuella innehållet."
+
+#: /vendors/smarty/vam_plugins/function.product_stock.php:36
+msgid "Displays the product stock quantity for the current content."
+msgstr "Visar produkt lager kvantiteten för det aktuella innehållet."
+
+#: /vendors/smarty/vam_plugins/function.repeat.php:30
+msgid "Repeats a given string a certain number of times."
+msgstr "Upprepar en given sträng ett visst antal gånger."
+
+#: /vendors/smarty/vam_plugins/function.repeat.php:32
+msgid "Hello!"
+msgstr "Hej!"
+
+#: /vendors/smarty/vam_plugins/function.repeat.php:35
+msgid "(string)"
+msgstr "(string)"
+
+#: /vendors/smarty/vam_plugins/function.repeat.php:35
+msgid "String to repeat."
+msgstr "Sträng att upprepa"
+
+#: /vendors/smarty/vam_plugins/function.repeat.php:36
+msgid "(times)"
+msgstr "(times)"
+
+#: /vendors/smarty/vam_plugins/function.repeat.php:36
+msgid "Number of times to repeat the specified string."
+msgstr "Antal gånger att upprepa den angivna strängen."
+
+#: /vendors/smarty/vam_plugins/function.shopping_cart.php:117
+msgid "Displays a more detailed version of the user's cart."
+msgstr "Visar en mer detaljerad version av användarens kundvagnen."
+
+#: /vendors/smarty/vam_plugins/function.shopping_cart.php:122
+msgid "Overrides the default template."
+msgstr "Åsidosätter standardmallen."
+
+#: /vendors/smarty/vam_plugins/function.shopping_cart.php:123
+msgid "(showempty)"
+msgstr "(showempty)"
+
+#: /vendors/smarty/vam_plugins/function.shopping_cart.php:123
+msgid "(true or false) If set to false does not display the cart if the user has not added any items.  Defaults to false."
+msgstr "(sant eller falskt) Om inställd på false inte visas vagnen om användaren har inte lagt till några föremål. Standardvärdet är false."
+
+#: /vendors/smarty/vam_plugins/function.stylesheet.php:53
+msgid "Gets stylesheet information from the system. By default, it grabs all of the stylesheets attached to the current template."
+msgstr "Får format information från systemet. Som standard, tar det alla formatmallar kopplade till den aktuella mallen."
+
+#: /vendors/smarty/vam_plugins/function.stylesheet.php:55
+msgid "Just insert the tag into your template/page's head section like:"
+msgstr "Sätt bara in taggen i din mall / sida avdelning huvudet som:"
+
+#: /vendors/smarty/vam_plugins/function.stylesheet.php:58;59
+msgid "(optional)"
+msgstr "(valfritt)"
+
+#: /vendors/smarty/vam_plugins/function.stylesheet.php:58
+msgid "Instead of getting all stylesheets for the given page, it will only get one spefically named one, whether it's attached to the current template or not. Set the alias to be the ID or alias of the stylesheet."
+msgstr "Istället för att få alla formatmallar för den givna sidan, kommer det bara att bli en spefically utsetts till en, om den är kopplad till den aktuella mallen eller inte. Ställ in alias vara ID eller alias för formatmallen."
+
+#: /vendors/smarty/vam_plugins/function.stylesheet.php:59
+msgid "If name is defined, this allows you set a different media type for that stylesheet."
+msgstr "Om namn är definierat, ger detta dig ställa in en annan materialtyp för att format."
+
+#: /vendors/smarty/vam_plugins/function.user_tag.php:34
+msgid "Calls the user tag specified by alias"
+msgstr "Samtal användaren etiketten anges av alias."
+
+#: /vendors/smarty/vam_plugins/function.user_tag.php:39
+msgid "Alias of the user tag to call."
+msgstr "Alias för användaren taggen för att ringa."
+
+#: /vendors/smarty/vam_plugins/function.user_tag.php:40
+msgid "(var)"
+msgstr "(var)"
+
+#: /vendors/smarty/vam_plugins/function.user_tag.php:40
+msgid "Pass any other smarty variables or information to the user tag like:"
+msgstr "Passera någon annan smarty variabler eller information för användaren taggen som:"
+
+#: /vendors/smarty/vam_plugins/function.user_tag.php:40
+msgid "These will be available for the user tag to use in the $params array."
+msgstr "Dessa kommer att vara tillgängliga för användaren taggen för att använda i $params utbud."
+
+#: /views/helpers/admin.php:93
+msgid "Create New"
+msgstr "Skapa Ny"
+
+#: /views/helpers/admin.php:93
+msgid "Export"
+msgstr "Export"
+
+#: /views/helpers/admin.php:93
+msgid "Import"
+msgstr "Import"
+
+#: /views/helpers/admin.php:113
+msgid "With Selected:"
+msgstr "Markerade:"
+
+#: /views/helpers/admin.php:120
+msgid "Are you sure? You may not be able to undo this action."
+msgstr "Är du säker? Du kanske inte kunna ångra den här åtgärden."
+
+#: /views/helpers/admin.php:139
+msgid "Down"
+msgstr "Ner"
+
+#: /views/helpers/admin.php:147
+msgid "Up"
+msgstr "Upp"
+
+#: /views/helpers/admin.php:156
+#: /views/contents/admin.ctp:40;41
+#: /views/currencies/admin.ctp:26
+#: /views/global_content_blocks/admin.ctp:25
+#: /views/languages/admin.ctp:27
+#: /views/modules/admin.ctp:37
+#: /views/orders/admin_view.ctp:168
+#: /views/payment_methods/admin.ctp:23
+#: /views/shipping_methods/admin.ctp:24
+#: /views/stylesheets/admin.ctp:25
+msgid "True"
+msgstr "Sann"
+
+#: /views/helpers/admin.php:160
+#: /views/contents/admin.ctp:40;41
+#: /views/currencies/admin.ctp:26
+#: /views/global_content_blocks/admin.ctp:25
+#: /views/languages/admin.ctp:27
+#: /views/modules/admin.ctp:37
+#: /views/orders/admin_view.ctp:168
+#: /views/payment_methods/admin.ctp:23
+#: /views/shipping_methods/admin.ctp:24
+#: /views/stylesheets/admin.ctp:25
+msgid "False"
+msgstr "Falsk"
+
+#: /views/helpers/admin.php:168
+msgid "Confirm delete action?"
+msgstr "Bekräfta raderingen?"
+
+#: /views/helpers/admin.php:179
+#: /views/images/admin_view_content_images.ctp:29
+msgid "No Data"
+msgstr "Inga Data"
+
+#: /views/helpers/tiny_mce.php:67
+msgid "Show/Hide editor"
+msgstr "Visa / Dölj redigeraren"
+
+#: /views/configuration/admin_edit.ctp:23
+msgid "Caching"
+msgstr "Cachelagring"
+
+#: /views/configuration/admin_edit.ctp:23
+msgid "Email Settings"
+msgstr "E-postinställningar"
+
+#: /views/configuration/admin_edit.ctp:28
+msgid "Site Name"
+msgstr "Hemsidans namn"
+
+#: /views/configuration/admin_edit.ctp:28
+msgid "Telephone"
+msgstr "Telefon"
+
+#: /views/configuration/admin_edit.ctp:28
+msgid "Facebook"
+msgstr "Facebook"
+
+#: /views/configuration/admin_edit.ctp:28
+msgid "Twitter"
+msgstr "Twitter"
+
+#: /views/configuration/admin_edit.ctp:28
+msgid "Google+"
+msgstr "Google+"
+
+#: /views/configuration/admin_edit.ctp:29
+msgid "Metadata"
+msgstr "Metadata"
+
+#: /views/configuration/admin_edit.ctp:30
+msgid "URL Extension"
+msgstr "URL Förlängning"
+
+#: /views/configuration/admin_edit.ctp:31
+msgid "GD Library Enabled"
+msgstr "Bibliotek Aktiverad"
+
+#: /views/configuration/admin_edit.ctp:32
+msgid "Image Thumbnail Size"
+msgstr "Bild Miniatyrstorlek"
+
+#: /views/configuration/admin_edit.ctp:28
+msgid "Google Analytics ID"
+msgstr "Google Analytics-ID"
+
+#: /views/configuration/admin_edit.ctp:28
+msgid "Yandex.Metrika ID"
+msgstr "Yandex.Metrika ID"
+
+#: /views/configuration/admin_edit.ctp:28
+msgid "Products Per Page"
+msgstr "Produkter per sida"
+
+#: /views/configuration/admin_edit.ctp:28
+msgid "Ajax Enable"
+msgstr "Ajax Aktiverad"
+
+#: /views/configuration/admin_edit.ctp:38
+msgid "Cache Time in Seconds"
+msgstr "Cache Tid i sekunder"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "Reset Cache"
+msgstr "Återställ Cache"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "Click here to clear cache"
+msgstr "Klicka här för att rensa cache"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "Send extra order emails to"
+msgstr "Skicka extra order e-post till"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "New Order: From"
+msgstr "Ny beställning: Från"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "New Order: From Name"
+msgstr "Ny beställning: Från Namn"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "New Order Status: From"
+msgstr "Ny beställning Status: Från"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "New Order Status: From Name"
+msgstr "Ny beställning Status: Från Namn"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "Send contact us emails to"
+msgstr "Skicka kontakta oss e-post till"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "DaData API Key"
+msgstr "DaData API-nyckel"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "Phone Input Mask"
+msgstr "Telefon Inmatning"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "SMS Email Gateway"
+msgstr "SMS Email Gateway"
+
+#: /views/contents/admin.ctp:18
+#: /views/contents/admin_core_pages.ctp:16
+#: /views/countries/admin.ctp:20
+#: /views/country_zones/admin.ctp:16
+#: /views/defined_languages/admin.ctp:15
+#: /views/global_content_blocks/admin.ctp:17
+#: /views/micro_templates/admin.ctp:15
+#: /views/stylesheets/admin.ctp:18
+#: /views/tags/admin.ctp:16
+#: /views/templates/admin.ctp:16
+#: /views/user_tags/admin.ctp:17
+#: /views/users/admin.ctp:16
+msgid "Title"
+msgstr "Titel"
+
+#: /views/contents/admin.ctp:18
+msgid "Type"
+msgstr "Typ"
+
+#: /views/contents/admin.ctp:18
+#: /views/contents/admin_core_pages.ctp:16
+#: /views/contents/admin_core_pages_edit.ctp:50
+#: /views/contents/admin_edit.ctp:73
+#: /views/micro_templates/admin_create_from_tag.ctp:29
+#: /views/micro_templates/admin_edit.ctp:30
+#: /views/tags/admin_view.ctp:37
+#: /views/templates/admin_attach_stylesheets.ctp:14
+#: /views/templates/admin_edit.ctp:22
+msgid "Template"
+msgstr "Mall"
+
+#: /views/contents/admin.ctp:18
+#: /views/contents/admin_edit.ctp:179
+#: /views/currencies/admin.ctp:18
+#: /views/global_content_blocks/admin.ctp:17
+#: /views/global_content_blocks/admin_edit.ctp:46
+#: /views/languages/admin.ctp:18
+#: /views/payment_methods/admin.ctp:16
+#: /views/shipping_methods/admin.ctp:16
+#: /views/stylesheets/admin.ctp:18
+#: /views/stylesheets/admin_edit.ctp:48
+msgid "Active"
+msgstr "Aktiv"
+
+#: /views/contents/admin.ctp:18
+#: /views/contents/admin_edit.ctp:186
+msgid "Show in menu"
+msgstr "Visa i meny"
+
+#: /views/contents/admin.ctp:18
+#: /views/currencies/admin.ctp:18
+#: /views/languages/admin.ctp:18
+#: /views/order_status/admin.ctp:16
+#: /views/payment_methods/admin.ctp:16
+#: /views/shipping_methods/admin.ctp:16
+#: /views/taxes/admin.ctp:16
+#: /views/templates/admin.ctp:16
+msgid "Default"
+msgstr "Standard"
+
+#: /views/contents/admin.ctp:18
+msgid "Sort Order"
+msgstr "Sorteringsordning"
+
+#: /views/contents/admin.ctp:44;58
+#: /views/countries/admin.ctp:30;36
+#: /views/country_zones/admin.ctp:24
+#: /views/currencies/admin.ctp:28;36
+#: /views/defined_languages/admin.ctp:23
+#: /views/global_content_blocks/admin.ctp:26;33
+#: /views/images/admin_view_content_images.ctp:22;22
+#: /views/languages/admin.ctp:29;37
+#: /views/micro_templates/admin.ctp:23
+#: /views/order_status/admin.ctp:25
+#: /views/orders/admin.ctp:29
+#: /views/stylesheets/admin.ctp:27;34
+#: /views/stylesheets/admin_attach_templates.ctp:30
+#: /views/tax_country_zone_rates/admin.ctp:26;34
+#: /views/taxes/admin.ctp:26
+#: /views/templates/admin.ctp:38
+#: /views/templates/admin_attach_stylesheets.ctp:29
+#: /views/user_tags/admin.ctp:25;31
+#: /views/users/admin.ctp:23
+msgid "Delete"
+msgstr "Radera"
+
+#: /views/contents/admin.ctp:53
+msgid "Up One Level"
+msgstr "Upp en nivå"
+
+#: /views/contents/admin.ctp:58
+#: /views/currencies/admin.ctp:36
+#: /views/global_content_blocks/admin.ctp:33
+#: /views/languages/admin.ctp:37
+#: /views/stylesheets/admin.ctp:34
+msgid "Activate"
+msgstr "Aktivera"
+
+#: /views/contents/admin.ctp:58
+#: /views/currencies/admin.ctp:36
+#: /views/global_content_blocks/admin.ctp:33
+#: /views/languages/admin.ctp:37
+#: /views/stylesheets/admin.ctp:34
+msgid "Deactivate"
+msgstr "Inaktivera"
+
+#: /views/contents/admin.ctp:58
+msgid "Show In Menu"
+msgstr "Visa I meny"
+
+#: /views/contents/admin.ctp:58
+msgid "Hide From Menu"
+msgstr "Dölj Från Meny"
+
+#: /views/contents/admin_core_pages_edit.ctp:24
+msgid "Edit Page"
+msgstr "Redigera sida"
+
+#: /views/contents/admin_core_pages_edit.ctp:38
+#: /views/contents/admin_edit.ctp:60
+msgid "Content Type"
+msgstr "Typ av innehåll"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "category"
+msgstr "kategori"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "product"
+msgstr "produkt"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "page"
+msgstr "sida"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "link"
+msgstr "url link"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "news"
+msgstr "nyheter"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "article"
+msgstr "artikeln"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "downloadable"
+msgstr "nedladdnings"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "manufacturer"
+msgstr "tillverkare"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "Default Theme"
+msgstr "Standard Tema"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "Main Layout"
+msgstr "Huvud layout"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "Content Page"
+msgstr "Innehåll Sida"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "Product Info"
+msgstr "Produktinfo"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "Category Info"
+msgstr "Kategori info"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "Manufacturer Info"
+msgstr "Tillverkarinfo"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "News Page"
+msgstr "Nyheter Sida"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "Article Page"
+msgstr "Artikel Sida"
+
+#: /views/contents/admin_edit.ctp:60
+msgid "Non-Taxable"
+msgstr "Ingen Moms"
+
+#: /views/contents/admin_core_pages_edit.ctp:62
+#: /views/contents/admin_edit.ctp:85
+msgid "Title"
+msgstr "Titel"
+
+#: /views/contents/admin_core_pages_edit.ctp:68
+#: /views/contents/admin_edit.ctp:91
+msgid "Description"
+msgstr "Beskrivning"
+
+#: /views/contents/admin_core_pages_edit.ctp:68
+#: /views/contents/admin_edit.ctp:91
+msgid "Short Description"
+msgstr "Kort Beskrivning"
+
+#: /views/contents/admin_core_pages_edit.ctp:68
+#: /views/contents/admin_edit.ctp:91
+msgid "Meta Title"
+msgstr "Meta Titel"
+
+#: /views/contents/admin_core_pages_edit.ctp:68
+#: /views/contents/admin_edit.ctp:91
+msgid "Meta Description"
+msgstr "Meta beskrivning"
+
+#: /views/contents/admin_core_pages_edit.ctp:68
+#: /views/contents/admin_edit.ctp:91
+msgid "Meta Keywords"
+msgstr "Meta sökord"
+
+#: /views/contents/admin_core_pages_edit.ctp:86
+#: /views/contents/admin_edit.ctp:172
+msgid "Head Data"
+msgstr "Huvud Data"
+
+#: /views/contents/admin_edit.ctp:36
+msgid "View Images"
+msgstr "Visa bilder"
+
+#: /views/contents/admin_edit.ctp:37;133
+msgid "Upload Images"
+msgstr "Ladda upp bilder"
+
+#: /views/contents/admin_edit.ctp:37;133
+msgid "Cross-Sell"
+msgstr "Cross-Sell"
+
+#: /views/contents/admin_edit.ctp:53
+msgid "Parent"
+msgstr "Parent"
+
+#: /views/contents/admin_edit.ctp:55
+msgid "Top Level"
+msgstr "Högsta Nivån"
+
+#: /views/contents/admin_edit.ctp:114
+msgid "Press 'Upload Images' and choose images from your computer to upload. Select as many files as you would like. Images will upload right after you select them."
+msgstr "Tryck på \'Ladda upp bilder\' och välj bilder från din dator för att ladda upp. Du kan ladda upp flera bilder. Bilderna hämtas efter ditt val."
+
+#: /views/contents/admin_edit.ctp:115
+msgid "TIP: Hold the 'control' button to select more than one image."
+msgstr "TIPS: Håll nere \'kontroll\' knappen för att välja mer än en bild."
+
+#: /views/contents/admin_edit.ctp:115
+msgid "TIP: Also, you can Drag &amp; Drop Files to dotted zone."
+msgstr "TIPS: Du kan också dra &amp; Släppa filer till streckade zonen."
+
+#: /views/contents/admin_edit.ctp:132
+msgid "Browse Images"
+msgstr "Bläddra bland bilder"
+
+#: /views/contents/admin_edit.ctp:134
+msgid "Abort"
+msgstr "Avbryt"
+
+#: /views/contents/admin_edit.ctp:136
+msgid "Done"
+msgstr "Klar"
+
+#: /views/contents/admin_edit.ctp:136
+msgid "Multiple File Drag &amp; Drop is not allowed."
+msgstr "Flera File Dra &amp; Drop är inte tillåtet."
+
+#: /views/contents/admin_edit.ctp:136
+msgid "is not allowed. Allowed extensions: "
+msgstr "Det kan inte laddas. Tillåtna filtyper: "
+
+#: /views/contents/admin_edit.ctp:136
+msgid "is not allowed. Allowed Max size: "
+msgstr "Det kan inte laddas. Den tillåtna maximala filstorleken: "
+
+#: /views/contents/admin_edit.ctp:136
+msgid "Upload is not allowed"
+msgstr "Ladda upp är inte tillåtet"
+
+#: /views/contents/admin_edit.ctp:136
+msgid " is not allowed. Maximum allowed files are: "
+msgstr " Det kan inte laddas. Den högsta tillåtna antal filer: "
+
+#: /views/contents/admin_edit.ctp:136
+msgid "Download"
+msgstr "Ladda ner"
+
+#: /views/contents/admin_edit.ctp:168
+#: /views/defined_languages/admin_edit.ctp:19
+#: /views/global_content_blocks/admin_edit.ctp:42
+#: /views/micro_templates/admin_create_from_tag.ctp:22
+#: /views/micro_templates/admin_edit.ctp:23
+#: /views/stylesheets/admin_edit.ctp:44
+#: /views/user_tags/admin_edit.ctp:42
+msgid "Alias"
+msgstr "Smeknamn"
+
+#: /views/contents/admin_edit_type.ctp:33
+#: /views/orders/admin_view.ctp:125
+msgid "Price"
+msgstr "Pris"
+
+#: /views/contents/admin_edit_type.ctp:38
+msgid "Tax Class"
+msgstr "Moms"
+
+#: /views/contents/admin_edit_type.ctp:44
+msgid "Stock"
+msgstr "Lager"
+
+#: /views/contents/admin_edit_type.ctp:49
+msgid "Model"
+msgstr "Modell"
+
+#: /views/contents/admin_edit_type.ctp:49
+msgid "SKU"
+msgstr "SKU"
+
+#: /views/contents/admin_edit_type.ctp:49
+msgid "Manufacturer"
+msgstr "Tillverkare"
+
+#: /views/contents/admin_edit_type.ctp:49
+msgid "Manufacturers"
+msgstr "Tillverkare"
+
+#: /views/contents/admin_edit_type.ctp:49
+msgid "Manufacturers Listing"
+msgstr "Tillverkare Notering"
+
+#: /views/contents/admin_edit_type.ctp:49
+msgid "Manufacturer Details"
+msgstr "&#1048;&#1085;&#1092;&#1086;&#1088;&#1084;&#1072;&#1094;&#1080;&#1103; &#1086; &#1087;&#1088;&#1086;&#1080;&#1079;&#1074;&#1086;&#1076;&#1080;&#1090;&#1077;&#1083;&#1077;"
+
+#: /views/contents/admin_edit_type.ctp:49
+msgid "Add Manufacturer"
+msgstr "Tillverkare information"
+
+#: /views/contents/admin_edit_type.ctp:74
+msgid "Link Details"
+msgstr "Länkdetaljer"
+
+#: /views/contents/admin_edit_type.ctp:77
+msgid "URL"
+msgstr "URL"
+
+#: /views/contents/admin_edit_type.ctp:90
+msgid "There are no available content records. Please select a different content type."
+msgstr "Det finns inga tillgängliga innehåll register. Välj en annan typ av innehåll."
+
+#: /views/contents/admin_edit_type.ctp:97
+msgid "Link To"
+msgstr "Länka till"
+
+#: /views/contents/admin_edit_type.ctp:99
+msgid "Select Internal Page"
+msgstr "Välj sida"
+
+#: /views/contents/admin_edit_type.ctp:99
+msgid "Required order status to download"
+msgstr "Krävs orderns status för nedladdning"
+
+#: /views/contents/admin_edit_type.ctp:99
+msgid "File: "
+msgstr "Fil: "
+
+#: /views/contents/admin_edit_type.ctp:99
+msgid "delete "
+msgstr "radera"
+
+#: /views/contents/admin_edit_type.ctp:99
+msgid "Max. downloads"
+msgstr "Max. nedladdningar"
+
+#: /views/contents/admin_edit_type.ctp:99
+msgid "Max. days for download"
+msgstr "Maximalt antal dagar för att ladda ner"
+
+#: /views/countries/admin.ctp:42
+#: /views/orders/admin.ctp:41
+msgid "<< Previous"
+msgstr "<< Föregående"
+
+#: /views/countries/admin.ctp:44
+#: /views/orders/admin.ctp:43
+msgid "Next >>"
+msgstr "Nästa >>"
+
+#: /views/countries/admin_edit.ctp:34
+msgid "ISO Code 2"
+msgstr "ISO Kod 2"
+
+#: /views/countries/admin_edit.ctp:38
+msgid "ISO Code 3"
+msgstr "ISO Kod 3"
+
+#: /views/countries/admin_edit.ctp:49
+msgid "Address Format"
+msgstr "Adressformat"
+
+#: /views/currencies/admin.ctp:18
+msgid "Currency"
+msgstr "Valuta"
+
+#: /views/currencies/admin_edit.ctp:27
+msgid "Symbol Left"
+msgstr "Symbol Vänster"
+
+#: /views/currencies/admin_edit.ctp:30
+msgid "Symbol Right"
+msgstr "Symbol Höger"
+
+#: /views/currencies/admin_edit.ctp:33
+msgid "Decimal Point"
+msgstr "Decimalpunkt"
+
+#: /views/currencies/admin_edit.ctp:36
+msgid "Thousands Point"
+msgstr "Tusentals punkt"
+
+#: /views/currencies/admin_edit.ctp:39
+msgid "Decimal Places"
+msgstr "Decimaler"
+
+#: /views/currencies/admin_edit.ctp:42
+msgid "Value"
+msgstr "Värde"
+
+#: /views/defined_languages/admin.ctp:15
+#: /views/global_content_blocks/admin.ctp:17
+#: /views/micro_templates/admin.ctp:15
+#: /views/user_tags/admin.ctp:17
+msgid "Call (Template Placeholder)"
+msgstr "Ring (Template platshållare)"
+
+#: /views/defined_languages/admin_edit.ctp:34
+msgid "Value"
+msgstr "Värde"
+
+#: /views/email_template/admin.ctp:16
+#: /views/email_template/admin_edit.ctp:35
+msgid "Subject"
+msgstr "Ämne"
+
+#: /views/email_template/admin_edit.ctp:16
+msgid "Email Templates Details"
+msgstr "E-post mallar Detaljer"
+
+#: /views/email_template/admin_edit.ctp:40
+#: /views/user_tags/admin_edit.ctp:33
+msgid "Content"
+msgstr "Innehåll"
+
+#: /views/errors/missing_connection.ctp:15
+msgid "Either you are missing a database table, or you have not yet installed the software."
+msgstr "Antingen du saknar en databastabell, eller om du ännu inte har installerat programvaran."
+
+#: /views/errors/missing_connection.ctp:16
+msgid "Click here to install the software."
+msgstr "Klicka här för att installera programvaran."
+
+#: /views/errors/missing_table.ctp:16
+msgid "Database table %1$s for model %2$s was not found."
+msgstr "Databastabell %1$s för modell %2$s hittades inte."
+
+#: /views/events/admin.ctp:16
+#: /views/events/admin_view.ctp:16
+msgid "Originator"
+msgstr "Originator"
+
+#: /views/images/admin_view_content_images.ctp:14
+msgid "Current Images For This Content Item"
+msgstr "Aktuella bilder för denna innehållsobjekt"
+
+#: /views/images/admin_view_content_images.ctp:15
+msgid "Uploaded new images? Press apply to view them."
+msgstr "Ladda ny bild? Klicka på knappen Spara för att se dem."
+
+#: /views/images/admin_view_content_images.ctp:21
+msgid "Click to Enlarge"
+msgstr "Klicka för att förstora"
+
+#: /views/install/check_permissions.ctp:20
+msgid "Can\'t write to: "
+msgstr "Det går inte att skriva till: "
+
+#: /views/install/check_permissions.ctp:25
+msgid "An error has occured. Please correct the error and refresh the page."
+msgstr "Ett fel har uppstått. Vänligen rätta till felet och uppdatera sidan."
+
+#: /views/install/create.ctp:15
+msgid "Database successfully imported."
+msgstr "Databas importerats."
+
+#: /views/install/create.ctp:15
+msgid "VamShop Newsletter"
+msgstr "VamShop Nyhetsbrev"
+
+#: /views/install/create.ctp:15
+msgid "Your Name"
+msgstr "Ditt Namn"
+
+#: /views/install/create.ctp:15
+msgid "Your Email"
+msgstr "Din Email"
+
+#: /views/install/create.ctp:15
+msgid "Subscribe"
+msgstr "Prenumerera"
+
+#: /views/install/create.ctp:15
+msgid "http://support.vamshop.com/modules/evennews/index.php?action=subscribe"
+msgstr "http://support.vamshop.ru/modules/evennews/index.php?action=subscribe"
+
+#: /views/install/create.ctp:15
+msgid "We at VamShop value your privacy, we will never sell or distribute your information. You will only receive information regarding VamShop or its affiliates."
+msgstr "Vi på VamShop värdesätter din integritet, vi kommer aldrig att sälja eller distribuera din information. Du kommer bara att få information om VamShop eller dess dotterbolag."
+
+#: /views/install/create.ctp:15
+msgid "At anytime you may remove yourself from the list if you think you joined in error."
+msgstr "När som helst kan du avregistrera."
+
+#: /views/install/create.ctp:17
+msgid "Click here to visit your live store."
+msgstr "Gå till butiken."
+
+#: /views/install/start.ctp:14
+msgid "Welcome to the VamShop installation."
+msgstr "Välkommen till installationen VamShop."
+
+#: /views/install/start.ctp:15
+msgid "Installing version:"
+msgstr "Installera versionen:"
+
+#: /views/install/start.ctp:24
+msgid "Host"
+msgstr "Värd"
+
+#: /views/install/start.ctp:25
+msgid "Database Name"
+msgstr "Databasnamn"
+
+#: /views/install/start.ctp:26
+msgid "Database Username"
+msgstr "Databas Användarnamn"
+
+#: /views/install/start.ctp:27
+msgid "Database Password"
+msgstr "Databas Lösenord"
+
+#: /views/install/start.ctp:27
+msgid "Admin Credentials"
+msgstr "Data för att ange admin panel"
+
+#: /views/install/start.ctp:27
+msgid "Username"
+msgstr "Användarnamn"
+
+#: /views/install/start.ctp:27
+msgid "Email"
+msgstr "Email"
+
+#: /views/install/start.ctp:27
+msgid "Password"
+msgstr "Lösenord"
+
+#: /views/languages/admin.ctp:18
+#: /views/users/admin_user_preferences.ctp:19
+msgid "Language"
+msgstr "Språk"
+
+#: /views/countries/admin.ctp:20
+#: /views/languages/admin.ctp:18
+msgid "Flag"
+msgstr "Flagga"
+
+#: /views/languages/admin_edit.ctp:27
+msgid "ISO Code"
+msgstr "ISO kod"
+
+#: /views/layouts/admin.ctp:19
+msgid "VamShop Admin"
+msgstr "VamShop Admin"
+
+#: /views/layouts/admin.ctp:38
+#: /views/layouts/default.ctp:19;28
+#: /views/layouts/error.ctp:19;28
+msgid "VamShop"
+msgstr "VamShop"
+
+#: /views/layouts/admin.ctp:43
+msgid "Search"
+msgstr "Sök"
+
+#: /views/layouts/admin.ctp:43
+msgid "Global Record Search"
+msgstr "Globalt Snabbsökning"
+
+#: /views/layouts/admin.ctp:45
+msgid "Help"
+msgstr "Hjälp"
+
+#: /views/layouts/admin.ctp:45
+msgid "Support"
+msgstr "Support"
+
+#: /views/layouts/admin.ctp:45
+msgid "Apps"
+msgstr "Appar"
+
+#: /views/layouts/admin.ctp:45
+msgid "Help for this page"
+msgstr "Hjälp för denna sida"
+
+#: /views/layouts/admin.ctp:97
+#: /views/layouts/default.ctp:66
+#: /views/layouts/error.ctp:66
+msgid "Powered by"
+msgstr "Drivs av"
+
+#: /app/View/Admin/admin_top.ctp:53
+msgid "vamshop.com"
+msgstr "vamshop.com"
+
+#: /app/View/Admin/admin_top.ctp:53
+msgid "VamShop News"
+msgstr "VamShop Nyheter"
+
+#: /app/View/Admin/admin_top.ctp:53
+msgid "Total Orders"
+msgstr "Totalt beställningar"
+
+#: /app/View/Admin/admin_top.ctp:53
+msgid "Total Sales"
+msgstr "Total försäljning"
+
+#: /app/View/Admin/admin_top.ctp:53
+msgid "Pending Orders"
+msgstr "I avvaktan beställningar"
+
+#: /app/View/Admin/admin_top.ctp:53
+msgid "Total Customers"
+msgstr "Totalt Kunder"
+
+#: /views/micro_templates/admin_create_from_tag.ctp:17
+#: /views/micro_templates/admin_edit.ctp:18
+msgid "Micro Template Details"
+msgstr "Mikromall Detaljer"
+
+#: /views/micro_templates/admin_create_from_tag.ctp:25
+#: /views/micro_templates/admin_edit.ctp:26
+msgid "Tag Name"
+msgstr "Etikett Namn"
+
+#: /views/modules/admin.ctp:16
+msgid "Installed"
+msgstr "Installerad"
+
+#: /views/modules/admin.ctp:16
+msgid "Version"
+msgstr "Version"
+
+#: /views/modules/admin.ctp:23
+msgid "Install"
+msgstr "Installera"
+
+#: /views/modules/admin.ctp:27
+msgid "Upgrade"
+msgstr "Uppgradering"
+
+#: /views/modules/admin.ctp:31
+msgid "Uninstall"
+msgstr "Avinstallera"
+
+#: /views/order_status/admin.ctp:16
+msgid "Order"
+msgstr "Beställning"
+
+#: /views/order_status/admin_edit.ctp:16
+msgid "Order Status Details"
+msgstr "Orderstatusinformation"
+
+#: /views/orders/admin.ctp:18
+#: /views/orders/admin_view.ctp:16
+msgid "Customer"
+msgstr "Kunden"
+
+#: /views/orders/admin.ctp:18
+msgid "Order Number"
+msgstr "Ordernummer"
+
+#: /views/orders/admin.ctp:18
+msgid "Status"
+msgstr "Status"
+
+#: /views/orders/admin.ctp:29
+msgid "View"
+msgstr "Granska"
+
+#: /views/orders/admin_view.ctp:18
+msgid "Order Comments"
+msgstr "Orderstatusinformation Kommentarer"
+
+#: /views/orders/admin_view.ctp:19
+msgid "New Comment"
+msgstr "Ny kommentar"
+
+#: /views/orders/admin_view.ctp:30
+msgid "Billing Information"
+msgstr "Faktureringsinformation"
+
+#: /views/orders/admin_view.ctp:33;63
+msgid "Customer Name"
+msgstr "Köparens Namn"
+
+#: /views/orders/admin_view.ctp:37;67
+msgid "Address Line 1"
+msgstr "Adress Rad 1"
+
+#: /views/orders/admin_view.ctp:41;71
+msgid "Address Line 2"
+msgstr "Adress Rad 2"
+
+#: /views/orders/admin_view.ctp:45;75
+msgid "City"
+msgstr "Stad"
+
+#: /views/orders/admin_view.ctp:49;79
+msgid "State"
+msgstr "Region"
+
+#: /views/orders/admin_view.ctp:58;92
+msgid "Country"
+msgstr "Land"
+
+#: /views/orders/admin_view.ctp:53;83
+msgid "Zip"
+msgstr "Postnummer"
+
+#: /views/orders/admin_view.ctp:60
+msgid "Shipping Information"
+msgstr "Fraktinformation"
+
+#: /views/orders/admin_view.ctp:91
+msgid "Contact Information"
+msgstr "Kontakt Information"
+
+#: /views/orders/admin_view.ctp:94
+#: /views/users/admin_new.ctp:21
+#: /views/users/admin_user_account.ctp:24
+msgid "Email"
+msgstr "Email"
+
+#: /views/orders/admin_view.ctp:98
+msgid "Phone"
+msgstr "Telefon"
+
+#: /views/orders/admin_view.ctp:98
+msgid "Phone"
+msgstr "Telefon"
+
+#: /views/orders/admin_view.ctp:115
+msgid "Company"
+msgstr "Företaget"
+
+#: /views/orders/admin_view.ctp:115
+msgid "Payment Information"
+msgstr "Betalningsinformation"
+
+#: /views/orders/admin_view.ctp:125
+msgid "Product Name"
+msgstr "Produktnamn"
+
+#: /views/orders/admin_view.ctp:125
+msgid "Quantity"
+msgstr "Kvantitet"
+
+#: /views/orders/admin_view.ctp:146
+msgid "Order Total"
+msgstr "Order Total"
+
+#: /views/orders/admin_view.ctp:160
+msgid "User"
+msgstr "Användare"
+
+#: /views/orders/admin_view.ctp:160
+msgid "Sent To Customer"
+msgstr "Skicka till kund"
+
+#: /views/orders/admin_view.ctp:160;206
+msgid "Comment"
+msgstr "Kommentar"
+
+#: /views/orders/admin_view.ctp:160;206
+msgid "Answer Template"
+msgstr "Konserverade svar"
+
+#: /views/orders/admin_view.ctp:160;206
+msgid "Add Answer Template"
+msgstr "Lägg svar till mallen"
+
+#: /views/orders/admin_view.ctp:160;206
+msgid "Select"
+msgstr "Välj"
+
+#: /views/orders/admin_view.ctp:189
+msgid "Update Status"
+msgstr "Uppdatera Status"
+
+#: /views/orders/admin_view.ctp:201
+msgid "Send To Customer"
+msgstr "Skicka till Kunden"
+
+#: /views/orders/admin_view.ctp:201
+msgid "Notify Customer"
+msgstr "Meddela kunden"
+
+#: /views/orders/admin_view.ctp:201
+msgid "Customer Notified"
+msgstr "Kund anmälda"
+
+#: /views/orders/admin_view.ctp:201
+msgid "Ordered Products"
+msgstr "Beställda produkter"
+
+#: /views/payment_methods/admin_edit.ctp:16
+msgid "Payment Method Details"
+msgstr "Betalning Metod Detaljer"
+
+#: /views/search/admin_global_search.ctp:47
+msgid "Results: "
+msgstr "Resultat: "
+
+#: /views/shipping_methods/admin_edit.ctp:16
+msgid "Shipping Method Details"
+msgstr "Sändningsmetod Detaljer"
+
+#: /views/stylesheets/admin.ctp:18
+msgid "Media Type"
+msgstr "Media Typ "
+
+#: /views/stylesheets/admin.ctp:27
+#: /views/templates/admin.ctp:38
+msgid "Copy"
+msgstr "Kopia"
+
+#: /views/stylesheets/admin_attach_templates.ctp:22
+msgid "Current Template Associations"
+msgstr "Associerad med en mall"
+
+#: /views/stylesheets/admin_copy.ctp:19
+msgid "Name the copy:"
+msgstr "Namnge kopian:"
+
+#: /views/stylesheets/admin_edit.ctp:24;42
+msgid "Stylesheet Details"
+msgstr "Format Detaljer"
+
+#: /views/tags/admin_view.ctp:21
+msgid "Default Template"
+msgstr "Standardmall"
+
+#: /views/tags/admin_view.ctp:26
+#: /views/templates/admin_edit.ctp:17
+#: /views/templates/admin_edit_details.ctp:16
+#: /views/templates/admin_new.ctp:16
+msgid "Template Details"
+msgstr "Mall Detaljer"
+
+#: /views/tags/admin_view.ctp:43
+msgid "Create Micro Template From Tag"
+msgstr "Skapa en mall från mikro-taggen"
+
+#: /views/tax_country_zone_rates/admin.ctp:18
+#: /views/tax_country_zone_rates/admin_edit.ctp:22
+#: /views/tax_country_zone_rates/admin_new.ctp:44
+msgid "Tax Rate"
+msgstr "Momssats"
+
+#: /views/tax_country_zone_rates/admin_edit.ctp:16
+#: /views/tax_country_zone_rates/admin_new.ctp:27
+msgid "Tax Zone Rates Details"
+msgstr "Moms zon information"
+
+#: /views/tax_country_zone_rates/admin_new.ctp:33
+msgid "Country"
+msgstr "Land"
+
+#: /views/tax_country_zone_rates/list_zones_by_country.ctp:15
+msgid "Country Zones"
+msgstr "Lands zoner"
+
+#: /views/taxes/admin.ctp:20
+msgid "Are you sure you want to set all products to this tax class?"
+msgstr "Är du säker på att du vill sätta alla produkter för att denna skatteklass?"
+
+#: /views/taxes/admin.ctp:27
+msgid "Set All Products"
+msgstr "Ställ in samtliga objekt"
+
+#: /views/taxes/admin_edit.ctp:16
+msgid "Tax Details"
+msgstr "Moms Detaljer"
+
+#: /views/templates/admin.ctp:22
+msgid "Expand"
+msgstr "Expandera"
+
+#: /views/templates/admin.ctp:28
+msgid "Collapse"
+msgstr "Collaps"
+
+#: /views/templates/admin_attach_stylesheets.ctp:21
+msgid "Current Stylesheet Associations"
+msgstr "Associerade stilar"
+
+#: /views/templates/admin_attach_stylesheets.ctp:41
+msgid "Attach Stylesheet"
+msgstr "Bifoga format"
+
+#: /views/templates/admin_copy.ctp:23
+msgid "Template Copy Name"
+msgstr "Namnet på den kopierade mallen"
+
+#: /views/templates/admin_new.ctp:21
+msgid "Create Template Set"
+msgstr "Skapa mall Set"
+
+#: /views/user_tags/admin_edit.ctp:25;40
+msgid "User Tag Details"
+msgstr "Användar Etikett Detaljer"
+
+#: /views/users/admin_login.ctp:15
+#: /views/users/admin_new.ctp:18
+#: /views/users/admin_user_account.ctp:21
+msgid "Username"
+msgstr "Användarnamn"
+
+#: /views/users/admin_login.ctp:16
+#: /views/users/admin_new.ctp:25
+msgid "Password"
+msgstr "Lösenord"
+
+#: /views/users/admin_login.ctp:17
+msgid "Login"
+msgstr "Logga In"
+
+#: /views/users/admin_user_account.ctp:16
+msgid "Account Details"
+msgstr "Kontouppgifter"
+
+#: /views/users/admin_user_account.ctp:28
+msgid "New Password"
+msgstr "Nytt Lösenord"
+
+#: /views/users/admin_user_account.ctp:32
+msgid "Confirm Password"
+msgstr "Bekräfta Lösenord"
+
+#: /views/users/admin_user_preferences.ctp:17
+msgid "User Prefences"
+msgstr "Användarinställningar"
+
+#: /controllers/contact_us_controller.php:38
+msgid "Contact Us"
+msgstr "Kontakta Oss"
+
+#: /vendors/smarty/vam_plugins/function.contact_us.php:53
+msgid "Creates a contact us form."
+msgstr "Skapar en kontakta oss formulär."
+
+#: /vendors/smarty/vam_plugins/function.breadcrumbs.php:53
+msgid "Creates a breadcrumbs."
+msgstr "Det skapar en navigeringskedja."
+
+#: /plugins/payment/views/webmoney/settings.ctp:17
+msgid "WebMoney Purse"
+msgstr "WebMoney Börs"
+
+#: /plugins/payment/views/webmoney/settings.ctp:22
+msgid "WebMoney Secret Key"
+msgstr "WebMoney Licensnyckel"
+
+#: /plugins/payment/views/rbkmoney/settings.ctp:17
+msgid "RBKMoney Store ID"
+msgstr "RBKMoney butik-ID"
+
+#: /plugins/payment/views/rbkmoney/settings.ctp:22
+msgid "RBKMoney Secret Key"
+msgstr "RBKMoney Licensnyckel"
+
+#: /plugins/payment/views/prochange/settings.ctp:17
+msgid "Prochange ID 1"
+msgstr "Prochange ID 1"
+
+#: /plugins/payment/views/prochange/settings.ctp:22
+msgid "Prochange ID 2"
+msgstr "Prochange ID 2"
+
+#: /plugins/payment/views/prochange/settings.ctp:27
+msgid "Prochange Secret Key"
+msgstr "Prochange Licensnyckel"
+
+#: /plugins/payment/views/zpayment/settings.ctp:17
+msgid "Zpayment Purse"
+msgstr "Zpayment Börs"
+
+#: /plugins/payment/views/zpayment/settings.ctp:22
+msgid "Zpayment Secret Key"
+msgstr "Zpayment Licensnyckel"
+
+#: /plugins/payment/views/robokassa/settings.ctp:17
+msgid "Robokassa Login"
+msgstr "Robokassa Logga in"
+
+#: /plugins/payment/views/robokassa/settings.ctp:22
+msgid "Robokassa Password 1"
+msgstr "Robokassa Lösenord 1"
+
+#: /plugins/payment/views/robokassa/settings.ctp:27
+msgid "Robokassa Password 2"
+msgstr "Robokassa Lösenord 2"
+
+#: /plugins/payment/views/assist/settings.ctp:17
+msgid "Assist Shop ID"
+msgstr "Assist Shop ID"
+
+#: /plugins/payment/views/interkassa/settings.ctp:17
+msgid "InterKassa ID"
+msgstr "InterKassa ID"
+
+#: /plugins/payment/views/interkassa/settings.ctp:22
+msgid "InterKassa Secret Key"
+msgstr "InterKassa nyckeln"
+
+#: /plugins/payment/views/liqpay/settings.ctp:17
+msgid "LiqPay ID"
+msgstr "LiqPay ID"
+
+#: /plugins/payment/views/liqpay/settings.ctp:22
+msgid "LiqPay Secret Key"
+msgstr "LiqPay nyckeln"
+
+#: /plugins/payment/views/qiwi/settings.ctp:17
+msgid "Qiwi ID"
+msgstr "Qiwi ID"
+
+#: /plugins/payment/views/qiwi/settings.ctp:17
+msgid "Qiwi API ID"
+msgstr "Qiwi API ID"
+
+#: /plugins/payment/views/qiwi/settings.ctp:17
+msgid "Qiwi Notify Password"
+msgstr "Underrätta Qiwi Lösenord"
+
+#: /plugins/payment/views/qiwi/settings.ctp:22
+msgid "Qiwi Password"
+msgstr "Qiwi Lösenord"
+
+#: /plugins/payment/views/qiwi/settings.ctp:22
+msgid "Qiwi"
+msgstr "Qiwi"
+
+#: /plugins/payment/views/qiwi/settings.ctp:22
+msgid "Qiwi Phone"
+msgstr "QIWI Telefon"
+
+#: Time Helper
+msgid "Today, %s"
+msgstr "Idag, %s"
+
+#: Time Helper
+msgid "Yesterday, %s"
+msgstr "Igår, %s"
+
+#: Time Helper
+msgid "on %s"
+msgstr "på %s"
+
+#: Time Helper
+msgid "%s ago"
+msgstr "%s sedan"
+
+#: Time Helper
+msgid "days"
+msgstr "dagar"
+
+#: Time Helper
+msgid "year"
+msgid_plural "years"
+msgstr[0] "år"
+msgstr[1] "år"
+msgstr[2] "åren"
+
+#: Time Helper
+msgid "month"
+msgid_plural "months"
+msgstr[0] "månad"
+msgstr[1] "månad"
+msgstr[2] "månader"
+
+#: Time Helper
+msgid "week"
+msgid_plural "weeks"
+msgstr[0] "vecka"
+msgstr[1] "veckans"
+msgstr[2] "veckor"
+
+#: Time Helper
+msgid "day"
+msgid_plural "days"
+msgstr[0] "dag"
+msgstr[1] "dag"
+msgstr[2] "dagar"
+
+#: Time Helper
+msgid "hour"
+msgid_plural "hours"
+msgstr[0] "timme"
+msgstr[1] "timme"
+msgstr[2] "timmar"
+
+#: Time Helper
+msgid "minute"
+msgid_plural "minutes"
+msgstr[0] "minut"
+msgstr[1] "minut"
+msgstr[2] "minuter"
+
+#: Time Helper
+msgid "second"
+msgid_plural "seconds"
+msgstr[0] "sekund"
+msgstr[1] "sekund"
+msgstr[2] "sekunder"
+
+#: Time Helper
+msgid "January"
+msgstr "Januari"
+
+#: Time Helper
+msgid "February"
+msgstr "Februari"
+
+#: Time Helper
+msgid "March"
+msgstr "Mars"
+
+#: Time Helper
+msgid "April"
+msgstr "April"
+
+#: Time Helper
+msgid "May"
+msgstr "Maj"
+
+#: Time Helper
+msgid "June"
+msgstr "Juni"
+
+#: Time Helper
+msgid "July"
+msgstr "Juli"
+
+#: Time Helper
+msgid "August"
+msgstr "Augusti"
+
+#: Time Helper
+msgid "September"
+msgstr "September"
+
+#: Time Helper
+msgid "October"
+msgstr "Oktober"
+
+#: Time Helper
+msgid "November"
+msgstr "November"
+
+#: Time Helper
+msgid "December"
+msgstr "December"
+
+#: /plugins/payment/views/kvitancia/settings.ctp:17
+msgid "Bank Name"
+msgstr "Bank Namn"
+
+#: /plugins/payment/views/kvitancia/settings.ctp:22
+msgid "Account Number 1"
+msgstr "Kontonummer 1"
+
+#: /plugins/payment/views/kvitancia/settings.ctp:27
+msgid "BIK"
+msgstr "BIK"
+
+#: /plugins/payment/views/kvitancia/settings.ctp:32
+msgid "Account Number 2"
+msgstr "Kontonummer 2"
+
+#: /plugins/payment/views/kvitancia/settings.ctp:37
+msgid "INN"
+msgstr "INN"
+
+#: /plugins/payment/views/kvitancia/settings.ctp:42
+msgid "Recipient"
+msgstr "Mottagare"
+
+#: /plugins/payment/views/kvitancia/settings.ctp:47
+msgid "KPP"
+msgstr "KPP"
+
+#: /plugins/payment/views/kvitancia/settings.ctp:52
+msgid "Payment Text"
+msgstr "Syftet med betalning"
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "Notice"
+msgstr "Observera"
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "Receipt"
+msgstr "Kvitto"
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "Teller"
+msgstr "Kassör"
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "Form #PD-4"
+msgstr "Form #PD-4"
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "recipient"
+msgstr "Mottagare"
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "bank info"
+msgstr "bank info"
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "Payeer Name"
+msgstr "Betalningsmottagare Namn"
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "Payeer Address"
+msgstr "Betalningsmottagare Adress"
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "rub."
+msgstr "rub."
+
+#: /plugins/payment/views/kvitancia/print_order.ctp:52
+msgid "Signature"
+msgstr "Namnteckning"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "Company Address"
+msgstr "Företag Adress"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "Company Phone"
+msgstr "Företags Telefon"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "OGRN"
+msgstr "OGRN"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "OKPO"
+msgstr "OKPO"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "Supplier"
+msgstr "Leverantör"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "in bank"
+msgstr "på bank"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "Invoice #"
+msgstr "Faktura &#8470;"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "on"
+msgstr "på"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "#"
+msgstr "&#8470;"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "Summa:"
+msgstr "Summa:"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "without tax."
+msgstr "utan moms."
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "CEO"
+msgstr "CEO"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "Accountant"
+msgstr "Revisor"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "Last Name"
+msgstr "Efternamn"
+
+#: /plugins/payment/views/invoice/settings.ctp:52
+msgid "MP"
+msgstr "MP"
+
+#: /views/helpers/summa.php:1
+msgid "zero"
+msgstr "noll"
+
+#: /views/helpers/summa.php:1
+msgid "three"
+msgstr "tre"
+
+#: /views/helpers/summa.php:1
+msgid "four"
+msgstr "fyra"
+
+#: /views/helpers/summa.php:1
+msgid "five"
+msgstr "fem"
+
+#: /views/helpers/summa.php:1
+msgid "six"
+msgstr "sex"
+
+#: /views/helpers/summa.php:1
+msgid "seven"
+msgstr "sju"
+
+#: /views/helpers/summa.php:1
+msgid "eight"
+msgstr "åtta"
+
+#: /views/helpers/summa.php:1
+msgid "nine"
+msgstr "nio"
+
+#: /views/helpers/summa.php:1
+msgid "ten"
+msgstr "tio"
+
+#: /views/helpers/summa.php:1
+msgid "eleven"
+msgstr "elva"
+
+#: /views/helpers/summa.php:1
+msgid "twelve"
+msgstr "tolv"
+
+#: /views/helpers/summa.php:1
+msgid "thirteen"
+msgstr "tretton"
+
+#: /views/helpers/summa.php:1
+msgid "fourteen"
+msgstr "fjorton"
+
+#: /views/helpers/summa.php:1
+msgid "fifteen"
+msgstr "femton"
+
+#: /views/helpers/summa.php:1
+msgid "sixteen"
+msgstr "sexton"
+
+#: /views/helpers/summa.php:1
+msgid "seventeen"
+msgstr "sjutton"
+
+#: /views/helpers/summa.php:1
+msgid "eighteen"
+msgstr "arton"
+
+#: /views/helpers/summa.php:1
+msgid "nineteen"
+msgstr "nitton"
+
+#: /views/helpers/summa.php:1
+msgid "twenty"
+msgstr "tjugo"
+
+#: /views/helpers/summa.php:1
+msgid "thirty"
+msgstr "trettio"
+
+#: /views/helpers/summa.php:1
+msgid "forty"
+msgstr "fyrtio"
+
+#: /views/helpers/summa.php:1
+msgid "fifty"
+msgstr "femtio"
+
+#: /views/helpers/summa.php:1
+msgid "sixty"
+msgstr "sextio"
+
+#: /views/helpers/summa.php:1
+msgid "seventy"
+msgstr "sjuttio"
+
+#: /views/helpers/summa.php:1
+msgid "eighty"
+msgstr "åttio"
+
+#: /views/helpers/summa.php:1
+msgid "ninety"
+msgstr "nittio"
+
+#: /views/helpers/summa.php:1
+msgid "hundred"
+msgstr "hundra"
+
+#: /views/helpers/summa.php:1
+msgid "two hundred"
+msgstr "två hundra"
+
+#: /views/helpers/summa.php:1
+msgid "three hundred"
+msgstr "tre hundra"
+
+#: /views/helpers/summa.php:1
+msgid "four hundred"
+msgstr "fyra hundra"
+
+#: /views/helpers/summa.php:1
+msgid "five hundred"
+msgstr "fem hundra"
+
+#: /views/helpers/summa.php:1
+msgid "six hundred"
+msgstr "sex hundra"
+
+#: /views/helpers/summa.php:1
+msgid "seven hundred"
+msgstr "sju hundra"
+
+#: /views/helpers/summa.php:1
+msgid "eight hundred"
+msgstr "åtta hundra"
+
+#: /views/helpers/summa.php:1
+msgid "nine hundred"
+msgstr "nio hundra"
+
+#: /views/helpers/summa.php:1
+msgid "penny"
+msgstr "öre"
+
+#: /views/helpers/summa.php:1
+msgid "kopecks"
+msgstr "kopecks"
+
+#: /views/helpers/summa.php:1
+msgid "single kopek"
+msgstr "enkel kopek"
+
+#: /views/helpers/summa.php:1
+msgid "two penny"
+msgstr "två öre"
+
+#: /views/helpers/summa.php:1
+msgid "ruble"
+msgstr "krona"
+
+#: /views/helpers/summa.php:1
+msgid "rubles"
+msgstr "kronor"
+
+#: /views/helpers/summa.php:1
+msgid "one ruble"
+msgstr "en krona"
+
+#: /views/helpers/summa.php:1
+msgid "two rubles"
+msgstr "två kronor"
+
+#: /views/helpers/summa.php:1
+msgid "thousands"
+msgstr "tusentals"
+
+#: /views/helpers/summa.php:1
+msgid "thousand"
+msgstr "tusen"
+
+#: /views/helpers/summa.php:1
+msgid "one thousand"
+msgstr "ettusen"
+
+#: /views/helpers/summa.php:1
+msgid "two thousand"
+msgstr "tvåtusen"
+
+#: /views/helpers/summa.php:1
+msgid "million"
+msgstr "miljoner"
+
+#: /views/helpers/summa.php:1
+msgid "millions"
+msgstr "miljontals"
+
+#: /views/helpers/summa.php:1
+msgid "one million"
+msgstr "en miljon"
+
+#: /views/helpers/summa.php:1
+msgid "two million"
+msgstr "två miljon"
+
+#: /views/helpers/summa.php:1
+msgid "billion"
+msgstr "miljard"
+
+#: /views/helpers/summa.php:1
+msgid "billions"
+msgstr "miljarder"
+
+#: /views/helpers/summa.php:1
+msgid "one billion"
+msgstr "en miljard"
+
+#: /views/helpers/summa.php:1
+msgid "two billion"
+msgstr "två miljarder"
+
+#: /views/helpers/summa.php:1
+msgid "trillion"
+msgstr "biljoner"
+
+#: /views/helpers/summa.php:1
+msgid "trillions"
+msgstr "biljoner"
+
+#: /views/helpers/summa.php:1
+msgid "one trillion"
+msgstr "en biljon"
+
+#: /views/helpers/summa.php:1
+msgid "two trillion"
+msgstr "2 biljoner"
+
+#: /views/helpers/validation.php:71
+msgid "There was a problem with the field"
+msgstr "Det fanns ett problem med fältet"
+
+#: /app/controllers/components/check.php
+msgid "License invalid!"
+msgstr "Licens ogiltig!"
+
+#: /app/controllers/components/check.php
+msgid "Go to Admin - Configurations -"
+msgstr "Gå till Admin - Konfigurationer -"
+
+#: /app/controllers/components/check.php
+msgid "License"
+msgstr "Licens"
+
+#: /app/controllers/components/check.php
+msgid "and check your key."
+msgstr "och kontrollera din nyckel."
+
+#: /app/controllers/components/check.php
+msgid "Close"
+msgstr "Stänga"
+
+#: /app/controllers/components/check.php
+msgid "New version available. VamShop"
+msgstr "Ny version tillgänglig till VamShop"
+
+#: /app/controllers/components/check.php
+msgid "Update"
+msgstr "Uppdatera"
+
+#: /app/controllers/components/check.php
+msgid "and update your store."
+msgstr "och uppdatera din butik."
+
+#: /app/controllers/license_controller.php
+msgid "License Key"
+msgstr "Licensnyckel"
+
+#: /app/controllers/license_controller.php
+msgid "Key:"
+msgstr "Nyckel:"
+
+#: /app/views/license/admin.ctp
+msgid "Domain:"
+msgstr "Domain:"
+
+#: /app/views/license/admin.ctp
+msgid "Start Date:"
+msgstr "Start Datum:"
+
+#: /app/views/license/admin.ctp
+msgid "Updates available until:"
+msgstr "Uppdateringar tillgängliga tills:"
+
+#: /app/views/license/admin.ctp
+msgid "License is invalid. Check your key."
+msgstr "Licensen är ogiltig. Kontrollera din Licensnyckel."
+
+#: /app/views/update/admin.ctp
+msgid "VamShop Version:"
+msgstr "VamShop Version:"
+
+#: /app/views/update/admin.ctp
+msgid "You have latest version of VamShop. No update needed."
+msgstr "Du har senaste versionen av VamShop. Ingen uppdatering behövs."
+
+#: /app/views/update/admin.ctp
+msgid "No updates needed for your version."
+msgstr "Inga uppdateringar som behövs för din version:"
+
+#: /app/views/update/admin.ctp
+msgid "Current VamShop Version:"
+msgstr "Aktuell VamShop version:"
+
+#: /app/views/update/admin_update.ctp
+msgid "Click Update button to start VamShop AutoUpdate."
+msgstr "Klicka på Uppdatera för att starta VamShop Autoupdate."
+
+#: /app/views/update/admin_update.ctp
+msgid "Trial version of VamShop is over. Purchase unlimited version of VamShop at"
+msgstr "Testversion av VamShop är över. Köp obegränsade versionen av VamShop på"
+
+#: /app/views/update/admin_update.ctp
+msgid "Don\'t forget backup your files and database before update at Admin - Tools - Database Backup."
+msgstr "Glöm inte att göra en säkerhetskopia av filer och lagra databasen innan du uppgraderar."
+
+#: /app/views/update/admin_update.ctp
+msgid "Don\'t forget backup your database before import at Admin - Tools - Database Backup."
+msgstr "Glöm inte säkerhetskopiera din databas innan import till Admin - Verktyg - Database Backup."
+
+#: /app/views/update/admin_update.ctp
+msgid "You currently use latest version of VamShop."
+msgstr "Du använder för närvarande senaste versionen av VamShop."
+
+#: /app/views/update/admin.ctp
+msgid "Update sucessfully finished."
+msgstr "Uppdatera med framgång klar."
+
+#: /views/contents/admin_categories_tree.ctp:186
+msgid "Select target category"
+msgstr "Välj målkategorin"
+
+#: /views/contents/admin.ctp:186
+msgid "Move"
+msgstr "Flytta"
+
+#: /controllers/contents_controller.php:472
+msgid "Copied content item."
+msgstr "Kopieras innehållspost."
+
+#: /controllers/contents_controller.php:472
+msgid "Moved content item."
+msgstr "Flyttat innehållsobjekt."
+
+#: /controllers/geo_zones_controller.php:472
+msgid "Country Zones linked."
+msgstr "Land Zoner länkade."
+
+#: /controllers/geo_zones_controller.php:472
+msgid "Country Zones unlinked."
+msgstr "Land Zoner olänkade."
+
+#: /controllers/geo_zones_controller.php:472
+msgid "Geo Zone Details"
+msgstr "Geografisk Zon Detaljer"
+
+#: /controllers/geo_zones_controller.php:472
+msgid "Edit Zones for Geo Zone"
+msgstr "Redigera zoner för Geografiska Zoner"
+
+#: /controllers/geo_zones_controller.php:472
+msgid "Geo Zones Listing"
+msgstr "Geografisk Zoner Notering"
+
+#: /views/geo_zones/admin_country_zones.ctp:472
+msgid "Select country"
+msgstr "Välj land"
+
+#: /views/geo_zones/admin_country_zones.ctp:472
+msgid "Select regions"
+msgstr "Välj regioner"
+
+#: /views/geo_zones/admin_country_zones_getzones.ctp:472
+msgid "Select All"
+msgstr "Välj Alla"
+
+#: /views/geo_zones/admin_country_zones_getzones.ctp:472
+msgid "Deselect All"
+msgstr "Avmarkera Alla"
+
+#: /vendors/smarty/vam_plugins/function.state_list.php:23
+msgid "None"
+msgstr "Inget"
+
+#: /vendors/smarty/vam_plugins/function.state_list.php:23
+msgid "Generates States list."
+msgstr "Visar en lista över regioner"
+
+#: /vendors/smarty/vam_plugins/function.country_list.php:23
+msgid "Generates Country list."
+msgstr "Skapar Land listan"
+
+#: /plugins/shipping/views/zone_based/settings.ctp:16
+msgid "Select zone"
+msgstr "Välj zon"
+
+#: /plugins/shipping/views/zone_based/settings.ctp:16
+msgid "Based Off"
+msgstr "Baserat Från"
+
+#: /plugins/shipping/views/zone_based/settings.ctp:16
+msgid "Geo Zone"
+msgstr "Geografisk Zoner"
+
+#: /plugins/shipping/views/zone_based/settings.ctp:16
+msgid "Shipping Cost for Zone"
+msgstr "Fraktkostnad för Zoner"
+
+#: /plugins/shipping/views/zone_based/settings.ctp:16
+msgid "Shipping Handling Cost for Zone"
+msgstr "Frakt hanteringskostnad för Zoner"
+
+#: /app/models/customer.php:16
+msgid "Name must only contain letters and numbers."
+msgstr "Namn får bara innehålla bokstäver och siffror"
+
+#: /app/models/customer.php:16
+msgid "Password can not be blank"
+msgstr "Lösenord kan inte vara tomt"
+
+#: /app/models/customer.php:16
+msgid "Passwords don\'t match"
+msgstr "Lösenorden matchar inte"
+
+#: /app/models/customer.php:16
+msgid "Please, input correct e-mail address"
+msgstr "Ange en giltig e-postadress"
+
+#: /app/models/customer.php:16
+msgid "This email has already been taken."
+msgstr "Denna e-post har redan tagits."
+
+#: /app/controllers/stylesheets_controller.php:331
+msgid "Style name or style alias is empty."
+msgstr "Stil namnet eller stil alias är tom."
+
+#: /app/controllers/stylesheets_controller.php:355
+msgid "Styles has been imported."
+msgstr "Stilar har importerats."
+
+#: /app/controllers/stylesheets_controller.php:361
+msgid "Invalid XML file stylesheets.xml."
+msgstr "Ogiltig XML-fil stylesheets.xml."
+
+#: /app/controllers/stylesheets_controller.php:368
+msgid "Error extracting stylesheets.xml."
+msgstr "Fel utvinna stylesheets.xml."
+
+#: /app/controllers/stylesheets_controller.php:382
+msgid "Please, select the file for import."
+msgstr "Vänligen, välj filen för import."
+
+#: /app/controllers/defined_languages_controller.php:173
+msgid "Key or language_id empty."
+msgstr "Nyckel eller language_id är tom."
+
+#: /app/controllers/defined_languages_controller.php:197
+msgid "Defined languages has been imported."
+msgstr "Förmåns språk har importerats."
+
+#: /app/controllers/defined_languages_controller.php:202
+msgid "Invalid XML file defined_languages.xml."
+msgstr "Ogiltig XML-fil defined_languages.xml."
+
+#: /app/controllers/defined_languages_controller.php:208
+msgid "Error extracting defined_languages.xml."
+msgstr "Fel utvinna defined_languages.xml."
+
+#: /app/controllers/templates_controller.php:377
+msgid "Templates name is empty."
+msgstr "Mall namnet är tom."
+
+#: /app/controllers/templates_controller.php:434
+msgid "Templates has been imported."
+msgstr "Mallar har importerats."
+
+#: /app/controllers/templates_controller.php:439
+msgid "Invalid XML file templates.xml."
+msgstr "Ogiltig XML-fil templates.xml."
+
+#: /app/controllers/templates_controller.php:445
+msgid "Error extracting templates.xml."
+msgstr "Fel utvinna templates.xml."
+
+#: /app/controllers/micro_templates_controller.php:148
+msgid "MicroTemplates alias is empty."
+msgstr "Micro Mallar alias är tom."
+
+#: /app/controllers/micro_templates_controller.php:168
+msgid "MicroTemplates has been imported."
+msgstr "Micro Mallar har importerats."
+
+#: /app/controllers/micro_templates_controller.php:173
+msgid "Invalid XML file micro_templates.xml."
+msgstr "Ogiltig XML-fil micro_templates.xml."
+
+#: /app/controllers/micro_templates_controller.php:179
+msgid "Error extracting micro_templates.xml."
+msgstr "Fel utvinna micro_templates.xml."
+
+#: /app/controllers/orders_controller.php:307
+msgid "Search Result"
+msgstr "Sök Resultat"
+
+#: /app/controllers/orders_controller.php:121
+msgid "Download link: "
+msgstr "Ladda ner länken: "
+
+#: /app/views/orders/admin.ctp:10
+msgid "Order Search"
+msgstr "Order sökning"
+
+#: /app/controllers/download_controller.php:49
+msgid "Last allowed download date is reached."
+msgstr "Senast tillåtet nedladdning datum nås."
+
+#: /app/controllers/download_controller.php:53
+msgid "The number of downloads is exceeded."
+msgstr "Antalet nedladdningar har överskridits."
+
+#: /app/controllers/download_controller.php:57
+msgid "Order is not payed."
+msgstr "Order är ej betalt."
+
+#: /app/controllers/download_controller.php:61
+msgid "Product is not found."
+msgstr "Produkten hittades inte."
+
+#: /app/controllers/download_controller.php:65
+msgid "Order is not found."
+msgstr "Order hittades inte."
+
+#: /View/Reports/admin.ctp:25
+msgid "Chart"
+msgstr "Diagram"
+
+#: /View/Reports/admin.ctp:25
+msgid "Table"
+msgstr "Tabell"
+
+#: /View/Reports/admin.ctp:25
+msgid "Number of Orders"
+msgstr "Antal beställningar"
+
+#: /View/Reports/admin.ctp:25
+msgid "Average Sum"
+msgstr "Genomsnittlig Summa"
+
+#: /View/Reports/admin.ctp:25
+msgid "Average Order"
+msgstr "Genomsnittlig Order"
+
+#: /View/Admin/admin_top.ctp:25
+msgid "Top 10 Viewed"
+msgstr "Top 10 Visad"
+
+#: /View/Admin/admin_top.ctp:25
+msgid "Top 10 Ordered"
+msgstr "Top 10 Beställda"
+
+#: /View/Admin/admin_top.ctp:25
+msgid "Viewed"
+msgstr "Visningar"
+
+#: /View/Admin/admin_top.ctp:25
+msgid "Ordered"
+msgstr "Beställda"
+
+#: /View/Admin/admin_top.ctp:25
+msgid "Image"
+msgstr "Bild"
+
+#: /View/Order/admin.ctp:61
+msgid "New Order"
+msgstr "Ny beställning"
+
+#: /View/Order/admin_view.ctp:61
+msgid "Edit Order"
+msgstr "Ändra beställningen"
+
+#: /View/Order/admin_view.ctp:61
+msgid "Print Order"
+msgstr "Skriv ut Ordern"
+
+#: /app/controllers/OrdersEditController.php:61
+msgid "Order Edit"
+msgstr "Redigera beställningen"
+
+#: /app/controllers/OrdersEditController.php:61
+msgid "Add Product"
+msgstr "Lägg till produkt"
+
+#: /app/controllers/OrdersEditController.php:61
+msgid "Order saved!"
+msgstr "Order sparad!"
+
+#: /app/controllers/OrdersEditController.php:61
+msgid "Order not saved!"
+msgstr "Order är inte sparats!"
+
+#: /View/OrdersEdit/admin.ctp:61
+msgid "Save"
+msgstr "Spara"
+
+#: /View/OrdersEdit/admin.ctp:61
+msgid "Edit Order #"
+msgstr "Ändra beställningen #"
+
+#: /View/OrdersEdit/admin.ctp:61
+msgid "Order Changed! Click Save button to save your order!"
+msgstr "Order är ändrad! Klicka på Spara för att spara din beställning!"
+
+#: /vendors/smarty/vam_plugins/function.account_edit.php:33
+msgid "Your account has been updated successfully."
+msgstr "Ditt konto har uppdaterats!"
+
+#: /app/controllers/OrdersEditController.php:61
+msgid "Login error. Check your email and/or password!"
+msgstr "Inloggning fel. Kontrollera din e-post och/eller lösenord!"
+
+#: /vendors/smarty/vam_plugins/function.flash_message.php:33
+msgid "Displays $this->Session->flash() message."
+msgstr "Bildskärmar $this->Session->flash() meddelande."
+
+#: /app/models/AddressBook.php:16
+msgid "Address Line 1 must only contain letters and numbers."
+msgstr "Adress Linje 1 får endast innehålla bokstäver och siffror"
+
+#: /app/models/AddressBook.php:16
+msgid "City must only contain letters and numbers."
+msgstr "Ort får endast innehålla bokstäver och siffror"
+
+#: /app/models/AddressBook.php:16
+msgid "State must only contain letters and numbers."
+msgstr "Staten får bara innehålla bokstäver och siffror"
+
+#: /app/models/AddressBook.php:16
+msgid "Country must only contain letters and numbers."
+msgstr "Land får endast innehålla bokstäver och siffror"
+
+#: /app/models/AddressBook.php:16
+msgid "Zipcode must only contain numbers."
+msgstr "Postnummer får endast innehålla siffror"
+
+#: /app/models/AddressBook.php:16
+msgid "Phone must only contain numbers."
+msgstr "Telefon får endast innehålla siffror"
+
+#: /vendors/smarty/vam_plugins/function.account_edit.php:33
+msgid "Displays account edit page."
+msgstr "Visar redigeringssidan av användardata."
+
+#: /vendors/smarty/vam_plugins/function.address_book.php:33
+msgid "Displays address book page."
+msgstr "Visar adress boksida."
+
+#: /vendors/smarty/vam_plugins/function.my_orders.php:33
+msgid "Displays orders page."
+msgstr "Visar order sida."
+
+#: /vendors/smarty/vam_plugins/function.registration_form.php:33
+msgid "Displays registration page."
+msgstr "&#1042;&#1099;&#1074;&#1086;&#1076;&#1080;&#1090; &#1089;&#1090;&#1088;&#1072;&#1085;&#1080;&#1094;&#1091; &#1088;&#1077;&#1075;&#1080;&#1089;&#1090;&#1088;&#1072;&#1094;&#1080;&#1080; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1103;."
+
+#: /vendors/smarty/vam_plugins/function.registration_form.php:33
+msgid "Displays password recovery page."
+msgstr "Visar återställning av lösenord sida."
+
+#: /app/controllers/AppController.php:61
+msgid "Customers"
+msgstr "Kunder"
+
+#: /app/controllers/CustomersController.php:61
+msgid "Customers Listing"
+msgstr "Kunder Notering"
+
+#: /app/controllers/CustomersController.php:61
+msgid "Customer Details"
+msgstr "Kunduppgifter"
+
+#: /app/controllers/ImportExportController.php:61
+msgid "Error extracting."
+msgstr "Fel utvinna arkiv."
+
+#: /app/controllers/ImportExportController.php:61
+msgid "Import su&#1089;cess!"
+msgstr "Import avklarad!"
+
+#: /View/OrdersEdit/admin.ctp:61
+msgid "Data"
+msgstr "Data"
+
+#: /View/OrdersEdit/admin.ctp:61
+msgid "Filter"
+msgstr "Filter"
+
+#: /View/OrdersEdit/admin.ctp:61
+msgid "All Categories"
+msgstr "Alla Kategorier"
+
+#: /View/Orders/admin.ctp:61
+msgid "Change Order Status"
+msgstr "Ändra Orderstatus"
+
+#: /app/controllers/OrdersController.php:61
+msgid "Order status changed."
+msgstr "Orderstatus ändrats."
+
+#: /app/controllers/CustomersController.php:61
+msgid "Leave empty to use current password."
+msgstr "Lämna tomt för att använda nuvarande lösenord."
+
+#: /vendors/smarty/vam_plugins/function.attribute_list.php:33
+msgid "Displays attributes list."
+msgstr "Visar attribut lista."
+
+#: /vendors/smarty/vam_plugins/function.attribute_list.php:33
+msgid "Attributes values."
+msgstr "Egenskaper värden."
+
+#: /vendors/smarty/vam_plugins/function.compare.php:33
+msgid "Displays compare box."
+msgstr "Visar jämför ruta."
+
+#: /vendors/smarty/vam_plugins/function.product_pfq.php:33
+msgid "Displays the product packet quantity."
+msgstr "Visar produktpaketet kvantitet."
+
+#: /vendors/smarty/vam_plugins/function.product_pfq.php:33
+msgid "Packet quantity"
+msgstr "Paket kvantitet."
+
+#: /vendors/smarty/vam_plugins/function.product_moq.php:33
+msgid "Displays the product minimum order quantity."
+msgstr "Visar produkt minsta beställningsmängd."
+
+#: /vendors/smarty/vam_plugins/function.product_moq.php:33
+msgid "Minimum order required"
+msgstr "Minsta order krävs"
+
+#: /vendors/smarty/vam_plugins/function.login_box.php:33
+msgid "Displays login box."
+msgstr "Visar inloggningsrutan."
+
+#: /vendors/smarty/vam_plugins/function.search_result.php:33
+msgid "Displays a list of search result content."
+msgstr "Visar en lista över sökresultat innehåll."
+
+#: /vendors/smarty/vam_plugins/function.compared.php:33
+msgid "Displays compare page data."
+msgstr "Visar jämför siddata."
+
+#: /vendors/smarty/vam_plugins/function.filter.php:33
+msgid "Displays filter box."
+msgstr "Visar filterbox."
+
+#: /vendors/smarty/vam_plugins/function.value_filter.php:33
+msgid "Displays a filter value."
+msgstr "Visar ett filtervärde."
+
+#: /app/controllers/AppController.php:61
+msgid "Attributes"
+msgstr "Attribut"
+
+#: /app/controllers/AppController.php:61
+msgid "Attribute Templates"
+msgstr "Attribut Mallar"
+
+#: /app/controllers/AttributeTemplatesController.php:61
+msgid "Settings"
+msgstr "Inställningar"
+
+#: /app/controllers/AttributeTemplatesController.php:61
+msgid "Template for filter"
+msgstr "Mall för filter"
+
+#: /app/controllers/AttributeTemplatesController.php:61
+msgid "Template for editor"
+msgstr "Mall för redigerare"
+
+#: /app/controllers/AttributeTemplatesController.php:61
+msgid "Template for catalog"
+msgstr "Mall för katalog"
+
+#: /app/controllers/AttributeTemplatesController.php:61
+msgid "Template for product"
+msgstr "Mall för produkt"
+
+#: /app/controllers/AttributeTemplatesController.php:61
+msgid "Template for compare"
+msgstr "Mall för jämföra"
+
+#: /app/controllers/AttributeTemplatesController.php:61
+msgid "Default value"
+msgstr "Standardvärde"
+
+#: /app/controllers/AttributeTemplatesController.php:61
+msgid "Record not saved!"
+msgstr "Inspelningen kan inte sparad!"
+
+#: /app/controllers/AttributeController.php:61
+msgid "Attribute"
+msgstr "Attribut"
+
+#: /app/controllers/AttributeController.php:61
+msgid "Attributes"
+msgstr "Attribut"
+
+#: /app/controllers/AttributeController.php:61
+msgid "Attributes saved."
+msgstr "Attribut sparad."
+
+#: /app/controllers/AttributeController.php:61
+msgid "Attributes not saved!"
+msgstr "Attribut är inte sparad!"
+
+#: /app/controllers/AttributeController.php:61
+msgid "Attributes deleted."
+msgstr "Attribut raderat."
+
+#: /app/controllers/AttributeController.php:61
+msgid "Attributes not deleted!"
+msgstr "Attribut är inte raderat!"
+
+#: /app/controllers/AttributeController.php:61
+msgid "Attribute Editor"
+msgstr "Attribute Redigeraren"
+
+#: /app/controllers/AttributeController.php:61
+msgid "Attributes Listing"
+msgstr "Attributes Notering"
+
+#: /app/controllers/AttributeController.php:61
+msgid "Attributes Value Saved."
+msgstr "Egenskaper Värde sparade."
+
+#: /app/controllers/AttributeController.php:61
+msgid "Attributes Value Not Saved!"
+msgstr "Egenskaper Värde inte sparats!"
+
+#: /app/controllers/AttributeController.php:61
+msgid "Attributes Value Editor"
+msgstr "Egenskaper Värde Redigeraren"
+
+#: /app/View/Attributes/admin_viewer_attr.ctp:61
+msgid "Attribute Values"
+msgstr "Attributvärden"
+
+#: /app/View/Attributes/admin_viewer_attr.ctp:61
+msgid "Value Type"
+msgstr "Värde Typ"
+
+#: /app/View/Attributes/admin_viewer_attr.ctp:61
+msgid "Add"
+msgstr "Lägga till"
+
+#: /app/View/Attributes/admin_viewer_attr.ctp:61
+msgid "Compare"
+msgstr "Jämför"
+
+#: /app/View/Attributes/admin_viewer_attr.ctp:61
+msgid "Attribute Type"
+msgstr "Attribut Typ"
+
+#: /app/View/Attributes/admin_viewer_attr.ctp:61
+msgid "Price Modificator"
+msgstr "Pris modifierare"
+
+#: /app/View/Attributes/admin_viewer_attr.ctp:61
+msgid "Modificator Value"
+msgstr "Värde Modifier"
+
+#: /app/controllers/CountriesController.php:224
+msgid "You have activated multiple countries."
+msgstr "Du har aktiverat flera länder."
+
+#: /app/controllers/CountriesController.php:229
+msgid "You have inactivated multiple countries."
+msgstr "Du har inaktiverat flera länder."
+
+#: /vendors/smarty/vam_plugins/function.config.php:33
+msgid "Displays the configuration values."
+msgstr "Visar konfigurationsvärden."
+
+msgid "Abkhazia" 
+msgstr "Abkhazia"
+
+msgid "Australia" 
+msgstr "Australia"
+
+msgid "Austria" 
+msgstr "Austria"
+
+msgid "Azerbaijan" 
+msgstr "Azerbaijan"
+
+msgid "Albania" 
+msgstr "Albania"
+
+msgid "Algeria" 
+msgstr "Algeria"
+
+msgid "American Samoa" 
+msgstr "American Samoa"
+
+msgid "Anguilla" 
+msgstr "Anguilla"
+
+msgid "Angola" 
+msgstr "Angola"
+
+msgid "Andorra" 
+msgstr "Andorra"
+
+msgid "Antarctica" 
+msgstr "Antarctica"
+
+msgid "Antigua and Barbuda" 
+msgstr "Antigua and Barbuda"
+
+msgid "Argentina" 
+msgstr "Argentina"
+
+msgid "Armenia" 
+msgstr "Armenia"
+
+msgid "Aruba" 
+msgstr "Aruba"
+
+msgid "Afghanistan" 
+msgstr "Afghanistan"
+
+msgid "Bahamas" 
+msgstr "Bahamas"
+
+msgid "Bangladesh" 
+msgstr "Bangladesh"
+
+msgid "Barbados" 
+msgstr "Barbados"
+
+msgid "Bahrain" 
+msgstr "Bahrain"
+
+msgid "Belarus" 
+msgstr "Belarus"
+
+msgid "Belize" 
+msgstr "Belize"
+
+msgid "Belgium" 
+msgstr "Belgium"
+
+msgid "Benin" 
+msgstr "Benin"
+
+msgid "Bermuda" 
+msgstr "Bermuda"
+
+msgid "Bulgaria" 
+msgstr "Bulgaria"
+
+msgid "Bolivia" 
+msgstr "Bolivia"
+
+msgid "Bonaire, Sint Eustatius and Saba" 
+msgstr "Bonaire, Sint Eustatius and Saba"
+
+msgid "Bosnia and Herzegowina" 
+msgstr "Bosnia and Herzegowina"
+
+msgid "Botswana" 
+msgstr "Botswana"
+
+msgid "Brazil" 
+msgstr "Brazil"
+
+msgid "British Indian Ocean Territory" 
+msgstr "British Indian Ocean Territory"
+
+msgid "Brunei Darussalam" 
+msgstr "Brunei Darussalam"
+
+msgid "Burkina Faso" 
+msgstr "Burkina Faso"
+
+msgid "Burundi" 
+msgstr "Burundi"
+
+msgid "Bhutan" 
+msgstr "Bhutan"
+
+msgid "Vanuatu" 
+msgstr "Vanuatu"
+
+msgid "Hungary" 
+msgstr "Hungary"
+
+msgid "Venezuela" 
+msgstr "Venezuela"
+
+msgid "Virgin Islands (British)" 
+msgstr "Virgin Islands (British)"
+
+msgid "Virgin Islands (U.S.)" 
+msgstr "Virgin Islands (U.S.)"
+
+msgid "Vietnam" 
+msgstr "Vietnam"
+
+msgid "Gabon" 
+msgstr "Gabon"
+
+msgid "Haiti" 
+msgstr "Haiti"
+
+msgid "Guyana" 
+msgstr "Guyana"
+
+msgid "Gambia" 
+msgstr "Gambia"
+
+msgid "Ghana" 
+msgstr "Ghana"
+
+msgid "Guadeloupe" 
+msgstr "Guadeloupe"
+
+msgid "Guatemala" 
+msgstr "&#1043;&#1074;&#1072;&#1090;&#1077;&#1084;&#1072;&#1083;&#1072;"
+
+msgid "Guinea" 
+msgstr "Guinea"
+
+msgid "Guinea-Bissau" 
+msgstr "Guinea-Bissau"
+
+msgid "Germany" 
+msgstr "Germany"
+
+msgid "Guernsey" 
+msgstr "Guernsey"
+
+msgid "Gibraltar" 
+msgstr "Gibraltar"
+
+msgid "Honduras" 
+msgstr "Honduras"
+
+msgid "Hong Kong" 
+msgstr "Hong Kong"
+
+msgid "Grenada" 
+msgstr "Grenada"
+
+msgid "Greenland" 
+msgstr "Greenland"
+
+msgid "Greece" 
+msgstr "Greece"
+
+msgid "Georgia" 
+msgstr "Georgia"
+
+msgid "Guam" 
+msgstr "Guam"
+
+msgid "Denmark" 
+msgstr "Denmark"
+
+msgid "Jersey" 
+msgstr "Jersey"
+
+msgid "Djibouti" 
+msgstr "Djibouti"
+
+msgid "Dominica" 
+msgstr "Dominica"
+
+msgid "Dominican Republic" 
+msgstr "Dominican Republic"
+
+msgid "Egypt" 
+msgstr "Egypt"
+
+msgid "Zaire" 
+msgstr "Zaire"
+
+msgid "Zambia" 
+msgstr "Zambia"
+
+msgid "Western Sahara" 
+msgstr "Western Sahara"
+
+msgid "Zimbabwe" 
+msgstr "Zimbabwe"
+
+msgid "Israel" 
+msgstr "Israel"
+
+msgid "India" 
+msgstr "India"
+
+msgid "Indonesia" 
+msgstr "Indonesia"
+
+msgid "Jordan" 
+msgstr "Jordan"
+
+msgid "Iraq" 
+msgstr "Iraq"
+
+msgid "Iran" 
+msgstr "Iran"
+
+msgid "Ireland" 
+msgstr "Ireland"
+
+msgid "Iceland" 
+msgstr "Iceland"
+
+msgid "Spain" 
+msgstr "Spain"
+
+msgid "Italy" 
+msgstr "Italy"
+
+msgid "Yemen" 
+msgstr "Yemen"
+
+msgid "Cape Verde" 
+msgstr "Cape Verde"
+
+msgid "Kazakhstan" 
+msgstr "Kazakhstan"
+
+msgid "Cambodia" 
+msgstr "Cambodia"
+
+msgid "Cameroon" 
+msgstr "Cameroon"
+
+msgid "Canada" 
+msgstr "Canada"
+
+msgid "Qatar" 
+msgstr "Qatar"
+
+msgid "Kenya" 
+msgstr "Kenya"
+
+msgid "Cyprus" 
+msgstr "Cyprus"
+
+msgid "Kyrgyzstan" 
+msgstr "Kyrgyzstan"
+
+msgid "Kiribati" 
+msgstr "Kiribati"
+
+msgid "China" 
+msgstr "China"
+
+msgid "Cocos (Keeling) Islands" 
+msgstr "Cocos (Keeling) Islands"
+
+msgid "Colombia" 
+msgstr "Colombia"
+
+msgid "Comoros" 
+msgstr "Comoros"
+
+msgid "Congo" 
+msgstr "Congo"
+
+msgid "Congo, Democratic Republic of the" 
+msgstr "Congo, Democratic Republic of the"
+
+msgid "Korea, North" 
+msgstr "Korea, North"
+
+msgid "Korea, South" 
+msgstr "Korea, South"
+
+msgid "Costa Rica" 
+msgstr "Costa Rica"
+
+msgid "Cote D'Ivoire" 
+msgstr "Cote D'Ivoire"
+
+msgid "Cuba" 
+msgstr "Cuba"
+
+msgid "Kuwait" 
+msgstr "Kuwait"
+
+msgid "Curaçao" 
+msgstr "Curaçao"
+
+msgid "Laos" 
+msgstr "Laos"
+
+msgid "Latvia" 
+msgstr "Latvia"
+
+msgid "Lesotho" 
+msgstr "Lesotho"
+
+msgid "Lebanon" 
+msgstr "Lebanon"
+
+msgid "Libyan Arab Jamahiriya" 
+msgstr "Libyan Arab Jamahiriya"
+
+msgid "Liberia" 
+msgstr "Liberia"
+
+msgid "Liechtenstein" 
+msgstr "Liechtenstein"
+
+msgid "Lithuania" 
+msgstr "Lithuania"
+
+msgid "Luxembourg" 
+msgstr "Luxembourg"
+
+msgid "Mauritius" 
+msgstr "Mauritius"
+
+msgid "Mauritania" 
+msgstr "Mauritania"
+
+msgid "Madagascar" 
+msgstr "Madagascar"
+
+msgid "Mayotte" 
+msgstr "Mayotte"
+
+msgid "Macao" 
+msgstr "Macao"
+
+msgid "Malawi" 
+msgstr "&#1052;&#1072;&#1083;&#1072;&#1074;&#1080;"
+
+msgid "Malaysia" 
+msgstr "Malaysia"
+
+msgid "Mali" 
+msgstr "Mali"
+
+msgid "United States Minor Outlying Islands" 
+msgstr "United States Minor Outlying Islands"
+
+msgid "Maldives" 
+msgstr "Maldives"
+
+msgid "Malta" 
+msgstr "Malta"
+
+msgid "Morocco" 
+msgstr "Morocco"
+
+msgid "Martinique" 
+msgstr "Martinique"
+
+msgid "Marshall Islands" 
+msgstr "Marshall Islands"
+
+msgid "Mexico" 
+msgstr "Mexico"
+
+msgid "Micronesia" 
+msgstr "Micronesia"
+
+msgid "Mozambique" 
+msgstr "Mozambique"
+
+msgid "Myanmar" 
+msgstr "Myanmar"
+
+msgid "Moldova" 
+msgstr "Moldova"
+
+msgid "Monaco" 
+msgstr "Monaco"
+
+msgid "Mongolia" 
+msgstr "Mongolia"
+
+msgid "Montserrat" 
+msgstr "Montserrat"
+
+msgid "Burma" 
+msgstr "Burma"
+
+msgid "Namibia" 
+msgstr "Namibia"
+
+msgid "Nauru" 
+msgstr "Nauru"
+
+msgid "Nepal" 
+msgstr "Nepal"
+
+msgid "Niger" 
+msgstr "Niger"
+
+msgid "Nigeria" 
+msgstr "Nigeria"
+
+msgid "Netherlands" 
+msgstr "Netherlands"
+
+msgid "Netherlands Antilles" 
+msgstr "Netherlands Antilles"
+
+msgid "Nicaragua" 
+msgstr "Nicaragua"
+
+msgid "Niue" 
+msgstr "Niue"
+
+msgid "New Zealand" 
+msgstr "New Zealand"
+
+msgid "New Caledonia" 
+msgstr "New Caledonia"
+
+msgid "Norway" 
+msgstr "Norway"
+
+msgid "United Arab Emirates" 
+msgstr "United Arab Emirates"
+
+msgid "Oman" 
+msgstr "Oman"
+
+msgid "Bouvet Island" 
+msgstr "Bouvet Island"
+
+msgid "Isle of Man" 
+msgstr "Isle of Man"
+
+msgid "Norfolk Island" 
+msgstr "Norfolk Island"
+
+msgid "Christmas Island" 
+msgstr "Christmas Island"
+
+msgid "Heard and McDonald Islands" 
+msgstr "Heard and McDonald Islands"
+
+msgid "Cayman Islands" 
+msgstr "Cayman Islands"
+
+msgid "Cook Islands" 
+msgstr "Cook Islands"
+
+msgid "Turks and Caicos Islands" 
+msgstr "Turks and Caicos Islands"
+
+msgid "Pakistan" 
+msgstr "Pakistan"
+
+msgid "Palau" 
+msgstr "Palau"
+
+msgid "Palestinian Territory, Occupied" 
+msgstr "Palestinian Territory, Occupied"
+
+msgid "Panama" 
+msgstr "Panama"
+
+msgid "Vatican City State (Holy See)" 
+msgstr "Vatican City State (Holy See)"
+
+msgid "Papua New Guinea" 
+msgstr "Papua New Guinea"
+
+msgid "Paraguay" 
+msgstr "Paraguay"
+
+msgid "Peru" 
+msgstr "Peru"
+
+msgid "Pitcairn" 
+msgstr "Pitcairn"
+
+msgid "Poland" 
+msgstr "Poland"
+
+msgid "Portugal" 
+msgstr "Portugal"
+
+msgid "Puerto Rico" 
+msgstr "Puerto Rico"
+
+msgid "Macau" 
+msgstr "Macau"
+
+msgid "Macedonia" 
+msgstr "Macedonia"
+
+msgid "Reunion" 
+msgstr "Reunion"
+
+msgid "Russian Federation" 
+msgstr "Russian Federation"
+
+msgid "Rwanda" 
+msgstr "Rwanda"
+
+msgid "Romania" 
+msgstr "Romania"
+
+msgid "Samoa" 
+msgstr "Samoa"
+
+msgid "San Marino" 
+msgstr "San Marino"
+
+msgid "Sao Tome and Principe" 
+msgstr "Sao Tome and Principe"
+
+msgid "Saudi Arabia" 
+msgstr "Saudi Arabia"
+
+msgid "Swaziland" 
+msgstr "Swaziland"
+
+msgid "St. Helena" 
+msgstr "St. Helena"
+
+msgid "Northern Mariana Islands" 
+msgstr "Northern Mariana Islands"
+
+msgid "Saint Barthélemy" 
+msgstr "Saint Barthélemy"
+
+msgid "Saint Martin (French Part)" 
+msgstr "Saint Martin (French Part)"
+
+msgid "Senegal" 
+msgstr "Senegal"
+
+msgid "Saint Vincent and the Grenadines" 
+msgstr "Saint Vincent and the Grenadines"
+
+msgid "Saint Kitts and Nevis" 
+msgstr "Saint Kitts and Nevis"
+
+msgid "Saint Lucia" 
+msgstr "Saint Lucia"
+
+msgid "St. Pierre and Miquelon" 
+msgstr "St. Pierre and Miquelon"
+
+msgid "Serbia" 
+msgstr "Serbia"
+
+msgid "Seychelles" 
+msgstr "Seychelles"
+
+msgid "Singapore" 
+msgstr "Singapore"
+
+msgid "Sint Maarten" 
+msgstr "Sint Maarten"
+
+msgid "Syrian Arab Republic" 
+msgstr "Syrian Arab Republic"
+
+msgid "Slovakia" 
+msgstr "Slovakia"
+
+msgid "Slovenia" 
+msgstr "Slovenia"
+
+msgid "United Kingdom" 
+msgstr "United Kingdom"
+
+msgid "United States of America" 
+msgstr "USA"
+
+msgid "Solomon Islands" 
+msgstr "Solomon Islands"
+
+msgid "Somalia" 
+msgstr "Somalia"
+
+msgid "Sudan" 
+msgstr "Sudan"
+
+msgid "Suriname" 
+msgstr "Suriname"
+
+msgid "Sierra Leone" 
+msgstr "Sierra Leone"
+
+msgid "Tajikistan" 
+msgstr "Tajikistan"
+
+msgid "Thailand" 
+msgstr "Thailand"
+
+msgid "Taiwan" 
+msgstr "Taiwan"
+
+msgid "Tanzania" 
+msgstr "Tanzania"
+
+msgid "East Timor" 
+msgstr "East Timor"
+
+msgid "Togo" 
+msgstr "Togo"
+
+msgid "Tokelau" 
+msgstr "Tokelau"
+
+msgid "Tonga" 
+msgstr "Tonga"
+
+msgid "Trinidad and Tobago" 
+msgstr "Trinidad and Tobago"
+
+msgid "Tuvalu" 
+msgstr "Tuvalu"
+
+msgid "Tunisia" 
+msgstr "Tunisia"
+
+msgid "Turkmenistan" 
+msgstr "Turkmenistan"
+
+msgid "Turkey" 
+msgstr "Turkey"
+
+msgid "Uganda" 
+msgstr "Uganda"
+
+msgid "Uzbekistan" 
+msgstr "Uzbekistan"
+
+msgid "Ukraine" 
+msgstr "Ukraine"
+
+msgid "Wallis and Futuna Islands" 
+msgstr "Wallis and Futuna Islands"
+
+msgid "Uruguay" 
+msgstr "Uruguay"
+
+msgid "Faroe Islands" 
+msgstr "Faroe Islands"
+
+msgid "Fiji" 
+msgstr "Fiji"
+
+msgid "Philippines" 
+msgstr "Philippines"
+
+msgid "Finland" 
+msgstr "Finland"
+
+msgid "Falkland Islands (Malvinas)" 
+msgstr "Falkland Islands (Malvinas)"
+
+msgid "France" 
+msgstr "France"
+
+msgid "France, Metropolitan" 
+msgstr "France, Metropolitan"
+
+msgid "French Guiana" 
+msgstr "French Guiana"
+
+msgid "French Polynesia" 
+msgstr "French Polynesia"
+
+msgid "French Southern Territories" 
+msgstr "French Southern Territories"
+
+msgid "Croatia" 
+msgstr "Croatia"
+
+msgid "Central African Republic" 
+msgstr "Central African Republic"
+
+msgid "Chad" 
+msgstr "Chad"
+
+msgid "Montenegro" 
+msgstr "Montenegro"
+
+msgid "Czech Republic" 
+msgstr "Czech Republic"
+
+msgid "Chile" 
+msgstr "Chile"
+
+msgid "Switzerland" 
+msgstr "Switzerland"
+
+msgid "Sweden" 
+msgstr "Sweden"
+
+msgid "Svalbard and Jan Mayen Islands" 
+msgstr "Svalbard and Jan Mayen Islands"
+
+msgid "Sri Lanka" 
+msgstr "Sri Lanka"
+
+msgid "Ecuador" 
+msgstr "Ecuador"
+
+msgid "Equatorial Guinea" 
+msgstr "Equatorial Guinea"
+
+msgid "Åland Islands" 
+msgstr "Åland Islands"
+
+msgid "El Salvador" 
+msgstr "El Salvador"
+
+msgid "Eritrea" 
+msgstr "Eritrea"
+
+msgid "Estonia" 
+msgstr "Estonia"
+
+msgid "Ethiopia" 
+msgstr "Ethiopia"
+
+msgid "South Africa" 
+msgstr "South Africa"
+
+msgid "South Georgia and the South Sandwich Islands" 
+msgstr "South Georgia and the South Sandwich Islands"
+
+msgid "South Ossetia" 
+msgstr "South Ossetia"
+
+msgid "South Sudan" 
+msgstr "South Sudan"
+
+msgid "Jamaica" 
+msgstr "Jamaica"
+
+msgid "Japan" 
+msgstr "Japan"
+
+#: /vendors/smarty/vam_plugins/function.bender.php:53
+msgid "&#1057;ombines and compress javascript & css."
+msgstr "Kombinerar och komprimerar javascript och css-filer."
+
+#: /vendors/smarty/vam_plugins/function.bender.php:53
+msgid "Path to js / css file."
+msgstr "Vägen till js / css-fil."
+
+#: /vendors/smarty/vam_plugins/function.bender.php:53
+msgid "Path to output js / css file."
+msgstr "Vägen till utgångs js / css-fil."
+
+#: /plugins/payment/views/yandex/settings.ctp:17
+msgid "Yandex.Money ShopID"
+msgstr "Yandex.Money ShopID."
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money scid"
+msgstr "Yandex.Money scid."
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money shopPassword"
+msgstr "Yandex.Money shopPassword."
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money Mode"
+msgstr "Yandex.Money läge"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money Payment Type"
+msgstr "Yandex.Money Betalningstyp"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money Wallet"
+msgstr "Yandex.Money Plånbok"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money Credit Card"
+msgstr "Yandex.Money kreditkort"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money Mobile Phone"
+msgstr "Yandex.Money Mobiltelefon"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money Terminals"
+msgstr "Yandex.Money Terminaler"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money WebMoney"
+msgstr "Yandex.Money WebMoney"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money Sberbank Online"
+msgstr "Yandex.Money Sberbank Online"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money mPOS"
+msgstr "Yandex.Money mPOS"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money AlfaClick"
+msgstr "Yandex.Money AlfaClick"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money MasterPass"
+msgstr "Yandex.Money MasterPass"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money PSB"
+msgstr "Yandex.Money PSB"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Yandex.Money QIWI"
+msgstr "Yandex.Money QIWI"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Test Mode"
+msgstr "Testläge"
+
+#: /plugins/payment/views/yandex/settings.ctp:22
+msgid "Production Mode"
+msgstr "Produktionsläge"
+
+#: /app/View/Search/admin_global_search.ctp:22
+msgid "ContentDescription"
+msgstr "Innehåll Beskrivning"
+
+#: /app/View/Search/admin_global_search.ctp:22
+msgid "ContentProduct"
+msgstr "Produktinnehåll"
+
+#: /app/View/Search/admin_global_search.ctp:22
+msgid "ContentLink"
+msgstr "Innehåll Länk"
+
+#: /app/View/Search/admin_global_search.ctp:22
+msgid "DefinedLanguage"
+msgstr "Definierad Språk"
+
+#: /app/View/Search/admin_global_search.ctp:22
+msgid "alias"
+msgstr "alias"
+
+#: /app/View/Search/admin_global_search.ctp:22
+msgid "head_data"
+msgstr "head_data"
+
+#: /app/View/Search/admin_global_search.ctp:22
+msgid "name"
+msgstr "namn"
+
+#: /app/View/Search/admin_global_search.ctp:22
+msgid "description"
+msgstr "beskrivning"
+
+#: /app/View/Search/admin_global_search.ctp:22
+msgid "short_description"
+msgstr "short_description"
+
+#: /app/View/Search/admin_global_search.ctp:22
+msgid "model"
+msgstr "modell"
+
+#: /app/View/Search/admin_global_search.ctp:22
+msgid "url"
+msgstr "url"
+
+#: /app/View/Search/admin_global_search.ctp:22
+msgid "key"
+msgstr "nyckel"
+
+#: /app/View/Search/admin_global_search.ctp:22
+msgid "value"
+msgstr "värde"
+
+#: /app/View/Search/admin_global_search.ctp:22
+msgid "template"
+msgstr "mall"
+
+#: /app/View/Search/admin_global_search.ctp:22
+msgid "stylesheet"
+msgstr "format"
+
+#: /app/Controller/GroupsCustomersController.php:22
+msgid "Customers Groups"
+msgstr "Kunder Grupper"
+
+#: /app/Controller/GroupsCustomersController.php:22
+msgid "Customers groups listing"
+msgstr "Kunder grupper notering"
+
+#: /app/Controller/GroupsCustomersController.php:22
+msgid "Group details"
+msgstr "Gruppdetaljer"
+
+#: /app/Controller/GroupsCustomersController.php:22
+msgid "Group Not Saved!"
+msgstr "Gruppen är inte Sparat!"
+
+#: /app/Controller/GroupsCustomersController.php:22
+msgid "Validation errors!"
+msgstr "Valideringsfel!"
+
+#: /app/View/GroupsCustomers/admin.ctp:22
+msgid "Discount"
+msgstr "Rabatt"
+
+#: /app/View/GroupsCustomers/admin_edit.ctp:22
+msgid "Group Name"
+msgstr "Gruppens namn"
+
+#: /app/View/Customers/admin_edit.ctp:22
+msgid "Group"
+msgstr "Grupp"
+
+#: /app/View/Contents/admin.ctp:22
+msgid "Discounts"
+msgstr "Rabatter"
+
+#: /app/Controller/DiscountsController.php:22
+msgid "Discounts Details"
+msgstr "Rabatter Detaljer"
+
+#: /app/Controller/DiscountsController.php:22
+msgid "Discounts Listing"
+msgstr "Rabatter Notering"
+
+#: /app/View/Attributes/admin_attr.ctp:22
+msgid "Master product"
+msgstr "Mästare produkt"
+
+#: /app/View/Attributes/admin_attr.ctp:22
+msgid "Slave from product"
+msgstr "Belastning av produkt"
+
+#: /app/View/Attributes/admin_attr.ctp:22
+msgid "Select"
+msgstr "Välj"
+
+#: /vendors/smarty/vam_plugins/function.discount_group.php:53
+msgid "Displays customers group discount."
+msgstr "Visar kunder grupprabatt."
+
+#: /vendors/smarty/vam_plugins/function.discount_list.php:53
+msgid "Displays quantity discounts."
+msgstr "Visar mängdrabatter."
+
+#: /plugins/shipping/views/admin/per_item.ctp:16
+msgid "RussianPost"
+msgstr "Ryska Posten"
+
+#: /app/View/GeoZones/admin_zones_edit.ctp:16
+msgid "Back"
+msgstr "Tillbaka"
+
+#: /app/Conrtoller/ContactUsController.php:16
+msgid "Your enquiry has been successfully sent!"
+msgstr "Din förfrågan har skickats!"
+
+#: /controllers/languages_controller.php:66
+#: /views/languages/admin_edit.ctp:16
+msgid "New"
+msgstr "Ny"
+
+#: /controllers/languages_controller.php:66
+#: /views/languages/admin_edit.ctp:16
+msgid "Hit"
+msgstr "Träff"
+
+#: /controllers/languages_controller.php:66
+#: /views/languages/admin_edit.ctp:16
+msgid "Sale"
+msgstr "Rea"
+
+#: /controllers/languages_controller.php:66
+#: /views/languages/admin_edit.ctp:16
+msgid "Add Product Label"
+msgstr "Lägg till etiketter"
+
+#: /controllers/languages_controller.php:66
+#: /views/languages/admin_edit.ctp:16
+msgid "Product Labels"
+msgstr "Produktetiketter"
+
+#: /controllers/languages_controller.php:66
+#: /views/languages/admin_edit.ctp:16
+msgid "Product Label"
+msgstr "Produktetiketter"
+
+#: /controllers/languages_controller.php:66
+#: /views/languages/admin_edit.ctp:16
+msgid "Product Label Details"
+msgstr "Produktmärkningsdetaljer"
+
+#: /controllers/languages_controller.php:143
+msgid "Product Labels Listing"
+msgstr "Produktetiketter Notering"
+
+#: /vendors/smarty/vam_plugins/function.product_label.php:53
+msgid "Displays the product label."
+msgstr "Visar produktetiketten."
+
+#: /vendors/smarty/vam_plugins/function.product_label.php:53
+msgid "Display label name of selected label_id element."
+msgstr "Visa etikettnamnet av utvalda label_id inslag."
+
+#: /views/contents/admin_edit.ctp:35
+msgid "Special"
+msgstr "Speciell"
+
+#: /views/contents/admin_edit.ctp:35
+msgid "Special Price"
+msgstr "Specialpris"
+
+#: /views/contents/admin_edit.ctp:35
+msgid "<b>Specials Notes:</b><ul><li>You can enter a percentage to deduct in the Specials Price field, for example: <b>20%</b></li><li>If you enter a new price, the decimal separator must be a \'.\' (decimal-point), example: <b>49.99</b></li><li>Leave the start/end date empty for no expiration.</li></ul>"
+msgstr "<b>Speciell Anmärkningar:</b><ul><li>Du kan ange en procentsats för att göra avdrag i Specials Pris fältet, till exempel: <b>20%</b></li><li>Om du anger ett nytt pris, måste decimaltecknet vara en \'.\' (decimalpunkt), exempel: <b>49.99</b></li><li>Låt start / slutdatum tomt för inget utgångs.</li></ul>"
+
+#: /views/contents/admin_edit.ctp:35
+msgid "Date Start"
+msgstr "Datum Start"
+
+#: /views/contents/admin_edit.ctp:35
+msgid "Date End"
+msgstr "Slutdatum"
+
+#: /controllers/SiteController.php:66
+msgid "No customers found for this email."
+msgstr "Inga kunder hittades för denna email."
+
+#: /controllers/SiteController.php:66
+msgid "New password validation email was send."
+msgstr "Ny validering lösenord e-postmeddelande skickas."
+
+#: /controllers/SiteController.php:66
+msgid "New password email was send."
+msgstr "Nytt lösenord e-postmeddelande skickas."
+
+#: /controllers/SiteController.php:66
+msgid "Customer not found for this verification code."
+msgstr "Kunden kunde inte hittas med verifieringskoden."
+
+#: /Plugin/Shipping/RussianPostCalc
+msgid "API Key"
+msgstr "API-nyckel"
+
+#: /Plugin/Shipping/RussianPostCalc
+msgid "API Password"
+msgstr "API Lösenord"
+
+#: /Plugin/Shipping/RussianPostCalc
+msgid "Store Zip Code"
+msgstr "Butikens Postnummer"
+
+#: /plugins/shipping/views/admin/per_item.ctp:16
+msgid "RussianPostCalc"
+msgstr "Ryska Posten"
+
+msgid "Shipping"
+msgstr "Frakt"
+
+msgid "FreeShipping"
+msgstr "Gratis Frakt"
+
+msgid "FlatRate"
+msgstr "Expressleverans"
+
+msgid "ZoneBased"
+msgstr "Zon taxa"
+
+msgid "PerItem"
+msgstr "Per enhet"
+
+msgid "TableBased"
+msgstr "Tabell baserad"
+
+msgid "Money Order Check"
+msgstr "Betalningsorder Check"
+
+msgid "In-store Pickup"
+msgstr "I butiken: Upphämtning"
+
+msgid "Invoice"
+msgstr "Faktura"
+
+msgid "Kvitancia"
+msgstr "Betalning vid mottagandet av RF SB"

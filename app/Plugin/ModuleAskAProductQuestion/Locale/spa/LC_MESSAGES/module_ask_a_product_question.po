@@ -1,0 +1,77 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# No version information was available in the source files.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2012-01-10 14:22+0400\n"
+"PO-Revision-Date: 2018-04-23 16:07-0300\n"
+"Last-Translator: Borre Petrovic <bp@exept.eu>\n"
+"Language-Team: Wanderlei <wanderleiflorek@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: pt_BR\n"
+"X-Generator: Poedit 1.8.6\n"
+
+#: /app_controller.php:183
+msgid "Ask A Product Question"
+msgstr "Faça uma pergunta sobre o produto"
+
+#: /app_controller.php:183
+msgid "Ask a product question"
+msgstr "Faça uma pergunta sobre o produto"
+
+#: /app_controller.php:183
+msgid "Ask a question"
+msgstr "Faça uma pergunta"
+
+#: /app_controller.php:183
+msgid "Customer can send question to store admin email about any product in your store from product page."
+msgstr "O cliente pode enviar uma pergunta para armazenar o e-mail de administrador sobre qualquer produto em sua loja a partir da página do produto."
+
+#: /app_controller.php:183
+msgid "Template placeholder to create a link to a product question form:"
+msgstr "Placeholder de modelo para criar um link para um formulário de pergunta de produto:"
+
+#: /app_controller.php:183
+msgid "This call will create link to javascript popup window with product question form."
+msgstr "Essa chamada criará um link para a janela pop-up javascript com o formulário de pergunta do produto."
+
+#: /app_controller.php:183
+msgid "Insert this placeholder at product page template (Admin - Layout - Template - Product Info)."
+msgstr "Inserir este espaço reservado no modelo da página do produto (Admin - Layout - Modelo - Informações do produto)."
+
+#: /app_controller.php:183
+msgid "Required field"
+msgstr "Campo obrigatório"
+
+#: /app_controller.php:183
+msgid "Min length"
+msgstr "Comprimento mínimo"
+
+#: /app_controller.php:183
+msgid "Your Name"
+msgstr "Seu nome"
+
+#: /app_controller.php:183
+msgid "Your Email"
+msgstr "Seu E-mail"
+
+#: /app_controller.php:183
+msgid "Your Question"
+msgstr "Mensagem"
+
+#: /app_controller.php:183
+msgid "Submit"
+msgstr "Enviar"
+
+#: /app_controller.php:183
+msgid "Your question successfully sended."
+msgstr "Sua pergunta foi enviada com sucesso."
+
+#: /app_controller.php:183
+msgid "Thank you!"
+msgstr "Obrigado"

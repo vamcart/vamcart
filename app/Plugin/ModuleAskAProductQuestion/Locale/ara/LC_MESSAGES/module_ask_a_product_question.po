@@ -1,0 +1,76 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# No version information was available in the source files.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2012-01-10 14:22+0400\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: Alexandr Menovchicov <vam@kypi.ru>\n"
+"Language-Team: Arabic <vam@kypi.ru>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#: /app_controller.php:183
+msgid "Ask A Product Question"
+msgstr "إسأل عن الصنف"
+
+#: /app_controller.php:183
+msgid "Ask a product question"
+msgstr "إسأل عن الصنف"
+
+#: /app_controller.php:183
+msgid "Ask a question"
+msgstr "إسأل سؤالا"
+
+#: /app_controller.php:183
+msgid "Customer can send question to store admin email about any product in your store from product page."
+msgstr "يستطيع الزبون ترك سؤال لبريد مدير الموقع عن اي منتج/صنف من صفحة الصنف."
+
+#: /app_controller.php:183
+msgid "Template placeholder to create a link to a product question form:"
+msgstr "Template placeholder to create a link to a product question form إسأل عن الصنف:"
+
+#: /app_controller.php:183
+msgid "This call will create link to javascript popup window with product question form."
+msgstr "This call will create link to javascript popup window with product question form إسأل عن الصنف."
+
+#: /app_controller.php:183
+msgid "Insert this placeholder at product page template (Admin - Layout - Template - Product Info)."
+msgstr "Insert this placeholder at product page template (Admin - Layout - Template - Product Info)."
+
+#: /app_controller.php:183
+msgid "Required field"
+msgstr "بيانات مطلوبة"
+
+#: /app_controller.php:183
+msgid "Min length"
+msgstr "الحد الأدنى للطول"
+
+#: /app_controller.php:183
+msgid "Your Name"
+msgstr "إسمك"
+
+#: /app_controller.php:183
+msgid "Your Email"
+msgstr "Email"
+
+#: /app_controller.php:183
+msgid "Your Question"
+msgstr "سؤالك"
+
+#: /app_controller.php:183
+msgid "Submit"
+msgstr "نفذ/إرسل"
+
+#: /app_controller.php:183
+msgid "Your question successfully sended."
+msgstr "تم إرسال سؤالك بنجاح."
+
+#: /app_controller.php:183
+msgid "Thank you!"
+msgstr "شكرا!"

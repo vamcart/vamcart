@@ -1,0 +1,28 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Project-Id-Version: Netscom\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Wanderlei <wanderleiflorek@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_BR\n"
+"X-Generator: Poedit 1.8.6\n"
+
+msgid "The payment type discount module allows you to create discounts for payment methods."
+msgstr "O módulo de desconto do tipo de pagamento permite criar descontos para métodos de pagamento."
+
+msgid "Once installed there will be a new menu item under Configurations called Payment Type Discount. Here you can add discounts for payment methods. They will be applied during checkout."
+msgstr "Uma vez instalado, haverá um novo item de menu em Configurações, chamado Desconto por tipo de pagamento. Aqui você pode adicionar descontos para métodos de pagamento. Eles serão aplicados durante o checkout."
+
+msgid "Discounts saved."
+msgstr "Total de Desconto"
+
+msgid "Module Name"
+msgstr "Nome do Módulo"
+
+msgid "discount"
+msgstr "Desconto"

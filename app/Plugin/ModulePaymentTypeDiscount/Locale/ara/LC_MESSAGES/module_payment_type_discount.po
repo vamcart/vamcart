@@ -1,0 +1,17 @@
+msgid  "Payment Type Discount"
+msgstr "خصم حسب نوع الدفع"
+
+msgid "The payment type discount module allows you to create discounts for payment methods."
+msgstr "يسمح بإضافة ملحق برمجي تطبيقي لإنشاء خصومات لطرق الدفع."
+
+msgid "Once installed there will be a new menu item under Configurations called Payment Type Discount. Here you can add discounts for payment methods. They will be applied during checkout."
+msgstr "سيضاف عند تركيبة تحت قائمة إعدادات ويمكن استخدامها عند محاسبة السلة checkout."
+
+msgid "Discounts saved."
+msgstr "تم حفظ الخصومات."
+
+msgid "Module Name"
+msgstr "إسم الملحق"
+
+msgid "discount"
+msgstr "خصم"

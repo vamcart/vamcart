@@ -1,0 +1,499 @@
+﻿# LANGUAGE translation of CakePHP Application
+# Copyright 2015 NAME <EMAIL@ADDRESS>
+# No version information was available in the source files.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2015-03-10 14:22+0400\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: Alexandr Menovchicov <vam@kypi.ru>\n"
+"Language-Team: Arabic عربي <vamshop@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+msgid "Name"
+msgstr "الإسم"
+
+msgid "Price"
+msgstr "السعر"
+
+msgid "About Us"
+msgstr "من نحن"
+
+msgid "Account Edit"
+msgstr "تعديل الحساب"
+
+msgid "Add Review"
+msgstr "إضافة تعليق"
+
+msgid "Add to cart"
+msgstr "اضف لسلة  لمشتريات"
+
+msgid "Add to compare"
+msgstr "اضف للمقارنة"
+
+msgid "Address Book"
+msgstr "العناوين"
+
+msgid "Address Line 1"
+msgstr "العنوان..1 "
+
+msgid "Address Line 2"
+msgstr "العنوان..2"
+
+msgid "All"
+msgstr "الكل"
+
+msgid "Also purchased"
+msgstr "تم شراؤه ايضا"
+
+msgid "Apply"
+msgstr "فلتر"
+
+msgid "Articles"
+msgstr "مقالات"
+
+msgid "Ask A question"
+msgstr "إسأل عن المنتج"
+
+msgid "best buy!"
+msgstr "أفضل شراء!"
+
+msgid "Best rating"
+msgstr "أفضل تصنيف"
+
+msgid "Billing Information"
+msgstr "معلومات الدفع"
+
+msgid "Brands"
+msgstr "ماركات"
+
+msgid "Buy"
+msgstr "اشتري"
+
+msgid "Cart"
+msgstr "سلة المشتريات"
+
+msgid "Cart Contents"
+msgstr "محتويات السلة"
+
+msgid "Categories"
+msgstr "الأقسام"
+
+msgid "Checkout"
+msgstr "إلى نقطة البيع"
+
+msgid "City"
+msgstr "مدينة"
+
+msgid "Comment"
+msgstr "تعليق"
+
+msgid "Company"
+msgstr "الشركة"
+
+msgid "Compare"
+msgstr "قارن"
+
+msgid "Comparison"
+msgstr "المقارنة"
+
+msgid "Confirm Order"
+msgstr "تأكيد الطلبية"
+
+msgid "Contact Information"
+msgstr "معلومات الإتصال"
+
+msgid "Contact Us"
+msgstr "إتصل بنا"
+
+msgid "Continue"
+msgstr "إستمرار"
+
+msgid "Continue Shopping"
+msgstr "الإستمرار في التسوق"
+
+msgid "Country"
+msgstr "الدولة"
+
+msgid "Coupon Code"
+msgstr "رمز القسيمة"
+
+msgid "Credit Card"
+msgstr "بطاقة إءتمانية"
+
+msgid "Currency"
+msgstr "العملة"
+
+msgid "Customer"
+msgstr "العميل"
+
+msgid "Date"
+msgstr "التاريخ"
+
+msgid "Description"
+msgstr "الوصف"
+
+msgid "Details"
+msgstr "التفاصيل"
+
+msgid "Discount"
+msgstr "الخصم"
+
+msgid "Download"
+msgstr "تنزيل"
+
+msgid "Download file"
+msgstr "تنزيل الملف"
+
+msgid "E-mail"
+msgstr "E-mail"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Example"
+msgstr "مثال"
+
+msgid "Featured Products"
+msgstr "أصناف مميزة"
+
+msgid "Feedback"
+msgstr "الردود"
+
+msgid "Filter"
+msgstr "فلتر"
+
+msgid "FreeShipping"
+msgstr "شحن مجاني"
+
+msgid "FlatRate"
+msgstr "سعر موحد"
+
+msgid "Forgot your password?"
+msgstr "نسيت كلمة السر?"
+
+msgid "Free Shipping"
+msgstr "شحن مجاني"
+
+msgid "from"
+msgstr "مـن"
+
+msgid "Go"
+msgstr "إرسل/نفذ"
+
+msgid "Hit"
+msgstr "انقر"
+
+msgid "Home"
+msgstr "الرئيسية"
+
+msgid "In-store Pickup"
+msgstr "استلام من المعرض"
+
+msgid "Information"
+msgstr "معلومات"
+
+msgid "Invoice"
+msgstr "فاتورة"
+
+msgid "Kvitancia"
+msgstr "الدفع عند الإستلام"
+
+msgid "Language"
+msgstr "اللغة"
+
+msgid "Leave empty to use current password."
+msgstr "اتركه فارغا إلا إذا كنت تريد تغيير كلمة المرور الحالية"
+
+msgid "List Price"
+msgstr "قائمة السعر"
+
+msgid "Login"
+msgstr "رمز الدخول"
+
+msgid "Logout"
+msgstr "خروج"
+
+msgid "Manufacturers List"
+msgstr "قائمة المنتجين"
+
+msgid "Message"
+msgstr "رسالة"
+
+msgid "Min length"
+msgstr "أقل طول"
+
+msgid "Model"
+msgstr "مودبل"
+
+msgid "Money Order Check"
+msgstr "حوالة شيك بنكية"
+
+msgid "My Account"
+msgstr "حسابي"
+
+msgid "My delivery and billing addresses are not the same."
+msgstr "عنوان التسليم و عنوان الفاتورة مختلفين"
+
+msgid "My Orders"
+msgstr "طلباتي"
+
+msgid "Product Name"
+msgstr "الإسم"
+
+msgid "Product Name (A-Z)"
+msgstr "إسم الصنف (أ-ي)"
+
+msgid "Product Name (Z-A)"
+msgstr "إسم الصنف (ي-أ)"
+
+msgid "New"
+msgstr "جديد"
+
+msgid "New Password"
+msgstr "كلمة سر جديدة"
+
+msgid "News"
+msgstr "الأخبار"
+
+msgid "No Cart Items"
+msgstr "لا يوجد اصناف بالسلة."
+
+msgid "No Image"
+msgstr "لا صورة"
+
+msgid "No Items Found"
+msgstr "لم يتم الحصول على اصناف."
+
+msgid "No reviews were found for this product."
+msgstr "لا يوجد ملاحظات عن هذا الصنف."
+
+msgid "One Click Buy"
+msgstr "شراء مستعجل"
+
+msgid "Order Comments"
+msgstr "ملاحظات الطلبية"
+
+msgid "Order number"
+msgstr "رقم الطلبية"
+
+msgid "Order Status"
+msgstr "حالة الطلبية"
+
+msgid "Order Total"
+msgstr "مجموع الطلبية"
+
+msgid "Orders Not Found!"
+msgstr "لا يوجد طلبيات!"
+
+msgid "Pages"
+msgstr "صفحات"
+
+msgid "Password"
+msgstr "كلمة السر"
+
+msgid "Payment Method"
+msgstr "طريقة الدفع"
+
+msgid "per"
+msgstr "لكل"
+
+msgid "PerItem"
+msgstr "للصنف"
+
+msgid "Permission Denied."
+msgstr "نعتذر لعدم السماح"
+
+msgid "Phone"
+msgstr "الهاتف"
+
+msgid "Please agree to our policy."
+msgstr "الرجاء الموافقة على سياساتنا"
+
+msgid "Popular"
+msgstr "شائع"
+
+msgid "Popular (asc)"
+msgstr "شائع (تنازلي)"
+
+msgid "Popular (desc)"
+msgstr "شائع (تصاعدي)"
+
+msgid "Powered by"
+msgstr "صمم بواسطة"
+
+msgid "Price (High to Low)"
+msgstr "السعر (مرتفع الى منخفض)"
+
+msgid "Price (Low to High)"
+msgstr "السعر (منخفض الى مرتفع)"
+
+msgid "Price Ea."
+msgstr "السعر / وحدة."
+
+msgid "Print Invoice"
+msgstr "طباعة الفاتورة"
+
+msgid "Print Order"
+msgstr "طباعة الطلبية"
+
+msgid "Process to Payment"
+msgstr "الى عملية الدفع"
+
+msgid "Product"
+msgstr "الصنف"
+
+msgid "Products"
+msgstr "الأصناف"
+
+msgid "Products by this Manufacturer"
+msgstr "الأصناف حسب المصنع"
+
+msgid "Products in this Category"
+msgstr "الأصناف حسب الأقسام"
+
+msgid "Qty"
+msgstr "الكمية"
+
+msgid "qty."
+msgstr "عدد."
+
+msgid "Quantity"
+msgstr "الكمية"
+
+msgid "Quantity discounts"
+msgstr "خصم الكمية"
+
+msgid "Rating"
+msgstr "التصنيف"
+
+msgid "Rating value"
+msgstr "قيمة التصنيف"
+
+msgid "read more"
+msgstr "إقرأ المزيد"
+
+msgid "Read Reviews"
+msgstr "إقرأ التعليقات"
+
+msgid "Register"
+msgstr "التسجيل"
+
+msgid "Registration"
+msgstr "التسجيل"
+
+msgid "Remove"
+msgstr "حذف"
+
+msgid "Required field"
+msgstr "يبانات مطلوبة"
+
+msgid "Reset"
+msgstr "إعادة تعريف"
+
+msgid "Retype Password"
+msgstr "إعادة كتابة كلمة السر"
+
+msgid "Review"
+msgstr "تعليق"
+
+msgid "Reviews"
+msgstr "تعليقات"
+
+msgid "RussianPost"
+msgstr "Почта России"
+
+msgid "RussianPostCalc"
+msgstr "Почта России"
+
+msgid "Sale"
+msgstr "تخفيضات"
+
+msgid "Save"
+msgstr "حفظ"
+
+msgid "Search"
+msgstr "بحث"
+
+msgid "Send"
+msgstr "إرسال"
+
+msgid "Sent To Customer"
+msgstr "أرسلت للعميل/الزبون"
+
+msgid "Shipping"
+msgstr "الشحن"
+
+msgid "Shipping Information"
+msgstr "معلومات الشحن"
+
+msgid "Shipping Method"
+msgstr "طريقة الشحن"
+
+msgid "Shopping Cart"
+msgstr "سلة المشتريات"
+
+msgid "Short Description"
+msgstr "وصف مختصر"
+
+msgid "Sort by"
+msgstr "ترتيب حسب"
+
+msgid "State"
+msgstr "الولاية"
+
+msgid "Sub Categories"
+msgstr "الأقسام الفرعية"
+
+msgid "Send"
+msgstr "إرسل"
+
+msgid "TableBased"
+msgstr "مجدول"
+
+msgid "Terms & Conditions."
+msgstr "الشروط."
+
+msgid "Tax"
+msgstr "ضريبة"
+
+msgid "Total"
+msgstr "المجموع"
+
+msgid "Update"
+msgstr "تحديث"
+
+msgid "vamshop.com"
+msgstr "vamshop.ru"
+
+msgid "View Cart"
+msgstr "استعراض السلة"
+
+msgid "view products"
+msgstr "عرض الأصناف"
+
+msgid "Worst rating"
+msgstr "أسوأ تصنيف"
+
+msgid "Write a Review"
+msgstr "أكتب تعليق"
+
+msgid "You Save"
+msgstr "قم بحفظ"
+
+msgid "Your Email"
+msgstr "بريدك email"
+
+msgid "Your Name"
+msgstr "إسمك"
+
+msgid "Zipcode"
+msgstr "الرمز البريدي"
+
+msgid "ZoneBased"
+msgstr "حسب النطاق الجغرافي"

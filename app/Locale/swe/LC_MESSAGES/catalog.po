@@ -1,0 +1,499 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# No version information was available in the source files.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2015-03-10 14:22+0400\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: Borre Petrovic <bp@exept.eu>\n"
+"Language-Team: Swedish <bp@exept.eu>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+msgid "Name"
+msgstr "Namn"
+
+msgid "Price"
+msgstr "Pris"
+
+msgid "About Us"
+msgstr "Om Oss"
+
+msgid "Account Edit"
+msgstr "Redigera kontot"
+
+msgid "Add Review"
+msgstr "Lägg till en recension"
+
+msgid "Add to cart"
+msgstr "Lägg i kundvagnen"
+
+msgid "Add to compare"
+msgstr "Jämför"
+
+msgid "Address Book"
+msgstr "Adressbok"
+
+msgid "Address Line 1"
+msgstr "Adress 1"
+
+msgid "Address Line 2"
+msgstr "Adress 2"
+
+msgid "All"
+msgstr "Allt"
+
+msgid "Also purchased"
+msgstr "Också köt"
+
+msgid "Apply"
+msgstr "Tillämpa"
+
+msgid "Articles"
+msgstr "Artiklar"
+
+msgid "Ask A Product Question"
+msgstr "Ställ en produktfråga"
+
+msgid "best buy!"
+msgstr "bästa köp!"
+
+msgid "Best rating"
+msgstr "Bästa betyg"
+
+msgid "Billing Information"
+msgstr "Faktureringsinformation"
+
+msgid "Brands"
+msgstr "Varumärken"
+
+msgid "Buy"
+msgstr "Köp"
+
+msgid "Cart"
+msgstr "Vagn"
+
+msgid "Cart Contents"
+msgstr "Varukorg"
+
+msgid "Categories"
+msgstr "Kategorier"
+
+msgid "Checkout"
+msgstr "Kassan"
+
+msgid "City"
+msgstr "Stad"
+
+msgid "Comment"
+msgstr "Kommenta"
+
+msgid "Company"
+msgstr "Företag"
+
+msgid "Compare"
+msgstr "Jämför"
+
+msgid "Comparison"
+msgstr "Jämförelse"
+
+msgid "Confirm Order"
+msgstr "Bekräfta Order"
+
+msgid "Contact Information"
+msgstr "Kontakt information"
+
+msgid "Contact Us"
+msgstr "Kontakta oss"
+
+msgid "Continue"
+msgstr "Fortsätta"
+
+msgid "Continue Shopping"
+msgstr "Fortsätt handla"
+
+msgid "Country"
+msgstr "Land"
+
+msgid "Coupon Code"
+msgstr "Kupongskod"
+
+msgid "Credit Card"
+msgstr "Kreditkort"
+
+msgid "Currency"
+msgstr "Valuta"
+
+msgid "Customer"
+msgstr "Kunden"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Description"
+msgstr "Beskrivning"
+
+msgid "Details"
+msgstr "Detaljer"
+
+msgid "Discount"
+msgstr "Rabatt"
+
+msgid "Download"
+msgstr "Ladda ner"
+
+msgid "Download file"
+msgstr "Hämta filen"
+
+msgid "E-mail"
+msgstr "E-mail"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Example"
+msgstr "Exempel"
+
+msgid "Featured Products"
+msgstr "Utvalda Produkter"
+
+msgid "Feedback"
+msgstr "Respons"
+
+msgid "Filter"
+msgstr "Filtrera"
+
+msgid "FreeShipping"
+msgstr "Gratis frakt"
+
+msgid "FlatRate"
+msgstr "Enhets taxa"
+
+msgid "Forgot your password?"
+msgstr "Glömt lösenord?"
+
+msgid "Free Shipping"
+msgstr "Gratis Frakt"
+
+msgid "from"
+msgstr "från"
+
+msgid "Go"
+msgstr "Gå"
+
+msgid "Hit"
+msgstr "Träffa"
+
+msgid "Home"
+msgstr "Hem"
+
+msgid "In-store Pickup"
+msgstr "Upphämtning i butiken"
+
+msgid "Information"
+msgstr "Information"
+
+msgid "Invoice"
+msgstr "Faktura"
+
+msgid "Kvitancia"
+msgstr "Betalning vid mottagandet av RF SB"
+
+msgid "Language"
+msgstr "Språk"
+
+msgid "Leave empty to use current password."
+msgstr "Lämna fältet tomt för att inte ändra lösenordet."
+
+msgid "List Price"
+msgstr "Listpris"
+
+msgid "Login"
+msgstr "Logga in"
+
+msgid "Logout"
+msgstr "Logga Ut"
+
+msgid "Manufacturers List"
+msgstr "tillverkareNS Lista"
+
+msgid "Message"
+msgstr "Meddelande"
+
+msgid "Min length"
+msgstr "Min längd"
+
+msgid "Model"
+msgstr "Modell"
+
+msgid "Money Order Check"
+msgstr "Betalningsorder Check"
+
+msgid "My Account"
+msgstr "Mitt konto"
+
+msgid "My delivery and billing addresses are not the same."
+msgstr "Leverans- och faktureringsadress är INTE samma sak."
+
+msgid "My Orders"
+msgstr "Mina beställningar"
+
+msgid "Product Name"
+msgstr "Produktnamn"
+
+msgid "Product Name (A-Z)"
+msgstr "Produktnamn (А-Z)"
+
+msgid "Product Name (Z-A)"
+msgstr "Produktnamn (Z-А)"
+
+msgid "New"
+msgstr "Nytt"
+
+msgid "New Password"
+msgstr "Nytt Lösenord"
+
+msgid "News"
+msgstr "Nyheter"
+
+msgid "No Cart Items"
+msgstr "Inga artiklar i varukorgen."
+
+msgid "No Image"
+msgstr "Inga bilder"
+
+msgid "No Items Found"
+msgstr "Inga objekt hittades."
+
+msgid "No reviews were found for this product."
+msgstr "Inga recensioner hittades för denna produkt."
+
+msgid "One Click Buy"
+msgstr "Ett klick för Köp"
+
+msgid "Order Comments"
+msgstr "Ordern Synpunkter"
+
+msgid "Order number"
+msgstr "Ordernummer"
+
+msgid "Order Status"
+msgstr "Orderstatus"
+
+msgid "Order Total"
+msgstr "Order Totalt"
+
+msgid "Orders Not Found!"
+msgstr "Order hittades inte!"
+
+msgid "Pages"
+msgstr "Sidor"
+
+msgid "Password"
+msgstr "Lösenord"
+
+msgid "Payment Method"
+msgstr "Betalningsmetod"
+
+msgid "per"
+msgstr "per"
+
+msgid "PerItem"
+msgstr "Per Artikel"
+
+msgid "Permission Denied."
+msgstr "Åtkomst Nekad."
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Please agree to our policy."
+msgstr "Du måste godkänna vår policy."
+
+msgid "Popular"
+msgstr "Populära"
+
+msgid "Popular (asc)"
+msgstr "Populära (stigande)"
+
+msgid "Popular (desc)"
+msgstr "Populära (fallande)"
+
+msgid "Powered by"
+msgstr "Drivs av"
+
+msgid "Price (High to Low)"
+msgstr "Pris (högt till lågt)"
+
+msgid "Price (Low to High)"
+msgstr "Pris (lågt till högt)"
+
+msgid "Price Ea."
+msgstr "Pris / Ea."
+
+msgid "Print Invoice"
+msgstr "Skriv ut fakturan"
+
+msgid "Print Order"
+msgstr "Skriv ut Beställningen"
+
+msgid "Process to Payment"
+msgstr "Betalnings processen"
+
+msgid "Product"
+msgstr "Produkt"
+
+msgid "Products"
+msgstr "Produkter"
+
+msgid "Products by this Manufacturer"
+msgstr "Produkter av denna Tillverkare"
+
+msgid "Products in this Category"
+msgstr "Produkter i denna kategori"
+
+msgid "Qty"
+msgstr "Antal"
+
+msgid "qty."
+msgstr "st."
+
+msgid "Quantity"
+msgstr "Kvantitet"
+
+msgid "Quantity discounts"
+msgstr "Mängdrabatt"
+
+msgid "Rating"
+msgstr "Betyg"
+
+msgid "Rating value"
+msgstr "Betyg värde"
+
+msgid "read more"
+msgstr "Läs mer"
+
+msgid "Read Reviews"
+msgstr "Läs omdömen"
+
+msgid "Register"
+msgstr "Register"
+
+msgid "Registration"
+msgstr "Registrering"
+
+msgid "Remove"
+msgstr "Ta Bort"
+
+msgid "Required field"
+msgstr "Obligatoriskt fält"
+
+msgid "Reset"
+msgstr "Återställ"
+
+msgid "Retype Password"
+msgstr "Upprepa lösenord"
+
+msgid "Review"
+msgstr "Omdöme"
+
+msgid "Reviews"
+msgstr "Omdömen"
+
+msgid "RussianPost"
+msgstr "Ryska posten"
+
+msgid "RussianPostCalc"
+msgstr "Ryska posten"
+
+msgid "Sale"
+msgstr "Försäljning"
+
+msgid "Save"
+msgstr "Spara"
+
+msgid "Search"
+msgstr "Sök"
+
+msgid "Send"
+msgstr "Skicka"
+
+msgid "Sent To Customer"
+msgstr "Skickat till kund"
+
+msgid "Shipping"
+msgstr "Frakt"
+
+msgid "Shipping Information"
+msgstr "Fraktinformation"
+
+msgid "Shipping Method"
+msgstr "Fraktsätt"
+
+msgid "Shopping Cart"
+msgstr "Varukorg"
+
+msgid "Short Description"
+msgstr "Kort Beskrivning"
+
+msgid "Sort by"
+msgstr "Sortera efter"
+
+msgid "State"
+msgstr "Region"
+
+msgid "Sub Categories"
+msgstr "Underkategorier"
+
+msgid "Submit"
+msgstr "Skicka"
+
+msgid "TableBased"
+msgstr "Tabell baserad"
+
+msgid "Terms & Conditions."
+msgstr "Användarvillkor."
+
+msgid "Tax"
+msgstr "Moms"
+
+msgid "Total"
+msgstr "Totalt"
+
+msgid "Update"
+msgstr "Uppdatera"
+
+msgid "vamshop.com"
+msgstr "vamshop.ru"
+
+msgid "View Cart"
+msgstr "Visa kundvagn"
+
+msgid "view products"
+msgstr "visa produkter"
+
+msgid "Worst rating"
+msgstr "Värsta betyg"
+
+msgid "Write a Review"
+msgstr "Skriva en recension"
+
+msgid "You Save"
+msgstr "Du Sparar"
+
+msgid "Your Email"
+msgstr "Din Email"
+
+msgid "Your Name"
+msgstr "Ditt Namn"
+
+msgid "Zipcode"
+msgstr "Postnummer"
+
+msgid "ZoneBased"
+msgstr "Zon taxa"

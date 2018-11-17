@@ -1,0 +1,17 @@
+msgid  "Payment Type Discount"
+msgstr "Знижка від варіанту оплати"
+
+msgid "The payment type discount module allows you to create discounts for payment methods."
+msgstr "Модуль дозволяє Вам додавати знижки залежно від вибраного варіанту оплати."
+
+msgid "Once installed there will be a new menu item under Configurations called Payment Type Discount. Here you can add discounts for payment methods. They will be applied during checkout."
+msgstr "Після встановлення модуль буде доступний у розділі Налаштування - Знижка від варіанту оплати. У цьому розділі Ви маєте можливість додавати знижки залежно від варіанту оплати. Знижки від варіанту оплати застосовуватимуться при оформленні замовлення в магазині."
+
+msgid "Discounts saved."
+msgstr "Знижки збережено."
+
+msgid "Module Name"
+msgstr "Назва модуля"
+
+msgid "discount"
+msgstr "знижка"

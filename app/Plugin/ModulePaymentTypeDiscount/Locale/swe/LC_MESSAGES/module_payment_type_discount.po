@@ -1,0 +1,17 @@
+﻿msgid  "Payment Type Discount"
+msgstr "Betalning typ av rabatt"
+
+msgid "The payment type discount module allows you to create discounts for payment methods."
+msgstr "Betalningen typ rabatt modul låter dig skapa rabatter för betalningssätt."
+
+msgid "Once installed there will be a new menu item under Configurations called Payment Type Discount. Here you can add discounts for payment methods. They will be applied during checkout."
+msgstr "När du har installerat kommer det att finnas en ny menyalternativ under Inställningar kallas Betalning Typ rabatt.I det här avsnittet kan du lägga till rabatter beroende på betalningsmetod. Rabatter på betalningsmetod kommer att användas vid beställning i butiken."
+
+msgid "Discounts saved."
+msgstr "Rabatter sparade."
+
+msgid "Module Name"
+msgstr "Modul Namn"
+
+msgid "discount"
+msgstr "rabatt"

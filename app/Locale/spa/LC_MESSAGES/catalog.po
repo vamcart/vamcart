@@ -1,0 +1,568 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# No version information was available in the source files.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2015-03-10 14:22+0400\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: Alexandr Menovchicov <vam@kypi.ru>\n"
+"Language-Team: Russian <vamshop@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+msgid "Name"
+msgstr "Nombre"
+
+msgid "Price"
+msgstr "Precio"
+
+msgid "About Us"
+msgstr "Sobre nosotros"
+
+msgid "Account Edit"
+msgstr "Edición de datos"
+
+msgid "Add Review"
+msgstr "Agregar Comentarios"
+
+msgid "Add to cart"
+msgstr "Añadir al carrito"
+
+msgid "Add to compare"
+msgstr "Añadir y comprar"
+
+msgid "Address Book"
+msgstr "Libreta dirección"
+
+msgid "Address Line 1"
+msgstr "Dirección"
+
+msgid "Address Line 2"
+msgstr "Dirección 2 "
+
+msgid "All"
+msgstr "Todos"
+
+msgid "Also purchased"
+msgstr "También compraron"
+
+msgid "Apply"
+msgstr "Aplicar"
+
+msgid "Articles"
+msgstr "Artículos"
+
+msgid "Ask A Product Question"
+msgstr "Haga una pregunta sobre el producto"
+
+msgid "best buy!"
+msgstr "producto más comprado"
+
+msgid "Best rating"
+msgstr "Mejor calificación"
+
+msgid "Billing Information"
+msgstr "Datos de facturación"
+
+msgid "Brands"
+msgstr "Marcas"
+
+msgid "Buy"
+msgstr "Comprar"
+
+msgid "Cart"
+msgstr "Carrito"
+
+msgid "Cart Contents"
+msgstr "Contenido del carrito"
+
+msgid "Categories"
+msgstr "Categorías"
+
+msgid "Checkout"
+msgstr "Revisa"
+
+msgid "City"
+msgstr "Ciudad"
+
+msgid "Comment"
+msgstr "Comentario"
+
+msgid "Company"
+msgstr "Empresa"
+
+msgid "Compare"
+msgstr "Comparar"
+
+msgid "Comparison"
+msgstr "Comparación"
+
+msgid "Confirm Order"
+msgstr "Confirmar pedido"
+
+msgid "Contact Information"
+msgstr "Información del contacto"
+
+msgid "Contact Us"
+msgstr "Contáctenos"
+
+msgid "Continue"
+msgstr "Continuar"
+
+msgid "Continue Shopping"
+msgstr "Seguir comprando"
+
+msgid "Country"
+msgstr "País"
+
+msgid "Coupon Code"
+msgstr "Código promocional"
+
+msgid "Credit Card"
+msgstr "Tarjeta de crédito"
+
+msgid "Currency"
+msgstr "Moneda"
+
+msgid "Customer"
+msgstr "Cliente"
+
+msgid "Date"
+msgstr "Fecha"
+
+msgid "Description"
+msgstr "Descripción"
+
+msgid "Details"
+msgstr "Detalles"
+
+msgid "Discount"
+msgstr "Descuento"
+
+msgid "Download"
+msgstr "Descargar"
+
+msgid "Download file"
+msgstr "Descargar archivo"
+
+msgid "E-mail"
+msgstr "E-mail"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Example"
+msgstr "Ejemplo"
+
+msgid "Featured Products "
+msgstr "Productos Destacados"
+
+msgid "Feedback"
+msgstr "Realimentación"
+
+msgid "Filter "
+msgstr "Filtrar"
+
+msgid "FreeShipping"
+msgstr "Envío gratis"
+
+msgid "FlatRate"
+msgstr "Tarifa plana"
+
+msgid "YandexFizlico"
+msgstr " Yandex, Fizlico, Visa, MasterCard)"
+
+msgid "Forgot your password?"
+msgstr "Olvidaste tu contraseña?"
+
+msgid "Free Shipping"
+msgstr "Envío gratis"
+
+msgid "from"
+msgstr "desde "
+
+msgid "Go"
+msgstr "Ir"
+
+msgid "Hit"
+msgstr "Hit"
+
+msgid "Home"
+msgstr "Inicio"
+
+msgid "In-store Pickup"
+msgstr "Recoger en la tienda"
+
+msgid "Information"
+msgstr "Información"
+
+msgid "Invoice"
+msgstr "Factura"
+
+msgid "Kvitancia"
+msgstr "Pago a la recepción del Consejo de Seguridad de la Federación Rusa"
+
+msgid "Language"
+msgstr "Idioma"
+
+msgid "Leave empty to use current password."
+msgstr "Deje vacío para usar la contraseña actual."
+
+msgid "List Price"
+msgstr "Precio de lista"
+
+msgid "Login"
+msgstr "Iniciar sesión"
+
+msgid "Logout"
+msgstr "Cerrar sesión"
+
+msgid "Manufacturers List"
+msgstr "Lista de fabricantes"
+
+msgid "Message"
+msgstr "Mensaje"
+
+msgid "Min length"
+msgstr "Longitud mínima"
+
+msgid "Model"
+msgstr "Modelo"
+
+msgid "Money Order Check"
+msgstr "Cheque de giro postal"
+
+msgid "My Account"
+msgstr "Mi cuenta"
+
+msgid "My delivery and billing addresses are not the same."
+msgstr "Mis direcciones de entrega y facturación no son las mismas."
+
+msgid "My Orders"
+msgstr "Mis ordenes"
+
+msgid "Product Name"
+msgstr "Nombre del Producto"
+
+msgid "Product Name (A-Z)"
+msgstr "Nombre del producto (А-Z)"
+
+msgid "Product Name (Z-A)"
+msgstr "Nombre del producto (Z-А)"
+
+msgid "New"
+msgstr "Nuevo"
+
+msgid "New Password"
+msgstr "Nueva contraseña"
+
+msgid "News"
+msgstr "Noticias"
+
+msgid "No Cart Items "
+msgstr "No hay artículos en el carrito."
+
+msgid "No Image"
+msgstr "Sin imágen"
+
+msgid "No Items Found"
+msgstr "No se encontraron artículos."
+
+msgid "No reviews were found for this product."
+msgstr "No se encontraron comentarios para este producto."
+
+msgid "One Click Buy"
+msgstr "Compra con un clic"
+
+msgid "Order Comments"
+msgstr "Ordenar Comentarios"
+
+msgid "Order number"
+msgstr "Número de orden"
+
+msgid "Order Status "
+msgstr "Estado del pedido"
+
+msgid "Order Total"
+msgstr "Total del pedido"
+
+msgid "Orders Not Found!"
+msgstr "Pedidos no encontrados!"
+
+msgid "Not Found"
+msgstr "Extraviado"
+
+msgid "Pages"
+msgstr "Páginas"
+
+msgid "Password"
+msgstr "Contraseña"
+
+msgid "Payment Method"
+msgstr "Método de pago"
+
+msgid "Payment Methods"
+msgstr "Métodos de pagos"
+
+msgid "per "
+msgstr "por"
+
+msgid "PerItem"
+msgstr "Por artículo"
+
+msgid "Permission Denied."
+msgstr "Permiso denegado."
+
+msgid "Phone"
+msgstr "Teléfono"
+
+msgid "By clicking button you are agree to our policy." 
+msgstr "Al hacer clic en el botón está de acuerdo con nuestra política."
+
+msgid "Popular"
+msgstr "Popular"
+
+msgid "Popular (asc)"
+msgstr "Popularidad (Productos populares abajo)"
+
+msgid "Popular (desc)"
+msgstr "Popularidad (Top Top)"
+
+msgid "Powered by"
+msgstr "Desarrollado por"
+
+msgid "Price (High to Low)"
+msgstr "Precio (alto a bajo)"
+
+msgid "Price (Low to High)"
+msgstr "Precios (barato a caro)""
+
+msgid "Price Ea."
+msgstr "Precio/Cl."
+
+msgid "Print Invoice"
+msgstr "Imprimir factura"
+
+msgid "Print Packing Slip"
+msgstr "Imprimir boleto de embalaje"
+
+msgid "Print Order"
+msgstr "Orden de impresión"
+
+msgid "Process to Payment"
+msgstr "Proceso de pago"
+
+msgid "Product"
+msgstr "Producto"
+
+msgid "Products"
+msgstr "Productos"
+
+msgid "Products by this Manufacturer"
+msgstr "Productos de este fabricante"
+
+msgid "Products in this Category"
+msgstr "Productos en esta Categoría"
+
+msgid "Qty"
+msgstr "Cantidad"
+
+msgid "qty."
+msgstr "cantidad."
+
+msgid "Quantity"
+msgstr "Cantidad"
+
+msgid "Quantity discounts"
+msgstr "Descuentos por cantidad"
+
+msgid "Rating"
+msgstr "Clasificación"
+
+msgid "Rating value"
+msgstr "Valor de valoración"
+
+msgid "read more"
+msgstr "Lee más"
+
+msgid "Read Reviews"
+msgstr "Leer opiniones"
+
+msgid "Register"
+msgstr "Registro"
+
+msgid "Registration"
+msgstr "Registro"
+
+msgid "Remove"
+msgstr "Retirar"
+
+msgid "Required field"
+msgstr "Campo requerido"
+
+msgid "Reset"
+msgstr "Reiniciar"
+
+msgid "Retype Password"
+msgstr "Vuelva a escribir la contraseña"
+
+msgid "Review"
+msgstr "Revisión"
+
+msgid "Reviews"
+msgstr "Revisión"
+
+msgid "RussianPost"
+msgstr "Correo Costa Rica"
+
+msgid "Cdek"
+msgstr "Сdek"
+
+msgid "Spsr"
+msgstr "Spsr"
+
+msgid "IKN"
+msgstr "IKN"
+
+msgid "Shipment Type"
+msgstr "Tipo de envío"
+
+msgid "RussianPostCalc"
+msgstr "PostCalc Costa Rica"
+
+msgid "Sale"
+msgstr "Oferta"
+
+msgid "Save"
+msgstr "Salvar"
+
+msgid "Search"
+msgstr "Buscar"
+
+msgid "Send"
+msgstr "Enviar"
+
+msgid "Sent To Customer"
+msgstr "Enviado al cliente"
+
+msgid "Shipping"
+msgstr "Envío"
+
+msgid "Shipping Information"
+msgstr "Información de envío"
+
+msgid "Shipping Method"
+msgstr "Método de envío"
+
+msgid "Shopping Cart"
+msgstr "Carrito de compras"
+
+msgid "Short Description"
+msgstr "Breve descripción"
+
+msgid "Sort by"
+msgstr "Ordenar por"
+
+msgid "State"
+msgstr "Estado"
+
+msgid "Sub Categories"
+msgstr "Subcategorias"
+
+msgid "Submit"
+msgstr "Enviar"
+
+msgid "TableBased"
+msgstr "TableBased"
+
+msgid "Terms & Conditions."
+msgstr "Términos y condiciones.."
+
+msgid "Tax"
+msgstr "Impuesto"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Update"
+msgstr "Actualizar"
+
+msgid "vamshop.com"
+msgstr "vamshop.ru"
+
+msgid "View Cart"
+msgstr "Ver carrito"
+
+msgid "view products"
+msgstr "Ver productos"
+
+msgid "Worst rating"
+msgstr "Peor calificación"
+
+msgid "Write a Review"
+msgstr "Escribe una reseña"
+
+msgid "You Save"
+msgstr "Tu Guardar"
+
+msgid "Your Email"
+msgstr "Tu  email"
+
+msgid "Your Name"
+msgstr "Tu Nombre"
+
+msgid "Zipcode"
+msgstr "Código postal"
+
+msgid "ZoneBased"
+msgstr "Zona"
+
+msgid "Select"
+msgstr "Seleccionar"
+
+msgid "Card Number:"
+msgstr "Número de tarjeta:"
+
+msgid "Card Expiry Date:"
+msgstr "Fecha de expiración de la tarjeta:"
+
+msgid "CVC:"
+msgstr "CVC:"
+
+msgid "Pay with Card"
+msgstr "Pagar con tarjeta"
+
+msgid "Pay Now"
+msgstr "Pague ahora"
+
+msgid "Download link:"
+msgstr "Enlace de descarga:"
+
+msgid "Order Total:"
+msgstr "Total del pedido:"
+
+msgid "EmsRussianPostShipping"
+msgstr "EMS Costa Rica"
+
+msgid "Pek"
+msgstr "PeК"
+
+msgid "Social Login:"
+msgstr "Inicio de sesión social:"
+
+msgid "Social Login"
+msgstr "Inicio de sesión social" 
+
+msgid "Google"
+msgstr "Google"
+
+msgid "Top 5 results:"
+msgstr "Los 5 mejores resultados:"
+
+msgid "Display all search results."
+msgstr "Mostrar todos los resultados de búsqueda."
