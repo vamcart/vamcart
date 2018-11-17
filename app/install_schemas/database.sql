@@ -1756,7 +1756,7 @@ INSERT INTO `languages` (`id`, `default`, `name`, `code`, `iso_code_2`, `active`
 (1, 1, 'English', 'eng', 'en', 1, 1),
 (2, 0, 'Русский', 'rus', 'ru', 0, 2),
 (3, 0, 'Spanish', 'spa', 'es', 0, 3),
-(4, 0, 'Portuguese', 'bra', 'br', 0, 4),
+(4, 0, 'Portuguese', 'prt', 'pt', 0, 4),
 (5, 0, 'Italian', 'ita', 'it', 0, 5),
 (6, 0, 'French', 'fra', 'fr', 0, 6),
 (7, 0, 'Ukrainian', 'ukr', 'ua', 0, 7),
