@@ -21,15 +21,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<?php echo $this->Html->charset(); ?>
-
-<?php 
-if (Configure::read('debug') == 0) {
-?>	
-<meta http-equiv="refresh" content="0; url=<?php echo FULL_BASE_URL . BASE . '/page/404.html'; ?>">
-<?php
-}
-?>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
