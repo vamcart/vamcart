@@ -267,6 +267,9 @@ msgstr "Название (Я-А)"
 msgid "New"
 msgstr "Новинка"
 
+msgid "Featured"
+msgstr "Рекомендуемый"
+
 msgid "New Password"
 msgstr "Новый пароль"
 

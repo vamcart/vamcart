@@ -128,7 +128,7 @@ echo $this->Form->create('Content', array('url' => '/contents/admin_modify_selec
 
 echo '<table class="contentTable">';
 
-echo $this->Html->tableHeaders(array(__('Title'), __('Type'), __('Active'), __('Show in menu'), __('Export to YML'), __('Default'), __('Price'), __('Stock'), __('Sort Order'), __('Action'), '<input type="checkbox" onclick="checkAll(this)" />'));
+echo $this->Html->tableHeaders(array(__('Title'), __('Type'), __('Active'), __('Show in menu'), __('Export to YML'), __('Default'), __('New'), __('Featured'), __('Price'), __('Stock'), __('Sort Order'), __('Action'), '<input type="checkbox" onclick="checkAll(this)" />'));
 
 foreach ($content_data AS $content)
 {
@@ -211,6 +211,8 @@ foreach ($content_data AS $content)
 			array($this->Ajax->link(($content['Content']['show_in_menu'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'),'title' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False'),'title' => __('False')))), 'null', $options = array('escape' => false, 'url' => '/contents/admin_change_show_in_menu_status/' . $content['Content']['id'], 'update' => 'content'), null, false), array('align'=>'center')),
 			array($this->Ajax->link(($content['Content']['yml_export'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'),'title' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False'),'title' => __('False')))), 'null', $options = array('escape' => false, 'url' => '/contents/admin_change_yml_export_status/' . $content['Content']['id'], 'update' => 'content'), null, false), array('align'=>'center')),
 			array($this->Admin->DefaultButton($content['Content']), array('align'=>'center')),
+			($content['Content']['content_type_id'] == 2 or $content['Content']['content_type_id'] == 7) ? array($this->Ajax->link(($content['ContentProduct']['is_new'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'),'title' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False'),'title' => __('False')))), 'null', $options = array('escape' => false, 'url' => '/contents/admin_change_is_new_status/' . $content['Content']['id'], 'update' => 'content'), null, false), array('align'=>'center'))	: false,
+			($content['Content']['content_type_id'] == 2 or $content['Content']['content_type_id'] == 7) ? array($this->Ajax->link(($content['ContentProduct']['is_featured'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'),'title' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False'),'title' => __('False')))), 'null', $options = array('escape' => false, 'url' => '/contents/admin_change_is_featured_status/' . $content['Content']['id'], 'update' => 'content'), null, false), array('align'=>'center'))	: false,
 			($content['Content']['content_type_id'] == 2 or $content['Content']['content_type_id'] == 7) ? array($price,array('id' => $content['Content']['id'],'align' => 'center', 'class' => 'edit'))	: false,
 			($content['Content']['content_type_id'] == 2 or $content['Content']['content_type_id'] == 7) ? array($stock,array('id' => 'stock'.$content['Content']['id'],'align' => 'center', 'class' => 'edit'))	: false,
 			array($content['Content']['order'], array('align'=>'center')),

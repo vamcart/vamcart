@@ -164,6 +164,40 @@ class ContentsController extends AppController {
 	}
 
 
+	public function admin_change_is_new_status ($content_id) 
+	{
+		$this->Content->id = $content_id;
+		$this->Content->ContentProduct->content_id = $content_id;
+		$content = $this->Content->read();
+
+		if ($content['ContentProduct']['is_new'] == 0) {
+			$content['ContentProduct']['is_new'] = 1;
+		} else {
+			$content['ContentProduct']['is_new'] = 0;
+		}
+
+		$this->Content->ContentProduct->save($content);
+
+		$this->redirect('/contents/admin/0/' . $content['Content']['parent_id'] . '/' . $this->RequestHandler->isAjax());
+	}
+
+	public function admin_change_is_featured_status ($content_id) 
+	{
+		$this->Content->id = $content_id;
+		$this->Content->ContentProduct->content_id = $content_id;
+		$content = $this->Content->read();
+
+		if ($content['ContentProduct']['is_featured'] == 0) {
+			$content['ContentProduct']['is_featured'] = 1;
+		} else {
+			$content['ContentProduct']['is_featured'] = 0;
+		}
+
+		$this->Content->ContentProduct->save($content);
+
+		$this->redirect('/contents/admin/0/' . $content['Content']['parent_id'] . '/' . $this->RequestHandler->isAjax());
+	}
+
 	/**
 	* Toggles the active status of a content item.
 	*
