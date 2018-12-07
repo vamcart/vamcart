@@ -310,6 +310,18 @@ function smarty_function_content_listing($params, $template)
 				$content_list_data_conditions = array_merge($content_list_data_conditions,array('ContentProduct.manufacturer_id' => $params['manufacturer']));
 				}
 
+				// Sort products by is_new
+				if(isset($params['is_new']) && $params['is_new'] == 1) {
+				$content_list_data_conditions = array_slice($content_list_data_conditions,1);
+				$content_list_data_conditions = array_merge($content_list_data_conditions,array('ContentProduct.is_new' => (int)$params['is_new']));
+				}
+
+				// Sort products by is_featured
+				if(isset($params['is_featured']) && $params['is_featured'] == 1) {
+				$content_list_data_conditions = array_slice($content_list_data_conditions,1);
+				$content_list_data_conditions = array_merge($content_list_data_conditions,array('ContentProduct.is_featured' => (int)$params['is_featured']));
+				}
+
 				// Sort products by label
 				if(strpos($params['type'],'product') !== false){
 				if(isset($params['label_id']) && $params['label_id'] > 0) {
@@ -546,6 +558,8 @@ function smarty_help_function_content_listing() {
 		<li><em><?php echo __('(label_id)') ?></em> - <?php echo __('Display products with selected product label.') ?></li>
 		<li><em><?php echo __('(manufacturer)') ?></em> - <?php echo __('Display products with selected brand (manufacturer_id).') ?></li>
 		<li><em><?php echo __('(order)') ?></em> - <?php echo __('Content listing sort order. Available values: ') . 'order,order-asc,order-desc,price,price-asc,price-desc,stock,stock-asc,stock-desc,name,name-asc,name-desc,id,id-asc,id-desc,ordered,ordered-asc,ordered-desc' ?></li>
+		<li><em><?php echo __('(is_new)') ?></em> - <?php echo __('Display new products. Available values: 1 or 0.') ?></li>
+		<li><em><?php echo __('(is_featured)') ?></em> - <?php echo __('Display featured products. Available values: 1 or 0.') ?></li>
 		<li><em><?php echo __('(current_order)') ?></em> - <?php echo __('Current product listing sort order. Available values: ') . '$current_order' ?></li>
 		<li><em><?php echo __('(limit)') ?></em> - <?php echo __('Items per page.') ?></li>
 	</ul>

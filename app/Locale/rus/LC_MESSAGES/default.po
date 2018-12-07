@@ -1645,6 +1645,14 @@ msgstr "Выводит товары с указанным ярлыком."
 msgid "Display products with selected brand (manufacturer_id)."
 msgstr "Выводит товары указанного брэнда (manufacturer_id)."
 
+#: /vendors/smarty/vam_plugins/function.content_listing.php:183
+msgid "Display new products. Available values: 1 or 0."
+msgstr "Выводит новинки. Доступные значения: 1 или 0."
+
+#: /vendors/smarty/vam_plugins/function.content_listing.php:183
+msgid "Display featured products. Available values: 1 or 0."
+msgstr "Выводит рекомендуемые. Доступные значения: 1 или 0."
+
 #: /vendors/smarty/vam_plugins/function.content_listing.php:182
 msgid "(limit)"
 msgstr "(limit)"
