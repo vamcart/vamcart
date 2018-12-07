@@ -2659,6 +2659,14 @@ msgid "SKU"
 msgstr "SKU"
 
 #: /views/contents/admin_edit_type.ctp:49
+msgid "New Product"
+msgstr "Новинка"
+
+#: /views/contents/admin_edit_type.ctp:49
+msgid "Featured Product"
+msgstr "Рекомендуемый товар"
+
+#: /views/contents/admin_edit_type.ctp:49
 msgid "Manufacturer"
 msgstr "Производитель"
 

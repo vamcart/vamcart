@@ -249,6 +249,15 @@ msgstr "Мои заказы"
 msgid "Product Name"
 msgstr "Название"
 
+msgid "SKU"
+msgstr "SKU"
+
+msgid "New Product"
+msgstr "Новинка"
+
+msgid "Featured Product"
+msgstr "Рекомендуемый товар"
+
 msgid "Product Name (A-Z)"
 msgstr "Название (А-Я)"
 

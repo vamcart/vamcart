@@ -56,6 +56,22 @@ switch($content_type_id) {
 				'type' => 'text',
 				'value' => isset($data['ContentProduct']['sku']) ? $data['ContentProduct']['sku']: ''
 			));
+		echo $this->Form->input('ContentProduct.is_new', 
+				array(
+					'type' => 'checkbox',
+		   		'label' => __('New Product'),
+					'value' => '1',
+					'class' => 'checkbox_group',
+					'checked' => isset($data['ContentProduct']['is_new']) ? $data['ContentProduct']['is_new'] : '1'
+				));
+		echo $this->Form->input('ContentProduct.is_featured', 
+				array(
+					'type' => 'checkbox',
+		   		'label' => __('Featured Product'),
+					'value' => '1',
+					'class' => 'checkbox_group',
+					'checked' => isset($data['ContentProduct']['is_featured']) ? $data['ContentProduct']['is_featured'] : '0'
+				));
 		echo $this->Form->input('ContentProduct.weight', 
 			array(
 				'label' => __('Weight'),
@@ -178,6 +194,22 @@ switch($content_type_id) {
 				'type' => 'text',
 				'value' => isset($data['ContentDownloadable']['sku']) ? $data['ContentDownloadable']['sku'] : ''
 			));
+		echo $this->Form->input('ContentDownloadable.is_new', 
+				array(
+					'type' => 'checkbox',
+		   		'label' => __('New Product'),
+					'value' => '1',
+					'class' => 'checkbox_group',
+					'checked' => isset($data['ContentDownloadable']['is_new']) ? $data['ContentDownloadable']['is_new'] : '1'
+				));
+		echo $this->Form->input('ContentDownloadable.is_featured', 
+				array(
+					'type' => 'checkbox',
+		   		'label' => __('Featured Product'),
+					'value' => '1',
+					'class' => 'checkbox_group',
+					'checked' => isset($data['ContentDownloadable']['is_featured']) ? $data['ContentDownloadable']['is_featured'] : '0'
+				));
 		echo $this->Form->input('ContentDownloadable.file', 
 			array(
 				'label' => __('File: ') . (isset($data['ContentDownloadable']['filename']) ? $data['ContentDownloadable']['filename'] : ''),
