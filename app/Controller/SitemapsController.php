@@ -356,7 +356,7 @@ class SitemapsController extends AppController {
 					$content_list_products[$count_products]['id']     = $raw_data['Content']['id'];
 					$content_list_products[$count_products]['parentId'] = $raw_data['Content']['parent_id'];
 					$content_list_products[$count_products]['url']    = '/' . $raw_data['ContentType']['name'] . '/' . $raw_data['Content']['alias'] . $config['URL_EXTENSION'];
-					$content_list_products[$count_products]['price'] = ($raw_data['Content']['content_type_id'] == 7) ? $raw_data['ContentDownloadable']['price'] . ' ' . $this->Session->read('Customer.currency_code') : $raw_data['ContentProduct']['price'] . ' ' . $this->Session->read('Customer.currency_code');
+					$content_list_products[$count_products]['price'] = ($raw_data['Content']['content_type_id'] == 7) ? $raw_data['ContentDownloadable']['price'] : $raw_data['ContentProduct']['price'];
 					$content_list_products[$count_products]['stock'] = $raw_data['ContentProduct']['stock'];
 					$content_list_products[$count_products]['name'] = $raw_data['ContentDescription']['name'];
 					$content_list_products[$count_products]['description'] = strip_tags(htmlentities($raw_data['ContentDescription']['description']));
