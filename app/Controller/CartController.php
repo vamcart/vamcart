@@ -15,7 +15,7 @@ class CartController extends AppController {
 		$this->redirect($_SERVER['HTTP_REFERER']);
 	}
 
-	public function purchase_product ($product_id = 0, $product_quantity = 0) {
+	public function purchase_product ($product_id = 0, $product_quantity = 1) {
 		// Clean up the post
 		App::uses('Sanitize', 'Utility');
 		$clean = new Sanitize();
