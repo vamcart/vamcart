@@ -180,7 +180,7 @@ echo '
 	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'ContentDescription.meta_title','order' => 15)) . '</td><td>meta_title</td><td>' . __('Meta Title.') . '</td></tr>
 	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'ContentDescription.meta_description','order' => 16)) . '</td><td>meta_description</td><td>' . __('Meta Description.') . '</td></tr>
 	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'ContentDescription.meta_keywords','order' => 17)) . '</td><td>meta_keywords</td><td>' . __('Meta Keywords.') . '</td></tr>
-	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.image','order' => 18)) . '</td><td>image</td><td>' . __('Content Images. Multiple images example: image.png|image1.png.') . '</td></tr>
+	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.image','order' => 18)) . '</td><td>image</td><td>' . __('Content Images.') . '</td></tr>
 	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.order','order' => 19)) . '</td><td>order</td><td>' . __('Sort Order.') . '</td></tr>
 	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.active','order' => 20)) . '</td><td>active</td><td>' . __('Content Status. 1 - Active. 0 - Inactive.') . '</td></tr>
 	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Content.show_in_menu','order' => 21)) . '</td><td>show_in_menu</td><td>' . __('Show In Menu. 1 - Yes. 0 - No.') . '</td></tr>

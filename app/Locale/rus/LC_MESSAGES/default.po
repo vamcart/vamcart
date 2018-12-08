@@ -5974,6 +5974,10 @@ msgid "Content Images. Multiple images example: image.png|image1.png."
 msgstr "Картинка. Название файла картинки, если картинок несколько, указывайте через точку с запятой, например: image.png|image1.png."
 
 #: /views/import_export/admin.ctp:93
+msgid "Content Images."
+msgstr "Картинка."
+
+#: /views/import_export/admin.ctp:93
 msgid "Sort Order."
 msgstr "Порядок сортировки."
 
