@@ -126,7 +126,7 @@ class YandexController extends PaymentAppController {
                 $id_tax = 1;
                 $receipt['items'][] = array(
                     'quantity' => 1,
-                    'text' =>'Доставка',
+                    'text' => substr('Доставка - ' . __($order['ShippingMethod']['name']), 0, 128),
                     'tax' => $id_tax,
                     'price' => array(
                         'amount' => number_format($order['Order']['shipping'], 2, '.', ''),
@@ -146,8 +146,11 @@ class YandexController extends PaymentAppController {
 			<input type="hidden" name="shopFailURL" value="' . $fail_url . '" />
 			<input type="hidden" name="cps_email" value="' . $order['Order']['email'] . '" />
 			<input type="hidden" name="cps_phone" value="' . $order['Order']['phone'] . '" />
-			<input type="hidden" name="cms_name" value="vamshop" />
-			'.($yandex_send_check == 1 ? '<input type="hidden" name="ym_merchant_receipt" value="{literal}'.json_encode($receipt).'{/literal}" />' : null).'
+			<input type="hidden" name="cms_name" value="vamshop" />';
+			
+		if ($yandex_send_check == 1) $content .= '<input type="hidden" name="ym_merchant_receipt" value=\'{literal}'.json_encode($receipt).'{/literal}\' />';
+
+		$content .= '
 			<input type="hidden" name="paymentType" value="'.$yandex_payment_type.'" />
 			';
 			
