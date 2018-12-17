@@ -22,7 +22,7 @@ class CartController extends AppController {
 		$clean->paranoid($_POST);
 		
 		$product_id = (isset($product_id) && $product_id > 0) ? $product_id : $_POST['product_id'];
-		$product_quantity = (isset($product_quantity) && $product_quantity > 0) ? $product_quantity : $_POST['product_quantity'];
+		$product_quantity = (isset($product_quantity) && $product_quantity > 1) ? $product_quantity : $_POST['product_quantity'];
 
 		// Check if we have an active cart, if there is no order_id set, then lets create one.
 		if (!isset($_SESSION['Customer']['order_id'])) {
@@ -73,7 +73,7 @@ class CartController extends AppController {
 			$order = $new_order;
 		}
 
-		$qty = (isset($product_quantity) && $product_quantity > 0) ? $product_quantity : 1;
+		$qty = (isset($product_quantity) && $product_quantity > 1) ? $product_quantity : 1;
 
 		global $config;
 		$content = $this->Content->read(null, $product_id);
