@@ -1,0 +1,100 @@
+#: /plugins/payment/views/cloudpayments/settings.ctp
+msgid "Public ID"
+msgstr "Публичный ключ"
+
+#: /plugins/payment/views/cloudpayments/settings.ctp
+msgid "Secret API"
+msgstr "Секретный ключ"
+
+#: /plugins/payment/views/cloudpayments/settings.ctp
+msgid "Widget language"
+msgstr "Локализация виджета"
+
+#: /plugins/payment/views/cloudpayments/settings.ctp
+msgid "Do not send checks to the online cashier(Federal law-54)"
+msgstr "Не отправлять чеки в онлайн-кассу(ФЗ-54)"
+
+#: /plugins/payment/views/cloudpayments/settings.ctp
+msgid "Send checks to online cashier(Federal law-54)"
+msgstr "Отправлять чеки в онлайн-кассу(ФЗ-54)"
+
+#: /plugins/payment/views/cloudpayments/settings.ctp
+msgid "The system of taxation"
+msgstr "Система налогообложения"
+
+#: /plugins/payment/views/cloudpayments/settings.ctp
+msgid "General taxation system"
+msgstr "Общая система налогообложения"
+
+#: /plugins/payment/views/cloudpayments/settings.ctp
+msgid "Simplified taxation system (Income)"
+msgstr "Упрощенная система налогообложения (Доход)"
+
+#: /plugins/payment/views/cloudpayments/settings.ctp
+msgid "Simplified taxation system (Income minus Consumption)"
+msgstr "Упрощенная система налогообложения (Доход минус Расход)"
+
+#: /plugins/payment/views/cloudpayments/settings.ctp
+msgid "Single tax imputed income"
+msgstr "Единый налог на вмененный доход"
+
+#: /plugins/payment/views/cloudpayments/settings.ctp
+msgid "Uniform agricultural tax"
+msgstr "Единый сельскохозяйственный налог"
+
+#: /plugins/payment/views/cloudpayments/settings.ctp
+msgid "The patent system of taxation"
+msgstr "Патентная система налогообложения"
+
+#: /plugins/payment/views/cloudpayments/settings.ctp
+msgid "VAT rate"
+msgstr "Ставка НДС"
+
+#: /plugins/payment/views/cloudpayments/settings.ctp
+msgid "The system of taxation for delivery"
+msgstr "Ставка НДС для доставки"
+
+#: /plugins/payment/views/cloudpayments/settings.ctp
+msgid "Not subject to VAT"
+msgstr "НДС не облагается"
+
+#: /plugins/payment/views/cloudpayments/settings.ctp
+msgid "VAT 20%"
+msgstr "НДС 20%"
+
+#: /plugins/payment/views/cloudpayments/settings.ctp
+msgid "VAT 18%"
+msgstr "НДС 18%"
+
+#: /plugins/payment/views/cloudpayments/settings.ctp
+msgid "VAT 10%"
+msgstr "НДС 10%"
+
+#: /plugins/payment/views/cloudpayments/settings.ctp
+msgid "VAT 0%"
+msgstr "НДС 0%"
+
+#: /plugins/payment/views/cloudpayments/settings.ctp
+msgid "The calculated VAT 10/110"
+msgstr "расчетный НДС 10/110"
+
+#: /plugins/payment/views/cloudpayments/settings.ctp
+msgid "The calculated VAT 18/118"
+msgstr "расчетный НДС 18/118"
+
+#: /plugins/payment/views/cloudpayments/settings.ctp
+msgid "The calculated VAT 20/120"
+msgstr "расчетный НДС 20/120"
+
+#: /plugins/payment/views/cloudpayments/settings.ctp
+msgid "The scheme of payment"
+msgstr "Схема проведения платежа"
+
+#: /plugins/payment/views/cloudpayments/settings.ctp
+msgid "One-stage payment"
+msgstr "Одностадийная оплата"
+
+#: /plugins/payment/views/cloudpayments/settings.ctp
+msgid "Two-stage payment"
+msgstr "Двухстадийная оплата"
+

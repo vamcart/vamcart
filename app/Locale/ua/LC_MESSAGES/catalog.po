@@ -1,0 +1,502 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# No version information was available in the source files.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2015-03-10 14:22+0400\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: Alexandr Menovchicov <vam@kypi.ru>\n"
+"Language-Team: Russian <vamshop@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+msgid "Name"
+msgstr "Ім`я"
+
+msgid "Price"
+msgstr "Ціна"
+
+msgid "About Us"
+msgstr "Інформація про магазин"
+
+msgid "Account Edit"
+msgstr "Редагування даних"
+
+msgid "Add Review"
+msgstr "Додати відгук"
+
+msgid "Add to cart"
+msgstr "Додати в корзину"
+
+msgid "Add to compare"
+msgstr "Порівняти"
+
+msgid "Address Book"
+msgstr "Адресна книга"
+
+msgid "Address Line 1"
+msgstr "Адреса"
+
+msgid "Address Line 2"
+msgstr "Додаткова інформація"
+
+msgid "All"
+msgstr "Всі"
+
+msgid "Also purchased"
+msgstr "Супутні товари"
+
+msgid "Apply"
+msgstr "Застосувати"
+
+msgid "Articles"
+msgstr "Статті"
+
+msgid "Ask A Product Question"
+msgstr "Запитати про товар"
+
+msgid "best buy!"
+msgstr "встигни придбати!"
+
+msgid "Best rating"
+msgstr "Краща оцінка"
+
+msgid "Billing Information"
+msgstr "Інформація про покупця"
+
+msgid "Brands"
+msgstr "Бренди"
+
+msgid "Buy"
+msgstr "Купити"
+
+msgid "Cart"
+msgstr "Корзина"
+
+msgid "Cart Contents"
+msgstr "Вміст корзини"
+
+msgid "Categories"
+msgstr "Розділи"
+
+msgid "Checkout"
+msgstr "Оформити"
+
+msgid "City"
+msgstr "Місто"
+
+msgid "Comment"
+msgstr "Коментар"
+
+msgid "Company"
+msgstr "Компанія"
+
+msgid "Compare"
+msgstr "Порівняти"
+
+msgid "Comparison"
+msgstr "Порівняння"
+
+msgid "Confirm Order"
+msgstr "Підтвердити замовлення"
+
+msgid "Contact Information"
+msgstr "Контактна інформація"
+
+msgid "Contact Us"
+msgstr "Зворотний зв`язок"
+
+msgid "Continue"
+msgstr "Продовжити"
+
+msgid "Continue Shopping"
+msgstr "Повернутися в магазин"
+
+msgid "Country"
+msgstr "Країна"
+
+msgid "Coupon Code"
+msgstr "Код купону"
+
+msgid "Credit Card"
+msgstr "Кредитна картка"
+
+msgid "Currency"
+msgstr "Валюта"
+
+msgid "Customer"
+msgstr "Покупець"
+
+msgid "Date"
+msgstr "Дата"
+
+msgid "Description"
+msgstr "Опис"
+
+msgid "Details"
+msgstr "Детальніше"
+
+msgid "Discount"
+msgstr "Знижка"
+
+msgid "Download"
+msgstr "Завантажити"
+
+msgid "Download file"
+msgstr "Завантажити файл"
+
+msgid "E-mail"
+msgstr "E-mail"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Example"
+msgstr "Приклад"
+
+msgid "Featured Products"
+msgstr "Рекомендовані товари"
+
+msgid "Feedback"
+msgstr "Відгуки"
+
+msgid "Filter"
+msgstr "Фільтр"
+
+msgid "FreeShipping"
+msgstr "Безкоштовна доставка"
+
+msgid "FlatRate"
+msgstr "Кур`єрська доставка"
+
+msgid "Forgot your password?"
+msgstr "Забули пароль?"
+
+msgid "Free Shipping"
+msgstr "Безкоштовна доставка"
+
+msgid "from"
+msgstr "від"
+
+msgid "Go"
+msgstr "Продовжити"
+
+msgid "Hit"
+msgstr "Хіт"
+
+msgid "Home"
+msgstr "Головна"
+
+msgid "In-store Pickup"
+msgstr "Самовивіз"
+
+msgid "Information"
+msgstr "Інформація"
+
+msgid "Invoice"
+msgstr "Оплата за рахунком"
+
+msgid "Kvitancia"
+msgstr "Оплата по квитанції Ощадбанку"
+
+msgid "Language"
+msgstr "Мова"
+
+msgid "Leave empty to use current password."
+msgstr "Залиште поле порожнім, якщо Ви не бажаєте змінювати поточний пароль."
+
+msgid "List Price"
+msgstr "Стара ціна"
+
+msgid "Login"
+msgstr "Вхід"
+
+msgid "Logout"
+msgstr "Вихід"
+
+msgid "Manufacturers List"
+msgstr "Список виробників"
+
+msgid "Message"
+msgstr "Повідомлення"
+
+msgid "Min length"
+msgstr "Мінімум символів"
+
+msgid "Model"
+msgstr "Артикул"
+
+msgid "Money Order Check"
+msgstr "Оплата готівкою кур`єру"
+
+msgid "My Account"
+msgstr "Особистий кабінет"
+
+msgid "My delivery and billing addresses are not the same."
+msgstr "Натисніть, якщо адреса доставки та адреса покупця відрізняються."
+
+msgid "My Orders"
+msgstr "Мої замовлення"
+
+msgid "Product Name"
+msgstr "Назва"
+
+msgid "Product Name (A-Z)"
+msgstr "Назва (А-Я)"
+
+msgid "Product Name (Z-A)"
+msgstr "Назва (Я-А)"
+
+msgid "New"
+msgstr "Новинка"
+
+msgid "New Password"
+msgstr "Новий пароль"
+
+msgid "News"
+msgstr "Новини"
+
+msgid "No Cart Items"
+msgstr "Корзина порожня."
+
+msgid "No Image"
+msgstr "Зображення відсутнє"
+
+msgid "No Items Found"
+msgstr "Товари не знайдено."
+
+msgid "No reviews were found for this product."
+msgstr "Відгуки для цього товару відсутні."
+
+msgid "One Click Buy"
+msgstr "Купити в 1 клік"
+
+msgid "Order Comments"
+msgstr "Коментарі до замовлення"
+
+msgid "Order number"
+msgstr "Номер замовлення"
+
+msgid "Order Status"
+msgstr "Статус замовлення"
+
+msgid "Order Total"
+msgstr "Вартість замовлення"
+
+msgid "Orders Not Found!"
+msgstr "Замовлення відсутні!"
+
+msgid "Pages"
+msgstr "Сторінки"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Payment Method"
+msgstr "Варіанти оплати"
+
+msgid "per"
+msgstr "за"
+
+msgid "PerItem"
+msgstr "На одиницю"
+
+msgid "Permission Denied."
+msgstr "У доступі відмовлено."
+
+msgid "Phone"
+msgstr "Телефон"
+
+msgid "Please agree to our policy."
+msgstr "Натискаючи кнопку Продовжити, я підтверджую свою дієздатність, даю згоду на обробку своїх персональних даних."
+
+msgid "Popular"
+msgstr "Популярність"
+
+msgid "Popular (asc)"
+msgstr "Популярність (популярні товари знизу)"
+
+msgid "Popular (desc)"
+msgstr "Популярність (популярні товари зверху)"
+
+msgid "Powered by"
+msgstr "Працює на базі"
+
+msgid "Price (High to Low)"
+msgstr "Ціна (у порядку спадання)"
+
+msgid "Price (Low to High)"
+msgstr "Ціна (у порядку зростання)"
+
+msgid "Price Ea."
+msgstr "Ціна / шт."
+
+msgid "Print Invoice"
+msgstr "Роздрукувати рахунок"
+
+msgid "Print Packing Slip"
+msgstr "Роздрукувати накладну"
+
+msgid "Print Order"
+msgstr "Роздрукувати квитанцію"
+
+msgid "Process to Payment"
+msgstr "Перейти до оплати замовлення"
+
+msgid "Product"
+msgstr "Товар"
+
+msgid "Products"
+msgstr "Товари"
+
+msgid "Products by this Manufacturer"
+msgstr "Товари даного виробника"
+
+msgid "Products in this Category"
+msgstr "Товари цієї категорії"
+
+msgid "Qty"
+msgstr "Кількість"
+
+msgid "qty."
+msgstr "шт."
+
+msgid "Quantity"
+msgstr "Кількість"
+
+msgid "Quantity discounts"
+msgstr "Знижки від кількості"
+
+msgid "Rating"
+msgstr "Оцінка"
+
+msgid "Rating value"
+msgstr "Рейтинг"
+
+msgid "read more"
+msgstr "детальніше"
+
+msgid "Read Reviews"
+msgstr "Читати відгуки"
+
+msgid "Register"
+msgstr "Реєстрація"
+
+msgid "Registration"
+msgstr "Реєстрація"
+
+msgid "Remove"
+msgstr "Видалити"
+
+msgid "Required field"
+msgstr "Обов`язкове поле"
+
+msgid "Reset"
+msgstr "Обнулити"
+
+msgid "Retype Password"
+msgstr "Повторіть пароль"
+
+msgid "Review"
+msgstr "Відгук"
+
+msgid "Reviews"
+msgstr "Відгуки"
+
+msgid "RussianPost"
+msgstr "Укрпошта"
+
+msgid "RussianPostCalc"
+msgstr "Укрпошта"
+
+msgid "Sale"
+msgstr "Розпродаж"
+
+msgid "Save"
+msgstr "Зберегти"
+
+msgid "Search"
+msgstr "Пошук"
+
+msgid "Send"
+msgstr "Відправити"
+
+msgid "Sent To Customer"
+msgstr "Покупця повідомлено"
+
+msgid "Shipping"
+msgstr "Доставка"
+
+msgid "Shipping Information"
+msgstr "Деталі доставки"
+
+msgid "Shipping Method"
+msgstr "Варіанти доставки"
+
+msgid "Shopping Cart"
+msgstr "Корзина"
+
+msgid "Short Description"
+msgstr "Короткий опис"
+
+msgid "Sort by"
+msgstr "Сортувати за"
+
+msgid "State"
+msgstr "Регіон"
+
+msgid "Sub Categories"
+msgstr "Підкатегорії"
+
+msgid "Submit"
+msgstr "Додати"
+
+msgid "TableBased"
+msgstr "Табличний тариф"
+
+msgid "Terms & Conditions."
+msgstr "Детальніше про захист персональних даних."
+
+msgid "Tax"
+msgstr "Податок"
+
+msgid "Total"
+msgstr "Всього"
+
+msgid "Update"
+msgstr "Оновити"
+
+msgid "vamshop.com"
+msgstr "vamshop.ru"
+
+msgid "View Cart"
+msgstr "Корзина"
+
+msgid "view products"
+msgstr "дивитись товари"
+
+msgid "Worst rating"
+msgstr "Найгірша оцінка"
+
+msgid "Write a Review"
+msgstr "Написати відгук"
+
+msgid "You Save"
+msgstr "Ви економите"
+
+msgid "Your Email"
+msgstr "Ваш email"
+
+msgid "Your Name"
+msgstr "Ваше ім`я"
+
+msgid "Zipcode"
+msgstr "Поштовий індекс"
+
+msgid "ZoneBased"
+msgstr "Зональний тариф"

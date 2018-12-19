@@ -1,0 +1,503 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# No version information was available in the source files.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Versão Netscom\n"
+"POT-Creation-Date: 2015-03-10 14:22+0400\n"
+"PO-Revision-Date: 2018-04-20 15:32-0300\n"
+"Last-Translator: Borre Petrovic <bp@exept.eu>\n"
+"Language-Team: Português <wanderleiflorek@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: pt_BR\n"
+"X-Generator: Poedit 1.8.6\n"
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "Price"
+msgstr "Preço"
+
+msgid "About Us"
+msgstr "Contate-nos"
+
+msgid "Account Edit"
+msgstr "Editar Conta"
+
+msgid "Add Review"
+msgstr "Comentar"
+
+msgid "Add to cart"
+msgstr "Adicionar ao Carrinho"
+
+msgid "Add to compare"
+msgstr "Comparar"
+
+msgid "Address Book"
+msgstr "Meus Endereços"
+
+msgid "Address Line 1"
+msgstr "Endereço de Residência"
+
+msgid "Address Line 2"
+msgstr "Endereço de Entrega"
+
+msgid "All"
+msgstr "Tudo"
+
+msgid "Also purchased"
+msgstr "Também Comprou"
+
+msgid "Apply"
+msgstr "Aplicar"
+
+msgid "Articles"
+msgstr "Artigos"
+
+msgid "Ask A Product Question"
+msgstr "Faça uma pergunta sobre o produto"
+
+msgid "best buy!"
+msgstr "Melhor compra!"
+
+msgid "Best rating"
+msgstr "Melhor classificação"
+
+msgid "Billing Information"
+msgstr "Informações de Pagamento"
+
+msgid "Brands"
+msgstr "Marcas"
+
+msgid "Buy"
+msgstr "Comprar"
+
+msgid "Cart"
+msgstr "Carrinho"
+
+msgid "Cart Contents"
+msgstr "Itens do Carrinho"
+
+msgid "Categories"
+msgstr "Categorias"
+
+msgid "Checkout"
+msgstr "Confira"
+
+msgid "City"
+msgstr "Cidade"
+
+msgid "Comment"
+msgstr "Comentários"
+
+msgid "Company"
+msgstr "Empresa"
+
+msgid "Compare"
+msgstr "Comparar"
+
+msgid "Comparison"
+msgstr "Comparações"
+
+msgid "Confirm Order"
+msgstr "Confirmar Pedido"
+
+msgid "Contact Information"
+msgstr "Informações de Contato"
+
+msgid "Contact Us"
+msgstr "Contate-nos"
+
+msgid "Continue"
+msgstr "Continuar"
+
+msgid "Continue Shopping"
+msgstr "Continuar Comprando"
+
+msgid "Country"
+msgstr "País"
+
+msgid "Coupon Code"
+msgstr "Código de Cupom"
+
+msgid "Credit Card"
+msgstr "Cartão de Crédito"
+
+msgid "Currency"
+msgstr "Moeda"
+
+msgid "Customer"
+msgstr "Cliente"
+
+msgid "Date"
+msgstr "Dados"
+
+msgid "Description"
+msgstr "Descrição"
+
+msgid "Details"
+msgstr "Detalhes"
+
+msgid "Discount"
+msgstr "Desconto"
+
+msgid "Download"
+msgstr "Download"
+
+msgid "Download file"
+msgstr "Download do Arquivo"
+
+msgid "E-mail"
+msgstr "E-mail"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Example"
+msgstr "Exemplo"
+
+msgid "Featured Products"
+msgstr "Produtos em Destaque"
+
+msgid "Feedback"
+msgstr "Comentários"
+
+msgid "Filter"
+msgstr "Filtro"
+
+msgid "FreeShipping"
+msgstr "Frete Grátis"
+
+#, fuzzy
+msgid "FlatRate"
+msgstr "FlatRate"
+
+msgid "Forgot your password?"
+msgstr "Esqueceu Sua Senha?"
+
+msgid "Free Shipping"
+msgstr "Frete grátis"
+
+msgid "from"
+msgstr "a partir de"
+
+msgid "Go"
+msgstr "ir"
+
+msgid "Hit"
+msgstr "acertar"
+
+msgid "Home"
+msgstr "Home"
+
+msgid "In-store Pickup"
+msgstr "Pegar na Loja"
+
+msgid "Information"
+msgstr "Informação"
+
+msgid "Invoice"
+msgstr "Fatura"
+
+msgid "Kvitancia"
+msgstr "Recibo"
+
+msgid "Language"
+msgstr "Idioma"
+
+msgid "Leave empty to use current password."
+msgstr "Deixe em branco para usar a senha atual."
+
+msgid "List Price"
+msgstr "Lista de Preço"
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Logout"
+msgstr "Sair"
+
+msgid "Manufacturers List"
+msgstr "Lista de Fabricantes"
+
+msgid "Message"
+msgstr "Mensagem"
+
+msgid "Min length"
+msgstr "Comprimento mínimo"
+
+msgid "Model"
+msgstr "Modelo"
+
+msgid "Money Order Check"
+msgstr "Verificação de Pagamento"
+
+msgid "My Account"
+msgstr "Minha Conta"
+
+msgid "My delivery and billing addresses are not the same."
+msgstr "Meus endereços de entrega e faturamento não são os mesmos."
+
+msgid "My Orders"
+msgstr "Meus Pedidos"
+
+msgid "Product Name"
+msgstr "Nome do Produto"
+
+msgid "Product Name (A-Z)"
+msgstr "Nome do Produto (A-Z)"
+
+msgid "Product Name (Z-A)"
+msgstr "Nome do Produto (A-Z)"
+
+msgid "New"
+msgstr "Novo"
+
+msgid "New Password"
+msgstr "Nova Senha"
+
+msgid "News"
+msgstr "Novos"
+
+msgid "No Cart Items"
+msgstr "Sem Itens no Carrinho"
+
+msgid "No Image"
+msgstr "Sem Imagem"
+
+msgid "No Items Found"
+msgstr "Nenhum Item Encontrado"
+
+msgid "No reviews were found for this product."
+msgstr "Não foram encontrados comentários neste produto."
+
+msgid "One Click Buy"
+msgstr "Compra Rápida"
+
+msgid "Order Comments"
+msgstr "Ordenar Comentários"
+
+msgid "Order number"
+msgstr "Por Número"
+
+msgid "Order Status"
+msgstr "Por Status"
+
+msgid "Order Total"
+msgstr "Total"
+
+msgid "Orders Not Found!"
+msgstr "Pedidos Não Encontrados!"
+
+msgid "Pages"
+msgstr "Páginas"
+
+msgid "Password"
+msgstr "Senha"
+
+msgid "Payment Method"
+msgstr "Método de Pagamento"
+
+msgid "per"
+msgstr "para"
+
+#, fuzzy
+msgid "PerItem"
+msgstr "PerItem"
+
+msgid "Permission Denied."
+msgstr "Acesso Negado"
+
+msgid "Phone"
+msgstr "Fone"
+
+msgid "Please agree to our policy."
+msgstr "Por favor, concorde com a nossa política."
+
+msgid "Popular"
+msgstr "Popular"
+
+msgid "Popular (asc)"
+msgstr "Popular (cres)"
+
+msgid "Popular (desc)"
+msgstr "Popular (decr)"
+
+msgid "Powered by"
+msgstr "Distribuído por"
+
+msgid "Price (High to Low)"
+msgstr "Preço (Alto para Baixo)"
+
+msgid "Price (Low to High)"
+msgstr "Preço (Baixo para Alto)"
+
+#, fuzzy
+msgid "Price Ea."
+msgstr "Preço eA."
+
+msgid "Print Invoice"
+msgstr "Imprimir Fatura"
+
+msgid "Print Order"
+msgstr "Imprimir Pedido"
+
+msgid "Process to Payment"
+msgstr "Processo de Pagamento"
+
+msgid "Product"
+msgstr "Produto"
+
+msgid "Products"
+msgstr "Produtos"
+
+msgid "Products by this Manufacturer"
+msgstr "Produtos deste Fabricante"
+
+msgid "Products in this Category"
+msgstr "Produtos nesta Categoria"
+
+msgid "Qty"
+msgstr "Qtd"
+
+msgid "qty."
+msgstr "qtd."
+
+msgid "Quantity"
+msgstr "Quantidade"
+
+msgid "Quantity discounts"
+msgstr "Total de Desconto"
+
+msgid "Rating"
+msgstr "Avaliação"
+
+msgid "Rating value"
+msgstr "Sua Avaliação"
+
+msgid "read more"
+msgstr "mais informação"
+
+msgid "Read Reviews"
+msgstr "Veja os Comentários"
+
+msgid "Register"
+msgstr "Cadastrar"
+
+msgid "Registration"
+msgstr "Cadastro"
+
+msgid "Remove"
+msgstr "Remover"
+
+msgid "Required field"
+msgstr "Campo obrigatório"
+
+msgid "Reset"
+msgstr "Resetar"
+
+msgid "Retype Password"
+msgstr "Resetar Senha"
+
+msgid "Review"
+msgstr "Avaliação"
+
+msgid "Reviews"
+msgstr "Avaliações"
+
+msgid "RussianPost"
+msgstr "RussianPost"
+
+msgid "RussianPostCalc"
+msgstr "RussianPostCalc"
+
+msgid "Sale"
+msgstr "Venda"
+
+msgid "Save"
+msgstr "Salve"
+
+msgid "Search"
+msgstr "Pesquisar"
+
+msgid "Send"
+msgstr "Enviar"
+
+msgid "Sent To Customer"
+msgstr "Enviado ao Cliente"
+
+msgid "Shipping"
+msgstr "Envio"
+
+msgid "Shipping Information"
+msgstr "Informações do Envio"
+
+msgid "Shipping Method"
+msgstr "Método de Envio"
+
+msgid "Shopping Cart"
+msgstr "Carrinho de Compras"
+
+msgid "Short Description"
+msgstr "Pequena Descrição"
+
+msgid "Sort by"
+msgstr "Ordenar por"
+
+msgid "State"
+msgstr "Estado"
+
+msgid "Sub Categories"
+msgstr "Subcategorias"
+
+msgid "Submit"
+msgstr "Enviar"
+
+msgid "TableBased"
+msgstr "TableBased"
+
+msgid "Terms & Conditions."
+msgstr "Termos & Condições"
+
+msgid "Tax"
+msgstr "Imposto"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Update"
+msgstr "Atualizar"
+
+msgid "vamshop.com"
+msgstr "netscom.com.br"
+
+msgid "View Cart"
+msgstr "Ver Carrinho"
+
+msgid "view products"
+msgstr "ver produtos"
+
+msgid "Worst rating"
+msgstr "Pior Classificação"
+
+msgid "Write a Review"
+msgstr "Faça uma Avaliação"
+
+msgid "You Save"
+msgstr "Salve"
+
+msgid "Your Email"
+msgstr "Seu E-mail"
+
+msgid "Your Name"
+msgstr "Seu Nome"
+
+msgid "Zipcode"
+msgstr "CEP"
+
+msgid "ZoneBased"
+msgstr "Região Base"
