@@ -114,8 +114,8 @@ class YandexController extends PaymentAppController {
                 $receipt['items'][] = array(
                     'quantity' => $product['quantity'],
                     'text' => substr($product['name'], 0, 128),
-                    'paymentMethodType': 'full_prepayment',
-                    'paymentSubjectType': 'commodity',
+                    'paymentMethodType' => 'full_prepayment',
+                    'paymentSubjectType' => 'commodity',
                     'tax' => $id_tax,
                     'price' => array(
                         'amount' => number_format($product['price'], 2, '.', ''),
@@ -129,8 +129,8 @@ class YandexController extends PaymentAppController {
                 $receipt['items'][] = array(
                     'quantity' => 1,
                     'text' => substr('Доставка - ' . __($order['ShippingMethod']['name']), 0, 128),
-                    'paymentMethodType': 'full_prepayment',
-                    'paymentSubjectType': 'commodity',
+                    'paymentMethodType' => 'full_prepayment',
+                    'paymentSubjectType' => 'commodity',
                     'tax' => $id_tax,
                     'price' => array(
                         'amount' => number_format($order['Order']['shipping'], 2, '.', ''),
