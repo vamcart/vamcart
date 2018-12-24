@@ -361,7 +361,7 @@ function smarty_function_content_listing($params, $template)
 		                    'className' => 'ContentProduct'
 							))));
 		
-        		$content_manufacturers_id = $Content_Manufactures->find('all', array('conditions' => $content_manufacturers, 'limit' => isset($params['limit']) ? $params['limit'] : null,'order' => array('Content.order ASC')));
+        		$content_manufacturers_id = $Content_Manufactures->find('all', array('conditions' => $content_manufacturers, 'limit' => isset($params['limit']) ? $params['limit'] : null,'order' => array($params['order_column'])));
         		
         		$manufacturers_id = null;
         		foreach($content_manufacturers_id AS $key => $value) {
@@ -375,7 +375,7 @@ function smarty_function_content_listing($params, $template)
 				}
 				
 			}
-            $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => isset($params['limit']) ? $params['limit'] : null,'order' => array('Content.order ASC')));
+            $content_list_data = $Content->find('all', array('conditions' => $content_list_data_conditions, 'limit' => isset($params['limit']) ? $params['limit'] : null,'order' => array($params['order_column'])));
         }
 	
 	// Loop through the content list and create a new array with only what the template needs
