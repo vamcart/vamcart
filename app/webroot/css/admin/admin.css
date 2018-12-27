@@ -641,7 +641,7 @@ div.error input
 	{
 		border-radius: 0;
 		margin: 0 5px 0 0;
-		box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+		box-shadow: 0 1px 4px 0 rgba(0,0,0,.1);
 		transition: all 0.4s;
 	}
 	
@@ -1060,7 +1060,7 @@ a[href]:after
 .panel
 	{
 		border-radius: 0;
-		box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+		box-shadow: 0 1px 4px 0 rgba(0,0,0,.1);
 		transition: all 0.4s;
 	}
 
