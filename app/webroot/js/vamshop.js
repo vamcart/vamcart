@@ -2,6 +2,13 @@
 $(document).ready(function(){
   $('.toggle-menu').jPushMenu({closeOnClickLink: false});
   $('.dropdown-toggle').dropdown();
+
+  $(".navbar-toggle").focus(function (){
+    if ($('.dropdown').find('.dropdown-menu.categories').is(":hidden")){
+      $('.dropdown-toggle.categories').dropdown('toggle');
+    }
+  });
+  
 });
 
 // Scroll to top button 
@@ -38,7 +45,7 @@ $(document).ready(function(){
       //$(".shopping-cart-widget").addClass("ajax-cart-hightlight");
       $("nav .dropdown-toggle.cart").dropdown("toggle");
       $("nav .navbar-toggle").trigger("click");
-      $("nav .navbar-toggle").trigger("focus");
+      //$("nav .navbar-toggle").trigger("focus");
     });
   }
 
