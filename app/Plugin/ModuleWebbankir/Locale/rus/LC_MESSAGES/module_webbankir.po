@@ -1,0 +1,29 @@
+msgid  "WEBBANKIR_SAVE"
+msgstr "Сохранить"
+
+msgid  "WEBBANKIR_PAY_BUTTON"
+msgstr "Оплатить"
+
+msgid  "WEBBANKIR_SETTINGS"
+msgstr "Настройки"
+
+msgid  "WEBBANKIR_MERCHANT_ID"
+msgstr "ID мерчанта"
+
+msgid  "WEBBANKIR_SHOP_PASS"
+msgstr "Пароль магазина"
+
+msgid  "WEBBANKIR_SUCCESS_URL"
+msgstr "Страница успешной оплаты"
+
+msgid  "WEBBANKIR_SHOP_ID"
+msgstr "ID магазина"
+
+msgid  "WEBBANKIR"
+msgstr "Webbankir"
+
+msgid  "WEBBANKIR_SUCCESS_ORDER_STATUS"
+msgstr "Статус заказа при успешной оплате"
+
+msgid  "WEBBANKIR_DELIVERY"
+msgstr "Доставка"

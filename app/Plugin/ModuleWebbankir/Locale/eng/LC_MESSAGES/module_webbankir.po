@@ -1,0 +1,29 @@
+msgid  "WEBBANKIR_SAVE"
+msgstr "Save"
+
+msgid  "WEBBANKIR_PAY_BUTTON"
+msgstr "Pay"
+
+msgid  "WEBBANKIR_MERCHANT_ID"
+msgstr "Merchant ID"
+
+msgid  "WEBBANKIR_SHOP_PASS"
+msgstr "Shop password"
+
+msgid  "WEBBANKIR_SUCCESS_URL"
+msgstr "Successful payment page"
+
+msgid  "WEBBANKIR_SETTINGS"
+msgstr "Settings"
+
+msgid  "WEBBANKIR_SHOP_ID"
+msgstr "Shop ID"
+
+msgid  "WEBBANKIR"
+msgstr "Webbankir"
+
+msgid  "WEBBANKIR_SUCCESS_ORDER_STATUS"
+msgstr "Order status after payment"
+
+msgid  "WEBBANKIR_DELIVERY"
+msgstr "Delivery"
