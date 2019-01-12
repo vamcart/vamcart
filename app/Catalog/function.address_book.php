@@ -13,11 +13,7 @@ $template = '
 $(function () {
 
 {if $phone_mask != ""}
-new Cleave("#ship_phone", {
-  numericOnly: true,
-  blocks: [0, 3, 0, 3, 2, 2],
-  delimiters: ["(", ")", " ", "-","-"],
-});
+  $("#ship_phone").mask("{$phone_mask}");
 {/if}   
 
   $("#contentform :input:text:visible:enabled:first").trigger("focus");
