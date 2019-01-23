@@ -51,33 +51,19 @@ dataLayer.push({
 </script>
 <!-- Yandex.Metrika counter -->
 <script>
-    (function (d, w, c) {
-        (w[c] = w[c] || []).push(function() {
-            try {
-                w.yaCounter'.$config['YANDEX_METRIKA'].' = new Ya.Metrika({
-                    id:'.$config['YANDEX_METRIKA'].',
-                    clickmap:true,
-                    trackLinks:true,
-                    accurateTrackBounce:true,
-                    webvisor:true,
-                    trackHash:true,
-                    ut:"noindex",
-                    ecommerce:"dataLayer"
-                });
-            } catch(e) { }
-        });
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-        var n = d.getElementsByTagName("script")[0],
-            s = d.createElement("script"),
-            f = function () { n.parentNode.insertBefore(s, n); };
-        s.type = "text/javascript";
-        s.async = true;
-        s.src = "https://cdn.jsdelivr.net/npm/yandex-metrica-watch/watch.js";
-
-        if (w.opera == "[object Opera]") {
-            d.addEventListener("DOMContentLoaded", f, false);
-        } else { f(); }
-    })(document, window, "yandex_metrika_callbacks");
+   ym('.$config['YANDEX_METRIKA'].', "init", {
+        id:'.$config['YANDEX_METRIKA'].',
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true,
+        trackHash:true,
+        ecommerce:"dataLayer"
+   });
 </script>
 
 <noscript><div><img src="https://mc.yandex.ru/watch/'.$config['YANDEX_METRIKA'].'?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
@@ -89,33 +75,19 @@ dataLayer.push({
 
 <!-- Yandex.Metrika counter -->
 <script>
-    (function (d, w, c) {
-        (w[c] = w[c] || []).push(function() {
-            try {
-                w.yaCounter'.$config['YANDEX_METRIKA'].' = new Ya.Metrika({
-                    id:'.$config['YANDEX_METRIKA'].',
-                    clickmap:true,
-                    trackLinks:true,
-                    accurateTrackBounce:true,
-                    webvisor:true,
-                    trackHash:true,
-                    ut:"noindex",
-                    ecommerce:"dataLayer"
-                });
-            } catch(e) { }
-        });
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-        var n = d.getElementsByTagName("script")[0],
-            s = d.createElement("script"),
-            f = function () { n.parentNode.insertBefore(s, n); };
-        s.type = "text/javascript";
-        s.async = true;
-        s.src = "https://cdn.jsdelivr.net/npm/yandex-metrica-watch/watch.js";
-
-        if (w.opera == "[object Opera]") {
-            d.addEventListener("DOMContentLoaded", f, false);
-        } else { f(); }
-    })(document, window, "yandex_metrika_callbacks");
+   ym('.$config['YANDEX_METRIKA'].', "init", {
+        id:'.$config['YANDEX_METRIKA'].',
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true,
+        trackHash:true,
+        ecommerce:"dataLayer"
+   });
 </script>
 
 <noscript><div><img src="https://mc.yandex.ru/watch/'.$config['YANDEX_METRIKA'].'?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
