@@ -359,8 +359,8 @@ class SitemapsController extends AppController {
 					$content_list_products[$count_products]['price'] = ($raw_data['Content']['content_type_id'] == 7) ? $raw_data['ContentDownloadable']['price'] : $raw_data['ContentProduct']['price'];
 					$content_list_products[$count_products]['stock'] = $raw_data['ContentProduct']['stock'];
 					$content_list_products[$count_products]['name'] = $raw_data['ContentDescription']['name'];
-					$content_list_products[$count_products]['description'] = strip_tags(htmlentities($raw_data['ContentDescription']['description']));
-					$content_list_products[$count_products]['short_description'] = strip_tags(htmlentities($raw_data['ContentDescription']['short_description']));
+					$content_list_products[$count_products]['description'] = strip_tags(str_replace("&nbsp;"," ", $raw_data['ContentDescription']['description']));
+					$content_list_products[$count_products]['short_description'] = strip_tags(str_replace("&nbsp;"," ", $raw_data['ContentDescription']['short_description']));
 
 					// Content Image
 					
