@@ -24,9 +24,9 @@
                 <categoryId><?php echo $product['parentId'] ?></categoryId>
                 <picture><?php echo htmlentities(Router::url($product['image'], true)) ?></picture>
                 <name><?php echo $product['name'] ?></name>
-                <description>
+                <description><![CDATA[
                 <?php echo $product['description'] ?>
-                </description>
+                ]]></description>
             </offer>
 <?php } ?>
         </offers>
