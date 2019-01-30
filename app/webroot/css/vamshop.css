@@ -487,8 +487,6 @@ background: #fff;
 /* Widget
 /* ========================================================================== */
 .widget ul.icons li {
-  float: left;
-  width: 200px;
   position: relative;
   text-indent: 0;
 }

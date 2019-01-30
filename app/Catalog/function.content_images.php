@@ -15,7 +15,7 @@ $template = '
 	<div class="thumbnail big text-center">
 {/if}
 {if $image@index > 0}
-		<div class="col-sm-6 col-md-4 thumbnail text-center">
+		<div class="col-sm-4 col-md-3 thumbnail text-center">
 {/if}
 			<a href="{$image.image_path}" class="colorbox" title="{$image.name}"><img {if !$number}itemprop="image"{/if} src="{$image.image_thumb}" alt="{$image.name}" title="{$image.name}"{if {$image.image_width} > 0} width="{$image.image_width}"{/if}{if {$image.image_height} > 0} height="{$image.image_height}"{/if} />
 			{if $image@first}{product_label}{/if}
@@ -108,18 +108,12 @@ function smarty_function_content_images($params, $template)
 						$keyed_images[$key]['image_width'] = $width;
 						$keyed_images[$key]['image_height'] = $height;
 					} else {
-
-						$image_url = 'noimage.png';
-						$thumb_name = 'noimage-'.$config['THUMBNAIL_SIZE'].'.png';	
-						$thumb_path = IMAGES . 'content/' . $thumb_name;
-						$thumb_url = BASE . '/img/content/' . $thumb_name;
-
 						$keyed_images[$key]['name'] =  $content['ContentDescription']['name'];
-						$keyed_images[$key]['image'] =  BASE . '/img/content/' . $image_url;
-						$keyed_images[$key]['image_path'] =  BASE . '/img/content/' . $image_url;
-						$keyed_images[$key]['image_thumb'] = BASE . '/img/content/' . $thumb_name;
-						$keyed_images[$key]['image_width'] = $config['THUMBNAIL_SIZE'];
-						$keyed_images[$key]['image_height'] = $config['THUMBNAIL_SIZE'];
+						$keyed_images[$key]['image'] =  BASE . '/img/content/' . $value['ContentImage']['image'];
+						$keyed_images[$key]['image_path'] =  BASE . '/img/content/' . $value['ContentImage']['image'];
+						$keyed_images[$key]['image_thumb'] = BASE . '/images/thumb/' . $image_url;
+						$keyed_images[$key]['image_width'] = null;
+						$keyed_images[$key]['image_height'] = null;
 					}
 
 			} else { 

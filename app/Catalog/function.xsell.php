@@ -13,7 +13,7 @@ function default_template_xsell()
 <div class="row shop-products">
   <ul class="thumbnails">
   {foreach from=$content_list item=node}
-    <li class="item col-sm-6 col-md-4">
+    <li class="item col-sm-4 col-md-3">
       <div class="thumbnail text-center">
         {if $node.discount > 0}<div class="description"><span class="discount">-{$node.discount|round}%</span></div>{/if}
         <a href="{$node.url}" class="image"><img src="{$node.image}" alt="{$node.name}"{if {$node.image_width} > 0} width="{$node.image_width}"{/if}{if {$node.image_height} > 0} height="{$node.image_height}"{/if} />
@@ -124,17 +124,10 @@ function smarty_function_xsell($params, &$smarty)
 					$content['ContentRelations'][$key]['image_width'] = $width;
 					$content['ContentRelations'][$key]['image_height'] = $height;
 				} else {
-
-					$image_url = 'noimage.png';
-					$thumb_name = 'noimage-'.$config['THUMBNAIL_SIZE'].'.png';	
-					$thumb_path = IMAGES . 'content/' . $thumb_name;
-					$thumb_url = BASE . '/img/content/' . $thumb_name;
-
-					$content['ContentRelations'][$key]['image'] =  BASE . '/img/content/' . $thumb_name;
-					$content['ContentRelations'][$key]['image_thumb'] = BASE . '/img/content/' . $image_url;
-					$content['ContentRelations'][$key]['image_original'] =  $thumb_url;
-					$content['ContentRelations'][$key]['image_width'] = $config['THUMBNAIL_SIZE'];
-					$content['ContentRelations'][$key]['image_height'] = $config['THUMBNAIL_SIZE'];
+					$content['ContentRelations'][$key]['image'] = BASE . '/images/thumb/' . $image_url;
+					$content['ContentRelations'][$key]['image_original'] =  $image_path;
+					$content['ContentRelations'][$key]['image_width'] = null;
+					$content['ContentRelations'][$key]['image_height'] = null;
 				}
 
 		} else { 
