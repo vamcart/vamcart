@@ -12,8 +12,8 @@ $template = '
 {if !$default_page and $parent_id > 0}
 <div id="breadcrumbs">
     <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
-      <li itemscope="" itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a href="{$parent_url}" itemprop="item"><span itemprop="name">{$parent_name}</span></a><meta itemprop="position" content="1" /></li>
-      <li itemscope="" itemprop="itemListElement" itemtype="http://schema.org/ListItem" class="active"><span itemprop="name">{$page_name}</span><meta itemprop="position" content="2" /><meta itemprop="item" content="{$smarty.const.FULL_BASE_URL}{page_url}" /></li>
+      <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a href="{$parent_url}" itemprop="item"><span itemprop="name">{$parent_name}</span></a><meta itemprop="position" content="1" /></li>
+      <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem" class="active"><span itemprop="name">{$page_name}</span><meta itemprop="position" content="2" /><meta itemprop="item" content="{$smarty.const.FULL_BASE_URL}{page_url}" /></li>
     </ol>
 </div>
 {/if}
