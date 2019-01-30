@@ -637,6 +637,17 @@ div.error input
 
 /* Buttons */
 
+.btn,
+.alert,
+.nav-tabs > li > a,
+.nav-pills > li > a,
+.form-control,
+.chosen-container,
+.breadcrumb {
+  border-radius: 0px;
+  font-size: 16px !important;
+}
+
 .btn
 	{
 		border-radius: 0;
