@@ -197,6 +197,7 @@ color: #fff;
   background-color: #555;
   border: 1px solid #555;
   border-radius: 0;
+  font-size: 16px;
 }
 
 ul.dropdown-menu.cart {
@@ -290,6 +291,7 @@ padding-left: 0;
 .btn.active {
 box-shadow: 0 1px 4px 0 rgba(0,0,0,.1);
 transition: all 0.4s;
+font-size: 16px;
 }
 
 .btn:hover,
@@ -302,14 +304,15 @@ transition: all 0.4s;
 color: #fff;
 }
 
-
 .btn,
 .alert,
 .nav-tabs > li > a,
 .nav-pills > li > a,
 .form-control,
+.chosen-container,
 .breadcrumb {
   border-radius: 0px;
+  font-size: 16px;
 }
 
 label,
@@ -733,7 +736,7 @@ div#spinner {
    
 /* SHOP products
 /* ========================================================================== */
-	.shop-products .thumbnails .item {
+  .shop-products .thumbnails .item {
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -ms-transition: all 0.3s ease-out;
