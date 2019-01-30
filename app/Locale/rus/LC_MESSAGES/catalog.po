@@ -578,3 +578,6 @@ msgstr "Первые 5 позиций:"
 
 msgid "Display all search results."
 msgstr "Показать все результаты поиска."
+
+msgid "Manufacturer"
+msgstr "Производитель"

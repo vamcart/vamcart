@@ -20,7 +20,7 @@ function smarty_function_product_manufacturer($params, $template)
 	
 	$manufacturer = $ContentBase->getManufacturerName($content[$content_type]['manufacturer_id']);
 	
-	echo '<div class="manufacturer">'.__('Manufacturer').': '.$manufacturer.'</div>';
+	echo $manufacturer;
 
 	}
 	
