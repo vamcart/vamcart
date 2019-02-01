@@ -5440,6 +5440,10 @@ msgstr "Номер кошелька в Яндекс.Деньгах"
 msgid "YandexFizlico"
 msgstr "Яндекс.Касса (Яндекс.Деньги, Visa, MasterCard)"
 
+#: /plugins/payment/views/openbank/settings.ctp:22
+msgid "Openbank"
+msgstr "Открытие банк"
+
 #: /plugins/payment/views/yandex/settings.ctp:22
 msgid "Yandex Secret Key"
 msgstr "Секретный ключ в Яндекс.Деньгах"
