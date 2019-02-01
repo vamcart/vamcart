@@ -400,7 +400,7 @@ class OpenbankController extends PaymentAppController {
 		$this->layout = false;
 		$order = $this->Order->read(null,$_POST['partnerMdOrder']);
 
-		if ($_POST['operation'] == 'approved' && $_POST['status'] == 1) {
+		if ($_POST['operation'] == 'approved') {
 		
 		$payment_method = $this->PaymentMethod->find('first', array('conditions' => array('alias' => $this->module_name)));
 		$order_data = $this->Order->find('first', array('conditions' => array('Order.id' => $_POST['partnerMdOrder'])));
