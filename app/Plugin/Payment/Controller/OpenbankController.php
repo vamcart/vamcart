@@ -72,7 +72,7 @@ class OpenbankController extends PaymentAppController {
 		
 		$content = '
 		
-			<iframe frameborder="0" allowtransparency="true" scrolling="no" src="https://secure.openbank.ru/openapi/deploy/open_payments/index.html?partnerId='.$openbank_partnerid.'&serviceId='.$openbank_serviceid.'&account='.$order['Order']['id'].'&amount='.$order['Order']['total'].'&emailEnabled=1&email='.$order['Order']['email'].'&phoneEnabled=1&phone='.$order['Order']['phone'].'&supportEmail='.$config['SEND_EXTRA_EMAIL'].'&partnerBackUrl='.$success_url.'&amountReadOnly=1&paramsReadOnly=1" width="450" height="255"></iframe>
+			<iframe frameborder="0" allowtransparency="true" scrolling="no" src="https://secure.openbank.ru/openapi/deploy/open_payments/index.html?partnerId='.$openbank_partnerid.'&serviceId='.$openbank_serviceid.'&account='.$order['Order']['id'].'&amount='.$order['Order']['total'].'&emailEnabled=1&email='.$order['Order']['email'].'&phoneEnabled=1&phone='.$order['Order']['phone'].'&supportEmail='.$config['SEND_EXTRA_EMAIL'].'&partnerBackUrl='.$success_url.'&amountReadOnly=1&paramsReadOnly=1" width="100%" height="800"></iframe>
 			
 			';
 						
