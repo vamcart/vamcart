@@ -71,9 +71,7 @@ class OpenbankController extends PaymentAppController {
 		$fail_url = FULL_BASE_URL . BASE . '/page/checkout' . $config['URL_EXTENSION'];
 		
 		$content = '
-		
-			<iframe frameborder="0" allowtransparency="true" scrolling="no" src="https://secure.openbank.ru/openapi/deploy/open_payments/index.html?partnerId='.$openbank_partnerid.'&serviceId='.$openbank_serviceid.'&account='.$order['Order']['id'].'&amount='.$order['Order']['total'].'&emailEnabled=1&email='.$order['Order']['email'].'&phoneEnabled=1&phone='.$order['Order']['phone'].'&supportEmail='.$config['SEND_EXTRA_EMAIL'].'&partnerBackUrl='.$success_url.'&amountReadOnly=1&paramsReadOnly=1" width="100%" height="800"></iframe>
-			
+			<a class="btn btn-default" href="https://secure.openbank.ru/openapi/deploy/open_payments/index.html?partnerId='.$openbank_partnerid.'&serviceId='.$openbank_serviceid.'&account='.$order['Order']['id'].'&amount='.$order['Order']['total'].'&emailEnabled=1&email='.$order['Order']['email'].'&phoneEnabled=1&phone='.$order['Order']['phone'].'&supportEmail='.$config['SEND_EXTRA_EMAIL'].'&partnerBackUrl='.$success_url.'&amountReadOnly=1&paramsReadOnly=1" target="_blank" value="{lang}Process to Payment{/lang}"><i class="fa fa-check"></i> {lang}Process to Payment{/lang}</a>			
 			';
 						
 	// Save the order
