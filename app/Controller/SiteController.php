@@ -605,11 +605,13 @@ class SiteController extends AppController {
 		            $result = true;
 		        }
 		    }
-        
+
+        //echo var_dump($userInfo);
         
 			$_SESSION['fb_token'] = $results['access_token'];
 			$_SESSION['fb_user_id'] = $userInfo['id'];
 			$_SESSION['fb_user_email'] = $userInfo['email'];
+			//$_SESSION['fb_user_email'] = ($userInfo['email'] != '') ? $userInfo['email'] : $userInfo['id'];
 			
 			header('Location: ' . filter_var($redirectUrl, FILTER_SANITIZE_URL));
 
@@ -625,7 +627,7 @@ class SiteController extends AppController {
 			$_POST['customer']['oauth_uid'] = html_entity_decode($_SESSION['fb_user_id']);
 			$_POST['customer']['avatar'] = '';
 			
-			$_POST['customer']['name'] = html_entity_decode($_SESSION['fb_user_email']);
+			$_POST['customer']['name'] = html_entity_decode($userInfo['name']);
 			$_POST['customer']['email'] = html_entity_decode($_SESSION['fb_user_email']);
 
 			$_POST['customer']['password'] = $this->RandomString(8);
