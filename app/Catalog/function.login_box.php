@@ -35,6 +35,7 @@ $template = '
 		<ul class="list-inline">
 		<li>{lang}Social Login:{/lang}</li>
 		<li><a href="{base_path}/site/social_login/google"><i class="fa fa-google" title="Google"></i> {lang}Google{/lang}</a></li>
+		<li><a href="https://oauth.vk.com/authorize?client_id={config value=VK_OAUTH_CLIENT_ID}&redirect_uri={$smarty.const.FULL_BASE_URL}{$smarty.const.BASE}/site/social_login/vk&response_type=code&display=popup&scope=email"><i class="fa fa-vk" title="VK"></i> {lang}VK{/lang}</a></li>
 		</ul>
 		<ul class="list-inline">
 		<li><a href="{base_path}/customer/register{config value=url_extension}">{lang}Registration{/lang}</a></li>
