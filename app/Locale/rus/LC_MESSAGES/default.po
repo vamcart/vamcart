@@ -2222,6 +2222,18 @@ msgid "Google OAuth Secret Key"
 msgstr "Google OAuth Секретный Ключ"
 
 #: /views/configuration/admin_edit.ctp:40
+msgid "VK OAuth Client ID"
+msgstr "ID номер приложения вконтакте"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "VK OAuth Secret Key"
+msgstr "Защищённый ключ вконтакте"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "VK OAuth Service Key"
+msgstr "Сервисный ключ доступа вконтакте"
+
+#: /views/configuration/admin_edit.ctp:40
 msgid "Phone Input Mask"
 msgstr "Маска для телефона"
 

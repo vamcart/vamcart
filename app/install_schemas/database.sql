@@ -68,7 +68,10 @@ INSERT INTO `configurations` (`id`, `configuration_group_id`, `key`, `value`, `t
 (32,'3','CHECKOUT_DISPLAY_SHIPPING_METHODS_BLOCK', '1','select', '0,1', 'Display Shipping Methods Block','','32'),
 (33,'3','CHECKOUT_DISPLAY_PAYMENT_METHODS_BLOCK', '1','select', '0,1', 'Display Payment Methods Block','','33'),
 (34,'1','GOOGLE_OAUTH_CLIENT_ID', '','text', '', 'Google OAuth Client ID','','34'),
-(35,'1','GOOGLE_OAUTH_SECRET_KEY', '','text', '', 'Google OAuth Secret Key','','35');
+(35,'1','GOOGLE_OAUTH_SECRET_KEY', '','text', '', 'Google OAuth Secret Key','','35'),
+(36,'1','VK_OAUTH_CLIENT_ID', '6852109','text', '', 'VK OAuth Client ID','','34'),
+(37,'1','VK_OAUTH_SECRET_KEY', '5f5881c55f5881c55f5881c5845f300fc855f585f5881c50305e8a75744e9d559f5729c','text', '', 'VK OAuth Secret Key','','35'),
+(38,'1','VK_OAUTH_SERVICE_KEY', 'HXBMr8lCN79PCSKhiodU','text', '', 'VK OAuth Secret Key','','35');
 
 DROP TABLE IF EXISTS contents;
 CREATE TABLE `contents` (
