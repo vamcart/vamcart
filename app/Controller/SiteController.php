@@ -561,7 +561,7 @@ class SiteController extends AppController {
 		$provider = 'facebook';
 		
 		$clientId = $config['FACEBOOK_OAUTH_CLIENT_ID']; //ID Приложения
-		$clientSecret = $config['FACEBOOK_OAUTH_SECRET_KEY']; //Защищённый ключ
+		$clientSecret = $config['FACEBOOK_OAUTH_SECRET_KEY']; //Секретный ключ
 		$redirectUrl = FULL_BASE_URL.BASE.'/site/social_login/'.$provider;  //return url (url to script)
 		$homeUrl = FULL_BASE_URL.BASE;  //return to home
 
