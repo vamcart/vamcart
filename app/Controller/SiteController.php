@@ -449,6 +449,17 @@ class SiteController extends AppController {
 			$_SESSION['vk_token'] = $results['access_token'];
 			$_SESSION['vk_user_id'] = $results['user_id'];
 			$_SESSION['vk_user_email'] = $results['email'];
+
+			$user_id = $results['user_id'];
+			$request_params = array(
+			'user_id' => $user_id,
+			'fields' => 'first_name,last_name,photo_100',
+			'v' => '5.52',
+			'access_token' => $results['access_token']
+			);
+			$get_params = http_build_query($request_params);
+			$result = json_decode(file_get_contents('https://api.vk.com/method/users.get?'. $get_params));
+			//echo var_dump($result);
 			
 			header('Location: ' . filter_var($redirectUrl, FILTER_SANITIZE_URL));
 
@@ -462,9 +473,9 @@ class SiteController extends AppController {
 				
 			$_POST['customer']['oauth_provider'] = $provider;
 			$_POST['customer']['oauth_uid'] = html_entity_decode($_SESSION['vk_user_id']);
-			$_POST['customer']['avatar'] = '';
+			$_POST['customer']['avatar'] = $result->response[0]->photo_100;
 			
-			$_POST['customer']['name'] = html_entity_decode($_SESSION['vk_user_email']);
+			$_POST['customer']['name'] = html_entity_decode($result->response[0]->first_name . ' ' . $result->response[0]->last_name);
 			$_POST['customer']['email'] = html_entity_decode($_SESSION['vk_user_email']);
 
 			$_POST['customer']['password'] = $this->RandomString(8);
