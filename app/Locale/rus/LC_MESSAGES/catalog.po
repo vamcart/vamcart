@@ -584,3 +584,6 @@ msgstr "Показать все результаты поиска."
 
 msgid "Manufacturer"
 msgstr "Производитель"
+
+msgid "VK"
+msgstr "ВКонтакте"

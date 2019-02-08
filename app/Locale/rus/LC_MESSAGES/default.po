@@ -2222,6 +2222,10 @@ msgid "Google OAuth Secret Key"
 msgstr "Google OAuth Секретный Ключ"
 
 #: /views/configuration/admin_edit.ctp:40
+msgid "VK"
+msgstr "ВКонтакте"
+
+#: /views/configuration/admin_edit.ctp:40
 msgid "VK OAuth Client ID"
 msgstr "ID номер приложения вконтакте"
 
