@@ -598,8 +598,14 @@ class SiteController extends AppController {
         //echo var_dump($results);
         
 		    if (count($results) > 0 && isset($results['access_token'])) {
-		        $params = array('access_token' => $results['access_token']);
-		        $userInfo = json_decode(file_get_contents('https://graph.facebook.com/me' . '?' . urldecode(http_build_query($params))), true);
+		        
+				$query = urldecode(http_build_query(array(
+
+					"access_token" => $results['access_token'],
+					"fields"       => "id,name,first_name,last_name,email"
+				)));		        
+		        
+		        $userInfo = json_decode(file_get_contents('https://graph.facebook.com/me' . '?' . $query), true);
 		        if (isset($userInfo['id'])) {
 		            $userInfo = $userInfo;
 		            $result = true;
@@ -611,7 +617,6 @@ class SiteController extends AppController {
 			$_SESSION['fb_token'] = $results['access_token'];
 			$_SESSION['fb_user_id'] = $userInfo['id'];
 			$_SESSION['fb_user_email'] = $userInfo['email'];
-			//$_SESSION['fb_user_email'] = ($userInfo['email'] != '') ? $userInfo['email'] : $userInfo['id'];
 			
 			header('Location: ' . filter_var($redirectUrl, FILTER_SANITIZE_URL));
 
