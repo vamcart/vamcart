@@ -27,29 +27,33 @@ class BoxberryController extends ShippingAppController {
 
 		$new_module['ShippingMethod']['description'] = '
 
-<script type="text/javascript" src="https://pickpoint.ru/select/postamat.js"></script>
-	<div id="address"></div>
-	<a href="#" class="btn btn-warning" onclick="PickPoint.open(my_function);return false"><i class="fa fa-check"></i> Выбрать постамат</a>
-	<input type="hidden" name="pickpoint_id" id="pickpoint_id" value="" />
-	<input type="hidden" name="pickpoint_address" id="pickpoint_address" value="" />
+<script src="//points.boxberry.ru/js/boxberry.js"> </script>
+	<div id="boxberry_address"></div>
+	<a href="#" class="btn btn-warning" onclick="boxberry.open(callback_function); return false;"><i class="fa fa-check"></i> Выбрать пункт выдачи на карте</a>
+	<input type="hidden" name="boxberry_id" id="boxberry_id" value="" />
+	<input type="hidden" name="boxberry_address" id="boxberry_address" value="" />
 
 <script>
-	function my_function(result){
-		// устанавливаем в скрытое поле ID терминала
-		document.getElementById("pickpoint_id").value=result["id"];
-		
-		// показываем пользователю название точки и адрес доствки
-		document.getElementById("address").innerHTML=result["name"]+"<br />"+result["address"];
 
-		// показываем пользователю название точки и адрес доствки
-		document.getElementById("pickpoint_address").value=result["name"]+result["address"];
+function callback_function(result){ 
+document.getElementById("bill_line_2").value = result.address;
+//document.getElementById("js-pricedelivery").innerHTML = result.price;
+document.getElementById("boxberry_id").innerHTML = result.id;
 
-		// показываем пользователю название точки и адрес доствки
-		document.getElementById("bill_line_2").value=result["name"]+result["address"];
+result.name = encodeURIComponent(result.name) // Что бы избежать проблемы с кириллическими символами, на страницах отличными от UTF8, вы можете использовать функцию encodeURIComponent() 
 
-		document.getElementById("ship_7").checked="checked";
+//document.getElementById("boxberry_name").innerHTML =	result.name;
+document.getElementById("boxberry_address").innerHTML =	result.address;
+//document.getElementById("workschedule").innerHTML =	result.workschedule;
+//document.getElementById("boxberry_phone").innerHTML = result.phone;
+//document.getElementById("boxberry_period").innerHTML = result.period;
 
-	}
+document.getElementById("ship_9").checked="checked";
+
+if (result.prepaid=="1") { 
+alert("Отделение работает только по предоплате!"); 
+} 
+} 
 </script>
 
 ';
@@ -94,9 +98,10 @@ class BoxberryController extends ShippingAppController {
 			$data_ems = array_combine(Set::extract($key_values, 'ShippingMethodValue.{n}.key'),
 				Set::extract($key_values, 'ShippingMethodValue.{n}.value'));
 	
-	    $from_zip = $data_ems['city'];
-	    			
+	    $token = $data_ems['token'];
+	    $cost = $data_ems['cost'];
        $to_zip = $order['Order']['bill_zip'];
+       $total = $order['Order']['total'];
 
 			$total_weight = 0;
 			
@@ -107,13 +112,13 @@ class BoxberryController extends ShippingAppController {
 			
 			$total_weight = $total_weight * 1000;
         
-        $ems = "http://tariff.russianpost.ru/tariff/v1/calculate?json&object=7030&from=".$from_zip."&to=".$to_zip."&weight=".$total_weight."";
+        $url="http://api.boxberry.de/json.php?token=".$token."&method=DeliveryCosts&weight=".$total_weight."&target=&ordersum=".$total."&deliverysum=".$cost."&targetstart=&height=&width=&depth=&zip=".$to_zip."";
 
         // create curl resource
         $ch = curl_init();
 
         // set url
-        curl_setopt($ch, CURLOPT_URL, $ems);
+        curl_setopt($ch, CURLOPT_URL, $url);
 
         //return the transfer as a string
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -126,8 +131,10 @@ class BoxberryController extends ShippingAppController {
 
         $contents = $output;
         $results = json_decode($contents, true); 
+        
+        //echo var_dump($results);
 
-		return $results["pay"]/100;
+		return $results["price"]+$cost;
 	}
 
 	public function before_process()
