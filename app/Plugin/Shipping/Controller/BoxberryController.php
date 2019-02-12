@@ -48,7 +48,7 @@ document.getElementById("boxberry_address").innerHTML =	result.address;
 //document.getElementById("boxberry_phone").innerHTML = result.phone;
 //document.getElementById("boxberry_period").innerHTML = result.period;
 
-document.getElementById("ship_9").checked="checked";
+document.getElementById("ship_6").checked="checked";
 
 if (result.prepaid=="1") { 
 alert("Отделение работает только по предоплате!"); 
