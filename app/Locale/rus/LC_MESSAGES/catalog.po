@@ -587,3 +587,6 @@ msgstr "Производитель"
 
 msgid "VK"
 msgstr "ВКонтакте"
+
+msgid "Facebook"
+msgstr "Facebook"

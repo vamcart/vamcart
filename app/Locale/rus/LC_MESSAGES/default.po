@@ -2238,6 +2238,18 @@ msgid "VK OAuth Service Key"
 msgstr "Сервисный ключ доступа вконтакте"
 
 #: /views/configuration/admin_edit.ctp:40
+msgid "Facebook"
+msgstr "Facebook"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "Facebook OAuth App ID"
+msgstr "Facebook OAuth ID приложения"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "Facebook OAuth App Secret Key"
+msgstr "Facebook OAuth Ключ приложения"
+
+#: /views/configuration/admin_edit.ctp:40
 msgid "Phone Input Mask"
 msgstr "Маска для телефона"
 
@@ -6336,3 +6348,6 @@ msgstr "Новинка"
 
 msgid "Featured"
 msgstr "Рекомендуемый"
+
+msgid "Boxberry Token"
+msgstr "Boxberry токен"
