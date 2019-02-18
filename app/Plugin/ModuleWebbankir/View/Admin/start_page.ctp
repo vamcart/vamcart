@@ -1,9 +1,9 @@
 <?php
 
-$this->Html->script([
+$this->Html->script(array(
     'admin/modified.js',
     'admin/focus-first-input.js'
-], ['inline' => false]);
+), array('inline' => false));
 
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-cog');
 

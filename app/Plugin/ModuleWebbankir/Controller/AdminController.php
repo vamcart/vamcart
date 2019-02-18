@@ -40,12 +40,12 @@ class AdminController extends ModuleWebbankirAppController
 
         foreach ($settings as $key => $value) {
             if ($settings[$key]['ModuleWebbankirSetting']['type'] === 'select') {
-                $language = $this->Language->find('first', ['conditions' => ['active' => 1]]);
-                $statuses = $this->OrderStatusDescription->find('all', [
-                    'conditions' => [
+                $language = $this->Language->find('first', array('conditions' => array('active' => 1)));
+                $statuses = $this->OrderStatusDescription->find('all', array(
+                    'conditions' => array(
                         'language_id' => $language['Language']['id']
-                    ]
-                ]);
+                    )
+                ));
 
                 foreach ($statuses as $status) {
                     $settings[$key]['ModuleWebbankirSetting']['options'][] = $status['OrderStatusDescription']['name'];
@@ -70,9 +70,9 @@ class AdminController extends ModuleWebbankirAppController
         $this->set('current_crumb', __d(WEBBANKIR_MODULE, 'WEBBANKIR'));
         $this->set('title_for_layout', __d(WEBBANKIR_MODULE, 'WEBBANKIR'));
         $this->set('activePage', $activePage);
-        $this->set('pages', [
+        $this->set('pages', array(
             WEBBANKIR_PAGE_SETTINGS => 'WEBBANKIR_SETTINGS',
-        ]);
+        ));
 
         $this->set('webbankirSettings', $this->getSettings());
     }
@@ -84,7 +84,7 @@ class AdminController extends ModuleWebbankirAppController
     {
         if (!empty($this->data)) {
             foreach ($this->data['settingsForm'] as $key => $value) {
-                $currentConfig = $this->ModuleWebbankirSetting->find('first', ['conditions' => ['code' => $key]]);
+                $currentConfig = $this->ModuleWebbankirSetting->find('first', array('conditions' => array('code' => $key)));
                 $currentConfig['ModuleWebbankirSetting']['value'] = $value;
                 $this->ModuleWebbankirSetting->save($currentConfig);
             }

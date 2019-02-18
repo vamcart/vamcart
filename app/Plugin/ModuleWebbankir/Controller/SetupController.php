@@ -28,26 +28,26 @@ class SetupController extends ModuleWebbankirAppController
      */
     public function install()
     {
-        $oldDefault = $this->PaymentMethod->find('first', ['conditions' => ['default' => '1']]);
+        $oldDefault = $this->PaymentMethod->find('first', array('conditions' => array('default' => '1')));
         $oldDefault['PaymentMethod']['default'] = '0';
         $this->PaymentMethod->save($oldDefault);
 
-        $newModule = $this->PaymentMethod->create([
+        $newModule = $this->PaymentMethod->create(array(
             'active' => '1',
             'default' => '1',
             'name' => Inflector::humanize($this->moduleName),
             'icon' => 'webbankir.png',
             'alias' => $this->moduleName,
-        ]);
+        ));
 
         $this->PaymentMethod->save($newModule);
 
-        $newPlugin = $this->Module->create([
+        $newPlugin = $this->Module->create(array(
             'name' => __d(WEBBANKIR_MODULE, 'WEBBANKIR'),
             'alias' => $this->alias,
             'version' => MODULE_VERSION_SETTING,
             'nav_level' => '5'
-        ]);
+        ));
 
         $this->Module->save($newPlugin);
 
@@ -83,7 +83,7 @@ class SetupController extends ModuleWebbankirAppController
     public function uninstall()
     {
         $paymentMethod = $this->PaymentMethod->findByAlias($this->moduleName);
-        $module = $this->Module->find('first', ['conditions' => ['alias' => $this->alias]]);
+        $module = $this->Module->find('first', array('conditions' => array('alias' => $this->alias)));
 
         $this->PaymentMethod->delete($paymentMethod['PaymentMethod']['id'], true);
         $this->Module->delete($module['Module']['id'], true);

@@ -7,16 +7,16 @@ class ModuleWebbankirAppController extends AppController
     /**
      * @var array 
      */
-    public $uses = [
+    public $uses = array(
         'ModuleWebbankirSetting',
         'OrderStatusDescription',
         'PaymentMethod',
         'Module',
         'Language',
-    ];
+    );
 
     /**
      * @var array
      */
-    public $components = ['ModuleBase'];
+    public $components = array('ModuleBase');
 }
