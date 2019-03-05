@@ -71,7 +71,7 @@ INSERT INTO `configurations` (`id`, `configuration_group_id`, `key`, `value`, `t
 (35,'1','GOOGLE_OAUTH_SECRET_KEY', '','text', '', 'Google OAuth Secret Key','','35'),
 (36,'1','VK_OAUTH_CLIENT_ID', '','text', '', 'VK OAuth Client ID','','36'),
 (37,'1','VK_OAUTH_SECRET_KEY', '','text', '', 'VK OAuth Secret Key','','37'),
-(38,'1','VK_OAUTH_SERVICE_KEY', '','text', '', 'VK OAuth Secret Key','','38'),
+(38,'1','VK_OAUTH_SERVICE_KEY', '','text', '', 'VK OAuth Service Key','','38'),
 (39,'1','FACEBOOK_OAUTH_CLIENT_ID', '','text', '', 'Facebook OAuth App ID','','39'),
 (40,'1','FACEBOOK_OAUTH_SECRET_KEY', '','text', '', 'Facebook OAuth App Secret Key','','40');
 
