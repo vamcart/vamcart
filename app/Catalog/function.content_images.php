@@ -46,15 +46,15 @@ $(document).ready(function(){
   });
 });
 </script>
-{if $images_count > 5}
+{if $images_count > 4}
 <script>
 $(document).ready(function(){
 $(".product-images .row.small").bxSlider({
   adaptiveHeight: true,
   pager: false,
-  minSlides: 4,
-  maxSlides: 4,
-  slideWidth: 230
+  minSlides: 3,
+  maxSlides: 3,
+  slideWidth: 180
 });
 });
 </script>
