@@ -50,7 +50,7 @@ $(document).ready(function(){
 <script>
 $(document).ready(function(){
 $(".product-images .row.small").bxSlider({
-  adaptiveHeight: true,
+  adaptiveHeight: false,
   touchEnabled: false,
   pager: false,
   minSlides: 3,
