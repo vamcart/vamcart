@@ -51,6 +51,7 @@ $(document).ready(function(){
 $(document).ready(function(){
 $(".product-images .row.small").bxSlider({
   adaptiveHeight: true,
+  touchEnabled: false,
   pager: false,
   minSlides: 3,
   maxSlides: 3,
