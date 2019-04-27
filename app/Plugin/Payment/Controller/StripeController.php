@@ -68,8 +68,8 @@ class StripeController extends PaymentAppController {
         App::import('Vendor', 'stripe', array('file' => 'stripe'.DS.'init.php'));
 
 $stripe = array(
-  'secret_key'      => 'sk_test_pMHNYyqsni45QoKGAJ7DlFYv',
-  'publishable_key' => 'pk_test_L83k75ErjGIy0tOg7ptmeIUn'
+  'secret_key'      => $secret_key,
+  'publishable_key' => $publish_key
 );
 
 \Stripe\Stripe::setApiKey($stripe['secret_key']);
@@ -296,8 +296,8 @@ function stripeResponseHandler(status, response) {
         App::import('Vendor', 'stripe', array('file' => 'stripe'.DS.'init.php'));
 
 $stripe = array(
-  'secret_key'      => 'sk_test_pMHNYyqsni45QoKGAJ7DlFYv',
-  'publishable_key' => 'pk_test_L83k75ErjGIy0tOg7ptmeIUn'
+  'secret_key'      => $secret_key,
+  'publishable_key' => $publish_key
 );
 
 \Stripe\Stripe::setApiKey($stripe['secret_key']);
