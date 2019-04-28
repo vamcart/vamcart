@@ -850,6 +850,7 @@ div#spinner {
 }
 .shop-products .thumbnail:hover {
 box-shadow: 0 4px 15px #d5d5d5;
+transition: 0.4s;
 }
 .shop-products .thumbnail:hover .image img {
   -webkit-transform: scale(1.1);
@@ -1108,6 +1109,7 @@ box-shadow: 0;
 }
 .featured-categories .thumbnail:hover {
 box-shadow: 0 4px 15px #d5d5d5;
+transition: 0.4s;
 }
 .featured-categories .thumbnail:hover .image img {
   -webkit-transform: scale(1.1);
