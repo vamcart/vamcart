@@ -557,7 +557,7 @@ footer .copyright {
 }
 .thumbnail .price {
   color: #dd2c00;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   z-index: 5;
   clear: both;
@@ -795,7 +795,7 @@ div#spinner {
   border-top: 0px solid #e5e5e5;
   border-bottom: 0px solid #e5e5e5;
   color: #dd2c00;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   z-index: 5;
   border-top-right-radius: 0px;
@@ -1088,8 +1088,7 @@ box-shadow: 0;
   border-top: 0px solid #e5e5e5;
   border-bottom: 0px solid #e5e5e5;
   color: #dd2c00;
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 20px;
   z-index: 5;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
