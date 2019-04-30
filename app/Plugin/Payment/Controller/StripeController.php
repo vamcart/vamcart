@@ -258,7 +258,7 @@ function stripeResponseHandler(status, response) {
 		
 		  $charge = \Stripe\Charge::create(array(
 		      'customer' => $customer->id,
-		      'amount'   => $order_data['Order']['total'],
+		      'amount'   => $order_data['Order']['total']*100,
 		      'currency' => $_SESSION['Customer']['currency_code']
 		  ));
 
