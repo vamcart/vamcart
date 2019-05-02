@@ -107,7 +107,7 @@ class RussianPostCalcController extends ShippingAppController {
 private function _russianpostcalc_api_communicate($request)
 {
     $curl = curl_init();
-    curl_setopt($curl, CURLOPT_URL, "http://russianpostcalc.ru/api_v1.php");
+    curl_setopt($curl, CURLOPT_URL, "https://russianpostcalc.ru/api_v1.php");
     curl_setopt($curl, CURLOPT_POST, true);
     curl_setopt($curl, CURLOPT_POSTFIELDS, $request);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
