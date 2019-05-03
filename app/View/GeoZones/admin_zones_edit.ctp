@@ -15,7 +15,7 @@ $l = substr($l, 0, 2);
 
 $fname = 'admin_geo_zones_i18n_' . $l . '.js';
 
-if (!file_exists(WWW_ROOT . 'js/' . $fname)) {
+if (!file_exists(WWW_ROOT . 'js/admin' . $fname)) {
 	$fname = 'admin_geo_zones_i18n_en.js';
 }
 
@@ -24,7 +24,7 @@ $this->Html->script(array(
     'jquery/plugins/lou-multi-select/jquery.multi-select.js',
     'jquery/plugins/lou-multi-select/jquery.quicksearch.js',
     'admin/selectall.js',
-    $fname
+    'admin/'.$fname
 ), array('inline' => false));
 ?>
 <?php echo $this->Html->scriptBlock('
