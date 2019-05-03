@@ -173,6 +173,7 @@ function stripeResponseHandler(status, response) {
 			</div>
 		</div>
 		<button class="btn btn-default submit" type="submit" value="{lang}Pay with Card{/lang}"><i class="fa fa-check"></i> {lang}Pay with Card{/lang}</button>
+		</div>
 		</form>';
 		return $content;
 	}
