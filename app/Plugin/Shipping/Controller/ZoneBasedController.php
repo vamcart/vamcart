@@ -112,7 +112,7 @@ class ZoneBasedController extends ShippingAppController {
 			break;				
 		}
 
-		if ($cost > 0) {
+		if (isset($cost)) {
 
 		$rates = str_replace($newline, '', $cost);
 		$rates = explode(',', $rates);
