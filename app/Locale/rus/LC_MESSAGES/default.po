@@ -5712,6 +5712,10 @@ msgstr "Режим отладки"
 msgid "Back"
 msgstr "Вернуться"
 
+#: /app/View/GeoZones/admin_zones_edit.ctp:16
+msgid "Back to country list"
+msgstr "Вернуться к списку стран"
+
 #: /app/Conrtoller/ContactUsController.php:16
 msgid "Your enquiry has been successfully sent!"
 msgstr "Ваше сообщение успешно отправлено!"
