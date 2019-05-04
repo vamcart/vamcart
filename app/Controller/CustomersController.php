@@ -59,8 +59,18 @@ class CustomersController extends AppController {
                         asort($groups);
                         $this->set('groups',$groups);
 
-			$this->set('default_country',($_SESSION['Customer']['language'] == 'ru') ? 176 : 223);
-			$this->set('default_state',($_SESSION['Customer']['language'] == 'ru') ? 99 : 332);
+			// Get Default Country
+			App::import('Model', 'Country');
+			$country = new Country();
+			$default_country = $country->find('first', array('conditions' => array('Country.default' => 1),'limit' => 1));			
+
+			// Get Default State
+			App::import('Model', 'CountryZone');
+			$zone = new CountryZone();
+			$default_state = $zone->find('first', array('conditions' => array('CountryZone.default' => 1),'limit' => 1));			
+
+			$this->set('default_country',$default_country['Country']['id']);
+			$this->set('default_state',$default_state['CountryZone']['id']);
 
 			$this->set('data',$this->request->data);
 		}
@@ -275,7 +285,13 @@ class CustomersController extends AppController {
       if ($country_id > 0){
       $default_country = $country_id;
       } else {
-      $default_country = ($_SESSION['Customer']['language'] == 'ru') ? 176 : 223;
+
+		// Get Default Country
+		App::import('Model', 'Country');
+		$country = new Country();
+		$default_country = $country->find('first', array('conditions' => array('Country.default' => 1),'limit' => 1));			
+
+      $default_country = $default_country['Country']['id'];
       }
       
 			$countries = $Countries->find('list', array('conditions' => array('active' => 1)));
@@ -297,7 +313,12 @@ class CustomersController extends AppController {
       if ($state_id > 0){
       $default_country = $state_id;
       } else {
-      $default_country = ($_SESSION['Customer']['language'] == 'ru') ? 176 : 223;
+		// Get Default Country
+		App::import('Model', 'Country');
+		$country = new Country();
+		$default_country = $country->find('first', array('conditions' => array('Country.default' => 1),'limit' => 1));			
+
+      $default_country = $default_country['Country']['id'];
       }
       
 			$states = $CountryZones->find('list', array('conditions' => array('country_id' => $default_country)));
