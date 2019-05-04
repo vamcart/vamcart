@@ -88,7 +88,7 @@ class CountryZonesController extends AppController {
 			$this->$current_model->save($info);
 		}
 		
-		$this->redirect('/country_zones/admin/' . $country_id . '/' . $this->RequestHandler->isAjax());
+		$this->redirect($this->referer());
 	}
 	
 	public function admin_modify_selected() 	

@@ -103,7 +103,7 @@ class AppController extends Controller {
 		}
 		
 		
-		$this->redirect('/' . $current_controller . '/admin/0/' . $parent_id . '/' . $this->RequestHandler->isAjax());
+		$this->redirect($this->referer());
 		
 	}
 	
