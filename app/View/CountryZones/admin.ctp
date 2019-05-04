@@ -24,7 +24,7 @@ foreach ($zones AS $zone)
 		  array(
 			$this->Html->link(__($zone['CountryZone']['name']),'/country_zones/admin_edit/' . $country['Country']['id'] . '/' . $zone['CountryZone']['id']),
 			$zone['CountryZone']['code'],
-			array($this->Ajax->link(($zone['CountryZone']['default'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'),'title' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False'),'title' => __('False')))), 'null', $options = array('escape' => false, 'url' => '/country_zones/admin_set_as_default/' . $zone['CountryZone']['id'], 'update' => 'content'), null, false), array('align'=>'center')),
+			array($this->Ajax->link(($zone['CountryZone']['default'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'),'title' => __('True'))):$this->Html->image('admin/icons/false.png', array('alt' => __('False'),'title' => __('False')))), 'null', $options = array('escape' => false, 'url' => '/country_zones/admin_set_as_default/' . $zone['CountryZone']['id'] . '/' . $zone['CountryZone']['country_id'], 'update' => 'content'), null, false), array('align'=>'center')),
 			array($this->Admin->ActionButton('edit','/country_zones/admin_edit/' . $country['Country']['id'] . '/' . $zone['CountryZone']['id'],__('Edit')) . $this->Admin->ActionButton('delete','/country_zones/admin_delete/' . $country['Country']['id'] . '/' . $zone['CountryZone']['id'],__('Delete')), array('align'=>'center')),
 			array($this->Form->checkbox('modify][', array('value' => $zone['CountryZone']['id'])), array('align'=>'center'))
 		   ));

@@ -64,7 +64,7 @@ class CountryZonesController extends AppController {
 		
 	}
 
-	public function admin_set_as_default ($id) 
+	public function admin_set_as_default ($id, $country_id = 0) 
 	{
 		$current_model = 'CountryZone';
 
@@ -87,8 +87,8 @@ class CountryZonesController extends AppController {
 			}
 			$this->$current_model->save($info);
 		}
-
-		$this->redirect('/country_zones/admin/' . $content['CountryZone']['id'] . '/' . $this->RequestHandler->isAjax());
+		
+		$this->redirect('/country_zones/admin/' . $country_id . '/' . $this->RequestHandler->isAjax());
 	}
 	
 	public function admin_modify_selected() 	
