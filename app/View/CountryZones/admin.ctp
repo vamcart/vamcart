@@ -44,6 +44,10 @@ echo $this->Form->end();
 
 <?php
 
+echo '<br />';
+
+echo $this->Admin->linkButton(__('Back to country list'),'/countries/admin/','cus-arrow-left',array('escape' => false, 'class' => 'btn btn-default'));
+
 echo $this->Admin->ShowPageHeaderEnd();
 
 ?>

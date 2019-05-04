@@ -22,7 +22,7 @@ foreach ($data AS $country)
 {
 	echo $this->Admin->TableCells(
 		  array(
-			$this->Html->link(__($country['Country']['name']),'/country_zones/admin/' . $country['Country']['id']),
+			$this->Html->link($this->Html->image('admin/icons/folder.png'),'/country_zones/admin/' . $country['Country']['id'], array('escape' => false)).'&nbsp;'.$this->Html->link(__($country['Country']['name']),'/country_zones/admin/' . $country['Country']['id']),
 			array($this->Html->link($this->Html->image('flags/' . strtolower($country['Country']['iso_code_2']) . '.png', array('alt' => $country['Country']['name'])), '/countries/admin_edit/' . $country['Country']['id'], array('escape' => false)), array('align'=>'center')),
 			array($country['Country']['iso_code_2'], array('align'=>'center')),
 			array($country['Country']['iso_code_3'], array('align'=>'center')),
