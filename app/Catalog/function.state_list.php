@@ -10,11 +10,19 @@ function smarty_function_state_list($params, &$smarty)
 {
         global $content;
 
-			if(!isset ($params['country']))
-				$params['country'] = ($_SESSION['Customer']['language'] == 'ru') ? 176 : 223;
+			if(!isset ($params['country'])) {
+			App::import('Model', 'Country');
+			$country = new Country();
+			$default_country = $country->find('first', array('conditions' => array('Country.default' => 1),'limit' => 1));			
+			$params['country'] = $default_country['Country']['id'];
+			}
 
-			if(!isset($params['selected']) or !is_numeric($params['selected']))
-				$params['selected'] = ($_SESSION['Customer']['language'] == 'ru') ? 99 : 332;
+			if(!isset($params['selected']) or !is_numeric($params['selected'])) {
+			App::import('Model', 'CountryZone');
+			$zone = new CountryZone();
+			$default_state = $zone->find('first', array('conditions' => array('CountryZone.default' => 1),'limit' => 1));			
+			$params['selected'] = $default_state['CountryZone']['id'];
+			}
 
         App::import('Model', 'CountryZone');
         $CountryZone = new CountryZone();

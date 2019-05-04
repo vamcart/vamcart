@@ -16,8 +16,12 @@ function smarty_function_country_list($params, &$smarty)
     $options = $Country->find('list', array('conditions' => array('active' => '1'),'order' => array('Country.name'), 'fields'=>'id, name'));
     $List = '';
 
-		if(!isset ($params['selected']))
-			$params['selected'] = ($_SESSION['Customer']['language'] == 'ru') ? 176 : 223;
+		if(!isset ($params['selected'])) {
+			App::import('Model', 'Country');
+			$country = new Country();
+			$default_country = $country->find('first', array('conditions' => array('Country.default' => 1),'limit' => 1));
+			$params['selected'] = $default_country['Country']['id'];
+		}			
 
     foreach($options as $key=>$value)
     {
