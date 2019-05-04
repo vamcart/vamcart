@@ -39,7 +39,7 @@ function smarty_function_state_list($params, &$smarty)
                                 $List .= ' selected';
                         }
                 }
-                $List .= ">" . $option['CountryZone']['name'] . "</option>";
+                $List .= ">" . __($option['CountryZone']['name']) . "</option>";
         }
 
         echo $List;
