@@ -51,7 +51,19 @@ class CountriesController extends AppController {
 	{
 		$this->changeActiveStatus($id);	
 	}
-		
+
+	/**
+	* Sets a content item (Page, Product, or Category) to be the default item for the site.
+	*
+	* The setDefaultItem is called from the app_controller.
+	*
+	* @param  int  $content_id The id of the content we're going to be setting as active.
+	*/
+	public function admin_set_as_default ($content_id)
+	{
+		$this->setDefaultItem($content_id);
+	}
+			
 	public function admin_modify_selected() 	
 	{
 		$build_flash = "";
