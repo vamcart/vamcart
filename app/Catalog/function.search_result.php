@@ -27,7 +27,7 @@ $template = '
 <div class="row shop-products">
   <ul class="thumbnails">
     {foreach from=$content_list item=node}
-    <li class="item col-sm-6 col-md-4">
+    <li class="item col-sm-6 col-md-4{if $node.is_new == 1} new{/if}{if $node.is_featured == 1} featured{/if}">
       <div class="thumbnail text-center">
         {if $node.discount > 0}<div class="description"><span class="discount">-{$node.discount|round}%</span></div>{/if}
         <a href="{$node.url}" class="image"><img src="{$node.image}" alt="{$node.name}"{if {$node.image_width} > 0} width="{$node.image_width}"{/if}{if {$node.image_height} > 0} height="{$node.image_height}"{/if} />
@@ -240,6 +240,8 @@ function smarty_function_search_result($params, $template)
 			if ($raw_data['Content']['content_type_id'] == 2) $content_list[$count]['width']	= ($raw_data['ContentProduct']['width'] > 0) ? $raw_data['ContentProduct']['width'] : false;	
 			if ($raw_data['Content']['content_type_id'] == 2) $content_list[$count]['height']	= ($raw_data['ContentProduct']['height'] > 0) ? $raw_data['ContentProduct']['height'] : false;	
 			if ($raw_data['Content']['content_type_id'] == 2) $content_list[$count]['volume']	= ($raw_data['ContentProduct']['volume'] > 0) ? $raw_data['ContentProduct']['volume'] : false;	
+			if ($raw_data['Content']['content_type_id'] == 2) $content_list[$count]['is_new']	= ($raw_data['ContentProduct']['is_new'] > 0) ? $raw_data['ContentProduct']['is_new'] : false;	
+			if ($raw_data['Content']['content_type_id'] == 2) $content_list[$count]['is_featured']	= ($raw_data['ContentProduct']['is_featured'] > 0) ? $raw_data['ContentProduct']['is_featured'] : false;	
 			if ($raw_data['Content']['content_type_id'] == 2 or $raw_data['Content']['content_type_id'] == 7) $content_list[$count]['manufacturer']	= $ContentBase->getManufacturerName($raw_data[$content_type]['manufacturer_id']);	
 			if ($raw_data['Content']['content_type_id'] == 2 or $raw_data['Content']['content_type_id'] == 7) $content_list[$count]['label_id']	= $raw_data[$content_type]['label_id'];	
 			$content_list[$count]['date_added']	= CakeTime::i18nFormat($raw_data['Content']['created']);	
