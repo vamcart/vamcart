@@ -760,6 +760,20 @@ div#spinner {
   box-shadow: 4px;
 	}
 
+.shop-products .item.new .thumbnail {
+  background: #f7fdff;
+  border: solid 1px #c2f1ff;
+  box-shadow: 0 4px 15px #c2f1ff;
+  transition: 0.4s;
+}
+
+.shop-products .item.featured .thumbnail {
+  background: #fffbfa;
+  border: solid 1px #ffddd5;
+  box-shadow: 0 4px 15px #ffddd5;
+  transition: 0.4s;
+}
+	
 .shop-products .thumbnail .image {
   overflow: hidden;
   position: relative;
