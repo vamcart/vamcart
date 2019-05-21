@@ -8,12 +8,14 @@
 
 function smarty_function_geo_city($params, $template)
 {
-	global $content;
+  global $content;
   App::import('Vendor', 'GeoCity', array('file' => 'GeoCity'.DS.'SxGeo.php'));
   $SxGeo= new SxGeo(APP.'Vendor/GeoCity/SxGeo.dat');
   $city = $SxGeo->get($_SERVER['REMOTE_ADDR']);
+  
+  $city_name = ($_SESSION['Customer']['language'] == 'ru') ? $city['city']['name_ru'] : $city['city']['name_en'];
 
-	return $city['city']['name_ru'];
+	return $city_name;
 }
 
 function smarty_help_function_geo_city() {

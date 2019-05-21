@@ -591,5 +591,11 @@ msgstr "ВКонтакте"
 msgid "Facebook"
 msgstr "Facebook"
 
-msgid "Add to Home Screen"
-msgstr "Добавить иконку на рабочий стол"
+msgid "Your Location"
+msgstr "Укажите свой город"
+
+msgid "City Name"
+msgstr "Город"
+
+msgid "Close"
+msgstr "Закрыть"
