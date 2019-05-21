@@ -1,0 +1,36 @@
+{
+    "name": "VamShop",
+    "short_name": "vamshop",
+    "description": "VamShop - Shopping Cart Software.",
+    "icons": [
+        {
+            "src": "img/icons/pwa/vamshop-box-32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "img/icons/pwa/vamshop-box-64.png",
+            "sizes": "64x64",
+            "type": "image/png"
+        },
+        {
+            "src": "img/icons/pwa/vamshop-box-128.png",
+            "sizes": "128x128",
+            "type": "image/png"
+        },
+        {
+            "src": "img/icons/pwa/vamshop-box-256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "img/icons/pwa/vamshop-box-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#dd2c00",
+    "background_color": "#ffffff"
+}
