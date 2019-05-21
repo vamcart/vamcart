@@ -590,3 +590,6 @@ msgstr "ВКонтакте"
 
 msgid "Facebook"
 msgstr "Facebook"
+
+msgid "Add to Home Screen"
+msgstr "Добавить иконку на рабочий стол"
