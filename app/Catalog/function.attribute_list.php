@@ -63,11 +63,10 @@ function default_template_attribute_list()
                             {if !empty($attr_element.values_attribute.name)}</b>{/if}                                
 {if $attr_element.group_attributes}
                         <ul class="attributes nav nav-pills">
-                            <li class="active"><span class="active">{$attr_element.values_attribute.name}</span></li>
                         {foreach from=$attr_element.group_attributes item=attr_val}                        
-                            <li class="{cycle values="odd,even"}">
+                            <li class="{if {$attr_element.values_attribute.name} == {$attr_val.values_attribute.name}}active {/if}{cycle values="odd,even"}">
                                 {if $attr_val.make}<b>{/if}
-                                    <a class="confirm" href={$attr_val.content_chng_url} onclick=\'$("#attr{$attr_val.values_attribute.id}").attr("value","1");\'> {$attr_val.values_attribute.name} </a>
+                                    {if {$attr_element.values_attribute.name} == {$attr_val.values_attribute.name}}<span class="active">{/if}<a class="confirm" href={$attr_val.content_chng_url} onclick=\'$("#attr{$attr_val.values_attribute.id}").attr("value","1");\'>{$attr_val.values_attribute.name}</a>{if {$attr_element.values_attribute.name} == {$attr_val.values_attribute.name}}</span>{/if}
                                     <input id="attr{$attr_val.values_attribute.id}" name="data[set_attr][{$attr_val.values_attribute.id}]" type="hidden" />
                                 {if $attr_val.make}</b>{/if}
                             </li>                          

@@ -1103,7 +1103,7 @@ transition: 0.4s;
 
 .attributes span.active {
   display: block;
-  padding: 10px 15px;
+  padding: 3px 15px;
   background-color: #f5f5f5;
   border: 1px solid #dd2c00;
   border-radius: 4px;

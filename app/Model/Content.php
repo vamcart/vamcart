@@ -139,14 +139,16 @@ class Content extends AppModel {
         public function getSetAttributesForGroup($content_id = 0, $unique = false)
         {
             global $make_attr_product;
-            $current_group_list_attr = $this->__getListSetAttributesForProduct($content_id);
+            //$current_group_list_attr = $this->__getListSetAttributesForProduct($content_id);
             $list_attr = $this->getSetAttributesForProduct($content_id);
             $list_attr = Set::combine($list_attr,'{n}.id','{n}');        
             $this->unbindAll();          
-            $products = $this->find('list', array('fields' => array('id','parent_id'),'conditions' => array('id_group' => $this->getGroup($content_id), 'Content.id <>' => $content_id)));                      
+            $products = $this->find('list', array('fields' => array('id','parent_id'),'conditions' => array('id_group' => $this->getGroup($content_id))));                      
             foreach($products AS $product_id => $product_parent_id)
             {
                 $group_list_attr = $this->getSetAttributesForProduct($product_id);               
+                //echo var_dump($group_list_attr);
+
                 foreach($group_list_attr AS $attr)
                 {
                     if($current_group_list_attr[$attr['values_attribute']['id']] == 0&&$attr['values_attribute'] != null)
