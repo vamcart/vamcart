@@ -599,3 +599,6 @@ msgstr "Город"
 
 msgid "Close"
 msgstr "Закрыть"
+
+msgid "Add to Home Screen"
+msgstr "Добавить иконку на рабочий стол"
