@@ -249,7 +249,7 @@ class YandexController extends PaymentAppController {
 		$yandex_settings_shopid = $this->PaymentMethod->PaymentMethodValue->find('first', array('conditions' => array('key' => 'shopid')));
 		$yandex_shopid = $yandex_settings_shopid['PaymentMethodValue']['value'];
 
-		if ($_POST['action'] == 'process' or $_POST['action'] == 'checkOrder') {
+		if (!$_POST['paymentDatetime'] && $_POST['action'] == 'process') {
 		if ($hash == $crc) {
 		echo '<?xml version="1.0" encoding="UTF-8"?>
 		<checkOrderResponse performedDatetime="'.$_POST['requestDatetime'].'"
@@ -258,7 +258,7 @@ class YandexController extends PaymentAppController {
 		}
 		}
 		
-		if ($_POST['action'] == 'paymentAviso') {
+		if ($_POST['paymentDatetime'] != '' && $_POST['action'] == 'process') {
 		if ($hash == $crc) {
 		echo '<?xml version="1.0" encoding="UTF-8"?>
 		<paymentAvisoResponse
@@ -269,7 +269,7 @@ class YandexController extends PaymentAppController {
 		}
 		
 		// checking and handling
-		if ($_POST['action'] == 'paymentAviso') {
+		if ($_POST['paymentDatetime'] != '' && $_POST['action'] == 'process') {
 		if ($hash == $crc) {
 		if ($merchant_summ == $order_summ) {
 
