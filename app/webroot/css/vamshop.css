@@ -114,6 +114,11 @@ a#scrollup i{
   padding-bottom: 15px;
 }
 
+header {
+  background: rgba(255,255,255,1);
+  background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+}
+
 #nav.affix {
   position: fixed;
   top: 0;
@@ -169,7 +174,8 @@ a#scrollup i{
 }
 
 .navbar-default {
-  background-color: #dd2c00;
+  background: rgb(221,44,0);
+  background: linear-gradient(180deg, rgba(221,44,0,1) 0%, rgba(228,82,3,1) 100%);
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
