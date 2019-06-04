@@ -67,22 +67,12 @@ class GiftController extends ModuleGiftAppController {
 		foreach ($gift_remove as $gift_removes_remove) { 
 		if($order['Order']['total'] <= $gift_removes_remove['ModuleGift']['order_total']) {
 			
-		$content_description_remove = $this->ContentBase->get_content_description($gift_removes_remove['ModuleGift']['content_id']);
-
-		$order_product_gift_remove = array();
-		$order_product_gift_remove['OrderProduct']['order_id'] = $order['Order']['id'];
-		$order_product_gift_remove['OrderProduct']['name'] = $content_description_remove['ContentDescription']['name'];
-		$order_product_gift_remove['OrderProduct']['quantity'] = 1;
-		$order_product_gift_remove['OrderProduct']['price'] = 0;	
-
-		$order_product_gift_remove['OrderProduct']['content_id'] = $gift_removes_remove['ModuleGift']['content_id'];
-
 		// Load the OrderProduct model for saving and error checking
 		App::import('Model', 'OrderProduct');
 		$this->OrderProduct = new OrderProduct();
 
 		// Make sure this gift isn't already in our 'cart'	
-		$coupon_count = $this->OrderProduct->find('first', array('conditions' => array('order_id' => $order['Order']['id'], 'content_id' => $content_description_remove['ContentDescription']['content_id']), 'order' => 'OrderProduct.id DESC'));
+		$coupon_count = $this->OrderProduct->find('first', array('conditions' => array('order_id' => $order['Order']['id'], 'content_id' => $gift_removes_remove['ModuleGift']['content_id']), 'order' => 'OrderProduct.id DESC'));
 		if($coupon_count)
 		{
 			$this->OrderProduct->delete($coupon_count['OrderProduct']['id']);
