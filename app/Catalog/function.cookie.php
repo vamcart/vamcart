@@ -13,7 +13,11 @@ function smarty_function_cookie($params, $template)
 	
    if (!$params['name']) return;	
 	
-	$result = $_COOKIE[$params['name']];
+	if (isset($_COOKIE[$params['name']])) {
+		$result = $_COOKIE[$params['name']];
+	} else {
+		$result = false;
+	}
 
 	return $result;
 }
