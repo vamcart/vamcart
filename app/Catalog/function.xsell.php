@@ -176,8 +176,8 @@ function smarty_function_xsell($params, &$smarty)
 			if ($content['ContentRelations'][$key]['content_type_id'] == 2) $content['ContentRelations'][$key]['width']	= $product[$content_type]['width'];	
 			if ($content['ContentRelations'][$key]['content_type_id'] == 2) $content['ContentRelations'][$key]['height']	= $product[$content_type]['height'];	
 			if ($content['ContentRelations'][$key]['content_type_id'] == 2) $content['ContentRelations'][$key]['volume']	= $product[$content_type]['volume'];	
-			if ($content['ContentRelations'][$key]['content_type_id'] == 2) $content['ContentRelations'][$key]['is_new']	= $product[$content_type]['is_new'];	
-			if ($content['ContentRelations'][$key]['content_type_id'] == 2) $content['ContentRelations'][$key]['is_featured']	= $product[$content_type]['is_featured'];	
+			$content['ContentRelations'][$key]['is_new']	= $product[$content_type]['is_new'];	
+			$content['ContentRelations'][$key]['is_featured']	= $product[$content_type]['is_featured'];	
 			if ($content['ContentRelations'][$key]['content_type_id'] == 2 or $content['ContentRelations'][$key]['content_type_id'] == 7) $content['ContentRelations'][$key]['manufacturer']	= $ContentBase->getManufacturerName($product[$content_type]['manufacturer_id']);	
 			if ($content['ContentRelations'][$key]['content_type_id'] == 2 or $content['ContentRelations'][$key]['content_type_id'] == 7) $content['ContentRelations'][$key]['label_id']	= $product[$content_type]['label_id'];	
 			$content['ContentRelations'][$key]['date_added']	= CakeTime::i18nFormat($content['ContentRelations'][$key]['created']);	
