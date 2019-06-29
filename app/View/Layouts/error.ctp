@@ -22,17 +22,13 @@
 <html>
 <head>
 <?php echo $this->Html->charset(); ?>
-
 <?php 
 if (Configure::read('debug') == 0) {
 ?>	
-<meta http-equiv="refresh" content="0; url=<?php echo FULL_BASE_URL . BASE . '/page/404.html'; ?>">
 <?php
 }
 ?>
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title><?php echo $title_for_layout; ?></title>
 <?php echo $this->Html->css(array(
 										'font-awesome.min.css',
