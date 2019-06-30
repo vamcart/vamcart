@@ -11,6 +11,16 @@ $(document).ready(function(){
   
 });
 
+// Affix top
+
+$(document).ready(function(){
+$('nav').affix({
+      offset: {
+        top: $('header').height()
+      }
+});	
+});
+
 // Scroll to top button 
 $(document).ready(function(){
 	$(function () {
