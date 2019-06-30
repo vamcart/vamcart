@@ -74,7 +74,8 @@ INSERT INTO `configurations` (`id`, `configuration_group_id`, `key`, `value`, `t
 (38,'1','VK_OAUTH_SERVICE_KEY', '','text', '', 'VK OAuth Service Key','','38'),
 (39,'1','FACEBOOK_OAUTH_CLIENT_ID', '','text', '', 'Facebook OAuth App ID','','39'),
 (40,'1','FACEBOOK_OAUTH_SECRET_KEY', '','text', '', 'Facebook OAuth App Secret Key','','40'),
-(41,'1','SERVICE_WORKER', '0', 'select', '0,1', 'Enable Service Worker', '', '41');
+(41,'1','SERVICE_WORKER', '0', 'select', '0,1', 'Enable Service Worker', '', '41'),
+(42,'1','SOCIAL_LOGIN', '1', 'select', '0,1', 'Enable Social Login', '', '42');
 
 DROP TABLE IF EXISTS contents;
 CREATE TABLE `contents` (

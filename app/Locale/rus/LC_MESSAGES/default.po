@@ -2250,6 +2250,14 @@ msgid "Facebook OAuth App Secret Key"
 msgstr "Facebook OAuth Ключ приложения"
 
 #: /views/configuration/admin_edit.ctp:40
+msgid "Enable Service Worker"
+msgstr "Включить Service Worker"
+
+#: /views/configuration/admin_edit.ctp:40
+msgid "Enable Social Login"
+msgstr "Разрешить вход через социальные сети"
+
+#: /views/configuration/admin_edit.ctp:40
 msgid "Phone Input Mask"
 msgstr "Маска для телефона"
 
