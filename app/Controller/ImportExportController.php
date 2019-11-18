@@ -609,11 +609,13 @@ class ImportExportController extends AppController {
             $data['Content']['parent_id'] = $parent_description['ContentDescription']['content_id'];                                      
             //Картинки
             $images = array();
+            $img_num = 1;
             foreach ($data['Content']['image'] as $k => $value) {
                 $images[] = array(
                     'image' => $value
-                   ,'order' => $k
+                   ,'order' => $img_num
                 );
+                $img_num++;
             }
             $data['Content']['ContentImage'] = $images;
             return $data;
