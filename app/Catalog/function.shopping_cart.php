@@ -15,10 +15,10 @@ $template = '
 	<table class="table table-striped table-hover">
 	  <thead>
 		<tr>
-			<th></th>
+			<th class="hidden-sm hidden-xs"></th>
 			<th>{lang}Product{/lang}</th>
-			<th>{lang}Price Ea.{/lang}</th>
-			<th>{lang}Qty{/lang}</th>
+			<th class="hidden-sm hidden-xs">{lang}Price Ea.{/lang}</th>
+			<th class="hidden-sm hidden-xs">{lang}Qty{/lang}</th>
 			<th>{lang}Total{/lang}</th>
 		</tr>
 		</thead>
@@ -26,10 +26,10 @@ $template = '
     <tbody>
 {foreach from=$order_items item=product}
 		<tr>
-			<td class="text-center"><img class="media-object" src="{$product.image.image_thumb}" alt=""{if {$product.image.image_width} > 0} width="{$product.image.image_width}"{/if}{if {$product.image.image_height} > 0} height="{$product.image.image_height}"{/if} /></td>
+			<td class="text-center hidden-sm hidden-xs"><img class="media-object" src="{$product.image.image_thumb}" alt=""{if {$product.image.image_width} > 0} width="{$product.image.image_width}"{/if}{if {$product.image.image_height} > 0} height="{$product.image.image_height}"{/if} /></td>
 			<td><a href="{$product.url}">{$product.name}</a> <a href="{base_path}/cart/remove_product/{$product.id}/1" class="remove" title="{lang}Remove{/lang}"><i class="fa fa-trash-o"></i></a></td>
-			<td>{$product.price}</td>
-			<td><input type="text" name="qty[{$product.id}]" class="form-control" value="{$product.qty}" size="3" aria-hidden="true" /></td>
+			<td class="hidden-sm hidden-xs">{$product.price}</td>
+			<td class="hidden-sm hidden-xs"><input type="text" name="qty[{$product.id}]" class="form-control" value="{$product.qty}" size="3" aria-hidden="true" /></td>
 			<td>{$product.line_total}</td>
 		</tr>
 {foreachelse}
@@ -40,21 +40,21 @@ $template = '
 
 		{if $shipping_total_value > 0}
 		<tr class="cart_total">
-			<td colspan="3">&nbsp;</td>
+			<td colspan="3" class="hidden-sm hidden-xs">&nbsp;</td>
 			<td class="total-name">{lang}Shipping{/lang}:</td>
 			<td class="total-value">{$shipping_total}</td>
 		</tr>
 		{/if}
 		{if $tax_total_value > 0}
 		<tr class="cart_total">
-			<td colspan="3">&nbsp;</td>
+			<td colspan="3" class="hidden-sm hidden-xs">&nbsp;</td>
 			<td class="total-name">{lang}Tax{/lang}:</td>
 			<td class="total-value">{$tax_total}</td>
 		</tr>
 		{/if}
 		{if $order_total_value > 0}
 		<tr class="cart_total">
-			<td colspan="3">&nbsp;</td>
+			<td colspan="3" class="hidden-sm hidden-xs">&nbsp;</td>
 			<td class="total-name"><strong>{lang}Total{/lang}:</strong></td>
 			<td class="total-value">{$order_total}</td>
 		</tr>
