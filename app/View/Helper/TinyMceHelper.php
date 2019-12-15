@@ -36,7 +36,7 @@ tinymce.init({
   image_class_list: [
       {title: "img-responsive", value: "img-responsive"}
   ],		  
-  '.('ru' == $this->Session->read('Customer.language') ? 'language : "ru"' : '').',
+  '.('ru' == $this->Session->read('Customer.language') ? 'language : "ru"' : 'language: "en"').',
   plugins: [
     "advlist autolink lists link image charmap print preview anchor",
     "searchreplace visualblocks code help fullscreen",
