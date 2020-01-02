@@ -99,18 +99,12 @@ $(function () {
       $("#ship_state_div").load(\'{base_path}/countries/address_book_regions/\' + $(this).val());
     });
 
-	  $("#ship_state").chosen({
-	      no_results_text:"{lang}Not Found{/lang}",
-	      search_contains:true,
-	      placeholder_text_single:"{lang}Select{/lang}",
-	      width: "100%"
+	  $("#ship_state").select2({
+	      theme: "bootstrap"
 	  });         
 
-	  $("#ship_country").chosen({
-	      no_results_text:"{lang}Not Found{/lang}",
-	      search_contains:true,
-	      placeholder_text_single:"{lang}Select{/lang}",
-	      width: "100%"
+	  $("#ship_country").select2({
+	      theme: "bootstrap"
 	  });         
     
   });
@@ -149,14 +143,14 @@ $(function () {
 	<div class="form-group">
 		<label class="col-sm-3 control-label" for="ship_country">{lang}Country{/lang}:</label>
 		<div class="col-sm-9">
-			<select name="AddressBook[ship_country]" class="chosen-select form-control" id="ship_country">{if $form_data.AddressBook.ship_country}{country_list selected={$form_data.AddressBook.ship_country}}{else}{country_list}{/if}</select>
+			<select name="AddressBook[ship_country]" class="form-control" id="ship_country">{if $form_data.AddressBook.ship_country}{country_list selected={$form_data.AddressBook.ship_country}}{else}{country_list}{/if}</select>
 		</div>
 	</div>
 	<div class="form-group">
 	<div id="ship_state_div">
 		<label class="col-sm-3 control-label" for="ship_state">{lang}State{/lang}:</label>
 		<div class="col-sm-9">
-			<select name="AddressBook[ship_state]" class="chosen-select form-control" id="ship_state">{if $form_data.AddressBook.ship_state}{state_list country={$form_data.AddressBook.ship_country} selected={$form_data.AddressBook.ship_state}}{else}{state_list}{/if}</select>
+			<select name="AddressBook[ship_state]" class="form-control" id="ship_state">{if $form_data.AddressBook.ship_state}{state_list country={$form_data.AddressBook.ship_country} selected={$form_data.AddressBook.ship_state}}{else}{state_list}{/if}</select>
 		</div>
 	</div>
 	</div>

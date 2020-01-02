@@ -7,8 +7,9 @@
    ---------------------------------------------------------------------------------------*/
 ?>
 <?php 
-    echo $this->Html->css('jquery/plugins/chosen/bootstrap-chosen.css');
-    echo $this->Html->script(array('jquery/plugins/chosen/chosen.jquery.js'),array('inline' => true));
+    echo $this->Html->css('jquery/plugins/select2.css');
+    echo $this->Html->css('jquery/plugins/select2-bootstrap.css');
+    echo $this->Html->script(array('jquery/plugins/select2.min.js'),array('inline' => true));
 ?>
 <div class="modal fade" id="editAttrModal" tabindex="-1" role="dialog">
   <div class="modal-dialog">
@@ -30,7 +31,7 @@
             echo $this->Form->input('Content.id_groups',array(
                                     'type' => 'select'
                                     ,'label' => __('Product Grouping')
-                                    ,'class' => 'chosen-select'
+                                    ,'class' => 'select2'
                                     ,'multiple' => true
                                     ,'options' => $group_contents
                                     ,'selected' => array_keys($selected_group_contents)
@@ -73,11 +74,8 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $(".chosen-select").chosen({
-            no_results_text:"<?php echo __('Product is not found.'); ?>",
-            search_contains:true,
-            placeholder_text_single:"<?php echo __('Select Slave Products'); ?>",
-            width: "300px"
+        $(".select2").select2({
+            theme: "bootstrap"
         });        
     });    
 </script>

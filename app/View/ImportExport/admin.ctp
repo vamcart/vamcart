@@ -22,7 +22,7 @@ if (!file_exists(WWW_ROOT . 'js/jquery/plugins/jquery-ui/' . $fname)) {
 
 $this->Html->script(array(
 	'jquery/plugins/switch/bootstrap-switch.js',
-	'jquery/plugins/chosen/chosen.jquery.js',
+	'jquery/plugins/select2/select2.min.js',
 	'jquery/plugins/ui/jquery-ui.min.js',
 	'jquery/plugins/jquery-ui/' . $fname,
 	'admin/selectall.js'
@@ -30,7 +30,8 @@ $this->Html->script(array(
 
 $this->Html->css(array(
 	'jquery/plugins/switch/bootstrap-switch.css',
-	'jquery/plugins/chosen/bootstrap-chosen.css',
+	'jquery/plugins/select2/select2.css',
+	'jquery/plugins/select2/select2-bootstrap.css',
 	'jquery/plugins/ui/jquery-ui.css'
 	), null, array('inline' => false));
 ?>
@@ -53,7 +54,9 @@ $this->Html->css(array(
 		});
 
       $(function() {
-        $(".chosen-select").chosen({width: "200px"});
+        $(".select2").select2({
+            theme: "bootstrap"
+        });
       });
       
       $(function() {
@@ -205,7 +208,7 @@ echo '
 						'type' => 'select',
 						'id' => 'selected_content',
 						'data-placeholder' => __('All Categories'),
-						'class' => 'chosen-select',
+						'class' => 'select2',
 						'multiple' => true,
 			   		'label' => __('Categories'),
 						'options' => $this->requestAction('/contents/admin_parents_tree/'),
@@ -374,7 +377,7 @@ echo '
 					array(
 						'type' => 'select',
 						'data-placeholder' => __('All Categories'),
-						'class' => 'chosen-select',
+						'class' => 'select2',
 						'multiple' => true,
 			   		'label' => __('Categories'),
 						'options' => $this->requestAction('/contents/admin_parents_tree/'),

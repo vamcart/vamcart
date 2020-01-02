@@ -23,7 +23,7 @@ if (!file_exists(WWW_ROOT . 'js/admin/' . $fname)) {
 $this->Html->script(array(
 	'jquery/plugins/ui/jquery-ui.min.js',
 	'jquery/plugins/jeditable/jquery.jeditable.js',
-	'jquery/plugins/chosen/chosen.jquery.js',
+	'jquery/plugins/select2/select2.min.js',
 	'admin/selectall.js',
 	'admin/'.$fname
 ), array('inline' => false));
@@ -34,11 +34,8 @@ $this->Html->script(array(
 <?php echo $this->Html->scriptBlock('
 
     $(document).ready(function() {
-        $("#chosen-select").chosen({
-            no_results_text:"'. __("Not Found") .'",
-            search_contains:true,
-            placeholder_text_single:"'. __("Select") .'",
-            width: "300px"
+        $("#select2").select2({
+            theme: "bootstrap"
         });        
     });    
 	
@@ -97,7 +94,8 @@ function categorySelection(form)
 $this->Html->css(
 array(
 'jquery/plugins/ui/jquery-ui.css',
-'jquery/plugins/chosen/bootstrap-chosen.css'
+'jquery/plugins/select2/select2.css',
+'jquery/plugins/select2/select2-bootstrap.css'
 )
 , null, array('inline' => false));
 
@@ -110,7 +108,7 @@ echo $this->Form->create('ContentCategories', array('url' => '/contents/admin/0/
 echo $this->Form->input('content_id', 
 			array(
 				'type' => 'select',
-	   		'id' => 'chosen-select',
+	   		'id' => 'select2',
 	   		'label' => false,
 				'options' => $this->requestAction('/contents/admin_parents_tree/'),
 				'escape' => false,

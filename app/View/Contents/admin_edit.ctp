@@ -28,7 +28,7 @@ $this->Html->script(array(
 	'jquery/plugins/uploadfile/jquery.uploadfile.js',
 	'jquery/plugins/jquery-ui/' . $fname,
 	'jquery/plugins/dynatree/jquery.dynatree.js',
-	'jquery/plugins/chosen/chosen.jquery.js',
+	'jquery/plugins/select2/select2.min.js',
 	'admin/modified.js',
 	'admin/focus-first-input.js'
 ), array('inline' => false));
@@ -37,7 +37,8 @@ $this->Html->css(
 array(
 'jquery/plugins/ui/jquery-ui.css',
 'jquery/plugins/dynatree/ui.dynatree.css',
-'jquery/plugins/chosen/bootstrap-chosen.css'
+'jquery/plugins/select2/select2.css'
+'jquery/plugins/select2/select2-bootstrap.css'
 )
 , null, array('inline' => false));
 	
@@ -82,17 +83,11 @@ array(
 	});
 	
     $(document).ready(function() {
-        $("#chosen-select-parent").chosen({
-            no_results_text:"'. __("Not Found") .'",
-            search_contains:true,
-            placeholder_text_single:"'. __("Select") .'",
-            width: "300px"
+        $("#select2-parent").select2({
+            theme: "bootstrap"
         });        
-        $("#chosen-select-brand").chosen({
-            no_results_text:"'. __("Not Found") .'",
-            search_contains:true,
-            placeholder_text_single:"'. __("Select") .'",
-            width: "300px"
+        $("#select2-brand").select2({
+            theme: "bootstrap"
         });        
     });    
 	
@@ -142,7 +137,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 						'type' => 'select',
 			   		'label' => __('Parent'),
 						'options' => $this->requestAction('/contents/admin_parents_tree/'),
-						'id' => 'chosen-select-parent',
+						'id' => 'select2-parent',
 						'escape' => false,
 						'empty' => array(0 => __('Top Level')),
 						'selected' => $parent_id

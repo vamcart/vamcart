@@ -122,7 +122,7 @@ $(function () {
 	<div class="form-group">
 		<label class="col-sm-3 control-label" for="name">{lang}State{/lang}::</label>
 		<div class="col-sm-9">
-			<select name="customer[company_state]" class="chosen-select form-control" id="state">{state_list}</select>
+			<select name="customer[company_state]" class="form-control" id="state">{state_list}</select>
 		</div>
 	</div>
 	<div class="form-group">
