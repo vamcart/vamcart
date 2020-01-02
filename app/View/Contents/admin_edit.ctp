@@ -37,7 +37,7 @@ $this->Html->css(
 array(
 'jquery/plugins/ui/jquery-ui.css',
 'jquery/plugins/dynatree/ui.dynatree.css',
-'jquery/plugins/select2/select2.css'
+'jquery/plugins/select2/select2.css',
 'jquery/plugins/select2/select2-bootstrap.css'
 )
 , null, array('inline' => false));
