@@ -219,4 +219,15 @@ var customSorter = function(data) {
 	      theme: "bootstrap",
 	      sorter: customSorter
 	  });        
-});    	  
+});    	 
+
+// Fix select2 width
+$(window).on('resize', function() {
+    $('.form-group').each(function() {
+        var formGroup = $(this),
+            formgroupWidth = formGroup.outerWidth();
+
+        formGroup.find('.select2-container').css('width', formgroupWidth);
+
+    });
+}); 
