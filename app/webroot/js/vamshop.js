@@ -190,10 +190,33 @@ if('serviceWorker' in navigator) {
 });
 });            
 
-  $(function() {
+$(function() {
 $("#submit-modal1").on("click", function(e) {
     e.preventDefault();
    $.cookie("vamshop-city", $("#vamshop-city").val(), { expires : 10, path: "/" });
     location.reload();
 });
-});           
+});    
+
+
+// Select2 added
+$(function() {
+
+var customSorter = function(data) {
+     return data.sort(function(a,b){
+         a = a.text.toLowerCase();
+         b = b.text.toLowerCase();
+         if(a > b) {
+             return 1;
+         } else if (a < b) {
+             return -1;
+         }
+         return 0;
+     });
+};
+	
+	  $(".select2").select2({
+	      theme: "bootstrap",
+	      sorter: customSorter
+	  });        
+});    	  
