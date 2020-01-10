@@ -1104,4 +1104,9 @@ pre {
     font-size: 16px !important;
 }
 
+
+.select2-container {
+    min-width: 220px;
+}
+
 /*]]>*/

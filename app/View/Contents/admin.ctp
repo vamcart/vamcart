@@ -23,7 +23,6 @@ if (!file_exists(WWW_ROOT . 'js/admin/' . $fname)) {
 $this->Html->script(array(
 	'jquery/plugins/ui/jquery-ui.min.js',
 	'jquery/plugins/jeditable/jquery.jeditable.js',
-	'jquery/plugins/select2/select2.min.js',
 	'admin/selectall.js',
 	'admin/'.$fname
 ), array('inline' => false));
@@ -33,12 +32,6 @@ $this->Html->script(array(
 
 <?php echo $this->Html->scriptBlock('
 
-    $(document).ready(function() {
-        $("#select2").select2({
-            theme: "bootstrap"
-        });        
-    });    
-	
 var submit_flag = false;
 
 function beforeSubmit(form)
@@ -93,9 +86,7 @@ function categorySelection(form)
 
 $this->Html->css(
 array(
-'jquery/plugins/ui/jquery-ui.css',
-'jquery/plugins/select2/select2.css',
-'jquery/plugins/select2/select2-bootstrap.css'
+'jquery/plugins/ui/jquery-ui.css'
 )
 , null, array('inline' => false));
 
@@ -108,7 +99,7 @@ echo $this->Form->create('ContentCategories', array('url' => '/contents/admin/0/
 echo $this->Form->input('content_id', 
 			array(
 				'type' => 'select',
-	   		'id' => 'select2',
+	   		'class' => 'select2',
 	   		'label' => false,
 				'options' => $this->requestAction('/contents/admin_parents_tree/'),
 				'escape' => false,

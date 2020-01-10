@@ -19,3 +19,40 @@ $(document).ready(function(){
 		});
 	});
 });
+
+// Select2 added
+function initialize(){
+var customSorter = function(data) {
+     return data.sort(function(a,b){
+         a = a.text.toLowerCase();
+         b = b.text.toLowerCase();
+         if(a > b) {
+             return 1;
+         } else if (a < b) {
+             return -1;
+         }
+         return 0;
+     });
+};
+	
+	  $(".select2").select2({
+	      sorter: customSorter
+	  });     
+};
+$(document).ready(function(){
+    initialize();
+});
+$(document).ajaxComplete(function () {
+    initialize();
+});
+
+// Fix select2 width
+//$(window).on('resize', function() {
+    //$('.input.select').each(function() {
+        //var formGroup = $(this),
+            //formgroupWidth = formGroup.outerWidth();
+
+        //formGroup.find('.select2-container').css('width', formgroupWidth);
+
+    //});
+//}); 

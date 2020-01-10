@@ -105,7 +105,7 @@ switch($content_type_id) {
 		echo $this->Form->input('ContentProduct.manufacturer_id', 
 			array(
 				'type' => 'select',
-				'id' => 'select2-brand',
+				'class' => 'select2',
 				'options' => $manufacturer_list,
 				'selected' => isset($data['ContentProduct']['manufacturer_id']) ? $data['ContentProduct']['manufacturer_id']: '',
 				'label' => __('Manufacturer'),

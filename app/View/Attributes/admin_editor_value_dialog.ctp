@@ -6,11 +6,6 @@
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
 ?>
-<?php 
-    echo $this->Html->css('jquery/plugins/select2.css');
-    echo $this->Html->css('jquery/plugins/select2-bootstrap.css');
-    echo $this->Html->script(array('jquery/plugins/select2.min.js'),array('inline' => true));
-?>
 <div class="modal fade" id="editAttrModal" tabindex="-1" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -71,11 +66,3 @@
 <?php 
     echo $this->Html->scriptBlock('$("#editAttrModal").modal("show").on("shown.bs.modal", function (){});');
 ?>
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        $(".select2").select2({
-            theme: "bootstrap"
-        });        
-    });    
-</script>

@@ -28,7 +28,6 @@ $this->Html->script(array(
 	'jquery/plugins/uploadfile/jquery.uploadfile.js',
 	'jquery/plugins/jquery-ui/' . $fname,
 	'jquery/plugins/dynatree/jquery.dynatree.js',
-	'jquery/plugins/select2/select2.min.js',
 	'admin/modified.js',
 	'admin/focus-first-input.js'
 ), array('inline' => false));
@@ -36,9 +35,7 @@ $this->Html->script(array(
 $this->Html->css(
 array(
 'jquery/plugins/ui/jquery-ui.css',
-'jquery/plugins/dynatree/ui.dynatree.css',
-'jquery/plugins/select2/select2.css',
-'jquery/plugins/select2/select2-bootstrap.css'
+'jquery/plugins/dynatree/ui.dynatree.css'
 )
 , null, array('inline' => false));
 	
@@ -81,16 +78,6 @@ array(
 			}
 		});
 	});
-	
-    $(document).ready(function() {
-        $("#select2-parent").select2({
-            theme: "bootstrap"
-        });        
-        $("#select2-brand").select2({
-            theme: "bootstrap"
-        });        
-    });    
-	
 	
 ', array('allowCache'=>false,'safe'=>false,'inline'=>false)); ?>
 <?php
@@ -137,7 +124,7 @@ echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-application-edit');
 						'type' => 'select',
 			   		'label' => __('Parent'),
 						'options' => $this->requestAction('/contents/admin_parents_tree/'),
-						'id' => 'select2-parent',
+						'class' => 'select2',
 						'escape' => false,
 						'empty' => array(0 => __('Top Level')),
 						'selected' => $parent_id

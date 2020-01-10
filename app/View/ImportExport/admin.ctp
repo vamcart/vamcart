@@ -22,7 +22,6 @@ if (!file_exists(WWW_ROOT . 'js/jquery/plugins/jquery-ui/' . $fname)) {
 
 $this->Html->script(array(
 	'jquery/plugins/switch/bootstrap-switch.js',
-	'jquery/plugins/select2/select2.min.js',
 	'jquery/plugins/ui/jquery-ui.min.js',
 	'jquery/plugins/jquery-ui/' . $fname,
 	'admin/selectall.js'
@@ -30,8 +29,6 @@ $this->Html->script(array(
 
 $this->Html->css(array(
 	'jquery/plugins/switch/bootstrap-switch.css',
-	'jquery/plugins/select2/select2.css',
-	'jquery/plugins/select2/select2-bootstrap.css',
 	'jquery/plugins/ui/jquery-ui.css'
 	), null, array('inline' => false));
 ?>
@@ -53,12 +50,6 @@ $this->Html->css(array(
 			$( "#date_end" ).datepicker({ dateFormat: "yy-mm-dd" }).val();
 		});
 
-      $(function() {
-        $(".select2").select2({
-            theme: "bootstrap"
-        });
-      });
-      
       $(function() {
       $("input[type=\"checkbox\"], input[type=\"radio\"]").not("[data-switch-no-init]").bootstrapSwitch();
       });

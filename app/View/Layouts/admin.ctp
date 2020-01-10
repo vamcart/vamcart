@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="<?php echo $this->Session->read('Customer.language'); ?>">
 <head>
 <?php echo $this->Html->charset(); ?>
 
@@ -19,6 +19,7 @@
 										'font-roboto.css',
 										'bootstrap3/bootstrap.min.css',
 										'jquery/plugins/hoe/hoe.css',
+										'jquery/plugins/select2/select2.css',
 										'admin/cus-icons.css',
 										'admin/admin.css',
 											), null, array('inline' => true)); ?>
@@ -27,6 +28,9 @@
 											'jquery/jquery.min.js',
 											'bootstrap3/bootstrap.min.js',
 											'jquery/plugins/hoe/hoe.js',
+											'jquery/plugins/hoe/hoe.js',
+											'jquery/plugins/select2/select2.min.js',
+											'jquery/plugins/select2/i18n/' . $this->Session->read('Customer.language') . '.js',
 											'jquery/plugins/scrollup/jquery.scrollup.min.js',
 											'admin/admin.js',
 												),
