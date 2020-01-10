@@ -102,6 +102,7 @@ echo $this->Form->input('Order.status_id',
 				'type' => 'select',
 	   		'fieldset' => false,
 	   		'label' => false,
+	   		'class' => 'select2',
 				'options' => $order_status_dropdown,
 				'onchange' => "this.form.submit()",
 				'selected' => $status_id
