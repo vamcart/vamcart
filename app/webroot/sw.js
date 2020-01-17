@@ -1,7 +1,11 @@
 // proper initialization
 if( 'function' === typeof importScripts) {
 
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js');
+importScripts('/js/workbox/workbox-sw.js');
+
+workbox.setConfig({
+  modulePathPrefix: '/js/workbox/'
+});
 
 workbox.routing.registerRoute(
   // Cache JS files.
