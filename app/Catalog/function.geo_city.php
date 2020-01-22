@@ -12,7 +12,9 @@ function smarty_function_geo_city($params, $template)
   App::import('Vendor', 'GeoCity', array('file' => 'GeoCity'.DS.'SxGeo.php'));
   $SxGeo= new SxGeo(APP.'Vendor/GeoCity/SxGeo.dat');
   $city = $SxGeo->get($_SERVER['REMOTE_ADDR']);
-  
+  // Cloud flare original user ip
+  if ($_SERVER['HTTP_CF_CONNECTING_IP'] != '') $city = $SxGeo->get($_SERVER['HTTP_CF_CONNECTING_IP']);
+    
   $city_name = ($_SESSION['Customer']['language'] == 'ru') ? $city['city']['name_ru'] : $city['city']['name_en'];
 
 	return $city_name;
