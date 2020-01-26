@@ -6,9 +6,9 @@
 </IfModule>
 
 <IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/x-javascript application/font-woff application/font-woff2
+    AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript text/json application/x-javascript application/font-woff application/font-woff2
 
-<FilesMatch "\\.(js|css|woff|woff2|ttf|eot|otf)$">
+<FilesMatch "\\.(js|json|css|woff|woff2|ttf|eot|otf)$">
   SetOutputFilter DEFLATE
 </FilesMatch>
 </IfModule>
@@ -23,6 +23,7 @@
   ExpiresActive On
   ExpiresByType text/css "access plus 10 years"
   ExpiresByType text/js "access plus 10 years"
+  ExpiresByType text/json "access plus 10 years"
   ExpiresByType text/javascript "access plus 10 years"
   ExpiresByType application/x-javascript "access plus 10 years"
   ExpiresByType application/javascript "access plus 10 years"
