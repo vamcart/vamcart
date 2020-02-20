@@ -297,11 +297,11 @@ function smarty_function_content_listing($params, $template)
             {        
                 $content_list_data_conditions = array_merge($content_list_data_conditions,array('Content.id' => $filtered_content));        
             } else {     
-                $content_list_data_conditions = array_merge($content_list_data_conditions,array('OR' => array(
-                   'Content.id_group' => 0
-                  ,'Content.id_group is null'
-                  ,'Content.is_group' => 1
-                ))); 
+                //$content_list_data_conditions = array_merge($content_list_data_conditions,array('OR' => array(
+                   //'Content.id_group' => 0
+                  //,'Content.id_group is null'
+                  //,'Content.is_group' => 1
+                //))); 
             } 
 
 				// Sort products by manufacturer

@@ -124,7 +124,7 @@ function smarty_function_attribute_list($params)
         $attr['element_list'] = $Content->getSetAttributesForProduct($params['product_id']);
         $attr['target'] = 'CATALOG';
         $attr['is_group'] = $Content->is_group($params['product_id']);
-        if($Content->is_group($params['product_id'])) $attr['group_list'] = $Content->getSetAttributesForGroup($params['product_id'],true);
+        //if($Content->is_group($params['product_id'])) $attr['group_list'] = $Content->getSetAttributesForGroup($params['product_id'],true);
         
         $content_id = $params['product_id'];
     }
