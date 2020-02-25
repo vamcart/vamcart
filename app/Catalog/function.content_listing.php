@@ -508,7 +508,7 @@ function smarty_function_content_listing($params, $template)
 	}
 	$vars = $template->smarty->tpl_vars;
 	$vars['content_list'] = $content_list;
-	$vars['content_total'] = $content_total;
+	//$vars['content_total'] = $content_total;
 	$vars['count'] = $count;
 	$vars['pages_number'] = 0;
 	$vars['page'] = $params['page'];
