@@ -94,6 +94,11 @@ if ($(window).width() > 767) {
 }
 });
 
+$(document).ajaxComplete(function () {
+    $('.featured-categories .thumbnails .thumbnail').matchHeight();
+    $('.shop-products .thumbnails .thumbnail').matchHeight();
+});
+
 // Make ColorBox responsive
 
 $(document).ready(function(){
