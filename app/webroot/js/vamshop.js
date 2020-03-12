@@ -91,12 +91,20 @@ $(document).ready(function(){
 if ($(window).width() > 767) {
     $('.featured-categories .thumbnails .thumbnail').matchHeight();
     $('.shop-products .thumbnails .thumbnail').matchHeight();
+    $('.featured-categories .thumbnails .thumbnail a.image img').matchHeight();
+    $('.shop-products .thumbnails .thumbnail a.image img').matchHeight();
+    $('.featured-categories .thumbnails .thumbnail .title').matchHeight();
+    $('.shop-products .thumbnails .thumbnail .title').matchHeight();
 }
 });
 
 $(document).ajaxComplete(function () {
     $('.featured-categories .thumbnails .thumbnail').matchHeight();
     $('.shop-products .thumbnails .thumbnail').matchHeight();
+    $('.featured-categories .thumbnails .thumbnail a.image img').matchHeight();
+    $('.shop-products .thumbnails .thumbnail a.image img').matchHeight();
+    $('.featured-categories .thumbnails .thumbnail .title').matchHeight();
+    $('.shop-products .thumbnails .thumbnail .title').matchHeight();
 });
 
 // Make ColorBox responsive
