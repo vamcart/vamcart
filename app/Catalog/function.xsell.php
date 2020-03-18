@@ -13,6 +13,7 @@ function default_template_xsell()
 <div class="row shop-products">
   <ul class="thumbnails">
   {foreach from=$content_list item=node}
+  {if $node.active == 1}
     <li class="item col-sm-6 col-md-4{if $node.is_new == 1} new{/if}{if $node.is_featured == 1} featured{/if}">
       <div class="thumbnail text-center">
         {if $node.discount > 0}<div class="description"><span class="discount">-{$node.discount|round}%</span></div>{/if}
@@ -35,6 +36,7 @@ function default_template_xsell()
       </div>
       {/product_form}
     </li>
+  {/if}
   {/foreach}
   </ul>
 </div>
