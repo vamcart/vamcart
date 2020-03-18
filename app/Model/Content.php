@@ -18,6 +18,7 @@ class Content extends AppModel {
 	    'xsell' =>
 		array(
 		    'className' => 'Content',
+		    'conditions' => array('active' => '1'),
 		    'join_table' => 'contents_contents',
 		    'associationForeignKey' => 'related_id',
 		    'foreignKey' => 'product_id',
