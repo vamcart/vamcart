@@ -20,7 +20,7 @@ class GetController extends ModuleAskAProductQuestionAppController {
 	
 	public function ask_form ($content_id = null)
 	{
-		$this->layout = null;
+		$this->layout = 'basic';
 		global $content, $config;
 
 		$_POST['content_id'] = (isset($_POST['content_id']) ? $_POST['content_id'] : (int)$content_id);
@@ -135,6 +135,11 @@ class GetController extends ModuleAskAProductQuestionAppController {
 			}
 
 			$this->redirect('/page/ask_a_product_question'.$config['URL_EXTENSION']);
+		}
+
+		if(!$this->request->is('ajax'))
+		{
+				$this->redirect('/' . $content['ContentType']['name'] . '/' . $content['Content']['alias'] . $config['URL_EXTENSION']);
 		}
 
 	}

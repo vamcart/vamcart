@@ -21,7 +21,7 @@ class BuyController extends ModuleOneClickBuyAppController {
 	
 	public function form ($content_id = null)
 	{
-		$this->layout = null;
+		$this->layout = 'basic';
 		global $content, $config, $filter_list;
 
 		$_POST['content_id'] = (isset($_POST['content_id']) ? $_POST['content_id'] : (int)$content_id);
@@ -161,6 +161,11 @@ class BuyController extends ModuleOneClickBuyAppController {
 			$this->redirect('/page/one_click_buy'.$config['URL_EXTENSION']);
 		}
 
+		if(!$this->request->is('ajax'))
+		{
+				$this->redirect('/' . $content['ContentType']['name'] . '/' . $content['Content']['alias'] . $config['URL_EXTENSION']);
+		}
+		
 	}
 
 	public function success ()
