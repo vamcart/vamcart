@@ -345,7 +345,7 @@ function submitForm(form){
 		
 		// Set the current breadcrumb
 		//if ($this->params['action'] == "admin_top" or $this->params['action'] == "admin_index") $breadcrumbs .= '<li class="active">'.__($current_crumb, true).'</li>';
-		if ($current_crumb) $breadcrumbs .= '<li class="active">'.__($current_crumb, true).'</li>';
+		if ($current_crumb) $breadcrumbs .= '<li class="active">'.CakeText::truncate(__($current_crumb, true),90,array('html' => true)).'</li>';
 
 		//$breadcrumbs .= '</ul>';
 		
