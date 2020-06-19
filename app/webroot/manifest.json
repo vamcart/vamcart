@@ -1,7 +1,11 @@
 {
     "name": "VamShop",
     "short_name": "vamshop",
-    "description": "VamShop - Shopping Cart Software.",
+    "description": "eCommerce CMS - PHP Shopping Cart Software.",
+    "start_url": "/?utm_source=pwa&utm_medium=manifest&utm_campaign=manifest_start_url",
+    "display": "standalone",
+    "theme_color": "#dd2c00",
+    "background_color": "#ffffff",
     "icons": [
         {
             "src": "img/icons/pwa/vamshop-box-32.png",
@@ -24,13 +28,24 @@
             "type": "image/png"
         },
         {
-            "src": "img/icons/pwa/vamshop-box-512.png",
+            "src": "img/icons/pwa/vamshop-box-256-maskable.png",
+            "sizes": "256x256",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "images/icons/vamshop-box-512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
     ],
-    "start_url": "/",
-    "display": "standalone",
-    "theme_color": "#f1f1f1",
-    "background_color": "#ffffff"
+    "screenshots": [],
+    "prefer_related_applications": false,
+    "related_applications": [
+    {
+      "platform": "play",
+      "id": "xyz.appmaker.aqckvs",
+      "url": "https://play.google.com/store/apps/details?id=xyz.appmaker.aqckvs&referrer=utm_source%3Dpwa"
+    }
+    ]    
 }
