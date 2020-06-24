@@ -1890,6 +1890,10 @@ msgstr "(times)"
 msgid "Number of times to repeat the specified string."
 msgstr "Количество раз повторений."
 
+#: /vendors/smarty/vam_plugins/function.shopping_cart_box.php:117
+msgid "Displays the user's cart."
+msgstr "Показывает корзину покупателя."
+
 #: /vendors/smarty/vam_plugins/function.shopping_cart.php:117
 msgid "Displays a more detailed version of the user's cart."
 msgstr "Показывает подробную информацию о корзине покупателя."
