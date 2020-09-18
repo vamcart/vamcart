@@ -205,10 +205,10 @@ CakeLog::config('error', array(
 //Configure::write('Asset.cssPath', 'css-packed');
 
 if(!defined('CryptKey')) define('CryptKey','VamShop');
-if(!defined('CheckServer')) define('CheckServer','http://updates.vamshop.com/');
+if(!defined('CheckServer')) define('CheckServer','https://updates.vamshop.com/');
 
-//Configure::write('Config.language', 'rus');
-//setlocale(LC_TIME, 'ru_RU.utf8','ru_RU','rus','rus_rus');
+Configure::write('Config.language', 'rus');
+setlocale(LC_TIME, 'ru_RU.utf8','ru_RU','rus','rus_rus');
 
 App::uses('CakeSession', 'Model/Datasource');
 CakeSession::$requestCountdown = 1000;
