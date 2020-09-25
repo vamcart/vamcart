@@ -167,42 +167,6 @@ if('serviceWorker' in navigator) {
 
 });
 
-
-// Geo Modal
-			$(function() {
-				$("#vamshop-city").autocomplete({
-                  appendTo: "#vamshop-cities",
-					source : function(request, response) {
-						$.ajax({
-							url : "https://api.cdek.ru/city/getListByTerm/jsonp.php?callback=?",
-							dataType : "jsonp",
-							data : {
-								q : function() {
-									return $("#vamshop-city").val()
-								},
-								name_startsWith : function() {
-									return $("#vamshop-city").val()
-								}
-							},
-							success : function(data) {
-								response($.map(data.geonames, function(item) {
-									return {
-										label : item.cityName,
-										value : item.cityName,
-										id : item.id
-									}
-								}));
-							}
-						});
-					},
-					minLength : 1,
-					select : function(event, ui) {
-						//console.log("Yep!");
-						//$('#receiverCityId').val(ui.item.id);
-					}
-});
-});            
-
 $(function() {
 $("#submit-modal1").on("click", function(e) {
     e.preventDefault();
