@@ -108,7 +108,7 @@ class Bender
                         break;
                     case "jshrink":
                         require_once realpath( dirname( __file__ ) ) . DS . "JShrink.class.php";
-                        $packed = Minifier::minify( $str );
+                        $packed = \JShrink\Minifier::minify( $str );
                         break;
                     case "jsmin":
                         require_once realpath( dirname( __file__ ) ) . DS . "jsminplus.php";
