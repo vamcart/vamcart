@@ -122,7 +122,7 @@ class Folder {
  *
  * @param string $path Path to folder
  * @param bool $create Create folder if not found
- * @param string|bool $mode Mode (CHMOD) to apply to created folder, false to ignore
+ * @param int|bool $mode Mode (CHMOD) to apply to created folder, false to ignore
  * @link https://book.cakephp.org/2.0/en/core-utility-libraries/file-folder.html#Folder
  */
 	public function __construct($path = false, $create = false, $mode = false) {
@@ -226,10 +226,10 @@ class Folder {
 		}
 
 		if ($dirs) {
-			$dirs = call_user_func_array('array_merge', $dirs);
+			$dirs = call_user_func_array('array_merge', array_values($dirs));
 		}
 		if ($files) {
-			$files = call_user_func_array('array_merge', $files);
+			$files = call_user_func_array('array_merge', array_values($files));
 		}
 		return array($dirs, $files);
 	}
@@ -520,7 +520,7 @@ class Folder {
 		foreach ($iterator as $itemPath => $fsIterator) {
 			if ($skipHidden) {
 				$subPathName = $fsIterator->getSubPathname();
-				if ($subPathName{0} === '.' || strpos($subPathName, DS . '.') !== false) {
+				if ($subPathName[0] === '.' || strpos($subPathName, DS . '.') !== false) {
 					continue;
 				}
 			}

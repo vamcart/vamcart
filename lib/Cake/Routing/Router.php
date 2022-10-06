@@ -1055,7 +1055,7 @@ class Router {
  *    an array of arguments to convert into a query string.
  * @param array $extra Extra querystring parameters.
  * @param bool $escape Whether or not to use escaped &
- * @return array
+ * @return string|null
  */
 	public static function queryString($q, $extra = array(), $escape = false) {
 		if (empty($q) && empty($extra)) {
@@ -1073,7 +1073,7 @@ class Router {
 			$out = $q;
 			$q = $extra;
 		}
-		$addition = http_build_query($q, null, $join);
+		$addition = http_build_query($q, "", $join);
 
 		if ($out && $addition && substr($out, strlen($join) * -1, strlen($join)) !== $join) {
 			$out .= $join;

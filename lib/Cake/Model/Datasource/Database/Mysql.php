@@ -120,6 +120,7 @@ class Mysql extends DboSource {
 		'primary_key' => array('name' => 'NOT NULL AUTO_INCREMENT'),
 		'string' => array('name' => 'varchar', 'limit' => '255'),
 		'text' => array('name' => 'text'),
+		'enum' => array('name' => 'enum'),
 		'biginteger' => array('name' => 'bigint', 'limit' => '20'),
 		'integer' => array('name' => 'int', 'limit' => '11', 'formatter' => 'intval'),
 		'smallinteger' => array('name' => 'smallint', 'limit' => '6', 'formatter' => 'intval'),
@@ -305,7 +306,7 @@ class Mysql extends DboSource {
  * Query charset by collation
  *
  * @param string $name Collation name
- * @return string Character set name
+ * @return string|false Character set name
  */
 	public function getCharsetName($name) {
 		if ((bool)version_compare($this->getVersion(), "5", "<")) {
@@ -332,7 +333,7 @@ class Mysql extends DboSource {
  * Returns an array of the fields in given table name.
  *
  * @param Model|string $model Name of database table to inspect or model instance
- * @return array Fields in table. Keys are name and type
+ * @return array|bool Fields in table. Keys are name and type. Returns false if result is empty.
  * @throws CakeException
  */
 	public function describe($model) {
@@ -343,7 +344,7 @@ class Mysql extends DboSource {
 		}
 		$table = $this->fullTableName($model);
 
-		$fields = false;
+		$fields = array();
 		$cols = $this->_execute('SHOW FULL COLUMNS FROM ' . $table);
 		if (!$cols) {
 			throw new CakeException(__d('cake_dev', 'Could not describe table for %s', $table));
@@ -360,7 +361,8 @@ class Mysql extends DboSource {
 				$fields[$column->Field]['unsigned'] = $this->_unsigned($column->Type);
 			}
 			if (in_array($fields[$column->Field]['type'], array('timestamp', 'datetime')) &&
-				in_array(strtoupper($column->Default), array('CURRENT_TIMESTAMP', 'CURRENT_TIMESTAMP()'))
+				//Falling back to default empty string due to PHP8.1 deprecation notice.
+				in_array(strtoupper($column->Default ?? ""), array('CURRENT_TIMESTAMP', 'CURRENT_TIMESTAMP()'))
 			) {
 				$fields[$column->Field]['default'] = null;
 			}
@@ -381,6 +383,12 @@ class Mysql extends DboSource {
 		}
 		$this->_cacheDescription($key, $fields);
 		$cols->closeCursor();
+
+		//Fields must be an array for compatibility with PHP8.1 (deprecation notice) but also let's keep backwards compatibility for method.
+		if (count($fields) === 0) {
+			return false;
+		}
+
 		return $fields;
 	}
 
@@ -391,7 +399,7 @@ class Mysql extends DboSource {
  * @param array $fields The fields to update.
  * @param array $values The values to set.
  * @param mixed $conditions The conditions to use.
- * @return array
+ * @return bool
  */
 	public function update(Model $model, $fields = array(), $values = null, $conditions = null) {
 		if (!$this->_useAlias) {
@@ -545,7 +553,7 @@ class Mysql extends DboSource {
  *
  * @param array $compare Result of a CakeSchema::compare()
  * @param string $table The table name.
- * @return array Array of alter statements to make.
+ * @return string|false String of alter statements to make.
  */
 	public function alterSchema($compare, $table = null) {
 		if (!is_array($compare)) {
