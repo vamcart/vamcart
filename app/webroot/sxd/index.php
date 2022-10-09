@@ -55,7 +55,7 @@ class Sypex_Dumper {
     return true;
   }
   function init($args = false){
-    if (get_magic_quotes_gpc()) {
+    if (version_compare(phpversion(), '5.4', '<') && get_magic_quotes_gpc()) {
       $_POST = sxd_antimagic($_POST);
     }
     include('cfg.php');
@@ -250,8 +250,8 @@ class Sypex_Dumper {
     ;
     if (!V_MYSQL) $this->VAR['combos'] .= $this->error;
     $this->VAR['combos']   .= $this->getSavedJobs() . "sxd.confirms = {$this->CFG['confirm']};sxd.actions.dblist();";
-    $this->LNG['del_date']  = sprintf($this->LNG['del_date'], '<input type="text" id="del_time" class=txt style="width:24px;" maxlength="3">');
-    $this->LNG['del_count'] = sprintf($this->LNG['del_count'], '<input id="del_count" type="text" class=txt style="width:18px;" maxlength="2">');
+    $this->LNG['del_date']  = sprintf($this->LNG['del_date'], '<input type="text" id="del_time" value="0" class=txt style="width:24px;" maxlength="3">');
+    $this->LNG['del_count'] = sprintf($this->LNG['del_count'], '<input id="del_count" type="text" value="0" class=txt style="width:18px;" maxlength="2">');
 
     include('tmpl.php');
     echo sxd_tpl_page();
@@ -461,7 +461,9 @@ class Sypex_Dumper {
 //    @fastcgi_finish_request();
     header("Content-Length: {$size}");
     header("Connection: close");
-    @ob_end_flush();
+    while (ob_get_level() > 0) {
+    ob_end_flush();
+    }
     @flush();
   }
   function resumeJob($job){
@@ -625,7 +627,7 @@ class Sypex_Dumper {
         }
         clearstatcache();
       }
-      switch($q{0}){
+      switch($q[0]){
         case '(':
           if($continue) {
             $this->addLog(sprintf("{$this->LNG['restore_TC']} {$this->LNG['continue_from']}", $this->rtl[5], $this->rtl[3]));
@@ -810,7 +812,7 @@ class Sypex_Dumper {
         $repeat = false;
         //error_log("-----------------\n[{$q}]\n", 3, "q.log");
         //if(empty($q)) {continue 2;}
-        switch($q{0}){
+        switch($q[0]){
           case '(':
             if($continue) {
               $this->addLog(sprintf("{$this->LNG['restore_TC']} {$this->LNG['continue_from']}", $this->rtl[5], $this->rtl[3]));
@@ -848,7 +850,7 @@ class Sypex_Dumper {
               }
             }
             break;
-          case '-' && $q{1} == '-':
+          case '-' && $q[1] == '-':
           case '#':
             $repeat = true;
             $q = ltrim(substr($q, strpos($q, $this->JOB['eol'])));
@@ -1536,7 +1538,7 @@ function sxd_read_sql($f, &$seek, $ei, $delimiter = "\t;", $eol = "\n"){
     }
     if($ei) {
       $pos = strrpos($l, $eol);
-      if($pos > 0 && $l{$pos-1} === ',') {
+      if($pos > 0 && $l[$pos-1] === ',') {
         // Окончание не найдено
         $q = substr($l, 0, $pos-1);
         $l = substr($l, $pos+ strlen($eol));
@@ -1573,7 +1575,7 @@ function sxd_php2json($obj){
 function sxd_ver2int($ver){
   return preg_match("/^(\d+)\.(\d+)\.(\d+)/", $ver, $m) ? sprintf("%d%02d%02d", $m[1], $m[2], $m[3]) : 0;
 }
-function sxd_error_handler($errno, $errmsg, $filename, $linenum, $vars){
+function sxd_error_handler($errno, $errmsg, $filename, $linenum){
     global $SXD;
     if(!empty($SXD->try)) return; //if($SXD->try) return;
   if($errno == 8192) return;
