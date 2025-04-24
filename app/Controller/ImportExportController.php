@@ -12,7 +12,7 @@ class ImportExportController extends AppController {
 	public $name = 'ImportExport';
 	public $uses = null;
         public $helpers = array('Html','Admin');
-        public $contain_table = array('ContentDescription' => null/*<-эта модель обязательна*/,'ContentType','ContentCategory','ContentImage','ContentProduct','ContentManufacturer','ContentSpecial','ContentNews','ContentArticle','Attribute');
+        public $contain_table = array('ContentDescription' => null/*<-эта модель обязательна*/,'ContentType','ContentCategory','ContentImage','ContentProduct','ContentManufacturer','ContentSpecial','ContentNews','ContentArticle','Attr');
 
 	public function admin ($ajax = false)
 	{
@@ -181,12 +181,12 @@ class ImportExportController extends AppController {
                             if(isset($content['Content']['id'])) {
                                 $attribute = $this->Content->Attribute->AttributeDescription->find('first'
                                         ,array('conditions' => array('AttributeDescription.name' => $data['Content']['Attribute']['name'],'Attribute_p.content_id' => $content['Content']['parent_id'],'AttributeDescription.language_id' => $this->data['ImportExport']['language_id'])));                         
-                                if(isset($attribute['AttributeDescription']['attribute_id'])) {                                    
+                                if(isset($attribute['AttributeDescription']['attr_id'])) {                                    
                                     $val_attribute = $this->Content->Attribute->AttributeDescription->find('first'
                                         ,array('conditions' => array('AttributeDescription.name' => $data['Content']['Attribute']['value'],'Attribute_p.parent_id' => $attribute['Attribute_p']['id'],'AttributeDescription.language_id' => $this->data['ImportExport']['language_id'])));                                                                  
-                                    if(isset($val_attribute['AttributeDescription']['attribute_id'])) {
+                                    if(isset($val_attribute['AttributeDescription']['attr_id'])) {
                                         $set_attribute = $this->Content->Attribute->find('first'
-                                            ,array('conditions' => array('Attribute.parent_id' => $val_attribute['Attribute_p']['id'],'Attribute.content_id' => $content['Content']['id'])));                                                                              
+                                            ,array('conditions' => array('Attr.parent_id' => $val_attribute['Attribute_p']['id'],'Attr.content_id' => $content['Content']['id'])));                                                                              
                                         if(!isset($set_attribute['Attribute']['id'])) $state = 1; // Установим значение
                                     } else {$state = 2; $order++;}//Создадим значение
                                 } else $state = 3; //Создадим атрибут
@@ -212,7 +212,7 @@ class ImportExportController extends AppController {
                                     $atttr_id = $this->Content->Attribute->getLastInsertid();
                                     $this->Content->Attribute->AttributeDescription->save(array(
                                         'dsc_id' => 0
-                                        ,'attribute_id' => $atttr_id
+                                        ,'attr_id' => $atttr_id
                                         ,'language_id' => $this->data['ImportExport']['language_id']
                                         ,'name' => $data['Content']['Attribute']['name']
                                         ,'description' => null
@@ -241,7 +241,7 @@ class ImportExportController extends AppController {
                                     $atttr_id = $this->Content->Attribute->getLastInsertid();
                                     $this->Content->Attribute->AttributeDescription->save(array(
                                         'dsc_id' => 0
-                                        ,'attribute_id' => $atttr_id
+                                        ,'attr_id' => $atttr_id
                                         ,'language_id' => $this->data['ImportExport']['language_id']
                                         ,'name' => $data['Content']['Attribute']['value']
                                         ,'description' => null
@@ -472,11 +472,11 @@ class ImportExportController extends AppController {
                     foreach ($content as $key => $value) { //перебираем товары                        
                         foreach ($value['SetAttribute'] as $k => $set_attribute) { //перебираем установленные атрибуты для товара      
                             $this->Content->Attribute->unbindAll();
-                            $attribute_value = $this->Content->Attribute->find('first',array('conditions' => array('Attribute.id' => $set_attribute['parent_id'])));                       
+                            $attribute_value = $this->Content->Attribute->find('first',array('conditions' => array('Attr.id' => $set_attribute['parent_id'])));                       
                             $this->Content->Attribute->unbindAll();
                             $this->Content->Attribute->bindModel(array('belongsTo' => array('AttributeTemplate'=> array(
                                     'className' => 'AttributeTemplate'))));
-                            $attribute_parrent = $this->Content->Attribute->find('first',array('conditions' => array('Attribute.id' => $attribute_value['Attribute']['parent_id'])));
+                            $attribute_parrent = $this->Content->Attribute->find('first',array('conditions' => array('Attr.id' => $attribute_value['Attribute']['parent_id'])));
                             $content_tmp[$key . $k] = array(
                                 'Attribute' => array(
                                     'name' => $attribute_parrent['Attribute']['name']

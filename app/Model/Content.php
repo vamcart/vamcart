@@ -10,7 +10,7 @@ App::uses('Model', 'AppModel');
 class Content extends AppModel {
 	public $name = 'Content';
 	public $belongsTo = array('ContentType','Template');
-	public $hasMany = array('ContentImage','ContentDescription' => array('dependent' => true),'Attribute' => array('dependent' => true));
+	public $hasMany = array('ContentImage','ContentDescription' => array('dependent' => true),'Attr' => array('dependent' => true));
 	public $hasOne = array('ContentLink' => array('dependent' => true),'ContentProduct' => array('dependent' => true),'ContentPage' => array('dependent' => true),'ContentCategory' => array('dependent' => true),'ContentArticle' => array('dependent' => true),'ContentNews' => array('dependent' => true),'ContentDownloadable' => array('dependent' => true),'ContentManufacturer' => array('dependent' => true), 'ContentSpecial' => array('dependent' => true));
         
         
@@ -186,7 +186,7 @@ class Content extends AppModel {
         {
             if($content_id == 0&&isset($this->id)) $content_id = $this->id;
             $this->unbindAll();
-            $this->bindModel(array('hasMany' => array('SetAttributes' => array('className' => 'Attribute'))));
+            $this->bindModel(array('hasMany' => array('SetAttributes' => array('className' => 'Attr'))));
             $product = $this->find('first', array('conditions' => array('id' => $content_id/*, 'content_type_id' => 2*/)));
             $value_list = array();
             if(!empty($product))
@@ -208,24 +208,24 @@ class Content extends AppModel {
             $attr_list = array();
             $value_list = $this->__getListSetAttributesForProduct($content_id);
             $this->unbindAll();            
-            $this->bindModel(array('hasMany' => array('Attributes' => array('className' => 'Attribute'
-                                                                               ,'conditions' =>array('Attributes.is_active' => '1'),'order' => array('order ASC')))));
-            $this->Attributes->unbindAll();
-            $this->Attributes->bindModel(array('hasMany' => array('DefValAttributes' => array('className' => 'Attribute'
+            $this->bindModel(array('hasMany' => array('Attrs' => array('className' => 'Attr'
+                                                                               ,'conditions' =>array('Attrs.is_active' => '1'),'order' => array('order ASC')))));
+            $this->Attrs->unbindAll();
+            $this->Attrs->bindModel(array('hasMany' => array('DefValAttributes' => array('className' => 'Attr'
                                                     ,'foreignKey'    => 'parent_id'
 						    ,'dependent' => true
                                                     //,'conditions' => array('DefValAttributes.id' => 2)
                                                     ,'order' => array('order ASC')
                                                     ))));
-            $this->Attributes->bindModel(array('belongsTo' => array('AttributeTemplate' => array('className' => 'AttributeTemplate'))));
+            $this->Attrs->bindModel(array('belongsTo' => array('AttributeTemplate' => array('className' => 'AttributeTemplate'))));
             $this->recursive = 2;
-            $this->Attributes->setLanguageDescriptor($_SESSION['Customer']['language_id']);
-            $this->Attributes->DefValAttributes->setLanguageDescriptor($_SESSION['Customer']['language_id']);
+            $this->Attrs->setLanguageDescriptor($_SESSION['Customer']['language_id']);
+            $this->Attrs->DefValAttributes->setLanguageDescriptor($_SESSION['Customer']['language_id']);
             $parent_group = $this->find('first', array('conditions' => array('id' => $product['Content']['parent_id']/*, 'content_type_id' => 1*/)
                                                     ,'order' => array('order ASC') 
                                                     ));
 				if ($parent_group) {                                                    
-            foreach($parent_group['Attributes'] AS $key_attr => $attribute)
+            foreach($parent_group['Attrs'] AS $key_attr => $attribute)
             {
                 $attr_list[$key_attr]['id'] = $attribute['id'];
                 $attr_list[$key_attr]['name'] = $attribute['name'];
@@ -299,18 +299,18 @@ class Content extends AppModel {
             if(isset($filter)) {
                 $this->unbindAll();
                 $this->bindModel(array('hasMany' => array(
-                                'Attribute' => array(
-                                    'className' => 'Attribute'
+                                'Attr' => array(
+                                    'className' => 'Attr'
                 ))));                
-                $content_list_data_joins = array(array('table' => 'attributes'
-                                                      ,'alias' => 'Attribute'
+                $content_list_data_joins = array(array('table' => 'attrs'
+                                                      ,'alias' => 'Attr'
                                                       ,'type' => 'inner'
-                                                      ,'conditions' => array('Content.parent_id = Attribute.content_id'))
-                                                ,array('table' => 'attributes'
+                                                      ,'conditions' => array('Content.parent_id = Attr.content_id'))
+                                                ,array('table' => 'attrs'
                                                       ,'alias' => 'AttributeDefValue'
                                                       ,'type' => 'inner'
-                                                      ,'conditions' => array('Attribute.id = AttributeDefValue.parent_id'))
-                                                ,array('table' => 'attributes'
+                                                      ,'conditions' => array('Attr.id = AttributeDefValue.parent_id'))
+                                                ,array('table' => 'attrs'
                                                       ,'alias' => 'AttributeValue'
                                                       ,'type' => 'left'
                                                       ,'conditions' => array('Content.id = AttributeValue.content_id' ,'AttributeDefValue.id = AttributeValue.parent_id'))
@@ -372,7 +372,7 @@ class Content extends AppModel {
                 $content_filtered_list_data = $this->find('all', array('conditions' => $conditions, 'order' => array('Content.order ASC') ,'joins' => $content_list_data_joins ,'group' => $group));
                 $attribute_ids = $content_ids = array();
                 foreach ($content_filtered_list_data as $val){
-                    foreach ($val['Attribute'] as $atr){
+                    foreach ($val['Attr'] as $atr){
                         if($atr['val'] == 1)
                             $attribute_ids[$atr['parent_id']] = $atr['val'];
                     }

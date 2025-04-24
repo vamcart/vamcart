@@ -439,8 +439,8 @@ function smarty_function_content_listing($params, $template)
                      	}
 //                        
                         $content_list[$count]['attributes'] = array();
-                        if (isset($raw_data['Attribute'])) {
-                        foreach($raw_data['Attribute'] AS $attribute)
+                        if (isset($raw_data['Attr'])) {
+                        foreach($raw_data['Attr'] AS $attribute)
                         {
                             $content_list[$count]['attributes'][$attribute['parent_id']]['id'] = $attribute['id'];
                             $content_list[$count]['attributes'][$attribute['parent_id']]['value'] = $attribute['val'];

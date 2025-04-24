@@ -74,36 +74,36 @@ class ContentDownloadable extends AppModel {
         
         public function getPriceModificator($content_id, $price = 0)
         {
-            App::import('Model', 'Attribute');
-            $Attribute = new Attribute();
+            App::import('Model', 'Attr');
+            $Attribute = new Attr();
             $Attribute->unbindAll();
-            $parent_attrs = $Attribute->find('list',array('fields' => 'Attribute.parent_id'
-                                                 ,'conditions' => array('Attribute.content_id' => $content_id, 'Attribute.val != 0' , 'Attribute.val is not null')
-                                                 ,'order' => array('Attribute.order ASC')));
+            $parent_attrs = $Attribute->find('list',array('fields' => 'Attr.parent_id'
+                                                 ,'conditions' => array('Attr.content_id' => $content_id, 'Attr.val != 0' , 'Attr.val is not null')
+                                                 ,'order' => array('Attr.order ASC')));
             $Attribute->unbindAll();
-            $attrs = $Attribute->find('all',array('fields' => array('Attribute.parent_id','Attribute.price_modificator','Attribute.price_value')
-                                                 ,'conditions' => array('Attribute.id' => $parent_attrs)
-                                                 ,'order' => array('Attribute.order ASC')));
+            $attrs = $Attribute->find('all',array('fields' => array('Attr.parent_id','Attr.price_modificator','Attr.price_value')
+                                                 ,'conditions' => array('Attr.id' => $parent_attrs)
+                                                 ,'order' => array('Attr.order ASC')));
             foreach($attrs as $k => $attr)
             {
-                if(is_numeric($attr['Attribute']['price_value']))
+                if(is_numeric($attr['Attr']['price_value']))
                 {
-                    switch ($attr['Attribute']['price_modificator']) 
+                    switch ($attr['Attr']['price_modificator']) 
                     {
                         case '=':
-                            $price = $attr['Attribute']['price_value'];
+                            $price = $attr['Attr']['price_value'];
                         break;
                         case '+':
-                            $price = $price + $attr['Attribute']['price_value'];
+                            $price = $price + $attr['Attr']['price_value'];
                         break;
                         case '-':
-                            $price = $price - $attr['Attribute']['price_value'];
+                            $price = $price - $attr['Attr']['price_value'];
                         break;
                         case '*':
-                            $price = $price * $attr['Attribute']['price_value'];
+                            $price = $price * $attr['Attr']['price_value'];
                         break;
                         case '/':
-                             $price = $price / $attr['Attribute']['price_value'];
+                             $price = $price / $attr['Attr']['price_value'];
                         break;               
                         default:
                         break;

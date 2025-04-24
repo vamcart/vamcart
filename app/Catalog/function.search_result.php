@@ -108,7 +108,7 @@ function smarty_function_search_result($params, $template)
 		$Content = new Content();
 
 		$Content->unbindModel(array('belongsTo' => array('ContentType', 'Template')), false);
-		$Content->unbindModel(array('hasMany' => array('ContentImage', 'ContentDescription', 'Attribute')), false);
+		$Content->unbindModel(array('hasMany' => array('ContentImage', 'ContentDescription', 'Attr')), false);
 		$Content->unbindModel(array('hasOne' => array('ContentLink', 'ContentProduct', 'ContentPage', 'ContentCategory', 'ContentArticle', 'ContentNews')), false);
 		$Content->unbindModel(array('hasAndBelongsToMany' => array('xsell')), false);
 

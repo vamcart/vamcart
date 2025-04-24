@@ -66,8 +66,8 @@ function smarty_function_filter($params)
     App::uses('SmartyComponent', 'Controller/Component');
     $Smarty = new SmartyComponent(new ComponentCollection());
     
-    App::import('Model', 'Attribute');
-    $Attribute = new Attribute();
+    App::import('Model', 'Attr');
+    $Attribute = new Attr();
     
     if (empty($content['FilteredAttribute'])||$content['ContentType']['name'] != 'category')
     {

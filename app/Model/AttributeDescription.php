@@ -10,12 +10,12 @@ App::uses('Model', 'AppModel');
 class AttributeDescription extends AppModel {
 
 	public $name = 'AttributeDescription';
-	public $belongsTo = array('Language','Attribute_p' => array('className' => 'Attribute'
-                                                    ,'foreignKey'    => 'attribute_id'
+	public $belongsTo = array('Language','Attribute_p' => array('className' => 'Attr'
+                                                    ,'foreignKey'    => 'attr_id'
                                 ));
 	public $primaryKey = 'dsc_id';
 	public $validate = array(
-		'attribute_id' => array(
+		'attr_id' => array(
 			'rule' => 'notBlank'
 		)
 	);

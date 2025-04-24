@@ -79,7 +79,7 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty');
                 if(isset($this->params['filtered']))
                 {
                     if($this->params['filtered'] == 'set'&&!isset($this->data['cancelbutton'])) {
-                        $filter_list = $this->Content->Attribute->getFilterFromFormData($this->data);
+                        $filter_list = $this->Content->Attr->getFilterFromFormData($this->data);
                         if(!empty($filter_list))
                             $this->Session->write('filter_list.' . $alias ,$filter_list);//сохраняем состояние(например для пагинации)
                     } else if($this->params['filtered'] == 'unset'||isset($this->data['cancelbutton']))

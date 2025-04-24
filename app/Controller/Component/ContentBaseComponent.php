@@ -105,7 +105,7 @@ class ContentBaseComponent extends CakeObject
                 //Атрибуты для фильтрации
                 $this->Content->bindModel(array('hasMany' => array(
 				'FilteredAttribute' => array(
-                    'className' => 'Attribute'
+                    'className' => 'Attr'
                    ,'conditions' =>array('FilteredAttribute.is_active' => '1' ,'FilteredAttribute.is_show_flt' => '1')
                    ,'order' => array('FilteredAttribute.order ASC')
 					))));
@@ -114,7 +114,7 @@ class ContentBaseComponent extends CakeObject
                 //Атрибуты для сравнения
                 $this->Content->bindModel(array('hasMany' => array(
 				'CompareAttribute' => array(
-                    'className' => 'Attribute'
+                    'className' => 'Attr'
                    ,'conditions' =>array('CompareAttribute.is_active' => '1' ,'CompareAttribute.is_show_cmp' => '1')
                    ,'order' => array('CompareAttribute.order ASC')
 					))));
@@ -122,13 +122,13 @@ class ContentBaseComponent extends CakeObject
                 $this->Content->CompareAttribute->ValAttribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
                 //Атрибуты для отображения
                 $this->Content->bindModel(array('hasMany' => array(
-				'Attribute' => array(
-                    'className' => 'Attribute'
-                   ,'conditions' =>array('Attribute.is_active' => '1')
-                   ,'order' => array('Attribute.order ASC')
+				'Attr' => array(
+                    'className' => 'Attr'
+                   ,'conditions' =>array('Attr.is_active' => '1')
+                   ,'order' => array('Attr.order ASC')
 					))));
-                $this->Content->Attribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
-                $this->Content->Attribute->ValAttribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
+                $this->Content->Attr->setLanguageDescriptor($this->Session->read('Customer.language_id'));
+                $this->Content->Attr->ValAttribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
 
 		$content_conditions = "Content.id = '" . $content_alias . "' OR BINARY Content.alias = '" . $content_alias . "' AND Content.active ='1'";
 		$content = $this->Content->find('first', array('recursive' => 2, 'order' => 'Content.id DESC', 'conditions' => $content_conditions));

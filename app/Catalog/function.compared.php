@@ -101,14 +101,14 @@ function smarty_function_compared($params)
         App::import('Model', 'Content');
 	$Content = new Content();
 
-        App::import('Model', 'Attribute');
-	$Attribute = new Attribute();
+        App::import('Model', 'Attr');
+	$Attribute = new Attr();
 
 	
 	$content_compare_list = $_SESSION['compare_list'][$content['Content']['alias']];
 	
         $Attribute->setLanguageDescriptor($_SESSION['Customer']['language_id']);
-        $attr = $Attribute->find('all',array('conditions' => array('Attribute.content_id' => $content['Content']['id'] ,'Attribute.is_active' => '1' ,'Attribute.is_show_cmp' => '1')));
+        $attr = $Attribute->find('all',array('conditions' => array('Attr.content_id' => $content['Content']['id'] ,'Attr.is_active' => '1' ,'Attr.is_show_cmp' => '1')));
 
 
 		$Content->unbindAll();
@@ -144,9 +144,9 @@ function smarty_function_compared($params)
                     'className' => 'ContentSpecial'
 					))));
 
-		$Content->bindModel(array('hasMany' => array('Attribute' => array(
-						'className' => 'Attribute'
-                                               ,'order' => array('Attribute.order ASC')
+		$Content->bindModel(array('hasMany' => array('Attr' => array(
+						'className' => 'Attr'
+                                               ,'order' => array('Attr.order ASC')
 					))));
 
         $content_list = $Content->find('all',array('recursive' => 1, 'conditions' => array('Content.id' => $content_compare_list)));
@@ -157,8 +157,8 @@ function smarty_function_compared($params)
 
         foreach ($attr as $k_a => $attribute) 
         {
-            	$element_list[$k_a]['id_attribute'] = $attribute['Attribute']['id'];
-            	$element_list[$k_a]['name_attribute'] = $attribute['Attribute']['name'];
+            	$element_list[$k_a]['id_attribute'] = $attribute['Attr']['id'];
+            	$element_list[$k_a]['name_attribute'] = $attribute['Attr']['name'];
             	$element_list[$k_a]['template_attribute'] = $attribute['AttributeTemplate']['template_compare'];
                 $element_list[$k_a]['attributes_product'] = array();
                 foreach ($content_list as $k_p => $product) 
@@ -249,7 +249,7 @@ function smarty_function_compared($params)
 								}
                     
                     $element_list[$k_a]['attributes_product'][$k_p]['values_attribute'] = array();
-                    $val_attr = Set::combine($product['Attribute'],'{n}.parent_id','{n}.val');
+                    $val_attr = Set::combine($product['Attr'],'{n}.parent_id','{n}.val');
                     foreach($attribute['ValAttribute'] AS $k_v => $value)
                     {               
 		        if(isset($value['type_attr'])&&$value['type_attr']!=''

@@ -23,13 +23,13 @@ class AttributesController extends AppController
 						'className' => 'ContentDescription',
 						'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
 					))));
-        $this->Content->unbindModel(array('hasMany' => array('Attribute')));
-	$this->Content->bindModel(array('hasMany' => array('Attribute' => array(
-						'className' => 'Attribute'
-                                               ,'order' => array('Attribute.order ASC')
+        $this->Content->unbindModel(array('hasMany' => array('Attr')));
+	$this->Content->bindModel(array('hasMany' => array('Attr' => array(
+						'className' => 'Attr'
+                                               ,'order' => array('Attr.order ASC')
 					))));
         
-        $this->Content->Attribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
+        $this->Content->Attr->setLanguageDescriptor($this->Session->read('Customer.language_id'));
         
         $this->Content->bindModel(array('belongsTo' => array('ContentGroup' => array('className' => 'Content'
                                                     ,'foreignKey'    => 'id_group'))));
@@ -71,19 +71,19 @@ class AttributesController extends AppController
                 
             break;
             case 'add':
-                $attribute['Attribute']['id'] = 0;
-                if ($type == 'attr') $attribute['Attribute']['content_id'] = $id;
-                else if ($type == 'val') $attribute['Attribute']['content_id'] = 0;
-                if ($type == 'attr') $attribute['Attribute']['parent_id'] = 0;
-                else if ($type == 'val') $attribute['Attribute']['parent_id'] = $id;
-                $attribute['Attribute']['price_value'] = 0;
-                $attribute['Attribute']['order'] = 0;
+                $attribute['Attr']['id'] = 0;
+                if ($type == 'attr') $attribute['Attr']['content_id'] = $id;
+                else if ($type == 'val') $attribute['Attr']['content_id'] = 0;
+                if ($type == 'attr') $attribute['Attr']['parent_id'] = 0;
+                else if ($type == 'val') $attribute['Attr']['parent_id'] = $id;
+                $attribute['Attr']['price_value'] = 0;
+                $attribute['Attr']['order'] = 0;
                 $attribute['ValAttribute'] = array();
             break;
             case 'edit':
-                $this->Attribute->ValAttribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
-                $this->Attribute->id = $id;
-                $attribute = $this->Attribute->read();   
+                $this->Attr->ValAttribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
+                $this->Attr->id = $id;
+                $attribute = $this->Attr->read();   
                 if(!empty($attribute))
                 {
                     $tmp = $attribute['AttributeDescription'];
@@ -94,49 +94,49 @@ class AttributesController extends AppController
                         $attribute['AttributeDescription'][$key] = $value;
                     }
                 }
-                $id = $attribute['Attribute']['parent_id'];
+                $id = $attribute['Attr']['parent_id'];
             break;
             case 'save':
                 if(isset($this->data['cancelbutton']))
                 {
-                    if ($type == 'attr') $this->redirect('/attributes/admin_viewer_attr/' . $this->data['Attribute']['content_id']);
-                    else if ($type == 'val') $this->redirect('/attributes/admin_editor_attr/edit/attr/' . $this->data['Attribute']['parent_id']);
+                    if ($type == 'attr') $this->redirect('/attributes/admin_viewer_attr/' . $this->data['Attr']['content_id']);
+                    else if ($type == 'val') $this->redirect('/attributes/admin_editor_attr/edit/attr/' . $this->data['Attr']['parent_id']);
                 }
                 $attribute = array();
-                $attribute['Attribute'] = $this->data['Attribute'];
-                foreach($this->data['Attribute']['AttributeDescription'] AS $k => $value)
+                $attribute['Attr'] = $this->data['Attr'];
+                foreach($this->data['Attr']['AttributeDescription'] AS $k => $value)
 		{
                     $attribute['AttributeDescription'][$k]['dsc_id'] = $value['dsc_id'];
                     $attribute['AttributeDescription'][$k]['name'] = $value['name'];
                     $attribute['AttributeDescription'][$k]['language_id'] = $k;
                 }
                 //Сортировка
-                if ($type == 'attr' && (!isset($attribute['Attribute']['order']) || $attribute['Attribute']['order'] == 0)) $attribute['Attribute']['order'] = $this->Attribute->find('count',array('conditions' => array('Attribute.content_id' => $attribute['Attribute']['content_id']))) + 1;
-                else if ($type == 'val' && (!isset($attribute['Attribute']['order']) || $attribute['Attribute']['order'] == 0)) $attribute['Attribute']['order'] = $this->Attribute->find('count',array('conditions' => array('Attribute.parent_id' => $attribute['Attribute']['parent_id']))) + 1;
-                if ($type == 'val')$attribute['Attribute']['content_id'] = 0;
+                if ($type == 'attr' && (!isset($attribute['Attr']['order']) || $attribute['Attr']['order'] == 0)) $attribute['Attr']['order'] = $this->Attr->find('count',array('conditions' => array('Attr.content_id' => $attribute['Attr']['content_id']))) + 1;
+                else if ($type == 'val' && (!isset($attribute['Attr']['order']) || $attribute['Attr']['order'] == 0)) $attribute['Attr']['order'] = $this->Attr->find('count',array('conditions' => array('Attr.parent_id' => $attribute['Attr']['parent_id']))) + 1;
+                if ($type == 'val')$attribute['Attr']['content_id'] = 0;
                 //Создаем запись 
-                if($attribute['Attribute']['id'] == 0) $this->Attribute->create();
-                if($this->Attribute->saveAll($attribute))
+                if($attribute['Attr']['id'] == 0) $this->Attr->create();
+                if($this->Attr->saveAll($attribute))
                 {
                     if ($type == 'attr')//для атрибута создадим значения по умолчанию
                     {
-                        $this->constructDefValue($attribute['Attribute']['attribute_template_id'], $attribute['Attribute']['id']);
+                        $this->constructDefValue($attribute['Attr']['attribute_template_id'], $attribute['Attr']['id']);
                     }
                     $this->Session->setFlash(__('Attributes saved.'));
                 } else $this->Session->setFlash(__('Attributes not saved!'), 'default', array('class' => 'error-message red'));  
 
-                $this->redirect('/attributes/admin_viewer_attr_dialog/' . $this->data['Attribute']['content_id']);
+                $this->redirect('/attributes/admin_viewer_attr_dialog/' . $this->data['Attr']['content_id']);
             break;
             case 'delete':
-                $attribute = $this->Attribute->read(false,$id);               
-                if($this->Attribute->delete($id))
+                $attribute = $this->Attr->read(false,$id);               
+                if($this->Attr->delete($id))
                 {
                     $this->Session->setFlash(__('Attributes deleted.'));
                 } else $this->Session->setFlash(__('Attributes not deleted!'), 'default', array('class' => 'error-message red'));
                 if ($type == 'val') {
-                    $parent_attr = $this->Attribute->read(false,$attribute['Attribute']['parent_id']);
-                    $this->redirect('/attributes/admin_viewer_attr_dialog/'  . $parent_attr['Attribute']['content_id']);
-                } else $this->redirect('/attributes/admin_viewer_attr_dialog/'  . $attribute['Attribute']['content_id']);
+                    $parent_attr = $this->Attr->read(false,$attribute['Attr']['parent_id']);
+                    $this->redirect('/attributes/admin_viewer_attr_dialog/'  . $parent_attr['Attr']['content_id']);
+                } else $this->redirect('/attributes/admin_viewer_attr_dialog/'  . $attribute['Attr']['content_id']);
             break;
             default:
                 die();
@@ -149,16 +149,16 @@ class AttributesController extends AppController
         $this->loadModel('AttributeTemplate');
         if($type == 'val') 
         {   
-            $this->Attribute->id = $id;
-            $this->Attribute->recursive = -1;
-            $parent_attr = $this->Attribute->read(); 
-            $template = $this->AttributeTemplate->find('first',array('conditions' => array('id' => $parent_attr['Attribute']['attribute_template_id'])));
+            $this->Attr->id = $id;
+            $this->Attr->recursive = -1;
+            $parent_attr = $this->Attr->read(); 
+            $template = $this->AttributeTemplate->find('first',array('conditions' => array('id' => $parent_attr['Attr']['attribute_template_id'])));
             $template = unserialize($template['AttributeTemplate']['setting']);
             function v($var){return($var == 1);}
             $template = array_filter($template,"v");
             foreach ($template AS $k => $val) $template[$k] = $k;
             $this->set('template',$template);
-            $attribute['Attribute']['content_id'] = $parent_attr['Attribute']['content_id'];
+            $attribute['Attr']['content_id'] = $parent_attr['Attr']['content_id'];
         }
         else $this->set('template', $this->AttributeTemplate->find('list'));
         $this->set('attribute',$attribute);
@@ -177,11 +177,11 @@ class AttributesController extends AppController
     
     public function admin_viewer_attr($content_id = 0) 
     {
-        $this->loadModel('Attribute');
-        $this->Attribute->recursive = 2;
-        $this->Attribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
-        $this->Attribute->ValAttribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
-        $attributes = $this->Attribute->find('all',array('conditions' => array('Attribute.content_id' => $content_id)));
+        $this->loadModel('Attr');
+        $this->Attr->recursive = 2;
+        $this->Attr->setLanguageDescriptor($this->Session->read('Customer.language_id'));
+        $this->Attr->ValAttribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
+        $attributes = $this->Attr->find('all',array('conditions' => array('Attr.content_id' => $content_id)));
         $this->set('attributes',$attributes);
         $this->set('current_crumb', __('Attributes Listing', true));
 	$this->set('title_for_layout', __('Attributes Listing', true));
@@ -212,7 +212,7 @@ class AttributesController extends AppController
             $record[$current_model_name][$field] = 0;		
 	}      
 	$this->$current_model->save($record);
-        $this->redirect('/attributes/admin_viewer_attr_dialog/'  . $record['Attribute']['content_id']);
+        $this->redirect('/attributes/admin_viewer_attr_dialog/'  . $record['Attr']['content_id']);
     }
     
     public function set_group_content($content_id = 0)
@@ -265,7 +265,7 @@ class AttributesController extends AppController
     public function admin_editor_value($action = 'init' ,$content_id = 0) 
     {   
         $this->loadModel('Content');
-        $this->Content->Attribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
+        $this->Content->Attr->setLanguageDescriptor($this->Session->read('Customer.language_id'));
         $content_data = $this->Content->find('first',array('conditions' => array('Content.id' => $content_id)));
         
         switch ($action) 
@@ -274,25 +274,25 @@ class AttributesController extends AppController
                 
             break;
             case 'edit':
-                $this->Attribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
-                $this->Attribute->ValAttribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
-                $attr_data = $this->Attribute->find('all',array('conditions' => array('Attribute.content_id' => $content_data['Content']['parent_id'])
-                                                               ,'order' => array('Attribute.order ASC')));
-                $this->Attribute->recursive = -1;
+                $this->Attr->setLanguageDescriptor($this->Session->read('Customer.language_id'));
+                $this->Attr->ValAttribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
+                $attr_data = $this->Attr->find('all',array('conditions' => array('Attr.content_id' => $content_data['Content']['parent_id'])
+                                                               ,'order' => array('Attr.order ASC')));
+                $this->Attr->recursive = -1;
                 
                 $element_list = array();
                 foreach($attr_data AS $k => $attr)
                 {
                 
-                    $element_list[$k]['id_attribute'] = $attr['Attribute']['id'];
-                    $element_list[$k]['name_attribute'] = $attr['Attribute']['name'];
+                    $element_list[$k]['id_attribute'] = $attr['Attr']['id'];
+                    $element_list[$k]['name_attribute'] = $attr['Attr']['name'];
                     $element_list[$k]['template_attribute'] = $attr['AttributeTemplate']['template_editor'];
                     $element_list[$k]['values_attribute'] = array();   
                                         
                     if($attr['AttributeTemplate']['name']=='list')
                         $element_list[$k]['values_attribute'][-1] = array(
                             'name' => __('Select Value')
-                           ,'type_attr' => $attr['Attribute']['type_attr']
+                           ,'type_attr' => $attr['Attr']['type_attr']
                            ,'id' => 0
                            ,'parent_id' => 0
                            ,'val' => ''
@@ -300,8 +300,8 @@ class AttributesController extends AppController
                     
                     foreach($attr['ValAttribute'] AS $k_v => $def_val)
                     {
-                        $val = $this->Attribute->find('first',array('conditions' => array('Attribute.content_id' => $content_id
-                                                                              ,'Attribute.parent_id' => $def_val['id']
+                        $val = $this->Attr->find('first',array('conditions' => array('Attr.content_id' => $content_id
+                                                                              ,'Attr.parent_id' => $def_val['id']
                                                                                )));
                         if(isset($def_val['type_attr'])&&$def_val['type_attr']!=''
 				&&$def_val['type_attr']!='list_value'&&$def_val['type_attr']!='checked_list')$k_v = $def_val['type_attr'];//Если задан тип то передаем его качестве ключа
@@ -316,9 +316,9 @@ class AttributesController extends AppController
                         }
                         else 
                         {
-                            $element_list[$k]['values_attribute'][$k_v]['id'] = $val['Attribute']['id'];//id берем свой для сохранения
-                            $element_list[$k]['values_attribute'][$k_v]['parent_id'] = $val['Attribute']['parent_id'];
-                            $element_list[$k]['values_attribute'][$k_v]['val'] = $val['Attribute']['val'];
+                            $element_list[$k]['values_attribute'][$k_v]['id'] = $val['Attr']['id'];//id берем свой для сохранения
+                            $element_list[$k]['values_attribute'][$k_v]['parent_id'] = $val['Attr']['parent_id'];
+                            $element_list[$k]['values_attribute'][$k_v]['val'] = $val['Attr']['val'];
                         }
                     }
                 }
@@ -327,7 +327,7 @@ class AttributesController extends AppController
             case 'save':
                 if(isset($this->data['cancelbutton']))
                 {
-                    $this->redirect('/attributes/admin_attr/' . $this->data['Attribute']['parent_id']);
+                    $this->redirect('/attributes/admin_attr/' . $this->data['Attr']['parent_id']);
                 }
                 $save_data = array();
                 foreach ($this->data['values_s'] as $def_value) 
@@ -338,7 +338,7 @@ class AttributesController extends AppController
                         if(!isset($value['value'])) $value['value'] = '0'; 
                         array_push($save_data, array('id' => $value['id']
                                                     ,'parent_id' => $value['parent_id']
-                                                    ,'content_id' => $this->data['Attribute']['content_id']
+                                                    ,'content_id' => $this->data['Attr']['content_id']
                                                     ,'val' => $value['value']
                                                     ));
                     }
@@ -346,19 +346,19 @@ class AttributesController extends AppController
                 
                 if(isset($this->data['Content']['id_groups'])&&!empty($this->data['Content']['id_groups'])) {
                     $this->loadModel('Content');                        
-                    $this->Content->updateAll(array('Content.id_group' => $this->data['Attribute']['content_id']),array('Content.id' => $this->data['Content']['id_groups']));
-                    $this->Content->updateAll(array('Content.is_group' => 1, 'Content.id_group' => $this->data['Attribute']['content_id']),array('Content.id' => $this->data['Attribute']['content_id']));
+                    $this->Content->updateAll(array('Content.id_group' => $this->data['Attr']['content_id']),array('Content.id' => $this->data['Content']['id_groups']));
+                    $this->Content->updateAll(array('Content.is_group' => 1, 'Content.id_group' => $this->data['Attr']['content_id']),array('Content.id' => $this->data['Attr']['content_id']));
                 } else {
-                    $this->Content->updateAll(array('Content.is_group' => 0,'Content.id_group' => 0),array('Content.parent_id' => $this->data['Attribute']['parent_id']
-                                                                                                          ,'Content.id_group' => $this->data['Attribute']['content_id']));
+                    $this->Content->updateAll(array('Content.is_group' => 0,'Content.id_group' => 0),array('Content.parent_id' => $this->data['Attr']['parent_id']
+                                                                                                          ,'Content.id_group' => $this->data['Attr']['content_id']));
                 }
                 
-                if($this->Attribute->saveAll($save_data))
+                if($this->Attr->saveAll($save_data))
                 {
                     $this->Session->setFlash(__('Attributes Value Saved.'));
                 } else $this->Session->setFlash(__('Attributes Value Not Saved!'), 'default', array('class' => 'error-message red'));  
 
-                $this->redirect('/attributes/admin_attr/' . $this->data['Attribute']['parent_id']);
+                $this->redirect('/attributes/admin_attr/' . $this->data['Attr']['parent_id']);
             break;
             default:
                 die();
@@ -437,20 +437,20 @@ class AttributesController extends AppController
     public function admin_copy_attr()
     {
         $this->autoRender = false;
-        $attributes = $this->Attribute->all($this->data['Attribute']['category_id']);
+        $attributes = $this->Attr->all($this->data['Attr']['category_id']);
         foreach ($attributes as $attribute) {
             $data = array(
-                'Attribute' => array_merge($attribute['Attribute'],array('AttributeDescription' => $attribute['AttributeDescription']))
+                'Attr' => array_merge($attribute['Attr'],array('AttributeDescription' => $attribute['AttributeDescription']))
             );
-            $data['Attribute']['id'] = 0;
-            $data['Attribute']['content_id'] = $this->data['Attribute']['content_id'];
-            foreach ($data['Attribute']['AttributeDescription'] as $key => $value) {
-                $data['Attribute']['AttributeDescription'][$key]['dsc_id'] = 0;
+            $data['Attr']['id'] = 0;
+            $data['Attr']['content_id'] = $this->data['Attr']['content_id'];
+            foreach ($data['Attr']['AttributeDescription'] as $key => $value) {
+                $data['Attr']['AttributeDescription'][$key]['dsc_id'] = 0;
             }
-            $this->Attribute->saveAll($data,array('deep' => true));
+            $this->Attr->saveAll($data,array('deep' => true));
         }
         
-        $this->redirect('/attributes/admin_viewer_attr_dialog/' . $this->data['Attribute']['content_id']);
+        $this->redirect('/attributes/admin_viewer_attr_dialog/' . $this->data['Attr']['content_id']);
     }    
     
     public function admin_copy_attrvalues_dialog($content_id = 0,$attribute_id = 0)
@@ -464,38 +464,38 @@ class AttributesController extends AppController
 						'className' => 'ContentDescription',
 						'conditions' => 'language_id = ' . $this->Session->read('Customer.language_id')
 					))));
-        $this->Content->unbindModel(array('hasMany' => array('Attribute')));
-	$this->Content->bindModel(array('hasMany' => array('Attribute' => array(
-						'className' => 'Attribute'
-                                               ,'order' => array('Attribute.order ASC')
+        $this->Content->unbindModel(array('hasMany' => array('Attr')));
+	$this->Content->bindModel(array('hasMany' => array('Attr' => array(
+						'className' => 'Attr'
+                                               ,'order' => array('Attr.order ASC')
 					))));
-        $this->Content->Attribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));        
+        $this->Content->Attr->setLanguageDescriptor($this->Session->read('Customer.language_id'));        
         
         $content = $this->Content->find('all',array('conditions' => array('Content.content_type_id' => $this->Content->get_content_type('ContentCategory'))));
         foreach ($content as $value) 
-            foreach ($value['Attribute'] as $attribute) 
+            foreach ($value['Attr'] as $attribute) 
                 $content['return'][$value['ContentDescription']['name']][$attribute['id']] = $attribute['name'];
         $this->set('attributes',$content['return']);
-        $this->set('attribute_id',$attribute_id);
+        $this->set('attr_id',$attribute_id);
         $this->set('content_id',$content_id);
     }
     
     public function admin_copy_attrvalues()
     {      
         $this->autoRender = false;
-        $val_attributes = $this->Attribute->find('all',array('conditions' => array('Attribute.parent_id' => $this->data['Attribute']['parrent_id'])));
+        $val_attributes = $this->Attr->find('all',array('conditions' => array('Attr.parent_id' => $this->data['Attr']['parrent_id'])));
         foreach ($val_attributes as $val_attribute) {
             $data = array(
-                'Attribute' => array_merge($val_attribute['Attribute'],array('AttributeDescription' => $val_attribute['AttributeDescription']))
+                'Attr' => array_merge($val_attribute['Attr'],array('AttributeDescription' => $val_attribute['AttributeDescription']))
             );
-            $data['Attribute']['id'] = 0;
-            $data['Attribute']['parent_id'] = $this->data['Attribute']['id'];
-            foreach ($data['Attribute']['AttributeDescription'] as $key => $value) {
-                $data['Attribute']['AttributeDescription'][$key]['dsc_id'] = 0;
+            $data['Attr']['id'] = 0;
+            $data['Attr']['parent_id'] = $this->data['Attr']['id'];
+            foreach ($data['Attr']['AttributeDescription'] as $key => $value) {
+                $data['Attr']['AttributeDescription'][$key]['dsc_id'] = 0;
             }
-            $this->Attribute->saveAll($data,array('deep' => true));
+            $this->Attr->saveAll($data,array('deep' => true));
         }   
-        $this->redirect('/attributes/admin_viewer_attr_dialog/' . $this->data['Attribute']['content_id']);
+        $this->redirect('/attributes/admin_viewer_attr_dialog/' . $this->data['Attr']['content_id']);
     }        
     
 }
