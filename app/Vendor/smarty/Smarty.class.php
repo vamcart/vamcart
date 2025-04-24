@@ -36,7 +36,7 @@ if (!defined('SMARTY_DIR')) {
     /**
      *
      */
-    define('SMARTY_DIR', dirname(__FILE__) . DIRECTORY_SEPARATOR);
+    define('SMARTY_DIR', __DIR__ . DIRECTORY_SEPARATOR);
 }
 /**
  * set SMARTY_SYSPLUGINS_DIR to absolute path to Smarty internal plugins.
@@ -60,12 +60,21 @@ if (!defined('SMARTY_MBSTRING')) {
      */
     define('SMARTY_MBSTRING', function_exists('mb_get_info'));
 }
+
+/**
+ * Load helper functions
+ */
+if (!defined('SMARTY_HELPER_FUNCTIONS_LOADED')) {
+    include __DIR__ . '/functions.php';
+}
+
 /**
  * Load Smarty_Autoloader
  */
 if (!class_exists('Smarty_Autoloader')) {
-    include dirname(__FILE__) . '/bootstrap.php';
+    include __DIR__ . '/bootstrap.php';
 }
+
 /**
  * Load always needed external class files
  */
@@ -98,7 +107,7 @@ class Smarty extends Smarty_Internal_TemplateBase
     /**
      * smarty version
      */
-    const SMARTY_VERSION = '4.2.1';
+    const SMARTY_VERSION = '4.5.5';
     /**
      * define variable scopes
      */
@@ -1027,11 +1036,11 @@ class Smarty extends Smarty_Internal_TemplateBase
     /**
      * Get unique template id
      *
-     * @param string                    $template_name
-     * @param null|mixed                $cache_id
-     * @param null|mixed                $compile_id
-     * @param null                      $caching
-     * @param \Smarty_Internal_Template $template
+     * @param string                         $template_name
+     * @param null|mixed                     $cache_id
+     * @param null|mixed                     $compile_id
+     * @param null                           $caching
+     * @param \Smarty_Internal_Template|null $template
      *
      * @return string
      * @throws \SmartyException
@@ -1041,7 +1050,7 @@ class Smarty extends Smarty_Internal_TemplateBase
         $cache_id = null,
         $compile_id = null,
         $caching = null,
-        Smarty_Internal_Template $template = null
+        ?Smarty_Internal_Template $template = null
     ) {
         $template_name = (strpos($template_name, ':') === false) ? "{$this->default_resource_type}:{$template_name}" :
             $template_name;
@@ -1377,8 +1386,7 @@ class Smarty extends Smarty_Internal_TemplateBase
     }
 
     /**
-     * Activates PHP7 compatibility mode:
-     * - converts E_WARNINGS for "undefined array key" and "trying to read property of null" errors to E_NOTICE
+     * Mutes errors for "undefined index", "undefined array key" and "trying to read property of null".
      *
      * @void
      */
@@ -1387,7 +1395,7 @@ class Smarty extends Smarty_Internal_TemplateBase
     }
 
     /**
-     * Indicates if PHP7 compatibility mode is set.
+     * Indicates if Smarty will mute errors for "undefined index", "undefined array key" and "trying to read property of null".
      * @bool
      */
     public function isMutingUndefinedOrNullWarnings(): bool {

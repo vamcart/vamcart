@@ -386,7 +386,7 @@ abstract class Smarty_Internal_TemplateCompilerBase
     public function compileTemplate(
         Smarty_Internal_Template $template,
         $nocache = null,
-        Smarty_Internal_TemplateCompilerBase $parent_compiler = null
+        ?Smarty_Internal_TemplateCompilerBase $parent_compiler = null
     ) {
         // get code frame of compiled template
         $_compiled_code = $template->smarty->ext->_codeFrame->create(
@@ -407,9 +407,9 @@ abstract class Smarty_Internal_TemplateCompilerBase
     /**
      * Compile template source and run optional post filter
      *
-     * @param \Smarty_Internal_Template             $template
-     * @param null|bool                             $nocache flag if template must be compiled in nocache mode
-     * @param \Smarty_Internal_TemplateCompilerBase $parent_compiler
+     * @param \Smarty_Internal_Template                  $template
+     * @param null|bool                                  $nocache flag if template must be compiled in nocache mode
+     * @param \Smarty_Internal_TemplateCompilerBase|null $parent_compiler
      *
      * @return string
      * @throws \Exception
@@ -417,7 +417,7 @@ abstract class Smarty_Internal_TemplateCompilerBase
     public function compileTemplateSource(
         Smarty_Internal_Template $template,
         $nocache = null,
-        Smarty_Internal_TemplateCompilerBase $parent_compiler = null
+        ?Smarty_Internal_TemplateCompilerBase $parent_compiler = null
     ) {
         try {
             // save template object in compiler class
@@ -455,15 +455,29 @@ abstract class Smarty_Internal_TemplateCompilerBase
             $this->smarty->_current_file = $this->template->source->filepath;
             // get template source
             if (!empty($this->template->source->components)) {
-                // we have array of inheritance templates by extends: resource
-                // generate corresponding source code sequence
-                $_content =
-                    Smarty_Internal_Compile_Extends::extendsSourceArrayCode($this->template);
+				$_compiled_code = '<?php $_smarty_tpl->_loadInheritance(); $_smarty_tpl->inheritance->init($_smarty_tpl, true); ?>';
+
+				$i = 0;
+				$reversed_components = array_reverse($this->template->getSource()->components);
+				foreach ($reversed_components as $source) {
+					$i++;
+					if ($i === count($reversed_components)) {
+						$_compiled_code .= '<?php $_smarty_tpl->inheritance->endChild($_smarty_tpl); ?>';
+					}
+					$_compiled_code .= $this->compileTag(
+						'include',
+						[
+							var_export($source->resource, true),
+							['scope' => 'parent'],
+						]
+					);
+				}
+				$_compiled_code = $this->postFilter($_compiled_code, $this->template);
             } else {
                 // get template source
                 $_content = $this->template->source->getContent();
+				$_compiled_code = $this->postFilter($this->doCompile($this->preFilter($_content), true));
             }
-            $_compiled_code = $this->postFilter($this->doCompile($this->preFilter($_content), true));
             if (!empty($this->required_plugins[ 'compiled' ]) || !empty($this->required_plugins[ 'nocache' ])) {
                 $_compiled_code = '<?php ' . $this->compileRequiredPlugins() . "?>\n" . $_compiled_code;
             }
@@ -605,7 +619,7 @@ abstract class Smarty_Internal_TemplateCompilerBase
             if (strcasecmp($name, 'isset') === 0 || strcasecmp($name, 'empty') === 0
                 || strcasecmp($name, 'array') === 0 || is_callable($name)
             ) {
-                $func_name = strtolower($name);
+                $func_name = smarty_strtolower_ascii($name);
 
                 if ($func_name === 'isset') {
                     if (count($parameter) === 0) {
@@ -640,7 +654,18 @@ abstract class Smarty_Internal_TemplateCompilerBase
                         return $func_name . '(' . $parameter[ 0 ] . ')';
                     }
                 } else {
-                    return $name . '(' . implode(',', $parameter) . ')';
+
+					if (
+						!$this->smarty->loadPlugin('smarty_modifiercompiler_' . $name)
+						&& !isset($this->smarty->registered_plugins[Smarty::PLUGIN_MODIFIER][$name])
+						&& !in_array($name, ['time', 'join', 'is_array', 'in_array', 'count'])
+					) {
+						trigger_error('Using unregistered function "' . $name . '" in a template is deprecated and will be ' .
+							'removed in a future release. Use Smarty::registerPlugin to explicitly register ' .
+							'a custom modifier.', E_USER_DEPRECATED);
+					}
+
+					return $name . '(' . implode(',', $parameter) . ')';
                 }
             } else {
                 $this->trigger_template_error("unknown function '{$name}'");
@@ -765,7 +790,7 @@ abstract class Smarty_Internal_TemplateCompilerBase
         if (!isset(self::$_tag_objects[ $tag ])) {
             // lazy load internal compiler plugin
             $_tag = explode('_', $tag);
-            $_tag = array_map('ucfirst', $_tag);
+            $_tag = array_map('smarty_ucfirst_ascii', $_tag);
             $class_name = 'Smarty_Internal_Compile_' . implode('_', $_tag);
             if (class_exists($class_name)
                 && (!isset($this->smarty->security_policy) || $this->smarty->security_policy->isTrustedTag($tag, $this))
@@ -1131,8 +1156,12 @@ abstract class Smarty_Internal_TemplateCompilerBase
             echo ob_get_clean();
             flush();
         }
-        $e = new SmartyCompilerException($error_text);
-        $e->setLine($line);
+        $e = new SmartyCompilerException(
+            $error_text,
+            0,
+            $this->template->source->filepath,
+            $line
+        );
         $e->source = trim(preg_replace('![\t\r\n]+!', ' ', $match[ $line - 1 ]));
         $e->desc = $args;
         $e->template = $this->template->source->filepath;
