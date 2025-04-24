@@ -1168,6 +1168,7 @@ class CakeTime {
  */
 	protected static function _strftime($format, $timestamp) {
 		$format = strftime($format, $timestamp);
+
 		$encoding = Configure::read('App.encoding');
 		if (!empty($encoding) && $encoding === 'UTF-8') {
 			if (function_exists('mb_check_encoding')) {
@@ -1176,7 +1177,7 @@ class CakeTime {
 				$valid = Multibyte::checkMultibyte($format);
 			}
 			if (!$valid) {
-				$format = utf8_encode($format);
+				$format = mb_convert_encoding($format, 'UTF-8', 'ISO-8859-1');
 			}
 		}
 		return $format;

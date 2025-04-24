@@ -41,7 +41,7 @@ class BasicAuthenticateTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$this->Collection = $this->getMock('ComponentCollection');
 		$this->auth = new BasicAuthenticate($this->Collection, array(
@@ -298,11 +298,11 @@ class BasicAuthenticateTest extends CakeTestCase {
 /**
  * test scope failure.
  *
- * @expectedException UnauthorizedException
- * @expectedExceptionCode 401
  * @return void
  */
 	public function testAuthenticateFailReChallenge() {
+		$this->expectException(UnauthorizedException::class);
+		$this->expectExceptionCode(401);
 		$this->auth->settings['scope'] = array('user' => 'nate');
 		$request = new CakeRequest('posts/index', false);
 		$request->addParams(array('pass' => array(), 'named' => array()));

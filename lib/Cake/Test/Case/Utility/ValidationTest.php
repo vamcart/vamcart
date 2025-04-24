@@ -119,7 +119,7 @@ class ValidationTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$this->_appEncoding = Configure::read('App.encoding');
 		$this->_appLocale = array();
@@ -134,7 +134,7 @@ class ValidationTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		Configure::write('App.encoding', $this->_appEncoding);
 		foreach ($this->_appLocale as $category => $locale) {
@@ -2294,20 +2294,20 @@ class ValidationTest extends CakeTestCase {
 /**
  * test pass through failure on postal
  *
- * @expectedException PHPUnit_Framework_Error
  * @return void
  */
 	public function testPassThroughMethodFailure() {
+		$this->expectWarning();
 		Validation::phone('text', null, 'testNl');
 	}
 
 /**
  * test the pass through calling of an alternate locale with postal()
  *
- * @expectedException PHPUnit_Framework_Error
  * @return void
  */
 	public function testPassThroughClassFailure() {
+		$this->expectWarning();
 		Validation::postal('text', null, 'AUTOFAIL');
 	}
 
@@ -2405,10 +2405,10 @@ class ValidationTest extends CakeTestCase {
 /**
  * testMimeTypeFalse method
  *
- * @expectedException CakeException
  * @return void
  */
 	public function testMimeTypeFalse() {
+		$this->expectException(CakeException::class);
 		$image = CORE_PATH . 'Cake' . DS . 'Test' . DS . 'test_app' . DS . 'webroot' . DS . 'img' . DS . 'cake.power.gif';
 		$File = new File($image, false);
 		$this->skipIf($File->mime(), 'mimeType can be determined, no Exception will be thrown');

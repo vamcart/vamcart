@@ -37,7 +37,7 @@ class CakeTimeTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$this->Time = new CakeTime();
 		$this->_systemTimezoneIdentifier = date_default_timezone_get();
@@ -49,7 +49,7 @@ class CakeTimeTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		unset($this->Time);
 		$this->_restoreSystemTimezone();
@@ -279,19 +279,19 @@ class CakeTimeTest extends CakeTestCase {
 		$this->assertEquals('on 2007-09-25', $result);
 
 		$result = $this->Time->timeAgoInWords('2007-9-25', '%x');
-		$this->assertEquals('on ' . strftime('%x', strtotime('2007-9-25')), $result);
+		$this->assertEquals('on ' . PHP81_BC\strftime('%x', strtotime('2007-9-25')), $result);
 
 		$result = $this->Time->timeAgoInWords(
 			strtotime('+2 weeks +2 days'),
 			'Y-m-d'
 		);
-		$this->assertRegExp('/^in 2 weeks, [1|2] day(s)?$/', $result);
+		$this->assertMatchesRegularExpression('/^in 2 weeks, [1|2] day(s)?$/', $result);
 
 		$result = $this->Time->timeAgoInWords(
 			strtotime('+2 weeks +2 days'),
 			'%x'
 		);
-		$this->assertRegExp('/^in 2 weeks, [1|2] day(s)?$/', $result);
+		$this->assertMatchesRegularExpression('/^in 2 weeks, [1|2] day(s)?$/', $result);
 
 		$result = $this->Time->timeAgoInWords(
 			strtotime('+2 months +2 days'),
@@ -303,7 +303,9 @@ class CakeTimeTest extends CakeTestCase {
 			strtotime('+2 months +2 days'),
 			array('end' => '1 month', 'format' => '%x')
 		);
-		$this->assertEquals('on ' . strftime('%x', strtotime('+2 months +2 days')), $result);
+		// @codingStandardsIgnoreStart
+		$this->assertEquals('on ' . PHP81_BC\strftime('%x', strtotime('+2 months +2 days')), $result);
+		// @codingStandardsIgnoreEnd
 	}
 
 /**
@@ -472,11 +474,11 @@ class CakeTimeTest extends CakeTestCase {
  * @return void
  */
 	public function testNiceShortI18n() {
-		$restore = setlocale(LC_ALL, 0);
-		setlocale(LC_ALL, 'es_ES');
+		$restore = Locale::getDefault();
+		Locale::setDefault('es_ES');
 		$time = strtotime('2015-01-07 03:05:00');
 		$this->assertEquals('ene 7th 2015, 03:05', $this->Time->niceShort($time));
-		setlocale(LC_ALL, $restore);
+		Locale::setDefault($restore);
 	}
 
 /**
@@ -1162,6 +1164,7 @@ class CakeTimeTest extends CakeTestCase {
  * @return void
  */
 	public function testI18nFormat() {
+		$resetLocale = Locale::getDefault();
 		App::build(array(
 			'Locale' => array(CAKE . 'Test' . DS . 'test_app' . DS . 'Locale' . DS)
 		), App::RESET);
@@ -1169,12 +1172,15 @@ class CakeTimeTest extends CakeTestCase {
 
 		$time = strtotime('Thu Jan 14 13:59:28 2010');
 
+		Locale::setDefault('en_US');
 		$result = $this->Time->i18nFormat($time);
 		$expected = '14/01/10';
 		$this->assertEquals($expected, $result);
 
 		$result = $this->Time->i18nFormat($time, '%c');
-		$expected = 'jue 14 ene 2010 13:59:28 ' . utf8_encode(strftime('%Z', $time));
+		// @codingStandardsIgnoreStart
+		$expected = 'jue 14 ene 2010 13:59:28 ' . mb_convert_encoding(PHP81_BC\strftime('%Z', $time), 'UTF-8', 'ISO-8859-1');
+		// @codingStandardsIgnoreEnd
 		$this->assertEquals($expected, $result);
 
 		$result = $this->Time->i18nFormat($time, 'Time is %r, and date is %x');
@@ -1188,7 +1194,7 @@ class CakeTimeTest extends CakeTestCase {
 		$this->assertEquals($expected, $result);
 
 		$result = $this->Time->i18nFormat($time, '%c');
-		$expected = 'mié 13 ene 2010 13:59:28 ' . utf8_encode(strftime('%Z', $time));
+		$expected = 'mié 13 ene 2010 13:59:28 ' . mb_convert_encoding(PHP81_BC\strftime('%Z', $time), 'UTF-8', 'ISO-8859-1');
 		$this->assertEquals($expected, $result);
 
 		$result = $this->Time->i18nFormat($time, 'Time is %r, and date is %x');
@@ -1198,6 +1204,8 @@ class CakeTimeTest extends CakeTestCase {
 		$result = $this->Time->i18nFormat('invalid date', '%x', 'Date invalid');
 		$expected = 'Date invalid';
 		$this->assertEquals($expected, $result);
+
+		Locale::setDefault($resetLocale);
 	}
 
 	public function testI18nFormatTimezoneConversionToUTC() {

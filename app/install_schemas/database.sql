@@ -39,7 +39,7 @@ INSERT INTO `configurations` (`id`, `configuration_group_id`, `key`, `value`, `t
 (3,'1','FACEBOOK', 'http://facebook.com/your-account','text', '', 'Facebook','','3'),
 (4,'1','TWITTER', 'http://twitter.com/your-account','text', '', 'Twitter','','4'),
 (5,'1','GOOGLE', 'http://plus.google.com/your-account','text', '', 'Google+','','5'),
-(6,'1','METADATA', '<meta name="generator" content="Bluefish 2.2.7" />','textarea', '', 'Metadata','','6'),
+(6,'1','METADATA', '<meta name="generator" content="Bluefish 2.2.12" />','textarea', '', 'Metadata','','6'),
 (7,'1','URL_EXTENSION', '.html','text', '', 'URL Extension','','7'),
 (8,'1','GD_LIBRARY', '1','select', '0,1', 'GD Library Enabled','','8'),
 (9,'1','THUMBNAIL_SIZE', '250','text', '', 'Image Thumbnail Size','','9'),
@@ -1280,8 +1280,8 @@ CREATE TABLE `answer_template_descriptions` (
   INDEX answer_template_id (answer_template_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-DROP TABLE IF EXISTS attributes;
-CREATE TABLE `attributes` (
+DROP TABLE IF EXISTS attrs;
+CREATE TABLE `attrs` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `parent_id` int(10) DEFAULT NULL,
   `content_id` int(10) DEFAULT NULL,
@@ -1301,7 +1301,7 @@ CREATE TABLE `attributes` (
   INDEX order_id (`order`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `attributes` VALUES 
+INSERT INTO `attrs` VALUES 
 (1,0,39,NULL,NULL,1,4,NULL,0,1,1,1,0),
 (2,1,0,'list_value','',1,NULL,'0',0,NULL,NULL,NULL,NULL),
 (3,1,0,'list_value','',2,NULL,'0',0,NULL,NULL,NULL,NULL),
@@ -1510,7 +1510,7 @@ INSERT INTO `attributes` VALUES
 DROP TABLE IF EXISTS attribute_descriptions;
 CREATE TABLE `attribute_descriptions` (
   `dsc_id` int(10) NOT NULL AUTO_INCREMENT,
-  `attribute_id` int(10) DEFAULT NULL,
+  `attr_id` int(10) DEFAULT NULL,
   `language_id` int(10) DEFAULT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `description` text COLLATE utf8_unicode_ci,
@@ -1518,7 +1518,7 @@ CREATE TABLE `attribute_descriptions` (
   `meta_description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `meta_keywords` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`dsc_id`),
-  INDEX attribute_id (attribute_id)
+  INDEX attr_id (attr_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 INSERT INTO `attribute_descriptions` VALUES 

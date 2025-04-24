@@ -137,7 +137,7 @@ class ShellTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 
 		$output = $this->getMock('ConsoleOutput', array(), array(), '', false);
@@ -607,7 +607,7 @@ class ShellTest extends CakeTestCase {
 
 		$this->Shell->interactive = false;
 
-		$contents = "<?php{$eol}echo 'test';${eol}\$te = 'st';{$eol}";
+		$contents = "<?php{$eol}echo 'test';{$eol}\$te = 'st';{$eol}";
 		$result = $this->Shell->createFile($file, $contents);
 		$this->assertTrue($result);
 		$this->assertTrue(file_exists($file));
@@ -965,7 +965,7 @@ TEXT;
 		$this->Shell->log_something();
 		$this->assertTrue(file_exists(LOGS . 'error.log'));
 		$contents = file_get_contents(LOGS . 'error.log');
-		$this->assertContains($this->Shell->testMessage, $contents);
+		$this->assertStringContainsString($this->Shell->testMessage, $contents);
 
 		CakeLog::enable('stdout');
 		CakeLog::enable('stderr');
@@ -1014,10 +1014,10 @@ TEXT;
 /**
  * Test getting an invalid helper
  *
- * @expectedException RunTimeException
  * @return void
  */
 	public function testGetInvalidHelper() {
+		$this->expectException(RunTimeException::class);
 		$this->Shell->helper("tomato");
 	}
 

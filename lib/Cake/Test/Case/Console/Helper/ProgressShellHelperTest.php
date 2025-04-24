@@ -27,7 +27,7 @@ class ProgressShellHelperTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 
 		$this->consoleOutput = new ConsoleOutputStub();
@@ -37,10 +37,10 @@ class ProgressShellHelperTest extends CakeTestCase {
 /**
  * Test that a callback is required.*
  *
- * @expectedException \RuntimeException
  * @return void
  */
 	public function testOutputFailure() {
+		$this->expectException(\RuntimeException::class);
 		$this->helper->output(array('not a callback'));
 	}
 

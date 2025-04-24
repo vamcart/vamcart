@@ -49,7 +49,7 @@ class ModelTaskTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$out = $this->getMock('ConsoleOutput', array(), array(), '', false);
 		$in = $this->getMock('ConsoleInput', array(), array(), '', false);
@@ -99,7 +99,7 @@ class ModelTaskTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		unset($this->Task);
 	}
@@ -528,7 +528,7 @@ class ModelTaskTest extends CakeTestCase {
 			'two' => array(),
 			'key' => array('key' => 'primary')
 		);
-		$anything = new PHPUnit_Framework_Constraint_IsAnything();
+		$anything = new \PHPUnit\Framework\Constraint\IsAnything();
 		$this->Task->expects($this->once())->method('in')
 			->with($anything, null, 'key')
 			->will($this->returnValue('my_field'));
@@ -851,8 +851,8 @@ class ModelTaskTest extends CakeTestCase {
 			)
 		);
 		$result = $this->Task->bake('BakeArticle', compact('validate'));
-		$this->assertRegExp('/class BakeArticle extends AppModel \{/', $result);
-		$this->assertRegExp('/\$validate \= array\(/', $result);
+		$this->assertMatchesRegularExpression('/class BakeArticle extends AppModel \{/', $result);
+		$this->assertMatchesRegularExpression('/\$validate \= array\(/', $result);
 		$expected = <<< STRINGEND
 array(
 			'notBlank' => array(
@@ -864,7 +864,7 @@ array(
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 STRINGEND;
-		$this->assertRegExp('/' . preg_quote(str_replace("\r\n", "\n", $expected), '/') . '/', $result);
+		$this->assertMatchesRegularExpression('/' . preg_quote(str_replace("\r\n", "\n", $expected), '/') . '/', $result);
 	}
 
 /**
@@ -911,18 +911,18 @@ STRINGEND;
 			)
 		);
 		$result = $this->Task->bake('BakeArticle', compact('associations'));
-		$this->assertContains(' * @property BakeUser $BakeUser', $result);
-		$this->assertContains(' * @property OtherModel $OtherModel', $result);
-		$this->assertContains(' * @property BakeComment $BakeComment', $result);
-		$this->assertContains(' * @property BakeTag $BakeTag', $result);
-		$this->assertRegExp('/\$hasAndBelongsToMany \= array\(/', $result);
-		$this->assertRegExp('/\$hasMany \= array\(/', $result);
-		$this->assertRegExp('/\$belongsTo \= array\(/', $result);
-		$this->assertRegExp('/\$hasOne \= array\(/', $result);
-		$this->assertRegExp('/BakeTag/', $result);
-		$this->assertRegExp('/OtherModel/', $result);
-		$this->assertRegExp('/SomethingElse/', $result);
-		$this->assertRegExp('/BakeComment/', $result);
+		$this->assertStringContainsString(' * @property BakeUser $BakeUser', $result);
+		$this->assertStringContainsString(' * @property OtherModel $OtherModel', $result);
+		$this->assertStringContainsString(' * @property BakeComment $BakeComment', $result);
+		$this->assertStringContainsString(' * @property BakeTag $BakeTag', $result);
+		$this->assertMatchesRegularExpression('/\$hasAndBelongsToMany \= array\(/', $result);
+		$this->assertMatchesRegularExpression('/\$hasMany \= array\(/', $result);
+		$this->assertMatchesRegularExpression('/\$belongsTo \= array\(/', $result);
+		$this->assertMatchesRegularExpression('/\$hasOne \= array\(/', $result);
+		$this->assertMatchesRegularExpression('/BakeTag/', $result);
+		$this->assertMatchesRegularExpression('/OtherModel/', $result);
+		$this->assertMatchesRegularExpression('/SomethingElse/', $result);
+		$this->assertMatchesRegularExpression('/BakeComment/', $result);
 	}
 
 /**
@@ -940,7 +940,7 @@ STRINGEND;
 			->with($path, $this->stringContains('BakeArticle extends ControllerTestAppModel'));
 
 		$result = $this->Task->bake('BakeArticle', array(), array());
-		$this->assertContains("App::uses('ControllerTestAppModel', 'ControllerTest.Model');", $result);
+		$this->assertStringContainsString("App::uses('ControllerTestAppModel', 'ControllerTest.Model');", $result);
 
 		$this->assertEquals(count(ClassRegistry::keys()), 0);
 		$this->assertEquals(count(ClassRegistry::mapKeys()), 0);

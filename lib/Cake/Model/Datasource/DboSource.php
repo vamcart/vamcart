@@ -17,6 +17,7 @@
  */
 
 App::uses('DataSource', 'Model/Datasource');
+App::uses('PDOExceptionWithQueryString', 'Model/Datasource');
 App::uses('CakeText', 'Utility');
 App::uses('View', 'View');
 
@@ -488,7 +489,7 @@ class DboSource extends DataSource {
  */
 	protected function _execute($sql, $params = array(), $prepareOptions = array()) {
 		$sql = trim($sql);
-		if (preg_match('/^(?:CREATE|ALTER|DROP)\s+(?:TABLE|INDEX)/i', $sql)) {
+		if (preg_match('/^(?:CREATE|ALTER|DROP)\s+(?:UNIQUE\s+)?(?:TABLE|INDEX)/i', $sql)) {
 			$statements = array_filter(explode(';', $sql));
 			if (count($statements) > 1) {
 				$result = array_map(array($this, '_execute'), $statements);
@@ -512,12 +513,13 @@ class DboSource extends DataSource {
 			}
 			return $query;
 		} catch (PDOException $e) {
+			$wrapperException = new PDOExceptionWithQueryString($e);
 			if (isset($query->queryString)) {
-				$e->queryString = $query->queryString;
+				$wrapperException->queryString = $query->queryString;
 			} else {
-				$e->queryString = $sql;
+				$wrapperException->queryString = $sql;
 			}
-			throw $e;
+			throw $wrapperException;
 		}
 	}
 
@@ -527,7 +529,7 @@ class DboSource extends DataSource {
  * @param PDOStatement $query the query to extract the error from if any
  * @return string Error message with error number
  */
-	public function lastError(PDOStatement $query = null) {
+	public function lastError(?PDOStatement $query = null) {
 		if ($query) {
 			$error = $query->errorInfo();
 		} else {
@@ -2761,7 +2763,7 @@ class DboSource extends DataSource {
  * @param Model $Model A reference to the Model instance making the query
  * @return string SQL fragment
  */
-	public function conditions($conditions, $quoteValues = true, $where = true, Model $Model = null) {
+	public function conditions($conditions, $quoteValues = true, $where = true, ?Model $Model = null) {
 		$clause = $out = '';
 
 		if ($where) {
@@ -2804,7 +2806,7 @@ class DboSource extends DataSource {
  * @param Model $Model A reference to the Model instance making the query
  * @return string SQL fragment
  */
-	public function conditionKeysToString($conditions, $quoteValues = true, Model $Model = null) {
+	public function conditionKeysToString($conditions, $quoteValues = true, ?Model $Model = null) {
 		$out = array();
 		$data = $columnType = null;
 
@@ -2909,7 +2911,7 @@ class DboSource extends DataSource {
  * @param Model $Model Model object initiating the query
  * @return string
  */
-	protected function _parseKey($key, $value, Model $Model = null) {
+	protected function _parseKey($key, $value, ?Model $Model = null) {
 		$operatorMatch = '/^(((' . implode(')|(', $this->_sqlOps);
 		$operatorMatch .= ')\\x20?)|<[>=]?(?![^>]+>)\\x20?|[>=!]{1,3}(?!<)\\x20?)/is';
 		$bound = (strpos($key, '?') !== false || (is_array($value) && strpos($key, ':') !== false));
@@ -3083,7 +3085,7 @@ class DboSource extends DataSource {
  * @param Model $Model Model reference (used to look for virtual field)
  * @return string ORDER BY clause
  */
-	public function order($keys, $direction = 'ASC', Model $Model = null) {
+	public function order($keys, $direction = 'ASC', ?Model $Model = null) {
 		if (!is_array($keys)) {
 			$keys = array($keys);
 		}
@@ -3166,7 +3168,7 @@ class DboSource extends DataSource {
  * @param Model $Model The model to get group by fields for.
  * @return string Group By clause or null.
  */
-	public function group($fields, Model $Model = null) {
+	public function group($fields, ?Model $Model = null) {
 		if (empty($fields)) {
 			return null;
 		}
@@ -3196,7 +3198,7 @@ class DboSource extends DataSource {
  * @param Model $Model A reference to the Model instance making the query
  * @return string|null HAVING clause or null
  */
-	public function having($fields, $quoteValues = true, Model $Model = null) {
+	public function having($fields, $quoteValues = true, ?Model $Model = null) {
 		if (!$fields) {
 			return null;
 		}
@@ -3270,13 +3272,14 @@ class DboSource extends DataSource {
 		}
 		$sign = isset($result[3]);
 
+		if ($length === null) {
+			// prevent deprecation warnings
+			return null;
+		}
+
 		$isFloat = in_array($type, array('dec', 'decimal', 'float', 'numeric', 'double'));
 		if ($isFloat && strpos($length, ',') !== false) {
 			return $length;
-		}
-
-		if ($length === null) {
-			return null;
 		}
 
 		if (isset($types[$type])) {

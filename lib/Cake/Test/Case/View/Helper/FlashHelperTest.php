@@ -34,7 +34,7 @@ class FlashHelperTest extends CakeTestCase {
  *
  * @return void
  */
-	public static function setupBeforeClass() {
+	public static function setupBeforeClass() : void {
 		App::build(array(
 			'View' => array(CAKE . 'Test' . DS . 'test_app' . DS . 'View' . DS)
 		));
@@ -45,7 +45,7 @@ class FlashHelperTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$controller = null;
 		$this->View = new View($controller);
@@ -106,7 +106,7 @@ class FlashHelperTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		unset($this->View, $this->Flash);
 		CakeSession::destroy();
@@ -120,15 +120,15 @@ class FlashHelperTest extends CakeTestCase {
 	public function testFlash() {
 		$result = $this->Flash->render();
 		$expected = '<div class="message">This is the first Message</div><div class="message">This is the second Message</div>';
-		$this->assertContains($expected, $result);
+		$this->assertStringContainsString($expected, $result);
 
 		$expected = '<div id="classy-message">Recorded</div>';
 		$result = $this->Flash->render('classy');
-		$this->assertContains($expected, $result);
+		$this->assertStringContainsString($expected, $result);
 
 		$result = $this->Flash->render('notification');
 		$expected = "<div id=\"notificationLayout\">\n\t<h1>Alert!</h1>\n\t<h3>Notice!</h3>\n\t<p>Broadcast message testing</p>\n</div>";
-		$this->assertContains($expected, $result);
+		$this->assertStringContainsString($expected, $result);
 
 		$this->assertNull($this->Flash->render('non-existent'));
 	}
@@ -136,9 +136,9 @@ class FlashHelperTest extends CakeTestCase {
 /**
  * testFlashThrowsException
  *
- * @expectedException UnexpectedValueException
  */
 	public function testFlashThrowsException() {
+		$this->expectException(UnexpectedValueException::class);
 		CakeSession::write('Message.foo', 'bar');
 		$this->Flash->render('foo');
 	}
@@ -156,7 +156,7 @@ class FlashHelperTest extends CakeTestCase {
 
 		$expected = "<div id=\"notificationLayout\">\n\t<h1>Notice!</h1>\n\t<h3>Alert!</h3>\n\t<p>Broadcast message testing</p>\n</div>";
 
-		$this->assertContains($expected, $result);
+		$this->assertStringContainsString($expected, $result);
 	}
 
 /**
@@ -172,7 +172,7 @@ class FlashHelperTest extends CakeTestCase {
 
 		$result = $this->Flash->render('flash', array('element' => 'TestPlugin.plugin_element'));
 		$expected = 'this is the plugin element';
-		$this->assertContains($expected, $result);
+		$this->assertStringContainsString($expected, $result);
 	}
 
 /**
@@ -181,6 +181,6 @@ class FlashHelperTest extends CakeTestCase {
 	public function testFlashFallback() {
 		$result = $this->Flash->render('default');
 		$expected = '<div class="message">Default</div>';
-		$this->assertContains($expected, $result);
+		$this->assertStringContainsString($expected, $result);
 	}
 }

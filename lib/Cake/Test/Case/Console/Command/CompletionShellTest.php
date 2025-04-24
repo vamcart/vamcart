@@ -51,7 +51,7 @@ class CompletionShellTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		App::build(array(
 			'Plugin' => array(
@@ -84,7 +84,7 @@ class CompletionShellTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		unset($this->Shell);
 		CakePlugin::unload();
@@ -113,7 +113,7 @@ class CompletionShellTest extends CakeTestCase {
 		$output = $this->Shell->stdout->output;
 
 		$expected = "/This command is not intended to be called manually/";
-		$this->assertRegExp($expected, $output);
+		$this->assertMatchesRegularExpression($expected, $output);
 	}
 
 /**

@@ -164,8 +164,8 @@ class CakeText {
 			$format = sprintf(
 				'/(?<!%s)%s%%s%s/',
 				preg_quote($options['escape'], '/'),
-				str_replace('%', '%%', preg_quote($options['before'], '/')),
-				str_replace('%', '%%', preg_quote($options['after'], '/'))
+				str_replace('%', '%%', preg_quote((string)$options['before'], '/')),
+				str_replace('%', '%%', preg_quote((string)$options['after'], '/'))
 			);
 		}
 
@@ -193,7 +193,7 @@ class CakeText {
 		$dataReplacements = array_combine($hashKeys, array_values($data));
 		foreach ($dataReplacements as $tmpHash => $tmpValue) {
 			$tmpValue = (is_array($tmpValue)) ? '' : $tmpValue;
-			$str = str_replace($tmpHash, $tmpValue, $str);
+			$str = str_replace($tmpHash, $tmpValue ?? '', $str);
 		}
 
 		if (!isset($options['format']) && isset($options['before'])) {

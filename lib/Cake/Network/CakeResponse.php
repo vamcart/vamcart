@@ -516,7 +516,7 @@ class CakeResponse {
 			if (ini_get('mbstring.func_overload') & 2 && function_exists('mb_strlen')) {
 				$this->length($offset + mb_strlen($this->_body, '8bit'));
 			} else {
-				$this->length($this->_headers['Content-Length'] = $offset + strlen($this->_body));
+				$this->length($this->_headers['Content-Length'] = $offset + ($this->_body === null ? 0 : strlen($this->_body)));
 			}
 		}
 	}
@@ -1164,7 +1164,7 @@ class CakeResponse {
 		$ifNoneMatchHeader = $request->header('If-None-Match');
 		$etags = array();
 		if (is_string($ifNoneMatchHeader)) {
-			$etags = preg_split('/\s*,\s*/', $ifNoneMatchHeader, null, PREG_SPLIT_NO_EMPTY);
+			$etags = preg_split('/\s*,\s*/', $ifNoneMatchHeader, 0, PREG_SPLIT_NO_EMPTY);
 		}
 		$modifiedSince = $request->header('If-Modified-Since');
 		$checks = array();
@@ -1172,7 +1172,11 @@ class CakeResponse {
 			$checks[] = in_array('*', $etags) || in_array($responseTag, $etags);
 		}
 		if ($modifiedSince) {
-			$checks[] = strtotime($this->modified()) === strtotime($modifiedSince);
+			if ($this->modified() === null) {
+				$checks[] = strtotime($modifiedSince) === false;
+			} else {
+				$checks[] = strtotime($this->modified()) === strtotime($modifiedSince);
+			}
 		}
 		if (empty($checks)) {
 			return false;

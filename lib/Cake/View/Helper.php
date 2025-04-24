@@ -573,7 +573,7 @@ class Helper extends CakeObject {
 		if ($setScope === true) {
 			$this->_modelScope = $entity;
 		}
-		$parts = array_values(Hash::filter(explode('.', $entity)));
+		$parts = $entity !== null ? array_values(Hash::filter(explode('.', $entity))) : [];
 		if (empty($parts)) {
 			return;
 		}
@@ -632,7 +632,7 @@ class Helper extends CakeObject {
  * @return array An array containing the identity elements of an entity
  */
 	public function entity() {
-		return explode('.', $this->_entityPath);
+		return explode('.', (string)$this->_entityPath);
 	}
 
 /**
@@ -958,11 +958,7 @@ class Helper extends CakeObject {
  * @return void
  */
 	protected function _clean() {
-		if (get_magic_quotes_gpc()) {
-			$this->_cleaned = stripslashes($this->_tainted);
-		} else {
-			$this->_cleaned = $this->_tainted;
-		}
+		$this->_cleaned = $this->_tainted;
 
 		$this->_cleaned = str_replace(array("&amp;", "&lt;", "&gt;"), array("&amp;amp;", "&amp;lt;", "&amp;gt;"), $this->_cleaned);
 		$this->_cleaned = preg_replace('#(&\#*\w+)[\x00-\x20]+;#u', "$1;", $this->_cleaned);

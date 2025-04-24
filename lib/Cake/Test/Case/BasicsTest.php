@@ -34,7 +34,7 @@ class BasicsTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		App::build(array(
 			'Locale' => array(CAKE . 'Test' . DS . 'test_app' . DS . 'Locale' . DS)
@@ -243,6 +243,9 @@ class BasicsTest extends CakeTestCase {
 		$obj = new CakeResponse(array('body' => 'Body content'));
 		$result = h($obj);
 		$this->assertEquals('Body content', $result);
+
+		$result = h(null);
+		$this->assertEquals('', $result);
 	}
 
 /**
@@ -806,9 +809,9 @@ class BasicsTest extends CakeTestCase {
 		}
 
 		$result = file_get_contents(LOGS . 'error.log');
-		$this->assertRegExp('/Error: Testing LogError\(\) basic function/', $result);
-		$this->assertNotRegExp("/Error: Testing with\nmulti-line\nstring/", $result);
-		$this->assertRegExp('/Error: Testing with multi-line string/', $result);
+		$this->assertMatchesRegularExpression('/Error: Testing LogError\(\) basic function/', $result);
+		$this->assertDoesNotMatchRegularExpression("/Error: Testing with\nmulti-line\nstring/", $result);
+		$this->assertMatchesRegularExpression('/Error: Testing with multi-line string/', $result);
 	}
 
 /**

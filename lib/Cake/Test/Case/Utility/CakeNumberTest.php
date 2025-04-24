@@ -31,7 +31,7 @@ class CakeNumberTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$this->Number = new CakeNumber();
 	}
@@ -41,7 +41,7 @@ class CakeNumberTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		unset($this->Number);
 	}
@@ -343,7 +343,7 @@ class CakeNumberTest extends CakeTestCase {
 			'places' => 2,
 			'decimal' => '.'
 		));
-		$this->assertEquals('0.2', $result);
+		$this->assertEquals('0.20', $result);
 	}
 
 /**
@@ -752,10 +752,10 @@ class CakeNumberTest extends CakeTestCase {
 /**
  * testFromReadableSize
  *
- * @expectedException CakeException
  * @return void
  */
 	public function testFromReadableSizeException() {
+		$this->expectException(CakeException::class);
 		$this->Number->fromReadableSize('bogus', false);
 	}
 

@@ -102,7 +102,7 @@ class SchemaShellTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 
 		$out = $this->getMock('ConsoleOutput', array(), array(), '', false);
@@ -119,7 +119,7 @@ class SchemaShellTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		if (!empty($this->file) && $this->file instanceof File) {
 			$this->file->delete();
@@ -218,14 +218,14 @@ class SchemaShellTest extends CakeTestCase {
 
 		$this->file = new File(TMP . 'tests' . DS . 'i18n.sql');
 		$contents = $this->file->read();
-		$this->assertRegExp('/DROP TABLE/', $contents);
-		$this->assertRegExp('/CREATE TABLE.*?i18n/', $contents);
-		$this->assertRegExp('/id/', $contents);
-		$this->assertRegExp('/model/', $contents);
-		$this->assertRegExp('/field/', $contents);
-		$this->assertRegExp('/locale/', $contents);
-		$this->assertRegExp('/foreign_key/', $contents);
-		$this->assertRegExp('/content/', $contents);
+		$this->assertMatchesRegularExpression('/DROP TABLE/', $contents);
+		$this->assertMatchesRegularExpression('/CREATE TABLE.*?i18n/', $contents);
+		$this->assertMatchesRegularExpression('/id/', $contents);
+		$this->assertMatchesRegularExpression('/model/', $contents);
+		$this->assertMatchesRegularExpression('/field/', $contents);
+		$this->assertMatchesRegularExpression('/locale/', $contents);
+		$this->assertMatchesRegularExpression('/foreign_key/', $contents);
+		$this->assertMatchesRegularExpression('/content/', $contents);
 	}
 
 /**
@@ -250,9 +250,9 @@ class SchemaShellTest extends CakeTestCase {
 		$this->file = new File(TMP . 'tests' . DS . 'dump_test.sql');
 		$contents = $this->file->read();
 
-		$this->assertRegExp('/CREATE TABLE.*?test_plugin_acos/', $contents);
-		$this->assertRegExp('/id/', $contents);
-		$this->assertRegExp('/model/', $contents);
+		$this->assertMatchesRegularExpression('/CREATE TABLE.*?test_plugin_acos/', $contents);
+		$this->assertMatchesRegularExpression('/id/', $contents);
+		$this->assertMatchesRegularExpression('/model/', $contents);
 
 		$this->file->delete();
 		App::build();
@@ -313,7 +313,7 @@ class SchemaShellTest extends CakeTestCase {
 		$this->Shell->expects($this->once())->method('in')->will($this->returnValue('o'));
 
 		$this->Shell->expects($this->at(2))->method('out')
-			->with(new PHPUnit_Framework_Constraint_PCREMatch('/Schema file:\s[a-z\.]+\sgenerated/'));
+			->with(new PHPUnit\Framework\Constraint\RegularExpression('/Schema file:\s[a-z\.]+\sgenerated/'));
 
 		$this->Shell->Schema = $this->getMock('CakeSchema');
 		$this->Shell->Schema->path = TMP;
@@ -353,13 +353,13 @@ class SchemaShellTest extends CakeTestCase {
 		$this->file = new File(TMP . 'tests' . DS . 'schema.php');
 		$contents = $this->file->read();
 
-		$this->assertRegExp('/class TestPluginSchema/', $contents);
-		$this->assertRegExp('/public \$posts/', $contents);
-		$this->assertRegExp('/public \$auth_users/', $contents);
-		$this->assertRegExp('/public \$authors/', $contents);
-		$this->assertRegExp('/public \$test_plugin_comments/', $contents);
-		$this->assertNotRegExp('/public \$users/', $contents);
-		$this->assertNotRegExp('/public \$articles/', $contents);
+		$this->assertMatchesRegularExpression('/class TestPluginSchema/', $contents);
+		$this->assertMatchesRegularExpression('/public \$posts/', $contents);
+		$this->assertMatchesRegularExpression('/public \$auth_users/', $contents);
+		$this->assertMatchesRegularExpression('/public \$authors/', $contents);
+		$this->assertMatchesRegularExpression('/public \$test_plugin_comments/', $contents);
+		$this->assertDoesNotMatchRegularExpression('/public \$users/', $contents);
+		$this->assertDoesNotMatchRegularExpression('/public \$articles/', $contents);
 		CakePlugin::unload();
 	}
 
@@ -389,11 +389,11 @@ class SchemaShellTest extends CakeTestCase {
 		$this->file = new File(TMP . 'tests' . DS . 'schema.php');
 		$contents = $this->file->read();
 
-		$this->assertRegExp('/class TestPluginSchema/', $contents);
-		$this->assertRegExp('/public \$test_plugin_comments/', $contents);
-		$this->assertNotRegExp('/public \$authors/', $contents);
-		$this->assertNotRegExp('/public \$auth_users/', $contents);
-		$this->assertNotRegExp('/public \$posts/', $contents);
+		$this->assertMatchesRegularExpression('/class TestPluginSchema/', $contents);
+		$this->assertMatchesRegularExpression('/public \$test_plugin_comments/', $contents);
+		$this->assertDoesNotMatchRegularExpression('/public \$authors/', $contents);
+		$this->assertDoesNotMatchRegularExpression('/public \$auth_users/', $contents);
+		$this->assertDoesNotMatchRegularExpression('/public \$posts/', $contents);
 		CakePlugin::unload();
 	}
 
@@ -419,9 +419,9 @@ class SchemaShellTest extends CakeTestCase {
 		$this->file = new File(TMP . 'tests' . DS . 'schema.php');
 		$contents = $this->file->read();
 
-		$this->assertNotContains('public $acos = array(', $contents);
-		$this->assertNotContains('public $aros = array(', $contents);
-		$this->assertContains('public $aros_acos = array(', $contents);
+		$this->assertStringNotContainsString('public $acos = array(', $contents);
+		$this->assertStringNotContainsString('public $aros = array(', $contents);
+		$this->assertStringContainsString('public $aros_acos = array(', $contents);
 	}
 
 /**
@@ -628,7 +628,7 @@ class SchemaShellTest extends CakeTestCase {
 		$this->Shell->generate();
 
 		$contents = file_get_contents($this->Shell->Schema->path . DS . 'custom_names.php');
-		$this->assertRegExp('/class CustomNamesSchema/', $contents);
+		$this->assertMatchesRegularExpression('/class CustomNamesSchema/', $contents);
 		unlink($this->Shell->Schema->path . DS . 'custom_names.php');
 		CakePlugin::unload();
 	}
@@ -661,7 +661,7 @@ class SchemaShellTest extends CakeTestCase {
 
 		$this->assertFileExists($file);
 		$contents = file_get_contents($file);
-		$this->assertRegExp('/class CustomNameSchema/', $contents);
+		$this->assertMatchesRegularExpression('/class CustomNameSchema/', $contents);
 
 		if (file_exists($file)) {
 			unlink($file);

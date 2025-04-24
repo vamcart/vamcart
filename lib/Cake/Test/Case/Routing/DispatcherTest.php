@@ -543,7 +543,7 @@ class DispatcherTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$this->_get = $_GET;
 		$_GET = array();
@@ -571,7 +571,7 @@ class DispatcherTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		$_GET = $this->_get;
 		$_POST = $this->_post;
@@ -635,7 +635,7 @@ class DispatcherTest extends CakeTestCase {
 		$this->assertSame($test['controller'], 'testcontroller');
 		$this->assertSame($test['action'], 'testaction');
 		$this->assertSame($test['pass'][0], '1');
-		$this->assertRegExp('/\\A(?:0)\\z/', $test['pass'][1]);
+		$this->assertMatchesRegularExpression('/\\A(?:0)\\z/', $test['pass'][1]);
 		$this->assertSame($test['pass'][2], '23');
 	}
 
@@ -651,12 +651,12 @@ class DispatcherTest extends CakeTestCase {
 		$event = new CakeEvent('DispatcherTest', $Dispatcher, array('request' => $test));
 		$Dispatcher->parseParams($event);
 
-		$this->assertRegExp('/\\A(?:0)\\z/', $test['pass'][0]);
-		$this->assertRegExp('/\\A(?:0)\\z/', $test['pass'][1]);
-		$this->assertRegExp('/\\A(?:0)\\z/', $test['pass'][2]);
-		$this->assertRegExp('/\\A(?:0)\\z/', $test['pass'][3]);
-		$this->assertRegExp('/\\A(?:0)\\z/', $test['pass'][4]);
-		$this->assertRegExp('/\\A(?:0)\\z/', $test['pass'][5]);
+		$this->assertMatchesRegularExpression('/\\A(?:0)\\z/', $test['pass'][0]);
+		$this->assertMatchesRegularExpression('/\\A(?:0)\\z/', $test['pass'][1]);
+		$this->assertMatchesRegularExpression('/\\A(?:0)\\z/', $test['pass'][2]);
+		$this->assertMatchesRegularExpression('/\\A(?:0)\\z/', $test['pass'][3]);
+		$this->assertMatchesRegularExpression('/\\A(?:0)\\z/', $test['pass'][4]);
+		$this->assertMatchesRegularExpression('/\\A(?:0)\\z/', $test['pass'][5]);
 	}
 
 /**
@@ -671,12 +671,12 @@ class DispatcherTest extends CakeTestCase {
 		$event = new CakeEvent('DispatcherTest', $Dispatcher, array('request' => $test));
 		$Dispatcher->parseParams($event);
 
-		$this->assertRegExp('/\\A(?:000)\\z/', $test['pass'][0]);
-		$this->assertRegExp('/\\A(?:0000)\\z/', $test['pass'][1]);
-		$this->assertRegExp('/\\A(?:00000)\\z/', $test['pass'][2]);
-		$this->assertRegExp('/\\A(?:000000)\\z/', $test['pass'][3]);
-		$this->assertRegExp('/\\A(?:000000)\\z/', $test['pass'][4]);
-		$this->assertRegExp('/\\A(?:0000000)\\z/', $test['pass'][5]);
+		$this->assertMatchesRegularExpression('/\\A(?:000)\\z/', $test['pass'][0]);
+		$this->assertMatchesRegularExpression('/\\A(?:0000)\\z/', $test['pass'][1]);
+		$this->assertMatchesRegularExpression('/\\A(?:00000)\\z/', $test['pass'][2]);
+		$this->assertMatchesRegularExpression('/\\A(?:000000)\\z/', $test['pass'][3]);
+		$this->assertMatchesRegularExpression('/\\A(?:000000)\\z/', $test['pass'][4]);
+		$this->assertMatchesRegularExpression('/\\A(?:0000000)\\z/', $test['pass'][5]);
 	}
 
 /**
@@ -691,12 +691,12 @@ class DispatcherTest extends CakeTestCase {
 		$event = new CakeEvent('DispatcherTest', $Dispatcher, array('request' => $test));
 		$Dispatcher->parseParams($event);
 
-		$this->assertRegExp('/\\A(?:01)\\z/', $test['pass'][0]);
-		$this->assertRegExp('/\\A(?:0403)\\z/', $test['pass'][1]);
-		$this->assertRegExp('/\\A(?:04010)\\z/', $test['pass'][2]);
-		$this->assertRegExp('/\\A(?:000002)\\z/', $test['pass'][3]);
-		$this->assertRegExp('/\\A(?:000030)\\z/', $test['pass'][4]);
-		$this->assertRegExp('/\\A(?:0000400)\\z/', $test['pass'][5]);
+		$this->assertMatchesRegularExpression('/\\A(?:01)\\z/', $test['pass'][0]);
+		$this->assertMatchesRegularExpression('/\\A(?:0403)\\z/', $test['pass'][1]);
+		$this->assertMatchesRegularExpression('/\\A(?:04010)\\z/', $test['pass'][2]);
+		$this->assertMatchesRegularExpression('/\\A(?:000002)\\z/', $test['pass'][3]);
+		$this->assertMatchesRegularExpression('/\\A(?:000030)\\z/', $test['pass'][4]);
+		$this->assertMatchesRegularExpression('/\\A(?:0000400)\\z/', $test['pass'][5]);
 	}
 
 /**
@@ -718,8 +718,8 @@ class DispatcherTest extends CakeTestCase {
 		$event = new CakeEvent('DispatcherTest', $Dispatcher, array('request' => $request));
 		$Dispatcher->parseParams($event);
 
-		$this->assertRegExp('/posts/', $request['controller']);
-		$this->assertRegExp('/home/', $request['action']);
+		$this->assertMatchesRegularExpression('/posts/', $request['controller']);
+		$this->assertMatchesRegularExpression('/home/', $request['action']);
 		$this->assertTrue(isset($request['url']['sleep']));
 		$this->assertTrue(isset($request['url']['coffee']));
 
@@ -728,8 +728,8 @@ class DispatcherTest extends CakeTestCase {
 
 		$event = new CakeEvent('DispatcherTest', $Dispatcher, array('request' => $request));
 		$Dispatcher->parseParams($event);
-		$this->assertRegExp('/pages/', $request['controller']);
-		$this->assertRegExp('/display/', $request['action']);
+		$this->assertMatchesRegularExpression('/pages/', $request['controller']);
+		$this->assertMatchesRegularExpression('/display/', $request['action']);
 		$this->assertTrue(isset($request['url']['sleep']));
 		$this->assertTrue(isset($request['url']['coffee']));
 		$this->assertEquals('life', $request['url']['coffee']);
@@ -738,11 +738,11 @@ class DispatcherTest extends CakeTestCase {
 /**
  * testMissingController method
  *
- * @expectedException MissingControllerException
- * @expectedExceptionMessage Controller class SomeControllerController could not be found.
  * @return void
  */
 	public function testMissingController() {
+		$this->expectException(MissingControllerException::class);
+		$this->expectExceptionMessage("Controller class SomeControllerController could not be found.");
 		Router::connect('/:controller/:action/*');
 
 		$Dispatcher = new TestDispatcher();
@@ -756,11 +756,11 @@ class DispatcherTest extends CakeTestCase {
 /**
  * testMissingControllerInterface method
  *
- * @expectedException MissingControllerException
- * @expectedExceptionMessage Controller class DispatcherTestInterfaceController could not be found.
  * @return void
  */
 	public function testMissingControllerInterface() {
+		$this->expectException(MissingControllerException::class);
+		$this->expectExceptionMessage("Controller class DispatcherTestInterfaceController could not be found.");
 		Router::connect('/:controller/:action/*');
 
 		$Dispatcher = new TestDispatcher();
@@ -774,11 +774,11 @@ class DispatcherTest extends CakeTestCase {
 /**
  * testMissingControllerInterface method
  *
- * @expectedException MissingControllerException
- * @expectedExceptionMessage Controller class DispatcherTestAbstractController could not be found.
  * @return void
  */
 	public function testMissingControllerAbstract() {
+		$this->expectException(MissingControllerException::class);
+		$this->expectExceptionMessage("Controller class DispatcherTestAbstractController could not be found.");
 		Router::connect('/:controller/:action/*');
 
 		$Dispatcher = new TestDispatcher();
@@ -1164,11 +1164,11 @@ class DispatcherTest extends CakeTestCase {
 /**
  * testAutomaticPluginControllerMissingActionDispatch method
  *
- * @expectedException MissingActionException
- * @expectedExceptionMessage Action MyPluginController::not_here() could not be found.
  * @return void
  */
 	public function testAutomaticPluginControllerMissingActionDispatch() {
+		$this->expectException(MissingActionException::class);
+		$this->expectExceptionMessage("Action MyPluginController::not_here() could not be found.");
 		Router::reload();
 		$Dispatcher = new TestDispatcher();
 
@@ -1181,12 +1181,12 @@ class DispatcherTest extends CakeTestCase {
 /**
  * testAutomaticPluginControllerMissingActionDispatch method
  *
- * @expectedException MissingActionException
- * @expectedExceptionMessage Action MyPluginController::param:value() could not be found.
  * @return void
  */
 
 	public function testAutomaticPluginControllerIndexMissingAction() {
+		$this->expectException(MissingActionException::class);
+		$this->expectExceptionMessage("Action MyPluginController::param:value() could not be found.");
 		Router::reload();
 		$Dispatcher = new TestDispatcher();
 
@@ -1283,10 +1283,10 @@ class DispatcherTest extends CakeTestCase {
 /**
  * Tests that attaching an inexistent class as filter will throw an exception
  *
- * @expectedException MissingDispatcherFilterException
  * @return void
  */
 	public function testDispatcherFilterSuscriberMissing() {
+		$this->expectException(MissingDispatcherFilterException::class);
 		App::build(array(
 			'Plugin' => array(CAKE . 'Test' . DS . 'test_app' . DS . 'Plugin' . DS)
 		), App::RESET);

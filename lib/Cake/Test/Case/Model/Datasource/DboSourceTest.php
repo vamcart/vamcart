@@ -184,7 +184,7 @@ class DboSourceTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 
 		$this->testDb = new DboTestSource();
@@ -200,7 +200,7 @@ class DboSourceTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		unset($this->Model);
 	}
@@ -679,10 +679,11 @@ class DboSourceTest extends CakeTestCase {
 	}
 
 /**
- * @expectedException PDOException
+ *
  * @return void
  */
 	public function testDirectCallThrowsException() {
+		$this->expectException(PDOException::class);
 		$this->db->query('directCall', array(), $this->Model);
 	}
 
@@ -955,15 +956,15 @@ class DboSourceTest extends CakeTestCase {
 		$this->testDb->showLog();
 		$contents = ob_get_clean();
 
-		$this->assertRegExp('/Query 1/s', $contents);
-		$this->assertRegExp('/Query 2/s', $contents);
+		$this->assertMatchesRegularExpression('/Query 1/s', $contents);
+		$this->assertMatchesRegularExpression('/Query 2/s', $contents);
 
 		ob_start();
 		$this->testDb->showLog(true);
 		$contents = ob_get_clean();
 
-		$this->assertRegExp('/Query 1/s', $contents);
-		$this->assertRegExp('/Query 2/s', $contents);
+		$this->assertMatchesRegularExpression('/Query 1/s', $contents);
+		$this->assertMatchesRegularExpression('/Query 2/s', $contents);
 
 		Configure::write('debug', $oldDebug);
 	}
@@ -1248,10 +1249,10 @@ class DboSourceTest extends CakeTestCase {
 		);
 
 		$result = $this->db->generateAssociationQuery($Article, null, null, null, null, $queryData, false);
-		$this->assertContains('SELECT', $result);
-		$this->assertContains('FROM', $result);
-		$this->assertContains('WHERE', $result);
-		$this->assertContains('ORDER', $result);
+		$this->assertStringContainsString('SELECT', $result);
+		$this->assertStringContainsString('FROM', $result);
+		$this->assertStringContainsString('WHERE', $result);
+		$this->assertStringContainsString('ORDER', $result);
 	}
 
 /**
@@ -1424,10 +1425,10 @@ class DboSourceTest extends CakeTestCase {
 		$db->nestedSupport = true;
 
 		$conn->expects($this->at(0))->method('beginTransaction')->will($this->returnValue(true));
-		$conn->expects($this->at(1))->method('exec')->with($this->equalTo('SAVEPOINT LEVEL1'))->will($this->returnValue(true));
-		$conn->expects($this->at(2))->method('exec')->with($this->equalTo('RELEASE SAVEPOINT LEVEL1'))->will($this->returnValue(true));
-		$conn->expects($this->at(3))->method('exec')->with($this->equalTo('SAVEPOINT LEVEL1'))->will($this->returnValue(true));
-		$conn->expects($this->at(4))->method('exec')->with($this->equalTo('ROLLBACK TO SAVEPOINT LEVEL1'))->will($this->returnValue(true));
+		$conn->expects($this->at(1))->method('exec')->with($this->equalTo('SAVEPOINT LEVEL1'))->will($this->returnValue(0));
+		$conn->expects($this->at(2))->method('exec')->with($this->equalTo('RELEASE SAVEPOINT LEVEL1'))->will($this->returnValue(0));
+		$conn->expects($this->at(3))->method('exec')->with($this->equalTo('SAVEPOINT LEVEL1'))->will($this->returnValue(0));
+		$conn->expects($this->at(4))->method('exec')->with($this->equalTo('ROLLBACK TO SAVEPOINT LEVEL1'))->will($this->returnValue(0));
 		$conn->expects($this->at(5))->method('commit')->will($this->returnValue(true));
 
 		$this->_runTransactions($db);
@@ -1783,7 +1784,7 @@ class DboSourceTest extends CakeTestCase {
 
 		$result = $db->limit(10, 300000000000000000000000000000);
 		$scientificNotation = sprintf('%.1E', 300000000000000000000000000000);
-		$this->assertNotContains($scientificNotation, $result);
+		$this->assertStringNotContainsString($scientificNotation, $result);
 	}
 
 /**
@@ -2148,10 +2149,14 @@ class DboSourceTest extends CakeTestCase {
 		$this->db->query('SELECT 1');
 		$this->db->query('SELECT 1');
 		$this->db->query('SELECT 2');
-		$this->assertAttributeCount(2, '_queryCache', $this->db);
+
+		$property = new ReflectionProperty($this->db, '_queryCache');
+		$property->setAccessible(true);
+
+		$this->assertCount(2, $property->getValue($this->db));
 
 		$this->db->flushQueryCache();
-		$this->assertAttributeCount(0, '_queryCache', $this->db);
+		$this->assertCount(0, $property->getValue($this->db));
 	}
 
 /**

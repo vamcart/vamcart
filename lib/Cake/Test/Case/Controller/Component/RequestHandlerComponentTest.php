@@ -106,7 +106,7 @@ class RequestHandlerComponentTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$this->_init();
 	}
@@ -130,7 +130,7 @@ class RequestHandlerComponentTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		unset($this->RequestHandler, $this->Controller);
 		if (!headers_sent()) {
@@ -847,7 +847,7 @@ class RequestHandlerComponentTest extends CakeTestCase {
 			$this->Controller, array('controller' => 'request_handler_test', 'action' => 'destination')
 		);
 		$result = ob_get_clean();
-		$this->assertRegExp('/posts index/', $result, 'RequestAction redirect failed.');
+		$this->assertMatchesRegularExpression('/posts index/', $result, 'RequestAction redirect failed.');
 
 		App::build();
 	}
@@ -876,8 +876,8 @@ class RequestHandlerComponentTest extends CakeTestCase {
 			$this->Controller, array('controller' => 'request_handler_test', 'action' => 'ajax2_layout')
 		);
 		$result = ob_get_clean();
-		$this->assertRegExp('/posts index/', $result, 'RequestAction redirect failed.');
-		$this->assertRegExp('/Ajax!/', $result, 'Layout was not rendered.');
+		$this->assertMatchesRegularExpression('/posts index/', $result, 'RequestAction redirect failed.');
+		$this->assertMatchesRegularExpression('/Ajax!/', $result, 'Layout was not rendered.');
 
 		App::build();
 	}
@@ -935,10 +935,10 @@ class RequestHandlerComponentTest extends CakeTestCase {
 	}
 
 /**
- * @expectedException CakeException
  * @return void
  */
 	public function testAddInputTypeException() {
+		$this->expectException(CakeException::class);
 		$this->RequestHandler->addInputType('csv', array('I am not callable'));
 	}
 

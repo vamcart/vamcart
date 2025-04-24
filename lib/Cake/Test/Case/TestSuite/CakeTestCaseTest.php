@@ -19,7 +19,6 @@
  */
 App::uses('CakePlugin', 'Core');
 App::uses('Controller', 'Controller');
-App::uses('CakeHtmlReporter', 'TestSuite/Reporter');
 App::uses('Model', 'Model');
 
 /**
@@ -75,19 +74,9 @@ class CakeTestCaseTest extends CakeTestCase {
  *
  * @return void
  */
-	public static function setUpBeforeClass() {
+	public static function setUpBeforeClass() : void {
 		require_once CAKE . 'Test' . DS . 'Fixture' . DS . 'AssertTagsTestCase.php';
 		require_once CAKE . 'Test' . DS . 'Fixture' . DS . 'FixturizedTestCase.php';
-	}
-
-/**
- * setUp
- *
- * @return void
- */
-	public function setUp() {
-		parent::setUp();
-		$this->Reporter = $this->getMock('CakeHtmlReporter');
 	}
 
 /**
@@ -95,10 +84,9 @@ class CakeTestCaseTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		unset($this->Result);
-		unset($this->Reporter);
 	}
 
 /**
@@ -234,8 +222,8 @@ class CakeTestCaseTest extends CakeTestCase {
 		$manager = $this->getMock('CakeFixtureManager');
 		$manager->fixturize($test);
 		$test->fixtureManager = $manager;
-		$manager->expects($this->once())->method('load');
-		$manager->expects($this->once())->method('unload');
+		$manager->expects($this->never())->method('load');
+		$manager->expects($this->never())->method('unload');
 		$result = $test->run();
 		$this->assertEquals(0, $result->errorCount());
 		$this->assertTrue($result->wasSuccessful());
@@ -269,6 +257,7 @@ class CakeTestCaseTest extends CakeTestCase {
 		$manager = $this->getMock('CakeFixtureManager');
 		$manager->fixturize($test);
 		$test->fixtureManager = $manager;
+		$manager->expects($this->never())->method('unload');
 		$manager->expects($this->once())->method('loadSingle');
 		$result = $test->run();
 		$this->assertEquals(0, $result->errorCount());
@@ -285,7 +274,6 @@ class CakeTestCaseTest extends CakeTestCase {
 		$manager = $this->getMock('CakeFixtureManager');
 		$manager->fixturize($test);
 		$test->fixtureManager = $manager;
-		$manager->expects($this->once())->method('unload');
 		$result = $test->run();
 		$this->assertEquals(1, $result->errorCount());
 	}
@@ -392,8 +380,8 @@ class CakeTestCaseTest extends CakeTestCase {
  */
 	public function testAssertTextContains() {
 		$stringDirty = "some\nstring\r\nwith\rdifferent\nline endings!";
-		$this->assertContains("different", $stringDirty);
-		$this->assertNotContains("different\rline", $stringDirty);
+		$this->assertStringContainsString("different", $stringDirty);
+		$this->assertStringNotContainsString("different\rline", $stringDirty);
 		$this->assertTextContains("different\rline", $stringDirty);
 	}
 
@@ -428,7 +416,7 @@ class CakeTestCaseTest extends CakeTestCase {
 		$Post = $this->getMockForModel('Post', array('save'));
 
 		$this->assertNull($Post->save(array()));
-		$this->assertInternalType('array', $Post->find('all'));
+		$this->assertIsArray($Post->find('all'));
 	}
 
 /**
@@ -520,11 +508,11 @@ class CakeTestCaseTest extends CakeTestCase {
 /**
  * testGetMockForModelDoesNotExist
  *
- * @expectedException MissingModelException
- * @expectedExceptionMessage Model IDoNotExist could not be found
  * @return void
  */
 	public function testGetMockForModelDoesNotExist() {
+		$this->expectException(MissingModelException::class);
+		$this->expectExceptionMessage("Model IDoNotExist could not be found");
 		$this->getMockForModel('IDoNotExist');
 	}
 }

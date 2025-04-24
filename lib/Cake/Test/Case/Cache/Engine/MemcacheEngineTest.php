@@ -54,7 +54,7 @@ class MemcacheEngineTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$this->skipIf(!class_exists('Memcache'), 'Memcache is not installed or configured properly.');
 
@@ -72,7 +72,7 @@ class MemcacheEngineTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		Configure::write('Cache.disable', $this->_cacheDisable);
 		Cache::drop('memcache');
@@ -378,6 +378,10 @@ class MemcacheEngineTest extends CakeTestCase {
 		$this->assertEquals('cache1', Cache::read('some_value', 'memcache'));
 
 		Cache::write('some_value', 'cache2', 'memcache2');
+
+		// Wait until the written key can be retrieved with Memcache::getExtendedStats(), as there may be a delay.
+		sleep(1);
+
 		$result = Cache::clear(false, 'memcache');
 		$this->assertTrue($result);
 		$this->assertFalse(Cache::read('some_value', 'memcache'));

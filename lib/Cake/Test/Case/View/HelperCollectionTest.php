@@ -38,7 +38,7 @@ class HelperCollectionTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$this->View = $this->getMock('View', array(), array(null));
 		$this->Helpers = new HelperCollection($this->View);
@@ -49,7 +49,7 @@ class HelperCollectionTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		CakePlugin::unload();
 		unset($this->Helpers, $this->View);
 		parent::tearDown();
@@ -93,10 +93,10 @@ class HelperCollectionTest extends CakeTestCase {
 /**
  * test lazy loading of helpers
  *
- * @expectedException MissingHelperException
  * @return void
  */
 	public function testLazyLoadException() {
+		$this->expectException(MissingHelperException::class);
 		$this->Helpers->NotAHelper;
 	}
 
@@ -145,10 +145,10 @@ class HelperCollectionTest extends CakeTestCase {
 /**
  * test missinghelper exception
  *
- * @expectedException MissingHelperException
  * @return void
  */
 	public function testLoadMissingHelper() {
+		$this->expectException(MissingHelperException::class);
 		$this->Helpers->load('ThisHelperShouldAlwaysBeMissing');
 	}
 
@@ -182,7 +182,7 @@ class HelperCollectionTest extends CakeTestCase {
 		$this->assertEquals(array('Form', 'Html'), $result, 'loaded helpers is wrong');
 
 		$this->Helpers->unload('Html');
-		$this->assertNotContains('Html', $this->Helpers->loaded());
+		$this->assertNotContains( 'Html', $this->Helpers->loaded());
 		$this->assertContains('Form', $this->Helpers->loaded());
 
 		$result = $this->Helpers->loaded();

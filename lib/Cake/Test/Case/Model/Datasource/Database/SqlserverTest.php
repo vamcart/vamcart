@@ -264,7 +264,7 @@ class SqlserverTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		$this->Dbo = ConnectionManager::getDataSource('test');
 		if (!($this->Dbo instanceof Sqlserver)) {
@@ -279,7 +279,7 @@ class SqlserverTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		unset($this->Dbo);
 		unset($this->model);
@@ -400,14 +400,14 @@ class SqlserverTest extends CakeTestCase {
 			'limit' => 5
 		));
 		$result = $this->db->getLastQuery();
-		$this->assertRegExp('/^SELECT DISTINCT TOP 5/', $result);
+		$this->assertMatchesRegularExpression('/^SELECT DISTINCT TOP 5/', $result);
 
 		$this->db->read($this->model, array(
 			'fields' => array('DISTINCT SqlserverTestModel.city', 'SqlserverTestModel.country'),
 			'limit' => '5'
 		));
 		$result = $this->db->getLastQuery();
-		$this->assertRegExp('/^SELECT DISTINCT TOP 5/', $result);
+		$this->assertMatchesRegularExpression('/^SELECT DISTINCT TOP 5/', $result);
 	}
 
 /**
@@ -645,9 +645,9 @@ class SqlserverTest extends CakeTestCase {
 		$this->db->update($this->model, $fields, null, $conditions);
 
 		$result = $this->db->getLastQuery();
-		$this->assertNotRegExp('/SqlserverTestModel/', $result);
-		$this->assertRegExp('/^UPDATE \[sqlserver_test_models\]/', $result);
-		$this->assertRegExp('/SET \[client_id\] = \[client_id\] \+ 1/', $result);
+		$this->assertDoesNotMatchRegularExpression('/SqlserverTestModel/', $result);
+		$this->assertMatchesRegularExpression('/^UPDATE \[sqlserver_test_models\]/', $result);
+		$this->assertMatchesRegularExpression('/SET \[client_id\] = \[client_id\] \+ 1/', $result);
 	}
 
 /**

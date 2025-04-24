@@ -125,7 +125,7 @@ class ControllerTestCaseTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		App::build(array(
 			'Plugin' => array(CAKE . 'Test' . DS . 'test_app' . DS . 'Plugin' . DS),
@@ -143,7 +143,7 @@ class ControllerTestCaseTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		CakePlugin::unload();
 		$this->Case->controller = null;
@@ -195,7 +195,7 @@ class ControllerTestCaseTest extends CakeTestCase {
 			)
 		));
 		$this->assertNull($Posts->Post->save(array()));
-		$this->assertInternalType('array', $Posts->Post->find('all'));
+		$this->assertIsArray($Posts->Post->find('all'));
 
 		$Posts = $this->Case->generate('Posts', array(
 			'models' => array('Post'),
@@ -322,7 +322,7 @@ class ControllerTestCaseTest extends CakeTestCase {
 	public function testTestAction() {
 		$this->Case->generate('TestsApps');
 		$this->Case->testAction('/tests_apps/index');
-		$this->assertInternalType('array', $this->Case->controller->viewVars);
+		$this->assertIsArray($this->Case->controller->viewVars);
 
 		$this->Case->testAction('/tests_apps/set_action');
 		$results = $this->Case->controller->viewVars;
@@ -332,7 +332,7 @@ class ControllerTestCaseTest extends CakeTestCase {
 		$this->assertEquals($expected, $results);
 
 		$result = $this->Case->controller->response->body();
-		$this->assertRegExp('/This is the TestsAppsController index view/', $result);
+		$this->assertMatchesRegularExpression('/This is the TestsAppsController index view/', $result);
 
 		$Controller = $this->Case->generate('TestsApps');
 		$this->Case->testAction('/tests_apps/redirect_to');
@@ -352,7 +352,7 @@ class ControllerTestCaseTest extends CakeTestCase {
 	public function testTestActionArrayUrls() {
 		$this->Case->generate('TestsApps');
 		$this->Case->testAction(array('controller' => 'tests_apps', 'action' => 'index'));
-		$this->assertInternalType('array', $this->Case->controller->viewVars);
+		$this->assertIsArray($this->Case->controller->viewVars);
 	}
 
 /**
@@ -402,10 +402,10 @@ class ControllerTestCaseTest extends CakeTestCase {
 /**
  * Tests not using loaded routes during tests
  *
- * @expectedException MissingActionException
  * @return void
  */
 	public function testSkipRoutes() {
+		$this->expectException(MissingActionException::class);
 		Router::connect('/:controller/:action/*');
 		include CAKE . 'Test' . DS . 'test_app' . DS . 'Config' . DS . 'routes.php';
 
@@ -439,9 +439,9 @@ class ControllerTestCaseTest extends CakeTestCase {
 		$result = $this->Case->testAction('/tests_apps/set_action', array(
 			'return' => 'contents'
 		));
-		$this->assertRegExp('/<html/', $result);
-		$this->assertRegExp('/This is the TestsAppsController index view/', $result);
-		$this->assertRegExp('/<\/html>/', $result);
+		$this->assertMatchesRegularExpression('/<html/', $result);
+		$this->assertMatchesRegularExpression('/This is the TestsAppsController index view/', $result);
+		$this->assertMatchesRegularExpression('/<\/html>/', $result);
 	}
 
 /**
@@ -585,9 +585,9 @@ class ControllerTestCaseTest extends CakeTestCase {
 		$result = $this->Case->testAction('/tests_apps/set_action', array(
 			'return' => 'contents'
 		));
-		$this->assertRegExp('/<html/', $result);
-		$this->assertRegExp('/This is the TestsAppsController index view/', $result);
-		$this->assertRegExp('/<\/html>/', $result);
+		$this->assertMatchesRegularExpression('/<html/', $result);
+		$this->assertMatchesRegularExpression('/This is the TestsAppsController index view/', $result);
+		$this->assertMatchesRegularExpression('/<\/html>/', $result);
 	}
 
 /**
@@ -602,24 +602,24 @@ class ControllerTestCaseTest extends CakeTestCase {
 			'method' => 'get',
 			'return' => 'contents',
 		));
-		$this->assertContains('<html', $result);
-		$this->assertContains('This is the TestsAppsController index view', $result);
-		$this->assertContains('first call', $result);
-		$this->assertContains('</html>', $result);
+		$this->assertStringContainsString('<html', $result);
+		$this->assertStringContainsString('This is the TestsAppsController index view', $result);
+		$this->assertStringContainsString('first call', $result);
+		$this->assertStringContainsString('</html>', $result);
 
 		$result = $this->Case->testAction('/tests_apps/index', array(
 			'data' => array('var' => 'second call'),
 			'method' => 'get',
 			'return' => 'contents'
 		));
-		$this->assertContains('second call', $result);
+		$this->assertStringContainsString('second call', $result);
 
 		$result = $this->Case->testAction('/tests_apps/index', array(
 			'data' => array('var' => 'third call'),
 			'method' => 'get',
 			'return' => 'contents'
 		));
-		$this->assertContains('third call', $result);
+		$this->assertStringContainsString('third call', $result);
 	}
 
 /**

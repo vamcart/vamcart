@@ -52,7 +52,7 @@ class ErrorHandlerTest extends CakeTestCase {
  *
  * @return void
  */
-	public function setUp() {
+	public function setUp() : void {
 		parent::setUp();
 		App::build(array(
 			'View' => array(
@@ -66,8 +66,12 @@ class ErrorHandlerTest extends CakeTestCase {
 		Router::setRequestInfo($request);
 		Configure::write('debug', 2);
 
-		CakeLog::disable('stdout');
-		CakeLog::disable('stderr');
+		if (CakeLog::stream('stdout') !== false) {
+			CakeLog::disable('stdout');
+		}
+		if (CakeLog::stream('stderr') !== false) {
+			CakeLog::disable('stderr');
+		}
 	}
 
 /**
@@ -75,13 +79,18 @@ class ErrorHandlerTest extends CakeTestCase {
  *
  * @return void
  */
-	public function tearDown() {
+	public function tearDown() : void {
 		parent::tearDown();
 		if ($this->_restoreError) {
 			restore_error_handler();
 		}
-		CakeLog::enable('stdout');
-		CakeLog::enable('stderr');
+
+		if (CakeLog::stream('stdout') !== false) {
+			CakeLog::enable('stdout');
+		}
+		if (CakeLog::stream('stderr') !== false) {
+			CakeLog::enable('stderr');
+		}
 	}
 
 /**
@@ -99,9 +108,9 @@ class ErrorHandlerTest extends CakeTestCase {
 		$wrong .= '';
 		$result = ob_get_clean();
 
-		$this->assertRegExp('/<pre class="cake-error">/', $result);
-		$this->assertRegExp('/<b>Notice<\/b>/', $result);
-		$this->assertRegExp('/variable:\s+wrong/', $result);
+		$this->assertMatchesRegularExpression('/<pre class="cake-error">/', $result);
+		$this->assertMatchesRegularExpression('/<b>Warning<\/b>/', $result);
+		$this->assertMatchesRegularExpression('/variable\s+\$wrong/', $result);
 	}
 
 /**
@@ -132,7 +141,7 @@ class ErrorHandlerTest extends CakeTestCase {
 		trigger_error('Test error', $error);
 
 		$result = ob_get_clean();
-		$this->assertRegExp('/<b>' . $expected . '<\/b>/', $result);
+		$this->assertMatchesRegularExpression('/<b>' . $expected . '<\/b>/', $result);
 	}
 
 /**
@@ -160,8 +169,8 @@ class ErrorHandlerTest extends CakeTestCase {
 	public function testHandleErrorDebugOff() {
 		Configure::write('debug', 0);
 		Configure::write('Error.trace', false);
-		if (file_exists(LOGS . 'debug.log')) {
-			unlink(LOGS . 'debug.log');
+		if (file_exists(LOGS . 'error.log')) {
+			unlink(LOGS . 'error.log');
 		}
 
 		set_error_handler('ErrorHandler::handleError');
@@ -169,10 +178,10 @@ class ErrorHandlerTest extends CakeTestCase {
 
 		$out .= '';
 
-		$result = file(LOGS . 'debug.log');
+		$result = file(LOGS . 'error.log');
 		$this->assertEquals(1, count($result));
-		$this->assertRegExp(
-			'/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2} (Notice|Debug): Notice \(8\): Undefined variable:\s+out in \[.+ line \d+\]$/',
+		$this->assertMatchesRegularExpression(
+			'/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2} Warning: Warning \(2\): Undefined variable\s+\$out in \[.+ line \d+\]$/',
 			$result[0]
 		);
 		if (file_exists(LOGS . 'debug.log')) {
@@ -188,8 +197,8 @@ class ErrorHandlerTest extends CakeTestCase {
 	public function testHandleErrorLoggingTrace() {
 		Configure::write('debug', 0);
 		Configure::write('Error.trace', true);
-		if (file_exists(LOGS . 'debug.log')) {
-			unlink(LOGS . 'debug.log');
+		if (file_exists(LOGS . 'error.log')) {
+			unlink(LOGS . 'error.log');
 		}
 
 		set_error_handler('ErrorHandler::handleError');
@@ -197,13 +206,13 @@ class ErrorHandlerTest extends CakeTestCase {
 
 		$out .= '';
 
-		$result = file(LOGS . 'debug.log');
-		$this->assertRegExp(
-			'/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2} (Notice|Debug): Notice \(8\): Undefined variable:\s+out in \[.+ line \d+\]$/',
+		$result = file(LOGS . 'error.log');
+		$this->assertMatchesRegularExpression(
+			'/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2} Warning: Warning \(2\): Undefined variable\s+\$out in \[.+ line \d+\]$/',
 			$result[0]
 		);
-		$this->assertRegExp('/^Trace:/', $result[1]);
-		$this->assertRegExp('/^ErrorHandlerTest\:\:testHandleErrorLoggingTrace\(\)/', $result[3]);
+		$this->assertMatchesRegularExpression('/^Trace:/', $result[1]);
+		$this->assertMatchesRegularExpression('/^ErrorHandlerTest\:\:testHandleErrorLoggingTrace\(\)/', $result[3]);
 		if (file_exists(LOGS . 'debug.log')) {
 			unlink(LOGS . 'debug.log');
 		}
@@ -219,7 +228,7 @@ class ErrorHandlerTest extends CakeTestCase {
 		ob_start();
 		ErrorHandler::handleException($error);
 		$result = ob_get_clean();
-		$this->assertRegExp('/Kaboom!/', $result, 'message missing.');
+		$this->assertMatchesRegularExpression('/Kaboom!/', $result, 'message missing.');
 	}
 
 /**
@@ -237,11 +246,11 @@ class ErrorHandlerTest extends CakeTestCase {
 		ob_start();
 		ErrorHandler::handleException($error);
 		$result = ob_get_clean();
-		$this->assertRegExp('/Kaboom!/', $result, 'message missing.');
+		$this->assertMatchesRegularExpression('/Kaboom!/', $result, 'message missing.');
 
 		$log = file(LOGS . 'error.log');
-		$this->assertContains('[NotFoundException] Kaboom!', $log[0], 'message missing.');
-		$this->assertContains('ErrorHandlerTest->testHandleExceptionLog', $log[2], 'Stack trace missing.');
+		$this->assertStringContainsString('[NotFoundException] Kaboom!', $log[0], 'message missing.');
+		$this->assertStringContainsString('ErrorHandlerTest->testHandleExceptionLog', $log[2], 'Stack trace missing.');
 	}
 
 /**
@@ -261,16 +270,16 @@ class ErrorHandlerTest extends CakeTestCase {
 		ob_start();
 		ErrorHandler::handleException($notFound);
 		$result = ob_get_clean();
-		$this->assertRegExp('/Kaboom!/', $result, 'message missing.');
+		$this->assertMatchesRegularExpression('/Kaboom!/', $result, 'message missing.');
 
 		ob_start();
 		ErrorHandler::handleException($forbidden);
 		$result = ob_get_clean();
-		$this->assertRegExp('/Fooled you!/', $result, 'message missing.');
+		$this->assertMatchesRegularExpression('/Fooled you!/', $result, 'message missing.');
 
 		$log = file(LOGS . 'error.log');
-		$this->assertNotContains('[NotFoundException] Kaboom!', $log[0], 'message should not be logged.');
-		$this->assertContains('[ForbiddenException] Fooled you!', $log[0], 'message missing.');
+		$this->assertStringNotContainsString('[NotFoundException] Kaboom!', $log[0], 'message should not be logged.');
+		$this->assertStringContainsString('[ForbiddenException] Fooled you!', $log[0], 'message missing.');
 	}
 
 /**
@@ -309,18 +318,18 @@ class ErrorHandlerTest extends CakeTestCase {
 		Configure::write('debug', 1);
 		ErrorHandler::handleFatalError(E_ERROR, 'Something wrong', __FILE__, $line);
 		$result = ob_get_clean();
-		$this->assertContains('Something wrong', $result, 'message missing.');
-		$this->assertContains(__FILE__, $result, 'filename missing.');
-		$this->assertContains((string)$line, $result, 'line missing.');
+		$this->assertStringContainsString('Something wrong', $result, 'message missing.');
+		$this->assertStringContainsString(__FILE__, $result, 'filename missing.');
+		$this->assertStringContainsString((string)$line, $result, 'line missing.');
 
 		ob_start();
 		ob_start();
 		Configure::write('debug', 0);
 		ErrorHandler::handleFatalError(E_ERROR, 'Something wrong', __FILE__, $line);
 		$result = ob_get_clean();
-		$this->assertNotContains('Something wrong', $result, 'message must not appear.');
-		$this->assertNotContains(__FILE__, $result, 'filename must not appear.');
-		$this->assertContains('An Internal Error Has Occurred', $result);
+		$this->assertStringNotContainsString('Something wrong', $result, 'message must not appear.');
+		$this->assertStringNotContainsString(__FILE__, $result, 'filename must not appear.');
+		$this->assertStringContainsString('An Internal Error Has Occurred', $result);
 	}
 
 /**
@@ -338,8 +347,8 @@ class ErrorHandlerTest extends CakeTestCase {
 		ob_clean();
 
 		$log = file(LOGS . 'error.log');
-		$this->assertContains(__FILE__, $log[0], 'missing filename');
-		$this->assertContains('[FatalErrorException] Something wrong', $log[1], 'message missing.');
+		$this->assertStringContainsString(__FILE__, $log[0], 'missing filename');
+		$this->assertStringContainsString('[FatalErrorException] Something wrong', $log[1], 'message missing.');
 	}
 
 /**
