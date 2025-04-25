@@ -16,7 +16,7 @@ class ConfigurationController extends AppController {
 		// clear core cache
 		$cachePaths = array('views', 'persistent', 'models', 'catalog');
 		foreach($cachePaths as $config) {
-				clearCache(null, $config);
+				clearCache('null', $config);
 		}
         		
 		$this->Session->setFlash(__('Cache cleared.',true));

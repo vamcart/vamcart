@@ -198,7 +198,7 @@ class CryptComponent extends CakeObject
     $dlen = strlen($d);
     for ($ii=0; $ii < $dlen; $ii++)
     {
-      $c=$d{$ii};
+      $c=$d[$ii];
       $i = ($i + 1) & 0xff;
       $j = ($j + $S[$i]) & 0xff;
       $t = $S[$i];
