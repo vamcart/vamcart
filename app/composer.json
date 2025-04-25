@@ -1,7 +1,8 @@
 {
-    "name": "vamshop",
+    "name": "vamcart/vamcart",
     "require": {
-        "simplepie/simplepie": "~1.5"
+        "simplepie/simplepie": "~1.5",
+        "phpmailer/phpmailer": "^6.10"
     },
     "config": {
         "vendor-dir": "Vendor"

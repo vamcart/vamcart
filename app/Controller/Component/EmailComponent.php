@@ -44,10 +44,6 @@ class EmailComponent extends CakeObject
     public function init()
     {
     	
-        // Include the class file and create PHPMailer instance
-        //App::import('Vendor', 'PHPMailer', array('file' => 'phpmailer'.DS.'src'.DS.'Exception.php'));
-        App::import('Vendor', 'PHPMailer', array('file' => 'phpmailer'.DS.'src'.DS.'PHPMailer.php'));
-        //App::import('Vendor', 'PHPMailer', array('file' => 'phpmailer'.DS.'src'.DS.'SMTP.php'));
         $this->m = new PHPMailer;
         
         // Set default PHPMailer variables (see PHPMailer API for more info)
