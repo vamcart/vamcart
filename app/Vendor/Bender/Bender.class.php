@@ -54,6 +54,7 @@ class Bender
     protected function minify( $scripts, $ext, $output )
     {
         $path = $this->root_dir();
+        $files = false;
         //$output = preg_replace('/'.ltrim(BASE,'/').'/','',$output,1);
         //$output = str_replace('/',DS,$output);
         //$outfile = $path.$output;
@@ -126,6 +127,7 @@ class Bender
     {
         //$output = ltrim( $output, './' );
         global $_javascripts, $_stylesheets;
+        $files = false;
         switch ( $this->get_ext( $output ) )
         {
             case "css":
