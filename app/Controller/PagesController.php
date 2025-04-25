@@ -88,9 +88,11 @@ public $components = array('ConfigurationBase', 'ContentBase', 'Smarty');
                         $this->Session->delete('filter_list.' . $alias);
                     }        
                 }
-                $content_filtered_list_data = $this->Content->get_filtered_conditions($filter_list,$alias);                  
+                $content_filtered_list_data = $this->Content->get_filtered_conditions($filter_list,$alias);
+                if (is_array($content_filtered_list_data)) {                  
                 $filtered_content = $content_filtered_list_data['content_ids'];
-                $filtered_attributes = $content_filtered_list_data['attribute_ids'];                  
+                $filtered_attributes = $content_filtered_list_data['attribute_ids'];
+                }                  
                 
 
 		// Pull the content out of cache or generate it if it doesn't exist
