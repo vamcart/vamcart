@@ -165,7 +165,7 @@ class ImportExportController extends AppController {
                                 $manufacturer = $this->Content->ContentDescription->find('first',array('conditions' => array('ContentDescription.name' => $data['Content']['ContentProduct']['manufacturer'])));                           
                                 if(isset($manufacturer['ContentDescription']['content_id'])) $data['Content']['ContentProduct']['manufacturer_id'] = $manufacturer['ContentDescription']['content_id'];                                              
                             }                     
-                            if($data['Content']['action'] == 'delete')
+                            if(array_key_exists('action', $data['Content']) &&  $data['Content']['action'] == 'delete')
                                $this->Content->deleteAll(array('Content.id' => $data['Content']['id']));
                             else $this->Content->saveAll($data,array('deep' => true));                            
                         }
@@ -179,42 +179,42 @@ class ImportExportController extends AppController {
                             //Смотрим существование артикула
                             $content = $this->Content->find('first',array('conditions' => array('ContentProduct.model' => $data['Content']['ContentProduct']['model'])));
                             if(isset($content['Content']['id'])) {
-                                $attribute = $this->Content->Attribute->AttributeDescription->find('first'
-                                        ,array('conditions' => array('AttributeDescription.name' => $data['Content']['Attribute']['name'],'Attribute_p.content_id' => $content['Content']['parent_id'],'AttributeDescription.language_id' => $this->data['ImportExport']['language_id'])));                         
+                                $attribute = $this->Content->Attr->AttributeDescription->find('first'
+                                        ,array('conditions' => array('AttributeDescription.name' => $data['Content']['Attr']['name'],'Attribute_p.content_id' => $content['Content']['parent_id'],'AttributeDescription.language_id' => $this->data['ImportExport']['language_id'])));                         
                                 if(isset($attribute['AttributeDescription']['attr_id'])) {                                    
-                                    $val_attribute = $this->Content->Attribute->AttributeDescription->find('first'
-                                        ,array('conditions' => array('AttributeDescription.name' => $data['Content']['Attribute']['value'],'Attribute_p.parent_id' => $attribute['Attribute_p']['id'],'AttributeDescription.language_id' => $this->data['ImportExport']['language_id'])));                                                                  
+                                    $val_attribute = $this->Content->Attr->AttributeDescription->find('first'
+                                        ,array('conditions' => array('AttributeDescription.name' => $data['Content']['Attr']['value'],'Attribute_p.parent_id' => $attribute['Attribute_p']['id'],'AttributeDescription.language_id' => $this->data['ImportExport']['language_id'])));                                                                  
                                     if(isset($val_attribute['AttributeDescription']['attr_id'])) {
-                                        $set_attribute = $this->Content->Attribute->find('first'
+                                        $set_attribute = $this->Content->Attr->find('first'
                                             ,array('conditions' => array('Attr.parent_id' => $val_attribute['Attribute_p']['id'],'Attr.content_id' => $content['Content']['id'])));                                                                              
-                                        if(!isset($set_attribute['Attribute']['id'])) $state = 1; // Установим значение
+                                        if(!isset($set_attribute['Attr']['id'])) $state = 1; // Установим значение
                                     } else {$state = 2; $order++;}//Создадим значение
                                 } else $state = 3; //Создадим атрибут
        
                                 $atttr_id = 0;
                                 if($state >= 3) { //Создадим атрибут
-                                    $attribute_template = $this->Content->Attribute->AttributeTemplate->find('first',array('conditions' => array('name' => $data['Content']['AttributeTemplate']['name'])));                                 
-                                    $this->Content->Attribute->save(array(
+                                    $attribute_template = $this->Content->Attr->AttributeTemplate->find('first',array('conditions' => array('name' => $data['Content']['AttributeTemplate']['name'])));                                 
+                                    $this->Content->Attr->save(array(
                                         'id' => 0
                                         ,'parent_id' => 0
                                         ,'content_id' => $content['Content']['parent_id']
                                         ,'type_attr' => null
                                         ,'val' => null
-                                        ,'order' => $data['Content']['Attribute']['order']
+                                        ,'order' => $data['Content']['Attr']['order']
                                         ,'attribute_template_id' => $attribute_template['AttributeTemplate']['id']
                                         ,'price_modificator' => null
                                         //,'price_value' => null
-                                        ,'is_active' => $data['Content']['Attribute']['is_active']
-                                        ,'is_show_flt' => $data['Content']['Attribute']['is_show_flt']
-                                        ,'is_show_cmp' => $data['Content']['Attribute']['is_show_cmp']                                        
-                                        ,'is_show_var' => $data['Content']['Attribute']['is_show_var']
+                                        ,'is_active' => $data['Content']['Attr']['is_active']
+                                        ,'is_show_flt' => $data['Content']['Attr']['is_show_flt']
+                                        ,'is_show_cmp' => $data['Content']['Attr']['is_show_cmp']                                        
+                                        ,'is_show_var' => $data['Content']['Attr']['is_show_var']
                                     ));
-                                    $atttr_id = $this->Content->Attribute->getLastInsertid();
-                                    $this->Content->Attribute->AttributeDescription->save(array(
+                                    $atttr_id = $this->Content->Attr->getLastInsertid();
+                                    $this->Content->Attr->AttributeDescription->save(array(
                                         'dsc_id' => 0
                                         ,'attr_id' => $atttr_id
                                         ,'language_id' => $this->data['ImportExport']['language_id']
-                                        ,'name' => $data['Content']['Attribute']['name']
+                                        ,'name' => $data['Content']['Attr']['name']
                                         ,'description' => null
                                         ,'meta_title' => null
                                         ,'meta_description' => null
@@ -223,11 +223,11 @@ class ImportExportController extends AppController {
                                 }
                                 if($state >= 2) { //Создадим значение
                                     if(isset($attribute['Attribute_p']['id'])) $atttr_id = $attribute['Attribute_p']['id'];
-                                    $this->Content->Attribute->save(array(
+                                    $this->Content->Attr->save(array(
                                         'id' => 0
                                         ,'parent_id' => $atttr_id
                                         ,'content_id' => 0
-                                        ,'type_attr' => $data['Content']['Attribute']['type_attr']
+                                        ,'type_attr' => $data['Content']['Attr']['type_attr']
                                         ,'val' => null
                                         ,'order' => $order
                                         ,'attribute_template_id' => null
@@ -238,12 +238,12 @@ class ImportExportController extends AppController {
                                         ,'is_show_cmp' => null
                                         ,'is_show_var' => null
                                     ));      
-                                    $atttr_id = $this->Content->Attribute->getLastInsertid();
-                                    $this->Content->Attribute->AttributeDescription->save(array(
+                                    $atttr_id = $this->Content->Attr->getLastInsertid();
+                                    $this->Content->Attr->AttributeDescription->save(array(
                                         'dsc_id' => 0
                                         ,'attr_id' => $atttr_id
                                         ,'language_id' => $this->data['ImportExport']['language_id']
-                                        ,'name' => $data['Content']['Attribute']['value']
+                                        ,'name' => $data['Content']['Attr']['value']
                                         ,'description' => null
                                         ,'meta_title' => null
                                         ,'meta_description' => null
@@ -252,12 +252,12 @@ class ImportExportController extends AppController {
                                 }
                                 if($state >= 1) { // Установим значение
                                     if(isset($val_attribute['Attribute_p']['id'])) $atttr_id = $val_attribute['Attribute_p']['id'];
-                                    $this->Content->Attribute->save(array(
+                                    $this->Content->Attr->save(array(
                                             'id' => 0
                                             ,'parent_id' => $atttr_id
                                             ,'content_id' => $content['Content']['id']
                                             ,'type_attr' => null
-                                            ,'val' => ($data['Content']['Attribute']['type_attr'] == "dig_value") ? $data['Content']['Attribute']['value'] : 1
+                                            ,'val' => ($data['Content']['Attr']['type_attr'] == "dig_value") ? $data['Content']['Attr']['value'] : 1
                                             ,'order' => null
                                             ,'attribute_template_id' => null
                                             ,'price_modificator' => null
@@ -405,7 +405,7 @@ class ImportExportController extends AppController {
                     break;
                 }
                 
-                @unlink('./files/content.csv');
+                unlink('./files/content.csv');
 
                 $this->Session->setFlash(__('Import suсcess!', true));
                 $this->redirect('/import_export/admin');
@@ -428,8 +428,8 @@ class ImportExportController extends AppController {
             }
             $this->Content->bindModel(array('hasMany' => array('ContentImage'=> array(
                             'className' => 'ContentImage'))));   
-            $this->Content->bindModel(array('hasMany' => array('Attribute'=> array(
-                            'className' => 'Attribute'))));
+            $this->Content->bindModel(array('hasMany' => array('Attr'=> array(
+                            'className' => 'Attr'))));
             
             switch ($action)
             {
@@ -461,33 +461,33 @@ class ImportExportController extends AppController {
                     $conditions[] = array('Content.parent_id' => $categories);
 
                     $this->Content->bindModel(array('hasMany' => array('SetAttribute'=> array(
-                                    'className' => 'Attribute','conditions' => array('val' => 1)))));
+                                    'className' => 'Attr','conditions' => array('val' => 1)))));
                     $this->Content->bindModel(array('hasOne' => array('ContentProduct'=> array(
                                     'className' => 'ContentProduct'))));
                                        
                     $content = $this->Content->find('all',array('conditions' => $conditions));  
                     //собираем доп. информацию
                     $attributes = $attribute_value = $content_tmp = array();
-                    $this->Content->Attribute->setLanguageDescriptor($this->data['ImportExport']['language_id']);                  
+                    $this->Content->Attr->setLanguageDescriptor($this->data['ImportExport']['language_id']);                  
                     foreach ($content as $key => $value) { //перебираем товары                        
                         foreach ($value['SetAttribute'] as $k => $set_attribute) { //перебираем установленные атрибуты для товара      
-                            $this->Content->Attribute->unbindAll();
-                            $attribute_value = $this->Content->Attribute->find('first',array('conditions' => array('Attr.id' => $set_attribute['parent_id'])));                       
-                            $this->Content->Attribute->unbindAll();
-                            $this->Content->Attribute->bindModel(array('belongsTo' => array('AttributeTemplate'=> array(
+                            $this->Content->Attr->unbindAll();
+                            $attribute_value = $this->Content->Attr->find('first',array('conditions' => array('Attr.id' => $set_attribute['parent_id'])));                       
+                            $this->Content->Attr->unbindAll();
+                            $this->Content->Attr->bindModel(array('belongsTo' => array('AttributeTemplate'=> array(
                                     'className' => 'AttributeTemplate'))));
-                            $attribute_parrent = $this->Content->Attribute->find('first',array('conditions' => array('Attr.id' => $attribute_value['Attribute']['parent_id'])));
+                            $attribute_parrent = $this->Content->Attr->find('first',array('conditions' => array('Attr.id' => $attribute_value['Attr']['parent_id'])));
                             $content_tmp[$key . $k] = array(
-                                'Attribute' => array(
-                                    'name' => $attribute_parrent['Attribute']['name']
-                                    ,'value' => $attribute_value['Attribute']['name']
-                                    ,'type_attr' => $attribute_value['Attribute']['type_attr']
-                                    ,'price_modificator' => $attribute_value['Attribute']['price_modificator']
-                                    ,'price_value' => $attribute_value['Attribute']['price_value']
-                                    ,'is_active' => $attribute_parrent['Attribute']['is_active']
-                                    ,'is_show_flt' => $attribute_parrent['Attribute']['is_show_flt']
-                                    ,'is_show_cmp' => $attribute_parrent['Attribute']['is_show_cmp'])
-                                    ,'is_show_var' => $attribute_parrent['Attribute']['is_show_var'],
+                                'Attr' => array(
+                                    'name' => $attribute_parrent['Attr']['name']
+                                    ,'value' => $attribute_value['Attr']['name']
+                                    ,'type_attr' => $attribute_value['Attr']['type_attr']
+                                    ,'price_modificator' => $attribute_value['Attr']['price_modificator']
+                                    ,'price_value' => $attribute_value['Attr']['price_value']
+                                    ,'is_active' => $attribute_parrent['Attr']['is_active']
+                                    ,'is_show_flt' => $attribute_parrent['Attr']['is_show_flt']
+                                    ,'is_show_cmp' => $attribute_parrent['Attr']['is_show_cmp'])
+                                    ,'is_show_var' => $attribute_parrent['Attr']['is_show_var'],
                                 'ContentProduct' => array('model' => $value['ContentProduct']['model']),
                                 'AttributeTemplate' => array('name' => $attribute_parrent['AttributeTemplate']['name'])
                             );
