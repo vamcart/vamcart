@@ -346,17 +346,17 @@ echo '
     </thead>
     <tbody>        
         <tr class="warning"><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'ContentProduct.model','readonly' => true,'order' => 1)) . '</td><td>model</td><td>' . __('Product Model.') . '</td></tr>
-	<tr class="warning"><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Attribute.name','readonly' => true,'order' => 2)) . '</td><td>name</td><td>' . __('Attribute Name.') . '</td></tr>
-	<tr class="warning"><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Attribute.value','readonly' => true,'order' => 3)) . '</td><td>value</td><td>' . __('Attribute Value.') . '</td></tr>
+	<tr class="warning"><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Attr.name','readonly' => true,'order' => 2)) . '</td><td>name</td><td>' . __('Attribute Name.') . '</td></tr>
+	<tr class="warning"><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Attr.value','readonly' => true,'order' => 3)) . '</td><td>value</td><td>' . __('Attribute Value.') . '</td></tr>
         <tr class="warning"><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'AttributeTemplate.name','readonly' => true,'order' => 4)) . '</td><td>template</td><td>' . __('Attribute Template.') . '</td></tr>
-	<tr class="warning"><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Attribute.type_attr','readonly' => true,'order' => 5)) . '</td><td>type_attr</td><td>' . __('Attribute Type.') . '</td></tr>
-        <tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Attribute.order','order' => 6)) . '</td><td>order</td><td>' . __('Sort Order.') . '</span></td></tr>            
-	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Attribute.price_modificator','order' => 7)) . '</td><td>price_modificator</td><td>' . __('Price Modificator.') . '</span></td></tr>
-	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Attribute.price_value','order' => 8)) . '</td><td>price_value</td><td>' . __('Price Modificator Value.') . '</td></tr>
-        <tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Attribute.is_active','order' => 9)) . '</td><td>is_active</td><td>' . __('Active State.') . '</td></tr>
-        <tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Attribute.is_show_flt','order' => 10)) . '</td><td>is_show_flt</td><td>' . __('Show Filter.') . '</td></tr>    
-        <tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Attribute.is_show_cmp','order' => 11)) . '</td><td>is_show_cmp</td><td>' . __('Show Comparison.') . '</td></tr>    
-        <tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Attribute.is_show_var','order' => 12)) . '</td><td>is_show_var</td><td>' . __('Show Filter Links.') . '</td></tr>    
+	<tr class="warning"><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Attr.type_attr','readonly' => true,'order' => 5)) . '</td><td>type_attr</td><td>' . __('Attribute Type.') . '</td></tr>
+        <tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Attr.order','order' => 6)) . '</td><td>order</td><td>' . __('Sort Order.') . '</span></td></tr>            
+	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Attr.price_modificator','order' => 7)) . '</td><td>price_modificator</td><td>' . __('Price Modificator.') . '</span></td></tr>
+	<tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Attr.price_value','order' => 8)) . '</td><td>price_value</td><td>' . __('Price Modificator Value.') . '</td></tr>
+        <tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Attr.is_active','order' => 9)) . '</td><td>is_active</td><td>' . __('Active State.') . '</td></tr>
+        <tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Attr.is_show_flt','order' => 10)) . '</td><td>is_show_flt</td><td>' . __('Show Filter.') . '</td></tr>    
+        <tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Attr.is_show_cmp','order' => 11)) . '</td><td>is_show_cmp</td><td>' . __('Show Comparison.') . '</td></tr>    
+        <tr><td>' . $this->element('../ImportExport/checkbox_field',array('name_field' => 'Attr.is_show_var','order' => 12)) . '</td><td>is_show_var</td><td>' . __('Show Filter Links.') . '</td></tr>    
     </tbody>
 </table>
 
@@ -413,17 +413,17 @@ echo '
     </thead>
     <tbody>
 	<tr class="warning"><td>' . $this->Form->input('Fields.1.Content.ContentProduct.model',array('type' => 'hidden')) . 'model</td><td>' . __('Product Model.') . '</td></tr>
-	<tr class="warning"><td>' . $this->Form->input('Fields.2.Content.Attribute.name',array('type' => 'hidden')) . 'name</td><td>' . __('Attribute Name.') . '</td></tr>
-	<tr class="warning"><td>' . $this->Form->input('Fields.3.Content.Attribute.value',array('type' => 'hidden')) . 'value</td><td>' . __('Attribute Value.') . '</td></tr>
+	<tr class="warning"><td>' . $this->Form->input('Fields.2.Content.Attr.name',array('type' => 'hidden')) . 'name</td><td>' . __('Attribute Name.') . '</td></tr>
+	<tr class="warning"><td>' . $this->Form->input('Fields.3.Content.Attr.value',array('type' => 'hidden')) . 'value</td><td>' . __('Attribute Value.') . '</td></tr>
 	<tr class="warning"><td>' . $this->Form->input('Fields.4.Content.AttributeTemplate.name',array('type' => 'hidden')) . 'template</td><td>' . __('Attribute Template.') . '</td></tr>            
-	<tr class="warning"><td>' . $this->Form->input('Fields.5.Content.Attribute.type_attr',array('type' => 'hidden')) . 'type_attr</td><td>' . __('Attribute Type.') . '</td></tr>
-        <tr class="warning"><td>' . $this->Form->input('Fields.6.Content.Attribute.order',array('type' => 'hidden')) . 'order</td><td>' . __('Sort Order.') . '</td></tr>            
-	<tr><td>' . $this->Form->input('Fields.7.Content.Attribute.price_modificator',array('type' => 'hidden')) . 'price_modificator</td><td>' . __('Price Modificator.') . '</span></td></tr>
-	<tr><td>' . $this->Form->input('Fields.8.Content.Attribute.price_value',array('type' => 'hidden')) . 'price_value</td><td>' . __('Price Modificator Value.') . '</td></tr>
-        <tr><td>' . $this->Form->input('Fields.9.Content.Attribute.is_active',array('type' => 'hidden')) . 'is_active</td><td>' . __('Active State.') . '</td></tr>
-        <tr><td>' . $this->Form->input('Fields.10.Content.Attribute.is_show_flt',array('type' => 'hidden')) . 'is_show_flt</td><td>' . __('Show Filter.') . '</td></tr>
-        <tr><td>' . $this->Form->input('Fields.11.Content.Attribute.is_show_cmp',array('type' => 'hidden')) . 'is_show_cmp</td><td>' . __('Show Comparison.') . '</td></tr>
-        <tr><td>' . $this->Form->input('Fields.12.Content.Attribute.is_show_var',array('type' => 'hidden')) . 'is_show_var</td><td>' . __('Show Filter Links.') . '</td></tr>
+	<tr class="warning"><td>' . $this->Form->input('Fields.5.Content.Attr.type_attr',array('type' => 'hidden')) . 'type_attr</td><td>' . __('Attribute Type.') . '</td></tr>
+        <tr class="warning"><td>' . $this->Form->input('Fields.6.Content.Attr.order',array('type' => 'hidden')) . 'order</td><td>' . __('Sort Order.') . '</td></tr>            
+	<tr><td>' . $this->Form->input('Fields.7.Content.Attr.price_modificator',array('type' => 'hidden')) . 'price_modificator</td><td>' . __('Price Modificator.') . '</span></td></tr>
+	<tr><td>' . $this->Form->input('Fields.8.Content.Attr.price_value',array('type' => 'hidden')) . 'price_value</td><td>' . __('Price Modificator Value.') . '</td></tr>
+        <tr><td>' . $this->Form->input('Fields.9.Content.Attr.is_active',array('type' => 'hidden')) . 'is_active</td><td>' . __('Active State.') . '</td></tr>
+        <tr><td>' . $this->Form->input('Fields.10.Content.Attr.is_show_flt',array('type' => 'hidden')) . 'is_show_flt</td><td>' . __('Show Filter.') . '</td></tr>
+        <tr><td>' . $this->Form->input('Fields.11.Content.Attr.is_show_cmp',array('type' => 'hidden')) . 'is_show_cmp</td><td>' . __('Show Comparison.') . '</td></tr>
+        <tr><td>' . $this->Form->input('Fields.12.Content.Attr.is_show_var',array('type' => 'hidden')) . 'is_show_var</td><td>' . __('Show Filter Links.') . '</td></tr>
     </tbody>
 </table>
             
