@@ -363,14 +363,14 @@ $(document).ready(function()
             echo $this->Admin->StartTabContent('atributes');                            
                 if ($data['Content']['content_type_id'] == 2) { 
                     echo '<br />';
-                    echo $this->Js->link($this->Html->image('admin/transparency.png', array('title' => __('Attributes'),'class' => 'cus-tag-green')) . ' ' . __('Set attributes values'), '/attributes/admin_editor_value_dialog/edit/' . $data['Content']['id'], array('escape' => false, 'update' => '#dialog_attr','class' => 'btn btn-default'));
+                    echo $this->Js->link($this->Html->image('admin/transparency.png', array('title' => __('Attributes'),'class' => 'cus-tag-green')) . ' ' . __('Set attributes values'), '/attrs/admin_editor_value_dialog/edit/' . $data['Content']['id'], array('escape' => false, 'update' => '#dialog_attr','class' => 'btn btn-default'));
                     echo '<br /><br />';
                     echo $this->Js->writeBuffer();  
                     echo '<div id="dialog_attr">';
                 } else if($data['Content']['content_type_id'] == 1) {               
                     echo '<div id="dialog_add_attr"></div>';
                     echo '<div id="view_attr">';
-                        echo $this->requestAction('/attributes/admin_viewer_attr_dialog/' . $data['Content']['id'], array('return'));	
+                        echo $this->requestAction('/attrs/admin_viewer_attr_dialog/' . $data['Content']['id'], array('return'));	
                     echo '</div>';
                 }
             echo $this->Admin->EndTabContent();        

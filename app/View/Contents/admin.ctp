@@ -186,7 +186,7 @@ foreach ($content_data AS $content)
 	
 	if ($content['ContentType']['name']=='product' || $content['ContentType']['name']=='downloadable') {
 		$add_action_btn = $this->Admin->ActionButton('discounts', '/discounts/admin/' . $content['ContentProduct']['id'],__('Discounts'))
-                                . $this->Js->link($this->Html->image('admin/transparency.png', array('title' => __('Attributes'),'class' => 'cus-tag-green')), '/attributes/admin_editor_value_dialog/edit/' . $content['Content']['id'], array('escape' => false, 'update' => '#dialog_attr'));
+                                . $this->Js->link($this->Html->image('admin/transparency.png', array('title' => __('Attributes'),'class' => 'cus-tag-green')), '/attrs/admin_editor_value_dialog/edit/' . $content['Content']['id'], array('escape' => false, 'update' => '#dialog_attr'));
                 echo $this->Js->writeBuffer();        
 	} else {
 		$add_action_btn = null; 
