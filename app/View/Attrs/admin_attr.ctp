@@ -22,16 +22,16 @@ foreach ($content_data AS $content)
                                        ,array($this->Ajax->link(($content['Content']['is_group'] == 1?$this->Html->image('admin/icons/true.png', array('alt' => __('True'),'title' => __('True')))
                                                                                              :$this->Html->image('admin/icons/false.png', array('alt' => __('False'),'title' => __('False'))))
                                                , 'null'
-                                               , $options = array('escape' => false, 'url' => '/attributes/set_group_content/' . $content['Content']['id'] , 'update' => 'content'), null, false), array('align'=>'center')
+                                               , $options = array('escape' => false, 'url' => '/attrs/set_group_content/' . $content['Content']['id'] , 'update' => 'content'), null, false), array('align'=>'center')
                                               )
                                        ,array(isset($content['ContentGroup']['ContentDescription']['name']) ? $content['ContentGroup']['ContentDescription']['name'] : __('Select'),array('id'=> 'id_group_' . $content['Content']['id'],'align'=>'center'))
-                                       ,array($this->Html->link($this->Html->tag('i', '',array('class' => 'cus-sitemap-color')) . ' ' . __('Attribute Values'), '/attributes/admin_editor_value/edit/' . $content['Content']['id'], array('class' => 'btn btn-default', 'escape' => false)),array('align'=>'center'))
+                                       ,array($this->Html->link($this->Html->tag('i', '',array('class' => 'cus-sitemap-color')) . ' ' . __('Attribute Values'), '/attrs/admin_editor_value/edit/' . $content['Content']['id'], array('class' => 'btn btn-default', 'escape' => false)),array('align'=>'center'))
                                         ));
         if($content['Content']['id'] != $content['Content']['id_group'])
-        echo $this->Ajax->editor('id_group_' . $content['Content']['id'],'/attributes/change_group_content/' . $content['Content']['id'],  array(
+        echo $this->Ajax->editor('id_group_' . $content['Content']['id'],'/attrs/change_group_content/' . $content['Content']['id'],  array(
                                                                      'type' => 'select'
                                                                     ,'data' => 'function(value, settings){return $.ajax({url: "' 
-                                                                                . $this->Html->url('/attributes/get_groups_content/' . $content['Content']['parent_id']) 
+                                                                                . $this->Html->url('/attrs/get_groups_content/' . $content['Content']['parent_id']) 
                                                                                 . '",async: false}).responseText;}'
                                                                      ,'placeholder' => __('Select')
                                                                      ,'onblur' => 'submit'
@@ -43,7 +43,7 @@ echo '</table>';
 
 <table class="contentPagination">
     <tr>               
-        <td><?php echo $this->Html->link($this->Html->tag('i', '',array('class' => 'cus-arrow-up')) . ' ' . __('Up One Level'), '/attributes/admin' , array('class' => 'btn btn-default', 'escape' => false)); ?></td>
+        <td><?php echo $this->Html->link($this->Html->tag('i', '',array('class' => 'cus-arrow-up')) . ' ' . __('Up One Level'), '/attrs/admin' , array('class' => 'btn btn-default', 'escape' => false)); ?></td>
         <td></td>
         <td></td>               
     </tr>

@@ -16,11 +16,11 @@
       <div class="modal-body clearfix">
       
         <?php    
-            echo $this->Form->create('Attribute', array('id' => 'copyvaluesattributeform', 'name' => 'attributeform','enctype' => 'multipart/form-data', 'url' => '/admin_copy_attrvalues/'));
-            echo $this->Form->input('Attribute.id',array('type' => 'hidden','value' => $attribute_id));
-            echo $this->Form->input('Attribute.content_id',array('type' => 'hidden','value' => $content_id));
+            echo $this->Form->create('Attr', array('id' => 'copyvaluesattributeform', 'name' => 'attributeform','enctype' => 'multipart/form-data', 'url' => '/admin_copy_attrvalues/'));
+            echo $this->Form->input('Attr.id',array('type' => 'hidden','value' => $attribute_id));
+            echo $this->Form->input('Attr.content_id',array('type' => 'hidden','value' => $content_id));
             
-            echo $this->Form->input('Attribute.parrent_id', 
+            echo $this->Form->input('Attr.parrent_id', 
                 array(
                     'type' => 'select',
                     'label' => __('Attribute Value'),
@@ -28,7 +28,7 @@
                     'escape' => false
            ));
             
-            echo $this->Js->link('<i class="cus-disk"></i> ' . __('Copy'), '/attributes/admin_copy_attrvalues/',
+            echo $this->Js->link('<i class="cus-disk"></i> ' . __('Copy'), '/attrs/admin_copy_attrvalues/',
                 array(
                     'class' => 'btn btn-default'
                    ,'escape' => false

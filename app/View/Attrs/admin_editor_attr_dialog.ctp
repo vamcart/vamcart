@@ -17,19 +17,19 @@
       
         <?php
             echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-table');
-            echo $this->Form->create('Attribute', array('id' => 'attributeform', 'name' => 'attributeform','enctype' => 'multipart/form-data', 'url' => '/admin_editor_attr/save/' . $type));
+            echo $this->Form->create('Attr', array('id' => 'attributeform', 'name' => 'attributeform','enctype' => 'multipart/form-data', 'url' => '/admin_editor_attr/save/' . $type));
 
             echo $this->Form->input('id',array('type' => 'hidden',
-                                                       'value' => $attribute['Attribute']['id']
+                                                       'value' => $attribute['Attr']['id']
                                    ));
             echo $this->Form->input('parent_id',array('type' => 'hidden',
-                                                       'value' => $attribute['Attribute']['parent_id']
+                                                       'value' => $attribute['Attr']['parent_id']
                                    ));
             echo $this->Form->input('content_id',array('type' => 'hidden',
-                                                       'value' => $attribute['Attribute']['content_id']
+                                                       'value' => $attribute['Attr']['content_id']
                                    ));
             echo $this->Form->input('order',array('type' => 'hidden',
-                                                       'value' => $attribute['Attribute']['order']
+                                                       'value' => $attribute['Attr']['order']
                                    ));
 
 
@@ -62,54 +62,54 @@
 
             if($type != 'attr')   
             {
-                echo $this->Form->input('Attribute.type_attr',array(
+                echo $this->Form->input('Attr.type_attr',array(
                                             'type' => 'select',
                                             'label' => __('Value Type'),
                                             'options' => $template,//array('list_value' => 'list value','max' => 'max value','min' => 'min value','value' => 'numeric value','like' => 'mask value'),
-                                            'selected' => isset($attribute['Attribute']['type_attr']) ? $attribute['Attribute']['type_attr'] : ''
+                                            'selected' => isset($attribute['Attr']['type_attr']) ? $attribute['Attr']['type_attr'] : ''
                                     ));
-                echo $this->Form->input('Attribute.val',array(
+                echo $this->Form->input('Attr.val',array(
                                             'type' => 'text',
                                             'label' => __('Default value'),
-                                            'value' => isset($attribute['Attribute']['val']) ? $attribute['Attribute']['val'] : ''
+                                            'value' => isset($attribute['Attr']['val']) ? $attribute['Attr']['val'] : ''
                                     ));
-                echo $this->Form->input('Attribute.price_modificator',array(
+                echo $this->Form->input('Attr.price_modificator',array(
                                             'type' => 'select',
                                             'label' => __('Price Modificator'),
                                             'options' => array('0' => __('no'),'=' => '=','+' => '+','-' => '-','/' => '/','*' => '*'),
-                                            'selected' => isset($attribute['Attribute']['price_modificator']) ? $attribute['Attribute']['price_modificator'] : ''
+                                            'selected' => isset($attribute['Attr']['price_modificator']) ? $attribute['Attr']['price_modificator'] : ''
                                     ));
-                echo $this->Form->input('Attribute.price_value',array(
+                echo $this->Form->input('Attr.price_value',array(
                                             'type' => 'text',
                                             'label' => __('Modificator Value'),
-                                            'value' => isset($attribute['Attribute']['price_value']) ? $attribute['Attribute']['price_value'] : '0'
+                                            'value' => isset($attribute['Attr']['price_value']) ? $attribute['Attr']['price_value'] : '0'
                                     ));
             }
             else if($type == 'attr')
             {
 
-                echo $this->Form->input('Attribute.price_value',array(
+                echo $this->Form->input('Attr.price_value',array(
                                             'type' => 'hidden',
                                             'value' => '0'
                                     ));
 
-                echo $this->Form->input('Attribute.attribute_template_id',array(
+                echo $this->Form->input('Attr.attribute_template_id',array(
                                             'type' => 'select',
                                             'label' => __('Attribute Type'),
                                             'options' => $template,
-                                            'selected' => isset($attribute['Attribute']['attribute_template_id']) ? $attribute['Attribute']['attribute_template_id'] : '',
+                                            'selected' => isset($attribute['Attr']['attribute_template_id']) ? $attribute['Attr']['attribute_template_id'] : '',
                                             'after' => ' '.$this->Html->link($this->Html->image("admin/icons/new.png", array('alt' => __('Attribute Templates'), 'title' => __('Attribute Templates'))),'/attribute_templates/admin/', array('escape' => false, 'target' => '_blank'))
                                     ));
 
             }
 
-            echo $this->Form->input('Attribute.order',array(
+            echo $this->Form->input('Attr.order',array(
 				'type' => 'text',
 				'label' => __('Sort Order'),
-				'value' => isset($attribute['Attribute']['order']) ? $attribute['Attribute']['order'] : ''
+				'value' => isset($attribute['Attr']['order']) ? $attribute['Attr']['order'] : ''
             ));
             
-            echo $this->Js->link('<i class="cus-disk"></i> ' . __('Apply'), '/attributes/admin_editor_attr/save/' . $type,
+            echo $this->Js->link('<i class="cus-disk"></i> ' . __('Apply'), '/attrs/admin_editor_attr/save/' . $type,
                 array(
                     'class' => 'btn btn-default'
                    ,'escape' => false

@@ -16,9 +16,9 @@
       <div class="modal-body clearfix">
       
         <?php
-            echo $this->Form->create('Attribute', array('id' => 'copyattributeform', 'name' => 'attributeform','enctype' => 'multipart/form-data', 'url' => '/admin_copy_attr/'));
-            echo $this->Form->input('Attribute.content_id',array('type' => 'hidden','value' => $content_id));
-            echo $this->Form->input('Attribute.category_id', 
+            echo $this->Form->create('Attr', array('id' => 'copyattributeform', 'name' => 'attributeform','enctype' => 'multipart/form-data', 'url' => '/admin_copy_attr/'));
+            echo $this->Form->input('Attr.content_id',array('type' => 'hidden','value' => $content_id));
+            echo $this->Form->input('Attr.category_id', 
                 array(
                     'type' => 'select',
                     'label' => __('Category'),
@@ -26,7 +26,7 @@
                     'escape' => false
            ));
             
-            echo $this->Js->link('<i class="cus-disk"></i> ' . __('Copy'), '/attributes/admin_copy_attr/',
+            echo $this->Js->link('<i class="cus-disk"></i> ' . __('Copy'), '/attrs/admin_copy_attr/',
                 array(
                     'class' => 'btn btn-default'
                    ,'escape' => false

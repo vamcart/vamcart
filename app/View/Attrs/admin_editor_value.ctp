@@ -7,7 +7,7 @@
    ---------------------------------------------------------------------------------------*/
 
 echo $this->Admin->ShowPageHeaderStart($current_crumb, 'cus-table');
-echo $this->Form->create('Attribute', array('id' => 'valueform', 'name' => 'valueform','enctype' => 'multipart/form-data', 'url' => '/admin_editor_value/save'));
+echo $this->Form->create('Attr', array('id' => 'valueform', 'name' => 'valueform','enctype' => 'multipart/form-data', 'url' => '/admin_editor_value/save'));
 
 echo $this->Form->input('content_id',array('type' => 'hidden',
                                            'value' => $content_id

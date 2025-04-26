@@ -6,9 +6,9 @@
    License - http://vamshop.com/license.html
    ---------------------------------------------------------------------------------------*/
 
-class AttributesController extends AppController 
+class AttrsController extends AppController 
 {
-    public $name = 'Attributes';
+    public $name = 'Attrs';
     public $paginate = null;
     public $helpers = array('Smarty');
     
@@ -83,7 +83,8 @@ class AttributesController extends AppController
             case 'edit':
                 $this->Attr->ValAttribute->setLanguageDescriptor($this->Session->read('Customer.language_id'));
                 $this->Attr->id = $id;
-                $attribute = $this->Attr->read();   
+                $attribute = $this->Attr->read();
+                              
                 if(!empty($attribute))
                 {
                     $tmp = $attribute['AttributeDescription'];
@@ -99,8 +100,8 @@ class AttributesController extends AppController
             case 'save':
                 if(isset($this->data['cancelbutton']))
                 {
-                    if ($type == 'attr') $this->redirect('/attributes/admin_viewer_attr/' . $this->data['Attr']['content_id']);
-                    else if ($type == 'val') $this->redirect('/attributes/admin_editor_attr/edit/attr/' . $this->data['Attr']['parent_id']);
+                    if ($type == 'attr') $this->redirect('/attrs/admin_viewer_attr/' . $this->data['Attr']['content_id']);
+                    else if ($type == 'val') $this->redirect('/attrs/admin_editor_attr/edit/attr/' . $this->data['Attr']['parent_id']);
                 }
                 $attribute = array();
                 $attribute['Attr'] = $this->data['Attr'];
@@ -125,7 +126,7 @@ class AttributesController extends AppController
                     $this->Session->setFlash(__('Attributes saved.'));
                 } else $this->Session->setFlash(__('Attributes not saved!'), 'default', array('class' => 'error-message red'));  
 
-                $this->redirect('/attributes/admin_viewer_attr_dialog/' . $this->data['Attr']['content_id']);
+                $this->redirect('/attrs/admin_viewer_attr_dialog/' . $this->data['Attr']['content_id']);
             break;
             case 'delete':
                 $attribute = $this->Attr->read(false,$id);               
@@ -135,8 +136,8 @@ class AttributesController extends AppController
                 } else $this->Session->setFlash(__('Attributes not deleted!'), 'default', array('class' => 'error-message red'));
                 if ($type == 'val') {
                     $parent_attr = $this->Attr->read(false,$attribute['Attr']['parent_id']);
-                    $this->redirect('/attributes/admin_viewer_attr_dialog/'  . $parent_attr['Attr']['content_id']);
-                } else $this->redirect('/attributes/admin_viewer_attr_dialog/'  . $attribute['Attr']['content_id']);
+                    $this->redirect('/attrs/admin_viewer_attr_dialog/'  . $parent_attr['Attr']['content_id']);
+                } else $this->redirect('/attrs/admin_viewer_attr_dialog/'  . $attribute['Attr']['content_id']);
             break;
             default:
                 die();
@@ -212,7 +213,7 @@ class AttributesController extends AppController
             $record[$current_model_name][$field] = 0;		
 	}      
 	$this->$current_model->save($record);
-        $this->redirect('/attributes/admin_viewer_attr_dialog/'  . $record['Attr']['content_id']);
+        $this->redirect('/attrs/admin_viewer_attr_dialog/'  . $record['Attr']['content_id']);
     }
     
     public function set_group_content($content_id = 0)
@@ -327,7 +328,7 @@ class AttributesController extends AppController
             case 'save':
                 if(isset($this->data['cancelbutton']))
                 {
-                    $this->redirect('/attributes/admin_attr/' . $this->data['Attr']['parent_id']);
+                    $this->redirect('/attrs/admin_attr/' . $this->data['Attr']['parent_id']);
                 }
                 $save_data = array();
                 foreach ($this->data['values_s'] as $def_value) 
@@ -358,7 +359,7 @@ class AttributesController extends AppController
                     $this->Session->setFlash(__('Attributes Value Saved.'));
                 } else $this->Session->setFlash(__('Attributes Value Not Saved!'), 'default', array('class' => 'error-message red'));  
 
-                $this->redirect('/attributes/admin_attr/' . $this->data['Attr']['parent_id']);
+                $this->redirect('/attrs/admin_attr/' . $this->data['Attr']['parent_id']);
             break;
             default:
                 die();
@@ -450,7 +451,7 @@ class AttributesController extends AppController
             $this->Attr->saveAll($data,array('deep' => true));
         }
         
-        $this->redirect('/attributes/admin_viewer_attr_dialog/' . $this->data['Attr']['content_id']);
+        $this->redirect('/attrs/admin_viewer_attr_dialog/' . $this->data['Attr']['content_id']);
     }    
     
     public function admin_copy_attrvalues_dialog($content_id = 0,$attribute_id = 0)
@@ -495,7 +496,7 @@ class AttributesController extends AppController
             }
             $this->Attr->saveAll($data,array('deep' => true));
         }   
-        $this->redirect('/attributes/admin_viewer_attr_dialog/' . $this->data['Attr']['content_id']);
+        $this->redirect('/attrs/admin_viewer_attr_dialog/' . $this->data['Attr']['content_id']);
     }        
     
 }
