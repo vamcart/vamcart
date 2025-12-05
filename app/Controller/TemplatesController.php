@@ -86,14 +86,17 @@ class TemplatesController extends AppController {
 		// Get the template
 		$this->Template->id = $template_id;
 		$template = $this->Template->read();
-
+		
 		if(!empty($this->data))
 		{
 			// Construct an array of stylesheet IDs in the data so we can save teh HABTM
+    		if(is_array($this->request->data['Stylesheet'])) $this->request->data['Stylesheet'][] = (int)$this->request->data['Stylesheet']['Stylesheet'];
+			unset($this->request->data['Stylesheet']['Stylesheet']);
 			foreach($template['Stylesheet'] AS $value)
 			{
-				$this->request->data['Stylesheet']['Stylesheet'][] = $value['id'];
+				$this->request->data['Stylesheet'][] = $value['id'];
 			}
+					
 			$this->Template->save($this->data);
 			
 			// Get the template again
